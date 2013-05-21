@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.0
+Version:     0.0.1
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -63,5 +63,8 @@ fi
 %attr(755,nobody,nobody)%{appdir}/current/tmp
 
 %changelog
+* Tue May 21 2013 Peter McInerney <pmcinerney@au.westfield.com> 0.0.1-1
+- new package built with tito
+
 * Wed May 09 2013 Leon Dewey <ldewey@au.westfield.com> 0.0.1
 - Created initial.

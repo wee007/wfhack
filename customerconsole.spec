@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.1
+Version:     0.0.2
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -28,17 +28,20 @@ Customer Console
 %setup -q
 
 %build
+ cd ${RPM_BUILD_DIR}/*
+ bundle install --path=vendor/bundler_gems --without development test
+ bundle exec rake assets:precompile
 
 %install
-rm -rf ${RPM_BUILD_ROOT}
-mkdir -p ${RPM_BUILD_ROOT}%{appdir}/current
-mkdir -p ${RPM_BUILD_ROOT}%{appdir}/current/tmp
-cp -a * ${RPM_BUILD_ROOT}%{appdir}/current/
-mkdir -p ${RPM_BUILD_ROOT}%{appdir}/current/tmp/cache
-mkdir -p ${RPM_BUILD_ROOT}%{appdir}/current/tmp/sessions
-mkdir -p ${RPM_BUILD_ROOT}%{appdir}/current/tmp/sockets
-cd ${RPM_BUILD_ROOT}%{appdir}/current
-bundle install --path vendor/bundler_gems --without development test qa
+ mkdir -p ${RPM_BUILD_ROOT}%{appdir}/current
+ mkdir -p ${RPM_BUILD_ROOT}%{appdir}/current/tmp
+ mkdir -p ${RPM_BUILD_ROOT}%{appdir}/current/tmp/cache
+ mkdir -p ${RPM_BUILD_ROOT}%{appdir}/current/tmp/sessions
+ mkdir -p ${RPM_BUILD_ROOT}%{appdir}/current/tmp/sockets
+
+ cd ${RPM_BUILD_DIR}/*
+ cp -va app config config.ru lib public vendor Rakefile Gemfile \
+       Gemfile.lock ${RPM_BUILD_ROOT}%{appdir}/current/
 
 %clean
 rm -rf ${RPM_BUILD_ROOT}
@@ -63,6 +66,9 @@ fi
 %attr(755,nobody,nobody)%{appdir}/current/tmp
 
 %changelog
+* Fri May 24 2013 ci <doperations@au.westfield.com> 0.0.2-1
+- 
+
 * Tue May 21 2013 Peter McInerney <pmcinerney@au.westfield.com> 0.0.1-1
 - new package built with tito
 

@@ -12,4 +12,4 @@ Formerly known as Playa, premium, presentationlayer, prince, so on.
 
 * Deployment instructions
 
-Coming soon.
+Coming soon. For now whenever a spec build passes an rpm should be built and installed.

@@ -1,0 +1,19 @@
+<div class="tile products " data-url="lightbox:product">
+  <img alt="" width="240" src="<%= result["_links"]["image"]["href"]%>" />
+
+  <div class="icons">
+    <span class="icon share"></span>
+    <span class="icon save"></span>
+  </div>
+
+  <div class="title">
+    <p class="name">
+      <%= result['name'] %><br/>
+      <small>
+        <span>from <%= result['retailer_name'] %></span>
+        $<%= result['price'] %>
+      </small>
+    </p>
+  </div>
+  <div class="tag"><i class="products"></i></div>
+</div>

@@ -1,5 +1,5 @@
 ruby "2.0.0"
-source "http://rubygems.org"
+source "http://gems.dbg.westfield.com"
 
 gem 'rails', '4.0.0.rc1'
 gem 'jquery-rails'

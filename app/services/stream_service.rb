@@ -1,5 +1,6 @@
 class StreamService
   class << self
+    include ApiClientRequests
     def build(json_response)
       json_response.body['stream']
     end

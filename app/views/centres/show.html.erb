@@ -1,0 +1,6 @@
+<h1><%=@centre.name%></h1>
+<%- @stream.each_slice(4) do |group| -%>
+  <%- group.each do |result| -%>
+    <%= render partial: "centres/stream/#{result['type']}", locals: {result: result} %>
+  <%- end -%>
+<%- end -%>

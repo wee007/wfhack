@@ -1,8 +1,8 @@
 class StreamService
   class << self
     include ApiClientRequests
-    def build(json_response)
-      json_response.body['stream']
+    def build(json)
+      json.respond_to?(:body) ? json.body['stream'] : json['stream']
     end
 
     def request_uri(centre)

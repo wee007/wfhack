@@ -9,7 +9,6 @@
 .\#*
 *.swp
 
-Gemfile.lock
 coverage
 doc
 pkg

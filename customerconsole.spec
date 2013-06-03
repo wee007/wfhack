@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.88
+Version:     0.0.89
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -66,6 +66,28 @@ fi
 %attr(755,nobody,nobody)%{appdir}/current/tmp
 
 %changelog
+* Tue Jun 04 2013 ci <doperations@au.westfield.com> 0.0.89-1
+- Touch readme for tito/spec test (cwalsh2@au.westfield.com)
+- Keep .bundle in rpm (cwalsh2@au.westfield.com)
+- And the same for the stream (cwalsh2@au.westfield.com)
+- Let it work in series not just parallel (cwalsh2@au.westfield.com)
+- Make service API a bit cleaner by extracting common code to a concern
+  (cwalsh2@au.westfield.com)
+- Remove unnecessary code (cwalsh2@au.westfield.com)
+- Use the service.build method to remove logic from the controller
+  (cwalsh2@au.westfield.com)
+- Basic fetching and display of stream and centre info in customer_console
+  (cwalsh2@au.westfield.com)
+- Fix gem source in Gemfile.lock (cwalsh2@au.westfield.com)
+- Updated the gem source to "https://rubygems.org" (ldewey@au.westfield.com)
+- Changed to use https://gems.dbg.westfield.com (ldewey@au.westfield.com)
+- Added in basic event rendering (ldewey@au.westfield.com)
+- Added service_api (cwalsh2@au.westfield.com)
+- Whoops, don't ignore Gemfile.lock (cwalsh2@au.westfield.com)
+- Added health_check (cwalsh2@au.westfield.com)
+- Update gems (cwalsh2@au.westfield.com)
+- More ignores (cwalsh2@au.westfield.com)
+
 * Fri May 24 2013 ci <doperations@au.westfield.com> 0.0.88-1
 - 
 

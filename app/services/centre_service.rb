@@ -2,7 +2,11 @@ class CentreService
   class << self
 
     def find(centre)
-      fetch.body
+      build fetch(centre)
+    end
+
+    def build(json_response)
+      json_response.body
     end
 
     def fetch(centre)

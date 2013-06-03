@@ -5,7 +5,7 @@ class CentresController < ApplicationController
       centre = CentreService.fetch(params[:id])
       stream = StreamService.fetch(params[:id])
     end
-    @centre = centre.body
-    @stream = stream.body['stream']
+    @centre = CentreService.build centre
+    @stream = StreamService.build stream
   end
 end

@@ -1,0 +1,9 @@
+<h1>Events</h1>
+
+<ul>
+<% @events.each do |event| %>
+  <li>
+    <%= link_to event.name, centre_event_path(params[:centre_id], event.id) %>
+  </li>
+<% end %>
+</ul>

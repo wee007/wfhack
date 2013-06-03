@@ -2,6 +2,11 @@ Customerconsole::Application.routes.draw do
 
   get 'status' => 'health_check/health_check#index', 'checks' => 'cache_and_site'
 
+  resources :centres, :path => '' do
+    resources :events, only: [:index, :show]
+  end
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

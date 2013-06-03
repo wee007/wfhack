@@ -10,6 +10,8 @@ gem 'rails', '4.0.0.rc1'
 gem 'jquery-rails'
 gem 'turbolinks'
 
+gem 'health_check'
+
 group :development do
   gem "thin"
   gem "foreman"

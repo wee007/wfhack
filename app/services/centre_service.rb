@@ -1,8 +1,6 @@
 class CentreService
   class << self
-    def build(json_response)
-      json_response.body
-    end
+    include ApiClientRequests
 
     def request_uri(centre=nil)
       if centre.present?

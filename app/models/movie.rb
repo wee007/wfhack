@@ -1,7 +1,7 @@
 class Movie
 
   def self.get
-    conn = Faraday.new(:url => 'http://localhost:3001') do |faraday|
+    conn = Faraday.new(:url => "#{ENV['HOST']}") do |faraday|
       faraday.adapter  Faraday.default_adapter
     end
 

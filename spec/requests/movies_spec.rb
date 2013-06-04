@@ -12,7 +12,7 @@ describe "Movies" do
           {title: "Point Break"}
         ]
       }
-      FakeWeb.register_uri(:get, "http://localhost:3001/api/movie/master/movies.json?centre=bondijunction", :body => movies_response.to_json)
+      FakeWeb.register_uri(:get, "#{ENV['HOST']}/api/movie/master/movies.json?centre=bondijunction", :body => movies_response.to_json)
     end
     after(:each) do
       FakeWeb.clean_registry

@@ -1,6 +1,6 @@
 GIT
   remote: git@github.dbg.westfield.com:bschwarz/service_api.git
-  revision: fbf3757a03237330df7ab8981556f81bed0e96bd
+  revision: 8c4efea8f7bb416713e5579a527a9ca3bbba0ab4
   specs:
     service_api (0.0.4)
       faraday
@@ -83,7 +83,7 @@ GEM
     hashie (2.0.5)
     health_check (1.2.0)
       rails (>= 2.3.0)
-    hike (1.2.2)
+    hike (1.2.3)
     i18n (0.6.4)
     jquery-rails (3.0.0)
       railties (>= 3.0, < 5.0)
@@ -95,7 +95,7 @@ GEM
     method_source (0.8.1)
     mime-types (1.23)
     minitest (4.7.4)
-    multi_json (1.7.5)
+    multi_json (1.7.6)
     multipart-post (1.2.0)
     oj (1.4.7)
     polyglot (0.3.3)
@@ -152,7 +152,7 @@ GEM
     thread_safe (0.1.0)
       atomic
     tilt (1.4.1)
-    treetop (1.4.12)
+    treetop (1.4.14)
       polyglot
       polyglot (>= 0.3.1)
     turbolinks (1.2.0)

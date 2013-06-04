@@ -19,7 +19,7 @@ describe "Movies" do
     end
     it "should display the movie titles for Bondi Junction" do
       get movies_path(centre: 'bondijunction')
-      
+
       assert_select "#movies" do
         assert_select ".title", "James Bond"
         assert_select ".title", "Point Break"

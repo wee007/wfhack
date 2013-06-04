@@ -10,8 +10,6 @@ gem 'service_api', git: 'git@github.dbg.westfield.com:digital/service_api.git'
 
 gem 'settingslogic'
 
-gem 'roar-rails'
-
 gem 'faraday'
 gem 'faraday_middleware'
 

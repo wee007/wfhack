@@ -6,7 +6,6 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'dotenv-rails'
 gem 'health_check'
-gem 'faraday-http-cache', git: 'git@github.dbg.westfield.com:ldewey/faraday-http-cache.git'
 gem 'service_api', git: 'git@github.dbg.westfield.com:bschwarz/service_api.git'
 
 group :development do

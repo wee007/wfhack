@@ -3,7 +3,7 @@ Customerconsole::Application.routes.draw do
   get 'status' => 'health_check/health_check#index', 'checks' => 'cache_and_site'
 
   resources :stores, only: [ :index, :show ]
-
+  resources :movies
   resources :centres, :path => '' do
     resources :events, only: [:index, :show]
   end
@@ -23,9 +23,6 @@ Customerconsole::Application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
-
-  resources :movies
-
   # Example resource route with options:
   #   resources :products do
   #     member do

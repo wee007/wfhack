@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.96
+Version:     0.0.97
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -67,6 +67,14 @@ fi
 %attr(755,nobody,nobody)%{appdir}/current/tmp
 
 %changelog
+* Wed Jun 05 2013 ci <doperations@au.westfield.com> 0.0.97-1
+- Removed un needed gem (ldewey@au.westfield.com)
+- Marking failing tests as pending (ldewey@au.westfield.com)
+- Refactor per feedback. (ldewey@au.westfield.com)
+- Added .env to the git ignore (ldewey@au.westfield.com)
+- Cleaned up events (ldewey@au.westfield.com)
+- Renamed HOST to API_HOST (ldewey@au.westfield.com)
+
 * Wed Jun 05 2013 ci <doperations@au.westfield.com> 0.0.96-1
 - WSF-4762 Don't tie requests to localhost. (craigm.smith@au.westfield.com)
 - WSF-4762 Removed ROAR (craigm.smith@au.westfield.com)

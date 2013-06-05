@@ -11,7 +11,7 @@ class EventsController < ApplicationController
 private
 
   def url
-    "#{ENV['HOST']}/api/event/master/events"
+    "#{ENV['API_HOST']}/api/event/master/events"
   end
 
 end

@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.91
+Version:     0.0.92
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -66,6 +66,9 @@ fi
 %attr(755,nobody,nobody)%{appdir}/current/tmp
 
 %changelog
+* Wed Jun 05 2013 ci <doperations@au.westfield.com> 0.0.92-1
+- Use latest service_api (cwalsh2@au.westfield.com)
+
 * Tue Jun 04 2013 ci <doperations@au.westfield.com> 0.0.91-1
 - Fix specs (cwalsh2@au.westfield.com)
 - Use correct url for centre service (cwalsh2@au.westfield.com)

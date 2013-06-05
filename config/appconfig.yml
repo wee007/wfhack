@@ -1,0 +1,17 @@
+defaults: &defaults
+  store_service_url: <%= "http://store-service.#{Rails.env}.dbg.westfield.com:#{ENV['STORE_SERVICE_PORT'] || 80}/stores.json" %>
+
+development:
+  <<: *defaults
+
+test:
+  <<: *defaults
+
+systest:
+  <<: *defaults
+
+uat:
+  <<: *defaults
+
+production:
+  <<: *defaults

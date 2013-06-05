@@ -1,17 +1,23 @@
 class EventsController < ApplicationController
 
-  def show
-    @event = Service::API.get "#{url}/#{params[:id]}"
-  end
-
   def index
-    @events = Service::API.get url, rows: 50, centre: params[:centre_id]
+    centre, event = nil
+    Service::API.in_parallel do
+      centre = CentreService.fetch params[:centre_id]
+      event = EventService.fetch centre: params[:centre_id], rows: 50
+    end
+    @centre = CentreService.build centre
+    @events = EventService.build event
   end
 
-private
-
-  def url
-    "#{ENV['HOST']}/api/event/master/events"
+  def show
+    centre, event = nil
+    Service::API.in_parallel do
+      centre = CentreService.fetch params[:centre_id]
+      event = EventService.fetch params[:id]
+    end
+    @centre = CentreService.build centre
+    @event = EventService.build event
   end
 
 end

@@ -8,9 +8,9 @@ class MovieService
 
     def request_uri(options={})
       if options.is_a?(Fixnum) || options.is_a?(String)
-        URI("http://movie-service.#{Rails.env}.dbg.westfield.com/api/movie/master/movies/#{options}.json")
+        URI("http://movie-service.#{AppConfig.service_host}/api/movie/master/movies/#{options}.json")
       else
-        uri = URI("http://movie-service.#{Rails.env}.dbg.westfield.com/api/movie/master/movies.json")
+        uri = URI("http://movie-service.#{AppConfig.service_host}/api/movie/master/movies.json")
         uri.query = options.to_query
         uri
       end

@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.94
+Version:     0.0.95
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -67,6 +67,11 @@ fi
 %attr(755,nobody,nobody)%{appdir}/current/tmp
 
 %changelog
+* Wed Jun 05 2013 ci <doperations@au.westfield.com> 0.0.95-1
+- Merge pull request #14 from mbamford/master (ldewey@au.westfield.com)
+- Touch tmp/restart.txt on deployment (cwalsh2@au.westfield.com)
+- Added Stores model, controller and index view (michael@michaelbamford.com)
+
 * Wed Jun 05 2013 ci <doperations@au.westfield.com> 0.0.94-1
 - Don't 500 if stream service adds new types (cwalsh2@au.westfield.com)
 

@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.97
+Version:     0.0.98
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -67,6 +67,11 @@ fi
 %attr(755,nobody,nobody)%{appdir}/current/tmp
 
 %changelog
+* Wed Jun 05 2013 ci <doperations@au.westfield.com> 0.0.98-1
+- Make VCR hook in to faraday instead of webmock - otherwise all vcr playback
+  tests fail (cwalsh2@au.westfield.com)
+- Clean up movie service (cwalsh2@au.westfield.com)
+
 * Wed Jun 05 2013 ci <doperations@au.westfield.com> 0.0.97-1
 - Removed un needed gem (ldewey@au.westfield.com)
 - Marking failing tests as pending (ldewey@au.westfield.com)

@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.95
+Version:     0.0.96
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -67,6 +67,15 @@ fi
 %attr(755,nobody,nobody)%{appdir}/current/tmp
 
 %changelog
+* Wed Jun 05 2013 ci <doperations@au.westfield.com> 0.0.96-1
+- WSF-4762 Don't tie requests to localhost. (craigm.smith@au.westfield.com)
+- WSF-4762 Removed ROAR (craigm.smith@au.westfield.com)
+- WSF-4762 Moved movie route up a little. (craigm.smith@au.westfield.com)
+- WSF-4762 Removed ROAR from Customer Console. (craigm.smith@au.westfield.com)
+- WSF-4762 Ensure movies display from the mocked API on the movies page.
+  (craigm.smith@au.westfield.com)
+- WSF-4762 First pass at movies in CC (craigm.smith@au.westfield.com)
+
 * Wed Jun 05 2013 ci <doperations@au.westfield.com> 0.0.95-1
 - Merge pull request #14 from mbamford/master (ldewey@au.westfield.com)
 - Touch tmp/restart.txt on deployment (cwalsh2@au.westfield.com)

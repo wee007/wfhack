@@ -1,6 +1,8 @@
 <h1><%=@centre.name%></h1>
 <%- @stream.each_slice(4) do |group| -%>
   <%- group.each do |result| -%>
-    <%= render partial: "centres/stream/#{result['type']}", locals: {result: result} %>
+    <% if %w(deal event product).include?(result['type']) %>
+      <%= render partial: "centres/stream/#{result['type']}", locals: {result: result} %>
+    <% end %>
   <%- end -%>
 <%- end -%>

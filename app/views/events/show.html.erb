@@ -1,4 +1,13 @@
 <h1>Event</h1>
 
-ID: <%= @event.id %><br />
-Name: <%= @event.name %>
+<ul>
+  <li>ID: <%= @event.id %></li>
+  <li>Name <%= @event.name %></li>
+  <li>Description <%= @event.description %></li>
+  <li>Centre Uri <%= @event.centre_uri %></li>
+  <li>Category <%= @event.category %></li>
+  <li>Location <%= @event.location %></li>
+  <li>Start Date <%= l Date.parse @event.start %></li>
+  <li>Finish Date <%= l Date.parse @event.finish %></li>
+  <li>Publish Date <%= l Date.parse @event.publish %></li>
+</ul>

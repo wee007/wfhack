@@ -7,6 +7,7 @@ gem 'turbolinks'
 gem 'dotenv-rails'
 gem 'health_check'
 gem 'service_api', git: 'git@github.dbg.westfield.com:digital/service_api.git'
+gem 'addressable'
 
 gem 'settingslogic'
 

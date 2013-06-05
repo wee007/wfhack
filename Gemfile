@@ -23,7 +23,11 @@ group :development, :test do
   gem 'sass-rails', '~> 4.0.0.rc1'
   gem 'uglifier', '>= 1.3.0'
   gem 'coffee-rails', '~> 4.0.0'
-  gem "fakeweb", "~> 1.3"
+end
+
+group :test do
+  gem 'vcr'
+  gem 'webmock'
 end
 
 group :production do

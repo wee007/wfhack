@@ -1,0 +1,106 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://movie-service.test.dbg.westfield.com/api/movie/master/movies.json?centre=bondijunction&rows=50
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.7
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 05 Jun 2013 06:43:19 GMT
+      Server:
+      - Apache/2.2.15 (Red Hat)
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-Ua-Compatible:
+      - chrome=1
+      Etag:
+      - '"f715eacf649fa985d2fd41b87ad172ec"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 74235f89-c979-45ec-8656-6d62ec80d628
+      X-Runtime:
+      - '0.087054'
+      X-Powered-By:
+      - Phusion Passenger 4.0.5
+      Status:
+      - 200 OK
+      Connection:
+      - close
+      Transfer-Encoding:
+      - chunked
+      Content-Type:
+      - application/json; charset=utf-8
+    body:
+      encoding: UTF-8
+      string: '{"movies":[{"title":"James Bond"},{"title":"Point Break"}]}'
+    http_version: 
+  recorded_at: Wed, 05 Jun 2013 06:43:20 GMT
+- request:
+    method: get
+    uri: http://centre-service.test.dbg.westfield.com/api/centre/master/centres/bondijunction.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.7
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Wed, 05 Jun 2013 06:43:19 GMT
+      Server:
+      - Apache/2.2.15 (Red Hat)
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-Ua-Compatible:
+      - chrome=1
+      Etag:
+      - '"03a5aa1e56709b0f3de4d2e71e05a674"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 330f3973-941a-4755-b825-84c1ec7cb85d
+      X-Runtime:
+      - '0.160181'
+      X-Powered-By:
+      - Phusion Passenger 4.0.5
+      Status:
+      - 200 OK
+      Connection:
+      - close
+      Transfer-Encoding:
+      - chunked
+      Content-Type:
+      - application/json; charset=utf-8
+    body:
+      encoding: UTF-8
+      string: '{"code":"bondijunction","name":"Westfield Bondi Junction","short_name":"Bondi
+        Junction","street_address":"500 Oxford St","postcode":"2022","country":"au","latitude":"-33.891289","longitude":"151.250815","email_address":"bondijunction@au.westfield.com","enabled":true,"_links":{"self":{"href":"http://localhost:4050/centre/bondijunction"}}}'
+    http_version: 
+  recorded_at: Wed, 05 Jun 2013 06:43:20 GMT
+recorded_with: VCR 2.5.0

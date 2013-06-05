@@ -1,5 +1,5 @@
 GIT
-  remote: git@github.dbg.westfield.com:bschwarz/service_api.git
+  remote: git@github.dbg.westfield.com:digital/service_api.git
   revision: 8c4efea8f7bb416713e5579a527a9ca3bbba0ab4
   specs:
     service_api (0.0.4)

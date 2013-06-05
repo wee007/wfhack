@@ -1,5 +1,3 @@
-require "addressable/uri"
-
 class EventService
   class << self
     include ApiClientRequests
@@ -15,6 +13,7 @@ class EventService
       else
         URI("http://event-service.#{Rails.env}.dbg.westfield.com/api/event/master/events.json")
       end
+
     end
   end
 end

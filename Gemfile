@@ -10,6 +10,9 @@ gem 'service_api', git: 'git@github.dbg.westfield.com:digital/service_api.git'
 
 gem 'settingslogic'
 
+gem 'faraday'
+gem 'faraday_middleware'
+
 group :development do
   gem "unicorn"
   gem "foreman"
@@ -22,4 +25,9 @@ group :development, :test do
   gem 'sass-rails', '~> 4.0.0.rc1'
   gem 'uglifier', '>= 1.3.0'
   gem 'coffee-rails', '~> 4.0.0'
+  gem "fakeweb", "~> 1.3"
+end
+
+group :production do
+  gem "unicorn"
 end

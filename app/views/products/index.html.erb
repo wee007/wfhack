@@ -1,0 +1,48 @@
+<div class="facets centre clearfix">
+  <a class="stores">Stores</a>
+  <a class="brands">Brands</a>
+  <a class="categories">Categories</a>
+  <a class="price">Price</a>
+  <a class="colour">Colour</a>
+  <a class="sort">Sort</a>
+</div>
+
+<div id="tiles" class="clearfix isotope">
+<%- @products.results.each do |product| -%>
+  <div class="tile products isotope-item" data-url="">
+    <%= image_tag product.default_image_url %>
+    <div class="title">
+      <p class="name">
+        <%=  product.lozenge_name %><br>
+        <small><span>from</span> <%= product.retail_chain_name %></small>
+      </p>
+      <p class="price">$<%= product.display_sale_price %></p>
+    </div>
+  </div>
+<%- end -%>
+
+</div>
+
+<%#
+- !ruby/hash:Hashie::Mash
+  brand: colette by colette hayman
+  is_international: false
+  is_discounted: true
+  lozenge_name: Hardcase Iphone 4 Case
+  price: 12.95
+  display_sale_price: 6.48
+  cell_image_url: http://cdn4.syt2.dbg.westfield.com/img_resized/retailer/logos/colettebycolettehayman_147x33.gif
+  display_price: 12.95
+  description: Hardcase Iphone 4 Case
+  retail_chain_name: colette by colette hayman
+  discount_percent: 49
+  sku: &#39;517711&#39;
+  category: bl-mobile
+  retailer_code: colette-accessories
+  name: Hardcase Iphone 4 Case
+  currency_code: AUD
+  path: /au/retailers/colette-accessories/products/hardcase-iphone-4-case~517711
+  is_display_only: false
+  default_image_url: http://cdn1.syt2.dbg.westfield.com/img_resized/colette-accessories-hardcase-iphone-4-case/503864b2e0cc51a882ec7449ae5fd7c5fa624d01_182x182.jpg
+  sale_price: 6.48
+%>

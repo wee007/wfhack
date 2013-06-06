@@ -6,6 +6,7 @@ Customerconsole::Application.routes.draw do
     resources :events, only: [:index, :show]
     resources :movies, only: [:index, :show]
     resources :stores, only: [:index, :show]
+    resources :products, only: [:index, :show]
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

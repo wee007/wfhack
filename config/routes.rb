@@ -2,10 +2,10 @@ Customerconsole::Application.routes.draw do
 
   get 'status' => 'health_check/health_check#index', 'checks' => 'cache_and_site'
 
-  resources :stores, only: [ :index, :show ]
   resources :centres, :path => '' do
     resources :events, only: [:index, :show]
     resources :movies, only: [:index, :show]
+    resources :stores, only: [:index, :show]
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

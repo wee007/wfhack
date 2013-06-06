@@ -4,9 +4,9 @@ class CentreService
 
     def request_uri(centre=nil)
       if centre.present?
-        URI("http://centre-service.#{Rails.env}.dbg.westfield.com/api/centre/master/centres/#{centre}.json")
+        URI("#{AppConfig.centre_service_url}/centres/#{centre}.json")
       else
-        URI("http://centre-service.#{Rails.env}.dbg.westfield.com/api/centre/master/centres.json")
+        URI("#{AppConfig.centre_service_url}/centres.json")
       end
     end
   end

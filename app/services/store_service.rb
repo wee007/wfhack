@@ -1,17 +1,17 @@
-class EventService
+class StoreService
   class << self
     include ApiClientRequests
 
     def request_uri(options=nil)
 
       if options.is_a?(Fixnum) || options.is_a?(String)
-        URI("#{AppConfig.event_service_url}/events/#{options}.json")
+        URI("#{AppConfig.store_service_url}/stores/#{options}.json")
       elsif options.present?
-        uri = URI("#{AppConfig.event_service_url}/events.json")
+        uri = URI("#{AppConfig.store_service_url}/stores.json")
         uri.query = options.to_query
         uri
       else
-        URI("#{AppConfig.event_service_url}/events.json")
+        URI("#{AppConfig.store_service_url}/stores.json")
       end
 
     end

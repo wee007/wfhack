@@ -1,0 +1,11 @@
+<h1>Welcome to Westfield</h1>
+<%- @centres.each do |state, centres| -%>
+  <div style="float: left">
+    <%= state %>
+    <ul>
+      <%- centres.each do |centre| -%>
+        <li><%= link_to centre.name, centre_path(centre.code) %></li>
+      <%- end -%>
+    </ul>
+  </div>
+<%- end -%>

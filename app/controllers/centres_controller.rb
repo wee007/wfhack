@@ -1,4 +1,10 @@
 class CentresController < ApplicationController
+
+  def index
+    @centres = CentreService.find :all, country: 'au'
+    @centres = @centres.group_by {|c| c.state }
+  end
+
   def show
     centre, stream = nil
     Service::API.in_parallel do

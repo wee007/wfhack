@@ -5,13 +5,13 @@ class StoreService
     def request_uri(options=nil)
 
       if options.is_a?(Fixnum) || options.is_a?(String)
-        URI("#{AppConfig.store_service_url}/stores/#{options}.json")
+        URI("#{ServiceHelper.uri_for('store')}/stores/#{options}.json")
       elsif options.present?
-        uri = URI("#{AppConfig.store_service_url}/stores.json")
+        uri = URI("#{ServiceHelper.uri_for('store')}/stores.json")
         uri.query = options.to_query
         uri
       else
-        URI("#{AppConfig.store_service_url}/stores.json")
+        URI("#{ServiceHelper.uri_for('store')}/stores.json")
       end
 
     end

@@ -1,14 +1,7 @@
 defaults: &defaults
-  centre_service_url: http://centre-service.<%= Rails.env %>.dbg.westfield.com/api/centre/master
-  event_service_url: http://event-service.<%= Rails.env %>.dbg.westfield.com/api/event/master
-  movie_service_url: http://movie-service.<%= Rails.env %>.dbg.westfield.com/api/movie/master
-  stream_service_url: http://stream-service.<%= Rails.env %>.dbg.westfield.com/api/stream/master
-  store_service_url: http://store-service.<%= Rails.env %>.dbg.westfield.com
 
 development:
   <<: *defaults
-  # You can do this if you want to do some testing/hacking!
-  # event_service_url: http://event-service.systest.dbg.westfield.com/api/event/master
 
 test:
   <<: *defaults

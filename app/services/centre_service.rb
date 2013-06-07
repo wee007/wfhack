@@ -9,9 +9,9 @@ class CentreService
 
     def request_uri(centre=nil,options={})
       if centre.nil? || centre == :all
-        uri = URI("#{AppConfig.centre_service_url}/centres.json")
+        uri = URI("#{ServiceHelper.uri_for('centre')}/centres.json")
       else
-        uri = URI("#{AppConfig.centre_service_url}/centres/#{centre}.json")
+        uri = URI("#{ServiceHelper.uri_for('centre')}/centres/#{centre}.json")
       end
       uri.query = options.to_query
       uri

@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.98
+Version:     0.0.99
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -67,6 +67,13 @@ fi
 %attr(755,nobody,nobody)%{appdir}/current/tmp
 
 %changelog
+* Fri Jun 07 2013 ci <doperations@au.westfield.com> 0.0.99-1
+- Show centres by state on home page (cwalsh2@au.westfield.com)
+- Added per service overides (ldewey@au.westfield.com)
+- Moved stores to use standard "service" (ldewey@au.westfield.com)
+- Moved app_config into initializers so we dont have to require it
+  (ldewey@au.westfield.com)
+
 * Wed Jun 05 2013 ci <doperations@au.westfield.com> 0.0.98-1
 - Make VCR hook in to faraday instead of webmock - otherwise all vcr playback
   tests fail (cwalsh2@au.westfield.com)

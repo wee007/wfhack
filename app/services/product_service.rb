@@ -2,7 +2,18 @@ class ProductService
   class << self
     include ApiClientRequests
     def build(json)
-      json.respond_to?(:body) ? json.body : json
+      results = json.respond_to?(:body) ? json.body : json
+      facets = build_facets(results)
+      products = results.results
+      Hashie::Mash.new products: products, facets: facets
+    end
+
+    def build_facets(results)
+      facets=Hashie::Mash.new
+      results.facets.each do |facet|
+        facets[facet.field] = facet
+      end
+      facets
     end
 
     def request_uri(options)

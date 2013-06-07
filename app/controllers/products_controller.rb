@@ -7,7 +7,7 @@ class ProductsController < ApplicationController
       products = ProductService.fetch params
     end
     @centre = CentreService.build centre
-    @products = ProductService.build products
+    @search = ProductService.build products
   end
 
 end

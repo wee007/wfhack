@@ -1,14 +1,29 @@
-<div class="facets centre clearfix">
-  <a class="stores">Stores</a>
-  <a class="brands">Brands</a>
-  <a class="categories">Categories</a>
-  <a class="price">Price</a>
-  <a class="colour">Colour</a>
-  <a class="sort">Sort</a>
-</div>
+<%= form_tag centre_products_path(id: params[:centre_id]), method: :get, id: 'search_form' do %>
+  <%# TODO: Category select %>
+  <%- params.select{|k,v| %w(category sub_category super_cat).include?(k.to_s)}.each do |key,value| -%>
+    <%= hidden_field_tag key, value %>
+  <%- end %>
+  <%= select_tag "retailer[]",
+        options_for_select(
+          @search.facets.retailer[:values].map{|facet| [facet.name.titleize, facet.code] },
+          params[:retailer]
+        ), include_blank: true, class: 'chzn-select', multiple: true, 'data-placeholder' => 'Stores' %>
+  <%= select_tag "brand[]",
+        options_for_select(
+          @search.facets.brand[:values].map{|facet| [facet.name.titleize, facet.code] },
+          params[:brand]
+        ), include_blank: true, class: 'chzn-select', multiple: true, 'data-placeholder' => 'Brands' %>
+  <%- if @search.facets.colour -%>
+    <%= select_tag "colour[]",
+          options_for_select(
+            @search.facets.colour[:values].map{|facet| [facet.name.titleize, facet.code] },
+            params[:colour]
+          ), include_blank: true, class: 'chzn-select', multiple: true, 'data-placeholder' => 'Colour' %>
+  <% end %>
+<% end %>
 
 <div id="tiles" class="clearfix isotope">
-<%- @products.results.each do |product| -%>
+<%- @search.products.each do |product| -%>
   <div class="tile products isotope-item" data-url="">
     <%= image_tag product.default_image_url %>
     <div class="title">
@@ -22,6 +37,12 @@
 <%- end -%>
 
 </div>
+
+<script type='text/javascript'>
+  jQuery("#search_form input, #search_form select").change(function(event) {
+    jQuery("#search_form").submit();
+  });
+</script>
 
 <%#
 - !ruby/hash:Hashie::Mash

@@ -10,6 +10,13 @@ GIT
       hashie (~> 2.0)
       typhoeus (~> 0.6)
 
+GIT
+  remote: git@github.dbg.westfield.com:digital/service_helper.git
+  revision: 469f940c11ba3f28b131742c7dd5211b0c6ab3f1
+  branch: master
+  specs:
+    service_helper (0.0.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -187,6 +194,7 @@ DEPENDENCIES
   rspec-rails
   sass-rails (~> 4.0.0.rc1)
   service_api!
+  service_helper!
   settingslogic
   turbolinks
   uglifier (>= 1.3.0)

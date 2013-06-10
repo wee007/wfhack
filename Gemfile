@@ -10,6 +10,9 @@ gem 'service_api', git: 'git@github.dbg.westfield.com:digital/service_api.git'
 gem 'settingslogic'
 gem 'faraday'
 gem 'faraday_middleware'
+gem 'service_helper',
+  git: 'git@github.dbg.westfield.com:digital/service_helper.git',
+  branch: 'master'
 
 group :development do
   gem "unicorn"

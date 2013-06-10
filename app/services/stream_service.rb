@@ -6,7 +6,7 @@ class StreamService
     end
 
     def request_uri(centre)
-      uri = URI("#{AppConfig.stream_service_url}/stream.json")
+      uri = URI("#{ServiceHelper.uri_for('stream')}/stream.json")
       uri.query = {centre: centre}.to_query
       uri
     end

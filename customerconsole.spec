@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.99
+Version:     0.0.100
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -67,6 +67,9 @@ fi
 %attr(755,nobody,nobody)%{appdir}/current/tmp
 
 %changelog
+* Tue Jun 11 2013 ci <doperations@au.westfield.com> 0.0.100-1
+- Added ServiceHelper (craigm.smith@au.westfield.com)
+
 * Fri Jun 07 2013 ci <doperations@au.westfield.com> 0.0.99-1
 - Show centres by state on home page (cwalsh2@au.westfield.com)
 - Added per service overides (ldewey@au.westfield.com)

@@ -38,32 +38,10 @@
 
 </div>
 
-<script type='text/javascript'>
-  jQuery("#search_form input, #search_form select").change(function(event) {
-    jQuery("#search_form").submit();
-  });
-</script>
-
-<%#
-- !ruby/hash:Hashie::Mash
-  brand: colette by colette hayman
-  is_international: false
-  is_discounted: true
-  lozenge_name: Hardcase Iphone 4 Case
-  price: 12.95
-  display_sale_price: 6.48
-  cell_image_url: http://cdn4.syt2.dbg.westfield.com/img_resized/retailer/logos/colettebycolettehayman_147x33.gif
-  display_price: 12.95
-  description: Hardcase Iphone 4 Case
-  retail_chain_name: colette by colette hayman
-  discount_percent: 49
-  sku: &#39;517711&#39;
-  category: bl-mobile
-  retailer_code: colette-accessories
-  name: Hardcase Iphone 4 Case
-  currency_code: AUD
-  path: /au/retailers/colette-accessories/products/hardcase-iphone-4-case~517711
-  is_display_only: false
-  default_image_url: http://cdn1.syt2.dbg.westfield.com/img_resized/colette-accessories-hardcase-iphone-4-case/503864b2e0cc51a882ec7449ae5fd7c5fa624d01_182x182.jpg
-  sale_price: 6.48
-%>
+<%- content_for :javascript do -%>
+  <script type='text/javascript'>
+    jQuery("#search_form input, #search_form select").change(function(event) {
+      jQuery("#search_form").submit();
+    });
+  </script>
+<%- end -%>

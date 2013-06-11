@@ -1,5 +1,6 @@
 <%= form_tag centre_products_path(id: params[:centre_id]), method: :get, id: 'search_form' do %>
   <%# TODO: Category select %>
+  <%= hidden_field_tag "last", params[:last], class: 'last_facet' %>
   <%- params.select{|k,v| %w(category sub_category super_cat).include?(k.to_s)}.each do |key,value| -%>
     <%= hidden_field_tag key, value %>
   <%- end %>
@@ -41,6 +42,9 @@
 <%- content_for :javascript do -%>
   <script type='text/javascript'>
     jQuery("#search_form input, #search_form select").change(function(event) {
+      var last = jQuery(event.target).attr('name');
+      last = last.replace("[]","");
+      jQuery("#search_form input.last_facet").val(last);
       jQuery("#search_form").submit();
     });
   </script>

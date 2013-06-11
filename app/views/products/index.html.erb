@@ -4,23 +4,9 @@
   <%- params.select{|k,v| %w(category sub_category super_cat).include?(k.to_s)}.each do |key,value| -%>
     <%= hidden_field_tag key, value %>
   <%- end %>
-  <%= select_tag "retailer[]",
-        options_for_select(
-          @search.facets.retailer[:values].map{|facet| [facet.name.titleize, facet.code] },
-          params[:retailer]
-        ), include_blank: true, class: 'chzn-select', multiple: true, 'data-placeholder' => 'Stores' %>
-  <%= select_tag "brand[]",
-        options_for_select(
-          @search.facets.brand[:values].map{|facet| [facet.name.titleize, facet.code] },
-          params[:brand]
-        ), include_blank: true, class: 'chzn-select', multiple: true, 'data-placeholder' => 'Brands' %>
-  <%- if @search.facets.colour -%>
-    <%= select_tag "colour[]",
-          options_for_select(
-            @search.facets.colour[:values].map{|facet| [facet.name.titleize, facet.code] },
-            params[:colour]
-          ), include_blank: true, class: 'chzn-select', multiple: true, 'data-placeholder' => 'Colour' %>
-  <% end %>
+  <%= facet_tag :retailer, @search.facets, 'Stores' %>
+  <%= facet_tag :brand, @search.facets %>
+  <%= facet_tag :colour, @search.facets %>
 <% end %>
 
 <div id="tiles" class="clearfix isotope">

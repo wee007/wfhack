@@ -4,6 +4,9 @@ source "https://rubygems.org"
 gem 'rails', '4.0.0.rc1'
 gem 'jquery-rails'
 gem 'turbolinks'
+
+gem 'chosen-rails'
+
 gem 'dotenv-rails'
 gem 'health_check'
 gem 'service_api', git: 'git@github.dbg.westfield.com:digital/service_api.git'

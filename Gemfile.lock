@@ -47,6 +47,10 @@ GEM
     arel (4.0.0)
     atomic (1.1.9)
     builder (3.1.4)
+    chosen-rails (0.9.15)
+      coffee-rails (>= 3.2)
+      railties (>= 3.0)
+      sass-rails (>= 3.2)
     coderay (1.0.9)
     coffee-rails (4.0.0)
       coffee-script (>= 2.2.0)
@@ -181,6 +185,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  chosen-rails
   coffee-rails (~> 4.0.0)
   debugger
   dotenv-rails

@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.100
+Version:     0.0.101
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -67,6 +67,14 @@ fi
 %attr(755,nobody,nobody)%{appdir}/current/tmp
 
 %changelog
+* Tue Jun 11 2013 ci <doperations@au.westfield.com> 0.0.101-1
+- Basic last facet filtering (cwalsh2@au.westfield.com)
+- Clean up (cwalsh2@au.westfield.com)
+- Add store, brand and colour facets to product browse
+  (cwalsh2@au.westfield.com)
+- The very basics of product search (cwalsh2@au.westfield.com)
+- Add chosen-rails (cwalsh2@au.westfield.com)
+
 * Tue Jun 11 2013 ci <doperations@au.westfield.com> 0.0.100-1
 - Added ServiceHelper (craigm.smith@au.westfield.com)
 

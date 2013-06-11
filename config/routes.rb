@@ -4,10 +4,14 @@ Customerconsole::Application.routes.draw do
 
   resources :centres, :path => '' do
     resources :events, only: [:index, :show]
+    resources :deals, only: [:index, :show]
     resources :movies, only: [:index, :show]
     resources :stores, only: [:index, :show]
     resources :products, only: [:index, :show]
     resources :trading_hours, only: [:index]
+    member do
+      get 'product_stream'
+    end
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

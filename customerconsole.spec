@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.101
+Version:     0.0.102
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -67,6 +67,10 @@ fi
 %attr(755,nobody,nobody)%{appdir}/current/tmp
 
 %changelog
+* Tue Jun 11 2013 ci <doperations@au.westfield.com> 0.0.102-1
+- Create trading hours controller (ewee@au.westfield.com)
+- Expose trading hours (ewee@au.westfield.com)
+
 * Tue Jun 11 2013 ci <doperations@au.westfield.com> 0.0.101-1
 - Basic last facet filtering (cwalsh2@au.westfield.com)
 - Clean up (cwalsh2@au.westfield.com)

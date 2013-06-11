@@ -3,6 +3,7 @@ class CentresController < ApplicationController
   def index
     @centres = CentreService.find :all, country: 'au'
     @centres = @centres.group_by {|c| c.state }
+    @centres
   end
 
   def show
@@ -14,4 +15,5 @@ class CentresController < ApplicationController
     @centre = CentreService.build centre
     @stream = StreamService.build stream
   end
+
 end

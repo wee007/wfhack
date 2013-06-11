@@ -7,6 +7,7 @@ Customerconsole::Application.routes.draw do
     resources :movies, only: [:index, :show]
     resources :stores, only: [:index, :show]
     resources :products, only: [:index, :show]
+    resources :trading_hours, only: [:index]
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -32,6 +32,7 @@ group :development, :test do
 end
 
 group :test do
+  gem 'therubyracer', require: 'v8'
   gem 'vcr'
 end
 

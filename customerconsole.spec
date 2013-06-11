@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.102
+Version:     0.0.103
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -67,6 +67,13 @@ fi
 %attr(755,nobody,nobody)%{appdir}/current/tmp
 
 %changelog
+* Tue Jun 11 2013 ci <doperations@au.westfield.com> 0.0.103-1
+- Fix specs (cwalsh2@au.westfield.com)
+- Basic navigation menu items (cwalsh2@au.westfield.com)
+- Handle error conditions better - just return empty stream
+  (cwalsh2@au.westfield.com)
+- Add "product stream" (cwalsh2@au.westfield.com)
+
 * Tue Jun 11 2013 ci <doperations@au.westfield.com> 0.0.102-1
 - Create trading hours controller (ewee@au.westfield.com)
 - Expose trading hours (ewee@au.westfield.com)

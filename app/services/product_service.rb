@@ -18,9 +18,10 @@ class ProductService
 
     def request_uri(options)
       search_opts = ({page:1, rows: 50}.merge options).with_indifferent_access
-      search_opts[:centre] ||= search_opts.delete :centre_id
+      centre = search_opts.delete :centre_id
+      search_opts[:centre] ||= centre
       uri = URI("#{AppConfig.product_service_url}/products/search.json")
-      uri.query = search_opts.to_query
+      uri.query = search_opts.reject{|k,v|v.blank? || v.is_a?(Array) && v.all?(&:blank?) }.to_query
       uri
     end
   end

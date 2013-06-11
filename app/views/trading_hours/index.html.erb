@@ -1,4 +1,4 @@
-<h1><%= @centres.name %> Trading hours</h1>
+<h1>Trading Hours @ <%= @centres.name %></h1>
 <p><%= @centres['trading_hours'][0]['intro'] unless @centres['trading_hours'].empty? %></p>
 <ul>
 <% @centres['trading_hours'].each do |trading_hour| %>

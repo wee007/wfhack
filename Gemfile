@@ -17,6 +17,8 @@ gem 'service_helper',
   git: 'git@github.dbg.westfield.com:digital/service_helper.git',
   branch: 'master'
 
+gem 'therubyracer', require: 'v8'
+
 group :development do
   gem "unicorn"
   gem "foreman"

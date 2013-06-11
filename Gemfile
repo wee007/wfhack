@@ -39,4 +39,6 @@ end
 
 group :test do
   gem 'vcr'
+  gem 'nokogiri'
+  gem 'simplecov'
 end

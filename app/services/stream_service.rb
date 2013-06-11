@@ -1,8 +1,13 @@
 class StreamService
   class << self
     include ApiClientRequests
-    def build(json)
-      json.respond_to?(:body) ? json.body['stream'] : json['stream']
+    def build(response)
+      body = response.is_a?(Faraday::Response) ? response.body : response
+      if body.is_a? Hash
+        body['stream']
+      else
+        []
+      end
     end
 
     def request_uri(options={})

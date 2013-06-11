@@ -25,16 +25,6 @@ describe CentresController do
 
     end
 
-    describe :trading_hours_index do
-
-      it "renders trading_hours_index view" do
-        CentreService.should_receive( :fetch ).with('chatswood').and_return mock :response, body: {}
-        get :trading_hours_index, centre_id: 'chatswood'
-        response.should render_template 'trading_hours/index'
-      end
-
-    end
-
   end
 
 end

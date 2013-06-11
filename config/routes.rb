@@ -8,6 +8,9 @@ Customerconsole::Application.routes.draw do
     resources :stores, only: [:index, :show]
     resources :products, only: [:index, :show]
     resources :trading_hours, only: [:index]
+    member do
+      get 'product_stream'
+    end
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

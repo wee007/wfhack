@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.107
+Version:     0.0.108
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -67,6 +67,22 @@ fi
 %attr(755,nobody,nobody)%{appdir}/current/tmp
 
 %changelog
+* Wed Jun 12 2013 ci <doperations@au.westfield.com> 0.0.108-1
+- Delete appropriate facets when removing applied categories
+  (cwalsh2@au.westfield.com)
+- Make applied category facet tag render a link with data attributes
+  (cwalsh2@au.westfield.com)
+- Add the applied_filters to the product search results
+  (cwalsh2@au.westfield.com)
+- Replace include_blank on facet tags (cwalsh2@au.westfield.com)
+- More, shorter methods (cwalsh2@au.westfield.com)
+- Basic category nav working, no ability to deselect categories yet
+  (cwalsh2@au.westfield.com)
+- Allow deselecting from single-value select boxes (cwalsh2@au.westfield.com)
+- Filter out blank params before sending request to product service
+  (cwalsh2@au.westfield.com)
+- Extract facet_tag rendering to its own method (cwalsh2@au.westfield.com)
+
 * Wed Jun 12 2013 ci <doperations@au.westfield.com> 0.0.107-1
 - Slightly more coverage (cwalsh2@au.westfield.com)
 - Add SimpleCov for spec coverage (cwalsh2@au.westfield.com)

@@ -1,26 +1,16 @@
 <%= form_tag centre_products_path(id: params[:centre_id]), method: :get, id: 'search_form' do %>
   <%# TODO: Category select %>
   <%= hidden_field_tag "last", params[:last], class: 'last_facet' %>
-  <%- params.select{|k,v| %w(category sub_category super_cat).include?(k.to_s)}.each do |key,value| -%>
-    <%= hidden_field_tag key, value %>
-  <%- end %>
-  <%= select_tag "retailer[]",
-        options_for_select(
-          @search.facets.retailer[:values].map{|facet| [facet.name.titleize, facet.code] },
-          params[:retailer]
-        ), include_blank: true, class: 'chzn-select', multiple: true, 'data-placeholder' => 'Stores' %>
-  <%= select_tag "brand[]",
-        options_for_select(
-          @search.facets.brand[:values].map{|facet| [facet.name.titleize, facet.code] },
-          params[:brand]
-        ), include_blank: true, class: 'chzn-select', multiple: true, 'data-placeholder' => 'Brands' %>
-  <%- if @search.facets.colour -%>
-    <%= select_tag "colour[]",
-          options_for_select(
-            @search.facets.colour[:values].map{|facet| [facet.name.titleize, facet.code] },
-            params[:colour]
-          ), include_blank: true, class: 'chzn-select', multiple: true, 'data-placeholder' => 'Colour' %>
-  <% end %>
+  <%= hidden_field_tag :super_cat, params[:super_cat] if params[:super_cat] %>
+  <%= hidden_field_tag :category, params[:category] if params[:category] %>
+  <%= hidden_field_tag :sub_category, params[:sub_category] if params[:sub_category] %>
+  <%= category_facet_tag @search.facets %>
+  <%= applied_category_filter_tag :super_cat, @search.applied_filters %>
+  <%= applied_category_filter_tag :category, @search.applied_filters %>
+  <%= applied_category_filter_tag :sub_category, @search.applied_filters %>
+  <%= facet_tag :retailer, @search.facets, display_name: 'Stores', multiple: true %>
+  <%= facet_tag :brand, @search.facets, multiple: true %>
+  <%= facet_tag :colour, @search.facets, multiple: true %>
 <% end %>
 
 <div id="tiles" class="clearfix isotope">

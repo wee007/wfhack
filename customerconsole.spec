@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.109
+Version:     0.0.110
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -67,6 +67,9 @@ fi
 %attr(755,nobody,nobody)%{appdir}/current/tmp
 
 %changelog
+* Thu Jun 13 2013 ci <doperations@au.westfield.com> 0.0.110-1
+- Fix centre service to work without a root node (cwalsh2@au.westfield.com)
+
 * Thu Jun 13 2013 ci <doperations@au.westfield.com> 0.0.109-1
 - Update rails to 4.0.0.rc2 (cwalsh2@au.westfield.com)
 

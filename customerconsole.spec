@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.108
+Version:     0.0.109
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -67,6 +67,9 @@ fi
 %attr(755,nobody,nobody)%{appdir}/current/tmp
 
 %changelog
+* Thu Jun 13 2013 ci <doperations@au.westfield.com> 0.0.109-1
+- Update rails to 4.0.0.rc2 (cwalsh2@au.westfield.com)
+
 * Wed Jun 12 2013 ci <doperations@au.westfield.com> 0.0.108-1
 - Delete appropriate facets when removing applied categories
   (cwalsh2@au.westfield.com)

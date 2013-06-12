@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.105
+Version:     0.0.106
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -67,6 +67,10 @@ fi
 %attr(755,nobody,nobody)%{appdir}/current/tmp
 
 %changelog
+* Wed Jun 12 2013 ci <doperations@au.westfield.com> 0.0.106-1
+- Merge pull request #25 from ewee/master (cwalsh2@au.westfield.com)
+- Remove therubyracer (ewee@au.westfield.com)
+
 * Tue Jun 11 2013 ci <doperations@au.westfield.com> 0.0.105-1
 - Merge pull request #24 from ewee/master (ewee@au.westfield.com)
 - Add therubyracer to test group only (ewee@au.westfield.com)

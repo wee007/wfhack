@@ -5,11 +5,22 @@ class ProductService
       results = json.respond_to?(:body) ? json.body : json
       facets = build_facets(results)
       products = results.results
-      Hashie::Mash.new products: products, facets: facets
+      applied_filters = build_applied_filters(results)
+      Hashie::Mash.new products: products, facets: facets, applied_filters: applied_filters
+    end
+
+    def build_applied_filters(results)
+      applied_filters = Hashie::Mash.new
+      applied_filters[:facets] = results.applied_filters.facets
+      applied_filters[:categories] = {}
+      results.applied_filters.categories.each do |cat|
+        applied_filters[:categories][cat.type] = cat
+      end
+      applied_filters
     end
 
     def build_facets(results)
-      facets=Hashie::Mash.new
+      facets = Hashie::Mash.new
       results.facets.each do |facet|
         facets[facet.field] = facet
       end

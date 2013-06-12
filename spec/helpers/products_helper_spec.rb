@@ -48,6 +48,9 @@ describe ProductsHelper do
     end
   end
   describe 'applied_category_filter_tag' do
+    before :each do
+      helper.stub(:params).and_return({centre_id: 'bondijunction'}.with_indifferent_access)
+    end
     let(:super_cat) {
       Hashie::Mash.new type: 'super_cat', value: 'fashion', title: 'Fashion'
     }

@@ -9,7 +9,14 @@ module ProductsHelper
 
   def applied_category_filter_tag(cat_name,applied_filters)
     return unless cat = applied_filters.categories[cat_name]
-    link = link_to cat.title, '#', data: {'category-type' => cat.type,
+    opts = params.dup
+    opts.reject!{|k,v| v.blank? || v.is_a?(Array) && v.all?(&:blank?)}
+    opts.delete :type if %w(super_cat category sub_category).include?(cat_name.to_s)
+    opts.delete :colour if %w(super_cat category sub_category).include?(cat_name.to_s)
+    opts.delete :sub_category if %w(super_cat category sub_category).include?(cat_name.to_s)
+    opts.delete :category if %w(super_cat category).include?(cat_name.to_s)
+    opts.delete :super_cat if cat_name == :super_cat
+    link = link_to cat.title, centre_products_path(opts), data: {'category-type' => cat.type,
       'category-code' => cat.value}, class: 'applied_filter'
   end
 

@@ -28,7 +28,7 @@ module ProductsHelper
     return nil if facets.send(facet_name).nil?
     tag_name = multiple ? "#{facet_name}[]" : facet_name
     values = facet_values(facet_name, facets)
-    chosen_select_tag tag_name, values, params[facet_name],
+    chosen_select_tag tag_name, values, params[facet_name], include_blank: true,
       display_name: display_name || "#{facet_name}".titleize.pluralize,
       multiple: multiple, class_name: "facet-#{facet_name}"
   end

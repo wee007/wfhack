@@ -39,6 +39,9 @@ group :development, :test do
   gem 'sass-rails', '~> 4.0.0.rc1'
   gem 'uglifier', '>= 1.3.0'
   gem 'coffee-rails', '~> 4.0.0'
+  gem 'guard', '~> 1.8.0'
+  gem 'guard-livereload', '~> 1.4.0'
+  gem 'rack-livereload', '~> 0.3.15'
 end
 
 group :test do

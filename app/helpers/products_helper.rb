@@ -2,14 +2,15 @@ module ProductsHelper
 
   # TODO: Delete 'type' and use sub_category instead once product search api
   # facets on sub_category correctly. Alternatively, make it appear anyway.
-  def category_facet_tags search_results
-    facets = search_results.facets
-    super_cat_tag = hidden_field_tag :super_cat, params[:super_cat] if params[:super_cat].present?
-    category_tag = hidden_field_tag :category, params[:category] if params[:category].present?
-    sub_category_tag = hidden_field_tag :sub_category, params[:sub_category] if params[:sub_category].present?
+  def category_facet_tag facets
     category = %w(type sub_category category super_cat).detect {|c| facets.send(c).present? }
     category_facet_tag = facet_tag(category, facets, display_name: "Category", multiple: category=='type') if category
-    [super_cat_tag, category_tag, sub_category_tag, category_facet_tag].compact.join.html_safe
+  end
+
+  def applied_category_filter_tag(cat_name,applied_filters)
+    return unless cat = applied_filters.categories[cat_name]
+    link = link_to cat.title, '#', data: {'category-type' => cat.type,
+      'category-code' => cat.value}, class: 'applied_filter'
   end
 
   def chosen_select_tag(tag_name, values, selected, display_name: nil, class_name: nil, **opts)

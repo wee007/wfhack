@@ -30,5 +30,42 @@ describe ProductsHelper do
       end
     end
   end
+  describe :category_facet_tag do
+    describe 'for types' do
+      let(:facets) { Hashie::Mash.new(super_cat: mock(:facet),
+        type: mock(:facet), category: mock(:facet), sub_category: mock(:facet)) }
+      it "renders a multi-valued facet tag" do
+        helper.should_receive(:facet_tag).with('type', facets, hash_including(multiple: true))
+        helper.category_facet_tag facets
+      end
+    end
+    describe 'for super_categories' do
+      let(:facets) { Hashie::Mash.new(super_cat: mock(:facet)) }
+      it "renders a single-valued facet tag" do
+        helper.should_receive(:facet_tag).with('super_cat', facets, hash_including(multiple: false))
+        helper.category_facet_tag facets
+      end
+    end
+  end
+  describe 'applied_category_filter_tag' do
+    let(:super_cat) {
+      Hashie::Mash.new type: 'super_cat', value: 'fashion', title: 'Fashion'
+    }
+    let(:applied_filters) { Hashie::Mash.new categories: {super_cat: super_cat} }
+    it 'returns nil if the requested filter is not applied' do
+      expect(helper.applied_category_filter_tag('category',applied_filters)).to eq nil
+    end
+    let(:tag) { helper.applied_category_filter_tag('super_cat',applied_filters) }
+    let(:link) { Nokogiri::HTML(tag).xpath("//a") }
+    it 'sets data-category-type to the category type' do
+      expect(link.attr('data-category-type').value).to eq 'super_cat'
+    end
+    it 'sets data-category-code to the category value' do
+      expect(link.attr('data-category-code').value).to eq 'fashion'
+    end
+    it 'sets link text to the category title' do
+      expect(link.text).to eq 'Fashion'
+    end
+  end
 end
 

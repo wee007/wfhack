@@ -11,7 +11,8 @@ describe ProductsHelper do
     it "returns nil if the requested facet is not available" do
       expect(facet_tag(:unavailable, facets)).to eq nil
     end
-    let(:html) { Nokogiri::HTML(facet_tag(:retailer, facets)) }
+    let(:options) { {multiple: true} }
+    let(:html) { Nokogiri::HTML(facet_tag(:retailer, facets, options)) }
     it "Makes a multi-select drop-down" do
       expect(html.xpath("//select/@multiple").text).to eq 'multiple'
     end
@@ -22,9 +23,11 @@ describe ProductsHelper do
     it "Titleizes and pluralizes the placeholder text" do
       expect(html.xpath("//select/@data-placeholder").text).to eq 'Retailers'
     end
-    it "Uses display_name as the placeholder text" do
-      html = Nokogiri::HTML(facet_tag(:retailer, facets, 'override'))
-      expect(html.xpath("//select/@data-placeholder").text).to eq 'override'
+    describe "with display_name override" do
+      let(:options) { {display_name: 'override'} }
+      it "Uses display_name as the placeholder text" do
+        expect(html.xpath("//select/@data-placeholder").text).to eq 'override'
+      end
     end
   end
 end

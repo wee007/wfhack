@@ -1,12 +1,10 @@
 <%= form_tag centre_products_path(id: params[:centre_id]), method: :get, id: 'search_form' do %>
   <%# TODO: Category select %>
   <%= hidden_field_tag "last", params[:last], class: 'last_facet' %>
-  <%- params.select{|k,v| %w(category sub_category super_cat).include?(k.to_s)}.each do |key,value| -%>
-    <%= hidden_field_tag key, value %>
-  <%- end %>
-  <%= facet_tag :retailer, @search.facets, 'Stores' %>
-  <%= facet_tag :brand, @search.facets %>
-  <%= facet_tag :colour, @search.facets %>
+  <%= category_facet_tags @search.facets %>
+  <%= facet_tag :retailer, @search.facets, display_name: 'Stores', multiple: true %>
+  <%= facet_tag :brand, @search.facets, multiple: true %>
+  <%= facet_tag :colour, @search.facets, multiple: true %>
 <% end %>
 
 <div id="tiles" class="clearfix isotope">

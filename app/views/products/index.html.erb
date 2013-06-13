@@ -11,6 +11,10 @@
   <%= facet_tag :retailer, @search.facets, display_name: 'Stores', multiple: true %>
   <%= facet_tag :brand, @search.facets, multiple: true %>
   <%= facet_tag :colour, @search.facets, multiple: true %>
+
+  <span class='sort_options'>
+    Sort by: <%= products_sort_tag @search.sort_options %>
+  </span>
 <% end %>
 
 <div id="tiles" class="clearfix isotope">

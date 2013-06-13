@@ -7,8 +7,10 @@ class ProductService
       products = results.delete :results
       applied_filters = build_applied_filters(results)
       pagination = build_pagination(results)
+      sort_options = results.delete(:display_options)[:sort_options]
       Hashie::Mash.new results.merge(products: products,
-        facets: facets, applied_filters: applied_filters).merge(pagination)
+        facets: facets, applied_filters: applied_filters,
+        sort_options: sort_options).merge(pagination)
     end
 
     def build_pagination(results)

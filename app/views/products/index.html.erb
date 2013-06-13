@@ -14,20 +14,20 @@
 <% end %>
 
 <div id="tiles" class="clearfix isotope">
-<%- @search.products.each do |product| -%>
-  <div class="tile products isotope-item" data-url="">
-    <%= image_tag product.default_image_url %>
-    <div class="title">
-      <p class="name">
-        <%=  product.lozenge_name %><br>
-        <small><span>from</span> <%= product.retail_chain_name %></small>
-      </p>
-      <p class="price">$<%= product.display_sale_price %></p>
+  <%- @search.products.each do |product| -%>
+    <div class="tile products isotope-item" data-url="">
+      <%= image_tag product.default_image_url %>
+      <div class="title">
+        <p class="name">
+          <%=  product.lozenge_name %><br>
+          <small><span>from</span> <%= product.retail_chain_name %></small>
+        </p>
+        <p class="price">$<%= product.display_sale_price %></p>
+      </div>
     </div>
-  </div>
-<%- end -%>
-
+  <%- end -%>
 </div>
+<%= paginate @search %>
 
 <%- content_for :javascript do -%>
   <script type='text/javascript'>

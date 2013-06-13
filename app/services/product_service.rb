@@ -4,9 +4,17 @@ class ProductService
     def build(json)
       results = json.respond_to?(:body) ? json.body : json
       facets = build_facets(results)
-      products = results.results
+      products = results.delete :results
       applied_filters = build_applied_filters(results)
-      Hashie::Mash.new products: products, facets: facets, applied_filters: applied_filters
+      pagination = build_pagination(results)
+      Hashie::Mash.new results.merge(products: products,
+        facets: facets, applied_filters: applied_filters).merge(pagination)
+    end
+
+    def build_pagination(results)
+      total_pages = ([1,results[:count]-1].max / results.rows) + 1
+      current_page = (results.start + results.rows) / results.rows
+      {current_page: current_page, total_pages: total_pages}
     end
 
     def build_applied_filters(results)
@@ -28,6 +36,7 @@ class ProductService
     end
 
     def request_uri(options)
+      options.delete_if {|o| %w(action controller).include?(o.to_s)}
       search_opts = ({page:1, rows: 50}.merge options).with_indifferent_access
       centre = search_opts.delete :centre_id
       search_opts[:centre] ||= centre

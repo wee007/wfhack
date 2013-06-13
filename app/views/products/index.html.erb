@@ -11,6 +11,7 @@
   <%= facet_tag :retailer, @search.facets, display_name: 'Stores', multiple: true %>
   <%= facet_tag :brand, @search.facets, multiple: true %>
   <%= facet_tag :colour, @search.facets, multiple: true %>
+  <%= check_box_tag :on_sale, "true", params[:on_sale].present? %><%= label_tag :on_sale, 'On Sale' %>
 
   <span class='sort_options'>
     Sort by: <%= products_sort_tag @search.sort_options %>
@@ -37,10 +38,12 @@
 
 <%- content_for :javascript do -%>
   <script type='text/javascript'>
-    jQuery("#search_form input, #search_form select").change(function(event) {
+    jQuery("#search_form select").change(function(event) {
       var last = jQuery(event.target).attr('name');
       last = last.replace("[]","");
       jQuery("#search_form input.last_facet").val(last);
+    });
+    jQuery("#search_form input, #search_form select").change(function(event) {
       jQuery("#search_form").submit();
     });
   </script>

@@ -46,4 +46,19 @@ module ProductsHelper
       display_name: display_name || "#{facet_name}".titleize.pluralize,
       multiple: multiple, class_name: "facet-#{facet_name}"
   end
+
+  def price_tag(product)
+    if product.is_discounted
+      content_tag :p, class: 'price' do
+        was = content_tag(:del,number_to_currency(product.display_price))
+        now = content_tag(:span, number_to_currency(product.display_sale_price), class: 'sale')
+        "#{was} #{now}".html_safe
+      end
+    else
+      content_tag :p do
+        content_tag(:span, number_to_currency(product.display_price))
+      end
+    end
+  end
+
 end

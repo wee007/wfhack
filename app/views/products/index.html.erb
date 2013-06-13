@@ -24,9 +24,11 @@
       <div class="title">
         <p class="name">
           <%=  product.lozenge_name %><br>
-          <small><span>from</span> <%= product.retail_chain_name %></small>
+          <small>
+            <span>from</span> <%= product.retail_chain_name %>
+            <%= price_tag(product) %>
+          </small>
         </p>
-        <p class="price">$<%= product.display_sale_price %></p>
       </div>
     </div>
   <%- end -%>

@@ -2,9 +2,15 @@ module ProductsHelper
 
   # TODO: Delete 'type' and use sub_category instead once product search api
   # facets on sub_category correctly. Alternatively, make it appear anyway.
-  def category_facet_tag facets
+  def category_facet_tag(facets)
     category = %w(type sub_category category super_cat).detect {|c| facets.send(c).present? }
     category_facet_tag = facet_tag(category, facets, display_name: "Category", multiple: category=='type') if category
+  end
+
+  def products_sort_tag(sort_options)
+    values = sort_options.select{|s| s[:display]}.map{|s| [s.description, s.code] }
+    selected = params[:sort]
+    select_tag(:sort, options_for_select(values, selected), include_blank: true)
   end
 
   def applied_category_filter_tag(cat_name,applied_filters)
@@ -40,4 +46,19 @@ module ProductsHelper
       display_name: display_name || "#{facet_name}".titleize.pluralize,
       multiple: multiple, class_name: "facet-#{facet_name}"
   end
+
+  def price_tag(product)
+    if product.is_discounted
+      content_tag :p, class: 'price' do
+        was = content_tag(:del,number_to_currency(product.display_price))
+        now = content_tag(:span, number_to_currency(product.display_sale_price), class: 'sale')
+        "#{was} #{now}".html_safe
+      end
+    else
+      content_tag :p do
+        content_tag(:span, number_to_currency(product.display_price))
+      end
+    end
+  end
+
 end

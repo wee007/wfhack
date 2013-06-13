@@ -24,6 +24,9 @@ gem 'service_helper',
   git: 'git@github.dbg.westfield.com:digital/service_helper.git',
   branch: 'master'
 
+# Presentation, pagination etc.
+gem 'kaminari'
+
 group :development do
   gem "foreman"
 end

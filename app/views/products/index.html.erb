@@ -1,9 +1,9 @@
 <%= form_tag centre_products_path(id: params[:centre_id]), method: :get, id: 'search_form' do %>
   <%# TODO: Category select %>
   <%= hidden_field_tag "last", params[:last], class: 'last_facet' %>
-  <%= hidden_field_tag :super_cat, params[:super_cat] if params[:super_cat] %>
-  <%= hidden_field_tag :category, params[:category] if params[:category] %>
-  <%= hidden_field_tag :sub_category, params[:sub_category] if params[:sub_category] %>
+  <%= hidden_field_tag :super_cat, params[:super_cat] if params[:super_cat].present? %>
+  <%= hidden_field_tag :category, params[:category] if params[:category].present? %>
+  <%= hidden_field_tag :sub_category, params[:sub_category] if params[:sub_category].present? %>
   <%= category_facet_tag @search.facets %>
   <%= applied_category_filter_tag :super_cat, @search.applied_filters %>
   <%= applied_category_filter_tag :category, @search.applied_filters %>
@@ -11,30 +11,39 @@
   <%= facet_tag :retailer, @search.facets, display_name: 'Stores', multiple: true %>
   <%= facet_tag :brand, @search.facets, multiple: true %>
   <%= facet_tag :colour, @search.facets, multiple: true %>
+  <%= check_box_tag :on_sale, "true", params[:on_sale].present? %><%= label_tag :on_sale, 'On Sale' %>
+
+  <span class='sort_options'>
+    Sort by: <%= products_sort_tag @search.sort_options %>
+  </span>
 <% end %>
 
 <div id="tiles" class="clearfix isotope">
-<%- @search.products.each do |product| -%>
-  <div class="tile products isotope-item" data-url="">
-    <%= image_tag product.default_image_url %>
-    <div class="title">
-      <p class="name">
-        <%=  product.lozenge_name %><br>
-        <small><span>from</span> <%= product.retail_chain_name %></small>
-      </p>
-      <p class="price">$<%= product.display_sale_price %></p>
+  <%- @search.products.each do |product| -%>
+    <div class="tile products isotope-item" data-url="">
+      <%= image_tag product.default_image_url %>
+      <div class="title">
+        <p class="name">
+          <%=  product.lozenge_name %><br>
+          <small>
+            <span>from</span> <%= product.retail_chain_name %>
+            <%= price_tag(product) %>
+          </small>
+        </p>
+      </div>
     </div>
-  </div>
-<%- end -%>
-
+  <%- end -%>
 </div>
+<%= paginate @search %>
 
 <%- content_for :javascript do -%>
   <script type='text/javascript'>
-    jQuery("#search_form input, #search_form select").change(function(event) {
+    jQuery("#search_form select").change(function(event) {
       var last = jQuery(event.target).attr('name');
       last = last.replace("[]","");
       jQuery("#search_form input.last_facet").val(last);
+    });
+    jQuery("#search_form input, #search_form select").change(function(event) {
       jQuery("#search_form").submit();
     });
   </script>

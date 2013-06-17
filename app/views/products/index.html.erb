@@ -36,5 +36,12 @@
     jQuery('#sort').change(function(event) {
       window.location = jQuery("#sort option[value='"+jQuery('#sort').val()+"']").attr('data-sort-link')
     });
+   jQuery("#price-facet-slider").slider({
+      range: true, min: 0, max: <%= @search.facets.price[:max] %>,
+      values: [<%= params[:price] ? params[:price].split("-").join(", ") : [0, @search.facets.price[:max]].join(", ") %>],
+      slide: function(event, ui) {
+        console.debug({price: ui.values[0] + "-" + ui.values[1]});
+      }
+    });
   </script>
 <%- end -%>

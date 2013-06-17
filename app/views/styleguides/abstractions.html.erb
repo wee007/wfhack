@@ -1,0 +1,206 @@
+<div class="sg-h1">Abstractions</div>
+<div class="sg-note">An abstraction is a CSS methodology that basically removes a pattern from a specific idea and makes a more generic idea out of it e.g. make a list render horizontally. They exist to avoid writing the same similar patterns over and over, instead create a single more generic representation of those patterns and reuse that instead.</div>
+
+
+<%= styleguide_block '3.1' do %>
+  <ul class="horiz-list $modifier_class">
+      <li><a href="#">Semper</a></li><!--
+    --><li><a href="#">Virtute</a></li><!--
+    --><li><a href="#">Euripidis</a></li><!--
+    --><li><a href="#">Natoque</a></li><!--
+    --><li><a href="#">Gubergren</a></li>
+  </ul>
+<% end %>
+
+<!-- Vertical Alignment -->
+<div class="sg-h2">Vertical Alignment</div>
+<div class="sg-note">Vertically align an element within it's parent via CSS <code class="sg-code">display: table;</code>.</div>
+
+<div style="height: 400px">
+  <div class="vert-align">
+    <div class="vert-align__inner sg-demo-boxed">
+      <p>Nec at quodsi elaboraret definitionem. Ne facilisi pericula honestatis qui. In sanctus platonem voluptatum ius. Ad sed labores inermis disputando, etiam adversarium quo te. Eu vis nostrud deseruisse, est possit iracundia no, has an ferri meliore nusquam. Semper apeirian pericula eos id. Error graeci graecis sed no, quo ex hinc justo pertinax. Pro nostro placerat ex, id tamquam sadipscing vim, te tota errem audiam duo. Vim scripta recusabo elaboraret eu, sea periculis iracundia repudiandae ea, has duis modus persequeris in.</p>
+    </div>
+  </div>
+</div>
+<!-- //Vertical Alignment -->
+
+<!-- Preserve Aspect Ratio -->
+<div class="sg-h2">Preserve Aspect Ratio</div>
+<div class="sg-note">To preserve the aspect ratio (16:9) of an element usually a video delivered via an <code class="sg-code">iframe</code>.</div>
+
+<div class="preserve-aspect-ratio">
+  <iframe class="preserve-aspect-ratio__inner" width="560" height="315" src="http://www.youtube.com/embed/8KdtgoSCXpU?rel=0" frameborder="0" allowfullscreen></iframe>
+</div>
+<!-- //Preserve Aspect Ratio -->
+
+<!-- Block List -->
+<div class="sg-h2">Block List</div>
+<div class="sg-note">Big blocky lists of content.</div>
+
+<ul class="block-list">
+  <li>Semper</li>
+  <li>Virtute</li>
+  <li>Natoque</li>
+  <li><a href="#" class="block-list__link">Gubergren</a></li>
+</ul>
+<!-- //Block List -->
+
+<!-- Definition List -->
+<div class="sg-h2">Definition List</div>
+<div class="sg-note">Make the <code class="sg-code">dt</code> and <code class="sg-code">dd</code> elements of a definition list render side-by-side.</div>
+
+<dl class="def-list">
+    <dt class="def-list__title"><a href="#">Semper</a></dt>
+    <dd class="def-list__desc">Virtute</dd>
+    <dt class="def-list__title"><a href="#">Euripidis</a></dt>
+    <dd class="def-list__desc">Natoque</dd>
+    <dt class="def-list__title"><a href="#">Gubergren</a></dt>
+    <dd class="def-list__desc">Semper</dd>
+</dl>
+<!-- //Definition List -->
+
+<!-- Split -->
+<div class="sg-h2">Split</div>
+<div class="sg-note">Simple split item for creating two elements floated away from one another.</div>
+
+<dl class="split" style="width: 50%;">
+    <dt class="split__title">Pericula honestatis</dt>
+    <dd>$5.99</dd>
+    <dt class="split__title">Nostrud deseruisse</dt>
+    <dd>$19.99</dd>
+    <dt class="split__title">Possit iracundia</dt>
+    <dd>$2.99</dd>
+</dl>
+<ol class="split" style="width: 50%;">
+    <li><b class="split__title">1st place</b> Bob</li>
+    <li><b class="split__title">2nd place</b> Lilly</li>
+    <li><b class="split__title">3rd place</b> Ted</li>
+</ol>​
+<!-- //Split -->
+
+<!-- Complex Link -->
+<div class="sg-h2">Complex Link</div>
+<div class="sg-note">Add hover behaviour to only selected items within links.</div>
+
+<p><a href="#" class="complex-link"><img src="http://placekitten.com/16/16" alt="" class="sg-demo-right-space"><span class="complex-link__target sg-demo-right-space">Log in</span></a></p>
+<p><a href="#" class="complex-link">I don't want link styles, <span class="complex-link__target">but I do</span></a></p>
+<!-- //Complex Link -->
+
+<!-- Island -->
+<div class="sg-h2">Island</div>
+<div class="sg-note">Simple, boxed off content.</div>
+
+<div class="sg-h3">Island</div>
+<div class="island sg-demo-boxed">
+  <p>Nec at quodsi elaboraret definitionem. Ne facilisi pericula honestatis qui. In sanctus platonem voluptatum ius. Ad sed labores inermis disputando, etiam adversarium quo te. Eu vis nostrud deseruisse, est possit iracundia no, has an ferri meliore nusquam. Semper apeirian pericula eos id. Error graeci graecis sed no, quo ex hinc justo pertinax. Pro nostro placerat ex, id tamquam sadipscing vim, te tota errem audiam duo. Vim scripta recusabo elaboraret eu, sea periculis iracundia repudiandae ea, has duis modus persequeris in.</p>
+</div>
+
+<div class="sg-h3">Islet</div>
+<div class="islet sg-demo-boxed">
+  <p>Nec at quodsi elaboraret definitionem. Ne facilisi pericula honestatis qui. In sanctus platonem voluptatum ius. Ad sed labores inermis disputando, etiam adversarium quo te. Eu vis nostrud deseruisse, est possit iracundia no, has an ferri meliore nusquam. Semper apeirian pericula eos id. Error graeci graecis sed no, quo ex hinc justo pertinax. Pro nostro placerat ex, id tamquam sadipscing vim, te tota errem audiam duo. Vim scripta recusabo elaboraret eu, sea periculis iracundia repudiandae ea, has duis modus persequeris in.</p>
+</div>
+<!-- //Island -->
+
+<!-- Frame -->
+<div class="sg-h2">Frame</div>
+<div class="sg-note">Apply a nice framed effect typically for the <code class="sg-code">img</code> and <code class="sg-code">figure</code> elements.</div>
+
+<div class="sg-h3">No Caption</div>
+<img src="http://placekitten.com/160/160" alt="" class="frame">
+
+<!--<div class="sg-h4">Over sized</div>
+<img src="http://placekitten.com/1800/1400" alt="" class="frame">-->
+
+<div class="sg-h3">With Caption</div>
+<figure class="frame frame--inline">
+    <img src="http://placekitten.com/320/320" alt="">
+    <figcaption class="frame__caption">Figure caption</figcaption>
+</figure>
+
+<!--<div class="sg-h4">Over sized</div>
+<figure class="frame">
+  <img src="http://placekitten.com/1600/1200" alt="">
+    <figcaption class="frame__caption">Figure caption</figcaption>
+</figure>-->
+<!-- //Frame -->
+
+<!-- Slats -->
+<div class="sg-h2">Slats</div>
+<div class="sg-note">Place any image- and text-like content side-by-side.</div>
+
+<div class="sg-h3">Small</div>
+<div class="slats sg-demo-boxed-padded">
+  <img src="http://placekitten.com/60/60" alt="" class="slats__img">
+    <div class="slats__body">
+      <p>Ne mel utroque apeirian, eum ex cibo choro. Discere commune concludaturque eum te, eros movet comprehensam eum id. Cu nulla salutatus duo. Phaedrum efficiantur vix at, ius ancillae reprimique in, percipit mandamus assueverit eu eum. Alia natum vidisse id ius, vide soleat vis no.</p>
+    </div>
+</div>
+
+<div class="sg-h3">Medium</div>
+<div class="slats sg-demo-boxed-padded">
+  <a href="#" class="slats__img"><img src="http://placekitten.com/110/110" alt=""></a>
+    <div class="slats__body">
+      <p>Ne mel utroque apeirian, eum ex cibo choro. Discere commune concludaturque eum te, eros movet comprehensam eum id. Cu nulla salutatus duo. Phaedrum efficiantur vix at, ius ancillae reprimique in, percipit mandamus assueverit eu eum. Alia natum vidisse id ius, vide soleat vis no.</p>
+    <p>Ne mel utroque apeirian, eum ex cibo choro. Discere commune concludaturque eum te, eros movet comprehensam eum id. Cu nulla salutatus duo. Phaedrum efficiantur vix at, ius ancillae reprimique in, percipit mandamus assueverit eu eum. Alia natum vidisse id ius, vide soleat vis no.</p>
+    <p>Ne mel utroque apeirian, eum ex cibo choro. Discere commune concludaturque eum te, eros movet comprehensam eum id. Cu nulla salutatus duo. Phaedrum efficiantur vix at, ius ancillae reprimique in, percipit mandamus assueverit eu eum. Alia natum vidisse id ius, vide soleat vis no.</p>
+    </div>
+</div>
+
+<div class="sg-h3">Large</div>
+<div class="slats sg-demo-boxed-padded">
+  <div class="slats__img--rev">
+    <img src="http://placekitten.com/220/220" alt="">
+    <strong>Nice kitty</strong>
+  </div>
+    <div class="slats__body">
+      <p>Ne mel utroque apeirian, eum ex cibo choro. Discere commune concludaturque eum te, eros movet comprehensam eum id. Cu nulla salutatus duo. Phaedrum efficiantur vix at, ius ancillae reprimique in, percipit mandamus assueverit eu eum. Alia natum vidisse id ius, vide soleat vis no.</p>
+    <p>Ne mel utroque apeirian, eum ex cibo choro. Discere commune concludaturque eum te, eros movet comprehensam eum id. Cu nulla salutatus duo. Phaedrum efficiantur vix at, ius ancillae reprimique in, percipit mandamus assueverit eu eum. Alia natum vidisse id ius, vide soleat vis no.</p>
+    </div>
+</div>
+<!-- //Slats -->
+
+<!-- Columns -->
+<div class="sg-h2">Columns</div>
+<div class="sg-note">Easily create columns of text using CSS3.</div>
+
+<div class="sg-mrg-on sg-demo-boxed-padded">
+  <p class="txt-cols txt-cols--3">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget.</p>
+</div>
+<div class="sg-mrg-on sg-demo-boxed-padded">
+  <p class="txt-cols txt-cols--4">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget.</p>
+</div>
+<!-- //Columns -->
+
+<!-- Arrows -->
+<div class="sg-h2">Arrows</div>
+<div class="sg-note">Creates CSS arrows.</div>
+
+<div class="sg-h3">Up</div>
+<span class="arrow arrow--up"></span>
+
+<div class="sg-h3">Down</div>
+<span class="arrow arrow--down"></span>
+
+<div class="sg-h3">Left</div>
+<span class="arrow arrow--left"></span>
+
+<div class="sg-h3">Right</div>
+<span class="arrow arrow--right"></span>
+<!-- //Arrows -->
+
+<!-- Divider -->
+<div class="sg-h2">Divider</div>
+<div class="sg-note">Apply a dividing line between two elements.</div>
+
+<p class="divider">Ne mel utroque apeirian, eum ex cibo choro. Discere commune concludaturque eum te, eros movet comprehensam eum id. Cu nulla salutatus duo. Phaedrum efficiantur vix at, ius ancillae reprimique in, percipit mandamus assueverit eu eum. Alia natum vidisse id ius, vide soleat vis no.</p>
+<p>Ne mel utroque apeirian, eum ex cibo choro. Discere commune concludaturque eum te, eros movet comprehensam eum id. Cu nulla salutatus duo. Phaedrum efficiantur vix at, ius ancillae reprimique in, percipit mandamus assueverit eu eum. Alia natum vidisse id ius, vide soleat vis no.</p>
+
+<div class="sg-h3">Larger spacing</div>
+<p class="divider divider--lrg">Ne mel utroque apeirian, eum ex cibo choro. Discere commune concludaturque eum te, eros movet comprehensam eum id. Cu nulla salutatus duo. Phaedrum efficiantur vix at, ius ancillae reprimique in, percipit mandamus assueverit eu eum. Alia natum vidisse id ius, vide soleat vis no.</p>
+<p>Ne mel utroque apeirian, eum ex cibo choro. Discere commune concludaturque eum te, eros movet comprehensam eum id. Cu nulla salutatus duo. Phaedrum efficiantur vix at, ius ancillae reprimique in, percipit mandamus assueverit eu eum. Alia natum vidisse id ius, vide soleat vis no.</p>
+
+<div class="sg-h3">Smaller spacing</div>
+<p class="divider divider--sml">Ne mel utroque apeirian, eum ex cibo choro. Discere commune concludaturque eum te, eros movet comprehensam eum id. Cu nulla salutatus duo. Phaedrum efficiantur vix at, ius ancillae reprimique in, percipit mandamus assueverit eu eum. Alia natum vidisse id ius, vide soleat vis no.</p>
+<p>Ne mel utroque apeirian, eum ex cibo choro. Discere commune concludaturque eum te, eros movet comprehensam eum id. Cu nulla salutatus duo. Phaedrum efficiantur vix at, ius ancillae reprimique in, percipit mandamus assueverit eu eum. Alia natum vidisse id ius, vide soleat vis no.</p>
+<!-- //Divider -->

@@ -1,0 +1,97 @@
+<!doctype html>
+<!--[if (lt IE 9) & (!IEMobile)]>   <html class="no-js old-ie" lang="en">   <![endif]-->
+<!--[if gt IE 8]><!-->              <html class="no-js" lang="en">          <!--<![endif]-->
+<head>
+
+  <meta charset="utf-8">
+
+  <!-- Title -->
+  <title><%= yield :title %> | Style Guide | Westfield</title>
+  <!-- //Title -->
+
+  <%= render "shared/stylesheets_global" %>
+
+  <!-- 'Style Guide' styles -->
+  <link href="<%= asset_path 'styleguide/main.css' %>" rel="stylesheet">
+  <!-- //'Style Guide' styles -->
+
+  <%= render "shared/javascript_detection_oldie_helpers" %>
+  <%= javascript_include_tag 'vendor/kss' %>
+</head>
+
+<body id="sg" class="<%#= page_classes %>">
+
+  <!-- Contain everything -->
+  <div class="sg-container sg-cf">
+
+    <!-- Header -->
+    <div class="sg-header">
+
+      <!-- Client Logo -->
+      <a href="index.html"><img src="<%= image_path "logo.svg" %>" alt="" data-svg-fallback="/images/logo.png"></a>
+      <!-- //Client Logo -->
+
+      <div>Style Guide</div>
+
+    </div>
+    <!-- //Header -->
+
+    <!-- Main -->
+    <div class="sg-main">
+
+      <%= yield %>
+
+    </div>
+    <!-- //Main -->
+
+    <!-- Aside -->
+    <div class="sg-aside">
+      <div class="sg-aside-hdr">Sections</div>
+      <ul>
+        <li><a href="<%= styleguides_path %>">Home</a></li>
+
+        <% Styleguide::TREE.each_with_index do |sg, major| %>
+          <% if sg.is_a? Hash %>
+            <li>
+              <span><%= sg['name'] %>:</span>
+              <ul>
+                <% sg['sections'].each_with_index do |sgc, minor| %>
+                <% slug = ActiveSupport::Inflector.parameterize("#{sg['name']} #{sgc}") %>
+                <li><a href="<%= styleguide_path(slug) %>"><%= sgc %></a></li>
+                <% end %>
+              </ul>
+            </li>
+          <% else %>
+            <% slug = ActiveSupport::Inflector.parameterize(sg) %>
+            <li><a href="<%= styleguide_path(slug) %>"><%= sg %></a></li>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+    <!-- //Aside -->
+
+  </div>
+  <!-- //Contain everything -->
+
+  <%= render "/shared/javascripts_global" %>
+
+  <script>
+  $(function() {
+
+            // Stick to top plugin
+            $(function() {
+              $('.sg-aside').stickToTop();
+            });
+
+            /**
+             * JQuery-StickToTop plugin (Copyright (c) 2011, Stan Bondi, Mouse Potato, all rights reserved)
+             * https://github.com/sdbondi/JQuery-StickToTop
+             * http://themousepotatowebsite.co.za/introducing-the-stick-to-top-plugin/
+             */
+             (function(a,b){b.fn.stickToTop=function(d){d=b.extend({scrollParent:window,offset:{top:0,left:0},minParentHeight:false,bottomBound:false,onStick:null,onDetach:null},d,true);var f=d.scrollParent,c="",e=b((f===window)?f.document.body:f).offset();return b(this).each(function(){var o=this,j=b(o),i=j.position(),h=j.css("position"),g=j.width(),p=j.outerHeight(true),k=false,m=false,l=function(){var w=f.scrollTop||b(a).scrollTop(),r=((f==window)?window.document.body:f).offsetHeight,t=d.bottomBound&&(r-d.bottomBound-p),x=(!!t&&t<w),u=(w>=i.top-d.offset.top+e.top),v=!u;if(d.minParentHeight&&r<d.minParentHeight){return}u=u&&!x;if(x&&c!=="bottomBound"){var q=j.position();j.css({position:"absolute",top:t+"px",left:q.left+"px"});c="bottomBound";if(d.onDetach){d.onDetach.call(o)}return}if(v&&c!=="initial"){var s={position:h};if(h!=="static"){b.extend(s,{top:i.top+"px",left:i.left+"px"})}j.css(s);c="initial";if(d.onDetach){d.onDetach.call(o)}return}if(u&&c!=="fixed"){j.css({position:"fixed",top:e.top+(d.offset.top||0)+"px",left:(e.left+i.left+(d.offset.left||0))+"px",width:g+"px"});c="fixed";if(d.onStick){d.onStick.call(o)}return}},n=function(q){if(k){return}k=true;window.setTimeout(function(){if(m){return}var r=j.css("position");i.left=j.css("position",h).position().left;j.css("position",r);c="";l();k=false},50)};b(window).on("resize",n);if(h==="relative"){h="static"}b(d.scrollParent).on("scroll",l);this.unstickToTop=function(){m=true;b(d.scrollParent).off("scroll",l);b(window).off("resize",n)}})}}(window.document,window.jQuery));
+
+           });
+</script>
+
+</body>
+</html>

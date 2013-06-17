@@ -15,4 +15,4 @@
 //= require turbolinks
 //= require_tree .
 //= require chosen-jquery
-//= require jquery.ui.all
+//= require jquery.ui.slider

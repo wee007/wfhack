@@ -1,0 +1,16 @@
+<div class='facet'>
+  <div class='facet-name'><%= defined?(title) ? title : facet.title %></div>
+  <%= text_field_tag facet.url_key_name, '', class: 'facet-filter', title: "Enter a #{facet.name}", placeholder: "Enter a #{facet.name}" %>
+  <ul class='facet-values' data-facet-field='<%= facet.url_key_name %>'>
+    <%- selected = Array.wrap(params[facet.url_key_name]) %>
+    <%- facet[:values].each do |value| -%>
+      <%- url_params = if value.selected -%>
+        <%- params.merge facet.url_key_name => (selected - [value.code]) -%>
+      <%- else -%>
+        <%- params.merge facet.url_key_name => (selected + [value.code]).sort -%>
+      <%- end.delete_if {|k,v| v.blank? }.merge(last: facet.url_key_name) -%>
+      <%= content_tag :li, value.name, class: "facet-value#{value.selected ? ' facet-value--selected' : ''}", 
+          'data-facet-value' => value.code, 'data-facet-link' => centre_products_path(url_params) %>
+    <%- end -%>
+  </ul>
+</div>

@@ -13,6 +13,8 @@ class ProductService
         sort_options: sort_options).merge(pagination)
     end
 
+  private
+
     def build_pagination(results)
       total_pages = ([1,results[:count]-1].max / results.rows) + 1
       current_page = (results.start + results.rows) / results.rows
@@ -20,13 +22,11 @@ class ProductService
     end
 
     def build_applied_filters(results)
-      applied_filters = Hashie::Mash.new
-      applied_filters[:facets] = results.applied_filters.facets
-      applied_filters[:categories] = {}
-      results.applied_filters.categories.each do |cat|
-        applied_filters[:categories][cat.type] = cat
+      af = results.applied_filters
+      af[:categories] = af[:categories].inject(Hashie::Mash.new) do |hsh,cat|
+        hsh.merge cat.type => cat
       end
-      applied_filters
+      af
     end
 
     def build_facets(results)

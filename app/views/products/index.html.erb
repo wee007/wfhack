@@ -1,22 +1,14 @@
-<%= form_tag centre_products_path(id: params[:centre_id]), method: :get, id: 'search_form' do %>
-  <%# TODO: Category select %>
-  <%= hidden_field_tag "last", params[:last], class: 'last_facet' %>
-  <%= hidden_field_tag :super_cat, params[:super_cat] if params[:super_cat].present? %>
-  <%= hidden_field_tag :category, params[:category] if params[:category].present? %>
-  <%= hidden_field_tag :sub_category, params[:sub_category] if params[:sub_category].present? %>
-  <%= category_facet_tag @search.facets %>
-  <%= applied_category_filter_tag :super_cat, @search.applied_filters %>
-  <%= applied_category_filter_tag :category, @search.applied_filters %>
-  <%= applied_category_filter_tag :sub_category, @search.applied_filters %>
-  <%= facet_tag :retailer, @search.facets, display_name: 'Stores', multiple: true %>
-  <%= facet_tag :brand, @search.facets, multiple: true %>
-  <%= facet_tag :colour, @search.facets, multiple: true %>
-  <%= check_box_tag :on_sale, "true", params[:on_sale].present? %><%= label_tag :on_sale, 'On Sale' %>
+<%- %w(super_cat category sub_category type).each do |category| -%>
+  <%= render partial: 'products/facets/list', locals: {facet: @search.facets.send(category), title: 'Category'} if @search.facets.send(category) %>
+<%- end -%>
+<%= render partial: 'products/facets/filtered_list', locals: {facet: @search.facets.retailer} if @search.facets.retailer %>
+<%= render partial: 'products/facets/filtered_list', locals: {facet: @search.facets.brand} if @search.facets.brand %>
+<%= render partial: 'products/facets/list', locals: {facet: @search.facets.colour, title: "Colours"} if @search.facets.colour %>
+<%= render partial: 'products/facets/price', locals: {facet: @search.facets.price} if @search.facets.price %>
 
-  <span class='sort_options'>
-    Sort by: <%= products_sort_tag @search.sort_options %>
-  </span>
-<% end %>
+<span class='sort_options'>
+  Sort by: <%= products_sort_tag @search.sort_options %>
+</span>
 
 <div id="tiles" class="clearfix isotope">
   <%- @search.products.each do |product| -%>
@@ -38,13 +30,18 @@
 
 <%- content_for :javascript do -%>
   <script type='text/javascript'>
-    jQuery("#search_form select").change(function(event) {
-      var last = jQuery(event.target).attr('name');
-      last = last.replace("[]","");
-      jQuery("#search_form input.last_facet").val(last);
+    jQuery('.facet ul li[data-facet-link]').click(function(event) {
+      window.location = jQuery(event.target).attr('data-facet-link');
     });
-    jQuery("#search_form input, #search_form select").change(function(event) {
-      jQuery("#search_form").submit();
+    jQuery('#sort').change(function(event) {
+      window.location = jQuery("#sort option[value='"+jQuery('#sort').val()+"']").attr('data-sort-link')
+    });
+   jQuery("#price-facet-slider").slider({
+      range: true, min: 0, max: <%= @search.facets.price[:max] %>,
+      values: [<%= params[:price] ? params[:price].split("-").join(", ") : [0, @search.facets.price[:max]].join(", ") %>],
+      slide: function(event, ui) {
+        console.debug({price: ui.values[0] + "-" + ui.values[1]});
+      }
     });
   </script>
 <%- end -%>

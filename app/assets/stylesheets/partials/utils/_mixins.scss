@@ -1,0 +1,990 @@
+/* ======================================================================================
+   @UTILS -> SASS MIXINS
+   ====================================================================================== */
+
+/* [NICELY FORMED TYPE STYLE]
+-------------------------------------------------------*/
+/*
+	Usage:
+		Create a fully formed type style (sizing and vertical rhythm).
+
+	Notes:
+		-	The line height sets the `line-height` to a multiple of `$line-height` that's not smaller than `$font-size`, this can be overridden.
+		-	`$sledgehammer` is an optional argument that allows for the `!important` keyword to be specified, when the optional `$line-height-val` argument does not need to be included then it has to be called using a named argument: `$sledgehammer: !important` so that we can skip over `$line-height-val` avoiding having to redundantly redeclare it.
+
+	Credit:
+		-	https://github.com/csswizardry/inuit.css/blob/master/inuit.css/generic/_mixins.scss
+		-	twitter.com/redclov3r/status/250301539321798657
+
+	Examples:
+		@include font-size(18);
+		@include font-size(12, 1.5);
+		@include font-size(24, 1, !important);
+		@include font-size(24, $sledgehammer: !important);
+*/
+
+@mixin font-size($font-size-val, $line-height-val: "", $sledgehammer: false) {
+	$important: if($sledgehammer, "!important", "");
+    font-size: ($font-size-val)+px#{$important};
+    font-size: ($font-size-val / $font-size)+rem#{$important};
+	@if $line-height-val == "" {
+		line-height: ceil($font-size-val / $line-height) * ($line-height / $font-size-val);
+	} @else {
+		line-height: #{$line-height-val};
+	}
+}
+
+/* [STYLE ALL HEADINGS EASILY]
+-------------------------------------------------------*/
+/*
+	Usage:
+		Style any number of headings in one fell swoop.
+
+	Credit:
+		https://github.com/csswizardry/inuit.css/blob/master/generic/_mixins.scss
+
+	Example:
+		@include headings(1, 3) {color: red;}
+*/
+
+@mixin headings($from: 1, $to: 6, $dbl-stranded: true) {
+    %base-heading {
+        @content
+    }
+
+    @if $from >= 1 and $to <= 6 {
+        @for $i from $from through $to {
+        	@if $dbl-stranded == true {
+        		h#{$i}, .h#{$i}  {
+                	@extend %base-heading;
+            	}
+        	} @else {
+            	h#{$i} {
+                	@extend %base-heading;
+                }
+            }
+        }
+    }
+}
+
+/* [CONVERT PX TO EM/REM]
+-------------------------------------------------------*/
+/*
+	Usage:
+		To convert `px` to `em`'s or `rem`'s for multiple properties or values or both.
+
+	Notes:
+		-	Accepts a list of lists (instead a list of values) for properties that accept multiple lists of values. Only numbers are converted; everything else is passed through.
+		-	For the `to-rem` `@mixin` we fallback to `px` value for old IE and this is only compiled to 'old-ie.css'.
+		-	For the `to-em` `@mixin` `$context` is an optional argument that allows making measurements relative to the parent font size rather than the current.
+		-	`$sledgehammer` is an optional argument that allows for the `!important` keyword to be specified, when used in the `to-em` `@mixin` and the optional `$context` argument does not need to be included then it has to be called using a named argument: `$sledgehammer: !important` so that we can skip over `$context` avoiding having to redundantly redeclare it.
+		-	'REM' `@mixin` outputs a `px` fallback for old IE and Opera Mini, when Opera Mini supports `rem` (http://caniuse.com/#feat=rem) change the `@mixin` to an archived version (11-02-2013).
+
+	Credit:
+		https://gist.github.com/2237465
+
+	Examples:
+		@include to-em(line-height, 30)
+		@include to-rem(line-height, 30)
+		@include to-em(width height, 125);
+		@include to-rem(padding, 0 25);
+		@include to-em(text-shadow, (#0d6e28 1 1) (#777 0 0 2), 16);
+		@include to-rem(box-shadow, (inset 0 0 0 1 #2a9022) (inset 0 0 3 #459966));
+		@include to-em(padding margin, $spacing-base, $sledgehammer: !important);
+		@include to-rem(margin, $spacing-base, !important);
+*/
+
+/* EM */
+@mixin to-em($props, $sizes, $context: $font-size, $sledgehammer: false) {
+	$values: ();
+    $sublists: false;
+	$important: if($sledgehammer, "!important", "");
+    @each $s in $sizes {
+        @if type-of($s) == list {
+            $sublists: true;
+            $vv: ();
+            @each $ss in $s {
+                $vv: append($vv, if(type-of($ss) == number, #{$ss / $context}em, $ss));
+            }
+            $values: append($values, join((), $vv));
+        } @else {
+            $values: append($values, if(type-of($s) == number, #{$s / $context}em, $s));
+        }
+    }
+    $value: join((), $values, if($sublists, comma, space));
+    @each $prop in $props {
+		#{$prop}: $value#{$important}
+	}
+}
+
+/* REM */
+@mixin to-rem($props, $sizes, $sledgehammer: "") {
+	$values-px: ();
+	$values: ();
+    $sublists: false;
+    @each $s in $sizes {
+        @if type-of($s) == list {
+            $sublists: true;
+			$vv-px: ();
+            $vv: ();
+            @each $ss in $s {
+				$vv-px: append($vv-px, if(type-of($ss) == number, #{$ss}px, $ss));
+				$vv: append($vv, if(type-of($ss) == number, #{$ss / $font-size}rem, $ss));
+            }
+			$values-px: append($values-px, join((), $vv-px));
+            $values: append($values, join((), $vv));
+        } @else {
+			$values-px: append($values-px, if(type-of($s) == number, #{$s}px, $s));
+			$values: append($values, if(type-of($s) == number, #{$s / $font-size}rem, $s));
+        }
+    }
+	$value-px: join((), $values-px, if($sublists, comma, space));
+    $value: join((), $values, if($sublists, comma, space));
+    @each $prop in $props {
+		#{$prop}: $value-px#{$sledgehammer};
+		#{$prop}: $value#{$sledgehammer};
+	}
+}
+
+/* [CSS3]
+-------------------------------------------------------*/
+
+/*
+	Property:
+		`rgba`
+
+	Usage:
+		RGBA background color with an old IE fallback (no alpha transparency).
+
+	Example:
+		@include rgba-bg(#000, 0.8);
+*/
+
+@mixin rgba-bg($hex, $alpha) {
+	@if $old-ie {
+		background-color: $hex;
+	} @else {
+		background-color: rgba($hex, $alpha);
+	}
+}
+
+/*
+	Property:
+		`linear-gradient`
+
+	Usage:
+		Simple CSS3 linear gradients with old IE/Webkit fallbacks.
+
+	Notes:
+		-	This mixin is very basic in that it only caters for two colour's ('from' and 'to'), no colour stops, only linear (no radial), not repeating, etc. in most cases this is all you need, for more involved gradients then look into Compass: http://compass-style.org/examples/compass/css3/gradient/ however keep an eye on their vendor prefixes as they tend to be dated.
+		-	When Webkit supports the new syntax (see: http://caniuse.com/#feat=css-gradients) then the Webkit specific syntax can be removed, in the meantime any direction keywords used need to be reversed (see: http://generatedcontent.org/post/37949105556/updateyourcss3).
+		-	There's support for IE 9 using the `-ms-filter` property same as old IE but be mindful that if it's turned on and there's a `border-radius` property being used then the element will not get rounded corners.
+		-	In order to skip over optional arguments then named arguments need to be used: `$from: #7a7a7a, $to: #1a1a1a,` so that we avoid having to redundantly redeclare the optional arguments, see: http://stackoverflow.com/questions/14435927/skipping-an-optional-argument-in-sass-mixin.
+		-	Handy reminders:
+			-	Direction keywords: 'top', 'right', 'bottom', 'left', 'top left', 'top right', 'bottom left' and 'bottom right'.
+			-	Degree values:
+				-	0deg is equivalent to to top, 90deg is equivalent to to right, 180deg is equivalent to to bottom, 270deg is equivalent to to left and 360deg brings you back to to top again.
+				-	How to support old syntax: "If you use an angle, the starting point of the gradient line has shifted. Previously 0deg started at the East position. Angles increased in an anticlockwise direction, such that 90deg started at the North position. With the unprefixed syntax the gradient line for 0deg starts at the North position and the angle increases clockwise. The formula for switching from the old the new degree value is abs(oldDegValue − 450) mod 360."
+
+	Examples:
+		@include linear-gradient(#f63, #ff6);
+		@include linear-gradient(#f63, #ff6, top left, bottom right);
+		@include linear-gradient($from: #f63, $to: #ff6, $old-ie-filter: true, $ie-9-filter: true);
+		@include linear-gradient(#f63, #ff6, bottom, top, true, true, true, #000);
+		@include linear-gradient-light(#f63);
+		@include linear-gradient-light(#f63, top, bottom);
+		@include linear-gradient-dark(#f63);
+		@include linear-gradient-dark(#f63, top, bottom);
+
+*/
+
+/* Using 'direction' keywords */
+@mixin linear-gradient($from, $to, $dir: bottom, $dir-webkit: top, $old-ie-filter: false, $ie-9-filter: false, $override-bg-color: false, $bg-color-override: "") {
+	@if $override-bg-color == true {
+		background-color: $bg-color-override;
+	} @else {
+		background-color: $to;
+	}
+	background-image: -webkit-linear-gradient($dir-webkit, $from, $to);
+	background-image: linear-gradient(to $dir, $from, $to);
+  	@if $old-ie-filter == true and $old-ie {
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{ie-hex-str($from)}', endColorstr='#{ie-hex-str($to)}');
+	}
+	@if $ie-9-filter == true and $old-ie != true {
+		-ms-filter: quote(progid:DXImageTransform.Microsoft.gradient(startColorstr='#{ie-hex-str($from)}', endColorstr='#{ie-hex-str($to)}'));
+	}
+}
+
+/* Using 'degree' values */
+@mixin linear-gradient-deg($from, $to, $deg: 180deg, $deg-webkit: 270deg, $old-ie-filter: false, $ie-9-filter: false, $override-bg-color: false, $bg-color-override: "") {
+	@if $override-bg-color == true {
+		background-color: $bg-color-override;
+	} @else {
+		background-color: $to;
+	}
+	background-image: -webkit-linear-gradient($deg-webkit, $from, $to);
+	background-image: linear-gradient($deg, $from, $to);
+  	@if $old-ie-filter == true and $old-ie {
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{ie-hex-str($from)}', endColorstr='#{ie-hex-str($to)}');
+	}
+	@if $ie-9-filter == true and $old-ie != true {
+		-ms-filter: quote(progid:DXImageTransform.Microsoft.gradient(startColorstr='#{ie-hex-str($from)}', endColorstr='#{ie-hex-str($to)}'));
+	}
+}
+
+/* Simple light gradient (only a bg color needs to be used) */
+@mixin linear-gradient-light($bg-color, $dir: top, $dir-webkit: bottom) {
+	background-color: $bg-color;
+	background-image: -webkit-linear-gradient($dir-webkit, rgba(#fff, 0.5), rgba(#fff, 0));
+	background-image: linear-gradient(to $dir, rgba(#fff, 0.5), rgba(#fff, 0));
+}
+
+/* Simple dark gradient (only a bg color needs to be used) */
+@mixin linear-gradient-dark($bg-color, $dir: top, $dir-webkit: bottom) {
+	background-color: $bg-color;
+	background-image: -webkit-linear-gradient($dir-webkit, rgba(#000, 0.25), rgba(#000, 0));
+	background-image: linear-gradient(to $dir, rgba(#000, 0.25), rgba(#000, 0));
+}
+
+/*
+	Property:
+		`transform`
+
+	Usage:
+		CSS3 Transforms for 'Rotate', 'Scale', 'Translate' and 'Scale'.
+
+	Note:
+		Keep an eye on browser support: http://caniuse.com/#feat=transforms2d.
+
+	Credit:
+		https://github.com/madr/css3-sass-mixins/blob/master/_all.scss
+
+	Examples:
+		@include rotate(-12.5);
+		@include scale(1.5, 2);
+		@include translate(40%);
+		@include translate3d(10%);
+		@include skew(45, 30);
+
+		@include transform-origin(200px 400px);
+*/
+
+/* Base `@mixin` */
+@mixin transform($transforms) {
+	-webkit-transform: $transforms;
+	-ms-transform: $transforms;
+    transform: $transforms;
+}
+
+/* Transform origin */
+@mixin transform-origin($location) {
+	-webkit-transform-origin: $location;
+	-ms-transform-origin: $location;
+    transform-origin: $location;
+}
+
+	/* --Different transforms-- */
+
+	/* Rotate */
+	@mixin rotate($deg) {
+		@include transform(rotate(#{$deg}deg));
+	}
+
+	/* Scale */
+	@mixin scale($x, $y: $x) {
+		@include transform(scale($x, $y));
+	}
+
+	/* --Translate-- */
+
+	/* 2D */
+	@mixin translate($x, $y: 0) {
+		@include transform(translate($x, $y));
+	}
+
+	/* 3D */
+	@mixin translate3d($x, $y: 0, $z: 0) {
+		@include transform(translate($x, $y, $z));
+	}
+
+	/* Skew */
+	@mixin skew($x, $y: 0) {
+		@include transform(skew(#{$x}deg, #{$y}deg));
+	}
+
+/* [OPACITY]
+-------------------------------------------------------*/
+/*
+	Usage:
+		Quick way to declare `opacity` for modern browsers and old IE.
+
+	Examples:
+		@include opacity(0.2);
+		@include opacity(0.9, !important);
+*/
+
+@mixin opacity($alpha, $sledgehammer: "") {
+	$alpha-ie: $alpha * 100;
+	@if $old-ie {
+		filter: alpha(opacity="#{$alpha-ie}")#{$sledgehammer};
+	} @else {
+		opacity: $alpha#{$sledgehammer};
+	}
+}
+
+/* [VENDOR PREFIXES]
+-------------------------------------------------------*/
+/*
+	Usage:
+		Specify vendor prefixes for CSS3 properties.
+
+	Note:
+		Keep an eye on browser support:
+		-	Transition: 	http://caniuse.com/#search=transition
+		-	Animation: 		http://caniuse.com/#feat=css-animation
+		-	Multi-column: 	http://caniuse.com/#feat=multicolumn
+		-	Hyphens: 		http://caniuse.com/#feat=css-hyphens
+		-	Box sizing: 	http://caniuse.com/#feat=css3-boxsizing
+		-	Border image: 	http://caniuse.com/#feat=border-image
+		-	User-select:	http://caniuse.com/#feat=user-select-none
+
+	Credit:
+		-	https://github.com/csswizardry/inuit.css/pull/102#issuecomment-12825976
+		-	https://gist.github.com/3911033
+
+	Examples:
+		@include prefix(transition, border 0.2s linear, box-shadow 0.2s linear);
+		@include prefix(animation, fade-in 1.5s 0.5s both);
+		@include prefix(border-image, url(img/preloader.gif) 3 repeat);
+
+		Loose version:
+		@include prefix-loose(transition, all .15s, (-webkit-, ""));
+*/
+
+@mixin prefix($property, $value...) {
+
+    /* Transition */
+	@if $property == transition {
+		-webkit-#{$property}: $value;
+		#{$property}: $value;
+    }
+
+	/* Animation */
+    @else if $property == animation {
+        -webkit-#{$property}: $value;
+		#{$property}: $value;
+    }
+
+	/* Multi-column */
+    @else if $property == column {
+        -webkit-#{$property}: $value;
+		-moz-#{$property}: $value;
+		#{$property}: $value;
+    }
+
+		/* Multi-column - count */
+		@else if $property == column-count {
+			-webkit-#{$property}: $value;
+			-moz-#{$property}: $value;
+			#{$property}: $value;
+		}
+
+		/* Multi-column - gap */
+		@else if $property == column-gap {
+			-webkit-#{$property}: $value;
+			-moz-#{$property}: $value;
+			#{$property}: $value;
+		}
+
+		/* Multi-column - rule */
+		@else if $property == column-rule {
+			-webkit-#{$property}: $value;
+			-moz-#{$property}: $value;
+			#{$property}: $value;
+		}
+
+	/* Hyphens */
+    @else if $property == hyphens {
+        -webkit-#{$property}: $value;
+		-moz-#{$property}: $value;
+		-ms-#{$property}: $value;
+		-o-#{$property}: $value;
+		#{$property}: $value;
+    }
+
+	/* Box sizing */
+    @else if $property == box-sizing {
+        -webkit-#{$property}: $value;
+		-moz-#{$property}: $value;
+		#{$property}: $value;
+    }
+
+	/* Border image */
+    @else if $property == border-image {
+        -webkit-#{$property}: $value;
+		-o-#{$property}: $value;
+		#{$property}: $value;
+    }
+
+	/* User select */
+	@else if $property == user-select {
+         -webkit-#{$property}: $value;
+		-moz-#{$property}: $value;
+		-ms-#{$property}: $value;
+		-o-#{$property}: $value;
+		#{$property}: $value;
+    }
+
+}
+
+/* If you need to prefix something quicky and it's not in the above list, but the above `@mixin` should always be used */
+@mixin prefix-loose($props, $value, $prefixes: ("-webkit-", "-moz-", "-ms-", "-o-", "")) {
+	@each $prefix in $prefixes {
+		#{$prefix}#{$props}: #{$value};
+	}
+}
+
+/*
+	Usage:
+		Create CSS keyframe animations for the necessary vendors.
+
+	Note:
+		Keep an eye on browser support: http://caniuse.com/#feat=css-animation.
+
+	Examples:
+		@include prefix(animation, shrink 3s);}
+		@include prefix-keyframe(shrink) {
+			from {font-size: 5em;}
+		}
+*/
+
+@mixin prefix-keyframe($animation-name) {
+	@-webkit-keyframes $animation-name {
+		@content;
+	}
+
+    @keyframes $animation-name {
+		@content;
+	}
+}
+
+/* [INPUT PLACEHOLDER]
+-------------------------------------------------------*/
+/*
+	Usage:
+		Take care of all the different browser vendor prefixes for the form input `placeholder` attr.
+
+	Example:
+		@include input-placeholder {
+			.foo {background: red;}
+		}
+*/
+@mixin input-placeholder {
+
+	/* Webkit */
+	::-webkit-input-placeholder {
+	   @content;
+	}
+
+	/* Firefox 18- */
+	:-moz-placeholder {
+	   @content;
+	}
+
+	/* Firefox 19+ */
+	::-moz-placeholder {
+	   @content;
+	}
+
+	/* MS */
+	:-ms-input-placeholder {
+	   @content;
+	}
+
+	/* jQuery plugin (old IE) */
+	input.placeholder {
+		 @content;
+	}
+}
+
+/* [TARGET BROWSERS]
+-------------------------------------------------------*/
+/*
+	Usage:
+		For targetting specific browsers.
+
+	Notes:
+		-	The non-old IE `@mixin`s should be avoided at all costs (last resort).
+		-	Whenever the old IE `@mixin` is called it will only appear in 'old-ie.css'.
+		-	'Mozilla' `@mixin` cannot be nested in a style declaration, has to exist as it's own rule.
+
+	Examples:
+		@include target-webkit {
+			.foo {background: red;}
+		}
+		@include target-mozilla {
+			.foo {background: red;}
+		}
+		@include old-ie {
+			.foo {background: red;}
+		}
+		@include ie-10-up {
+			.foo {background: red;}
+		}
+*/
+
+/* Webkit */
+@mixin target-webkit {
+    @media all and (-webkit-min-device-pixel-ratio:0) {
+		@content;
+	}
+}
+
+/* Mozilla */
+@mixin target-mozilla {
+	@-moz-document url-prefix() {
+		@content;
+	}
+}
+
+/* Opera */
+/*doesnotexist:-o-prefocus,
+.selector {
+	color: red;
+}*/
+
+/* IE 10+ */
+@mixin ie-10-up {
+	@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+	   @content;
+	}
+}
+
+/* Old IE */
+@mixin old-ie {
+	@if $old-ie {
+		@content;
+	}
+}
+
+/* [MEDIA QUERY STUFF]
+-------------------------------------------------------*/
+/*
+	Usage:
+		Set-up media queries for min/max widths inc. ranges and handle support for old IE, also include a flag to only target 'screen' media so as to not affect 'print' media.
+
+	Note:
+		For old IE we're wrapping `@media screen` around `@content` in order to prevent 'print' media being affected however be careful because `@extend` will not work so might be that this has to be removed?
+
+	Credit:
+		http://jakearchibald.github.com/sass-ie/
+
+	Examples:
+		@include respond-min($lap) {
+			.foo {background: red;}
+		}
+		@include respond-min($lap, true) {
+			.foo {background: red;}
+		}
+		@include respond-max($palm) {
+			.foo {background: red;}
+		}
+		@include respond-range(500, 780) {
+			.foo {background: red;}
+		}
+		@include respond-range-fixed(lap-lrg) {
+			.foo {background: red;}
+		}
+*/
+
+/* Min width */
+@mixin respond-min($width, $screen-only: false) {
+	@if $fix-mqs {
+		@if $fix-mqs >= $width {
+			@media screen {
+				@content;
+			}
+		}
+	} @else {
+		@if $screen-only == true {
+			@media screen and (min-width: ($width / 16)+em) {
+				@content;
+			}
+		} @else {
+			@media (min-width: ($width / 16)+em) {
+				@content;
+			}
+		}
+	}
+}
+
+/* Max width */
+@mixin respond-max($width, $screen-only: false) {
+	@if $fix-mqs {
+		@if $fix-mqs < $width {
+			@content;
+		}
+	} @else {
+		@if $screen-only == true {
+			@media screen and (max-width: ($width / 16)+em) {
+				@content;
+			}
+		} @else {
+			@media (max-width: ($width / 16)+em) {
+				@content;
+			}
+		}
+	}
+}
+
+/* --Min/max ranges-- */
+
+/* Accepts any range */
+@mixin respond-range($min-width, $max-width, $screen-only: false) {
+	@if $fix-mqs {
+		@if ($fix-mqs >= $min-width) and ($fix-mqs < $max-width) {
+			@media screen {
+				@content;
+			}
+		}
+	} @else {
+		@if $screen-only == true {
+			@media screen and (min-width: ($min-width / 16)+em) and (max-width: ($max-width / 16)+em) {
+				@content;
+			}
+		} @else {
+			@media (min-width: ($min-width / 16)+em) and (max-width: ($max-width / 16)+em) {
+				@content;
+			}
+		}
+	}
+}
+
+/* --Grouped (comma seperated list)-- */
+
+/* Accepts 2 `min-width` values */
+@mixin respond-group-min($width-1, $width-2, $screen-only: false) {
+	@if $fix-mqs {
+		@if ($fix-mqs >= $width-1) or ($fix-mqs >= $width-2) {
+			@media screen {
+				@content;
+			}
+		}
+	} @else {
+		@if $screen-only == true {
+			@media screen and (min-width: ($width-1 / 16)+em), screen and (min-width: ($width-2 / 16)+em) {
+				@content;
+			}
+		} @else {
+			@media (min-width: ($width-1 / 16)+em), (min-width: ($width-2 / 16)+em) {
+				@content;
+			}
+		}
+	}
+}
+
+/* Accepts 2 `max-width` values */
+@mixin respond-group-max($width-1, $width-2, $screen-only: false) {
+	@if $fix-mqs {
+		@if ($fix-mqs < $width-1) or ($fix-mqs < $width-2) {
+			@media screen {
+				@content;
+			}
+		}
+	} @else {
+		@if $screen-only == true {
+			@media screen and (max-width: ($width-1 / 16)+em), screen and (max-width: ($width-2 / 16)+em) {
+				@content;
+			}
+		} @else {
+			@media (max-width: ($width-1 / 16)+em), (max-width: ($width-2 / 16)+em) {
+				@content;
+			}
+		}
+	}
+}
+
+/* Accepts 1 `min-width` value AND 1 `max-width` value */
+@mixin respond-group-min-max($width-1, $width-2, $screen-only: false) {
+	@if $fix-mqs {
+		@if ($fix-mqs >= $width-1) or ($fix-mqs < $width-2) {
+			@media screen {
+				@content;
+			}
+		}
+	} @else {
+		@if $screen-only == true {
+			@media screen and (min-width: ($width-1 / 16)+em), screen and (max-width: ($width-2 / 16)+em) {
+				@content;
+			}
+		} @else {
+			@media (min-width: ($width-1 / 16)+em), (max-width: ($width-2 / 16)+em) {
+				@content;
+			}
+		}
+	}
+}
+
+/* Fixed ranges using the pre-defined breakpoints in 'utils/vars' */
+@mixin respond-range-fixed($respond-range, $screen-only: false) {
+
+	@if $old-ie == false {
+
+		/* Lap */
+		@if $respond-range == lap {
+			@if $screen-only == true {
+				@media screen and (min-width: ($lap-start / 16)+em) and (max-width: ($lap-end / 16)+em) {
+					@content;
+				}
+			} @else {
+				@media (min-width: ($lap-start / 16)+em) and (max-width: ($lap-end / 16)+em) {
+					@content;
+				}
+			}
+		}
+
+		/* Lap small */
+		@if $respond-range == lap-sml {
+			@if $screen-only == true {
+				@media screen and (min-width: ($lap-start / 16)+em) and (max-width: ($lap-sml-end / 16)+em) {
+					@content;
+				}
+			} @else {
+				@media (min-width: ($lap-start / 16)+em) and (max-width: ($lap-sml-end / 16)+em) {
+					@content;
+				}
+			}
+		}
+
+		/* Lap large */
+		@if $respond-range == lap-lrg {
+			@if $screen-only == true {
+				@media screen and (min-width: ($lap-lrg-start / 16)+em) and (max-width: ($lap-end / 16)+em) {
+					@content;
+				}
+			} @else {
+				@media (min-width: ($lap-lrg-start / 16)+em) and (max-width: ($lap-end / 16)+em) {
+					@content;
+				}
+			}
+		}
+
+		/* Desk small */
+		@if $respond-range == desk-sml {
+			@if $screen-only == true {
+				@media screen and (min-width: ($desk-start / 16)+em) and (max-width: ($desk-sml-end / 16)+em) {
+					@content;
+				}
+			} @else {
+				@media (min-width: ($desk-start / 16)+em) and (max-width: ($desk-sml-end / 16)+em) {
+					@content;
+				}
+			}
+		}
+
+	}
+
+}
+
+/*
+	Usage:
+		For targetting iOS devices.
+
+	Example:
+		@include target-iOS {
+			.foo {background: red;}
+		}
+*/
+
+@mixin target-iOS {
+	@media	only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: landscape),
+			only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait),
+			only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape),
+			only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+				@content;
+			}
+}
+
+/*
+	Usage:
+		For targetting high resolution displays (retina).
+
+	Note:
+		On retina, use image that's scaled by 2.
+
+	Credit:
+		http://37signals.com/svn/posts/3271-easy-retina-ready-images-using-scss
+
+	Example:
+		.logo {
+			background: url("logo.png") no-repeat;
+			@include img-2x("logo@2x.png", 100px, 25px);
+		}
+*/
+
+@mixin img-2x($image, $width, $height) {
+	@media 	(-o-min-device-pixel-ratio: 5/4),
+			(-webkit-min-device-pixel-ratio: 1.25),
+			(min-resolution: 120dpi) {
+				background-image: url($image);
+				background-size: $width $height;
+	}
+}
+
+/* [ARROWS]
+-------------------------------------------------------*/
+/*
+	Usage:
+		Creates a CSS arrow on a given element, they're 12 locations the arrow can be placed. For full details see the 'Credit' URL.
+
+	Credit:
+		https://github.com/csswizardry/inuit.css/blob/master/inuit.css/generic/_mixins.scss
+
+	Examples:
+		@include arrow(top, left, red);
+		@include arrow(bottom, center, red, black);
+*/
+
+@mixin arrow($arrow-edge, $arrow-location, $arrow-color, $border-color: $arrow-color) {
+
+    @if $arrow-edge == top {
+
+        @extend %arrow--top;
+
+        &:before {border-bottom-color: $border-color !important;}
+
+        &:after {border-bottom-color: $arrow-color !important;}
+
+        @if $arrow-location == left {
+            @extend %arrow--left;
+        }
+
+        @if $arrow-location == center {
+            @extend %arrow--center;
+        }
+
+        @if $arrow-location == right {
+            @extend %arrow--right;
+        }
+
+    }
+
+    @if $arrow-edge == right {
+
+        @extend %arrow--far;
+
+        &:before {border-left-color: $border-color !important;}
+
+        &:after {border-left-color: $arrow-color !important;}
+
+        @if $arrow-location == top {
+            @extend %arrow--upper;
+        }
+
+        @if $arrow-location == center {
+            @extend %arrow--middle;
+        }
+
+        @if $arrow-location == bottom {
+            @extend %arrow--lower;
+        }
+
+    }
+
+    @if $arrow-edge == bottom {
+
+        @extend %arrow--bottom;
+
+        &:before {border-top-color: $border-color !important;}
+
+        &:after {border-top-color: $arrow-color !important;}
+
+        @if $arrow-location == left {
+            @extend %arrow--left;
+        }
+
+        @if $arrow-location == center {
+            @extend %arrow--center;
+        }
+
+        @if $arrow-location == right {
+            @extend %arrow--right;
+        }
+
+    }
+
+    @if $arrow-edge == left {
+
+        @extend %arrow--near;
+
+        &:before {border-right-color: $border-color !important;}
+
+        &:after {border-right-color: $arrow-color !important;}
+
+        @if $arrow-location == top {
+            @extend %arrow--upper;
+        }
+
+        @if $arrow-location == center {
+            @extend %arrow--middle;
+        }
+
+        @if $arrow-location == bottom {
+            @extend %arrow--lower;
+        }
+
+    }
+
+}
+
+/* [PLACEHOLDER SELECTOR MEDIA QUERY FIX]
+-------------------------------------------------------*/
+/*
+	Usage:
+		Placeholder selectors cannot be extended within media queries therefore to keep things DRY we use a `@mixin` to contain it's styles and when a selector is in a media query the `@mixin` needs to be called not the placeholder selector.
+*/
+
+/* Disguised link */
+@mixin disguised-link {
+	color: inherit;
+	text-decoration: inherit;
+	cursor: text;
+
+	/* Pseudo classes */
+	&:visited,
+	&:hover,
+	&:focus {color: inherit;}
+}
+
+/* Clear fix */
+@mixin clear-fix {
+	&:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+/* --Hide-- */
+
+/* Hide only visually but have it available for screen readers */
+@mixin hide-visually {
+	position: absolute;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+	clip: rect(0 0 0 0);
+	margin: -1px;
+	padding: 0;
+	border: 0;
+}
+
+/* Turns off `@mixin hide-visually` i.e. bring back into view */
+@mixin hide-visually-off {
+	position: static;
+	height: auto;
+	width: auto;
+	overflow: visible;
+	clip: rect(auto, auto, auto, auto);
+	margin: 0;
+}

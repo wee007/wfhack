@@ -1,0 +1,17 @@
+/* ======================================================================================
+   @UTILS -> PLACEHOLDERS -> HIDE
+   ====================================================================================== */
+
+/*
+	Usage:
+		Hides elements in various ways.
+
+	Note:
+		Most of the time the relevant 'hide' helper classes (see: helpers/hide) will handle this.
+*/
+
+/* Hide only visually but have it available for screen readers */
+%hide-visually {@include hide-visually;}
+
+/* Turns off `%hide-visually` i.e. bring back into view */
+%hide-visually-off {@include hide-visually-off;}

@@ -1,0 +1,158 @@
+@charset "utf-8";
+
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂
+
+Global stylesheet
+
+  Usage:
+    This stylesheet imports all Sass partials which is compiled to: 'main.css' which
+    is then loaded from the HTML Head. Old IE (IE < 9) imports this stylesheet
+    along with all it's partials in order to support CSS within media queries. Using
+    IE conditional comments in the HTML Head allows us to only load the one style
+    sheet for Old IE: 'old-ie.css' and ignore 'main.css' and vice versa for the main
+    stylesheet.
+
+  Optimisation:
+    Both compiled stylesheets loaded from the HTML Head are minified by the build
+    script for production.
+
+  Partial dir structure:
+    - UTILS...................generic utility styles and Sass settings e.g. mixins
+      - PLACEHOLDERS........placeholder selectors to keep things DRY
+    - BASE....................base styles; unclassed HTML elements
+    - LAYOUT..................site structure styles e.g. header/footer
+      - GRID................you guessed it; the grid!
+    - ABSTRACTIONS............very common patterns to be used 'as is' or built upon
+    - MODULES.................discrete components of the page, this is the meat
+      - WIDGETS ............more interactive rich requiring JavaScript/jQuery
+    - FORMS...................everything relating to forms
+    - BUTTONS.................you guessed it; all the buttons!
+    - HELPERS.................a bunch of classes to apply very common styles
+    - PRINT...................global print styles (rest of print styles live inline)
+    - DEBUG...................enable to add visual flags for debugging purposes
+    - SHAME...................home for housing nasty, hacky, quick-fix CSS
+
+▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂
+*/
+
+// = require_self
+
+
+/* [IMPORT ALL PARTIALS]
+-------------------------------------------------------*/
+
+/* Utils */
+@import "partials/utils/vars";
+@import "partials/utils/mixins";
+@import "partials/utils/functions";
+@import "partials/utils/normalize";
+@import "partials/utils/reset";
+@import "partials/utils/debug";
+
+  /* Utils -> Placeholders */
+  @import "partials/utils/placeholders/bottom-spacing";
+  @import "partials/utils/placeholders/clear-fix";
+  @import "partials/utils/placeholders/disguised-link";
+  @import "partials/utils/placeholders/image-replacement";
+  @import "partials/utils/placeholders/sprite-bg";
+  @import "partials/utils/placeholders/sprite-icon";
+  @import "partials/utils/placeholders/transitions";
+  @import "partials/utils/placeholders/arrows";
+  @import "partials/utils/placeholders/box-shadows";
+  @import "partials/utils/placeholders/hide";
+
+/* Base */
+@import "partials/base/fonts";
+@import "partials/base/main";
+@import "partials/base/viewport";
+@import "partials/base/links";
+@import "partials/base/lists";
+@import "partials/base/embedded-content";
+@import "partials/base/paragraphs";
+@import "partials/base/headings";
+@import "partials/base/tables";
+@import "partials/base/quotes";
+@import "partials/base/text-selection";
+@import "partials/base/misc";
+@import "partials/base/skip-link";
+
+/* Layout */
+@import "partials/layout/containers";
+@import "partials/layout/header";
+@import "partials/layout/footer";
+
+  /* Layout -> Grid */
+  @import "partials/layout/grid/grid";
+  @import "partials/layout/grid/widths";
+  @import "partials/layout/grid/pull";
+  @import "partials/layout/grid/push";
+
+/* Abstractions */
+@import "partials/abstractions/horizontal-list";
+@import "partials/abstractions/definition-list";
+@import "partials/abstractions/block-list";
+@import "partials/abstractions/complex-link";
+@import "partials/abstractions/split";
+@import "partials/abstractions/frame";
+@import "partials/abstractions/island";
+@import "partials/abstractions/slats";
+@import "partials/abstractions/columns";
+@import "partials/abstractions/arrows";
+@import "partials/abstractions/divider";
+@import "partials/abstractions/vertical-alignment";
+@import "partials/abstractions/preserve-aspect-ratio";
+@import "partials/abstractions/dropdown";
+
+/* Modules */
+@import "partials/modules/feedback";
+@import "partials/modules/microformat(hCard)";
+@import "partials/modules/sprite";
+@import "partials/modules/icon";
+@import "partials/modules/preloader";
+@import "partials/modules/pagination";
+@import "partials/modules/thumbnail-grid";
+
+  /* Modules -> Widgets */
+  @import "partials/modules/widgets/accordion";
+  @import "partials/modules/widgets/flexslider";
+  @import "partials/modules/widgets/adaptive-google-map";
+  @import "partials/modules/widgets/modal";
+  @import "partials/modules/widgets/social-media-share";
+  @import "partials/modules/widgets/tabs";
+  @import "partials/modules/widgets/tooltip";
+
+/* Forms */
+@import "partials/forms/base";
+@import "partials/forms/layout";
+@import "partials/forms/validation";
+
+/* Buttons */
+@import "partials/buttons/base";
+@import "partials/buttons/main";
+@import "partials/buttons/menu-toggle";
+@import "partials/buttons/close";
+@import "partials/buttons/faux-link";
+
+/* Helpers */
+@import "partials/helpers/hide";
+@import "partials/helpers/spacing";
+@import "partials/helpers/display";
+@import "partials/helpers/text";
+@import "partials/helpers/float";
+@import "partials/helpers/pull";
+@import "partials/helpers/vertical-alignments";
+
+/* Print */
+@import "partials/print/print";
+
+/* Shame */
+@import "partials/shame/shame";

@@ -1,0 +1,46 @@
+@charset "utf-8";
+
+/*
+
+
+Old IE (IE < 9) stylesheet
+
+  Usage:
+    Refer to the 'Usage' section in 'main.scss'.
+
+
+*/
+
+
+/* ======================================================================================
+   @SASS SETTINGS
+   ====================================================================================== */
+
+/* [VARS]
+-------------------------------------------------------*/
+/* For targetting old IE (IE < 9) */
+$old-ie: true;
+
+/* Set the max width breakpoint of the media query CSS we want to grab i.e. anything above this width will be discarded  */
+/*
+  Note: '1600' is the max width for the page container as declared by the `$page-container-max-width` var in 'utils/vars'.
+*/
+$fix-mqs: 1600;
+
+/* [IMPORTS]
+-------------------------------------------------------*/
+/* Import everything from 'application.scss' */
+@import "application";
+
+
+/* ======================================================================================
+   @OLD IE NOTIFICATION
+   ====================================================================================== */
+
+/* Inform IE 7 users and under that they should upgrade their browser */
+.old-ie-notification {
+  background-color: lighten(gold, 20%);
+  color: #202020;
+  padding: to-em(9) 0;
+  text-align: center;
+}

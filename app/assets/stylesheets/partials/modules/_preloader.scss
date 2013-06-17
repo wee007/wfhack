@@ -1,0 +1,36 @@
+/* ======================================================================================
+   @MODULES -> PRELOADER
+   ====================================================================================== */
+
+/*
+	Usage:
+		Provides feedback to the user letting them know that their action is being processed e.g. a form submission. It renders an animating spinner (light) but can also include a message with the spinner e.g. "Loading, please wait..." (full).
+
+	Demo:
+		Style Guide -> Modules -> Preloader
+*/
+
+.preloader {
+
+	&,
+	& * {display: inline-block;}
+
+	& * {vertical-align: middle;}
+
+	em {font-style: italic;}
+}
+
+	/* Spinner animation */
+	.preloader--light,
+	.preloader__spinner {
+		width: 16px;
+		height: 16px;
+		overflow: hidden;
+		background: url("img/preloader.gif") no-repeat 0 0;
+	}
+
+	/* Create some space between the spinner and the message */
+	.preloader__spinner {margin-right: to-em($spacing-quarter);}
+
+	/* Remove the spinner as it's parent has hijacked it's styles */
+	.preloader--light .preloader__spinner {display: none;}

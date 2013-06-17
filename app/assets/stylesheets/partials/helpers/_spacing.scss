@@ -1,0 +1,94 @@
+/* ======================================================================================
+   @HELPERS -> SPACING
+   ====================================================================================== */
+
+/*
+	Usage: 
+		Apply spacing via the base bottom margin or variants of it e.g. half / double, can also apply 'top' margins, or to remove spacing applied via margins use any of the `.flush` classes.
+	
+	Demo:
+		Style Guide -> Helpers -> Spacing
+*/
+
+/* Base */
+.mrg-base {@include to-rem(margin-bottom, $spacing-base, !important);}
+
+.mrg-base--top {@include to-rem(margin-top, $spacing-base, !important);}
+
+/* Half */
+.mrg-half {@include to-rem(margin-bottom, $spacing-half, !important);}
+
+.mrg-half--top {@include to-rem(margin-top, $spacing-half, !important);} 
+
+/* Double */
+.mrg-dbl {@include to-rem(margin-bottom, $spacing-dbl, !important);}
+
+.mrg-dbl--top {@include to-rem(margin-top, $spacing-dbl, !important);}
+
+	/* --Apply at specific breakpoints (all pre-defined breakpoints)-- */
+	
+	/* Palm */
+	@include respond-max($palm) {
+		.mrg-base--palm {@include to-rem(margin-bottom, $spacing-base, !important);}
+	}
+	
+	/* Non-palm */
+	@include respond-min($non-palm) {
+		.mrg-base--non-palm {@include to-rem(margin-bottom, $spacing-base, !important);}
+	}
+	
+	/* Lap */
+	@include respond-range-fixed(lap) {
+		.mrg-base--lap {@include to-rem(margin-bottom, $spacing-base, !important);}
+	}
+	
+	/* Lap small */
+	@include respond-range-fixed(lap-sml) {
+		.mrg-base--lap-sml {@include to-rem(margin-bottom, $spacing-base, !important);}
+	}
+	
+	/* Lap large */
+	@include respond-range-fixed(lap-lrg) {
+		.mrg-base--lap-lrg {@include to-rem(margin-bottom, $spacing-base, !important);}
+	}
+	
+	/* Portable */
+	@include respond-max($lap-end) {
+		.mrg-base--portable {@include to-rem(margin-bottom, $spacing-base, !important);}
+	}
+	
+	/* Desk */
+	@include respond-min($desk) {
+		.mrg-base--desk {@include to-rem(margin-bottom, $spacing-base, !important);}
+	}
+	
+	/* Desk small */
+	@include respond-range-fixed(desk-sml) {
+		.mrg-base--desk-sml {@include to-rem(margin-bottom, $spacing-base, !important);}
+	}
+	
+	/* Desk large */
+	@include respond-min($desk-lrg) {
+		.mrg-base--desk-lrg {@include to-rem(margin-bottom, $spacing-base, !important);}
+	}
+
+/* Flush */
+.flush {margin: 0 !important;}
+
+.flush--top {margin-top: 0 !important;}
+
+.flush--right {margin-right: 0 !important;}
+
+.flush--btm {margin-bottom: 0 !important;}
+
+.flush--left {margin-left: 0 !important;}
+
+.flush--ends {
+	margin-top: 0 !important; 
+	margin-bottom: 0 !important;
+}
+
+.flush--sides {
+	margin-right: 0 !important;
+	margin-left: 0 !important;
+}

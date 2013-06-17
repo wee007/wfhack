@@ -1,0 +1,38 @@
+/* ======================================================================================
+   @ABSTRACTIONS -> COMPLEX LINK
+   ====================================================================================== */
+
+/*
+	Usage: 
+		Add link styles to only selected items within links.
+
+	Note: 
+		The base link styles are repeated here so not very DRY (need to look into this).
+	
+	Demo:
+		Style Guide -> Abstractions -> Complex Link
+	
+	Credit: 
+		http://github.com/necolas/suit-utils/blob/master/link.css#L18
+*/
+
+.complex-link {
+	@extend %disguised-link;
+	
+	/* Pseudo classes for link target */
+	&:visited .complex-link__target {color: lighten($color-link, 10%);}
+	
+	&:hover .complex-link__target,
+	&:focus .complex-link__target {
+		color: complement($color-link);
+		text-decoration: none; /* Note: this may be redundant? */
+	}
+}
+
+	/* Link target */
+	.complex-link__target {
+		color: $color-link;
+		text-decoration: underline; /* Note: this may be redundant? */
+		cursor: pointer;
+		@extend %transition-subtle;
+	}

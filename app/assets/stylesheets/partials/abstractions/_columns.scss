@@ -1,0 +1,86 @@
+/* ======================================================================================
+   @ABSTRACTIONS -> COLUMNS
+   ====================================================================================== */
+
+/*
+	Usage: 
+		Easily create columns of text using CSS3.
+	
+	Demo:
+		Style Guide -> Abstractions -> Columns
+	
+	Credit: 
+		https://github.com/csswizardry/inuit.css/blob/master/inuit.css/objects/_columns.scss
+*/
+
+@mixin col-classes($namespace: "") {
+
+    /* 2 cols */
+    .#{$namespace}txt-cols--2 {@include prefix(column-count, 2);}
+
+    /* 3 cols */
+    .#{$namespace}txt-cols--3 {@include prefix(column-count, 3);}
+
+    /* 4 cols */
+    .#{$namespace}txt-cols--4 {@include prefix(column-count, 4);}
+
+    /* 5 cols */
+    .#{$namespace}txt-cols--5 {@include prefix(column-count, 5);}
+
+    /* 6 cols */
+    .#{$namespace}txt-cols--6 {@include prefix(column-count, 6);}
+}
+
+/* Cols only kick in at this breakpoint */
+@include respond-min($non-palm, $screen-only: true) {
+	/* Output all the col classes */
+	@include col-classes();
+	
+	/* Base rules */
+	.txt-cols {
+		@include prefix(column-gap, to-rem($spacing-base));
+		/* Column rule, if used then increase `column-gap` to `$spacing-dbl` */
+		/*@include prefix(column-rule, 1px dotted black);*/
+	}
+}
+
+/* --Output all the col classes under specific breakpoints applied via specific classes (namespaced) e.g. `.lap-txt-cols--2` (all pre-defined breakpoints)-- */
+
+/* 
+	Note: be sure to comment out what you don't use as a lot of CSS is generated from all of this.
+*/
+
+/* Lap */
+@include respond-range-fixed(lap) {
+	@include col-classes("lap-");
+}
+
+/* Lap small */
+@include respond-range-fixed(lap-sml) {
+	@include col-classes("lap-sml-");
+}
+
+/* Lap large */
+@include respond-range-fixed(lap-lrg) {
+	@include col-classes("lap-lrg-");
+}
+
+/* Portable */
+@include respond-max($lap-end) {
+	@include col-classes("portable-");
+}
+
+/* Desk */
+@include respond-min($desk) {
+	@include col-classes("desk-");
+}
+
+/* Desk small */
+@include respond-range-fixed(desk-sml) {
+	@include col-classes("desk-sml-");
+}
+
+/* Desk large */
+@include respond-min($desk-lrg) {
+	@include col-classes("desk-lrg-");
+}

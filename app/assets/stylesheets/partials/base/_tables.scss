@@ -1,0 +1,66 @@
+/* ======================================================================================
+   @BASE -> TABLES
+   ====================================================================================== */
+
+/*
+	Note: these are very basic styles hence them being in 'base', if you're needing something more styled then your table should become a 'module' inheriting from here.
+*/
+
+/* Base */
+table {
+	width: 100%;
+	@extend %mrg-base;
+}
+
+	/* Cell padding */
+	th,
+	td {
+		padding: to-em($spacing-sixth);
+
+		/* Increase at this breakpoint */
+		@include respond-min($non-palm) {
+			padding: to-em($spacing-half);
+		}
+	}
+
+	/* Caption */
+	caption {@extend h2};
+
+	/* Cell header */
+	th {font-weight: bold;}
+
+	/* Alignments */
+	caption,
+	th {text-align: left;}
+
+	[colspan] {text-align: center;}
+
+	[colspan="1"] {text-align: left;}
+
+	[rowspan] {vertical-align: middle;}
+
+	[rowspan="1"] {vertical-align: top;}
+
+	/* Print */
+	@media print {
+		thead {display: table-header-group;}
+	}
+
+/* Striped */
+.table-striped tbody tr:nth-of-type(odd) {background-color: $color-grey-lightest;}
+
+/* Bordered */
+.table-bordered {
+
+    th,
+    td {
+        border: 1px solid $color-grey-light;
+
+		/* No borders for empty cells */
+        &:empty {border: 0;}
+    }
+
+	/* Thicker border for the last row in the `thead` */
+    thead tr:last-child th {border-bottom-width: 2px;}
+}
+

@@ -1,0 +1,53 @@
+/* ======================================================================================
+   @BASE -> LISTS
+   ====================================================================================== */
+
+/* [UNORDERED / ORDERED]
+-------------------------------------------------------*/
+.list {
+	@extend %mrg-base;
+
+	/* Left indent */
+	&,
+	ul,
+	ol {
+		@include to-rem(margin-left, $spacing-base);
+
+		/* Increase left indent at this breakpoint */
+		@include respond-min($non-palm) {
+			@include to-rem(margin-left, $spacing-dbl);
+		}
+	}
+}
+
+	/* Unordered bullets */
+	ul.list {
+		list-style: disc;
+
+		ul {
+			list-style: circle;
+
+				ul {
+					list-style: square;
+				}
+		}
+	}
+
+	/* Ordered bullets */
+	ol.list {
+		list-style: decimal;
+
+		ol {
+			list-style: lower-alpha;
+
+				ol {
+					list-style: lower-roman;
+				}
+		}
+	}
+
+/* [DEFINITION]
+-------------------------------------------------------*/
+dl {@extend %mrg-base;}
+
+	dt {font-weight: bold;}

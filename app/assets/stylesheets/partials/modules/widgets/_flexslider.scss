@@ -1,0 +1,132 @@
+/* ======================================================================================
+   @MODULES -> WIDGETS -> FLEXSLIDER
+   ====================================================================================== */
+
+/*
+	Usage:
+		A fully responsive jQuery slider, typically for photo galleries.
+
+	Demo:
+		Style Guide -> Modules -> Widgets -> Flexslider
+
+	Credit:
+		http://www.woothemes.com/flexslider/
+*/
+
+.flexslider {
+	background-color: $color-grey-light;
+
+	/* Slides container */
+	.slides {
+		@extend %clear-fix;
+
+		/* Print - this is only for the 'slide' effect but should check this */
+		/*
+			Note: it is okay to use `!important` here as we're doing it pre-emptively i.e. you know you will always want the rule it's applied too to take precedence.
+		*/
+		@media print {
+			width: auto !important;
+			margin: 0 !important;
+			-webkit-transform: none !important;
+			-ms-transform: none !important;
+			transform: none !important;
+		}
+	}
+
+		/* Slides - hide the slides before JS is loaded to avoid images jumping */
+		.slides > li {
+			display: none;
+			-webkit-backface-visibility: hidden;
+
+			/* First child should always be visible */
+			&:first-child {
+				display: block;
+				-webkit-backface-visibility: visible;
+			}
+
+			/* Print */
+			/*
+				Note: it is okay to use `!important` here as we're doing it pre-emptively i.e. you know you will always want the rule it's applied too to take precedence.
+			*/
+			@media print {
+				float: none !important;
+				display: none !important;
+				width: auto !important;
+
+				/* Active slide should always be visible */
+				&.flex-active-slide {display: block !important;}
+			}
+		}
+
+			/* Images */
+			.slides img {
+				display: block;
+				margin: 0 auto;
+			}
+}
+
+	/* --Navigation controls-- */
+
+	/* Shared */
+	/* Shared */
+	.flex-control-paging a,
+	.flex-direction-nav a {text-decoration: none;} /* Note: this may be redundant? */
+
+	/* Pager nav */
+	.flex-control-paging {
+		text-align: center;
+
+		/* Print */
+		@media print {
+			display: none;
+		}
+
+		/* Pager nav items */
+		li {display: inline-block;}
+
+			/* Links */
+			a {
+				display: block;
+				width: 16px;
+				height: 16px;
+				overflow: hidden;
+				margin-right: 6px;
+				border: 1px solid #7d194c;
+				border-radius: 100%;
+				background-color: #fff;
+
+				/* Pseudo classes + active state */
+				&:hover,
+				&:focus,
+				&.flex-active {background-color: $color-brand;}
+			}
+	}
+
+	/* Prev/next nav */
+
+	/* Print */
+	@media print {
+		.flex-direction-nav {display: none;}
+	}
+
+	/* Links */
+	.flex-direction-nav a {
+		@extend %img-replacement-alt;
+		width: 27px;
+		height: 40px;
+		overflow: hidden;
+		position: absolute;
+		top: 50%;
+		margin-top: -20px; /* Note: this equals half of what the height is */
+		background-color: #fff;
+
+		/* Pseudo classes */
+		&:hover,
+		&:focus {background-color: $color-brand;}
+	}
+
+	/* Prev */
+	.flex-prev {left: 0;}
+
+	/* Next */
+	.flex-next {right: 0;}

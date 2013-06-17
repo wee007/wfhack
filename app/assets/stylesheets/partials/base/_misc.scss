@@ -1,0 +1,49 @@
+/* ======================================================================================
+   @BASE -> MISCELLANEOUS
+   ====================================================================================== */
+
+/* [HORIZONTAL RULE]
+-------------------------------------------------------*/
+hr {
+	@extend %mrg-base;
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid $color-grey-light;
+    padding: 0;
+	position: relative;
+}
+
+/* [ABBREVIATION]
+-------------------------------------------------------*/
+abbr[title] {cursor: help;}
+
+/* [INSERT]
+-------------------------------------------------------*/
+ins {
+	background-color: #ff9;
+	color: #000;
+	text-decoration: none;
+}
+
+/* [PRE]
+-------------------------------------------------------*/
+pre {@extend %mrg-base;}
+
+/* [ADDRESS/EM]
+-------------------------------------------------------*/
+address,
+em {font-style: normal;}
+
+/* [SMALL]
+-------------------------------------------------------*/
+small {font-size: 100%;}
+
+/* [CANVAS]
+-------------------------------------------------------*/
+/* Set the default behavior for touch-based browsing in IE 10 on devices running Windows 8 */
+canvas {-ms-touch-action: double-tap-zoom;}
+
+/* [CODE]
+-------------------------------------------------------*/
+code {color: darken(#c90, 5%);}

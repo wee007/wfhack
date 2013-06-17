@@ -1,0 +1,108 @@
+/* ======================================================================================
+   @MODULES -> WIDGETS -> TABS
+   ====================================================================================== */
+
+/*
+	Usage: 
+		Similar to the accordion in terms of preserving screen real estate but a tabbed interface is typically rendered horizontally not vertically and rather than 'expanding' and 'collapsing' each item the item simply appears and you can only ever see one item at a time.
+	
+	Demo:
+		Style Guide -> Modules -> Widgets -> Tabs
+*/
+
+/* Tab nav */
+.tab__nav {
+	
+	/* Apply a subtle bg color at this breakpoint */
+	@include respond-min($non-palm) {
+		background-color: $color-off-white;
+	}
+	
+	/* JS off */
+	.no-js & {display: none;}
+		
+	/* Print */
+	@media print {
+		display: none;
+	}
+	
+	/* Items */
+	li {
+		border-bottom: 4px solid transparent;
+		
+		/* Items go into horizontal mode therefore require some spacing between them at this breakpoint */
+		@include respond-min($non-palm) {
+			margin-right: to-em($spacing-quarter);
+			border-bottom: 0;
+		}
+	}
+	
+		/* Links */
+		a {
+			@include to-em(padding, $spacing-quarter $spacing-base); 
+			text-decoration: none; /* Note: this may be redundant? */
+			color: $color-grey;
+			border: 1px solid $color-grey-lighter;
+			border-radius: $border-radius $border-radius 0 0;
+			margin-bottom: -1px;
+			display: block;
+			
+			/* Change the border color at this breakpoint */
+			@include respond-min($non-palm) {
+				border-color: transparent;
+			}
+		}
+		
+		/* Pseudo classes + active state */
+		a:hover,
+		a:focus,
+		.is-active a {
+			background-color: #fff;
+			border-color: $color-grey-lighter;
+			color: $color-link;
+			
+			/* Change the border color at this breakpoint */
+			@include respond-min($non-palm) {
+				border-bottom-color: #fff;
+			}
+		}
+}
+	
+/* Tab Content */
+.tab__content {
+	display: none;
+	padding: to-rem($spacing-half);
+	border: 1px solid $color-grey-lighter;
+	background-color: #fff;
+	
+	/* Active tab */
+	&.is-active {display: block;}
+	
+	/* Double the padding at this breakpoint */
+	@include respond-min($non-palm) {
+		padding: to-rem($spacing-base);
+	}
+	
+	/* JS off */
+	.no-js & {
+		display: block;
+		margin-bottom: to-rem($spacing-base);
+	}
+	
+	/* Print */
+	@media print {
+		display: block;
+		margin-bottom: to-rem($spacing-base);
+	}
+}
+
+	/* Tab content heading - typically for 'print' media and 'non-JS' users */
+	.tab__content__hdr {
+		display: none;
+		
+		/* JS off */
+		.no-js & {display: block;}
+		
+		/* Print */
+		@media print {display: block;}
+	}

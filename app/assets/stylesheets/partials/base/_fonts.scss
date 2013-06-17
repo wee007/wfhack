@@ -1,0 +1,20 @@
+/* ======================================================================================
+   @BASE -> FONTS
+   ====================================================================================== */
+
+/*
+	Note: all `@font-face` declarations here.
+*/
+
+/* [Icons]
+-------------------------------------------------------*/
+@font-face {
+	font-family: "icons";
+	src: url('fonts/icons/fontello.eot?98474208');
+	src: url('fonts/icons/fontello.eot?98474208#iefix') format('embedded-opentype'),
+	   url('fonts/icons/fontello.woff?98474208') format('woff'),
+	   url('fonts/icons/fontello.ttf?98474208') format('truetype'),
+	   url('fonts/icons/fontello.svg?98474208#fontello') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}

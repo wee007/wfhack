@@ -1,0 +1,30 @@
+/* ======================================================================================
+   @MODULES -> MICROFORMAT - hCard
+   ====================================================================================== */
+
+/*
+	Usage:
+		The Microformat hCard: http://microformats.org/wiki/hcard.
+
+	Demo:
+		Style Guide -> Modules -> Microformat (hCard)
+*/
+
+/* Base rules */
+.vcard {
+	p {margin-bottom: 0;}
+
+	/* `.org` heading */
+	.org {font-size: 100%;}
+
+	/* Make the `.url` link not look like a link */
+	.url {@extend %disguised-link;}
+
+	/* Nested `.adr` elements */
+	.adr {
+		span {display: block;}
+
+		.region,
+		.postal-code {display: inline;}
+	}
+}

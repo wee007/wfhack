@@ -1,0 +1,19 @@
+/* ======================================================================================
+   @UTILS -> PLACEHOLDERS -> SPRITE / ICON
+   ====================================================================================== */
+
+/*
+	Usage:
+		Common styles for sprited elements and icon fonts.
+
+	Demo:
+		Style Guide -> Utilities -> Sprite / Icon
+*/
+
+%sprite-icon {
+	line-height: 1;
+	display: inline-block;
+	vertical-align: middle;
+	position: relative;
+    top: -1px;
+}

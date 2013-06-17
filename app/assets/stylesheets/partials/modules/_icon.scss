@@ -1,0 +1,137 @@
+/* ======================================================================================
+   @MODULES -> ICON
+   ====================================================================================== */
+
+/*
+	Usage:
+		Applies an icon font and nothing else (similar to the sprite module).
+
+	Demo:
+		Style Guide -> Modules -> Icon
+*/
+
+.icon:before {
+	@extend %sprite-icon;
+	speak: none;
+	font-family: "icons";
+    font-style: normal;
+    font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	text-decoration: inherit;
+	-webkit-font-smoothing: antialiased;
+}
+
+/* --Set icons-- */
+
+/* Store */
+.icon--store:before {content: "\e80c";}
+
+/* Store 2 */
+.icon--store2:before {content: "\e80a";}
+
+/* Products */
+.icon--products:before {content: "\e811";}
+
+/* Deals */
+.icon--deals:before {content: "\e810";}
+
+/* Events */
+.icon--events:before {content: "\e80f";}
+
+/* Favourites */
+.icon--favs:before {content: "\e803";}
+
+/* Tag */
+.icon--tag:before {content: "\e80e";}
+
+/* Search */
+.icon--search:before {content: "\e812";}
+
+/* Search 2 */
+.icon--search2:before {content: "\e80d";}
+
+/* Dining */
+.icon--dining:before {content: "\e805";}
+
+/* Information */
+.icon--info:before {content: "\e801";}
+
+/* Pin */
+.icon--pin:before {content: "\e802";}
+
+/* Map */
+.icon--map:before {content: "\e80b";}
+
+/* Video */
+.icon--video:before {content: "\e809";}
+
+/* User */
+.icon--user:before {content: "\e800";}
+
+/* Phone */
+.icon--phone:before {content: "\e807";}
+
+/* Hours */
+.icon--hours:before {content: "\e804";}
+
+/* Signout */
+.icon--signout:before {content: "\e806";}
+
+/* Close large */
+.icon--close-lrg:before {content: "\e81a";}
+
+/* Close small */
+.icon--close-sml:before {content: "\e819";}
+
+/* Comment */
+.icon--comment:before {content: "\e818";}
+
+/* Arrow down */
+.icon--arrow-down:before {content: "\e816";}
+
+/* Arrow right */
+.icon--arrow-right:before {content: "\e815";}
+
+/* Arrow big left */
+.icon--arrow-left-big:before {content: "\e814";}
+
+/* Arrow big right */
+.icon--arrow-right-big:before {content: "\e813";}
+
+/* Arrow down full */
+.icon--arrow-down-full:before {content: "\e817";}
+
+/* --Extenders-- */
+
+/* Apply some spacing between the icon element and adjacent text */
+.icon--spacing:before {margin-right: to-em($spacing-sixth);}
+
+.icon--spacing-lrg:before {margin-right: to-em($spacing-third);}
+
+/* Remove the negative 1px top positiong */
+.icon--flush-top:before {position: static;}
+
+/* Fixed width */
+.icon--fixed-width:before {
+	width: 1em;
+	text-align: center;
+}
+
+/* -Alternate sizes- */
+
+/* Small */
+.icon--sml:before {@include font-size($font-size-sml, 1);}
+
+/* Large */
+.icon--lrg:before {@include font-size($font-size-lrg, 1);}
+
+/* Extra large */
+.icon--giga:before {@include font-size(48, 1);}
+
+.icon--mega:before {@include font-size(30, 1);}
+
+.icon--kilo:before {@include font-size(24, 1);}
+
+/* Default */
+.icon--default:before {font-size: inherit;}

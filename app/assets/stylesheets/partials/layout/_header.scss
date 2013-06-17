@@ -1,0 +1,712 @@
+/* ======================================================================================
+   @LAYOUT -> HEADER
+   ====================================================================================== */
+
+.header {
+	position: fixed;
+	z-index: 99;
+	width: 100%;
+
+	/* --Shared rules-- */
+
+	/* Set common colours */
+	a,
+	.icon:before,
+	.my-account-container__hdr.btn {color: $color-light-txt;}
+
+	.icon--arrow-down-full:before {color: $color-dark-txt;}
+}
+
+	/* --Shared rules cont...-- */
+
+	/* Make elements inline at vertically aligned in the middle at this breakpoint */
+	@include respond-min($non-palm) {
+		.shopping-centre-select,
+		.shopping-centre-select h1,
+		.my-account-container {
+			display: inline-block;
+			vertical-align: middle;
+		}
+	}
+
+/* Non JS users */
+.no-js .header {position: static;}
+
+	/* --Header secondary-- */
+	.header__secondary {
+		background-color: #fff;
+		box-shadow: 0 0 3px rgba(#000, 0.4);
+		position: relative;
+		z-index: 2;
+		@extend %clear-fix;
+		@include to-rem(min-height, 44);
+
+		/* Inner container */
+		> .container {
+			@include to-rem(padding-top, 6);
+
+			/* Change positioning context at this breakpoint */
+			@include respond-min($non-palm) {
+				position: relative;
+			}
+
+			/* Make room for the sub nav menu toggle btn at this breakpoint range */
+			@include respond-range-fixed(lap-sml) {
+				@include to-rem(padding-left, 37);
+
+				/* Non JS users */
+				.no-js & {padding-left: 0;}
+			}
+
+			/* Non JS users */
+			.no-js & {@include to-rem(padding-bottom, 6);}
+		}
+	}
+
+		/* Logo */
+		.logo {
+
+			img {
+				width: 87px;
+				height: 28px;
+				position: relative;
+				@include to-rem(top, $spacing-micro);
+				vertical-align: top;
+			}
+		}
+
+		/* --Toggle menu/search via jQuery-- */
+		.js .js-menu-toggle,
+		.js .js-search-toggle {
+
+			/* Hide */
+			display: none;
+			width: 100%;
+
+			/* Show */
+			&.is-expanded {
+				display: block;
+				position: absolute;
+				z-index: $z-index-max;
+				top: 100%;
+				left: 0;
+			}
+		}
+
+		/* Search expanded */
+		.js .js-search-toggle.is-expanded {top: 0;}
+
+		/* Always show at this breakpoint */
+		@include respond-min($non-palm) {
+			.js .header .js-menu-toggle,
+			.js .header .js-search-toggle {
+				display: inline-block;
+				width: auto;
+			}
+
+			.js .header .js-menu-toggle {position: static;}
+
+			.js .header .js-search-toggle {
+				position: absolute;
+				left: auto;
+			}
+		}
+
+		/* Toggle menu */
+		.header-menu-toggle {
+
+			/* Apply colors at this breakpoint */
+			@include respond-max($palm) {
+				background-color: $color-dark-txt;
+				color: #fff;
+
+				/* Create bottom spacing */
+				.header-menu-toggle__mrg-btm {@include to-rem(margin-bottom, $spacing-half);}
+			}
+
+			/* Non JS users */
+			.no-js & {@include to-rem(margin-top, $spacing-half);}
+		}
+
+				/* Generic navigation module */
+				.header-menu-toggle__nav {
+					background-color: $color-med-txt;
+
+					/* Items */
+					li {
+						border-bottom: 1px solid #26292f;
+
+						/* Turn border off for last child */
+						&:last-child {border: 0;}
+					}
+
+						/* Links */
+						a {
+							display: block;
+							width: 90%;
+							margin: 0 auto;
+							color: #fff;
+							@include to-rem(padding, $spacing-third 0);
+
+							/* Full width and side padding at this breakpoint */
+							@include respond-min($non-palm) {
+								width: auto;
+								@include to-rem(padding-left, $spacing-half);
+								@include to-rem(padding-right, $spacing-half);
+							}
+
+							/* Psuedo classes + active state */
+							&:hover .icon:before,
+							&:focus .icon:before,
+							&.is-active .icon:before {}
+						}
+
+							/* Icon */
+							.icon:before {color: #fff;}
+
+					/* Remove styles at this breakpoint */
+					@include respond-min($non-palm) {
+						&.header-menu-toggle__nav--plain {
+							background: none;
+
+							/* Items */
+							li {border: 0;}
+
+								/* Links */
+								a {
+									display: inline;
+									padding: 0;
+									color: $color-light-txt;
+								}
+
+									/* Icon */
+									.icon:before {color: $color-light-txt;}
+						}
+					}
+				}
+
+		/* Sub navigation */
+		.sub-nav-container {
+
+			/* Always show drop down at these breakpoints */
+			/*
+				Note: it is okay to use `!important` here as we're doing it pre-emptively i.e. you know you will always want the rule it's applied too to take precedence.
+			*/
+			@include respond-max($palm) {
+				.drop-down {
+					display: block !important;
+					position: static !important;
+				}
+			}
+			@include respond-min($lap-lrg) {
+				.drop-down {
+					display: block !important;
+					position: static !important;
+				}
+			}
+
+			/* Drop down styles at this breakpoint range */
+			@include respond-range-fixed(lap-sml) {
+				.header & {
+					position: absolute;
+					z-index: $z-index-max;
+					@include to-rem(top, 6);
+					left: 0;
+				}
+
+					/* Drop down */
+					.drop-down {
+						@include to-rem(width, 180);
+
+						/* Non JS users */
+						.no-js & {width: auto;}
+					}
+			}
+
+			/* Non JS users */
+			@include respond-min($non-palm) {
+				.no-js & {
+					position: static;
+					@include to-rem(margin, $spacing-third 0);
+				}
+			}
+		}
+
+		/* Shopping centre select */
+		.shopping-centre-select {
+			@include to-rem(padding, 6 0);
+			position: relative;
+
+			/* Adjustments at this breakpoint */
+			@include respond-min($non-palm) {
+				padding: 0;
+				@include to-rem(top, $spacing-micro);
+				@include to-rem(margin-left, 3);
+
+				/* Turn off container rules */
+				&.container {
+					width: auto;
+					max-width: none;
+					min-width: 0;
+				}
+			}
+
+			/* Shopping centre name */
+			h1 {
+				@include font-size(24, 1.2);
+				text-transform: uppercase;
+				@include to-rem(margin-right, 60);
+
+				/* Remove right margin at this breakpoint */
+				@include respond-min($non-palm) {
+					margin-right: 0;
+				}
+			}
+
+				/* 'Change' button */
+				.btn {
+					font-family: $font-family-opensans;
+					@include font-size(11, 1);
+					color: #fff;
+					position: absolute;
+					right: 0;
+					top: 50%;
+					margin-top: -(to-em($spacing-third));
+
+					/* Icon */
+					.icon:before {color: #fff;}
+				}
+		}
+
+		/* My Account */
+		.my-account-favs {
+
+			/* Position over to the right at this breakpoint */
+			@include respond-min($non-palm) {
+				position: absolute;
+				@include to-rem(top, 10);
+				right: 0;
+
+				/* 'Signed in' positioning */
+				&.is-my-account-signedin {@include to-rem(top, 6);}
+
+				/* Non JS users */
+				.no-js & {position: static;}
+			}
+
+			/* Drop down */
+			.drop-down {
+
+				/* Always show at this breakpoint */
+				/*
+					Note: it is okay to use `!important` here as we're doing it pre-emptively i.e. you know you will always want the rule it's applied too to take precedence.
+				*/
+				@include respond-max($palm) {
+					display: block !important;
+					position: static !important;
+				}
+
+				/* Drop down width at this breakpoint */
+				@include respond-min($non-palm) {
+					@include to-rem(width, 170);
+				}
+			}
+		}
+
+			/* 'My Account' header (palm) / Drop down trigger button (non-palm) */
+			.my-account-container__hdr {
+				@include to-rem(padding, 6 0);
+				display: block;
+				@include font-size($font-size-sml);
+				font-weight: normal;
+
+				/* Enlarge text size at this breakpoint */
+				@include respond-min($lap-lrg) {
+					@include font-size($font-size);
+				}
+
+				/* Bold text at this breakpoint */
+				@include respond-min($desk) {
+					font-weight: bold;
+				}
+
+				/* Avatar */
+				img {
+					width: 32px;
+					height: 32px;
+					@include to-rem(margin-right, $spacing-micro);
+				}
+			}
+
+				/* Username (non-palm) - reveal it at this breakpoint */
+				@include respond-min($ipad-portrait) {
+					.my-account-signedin__username {@include hide-visually-off;}
+				}
+
+			/* Not signed in, reduce text size at this breakpoint range */
+			@include respond-range-fixed(lap-sml) {
+				.my-account-signedout a {@include font-size($font-size-sml);}
+			}
+
+			/* Bold text at this breakpoint */
+			@include respond-min($desk) {
+				.my-account-signedout a {font-weight: bold;}
+			}
+
+				/* Reveal 'Become a member' at this breakpoint range */
+				@include respond-range($non-palm, $ipad-portrait) {
+					.my-account-signedout__member {@include hide-visually;}
+				}
+
+				/* User icon, adjustments at this breakpoint */
+				@include respond-min($non-palm) {
+					.my-account-signedout .icon--user:before {
+						@include font-size($font-size-lrg, 1);
+						width: auto;
+						margin-right: 0;
+
+						/* Increase text size at this breakpoint */
+						@include respond-min($desk) {
+							@include font-size(18, 1);
+							font-weight: normal;
+						}
+					}
+				}
+
+		/* Tertiary nav */
+		.nav-tertiary a {
+			@include font-size($font-size-sml);
+			color: $color-light-txt;
+		}
+
+		/* --Search toggle button & favourites-- */
+
+		/* Search toggle button */
+		.search-toggle-favs {
+			float: right;
+			@include to-rem(margin-top, 4);
+
+			/* Non JS users */
+			.no-js & {
+				float: none;
+				text-align: centre;
+				@include to-rem(margin-bottom, 4);
+			}
+
+			/* Search icon */
+			.icon--search:before {
+
+				/* Hide the search icon for the 'Stores' page */
+				.stores & {display: none;}
+
+				/* IE 9/10 fixes */
+				@include ie-10-up {
+					position: relative;
+					top: 1px;
+				}
+				.ie-9 & {
+					position: relative;
+					top: 1px;
+				}
+
+			}
+		}
+
+		/* Favourites */
+		.favs-link {
+
+			/* Some left spacing at this breakpoint */
+			@include respond-min($non-palm) {
+				@include to-rem(margin-left, 6);
+			}
+
+			/* Increase left spacing at this breakpoint */
+			@include respond-min($desk) {
+				@include to-rem(margin-left, $spacing-base);
+			}
+
+			/* Icon / count */
+			.favs-link__count-icon {
+				position: relative;
+				top: 1px;
+				display: inline-block;
+			}
+
+				/* Icon */
+				.icon:before {color: $color-brand;}
+
+				/* Count */
+				em {
+					color: #fff;
+					width: 100%;
+					position: absolute;
+					left: 0;
+					top: 4px;
+					@include font-size(11, 1);
+					font-weight: bold;
+					text-align: center;
+				}
+
+			/* Favourites text, reduce text size at this breakpoint range */
+			@include respond-range-fixed(lap-sml) {
+				.favs-link__txt {@include font-size($font-size-sml);}
+			}
+
+			/* Bold text at this breakpoint */
+			@include respond-min($desk) {
+				.favs-link__txt {font-weight: bold;}
+			}
+		}
+
+
+	/* --Header primary-- */
+	.header__primary {
+		background-color: $color-dark-txt;
+		position: relative;
+		z-index: 1;
+		border-bottom: 1px solid #bababa;
+
+		/* Turn off container at this breakpoint */
+		@include respond-max($palm) {
+			> .container {width: 100%;}
+		}
+
+		/* Contain float and change positioning context at this breakpoint */
+		@include respond-min($non-palm) {
+			> .container {
+				@include clear-fix;
+				position: relative;
+			}
+		}
+	}
+
+		/* --Generic overlay (search/stores)-- */
+		.header__overlay {
+
+			/* Styles at this breakpoint */
+			@include respond-max($palm) {
+				background-color: $color-dark-txt;
+				height: 100%;
+				@include to-rem(padding-top, $spacing-third);
+
+				/* Sticky version (stores) */
+				&.header__overlay--stick {
+					width: 100%;
+					position: absolute;
+					z-index: $z-index-max - 1;
+					top: 0;
+					left: 0;
+				}
+
+				/* Inner container */
+				> .container {position: relative;}
+
+					/* Close button */
+					.header__overlay__close-btn {
+						position: absolute;
+						@include to-rem(top, 0);
+						@include to-rem(right, -3);
+						@include to-rem(padding, 6 $spacing-third);
+
+						/* Icon */
+						.icon {color: lighten($color-light-txt, 6%);}
+					}
+			}
+
+			/* Styles at this breakpoint */
+			@include respond-min($non-palm) {
+				right: 0;
+				@include to-rem(top, 6.5, !important);
+
+				/* Increase top positioning at this breakpoint */
+				@include respond-min($lap-lrg) {
+					@include to-rem(top, 9.75, !important);
+				}
+
+				/* Inner container */
+				> .container {
+					@include to-rem(width, 226);
+					max-width: none;
+					min-width: 0;
+
+					/* Increase width at this breakpoint */
+					@include respond-min(661) {
+						@include to-rem(width, 246);
+					}
+
+					/* Increase width at this breakpoint */
+					@include respond-min($lap-lrg) {
+						@include to-rem(width, 318);
+					}
+
+					/* Increase width at this breakpoint */
+					@include respond-min($ipad-landscape) {
+						@include to-rem(width, 418);
+					}
+
+					/* Increase width at this breakpoint */
+					@include respond-min($desk) {
+						@include to-rem(width, 518);
+					}
+				}
+			}
+
+		}
+
+		/* Hide the global search for the 'Stores' page */
+		.stores .header__overlay.header__overlay--toggle {display: none;}
+
+		/* Main navigation */
+		.header__primary .nav-main {
+
+			/* Change layout at this breakpoint */
+			@include respond-min($non-palm) {
+				float: left;
+				display: block;
+			}
+
+			/* Items */
+			> li {
+				border-left-color: $color-light-txt;
+
+				/* Make dividers appear for first/last list items at this breakpoint */
+				@include respond-min($non-palm) {
+					&:first-child {border-left: 1px solid $color-light-txt;}
+
+					&:last-child {border-right: 1px solid $color-light-txt;}
+				}
+			}
+
+				/* Links */
+				a {
+					@include to-rem(padding, 11 0 9);
+					color: $color-light-txt;
+					border-bottom: 2px solid transparent;
+
+					/* Change padding at this breakpoint */
+					@include respond-min($non-palm) {
+						@include to-rem(padding-left, $spacing-half);
+						@include to-rem(padding-right, $spacing-half);
+					}
+
+					/* Change padding at this breakpoint */
+					@include respond-min($ipad-portrait) {
+						@include to-rem(padding-left, $spacing-half + 3);
+						@include to-rem(padding-right, $spacing-half + 3);
+					}
+
+					/* Change padding at this breakpoint */
+					@include respond-min($lap-lrg) {
+						@include to-rem(padding, 20 $spacing-base 16);
+					}
+
+					/* Active state */
+					&.is-active {
+						border-bottom-color: $color-brand;
+						color: #fff;
+
+						/* Icon */
+						.icon:before {color: #fff;}
+					}
+
+						/* Reveal link text at this breakpoint */
+						@include respond-min($iphone-landscape) {
+							.hide-visually {@include hide-visually-off;}
+						}
+
+						/* Decrease text size at this breakpoint range */
+						@include respond-range($non-palm, $ipad-portrait - 1) {
+							.hide-visually {@include font-size($font-size-sml);}
+						}
+				}
+
+					/* Icon */
+					.icon:before {
+						@include font-size(20, 1);
+
+						/* Create some spacing between icon and link text at this breakpoint */
+						@include respond-min($iphone-landscape) {
+							margin-right: to-em($spacing-sixth);
+						}
+
+						/* Decrease text size at this breakpoint range */
+						@include respond-range($non-palm, $ipad-portrait - 1) {
+							@include font-size(16, 1);
+						}
+
+						/* Decrease icon spacing at this breakpoint range */
+						@include respond-range-fixed(lap-sml) {
+							margin-right: to-em($spacing-micro);
+						}
+					}
+		}
+
+		/* Search */
+		.search-mini {
+			background-color: #fff;
+			border-radius: $border-radius;
+			@include to-rem(padding, 4 10 4 26);
+			position: relative;
+
+			/* Focus pseudo class */
+			&:focus {outline: none;}
+
+			/* Right margin to make room for the 'close' button at this breakpoint */
+			@include respond-max($palm) {
+				@include to-rem(margin-right, 30);
+
+				/* Store search & non JS users */
+				&.search-mini--stores,
+				.no-js & {margin-right: 0;}
+			}
+
+			/* Increase padding at this breakpoint */
+			@include respond-min($lap-lrg) {
+				@include to-rem(padding-top, 8);
+				@include to-rem(padding-bottom, 8);
+			}
+
+				/* Icon */
+				.icon:before {
+					position: absolute;
+					@include to-rem(left, $spacing-third);
+					@include to-rem(top, 6);
+					@include font-size(18, 1);
+
+					/* Increase top positioning at this breakpoint */
+					@include respond-min($lap-lrg) {
+						@include to-rem(top, 11);
+
+						/* IE 9/10 fixes */
+						@include ie-10-up {
+							@include to-rem(top, 13);
+						}
+						.ie-9 & {
+							@include to-rem(top, 13);
+						}
+					}
+				}
+
+				/* Placeholder */
+				@include input-placeholder {
+					color: $color-dark-txt;
+					font-style: italic;
+				}
+		}
+
+			/* Text input */
+			.search-mini__input {
+				width: 100%;
+				@include to-rem(padding, 4);
+				border: 0;
+				color: $color-dark-txt;
+				@include font-size(11, 1.2);
+
+				/* Increase text size at this breakpoint */
+				@include respond-min($lap-lrg) {
+					@include font-size(14, 1.2);
+				}
+
+				/* Focus */
+				&:focus {outline: none;}
+			}

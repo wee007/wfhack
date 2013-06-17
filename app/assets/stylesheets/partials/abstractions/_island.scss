@@ -1,0 +1,28 @@
+/* ======================================================================================
+   @ABSTRACTIONS -> ISLAND
+   ====================================================================================== */
+
+/*
+	Usage: 
+		Simple, boxed off content.
+
+	Demo:
+		Style Guide -> Abstractions -> Island
+	
+	Credit: 
+		http://csswizardry.com/2011/10/the-island-object
+*/
+
+/* Shared */
+.island,
+.islet {
+	display: block;
+	@extend %clear-fix;
+	@extend %mrg-base;
+}
+
+/* Island - full padding */
+.island {@include to-rem(padding, $spacing-base);}
+
+/* Islet - half the padding */
+.islet {@include to-rem(padding, $spacing-half);}

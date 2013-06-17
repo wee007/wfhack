@@ -34,6 +34,7 @@ end
 
 group :development, :test do
   gem 'pry'
+  gem 'pry-remote'
   gem "debugger"
   gem "rspec-rails"
   gem 'sass-rails', '~> 4.0.0.rc1'

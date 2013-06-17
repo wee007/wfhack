@@ -10,6 +10,7 @@ class StoresController < ApplicationController
     end
     @centre = CentreService.build centre
     @stores = StoreService.build store
+    gon.push(:centre => @centre)
   end
 
 end

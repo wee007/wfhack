@@ -13,6 +13,7 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'turbolinks'
 gem 'chosen-rails'
+gem 'gon'
 
 # For operations
 gem 'health_check'

@@ -7,9 +7,12 @@ class Map
     micello.maps.init(@key, @init)
 
   init: =>
-    @community = $('script[data-map]')
-                    .after('<div id="map"></div>')
-                    .data('map')
+    @community = westfield.centre.micello_community
+    if @community == undefined
+      $('#map').text('No map, sorry.')
+      return
+    else
+      $('#map').text('')
     @control = new micello.maps.MapControl('map')
     @data = @control.getMapData()
     @control.getMapCanvas().setThemeFamily(@themeFamily)

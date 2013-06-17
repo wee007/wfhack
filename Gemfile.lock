@@ -102,6 +102,9 @@ GEM
       dotenv (>= 0.7)
       thor (>= 0.13.6)
     formatador (0.2.4)
+    gon (4.1.1)
+      actionpack (>= 2.3.0)
+      json
     guard (1.8.1)
       formatador (>= 0.2.4)
       listen (>= 1.0.0)
@@ -124,6 +127,7 @@ GEM
     jquery-ui-rails (4.0.3)
       jquery-rails
       railties (>= 3.1.0)
+    json (1.8.0)
     kaminari (0.14.1)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
@@ -240,6 +244,7 @@ DEPENDENCIES
   faraday
   faraday_middleware
   foreman
+  gon
   guard (~> 1.8.0)
   guard-livereload (~> 1.4.0)
   health_check

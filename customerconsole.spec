@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.111
+Version:     0.0.112
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -67,6 +67,9 @@ fi
 %attr(755,nobody,nobody)%{appdir}/current/tmp
 
 %changelog
+* Mon Jun 17 2013 ci <doperations@au.westfield.com> 0.0.112-1
+- 
+
 * Thu Jun 13 2013 ci <doperations@au.westfield.com> 0.0.111-1
 - On sale facet (cwalsh2@au.westfield.com)
 - Display sale price on products (cwalsh2@au.westfield.com)

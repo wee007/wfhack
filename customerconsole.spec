@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.112
+Version:     0.0.113
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -67,6 +67,14 @@ fi
 %attr(755,nobody,nobody)%{appdir}/current/tmp
 
 %changelog
+* Tue Jun 18 2013 ci <doperations@au.westfield.com> 0.0.113-1
+- jQuery-UI: only require slider, not everything (cwalsh2@au.westfield.com)
+- Add a price slider, need to hook it up to do something.
+  (cwalsh2@au.westfield.com)
+- Add jQuery UI (cwalsh2@au.westfield.com)
+- Basic HTML to support the new facet nav design (cwalsh2@au.westfield.com)
+- Don't discard info from applied_filters (cwalsh2@au.westfield.com)
+
 * Mon Jun 17 2013 ci <doperations@au.westfield.com> 0.0.112-1
 - 
 

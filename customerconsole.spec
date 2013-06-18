@@ -29,8 +29,8 @@ Customer Console
 
 %build
  cd ${RPM_BUILD_DIR}/*
- bundle install --path=vendor/bundler_gems --without development test
  bundle exec rake assets:precompile
+ bundle install --path=vendor/bundler_gems --without development test
 
 %install
  mkdir -p ${RPM_BUILD_ROOT}%{appdir}/current
@@ -110,7 +110,7 @@ fi
 - Don't discard info from applied_filters (cwalsh2@au.westfield.com)
 
 * Mon Jun 17 2013 ci <doperations@au.westfield.com> 0.0.112-1
-- 
+-
 
 * Thu Jun 13 2013 ci <doperations@au.westfield.com> 0.0.111-1
 - On sale facet (cwalsh2@au.westfield.com)

@@ -1,0 +1,185 @@
+---
+title: Utilities
+---
+
+<div class="sg-h1">Utilities</div>
+<div class="sg-note sg-note--outdent">Utilities are a collection of very useful CSS rule sets, their main purpose is to prevent styles from being repeated throughout a style sheet i.e. keep things <abbr title="Don't repeat yourself">DRY</abbr>. They're similar to <a href="helpers.html">Helpers</a> with the main differences being; they're not declared via a class rather all selectors using a utility are tethered together i.e. grouped selectors and they should always be used i.e. the first resort not the last like 'Helpers'. Utilities are handled via <a href="http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#placeholder_selectors_">Sass placeholder selectors</a>.</div>
+
+<!-- Arrows -->
+<div class="sg-h2">Arrows</div>
+<div class="sg-note">Creates a CSS arrow on a given element, they're 12 locations the arrow can be placed.</div>
+
+<style>
+	.sg-utilities-arrows {
+		width: 100px;
+		height: 100px;
+		text-align: center;
+	}
+</style>
+<div class="sg-utilities-arrows sg-demo-boxed sg-demo-boxed-padded">I'm a <strong>top left</strong> arrow</div>
+<!-- //Arrows -->
+
+<!-- Bottom Spacing -->
+<div class="sg-h2">Bottom Spacing</div>
+<div class="sg-note">Applies the default bottom margin in order to try to keep a consistent vertical rhythm.</div>
+
+<h1>This heading is applying the base bottom margin.</h1>
+<ol class="list">
+    <li>This list is applying the base bottom margin.</li>
+    <li>Virtute omittam</li>
+    <li>Cu verear euripidis</li>
+    <li>Natoque penatibus amet</li>
+</ol>
+<p>This paragraph is applying the base bottom margin.</p>
+<!-- //Bottom Spacing -->
+
+<!-- Clear Fix -->
+<div class="sg-h2">Clear Fix</div>
+<div class="sg-note">So parent containers can contain their floated children.</div>
+
+<div class="sg-h3">With 'Clear Fix'</div>
+<div class="sg-cf sg-demo-boxed">
+	<img src="http://placekitten.com/110/110" alt="" style="float: left; margin-right: 24px;">
+    <div class="sg-demo-boxed-padded">The image is floated left, the coloured background is the element using the utility, without it the element would only contain non-floated elements.</div>
+</div>
+
+<div class="sg-h3">Without 'Clear Fix'</div>
+<div class="sg-demo-boxed">
+	<img src="http://placekitten.com/110/110" alt="" style="float: left; margin-right: 24px;">
+    <div class="sg-demo-boxed-padded">The image is floated left, the coloured background is the element using the utility, without it the element would only contain non-floated elements.</div>
+</div>
+<div class="sg-cf sg-mrg-on"></div>
+<!-- //Clear Fix -->
+
+<!-- Disguised Link -->
+<div class="sg-h2">Disguised Link</div>
+<div class="sg-note">Make a link not look like a link.</div>
+
+<style>
+.disguised-link {
+	color: inherit;
+	cursor: text;
+	border: 0;
+}
+/* Pseudo classes */
+.disguised-link:visited,
+.disguised-link:hover,
+.disguised-link:focus {
+	color: inherit;
+	background-color: inherit;
+}
+</style>
+<p><a href="#" class="disguised-link">I'm a link but I don't look like one.</a></p>
+<p><a href="tel:0414349645">I'm a `tel` link and will only look like a link at `palm` viewport size.</a></p>
+<!-- //Disguised Link -->
+
+<!-- Image Replacement -->
+<div class="sg-h2">Image Replacement</div>
+<div class="sg-note">For replacing a text element with an image.</div>
+
+<style>
+.sg-ir {
+	background: url("http://placekitten.com/64/64") no-repeat 0 0;
+	width: 64px;
+	height: 64px;
+	border: 0;
+    overflow: hidden;
+	*text-indent: -9999px;
+}
+/* Pseudo element */
+.sg-ir:before {
+	content: "";
+	display: block;
+	width: 0;
+	height: 200%;
+}
+</style>
+<div class="sg-ir">This text will not be visible</div>
+
+<div class="sg-h3">Alternate Version</div>
+<div class="sg-note">Uses the <code class="sg-code">text-indent: -9999px;</code> technique.</div>
+<div class="sg-ir" style="text-indent: -9999px;">This text will not be visible</div>
+<!-- //Image Replacement -->
+
+<!-- Sprite BG -->
+<div class="sg-h2">Sprite BG</div>
+<div class="sg-note">Declare the main sprite background image.</div>
+
+<style>
+	.sg-sprite-bg {
+		width: 176px;
+		height: 16px;
+		background-image: url(css/img/link-types.png);
+	}
+</style>
+<div class="sprite sg-sprite-bg"></div>
+<!-- //Sprite BG -->
+
+<!-- Sprite / Icon -->
+<div class="sg-h2">Sprite / Icon</div>
+<div class="sg-note">Common styles for sprited elements and icon fonts.</div>
+
+<div class="sg-h3">Sprite</div>
+<span class="sprite" style="background-image: url(http://placekitten.com/60/60); width: 60px; height: 60px;"></span>
+
+<div class="sg-h3">Icon</div>
+<span class="icon icon--biro icon--lrg" aria-hidden="true"></span>
+<!-- //Sprite / Icon -->
+
+<!-- Transitions -->
+<div class="sg-h2">Transitions</div>
+<div class="sg-note">Common CSS3 transition styles.</div>
+
+<style>
+	.sg-utilities-transition {display: inline-block;}
+	.sg-utilities-transition:hover {background-color: #002b36;}
+	.sg-utilities-transition-off {
+		-webkit-transition: none;
+		transition: none;
+	}
+</style>
+<div class="sg-h3">Subtle</div>
+<p><a href="http://google.com.au" class="sg-utilities-transition sg-demo-boxed-padded sg-demo-boxed">I have a subtle transition applied.</a></p>
+
+<div class="sg-h3">None</div>
+<p><a href="http://google.com.au" class="sg-utilities-transition sg-utilities-transition-off sg-demo-boxed-padded sg-demo-boxed">I have no transition applied.</a></p>
+<!-- //Transitions -->
+
+<!-- Box Shadows -->
+<div class="sg-h2">Box Shadows</div>
+
+<div class="sg-h3">Simple Directional Box Shadows</div>
+<style>
+	.sg-drop-shadow-top {box-shadow: 0 -4px 2px -2px rgba(0, 0, 0, .4);}
+	.sg-drop-shadow-right {box-shadow: 4px 0 2px -2px rgba(0, 0, 0, .4);}
+	.sg-drop-shadow-btm {box-shadow: 0 4px 2px -2px rgba(0, 0, 0, .4);}
+	.sg-drop-shadow-left {box-shadow: -4px 0 2px -2px rgba(0, 0, 0, .4);}
+</style>
+<div class="sg-h4">Top</div>
+<div class="sg-demo-boxed-padded sg-drop-shadow-top" style="height: 50px;"></div>
+<div class="sg-h4">Right</div>
+<div class="sg-demo-boxed-padded sg-drop-shadow-right" style="height: 50px;"></div>
+<div class="sg-h4">Bottom</div>
+<div class="sg-demo-boxed-padded sg-drop-shadow-btm" style="height: 50px;"></div>
+<div class="sg-h4">Left</div>
+<div class="sg-demo-boxed-padded sg-drop-shadow-left" style="height: 50px;"></div>
+
+<div class="sg-h3">Simple Embossed Box Shadows</div>
+<style>
+	.sg-drop-shadow-embossed-light {
+    	border: 1px solid rgba(0, 0, 0, 0.05);
+    	box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
+	}
+	.sg-drop-shadow-embossed-heavy {
+    	border: 1px solid rgba(0, 0, 0, 0.05);
+    	box-shadow:
+        	inset 0 2px 3px rgba(255, 255, 255, 0.3),
+        	inset 0 -2px 3px rgba(0, 0, 0, 0.3),
+        	0 1px 1px rgba(255, 255, 255, 0.9);
+	}
+</style>
+<div class="sg-h4">Light</div>
+<div class="sg-demo-boxed-padded sg-drop-shadow-embossed-light" style="height: 50px;"></div>
+<div class="sg-h4">Heavy</div>
+<div class="sg-demo-boxed-padded sg-drop-shadow-embossed-heavy" style="height: 50px;"></div>
+<!-- //Box Shadows -->

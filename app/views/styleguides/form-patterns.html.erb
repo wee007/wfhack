@@ -1,0 +1,200 @@
+---
+title: Form Patterns
+---
+
+<div class="sg-h1">Form Patterns</div>
+<div class="sg-note sg-note--outdent">Each form especially complex forms are made up of different form elements e.g. checkboxes, radio inputs, file uploads, etc. and these form elements can have different layouts. This page shows all the available patterns 'out of the box' including validation.</div>
+
+<form action="#" id="#" method="post" class="form-main">
+
+	<!-- Required Field Indicator -->
+    <div class="sg-h2 sg-mrg-off--top">Required Field Indicator</div>
+    <p><strong class="req-field" title="Required">*</strong> Indicates a required field.</p>
+    <!-- //Required Field Indicator -->
+
+    <div class="sg-h2">Form Section Heading <code class="sg-code">legend</code></div>
+
+    <!-- Text Inputs -->
+	<fieldset>
+    	<legend class="form-main__header">Form Section Heading</legend>
+
+        <div class="sg-h2">Text Inputs</div>
+
+        <div class="form-main__field">
+            <label for="txtinput1" class="form-main__label">Standard text input <strong class="req-field" title="Required">*</strong></label>
+            <div class="form-main__inputs">
+				<input type="text" id="txtinput1" name="txtinput1" aria-required="true" placeholder="I'm a placeholder" class="txt-input">
+            </div>
+        </div>
+
+		<div class="form-main__field">
+            <label for="txtinput2" class="form-main__label">Medium sized text input <strong class="req-field" title="Required">*</strong></label>
+            <div class="form-main__inputs">
+				<input type="text" id="txtinput2" name="txtinput2" aria-required="true" class="txt-input txt-input--med">
+            </div>
+        </div>
+
+		<div class="form-main__field">
+            <label for="txtinput3" class="form-main__label">Small sized text input <strong class="req-field" title="Required">*</strong></label>
+            <div class="form-main__inputs">
+				<input type="text" id="txtinput3" name="txtinput3" aria-required="true" class="txt-input txt-input--sml">
+            </div>
+        </div>
+
+        <div class="form-main__field">
+            <label for="txtinput4" class="form-main__label">File input <strong class="req-field" title="Required">*</strong></label>
+            <div class="form-main__inputs">
+				<input type="file" id="txtinput4" name="txtinput4" aria-required="true">
+            </div>
+        </div>
+
+        <div class="form-main__field">
+            <label for="txtinput5" class="form-main__label">Textarea <strong class="req-field" title="Required">*</strong></label>
+            <div class="form-main__inputs">
+				<textarea rows="7" cols="60" id="txtinput5" name="txtinput5" aria-required="true"></textarea>
+            </div>
+        </div>
+    </fieldset>
+    <!-- //Text Inputs -->
+
+	<!-- Radio & Checkbox Inputs -->
+    <div class="sg-h2">Radio &amp; Checkbox Inputs</div>
+
+    <fieldset class="form-main__field">
+        <legend class="form-main__label">Radio inputs (stacked) <strong class="req-field" title="Required">*</strong></legend>
+        <div class="form-main__inputs">
+            <ul>
+                <li><input id="radio1" name="radio" type="radio" aria-required="true" checked> <label for="radio1">Option 1</label></li>
+                <li><input id="radio2" name="radio" type="radio" aria-required="true"> <label for="radio2">Option 2</label></li>
+                <li><input id="radio3" name="radio" type="radio" aria-required="true"> <label for="radio3">Option 3</label></li>
+            </ul>
+        </div>
+    </fieldset>
+
+    <fieldset class="form-main__field">
+        <legend class="form-main__label">Radio inputs (horizontal) <strong class="req-field" title="Required">*</strong></legend>
+        <div class="form-main__inputs">
+            <ul class="horiz-list">
+                <li><input id="radioinline1" name="radioinline" type="radio" aria-required="true" checked> <label for="radioinline1">Option 1</label></li><!--
+                --><li><input id="radioinline2" name="radioinline" type="radio" aria-required="true"> <label for="radioinline2">Option 2</label></li><!--
+                --><li><input id="radioinline3" name="radioinline" type="radio" aria-required="true"> <label for="radioinline3">Option 3</label></li>
+            </ul>
+        </div>
+    </fieldset>
+
+    <fieldset class="form-main__field">
+        <legend class="form-main__label">Checkbox inputs (stacked) <strong class="req-field" title="Required">*</strong></legend>
+        <div class="form-main__inputs">
+            <ul>
+                <li><input id="checkbox1" name="checkbox" type="checkbox" aria-required="true"> <label for="checkbox1">Option 1</label></li>
+                <li><input id="checkbox2" name="checkbox" type="checkbox" aria-required="true"> <label for="checkbox2">Option 2</label></li>
+                <li><input id="checkbox3" name="checkbox" type="checkbox" aria-required="true"> <label for="checkbox3">Option 3</label></li>
+            </ul>
+        </div>
+    </fieldset>
+
+    <fieldset class="form-main__field">
+        <legend class="form-main__label">Checkbox inputs (horizontal) <strong class="req-field" title="Required">*</strong></legend>
+        <div class="form-main__inputs">
+            <ul class="horiz-list">
+                <li><input id="checkboxinline1" name="checkbox" type="checkbox" aria-required="true"> <label for="checkboxinline1">Option 1</label></li><!--
+                --><li><input id="checkboxinline2" name="checkbox" type="checkbox" aria-required="true"> <label for="checkboxinline2">Option 2</label></li><!--
+                --><li><input id="checkboxinline3" name="checkbox" type="checkbox" aria-required="true"> <label for="checkboxinline3">Option 3</label></li>
+            </ul>
+        </div>
+    </fieldset>
+
+    <div class="form-main__field">
+        <p class="form-main__label">Solo checkbox <strong class="req-field" title="Required">*</strong></p>
+        <div class="form-main__inputs form-main__inputs--solo-checkbox">
+            <input id="checkboxsingle" name="checkboxsingle" type="checkbox" aria-required="true">
+            <label for="checkboxsingle">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt sdf sssdfh sdhfasdfsa sdasdfasdfasd ut labor, lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt sdf sssdfh sdhfasdfsa sdasdfasdfasd ut labor</label>
+        </div>
+    </div>
+    <!-- //Radio & Checkbox Inputs -->
+
+    <!-- Select List -->
+    <fieldset>
+        <div class="sg-h2">Select List</div>
+
+        <div class="form-main__field">
+            <label for="select" class="form-main__label">Select List <strong class="req-field" title="Required">*</strong></label>
+            <div class="form-main__inputs">
+				<select id="select" name="select" aria-required="true">
+                    <option value="">Please select&#8230;</option>
+                    <option value="1">Option 1</option>
+                    <option value="2">Option 2</option>
+                    <option value="3">Option 3</option>
+                </select>
+            </div>
+        </div>
+    </fieldset>
+    <!-- //Select List -->
+
+	<!-- Helper Notes -->
+    <fieldset>
+        <div class="sg-h2">Helper Notes</div>
+
+        <div class="form-main__field">
+            <label for="helpernotes1" class="form-main__label">Label with notes <strong class="req-field" title="Required">*</strong> <span class="form-main__notes">Lorem ipsum dolor sit amet, consectetur adipisicing elit</span></label>
+            <div class="form-main__inputs">
+				<input type="text" id="helpernotes1" name="helpernotes1" aria-required="true" class="txt-input">
+            </div>
+        </div>
+
+        <div class="form-main__field">
+            <label for="helpernotes2" class="form-main__label">Field with notes <strong class="req-field" title="Required">*</strong></label>
+            <div class="form-main__inputs">
+            	<!-- The ARIA `aria-describedby` attr value needs to be the `id` value of the `.form-main__notes` element that it's associated with -->
+				<input type="text" id="helpernotes2" name="helpernotes2" aria-required="true" aria-describedby="form-note-1" class="txt-input">
+                <p class="form-main__notes" id="form-note-1">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt sdf sssdfh sdhfasdfsa sdasdfasdfasd ut labor.</p>
+            </div>
+        </div>
+    </fieldset>
+    <!-- //Helper Notes -->
+
+    <!-- Inline Validation & Preloader -->
+    <fieldset>
+        <div class="sg-h2">Inline Validation &amp; Preloader</div>
+
+        <div class="form-main__field">
+            <label for="validation1" class="form-main__label">Error <strong class="req-field" title="Required">*</strong></label>
+            <div class="form-main__inputs">
+				<!-- The ARIA `aria-describedby` attr value needs to be the `id` value of the `.feedback--error` element that it's associated with -->
+                <input type="text" id="validation1" name="validation1" aria-required="true" aria-invalid="true" aria-describedby="form-error-1" class="txt-input input-error">
+                <p class="feedback feedback--error" id="form-error-1">Error message</p>
+            </div>
+        </div>
+
+        <div class="form-main__field">
+            <label for="validation2" class="form-main__label">Valid <strong class="req-field" title="Required">*</strong></label>
+            <div class="form-main__inputs">
+				<!-- The ARIA `aria-describedby` attr value needs to be the `id` value of the `.feedback--error` element that it's associated with -->
+                <input type="text" id="validation2" name="validation2" aria-required="true" aria-invalid="false" aria-describedby="form-error-2" class="txt-input input-success">
+            </div>
+        </div>
+
+        <div class="form-main__field">
+            <label for="validation3" class="form-main__label">Preloader <strong class="req-field" title="Required">*</strong></label>
+            <div class="form-main__inputs">
+				<input type="text" id="validation3" name="validation3" aria-required="true" class="txt-input">
+                <!-- Note: The ARIA `aria-controls` attr value needs to be the `id` value of the `input` element its controlling -->
+				<span class="preloader"><span class="preloader__spinner"></span> <em aria-live="polite" aria-controls="input-id-here">Loading, please wait&#8230;</em></span>
+            </div>
+        </div>
+    </fieldset>
+    <!-- //Inline Validation & Preloader -->
+
+	<!-- Form Actions with Preloader -->
+    <div class="sg-h2">Form Actions with Preloader</div>
+
+    <div class="form-main__field">
+        <div class="form-main__inputs form-main__inputs--actions">
+			<input type="submit" name="submit" id="submit" class="btn btn--main" value="Submit">
+            <!-- Note: The ARIA `aria-controls` attr value needs to be the `id` value of the `form` element -->
+            <span class="preloader preloader--light"><span class="preloader__spinner"></span><em class="hide-visually" aria-live="polite" aria-controls="form-id-here">Loading, please wait&#8230;</em></span>
+        </div>
+    </div>
+    <!-- //Form Actions with Preloader -->
+
+</form>

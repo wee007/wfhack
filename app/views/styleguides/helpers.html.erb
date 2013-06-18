@@ -1,0 +1,123 @@
+---
+title: Helpers
+---
+
+<div class="sg-h1">Helpers</div>
+<div class="sg-note sg-note--outdent">Helpers are a bunch of classes to apply very common styles e.g. make text right aligned, apply the base bottom margin to an element, etc. They're used arbitrarily i.e. only if an element/module doesn't already have a class to which you could apply this styling.</div>
+
+<!-- Spacing -->
+<div class="sg-h2">Spacing</div>
+<div class="sg-note">To apply spacing via the base bottom margin or variants of it e.g. half / double apply any of the: <code class="sg-code">class="mrg-base"</code>, <code class="sg-code">class="mrg-half"</code>, or <code class="sg-code">class="mrg-dbl"</code> helper classes to the element, can also apply 'top' margins by adding 'top' to the end of the aformentioned classes e.g. <code class="sg-code">class="mrg-dbl--top"</code>, or to remove spacing applied via margins apply any of the <code class="sg-code">class="flush--"</code> helper classes.</div>
+
+<div class="sg-h3">Apply Spacing</div>
+<div class="sg-h4">Bottom</div>
+<p class="mrg-base">I'm applying the base bottom margin.</p>
+<p class="mrg-half">I'm applying half of the base bottom margin.</p>
+<p class="mrg-dbl">I'm applying double the base bottom margin.</p>
+<div class="sg-h4">Top</div>
+<p class="mrg-base--top flush--btm">I'm applying the base top margin.</p>
+<p class="mrg-half--top flush--btm">I'm applying half of the base top margin.</p>
+<p class="mrg-dbl--top flush--btm">I'm applying double the base top margin.</p>
+
+<div class="sg-h3">Remove Spacing (Flush)</div>
+<p class="flush">I have no spacing (margin).</p>
+<p class="flush--top">I have no top spacing (margin).</p>
+<p class="flush--right">I have no right spacing (margin).</p>
+<p class="flush--btm">I have no bottom spacing (margin).</p>
+<p class="flush--left">I have no left spacing (margin).</p>
+<p class="flush--ends">I have no end (top/bottom) spacing (margin).</p>
+<p class="flush--sides">I have no side (left/right) spacing (margin).</p>
+<!-- //Spacing -->
+
+<!-- Float -->
+<div class="sg-h2">Float</div>
+<div class="sg-note">Any element that receives the <code class="sg-code">class="float-left"</code> or <code class="sg-code">class="float-right"</code> helper classes will be floated to the left or right. To remove float altogether apply the <code class="sg-code">class="float-none"</code> helper class.</div>
+
+<div class="sg-cf sg-demo-boxed sg-mrg-on">
+	<div class="float-left sg-demo-boxed-drk" style="padding: 8px; text-align: center; width: 120px; height: 120px;">I'm <strong>float-left</strong></div>
+    <div class="float-right sg-demo-boxed-drk" style="padding: 8px; text-align: center; width: 120px; height: 120px;">I'm <strong>float-right</strong></div>
+</div>
+
+<div class="float-none sg-demo-boxed-drk" style="padding: 8px; text-align: center; width: 120px; height: 120px;">I'm <strong>float-none</strong></div>
+<!-- //Float -->
+
+<!-- Pull -->
+<div class="sg-h2">Pull</div>
+<div class="sg-note">Any element or module that receives the <code class="sg-code">class="pull-right"</code>, <code class="sg-code">class="pull-left"</code> or <code class="sg-code">class="pull-center"</code> helper classes will be aligned to the left, right or center of their parent container. Elements pulled to the left or right are floated with any surrounding element(s) flowing around it. Typical usage is for aligning images to either the left or right of it's accompanying content.</div>
+
+<div class="sg-h3">Pull Right</div>
+<div class="sg-cf sg-demo-boxed-padded">
+	<img src="http://placekitten.com/100/100" alt="" class="pull-right">
+	<p>Nec at quodsi elaboraret definitionem. Ne facilisi pericula honestatis qui. In sanctus platonem voluptatum ius. Ad sed labores inermis disputando, etiam adversarium quo te. Eu vis nostrud deseruisse, est possit iracundia no, has an ferri meliore nusquam. Semper apeirian pericula eos id. Error graeci graecis sed no, quo ex hinc justo pertinax. Pro nostro placerat ex, id tamquam sadipscing vim, te tota errem audiam duo. Vim scripta recusabo elaboraret eu, sea periculis iracundia repudiandae ea, has duis modus persequeris in.</p>
+	<p>Ius ad admodum deserunt, vix tempor instructior et, ridens expetendis theophrastus ex per. Ubique verterem no vis, gloriatur vulputate deterruisset et nam. Doming electram ea has, quo tation mucius petentium ea. Et nec tantas docendi postulant. Ex nisl vocent vocibus vis. Ei autem definitionem nam. His dolore persequeris id. Ex feugiat veritus est, vix ea quis feugait voluptatibus. Meis mazim nam at, vel no nominavi placerat, usu et utinam docendi antiopam. Ius ad admodum deserunt, vix tempor instructior et, ridens expetendis theophrastus ex per.</p>
+</div>
+
+<div class="sg-h3">Pull Left</div>
+<div class="sg-cf sg-demo-boxed-padded">
+	<img src="http://placekitten.com/100/100" alt="" class="pull-left">
+	<p>Nec at quodsi elaboraret definitionem. Ne facilisi pericula honestatis qui. In sanctus platonem voluptatum ius. Ad sed labores inermis disputando, etiam adversarium quo te. Eu vis nostrud deseruisse, est possit iracundia no, has an ferri meliore nusquam. Semper apeirian pericula eos id. Error graeci graecis sed no, quo ex hinc justo pertinax. Pro nostro placerat ex, id tamquam sadipscing vim, te tota errem audiam duo. Vim scripta recusabo elaboraret eu, sea periculis iracundia repudiandae ea, has duis modus persequeris in.</p>
+	<p>Ius ad admodum deserunt, vix tempor instructior et, ridens expetendis theophrastus ex per. Ubique verterem no vis, gloriatur vulputate deterruisset et nam. Doming electram ea has, quo tation mucius petentium ea. Et nec tantas docendi postulant. Ex nisl vocent vocibus vis. Ei autem definitionem nam. His dolore persequeris id. Ex feugiat veritus est, vix ea quis feugait voluptatibus. Meis mazim nam at, vel no nominavi placerat, usu et utinam docendi antiopam. Ius ad admodum deserunt, vix tempor instructior et, ridens expetendis theophrastus ex per.</p>
+</div>
+
+<div class="sg-h3">Pull Center</div>
+<div class="sg-cf sg-demo-boxed-padded">
+	<img src="http://placekitten.com/100/100" alt="" class="pull-center">
+	<p>Nec at quodsi elaboraret definitionem. Ne facilisi pericula honestatis qui. In sanctus platonem voluptatum ius. Ad sed labores inermis disputando, etiam adversarium quo te. Eu vis nostrud deseruisse, est possit iracundia no, has an ferri meliore nusquam. Semper apeirian pericula eos id. Error graeci graecis sed no, quo ex hinc justo pertinax. Pro nostro placerat ex, id tamquam sadipscing vim, te tota errem audiam duo. Vim scripta recusabo elaboraret eu, sea periculis iracundia repudiandae ea, has duis modus persequeris in.</p>
+	<p>Ius ad admodum deserunt, vix tempor instructior et, ridens expetendis theophrastus ex per. Ubique verterem no vis, gloriatur vulputate deterruisset et nam. Doming electram ea has, quo tation mucius petentium ea. Et nec tantas docendi postulant. Ex nisl vocent vocibus vis. Ei autem definitionem nam. His dolore persequeris id. Ex feugiat veritus est, vix ea quis feugait voluptatibus. Meis mazim nam at, vel no nominavi placerat, usu et utinam docendi antiopam. Ius ad admodum deserunt, vix tempor instructior et, ridens expetendis theophrastus ex per.</p>
+</div>
+<!-- //Pull -->
+
+<!-- Display -->
+<div class="sg-h2">Display</div>
+<div class="sg-note">To make an element render block, inline or inline-block i.e. change it's <code class="sg-code">display</code> value, apply the: <code class="sg-code">class="block"</code>, <code class="sg-code">class="inline"</code> or <code class="sg-code">class="inline-block"</code> helper classes to the element.</div>
+
+<p><span class="inline">I'm rendering inline</span>, <span class="inline-block">I'm rendering inline-block</span> <span class="block">I'm rendering block.</span></p>
+<!-- //Display -->
+
+<!-- Vertical Alignments -->
+<div class="sg-h2">Vertical Alignments</div>
+<div class="sg-note">To change the vertical alignment of any element that is <code class="sg-code">display: inline;</code> or <code class="sg-code">display: inline-block;</code> apply the: <code class="sg-code">class="align-top"</code>, <code class="sg-code">class="align-middle"</code>, <code class="sg-code">class="align-baseline"</code> or <code class="sg-code">class="align-bottom"</code> helper classes to the element.</div>
+
+<p class="sg-demo-boxed"><img src="http://placekitten.com/40/40" alt="" class="align-top"> The image is vertically aligned to the top.</p>
+<p class="sg-demo-boxed"><img src="http://placekitten.com/40/40" alt="" class="align-middle"> The image is vertically aligned to the middle.</p>
+<p class="sg-demo-boxed"><img src="http://placekitten.com/40/40" alt="" class="align-baseline"> The image is vertically aligned to the baseline.</p>
+<p class="sg-demo-boxed"><img src="http://placekitten.com/40/40" alt="" class="align-bottom"> The image is vertically aligned to the bottom.</p>
+<!-- //Vertical Alignments -->
+
+<!-- Text-->
+<div class="sg-h2">Text</div>
+<div class="sg-note">Various helper classes specifically for text.</div>
+
+<div class="sg-h3">Size</div>
+<div class="sg-note">To increase or decrease the text size from the base text size apply the: <code class="sg-code">class="txt-sml"</code>, <code class="sg-code">class="txt-lrg"</code> or <code class="sg-code">class="txt-reset"</code> helper classes. This helper class is not suitable for headings.</div>
+<p>Lorem ipsum dolor sit amet, <ins class="txt-sml">I'm small text</ins> consectetuer adipiscing elit. <ins class="txt-lrg">I'm large text</ins> ligula eget dolor. <ins class="txt-reset">I'm default text size</ins>.</p>
+
+<div class="sg-h3">Alignments</div>
+<div class="sg-note">To change the horizontal alignment of some text apply the: <code class="sg-code">class="txt-center"</code>, <code class="sg-code">class="txt-left"</code> or <code class="sg-code">class="txt-right"</code> helper classes.</div>
+<p class="txt-center">I'm center aligned, lorem ipsum dolor sit amet, consectetuer adipiscing elit. ligula eget dolor.</p>
+<p class="txt-left">I'm left aligned, lorem ipsum dolor sit amet, consectetuer adipiscing elit. ligula eget dolor.</p>
+<p class="txt-right">I'm right aligned, lorem ipsum dolor sit amet, consectetuer adipiscing elit. ligula eget dolor.</p>
+
+<div class="sg-h3">Styles</div>
+<div class="sg-note">To apply different font style treatments of some text apply the: <code class="sg-code">class="txt-italic"</code>, <code class="sg-code">class="txt-bold"</code> or <code class="sg-code">class="txt-caps"</code> helper classes.</div>
+<p>Lorem ipsum dolor sit amet, <span class="txt-italic">I'm italicised text</span> consectetuer adipiscing elit. <span class="txt-bold">I'm bolded text</span> ligula eget dolor. <span class="txt-caps">I'm all caps</span>.</p>
+
+
+<div class="sg-h3">Truncate</div>
+<div class="sg-note">To truncate some text apply the: <code class="sg-code">class="txt-truncate"</code> helper class to the element.</div>
+<p class="txt-truncate" style="width: 200px;">I'm being truncated, lorem ipsum dolor sit amet, consectetuer adipiscing elit. ligula eget dolor.</p>
+
+<div class="sg-h3">Break Word</div>
+<div class="sg-note">To force a long word to wrap apply the <code class="sg-code">class="txt-break-word"</code> helper class to the element.</div>
+<p style="width: 200px;" class="txt-break-word">Vix tempor instructior et, ridens expetendis theophrastus <a href="mailto:">iamaverylongemailaddress@iamaverylongemailaddressdomain.com</a></p>
+<div class="sg-h4">Tables</div>
+<div class="sg-note">For this helper class to work within tables the <code class="sg-code">table</code> element needs <code class="sg-code">table-layout: fixed;</code> applied to it.</div>
+<table cellspacing="0" style="table-layout: fixed; width: 70%;" class="txt-break-word">
+	<tr>
+    	<td style="border: 1px solid #ccc; padding: 3px;">Ius ad admodum deserunt</td>
+        <td style="border: 1px solid #ccc; padding: 3px;">Ne facilisi pericula honestatis qui sanctus platonem voluptatum ius</td>
+        <td style="border: 1px solid #ccc; padding: 3px;">Ridens expetendis theophrastus</td>
+        <td style="border: 1px solid #ccc; padding: 3px;"><a href="mailto:">iamaverylongemailaddress@iamaverylongemailaddressdomain.com</a></td>
+    </tr>
+</table>
+<!-- //Text-->

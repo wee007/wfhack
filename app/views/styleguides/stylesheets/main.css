@@ -1,0 +1,481 @@
+/*
+▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂
+
+Style Guide stylesheet
+
+	Note:
+		All class names need to be prefixed with `sg-` so they're isolated to the 'Style
+		Guide' pages only and don't conflict with the project styles.
+
+▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂
+*/
+
+
+/* ======================================================================================
+   @CUSTOM FONTS
+   ====================================================================================== */
+
+/* [PT Sans]
+-------------------------------------------------------*/
+/* PT Sans Caption Bold - H1 */
+@font-face {
+    font-family: 'PTSansCaptionBold';
+    src: 	url('fonts/pt-sans/PTC75F-webfont.eot');
+    src: 	url('fonts/pt-sans/PTC75F-webfont.eot?#iefix') format('embedded-opentype'),
+			url('fonts/pt-sans/PTC75F-webfont.woff') format('woff'),
+			url('fonts/pt-sans/PTC75F-webfont.ttf') format('truetype'),
+			url('fonts/pt-sans/PTC75F-webfont.svg#PTSansCaptionBold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+/* PT Sans Bold - H2 */
+@font-face {
+    font-family: 'PTSansBold';
+    src: 	url('fonts/pt-sans/PTS75F-webfont.eot');
+    src: 	url('fonts/pt-sans/PTS75F-webfont.eot?#iefix') format('embedded-opentype'),
+			url('fonts/pt-sans/PTS75F-webfont.woff') format('woff'),
+			url('fonts/pt-sans/PTS75F-webfont.ttf') format('truetype'),
+			url('fonts/pt-sans/PTS75F-webfont.svg#PTSansBold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* PT Sans Narrow Bold - H3 */
+@font-face {
+    font-family: 'PTSansNarrowBold';
+    src: 	url('fonts/pt-sans/PTN77F-webfont.eot');
+    src:	url('fonts/pt-sans/PTN77F-webfont.eot?#iefix') format('embedded-opentype'),
+			url('fonts/pt-sans/PTN77F-webfont.woff') format('woff'),
+			url('fonts/pt-sans/PTN77F-webfont.ttf') format('truetype'),
+			url('fonts/pt-sans/PTN77F-webfont.svg#PTSansNarrowBold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+/* PT Sans Narrow Regular - H4-H6 */
+@font-face {
+    font-family: 'PTSansNarrowRegular';
+    src: 	url('fonts/pt-sans/PTN57F-webfont.eot');
+    src: 	url('fonts/pt-sans/PTN57F-webfont.eot?#iefix') format('embedded-opentype'),
+			url('fonts/pt-sans/PTN57F-webfont.woff') format('woff'),
+			url('fonts/pt-sans/PTN57F-webfont.ttf') format('truetype'),
+			url('fonts/pt-sans/PTN57F-webfont.svg#PTSansNarrowRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+/* ======================================================================================
+   @BASE
+   ====================================================================================== */
+
+/* [MAIN]
+-------------------------------------------------------*/
+html,
+body {
+	height: 100%;
+	background: #eee;
+}
+
+/* [SET DEFAULT FONT]
+-------------------------------------------------------*/
+.pt-sans-narrow-reg,
+.pt-sans-narrow-reg--hdr,
+.sg-txt,
+.sg-note,
+.sg-meta {font-family: PTSansNarrowRegular, Futura, "Century Gothic", AppleGothic, sans-serif;}
+
+.pt-sans-narrow-reg,
+.sg-txt,
+.sg-note {
+	font-size: 14px;
+	color: #657b83;
+}
+
+.pt-sans-narrow-reg.lrg {font-size: 15px;}
+
+/* Faux paragraph */
+.sg-txt {margin-bottom: 24px;}
+
+/* PT Sans Narrow Bold */
+.pt-sans-narrow-bold {font-family: PTSansNarrowBold, Futura, "Century Gothic", AppleGothic, sans-serif;}
+
+
+/* ======================================================================================
+   @LAYOUT
+   ====================================================================================== */
+
+/* [CONTAINER]
+-------------------------------------------------------*/
+.sg-container {
+	width: 90%;
+	min-height: 100%;
+	margin: 0 auto;
+	background-color: #fff;
+	border-style: solid;
+    border-color: #ccc;
+	border-color: rgba(0, 0, 0, 0.15);
+	border-width: 0 1px;
+}
+
+/* [HEADER]
+-------------------------------------------------------*/
+/*
+	Note: this needs to match the dominant project logo colour or just use white?
+*/
+.sg-header {background-color: #fff;}
+
+	/* Logo */
+	.sg-header img {margin: 24px;}
+
+	/* Title */
+	.sg-header div {
+		background-color: #002b36;
+		color: #fff;
+		padding: 8px 24px 10px;
+		text-shadow: 0 1px 0 #000;
+		font: 26px/1.2 PTSansCaptionBold, Futura, "Century Gothic", AppleGothic, sans-serif;
+		text-transform: uppercase;
+		border-top: 1px solid #fff;
+	}
+
+/* [MAIN]
+-------------------------------------------------------*/
+.sg-main {
+	margin: 34px 0 0 24px;
+	padding: 0 24px 34px 0;
+	width: 70%;
+	float: left;
+}
+
+/* [ASIDE]
+-------------------------------------------------------*/
+.sg-aside {
+	margin: 34px 24px 0 0;
+	width: 20%;
+	float: right;
+	font: 14px PTSansNarrowRegular, Futura, "Century Gothic", AppleGothic, sans-serif;
+}
+
+	/* Heading */
+	.sg-aside .sg-aside-hdr {
+		font: 16px PTSansNarrowBold, Futura, "Century Gothic", AppleGothic, sans-serif;
+		margin-bottom: 14px;
+		text-transform: uppercase;
+		padding: 5px 24px;
+		border: 0;
+		color: #fff;
+	}
+
+	/* Nav */
+	.sg-aside > ul {padding: 0 18px 14px;}
+
+		.sg-aside li {
+			margin-top: 2px;
+			color: #073642;
+		}
+
+		.sg-aside li:first-child {margin: 0;}
+
+			/* Links */
+			.sg-aside li span,
+			.sg-aside li a {
+				display: block;
+				padding: 3px 6px;
+			}
+
+			.sg-aside li a {
+				text-decoration: none;
+				color: #073642;
+				-webkit-transition: background 0.2s ease-in-out;
+				transition: background 0.2s ease-in-out;
+			}
+
+			/* Pseudo element */
+			.sg-aside li a:before {
+				content: "⇢";
+				display: inline-block;
+				font: normal 16px/.7 "Arial Unicode MS Regular", "Arial Unicode MS", Arial, Helvetica, sans-serif;
+				vertical-align: text-top;
+				margin-right: 6px;
+			}
+
+			/* Pseudo classes and active state */
+			.sg-aside li a:hover,
+			.sg-aside li .active {
+				background-color: #eee8d5;
+				color: #002b36;
+			}
+
+			.sg-aside li .active {font-family: PTSansNarrowBold, Futura, "Century Gothic", AppleGothic, sans-serif;}
+
+			.sg-aside li a:active {
+				position: relative;
+				bottom: -1px;
+			}
+
+				/* Nested */
+				.sg-aside ul ul {margin-top: 2px;}
+
+					.sg-aside ul ul a {padding-left: 24px;}
+
+
+/* ======================================================================================
+   @HEADINGS
+   ====================================================================================== */
+
+/* [SHARED]
+-------------------------------------------------------*/
+.sg-h1,
+.sg-h2 {
+	font-size: 18px;
+	padding: 5px 26px 7px;
+	margin: 0 -24px 24px -24px;
+	color: #fff;
+}
+
+.sg-h3,
+.sg-h4 {margin: 24px 0;}
+
+/* [H1]
+-------------------------------------------------------*/
+.sg-h1,
+.sg-aside-hdr {
+	font-family: PTSansCaptionBold, Futura, "Century Gothic", AppleGothic, sans-serif;
+	background-color: #073642;
+	text-shadow: 0 1px 1px #000;
+}
+
+/* [H2]
+-------------------------------------------------------*/
+.sg-h2 {
+	font-family: PTSansBold, Futura, "Century Gothic", AppleGothic, sans-serif;
+	margin-top: 24px;
+	background-color: #839496;
+	text-shadow: 0 1px 1px rgba(0, 0, 0, 0.6);
+}
+
+/* [H3]
+-------------------------------------------------------*/
+.sg-h3 {
+	font: 17px PTSansNarrowBold, Futura, "Century Gothic", AppleGothic, sans-serif;
+	text-transform: uppercase;
+	border-bottom: 1px solid #073642;
+	padding-bottom: 2px;
+	color: #586e75;
+}
+
+	.sg-h3 span {text-transform: none;}
+
+/* [H4]
+-------------------------------------------------------*/
+.sg-h4 {
+	font: 17px PTSansNarrowRegular, Futura, "Century Gothic", AppleGothic, sans-serif;
+	color: #073642;
+}
+
+/* [LINKS]
+-------------------------------------------------------*/
+.sg-h1 a,
+.sg-h2 a,
+.sg-h3 a,
+.sg-h4 a {text-decoration: underline;}
+
+.sg-h1 a:hover,
+.sg-h2 a:hover,
+.sg-h3 a:hover,
+.sg-h4 a:hover {text-decoration: none;}
+
+/* H1 */
+.sg-h1 a,
+.sg-h1 a:visited {
+	color: #fff;
+	display: block;
+}
+
+
+/* ======================================================================================
+   @EVERYTHING ELSE
+   ====================================================================================== */
+
+/* [RESET LIST]
+-------------------------------------------------------*/
+#sg .sg-list--reset {
+	list-style: none;
+	margin-left: 0;
+}
+
+/* [NOTE]
+-------------------------------------------------------*/
+.sg-note {
+	background-color: #eee8d5;
+	padding: 14px 24px;
+	margin-bottom: 24px;
+	color: #002b36;
+	border-left: 3px solid #93a1a1;
+}
+
+/* Indent - mostly used for 'dynamic states' panel */
+.sg-note--indent {
+	margin-left: 42px;
+	border: 0;
+}
+
+/* Outdent - mostly used for the page intro text */
+.sg-note--outdent {
+	margin: -10px -24px 24px -24px;
+	padding: 14px 26px;
+}
+
+	/* Child elements */
+	.sg-note p,
+	.sg-note .list {
+		margin-top: 14px;
+		margin-bottom: 0;
+	}
+
+	.sg-note p:first-child,
+	.sg-note .list:first-child {margin-top: 0;}
+
+
+/* [DEFAULT ELEMENT STYLES - Form Inputs & Buttons]
+-------------------------------------------------------*/
+.sg-inputs-btns li {margin-top: 24px;}
+
+.sg-inputs-btns li:first-child {margin: 0;}
+
+.sg-inputs-btns li * {vertical-align: middle;}
+
+/* [GENERIC LABEL]
+-------------------------------------------------------*/
+.sg-lbl {
+	margin-right: 24px;
+	color: #002b36;
+}
+
+/* [CODE]
+-------------------------------------------------------*/
+.sg-code {
+	background-color: #fff;
+	border: 1px solid #fdf6e3;
+	padding: 1px 6px;
+	color: #002b36;
+	border-radius: 4px;
+	font-size: 12px;
+	display: inline-block;
+	margin: 0 2px 1px;
+	text-shadow: none;
+}
+
+/* [ALERTS]
+-------------------------------------------------------*/
+.sg-alert {
+	text-transform: uppercase;
+	padding: 10px;
+	color: #fff;
+	font: 12px Cambria, "Hoefler Text", Utopia, "Liberation Serif", "Nimbus Roman No9 L Regular", Times, "Times New Roman", serif;
+	letter-spacing: 1px;
+	border-radius: 8px;
+	box-shadow: 1px 1px 2px rgba(153, 153, 153, 0.3);
+	margin-bottom: 24px;
+}
+
+/* Inline */
+span.sg-alert {
+	margin: 0 0 0 4px;
+	display: inline-block;
+	vertical-align: middle;
+	padding: 3px 10px 4px;
+	font-size: 11px;
+}
+
+/* Success */
+.sg-alert--success {
+	background-color: #57a957;
+	background-image: -webkit-linear-gradient(#62c462, #57a957);
+	background-image: linear-gradient(#62c462, #57a957);
+}
+
+/* Error */
+.sg-alert--error {
+	background-color: #c43c35;
+	background-image: -webkit-linear-gradient(#ee5f5b, #c43c35);
+	background-image: linear-gradient(#ee5f5b, #c43c35);
+}
+
+/* Warning */
+.sg-alert--warning {
+	background-color: #eedc94;
+	background-image: -webkit-linear-gradient(#fceec1, #eedc94);
+	background-image: linear-gradient(#fceec1, #eedc94);
+	color: #5e4e0f;
+}
+
+/* Info */
+.sg-alert--info {
+	background-color: #2f8eaa;
+	background-image: -webkit-linear-gradient(#2eafd6, #2f8eaa);
+	background-image: linear-gradient(#2eafd6, #2f8eaa);
+}
+
+/* [META TEXT]
+-------------------------------------------------------*/
+.sg-meta {
+	font-size: 13px;
+	margin-left: 4px;
+}
+
+/* [DEMO STYLES]
+-------------------------------------------------------*/
+.sg-demo-boxed,
+.sg-demo-boxed-drk,
+.sg-demo-boxed-padded {
+	background-color: #2aa198;
+	border-radius: 8px;
+	color: #fff;
+}
+
+.sg-demo-boxed-drk {background-color: #002b36;}
+
+.sg-demo-boxed-padded {padding: 12px;}
+
+.sg-demo-right-space {
+	vertical-align: middle;
+	margin-right: 8px;
+}
+
+	.sg-demo-boxed a,
+	.sg-demo-boxed a:visited,
+	a.sg-demo-boxed,
+	.sg-demo-boxed-drk a,
+	.sg-demo-boxed-drk a:visited,
+	a.sg-demo-boxed-drk {color: #fff !important;}
+
+/* [MARGINS]
+-------------------------------------------------------*/
+.sg-mrg-on {margin-bottom: 24px !important;}
+
+.sg-mrg-on--top {margin-top: 24px !important;}
+
+.sg-mrg-off {margin: 0 !important;}
+
+.sg-mrg-off--top {margin-top: 0 !important;}
+
+.sg-mrg-half {margin-bottom: 12px !important;}
+
+.sg-mrg-dbl {margin-bottom: 48px !important;}
+
+/* [CLEAR FIX]
+-------------------------------------------------------*/
+.sg-cf:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+/* IE 7 */
+.sg-cf {*zoom: 1;}

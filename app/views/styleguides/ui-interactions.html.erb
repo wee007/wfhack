@@ -1,0 +1,57 @@
+---
+title: UI Interactions
+---
+
+<div class="sg-h1">UI Interactions</div>
+<div class="sg-note sg-note--outdent">UI Interactions are common user interface interactions which use JavaScript/jQuery to function e.g. expand/collapse some content, remove a notification, etc.</div>
+
+<!-- Toggle Content -->
+<div class="sg-h2">Toggle Content</div>
+
+<p>Nec at quodsi elaboraret definitionem. Ne facilisi pericula honestatis qui. In sanctus platonem voluptatum ius. Ad sed labores inermis disputando, etiam adversarium quo te. Eu vis nostrud deseruisse, est possit iracundia no, has an ferri meliore nusquam. Semper apeirian pericula eos id. Error graeci graecis sed no, quo ex hinc justo pertinax.</p>
+<div class="js-toggle-content js-hide-show">
+	<p>Nec at quodsi elaboraret definitionem. Ne facilisi pericula honestatis qui. In sanctus platonem voluptatum ius. Ad sed labores inermis disputando, etiam adversarium quo te. Eu vis nostrud deseruisse, est possit iracundia no, has an ferri meliore nusquam. Semper apeirian pericula eos id. Error graeci graecis sed no, quo ex hinc justo pertinax. Pro nostro placerat ex, id tamquam sadipscing vim, te tota errem audiam duo. Vim scripta recusabo elaboraret eu, sea periculis iracundia repudiandae ea, has duis modus persequeris in.</p>
+	<p>Ne mel utroque apeirian, eum ex cibo choro. Discere <em>commune</em> concludaturque eum te, eros movet comprehensam eum id. Cu nulla salutatus duo. Phaedrum efficiantur vix at, ius ancillae reprimique in, percipit mandamus assueverit eu eum. Alia natum vidisse id ius, vide soleat vis no.</p>
+</div>
+<hr>
+<p>Nec at quodsi elaboraret definitionem. Ne facilisi pericula honestatis qui. In sanctus platonem voluptatum ius. Ad sed labores inermis disputando, etiam adversarium quo te. Eu vis nostrud deseruisse, est possit iracundia no, has an ferri meliore nusquam. Semper apeirian pericula eos id. Error graeci graecis sed no, quo ex hinc justo pertinax.</p>
+<div class="js-toggle-content js-hide-show">
+	<p>Nec at quodsi elaboraret definitionem. Ne facilisi pericula honestatis qui. In sanctus platonem voluptatum ius. Ad sed labores inermis disputando, etiam adversarium quo te. Eu vis nostrud deseruisse, est possit iracundia no, has an ferri meliore nusquam. Semper apeirian pericula eos id. Error graeci graecis sed no, quo ex hinc justo pertinax. Pro nostro placerat ex, id tamquam sadipscing vim, te tota errem audiam duo. Vim scripta recusabo elaboraret eu, sea periculis iracundia repudiandae ea, has duis modus persequeris in.</p>
+	<p>Ne mel utroque apeirian, eum ex cibo choro. Discere <em>commune</em> concludaturque eum te, eros movet comprehensam eum id. Cu nulla salutatus duo. Phaedrum efficiantur vix at, ius ancillae reprimique in, percipit mandamus assueverit eu eum. Alia natum vidisse id ius, vide soleat vis no.</p>
+</div>
+<!-- //Toggle Content -->
+
+<!-- Remove A Notification -->
+<div class="sg-h2">Remove A Notification</div>
+
+<style>
+	.btn--close {margin-left: 8px;}
+</style>
+<p class="feedback feedback--error js-remove">Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.</p>
+<!-- //Remove A Notification -->
+
+<!-- Launch Print Dialog -->
+<div class="sg-h2">Launch Print Dialog</div>
+
+<button type="button" class="btn btn--faux-link js-print-dialog">Print me</button>
+<!-- //Launch Print Dialog -->
+
+<!-- Character Limit -->
+<div class="sg-h2">Character Limit</div>
+<style>
+	.char-counter {
+		display: block;
+		font-size: 13px;
+		margin-top: 4px;
+	}
+	.char-counter.is-exceeded {color: red;}
+	.char-counter.is-warning {color: maroon;}
+	.js-char-count-trigger {height: 7em;}
+</style>
+<div class="form-main__field">
+	<label for="char-limit" class="form-main__label">Message <small class="form-main__notes">(limited to 40 characters)</small></label>
+	<div class="form-main__inputs">
+		<textarea rows="14" cols="60" id="char-limit" name="char-limit" class="js-char-count-trigger"></textarea>
+	</div>
+</div>
+<!-- //Character Limit -->

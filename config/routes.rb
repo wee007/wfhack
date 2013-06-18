@@ -1,6 +1,7 @@
 Customerconsole::Application.routes.draw do
   if Rails.env.development?
     resources :styleguides, only: [:index, :show]
+    get 'styleguide' => redirect('/styleguides')
   end
 
   get 'status' => 'health_check/health_check#index', 'checks' => 'cache_and_site'

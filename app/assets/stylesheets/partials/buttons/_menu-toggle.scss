@@ -13,9 +13,9 @@
 .btn--menu-toggle {
 	float: left;
 	position: relative;
-	@include to-rem(width, 44);
-	@include to-rem(height, 34);
-	@include to-rem(margin, -1 0 0 -7);
+	@include to-rem(width, 38);
+	@include to-rem(height, 32);
+	@include to-rem(margin, -1 0 0 -9);
 
 	/* Sub nav menu toggle */
 	.sub-nav-container & {
@@ -23,7 +23,7 @@
 		display: none;
 
 		/* Always show at this breakpoint range */
-		@include respond-range-fixed(lap-sml) {
+		@include respond-range($non-palm, $ipad-landscape - 1) {
 			display: block;
 		}
 	}
@@ -33,7 +33,7 @@
 	.btn--menu-toggle__icon {
 		left: 50%;
 		top: 50%;
-		@include to-rem(margin, -2 0 0 -14);
+		@include to-rem(margin, -1.5 0 0 -10);
 		pointer-events: none;
 
 		/* Shared */
@@ -41,9 +41,9 @@
 		&:before,
 		&:after {
 			position: absolute;
-			width: to-rem(28);
-			height: to-rem(4);
-			border-radius: 2px;
+			width: to-rem(20);
+			height: 3px;
+			border-radius: 1px;
 			background-color: $color-med-txt;
 		}
 
@@ -54,7 +54,7 @@
 			left: 0;
 		}
 
-		&:before {top: -(to-rem(7));}
+		&:before {top: -6px;}
 
-		&:after {top: to-rem(7);}
+		&:after {top: 6px;}
 	}

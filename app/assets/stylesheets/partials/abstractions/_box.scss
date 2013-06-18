@@ -1,0 +1,19 @@
+/* ======================================================================================
+   @ABSTRACTIONS -> ARROWS
+   ====================================================================================== */
+
+/*
+  Usage:
+    Creates a box shaddow.
+
+  Note:
+    The default box style for tiles etc
+
+  Demo:
+    Style Guide -> Abstractions -> Box
+*/
+
+.box {
+  background-color: #fff;
+  box-shadow: 0 0 3px rgba(#000, 0.4);
+}

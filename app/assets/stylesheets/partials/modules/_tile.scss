@@ -1,0 +1,152 @@
+/* ======================================================================================
+   @MODULES -> TILE
+   ====================================================================================== */
+
+/*
+  Usage:
+    Renders a tile, which is to be used in pin board style layout
+
+  Note:
+    This module is to be used with isotope. See: http://isotope.metafizzy.co
+
+  Demo:
+    Style Guide -> Modules -> Tile
+*/
+
+.tile {
+  display: block;
+  color: $color-base-txt;
+  width: 48%; /* Show 2 tiles by default */
+    background-color: red;
+
+  @include font-size($font-size-sml);
+  @include to-rem(margin-bottom, $spacing-half);
+
+  /* Show 3 tiles at this breakpoint */
+  @include respond-min($lap) {
+    width: 31%;
+  }
+
+  /* Show 5 tiles at this breakpoint */
+  @include respond-min($lap-lrg) {
+    width: 18%;
+  }
+
+  /* Global styles */
+  p { margin-bottom: 0; }
+
+}
+
+.tile__image {
+  img {
+    width: 100%;
+  }
+}
+
+.tile__meta {
+  position: relative;
+  @include to-rem(min-height, $spacing-base*2);
+  @include to-rem(padding, 8 0);
+}
+
+.tile__meta__icon {
+  position: absolute;
+  border-left: 2px solid $color-brand;
+  background-color: #f2f2f2;
+  color: #888;
+  @include to-rem(left, -2);
+  @include to-rem(top, 9);
+  @include font-size($font-size-lrg, 1);
+  @include to-rem(padding, 3 5);
+
+  /* Increase the padding at this breakpoint, as we have more space */
+  @include respond-min($non-palm) {
+    @include to-rem(padding, 5 7);
+  }
+}
+
+.tile__meta__inner {
+  @include to-rem(margin, 0 10 0 35);
+
+  /* Increase the margin at this breakpoint */
+  @include respond-min($non-palm) {
+    @include to-rem(margin-left, 40);
+  }
+}
+
+
+.tile__meta__hdr {
+  font-weight: bold;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  @include font-size($font-size-milli, 1.5);
+
+  /* Increase the font size at this breakpoint */
+  @include respond-min($desk) {
+    @include font-size($font-size-sml, 1.5);
+  }
+}
+
+.tile__meta__desc {
+  color: $color-light-txt;
+  @include font-size($font-size - 4, 1.5);
+
+  @include respond-min($desk) {
+    @include font-size($font-size-milli, 1);
+  }
+
+}
+
+.tile__meta__price {
+  color: $color-dark-txt;
+  position: relative;
+  font-weight: bold;
+  display: block;
+  @include to-rem(padding-top, 4);
+  @include font-size($font-size - 4, 1);
+
+  /* Float right at this breakpoint, as we have the space. */
+  @include respond-min($desk) {
+    @include font-size($font-size-milli, 0.5);
+    float: right;
+  }
+}
+
+
+/* Deals */
+.tile--deals {
+  position: relative;
+
+  .tile__meta {
+    @include to-rem(padding, 45 15);
+
+    /* Increase the padding at this breakpoint
+       to keep the proportions right. */
+    @include respond-min($non-palm) {
+      @include to-rem(padding, 65 25);
+    }
+  }
+
+  .tile__meta__desc {
+    color: $color-dark-txt;
+    text-transform: uppercase;
+    font-size: $font-size-sml;
+    @include to-rem(margin-top, 7);
+
+    /* Increase the font size and margin at this breakpoint
+       to keep the proportions right. */
+    @include respond-min($non-palm) {
+      @include font-size($font-size-lrg);
+      @include to-rem(margin-top, 15);
+    }
+  }
+
+  .tile__meta__icon {
+    top: auto;
+    @include to-rem(bottom, 7.5);
+    @include respond-min($non-palm) {
+      @include to-rem(bottom, 9);
+    }
+  }
+
+}

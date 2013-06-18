@@ -244,10 +244,14 @@
 				<nav role="navigation" aria-label="Main navigation">
 					<!-- [BACK END] `is-active` class needs to be appended to the active anchor element e.g. `<a href="#" class="is-active">` -->
 						<ul class="nav-main horiz-list horiz-list--fit horiz-list--center horiz-list--dividers">
-								<li><a href="#"><span class="icon icon--store" aria-hidden="true"></span><span class="hide-visually"> Stores</span></a></li>
-								<li><a href="#" class="is-active"><span class="icon icon--products" aria-hidden="true"></span><span class="hide-visually"> Products</span></a></li>
-								<li><a href="#"><span class="icon icon--deals" aria-hidden="true"></span><span class="hide-visually"> Deals</span></a></li>
-								<li><a href="#"><span class="icon icon--events" aria-hidden="true"></span><span class="hide-visually"> Events</span></a></li>
+						  <li><%= link_to centre_stores_path(params[:centre_id] || params[:id]),
+						    :class => page?(:stores) do %><span class="icon icon--store" aria-hidden="true"></span><span class="hide-visually"> Stores</span><% end %></li>
+						  <li><%= link_to centre_products_path(params[:centre_id] || params[:id]),
+						    :class => page?(:products) do %><span class="icon icon--store" aria-hidden="true"></span><span class="hide-visually"> Products</span><% end %></li>
+						  <li><%= link_to centre_deals_path(params[:centre_id] || params[:id]),
+						    :class => page?(:deals) do %><span class="icon icon--store" aria-hidden="true"></span><span class="hide-visually"> Deals</span><% end %></li>
+						  <li><%= link_to centre_events_path(params[:centre_id] || params[:id]),
+						    :class => page?(:events) do %><span class="icon icon--store" aria-hidden="true"></span><span class="hide-visually"> Events</span><% end %></li>
 						</ul>
 				</nav>
 				<!-- //Main navigation -->

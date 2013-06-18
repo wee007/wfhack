@@ -8,4 +8,8 @@ module ApplicationHelper
     false #TODO Add logic here to check if we are in a lightbox.
   end
 
+  def page? page
+    params[:controller] == page.to_s ? 'is-active' : nil
+  end
+
 end

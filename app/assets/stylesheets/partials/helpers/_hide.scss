@@ -1,0 +1,79 @@
+/* ======================================================================================
+   @HELPERS -> HIDE
+   ====================================================================================== */
+
+/*
+	Usage:
+		Hides elements in various ways, see inline comments.
+*/
+
+/* Hide from both screen readers and browsers */
+.hide-fully {display: none;}
+
+	/* --Apply at specific breakpoints (all pre-defined breakpoints)-- */
+
+	/* Palm */
+	@include respond-max($palm) {
+		.hide-fully--palm {display: none;}
+	}
+
+	/* Non-palm */
+	@include respond-min($non-palm) {
+		.hide-fully--non-palm {display: none;}
+	}
+
+	/* Lap */
+	@include respond-range-fixed(lap) {
+		.hide-fully--lap {display: none;}
+	}
+
+	/* Lap small */
+	@include respond-range-fixed(lap-sml) {
+		.hide-fully--lap-sml {display: none;}
+	}
+
+	/* Lap large */
+	@include respond-range-fixed(lap-lrg) {
+		.hide-fully--lap-lrg {display: none;}
+	}
+
+	/* Portable */
+	@include respond-max($lap-end) {
+		.hide-fully--portable {display: none;}
+	}
+
+	/* Desk */
+	@include respond-min($desk) {
+		.hide-fully--desk {display: none;}
+	}
+
+	/* Desk small */
+	@include respond-range-fixed(desk-sml) {
+		.hide-fully--desk-sml {display: none;}
+	}
+
+	/* Desk large */
+	@include respond-min($desk-lrg) {
+		.hide-fully--desk-lrg {display: none;}
+	}
+
+/* Hide only visually but have it available for screen readers */
+.hide-visually {@extend %hide-visually;}
+
+/* Form `legend` requires this */
+legend.hide-visually {left: $off-screen-distance;}
+
+/* Turns off `.hide-visually` i.e. bring back into view */
+.hide-visually-off {@extend %hide-visually-off;}
+
+/* Hide stuff relating to JS */
+.no-js .js-disabled-hide,
+.js .js-enabled-hide,
+.js .js-hide-show {display: none;}
+
+/* Print */
+@media print {
+	.hide-print {display: none;}
+
+	.js-hide-show {display: block !important;}
+}

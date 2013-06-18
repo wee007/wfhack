@@ -1,0 +1,60 @@
+/* ======================================================================================
+   @BUTTONS -> MENU TOGGLE
+   ====================================================================================== */
+
+/*
+	Usage:
+		Toggles the header menu at small screen sizes.
+
+	Demo:
+		Style Guide -> Buttons -> Menu Toggle
+*/
+
+.btn--menu-toggle {
+	float: left;
+	position: relative;
+	@include to-rem(width, 44);
+	@include to-rem(height, 34);
+	@include to-rem(margin, -1 0 0 -7);
+
+	/* Sub nav menu toggle */
+	.sub-nav-container & {
+		float: none;
+		display: none;
+
+		/* Always show at this breakpoint range */
+		@include respond-range-fixed(lap-sml) {
+			display: block;
+		}
+	}
+}
+
+	/* Create the icon (three lines) */
+	.btn--menu-toggle__icon {
+		left: 50%;
+		top: 50%;
+		@include to-rem(margin, -2 0 0 -14);
+		pointer-events: none;
+
+		/* Shared */
+		&,
+		&:before,
+		&:after {
+			position: absolute;
+			width: to-rem(28);
+			height: to-rem(4);
+			border-radius: 2px;
+			background-color: $color-med-txt;
+		}
+
+		/* Pseudo elements - top/bottom lines */
+		&:before,
+		&:after {
+			content: "";
+			left: 0;
+		}
+
+		&:before {top: -(to-rem(7));}
+
+		&:after {top: to-rem(7);}
+	}

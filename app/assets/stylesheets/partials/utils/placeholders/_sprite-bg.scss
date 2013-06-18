@@ -1,0 +1,16 @@
+/* ======================================================================================
+   @UTILS -> PLACEHOLDERS -> SPRITE BG
+   ====================================================================================== */
+
+/*
+	Usage:
+		Declare the main sprite background image.
+
+	Demo:
+		Style Guide -> Utilities -> Sprite BG
+*/
+
+%sprite-bg {
+	background-image: url("img/sprite.png");
+	background-repeat: no-repeat;
+}

@@ -1,0 +1,49 @@
+/* ======================================================================================
+   @BASE -> LINKS
+   ====================================================================================== */
+
+a {
+	@extend %transition-subtle;
+	color: $color-link;
+	text-decoration: none;
+
+	/* Visited */
+	//&:visited {color: $color-link-visited;}
+
+	/* Hover/Focus */
+	&:hover,
+	&:focus {color: $color-link-visited;}
+
+	/* Make `tel` links not look like links for non-phone devices at this breakpoint */
+	@include respond-min($non-palm) {
+		&[href^="tel:"] {
+			@include disguised-link;
+
+			&:focus {outline: none;}
+		}
+	}
+}
+
+/* Print */
+@media print {
+	a,
+	a:visited {text-decoration: underline;} /* Note: this may be redundant? */
+
+	/* Show the `href` and `title` attr values after the element */
+	a[href]:after,
+	abbr[title]:after {
+		font-size: 80%;
+		color: $color-grey !important;
+	}
+
+	a[href]:after {content: " (" attr(href) ")";}
+
+	abbr[title]:after {content: " (" attr(title) ")";}
+
+	/* Don't show the `href` attr value for the following */
+	.header a[href]:after,
+	.url[href]:after,
+	a[href^="tel:"]:after,
+	a[href^="javascript:"]:after,
+	a[href^="#"]:after {content: "";}
+}

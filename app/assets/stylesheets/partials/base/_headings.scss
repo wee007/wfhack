@@ -1,0 +1,43 @@
+/* ======================================================================================
+   @BASE -> HEADINGS
+   ====================================================================================== */
+
+/*
+	Note: to target any heading of any level use this generic heading class: `.hn`.
+*/
+
+/* Shared */
+@include headings(1, 6) {
+    font-weight: normal;
+}
+
+/* H1 */
+h1, .h1 {
+    font-family: $font-family-lato;
+    margin-top: 0; /* Note: this is needed to turn off the top margin set in 'utils/normalize'. */
+}
+
+/* H2 */
+h2, .h2 {
+    //@include font-size(24);
+}
+
+/* H3 */
+h3, .h3 {
+    //@include font-size($font-size-h3);
+}
+
+/* H4 */
+h4, .h4 {
+    //@include font-size($font-size-h4);
+}
+
+/* H5 */
+h5, .h5 {
+    //@include font-size($font-size-h5);
+}
+
+/* H6 */
+h6, .h6 {
+    //@include font-size($font-size-h6);
+}

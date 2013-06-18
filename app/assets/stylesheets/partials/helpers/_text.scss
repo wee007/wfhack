@@ -1,0 +1,53 @@
+/* ======================================================================================
+   @HELPERS -> TEXT
+   ====================================================================================== */
+
+/*
+	Usage: 
+		Various helpers specifically for text.
+	
+	Demo:
+		Style Guide -> Helpers -> Text
+*/
+
+/* Sizes */
+.txt-sml {@include font-size($font-size-sml, $sledgehammer: !important);}
+
+.txt-lrg {@include font-size($font-size-lrg, $sledgehammer: !important);}
+
+.txt-reset {font-size: 100% !important;}
+
+/* Alignments */
+.txt-center {text-align: center !important;}
+
+.txt-left {text-align: left !important;}
+
+.txt-right {text-align: right !important;}
+
+/* Styles */
+.txt-italic {font-style: italic !important;}
+
+.txt-bold {font-weight: bold !important;}
+
+.txt-caps {text-transform: uppercase !important;}
+
+/* Truncate */
+.txt-truncate {
+	max-width: 100% !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+}
+
+/* Break word */
+.txt-break-word {
+	word-wrap: break-word !important; 
+	-ms-word-break: break-all !important;
+    word-break: break-all !important;
+	/* Non standard for webkit */
+    word-break: break-word !important;
+	/* Hyphens */
+	@include prefix(hyphens, auto);
+	/* Note: 'layout' is needed for IE. */
+	/* Note: `table-layout: fixed;` is needen when this is used within tables, the rule needs to go on the `table` element. */
+}

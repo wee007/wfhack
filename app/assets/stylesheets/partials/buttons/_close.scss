@@ -1,0 +1,35 @@
+/* ======================================================================================
+   @BUTTONS -> CLOSE
+   ====================================================================================== */
+
+/* 
+	Usage: 
+		For closing/removing UI components e.g. a dialog/modal.
+	
+	Note:
+		Extends from `.btn`, see: 'buttons/base'.
+	
+	Demo:
+		Style Guide -> Buttons -> Close
+*/
+
+
+.btn--close {
+	
+	/* Pseudo element - 'x' */
+	&:before {
+		content: "x";
+		display: block;
+		speak: none;
+		font: bold to-em(18)/to-em(18) Verdana, Geneva, Tahoma, sans-serif;
+		@include to-em(padding, 0 7 5);
+		color: #000;
+		text-shadow: 0 1px 0 #fff;
+		@include opacity(0.5);
+	}
+	
+	/* Pseudo classes */
+	&:hover:before,
+	&:focus:before {@include opacity(0.9);}
+	
+}

@@ -1,0 +1,26 @@
+/* ======================================================================================
+   @MODULES -> ABSTRACTIONS -> DROP DOWN
+   ====================================================================================== */
+
+/*
+	Usage:
+		A generic drop down powered by the 'Twitter Bootstrap Drop down' plugin. Individual drop down's that require custom styles will become a 'module'.
+
+	Demo:
+		Style Guide -> Abstractions -> Drop Down
+*/
+
+/* Container for the drop down and drop down trigger */
+.drop-down-container {position: relative;}
+
+/* The drop down (JS users only) */
+.js .drop-down {
+  display: none;
+  position: absolute;
+  z-index: $z-index-max;
+  top: 100%;
+  left: 0;
+}
+
+/* The drop down opened */
+.drop-down-container.is-active > .drop-down {display: block;}

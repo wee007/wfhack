@@ -1,0 +1,16 @@
+/* ======================================================================================
+   @LAYOUT -> CONTAINERS
+   ====================================================================================== */
+
+/* Generic container */
+.container {
+	width: 90%;
+	@include to-rem(min-width, 220);
+	@include to-rem(max-width, $page-container-max-width);
+	margin: 0 auto;
+
+	/* Print */
+	@media print {
+		width: auto;
+	}
+}

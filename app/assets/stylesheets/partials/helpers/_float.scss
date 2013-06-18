@@ -1,0 +1,17 @@
+/* ======================================================================================
+   @HELPERS -> FLOAT
+   ====================================================================================== */
+
+/*
+	Usage: 
+		Float an element to either the right or left or remove float altogether.
+	
+	Demo:
+		Style Guide -> Helpers -> Float
+*/
+
+.float-left {float: left !important;}
+
+.float-right {float: right !important;}
+
+.float-none {float: none !important;}

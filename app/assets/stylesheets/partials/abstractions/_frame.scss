@@ -1,0 +1,38 @@
+/* ======================================================================================
+   @ABSTRACTIONS -> FRAME
+   ====================================================================================== */
+
+/*
+	Usage: 
+		Apply a nice framed effect typically to the `img` and `figure` elements.
+	
+	Demo:
+		Style Guide -> Abstractions -> Frame
+*/
+
+.frame {
+	background-color: #fff;
+	padding: to-em($spacing-quarter);
+    border-radius: $border-radius;
+    border-bottom: 1px solid $color-grey-light;
+	box-shadow: 0 1px 4px rgba(#000, 0.35);
+	display: block;
+	
+	/* Old IE */
+	@include old-ie {
+		border: 1px solid $color-grey-lightest;
+		border-bottom-width: 2px;
+	}
+}
+
+/* Extend: change to `inline-block` */
+.frame--inline {display: inline-block;}
+
+	/* Caption */
+	.frame__caption {
+		padding: to-em($spacing-quarter);
+		font-family: $font-family-quote;
+		font-style: italic;
+		color: $color-grey;
+		text-align: center;
+	}

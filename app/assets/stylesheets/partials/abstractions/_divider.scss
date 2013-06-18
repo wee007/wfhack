@@ -1,0 +1,32 @@
+/* ======================================================================================
+   @ABSTRACTIONS -> DIVIDER
+   ====================================================================================== */
+
+/*
+	Usage: 
+		Apply a dividing line between two elements.
+	
+	Demo:
+		Style Guide -> Abstractions -> Divider
+*/
+
+.divider {
+	border-bottom: 1px solid $color-grey;
+	box-shadow: 0 1px 0 $color-grey-lightest;
+	@include to-rem(padding-bottom, $spacing-base);
+	@extend %mrg-base;
+}
+
+/* --Extenders-- */
+
+/* Larger spacing */
+.divider--lrg {
+	@include to-rem(padding-bottom, $spacing-dbl);
+	@include to-rem(margin-bottom, $spacing-dbl);
+}
+
+/* Smaller spacing */
+.divider--sml {
+	@include to-rem(padding-bottom, $spacing-half);
+	@include to-rem(margin-bottom, $spacing-half);
+}

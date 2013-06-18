@@ -1,0 +1,27 @@
+/* ======================================================================================
+   @BASE -> MAIN
+   ====================================================================================== */
+
+html {
+	font-size: ($font-size/16)+em;
+	line-height: $line-height-ratio;
+	background-color: #e8e8e8;
+}
+
+body {@include prefix(animation, fade-in 1.5s 0.5s both);}
+
+/* Animation: fade in the `body` */
+@include prefix-keyframe(fade-in) {
+	from {opacity: 0;}
+	to {opacity: 1;}
+}
+
+/* Set `font-family` and `color` */
+html,
+button,
+input,
+select,
+textarea {
+	font-family: $font-family;
+	color: $color-base-txt;
+}

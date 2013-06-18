@@ -1,0 +1,34 @@
+/* ======================================================================================
+   @UTILS -> SASS FUNCTIONS
+   ====================================================================================== */
+
+/* [CONVERT PX TO EM/REM]
+-------------------------------------------------------*/
+/*
+	Usage:
+		To convert `px` to `em`s or `rem`s.
+
+	Note:
+		'REM' `@function` outputs a `px` fallback for old IE and Opera Mini, when Opera Mini supports `rem` (http://caniuse.com/#feat=rem) change the `@function` to an archived version (11-02-2013).
+
+	Credit:
+		https://gist.github.com/2237465
+
+	Example:
+		.foo {margin-left: to-em(8, 20);}
+		.foo {padding: to-rem(8) 0;}
+*/
+
+/* EM */
+@function to-em($pxval, $context: $font-size) {
+	@return #{$pxval / $context}em;
+}
+
+/* REM */
+@function to-rem($pxval) {
+	@if $old-ie {
+		@return #{$pxval}px;
+	} @else {
+		 @return #{$pxval / $font-size}rem;
+	}
+}

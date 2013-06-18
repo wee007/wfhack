@@ -1,0 +1,33 @@
+/* ======================================================================================
+   @BASE -> SKIP LINK
+   ====================================================================================== */
+
+/*
+	Usage:
+		An accessibility feature to allow assistive technology users e.g. screen readers to easily skip to the main content, also assists keyboard users.
+
+	Demo:
+		Insert cursor in the browser address bar then start tabbing, it's the first tab stop in the site.
+*/
+
+.hide-visually.skip-link {
+	/* Pseudo classes */
+	&:active,
+	&:focus {
+		position: absolute;
+		left: 0;
+		top: 0;
+		z-index: $z-index-max;
+		width: 100%;
+		padding: to-em($spacing-third) 0;
+		@include rgba-bg($color-brand, 0.8);
+		color: #fff;
+		box-shadow: 0 8px 6px -6px rgba(#000, 0.4);
+		text-align: center;
+		height: auto;
+		overflow: visible;
+		clip: auto;
+		margin: 0;
+		@extend %transition-off;
+	}
+}

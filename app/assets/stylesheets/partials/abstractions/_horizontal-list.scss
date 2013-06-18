@@ -1,0 +1,106 @@
+/*
+	Make list items for `ul` and `ol` elements render horizontally.
+
+	.horiz-list--dividers - To add vert divider
+	.horiz-list--center - Centered list
+	.horiz-list--fit - Fit width-wise
+	.horiz-list--comma - Comma seperate
+	.horiz-list--slash - Slash seperate
+
+	Styleguide 3.1
+*/
+.horiz-list {
+	/* List items */
+	> li {
+
+		/* List items + links */
+		&,
+		> a {display: inline-block;}
+	}
+}
+
+/* --Use the horizontal list abstraction under specific breakpoints applied via specific classes (namespaced) e.g. `.non-palm-horiz-list` (all pre-defined breakpoints)-- */
+
+@mixin horiz-list-classes($namespace: "") {
+
+	/* Non-palm */
+    .#{$namespace}horiz-list {
+		> li {
+			&,
+			> a {display: inline-block;}
+		}
+    }
+
+}
+
+/* Non-palm */
+@include respond-min($non-palm) {
+	@include horiz-list-classes("non-palm-");
+}
+
+/* --Extenders-- */
+
+/* With dividers */
+.horiz-list--dividers > li {
+	border-left: 1px solid $color-grey-light;
+	padding-left: to-em($spacing-half);
+	margin-left: to-em($spacing-half);
+
+	/* Kill rules for the first item */
+	&:first-child {
+		padding: 0;
+		margin: 0;
+		border: 0;
+	}
+}
+
+/* Center align */
+.horiz-list--center {text-align: center;}
+
+/* Fit (force the items to occupy 100% of the available width of its parent) */
+.horiz-list--fit {
+	display: table;
+	width: 100%;
+
+	/* List items */
+	> li {
+		display: table-cell;
+
+		/* Links */
+		> a {display: block;}
+	}
+
+	/* When combined with the `.horiz-list--dividers` extender */
+	&.horiz-list--dividers > li {
+		margin-left: 0;
+		padding-right: to-em($spacing-half);
+	}
+
+	/* Center align */
+	&.horiz-list--center > li {padding: 0;}
+}
+
+/* Comma/slash seperated */
+.horiz-list--comma,
+.horiz-list--slash {
+
+	> li {
+
+		/* List items + links */
+		&,
+		> a {display: inline-block;} /* Note: if the breakpoint above isn't used then this can be removed. */
+
+		/* Pseudo element */
+		&:after {margin-right: to-em($spacing-quarter);}
+
+		/* Remove pseudo element on last child */
+		&:last-child:after {display: none;}
+	}
+}
+
+.horiz-list--slash > li:after {
+	content: "/";
+	margin-left: to-em($spacing-quarter);
+}
+
+.horiz-list--comma > li:after {content: ",";}

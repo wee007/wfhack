@@ -1,0 +1,26 @@
+<div class="sg-example">
+  <div class="sg-h2"><%= section.section %> <em><%= section.filename %></em></div>
+  <div class="sg-note">
+    <p><%= section.description %></p>
+    <% if section.modifiers.any? %>
+      <ul class="styleguide-modifier">
+        <% section.modifiers.each do |modifier| %>
+          <li><strong><%= modifier.name %></strong> - <%= modifier.description %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
+
+  <div class="sg-element">
+    <%= example_html.html_safe %>
+  </div>
+
+  <% section.modifiers.each do |modifier| %>
+    <div class="sg-element sg-modifier">
+      <span class="sg-modifier-name"><%= modifier.name %></span>
+      <%= example_html.gsub('$modifier_class', modifier.class_name).html_safe %>
+    </div>
+  <% end %>
+
+  <pre class="sg-code"><code data-language="html"><%= example_html.strip %></code></pre>
+</div>

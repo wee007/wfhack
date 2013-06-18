@@ -1,0 +1,40 @@
+/* ======================================================================================
+   @UTILS -> PLACEHOLDERS -> IMAGE REPLACEMENT
+   ====================================================================================== */
+
+/*
+	Usage:
+		For replacing a text element with an image.
+
+	Note:
+		Still undecided whether to go with the latest H5BP technique? Will decide after a few builds. If revert back to the prior technique then make sure to update all `em` values to `px`.
+
+	Demo:
+		Style Guide -> Utilities -> Image Replacement
+
+	Credit:
+		http://html5boilerplate.com/
+*/
+
+/*%img-replacement {
+	font: 0/0 a;
+    text-shadow: none;
+    color: transparent;
+}*/
+
+%img-replacement {
+    background-color: transparent;
+    border: 0;
+    overflow: hidden;
+
+	/* Pseudo element */
+	&:before {
+		content: "";
+		display: block;
+		width: 0;
+		height: 150%;
+	}
+}
+
+/* Alternate version */
+%img-replacement-alt {text-indent: $off-screen-distance;}

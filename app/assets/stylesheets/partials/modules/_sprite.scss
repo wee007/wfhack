@@ -1,0 +1,32 @@
+/* ======================================================================================
+   @MODULES -> SPRITE
+   ====================================================================================== */
+
+/* 
+	Usage: 
+		Applies a background image and nothing else, usually from a sprite. 
+		
+	Demo:
+		Style Guide -> Modules -> Sprite
+*/
+
+.sprite {
+	@extend %sprite-bg;
+	@extend %img-replacement;
+	@extend %sprite-icon;
+	/* Typical size of a background image */
+	width: 16px;
+    height: 16px;
+	
+	/* Print */
+	@media print {
+		display: none;
+	}
+}
+
+/* --Set sprites-- */
+
+/* --Extenders-- */
+
+/* Apply some spacing between the sprite element and adjacent text */
+.sprite--spacing {margin-right: to-em($spacing-sixth);}

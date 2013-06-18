@@ -1,0 +1,18 @@
+/* ======================================================================================
+   @UTILS -> PLACEHOLDERS -> BOTTOM SPACING
+   ====================================================================================== */
+
+/*
+	Usage:
+		Applies the default bottom margin in order to try to keep a consistent vertical rhythm.
+
+	Demo:
+		Style Guide -> Utilities -> Bottom Spacing
+*/
+
+%mrg-base {
+	@include to-rem(margin-bottom, $spacing-base);
+
+	/* Turn off bottom margin for the last element */
+	&:last-child {margin-bottom: 0;}
+}

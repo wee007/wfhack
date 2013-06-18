@@ -1,0 +1,154 @@
+/* ======================================================================================
+   @FORMS -> LAYOUT
+   ====================================================================================== */
+
+/*
+	Usage:
+		These styles handle a typical form layout which is linear (label above input(s) i.e. stacked) for small viewports and side by side (label and input(s) aligned horizontally) for larger viewports.
+
+	Basic HTML anatomy:
+		<form class="form-main">
+
+			<fieldset>
+
+				<legend class="form-main__header">Heading</legend>
+
+				<div class="form-main__field">
+
+					<label class="form-main__label">Label</label>
+
+					<div class="form-main__inputs">
+						[input(s)]
+						<p class="form-main__notes">Helper notes...</p>
+						<p class="feedback feedback--success">Feedback - success</p>
+						<p class="feedback feedback--error">Feedback - error</p>
+						<span class="preloader"><span class="preloader__spinner"></span> <em aria-live="polite" aria-controls="input-id-here">Preloader</em></span>
+					</div>
+
+				</div>
+
+				....
+				....
+
+			</fieldset>
+
+		</form>
+
+	Demo:
+		Style Guide -> Form Patterns
+*/
+
+/* Heading - `legend` */
+.form-main__header {
+	/* Add default spacing that works cross browser i.e. browsers not supporting bottom margin */
+	@include to-rem(padding-bottom, $spacing-base);
+	margin-bottom: 0;
+}
+
+/* Field */
+.form-main__field {
+	@extend %clear-fix;
+	@extend %mrg-base;
+}
+
+	/* Label */
+	.form-main__label {
+		display: block;
+		margin-bottom: to-em(3);
+
+		/* Sits to the left of it's input(s) at this breakpoint */
+		@include respond-min($ipad-portrait) {
+			width: to-em(256);
+			float: left;
+			text-align: right;
+			margin: to-em(2) 0 0;
+			padding-right: to-em(14);
+			position: relative;
+
+				/* 'Required field' indicator (asterisk) */
+				.req-field {
+					position: absolute;
+					right: 0;
+					top: to-em(3);
+				}
+		}
+	}
+
+	/* Input(s) - sits to the right of it's label at this breakpoint */
+	@include respond-min($ipad-portrait) {
+		.form-main__inputs {
+			margin-left: to-em(280);
+			width: $two-fifths;
+		}
+	}
+
+	/* --Extenders-- */
+
+	/* The 'Actions' and 'Solo checkbox' extenders need this to position their 'Preloader' and 'Checkbox' */
+	.form-main__inputs--solo-checkbox,
+	.form-main__inputs--actions {position: relative;}
+
+	/* Apply a top margin to 'Actions' extender due to the `:last-child` rule in `@extend %mrg-base;` for 'Field' */
+	.form-main__inputs--actions {
+		@include to-rem(margin-top, $spacing-base);
+
+		/* Print */
+		@media print {
+			display: none;
+		}
+	}
+
+		/* Input(s) nested elements */
+		.form-main__inputs {
+			/* Vertical alignment for all `input`'s and `label`'s */
+			label,
+			input {vertical-align: middle;}
+
+			/* Adjustments at this breakpoint */
+			@include respond-min($ipad-portrait) {
+				/* Nudge `type="file"` `input` down */
+				input[type="file"] {margin-top: to-em(4);}
+
+				/* Horizontal list */
+				.horiz-list li {
+					margin-left: to-em($spacing-half);
+
+					/* Turn off margin for first item */
+					&:first-child {margin-left: 0;}
+				}
+			}
+		}
+
+		/* Solo checkbox */
+		.form-main__inputs--solo-checkbox {
+			/* Checkbox */
+			input {
+				position: absolute;
+				top: to-em(5.5);
+				left: 0;
+			}
+
+			/* Label */
+			label {
+				padding-left: to-em(18);
+				display: block;
+			}
+		}
+
+/* Feedback, Notes and Preloader */
+.form-main__inputs .form-main__notes,
+.form-main__field .feedback,
+.form-main__field .preloader {margin-top: to-em($spacing-quarter);}
+
+/* Notes */
+.form-main__notes {
+	display: block;
+	@include font-size($font-size-sml, 1.35);
+	color: $color-grey;
+}
+
+/* Preloader within 'Actions' */
+.form-main__inputs--actions .preloader {
+	vertical-align: middle;
+	margin-top: 0;
+}

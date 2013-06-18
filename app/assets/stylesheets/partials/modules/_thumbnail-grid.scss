@@ -1,0 +1,31 @@
+/* ======================================================================================
+   @MODULES -> THUMBNAIL GRID
+   ====================================================================================== */
+
+/* 
+	Usage: 
+		Renders thumbnail images in a grid, typically used for photo galleries.
+	
+	Note: 
+		This module uses the grid, adjust the `li` grid width classes accordingly.
+		
+	Demo:
+		Style Guide -> Modules -> Thumbnail Grid
+*/
+
+.thumbnail-grid {
+	@include to-rem(margin-bottom, -$spacing-base); /* Note: this may be redundant if spacing is already being applied for lists using the grid? */
+	
+	/* Items */
+	li {@include to-rem(margin-bottom, $grid-gutter);} /* Note: this may be redundant if spacing is already being applied for lists using the grid? */
+	
+		/* Images */
+		img {@include prefix(transition, all .15s);}
+		
+		/* Pseudo classes */
+		a:hover img,
+		a:focus img {
+			@include opacity(0.7);
+			box-shadow: 0 5px 3px -3px rgba(#000, 0.6); /* Note: consider using the `%box-shadow-btm` placeholder */
+		}
+}

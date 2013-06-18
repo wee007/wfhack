@@ -1,0 +1,326 @@
+/* ======================================================================================
+   @UTILS -> SASS VARIABLES
+   ====================================================================================== */
+
+/* [GLOBAL BOOLEANS]
+-------------------------------------------------------*/
+/* For targetting old IE (IE < 9) */
+$old-ie: false !default;
+
+/* Media query support for old IE (IE < 9) */
+$fix-mqs: false !default;
+
+/* Debug mode */
+$debug-mode: false !default;
+
+/* [BASE TYPOGRAPHY]
+-------------------------------------------------------*/
+/* Size */
+$font-size: 14 !default;
+
+/* Line height */
+$line-height: 21 !default;
+
+/* Line height ratio */
+$line-height-ratio: $line-height / $font-size !default;
+
+/* Family */
+$font-family: Arial, sans-serif !default;
+
+/* [MORE TYPOGRAPHY]
+-------------------------------------------------------*/
+/* --Sizes-- */
+
+/* Small */
+$font-size-sml: $font-size - 2 !default;
+
+/* Extra small */
+$font-size-milli: $font-size - 3 !default;
+
+$font-size-micro: $font-size - 5 !default;
+
+/* Large */
+$font-size-lrg: $font-size + 2 !default;
+
+/* Extra large */
+$font-size-giga: 96 !default;
+
+$font-size-mega: 72 !default;
+
+$font-size-kilo: 48 !default;
+
+/* Families */
+$font-family-lato: "Lato", sans-serif !default;
+
+$font-family-opensans: "Open Sans", sans-serif !default;
+
+$font-family-quote: Baskerville, "Hoefler Text", Garamond, "Times New Roman", serif !default;
+
+$font-family-mono: "Courier New", Courier, monospace !default;
+
+/* [SPACING]
+-------------------------------------------------------*/
+/* Base */
+$spacing-base: $line-height !default;
+
+/* Half */
+$spacing-half: $line-height / 2 !default;
+
+/* Third */
+$spacing-third: $line-height / 3 !default;
+
+/* Quarter */
+$spacing-quarter: $line-height / 4 !default;
+
+/* Sixth */
+$spacing-sixth: $line-height / 6 !default;
+
+/* Micro */
+$spacing-micro: 2 !default;
+
+/* Double */
+$spacing-dbl: $line-height * 2 !default;
+
+/* [BREAKPOINTS]
+-------------------------------------------------------*/
+/*
+	Note:
+		-	Not ideal to set fixed breakpoints like this rather better let the design dictate breakpoints however they're usually common breakpoints in every build esp. 'Palm', and they need to be used to define the flexible width classes at specific breakpoints for the grid system (see: 'utils/widths').
+		-	The breakdown for the breakpoints uses this chart as a guide: http://static.lukew.com/unified_device_design.png.
+			-	Here's the thinking:
+				-	Palm: smartphones and featurephones i.e. anything that can fit into the palm of a hand.
+				-	Lap: typically tablets, notebooks and laptops i.e. anything that is portable that doesn't include phones.
+					-	Lap small: smaller tablets/notebooks and e-readers e.g. Kindle.
+					-	Lap large: larger tablets and laptops.
+				-	Desk: desktop computers, TV's, etc. i.e. anything that is not portable.
+					-	Desk small: smaller desktop computer monitors.
+					-	Desk large:	larger desktop computer monitors, TV's, and who knows what else?
+			-	Breakpoints:
+				-	Palm: 	0 - 640px
+				-	Lap:	641px - 1199px
+					-	Lap small:	641px - 900px
+					-	Lap large:	901px - 1199px
+				-	Desk:	1200px +
+					-	Desk small:	1200px - 1365px
+					-	Desk large:	1366px +
+				**	Of course the values for these breakpoints can change per build, it just boils down to the type of design, however 'Palm' would typically always use the same breakpoint as human beings palm's aren't exactly growing :)
+
+	Credit:
+		-	http://www.lukew.com/ff/entry.asp?1679
+		-	https://developers.google.com/webmasters/smartphone-sites/details?hl=en
+*/
+
+/* --Start and end points-- */
+
+/*
+	Note: these vars typically won't appear outside of this partial, they're used as a way to set-up all the breakpoints easily, when declaring breakpoints in media queries througout the build most of the time the 'Readable breakpoints' are used, one exception is when media query min/max ranges are used which 'out of the box' is only for defining the flexible width classes at specific breakpoints for the grid system (see: 'utils/widths').
+
+*/
+
+/* Start points */
+$lap-start: 641 !default;
+
+$lap-lrg-start: 901 !default;
+
+$desk-start: 1200 !default;
+
+$desk-lrg-start: 1366 !default;
+
+/* End points */
+$palm-end: $lap-start - 1 !default;
+
+$lap-end: $desk-start - 1 !default;
+
+$lap-sml-end: $lap-lrg-start - 1 !default;
+
+$desk-sml-end: $desk-lrg-start - 1 !default;
+
+/* --Readable breakpoints-- */
+
+/* Palm */
+$palm: $palm-end !default;
+
+/* Non-palm */
+$non-palm: $lap-start !default;
+
+/* Lap */
+$lap: $lap-start !default;
+
+$lap-lrg: $lap-lrg-start !default;
+
+/* Desk */
+$desk: $desk-start !default;
+
+$desk-lrg: $desk-lrg-start !default;
+
+/* --Arbitrary breakpoints-- */
+
+$iphone-landscape: 480 !default;
+
+$ipad-portrait: 768 !default;
+
+$ipad-landscape: 1024 !default;
+
+/* [GRID / LAYOUT]
+-------------------------------------------------------*/
+/* Page container max width - don't forget to update in 'old-ie.scss' */
+$page-container-max-width: 1600 !default;
+
+/* --Grid-- */
+
+/* Gutter */
+$grid-gutter: $spacing-base !default;
+
+/*
+	Note: be sure to set the vars below to 'false' if they're not needed as they generate a lot of CSS.
+*/
+
+/* Push */
+$grid-push: false !default;
+
+/* Pull */
+$grid-pull: false !default;
+
+/* [COLOR PALETTE]
+-------------------------------------------------------*/
+/* Brand color */
+$color-brand: #da291c !default;
+
+/* Base text color */
+$color-base-txt: #333 !default;
+
+/* Light text color */
+$color-light-txt: #777 !default;
+
+/* Medium text color */
+$color-med-txt: #42444d !default;
+
+/* Dark text color */
+$color-dark-txt: #292a2e !default;
+
+/* Link colors */
+$color-link: $color-brand !default;
+
+$color-link-visited: lighten($color-link, 15%) !default;
+
+/* --Greyscale-- */
+$color-grey: lighten(#000, 50%) !default;
+
+	/* Light */
+	$color-grey-light: lighten(#000, 75%) !default;
+
+	/* Lighter */
+	$color-grey-lighter: lighten(#000, 83%) !default;
+
+	/* Lightest */
+	$color-grey-lightest: lighten(#000, 89%) !default;
+
+	/* Off white */
+	$color-off-white: lighten(#000, 95%) !default;
+
+	/* Dark */
+	$color-grey-dark: lighten(#000, 30%) !default;
+
+	/* Darker */
+	$color-grey-darker: lighten(#000, 15%) !default;
+
+/* --Feedback-- */
+
+/* Error */
+$color-feedback-error: #6f0f0f !default;
+$color-feedback-error-light: #f7c2c2 !default;
+$color-feedback-error-border: #f39797 !default;
+
+/* Success */
+$color-feedback-success: #2b4119 !default;
+$color-feedback-success-light: #cfe9c5 !default;
+$color-feedback-success-border: #a5cf83 !default;
+
+/* Warning */
+$color-feedback-warning: #4e4207 !default;
+$color-feedback-warning-light: #faf2c9 !default;
+$color-feedback-warning-border: #f3de7c !default;
+
+/* Info */
+$color-feedback-info: #154c69 !default;
+$color-feedback-info-light: #c7e4f3 !default;
+$color-feedback-info-border: #86c5e6 !default;
+
+/* --Misc-- */
+
+/* Attention (red) */
+$color-attention: #e80000 !default;
+
+/* [FLEXIBLE WIDTHS]
+-------------------------------------------------------*/
+/* Whole */
+$one-whole: 100% !default;
+
+/* Halves */
+$one-half: 50% !default;
+
+/* Thirds */
+$one-third: 33.333% !default;
+$two-thirds: 66.666% !default;
+
+/* Quarters */
+$one-quarter: 25% !default;
+$two-quarters: $one-half !default;
+$three-quarters: 75% !default;
+
+/* Fifths */
+$one-fifth: 20% !default;
+$two-fifths: 40% !default;
+$three-fifths: 60% !default;
+$four-fifths: 80% !default;
+
+/* Sixths */
+$one-sixth: 16.666% !default;
+$two-sixths: $one-third !default;
+$three-sixths: $one-half !default;
+$four-sixths: $two-thirds !default;
+$five-sixths: 83.333% !default;
+
+/* Eighths */
+$one-eighth: 12.5% !default;
+$two-eighths: $one-quarter !default;
+$three-eighths: 37.5% !default;
+$four-eighths: $one-half !default;
+$five-eighths: 62.5% !default;
+$six-eighths: $three-quarters !default;
+$seven-eighths: 87.5% !default;
+
+/* Tenths */
+$one-tenth: 10% !default;
+$two-tenths: $one-fifth !default;
+$three-tenths: 30% !default;
+$four-tenths: $two-fifths !default;
+$five-tenths: $one-half !default;
+$six-tenths: $three-fifths !default;
+$seven-tenths: 70% !default;
+$eight-tenths: $four-fifths !default;
+$nine-tenths: 90% !default;
+
+/* Twelfths */
+$one-twelfth: 8.333% !default;
+$two-twelfths: $one-sixth !default;
+$three-twelfths: $one-quarter !default;
+$four-twelfths: $one-third !default;
+$five-twelfths: 41.666% !default;
+$six-twelfths: $one-half !default;
+$seven-twelfths: 58.333% !default;
+$eight-twelfths: $two-thirds !default;
+$nine-twelfths: $three-quarters !default;
+$ten-twelfths: $five-sixths !default;
+$eleven-twelfths: 91.666% !default;
+
+/* [MISC]
+-------------------------------------------------------*/
+/* Off-screen px value */
+$off-screen-distance: -9999px !default;
+
+/* `z-index` max value */
+$z-index-max: 2147483647 !default;
+
+/* Border radius */
+$border-radius: 3px !default;

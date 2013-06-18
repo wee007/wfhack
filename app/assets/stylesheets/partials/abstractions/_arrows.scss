@@ -1,0 +1,46 @@
+/* ======================================================================================
+   @ABSTRACTIONS -> ARROWS
+   ====================================================================================== */
+
+/*
+	Usage:
+		Creates CSS arrows.
+
+	Note:
+		Same as: 'utils/placeholders/arrows' except this version doesn't apply to an existing element rather it's an independent element which is more flexible.
+
+	Demo:
+		Style Guide -> Abstractions -> Arrows
+*/
+
+/* Set variables */
+$arrow-width: 10px !default;
+
+$arrow-bg: $color-grey-darker !default;
+
+/* Start abstraction */
+.arrow {
+	width: 0;
+	height: 0;
+	border: $arrow-width inset transparent;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+/* Down */
+.arrow--down {
+	border-top-color: $arrow-bg;
+	margin-bottom: -$arrow-width;
+}
+
+/* Up */
+.arrow--up {
+	border-bottom-color: $arrow-bg;
+	margin-top: -$arrow-width;
+}
+
+/* Left */
+.arrow--left {border-right-color: $arrow-bg;}
+
+/* Right */
+.arrow--right {border-left-color: $arrow-bg;}

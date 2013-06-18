@@ -1,0 +1,17 @@
+<div id="applied_filters-wrapper">
+  <h3 class="applied_filters-heading">Selected Filters:</h3>
+  <div class="facets selected-filters">
+    <ul id='applied_filters-list'>
+      <%- Array(applied_filters.categories).each do |cat| -%>
+        <%= content_tag :li, class: 'selected_filter_value',
+          data: {'facet-type' => cat.type, 'facet-value' => cat.value} do %>
+          <span class='selected_filter_value'><%= cat.title %></span>
+          <span class='facet-remove-link' data-facet-link='<%= facet_remove_link cat.type, cat.value %>'>X</span>
+        <%- end -%>
+      <%- end -%>
+    </ul>
+  </div>
+</div>
+<div class="reset_all_facets">
+   <%= link_to "Clear all", centre_products_path(centre_id: params[:centre_id]) %>
+</div>

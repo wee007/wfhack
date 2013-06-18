@@ -5,11 +5,9 @@ class ProductService
       results = json.respond_to?(:body) ? json.body : json
       facets = build_facets(results)
       products = results.delete :results
-      applied_filters = build_applied_filters(results)
       pagination = build_pagination(results)
       sort_options = results.delete(:display_options)[:sort_options]
-      Hashie::Mash.new results.merge(products: products,
-        facets: facets, applied_filters: applied_filters,
+      Hashie::Mash.new results.merge(products: products, facets: facets,
         sort_options: sort_options).merge(pagination)
     end
 
@@ -19,14 +17,6 @@ class ProductService
       total_pages = ([1,results[:count]-1].max / results.rows) + 1
       current_page = (results.start + results.rows) / results.rows
       {current_page: current_page, total_pages: total_pages}
-    end
-
-    def build_applied_filters(results)
-      af = results.applied_filters
-      af[:categories] = af[:categories].inject(Hashie::Mash.new) do |hsh,cat|
-        hsh.merge cat.type => cat
-      end
-      af
     end
 
     def build_facets(results)

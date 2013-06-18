@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.113
+Version:     0.0.114
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -67,6 +67,26 @@ fi
 %attr(755,nobody,nobody)%{appdir}/current/tmp
 
 %changelog
+* Tue Jun 18 2013 ci <doperations@au.westfield.com> 0.0.114-1
+- Updated image paths (ben@germanforblack.com)
+- Added jquery slider (ben@germanforblack.com)
+- Remove duped styles (ben@germanforblack.com)
+- Moved layout from frontend_framework (ben@germanforblack.com)
+- Copied over style guide views (ben@germanforblack.com)
+- Copied over new styles from frontend_framework (ben@germanforblack.com)
+- Use kneath/canonical kss (ben@germanforblack.com)
+- Copied over assets from frontend_framework. These will need updating after
+  the PR is merged. (ben@germanforblack.com)
+- Added controller & route to catch & serve style guide * Added views for the
+  style guide and copied over Chris' styling * Added abstractions demo
+  (ben@germanforblack.com)
+- Added KSS gem (Hosted on my repository until a couple of PR's drop)
+  (ben@germanforblack.com)
+- Added styleguides.yml to configure the style guide navigation. * Initialiser
+  to load the yml (ben@germanforblack.com)
+- Added live-reload support. * Rack live reload is added only in development
+  mode (no browser plugins required) (ben@germanforblack.com)
+
 * Tue Jun 18 2013 ci <doperations@au.westfield.com> 0.0.113-1
 - jQuery-UI: only require slider, not everything (cwalsh2@au.westfield.com)
 - Add a price slider, need to hook it up to do something.

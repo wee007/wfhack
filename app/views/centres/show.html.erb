@@ -1,8 +1,17 @@
-<h1><%=@centre.name%></h1>
-<%- @stream.each_slice(4) do |group| -%>
-  <%- group.each do |result| -%>
-    <% if %w(deal event product).include?(result['type']) %>
-      <%= render partial: "centres/stream/#{result['type']}", locals: {result: result} %>
-    <% end %>
-  <%- end -%>
-<%- end -%>
+<br /><br />
+
+<main class="container" id="main" role="main">
+  <div id="pin-board">
+
+    <%- @stream.each_slice(4) do |group| -%>
+      <%- group.each do |result| -%>
+        <% if %w(deal event product).include?(result['type']) %>
+          <%= render partial: "shared/tiles/#{result['type']}", locals: {result: result} %>
+        <% end %>
+      <%- end -%>
+    <%- end -%>
+
+  </div>
+</main>
+
+<br /><br />

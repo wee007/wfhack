@@ -1,13 +1,55 @@
-<h1>Event</h1>
+<br /><br />
 
-<ul>
-  <li>ID: <%= @event.id %></li>
-  <li>Name <%= @event.name %></li>
-  <li>Description <%= @event.description %></li>
-  <li>Centre Uri <%= @event.centre_uri %></li>
-  <li>Category <%= @event.category %></li>
-  <li>Location <%= @event.location %></li>
-  <li>Start Date <%= l Date.parse @event.start %></li>
-  <li>Finish Date <%= l Date.parse @event.finish %></li>
-  <li>Publish Date <%= l Date.parse @event.publish %></li>
-</ul>
+<main id="main" role="main">
+  <div class="detail_view detail_view--event box">
+
+    <div class="detail_view__controls">
+
+
+      <button class="detail_view__controls__button btn">
+        <span class="icon icon--favs icon--lrg icon--fixed-width icon--spacing" aria-hidden="true"></span>
+        <span class="detail_view__controls__txt"> Save</span>
+      </button>
+
+      <button class="detail_view__controls__button btn">
+        <span class="icon icon--comment icon--lrg icon--fixed-width icon--spacing" aria-hidden="true"></span>
+        <span class="detail_view__controls__txt"> Share</span>
+      </button>
+
+      <% if in_lightbox? %>
+        <button class="detail_view__controls__button detail_view__controls__button--close btn">
+          <span class="icon icon--close-sml icon--sml icon--fixed-width" aria-hidden="true"></span>
+        </button>
+      <% end %>
+
+    </div>
+
+    <div class="detail_view__inner">
+
+      <h2 class="detail_view__hdr"><%= @event.name %></h2>
+
+      <div class="detail_view__meta">
+        <p class="detail_view__meta__location">
+          <span class="icon icon--pin" aria-hidden="true"></span>
+          <%= @event.location %>
+        </p>
+        <p class="detail_view__meta__date">
+          <%= Time.new(@event.start).strftime("%d %b %Y") %> to <%= Time.new(@event.finish).strftime("%d %b %Y") %>
+        </p>
+      </div>
+
+      <%= image_tag @event.image, alt: @event.alt if @event.image %>
+
+      <div class="detail_view__details">
+        <h3 class="detail_view__details__hdr">Event Details</h3>
+        <div class="detail_view__details__content">
+          <%= @event.description %>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</main>
+
+<br /><br />

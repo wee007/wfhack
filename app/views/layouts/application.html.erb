@@ -51,7 +51,7 @@
       <div class="container">
 
         <!-- Logo -->
-          <a href="/" rel="home" class="logo"><img src="/images/logo.svg" alt="Westfield" data-svg-fallback="/images/logo.png"></a>
+          <a href="/" rel="home" class="logo"><img src="<%= image_path "logo.svg" %>" alt="Westfield" data-svg-fallback="<%= image_path "logo.png" %>"></a>
           <!-- //Logo -->
 
           <!-- Menu toggle button for palm devices -->
@@ -106,10 +106,10 @@
               <div class="my-account-container my-account-signedin drop-down-container">
                 <!-- [BACK END] for displaying username and avatar we have to have 2 sets of HTML; 1 for palm devices and 1 for non-palm devices, avatar needs to be 64px x 64px -->
                 <strong class="my-account-container__hdr container txt-truncate hide-fully--non-palm">
-                  <img src="/images/dummy/avatar.jpg" alt="User avatar photo"> Hi username
+                  <img src="<%= image_path "dummy/avatar.jpg" %>" alt="User avatar photo"> Hi username
                 </strong>
                 <button type="button" class="my-account-container__hdr btn hide-fully--palm js-drop-down-trigger" aria-haspopup="true" aria-owns="my-account-links">
-                  <img src="/images/dummy/avatar.jpg" alt="User avatar photo"> Hi<span class="hide-visually my-account-signedin__username"> username</span>
+                  <img src="<%= image_path "dummy/avatar.jpg" %>" alt="User avatar photo"> Hi<span class="hide-visually my-account-signedin__username"> username</span>
                   <span class="hide-visually"> select for settings / sign out</span>
                   <span class="icon icon--arrow-down-full icon--flush-top" aria-hidden="true"></span>
                 </button>

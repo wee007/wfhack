@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.119
+Version:     0.0.120
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -67,6 +67,18 @@ fi
 %attr(755,nobody,nobody)%{appdir}/current/tmp
 
 %changelog
+* Tue Jun 18 2013 ci <doperations@au.westfield.com> 0.0.120-1
+- Merge pull request #35 from cpearce/master (cpearce@au.westfield.com)
+- updating main import to application (CPearce@au.westfield.com)
+- Functional price slider (cwalsh2@au.westfield.com)
+- Merge pull request #33 from mwratt/rename/application.css
+  (cpearce@au.westfield.com)
+- Merge pull request #34 from cpearce/master (cpearce@au.westfield.com)
+- adding old IE style sheet to app (CPearce@au.westfield.com)
+- renames .scss to .css.scss to follow convention (matt.wratt@trineo.co.nz)
+- removing header hero banner images and renaming dir name
+  (CPearce@au.westfield.com)
+
 * Tue Jun 18 2013 ci <doperations@au.westfield.com> 0.0.119-1
 - Redirect styleguide to /styleguides (cwalsh2@au.westfield.com)
 

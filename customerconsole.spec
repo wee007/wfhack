@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.117
+Version:     0.0.118
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -67,6 +67,9 @@ fi
 %attr(755,nobody,nobody)%{appdir}/current/tmp
 
 %changelog
+* Tue Jun 18 2013 ci <doperations@au.westfield.com> 0.0.118-1
+- Test building assets before packaging gems (cwalsh2@au.westfield.com)
+
 * Tue Jun 18 2013 ci <doperations@au.westfield.com> 0.0.117-1
 - Require jquery.ui.slider styles (cwalsh2@au.westfield.com)
 - Remove utf-8 declaration (added automatically) - allows require to work

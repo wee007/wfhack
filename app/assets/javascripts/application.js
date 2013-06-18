@@ -13,7 +13,6 @@
 // require jquery
 // require jquery_ujs
 // require turbolinks
-// require jquery.ui.slider
 // require_tree .
 
 // Pull in author & 3rd party files
@@ -24,6 +23,7 @@
 //= require ./author/jquery.toggle-search
 //= require ./vendor/enquire
 //= require ./vendor/jquery.twitter-bootstrap-dropdown
+//= require jquery.ui.slider
 
 
 /* --HELPERS-- */

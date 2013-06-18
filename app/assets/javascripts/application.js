@@ -17,14 +17,16 @@
 
 // Pull in author & 3rd party files
 
-//= require ./author/jquery.toggle-click
 //= require ./vendor/polyfills/matchMedia
-//= require ./author/jquery.toggle-menu
-//= require ./author/jquery.toggle-search
+//= require ./vendor/jquery.isotope
+//= require ./vendor/jquery.isotope.gutters
 //= require ./vendor/enquire
 //= require ./vendor/jquery.twitter-bootstrap-dropdown
 //= require ./vendor/jquery.tinyscrollbar
 //= require jquery.ui.slider
+//= require_tree ./author
+
+
 
 
 /* --HELPERS-- */

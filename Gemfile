@@ -42,7 +42,7 @@ group :development, :test do
   gem 'guard', '~> 1.8.0'
   gem 'guard-livereload', '~> 1.4.0'
   gem 'rack-livereload', '~> 0.3.15'
-  gem 'kss', github: 'benschwarz/kss' # PR 69 pending
+  gem 'kss', git: 'https://github.com/kneath/kss.git' # Gem release pending
 end
 
 group :test do

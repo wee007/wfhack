@@ -31,18 +31,54 @@
 
 <%- content_for :javascript do -%>
   <script type='text/javascript'>
-    jQuery('.facet li[data-facet-link], #applied_filters-list span[data-facet-link]').click(function(event) {
-      window.location = jQuery(event.target).attr('data-facet-link');
-    });
-    jQuery('#sort').change(function(event) {
-      window.location = jQuery("#sort option[value='"+jQuery('#sort').val()+"']").attr('data-sort-link')
-    });
-   jQuery("#price-facet-slider").slider({
-      range: true, min: 0, max: <%= @search.facets.price[:max] %>,
-      values: [<%= params[:price] ? params[:price].split("-").join(", ") : [0, @search.facets.price[:max]].join(", ") %>],
-      slide: function(event, ui) {
-        console.debug({price: ui.values[0] + "-" + ui.values[1]});
+    (function($) {
+      var re = /([^&=]+)=?([^&]*)/g;
+      var decode = function(str) {
+        return decodeURIComponent(str.replace(/\+/g, ' '));
+      };
+      $.parseParams = function(query) {
+        var params = {}, e;
+        if (query) {
+          if (query.substr(0, 1) == '?') {
+            query = query.substr(1);
+          }
+
+          while (e = re.exec(query)) {
+            var k = decode(e[1]);
+            var v = decode(e[2]);
+            if (params[k] !== undefined) {
+              if (!$.isArray(params[k])) {
+                params[k] = [params[k]];
+              }
+              params[k].push(v);
+            } else {
+              params[k] = v;
+            }
+          }
+        }
+        return params;
+      };
+      function changeParams(params) {
+        var queryParameters = $.parseParams(window.location.search);
+        location.search = $.param($.extend(true, {}, queryParameters, params),false).replace(/%2B/g,"+");
       }
-    });
+      $('.facet li[data-facet-link], #applied_filters-list span[data-facet-link]').click(function(event) {
+        window.location = $(event.target).attr('data-facet-link');
+      });
+      $('#sort').change(function(event) {
+        window.location = $("#sort option[value='"+$('#sort').val()+"']").attr('data-sort-link')
+      });
+      $("#price-facet-slider").slider({
+        range: true, min: 0, max: <%= @search.facets.price[:max] %>,
+        values: [<%= params[:price] ? params[:price].split("-").join(", ") : [0, @search.facets.price[:max]].join(", ") %>],
+        slide: function(event, ui) {
+          $('.facet-price .price-low').text(ui.values[0]+'.00');
+          $('.facet-price .price-high').text(ui.values[1]+'.00');
+        },
+        change: function(event, ui) {
+          changeParams({price: ui.values[0] + '-' + ui.values[1]});
+        }
+      });
+    })(jQuery);
   </script>
 <%- end -%>

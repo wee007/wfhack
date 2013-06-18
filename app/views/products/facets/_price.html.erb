@@ -1,5 +1,10 @@
-<div class="facet">
+<div class="facet facet-price">
   <div class="facet-name">Price</div>
+  <div class="slider-values">
+    <%- low, high = params[:price] ? params[:price].split("-") : [0, @search.facets.price[:max]] -%>
+    $<span class='price-low'><%= low %>.00</span> -
+    $<span class='price-high'><%= high %>.00</span>
+  </div>
   <div id="price-facet-slider"></div>
   <%- if params[:on_sale] == 'true' -%>
     <%=link_to "On Sale", centre_products_path(params.reject{|k,v| k=='on_sale'}), class: 'facet-value facet-value--selected' %>

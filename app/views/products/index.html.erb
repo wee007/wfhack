@@ -5,6 +5,7 @@
 <%= render partial: 'products/facets/filtered_list', locals: {facet: @search.facets.brand} if @search.facets.brand %>
 <%= render partial: 'products/facets/list', locals: {facet: @search.facets.colour, title: "Colours"} if @search.facets.colour %>
 <%= render partial: 'products/facets/price', locals: {facet: @search.facets.price} if @search.facets.price %>
+<%= render partial: 'products/facets/summary', locals: {applied_filters: @search.applied_filters} if @search.applied_filters %>
 
 <span class='sort_options'>
   Sort by: <%= products_sort_tag @search.sort_options %>
@@ -30,7 +31,7 @@
 
 <%- content_for :javascript do -%>
   <script type='text/javascript'>
-    jQuery('.facet ul li[data-facet-link]').click(function(event) {
+    jQuery('.facet li[data-facet-link], #applied_filters-list span[data-facet-link]').click(function(event) {
       window.location = jQuery(event.target).attr('data-facet-link');
     });
     jQuery('#sort').change(function(event) {

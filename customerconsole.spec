@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.115
+Version:     0.0.116
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -67,6 +67,9 @@ fi
 %attr(755,nobody,nobody)%{appdir}/current/tmp
 
 %changelog
+* Tue Jun 18 2013 ci <doperations@au.westfield.com> 0.0.116-1
+- Add jquery.ui.slider back (cwalsh2@au.westfield.com)
+
 * Tue Jun 18 2013 ci <doperations@au.westfield.com> 0.0.115-1
 - Added facet summary view (cwalsh2@au.westfield.com)
 - No need to munge the applied_filters (cwalsh2@au.westfield.com)

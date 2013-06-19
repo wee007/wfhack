@@ -32,11 +32,16 @@
 <%- content_for :javascript do -%>
   <script type='text/javascript'>
     (function($) {
-      var re = /([^&=]+)=?([^&]*)/g;
+      $.expr[':'].startsWith = $.expr.createPseudo(function(str) {
+        return function(elem) {
+          return jQuery(elem).text().replace(/[^a-zA-Z0-9]/g,'').toUpperCase().indexOf(str.replace(/[^a-zA-Z0-9]/g,'').toUpperCase()) == 0;
+        };
+      });
       var decode = function(str) {
         return decodeURIComponent(str.replace(/\+/g, ' '));
       };
       $.parseParams = function(query) {
+        var re = /([^&=]+)=?([^&]*)/g;
         var params = {}, e;
         if (query) {
           if (query.substr(0, 1) == '?') {
@@ -79,6 +84,17 @@
           changeParams({price: ui.values[0] + '-' + ui.values[1]});
         }
       });
+      $("input.facet-filter").keyup(function(event) {
+        var field = $(event.target);
+        if (field.val() == '')
+          field.siblings("div").find('li').show();
+        else {
+          field.siblings("div").find("li:startsWith(" + field.val() + ")").show();
+          field.siblings("div").find("li:not(:startsWith(" + field.val() + "))").hide();
+        }
+        field.parent().tinyscrollbar_update();
+      });
+      $(".facet-filtered").tinyscrollbar();
     })(jQuery);
   </script>
 <%- end -%>

@@ -1,274 +1,318 @@
 <!doctype html>
-<!--[if (lt IE 9) & (!IEMobile)]>   <html class="no-js old-ie ie" lang="en">    <![endif]-->
+<!--[if (lt IE 9) & (!IEMobile)]>	<html class="no-js old-ie ie" lang="en">	<![endif]-->
 <!--[if (IE 9) & (!IEMobile)]>    <html class="no-js ie-9 ie" lang="en">    <![endif]-->
-<!--[if gt IE 8]><!-->            <html class="no-js" lang="en">          <!--<![endif]-->
+<!--[if gt IE 8]><!-->            <html class="no-js" lang="en">          	<!--<![endif]-->
 <head>
 
-  <meta charset="utf-8">
-  <meta name="viewport" content="initial-scale=1.0, width=device-width">
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1.0, width=device-width">
 
-  <!-- Prefetch DNS for external assets -->
-  <link rel="dns-prefetch" href="//www.google-analytics.com">
-  <link rel="dns-prefetch" href="//ajax.googleapis.com">
-  <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
-  <link rel="dns-prefetch" href="//fonts.googleapis.com">
-  <link rel="dns-prefetch" href="//themes.googleusercontent.com">
-  <!-- //Prefetch DNS for external assets -->
+	<!-- Prefetch DNS for external assets -->
+	<link rel="dns-prefetch" href="//www.google-analytics.com">
+	<link rel="dns-prefetch" href="//ajax.googleapis.com">
+	<link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+	<link rel="dns-prefetch" href="//fonts.googleapis.com">
+	<link rel="dns-prefetch" href="//themes.googleusercontent.com">
+	<!-- //Prefetch DNS for external assets -->
 
-  <!-- Title -->
-  <title><%= @title %> | Westfield</title>
-  <!-- //Title -->
-  <%= render "shared/stylesheets_global" %>
+	<!-- Title -->
+	<title><%= @title || "Home" %> | Westfield</title>
+	<!-- //Title -->
 
-  <%= render "shared/javascript_detection_oldie_helpers" %>
+	<%= render "shared/stylesheets_global" %>
 
-  <!-- IE 10 tile icon: http://blogs.msdn.com/b/ie/archive/2012/06/08/high-quality-visuals-for-pinned-sites-in-windows-8.aspx -->
-  <meta name="msapplication-TileColor" content="#da291c">
-  <meta name="msapplication-TileImage" content="/apple-touch-icon-144x144-precomposed.png">
-  <!-- //IE 10 tile icon -->
+	<!-- [BACK END] this inline CSS is for the centre home page header hero images and should only be rendered for the centre home page with the bg images being dynamically updated according to the shopping centre site user is on -->
+	<style>
+		/* Hero image at this breakpoint (small) */
+		@media (max-width: 25em) {
+				.header__hero {background-image: url(/assets/images/heroes/bondi-junction-sml.jpg);}
+		}
+		/* Hero image at this breakpoint (medium) */
+		@media (min-width: 25.0625em) and (max-width: 48em) {
+				.header__hero {background-image: url(/assets/images/heroes/bondi-junction-med.jpg);}
+		}
+		/* Hero image at this breakpoint (large) */
+		@media (min-width: 48.0625em) {
+				.header__hero {background-image: url(/assets/images/heroes/bondi-junction-lrg.jpg);}
+		}
+		/* Old IE */
+		.old-ie .header__hero {background-image: url(/assets/images/heroes/bondi-junction-lrg.jpg);}
+	</style>
 
-  <!-- [BACK END] meta description should be unique for each page for SEO purposes -->
-  <meta name="description" content="">
-  <!-- //Meta description -->
+	<%= render "shared/javascript_detection_oldie_helpers" %>
+
+	<!-- IE 10 tile icon: http://blogs.msdn.com/b/ie/archive/2012/06/08/high-quality-visuals-for-pinned-sites-in-windows-8.aspx -->
+	<meta name="msapplication-TileColor" content="#da291c">
+	<meta name="msapplication-TileImage" content="/apple-touch-icon-144x144-precomposed.png">
+	<!-- //IE 10 tile icon -->
+
+	<!-- [BACK END] meta description should be unique for each page for SEO purposes -->
+	<meta name="description" content="">
+	<!-- //Meta description -->
 
 </head>
 
 <body class="<%= params[:controller] %> <%= params[:action] %>">
 
-  <!-- Skip link -->
-  <a href="#main" class="hide-visually skip-link">Skip to main content</a>
-  <!-- //Skip link -->
+	<!-- Skip link -->
+	<a href="#main" class="hide-visually skip-link">Skip to main content</a>
+	<!-- //Skip link -->
 
-  <!-- Prompt old IE users to upgrade their browser or install 'Chrome Frame' -->
-  <!--[if lte IE 7]><p class="old-ie-notification">Apologises for the appearance of this page but you are viewing it in a very old browser that we no longer support, we highly recommend <a href="http://browsehappy.com/" rel="external">upgrading to a more modern browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true" rel="external">install Google Chrome Frame</a> to experience this site and to reap the many other benefits of using a modern browser.</p><![endif]-->
+	<!-- Prompt old IE users to upgrade their browser or install 'Chrome Frame' -->
+	<!--[if lte IE 7]><p class="old-ie-notification">Apologises for the appearance of this page but you are viewing it in a very old browser that we no longer support, we highly recommend <a href="http://browsehappy.com/" rel="external">upgrading to a more modern browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true" rel="external">install Google Chrome Frame</a> to experience this site and to reap the many other benefits of using a modern browser.</p><![endif]-->
 
-    <!-- Header -->
-    <!-- [BACK END] `is-header-hero` class needs to be appended to the header element for the centre home page when the hero banner is in view, class to be removed once user has scrolled past the hero banner e.g. `<header class="header is-header-hero" role="banner">` -->
-  <header class="header is-header-hero" role="banner">
+	<!-- Header -->
+	<header class="header<%= " is-header-hero" if header_hero? %>" role="banner">
 
-    <!-- Header secondary -->
-    <div class="header__secondary">
-      <div class="container">
+		<!-- Header secondary -->
+		<div class="header__secondary">
+			<div class="container">
 
-        <!-- Logo -->
-          <a href="/" rel="home" class="logo"><img src="<%= image_path "logo.svg" %>" alt="Westfield" data-svg-fallback="<%= image_path "logo.png" %>"></a>
-          <!-- //Logo -->
+				<!-- Logo -->
+				<a href="/" rel="home" class="logo"><img src="<%= image_path "logo.svg" %>" alt="Westfield" data-svg-fallback="<%= image_path "logo.png" %>"></a>
+				<!-- //Logo -->
 
-          <!-- Menu toggle button for palm devices -->
-          <button type="button" class="btn btn--menu-toggle hide-fully--non-palm js-disabled-hide js-menu-toggle-btn" aria-haspopup="true" aria-owns="header-menu-toggle">
-            <span class="btn--menu-toggle__txt hide-visually">Open menu</span>
-            <span class="btn--menu-toggle__icon"></span>
-          </button>
-        <!-- //Menu toggle button for palm devices -->
+				<!-- Menu toggle button for palm devices -->
+				<button type="button" class="btn btn--menu-toggle hide-fully--non-palm js-disabled-hide js-menu-toggle-btn" aria-haspopup="true" aria-owns="header-menu-toggle">
+					<span class="btn--menu-toggle__txt hide-visually">Open menu</span>
+					<span class="btn--menu-toggle__icon"></span>
+				</button>
+				<!-- //Menu toggle button for palm devices -->
 
-        <!-- Shopping centre select, sub/tertiary navigation, my account & favourites -->
-        <div class="header-menu-toggle js-menu-toggle" id="header-menu-toggle">
+				<!-- Shopping centre select, sub/tertiary navigation, my account & favourites -->
+				<div class="header-menu-toggle js-menu-toggle" id="header-menu-toggle">
 
-          <!-- Shopping centre select -->
-            <div class="shopping-centre-select container">
-              <h1><a href="#" rel="home" title="Change shopping centre">Tea Tree Plaza <span class="icon icon--arrow-right-full hide-fully--palm" aria-hidden="true"></span></a></h1>
-              <a href="#" class="btn hide-fully--non-palm" rel="home">Change <span class="icon icon--arrow-right icon--flush-top" aria-hidden="true"></span></a>
-            </div>
-          <!-- //Shopping centre select -->
+					<!-- Shopping centre select -->
+					<div class="shopping-centre-select container">
+						<h1><a href="/" rel="home" title="Change shopping centre"><%= @centre.short_name %> <span class="icon icon--arrow-right-full hide-fully--palm" aria-hidden="true"></span></a></h1>
+						<a href="/" class="btn hide-fully--non-palm" rel="home">Change <span class="icon icon--arrow-right icon--flush-top" aria-hidden="true"></span></a>
+					</div>
+					<!-- //Shopping centre select -->
 
-            <!-- Sub navigation -->
-            <div class="sub-nav-container drop-down-container">
+					<!-- Sub navigation -->
+					<div class="sub-nav-container drop-down-container">
 
-              <!-- Menu toggle button for lap small devices -->
-              <button type="button" class="btn btn--menu-toggle js-disabled-hide js-drop-down-trigger" aria-haspopup="true" aria-owns="nav-sub">
-                <span class="btn--menu-toggle__txt hide-visually">Open sub menu</span>
-                <span class="btn--menu-toggle__icon"></span>
-              </button>
-            <!-- //Menu toggle button for lap small devices -->
+						<!-- Menu toggle button for lap small devices -->
+						<button type="button" class="btn btn--menu-toggle js-disabled-hide js-drop-down-trigger" aria-haspopup="true" aria-owns="nav-sub">
+							<span class="btn--menu-toggle__txt hide-visually">Open sub menu</span>
+							<span class="btn--menu-toggle__icon"></span>
+						</button>
+						<!-- //Menu toggle button for lap small devices -->
 
-            <nav class="header-menu-toggle__nav drop-down js-drop-down" role="navigation" aria-label="Sub navigation" id="nav-sub">
-                  <!-- [BACK END] `is-active` class needs to be appended to the active anchor element e.g. `<a href="#" class="is-active">` -->
-                  <ul class="nav-sub">
-                      <li><a href="#"><span class="icon icon--hours icon--fixed-width icon--spacing" aria-hidden="true"></span><span class="nav-sub__txt"> Shopping Hours</span></a></li>
-                      <li><a href="#"><span class="icon icon--dining icon--fixed-width icon--spacing" aria-hidden="true"></span><span class="nav-sub__txt"> Dining</span></a></li>
-                      <li><a href="#"><span class="icon icon--video icon--fixed-width icon--spacing" aria-hidden="true"></span><span class="nav-sub__txt"> Cinemas</span></a></li>
-                      <li><a href="#"><span class="icon icon--info icon--fixed-width icon--spacing" aria-hidden="true"></span><span class="nav-sub__txt"> Concierge</span></a></li>
-                      <li><a href="#"><span class="icon icon--map icon--fixed-width icon--spacing" aria-hidden="true"></span><span class="nav-sub__txt"> Getting There</span></a></li>
-                  </ul>
-              </nav>
+						<nav class="header-menu-toggle__nav drop-down js-drop-down" role="navigation" aria-label="Sub navigation" id="nav-sub">
+							<!-- [BACK END] `is-active` class needs to be appended to the active anchor element e.g. `<a href="#" class="is-active">` -->
+							<ul class="nav-sub">
+								<!-- Shopping centre opening hours -->
+								<!-- [BACK END] the hours need to be made dynamic -->
+								<li class="open-hours-link"><a href="#"><span class="icon icon--hours" aria-hidden="true"></span> <strong>Open 9am - 6pm today</strong> <span class="icon icon--arrow-right" aria-hidden="true"></span></a></li>
+								<!-- //Shopping centre opening hours -->
+								<li class="shopping-hrs-link"><a href="#"><span class="icon icon--hours icon--fixed-width icon--spacing" aria-hidden="true"></span><span class="nav-sub__txt"> Shopping Hours</span></a></li>
+								<li><a href="#"><span class="icon icon--dining icon--fixed-width icon--spacing" aria-hidden="true"></span><span class="nav-sub__txt"> Dining</span></a></li>
+								<li><a href="#"><span class="icon icon--video icon--fixed-width icon--spacing" aria-hidden="true"></span><span class="nav-sub__txt"> Cinemas</span></a></li>
+								<li><a href="#"><span class="icon icon--info icon--fixed-width icon--spacing" aria-hidden="true"></span><span class="nav-sub__txt"> Concierge</span></a></li>
+								<li><a href="#"><span class="icon icon--map icon--fixed-width icon--spacing" aria-hidden="true"></span><span class="nav-sub__txt"> Getting There</span></a></li>
+							</ul>
+						</nav>
 
-            </div>
-            <!-- //Sub navigation -->
+					</div>
+					<!-- //Sub navigation -->
 
-            <!-- My account / favourites -->
-            <!-- [BACK END] when the user is signed in to their account append the class `is-my-account-signedin` to this `div` element e.g. `<div class="my-account-favs is-my-account-signedin">` -->
-            <div class="my-account-favs is-my-account-signedin">
+					<!-- My account / favourites -->
+					<!-- [BACK END] when the user is signed in to their account append the class `is-my-account-signedin` to this `div` element e.g. `<div class="my-account-favs is-my-account-signedin">` -->
+					<div class="my-account-favs is-my-account-signedinx">
 
-              <!-- My account -->
-              <!-- [BACK END] inject relevant HTML based on whether user is signed in/out, see 'signed in' / 'signed out' below -->
+						<!-- My account -->
+						<!-- [BACK END] inject relevant HTML based on whether user is signed in/out, see 'signed in' / 'signed out' below -->
 
-              <!-- signed in -->
-              <div class="my-account-container my-account-signedin drop-down-container">
-                <!-- [BACK END] for displaying username and avatar we have to have 2 sets of HTML; 1 for palm devices and 1 for non-palm devices, avatar needs to be 64px x 64px -->
-                <strong class="my-account-container__hdr container txt-truncate hide-fully--non-palm">
-                  <img src="<%= image_path "dummy/avatar.jpg" %>" alt="User avatar photo"> Hi username
-                </strong>
-                <button type="button" class="my-account-container__hdr btn hide-fully--palm js-drop-down-trigger" aria-haspopup="true" aria-owns="my-account-links">
-                  <img src="<%= image_path "dummy/avatar.jpg" %>" alt="User avatar photo"> Hi<span class="hide-visually my-account-signedin__username"> username</span>
-                  <span class="hide-visually"> select for settings / sign out</span>
-                  <span class="icon icon--arrow-down-full icon--flush-top" aria-hidden="true"></span>
-                </button>
-                <div class="header-menu-toggle__nav header-menu-toggle__mrg-btm drop-down js-drop-down" id="my-account-links">
-                  <ul>
-                    <!-- [BACK END] `is-active` class needs to be appended to the active anchor element e.g. `<a href="#" class="is-active">` -->
-                    <li><a href="#"><span class="icon icon--user icon--fixed-width icon--spacing" aria-hidden="true"></span> Account Settings</a></li>
-                    <li><a href="#"><span class="icon icon--signout icon--fixed-width icon--spacing" aria-hidden="true"></span> Sign out</a></li>
-                  </ul>
-                </div>
-              </div>
-              <!-- //signed in -->
+						<!-- signed in -->
+						<div class="my-account-container my-account-signedin drop-down-container hide-fully">
+							<!-- [BACK END] for displaying username and avatar we have to have 2 sets of HTML; 1 for palm devices and 1 for non-palm devices, avatar needs to be 64px x 64px -->
+							<strong class="my-account-container__hdr container txt-truncate hide-fully--non-palm">
+								<img src="<%= image_path "dummy/avatar.jpg" %>" alt="User avatar photo"> Hi username
+							</strong>
+							<button type="button" class="my-account-container__hdr btn hide-fully--palm js-drop-down-trigger" aria-haspopup="true" aria-owns="my-account-links">
+								<img src="<%= image_path "dummy/avatar.jpg" %>" alt="User avatar photo"> Hi<span class="hide-visually my-account-signedin__username"> username</span>
+								<span class="hide-visually"> select for settings / sign out</span>
+								<span class="icon icon--arrow-down-full icon--flush-top" aria-hidden="true"></span>
+							</button>
+							<div class="header-menu-toggle__nav header-menu-toggle__mrg-btm drop-down js-drop-down" id="my-account-links">
+								<ul>
+									<!-- [BACK END] `is-active` class needs to be appended to the active anchor element e.g. `<a href="#" class="is-active">` -->
+									<li><a href="#"><span class="icon icon--user icon--fixed-width icon--spacing" aria-hidden="true"></span> Account Settings</a></li>
+									<li><a href="#"><span class="icon icon--signout icon--fixed-width icon--spacing" aria-hidden="true"></span> Sign out</a></li>
+								</ul>
+							</div>
+						</div>
+						<!-- //signed in -->
 
-              <!-- signed out -->
-              <!-- <div class="my-account-container my-account-signedout">
-                <strong class="my-account-container__hdr container hide-fully--non-palm">My Account</strong>
-                <div class="header-menu-toggle__nav header-menu-toggle__nav--plain header-menu-toggle__mrg-btm">
-                  <a href="#"><span class="icon icon--user icon--fixed-width icon--spacing" aria-hidden="true"></span> Sign in<span class="my-account-signedout__member"> / Become a member</span></a>
-                </div>
-              </div> -->
-              <!-- //signed out -->
+						<!-- signed out -->
+						<div class="my-account-container my-account-signedout">
+							<strong class="my-account-container__hdr container hide-fully--non-palm">My Account</strong>
+							<div class="header-menu-toggle__nav header-menu-toggle__nav--plain header-menu-toggle__mrg-btm">
+								<a href="#"><span class="icon icon--user icon--fixed-width icon--spacing" aria-hidden="true"></span> Sign in<span class="my-account-signedout__member"> / Become a member</span></a>
+							</div>
+						</div>
+						<!-- //signed out -->
 
-              <!-- //My account -->
+						<!-- //My account -->
 
-              <!-- Favourites (non-palm devices) -->
-              <!-- [BACK END] for this favourites link and count we have to have 2 sets of HTML; 1 for palm devices and 1 for non-palm devices, palm device link is in the source below -->
-              <a href="#" class="favs-link hide-fully--palm">
-              <span class="favs-link__count-icon">
-                <span class="icon icon--favs icon--flush-top icon--kilo" aria-hidden="true"></span>
-                <em>58</em>
-              </span>
-              <span class="favs-link__txt"> Favourites</span>
-            </a>
-              <!-- //Favourites (non-palm devices) -->
+						<!-- Favourites (non-palm devices) -->
+						<!-- [BACK END] for this favourites link and count we have to have 2 sets of HTML; 1 for palm devices and 1 for non-palm devices, palm device link is in the source below -->
+						<a href="#" class="favs-link hide-fully--palm">
+							<span class="favs-link__count-icon">
+								<span class="icon icon--favs icon--flush-top icon--kilo" aria-hidden="true"></span>
+								<em>58</em>
+							</span>
+							<span class="favs-link__txt"> Favourites</span>
+						</a>
+						<!-- //Favourites (non-palm devices) -->
 
-            </div>
-            <!-- //My account / favourites -->
+					</div>
+					<!-- //My account / favourites -->
 
-            <!-- Tertiary navigation -->
-          <nav class="header-menu-toggle__nav hide-fully--non-palm" role="navigation" aria-label="Tertiary navigation">
-                <ul class="nav-tertiary">
-                    <li><a href="#">Terms &amp; Conditions</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
-                </ul>
-            </nav>
-            <!-- //Tertiary navigation -->
+					<!-- Tertiary navigation -->
+					<nav class="header-menu-toggle__nav hide-fully--non-palm" role="navigation" aria-label="Tertiary navigation">
+							<ul class="nav-tertiary">
+									<li><a href="#">Terms &amp; Conditions</a></li>
+									<li><a href="#">Privacy Policy</a></li>
+							</ul>
+					</nav>
+					<!-- //Tertiary navigation -->
 
-          </div>
-          <!-- //Shopping centre select, sub/tertiary navigation, my account & favourites -->
+				</div>
+				<!-- //Shopping centre select, sub/tertiary navigation, my account & favourites -->
 
-          <!-- Search toggle / favourites (palm devices) -->
-        <div class="search-toggle-favs hide-fully--non-palm">
+				<!-- Search toggle / favourites (palm devices) -->
+				<div class="search-toggle-favs hide-fully--non-palm">
 
-          <!-- Search toggle btn -->
-          <button class="btn js-search-btn-toggle js-disabled-hide" type="button" aria-haspopup="true" aria-owns="search-mini">
-            <span class="icon icon--search icon--spacing icon--flush-top icon--kilo" aria-hidden="true"></span>
-            <span class="hide-visually">Open site search</span>
-          </button>
-          <!-- //Search toggle btn -->
+					<!-- Search toggle btn -->
+					<button class="btn js-search-btn-toggle js-disabled-hide" type="button" aria-haspopup="true" aria-owns="search-mini">
+						<span class="icon icon--search icon--spacing icon--flush-top icon--kilo" aria-hidden="true"></span>
+						<span class="hide-visually">Open site search</span>
+					</button>
+					<!-- //Search toggle btn -->
 
-          <!-- Favourites -->
-          <!-- [BACK END] for this favourites link and count we have to have 2 sets of HTML; 1 for palm devices and 1 for non-palm devices, non-palm device link is in the source above -->
-          <a href="#" class="favs-link">
-            <span class="favs-link__count-icon">
-              <span class="icon icon--favs icon--flush-top icon--kilo" aria-hidden="true"></span>
-              <em>99</em>
-            </span>
-            <span class="hide-visually"> Favourites</span>
-          </a>
-          <!-- //Favourites -->
+					<!-- Favourites -->
+					<!-- [BACK END] for this favourites link and count we have to have 2 sets of HTML; 1 for palm devices and 1 for non-palm devices, non-palm device link is in the source above -->
+					<a href="#" class="favs-link">
+						<span class="favs-link__count-icon">
+							<span class="icon icon--favs icon--flush-top icon--kilo" aria-hidden="true"></span>
+							<em>99</em>
+						</span>
+						<span class="hide-visually"> Favourites</span>
+					</a>
+					<!-- //Favourites -->
 
-        </div>
-          <!-- //Search toggle / favourites (palm devices) -->
+				</div>
+				<!-- //Search toggle / favourites (palm devices) -->
 
-      </div>
-    </div>
-    <!-- //Header secondary -->
+			</div>
+		</div>
+		<!-- //Header secondary -->
 
-    <!-- Centre home page hero banner -->
-    <!-- [BACK END] this HTML should only be rendered for the centre home page -->
-    <div class="header__hero">
+		<!-- Centre home page hero banner -->
+		<!-- [BACK END] this HTML should only be rendered for the centre home page -->
+		<div class="header__hero">
 
-    </div>
-    <!-- //Centre home page hero banner -->
+			<div class="header__hero__inner hide-fully--non-palm">
 
-    <!-- Header primary -->
-    <div class="header__primary">
-      <div class="container">
+				<!-- Shopping centre select -->
+				<div class="shopping-centre-select">
+					<h1><a href="/" rel="home" title="Change shopping centre"><%= @centre.short_name %> <span class="icon icon--arrow-right-full" aria-hidden="true"></span></a></h1>
+				</div>
+				<!-- //Shopping centre select -->
 
-          <!-- Main navigation -->
-          <nav role="navigation" aria-label="Main navigation">
-            <!-- [BACK END] `is-active` class needs to be appended to the active anchor element e.g. `<a href="#" class="is-active">` -->
-              <ul class="nav-main horiz-list horiz-list--fit horiz-list--center horiz-list--dividers">
-                  <li><a href="#"><span class="icon icon--store" aria-hidden="true"></span><span class="hide-visually"> Stores</span></a></li>
-                  <li><a href="#" class="is-active"><span class="icon icon--products" aria-hidden="true"></span><span class="hide-visually"> Products</span></a></li>
-                  <li><a href="#"><span class="icon icon--deals" aria-hidden="true"></span><span class="hide-visually"> Deals</span></a></li>
-                  <li><a href="#"><span class="icon icon--events" aria-hidden="true"></span><span class="hide-visually"> Events</span></a></li>
-              </ul>
-          </nav>
-          <!-- //Main navigation -->
+				<!-- Shopping centre opening hours -->
+				<!-- [BACK END] the hours need to be made dynamic -->
+				<a href="#" class="open-hours-link"><span class="icon icon--hours" aria-hidden="true"></span> <strong>Open 9am - 6pm today</strong> <span class="icon icon--arrow-right" aria-hidden="true"></span></a>
+				<!-- //Shopping centre opening hours -->
 
-          <!-- Favourites navigation -->
-          <!-- [BACK END] this is only rendered on the 'Favourites' page and in place of the main navigation above, the only difference in the HTML is the counts that exist within each anchor so ideally the same HTML is used with the counts HTML injected in for the 'Favourites' page -->
-          <!-- <nav role="navigation" aria-label="Main navigation">
-              <ul class="nav-main horiz-list horiz-list--fit horiz-list--center horiz-list--dividers">
-                  <li><a href="#"><span class="icon icon--store" aria-hidden="true"></span><span class="hide-visually"> Stores</span></a></li>
-                  <li><a href="#" class="is-active"><span class="icon icon--products" aria-hidden="true"></span><span class="hide-visually"> Products</span></a></li>
-                  <li><a href="#"><span class="icon icon--deals" aria-hidden="true"></span><span class="hide-visually"> Deals</span></a></li>
-                  <li><a href="#"><span class="icon icon--events" aria-hidden="true"></span><span class="hide-visually"> Events</span></a></li>
-              </ul>
-          </nav> -->
-          <!-- //Favourites navigation -->
+			</div>
 
-          <!-- Global search -->
-          <div class="header__overlay header__overlay--toggle js-search-toggle" id="search-mini">
-            <div class="container">
-              <!-- Search form -->
-              <form class="search-mini" action="#" method="post" role="search">
-              <span class="icon icon--search" aria-hidden="true"></span>
-              <label for="global-search" class="hide-visually">Search site</label>
-              <input type="search" class="search-mini__input" id="global-search" name="global-search" placeholder="Search stores, products, deals &amp; events&#8230;">
-            </form>
-            <!-- //Search form -->
-            <!-- Close search -->
-            <button class="btn header__overlay__close-btn hide-fully--non-palm js-search-btn-toggle js-disabled-hide" type="button"><span class="icon icon--close-lrg js-disabled-hide" aria-hidden="true"></span><span class="hide-visually"> Close search</span></button>
-            <!-- //Close search -->
-          </div>
-        </div>
-        <!-- //Global search -->
+			<!-- Gradient overlay -->
+			<span class="header__hero__gradient"></span>
+			<!-- //Gradient overlay -->
 
-        <!-- Store search -->
-          <!-- [BACK END] the HTML for the store search is only rendered on the 'Stores' page -->
-          <!-- <div class="header__overlay header__overlay--stick">
-            <div class="container">
-              <form class="search-mini search-mini--stores" action="#" method="post" role="search">
-              <span class="icon icon--store" aria-hidden="true"></span>
-              <label for="store-search" class="hide-visually">Search stores</label>
-              <input type="search" class="search-mini__input" id="store-search" name="store-search" placeholder="Search store names, categories &amp; brands&#8230;">
-            </form>
-          </div>
-        </div> -->
-        <!-- //Store search -->
+		</div>
+		<!-- //Centre home page hero banner -->
 
-      </div>
-    </div>
-    <!-- //Header primary -->
+		<!-- Header primary -->
+		<div class="header__primary">
+			<div class="container">
 
-  </header>
-  <!-- //Header -->
+				<!-- Main navigation -->
+				<nav role="navigation" aria-label="Main navigation">
+					<!-- [BACK END] `is-active` class needs to be appended to the active anchor element e.g. `<a href="#" class="is-active">` -->
+						<ul class="nav-main horiz-list horiz-list--fit horiz-list--center horiz-list--dividers">
+								<li><a href="#"><span class="icon icon--store" aria-hidden="true"></span><span class="hide-visually"> Stores</span></a></li>
+								<li><a href="#" class="is-active"><span class="icon icon--products" aria-hidden="true"></span><span class="hide-visually"> Products</span></a></li>
+								<li><a href="#"><span class="icon icon--deals" aria-hidden="true"></span><span class="hide-visually"> Deals</span></a></li>
+								<li><a href="#"><span class="icon icon--events" aria-hidden="true"></span><span class="hide-visually"> Events</span></a></li>
+						</ul>
+				</nav>
+				<!-- //Main navigation -->
 
-  <!-- Main -->
-  <main class="container" id="main" role="main">
+				<!-- Favourites navigation -->
+				<!-- [BACK END] this is only rendered on the 'Favourites' page and in place of the main navigation above, the only difference in the HTML is the counts that exist within each anchor so ideally the same HTML is used with the counts HTML injected in for the 'Favourites' page -->
+				<!-- <nav role="navigation" aria-label="Main navigation">
+						<ul class="nav-main horiz-list horiz-list--fit horiz-list--center horiz-list--dividers">
+								<li><a href="#"><span class="icon icon--store" aria-hidden="true"></span><span class="hide-visually"> Stores</span></a></li>
+								<li><a href="#" class="is-active"><span class="icon icon--products" aria-hidden="true"></span><span class="hide-visually"> Products</span></a></li>
+								<li><a href="#"><span class="icon icon--deals" aria-hidden="true"></span><span class="hide-visually"> Deals</span></a></li>
+								<li><a href="#"><span class="icon icon--events" aria-hidden="true"></span><span class="hide-visually"> Events</span></a></li>
+						</ul>
+				</nav> -->
+				<!-- //Favourites navigation -->
 
-    <%= yield %>
+				<!-- Global search -->
+				<div class="header__overlay header__overlay--toggle js-search-toggle" id="search-mini">
+					<div class="container">
 
-  </main>
-  <!-- //Main -->
+						<!-- Search form -->
+						<form class="search-mini" action="#" method="post" role="search">
+							<span class="icon icon--search" aria-hidden="true"></span>
+							<label for="global-search" class="hide-visually">Search site</label>
+							<input type="search" class="search-mini__input" id="global-search" name="global-search" placeholder="Search stores, products, deals &amp; events&#8230;">
+						</form>
+						<!-- //Search form -->
 
-  <%= render "/shared/javascripts_global" %>
+						<!-- Close search -->
+						<button class="btn header__overlay__close-btn hide-fully--non-palm js-search-btn-toggle js-disabled-hide" type="button"><span class="icon icon--close-lrg js-disabled-hide" aria-hidden="true"></span><span class="hide-visually"> Close search</span></button>
+						<!-- //Close search -->
+
+					</div>
+				</div>
+				<!-- //Global search -->
+
+				<!-- Store search -->
+				<!-- [BACK END] the HTML for the store search is only rendered on the 'Stores' page -->
+				<!-- <div class="header__overlay header__overlay--stick">
+						<div class="container">
+							<form class="search-mini search-mini--stores" action="#" method="post" role="search">
+							<span class="icon icon--store" aria-hidden="true"></span>
+							<label for="store-search" class="hide-visually">Search stores</label>
+							<input type="search" class="search-mini__input" id="store-search" name="store-search" placeholder="Search store names, categories &amp; brands&#8230;">
+						</form>
+					</div>
+				</div> -->
+				<!-- //Store search -->
+
+			</div>
+		</div>
+		<!-- //Header primary -->
+
+	</header>
+	<!-- //Header -->
+
+	<!-- Main -->
+	<main class="container" id="main" role="main">
+
+		<%= yield %>
+
+	</main>
+	<!-- //Main -->
+
+	<%= render "/shared/javascripts_global" %>
 
 </body>
 

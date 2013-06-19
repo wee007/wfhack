@@ -25,6 +25,9 @@
 		/* Always show at this breakpoint range */
 		@include respond-range($non-palm, $ipad-landscape - 1) {
 			display: block;
+
+			/* Centre home page hero banner */
+			.is-header-hero & {display: none;}
 		}
 	}
 }

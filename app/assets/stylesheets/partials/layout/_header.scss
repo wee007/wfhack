@@ -80,10 +80,12 @@ $hero-banner-height-lrg: 380 !default;
 				/* Apply min height for centre home page hero banner */
 				.is-header-hero & {
 					//background: gold;
+					@include to-rem(padding-top, $spacing-base);
 					@include to-rem(min-height, $hero-banner-height-sml);
 
 					/* Increase min height at this breakpoint */
 					@include respond-min($ipad-portrait) {
+						@include to-rem(padding-top, $spacing-base + $spacing-half);
 						@include to-rem(min-height, $hero-banner-height-lrg);
 					}
 				}

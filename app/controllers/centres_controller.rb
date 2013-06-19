@@ -1,4 +1,6 @@
 class CentresController < ApplicationController
+  layout 'national', :only => :index
+
 
   def index
     @centres = CentreService.find :all, country: 'au'

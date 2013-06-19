@@ -1,5 +1,3 @@
-require 'map_config'
-
 class StoresController < ApplicationController
 
   def index

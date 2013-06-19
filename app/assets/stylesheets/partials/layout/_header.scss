@@ -2,16 +2,24 @@
    @LAYOUT -> HEADER
    ====================================================================================== */
 
+/* Set variables */
+$hero-banner-height-sml: 270 !default;
+$hero-banner-height-lrg: 380 !default;
+
+/* Start header */
 .header {
 	position: fixed;
 	z-index: 99;
 	width: 100%;
 	border-bottom: 1px solid #bababa;
 
-	/* Centre home page hero banner, non JS users + toggle `position: fixed` via the jQuery toggle menu/search plugin */
+	/* Non JS users + toggle `position: fixed` via the jQuery toggle menu/search plugin */
 	&.is-header-hero,
 	&.is-header-unfixed,
 	.no-js & {position: static;}
+
+	/* Centre home page hero banner */
+	&.is-header-hero {position: relative;}
 
 	/* --Shared rules-- */
 
@@ -32,13 +40,33 @@
 		@extend %clear-fix;
 		@include to-rem(min-height, 44);
 
+		/* Centre home page hero banner */
+		.is-header-hero & {box-shadow: none;}
+
 		/* Increase min height at this breakpoint */
 		@include respond-min($non-palm) {
 			@include to-rem(min-height, 50);
-		}
 
-		/* Centre home page hero banner */
-		.is-header-hero & {box-shadow: none;}
+			/* Overlay the centre home page hero banner at this breakpoint */
+			.is-header-hero & {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				@include to-rem(min-height, $hero-banner-height-sml);
+				background: transparent;
+				background: rgba(red, 0.3);
+
+				/* Increase min height at this breakpoint */
+				@include respond-min($ipad-portrait) {
+					@include to-rem(min-height, $hero-banner-height-lrg);
+				}
+
+					/* Shared rules */
+					a,
+					.icon:before {color: #fff;}
+			}
+		}
 
 		/* Inner container */
 		> .container {
@@ -48,14 +76,26 @@
 			@include respond-min($non-palm) {
 				position: relative;
 				@include to-rem(padding-top, 10);
+
+				/* Apply min height for centre home page hero banner */
+				.is-header-hero & {
+					background: gold;
+					@include to-rem(min-height, $hero-banner-height-sml);
+
+					/* Increase min height at this breakpoint */
+					@include respond-min($ipad-portrait) {
+						@include to-rem(min-height, $hero-banner-height-lrg);
+					}
+				}
 			}
 
 			/* Make room for the sub nav menu toggle btn at this breakpoint range */
 			@include respond-range($non-palm, $ipad-landscape - 1) {
 				@include to-rem(padding-left, 32);
 
-				/* Non JS users */
-				.no-js & {padding-left: 0;}
+				/* Centre home page hero banner + non JS users */
+				.no-js &,
+				.is-header-hero & {padding-left: 0;}
 			}
 
 			/* Non JS users */
@@ -66,13 +106,32 @@
 		/* Logo */
 		.logo {
 
+			/* Increase logo size and swap out for white version for centre home page hero banner at this breakpoint */
+			@include respond-min($non-palm) {
+				.is-header-hero & {
+					background: url(/assets/logo-white.svg) no-repeat 0 0;
+					display: inline-block;
+					width: 126px;
+					height: 41px;
+
+					/* No SVG fallback */
+					.no-svg & {background-image: url(/assets/logo-white.png);}
+				}
+			}
+
 			img {
 				width: 82px;
 				height: 26px;
 				position: relative;
 				@include to-rem(top, $spacing-micro);
 				vertical-align: top;
+
+				/* Hide for centre home page hero banner at this breakpoint */
+				@include respond-min($non-palm) {
+					.is-header-hero & {@include hide-visually;}
+				}
 			}
+
 		}
 
 		/* --Toggle menu/search via jQuery-- */
@@ -137,6 +196,11 @@
 						.sub-nav-container & {background: none;}
 					}
 
+					/* As above but for centre home page hero banner at this breakpoint */
+					@include respond-min($non-palm) {
+						.is-header-hero .sub-nav-container & {background: none;}
+					}
+
 					/* Items */
 					li {
 						border-bottom: 1px solid #26292f;
@@ -144,6 +208,14 @@
 						/* Turn off borders and throw into horizontal mode for sub nav at this breakpoint */
 						@include respond-min($ipad-landscape) {
 							.sub-nav-container & {
+								border: 0;
+								display: inline-block;
+							}
+						}
+
+						/* As above but for centre home page hero banner at this breakpoint */
+						@include respond-min($non-palm) {
+							.is-header-hero .sub-nav-container & {
 								border: 0;
 								display: inline-block;
 							}
@@ -278,6 +350,28 @@
 					}
 			}
 
+				/* Centre home page hero banner styles at this breakpoint range */
+				@include respond-range($non-palm, $ipad-landscape - 1) {
+					.header.is-header-hero & {
+						top: auto;
+						bottom: 0;
+						width: 100%;
+						background: pink;
+
+							/* Drop down */
+							.drop-down {
+								width: auto;
+								display: block !important;
+								position: static !important;
+							}
+					}
+				}
+
+						/* Hide 'Shopping hours' link for centre home page hero banner at this breakpoint */
+						@include respond-min($non-palm) {
+							.header.is-header-hero & .shopping-hrs-link {display: none;}
+						}
+
 			/* Non JS users */
 			@include respond-min($non-palm) {
 				.no-js & {
@@ -292,6 +386,14 @@
 			@include to-rem(padding, 6 0);
 			position: relative;
 
+			/* Adjustments for centre home page hero banner at this breakpoint */
+			@include respond-max($palm) {
+				.is-header-hero .header__hero & {
+					padding: 0;
+					@include to-rem(margin-bottom, $spacing-half);
+				}
+			}
+
 			/* Adjustments at this breakpoint */
 			@include respond-min($non-palm) {
 				display: inline-block;
@@ -301,6 +403,14 @@
 
 				/* iOS */
 				.ios & {@include to-rem(top, 3);}
+
+				/* Centre home page hero banner */
+				.is-header-hero & {
+					position: absolute;
+					left: 0;
+					top: 50%;
+					margin-left: 0;
+				}
 
 				/* Turn off container rules */
 				&.container {
@@ -326,11 +436,24 @@
 					margin-right: 0;
 				}
 
+				/* Centre home page hero banner */
+				.is-header-hero & {text-shadow: 0 0 8px rgba(#000, 0.6);}
+
+				.is-header-hero .header__hero & {
+					@include font-size(29, 1.2);
+					margin-right: 0;
+
+					/* Change colour at this breakpoint */
+					@include respond-min(400) {
+						@include font-size(32, 1.2);
+					}
+				}
+
 					/* Link */
 					a {
 						color: #fff;
 
-						/* Remove right margin at this breakpoint */
+						/* Change colour at this breakpoint */
 						@include respond-min($non-palm) {
 							color: $color-dark-txt;
 						}
@@ -346,6 +469,9 @@
 							@include target-webkit {
 								top: -3px;
 							}
+
+							/* Centre home page hero banner */
+							.is-header-hero & {color: #fff;}
 						}
 			}
 
@@ -567,18 +693,67 @@
 		background-repeat: no-repeat;
 		background-position: 50% 50%;
 		background-size: cover;
+		background-color: $color-dark-txt;
+		position: relative;
+		z-index: 1;
+		display: none;
 
-		/* Hero image at this breakpoint */
-		@include respond-max($palm) {
-			background-image: url(images/header-heroes/bondi-junction-sml.jpg);
+		.is-header-hero & {display: block;}
+
+		/* Increase min height at this breakpoint */
+		@include respond-min($non-palm) {
+			@include to-rem(min-height, $hero-banner-height-sml);
 		}
 
-		/* Hero image at this breakpoint */
-		@include respond-min($non-palm) {
-			@include to-rem(min-height, 380);
-			background-image: url(images/header-heroes/bondi-junction.jpg);
+		/* Increase min height at this breakpoint */
+		@include respond-min($ipad-portrait) {
+			@include to-rem(min-height, $hero-banner-height-lrg);
 		}
 	}
+
+		/* Inner container */
+		.header__hero__inner {
+			position: absolute;
+			z-index: 2;
+			@include to-rem(bottom, 24);
+			left: 8%;
+			right: 8%;
+		}
+
+			/* Open hours link */
+			.header .open-hours-link {
+				&,
+				a,
+				.icon:before {color: #fff;}
+			}
+
+			/* Hide when not centre home page hero banner */
+			.header .nav-sub .open-hours-link {
+				display: none;
+
+				/* Show for centre home page hero banner */
+				@include respond-min($non-palm) {
+					.is-header-hero & {display: inline-block;}
+				}
+			}
+
+		/* Gradient overlay */
+		.header__hero__gradient {
+			display: block;
+			position: absolute;
+			z-index: 1;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			@include to-rem(height, 180);
+			pointer-events: none;
+			@include linear-gradient(rgba(#000, 0.5), transparent, top, bottom);
+
+			/* Increase gradient height at this breakpoint */
+			@include respond-min($non-palm) {
+				@include to-rem(height, 240);
+			}
+		}
 
 
 	/* --Header primary-- */
@@ -624,6 +799,9 @@
 					top: 0;
 					left: 0;
 				}
+
+				/* Centre home page hero banner */
+				.is-header-hero & {background-color: #fff;}
 
 				/* Inner container */
 				> .container {position: relative;}

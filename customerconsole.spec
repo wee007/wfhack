@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.122
+Version:     0.0.123
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -67,6 +67,11 @@ fi
 %attr(755,nobody,nobody)%{appdir}/current/tmp
 
 %changelog
+* Wed Jun 19 2013 ci <doperations@au.westfield.com> 0.0.123-1
+- Merge pull request #39 from cpearce/master (ldewey@au.westfield.com)
+- removing testing styles from header and fixing hero img paths
+  (CPearce@au.westfield.com)
+
 * Wed Jun 19 2013 ci <doperations@au.westfield.com> 0.0.122-1
 - Merge pull request #38 from cpearce/master (ldewey@au.westfield.com)
 - completed html/css for centre home page header mobile view

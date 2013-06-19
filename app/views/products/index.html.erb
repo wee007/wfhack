@@ -87,12 +87,14 @@
       $("input.facet-filter").keyup(function(event) {
         var field = $(event.target);
         if (field.val() == '')
-          field.siblings("ul").children().show();
+          field.siblings("div").find('li').show();
         else {
-          field.siblings("ul").children("li:startsWith(" + field.val() + ")").show();
-          field.siblings("ul").children("li:not(:startsWith(" + field.val() + "))").hide();
+          field.siblings("div").find("li:startsWith(" + field.val() + ")").show();
+          field.siblings("div").find("li:not(:startsWith(" + field.val() + "))").hide();
         }
+        field.parent().tinyscrollbar_update();
       });
+      $(".facet-filtered").tinyscrollbar();
     })(jQuery);
   </script>
 <%- end -%>

@@ -23,6 +23,7 @@
 //= require ./author/jquery.toggle-search
 //= require ./vendor/enquire
 //= require ./vendor/jquery.twitter-bootstrap-dropdown
+//= require ./vendor/jquery.tinyscrollbar
 //= require jquery.ui.slider
 
 

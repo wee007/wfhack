@@ -55,7 +55,7 @@ $hero-banner-height-lrg: 380 !default;
 				width: 100%;
 				@include to-rem(min-height, $hero-banner-height-sml);
 				background: transparent;
-				background: rgba(red, 0.3);
+				//background: rgba(red, 0.3);
 
 				/* Increase min height at this breakpoint */
 				@include respond-min($ipad-portrait) {
@@ -79,7 +79,7 @@ $hero-banner-height-lrg: 380 !default;
 
 				/* Apply min height for centre home page hero banner */
 				.is-header-hero & {
-					background: gold;
+					//background: gold;
 					@include to-rem(min-height, $hero-banner-height-sml);
 
 					/* Increase min height at this breakpoint */
@@ -356,7 +356,7 @@ $hero-banner-height-lrg: 380 !default;
 						top: auto;
 						bottom: 0;
 						width: 100%;
-						background: pink;
+						//background: pink;
 
 							/* Drop down */
 							.drop-down {

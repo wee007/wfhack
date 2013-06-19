@@ -26,13 +26,13 @@ $border: 1px solid #cdcdcd;
   }
 
   .detail_view__controls__button--close {
-    width: 40px;
     border: 0;
     background-color: black;
     color: white;
     float: right;
     border-bottom: 1px solid black;
     display: none;
+    @include to-rem(width, 40);
     @include to-rem(padding, $spacing-half);
 
     @include respond-min($non-palm) {

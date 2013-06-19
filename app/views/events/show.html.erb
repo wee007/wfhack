@@ -1,4 +1,4 @@
-<br /><br />
+<br /><br /><br /><br /><br /><br />
 
 <main id="main" role="main">
   <div class="detail_view detail_view--event box">
@@ -8,17 +8,18 @@
 
       <button class="detail_view__controls__button btn">
         <span class="icon icon--favs icon--lrg icon--fixed-width icon--spacing" aria-hidden="true"></span>
-        <span class="detail_view__controls__txt"> Save</span>
+        <span class="detail_view__controls__txt">Save</span>
       </button>
 
       <button class="detail_view__controls__button btn">
         <span class="icon icon--comment icon--lrg icon--fixed-width icon--spacing" aria-hidden="true"></span>
-        <span class="detail_view__controls__txt"> Share</span>
+        <span class="detail_view__controls__txt">Share</span>
       </button>
 
       <% if in_lightbox? %>
         <button class="detail_view__controls__button detail_view__controls__button--close btn">
           <span class="icon icon--close-sml icon--sml icon--fixed-width" aria-hidden="true"></span>
+          <span class="hide-visually">Close</span>
         </button>
       <% end %>
 
@@ -26,17 +27,19 @@
 
     <div class="detail_view__inner">
 
-      <h2 class="detail_view__hdr"><%= @event.name %></h2>
+      <header>
+        <h2 class="detail_view__hdr"><%= @event.name %></h2>
 
-      <div class="detail_view__meta">
-        <p class="detail_view__meta__location">
-          <span class="icon icon--pin" aria-hidden="true"></span>
-          <%= @event.location %>
-        </p>
-        <p class="detail_view__meta__date">
-          <%= Time.new(@event.start).strftime("%d %b %Y") %> to <%= Time.new(@event.finish).strftime("%d %b %Y") %>
-        </p>
-      </div>
+        <div class="detail_view__meta">
+          <p class="detail_view__meta__location">
+            <span class="icon icon--pin" aria-hidden="true"></span>
+            <%= @event.location %>
+          </p>
+          <p class="detail_view__meta__date">
+            <%= Time.new(@event.start).strftime("%d %b %Y") %> to <%= Time.new(@event.finish).strftime("%d %b %Y") %>
+          </p>
+        </div>
+      </header>
 
       <%= image_tag @event.image, alt: @event.alt if @event.image %>
 

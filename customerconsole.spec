@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.121
+Version:     0.0.122
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -67,6 +67,13 @@ fi
 %attr(755,nobody,nobody)%{appdir}/current/tmp
 
 %changelog
+* Wed Jun 19 2013 ci <doperations@au.westfield.com> 0.0.122-1
+- Merge pull request #38 from cpearce/master (ldewey@au.westfield.com)
+- completed html/css for centre home page header mobile view
+  (CPearce@au.westfield.com)
+- adding centre home page header hero images (CPearce@au.westfield.com)
+- updating Google Lato font to 300 weight (CPearce@au.westfield.com)
+
 * Wed Jun 19 2013 ci <doperations@au.westfield.com> 0.0.121-1
 - Merge pull request #36 from cpearce/master (ldewey@au.westfield.com)
 - Move interim styles to the hall of shame (cwalsh2@au.westfield.com)

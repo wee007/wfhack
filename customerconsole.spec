@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.120
+Version:     0.0.121
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -67,6 +67,19 @@ fi
 %attr(755,nobody,nobody)%{appdir}/current/tmp
 
 %changelog
+* Wed Jun 19 2013 ci <doperations@au.westfield.com> 0.0.121-1
+- Merge pull request #36 from cpearce/master (ldewey@au.westfield.com)
+- Move interim styles to the hall of shame (cwalsh2@au.westfield.com)
+- Add scrollbars to filtered facets (cwalsh2@au.westfield.com)
+- Allow filtering with numbers (cwalsh2@au.westfield.com)
+- Facet values can now be filtered (cwalsh2@au.westfield.com)
+- adding favicons (CPearce@au.westfield.com)
+- updating the stylesheet_path to application (CPearce@au.westfield.com)
+- removing jquery library CDN (CPearce@au.westfield.com)
+- adding a helper to output class for centre home page header
+  (CPearce@au.westfield.com)
+- adding jquery library (CPearce@au.westfield.com)
+
 * Tue Jun 18 2013 ci <doperations@au.westfield.com> 0.0.120-1
 - Merge pull request #35 from cpearce/master (cpearce@au.westfield.com)
 - updating main import to application (CPearce@au.westfield.com)

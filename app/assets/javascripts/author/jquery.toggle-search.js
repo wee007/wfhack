@@ -23,7 +23,7 @@ $.fn.toggleSearch = function() {
             // Remove the header menu and restore header `position: fixed`
             if (menu.hasClass('is-expanded')) {
                 menu.removeClass('is-expanded');
-                header.removeClass('is-header-unfixed');
+                //header.removeClass('is-header-unfixed');
             }
             // Set focus to the search form so screen readers and keyboard users can jump to it as the search form is not directly after the search toggle button
             searchContainer.attr('tabindex', -1).focus();
@@ -36,7 +36,7 @@ $.fn.toggleSearch = function() {
             // Remove the header menu and restore header `position: fixed`
             if (menu.hasClass('is-expanded')) {
                 menu.removeClass('is-expanded');
-                header.removeClass('is-header-unfixed');
+                //header.removeClass('is-header-unfixed');
             }
     })
 }

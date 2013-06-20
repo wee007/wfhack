@@ -25,8 +25,8 @@ $.fn.toggleMenu = function() {
                 search.removeClass('is-expanded');
             }
             // Toggle fixed positiong so menu can be scrolled/swiped and set focus to top of viewport
-            header.toggleClass('is-header-unfixed');
-            $(window).scrollTop(0)
+            //header.toggleClass('is-header-unfixed');
+            //$(window).scrollTop(0)
         },
         // Collapsed state
         function() {
@@ -38,6 +38,6 @@ $.fn.toggleMenu = function() {
                 search.removeClass('is-expanded');
             }
             // Toggle fixed positiong so menu can be scrolled/swiped
-            header.toggleClass('is-header-unfixed');
+            //header.toggleClass('is-header-unfixed');
     })
 }

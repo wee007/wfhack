@@ -14,7 +14,7 @@ $hero-banner-height-lrg: 380 !default;
 	border-bottom: 1px solid #bababa;
 
 	/* Non JS users + toggle `position: fixed` via the jQuery toggle menu/search plugin */
-	&.is-header-unfixed,
+	//&.is-header-unfixed,
 	.no-js & {position: static;}
 
 	/* Centre home page hero banner */
@@ -178,6 +178,9 @@ $hero-banner-height-lrg: 380 !default;
 			@include respond-max($palm) {
 				background-color: $color-dark-txt;
 				color: #fff;
+				/* Make menu scrollable */
+				height: 350px;
+				overflow: auto;
 
 				/* Create bottom spacing */
 				.header-menu-toggle__mrg-btm {@include to-rem(margin-bottom, $spacing-half);}
@@ -309,10 +312,13 @@ $hero-banner-height-lrg: 380 !default;
 								@include respond-min($ipad-landscape) {
 									.sub-nav-container & {
 										color: $color-light-txt;
-										@include font-size(18, 1);
+										@include font-size(17, 1);
 
 										/* Change colour for 'Centre home page hero banner' */
-										.is-header-hero & {color: #fff;}
+										.is-header-hero & {
+											color: #fff;
+											@include font-size(14, 1);
+										}
 									}
 								}
 
@@ -875,7 +881,10 @@ $hero-banner-height-lrg: 380 !default;
 		.stores & {@include to-rem(min-height, 44);}
 
 		/* Centre home page hero banner */
-		.is-header-hero & {background-color: #fff;}
+		.is-header-hero & {
+			background-color: #fff;
+			position: static;
+		}
 
 		/* Turn off container at this breakpoint */
 		@include respond-max($palm) {
@@ -910,7 +919,12 @@ $hero-banner-height-lrg: 380 !default;
 				}
 
 				/* Centre home page hero banner */
-				.is-header-hero & {background-color: #fff;}
+				.js .is-header-hero & {
+					background-color: #fff;
+					height: auto;
+					@include to-rem(top, 38);
+					@include to-rem(min-height, 44);
+				}
 
 				/* Inner container */
 				> .container {position: relative;}
@@ -1048,16 +1062,22 @@ $hero-banner-height-lrg: 380 !default;
 					.icon:before {
 						@include font-size(20, 1);
 
+						/* Change positon context at this breakpoint */
+						@include respond-max($iphone-landscape - 1) {
+							position: static;
+						}
+
 						/* Decrease text size and create some spacing between icon and link text at this breakpoint */
 						@include respond-min($iphone-landscape) {
 							@include font-size(17, 1);
 							margin-right: to-em($spacing-sixth);
 						}
 
-						/* Increase text size at this breakpoint range */
+						/* Increase text size, turn off right margin and change position context at this breakpoint range */
 						@include respond-range($non-palm, $ipad-portrait - 1) {
 							@include font-size(20, 1);
 							margin-right: 0;
+							position: static;
 						}
 					}
 		}

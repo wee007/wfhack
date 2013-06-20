@@ -1,9 +1,14 @@
-<h1>Events @ <%= @centre.name %></h1>
+<main class="container" id="main" role="main">
 
-<ul>
-<% @events.each do |event| %>
-  <li>
-    <%= link_to event.name, centre_event_path(params[:centre_id], event.id) %>
-  </li>
-<% end %>
-</ul>
+  <h1 class="hide-visually">Events</h1>
+
+  <div id="pin-board">
+
+    <%- @events.each do |event| -%>
+      <%= render partial: "shared/tiles/event", locals: {result: event} %>
+    <%- end -%>
+
+  </div>
+</main>
+
+<br /><br />

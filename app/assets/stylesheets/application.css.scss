@@ -110,6 +110,7 @@ Global stylesheet
 @import "partials/abstractions/vertical-alignment";
 @import "partials/abstractions/preserve-aspect-ratio";
 @import "partials/abstractions/dropdown";
+@import "partials/abstractions/box";
 
 /* Modules */
 @import "partials/modules/feedback";
@@ -119,6 +120,9 @@ Global stylesheet
 @import "partials/modules/preloader";
 @import "partials/modules/pagination";
 @import "partials/modules/thumbnail-grid";
+@import "partials/modules/tile";
+@import "partials/modules/detail_view";
+
 
   /* Modules -> Widgets */
   @import "partials/modules/widgets/accordion";

@@ -1,0 +1,92 @@
+$border: 1px solid #cdcdcd;
+
+.detail_view {
+  background-color: white;
+
+  @include respond-min($non-palm) {
+    max-width: 70%;
+    margin: 0 auto;
+  }
+}
+
+.detail_view__controls {
+  border-bottom: $border;
+  width: 100%;
+  @extend %clear-fix;
+
+  .detail_view__controls__button {
+    border-right: $border;
+    width: 50%;
+    float: left;
+    @include to-rem(padding, $spacing-half $spacing-base);
+
+    @include respond-min($non-palm) {
+      width: auto;
+    }
+  }
+
+  .detail_view__controls__button--close {
+    border: 0;
+    background-color: black;
+    color: white;
+    float: right;
+    border-bottom: 1px solid black;
+    display: none;
+    @include to-rem(width, 40);
+    @include to-rem(padding, $spacing-half);
+
+    @include respond-min($non-palm) {
+      display: block;
+    }
+
+  }
+}
+
+.detail_view__inner {
+  @include to-rem(padding, $spacing-base * 1.5);
+}
+
+
+
+
+
+
+/* Event */
+.detail_view--event {
+
+  .detail_view__hdr {
+    color: #242424;
+    font-family: $font-family-opensans;
+    @include font-size($font-size + 24);
+  }
+
+  .detail_view__meta {
+    border-top: $border;
+    border-bottom: $border;
+    color: #777;
+    @include to-rem(margin, $spacing-base 0);
+    @include to-rem(padding, $spacing-base - $spacing-quarter 0);
+    @include font-size($font-size-sml);
+  }
+
+  .detail_view__meta__location {
+    float: right;
+    .icon {
+      @include to-rem(padding-right, $spacing-quarter);
+      @include font-size($font-size-lrg + 2, 0.5);
+    }
+  }
+
+  .detail_view__details {
+    @include to-rem(margin, $spacing-base 0 0 0);
+  }
+  .detail_view__details__hdr {
+    font-weight: bold;
+    @include to-rem(margin, $spacing-third 0);
+    @include font-size($font-size-sml);
+  }
+  .detail_view__details__content {
+    @include font-size($font-size);
+  }
+
+}

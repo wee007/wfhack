@@ -1,0 +1,26 @@
+<a class="tile tile--events" href="<%= centre_event_path((params[:centre_id] || params[:id]), result['id']) %>">
+  <article class="box" role="article">
+
+    <span class="tile__image">
+      <% # TODO: fix alt tag %>
+      <%= image_tag result['image'], alt: result['name'] %>
+    </span>
+
+    <div class="tile__meta">
+      <span class="tile__meta__icon">
+        <span class="icon icon--events" aria-hidden="true"></span>
+        <span class="hide-visually">Event</span>
+      </span>
+      <div class="tile__meta__inner">
+        <h3 class="tile__meta__hdr"><%= result['name'] %></h3>
+        <p class="tile__meta__desc">
+          <%= result['description'] %>
+          <% if result['price'] %>
+            <span class="tile__meta__price"><%= result['price'] %></span>
+          <% end %>
+        </p>
+      </div>
+    </div>
+
+  </article>
+</a>

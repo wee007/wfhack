@@ -1,11 +1,12 @@
-<h1>Welcome to Westfield</h1>
-<%- @centres.each do |state, centres| -%>
-  <div style="float: left">
-    <%= state %>
-    <ul>
-      <%- centres.each do |centre| -%>
-        <li><%= link_to centre.name, centre_path(centre.code) %></li>
-      <%- end -%>
-    </ul>
-  </div>
-<%- end -%>
+<main class="container" id="main" role="main">
+  <%- @centres.each do |state, centres| -%>
+    <div>
+      <%= state %>
+      <ul>
+        <%- centres.each do |centre| -%>
+          <li><%= link_to centre.short_name, centre_path(centre.code) %></li>
+        <%- end -%>
+      </ul>
+    </div>
+  <%- end -%>
+</main>

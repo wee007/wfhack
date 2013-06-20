@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.123
+Version:     0.0.124
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -67,6 +67,20 @@ fi
 %attr(755,nobody,nobody)%{appdir}/current/tmp
 
 %changelog
+* Thu Jun 20 2013 ci <doperations@au.westfield.com> 0.0.124-1
+- Merge pull request #40 from ldewey/master (ldewey@au.westfield.com)
+- Added accessibility enhancements. (ldewey@au.westfield.com)
+- Added centre homepage link to header (ldewey@au.westfield.com)
+- Adding the national layout (ldewey@au.westfield.com)
+- Removed the main wrap on yield (ldewey@au.westfield.com)
+- Removed centre layout from national page. (ldewey@au.westfield.com)
+- Made the nav links active when they need to be (ldewey@au.westfield.com)
+- Added event detail and Stream / Pinboard (ldewey@au.westfield.com)
+- Added "stub" lightbox check (ldewey@au.westfield.com)
+- Copied JS from front end project (ldewey@au.westfield.com)
+- Copied styles from front end project (ldewey@au.westfield.com)
+- Added a root path (ldewey@au.westfield.com)
+
 * Wed Jun 19 2013 ci <doperations@au.westfield.com> 0.0.123-1
 - Merge pull request #39 from cpearce/master (ldewey@au.westfield.com)
 - removing testing styles from header and fixing hero img paths

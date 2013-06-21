@@ -1073,6 +1073,9 @@ $hero-banner-height-lrg: 380 !default;
 						@include respond-min($iphone-landscape) {
 							@include font-size(17, 1);
 							margin-right: to-em($spacing-sixth);
+
+							/* iOS */
+							.ios & {top: -2px;}
 						}
 
 						/* Increase text size, turn off right margin and change position context at this breakpoint range */
@@ -1082,6 +1085,14 @@ $hero-banner-height-lrg: 380 !default;
 							position: static;
 						}
 					}
+
+						/* iOS */
+						@include respond-min($iphone-landscape) {
+							.ios & .icon--flush-top:before {
+								position: relative;
+								top: -2px;
+							}
+						}
 		}
 
 		/* Search */

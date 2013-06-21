@@ -20,25 +20,23 @@ $.fn.toggleSearch = function() {
             search.toggleClass('is-expanded');
             $(this).toggleClass('is-expanded');
             toggleBtnTxt.html('Close site search');
-            // Remove the header menu
+            // Remove the header menu and restore header `position: fixed`
             if (menu.hasClass('is-expanded')) {
                 menu.removeClass('is-expanded');
+                //header.removeClass('is-header-unfixed');
             }
             // Set focus to the search form so screen readers and keyboard users can jump to it as the search form is not directly after the search toggle button
             searchContainer.attr('tabindex', -1).focus();
-            // Reset header fixed positiong which is changed via the menu toggle plugin (when menu is open fixed positioning is changed to `static`)
-            header.css('position', 'fixed');
         },
         // Collapsed state
         function() {
             search.toggleClass('is-expanded');
             $(this).toggleClass('is-expanded');
             toggleBtnTxt.html('Open site search');
-            // Remove the header menu
+            // Remove the header menu and restore header `position: fixed`
             if (menu.hasClass('is-expanded')) {
                 menu.removeClass('is-expanded');
+                //header.removeClass('is-header-unfixed');
             }
-            // Reset header fixed positiong which is changed via the menu toggle plugin (when menu is open fixed positioning is changed to `static`)
-            header.css('position', 'fixed');
     })
 }

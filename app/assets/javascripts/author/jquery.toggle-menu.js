@@ -24,9 +24,9 @@ $.fn.toggleMenu = function() {
             if (search.hasClass('is-expanded')) {
                 search.removeClass('is-expanded');
             }
-            // Remove header fixed positiong and send focus to top of viewport so menu can be scrolled/swiped
-            header.css('position', 'static');
-            window.scroll(0,0);
+            // Toggle fixed positiong so menu can be scrolled/swiped and set focus to top of viewport
+            //header.toggleClass('is-header-unfixed');
+            //$(window).scrollTop(0)
         },
         // Collapsed state
         function() {
@@ -37,7 +37,7 @@ $.fn.toggleMenu = function() {
             if (search.hasClass('is-expanded')) {
                 search.removeClass('is-expanded');
             }
-            // Reset header fixed positiong
-            header.css('position', 'fixed');
+            // Toggle fixed positiong so menu can be scrolled/swiped
+            //header.toggleClass('is-header-unfixed');
     })
 }

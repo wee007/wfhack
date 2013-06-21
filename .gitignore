@@ -21,6 +21,13 @@ pkg
 # Ignore bundler config.
 /.bundle
 
+# Ignore TO DO list
+/app/TODO.md
+
+# Ignore Sublime Text project files
+/customer-console.sublime-project
+/customer-console.sublime-workspace
+
 # Ignore the default SQLite database.
 /db/*.sqlite3
 /db/*.sqlite3-journal

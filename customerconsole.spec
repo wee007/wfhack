@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.130
+Version:     0.0.131
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -67,6 +67,10 @@ fi
 %attr(755,nobody,nobody)%{appdir}/current/tmp
 
 %changelog
+* Sat Jun 22 2013 ci <doperations@au.westfield.com> 0.0.131-1
+- Merge pull request #44 from ewee/master (ldewey@au.westfield.com)
+- Show today's trading hour for a centre (ewee@au.westfield.com)
+
 * Sat Jun 22 2013 ci <doperations@au.westfield.com> 0.0.130-1
 - Merge pull request #45 from cpearce/master (ldewey@au.westfield.com)
 - tweaks after device testing (CPearce@au.westfield.com)

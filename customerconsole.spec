@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.124
+Version:     0.0.125
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -67,6 +67,17 @@ fi
 %attr(755,nobody,nobody)%{appdir}/current/tmp
 
 %changelog
+* Fri Jun 21 2013 ci <doperations@au.westfield.com> 0.0.125-1
+- tweaks for mobile menu toggle (CPearce@au.westfield.com)
+- removing the toggle to change header position (CPearce@au.westfield.com)
+- moving the global search field under the toggle button for palm devices
+  (CPearce@au.westfield.com)
+- creating new header partial and adding centre home page headerstyles and
+  markup (CPearce@au.westfield.com)
+- updating toggle menu/search plugins from static build
+  (CPearce@au.westfield.com)
+- increasing header padding for tablet/desktop views (CPearce@au.westfield.com)
+
 * Thu Jun 20 2013 ci <doperations@au.westfield.com> 0.0.124-1
 - Merge pull request #40 from ldewey/master (ldewey@au.westfield.com)
 - Added accessibility enhancements. (ldewey@au.westfield.com)

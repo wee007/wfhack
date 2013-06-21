@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.126
+Version:     0.0.127
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -67,6 +67,10 @@ fi
 %attr(755,nobody,nobody)%{appdir}/current/tmp
 
 %changelog
+* Fri Jun 21 2013 ci <doperations@au.westfield.com> 0.0.127-1
+- Merge pull request #42 from ldewey/master (cwalsh2@au.westfield.com)
+- Deal tile WIP, should not error any more tho. (ldewey@au.westfield.com)
+
 * Fri Jun 21 2013 ci <doperations@au.westfield.com> 0.0.126-1
 - Update old-ie.scss (ldewey@au.westfield.com)
 

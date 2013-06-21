@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.129
+Version:     0.0.130
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -67,6 +67,13 @@ fi
 %attr(755,nobody,nobody)%{appdir}/current/tmp
 
 %changelog
+* Sat Jun 22 2013 ci <doperations@au.westfield.com> 0.0.130-1
+- Merge pull request #45 from cpearce/master (ldewey@au.westfield.com)
+- tweaks after device testing (CPearce@au.westfield.com)
+- removing redundant iOS style (CPearce@au.westfield.com)
+- aligning the primary nav icons better for iOS (CPearce@au.westfield.com)
+- applying updates to header after design review (CPearce@au.westfield.com)
+
 * Fri Jun 21 2013 ci <doperations@au.westfield.com> 0.0.129-1
 - Fix facets and product styles (cwalsh2@au.westfield.com)
 

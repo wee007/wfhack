@@ -41,7 +41,9 @@
         </div>
       </header>
 
-      <%= image_tag @event._links['image']['href'], alt: @event._links['image'] %>
+      <div class="detail-view__image">
+        <%#= image_tag @event._links['image']['href'], alt: @event._links['image'] %>
+      </div>
 
       <div class="detail-view__details">
         <h3 class="detail-view__details__hdr">Event Details</h3>

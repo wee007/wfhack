@@ -126,8 +126,11 @@ $hero-banner-height-lrg: 380 !default;
 				@include to-rem(top, $spacing-micro);
 				vertical-align: top;
 
-				/* Hide for 'Centre home page hero banner' at this breakpoint */
+				/* Decrease top indent at this breakpoint */
 				@include respond-min($non-palm) {
+					@include to-rem(top, 1);
+
+					/* Hide for 'Centre home page hero banner' at this breakpoint */
 					.is-header-hero & {@include hide-visually;}
 				}
 			}
@@ -364,7 +367,7 @@ $hero-banner-height-lrg: 380 !default;
 			@include respond-min($ipad-landscape) {
 				display: inline-block;
 				@include to-rem(margin-left, 16);
-				@include to-rem(top, 1);
+				top: 0;
 			}
 
 			/* Increase left spacing at this breakpoint */
@@ -463,7 +466,7 @@ $hero-banner-height-lrg: 380 !default;
 			@include respond-min($non-palm) {
 				display: inline-block;
 				padding: 0;
-				@include to-rem(top, 4);
+				@include to-rem(top, 3);
 				@include to-rem(margin-left, 5);
 
 				/* iOS */
@@ -723,7 +726,6 @@ $hero-banner-height-lrg: 380 !default;
 		/* Search toggle button (palm) */
 		.search-toggle-favs {
 			float: right;
-			display: block;
 			@include to-rem(margin-top, 3);
 
 			/* Non JS users */
@@ -998,7 +1000,7 @@ $hero-banner-height-lrg: 380 !default;
 
 			/* Items */
 			> li {
-				border-left-color: $color-light-txt;
+				border-left-color: $color-med-txt;
 
 				/* Centre home page hero banner */
 				.is-header-hero & {border-left-color: #dbdbdb;}
@@ -1006,14 +1008,14 @@ $hero-banner-height-lrg: 380 !default;
 				/* Make dividers appear for first/last list items at this breakpoint */
 				@include respond-min($non-palm) {
 					&:first-child {
-						border-left: 1px solid $color-light-txt;
+						border-left: 1px solid $color-med-txt;
 
 						/* Centre home page hero banner */
 						.is-header-hero & {border-left-color: #dbdbdb;}
 					}
 
 					&:last-child {
-						border-right: 1px solid $color-light-txt;
+						border-right: 1px solid $color-med-txt;
 
 						/* Centre home page hero banner */
 						.is-header-hero & {border-right-color: #dbdbdb;}

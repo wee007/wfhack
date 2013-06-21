@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.125
+Version:     0.0.126
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -67,6 +67,9 @@ fi
 %attr(755,nobody,nobody)%{appdir}/current/tmp
 
 %changelog
+* Fri Jun 21 2013 ci <doperations@au.westfield.com> 0.0.126-1
+- Update old-ie.scss (ldewey@au.westfield.com)
+
 * Fri Jun 21 2013 ci <doperations@au.westfield.com> 0.0.125-1
 - tweaks for mobile menu toggle (CPearce@au.westfield.com)
 - removing the toggle to change header position (CPearce@au.westfield.com)

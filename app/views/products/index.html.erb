@@ -1,33 +1,41 @@
-<%- %w(super_cat category sub_category type).each do |category| -%>
-  <%= render partial: 'products/facets/list', locals: {facet: @search.facets.send(category), title: 'Category'} if @search.facets.send(category) %>
-<%- end -%>
-<%= render partial: 'products/facets/filtered_list', locals: {facet: @search.facets.retailer} if @search.facets.retailer %>
-<%= render partial: 'products/facets/filtered_list', locals: {facet: @search.facets.brand} if @search.facets.brand %>
-<%= render partial: 'products/facets/list', locals: {facet: @search.facets.colour, title: "Colours"} if @search.facets.colour %>
-<%= render partial: 'products/facets/price', locals: {facet: @search.facets.price} if @search.facets.price %>
-<%= render partial: 'products/facets/summary', locals: {applied_filters: @search.applied_filters} if @search.applied_filters %>
+<br /><br />
+<main class="container" id="main" role="main">
+  <nav id="facets">
+    <%- %w(super_cat category sub_category type).each do |category| -%>
+      <%= render partial: 'products/facets/list', locals: {facet: @search.facets.send(category), title: 'Category'} if @search.facets.send(category) %>
+    <%- end -%>
+    <%= render partial: 'products/facets/filtered_list', locals: {facet: @search.facets.retailer} if @search.facets.retailer %>
+    <%= render partial: 'products/facets/filtered_list', locals: {facet: @search.facets.brand} if @search.facets.brand %>
+    <%= render partial: 'products/facets/list', locals: {facet: @search.facets.colour, title: "Colours"} if @search.facets.colour %>
+    <%= render partial: 'products/facets/price', locals: {facet: @search.facets.price} if @search.facets.price %>
+    <%= render partial: 'products/facets/summary', locals: {applied_filters: @search.applied_filters} if @search.applied_filters %>
 
-<span class='sort_options'>
-  Sort by: <%= products_sort_tag @search.sort_options %>
-</span>
+    <span class='sort_options'>
+      Sort by: <%= products_sort_tag @search.sort_options %>
+    </span>
+  </nav>
 
-<div id="tiles" class="clearfix isotope">
-  <%- @search.products.each do |product| -%>
-    <div class="tile products isotope-item" data-url="">
-      <%= image_tag product.default_image_url %>
-      <div class="title">
-        <p class="name">
-          <%=  product.lozenge_name %><br>
-          <small>
-            <span>from</span> <%= product.retail_chain_name %>
-            <%= price_tag(product) %>
-          </small>
-        </p>
-      </div>
+  <div id="pin-board">
+    <%- @search.products.each_slice(4) do |group| -%>
+      <%- group.each do |product| -%>
+        <div class="tile products isotope-item" data-url="">
+          <%= image_tag product.default_image_url %>
+          <div class="title">
+            <p class="name">
+              <%=  product.lozenge_name %><br>
+              <small>
+                <span>from</span> <%= product.retail_chain_name %>
+                <%= price_tag(product) %>
+              </small>
+            </p>
+          </div>
+        </div>
+      <%- end -%>
+    <%- end -%>
     </div>
-  <%- end -%>
-</div>
-<%= paginate @search %>
+  <%= paginate @search %>
+
+</main>
 
 <%- content_for :javascript do -%>
   <script type='text/javascript'>

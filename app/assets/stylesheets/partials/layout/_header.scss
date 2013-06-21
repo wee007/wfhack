@@ -327,7 +327,7 @@ $hero-banner-height-lrg: 380 !default;
 
 								/* Change colour for 'Centre home page hero banner' my account nav drop down at this breakpoint */
 								@include respond-min($non-palm) {
-									.my-account-signedin & {color: $color-light-txt;}
+									.is-header-hero .my-account-signedin & {color: $color-light-txt;}
 								}
 							}
 
@@ -468,6 +468,9 @@ $hero-banner-height-lrg: 380 !default;
 				padding: 0;
 				@include to-rem(top, 3);
 				@include to-rem(margin-left, 5);
+
+				/* iOS */
+				.ios & {@include to-rem(top, 2);}
 
 				/* Centre home page hero banner */
 				.is-header-hero & {

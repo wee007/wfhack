@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.128
+Version:     0.0.129
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -67,6 +67,9 @@ fi
 %attr(755,nobody,nobody)%{appdir}/current/tmp
 
 %changelog
+* Fri Jun 21 2013 ci <doperations@au.westfield.com> 0.0.129-1
+- Fix facets and product styles (cwalsh2@au.westfield.com)
+
 * Fri Jun 21 2013 ci <doperations@au.westfield.com> 0.0.128-1
 - Add trading hours link and add temp inline css on trading hours page for
   showcasing (ewee@au.westfield.com)

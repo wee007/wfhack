@@ -469,9 +469,6 @@ $hero-banner-height-lrg: 380 !default;
 				@include to-rem(top, 3);
 				@include to-rem(margin-left, 5);
 
-				/* iOS */
-				//[FLAG].ios & {@include to-rem(top, 3);}
-
 				/* Centre home page hero banner */
 				.is-header-hero & {
 					position: absolute;

@@ -40,7 +40,7 @@
 						<ul class="nav-sub">
 							<!-- Shopping centre opening hours -->
 							<!-- [BACK END] the hours need to be made dynamic -->
-							<li class="open-hours-link"><a href="<%= centre_trading_hours_path( params[ :centre_id ] || params[ :id ] ) %>"><span class="icon icon--hours" aria-hidden="true"></span> <strong>Open 9am - 6pm today</strong> <span class="icon icon--arrow-right" aria-hidden="true"></span></a></li>
+							<li class="open-hours-link"><a href="<%= centre_trading_hours_path( params[ :centre_id ] || params[ :id ] ) %>"><span class="icon icon--hours" aria-hidden="true"></span> <strong>Open <%= @centre.today_opening_hour %> - <%= @centre.today_closing_hour %> today</strong> <span class="icon icon--arrow-right" aria-hidden="true"></span></a></li>
 							<!-- //Shopping centre opening hours -->
 							<li class="shopping-hrs-link"><a href="#"><span class="icon icon--hours icon--fixed-width icon--spacing" aria-hidden="true"></span><span class="nav-sub__txt"> Shopping Hours</span></a></li>
 							<li><a href="#"><span class="icon icon--dining icon--fixed-width icon--spacing" aria-hidden="true"></span><span class="nav-sub__txt"> Dining</span></a></li>

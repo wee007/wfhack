@@ -17,6 +17,11 @@
 	@include to-rem(height, 32);
 	@include to-rem(margin, -1 0 0 -9);
 
+	/* Increase top outdent at this breakpoint */
+	@include respond-min($non-palm) {
+		@include to-rem(margin-top, -2);
+	}
+
 	/* Sub nav menu toggle */
 	.sub-nav-container & {
 		float: none;

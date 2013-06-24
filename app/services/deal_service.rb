@@ -15,5 +15,11 @@ class DealService
       end
 
     end
+
+    def build(json_response)
+      super(json_response).map do |deal_json|
+        Deal.new(deal_json)
+      end
+    end
   end
 end

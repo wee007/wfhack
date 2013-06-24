@@ -1,10 +1,10 @@
 <a class="tile tile--deals" href="<%#= link %>">
-  <article class="box" role="article">
+  <article class="box" role="article" style="margin-top:110px">
     <div class="tile__meta">
-      <span class="tile__meta__image" data-picture data-alt="<%#= alt %>">
-        <img src="<%#= logo %>" alt="<%#= alt %>">
-      </span>
       <p class="tile__meta__desc"><%= result.title %></p>
+      <span class="tile__meta__image" data-picture data-alt="<%#= alt %>">
+        <img src="<%= result.retailer_logo_url %>" alt="<%#= alt %>">
+      </span>
     </div>
 
     <span class="tile__meta__icon">

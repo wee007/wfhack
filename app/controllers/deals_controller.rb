@@ -10,14 +10,4 @@ class DealsController < ApplicationController
     @deals = DealService.build deal
   end
 
-  def show
-    # centre, event = nil
-    # Service::API.in_parallel do
-    #   centre = CentreService.fetch params[:centre_id]
-    #   event = EventService.fetch params[:id]
-    # end
-    # @centre = CentreService.build centre
-    # @event = EventService.build event
-  end
-
 end

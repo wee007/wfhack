@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.132
+Version:     0.0.133
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -67,6 +67,13 @@ fi
 %attr(755,nobody,nobody)%{appdir}/current/tmp
 
 %changelog
+* Mon Jun 24 2013 ci <doperations@au.westfield.com> 0.0.133-1
+- Remove code that's not implemented yet. (craigm.smith@au.westfield.com)
+- Don't need this styling. (craigm.smith@au.westfield.com)
+- Added the store name to the image alt text. (craigm.smith@au.westfield.com)
+- Show the retailer logo per Deal. (craigm.smith@au.westfield.com)
+- Beginnings of have Deals on CC (craigm.smith@au.westfield.com)
+
 * Mon Jun 24 2013 ci <doperations@au.westfield.com> 0.0.132-1
 - Fixed a typo (ldewey@au.westfield.com)
 - Renamed detail_view to detail-view (ldewey@au.westfield.com)

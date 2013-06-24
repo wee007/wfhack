@@ -507,7 +507,7 @@ $hero-banner-height-lrg: 380 !default;
 
 			/* Shopping centre name */
 			h1 {
-				@include font-size(24, 1.2);
+				@include font-size(22, 1.2);
 				text-transform: uppercase;
 				@include to-rem(margin-right, 60);
 
@@ -532,9 +532,9 @@ $hero-banner-height-lrg: 380 !default;
 					}
 				}
 
-				/* Non palm version */
+				/* Palm version */
 				.is-header-hero .header__hero & {
-					@include font-size(29, 1.2);
+					@include font-size(27, 1.2);
 					margin-right: 0;
 					text-shadow: 0 0 8px rgba(#000, 0.6);
 

@@ -128,6 +128,7 @@ Global stylesheet
   @import "partials/modules/widgets/accordion";
   @import "partials/modules/widgets/flexslider";
   @import "partials/modules/widgets/adaptive-google-map";
+  @import "partials/modules/widgets/map";
   @import "partials/modules/widgets/modal";
   @import "partials/modules/widgets/social-media-share";
   @import "partials/modules/widgets/tabs";
@@ -159,6 +160,3 @@ Global stylesheet
 
 /* Shame */
 @import "partials/shame/shame";
-
-/* Maps */
-@import "map";

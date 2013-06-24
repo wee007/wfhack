@@ -1,14 +1,14 @@
-<h1>Stores @ <%= @centre.name %></h1>
-
-<table id="stores">
-  <% @stores.each do |store| %>
-    <tr>
-      <td><%= store.id %></td>
-      <td><%= store.name %></td>
-      <td><%= store.centre_id %></td>
-      <td><%= store.url %></td>
-    </tr>
+<ul class="map__stores">
+  <li class="list__header">Stores / A-Z</li>
+  <% @stores.each do |letter, stores| %>
+    <li class="list__heading"><%= letter %></li>
+    <% stores.each do |store| %>
+      <li class="list__store" data-store-id="<%= store.id %>">
+        <%= responsive_image_tag placeholder: 'no-image.png', normal: store.logo, alt: store.name %>
+        <h1><%= store.name %></h1>
+        <%= store.phone_number %>
+      </li>
+    <% end %>
   <% end %>
-</table>
-
+</ul>
 <%= render :partial => 'map' %>

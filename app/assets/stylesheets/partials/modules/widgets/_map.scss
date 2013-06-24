@@ -1,0 +1,37 @@
+.map__stores {
+  background-color: #fff;
+  float: left;
+  border-right: 1px solid #bababa;
+  overflow: auto;
+  @include to-rem(width, 450);
+  @include to-rem(height, 480);
+
+  li {
+    padding: 10px 20px;
+    border-bottom: 1px solid #bababa;
+
+    &.list__store {
+      position: relative;
+      padding-left: 120px;
+
+      img {
+        position: absolute;
+        top: 10px;
+        left: 20px;
+        width: 60px;
+        height: 60px;
+      }
+    }
+
+    &.list__heading {
+      background-color: #e8e8e8;
+    }
+  }
+}
+
+#map {
+  background-color: #fff;
+  @include to-rem(height, 480);
+  @include to-rem(margin-left, 450);
+}
+

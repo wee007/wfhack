@@ -4,11 +4,12 @@ class StoresController < ApplicationController
     centre, store = nil
     Service::API.in_parallel do
       centre = CentreService.fetch params[:centre_id]
-      store = StoreService.fetch centre: params[:centre_id], rows: 50
+      store = StoreService.fetch centre: params[:centre_id], per_page: 1000
     end
     @centre = CentreService.build centre
-    @stores = StoreService.build store
-    gon.push(:centre => @centre)
+    stores = StoreService.build(store).map {|store_attrs| Store.new(store_attrs) }
+    gon.push(:centre => @centre, :stores => stores)
+    @stores = stores.group_by(&:first_letter)
   end
 
 end

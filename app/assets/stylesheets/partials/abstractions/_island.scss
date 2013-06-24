@@ -3,13 +3,13 @@
    ====================================================================================== */
 
 /*
-	Usage: 
+	Usage:
 		Simple, boxed off content.
 
 	Demo:
 		Style Guide -> Abstractions -> Island
-	
-	Credit: 
+
+	Credit:
 		http://csswizardry.com/2011/10/the-island-object
 */
 
@@ -26,3 +26,20 @@
 
 /* Islet - half the padding */
 .islet {@include to-rem(padding, $spacing-half);}
+
+/* --Extenders-- */
+
+/* Top and bottom padding only */
+.island--top-btm,
+.islet--top-btm {
+	padding-left: 0;
+  padding-right: 0;
+}
+
+/* Center align */
+.island--center,
+.islet--center {text-align: center;}
+
+/* Solid bg */
+.island--fill,
+.islet--fill {background-color: $color-off-white;}

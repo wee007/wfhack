@@ -5,7 +5,7 @@
   <div id="pin-board">
 
     <%- @deals.each do |deal| -%>
-      <%= render partial: "shared/tiles/deal", locals: {result: deal} %>
+      <%= render partial: "shared/tiles/deal", locals: {deal: deal} %>
     <%- end -%>
 
   </div>

@@ -1,0 +1,20 @@
+<div class="detail-view__controls detail-view__divider">
+
+  <button class="detail-view__controls__button btn">
+    <span class="icon icon--favs icon--lrg icon--fixed-width icon--spacing" aria-hidden="true"></span>
+    <span class="detail-view__controls__txt">Save</span>
+  </button>
+
+  <button class="detail-view__controls__button btn">
+    <span class="icon icon--comment icon--lrg icon--fixed-width icon--spacing" aria-hidden="true"></span>
+    <span class="detail-view__controls__txt">Share</span>
+  </button>
+
+  <% if in_lightbox? %>
+    <button class="detail-view__controls__button detail-view__controls__button--close btn">
+      <span class="icon icon--close-sml icon--sml icon--fixed-width" aria-hidden="true"></span>
+      <span class="hide-visually">Close</span>
+    </button>
+  <% end %>
+
+</div>

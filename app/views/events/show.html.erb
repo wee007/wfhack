@@ -16,7 +16,7 @@
       <div class="container">
 
         <header class="detail-view__mrg-base">
-          <h2 class="detail-view__hdr hn" id="detail-view__hdr">Event name</h2>
+          <h2 class="detail-view__hdr hn" id="detail-view__hdr"><%= @event.name %></h2>
 
           <ul class="detail-view__meta islet islet--top-btm detail-view__divider detail-view__divider--top horiz-list horiz-list--fit">
             <li class="detail-view__subtle-txt"><time datetime="<%= Time.new(@event.start).strftime("%Y-%m-%d") %>"><%= Time.new(@event.start).strftime("%d %b %Y") %></time> to <time datetime="<%= Time.new(@event.start).strftime("%Y-%m-%d") %>"><%= Time.new(@event.finish).strftime("%d %b %Y") %></time></li><!--

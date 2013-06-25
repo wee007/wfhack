@@ -21,23 +21,7 @@
 
 	<%= render "shared/stylesheets_global" %>
 
-	<!-- [BACK END] this inline CSS is for the centre home page header hero images and should only be rendered for the centre home page with the bg images being dynamically updated according to the shopping centre site user is on -->
-	<style>
-		/* Hero image at this breakpoint (small) */
-		@media (max-width: 25em) {
-				.header__hero {background-image: url(/assets/heroes/bondi-junction-sml.jpg);}
-		}
-		/* Hero image at this breakpoint (medium) */
-		@media (min-width: 25.0625em) and (max-width: 48em) {
-				.header__hero {background-image: url(/assets/heroes/bondi-junction-med.jpg);}
-		}
-		/* Hero image at this breakpoint (large) */
-		@media (min-width: 48.0625em) {
-				.header__hero {background-image: url(/assets/heroes/bondi-junction-lrg.jpg);}
-		}
-		/* Old IE */
-		.old-ie .header__hero {background-image: url(/assets/heroes/bondi-junction-lrg.jpg);}
-	</style>
+	<%= yield :custom_styles %>
 
 	<%= render "shared/javascript_detection_oldie_helpers" %>
 

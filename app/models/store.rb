@@ -15,4 +15,8 @@ class Store < Hashie::Mash
     _links.logo.href
   end
 
+  def store_front_image_url
+    _links.store_front.href
+  end
+
 end

@@ -4,7 +4,7 @@
     <li class="list__heading"><%= letter %></li>
     <% stores.each do |store| %>
       <li class="list__store" data-store-id="<%= store.id %>">
-        <%= responsive_image_tag placeholder: 'no-image.png', normal: store.logo, alt: store.name %>
+        <%= responsive_image_tag normal: store.logo, alt: store.name %>
         <h1><%= store.name %></h1>
         <%= store.phone_number %>
       </li>

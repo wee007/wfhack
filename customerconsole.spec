@@ -34,10 +34,14 @@ Customer Console
 
 %install
  mkdir -p ${RPM_BUILD_ROOT}%{appdir}/current
+ mkdir -p ${RPM_BUILD_ROOT}%{appdir}/shared/log
  mkdir -p ${RPM_BUILD_ROOT}%{appdir}/current/tmp
  mkdir -p ${RPM_BUILD_ROOT}%{appdir}/current/tmp/cache
  mkdir -p ${RPM_BUILD_ROOT}%{appdir}/current/tmp/sessions
  mkdir -p ${RPM_BUILD_ROOT}%{appdir}/current/tmp/sockets
+ %{__mkdir} -p %{buildroot}/%{_sysconfdir}/httpd/conf.d
+ %{__install} -Dp -m0644 customer_console.conf %{buildroot}%{_sysconfdir}/httpd/conf.d/customer_console.conf
+
 
  cd ${RPM_BUILD_DIR}/*
  cp -va app config config.ru lib public vendor Rakefile Gemfile \
@@ -49,6 +53,7 @@ rm -rf ${RPM_BUILD_ROOT}
 %post
 ln -sfT %{appdir}/shared/log %{appdir}/current/log
 ln -sfT %{appdir}/shared/pids %{appdir}/current/tmp/pids
+service httpd reload
 touch %{appdir}/current/tmp/restart.txt
 
 %preun
@@ -64,7 +69,11 @@ fi
 %files
 %defattr(644,root,root,755)
 %{appdir}/current
+%attr(755,nobody,nobody)%{appdir}/shared
 %attr(755,nobody,nobody)%{appdir}/current/tmp
+%dir %{appdir}/shared/log
+%config(noreplace) %{_sysconfdir}/httpd/conf.d/image_service.conf
+
 
 %changelog
 * Tue Jun 25 2013 ci <doperations@au.westfield.com> 0.0.135-1

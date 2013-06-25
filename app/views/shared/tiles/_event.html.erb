@@ -3,7 +3,7 @@
 
     <span class="tile__image">
       <% # TODO: fix alt tag %>
-      <%= image_tag result['image'], alt: result['name'] %>
+      <%= image_tag ImageService.transform(ref: result['image_ref'], size: "400x400"), alt: result['name'] %>
     </span>
 
     <div class="tile__meta">

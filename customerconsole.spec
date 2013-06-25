@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.139
+Version:     0.0.140
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,10 @@ fi
 
 
 %changelog
+* Wed Jun 26 2013 ci <doperations@au.westfield.com> 0.0.140-1
+- Merge pull request #54 from ldewey/master (mike.mell@nthwave.net)
+- Upgraded to rails 4 ! (ldewey@au.westfield.com)
+
 * Wed Jun 26 2013 ci <doperations@au.westfield.com> 0.0.139-1
 - Merge pull request #53 from ldewey/master (ldewey@au.westfield.com)
 - Added temp <br /> to fix layout for now. (ldewey@au.westfield.com)

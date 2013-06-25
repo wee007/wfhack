@@ -21,6 +21,7 @@
 //= require ./vendor/jquery.isotope
 //= require ./vendor/jquery.isotope.gutters
 //= require ./vendor/enquire
+//= require ./vendor/jquery.unveil
 //= require ./vendor/jquery.twitter-bootstrap-dropdown
 //= require ./vendor/jquery.tinyscrollbar
 //= require jquery.ui.slider
@@ -197,5 +198,8 @@ $(function() {
         }
 
     }, true).listen();
+
+    /* Lazy load images with unveil */
+    $('img').unveil();
 
 });

@@ -97,23 +97,23 @@
 /* EM */
 @mixin to-em($props, $sizes, $context: $font-size, $sledgehammer: false) {
 	$values: ();
-    $sublists: false;
+  $sublists: false;
 	$important: if($sledgehammer, "!important", "");
     @each $s in $sizes {
-        @if type-of($s) == list {
-            $sublists: true;
-            $vv: ();
-            @each $ss in $s {
-                $vv: append($vv, if(type-of($ss) == number, #{$ss / $context}em, $ss));
-            }
-            $values: append($values, join((), $vv));
-        } @else {
-            $values: append($values, if(type-of($s) == number, #{$s / $context}em, $s));
+      @if type-of($s) == list {
+        $sublists: true;
+        $vv: ();
+        @each $ss in $s {
+            $vv: append($vv, if(type-of($ss) == number, #{$ss / $context}em, $ss));
         }
+        $values: append($values, join((), $vv));
+      } @else {
+        $values: append($values, if(type-of($s) == number, #{$s / $context}em, $s));
+      }
     }
     $value: join((), $values, if($sublists, comma, space));
     @each $prop in $props {
-		#{$prop}: $value#{$important}
+			#{$prop}: $value#{$important}
 	}
 }
 
@@ -121,28 +121,28 @@
 @mixin to-rem($props, $sizes, $sledgehammer: "") {
 	$values-px: ();
 	$values: ();
-    $sublists: false;
-    @each $s in $sizes {
-        @if type-of($s) == list {
-            $sublists: true;
+  $sublists: false;
+  @each $s in $sizes {
+    @if type-of($s) == list {
+    	$sublists: true;
 			$vv-px: ();
-            $vv: ();
-            @each $ss in $s {
+      $vv: ();
+      @each $ss in $s {
 				$vv-px: append($vv-px, if(type-of($ss) == number, #{$ss}px, $ss));
 				$vv: append($vv, if(type-of($ss) == number, #{$ss / $font-size}rem, $ss));
-            }
-			$values-px: append($values-px, join((), $vv-px));
-            $values: append($values, join((), $vv));
-        } @else {
-			$values-px: append($values-px, if(type-of($s) == number, #{$s}px, $s));
-			$values: append($values, if(type-of($s) == number, #{$s / $font-size}rem, $s));
-        }
+      }
+		  $values-px: append($values-px, join((), $vv-px));
+      $values: append($values, join((), $vv));
+    } @else {
+		    $values-px: append($values-px, if(type-of($s) == number, #{$s}px, $s));
+		    $values: append($values, if(type-of($s) == number, #{$s / $font-size}rem, $s));
     }
+  }
 	$value-px: join((), $values-px, if($sublists, comma, space));
-    $value: join((), $values, if($sublists, comma, space));
-    @each $prop in $props {
-		#{$prop}: $value-px#{$sledgehammer};
-		#{$prop}: $value#{$sledgehammer};
+  $value: join((), $values, if($sublists, comma, space));
+  @each $prop in $props {
+  	#{$prop}: $value-px#{$sledgehammer};
+  	#{$prop}: $value#{$sledgehammer};
 	}
 }
 
@@ -207,7 +207,7 @@
 	}
 	background-image: -webkit-linear-gradient($dir-webkit, $from, $to);
 	background-image: linear-gradient(to $dir, $from, $to);
-  	@if $old-ie-filter == true and $old-ie {
+  @if $old-ie-filter == true and $old-ie {
 		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{ie-hex-str($from)}', endColorstr='#{ie-hex-str($to)}');
 	}
 	@if $ie-9-filter == true and $old-ie != true {
@@ -224,7 +224,7 @@
 	}
 	background-image: -webkit-linear-gradient($deg-webkit, $from, $to);
 	background-image: linear-gradient($deg, $from, $to);
-  	@if $old-ie-filter == true and $old-ie {
+  @if $old-ie-filter == true and $old-ie {
 		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{ie-hex-str($from)}', endColorstr='#{ie-hex-str($to)}');
 	}
 	@if $ie-9-filter == true and $old-ie != true {
@@ -273,14 +273,14 @@
 @mixin transform($transforms) {
 	-webkit-transform: $transforms;
 	-ms-transform: $transforms;
-    transform: $transforms;
+  transform: $transforms;
 }
 
 /* Transform origin */
 @mixin transform-origin($location) {
 	-webkit-transform-origin: $location;
 	-ms-transform-origin: $location;
-    transform-origin: $location;
+  transform-origin: $location;
 }
 
 	/* --Different transforms-- */
@@ -363,77 +363,77 @@
 
 @mixin prefix($property, $value...) {
 
-    /* Transition */
+  /* Transition */
 	@if $property == transition {
 		-webkit-#{$property}: $value;
 		#{$property}: $value;
-    }
+  }
 
 	/* Animation */
-    @else if $property == animation {
-        -webkit-#{$property}: $value;
+  @else if $property == animation {
+    -webkit-#{$property}: $value;
 		#{$property}: $value;
-    }
+  }
 
 	/* Multi-column */
-    @else if $property == column {
-        -webkit-#{$property}: $value;
+  @else if $property == column {
+    -webkit-#{$property}: $value;
 		-moz-#{$property}: $value;
 		#{$property}: $value;
-    }
+  }
 
-		/* Multi-column - count */
-		@else if $property == column-count {
-			-webkit-#{$property}: $value;
-			-moz-#{$property}: $value;
-			#{$property}: $value;
-		}
+	/* Multi-column - count */
+	@else if $property == column-count {
+		-webkit-#{$property}: $value;
+		-moz-#{$property}: $value;
+		#{$property}: $value;
+	}
 
-		/* Multi-column - gap */
-		@else if $property == column-gap {
-			-webkit-#{$property}: $value;
-			-moz-#{$property}: $value;
-			#{$property}: $value;
-		}
+	/* Multi-column - gap */
+	@else if $property == column-gap {
+		-webkit-#{$property}: $value;
+		-moz-#{$property}: $value;
+		#{$property}: $value;
+	}
 
-		/* Multi-column - rule */
-		@else if $property == column-rule {
-			-webkit-#{$property}: $value;
-			-moz-#{$property}: $value;
-			#{$property}: $value;
-		}
+	/* Multi-column - rule */
+	@else if $property == column-rule {
+		-webkit-#{$property}: $value;
+		-moz-#{$property}: $value;
+		#{$property}: $value;
+	}
 
 	/* Hyphens */
-    @else if $property == hyphens {
-        -webkit-#{$property}: $value;
+  @else if $property == hyphens {
+    -webkit-#{$property}: $value;
 		-moz-#{$property}: $value;
 		-ms-#{$property}: $value;
 		-o-#{$property}: $value;
 		#{$property}: $value;
-    }
+  }
 
 	/* Box sizing */
-    @else if $property == box-sizing {
-        -webkit-#{$property}: $value;
+  @else if $property == box-sizing {
+  	-webkit-#{$property}: $value;
 		-moz-#{$property}: $value;
 		#{$property}: $value;
-    }
+  }
 
 	/* Border image */
-    @else if $property == border-image {
-        -webkit-#{$property}: $value;
+  @else if $property == border-image {
+  	-webkit-#{$property}: $value;
 		-o-#{$property}: $value;
 		#{$property}: $value;
-    }
+  }
 
 	/* User select */
 	@else if $property == user-select {
-         -webkit-#{$property}: $value;
+    -webkit-#{$property}: $value;
 		-moz-#{$property}: $value;
 		-ms-#{$property}: $value;
 		-o-#{$property}: $value;
 		#{$property}: $value;
-    }
+  }
 
 }
 
@@ -463,7 +463,7 @@
 		@content;
 	}
 
-    @keyframes $animation-name {
+  @keyframes $animation-name {
 		@content;
 	}
 }
@@ -483,27 +483,27 @@
 
 	/* Webkit */
 	::-webkit-input-placeholder {
-	   @content;
+    @content;
 	}
 
 	/* Firefox 18- */
 	:-moz-placeholder {
-	   @content;
+    @content;
 	}
 
 	/* Firefox 19+ */
 	::-moz-placeholder {
-	   @content;
+    @content;
 	}
 
 	/* MS */
 	:-ms-input-placeholder {
-	   @content;
+    @content;
 	}
 
 	/* jQuery plugin (old IE) */
 	input.placeholder {
-		 @content;
+    @content;
 	}
 }
 
@@ -535,7 +535,7 @@
 
 /* Webkit */
 @mixin target-webkit {
-    @media all and (-webkit-min-device-pixel-ratio:0) {
+  @media all and (-webkit-min-device-pixel-ratio:0) {
 		@content;
 	}
 }
@@ -556,14 +556,14 @@
 /* IE 10+ */
 @mixin ie-10-up {
 	@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-	   @content;
+    @content;
 	}
 }
 
 /* Old IE */
 @mixin old-ie {
 	@if $old-ie {
-		@content;
+    @content;
 	}
 }
 
@@ -797,12 +797,12 @@
 */
 
 @mixin target-iOS {
-	@media	only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: landscape),
-			only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait),
-			only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape),
-			only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
-				@content;
-			}
+	@media 	only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: landscape),
+					only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait),
+					only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape),
+					only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+						@content;
+					}
 }
 
 /*
@@ -824,10 +824,10 @@
 
 @mixin img-2x($image, $width, $height) {
 	@media 	(-o-min-device-pixel-ratio: 5/4),
-			(-webkit-min-device-pixel-ratio: 1.25),
-			(min-resolution: 120dpi) {
-				background-image: url($image);
-				background-size: $width $height;
+					(-webkit-min-device-pixel-ratio: 1.25),
+					(min-resolution: 120dpi) {
+						background-image: url($image);
+						background-size: $width $height;
 	}
 }
 

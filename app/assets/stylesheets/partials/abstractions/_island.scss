@@ -16,7 +16,6 @@
 /* Shared */
 .island,
 .islet {
-	display: block;
 	@extend %clear-fix;
 	@extend %mrg-base;
 }

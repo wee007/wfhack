@@ -1,7 +1,7 @@
 ruby "2.0.0"
 source "https://rubygems.org"
 
-gem 'rails', '4.0.0.rc2'
+gem 'rails', '~> 4.0.0'
 
 # Servers and environment
 gem "unicorn"
@@ -36,7 +36,7 @@ group :development, :test do
   gem 'pry'
   gem "debugger"
   gem "rspec-rails"
-  gem 'sass-rails', '~> 4.0.0.rc1'
+  gem 'sass-rails', '~> 4.0.0'
   gem 'uglifier', '>= 1.3.0'
   gem 'coffee-rails', '~> 4.0.0'
   gem 'guard', '~> 1.8.0'

@@ -27,8 +27,6 @@
 //= require_tree ./author
 
 
-
-
 /* --HELPERS-- */
 
 /*
@@ -36,25 +34,25 @@
  * @credit  http://html5boilerplate.com/
  */
 (function() {
-    var method;
-    var noop = function () {};
-    var methods = [
-        'assert', 'clear', 'count', 'debug', 'dir', 'dirxml', 'error',
-        'exception', 'group', 'groupCollapsed', 'groupEnd', 'info', 'log',
-        'markTimeline', 'profile', 'profileEnd', 'table', 'time', 'timeEnd',
-        'timeStamp', 'trace', 'warn'
-    ];
-    var length = methods.length;
-    var console = (window.console = window.console || {});
+	var method;
+	var noop = function () {};
+	var methods = [
+	    'assert', 'clear', 'count', 'debug', 'dir', 'dirxml', 'error',
+	    'exception', 'group', 'groupCollapsed', 'groupEnd', 'info', 'log',
+	    'markTimeline', 'profile', 'profileEnd', 'table', 'time', 'timeEnd',
+	    'timeStamp', 'trace', 'warn'
+	];
+	var length = methods.length;
+	var console = (window.console = window.console || {});
 
-    while (length--) {
-        method = methods[length];
+	while (length--) {
+	    method = methods[length];
 
-        // Only stub undefined methods.
-        if (!console[method]) {
-            console[method] = noop;
-        }
-    }
+	    // Only stub undefined methods.
+	    if (!console[method]) {
+	        console[method] = noop;
+	    }
+	}
 }());
 
 
@@ -92,110 +90,119 @@ isSVG = document.implementation.hasFeature('http://www.w3.org/TR/SVG11/feature#I
 
 // Enable caching for conditionally loading scripts via `getScript`
 $.getScript = function(url, callback, cache) {
-    $.ajax({
-        type: "GET",
-        url: url,
-        success: callback,
-        dataType: "script",
-        cache: cache
-    });
+  $.ajax({
+    type: "GET",
+    url: url,
+    success: callback,
+    dataType: "script",
+    cache: cache
+  });
 };
 
 /* --FIRE ON DOM READY-- */
 $(function() {
 
-    /* --Conditionally load polyfills-- */
+	/* --Conditionally load polyfills-- */
 
-    // HTML5 input placeholder attr
-    if (!('placeholder' in $('<input>')[0])) {
-        $.getScript('//cdnjs.cloudflare.com/ajax/libs/jquery-placeholder/2.0.7/jquery.placeholder.min.js', function() {
-            $('input, textarea').placeholder();
-        }, true);
+  // HTML5 input placeholder attr
+  if (!('placeholder' in $('<input>')[0])) {
+      $.getScript('//cdnjs.cloudflare.com/ajax/libs/jquery-placeholder/2.0.7/jquery.placeholder.min.js', function() {
+          $('input, textarea').placeholder();
+      }, true);
+  }
+
+
+  /* --Run plugins-- */
+
+  // Run 'Toggle menu for palm sized viewports' plugin
+  $('.js-menu-toggle').toggleMenu();
+
+  // Run 'Toggle search for palm sized viewports' plugin
+  $('.js-search-toggle').toggleSearch();
+
+  // Run 'Calculate the height of the fixed header' plugin
+  $('.header').calculateHeaderHeight();
+
+
+  /* --DOM lookups-- */
+
+
+  /* --Tid bits-- */
+
+  // Apply hook for iOS devices
+  if (isiOS) {
+      htmlElement.addClass('ios');
+  }
+
+  // Apply hook for SVG support/non-support
+  if (isSVG) {
+      htmlElement.addClass('svg');
+  } else {
+      htmlElement.addClass('no-svg');
+  }
+
+  // Replace SVG logo with PNG version for non-supporting browsers (Non JS support: http://www.noupe.com/tutorial/svg-clickable-71346.html - last technique)
+  if (!isSVG) {
+      $('img[src*="svg"]').attr('src', function() {
+          return $(this).attr('src').replace('.svg', '.png');
+      });
+  }
+
+  // Add hook to `html` if Android V2
+  if (androidVer <= 2) {
+      androidV2 = true;
+  }
+  if (androidV2) {
+      htmlElement.addClass('androidv2');
+  }
+
+
+  /* --Do stuff on `$(window).resize` via Enquire library-- */
+  enquire.register(BPlap, {
+
+    deferSetup: true,
+
+    setup: function() {
+
+      // Conditionally load scripts
+      /*$.getScript('/Cheetah/js/modules/conditionally-loaded.js', function() {
+          $('.js-menu-accessible-ddown').accessibleDropDownMenu();
+      }, true);*/
+
+    },
+
+    // Not palm size viewport
+    match: function() {
+
+      // Test
+      //$('body').css('background', 'gold');
+
+      // Disable focus and click events for `tel` links
+      telLinks.attr('tabindex', '-1');
+      telLinks.click(function(e) {
+          e.preventDefault();
+      });
+
+      // Run 'Calculate the height of the fixed header' plugin
+      $('.header').calculateHeaderHeight();
+
+    },
+
+    // Palm size viewport
+    unmatch: function() {
+
+      // Test
+      //$('body').css('background', 'hotpink');
+
+      // Enable focus and click events for `tel` links
+      telLinks.removeAttr('tabindex');
+      telLinks.unbind('click');
+
+      // Run 'Calculate the height of the fixed header' plugin
+      $('.header').calculateHeaderHeight();
+
     }
 
-
-    /* --Run plugins-- */
-
-    // Run 'Toggle menu for palm sized viewports' plugin
-    $('.js-menu-toggle').toggleMenu();
-
-    // Run 'Toggle search for palm sized viewports plugin' plugin
-    $('.js-search-toggle').toggleSearch();
-
-
-    /* --DOM lookups-- */
-
-
-    /* --Tid bits-- */
-
-    // Apply hook for iOS devices
-    if (isiOS) {
-        htmlElement.addClass('ios');
-    }
-
-    // Apply hook for SVG support/non-support
-    if (isSVG) {
-        htmlElement.addClass('svg');
-    } else {
-        htmlElement.addClass('no-svg');
-    }
-
-    // Replace SVG logo with PNG version for non-supporting browsers (Non JS support: http://www.noupe.com/tutorial/svg-clickable-71346.html - last technique)
-    if (!isSVG) {
-        $('img[src*="svg"]').attr('src', function() {
-            return $(this).attr('src').replace('.svg', '.png');
-        });
-    }
-
-    // Add hook to `html` if Android V2
-    if (androidVer <= 2) {
-        androidV2 = true;
-    }
-    if (androidV2) {
-        htmlElement.addClass('androidv2');
-    }
-
-
-    /* --Do stuff on `$(window).resize` via Enquire library-- */
-    enquire.register(BPlap, {
-
-        deferSetup: true,
-
-        setup: function() {
-
-            // Conditionally load scripts
-            /*$.getScript('/Cheetah/js/modules/conditionally-loaded.js', function() {
-                $('.js-menu-accessible-ddown').accessibleDropDownMenu();
-            }, true);*/
-
-        },
-
-        // Not palm size viewport
-        match: function() {
-
-            // Test
-            //$('body').css('background', 'gold');
-
-            // Disable focus and click events for `tel` links
-            telLinks.attr('tabindex', '-1');
-            telLinks.click(function(e) {
-                e.preventDefault();
-            });
-
-        },
-
-        // Palm size viewport
-        unmatch: function() {
-
-            // Test
-            //$('body').css('background', 'hotpink');
-
-            // Enable focus and click events for `tel` links
-            telLinks.removeAttr('tabindex');
-            telLinks.unbind('click');
-
-        }
-
-    }, true).listen();
+	}, true).listen();
 
 });

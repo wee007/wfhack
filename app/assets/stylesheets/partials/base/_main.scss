@@ -10,6 +10,13 @@ html {
 body {
 	@include prefix(animation, fade-in 1.5s 0.5s both);
 	background-color: #e8e8e8;
+
+	/* Temp fix to change bg color to white for detail views, this will end up using 1 generic hook: `.detail-view-page` */
+	@include respond-max($palm) {
+		&.events.show,
+		&.deals.show,
+		&.products.show {background-color: #fff;}
+	}
 }
 
 /* Animation: fade in the `body` */

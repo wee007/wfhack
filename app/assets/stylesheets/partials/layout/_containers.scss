@@ -13,4 +13,17 @@
 	@media print {
 		width: auto;
 	}
+
+	/* Temp rules for `main` to push down from fixed header and to turn off container for detail views */
+	/*&.main {
+		padding-top: 88px;
+
+    @include respond-min($non-palm) {
+      padding-top: 88px;
+    }
+
+		.events.show &,
+		.deals.show &,
+		.products.show & {width: auto;}
+	}*/
 }

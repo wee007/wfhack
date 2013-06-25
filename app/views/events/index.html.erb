@@ -1,15 +1,9 @@
-<br /><br /><br /><br /><br /><br /><br /><br />
-<main class="container" id="main" role="main">
+<h1 class="hide-visually">Events</h1>
 
-  <h1 class="hide-visually">Events</h1>
+<div id="pin-board" class="pin-board">
 
-  <div id="pin-board">
+	<%- @events.each do |event| -%>
+	  <%= render partial: "shared/tiles/event", locals: {result: event} %>
+	<%- end -%>
 
-    <%- @events.each do |event| -%>
-      <%= render partial: "shared/tiles/event", locals: {result: event} %>
-    <%- end -%>
-
-  </div>
-</main>
-
-<br /><br />
+</div>

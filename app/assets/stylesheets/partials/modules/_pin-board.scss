@@ -1,0 +1,20 @@
+/* ======================================================================================
+   @MODULES -> PIN BOARD
+   ====================================================================================== */
+
+/*
+	Usage:
+		Pin board container that holds all tiles.
+
+	Demo:
+		Style Guide -> Modules -> Pin Board
+*/
+
+.pin-board {
+	@include to-rem(margin-top, $spacing-half);
+
+	/* Increase top padding at this breakpoint */
+	@include respond-min($non-palm) {
+		@include to-rem(margin-top, $spacing-base);
+	}
+}

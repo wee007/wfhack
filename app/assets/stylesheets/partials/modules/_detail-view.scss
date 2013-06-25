@@ -110,20 +110,21 @@ $grey-light: #dfdfdf !default;
 
   /* --Controls-- */
   .detail-view__controls {
-    width: 100%;
-    @extend %clear-fix;
+    //width: 100%;
+    //@extend %clear-fix;
 
     .detail-view__controls__button {
-      width: 50%;
-      float: left;
-      @include to-rem(padding, $spacing-half $spacing-base);
+      //width: 50%;
+      //float: left;
+      //@include to-rem(padding, $spacing-half $spacing-base);
 
-      @include respond-min($non-palm) {
-        width: auto;
-      }
+      //@include respond-min($non-palm) {
+        //width: auto;
+      //}
     }
+  }
 
-    .detail-view__controls__button--close {
+    /*.detail-view__controls__button--close {
       border: 0;
       background-color: black;
       color: white;
@@ -137,8 +138,7 @@ $grey-light: #dfdfdf !default;
         display: block;
       }
 
-    }
-  }
+    }*/
 
   /* --Variations-- */
 

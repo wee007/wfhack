@@ -1,16 +1,9 @@
-<br/><br/><br/><br/><br/><br/>
+<h1 class="hide-visually">Deals</h1>
 
-<main class="container" id="main" role="main">
+<div id="pin-board" class="pin-board">
 
-  <h1 class="hide-visually">Deals</h1>
+  <%- @deals.each do |deal| -%>
+    <%= render partial: "shared/tiles/deal", locals: {deal: deal} %>
+  <%- end -%>
 
-  <div id="pin-board">
-
-    <%- @deals.each do |deal| -%>
-      <%= render partial: "shared/tiles/deal", locals: {deal: deal} %>
-    <%- end -%>
-
-  </div>
-</main>
-
-<br /><br />
+</div>

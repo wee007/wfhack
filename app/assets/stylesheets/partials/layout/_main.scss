@@ -1,0 +1,11 @@
+/* ======================================================================================
+   @LAYOUT -> MAIN
+   ====================================================================================== */
+
+.main {
+
+	/* Temp fix to turn off `.container` rules for detail views, this will end up using 1 generic hook: `.detail-view-page` */
+	.events.show &,
+	.deals.show &,
+	.products.show & {width: auto;}
+}

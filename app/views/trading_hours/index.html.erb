@@ -1,13 +1,11 @@
-<main class="container" id="main" role="main" style="padding-top: 140px;">
-  <h1><%= @centre.short_name %> Shopping Hours</h1>
-  <p><%= @centres['trading_hours'][0]['intro'] unless @centres['trading_hours'].empty? %></p>
-  <ul>
-    <% @centres['trading_hours'].each do |trading_hour| %>
-      <li>
-        <%= trading_hour.day_of_week %>
-        <%= trading_hour.opening_hour %>
-        <%= trading_hour.closing_hour %>
-      </li>
-    <% end %>
-  </ul>
-</main>
+<h1><%= @centre.short_name %> Shopping Hours</h1>
+<p><%= @centres['trading_hours'][0]['intro'] unless @centres['trading_hours'].empty? %></p>
+<ul>
+  <% @centres['trading_hours'].each do |trading_hour| %>
+    <li>
+      <%= trading_hour.day_of_week %>
+      <%= trading_hour.opening_hour %>
+      <%= trading_hour.closing_hour %>
+    </li>
+  <% end %>
+</ul>

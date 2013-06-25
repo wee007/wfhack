@@ -39,7 +39,6 @@
 					<nav class="header-menu-toggle__nav drop-down js-drop-down" role="navigation" aria-label="Sub navigation" id="nav-sub">
 						<ul class="nav-sub">
 							<!-- Shopping centre opening hours -->
-							<!-- [BACK END] the hours need to be made dynamic -->
 							<li class="open-hours-link"><a href="<%= centre_trading_hours_path( params[ :centre_id ] || params[ :id ] ) %>"><span class="icon icon--hours" aria-hidden="true"></span> <strong>Open <%= @centre.today_opening_hour %> - <%= @centre.today_closing_hour %> today</strong> <span class="icon icon--arrow-right" aria-hidden="true"></span></a></li>
 							<!-- //Shopping centre opening hours -->
 							<li class="shopping-hrs-link"><a href="#"><span class="icon icon--hours icon--fixed-width icon--spacing" aria-hidden="true"></span><span class="nav-sub__txt"> Shopping Hours</span></a></li>
@@ -93,11 +92,11 @@
 					<!-- //My account -->
 
 					<!-- Favourites (non-palm devices) -->
-					<!-- [BACK END] for this favourites link and count we have to have 2 sets of HTML; 1 for palm devices and 1 for non-palm devices, palm device link is in the source below -->
+					<!-- [BACK END] when an item has been added to 'Favourites' need to append class `is-favs-added` -->
 					<a href="#" class="favs-link hide-fully--palm">
 						<span class="favs-link__count-icon">
 							<span class="icon icon--favs icon--flush-top icon--kilo" aria-hidden="true"></span>
-							<em>58</em>
+							<em></em>
 						</span>
 						<span class="favs-link__txt"> Favourites</span>
 					</a>
@@ -129,11 +128,11 @@
 				<!-- //Search toggle btn -->
 
 				<!-- Favourites -->
-				<!-- [BACK END] for this favourites link and count we have to have 2 sets of HTML; 1 for palm devices and 1 for non-palm devices, non-palm device link is in the source above -->
+				<!-- [BACK END] when an item has been added to 'Favourites' need to append class `is-favs-added` -->
 				<a href="#" class="favs-link">
 					<span class="favs-link__count-icon">
 						<span class="icon icon--favs icon--flush-top icon--kilo" aria-hidden="true"></span>
-						<em>99</em>
+						<em></em>
 					</span>
 					<span class="hide-visually"> Favourites</span>
 				</a>
@@ -159,8 +158,7 @@
 			<!-- //Shopping centre select -->
 
 			<!-- Shopping centre opening hours -->
-			<!-- [BACK END] the hours need to be made dynamic -->
-			<a href="#" class="open-hours-link"><span class="icon icon--hours" aria-hidden="true"></span> <strong>Open 9am - 6pm today</strong> <span class="icon icon--arrow-right" aria-hidden="true"></span></a>
+      <a href="<%= centre_trading_hours_path( params[ :centre_id ] || params[ :id ] ) %>" class="open-hours-link"><span class="icon icon--hours" aria-hidden="true"></span> <strong>Open <%= @centre.today_opening_hour %> - <%= @centre.today_closing_hour %> today</strong> <span class="icon icon--arrow-right" aria-hidden="true"></span></a>
 			<!-- //Shopping centre opening hours -->
 
 		</div>
@@ -178,7 +176,6 @@
 
 			<!-- Main navigation -->
 			<nav role="navigation" aria-label="Main navigation">
-				<!-- [BACK END] `is-active` class needs to be appended to the active anchor element e.g. `<a href="#" class="is-active">` -->
 					<ul class="nav-main horiz-list horiz-list--fit horiz-list--center horiz-list--dividers">
 					  <li><%= link_to centre_stores_path(params[:centre_id] || params[:id]),
 					    :class => page?(:stores) do %><span class="icon icon--store" aria-hidden="true"></span><span class="hide-visually"> Stores</span><% end %></li>

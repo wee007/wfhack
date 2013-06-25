@@ -29,12 +29,12 @@
 @mixin horiz-list-classes($namespace: "") {
 
 	/* Non-palm */
-    .#{$namespace}horiz-list {
+  .#{$namespace}horiz-list {
 		> li {
 			&,
 			> a {display: inline-block;}
 		}
-    }
+  }
 
 }
 

@@ -1,92 +1,146 @@
-$border: 1px solid #cdcdcd;
+/* Set variables */
+$grey-dark: #cdcdcd !default;
+$grey-light: #dfdfdf !default;
 
+/* Start module */
 .detail-view {
-  background-color: white;
+  @include font-size($font-size-sml);
+  background-color: #fff;
 
+  /* Into lightbox at this breakpoint */
   @include respond-min($non-palm) {
-    max-width: 70%;
+    @include font-size($font-size);
+    box-shadow: 0 1px 2px rgba(#000, 0.3);
+    width: 92%;
     margin: 0 auto;
   }
-}
 
-.detail-view__controls {
-  border-bottom: $border;
-  width: 100%;
-  @extend %clear-fix;
+  /* --Set fixed widths for each detail view at these breakpoints-- */
 
-  .detail-view__controls__button {
-    border-right: $border;
-    width: 50%;
-    float: left;
-    @include to-rem(padding, $spacing-half $spacing-base);
+  /* Event */
+  @include respond-min($ipad-portrait) {
+    &.detail-view--event {@include to-rem(width, 680);}
+  }
 
-    @include respond-min($non-palm) {
+  /* Deal */
+  @include respond-min(826) {
+    &.detail-view--deal {@include to-rem(width, 760);}
+  }
+
+  /* Product */
+  @include respond-min(978) {
+    &.detail-view--product {@include to-rem(width, 900);}
+  }
+
+  /* --Global rules-- */
+
+  /* Turn off container rules and pad out for inner container at this breakpoint */
+  @include respond-min($non-palm) {
+    .container {
       width: auto;
+      max-width: none;
+      @include to-rem(padding-left padding-right, $spacing-base);
     }
   }
 
-  .detail-view__controls__button--close {
-    border: 0;
-    background-color: black;
-    color: white;
-    float: right;
-    border-bottom: 1px solid black;
-    display: none;
-    @include to-rem(width, 40);
-    @include to-rem(padding, $spacing-half);
+  /* Off with bottom margins */
+  p,
+  .island,
+  .islet {margin-bottom: 0;}
 
-    @include respond-min($non-palm) {
-      display: block;
-    }
+  /* Headings */
+  .hn {font-family: $font-family-opensans;}
 
-  }
 }
 
-.detail-view__inner {
-  @include to-rem(padding, $spacing-base * 1.5);
-}
+  /* --Global-- */
 
-
-
-
-
-
-/* Event */
-.detail-view--event {
-
+  /* Headings */
   .detail-view__hdr {
-    color: #242424;
-    font-family: $font-family-opensans;
-    @include font-size($font-size + 24);
-  }
+    @include font-size(27, 1.2);
+    @extend %mrg-base;
+    color: $color-dark-txt;
 
-  .detail-view__meta {
-    border-top: $border;
-    border-bottom: $border;
-    color: #777;
-    @include to-rem(margin, $spacing-base 0);
-    @include to-rem(padding, $spacing-base - $spacing-quarter 0);
-    @include font-size($font-size-sml);
-  }
-
-  .detail-view__meta__location {
-    float: right;
-    .icon {
-      @include to-rem(padding-right, $spacing-quarter);
-      @include font-size($font-size-lrg + 2, 0.5);
+    /* Increase text size at this breakpoint */
+    @include respond-min($non-palm) {
+      @include font-size(36, 1.2);
     }
   }
 
-  .detail-view__details {
-    @include to-rem(margin, $spacing-base 0 0 0);
-  }
-  .detail-view__details__hdr {
-    font-weight: bold;
-    @include to-rem(margin, $spacing-third 0);
-    @include font-size($font-size-sml);
-  }
-  .detail-view__details__content {
-    @include font-size($font-size);
+  .detail-view__hdr-sub {
+    @include font-size(18, 1.3);
+    @include to-rem(margin-bottom, $spacing-half);
+    color: $color-light-txt;
+
+    /* Increase text size at this breakpoint */
+    @include respond-min($non-palm) {
+      @include font-size(24, 1.5);
+    }
   }
 
-}
+  /* Dividing lines */
+  .detail-view__divider {border-bottom: 1px solid $grey-dark;}
+
+  .detail-view__divider--top {border-top: 1px solid $grey-dark;}
+
+  /* Apply base bottom margin */
+  .detail-view__mrg-base {@extend %mrg-base;}
+
+  /* Description */
+  .detail-view__desc p {
+    @include to-rem(margin-bottom, $spacing-half);
+
+    /* Turn off for last child */
+    &:last-child {margin-bottom: 0;}
+  }
+
+  /* Subtle text */
+  .detail-view__subtle-txt {color: $color-light-txt;}
+
+  /* Meta */
+  .detail-view__meta li {
+    width: 50%;
+    @include to-rem(padding-right, $spacing-half);
+
+    &:last-child {
+      padding-right: 0;
+      text-align: right;
+    }
+  }
+
+  /* --Controls-- */
+  .detail-view__controls {
+    width: 100%;
+    @extend %clear-fix;
+
+    .detail-view__controls__button {
+      width: 50%;
+      float: left;
+      @include to-rem(padding, $spacing-half $spacing-base);
+
+      @include respond-min($non-palm) {
+        width: auto;
+      }
+    }
+
+    .detail-view__controls__button--close {
+      border: 0;
+      background-color: black;
+      color: white;
+      float: right;
+      border-bottom: 1px solid black;
+      display: none;
+      @include to-rem(width, 40);
+      @include to-rem(padding, $spacing-half);
+
+      @include respond-min($non-palm) {
+        display: block;
+      }
+
+    }
+  }
+
+  /* --Variations-- */
+
+  /* -Event- */
+  .detail-view--event {}

@@ -5,10 +5,12 @@
 html {
 	font-size: ($font-size/16)+em;
 	line-height: $line-height-ratio;
-	background-color: #e8e8e8;
 }
 
-body {@include prefix(animation, fade-in 1.5s 0.5s both);}
+body {
+	@include prefix(animation, fade-in 1.5s 0.5s both);
+	background-color: #e8e8e8;
+}
 
 /* Animation: fade in the `body` */
 @include prefix-keyframe(fade-in) {

@@ -14,8 +14,8 @@
 	@extend %sprite-icon;
 	speak: none;
 	font-family: "icons";
-    font-style: normal;
-    font-weight: normal;
+  font-style: normal;
+  font-weight: normal;
 	font-variant: normal;
 	text-transform: none;
 	text-decoration: inherit;
@@ -26,9 +26,6 @@
 
 /* Store */
 .icon--store:before {content: "\e815";}
-
-/* Store 2 */
-//.icon--store2:before {content: "\e80a";}
 
 /* Products */
 .icon--products:before {content: "\e816";}
@@ -42,6 +39,9 @@
 /* Favourites */
 .icon--favs:before {content: "\e811";}
 
+/* Favourites 2 */
+.icon--favs2:before {content: "\e81b";}
+
 /* Tag */
 .icon--tag:before {content: "\e810";}
 
@@ -53,6 +53,9 @@
 
 /* Dining */
 .icon--dining:before {content: "\e803";}
+
+/* Share */
+.icon--share:before {content: "\e808";}
 
 /* Information */
 .icon--info:before {content: "\e807";}
@@ -78,14 +81,38 @@
 /* Signout */
 .icon--signout:before {content: "\e802";}
 
+/* Twitter */
+.icon--twitter:before {content: "\e822";}
+
+/* Facebook */
+.icon--facebook:before {content: "\e81d";}
+
+/* Google + */
+.icon--google-plus:before {content: "\e820";}
+
+/* Pinterest */
+.icon--pinterest:before {content: "\e821";}
+
+/* Comment */
+.icon--comment:before {content: "\e818";}
+
+/* Email */
+.icon--email:before {content: "\e823";}
+
 /* Close large */
 .icon--close-lrg:before {content: "\e817";}
 
 /* Close small */
 .icon--close-sml:before {content: "\e806";}
 
-/* Comment */
-.icon--comment:before {content: "\e818";}
+/* Close full */
+.icon--close-full:before {content: "\e81f";}
+
+/* Tick */
+.icon--tick:before {content: "\e81c";}
+
+/* Tick full */
+.icon--tick-full:before {content: "\e81e";}
 
 /* Arrow down */
 .icon--arrow-down:before {content: "\e80c";}

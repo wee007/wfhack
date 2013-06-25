@@ -12,4 +12,14 @@ class StoresController < ApplicationController
     @stores = stores.group_by(&:first_letter)
   end
 
+  def show
+    centre, store = nil
+    Service::API.in_parallel do
+      centre = CentreService.fetch params[:centre_id]
+      store = StoreService.fetch params[:id]
+    end
+    @centre = CentreService.build centre
+    @store = Store.new StoreService.build store
+  end
+
 end

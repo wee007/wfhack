@@ -25,7 +25,7 @@
         </header>
 
         <div class="detail-view__media detail-view__mrg-base">
-          <%#= image_tag @event._links['image']['href'], alt: @event._links['image'] %>
+          <%= image_tag ImageService.transform(ref: @event.image_ref, size: "800x800"), alt: @event.name %>
         </div>
 
         <h3 class="detail-view__hdr-sub hn">Event Details</h3>

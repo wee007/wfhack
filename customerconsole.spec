@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.133
+Version:     0.0.134
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -67,6 +67,39 @@ fi
 %attr(755,nobody,nobody)%{appdir}/current/tmp
 
 %changelog
+* Tue Jun 25 2013 ci <doperations@au.westfield.com> 0.0.134-1
+- Merge pull request #47 from cpearce/master (ldewey@au.westfield.com)
+- fixing up meta element - event date and location (CPearce@au.westfield.com)
+- fixing up meta element - event date and location (CPearce@au.westfield.com)
+- tidying indentation (CPearce@au.westfield.com)
+- removing display block rule (CPearce@au.westfield.com)
+- updating icons (CPearce@au.westfield.com)
+- updating favs icon to be grey by default and adding styles for when favs are
+  added (CPearce@au.westfield.com)
+- cleaning up indentation (CPearce@au.westfield.com)
+- adding conditional markup for detail view container based on lightbox if
+  statement (CPearce@au.westfield.com)
+- changing bg colour to body element not html as it makes things easier
+  (CPearce@au.westfield.com)
+- deleting hero images that I had to rename to be made dynamic
+  (CPearce@au.westfield.com)
+- adding another yeild for custom styles placed in the HTML Head
+  (CPearce@au.westfield.com)
+- adding inline styles for hero banner (CPearce@au.westfield.com)
+- changing hero filenames to make them dynamic (CPearce@au.westfield.com)
+- remove extender from box abstraction (CPearce@au.westfield.com)
+- mods to markup to make styles more abstracted (CPearce@au.westfield.com)
+- working on detail view module styles (CPearce@au.westfield.com)
+- adding a new color var and some comments (CPearce@au.westfield.com)
+- fixing longest shopping centre from wrapping at smallest palm size
+  (CPearce@au.westfield.com)
+- adding extenders to island abstraction (CPearce@au.westfield.com)
+- adding comments to divider abstraction (CPearce@au.westfield.com)
+- adding an extender to box abstraction (CPearce@au.westfield.com)
+- adding partial for detail view controls (CPearce@au.westfield.com)
+- removing comments for dynamic stuff and adding dynamic shopping hours to 2nd
+  link (CPearce@au.westfield.com)
+
 * Mon Jun 24 2013 ci <doperations@au.westfield.com> 0.0.133-1
 - Remove code that's not implemented yet. (craigm.smith@au.westfield.com)
 - Don't need this styling. (craigm.smith@au.westfield.com)

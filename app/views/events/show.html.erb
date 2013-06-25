@@ -16,17 +16,12 @@
       <div class="container">
 
         <header class="detail-view__mrg-base">
-          <h2 class="detail-view__hdr hn" id="detail-view__hdr"><%= @event.name %></h2>
+          <h2 class="detail-view__hdr hn" id="detail-view__hdr">Event name</h2>
 
-          <div class="detail-view__meta islet islet--top-btm detail-view__divider detail-view__divider--top">
-            <p class="detail-view__meta__date detail-view__subtle-txt">
-              <time datetime="<%= Time.new(@event.start).strftime("%Y-%m-%d") %>"><%= Time.new(@event.start).strftime("%d %b %Y") %></time> to <time datetime="<%= Time.new(@event.start).strftime("%Y-%m-%d") %>"><%= Time.new(@event.finish).strftime("%d %b %Y") %></time>
-            </p>
-            <p class="detail-view__meta__location">
-              <span class="icon icon--pin" aria-hidden="true"></span>
-              <%= @event.location %>
-            </p>
-          </div>
+          <ul class="detail-view__meta islet islet--top-btm detail-view__divider detail-view__divider--top horiz-list horiz-list--fit">
+            <li class="detail-view__subtle-txt"><time datetime="<%= Time.new(@event.start).strftime("%Y-%m-%d") %>"><%= Time.new(@event.start).strftime("%d %b %Y") %></time> to <time datetime="<%= Time.new(@event.start).strftime("%Y-%m-%d") %>"><%= Time.new(@event.finish).strftime("%d %b %Y") %></time></li><!--
+          --><li><span class="icon icon--pin icon--lrg icon--spacing" aria-hidden="true"></span><%= @event.location %></li>
+          </ul>
         </header>
 
         <div class="detail-view__media detail-view__mrg-base">

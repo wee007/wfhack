@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.138
+Version:     0.0.139
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,12 @@ fi
 
 
 %changelog
+* Wed Jun 26 2013 ci <doperations@au.westfield.com> 0.0.139-1
+- Merge pull request #53 from ldewey/master (ldewey@au.westfield.com)
+- Added temp <br /> to fix layout for now. (ldewey@au.westfield.com)
+- Event tile clean up (ldewey@au.westfield.com)
+- Added event images (ldewey@au.westfield.com)
+
 * Wed Jun 26 2013 ci <doperations@au.westfield.com> 0.0.138-1
 - Added event name back in (ldewey@au.westfield.com)
 

@@ -13,4 +13,13 @@
 	@media print {
 		width: auto;
 	}
+
+	/* Temp rules for `main` to push down from fixed header and to turn off container for detail views */
+	&.main {
+		padding-top: 140px;
+
+		.events.show &,
+		.deals.show &,
+		.products.show & {width: auto;}
+	}
 }

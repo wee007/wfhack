@@ -87,6 +87,7 @@ Global stylesheet
 /* Layout */
 @import "partials/layout/containers";
 @import "partials/layout/header";
+@import "partials/layout/main";
 @import "partials/layout/footer";
 
   /* Layout -> Grid */
@@ -122,6 +123,8 @@ Global stylesheet
 @import "partials/modules/thumbnail-grid";
 @import "partials/modules/tile";
 @import "partials/modules/detail-view";
+@import "partials/modules/social-share";
+@import "partials/modules/pin-board";
 
 
   /* Modules -> Widgets */

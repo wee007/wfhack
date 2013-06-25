@@ -4,7 +4,7 @@ describe ApplicationHelper do
 
   context "#responsive_image_tag" do
 
-    let(:default_placeholder) { 'http://image-service.test.dbg.westfield.com/transform?url=http://customer-console.test.dbg.westfield.com/assets/logo-tile.png&size=60x60&pad=true&background=ffffff' }
+    let(:default_placeholder) { '/placeholder.png' }
     let(:placeholder) { 'placeholder_image.png' }
     let(:normal) { 'normal_image.png' }
     let(:retina) { 'retina_image.png' }

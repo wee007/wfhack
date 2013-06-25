@@ -24,12 +24,7 @@ module ApplicationHelper
   end
 
   def default_placeholder_image
-    protocol = 'http://'
-    image_service = "image-service.#{Rails.env}.dbg.westfield.com"
-    customer_console = "customer-console.#{Rails.env}.dbg.westfield.com"
-    image = "assets/logo-tile.png"
-    attr = "size=60x60&pad=true&background=ffffff"
-    protocol + image_service + '/transform?url=' + protocol + customer_console + '/' + image + '&' + attr
+    asset_path 'placeholder.png'
   end
 
 end

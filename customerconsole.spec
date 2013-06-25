@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.140
+Version:     0.0.141
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,13 @@ fi
 
 
 %changelog
+* Wed Jun 26 2013 ci <doperations@au.westfield.com> 0.0.141-1
+- adding latest for detail view work (CPearce@au.westfield.com)
+- adding JS so main content area is always underneath fixed header
+  (CPearce@au.westfield.com)
+- removing main container back into application layout
+  (CPearce@au.westfield.com)
+
 * Wed Jun 26 2013 ci <doperations@au.westfield.com> 0.0.140-1
 - Merge pull request #54 from ldewey/master (mike.mell@nthwave.net)
 - Upgraded to rails 4 ! (ldewey@au.westfield.com)

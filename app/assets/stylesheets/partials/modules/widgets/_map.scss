@@ -9,19 +9,19 @@
   @include to-rem(width, 450);
 
   li {
-    padding: 10px 20px;
+    @include to-rem(padding, 10 20);
     border-bottom: 1px solid #bababa;
 
     &.list__store {
       position: relative;
-      padding-left: 120px;
+      @include to-rem(padding-left, 120);
 
       img {
         position: absolute;
-        top: 10px;
-        left: 20px;
-        width: 60px;
-        height: 60px;
+        @include to-rem(top, 10);
+        @include to-rem(left, 20);
+        @include to-rem(width, 60);
+        @include to-rem(height, 60);
       }
     }
 

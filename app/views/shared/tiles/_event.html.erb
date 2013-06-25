@@ -1,9 +1,9 @@
-<a class="tile tile--events" href="<%= centre_event_path((params[:centre_id] || params[:id]), result['id']) %>">
+<a class="tile tile--events" href="<%= centre_event_path((params[:centre_id] || params[:id]), result[:id]) %>">
   <article class="box" role="article">
 
     <span class="tile__image">
       <% # TODO: fix alt tag %>
-      <%= image_tag ImageService.transform(ref: result['image_ref'], size: "400x400"), alt: result['name'] %>
+      <%= image_tag ImageService.transform(ref: result[:image_ref], size: "400x400"), alt: result['name'] %>
     </span>
 
     <div class="tile__meta">
@@ -12,13 +12,8 @@
         <span class="hide-visually">Event</span>
       </span>
       <div class="tile__meta__inner">
-        <h3 class="tile__meta__hdr"><%= result['name'] %></h3>
-        <p class="tile__meta__desc">
-          <%= result['description'] %>
-          <% if result['price'] %>
-            <span class="tile__meta__price"><%= result['price'] %></span>
-          <% end %>
-        </p>
+        <h3 class="tile__meta__hdr"><%= result[:name] %></h3>
+        <p class="tile__meta__desc"><%= result[:description] %></p>
       </div>
     </div>
 

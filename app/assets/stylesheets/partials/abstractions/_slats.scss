@@ -13,32 +13,9 @@
 		http://stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code
 */
 
-.slats {
-	@extend %clear-fix;
-	@extend %mrg-base;
-}
+.slats {@extend %clear-fix;}
 
 	/* Image container */
-	.slats__img,
-	.slats__img--rev {
-		@extend %mrg-base;
-
-		/* Remove bottom margin at this breakpoint */
-		@include respond-min($non-palm) {
-			margin-bottom: 0;
-		}
-
-		/* Images in `.islets`s need an appropriately sized margin */
-		.islet & {
-			@include to-rem(margin-bottom, $spacing-half);
-
-			/* Remove bottom margin at this breakpoint */
-			@include respond-min($non-palm) {
-				margin-bottom: 0;
-			}
-		}
-	}
-
 	.slats__img {
 		float: left;
 		@include to-rem(margin-right, $spacing-base);
@@ -61,6 +38,4 @@
 		.slats__img--rev img {display: block;}
 
 	/* Body container columnised at this breakpoint */
-	@include respond-min($non-palm) {
-		.slats__body {overflow: hidden;}
-	}
+	.slats__body {overflow: hidden;}

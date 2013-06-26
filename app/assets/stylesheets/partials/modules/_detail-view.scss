@@ -44,9 +44,7 @@ $grey-light: #dfdfdf !default;
   }
 
   /* Off with bottom margins */
-  p,
-  .island,
-  .islet {margin-bottom: 0;}
+  p {margin-bottom: 0;}
 
   /* Headings */
   .hn {font-family: $font-family-opensans;}
@@ -79,12 +77,19 @@ $grey-light: #dfdfdf !default;
   }
 
   /* Dividing lines */
-  .detail-view__divider {border-bottom: 1px solid $grey-dark;}
+  .detail-view__divider,
+  .detail-view__divider--top-btm {
+    border-style: solid;
+    border-color: $grey-dark;
+    border-bottom-width: 1px;
+  }
 
-  .detail-view__divider--top {border-top: 1px solid $grey-dark;}
+  .detail-view__divider--top-btm {border-top-width: 1px;}
 
-  /* Apply base bottom margin */
+  /* Spacing */
   .detail-view__mrg-base {@extend %mrg-base;}
+
+  .detail-view__mrg-half {@include to-rem(margin-bottom, $spacing-half);}
 
   /* Description */
   .detail-view__desc p {
@@ -97,31 +102,42 @@ $grey-light: #dfdfdf !default;
   /* Subtle text */
   .detail-view__subtle-txt {color: $color-light-txt;}
 
-  /* Meta */
-  .detail-view__meta li {
-    width: 50%;
-    @include to-rem(padding-right, $spacing-half);
-
-    &:last-child {
-      padding-right: 0;
-      text-align: right;
-    }
-  }
-
   /* --Controls-- */
   .detail-view__controls {
-    //width: 100%;
-    //@extend %clear-fix;
 
-    .detail-view__controls__button {
-      //width: 50%;
-      //float: left;
-      //@include to-rem(padding, $spacing-half $spacing-base);
+    /* Horizontal list */
+    > .horiz-list {
 
-      //@include respond-min($non-palm) {
-        //width: auto;
-      //}
-    }
+      /* Adjustments at this breakpoint */
+      @include respond-min($non-palm) {
+        text-align: left;
+      }
+
+        > li {
+          border-color: $grey-dark;
+          width: 50%;
+
+          /* Change display at this breakpoint */
+          @include respond-min($non-palm) {
+            display: inline-block;
+            width: auto;
+
+            /* Add right border for last child */
+            &:last-child {border-right: 1px solid $grey-dark;}
+          }
+        }
+      }
+
+        /* Buttons */
+        .detail-view__controls__btn {
+          display: inline-block;
+          width: 100%;
+          @include to-rem(padding, 12 $spacing-base+$spacing-half 11);
+          @include font-size($font-size-sml, 1);
+
+          /* Icon */
+          .icon--share:before {top: -2px;}
+        }
   }
 
     /*.detail-view__controls__button--close {
@@ -137,10 +153,34 @@ $grey-light: #dfdfdf !default;
       @include respond-min($non-palm) {
         display: block;
       }
-
     }*/
 
   /* --Variations-- */
 
+  /* -Product- */
+  .detail-view--product {
+
+    /* Meta */
+    .detail-view__meta em {
+      display: block;
+      @include font-size(18, 1.3);
+    }
+
+  }
+
   /* -Event- */
-  .detail-view--event {}
+  .detail-view--event {
+
+    /* Meta */
+    .detail-view__meta li {
+      width: 50%;
+      @include to-rem(padding-right, $spacing-half);
+
+      /* Turn off for last child */
+      &:last-child {
+        padding-right: 0;
+        text-align: right;
+      }
+    }
+
+  }

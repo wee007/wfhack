@@ -206,6 +206,9 @@ $color-link-visited: lighten($color-link, 15%) !default;
 /* Off white */
 $color-off-white: #f2f2f2 !default;
 
+/* Call to action (green) */
+$color-cta: #52c884 !default;
+
 /* --Greyscale-- */
 /*
 	Note: need to sunset these vars but cannot do until we remove all modules/abstractions that use them.

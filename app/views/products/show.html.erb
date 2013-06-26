@@ -1,0 +1,83 @@
+<div class="grid grid--gutterless grid--rev">
+
+  <!-- Product name, brand, price, location and contact -->
+  <div class="grid__item non-palm-two-fifths">
+
+    <!-- Product name, brand and price -->
+    <header class="island island--top-btm detail-view__divider">
+      <div class="container">
+        <h2 class="detail-view__hdr hn detail-view__mrg-half" id="detail-view__hdr">Sieynna Boot</h2>
+        <p class="detail-view__meta"><span class="detail-view__subtle-txt">from</span> Saba <em>$499.00</em></p>
+      </div>
+    </header>
+    <!-- //Product name, brand and price -->
+
+    <!-- Store location -->
+    <div class="store-location detail-view__divider">
+      <div class="slats box">
+        <div class="slats__img">
+          <!-- [BACK END] image needs to be 200px x 200px and `alt` attr needs to be dynamically updates -->
+          <img src="/assets/dummy/store.jpg" alt="">
+        </div>
+        <div class="slats__body">
+          <img src="/assets/dummy/retailer-logo.png" alt="">
+          <p>Open till <time datetime="">6pm</time> tonight</p>
+          <a href="#" class="btn btn--main"><span class="icon icon--store icon--lrg icon--spacing-lrg" aria-hidden="true"></span> Store map</a>
+        </div>
+      </div>
+      <img src="/assets/dummy/map-tile.png" alt="">
+    </div>
+    <!-- //Store location -->
+
+  </div>
+  <!-- //Product name, brand, price, location and contact -->
+
+  <!-- Product images -->
+  <div class="grid__item non-palm-three-fifths">
+    <div class="detail-view__divider">
+        <!-- Flexslider -->
+        <div class="flexslider">
+          <ul class="slides">
+            <li><img src="/assets/dummy/product.jpg" alt=""></li>
+            <li><img src="/assets/dummy/product.jpg" alt=""></li>
+            <li><img src="/assets/dummy/product.jpg" alt=""></li>
+          </ul>
+        </div>
+        <!-- //Flexslider -->
+    </div>
+  </div>
+  <!-- //Product images -->
+
+</div>
+
+<%- content_for :javascript do -%>
+  <%= javascript_include_tag 'vendor/jquery.flexslider' %>
+  <script>
+    // Run 'Flexslider' plugin
+    $(window).load(function() {
+
+      $('.flexslider').flexslider({
+        animation: 'slide',
+        animationSpeed: 200,
+        slideshowSpeed: 6000,
+        //smoothHeight: true, // Only use this if you have portrait and landscape images
+        controlNav: true,
+        // Do stuff when the slider loads the first slide
+        start: function(slider) {
+          // Add some ARIA
+          slider.container.attr('role', 'listbox');
+          slider.slides.attr({'role': 'option', 'aria-selected': 'false', 'tabindex' : '-1'});
+          slider.slides.eq(slider.currentSlide).attr('aria-selected', 'true');
+          slider.controlNav.attr({'href' : '#', 'role' : 'button'});
+          slider.directionNav.attr('role', 'button');
+        },
+        // Do stuff after each slider animation completes
+        after: function(slider) {
+          slider.slides.attr({'aria-selected': 'false', 'tabindex' : '-1'});
+          slider.slides.eq(slider.currentSlide).attr({'aria-selected' : 'true', 'tabindex' : '0'});
+        }
+      });
+
+    });
+  </script>
+<%- end -%>

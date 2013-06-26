@@ -52,8 +52,3 @@
 	/* Apply right spacing for adjacent buttons */
 	&.btn--spacing {margin-right: to-em($spacing-quarter);}
 }
-
-	/* Firefox focus */
-	@include target-mozilla {
-		.btn:focus {outline: 1px dotted silver;}
-	}

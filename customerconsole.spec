@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.141
+Version:     0.0.142
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,24 @@ fi
 
 
 %changelog
+* Wed Jun 26 2013 ci <doperations@au.westfield.com> 0.0.142-1
+- Merge pull request #49 from mwratt/feature/maps (ldewey@au.westfield.com)
+- WSF-4837 Store store_front link; stores index to store show
+  (michael@michaelbamford.com)
+- adds placeholder image to assets (matt.wratt@trineo.co.nz)
+- adds unveil script for lazy loading images (matt.wratt@trineo.co.nz)
+- replaces px with rem's (matt.wratt@trineo.co.nz)
+- fixes style after rebase now takes up whole page (matt.wratt@trineo.co.nz)
+- improves browser not supported message (matt.wratt@trineo.co.nz)
+- adds default placeholder image (matt.wratt@trineo.co.nz)
+- improves style on store list (matt.wratt@trineo.co.nz)
+- adds responsive image tag helper (matt.wratt@trineo.co.nz)
+- adds store model and groups stores alphabetically (matt.wratt@trineo.co.nz)
+- adds custom popups and highlighting (matt.wratt@trineo.co.nz)
+- removed redundant config file (matt.wratt@trineo.co.nz)
+- pulls micello community from centre-service (matt.wratt@trineo.co.nz)
+- adds basic map with simple config (matt.wratt@trineo.co.nz)
+
 * Wed Jun 26 2013 ci <doperations@au.westfield.com> 0.0.141-1
 - adding latest for detail view work (CPearce@au.westfield.com)
 - adding JS so main content area is always underneath fixed header

@@ -5,7 +5,7 @@
     <% stores.each do |store| %>
       <li class="list__store" data-store-id="<%= store.id %>">
         <%= responsive_image_tag normal: store.logo, alt: store.name %>
-        <h1><%= store.name %></h1>
++       <h1><%= link_to store.name, (centre_store_url @centre.code , store.id) %></h1>
         <%= store.phone_number %>
       </li>
     <% end %>

@@ -17,6 +17,7 @@ class Map
       $('#map').text('')
     @getAddresses()
     @control = new micello.maps.MapControl('map')
+    @alterGui @control.getMapGUI()
     @data = @control.getMapData()
     canvas = @control.getMapCanvas()
     canvas.setThemeFamily(@themeFamily)
@@ -24,6 +25,11 @@ class Map
     @control.onMapClick = @onClick
     @data.mapChanged = @onMapChanged
     @data.loadCommunity(@community)
+
+  alterGui: (gui) ->
+    gui.ZOOM_POSITION = 'right top'
+    gui.ZOOM_DISPLAY = 'v'
+    gui.LEVELS_POSITION = 'right top'
 
   getAddresses: ->
     $.ajax(

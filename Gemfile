@@ -13,6 +13,7 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'turbolinks'
 gem 'chosen-rails'
+gem 'gon'
 
 # For operations
 gem 'health_check'
@@ -34,6 +35,7 @@ end
 
 group :development, :test do
   gem 'pry'
+  gem 'pry-remote'
   gem "debugger"
   gem "rspec-rails"
   gem 'sass-rails', '~> 4.0.0'

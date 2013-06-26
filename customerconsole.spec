@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.147
+Version:     0.0.148
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,9 @@ fi
 
 
 %changelog
+* Wed Jun 26 2013 ci <doperations@au.westfield.com> 0.0.148-1
+- add index.html to list all services (acohen@au.westfield.com)
+
 * Wed Jun 26 2013 ci <doperations@au.westfield.com> 0.0.147-1
 - Merge pull request #60 from mwratt/feature/maps (matt.wratt@trineo.co.nz)
 - repositions map zoom and level select to top right (matt.wratt@trineo.co.nz)

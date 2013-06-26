@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.144
+Version:     0.0.145
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,13 @@ fi
 
 
 %changelog
+* Wed Jun 26 2013 ci <doperations@au.westfield.com> 0.0.145-1
+- Merge pull request #55 from ldewey/master (cpearce@au.westfield.com)
+- Added class_for_body (ldewey@au.westfield.com)
+- Removed main and br's that were not needed (ldewey@au.westfield.com)
+- Added layout for deals, movies and products (ldewey@au.westfield.com)
+- "sub layout", for detail_view (ldewey@au.westfield.com)
+
 * Wed Jun 26 2013 ci <doperations@au.westfield.com> 0.0.144-1
 - WSF-4837 Store page (michael@michaelbamford.com)
 

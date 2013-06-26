@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.162
+Version:     0.0.163
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,10 @@ fi
 
 
 %changelog
+* Thu Jun 27 2013 ci <doperations@au.westfield.com> 0.0.163-1
+- Merge pull request #63 from mwratt/feature/maps (ldewey@au.westfield.com)
+- fixes script loading race condition (matt.wratt@trineo.co.nz)
+
 * Thu Jun 27 2013 ci <doperations@au.westfield.com> 0.0.162-1
 - Merge pull request #61 from cpearce/master (ldewey@au.westfield.com)
 - changing back to 'event' extender class - should be dynamic

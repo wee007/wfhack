@@ -2,9 +2,9 @@
 
 <% if in_lightbox? %>
   <div class="page-overlay"></div>
-  <article role="article" class="detail-view detail-view--event" tabindex="-1" role="dialog" aria-labelledby="detail-view__hdr" aria-hidden="true">
+  <article role="article" class="detail-view detail-view--<%= params[:controller].singularize %>" tabindex="-1" role="dialog" aria-labelledby="detail-view__hdr" aria-hidden="true">
 <% else %>
-  <article role="article" class="detail-view detail-view--event">
+  <article role="article" class="detail-view detail-view--<%= params[:controller].singularize %>">
 <% end %>
   <%= render "shared/detail_view/controls" %>
   <%= yield %>

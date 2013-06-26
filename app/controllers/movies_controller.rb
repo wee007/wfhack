@@ -1,5 +1,7 @@
 class MoviesController < ApplicationController
 
+  layout 'detail_view', only: :show
+
   def index
     centre, movies = nil
     Service::API.in_parallel do

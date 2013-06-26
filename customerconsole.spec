@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.161
+Version:     0.0.162
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,28 @@ fi
 
 
 %changelog
+* Thu Jun 27 2013 ci <doperations@au.westfield.com> 0.0.162-1
+- Merge pull request #61 from cpearce/master (ldewey@au.westfield.com)
+- changing back to 'event' extender class - should be dynamic
+  (CPearce@au.westfield.com)
+- markup for product detail view (CPearce@au.westfield.com)
+- rough styles for the image gallery carousel (CPearce@au.westfield.com)
+- styles for product detail view (CPearce@au.westfield.com)
+- creating styles for main and main alternate buttons
+  (CPearce@au.westfield.com)
+- adding a new colour var - cta (CPearce@au.westfield.com)
+- small updates to 2 abstractions so they can be better used
+  (CPearce@au.westfield.com)
+- adding flexslider image carousel for product detail view
+  (CPearce@au.westfield.com)
+- adding dummy images for product detail view (CPearce@au.westfield.com)
+- Ian added 'show' to the controller so I can see the page in the browser
+  (CPearce@au.westfield.com)
+- working on product detail view (CPearce@au.westfield.com)
+- working on product detail view (CPearce@au.westfield.com)
+- changing selectors to new detail view selector (CPearce@au.westfield.com)
+- removing redundant styles (CPearce@au.westfield.com)
+
 * Thu Jun 27 2013 ci <doperations@au.westfield.com> 0.0.161-1
 - 
 

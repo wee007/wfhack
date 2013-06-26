@@ -15,10 +15,7 @@
 
 /* Shared */
 .island,
-.islet {
-	@extend %clear-fix;
-	@extend %mrg-base;
-}
+.islet {@extend %clear-fix;}
 
 /* Island - full padding */
 .island {@include to-rem(padding, $spacing-base);}

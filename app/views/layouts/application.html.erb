@@ -36,7 +36,7 @@
 
 </head>
 
-<body class="<%= params[:controller] %> <%= params[:action] %>">
+<body class="<%= params[:controller] %> <%= params[:action] %> <%= yield :class_for_body %>">
 
 	<!-- Skip link -->
 	<a href="#main" class="hide-visually skip-link">Skip to main content</a>

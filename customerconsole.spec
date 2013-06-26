@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.160
+Version:     0.0.161
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,9 @@ fi
 
 
 %changelog
+* Thu Jun 27 2013 ci <doperations@au.westfield.com> 0.0.161-1
+- 
+
 * Thu Jun 27 2013 ci <doperations@au.westfield.com> 0.0.160-1
 - Added the product tile (ldewey@au.westfield.com)
 

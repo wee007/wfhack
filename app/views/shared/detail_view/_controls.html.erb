@@ -3,9 +3,9 @@
   <ul class="horiz-list horiz-list--fit horiz-list--center horiz-list--dividers">
     <li>
       <!-- [BACK END] once this button has been submitted append class 'is-saved' -->
-      <button type="submit" class="detail-view__controls__btn btn"><span class="icon icon--favs icon--lrg" aria-hidden="true"></span> Save</button></li><!--
-    --><li>
-      <button type="button" class="detail-view__controls__btn btn js-drop-down-trigger" aria-haspopup="true" aria-owns="share-options"><span class="icon icon--share icon--lrg" aria-hidden="true"></span> Share</button>
+      <button type="submit" class="detail-view__controls__btn btn"><span class="icon icon--favs icon--lrg icon--spacing-lrg" aria-hidden="true"></span>Save</button></li><!--
+    --><li class="drop-down-container">
+      <button type="button" class="detail-view__controls__btn btn js-drop-down-trigger" aria-haspopup="true" aria-owns="share-options"><span class="icon icon--share icon--lrg icon--spacing-lrg" aria-hidden="true"></span>Share</button>
       <ul class="social-share drop-down js-drop-down horiz-list" id="share-options">
         <li class="social-share__facebook"><a href="#"><span class="icon icon--facebook" aria-hidden="true"></span><span class="hide-visually"> Facebook</span></a></li>
         <li class="social-share__twitter"><a href="#"><span class="icon icon--twitter" aria-hidden="true"></span><span class="hide-visually"> Twitter</span></a></li>
@@ -17,7 +17,7 @@
   </ul>
 
   <% if in_lightbox? %>
-    <button type="button" class="detail-view__controls__btn detail-view__controls__btn--close btn"><span class="icon icon--close-sml" aria-hidden="true"></span> <span class="hide-visually">Close</span></button>
+    <button type="button" class="btn btn--close"><span class="icon icon--close-sml icon--flush-top" aria-hidden="true"></span> <span class="hide-visually">Close</span></button>
   <% end %>
 
 </div>

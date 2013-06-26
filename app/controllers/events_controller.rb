@@ -1,5 +1,7 @@
 class EventsController < ApplicationController
 
+  layout 'detail_view', only: :show
+
   def index
     centre, event = nil
     Service::API.in_parallel do

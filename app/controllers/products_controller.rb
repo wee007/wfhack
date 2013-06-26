@@ -1,5 +1,7 @@
 class ProductsController < ApplicationController
 
+  layout 'detail_view', only: :show
+
   def index
     centre, products = nil
     Service::API.in_parallel do

@@ -1,0 +1,13 @@
+<% content_for :class_for_body, "page-detail-view" %>
+
+<% if in_lightbox? %>
+  <div class="page-overlay"></div>
+  <article role="article" class="detail-view detail-view--event" tabindex="-1" role="dialog" aria-labelledby="detail-view__hdr" aria-hidden="true">
+<% else %>
+  <article role="article" class="detail-view detail-view--event">
+<% end %>
+  <%= render "shared/detail_view/controls" %>
+  <%= yield %>
+</article>
+
+<%= parent_layout 'application' %>

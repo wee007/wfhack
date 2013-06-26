@@ -1,5 +1,7 @@
 class DealsController < ApplicationController
 
+  layout 'detail_view', only: :show
+
   def index
     centre, deal = nil
     Service::API.in_parallel do

@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.145
+Version:     0.0.146
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,10 @@ fi
 
 
 %changelog
+* Wed Jun 26 2013 ci <doperations@au.westfield.com> 0.0.146-1
+- The deal partial needs to refer to a result, so that centre index can call
+  it. (craigm.smith@au.westfield.com)
+
 * Wed Jun 26 2013 ci <doperations@au.westfield.com> 0.0.145-1
 - Merge pull request #55 from ldewey/master (cpearce@au.westfield.com)
 - Added class_for_body (ldewey@au.westfield.com)

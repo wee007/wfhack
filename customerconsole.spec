@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.142
+Version:     0.0.143
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,10 @@ fi
 
 
 %changelog
+* Wed Jun 26 2013 ci <doperations@au.westfield.com> 0.0.143-1
+- Merge pull request #57 from mwratt/feature/maps (ldewey@au.westfield.com)
+- removes erroneous + from commit diff (matt.wratt@trineo.co.nz)
+
 * Wed Jun 26 2013 ci <doperations@au.westfield.com> 0.0.142-1
 - Merge pull request #49 from mwratt/feature/maps (ldewey@au.westfield.com)
 - WSF-4837 Store store_front link; stores index to store show

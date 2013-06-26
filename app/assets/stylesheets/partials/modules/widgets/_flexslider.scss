@@ -15,6 +15,7 @@
 
 .flexslider {
 	background-color: $color-grey-light;
+	position: relative;
 
 	/* Slides container */
 	.slides {
@@ -66,11 +67,6 @@
 }
 
 	/* --Navigation controls-- */
-
-	/* Shared */
-	/* Shared */
-	.flex-control-paging a,
-	.flex-direction-nav a {text-decoration: none;} /* Note: this may be redundant? */
 
 	/* Pager nav */
 	.flex-control-paging {

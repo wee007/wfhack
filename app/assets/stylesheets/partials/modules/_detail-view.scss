@@ -110,6 +110,7 @@ $grey-light: #dfdfdf !default;
   }
 
   /* --Controls-- */
+
   /* Increase text size at this breakpoint */
   @include respond-min($non-palm) {
     .detail-view__controls .horiz-list > li {}

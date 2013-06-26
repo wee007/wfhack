@@ -1,6 +1,6 @@
 GIT
   remote: git@github.dbg.westfield.com:digital/service_api.git
-  revision: 87d8936ed08bf62e3c960bdacfad25757af4ccad
+  revision: cd3161db7330ec9db330bfaf76961056108b6586
   specs:
     service_api (0.0.4)
       faraday

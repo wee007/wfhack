@@ -8,6 +8,10 @@ class Map
     micello.maps.init(@key, @init)
 
   init: =>
+    wait(@initMap, -> !!window.westfield)
+    wait(@attachClickHandler, -> !!window.jQuery)
+
+  initMap: =>
     @index.addStores(westfield.stores)
     @community = westfield.centre.micello_community
     if @community == undefined
@@ -25,6 +29,10 @@ class Map
     @control.onMapClick = @onClick
     @data.mapChanged = @onMapChanged
     @data.loadCommunity(@community)
+
+  attachClickHandler: =>
+    self = @
+    $('body', document).on('click', '[data-store-id]', -> self.highlight($(@).data('storeId')))
 
   alterGui: (gui) ->
     gui.ZOOM_POSITION = 'right top'
@@ -128,16 +136,9 @@ class GeomIndex
     @addAddress(address) for address in addresses
 
 
-window.map = new Map
-
-waitForJQuery = (callback) ->
+wait = (callback, ready) ->
   do ->
-    return callback() if window.jQuery
+    return callback() if ready()
     setTimeout(arguments.callee, 0)
 
-waitForJQuery ->
-  $('body', document).on(
-    'click',
-    '[data-store-id]',
-    -> map.highlight($(@).data('storeId'))
-  )
+window.map = new Map

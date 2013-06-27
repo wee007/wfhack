@@ -14,25 +14,11 @@
 */
 
 .flexslider {
-	background-color: $color-grey-light;
+	//background: yellow;
 	position: relative;
 
 	/* Slides container */
-	.slides {
-		@extend %clear-fix;
-
-		/* Print - this is only for the 'slide' effect but should check this */
-		/*
-			Note: it is okay to use `!important` here as we're doing it pre-emptively i.e. you know you will always want the rule it's applied too to take precedence.
-		*/
-		@media print {
-			width: auto !important;
-			margin: 0 !important;
-			-webkit-transform: none !important;
-			-ms-transform: none !important;
-			transform: none !important;
-		}
-	}
+	.slides {@extend %clear-fix;}
 
 		/* Slides - hide the slides before JS is loaded to avoid images jumping */
 		.slides > li {
@@ -46,83 +32,169 @@
 			}
 
 			/* Print */
-			/*
-				Note: it is okay to use `!important` here as we're doing it pre-emptively i.e. you know you will always want the rule it's applied too to take precedence.
-			*/
 			@media print {
 				float: none !important;
-				display: none !important;
-				width: auto !important;
-
-				/* Active slide should always be visible */
-				&.flex-active-slide {display: block !important;}
 			}
 		}
-
-			/* Images */
-			.slides img {
-				display: block;
-				margin: 0 auto;
-			}
 }
 
-	/* --Navigation controls-- */
+/* --Photo gallery-- */
+.flexslider--gallery .slides {text-align: center;}
 
-	/* Pager nav */
-	.flex-control-paging {
-		text-align: center;
+/* Large image */
+.flexslider--gallery-lrg-img {
+	@include to-rem(padding-left padding-right, 35);
 
-		/* Print */
-		@media print {
-			display: none;
-		}
-
-		/* Pager nav items */
-		li {display: inline-block;}
-
-			/* Links */
-			a {
-				display: block;
-				width: 16px;
-				height: 16px;
-				overflow: hidden;
-				margin-right: 6px;
-				border: 1px solid #7d194c;
-				border-radius: 100%;
-				background-color: #fff;
-
-				/* Pseudo classes + active state */
-				&:hover,
-				&:focus,
-				&.flex-active {background-color: $color-brand;}
-			}
+	/* Increase indent at this breakpoint */
+	@include respond-min($non-palm) {
+		@include to-rem(padding-left padding-right, 40);
+		@include to-rem(margin-bottom, $spacing-base);
 	}
 
-	/* Prev/next nav */
+	img {border: 1px solid $color-brand;}
+}
+
+/* Thumbs */
+.flexslider--gallery-thumbs {
+	display: none;
+
+	/* Show at this breakpoint */
+	@include respond-min($non-palm) {
+		display: block;
+	}
+
+	/* JS off */
+	.no-js & {display: none;}
 
 	/* Print */
 	@media print {
-		.flex-direction-nav {display: none;}
+		display: none;
+	}
+
+		/* Slides */
+		/*
+			Note: it is okay to use `!important` here as we need to override inline styles set by jQuery plugin.
+		*/
+		.slides {
+			width: 100% !important;
+
+			li {
+				width: 75px;
+				margin-right: 5px;
+				display: inline-block !important;
+				float: none !important;
+				@extend %transition-subtle;
+				cursor: pointer;
+				border: 1px solid #dfdfdf;
+
+				/* Pseudo classes */
+				&:hover,
+				&.flex-active-slide {border-color: $color-brand;}
+			}
+		}
+}
+
+/* Pager nav */
+.flex-control-paging {
+	text-align: center;
+
+	/* Photo gallery */
+	.flexslider--gallery & {
+		@include to-rem(padding-top, $spacing-base);
+
+		/* Hide for photo gallery at this breakpoint */
+		@include respond-min($non-palm) {
+			display: none;
+		}
+	}
+
+	/* Print */
+	@media print {
+		display: none;
+	}
+
+	/* Pager nav items */
+	li {
+		display: inline-block;
+		@include to-rem(margin-right, $spacing-half);
+
+		/* Turn off spacing for last child */
+		&:last-child {margin-right: 0;}
+	}
+
+		/* Links */
+		a {
+			text-indent: $off-screen-distance;
+			display: block;
+			width: 8px;
+			height: 8px;
+			overflow: hidden;
+			border-radius: 100%;
+			background-color: #dfdfdf;
+
+			/* Pseudo classes + active state */
+			&:hover,
+			&:focus,
+			&.flex-active {background-color: $color-dark-txt;}
+		}
+}
+
+/* Prev/next */
+.flex-direction-nav {
+
+	/* Print */
+	@media print {
+		display: none;
 	}
 
 	/* Links */
-	.flex-direction-nav a {
-		@extend %img-replacement-alt;
-		width: 27px;
-		height: 40px;
-		overflow: hidden;
+	.icon {
 		position: absolute;
 		top: 50%;
-		margin-top: -20px; /* Note: this equals half of what the height is */
-		background-color: #fff;
+		//background: red;
 
-		/* Pseudo classes */
-		&:hover,
-		&:focus {background-color: $color-brand;}
+		/* Photo gallery */
+		.flexslider--gallery & {
+			@include to-rem(left, $spacing-quarter);
+			@include to-rem(padding, 6 11);
+			@include to-rem(margin-top, -15);
+
+			/* Increase indent at this breakpoint */
+			@include respond-min($non-palm) {
+				@include to-rem(left, $spacing-half);
+			}
+		}
+
+		/* Next */
+		&.flex-next {
+			left: auto;
+
+			/* Photo gallery */
+			.flexslider--gallery & {
+				@include to-rem(right, $spacing-quarter);
+
+				/* Increase indent at this breakpoint */
+				@include respond-min($non-palm) {
+					@include to-rem(right, $spacing-half);
+				}
+			}
+		}
+
+		/* Pseudo element - chevrons */
+		&:before {
+			display: block;
+			//background: aqua;
+			@extend %transition-subtle;
+
+			/* Photo gallery */
+			.flexslider--gallery & {
+				color: $color-dark-txt;
+				@include font-size(18, 1);
+			}
+
+			/* Pseudo classes */
+			/*&:hover,
+			&:focus {}*/
+		}
 	}
-
-	/* Prev */
-	.flex-prev {left: 0;}
-
-	/* Next */
-	.flex-next {right: 0;}
+}

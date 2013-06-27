@@ -111,8 +111,9 @@ class GeomIndex
     @index(index)
 
   addAddress: (address) ->
+    address.number = address.ia.replace(/^Unit\|/, '')
     index = null
-    store = @findByNumber(address.ia)
+    store = @findByNumber(address.number)
     geom = @findByGid(address.gid)
     if store && geom && store != geom
       store.gid = geom.gid
@@ -120,11 +121,10 @@ class GeomIndex
       index = store
     else
       index = store || geom || {}
-    index.number = address.ia
+    index.number = address.number
     index.gid = address.gid
     index.address = address
     @index(index)
-
 
   addStores: (stores) ->
     @addStore(store) for store in stores

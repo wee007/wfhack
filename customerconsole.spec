@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.165
+Version:     0.0.166
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,9 @@ fi
 
 
 %changelog
+* Thu Jun 27 2013 ci <doperations@au.westfield.com> 0.0.166-1
+- add image service and file service to index page (acohen@au.westfield.com)
+
 * Thu Jun 27 2013 ci <doperations@au.westfield.com> 0.0.165-1
 - remove individual index files from services (acohen@au.westfield.com)
 - Merge pull request #65 from mwratt/feature/maps (matt.wratt@trineo.co.nz)

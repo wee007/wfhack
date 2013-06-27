@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.166
+Version:     0.0.167
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,10 @@ fi
 
 
 %changelog
+* Fri Jun 28 2013 ci <doperations@au.westfield.com> 0.0.167-1
+- Merge pull request #66 from ldewey/master (tfigueiro@au.westfield.com)
+- Robots.txt now disallows all (ldewey@au.westfield.com)
+
 * Thu Jun 27 2013 ci <doperations@au.westfield.com> 0.0.166-1
 - add image service and file service to index page (acohen@au.westfield.com)
 

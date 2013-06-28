@@ -13,9 +13,10 @@ AutoReqProv: no
 BuildRequires: git
 # Required for rake tasks (needs a javascript library)
 BuildRequires: nodejs
-# Require for javascript tests
-BuildRequires: phantomjs
 BuildArch:     noarch
+
+# Require for javascript tests
+Requires: phantomjs
 
 %define rail_home %{_var}/www
 %define appdir %{_var}/www/customerconsole

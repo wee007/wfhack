@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.167
+Version:     0.0.168
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,15 @@ fi
 
 
 %changelog
+* Fri Jun 28 2013 ci <doperations@au.westfield.com> 0.0.168-1
+- Merge pull request #67 from cpearce/master (ldewey@au.westfield.com)
+- working on product detail view (CPearce@au.westfield.com)
+- working on product detail view image carousel (CPearce@au.westfield.com)
+- adding a new extender (CPearce@au.westfield.com)
+- adding a new extender (CPearce@au.westfield.com)
+- tidying up indentation (CPearce@au.westfield.com)
+- adding new product dummy images (CPearce@au.westfield.com)
+
 * Fri Jun 28 2013 ci <doperations@au.westfield.com> 0.0.167-1
 - Merge pull request #66 from ldewey/master (tfigueiro@au.westfield.com)
 - Robots.txt now disallows all (ldewey@au.westfield.com)

@@ -156,6 +156,8 @@
 /* Large */
 .icon--lrg:before {@include font-size($font-size-lrg, 1);}
 
+.icon--xlrg:before {@include font-size(18, 1);}
+
 /* Extra large */
 .icon--giga:before {@include font-size(48, 1);}
 

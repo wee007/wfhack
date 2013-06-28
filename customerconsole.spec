@@ -15,9 +15,6 @@ BuildRequires: git
 BuildRequires: nodejs
 BuildArch:     noarch
 
-# Require for javascript tests
-Requires: phantomjs
-
 %define rail_home %{_var}/www
 %define appdir %{_var}/www/customerconsole
 

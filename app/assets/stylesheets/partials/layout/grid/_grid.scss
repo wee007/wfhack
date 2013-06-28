@@ -62,7 +62,10 @@
 .grid--gutterless > .grid__item {padding-left: 0;}
 
 /* Remove bottom margin */
-.grid--flush > .grid__item {margin-bottom: 0;}
+.grid--flush {
+	&,
+	> .grid__item {margin-bottom: 0;}
+}
 
 /* Center align */
 .grid--center > .grid__item {

@@ -14,7 +14,6 @@
 */
 
 .flexslider {
-	//background: yellow;
 	position: relative;
 
 	/* Slides container */
@@ -43,28 +42,23 @@
 
 /* Large image */
 .flexslider--gallery-lrg-img {
-	@include to-rem(padding-left padding-right, 35);
-
-	/* Increase indent at this breakpoint */
-	@include respond-min($non-palm) {
-		@include to-rem(padding-left padding-right, 40);
-		@include to-rem(margin-bottom, $spacing-base);
-	}
-
-	img {border: 1px solid $color-brand;}
+	@include to-rem(padding-left padding-right, 30);
 }
 
 /* Thumbs */
 .flexslider--gallery-thumbs {
-	display: none;
 
-	/* Show at this breakpoint */
-	@include respond-min($non-palm) {
-		display: block;
-	}
-
-	/* JS off */
+	/* Hide for palm, non JS users and when there is only 1 item */
+	&,
 	.no-js & {display: none;}
+
+	/* Show at this breakpoint when there are multiple items */
+	@include respond-min($non-palm) {
+		&.is-multiple-items {
+			display: block;
+			@include to-rem(margin-top, $spacing-half);
+		}
+	}
 
 	/* Print */
 	@media print {
@@ -79,8 +73,8 @@
 			width: 100% !important;
 
 			li {
-				width: 75px;
-				margin-right: 5px;
+				width: 76px;
+				margin-right: 3px;
 				display: inline-block !important;
 				float: none !important;
 				@extend %transition-subtle;
@@ -90,17 +84,23 @@
 				/* Pseudo classes */
 				&:hover,
 				&.flex-active-slide {border-color: $color-brand;}
+
+				/* Turn off right margin for last child */
+				&:last-child {margin-right: 0;}
 			}
+
+				img {display: block;}
 		}
 }
 
 /* Pager nav */
 .flex-control-paging {
 	text-align: center;
+	@include to-rem(height, 20);
 
 	/* Photo gallery */
 	.flexslider--gallery & {
-		@include to-rem(padding-top, $spacing-base);
+		@include to-rem(margin-top, $spacing-half);
 
 		/* Hide for photo gallery at this breakpoint */
 		@include respond-min($non-palm) {
@@ -116,7 +116,7 @@
 	/* Pager nav items */
 	li {
 		display: inline-block;
-		@include to-rem(margin-right, $spacing-half);
+		@include to-rem(margin-right, 2);
 
 		/* Turn off spacing for last child */
 		&:last-child {margin-right: 0;}
@@ -126,17 +126,28 @@
 		a {
 			text-indent: $off-screen-distance;
 			display: block;
-			width: 8px;
-			height: 8px;
+			@include to-rem(width height, 20);
 			overflow: hidden;
-			border-radius: 100%;
-			background-color: #dfdfdf;
+			position: relative;
 
-			/* Pseudo classes + active state */
-			&:hover,
-			&:focus,
-			&.flex-active {background-color: $color-dark-txt;}
+			/* Pseudo element - dots */
+			&:before {
+				content: "";
+				@include to-rem(width height, 8);
+				border-radius: 100%;
+				background-color: #dfdfdf;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				@include to-rem(margin, -4 0 0 -4);
+				@extend %transition-subtle;
+			}
 		}
+
+		/* Pseudo classes + active state */
+		a:hover:before,
+		a:focus:before,
+		.flex-active:before {background-color: $color-dark-txt;}
 }
 
 /* Prev/next */
@@ -151,39 +162,28 @@
 	.icon {
 		position: absolute;
 		top: 50%;
-		//background: red;
+		left: 0;
 
 		/* Photo gallery */
 		.flexslider--gallery & {
-			@include to-rem(left, $spacing-quarter);
 			@include to-rem(padding, 6 11);
-			@include to-rem(margin-top, -15);
+			@include to-rem(margin-top, -30.25);
 
-			/* Increase indent at this breakpoint */
+			/* Decrease negative top outdent at this breakpoint */
 			@include respond-min($non-palm) {
-				@include to-rem(left, $spacing-half);
+				@include to-rem(margin-top, -15);
 			}
 		}
 
 		/* Next */
 		&.flex-next {
 			left: auto;
-
-			/* Photo gallery */
-			.flexslider--gallery & {
-				@include to-rem(right, $spacing-quarter);
-
-				/* Increase indent at this breakpoint */
-				@include respond-min($non-palm) {
-					@include to-rem(right, $spacing-half);
-				}
-			}
+			right: 0;
 		}
 
-		/* Pseudo element - chevrons */
+		/* Pseudo element - arrows */
 		&:before {
 			display: block;
-			//background: aqua;
 			@extend %transition-subtle;
 
 			/* Photo gallery */
@@ -191,10 +191,6 @@
 				color: $color-dark-txt;
 				@include font-size(18, 1);
 			}
-
-			/* Pseudo classes */
-			/*&:hover,
-			&:focus {}*/
 		}
 	}
 }

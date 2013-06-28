@@ -78,13 +78,19 @@ $grey-light: #dfdfdf !default;
 
   /* Dividing lines */
   .detail-view__divider,
-  .detail-view__divider--top-btm {
+  .detail-view__divider--top-btm,
+  .detail-view__divider--palm {
     border-style: solid;
     border-color: $grey-dark;
     border-bottom-width: 1px;
   }
 
   .detail-view__divider--top-btm {border-top-width: 1px;}
+
+  /* Increase text size at this breakpoint */
+  @include respond-min($non-palm) {
+    .detail-view__divider--palm {border-width: 0;}
+  }
 
   /* Spacing */
   .detail-view__mrg-base {@extend %mrg-base;}

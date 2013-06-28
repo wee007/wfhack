@@ -45,6 +45,10 @@ group :development, :test do
   gem 'guard-livereload', '~> 1.4.0'
   gem 'rack-livereload', '~> 0.3.15'
   gem 'kss', git: 'https://github.com/kneath/kss.git' # Gem release pending
+  gem "jasminerice", :git => 'https://github.com/bradphelan/jasminerice.git'
+  gem 'json'
+  gem 'rb-fsevent', :require => false if RUBY_PLATFORM =~ /darwin/i
+  gem 'guard-jasmine'
 end
 
 group :test do

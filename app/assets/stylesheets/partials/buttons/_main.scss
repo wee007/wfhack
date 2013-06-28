@@ -68,5 +68,15 @@
 		&.is-disabled {background-color: $color-med-txt;}
 	}
 
-	/* Compact - reduce padding by 50% */
+	/* Compact - decrease padding */
 	.btn--main-compact {@include to-em(padding, $spacing-third $spacing-base);}
+
+	/* Large - increase top/btm padding */
+	.btn--main-lrg {@include to-em(padding-top padding-bottom, $spacing-half+$spacing-micro);}
+
+	/* Left/right padding for base `.btn--full` extender */
+	.btn--full.btn--main {
+		@include to-em(padding-left padding-right, $spacing-half+$spacing-third);
+
+		&.btn--pointer {@include to-em(padding-right, $spacing-base);}
+	}

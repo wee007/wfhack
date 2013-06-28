@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.168
+Version:     0.0.169
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,19 @@ fi
 
 
 %changelog
+* Fri Jun 28 2013 ci <doperations@au.westfield.com> 0.0.169-1
+- Merge pull request #69 from mwratt/feature/javascript_specs
+  (matt.wratt@trineo.co.nz)
+- removes phantomjs from the rpm (matt.wratt@trineo.co.nz)
+- Merge pull request #68 from mwratt/feature/javascript_specs
+  (matt.wratt@trineo.co.nz)
+- makes phantomjs a requirement (matt.wratt@trineo.co.nz)
+- Merge pull request #11 from mwratt/feature/javascript_specs
+  (matt.wratt@trineo.co.nz)
+- adds phantomjs as a dependency to run js tests (matt.wratt@trineo.co.nz)
+- includes js specs in default rake task (matt.wratt@trineo.co.nz)
+- adds jasminerice for js testing with guard for CI (matt.wratt@trineo.co.nz)
+
 * Fri Jun 28 2013 ci <doperations@au.westfield.com> 0.0.168-1
 - Merge pull request #67 from cpearce/master (ldewey@au.westfield.com)
 - working on product detail view (CPearce@au.westfield.com)

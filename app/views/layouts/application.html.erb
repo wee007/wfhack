@@ -22,7 +22,11 @@
 
 	<%= yield :custom_styles %>
 
-	<%= render "shared/javascript_detection_oldie_helpers" %>
+	<%= javascript_include_tag "vendor/modernizr.min" %>
+
+	<!--[if (lt IE 9) & (!IEMobile)]>
+	  <%= javascript_include_tag "selectivizr/selectivizr" %>
+	<![endif]-->
 
 	<!-- IE 10 tile icon: http://blogs.msdn.com/b/ie/archive/2012/06/08/high-quality-visuals-for-pinned-sites-in-windows-8.aspx -->
 	<meta name="msapplication-TileColor" content="#da291c">

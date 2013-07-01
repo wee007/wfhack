@@ -1,0 +1,9 @@
+{
+  "name": "unveil",
+  "version": "0.0.0",
+  "commit": "bd629d5662432b9c2a209ac316a172301d576f3f",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/luis-almeida/unveil.git"
+  }
+}

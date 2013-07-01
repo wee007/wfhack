@@ -2,42 +2,11 @@
 // All other requires are handled here
 
 
-/* --HELPERS-- */
-
-/*
- * Avoid `console` errors in browsers that lack a console
- * @credit  http://html5boilerplate.com/
- */
-(function() {
-	var method;
-	var noop = function () {};
-	var methods = [
-	    'assert', 'clear', 'count', 'debug', 'dir', 'dirxml', 'error',
-	    'exception', 'group', 'groupCollapsed', 'groupEnd', 'info', 'log',
-	    'markTimeline', 'profile', 'profileEnd', 'table', 'time', 'timeEnd',
-	    'timeStamp', 'trace', 'warn'
-	];
-	var length = methods.length;
-	var console = (window.console = window.console || {});
-
-	while (length--) {
-	    method = methods[length];
-
-	    // Only stub undefined methods.
-	    if (!console[method]) {
-	        console[method] = noop;
-	    }
-	}
-}());
-
-
 //= require ./support/custom-modernizr-tests
 
 // External dependencies, handled via Bower.
 // See: https://gist.github.com/benschwarz/5874031/
 
-
-    // Not palm size viewport
 //= require jquery
 //= require jquery-ujs/src/rails.js
 
@@ -58,6 +27,9 @@
 //= require ./support/svg
 //= require ./support/input-placeholder
 
+// If console is unimplemented in a browser, and someone
+// accidently leaves a log, debug, error, etc the browser won't throw & die.
+//= require ./support/console-log
 
 
 // When you need to initialize any jquery plugins or general global stuff,

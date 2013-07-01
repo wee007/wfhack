@@ -1,3 +1,5 @@
+// Modernizr included in HTML
+// All other requires are handled here
 
 // Pull in author & 3rd party files
 

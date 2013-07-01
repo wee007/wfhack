@@ -8,7 +8,6 @@
 // See: https://gist.github.com/benschwarz/5874031/
 
 //= require jquery
-//= require jquery-ujs/src/rails.js
 
 // Required for slider
 //= require jquery-ui/ui/jquery.ui.widget

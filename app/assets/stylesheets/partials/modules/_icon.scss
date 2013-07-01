@@ -66,6 +66,12 @@
 /* Map */
 .icon--map:before {content: "\e80a";}
 
+/* Map 2 */
+.icon--map2:before {content: "\e828";}
+
+/* Location */
+.icon--location:before {content: "\e82a";}
+
 /* Video */
 .icon--video:before {content: "\e800";}
 
@@ -75,11 +81,26 @@
 /* Phone */
 .icon--phone:before {content: "\e801";}
 
+/* Phone2 */
+.icon--phone2:before {content: "\e82c";}
+
 /* Hours */
 .icon--hours:before {content: "\e80b";}
 
 /* Signout */
 .icon--signout:before {content: "\e802";}
+
+/* List */
+.icon--list:before {content: "\e829";}
+
+/* Comment */
+.icon--comment:before {content: "\e818";}
+
+/* Email */
+.icon--email:before {content: "\e823";}
+
+/* Link */
+.icon--link:before {content: "\e82b";}
 
 /* Twitter */
 .icon--twitter:before {content: "\e822";}
@@ -92,12 +113,6 @@
 
 /* Pinterest */
 .icon--pinterest:before {content: "\e821";}
-
-/* Comment */
-.icon--comment:before {content: "\e818";}
-
-/* Email */
-.icon--email:before {content: "\e823";}
 
 /* Close large */
 .icon--close-lrg:before {content: "\e817";}
@@ -114,8 +129,14 @@
 /* Tick full */
 .icon--tick-full:before {content: "\e81e";}
 
+/* Arrow up */
+.icon--arrow-up:before {content: "\e824";}
+
 /* Arrow down */
 .icon--arrow-down:before {content: "\e80c";}
+
+/* Arrow left */
+.icon--arrow-left:before {content: "\e826";}
 
 /* Arrow right */
 .icon--arrow-right:before {content: "\e80d";}
@@ -126,8 +147,14 @@
 /* Arrow big right */
 .icon--arrow-right-big:before {content: "\e80f";}
 
+/* Arrow down up */
+.icon--arrow-up-full:before {content: "\e825";}
+
 /* Arrow down full */
 .icon--arrow-down-full:before {content: "\e819";}
+
+/* Arrow down left */
+.icon--arrow-left-full:before {content: "\e827";}
 
 /* Arrow down right */
 .icon--arrow-right-full:before {content: "\e81a";}

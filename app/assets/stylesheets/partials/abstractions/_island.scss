@@ -32,6 +32,13 @@
   padding-right: 0;
 }
 
+/* --Turn off padding-- */
+
+/* Bottom - palm only */
+@include respond-max($palm) {
+	.island--btm-palm {padding-bottom: 0;}
+}
+
 /* Mix em up */
 .island-tops {@include to-rem(padding-top padding-bottom, $spacing-base);}
 

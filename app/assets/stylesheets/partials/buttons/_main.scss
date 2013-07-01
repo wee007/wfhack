@@ -74,9 +74,13 @@
 	/* Large - increase top/btm padding */
 	.btn--main-lrg {@include to-em(padding-top padding-bottom, $spacing-half+$spacing-micro);}
 
-	/* Left/right padding for base `.btn--full` extender */
-	.btn--full.btn--main {
-		@include to-em(padding-left padding-right, $spacing-half+$spacing-third);
+	/* Flanked - position 2 icons either ends, has to be used with the `.btn--pointer` base extender */
+	.btn.btn--main-flanked {
+		@include to-em(padding, $spacing-half+$spacing-micro+$spacing-micro $spacing-dbl);
 
-		&.btn--pointer {@include to-em(padding-right, $spacing-base);}
+		/* Arrow icon */
+		.btn--pointer__icon + .btn--pointer__icon {
+			@include to-em(left, $spacing-half);
+			right: auto;
+		}
 	}

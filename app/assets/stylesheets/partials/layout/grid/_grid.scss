@@ -78,6 +78,22 @@
 /* Reversed */
 .grid--rev > .grid__item {float: right;}
 
+/* Change stacking order for palm - only works for 2 cols */
+@include respond-max($palm) {
+	.grid--rev-stack {
+		display: table;
+		width: 100%;
+
+		> .grid__item {
+			float: none;
+			width: 100%;
+			display: table-footer-group;
+		}
+
+		> .grid__item + .grid__item {display: table-caption;}
+	}
+}
+
 /* Table */
 .grid--table {
 	display: table;

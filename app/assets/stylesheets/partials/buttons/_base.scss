@@ -44,6 +44,8 @@
 		padding-right: 0;
 	}
 
+	&.btn--full-left {text-align: left;}
+
 	/* Small and large sizes */
 	&.btn--sml {@include font-size($font-size-sml, normal);}
 
@@ -51,4 +53,23 @@
 
 	/* Apply right spacing for adjacent buttons */
 	&.btn--spacing {margin-right: to-em($spacing-quarter);}
+
+	/* Used when you need to position an arrow icon over to the far right */
+	&.btn--pointer {
+		position: relative;
+		@include to-em(padding-right, $spacing-base);
+
+		/* Arrow icon */
+		.btn--pointer__icon {
+			position: absolute;
+			@include to-em(right, $spacing-half);
+			top: 50%;
+			@include translate(0, -50%);
+
+			/* Old IE */
+			@include old-ie {
+				top: 28%;
+			}
+		}
+	}
 }

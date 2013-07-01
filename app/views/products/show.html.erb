@@ -1,118 +1,182 @@
-<div class="grid grid--gutterless grid--rev grid--flush">
+<div class="js-toggle-detail-view detail-view__divider">
 
-  <!-- Product name, brand, price, location and contact -->
-  <div class="grid__item non-palm-two-fifths">
+  <!-- Col 1# -->
+  <div class="detail-view__divider--col grid grid--gutterless grid--rev-stack grid--rev grid--flush">
 
-    <!-- Product name, brand and price -->
-    <header class="island island--top-btm detail-view__divider">
-      <div class="container">
+    <!-- Product name, brand, price, location and contact -->
+    <div class="grid__item non-palm-two-fifths">
+
+      <!-- Product name, brand and price -->
+      <header class="island detail-view__divider">
         <h2 class="detail-view__hdr hn detail-view__mrg-half" id="detail-view__hdr">Sieynna Boot</h2>
         <p class="detail-view__meta"><span class="detail-view__subtle-txt">from</span> Saba <em>$499.00</em></p>
-      </div>
-    </header>
-    <!-- //Product name, brand and price -->
+      </header>
+      <!-- //Product name, brand and price -->
 
-    <!-- Store location -->
-    <div class="store-location detail-view__divider">
-      <div class="box hide-fully">
-          <img src="/assets/dummy/retailer-logo.png" alt="">
-          <p>Open till <time datetime="">6pm</time> tonight</p>
-          <a href="#" class="btn btn--main btn--main-alt2"><span class="icon icon--store icon--lrg icon--spacing-lrg" aria-hidden="true"></span> Store map</a>
+      <!-- Store location -->
+      <div class="store-location detail-view__divider" style="height: 220px; background: url(/assets/dummy/map-tile.png) no-repeat; background-size: cover;">
+
       </div>
-      <img src="/assets/dummy/map-tile.png" alt="">
+      <!-- //Store location -->
+
+      <!-- Contact store -->
+      <div class="island island--fill island--center islet-tops detail-view__divider">
+        <span class="hide-fully--non-palm">
+          <a href="tel:0298311525" class="btn btn--full btn--main btn--main-alt2 btn--main-lrg"><span class="icon icon--phone icon--xlrg icon--spacing-lrg icon--flush-top" aria-hidden="true"></span><strong>Call SABA</strong></a>
+        </span>
+        <p class="detail-view__check-avble hide-fully--palm"><span class="detail-view__subtle-txt">Check store availability</span> <em><span class="icon icon--phone icon--lrg icon--spacing" aria-hidden="true"></span> 02 9381 1525</em></p>
+      </div>
+      <!-- //Contact store -->
+
+      <!-- Store link -->
+      <div class="island island--center detail-view__divider--palm">
+        <a href="#" class="btn btn--pointer btn--full btn--full-left btn--main btn--main-alt2 btn--main-lrg btn--main-flanked" rel="external">Buy from Saba<span class="icon icon--arrow-right-big icon--lrg btn--pointer__icon" aria-hidden="true"></span><span class="icon icon--link icon--xlrg icon--flush-top btn--pointer__icon" aria-hidden="true"></span></a>
+      </div>
+      <!-- //Store link -->
+
     </div>
-    <!-- //Store location -->
+    <!-- //Product name, brand, price, location and contact -->
+
+    <!-- Product images -->
+    <div class="grid__item non-palm-three-fifths">
+
+      <div class="island island--top-btm detail-view__divider--palm">
+        <!-- Flexslider -->
+        <div class="flexslider flexslider--gallery flexslider--gallery-lrg-img">
+          <ul class="slides">
+            <!-- [BACK END] 4 images is the max, dimensions are 469px x 474px and `alt` attr's need to be dynamically populated e.g. 'Product name photo' -->
+            <li><img src="/assets/dummy/product.jpg" alt=""></li>
+            <li><img src="/assets/dummy/product2.jpg" alt=""></li>
+            <li><img src="/assets/dummy/product3.jpg" alt=""></li>
+          </ul>
+        </div>
+        <div class="flexslider flexslider--gallery flexslider--gallery-thumbs">
+          <ul class="slides">
+            <li><img src="/assets/dummy/product.jpg" alt=""></li>
+            <li><img src="/assets/dummy/product2.jpg" alt=""></li>
+            <li><img src="/assets/dummy/product3.jpg" alt=""></li>
+          </ul>
+        </div>
+        <!-- //Flexslider -->
+      </div>
+
+    </div>
+    <!-- //Product images -->
+
+    <span class="detail-view__divider--col-line hide-fully--palm"></span>
 
   </div>
-  <!-- //Product name, brand, price, location and contact -->
+  <!-- //Col 1# -->
 
-  <!-- Product images -->
-  <div class="grid__item non-palm-three-fifths">
-    <div class="island island--top-btm">
-      <!-- Flexslider -->
-      <div class="flexslider flexslider--gallery flexslider--gallery-lrg-img">
-        <ul class="slides">
-          <!-- [BACK END] images are 469px x 474px and `alt` attr's need to be dynamically populated e.g. 'Product name photo' -->
-          <li><img src="/assets/dummy/product.jpg" alt=""></li>
-          <li><img src="/assets/dummy/product2.jpg" alt=""></li>
-          <li><img src="/assets/dummy/product3.jpg" alt=""></li>
-          <!-- <li><img src="/assets/dummy/product.jpg" alt=""></li> -->
+  <!-- Col 2# -->
+  <div class="grid grid--gutterless grid--rev grid--flush">
+
+    <!-- Available Colours -->
+    <div class="detail-view__divider--top-non-palm grid__item non-palm-two-fifths">
+      <div class="island island--btm-palm">
+        <h3 class="detail-view__hdr-sub hn">Available Colours</h3>
+        <ul class="horiz-list horiz-list--comma">
+          <li><strong>Black</strong></li><!--
+          --><li><strong>Blue</strong></li>
         </ul>
       </div>
-      <div class="flexslider flexslider--gallery flexslider--gallery-thumbs">
-        <ul class="slides">
-          <li><img src="/assets/dummy/product.jpg" alt=""></li>
-          <li><img src="/assets/dummy/product2.jpg" alt=""></li>
-          <li><img src="/assets/dummy/product3.jpg" alt=""></li>
-          <!-- <li><img src="/assets/dummy/product.jpg" alt=""></li> -->
-        </ul>
-      </div>
-      <!-- //Flexslider -->
     </div>
+    <!-- //Available Colours -->
+
+    <!-- Description -->
+    <div class="detail-view__desc detail-view__divider--top-non-palm grid__item non-palm-three-fifths">
+      <div class="island">
+        <h3 class="detail-view__hdr-sub hn">Description</h3>
+        <p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Aenean lacinia bibendum nulla sed consectetur. Maecenas faucibus mollis interdum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula.</p>
+      </div>
+    </div>
+    <!-- //Description -->
+
   </div>
-  <!-- //Product images -->
+  <!-- //Col 2# -->
 
 </div>
+
+<!-- Availability -->
+<div class="island js-toggle-detail-view">
+  <h3 class="detail-view__hdr-sub hn">Also available at</h3>
+  <!-- [BACK END] only use a list when they're multiple items -->
+  <ul>
+    <li><a href="#" class="centres-list"><span class="icon icon--pin icon--lrg icon--spacing-lrg" aria-hidden="true"></span>Eastgardens<span class="icon icon--arrow-right icon--lrg" aria-hidden="true"></span></a></li>
+    <li><a href="#" class="centres-list"><span class="icon icon--pin icon--lrg icon--spacing-lrg" aria-hidden="true"></span>Warringah Mall<span class="icon icon--arrow-right icon--lrg" aria-hidden="true"></span></a></li>
+    <li><a href="#" class="centres-list"><span class="icon icon--pin icon--lrg icon--spacing-lrg" aria-hidden="true"></span>Bondi Junction<span class="icon icon--arrow-right icon--lrg" aria-hidden="true"></span></a></li>
+  </ul>
+</div>
+<!-- //Availability -->
 
 <%- content_for :javascript do -%>
   <!-- Run 'Flexslider' plugin -->
   <%= javascript_include_tag 'vendor/jquery.flexslider' %>
   <script>
-    // Run 'Flexslider' plugin
     $(window).load(function() {
 
-      // Thumbnails
-      $('.flexslider--gallery-thumbs').flexslider({
-        animation: 'slide',
-        animationSpeed: 200,
-        multipleKeyboard: true,
-        controlNav: false,
-        directionNav: false,
-        itemWidth: 75,
-        itemMargin: 5,
-        slideshow: false,
-        asNavFor: '.flexslider--gallery-lrg-img',
-        // Do stuff when the slider loads the first slide
-        start: function(slider) {
-          // Add some ARIA
-          slider.container.attr('role', 'listbox');
-          slider.slides.attr({'role': 'option', 'aria-selected': 'false'});
-          slider.slides.eq(slider.currentSlide).attr('aria-selected', 'true');
-        }
-      });
+      // Get the count of flexslider items
+      var flexsliderItemsCount = $('.flexslider .slides li').length;
+      // Flexslider thumbs
+      var flexsliderThumbs = $('.flexslider--gallery-thumbs');
 
-      // Large image
-      $('.flexslider--gallery-lrg-img').flexslider({
-        animationSpeed: 400,
-        multipleKeyboard: true,
-        controlNav: true,
-        slideshow: false,
-        sync: '.flexslider--gallery-thumbs',
-        prevText: '<span class="hide-visually">Previous</span>',
-        nextText: '<span class="hide-visually">Next</span>',
-        // Do stuff when the slider loads the first slide
-        start: function(slider) {
-          // Add some ARIA
-          slider.container.attr('role', 'listbox');
-          slider.slides.attr({'role': 'option', 'aria-selected': 'false'});
-          slider.slides.eq(slider.currentSlide).attr('aria-selected', 'true');
-          slider.controlNav.attr({'href' : '#', 'role' : 'button'});
-          slider.directionNav.attr('role', 'button');
-          // Inject classes into prev/next buttons
-          $('.flexslider--gallery-lrg-img').find('.flex-prev').addClass('icon icon--arrow-left-big icon--flush-top'); // prev
-          $('.flexslider--gallery-lrg-img').find('.flex-next').addClass('icon icon--arrow-right-big icon--flush-top'); // next
-        },
-        // Do stuff asynchronously with each slider animation
-        before: function(slider) {
-          $('.flexslider--gallery-thumbs').find('.flex-active-slide').attr('aria-selected', 'false');
-        },
-        // Do stuff after each slider animation completes
-        after: function(slider) {
-          slider.slides.attr('aria-selected', 'false');
-          slider.slides.eq(slider.currentSlide).attr('aria-selected', 'true');
-          $('.flexslider--gallery-thumbs').find('.flex-active-slide').attr('aria-selected', 'true');
-        }
-      });
+      // Only initialise flexslider if more than 1 item
+      if (flexsliderItemsCount > 2) {
+
+        // Thumbnails
+        flexsliderThumbs.addClass('is-multiple-items');
+        $('.flexslider--gallery-thumbs').flexslider({
+          animation: 'slide',
+          animationSpeed: 200,
+          multipleKeyboard: true,
+          controlNav: false,
+          directionNav: false,
+          itemWidth: 76,
+          itemMargin: 3,
+          slideshow: false,
+          asNavFor: '.flexslider--gallery-lrg-img',
+          // Do stuff when the slider loads the first slide
+          start: function(slider) {
+            // Add some ARIA
+            slider.container.attr('role', 'listbox');
+            slider.slides.attr({'role': 'option', 'aria-selected': 'false'});
+            slider.slides.eq(slider.currentSlide).attr('aria-selected', 'true');
+          }
+        });
+
+        // Large image
+        $('.flexslider--gallery-lrg-img').flexslider({
+          animationSpeed: 50,
+          multipleKeyboard: true,
+          slideshow: false,
+          sync: '.flexslider--gallery-thumbs',
+          prevText: '<span class="hide-visually">Previous</span>',
+          nextText: '<span class="hide-visually">Next</span>',
+          // Do stuff when the slider loads the first slide
+          start: function(slider) {
+            // Add some ARIA
+            slider.container.attr('role', 'listbox');
+            slider.slides.attr({'role': 'option', 'aria-selected': 'false'});
+            slider.slides.eq(slider.currentSlide).attr('aria-selected', 'true');
+            slider.controlNav.attr({'href' : '#', 'role' : 'button'});
+            slider.directionNav.attr('role', 'button');
+            // Inject classes into prev/next buttons
+            $('.flexslider--gallery-lrg-img').find('.flex-prev').addClass('icon icon--arrow-left-big icon--flush-top'); // prev
+            $('.flexslider--gallery-lrg-img').find('.flex-next').addClass('icon icon--arrow-right-big icon--flush-top'); // next
+          },
+          // Do stuff asynchronously with each slider animation
+          before: function(slider) {
+            $('.flexslider--gallery-thumbs').find('.flex-active-slide').attr('aria-selected', 'false');
+          },
+          // Do stuff after each slider animation completes
+          after: function(slider) {
+            slider.slides.attr('aria-selected', 'false');
+            slider.slides.eq(slider.currentSlide).attr('aria-selected', 'true');
+            $('.flexslider--gallery-thumbs').find('.flex-active-slide').attr('aria-selected', 'true');
+          }
+        });
+
+      }
 
     });
   </script>

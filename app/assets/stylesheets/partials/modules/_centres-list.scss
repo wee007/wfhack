@@ -1,0 +1,39 @@
+/* ======================================================================================
+   @MODULES -> CENTRES LIST
+   ====================================================================================== */
+
+/*
+	Usage:
+		List of shopping centres.
+
+	Note:
+		For most cases this module will be a list but they're cases when there can be a single item hence no styling is set on the list HTML (`ul/li`).
+
+	Demo:
+		Style Guide -> Modules -> Centres List
+*/
+
+.centres-list {
+	color: $color-dark-txt;
+	@include font-size($font-size-sml, 1.5);
+	font-weight: bold;
+	display: block;
+	border-bottom: 1px solid #dfdfdf;
+	@include to-rem(padding-top padding-bottom, $spacing-quarter);
+
+	/* Increase padding at this breakpoint */
+	@include respond-min($non-palm) {
+    @include to-rem(padding-top padding-bottom, $spacing-third);
+
+    /* Increase right spacing for icon */
+  	.icon--spacing-lrg:before {margin-right: to-em($spacing-half);}
+  }
+
+  /* Webkit */
+  @include target-webkit {
+		.icon--spacing-lrg:before {top: -2px;}
+	}
+
+  /* Position arrow icon over to the right */
+  .icon--arrow-right {float: right;}
+}

@@ -34,15 +34,6 @@ $grey-light: #dfdfdf !default;
 
   /* --Global rules-- */
 
-  /* Turn off container rules and pad out for inner container at this breakpoint */
-  @include respond-min($non-palm) {
-    .container {
-      width: auto;
-      max-width: none;
-      @include to-rem(padding-left padding-right, $spacing-base);
-    }
-  }
-
   /* Off with bottom margins */
   p {margin-bottom: 0;}
 
@@ -76,20 +67,42 @@ $grey-light: #dfdfdf !default;
     }
   }
 
-  /* Dividing lines */
+  /* --Dividing lines-- */
   .detail-view__divider,
   .detail-view__divider--top-btm,
-  .detail-view__divider--palm {
+  .detail-view__divider--palm,
+  .detail-view__divider--top-non-palm {
     border-style: solid;
     border-color: $grey-dark;
     border-bottom-width: 1px;
   }
 
+  /* Top & bottom */
   .detail-view__divider--top-btm {border-top-width: 1px;}
 
-  /* Increase text size at this breakpoint */
+  /* Top only */
+  .detail-view__divider--top-non-palm {border-width: 1px 0 0 0;}
+
+  /* Dividers only at these breakpoints */
   @include respond-min($non-palm) {
     .detail-view__divider--palm {border-width: 0;}
+  }
+
+  @include respond-max($palm) {
+    .detail-view__divider--top-non-palm {border-width: 0;}
+  }
+
+  /* Divider for columns at this breakpoint */
+  @include respond-min($non-palm) {
+    .detail-view__divider--col {position: relative;}
+
+      .detail-view__divider--col-line {
+        position: absolute;
+        top: 0;
+        background-color: $grey-dark;
+        width: 1px;
+        height: 100%;
+      }
   }
 
   /* Spacing */
@@ -107,6 +120,24 @@ $grey-light: #dfdfdf !default;
 
   /* Subtle text */
   .detail-view__subtle-txt {color: $color-light-txt;}
+
+  /* Check store availability */
+  .detail-view__check-avble {
+
+    .detail-view__subtle-txt {@include font-size($font-size-sml);}
+
+    /* Phone no + icon */
+    em {
+      @include font-size($font-size-lrg);
+      display: block;
+
+      /* Make inline and create left spacing at this breakpoint */
+      @include respond-min(900) {
+        display: inline;
+        @include to-rem(margin-left, $spacing-base);
+      }
+    }
+  }
 
   /* --Controls-- */
   .detail-view__controls {
@@ -165,6 +196,9 @@ $grey-light: #dfdfdf !default;
 
   /* -Product- */
   .detail-view--product {
+
+    /* Divider for columns */
+    .detail-view__divider--col-line {left: 60%;}
 
     /* Meta */
     .detail-view__meta em {

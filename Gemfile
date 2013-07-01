@@ -49,6 +49,7 @@ group :development, :test do
   gem 'json'
   gem 'rb-fsevent', :require => false if RUBY_PLATFORM =~ /darwin/i
   gem 'guard-jasmine'
+  gem 'phantomjs-binaries', git: 'git@github.dbg.westfield.com:mwratt/phantomjs-binaries.git', branch: 'master'
 end
 
 group :test do

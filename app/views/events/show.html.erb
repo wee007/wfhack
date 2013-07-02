@@ -27,3 +27,20 @@
       <h3 class="detail-view__hdr-sub hn">Event Schedule</h3>
     </div>
 </div>
+
+
+<div class="container timelines">
+  <dl class="timelines__timeline">
+    <dt class="timelines__day">
+      <%= @event.start_day_of_week %>
+      <div class="timelines__day__date">
+        <time datetime="<%= @event.start %>">
+        <em><%= @event.start_day %></em>
+        <%= @event.start_month %>
+      </div>
+    </dt>
+    <dd class="timelines__time">
+      <%= @event.start_time %>
+    </dd>
+  </dl>
+</div>

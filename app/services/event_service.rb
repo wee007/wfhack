@@ -15,5 +15,15 @@ class EventService
       end
 
     end
+
+    def build(json_response)
+      response = super(json_response)
+      if response.is_a? Array
+        response.map { |event| Event.new event }
+      else
+        Event.new response
+      end
+    end
+
   end
 end

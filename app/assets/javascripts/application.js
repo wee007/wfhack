@@ -4,6 +4,11 @@
 
 //= require ./support/custom-modernizr-tests
 
+// Conditional support
+//= require ./support/mediaqueries
+//= require ./support/svg
+//= require ./support/input-placeholder
+
 // External dependencies, handled via Bower.
 // See: https://gist.github.com/benschwarz/5874031/
 
@@ -13,11 +18,6 @@
 //= require enquire
 //= require unveil/jquery.unveil.js
 //= require ./vendor/jquery.isotope.gutters
-
-// Conditional support
-//= require ./support/matchmedia
-//= require ./support/svg
-//= require ./support/input-placeholder
 
 // If console is unimplemented in a browser, and someone
 // accidently leaves a log, debug, error, etc the browser won't throw & die.

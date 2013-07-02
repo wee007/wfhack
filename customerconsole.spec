@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.170
+Version:     0.0.171
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,72 @@ fi
 
 
 %changelog
+* Wed Jul 03 2013 ci <doperations@au.westfield.com> 0.0.171-1
+- Merge pull request #76 from cpearce/master (ldewey@au.westfield.com)
+- Merge pull request #75 from mwratt/feature/maps (ldewey@au.westfield.com)
+- updating to matchMedia.addListener for enquire lib (CPearce@au.westfield.com)
+- removing angular, changing ios hook name and updating flexslider path
+  (CPearce@au.westfield.com)
+- Use jQuery 1.10.1 rather than 2 (ben@germanforblack.com)
+- Merge branch 'master' of github.dbg.westfield.com:digital/customer_console
+  (ben@germanforblack.com)
+- working on product detail view (CPearce@au.westfield.com)
+- fixing up some device/Old IE/Non JS issues (CPearce@au.westfield.com)
+- Merge pull request #78 from bschwarz/add-flexslider
+  (cpearce@au.westfield.com)
+- Added flex slider (ben@germanforblack.com)
+- Merge pull request #77 from bschwarz/remove-jquery-ui
+  (ben@germanforblack.com)
+- Kill Unicorn. kgio wouldn't install on windows and nobody used unicorn anyway
+  (cwalsh2@au.westfield.com)
+- Remove jquery-ui (ben@germanforblack.com)
+- adds specs for the custom theme (matt.wratt@trineo.co.nz)
+- adds custom theming to maps (matt.wratt@trineo.co.nz)
+- Styles for the timeline (ldewey@au.westfield.com)
+- Added a event model, to model the time. (ldewey@au.westfield.com)
+- adds some basic tests (matt.wratt@trineo.co.nz)
+- Use digital/phantomjs-binaries (cwalsh2@au.westfield.com)
+- Timeline wip (ldewey@au.westfield.com)
+- Merge remote-tracking branch 'origin' into introducing-bower
+  (ben@germanforblack.com)
+- .css.scss created issues (ldewey@au.westfield.com)
+- working on product detail view (CPearce@au.westfield.com)
+- fixing indentation (CPearce@au.westfield.com)
+- adding a new extender (CPearce@au.westfield.com)
+- tweaking base and main button styles (CPearce@au.westfield.com)
+- adding a new extender (CPearce@au.westfield.com)
+- adding new icons (CPearce@au.westfield.com)
+- adding a new module (CPearce@au.westfield.com)
+- working on product detail view (CPearce@au.westfield.com)
+- adding a new size extender (CPearce@au.westfield.com)
+- fixing an extender (CPearce@au.westfield.com)
+- adding new extenders (CPearce@au.westfield.com)
+- adding a new extender (CPearce@au.westfield.com)
+- Rename enquire-blackberry to enquire (ben@germanforblack.com)
+- Moved oldie helpers to a partial for the style guide layout
+  (ben@germanforblack.com)
+- No more ujs in the bower manifest (ben@germanforblack.com)
+- Robots.txt now disallows all (ldewey@au.westfield.com)
+- Remove ujs (ben@germanforblack.com)
+- Add conditional support for match media, placeholder and svg
+  (ben@germanforblack.com)
+- Get slider styles from ./vendor (ben@germanforblack.com)
+- Add console.log fallback (ben@germanforblack.com)
+- Replace javascript libs with bower counterparts (ben@germanforblack.com)
+- Moved tests to modernizr and "support" directory (ben@germanforblack.com)
+- Added notes (ben@germanforblack.com)
+- Move add bower references to items previously handled in rubygems
+  (ben@germanforblack.com)
+- Remove script supplied by rubygems (ben@germanforblack.com)
+- Added moderniser and moved javascript detection oldie helpers to
+  application.html.erb * Selectivizr from bower package
+  (ben@germanforblack.com)
+- Remove cloudflare dns prefetch (ben@germanforblack.com)
+- Added bower support (ben@germanforblack.com)
+- fixes js specs to run correctly (matt.wratt@trineo.co.nz)
+- includes js specs in default rake task (matt.wratt@trineo.co.nz)
+- adds jasminerice for js testing with guard for CI (matt.wratt@trineo.co.nz)
+
 * Mon Jul 01 2013 ci <doperations@au.westfield.com> 0.0.170-1
 - adds phantomjs binaries (matt.wratt@trineo.co.nz)
 

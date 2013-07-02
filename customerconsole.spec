@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.172
+Version:     0.0.173
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,10 @@ fi
 
 
 %changelog
+* Wed Jul 03 2013 ci <doperations@au.westfield.com> 0.0.173-1
+- Merge pull request #81 from mwratt/master (matt.wratt@trineo.co.nz)
+- excludes phantomjs binaries from rpm build (matt.wratt@trineo.co.nz)
+
 * Wed Jul 03 2013 ci <doperations@au.westfield.com> 0.0.172-1
 - removes example file (matt.wratt@trineo.co.nz)
 

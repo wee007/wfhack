@@ -1,4 +1,4 @@
-class Map
+class window.Map
 
   key: '458dc5a4-547f-4fb7-a760-575d8176f70b'
   themeFamily: 'Standard'
@@ -140,5 +140,3 @@ wait = (callback, ready) ->
   do ->
     return callback() if ready()
     setTimeout(arguments.callee, 0)
-
-window.map = new Map

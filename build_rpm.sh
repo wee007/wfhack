@@ -1,6 +1,6 @@
 rm -rf /tmp/tito/
 gem install bundler --no-ri --no-rdoc
-bundle install
+bundle install --without test
 sudo yum-builddep *.spec --nogpgcheck -y
 git checkout master
 tito tag --accept-auto-changelog

@@ -15,7 +15,6 @@
 //= require jquery
 
 //= require isotope/jquery.isotope.js
-//= require enquire
 //= require unveil/jquery.unveil.js
 //= require ./vendor/jquery.isotope.gutters
 
@@ -30,4 +29,3 @@
 //= require ./init/header
 //= require ./init/unveil
 //= require ./init/tiles
-//= require ./init/enquire

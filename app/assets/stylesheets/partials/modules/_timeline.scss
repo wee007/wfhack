@@ -1,10 +1,11 @@
 .timelines {
-
+  @include to-rem(padding-bottom, $spacing-half);
+  @include to-rem(margin-bottom, $spacing-half);
+  @extend %clear-fix;
 }
 .timelines__timeline {
   position: relative;
-  @include to-rem(padding-left, 100);
-
+  @include to-rem(padding-left, 115);
 }
 .timelines__day {
   @include to-rem(margin-bottom, $spacing-quarter);
@@ -14,12 +15,12 @@
   background-color: black;
   color: white;
   text-align: center;
-  left: 0;
   top: 0;
   border-radius: 50%;
   text-transform: uppercase;
   font-weight: normal;
   padding-top: 18px;
+  @include to-rem(left, 15);
   @include to-rem(width, 75);
   @include to-rem(height, 75);
   @include font-size(14);

@@ -32,11 +32,16 @@
 }
 
 #map {
-  background-color: #fff;
+  $background-color: #e9e6e3; 
+  background-color: $background-color;
   position: absolute;
   @include to-rem(top, 110);
   bottom: 0;
   @include to-rem(left, 450);
   right: 0;
+
+  #micello-map #ui-levels-floors-container {
+    background-color: $background-color;
+  }
 }
 

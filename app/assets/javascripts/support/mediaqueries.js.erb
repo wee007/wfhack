@@ -1,0 +1,12 @@
+Modernizr.load([
+  {
+    test: (!!window.matchMedia),
+    nope: [
+      '<%= asset_path "matchMedia/matchMedia.js" %>',
+      '<%= asset_path "matchMedia/matchMedia.addListener.js" %>'
+    ]
+  },
+  {
+    load: ['<%= asset_path "enquire" %>', '<%= asset_path "init/enquire" %>']
+  }
+]);

@@ -42,7 +42,9 @@
 
 	/* --Extenders-- */
 
-	/* Alternate */
+	/* -Alternates- */
+
+	/* Subtle */
 	.btn--main-alt {
 		box-shadow: inset 0 -1px 0 rgba(#000, 0.15);
 
@@ -58,5 +60,27 @@
 		&:focus {color: $color-dark-txt;}
 	}
 
-	/* Compact - reduce padding by 50% */
+	/* Dark */
+	.btn--main-alt2 {
+		/* Bg colour combined with disabled state */
+		&,
+		&[disabled],
+		&.is-disabled {background-color: $color-med-txt;}
+	}
+
+	/* Compact - decrease padding */
 	.btn--main-compact {@include to-em(padding, $spacing-third $spacing-base);}
+
+	/* Large - increase top/btm padding */
+	.btn--main-lrg {@include to-em(padding-top padding-bottom, $spacing-half+$spacing-micro);}
+
+	/* Flanked - position 2 icons either ends, has to be used with the `.btn--pointer` base extender */
+	.btn.btn--main-flanked {
+		@include to-em(padding, $spacing-half+$spacing-micro+$spacing-micro $spacing-dbl);
+
+		/* Arrow icon */
+		.btn--pointer__icon + .btn--pointer__icon {
+			@include to-em(left, $spacing-half);
+			right: auto;
+		}
+	}

@@ -18,6 +18,14 @@ GIT
     service_helper (0.0.1)
 
 GIT
+  remote: git@github.dbg.westfield.com:mwratt/phantomjs-binaries.git
+  revision: 04908bf9c946d83f1481daa05bb20dcebfc6c191
+  branch: master
+  specs:
+    phantomjs-binaries (1.9.1.1)
+      sys-uname (= 0.9.0)
+
+GIT
   remote: https://github.com/bradphelan/jasminerice.git
   revision: 13ae61378afdf66aed7eb945172eb1f5c75b451b
   specs:
@@ -218,6 +226,8 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (~> 2.8)
+    sys-uname (0.9.0)
+      ffi (>= 1.0.0)
     thor (0.18.1)
     thread_safe (0.1.0)
       atomic
@@ -257,6 +267,7 @@ DEPENDENCIES
   kaminari
   kss!
   nokogiri
+  phantomjs-binaries!
   pry
   pry-remote
   rack-livereload (~> 0.3.15)

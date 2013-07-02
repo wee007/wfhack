@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.163
+Version:     0.0.170
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,47 @@ fi
 
 
 %changelog
+* Mon Jul 01 2013 ci <doperations@au.westfield.com> 0.0.170-1
+- adds phantomjs binaries (matt.wratt@trineo.co.nz)
+
+* Fri Jun 28 2013 ci <doperations@au.westfield.com> 0.0.169-1
+- Merge pull request #69 from mwratt/feature/javascript_specs
+  (matt.wratt@trineo.co.nz)
+- removes phantomjs from the rpm (matt.wratt@trineo.co.nz)
+- Merge pull request #68 from mwratt/feature/javascript_specs
+  (matt.wratt@trineo.co.nz)
+- makes phantomjs a requirement (matt.wratt@trineo.co.nz)
+- Merge pull request #11 from mwratt/feature/javascript_specs
+  (matt.wratt@trineo.co.nz)
+- adds phantomjs as a dependency to run js tests (matt.wratt@trineo.co.nz)
+- includes js specs in default rake task (matt.wratt@trineo.co.nz)
+- adds jasminerice for js testing with guard for CI (matt.wratt@trineo.co.nz)
+
+* Fri Jun 28 2013 ci <doperations@au.westfield.com> 0.0.168-1
+- Merge pull request #67 from cpearce/master (ldewey@au.westfield.com)
+- working on product detail view (CPearce@au.westfield.com)
+- working on product detail view image carousel (CPearce@au.westfield.com)
+- adding a new extender (CPearce@au.westfield.com)
+- adding a new extender (CPearce@au.westfield.com)
+- tidying up indentation (CPearce@au.westfield.com)
+- adding new product dummy images (CPearce@au.westfield.com)
+
+* Fri Jun 28 2013 ci <doperations@au.westfield.com> 0.0.167-1
+- Merge pull request #66 from ldewey/master (tfigueiro@au.westfield.com)
+- Robots.txt now disallows all (ldewey@au.westfield.com)
+
+* Thu Jun 27 2013 ci <doperations@au.westfield.com> 0.0.166-1
+- add image service and file service to index page (acohen@au.westfield.com)
+
+* Thu Jun 27 2013 ci <doperations@au.westfield.com> 0.0.165-1
+- remove individual index files from services (acohen@au.westfield.com)
+- Merge pull request #65 from mwratt/feature/maps (matt.wratt@trineo.co.nz)
+- removes "Unit|" from 3rd party shop number data (matt.wratt@trineo.co.nz)
+
+* Thu Jun 27 2013 ci <doperations@au.westfield.com> 0.0.164-1
+- The detal-page now has a dynamic modifier based of the controller name
+  (ldewey@au.westfield.com)
+
 * Thu Jun 27 2013 ci <doperations@au.westfield.com> 0.0.163-1
 - Merge pull request #63 from mwratt/feature/maps (ldewey@au.westfield.com)
 - fixes script loading race condition (matt.wratt@trineo.co.nz)

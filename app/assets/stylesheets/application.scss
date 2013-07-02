@@ -24,20 +24,20 @@ Global stylesheet
     script for production.
 
   Partial dir structure:
-    - UTILS...................generic utility styles and Sass settings e.g. mixins
+    - UTILS.................generic utility styles and Sass settings e.g. mixins
       - PLACEHOLDERS........placeholder selectors to keep things DRY
-    - BASE....................base styles; unclassed HTML elements
-    - LAYOUT..................site structure styles e.g. header/footer
+    - BASE..................base styles; unclassed HTML elements
+    - LAYOUT................site structure styles e.g. header/footer
       - GRID................you guessed it; the grid!
-    - ABSTRACTIONS............very common patterns to be used 'as is' or built upon
-    - MODULES.................discrete components of the page, this is the meat
+    - ABSTRACTIONS..........very common patterns to be used 'as is' or built upon
+    - MODULES...............discrete components of the page, this is the meat
       - WIDGETS ............more interactive rich requiring JavaScript/jQuery
-    - FORMS...................everything relating to forms
-    - BUTTONS.................you guessed it; all the buttons!
-    - HELPERS.................a bunch of classes to apply very common styles
-    - PRINT...................global print styles (rest of print styles live inline)
-    - DEBUG...................enable to add visual flags for debugging purposes
-    - SHAME...................home for housing nasty, hacky, quick-fix CSS
+    - FORMS.................everything relating to forms
+    - BUTTONS...............you guessed it; all the buttons!
+    - HELPERS...............a bunch of classes to apply very common styles
+    - PRINT.................global print styles (rest of print styles live inline)
+    - DEBUG.................enable to add visual flags for debugging purposes
+    - SHAME.................home for housing nasty, hacky, quick-fix CSS
 
 ▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂
 */
@@ -125,6 +125,7 @@ Global stylesheet
 @import "partials/modules/detail-view";
 @import "partials/modules/social-share";
 @import "partials/modules/pin-board";
+@import "partials/modules/centres-list";
 
 
   /* Modules -> Widgets */

@@ -8,6 +8,7 @@
     "isotope": "~1.5.25",
     "jquery-placeholder": "~2.0.7",
     "matchMedia": "latest",
-    "selectivizr": "~1.0.2"
+    "selectivizr": "~1.0.2",
+    "flexslider": "latest"
   }
 }

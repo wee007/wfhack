@@ -1,7 +1,20 @@
-class Map
+class window.Map
 
   key: '458dc5a4-547f-4fb7-a760-575d8176f70b'
   themeFamily: 'Standard'
+  customTheme:
+    s:
+      'Unit':
+        m: '#f7f2df'
+        o: '#d8bca9'
+        t: '#695648'
+        w: 1
+      'Background':
+        m: '#ffffff'
+        o: '#dbd9d7'
+        w: 10
+      'Inaccessible Space':
+        m: '#dbd9d7'
 
   constructor: ->
     @index = new GeomIndex()
@@ -21,10 +34,9 @@ class Map
       $('#map').text('')
     @getAddresses()
     @control = new micello.maps.MapControl('map')
-    @alterGui @control.getMapGUI()
     @data = @control.getMapData()
     canvas = @control.getMapCanvas()
-    canvas.setThemeFamily(@themeFamily)
+    @applyCustomTheme(@control.getMapGUI(), canvas)
     @popup = canvas.createPopup()
     @control.onMapClick = @onClick
     @data.mapChanged = @onMapChanged
@@ -34,10 +46,12 @@ class Map
     self = @
     $('body', document).on('click', '[data-store-id]', -> self.highlight($(@).data('storeId')))
 
-  alterGui: (gui) ->
+  applyCustomTheme: (gui, canvas) ->
     gui.ZOOM_POSITION = 'right top'
     gui.ZOOM_DISPLAY = 'v'
     gui.LEVELS_POSITION = 'right top'
+    canvas.setThemeFamily(@themeFamily)
+    canvas.setOverrideTheme(@customTheme)
 
   getAddresses: ->
     $.ajax(
@@ -140,5 +154,3 @@ wait = (callback, ready) ->
   do ->
     return callback() if ready()
     setTimeout(arguments.callee, 0)
-
-window.map = new Map

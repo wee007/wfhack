@@ -5,4 +5,7 @@
 <div id="map" class="map">Loading map...</div>
 <%= javascript_include_tag 'http://maps.micello.com/webmap/v0/micellomap.js' %>
 <%= javascript_include_tag 'map' %>
+<%= javascript_tag do %>
+  new Map
+<% end %>
 <!--><![endif]-->

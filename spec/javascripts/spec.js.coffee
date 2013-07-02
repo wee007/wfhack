@@ -4,5 +4,7 @@
 # spec/javascripts/*_spec.js
 # spec/javascripts/*_spec.js.erb
 #
+#=require map
 #=require application
+#=require spec_helpers
 #=require_tree ./

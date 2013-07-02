@@ -35,3 +35,5 @@
 //= require ./vendor/angular-sanitize
 //= require ./angular/app
 //= require_tree ./angular/
+
+//= require_tree ./global_search

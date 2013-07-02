@@ -190,7 +190,15 @@ $hero-banner-height-lrg: 380 !default;
 			}
 
 			/* Non JS users */
-			.no-js & {@include to-rem(margin-top, $spacing-half);}
+			.no-js & {
+				@include to-rem(margin-top, $spacing-half);
+
+				/* Bring inline at this breakpoint */
+				@include respond-min($ipad-landscape) {
+					display: inline-block;
+					margin-top: 0;
+				}
+			}
 		}
 
 				/* Generic navigation module */
@@ -310,6 +318,9 @@ $hero-banner-height-lrg: 380 !default;
 							/* Icon */
 							.icon:before {
 								color: #fff;
+
+								/* Bump up more for iOS */
+								.ios & {top: -2px;}
 
 								/* Change colour at this breakpoint */
 								@include respond-min($ipad-landscape) {
@@ -445,6 +456,11 @@ $hero-banner-height-lrg: 380 !default;
 				.no-js & {
 					position: static;
 					@include to-rem(margin, $spacing-third 0);
+
+					/* Remove top/bottom margin at this breakpoint */
+					@include respond-min($ipad-landscape) {
+						@include to-rem(margin, 0 0 0 $spacing-half);
+					}
 				}
 			}
 		}
@@ -617,7 +633,10 @@ $hero-banner-height-lrg: 380 !default;
 				.ie-9 & {@include to-rem(top, 15);}
 
 				/* Non JS users */
-				.no-js & {position: static;}
+				@include respond-range($non-palm, $ipad-landscape - 1) {
+					.no-js & {position: static;}
+				}
+
 			}
 
 			/* Drop down */
@@ -753,6 +772,11 @@ $hero-banner-height-lrg: 380 !default;
 
 		/* Favourites */
 		.favs-link {
+
+			/* Old IE */
+			@include old-ie {
+				float: right;
+			}
 
 			/* Some left spacing at this breakpoint */
 			@include respond-min($non-palm) {

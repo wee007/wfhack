@@ -1,0 +1,6 @@
+Modernizr.load([
+  {
+    test: (!!window.matchMedia),
+    nope: ['<%= asset_path "matchmedia.js" %>']
+  }
+]);

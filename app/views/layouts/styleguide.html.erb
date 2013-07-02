@@ -15,7 +15,9 @@
   <link href="<%= asset_path 'styleguide/main.css' %>" rel="stylesheet">
   <!-- //'Style Guide' styles -->
 
-  <%= render "shared/javascript_detection_oldie_helpers" %>
+  <%= javascript_include_tag "vendor/modernizr.min" %>
+
+  <%= render 'shared/oldie' %>
   <%= javascript_include_tag 'vendor/kss' %>
 </head>
 

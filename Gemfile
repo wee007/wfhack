@@ -9,10 +9,6 @@ gem 'dotenv-rails'
 gem 'settingslogic'
 
 # Javascript
-gem 'jquery-rails'
-gem 'jquery-ui-rails'
-gem 'turbolinks'
-gem 'chosen-rails'
 gem 'gon'
 
 # For operations
@@ -46,7 +42,7 @@ group :development, :test do
   gem 'rack-livereload', '~> 0.3.15'
   gem 'kss', git: 'https://github.com/kneath/kss.git' # Gem release pending
   gem "jasminerice", :git => 'https://github.com/bradphelan/jasminerice.git'
-  gem 'json'
+  gem 'json', '~> 1.7.7'
   gem 'rb-fsevent', :require => false if RUBY_PLATFORM =~ /darwin/i
   gem 'guard-jasmine'
   gem 'phantomjs-binaries', git: 'git@github.dbg.westfield.com:mwratt/phantomjs-binaries.git', branch: 'master'

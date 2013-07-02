@@ -45,3 +45,17 @@ describe "Map", ->
       runs(->
         expect(@subject.attachClickHandler).toHaveBeenCalled()
       )
+
+  describe "#applyCustomTheme", ->
+
+    beforeEach ->
+      @gui = {}
+      @canvas = jasmine.createSpyObj('canvas', ['setThemeFamily', 'setOverrideTheme'])
+
+    it 'applies theme overrides', ->
+      @subject.applyCustomTheme(@gui, @canvas)
+      expect(@canvas.setOverrideTheme).toHaveBeenCalledWith(@subject.customTheme)
+
+    it 'sets the theme family', ->
+      @subject.applyCustomTheme(@gui, @canvas)
+      expect(@canvas.setThemeFamily).toHaveBeenCalledWith('Standard')

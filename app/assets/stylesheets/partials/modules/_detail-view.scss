@@ -113,6 +113,7 @@ $grey-light: #dfdfdf !default;
   /* Description */
   .detail-view__desc p {
     @include to-rem(margin-bottom, $spacing-half);
+    line-height: 1.6;
 
     /* Turn off for last child */
     &:last-child {margin-bottom: 0;}
@@ -204,6 +205,16 @@ $grey-light: #dfdfdf !default;
     .detail-view__meta em {
       display: block;
       @include font-size(18, 1.3);
+
+      /* Sale price */
+      &.detail-view__meta__sale-price {
+        color: $color-brand;
+
+        span {
+          color: $color-dark-txt;
+          text-decoration: line-through;
+        }
+      }
     }
 
   }

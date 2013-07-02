@@ -10,7 +10,7 @@ Modernizr.addTest('ipod', function () {
   return !!navigator.userAgent.match(/iPod/i);
 });
 
-Modernizr.addTest('appleios', function () {
+Modernizr.addTest('ios', function () {
   return (Modernizr.ipad || Modernizr.ipod || Modernizr.iphone);
 });
 

@@ -10,10 +10,8 @@
 //= require jquery
 
 //= require isotope/jquery.isotope.js
-//= require angular
 //= require enquire
 //= require unveil/jquery.unveil.js
-
 //= require ./vendor/jquery.isotope.gutters
 
 // Conditional support
@@ -25,7 +23,6 @@
 // accidently leaves a log, debug, error, etc the browser won't throw & die.
 //= require ./support/console-log
 
-
 // When you need to initialize any jquery plugins or general global stuff,
 // do it in an init/initName file
 //= require_tree ./jquery-extensions
@@ -34,5 +31,3 @@
 //= require ./init/unveil
 //= require ./init/tiles
 //= require ./init/enquire
-
-

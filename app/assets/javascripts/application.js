@@ -9,11 +9,6 @@
 
 //= require jquery
 
-// Required for slider
-//= require jquery-ui/ui/jquery.ui.widget
-//= require jquery-ui/ui/jquery.ui.mouse
-//= require jquery-ui/ui/jquery.ui.slider
-
 //= require isotope/jquery.isotope.js
 //= require angular
 //= require enquire

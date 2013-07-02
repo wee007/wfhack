@@ -10,7 +10,6 @@
 	<!-- Prefetch DNS for external assets -->
 	<link rel="dns-prefetch" href="//www.google-analytics.com">
 	<link rel="dns-prefetch" href="//ajax.googleapis.com">
-	<link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
 	<link rel="dns-prefetch" href="//fonts.googleapis.com">
 	<link rel="dns-prefetch" href="//themes.googleusercontent.com">
 	<!-- //Prefetch DNS for external assets -->
@@ -23,7 +22,9 @@
 
 	<%= yield :custom_styles %>
 
-	<%= render "shared/javascript_detection_oldie_helpers" %>
+	<%= javascript_include_tag "vendor/modernizr.min" %>
+
+	<%= render 'shared/oldie' %>
 
 	<!-- IE 10 tile icon: http://blogs.msdn.com/b/ie/archive/2012/06/08/high-quality-visuals-for-pinned-sites-in-windows-8.aspx -->
 	<meta name="msapplication-TileColor" content="#da291c">

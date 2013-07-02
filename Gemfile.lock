@@ -1,4 +1,12 @@
 GIT
+  remote: git@github.dbg.westfield.com:digital/phantomjs-binaries.git
+  revision: 04908bf9c946d83f1481daa05bb20dcebfc6c191
+  branch: master
+  specs:
+    phantomjs-binaries (1.9.1.1)
+      sys-uname (= 0.9.0)
+
+GIT
   remote: git@github.dbg.westfield.com:digital/service_api.git
   revision: cd3161db7330ec9db330bfaf76961056108b6586
   specs:
@@ -16,14 +24,6 @@ GIT
   branch: master
   specs:
     service_helper (0.0.1)
-
-GIT
-  remote: git@github.dbg.westfield.com:mwratt/phantomjs-binaries.git
-  revision: 04908bf9c946d83f1481daa05bb20dcebfc6c191
-  branch: master
-  specs:
-    phantomjs-binaries (1.9.1.1)
-      sys-uname (= 0.9.0)
 
 GIT
   remote: https://github.com/bradphelan/jasminerice.git
@@ -70,10 +70,6 @@ GEM
     builder (3.1.4)
     childprocess (0.3.9)
       ffi (~> 1.0, >= 1.0.11)
-    chosen-rails (0.9.15)
-      coffee-rails (>= 3.2)
-      railties (>= 3.0)
-      sass-rails (>= 3.2)
     coderay (1.0.9)
     coffee-rails (4.0.0)
       coffee-script (>= 2.2.0)
@@ -128,7 +124,7 @@ GEM
       lumberjack (>= 1.0.2)
       pry (>= 0.9.10)
       thor (>= 0.14.6)
-    guard-jasmine (1.17.0)
+    guard-jasmine (1.16.0)
       childprocess
       guard (>= 1.1.0)
       multi_json
@@ -144,17 +140,10 @@ GEM
     hike (1.2.3)
     http_parser.rb (0.5.3)
     i18n (0.6.4)
-    jquery-rails (3.0.1)
-      railties (>= 3.0, < 5.0)
-      thor (>= 0.14, < 2.0)
-    jquery-ui-rails (4.0.3)
-      jquery-rails
-      railties (>= 3.1.0)
-    json (1.8.0)
+    json (1.7.7)
     kaminari (0.14.1)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
-    kgio (2.8.0)
     listen (1.2.2)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
@@ -198,7 +187,6 @@ GEM
       activesupport (= 4.0.0)
       rake (>= 0.8.7)
       thor (>= 0.18.1, < 2.0)
-    raindrops (0.11.0)
     rake (10.1.0)
     rb-fsevent (0.9.3)
     rb-inotify (0.9.0)
@@ -245,25 +233,18 @@ GEM
     treetop (1.4.14)
       polyglot
       polyglot (>= 0.3.1)
-    turbolinks (1.2.0)
-      coffee-rails
     typhoeus (0.6.3)
       ethon (~> 0.5.11)
     tzinfo (0.3.37)
     uglifier (2.1.1)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
-    unicorn (4.6.3)
-      kgio (~> 2.6)
-      rack
-      raindrops (~> 0.7)
     vcr (2.5.0)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  chosen-rails
   coffee-rails (~> 4.0.0)
   debugger
   dotenv-rails
@@ -276,9 +257,7 @@ DEPENDENCIES
   guard-livereload (~> 1.4.0)
   health_check
   jasminerice!
-  jquery-rails
-  jquery-ui-rails
-  json
+  json (~> 1.7.7)
   kaminari
   kss!
   nokogiri
@@ -287,14 +266,11 @@ DEPENDENCIES
   pry-remote
   rack-livereload (~> 0.3.15)
   rails (~> 4.0.0)
-  rb-fsevent
   rspec-rails
   sass-rails (~> 4.0.0)
   service_api!
   service_helper!
   settingslogic
   simplecov
-  turbolinks
   uglifier (>= 1.3.0)
-  unicorn
   vcr

@@ -32,25 +32,15 @@
 <div class="container timelines">
   <dl class="timelines__timeline">
     <dt class="timelines__day">
-      Monday
+      <%= @event.start_day_of_week %>
       <div class="timelines__day__date">
-        <time datetime=""><em>25</em>Aug
+        <time datetime="<%= @event.start %>">
+        <em><%= @event.start_day %></em>
+        <%= @event.start_month %>
       </div>
     </dt>
-    <dd class="timelines__time">9.00am - 10:30pm</dd>
-    <dd class="timelines__time">9.00am - 10:30pm</dd>
-    <dd class="timelines__time">9.00am - 10:30pm</dd>
-  </dl>
-
-  <dl class="timelines__timeline">
-    <dt class="timelines__day">
-      Monday
-      <div class="timelines__day__date">
-        <time datetime=""><em>25</em>Aug
-      </div>
-    </dt>
-    <dd class="timelines__time">9.00am - 10:30pm</dd>
-    <dd class="timelines__time">9.00am - 10:30pm</dd>
-    <dd class="timelines__time">9.00am - 10:30pm</dd>
+    <dd class="timelines__time">
+      <%= @event.start_time %>
+    </dd>
   </dl>
 </div>

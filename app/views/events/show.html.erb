@@ -16,7 +16,12 @@
 
     <h3 class="detail-view__hdr-sub hn">Event Details</h3>
     <div class="detail-view__desc">
-      <%= @event.description %>
+      <p><%= @event.description %></p>
+
+      <% @event.body.each do |paragraph| %>
+        <p><%= paragraph %></p>
+      <% end %>
+
     </div>
 
   </div>

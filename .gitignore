@@ -37,3 +37,6 @@ pkg
 /tmp
 
 .env
+
+#Ignore asset pipeline
+/public/assets

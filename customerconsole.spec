@@ -29,7 +29,7 @@ Customer Console
 
 %build
  cd ${RPM_BUILD_DIR}/*
- bundle exec rake assets:precompile
+ RAILS_ENV=production bundle exec rake assets:precompile
  bundle install --path=vendor/bundler_gems --without development test
 
 %install

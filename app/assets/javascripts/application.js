@@ -4,15 +4,15 @@
 
 //= require ./support/custom-modernizr-tests
 
-// Conditional support
-//= require ./support/mediaqueries
-//= require ./support/svg
-//= require ./support/input-placeholder
-
 // External dependencies, handled via Bower.
 // See: https://gist.github.com/benschwarz/5874031/
 
 //= require jquery
+
+// Conditional support
+//= require ./support/mediaqueries
+//= require ./support/svg
+//= require ./support/input-placeholder
 
 //= require isotope/jquery.isotope.js
 //= require unveil/jquery.unveil.js

@@ -162,6 +162,47 @@ class GeomIndex
   addAddresses: (addresses) ->
     @addAddress(address) for address in addresses
 
+class window.IEMap
+
+  zoomAmount: 1
+  mouseDown: false
+
+  constructor: ->
+    @index = new GeomIndex()
+    wait(@init, -> window.jQuery && window.westfield)
+
+  init: =>
+    @index.addStores(westfield.stores)
+    @el = $('#map')
+    @zoomUI = @el.find('.zoom')
+    @levelUI = @el.find('.level-select__level')
+    @levels = @el.find('img')
+    @selectLevel(1)
+    @levels.each ->
+      el = $(@)
+      el.data(width: el.width(), height: el.height())
+    self = @
+    # @zoomUI.on('click', '.zoom__in', -> self.zoom(0.25))
+    # @zoomUI.on('click', '.zoom__out', -> self.zoom(-0.25))
+    @levelUI.on('click', -> self.selectLevel($(@).data('level')))
+    $('body', document).on('click', '[data-store-id]', -> self.highlight($(@).data('storeId')))
+
+  zoom: (amount) ->
+    zoomAmount = @zoomAmount += amount
+    @levels.each ->
+      el = $(@)
+      el.width(el.data('width') * zoomAmount)
+      el.height(el.data('height') * zoomAmount)
+
+  selectLevel: (level) ->
+    selector = "[data-level=\"#{level}\"]"
+    @levelUI.removeClass('selected')
+    @levelUI.filter(selector).addClass('selected')
+    @levels.addClass('hidden')
+    @levels.filter(selector).removeClass('hidden')
+
+  highlight: (storeId) ->
+    @selectLevel(@index.findById(storeId).store.level)
 
 wait = (callback, ready) ->
   do ->

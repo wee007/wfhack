@@ -1,5 +1,24 @@
 <!--[if lte IE 8]>
-	<div id="map">Upgrade your browser, limited support for older browsers coming soon.</div>
+  <div id="map" class="map map--ie-support">
+    <div class="zoom">
+      <div class="zoom__in">+</div>
+      <div class="zoom__out">-</div>
+    </div>
+    <div class="level-select">
+      <% [6,5,4,3,2,1].each do |level| %>
+        <div class="level-select__level" data-level="<%= level %>"><%= level %></div>
+      <% end %>
+    </div>
+    <div class="container">
+      <% (1..6).each do |level| %>
+        <img class="hidden" data-level="<%= level %>" src="<%= image_path("centre/#{@centre.micello_community}_#{level}.png") %>"/>
+      <% end %>
+    </div>
+    <%= javascript_include_tag 'map' %>
+    <%= javascript_tag do %>
+      new IEMap
+    <% end %>
+  </div>
 <![endif]-->
 <!--[if gt IE 8]><!-->
 	<p class="feedback feedback--warning js-enabled-hide">You need JavaScript enabled to view this map. <a href="http://enable-javascript.com/" rel="external">Visit here</a> for instructions on how to enable JavaScript.</p>

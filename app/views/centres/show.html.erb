@@ -3,18 +3,18 @@
   <style>
     /* Hero image at this breakpoint (small) */
     @media (max-width: 25em) {
-        .header__hero {background-image: url(/assets/heroes/<%= params[:id] %>-sml.jpg);}
+        .header__hero {background-image: url(<%= asset_path("heroes/#{params[:id]}-sml.jpg") %>);}
     }
     /* Hero image at this breakpoint (medium) */
     @media (min-width: 25.0625em) and (max-width: 48em) {
-        .header__hero {background-image: url(/assets/heroes/<%= params[:id] %>-med.jpg);}
+        .header__hero {background-image: url(<%= asset_path("heroes/#{params[:id]}-med.jpg") %>);}
     }
     /* Hero image at this breakpoint (large) */
     @media (min-width: 48.0625em) {
-        .header__hero {background-image: url(/assets/heroes/<%= params[:id] %>-lrg.jpg);}
+        .header__hero {background-image: url(<%= asset_path("heroes/#{params[:id]}-lrg.jpg") %>);}
     }
     /* Old IE */
-    .old-ie .header__hero {background-image: url(/assets/heroes/<%= params[:id] %>-lrg.jpg);}
+    .old-ie .header__hero {background-image: url(<%= asset_path("heroes/#{params[:id]}-lrg.jpg") %>);}
   </style>
 <% end %>
 

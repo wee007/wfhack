@@ -1,8 +1,3 @@
-/* Set variables */
-$grey-dark: #cdcdcd !default;
-$grey-light: #dfdfdf !default;
-
-/* Start module */
 .detail-view {
   @include font-size($font-size-sml);
   background-color: #fff;
@@ -73,7 +68,7 @@ $grey-light: #dfdfdf !default;
   .detail-view__divider--palm,
   .detail-view__divider--top-non-palm {
     border-style: solid;
-    border-color: $grey-dark;
+    border-color: $color-grey-1;
     border-bottom-width: 1px;
   }
 
@@ -99,7 +94,7 @@ $grey-light: #dfdfdf !default;
       .detail-view__divider--col-line {
         position: absolute;
         top: 0;
-        background-color: $grey-dark;
+        background-color: $color-grey-1;
         width: 1px;
         height: 100%;
       }
@@ -152,7 +147,7 @@ $grey-light: #dfdfdf !default;
       }
 
         > li {
-          border-color: $grey-dark;
+          border-color: $color-grey-1;
           width: 50%;
 
           /* Change display at this breakpoint */
@@ -161,7 +156,7 @@ $grey-light: #dfdfdf !default;
             width: auto;
 
             /* Add right border for last child */
-            &:last-child {border-right: 1px solid $grey-dark;}
+            &:last-child {border-right: 1px solid $color-grey-1;}
           }
         }
       }

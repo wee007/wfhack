@@ -9,7 +9,7 @@ html {
 
 body {
 	@include prefix(animation, fade-in 1.5s 0.5s both);
-	background-color: #e8e8e8;
+	background-color: $color-grey-3;
 
 	/* Change bg color to white for detail views at this breakpoint */
 	@include respond-max($palm) {

@@ -16,7 +16,7 @@ class window.Map
       'Inaccessible Space':
         m: '#dbd9d7'
 
-  constructor: ->
+  constructor: (@options) ->
     @index = new GeomIndex()
     micello.maps.init(@key, @init)
 
@@ -83,6 +83,8 @@ class window.Map
     @geom = {}
     for level in @data.community.d[0].l
       @index.addGeoms(level.g)
+    if @options.select
+      setTimeout((=> @highlight(@options.select)), 0)
 
   onClick: (mx, my, event) =>
     return if !event || !event.id

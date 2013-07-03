@@ -59,3 +59,21 @@ describe "Map", ->
     it 'sets the theme family', ->
       @subject.applyCustomTheme(@gui, @canvas)
       expect(@canvas.setThemeFamily).toHaveBeenCalledWith('Standard')
+
+  describe "#onMapChanged", ->
+
+    options = select: 123
+
+    beforeEach ->
+      @subject.data = community: d: 0: l: []
+
+    it 'selects a store if the option is set', ->
+      @subject.highlight = jasmine.createSpy('highlight')
+      @subject.options = options
+      @subject.onMapChanged(comLoad: 1)
+      waitsFor((->
+        @subject.highlight.callCount
+      ), 'highlight to be called', 500)
+      runs(->
+        expect(@subject.highlight).toHaveBeenCalledWith(options.select)
+      )

@@ -20,6 +20,10 @@ class Event < Hashie::Mash
     Time.parse(start).strftime '%b'
   end
 
+  def finish_time
+    Time.parse(finish).strftime '%l:%M%P'
+  end
+
   def body
     (super || '').split(/\r?\n/)
   end

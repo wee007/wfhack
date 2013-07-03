@@ -199,15 +199,29 @@ $color-med-txt: #42444d !default;
 $color-dark-txt: #292a2e !default;
 
 /* Link colors */
-$color-link: $color-brand !default;
+$color-link: $color-light-txt !default;
 
-$color-link-visited: lighten($color-link, 15%) !default;
+$color-link-hover: $color-brand !default;
+
+$color-link-visited: lighten($color-link-hover, 15%) !default;
 
 /* Off white */
 $color-off-white: #f2f2f2 !default;
 
-/* Call to action (green) */
-$color-cta: #52c884 !default;
+/* CTA's */
+$color-cta-green: #52c884 !default;
+
+$color-cta-blue: #3498db !default;
+
+/* Greys */
+/*
+	Note: not the best names but best we can do for now.
+*/
+$color-grey-1: #cdcdcd !default;
+
+$color-grey-2: #dfdfdf !default;
+
+$color-grey-3: #e8e8e8 !default;
 
 /* --Greyscale-- */
 /*

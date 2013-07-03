@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.180
+Version:     0.0.181
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,10 @@ fi
 
 
 %changelog
+* Wed Jul 03 2013 ci <doperations@au.westfield.com> 0.0.181-1
+- Merge pull request #90 from ldewey/master (ldewey@au.westfield.com)
+- Added the hashie require (ldewey@au.westfield.com)
+
 * Wed Jul 03 2013 ci <doperations@au.westfield.com> 0.0.180-1
 - adds symlink to production env for systest (matt.wratt@trineo.co.nz)
 

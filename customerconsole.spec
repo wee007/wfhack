@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.177
+Version:     0.0.178
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,12 @@ fi
 
 
 %changelog
+* Wed Jul 03 2013 ci <doperations@au.westfield.com> 0.0.178-1
+- Merge pull request #85 from ldewey/master (cpearce@au.westfield.com)
+- Changed dd to be nested. (ldewey@au.westfield.com)
+- Added event microdata (ldewey@au.westfield.com)
+- Fixed ups for event Schedule / Timeline (ldewey@au.westfield.com)
+
 * Wed Jul 03 2013 ci <doperations@au.westfield.com> 0.0.177-1
 - removes phantomjs binaries which cause rpm issues (matt.wratt@trineo.co.nz)
 

@@ -1,15 +1,15 @@
 .timeline {
   position: relative;
   @include to-rem(padding-left, 115);
-}
 
-.timeline > dd {
-  // TODO: make e8e8e8 a var as its also used in the body background
-  background-color: #e8e8e8;
-  border-radius: 2px;
-  @include to-rem(padding, $spacing-half $spacing-base);
-  @include to-rem(margin-bottom, $spacing-half);
-  &:last-child {margin-bottom: 0;}
+  > dd {
+    // TODO: make e8e8e8 a var as its also used in the body background
+    background-color: #e8e8e8;
+    border-radius: 2px;
+    @include to-rem(padding, $spacing-half $spacing-base);
+    @include to-rem(margin-bottom, $spacing-half);
+    &:last-child {margin-bottom: 0;}
+  }
 }
 
 .timeline__date {

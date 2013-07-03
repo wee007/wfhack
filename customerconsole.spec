@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.175
+Version:     0.0.176
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,11 @@ fi
 
 
 %changelog
+* Wed Jul 03 2013 ci <doperations@au.westfield.com> 0.0.176-1
+- Merge branch 'master' of github.dbg.westfield.com:digital/customer_console
+  (ben@germanforblack.com)
+- Callback, not complete (ben@germanforblack.com)
+
 * Wed Jul 03 2013 ci <doperations@au.westfield.com> 0.0.175-1
 - * jQuery required for conditional support items * SVG when you don't have
   support for SVG! * Init placeholder after its been loaded

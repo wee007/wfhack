@@ -50,5 +50,4 @@ group :test do
   gem 'vcr'
   gem 'nokogiri'
   gem 'simplecov'
-  gem 'phantomjs-binaries', git: 'git@github.dbg.westfield.com:digital/phantomjs-binaries.git', branch: 'master'
 end

@@ -1,4 +1,4 @@
-<a class="tile tile--deals" href="<%#= link %>">
+<a class="tile tile--deals" href="<%= centre_deal_path(params[:centre_id], result.id) %>">
   <article class="box" role="article">
     <div class="tile__meta">
       <p class="tile__meta__desc"><%= result.title %></p>

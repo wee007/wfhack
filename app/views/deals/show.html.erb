@@ -1,0 +1,31 @@
+<div class="island island--top-btm detail-view__divider">
+  <div class="container">
+    
+    <div class="page1">
+      <div class="deal-details">
+        <h2><%= @deal.title %></h2>
+        <p>from <%= @store.name %></p>
+        <p>Deal ends <%= DateTime.parse(@deal.available_to).strftime("%A %e %B") %></p>
+      </div>
+    
+      <div class="map"></div>
+    
+      <div>Check nearby availability and fine print</div>
+    </div>
+    
+    <div class="page2">
+      <h2>Also available at</h2>
+      <ul>
+        <% @deal.stores.each do |store| %>
+          <li><%= store.centre.short_name %></li>
+        <% end %>
+      </ul>
+      
+      <h3>The fine print</h3>
+      <%=raw @deal.terms_and_conditions %>
+      
+      <div>Return to deal</div>
+    </div>
+    
+  </div>
+</div>

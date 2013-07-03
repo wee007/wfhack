@@ -12,4 +12,17 @@ class DealsController < ApplicationController
     @deals = DealService.build deal
   end
 
+  def show
+    centre, deal = nil
+    Service::API.in_parallel do
+      centre = CentreService.fetch params[:centre_id]
+      deal = DealService.fetch params[:id]
+    end
+    @centre = CentreService.build centre
+    @deal = DealService.build deal
+
+    store = StoreService.fetch @deal.deal_stores.first.id
+    @store = StoreService.build store
+  end
+
 end

@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.174
+Version:     0.0.175
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,17 @@ fi
 
 
 %changelog
+* Wed Jul 03 2013 ci <doperations@au.westfield.com> 0.0.175-1
+- * jQuery required for conditional support items * SVG when you don't have
+  support for SVG! * Init placeholder after its been loaded
+  (ben@germanforblack.com)
+- Move enquire && init to be loaded asynchronously after the matchMedia
+  polyfill(s). (ben@germanforblack.com)
+- Move conditional support to be loaded before other libraries
+  (ben@germanforblack.com)
+- Tab space fix up (ldewey@au.westfield.com)
+- Event body data is now wraped in a paragraph tag (ldewey@au.westfield.com)
+
 * Wed Jul 03 2013 ci <doperations@au.westfield.com> 0.0.174-1
 - Merge pull request #83 from bschwarz/async-enquire (ben@germanforblack.com)
 - Move enquire && init to be loaded asynchronously after the matchMedia

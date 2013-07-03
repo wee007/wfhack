@@ -1,5 +1,9 @@
 class Event < Hashie::Mash
 
+  def start_date
+    Time.parse(start).strftime '%Y-%m-%d'
+  end
+
   def start_day_of_week
     Time.parse(start).strftime '%A'
   end
@@ -18,6 +22,10 @@ class Event < Hashie::Mash
 
   def start_month
     Time.parse(start).strftime '%b'
+  end
+
+  def finish_time
+    Time.parse(finish).strftime '%l:%M%P'
   end
 
   def body

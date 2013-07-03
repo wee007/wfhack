@@ -1,16 +1,18 @@
-.timelines {
-  @include to-rem(padding-bottom, $spacing-half);
-  @include to-rem(margin-bottom, $spacing-half);
-  @extend %clear-fix;
-}
-.timelines__timeline {
+.timeline {
   position: relative;
   @include to-rem(padding-left, 115);
+
+  > dd {
+    // TODO: make e8e8e8 a var as its also used in the body background
+    background-color: #e8e8e8;
+    border-radius: 2px;
+    @include to-rem(padding, $spacing-half $spacing-base);
+    @include to-rem(margin-bottom, $spacing-half);
+    &:last-child {margin-bottom: 0;}
+  }
 }
-.timelines__day {
-  @include to-rem(margin-bottom, $spacing-quarter);
-}
-.timelines__day__date {
+
+.timeline__date {
   position: absolute;
   background-color: black;
   color: white;
@@ -19,23 +21,14 @@
   border-radius: 50%;
   text-transform: uppercase;
   font-weight: normal;
-  padding-top: 18px;
+  @include to-rem(padding-top, 18);
   @include to-rem(left, 15);
   @include to-rem(width, 75);
   @include to-rem(height, 75);
-  @include font-size(14);
+  @include font-size($font-size);
 
-  em {
-    font-weight: normal;
+  span {
     display: block;
     @include font-size(30, 0.8);
   }
-
-}
-.timelines__time {
-  // TODO: make e8e8e8 a var as its also used in the body background
-  background-color: #e8e8e8;
-  @include to-rem(border-radius, 2);
-  @include to-rem(padding, $spacing-half $spacing-base);
-  @include to-rem(margin-bottom, $spacing-half);
 }

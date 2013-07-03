@@ -1,50 +1,52 @@
-<div class="island island--top-btm detail-view__divider">
-  <div class="container">
+<div itemscope itemtype="http://data-vocabulary.org/Event">
 
+  <div class="island detail-view__divider">
     <header class="detail-view__mrg-base">
-      <h2 class="detail-view__hdr hn" id="detail-view__hdr"><%= @event.name %></h2>
+      <h2 class="detail-view__hdr hn" id="detail-view__hdr">
+        <%= @event.name %>
+      </h2>
 
       <ul class="detail-view__meta islet islet--top-btm detail-view__divider detail-view__divider--top horiz-list horiz-list--fit">
         <li class="detail-view__subtle-txt"><time datetime="<%= Time.new(@event.start).strftime("%Y-%m-%d") %>"><%= Time.new(@event.start).strftime("%d %b %Y") %></time> to <time datetime="<%= Time.new(@event.start).strftime("%Y-%m-%d") %>"><%= Time.new(@event.finish).strftime("%d %b %Y") %></time></li><!--
-      --><li><span class="icon icon--pin icon--lrg icon--spacing" aria-hidden="true"></span><%= @event.location %></li>
+      --><li><span class="icon icon--pin icon--lrg icon--spacing" aria-hidden="true"></span><span itemprop="location"><%= @event.location %></span></li>
       </ul>
     </header>
 
     <div class="detail-view__media detail-view__mrg-base">
-      <%= image_tag ImageService.transform(ref: @event.image_ref, size: "800x800"), alt: @event.name %>
+      <%= image_tag ImageService.transform(ref: @event.image_ref, size: "800x800"), alt: @event.name, itemprop: "photo" %>
     </div>
 
     <h3 class="detail-view__hdr-sub hn">Event Details</h3>
     <div class="detail-view__desc">
-      <p><%= @event.description %></p>
+      <p itemprop="summary"><%= @event.description %></p>
 
-      <% @event.body.each do |paragraph| %>
-        <p><%= paragraph %></p>
-      <% end %>
+      <div itemprop="description">
+        <% @event.body.each do |paragraph| %>
+          <p><%= paragraph %></p>
+        <% end %>
+      </div>
 
     </div>
-
   </div>
-</div>
 
-<div class="island island--top-btm">
-  <div class="container">
+
+  <div class="island">
     <h3 class="detail-view__hdr-sub hn">Event Schedule</h3>
-  </div>
-</div>
 
-<div class="container timelines">
-  <dl class="timelines__timeline">
-    <dt class="timelines__day">
-      <%= @event.start_day_of_week %>
-      <div class="timelines__day__date">
-        <time datetime="<%= @event.start %>">
-        <em><%= @event.start_day %></em>
-        <%= @event.start_month %>
-      </div>
-    </dt>
-    <dd class="timelines__time">
-      <%= @event.start_time %>
-    </dd>
-  </dl>
+    <dl class="timeline">
+      <dt>
+        <%= @event.start_day_of_week %>
+        <em class="timeline__date">
+          <span><%= @event.start_day %></span>
+          <%= @event.start_month %>
+        </em>
+      </dt>
+      <dd>
+        <time itemprop="startDate" datetime="<%= @event.start %>"><%= @event.start_time %></time> -
+        <time itemprop="endDate" datetime="<%= @event.finish %>"><%= @event.finish_time %></time>
+      </dd>
+    </dl>
+
+  </div>
+
 </div>

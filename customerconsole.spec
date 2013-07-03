@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.179
+Version:     0.0.180
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,9 @@ fi
 
 
 %changelog
+* Wed Jul 03 2013 ci <doperations@au.westfield.com> 0.0.180-1
+- adds symlink to production env for systest (matt.wratt@trineo.co.nz)
+
 * Wed Jul 03 2013 ci <doperations@au.westfield.com> 0.0.179-1
 - Added old-ie to the precompile list (ldewey@au.westfield.com)
 

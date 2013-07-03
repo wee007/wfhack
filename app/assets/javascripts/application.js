@@ -30,3 +30,7 @@
 //= require ./init/header
 //= require ./init/unveil
 //= require ./init/tiles
+
+//= require angular-unstable
+//= require ./angular/app
+//= require_tree ./angular/

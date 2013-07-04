@@ -37,16 +37,11 @@
 
       Search.addParam( name, $scope[modelName] );
       Search.getSearch();
-    }
+    };
 
     $scope.filterSearch = function ( modelName ) {
       Search.addParam( modelName, $scope[modelName] );
       Search.getSearch();
     };
-
-    $scope.categories = [{
-      name: 'Brand',
-      searchModel: 'brandSearch'
-    }]
   });
 }( angular.module( 'Westfield' ) ));

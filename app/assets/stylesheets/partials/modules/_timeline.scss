@@ -1,34 +1,48 @@
+/* ======================================================================================
+   @MODULES -> TIMELINE
+   ====================================================================================== */
+
+/*
+  Usage:
+    A timeline typically for an event.
+
+  Demo:
+    Style Guide -> Modules -> Timeline
+*/
+
 .timeline {
   position: relative;
   @include to-rem(padding-left, 115);
 
+  /* Start & finish times */
   > dd {
-    // TODO: make e8e8e8 a var as its also used in the body background
-    background-color: #e8e8e8;
+    background-color: $color-grey-3;
     border-radius: 2px;
     @include to-rem(padding, $spacing-half $spacing-base);
     @include to-rem(margin-bottom, $spacing-half);
+
     &:last-child {margin-bottom: 0;}
   }
 }
 
-.timeline__date {
-  position: absolute;
-  background-color: black;
-  color: white;
-  text-align: center;
-  top: 0;
-  border-radius: 50%;
-  text-transform: uppercase;
-  font-weight: normal;
-  @include to-rem(padding-top, 18);
-  @include to-rem(left, 15);
-  @include to-rem(width, 75);
-  @include to-rem(height, 75);
-  @include font-size($font-size);
+  /* Date */
+  .timeline__date {
+    position: absolute;
+    top: 0;
+    @include to-rem(left, 15);
+    background-color: black;
+    color: white;
+    text-align: center;
+    border-radius: 50%;
+    text-transform: uppercase;
+    @include to-rem(padding-top, 18);
+    @include to-rem(width, 75);
+    @include to-rem(height, 75);
+    @include font-size($font-size);
+    font-weight: normal;
 
-  span {
-    display: block;
-    @include font-size(30, 0.8);
+    span {
+      display: block;
+      @include font-size(30, 0.8);
+    }
   }
-}

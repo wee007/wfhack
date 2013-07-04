@@ -22,7 +22,7 @@
 	/* Bg colour combined with disabled state */
 	&,
 	&[disabled],
-	&.is-disabled {background-color: $color-cta;}
+	&.is-disabled {background-color: $color-cta-green;}
 
 	/* Parent + pseudo classes */
 	&,
@@ -32,32 +32,21 @@
 
 	/* Pseudo classes */
 	&:hover,
-	&:focus {}
+	&:focus {@include opacity(0.8);}
 
-	&:active {
-		box-shadow: inset 0 0 0 rgba(#000, 0.4),
-								inset 0 1px 2px rgba(#000, 0.3);
-	}
+	&:active {box-shadow: inset 0 1px 0 rgba(#000, 0.4);}
 }
 
 	/* --Extenders-- */
 
-	/* -Alternates- */
+	/* -Alternate colours- */
 
-	/* Subtle */
+	/* Blue */
 	.btn--main-alt {
-		box-shadow: inset 0 -1px 0 rgba(#000, 0.15);
-
 		/* Bg colour combined with disabled state */
 		&,
 		&[disabled],
-		&.is-disabled {background-color: #e8e8e8;}
-
-		/* Parent + pseudo classes */
-		&,
-		&:visited,
-		&:hover,
-		&:focus {color: $color-dark-txt;}
+		&.is-disabled {background-color: $color-cta-blue;}
 	}
 
 	/* Dark */
@@ -66,6 +55,24 @@
 		&,
 		&[disabled],
 		&.is-disabled {background-color: $color-med-txt;}
+	}
+
+	/* Subtle */
+	.btn--main-alt3 {
+		box-shadow: inset 0 -1px 0 rgba(#000, 0.15);
+
+		/* Bg colour combined with disabled state */
+		&,
+		&[disabled],
+		&.is-disabled {background-color: $color-grey-3;}
+
+		/* Parent + pseudo classes */
+		&,
+		&:visited,
+		&:hover,
+		&:focus {color: $color-dark-txt;}
+
+		&:active {box-shadow: inset 0 1px 0 rgba(#000, 0.15);}
 	}
 
 	/* Compact - decrease padding */

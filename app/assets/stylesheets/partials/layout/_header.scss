@@ -20,6 +20,11 @@ $hero-banner-height-lrg: 380 !default;
 	/* Centre home page hero banner */
 	&.is-header-hero {position: relative;}
 
+	/* --Global rules-- */
+
+	/* Icons */
+	.icon:before {@extend %transition-subtle;}
+
 	/* --Shared rules-- */
 
 	/* Set common colours */
@@ -243,7 +248,7 @@ $hero-banner-height-lrg: 380 !default;
 
 								/* Increase left margin at this breakpoint */
 								@include respond-min($desk) {
-									@include to-rem(margin-left, $spacing-dbl);
+									@include to-rem(margin-left, $spacing-base+$spacing-half);
 								}
 							}
 
@@ -292,10 +297,30 @@ $hero-banner-height-lrg: 380 !default;
 								}
 							}
 
-							/* Psuedo classes + active state */
-							&:hover .icon:before,
-							&:focus .icon:before,
-							&.is-active .icon:before {}
+							/* Hover, focus & active states */
+							.header &:hover,
+							.header &:focus,
+							.header &.is-active {
+								&,
+								.icon:before {
+									color: $color-light-txt;
+
+									/* Change state styles at this breakpoint */
+									@include respond-min($ipad-landscape) {
+										color: $color-link-hover;
+									}
+								}
+							}
+
+							/* Hover, focus & active states for 'Centre home page hero banner' */
+							@include respond-min($non-palm) {
+								.is-header-hero &:hover,
+								.is-header-hero &:focus,
+								.is-header-hero &.is-active {
+									&,
+									.icon:before {color: $color-link-hover;}
+								}
+							}
 
 								/* Hide link text for sub nav at this breakpoint */
 								@include respond-min($ipad-landscape) {
@@ -608,6 +633,31 @@ $hero-banner-height-lrg: 380 !default;
 				@include to-rem(top, 13.5);
 				right: 0;
 
+				/* Hover & focus states */
+				.header & a:hover,
+				.header & a:focus,
+				.header & .btn:hover,
+				.header & .btn:focus {
+					&,
+					.icon:before {color: $color-link-hover;}
+				}
+
+					/* 'Signed in' hover & focus states */
+					.header &.is-my-account-signedin .header-menu-toggle__nav a:hover,
+					.header &.is-my-account-signedin .header-menu-toggle__nav a:focus,
+					.header &.is-my-account-signedin .header-menu-toggle__nav .is-active {
+						&,
+						.icon:before {color: $color-light-txt;}
+					}
+
+					/* 'Signed in' hover & focus states for 'Centre home page hero banner' */
+					.is-header-hero &.is-my-account-signedin .header-menu-toggle__nav a:hover,
+					.is-header-hero &.is-my-account-signedin .header-menu-toggle__nav a:focus,
+					.is-header-hero &.is-my-account-signedin .header-menu-toggle__nav .is-active {
+						&,
+						.icon:before {color: $color-link-hover;}
+					}
+
 				/* 'Signed in' positioning */
 				&.is-my-account-signedin {@include to-rem(top, 9);}
 
@@ -754,6 +804,13 @@ $hero-banner-height-lrg: 380 !default;
 				@include to-rem(margin-bottom, 4);
 			}
 
+			/* Hover & focus states */
+			a:hover .icon:before,
+			a:focus .icon:before,
+			.btn:hover .icon:before,
+			.btn:focus .icon:before,
+			.btn.is-expanded .icon:before {color: $color-link-hover;}
+
 			/* Search icon */
 			.icon--search:before {
 
@@ -885,6 +942,13 @@ $hero-banner-height-lrg: 380 !default;
 				&,
 				a,
 				.icon:before {color: #fff;}
+			}
+
+			/* Hover & focus states */
+			.header .open-hours-link:hover,
+			.header .open-hours-link:focus {
+				&,
+				.icon:before {color: $color-link-hover;}
 			}
 
 			/* Hide when not 'Centre home page hero banner' */
@@ -1079,6 +1143,18 @@ $hero-banner-height-lrg: 380 !default;
 
 					/* Centre home page hero banner */
 					.is-header-hero & {color: $color-dark-txt;}
+
+					/* Hover & focus states */
+					&:hover,
+					&:focus {
+						&,
+						.icon:before {
+							color: #fff;
+
+							/* Centre home page hero banner */
+							.is-header-hero & {color: $color-link-hover;}
+						}
+					}
 
 					/* Active state */
 					&.is-active {

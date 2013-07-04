@@ -12,7 +12,7 @@ a {
 
 	/* Hover/Focus */
 	&:hover,
-	&:focus {color: $color-link-visited;}
+	&:focus {color: $color-link-hover;}
 
 	/* Make `tel` links not look like links for non-phone devices at this breakpoint */
 	@include respond-min($non-palm) {
@@ -26,9 +26,6 @@ a {
 
 /* Print */
 @media print {
-	a,
-	a:visited {text-decoration: underline;} /* Note: this may be redundant? */
-
 	/* Show the `href` and `title` attr values after the element */
 	a[href]:after,
 	abbr[title]:after {

@@ -1,110 +1,114 @@
-<!-- Col 1# -->
-<div class="detail-view__divider--col grid grid--gutterless grid--rev-stack grid--rev grid--flush">
+<div itemscope itemtype="http://data-vocabulary.org/Product">
 
-  <!-- Product name, brand, price, location and contact -->
-  <div class="grid__item non-palm-two-fifths">
+  <!-- Col 1# -->
+  <div class="detail-view__divider--col grid grid--gutterless grid--rev-stack grid--rev grid--flush">
 
-    <!-- Product name, brand and price -->
-    <header class="island detail-view__divider">
-      <h2 class="detail-view__hdr hn detail-view__mrg-half" id="detail-view__hdr">Sieynna Boot</h2>
-      <p class="detail-view__meta"><span class="detail-view__subtle-txt">from</span> Saba <em>$499.00</em><!-- [BACK END] markup for when there's a sale price <em class="detail-view__meta__sale-price"><span>$499.00</span> $459.00</em> --></p>
-    </header>
-    <!-- //Product name, brand and price -->
+    <!-- Product name, brand, price, location and contact -->
+    <div class="grid__item non-palm-two-fifths">
 
-    <!-- Store location -->
-    <div class="store-location detail-view__divider">
+      <!-- Product name, brand and price -->
+      <header class="island detail-view__divider">
+        <h2 class="detail-view__hdr hn detail-view__mrg-half" id="detail-view__hdr" itemprop="name">Sieynna Boot</h2>
+        <p class="detail-view__meta" itemprop="offerDetails" itemscope itemtype="http://data-vocabulary.org/Offer"><span class="detail-view__subtle-txt">from</span> <span itemprop="brand">Saba</span> <em itemprop="price">$499.00</em><!-- [BACK END] markup for when there's a sale price <em class="detail-view__meta__sale-price"><span>$499.00</span> $459.00</em> --><meta itemprop="currency" content="AUD"></p>
+      </header>
+      <!-- //Product name, brand and price -->
+
+      <!-- Store location -->
+      <div class="store-location detail-view__divider">
+
+      </div>
+      <!-- //Store location -->
+
+      <!-- Contact store -->
+      <div class="island island--fill island--center islet-tops detail-view__divider">
+        <span class="hide-fully--non-palm">
+          <a href="tel:0298311525" class="btn btn--full btn--main btn--main-alt2 btn--main-lrg"><span class="icon icon--phone icon--xlrg icon--spacing-lrg icon--flush-top" aria-hidden="true"></span><strong>Call SABA</strong></a>
+        </span>
+        <p class="detail-view__check-avble hide-fully--palm"><span class="detail-view__subtle-txt">Check store availability</span> <em><span class="icon icon--phone icon--lrg icon--spacing" aria-hidden="true"></span> 02 9381 1525</em></p>
+      </div>
+      <!-- //Contact store -->
+
+      <!-- Store link -->
+      <div class="island island--center detail-view__divider--palm">
+        <a href="#" class="btn btn--pointer btn--full btn--full-left btn--main btn--main-alt2 btn--main-lrg btn--main-flanked" rel="external">Buy from Saba<span class="icon icon--arrow-right-big icon--lrg btn--pointer__icon" aria-hidden="true"></span><span class="icon icon--link icon--xlrg icon--flush-top btn--pointer__icon" aria-hidden="true"></span></a>
+      </div>
+      <!-- //Store link -->
 
     </div>
-    <!-- //Store location -->
+    <!-- //Product name, brand, price, location and contact -->
 
-    <!-- Contact store -->
-    <div class="island island--fill island--center islet-tops detail-view__divider">
-      <span class="hide-fully--non-palm">
-        <a href="tel:0298311525" class="btn btn--full btn--main btn--main-alt2 btn--main-lrg"><span class="icon icon--phone icon--xlrg icon--spacing-lrg icon--flush-top" aria-hidden="true"></span><strong>Call SABA</strong></a>
-      </span>
-      <p class="detail-view__check-avble hide-fully--palm"><span class="detail-view__subtle-txt">Check store availability</span> <em><span class="icon icon--phone icon--lrg icon--spacing" aria-hidden="true"></span> 02 9381 1525</em></p>
-    </div>
-    <!-- //Contact store -->
+    <!-- Product images -->
+    <div class="grid__item non-palm-three-fifths">
 
-    <!-- Store link -->
-    <div class="island island--center detail-view__divider--palm">
-      <a href="#" class="btn btn--pointer btn--full btn--full-left btn--main btn--main-alt2 btn--main-lrg btn--main-flanked" rel="external">Buy from Saba<span class="icon icon--arrow-right-big icon--lrg btn--pointer__icon" aria-hidden="true"></span><span class="icon icon--link icon--xlrg icon--flush-top btn--pointer__icon" aria-hidden="true"></span></a>
+      <div class="island island--top-btm detail-view__divider--palm">
+        <!-- Flexslider -->
+        <div class="flexslider flexslider--gallery flexslider--gallery-lrg-img">
+          <ul class="slides">
+            <!-- [BACK END] 4 images is the max, dimensions are 469px x 474px (938px x 948px for retina which we serve for all but reduce the compression) and `alt` attr's need to be dynamically populated e.g. 'Product name photo' -->
+            <li><img src="/assets/dummy/product.jpg" alt="" itemprop="image"></li>
+            <li><img src="/assets/dummy/product2.jpg" alt="" itemprop="image"></li>
+            <li><img src="/assets/dummy/product3.jpg" alt="" itemprop="image"></li>
+          </ul>
+        </div>
+        <div class="flexslider flexslider--gallery flexslider--gallery-thumbs">
+          <ul class="slides">
+            <li><img src="/assets/dummy/product.jpg" alt=""></li>
+            <li><img src="/assets/dummy/product2.jpg" alt=""></li>
+            <li><img src="/assets/dummy/product3.jpg" alt=""></li>
+          </ul>
+        </div>
+        <!-- //Flexslider -->
+      </div>
+
     </div>
-    <!-- //Store link -->
+    <!-- //Product images -->
+
+    <span class="detail-view__divider--col-line hide-fully--palm"></span>
 
   </div>
-  <!-- //Product name, brand, price, location and contact -->
+  <!-- //Col 1# -->
 
-  <!-- Product images -->
-  <div class="grid__item non-palm-three-fifths">
+  <!-- Col 2# -->
+  <div class="grid grid--gutterless grid--rev grid--flush detail-view__divider">
 
-    <div class="island island--top-btm detail-view__divider--palm">
-      <!-- Flexslider -->
-      <div class="flexslider flexslider--gallery flexslider--gallery-lrg-img">
-        <ul class="slides">
-          <!-- [BACK END] 4 images is the max, dimensions are 469px x 474px (938px x 948px for retina which we serve for all but reduce the compression) and `alt` attr's need to be dynamically populated e.g. 'Product name photo' -->
-          <li><img src="/assets/dummy/product.jpg" alt=""></li>
-          <li><img src="/assets/dummy/product2.jpg" alt=""></li>
-          <li><img src="/assets/dummy/product3.jpg" alt=""></li>
+    <!-- Available Colours -->
+    <div class="detail-view__divider--top-non-palm grid__item non-palm-two-fifths">
+      <div class="island island--btm-palm">
+        <h3 class="detail-view__hdr-sub hn">Available Colours</h3>
+        <ul class="horiz-list horiz-list--comma">
+          <li><strong>Black</strong></li><!--
+          --><li><strong>Blue</strong></li>
         </ul>
       </div>
-      <div class="flexslider flexslider--gallery flexslider--gallery-thumbs">
-        <ul class="slides">
-          <li><img src="/assets/dummy/product.jpg" alt=""></li>
-          <li><img src="/assets/dummy/product2.jpg" alt=""></li>
-          <li><img src="/assets/dummy/product3.jpg" alt=""></li>
-        </ul>
+    </div>
+    <!-- //Available Colours -->
+
+    <!-- Description -->
+    <div class="detail-view__desc detail-view__divider--top-non-palm grid__item non-palm-three-fifths">
+      <div class="island">
+        <h3 class="detail-view__hdr-sub hn">Description</h3>
+        <!-- [BACK END] if this is coming from a text editor (not a single text field) then we need to only provide minimal formatting e.g. 'bold', 'italic' and every RETURN/ENTER should generate a `p` element -->
+        <p itemprop="description">Integer posuere erat a ante <a href="#">venenatis</a> dapibus posuere velit aliquet. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Aenean lacinia bibendum nulla sed consectetur. Maecenas faucibus mollis interdum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula.</p>
       </div>
-      <!-- //Flexslider -->
     </div>
+    <!-- //Description -->
 
   </div>
-  <!-- //Product images -->
+  <!-- //Col 2# -->
 
-  <span class="detail-view__divider--col-line hide-fully--palm"></span>
-
-</div>
-<!-- //Col 1# -->
-
-<!-- Col 2# -->
-<div class="grid grid--gutterless grid--rev grid--flush detail-view__divider">
-
-  <!-- Available Colours -->
-  <div class="detail-view__divider--top-non-palm grid__item non-palm-two-fifths">
-    <div class="island island--btm-palm">
-      <h3 class="detail-view__hdr-sub hn">Available Colours</h3>
-      <ul class="horiz-list horiz-list--comma">
-        <li><strong>Black</strong></li><!--
-        --><li><strong>Blue</strong></li>
-      </ul>
-    </div>
+  <!-- Availability -->
+  <div class="island js-toggle-detail-view">
+    <h3 class="detail-view__hdr-sub hn">Also available at</h3>
+    <!-- [BACK END] only use a list when they're multiple items -->
+    <ul>
+      <li><a href="#" class="centres-list"><span class="icon icon--pin icon--lrg icon--spacing-lrg" aria-hidden="true"></span>Eastgardens<span class="icon icon--arrow-right icon--lrg" aria-hidden="true"></span></a></li>
+      <li><a href="#" class="centres-list"><span class="icon icon--pin icon--lrg icon--spacing-lrg" aria-hidden="true"></span>Warringah Mall<span class="icon icon--arrow-right icon--lrg" aria-hidden="true"></span></a></li>
+      <li><a href="#" class="centres-list"><span class="icon icon--pin icon--lrg icon--spacing-lrg" aria-hidden="true"></span>Bondi Junction<span class="icon icon--arrow-right icon--lrg" aria-hidden="true"></span></a></li>
+    </ul>
   </div>
-  <!-- //Available Colours -->
-
-  <!-- Description -->
-  <div class="detail-view__desc detail-view__divider--top-non-palm grid__item non-palm-three-fifths">
-    <div class="island">
-      <h3 class="detail-view__hdr-sub hn">Description</h3>
-      <!-- [BACK END] if this is coming from a text editor (not a single text field) then we need to only provide minimal formatting e.g. 'bold', 'italic' and every RETURN/ENTER should generate a `p` element -->
-      <p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Aenean lacinia bibendum nulla sed consectetur. Maecenas faucibus mollis interdum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula.</p>
-    </div>
-  </div>
-  <!-- //Description -->
+  <!-- //Availability -->
 
 </div>
-<!-- //Col 2# -->
-
-<!-- Availability -->
-<div class="island js-toggle-detail-view">
-  <h3 class="detail-view__hdr-sub hn">Also available at</h3>
-  <!-- [BACK END] only use a list when they're multiple items -->
-  <ul>
-    <li><a href="#" class="centres-list"><span class="icon icon--pin icon--lrg icon--spacing-lrg" aria-hidden="true"></span>Eastgardens<span class="icon icon--arrow-right icon--lrg" aria-hidden="true"></span></a></li>
-    <li><a href="#" class="centres-list"><span class="icon icon--pin icon--lrg icon--spacing-lrg" aria-hidden="true"></span>Warringah Mall<span class="icon icon--arrow-right icon--lrg" aria-hidden="true"></span></a></li>
-    <li><a href="#" class="centres-list"><span class="icon icon--pin icon--lrg icon--spacing-lrg" aria-hidden="true"></span>Bondi Junction<span class="icon icon--arrow-right icon--lrg" aria-hidden="true"></span></a></li>
-  </ul>
-</div>
-<!-- //Availability -->
 
 <%- content_for :javascript do -%>
   <!-- Run 'Flexslider' plugin -->

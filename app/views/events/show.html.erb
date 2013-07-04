@@ -6,7 +6,7 @@
         <%= @event.name %>
       </h2>
 
-      <ul class="detail-view__meta islet islet--top-btm detail-view__divider detail-view__divider--top horiz-list horiz-list--fit">
+      <ul class="detail-view__meta islet islet--top-btm detail-view__divider detail-view__divider--top-btm horiz-list horiz-list--fit">
         <li class="detail-view__subtle-txt"><time datetime="<%= Time.new(@event.start).strftime("%Y-%m-%d") %>"><%= Time.new(@event.start).strftime("%d %b %Y") %></time> to <time datetime="<%= Time.new(@event.start).strftime("%Y-%m-%d") %>"><%= Time.new(@event.finish).strftime("%d %b %Y") %></time></li><!--
       --><li><span class="icon icon--pin icon--lrg icon--spacing" aria-hidden="true"></span><span itemprop="location"><%= @event.location %></span></li>
       </ul>
@@ -28,7 +28,6 @@
 
     </div>
   </div>
-
 
   <div class="island">
     <h3 class="detail-view__hdr-sub hn">Event Schedule</h3>

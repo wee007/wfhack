@@ -9,6 +9,7 @@
     "jquery-placeholder": "~2.0.7",
     "matchMedia": "latest",
     "selectivizr": "~1.0.2",
-    "flexslider": "latest"
+    "flexslider": "latest",
+    "html5shiv": "~3.6.2"
   }
 }

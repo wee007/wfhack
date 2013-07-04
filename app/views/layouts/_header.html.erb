@@ -39,7 +39,7 @@
 					<nav class="header-menu-toggle__nav drop-down js-drop-down" role="navigation" aria-label="Sub navigation" id="nav-sub">
 						<ul class="nav-sub">
 							<!-- Shopping centre opening hours -->
-							<li class="open-hours-link"><a href="<%= centre_trading_hours_path( params[ :centre_id ] || params[ :id ] ) %>"><span class="icon icon--hours" aria-hidden="true"></span> <strong>Open <%= @centre.today_opening_hour %> - <%= @centre.today_closing_hour %> today</strong> <span class="icon icon--arrow-right" aria-hidden="true"></span></a></li>
+							<li class="open-hours-link"><a href="<%= centre_trading_hours_path( params[ :centre_id ] || params[ :id ] ) %>"><span class="icon icon--hours" aria-hidden="true"></span> <strong>Open <%= @centre.today_opening_time %> - <%= @centre.today_closing_time %> today</strong> <span class="icon icon--arrow-right" aria-hidden="true"></span></a></li>
 							<!-- //Shopping centre opening hours -->
 							<li class="shopping-hrs-link"><a href="#"><span class="icon icon--hours icon--fixed-width icon--spacing" aria-hidden="true"></span><span class="nav-sub__txt"> Shopping Hours</span></a></li>
 							<li><a href="#"><span class="icon icon--dining icon--fixed-width icon--spacing" aria-hidden="true"></span><span class="nav-sub__txt"> Dining</span></a></li>
@@ -158,7 +158,7 @@
 			<!-- //Shopping centre select -->
 
 			<!-- Shopping centre opening hours -->
-      <a href="<%= centre_trading_hours_path( params[ :centre_id ] || params[ :id ] ) %>" class="open-hours-link"><span class="icon icon--hours" aria-hidden="true"></span> <strong>Open <%= @centre.today_opening_hour %> - <%= @centre.today_closing_hour %> today</strong> <span class="icon icon--arrow-right" aria-hidden="true"></span></a>
+      <a href="<%= centre_trading_hours_path( params[ :centre_id ] || params[ :id ] ) %>" class="open-hours-link"><span class="icon icon--hours" aria-hidden="true"></span> <strong>Open <%= @centre.today_opening_time %> - <%= @centre.today_closing_time %> today</strong> <span class="icon icon--arrow-right" aria-hidden="true"></span></a>
 			<!-- //Shopping centre opening hours -->
 
 		</div>

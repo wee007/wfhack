@@ -13,11 +13,13 @@ class ProductsController < ApplicationController
   end
 
   def show
-    centre = nil
+    centre, product = nil
     Service::API.in_parallel do
       centre = CentreService.fetch params[:centre_id]
+      product = ProductService.fetch params.dup
     end
     @centre = CentreService.build centre
+    @product = ProductService.build product
   end
 
 end

@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.182
+Version:     0.0.183
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,25 @@ fi
 
 
 %changelog
+* Thu Jul 04 2013 ci <doperations@au.westfield.com> 0.0.183-1
+- Merge pull request #88 from csmith/master (ldewey@au.westfield.com)
+- Merge pull request #91 from cpearce/master (ldewey@au.westfield.com)
+- Merge pull request #93 from ldewey/master (ldewey@au.westfield.com)
+- RPM fix for asset precompile (ldewey@au.westfield.com)
+- Adding top border to meta element (CPearce@au.westfield.com)
+- Adding comments and arranging properties better (CPearce@au.westfield.com)
+- CSS comments (CPearce@au.westfield.com)
+- removing jQuery UI slider CSS (CPearce@au.westfield.com)
+- cleaning up shame CSS (CPearce@au.westfield.com)
+- working on product detail view (CPearce@au.westfield.com)
+- adding new colour vars (CPearce@au.westfield.com)
+- working on product detail view (CPearce@au.westfield.com)
+- adding main button styles (CPearce@au.westfield.com)
+- working on product detail view (CPearce@au.westfield.com)
+- adding hover states (CPearce@au.westfield.com)
+- adding a global var (CPearce@au.westfield.com)
+- The deals detail page. (craigm.smith@au.westfield.com)
+
 * Thu Jul 04 2013 ci <doperations@au.westfield.com> 0.0.182-1
 - Added required javascript files to the precompile array
   (ldewey@au.westfield.com)

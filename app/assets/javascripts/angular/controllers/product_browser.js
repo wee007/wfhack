@@ -1,5 +1,5 @@
 ( function ( app ) {
-  app.controller( 'BrowseController', function ( $scope, $filter, CategoryList, Search ) {
+  app.controller( 'BrowseController', function ( $scope, CategoryList, Search ) {
     Search.addParam( 'rows', '10' );
 
     $scope.categories = CategoryList;

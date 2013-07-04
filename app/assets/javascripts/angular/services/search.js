@@ -37,7 +37,6 @@
           delete params[param];
         }
 
-        // Fixing angular bug https://github.com/angular/angular.js/issues/3121
         if ( angular.isArray( this.params[param] ) ) {
           paramName = param + '[]';
           params[paramName] = params[param];

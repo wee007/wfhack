@@ -15,12 +15,15 @@
 
 .detail-view {
   @include font-size($font-size-sml);
-  background-color: #fff;
+
+  /* Turn off shadow at this breakpoint */
+  @include respond-max($palm) {
+    box-shadow: none;
+  }
 
   /* Adjustments at this breakpoint */
   @include respond-min($non-palm) {
     @include font-size($font-size);
-    box-shadow: 0 1px 2px rgba(#000, 0.3);
     width: 92%;
     margin: 0 auto;
   }
@@ -112,6 +115,12 @@
         background-color: $color-grey-1;
         width: 1px;
         height: 100%;
+
+        /* Deal */
+        .detail-view--deal & {left: 50%;}
+
+        /* Product */
+        .detail-view--product & {left: 60%;}
       }
   }
 
@@ -128,6 +137,9 @@
     /* Turn off for last child */
     &:last-child {margin-bottom: 0;}
   }
+
+    /* Fine print */
+    .detail-view__desc--fine-print {@include font-size($font-size-milli, 1.5);}
 
   /* Subtle text */
   .detail-view__subtle-txt {color: $color-light-txt;}
@@ -205,11 +217,18 @@
 
   /* --Variations-- */
 
-  /* -Product- */
-  .detail-view--product {
+  /* Deal */
+  .detail-view--deal {
 
-    /* Divider for columns */
-    .detail-view__divider--col-line {left: 60%;}
+    /* Faux columns applied to the grid */
+    .grid {background-color: $color-off-white;}
+
+      .grid__item:first-child {background-color: #fff;}
+
+  }
+
+  /* Product */
+  .detail-view--product {
 
     /* Meta */
     .detail-view__meta em {
@@ -229,7 +248,7 @@
 
   }
 
-  /* -Event- */
+  /* Event */
   .detail-view--event {
 
     /* Meta */

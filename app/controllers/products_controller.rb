@@ -10,6 +10,8 @@ class ProductsController < ApplicationController
     end
     @centre = CentreService.build centre
     @search = ProductService.build products
+
+    render "new-index"
   end
 
   def show

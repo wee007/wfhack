@@ -19,16 +19,18 @@
   <%- @search.products.each_slice(4) do |group| -%>
     <%- group.each do |product| -%>
       <div class="tile products isotope-item" data-url="">
-        <%= image_tag product.default_image_url %>
-        <div class="title">
-          <p class="name">
-            <%=  product.lozenge_name %><br>
-            <small>
-              <span>from</span> <%= product.retail_chain_name %>
-              <%= price_tag(product) %>
-            </small>
-          </p>
-        </div>
+        <%= link_to centre_product_path centre_id: params[:centre_id], retailer_code: product.retailer_code, sku: product.sku do %>
+          <%= image_tag product.default_image_url %>
+          <div class="title">
+            <p class="name">
+              <%=  product.lozenge_name %><br>
+              <small>
+                <span>from</span> <%= product.retail_chain_name %>
+                <%= price_tag(product) %>
+              </small>
+            </p>
+          </div>
+        <%- end -%>
       </div>
     <%- end -%>
   <%- end -%>

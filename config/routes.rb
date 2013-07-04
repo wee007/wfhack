@@ -11,7 +11,8 @@ Customerconsole::Application.routes.draw do
     resources :deals, only: [:index, :show]
     resources :movies, only: [:index, :show]
     resources :stores, only: [:index, :show]
-    resources :products, only: [:index, :show]
+    resources :products, only: [:index]
+    get 'products/:retailer_code/:sku' => 'products#show', constraints: {id: /.+/}, as: 'product'
     resources :trading_hours, only: [:index]
     member do
       get 'product_stream'

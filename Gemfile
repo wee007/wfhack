@@ -40,10 +40,10 @@ group :development, :test do
   gem 'guard-livereload', '~> 1.4.0'
   gem 'rack-livereload', '~> 0.3.15'
   gem 'kss', git: 'https://github.com/kneath/kss.git' # Gem release pending
-  gem "jasminerice", :git => 'https://github.com/bradphelan/jasminerice.git'
+  gem "jasminerice", git: 'https://github.com/bradphelan/jasminerice.git'
   gem 'json', '~> 1.7.7'
-  gem 'rb-fsevent', :require => false if RUBY_PLATFORM =~ /darwin/i
-  gem 'guard-jasmine'
+  gem 'rb-fsevent', require: false if RUBY_PLATFORM =~ /darwin/i
+  gem 'guard-jasmine', git: 'https://github.com/cwalsh/guard-jasmine.git' # Fix coverage issue
 end
 
 group :test do

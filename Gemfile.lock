@@ -25,6 +25,17 @@ GIT
       coffee-rails
 
 GIT
+  remote: https://github.com/cwalsh/guard-jasmine.git
+  revision: 95361af0f1918c7f5da4fe1bf457343ea6462e18
+  specs:
+    guard-jasmine (1.17.0)
+      childprocess
+      guard (>= 1.1.0)
+      multi_json
+      thor
+      tilt
+
+GIT
   remote: https://github.com/kneath/kss.git
   revision: 96d2ef040b0e923205abed82fc504a87e137d9b6
   specs:
@@ -116,12 +127,6 @@ GEM
       lumberjack (>= 1.0.2)
       pry (>= 0.9.10)
       thor (>= 0.14.6)
-    guard-jasmine (1.16.0)
-      childprocess
-      guard (>= 1.1.0)
-      multi_json
-      thor
-      tilt
     guard-livereload (1.4.0)
       em-websocket (>= 0.5.0)
       guard (>= 1.8.0)
@@ -243,7 +248,7 @@ DEPENDENCIES
   foreman
   gon
   guard (~> 1.8.0)
-  guard-jasmine
+  guard-jasmine!
   guard-livereload (~> 1.4.0)
   health_check
   jasminerice!
@@ -255,7 +260,6 @@ DEPENDENCIES
   pry-remote
   rack-livereload (~> 0.3.15)
   rails (~> 4.0.0)
-  rb-fsevent
   rspec-rails
   sass-rails (~> 4.0.0)
   service_api!

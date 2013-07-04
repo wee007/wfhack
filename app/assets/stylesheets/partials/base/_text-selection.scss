@@ -5,11 +5,13 @@
 /* Firefox */
 ::-moz-selection {
 	background: $color-brand;
+	color: #fff;
 	text-shadow: none;
 }
 
 /* Everyone else */
 ::selection {
 	background: $color-brand;
+	color: #fff;
 	text-shadow: none;
 }

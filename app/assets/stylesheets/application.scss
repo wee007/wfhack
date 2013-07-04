@@ -42,6 +42,18 @@ Global stylesheet
 ======================================================================================
 */
 
+.select-filter {
+  /*border: 1px solid red;*/
+  max-width: 200px;
+  float: left;
+  margin-right: 50px;
+}
+
+.product-results { clear: both; }
+.product-results .product { float: left; width: 20%; margin: 2%; }
+.product-results .product .image { max-width: 100%; }
+.multi-facet-list { height: 200px; overflow: scroll; }
+
 /* [IMPORT ALL PARTIALS]
 -------------------------------------------------------*/
 

@@ -1,5 +1,4 @@
 defaults: &defaults
-  product_service_url: http://product-service.<%= Rails.env %>.dbg.westfield.com/api/product/latest
 
 development:
   <<: *defaults

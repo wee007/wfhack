@@ -22,6 +22,6 @@ module Customerconsole
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
 
-    config.assets.precompile += %w( old-ie.css vendor/modernizr.min.js init/enquire.js enquire/dist/enquire.js map.js)
+    config.assets.precompile += %w( old-ie.css vendor/modernizr.min.js init/enquire.js enquire/dist/enquire.js map.js html5shiv/src/html5shiv-printshiv.js)
   end
 end

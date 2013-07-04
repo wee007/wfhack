@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.195
+Version:     0.0.196
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,9 @@ fi
 
 
 %changelog
+* Fri Jul 05 2013 ci <doperations@au.westfield.com> 0.0.196-1
+- Update trading hour method name (ewee@au.westfield.com)
+
 * Thu Jul 04 2013 ci <doperations@au.westfield.com> 0.0.195-1
 - Merge pull request #98 from cawalsh/master (ldewey@au.westfield.com)
 - Use cwalsh/guard-jasmine to fix issue running specs with coverage

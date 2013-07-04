@@ -10,6 +10,7 @@
     "matchMedia": "latest",
     "selectivizr": "~1.0.2",
     "flexslider": "latest",
-    "html5shiv": "~3.6.2"
+    "html5shiv": "~3.6.2",
+    "bootstrap": "~2.3.2"
   }
 }

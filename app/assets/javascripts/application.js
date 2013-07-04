@@ -16,6 +16,7 @@
 
 //= require isotope/jquery.isotope.js
 //= require unveil/jquery.unveil.js
+//= require bootstrap/js/bootstrap-dropdown.js
 //= require ./vendor/jquery.isotope.gutters
 
 // If console is unimplemented in a browser, and someone

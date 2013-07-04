@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.186
+Version:     0.0.187
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,13 @@ fi
 
 
 %changelog
+* Thu Jul 04 2013 ci <doperations@au.westfield.com> 0.0.187-1
+- Merge pull request #94 from bschwarz/html5shiv (cpearce@au.westfield.com)
+- Added print shiv to asset pipeline / build list (ben@germanforblack.com)
+- Move the shiv include to !IEMobile (ben@germanforblack.com)
+- Remove shiv/printshiv from modernizr in favour of its upstream edition (which
+  includes the <main> element) (ben@germanforblack.com)
+
 * Thu Jul 04 2013 ci <doperations@au.westfield.com> 0.0.186-1
 - 
 

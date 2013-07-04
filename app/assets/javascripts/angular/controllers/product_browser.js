@@ -12,6 +12,7 @@
 
     // TODO
     // available_filters
+    // show selected filters
     // super_cat
     // category
     // sub category is multi-value

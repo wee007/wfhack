@@ -8,6 +8,12 @@ class Deal < OpenStruct
     store.name
   end
 
+  def stores
+    deal_stores.map do |deal_store|
+      Store.new(deal_store)
+    end
+  end
+
 private
   def store
     @store ||= get_store

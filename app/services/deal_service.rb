@@ -17,6 +17,7 @@ class DealService
     end
 
     def build(json_response)
+      return Deal.new(super(json_response)) unless super(json_response).is_a?(Array)
       super(json_response).map do |deal_json|
         Deal.new(deal_json)
       end

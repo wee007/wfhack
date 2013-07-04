@@ -2,6 +2,17 @@ require 'spec_helper'
 
 describe Store do
 
+  context 'centre' do
+    describe "When asking for a stores centre" do
+      it "should get the centre from the centre service" do
+        CentreService.stub(:fetch).with('bondijunction').and_return("CENTRE JSON")
+        CentreService.stub(:build).with("CENTRE JSON").and_return(stub_centre = stub(:centre).as_null_object)
+        store = Store.new(:centre_id => 'bondijunction')
+        expect(store.centre).to eql(stub_centre)
+      end
+    end
+  end
+
   context '#first_letter' do
 
     it 'returns "#" when the first letter is non-alpha' do

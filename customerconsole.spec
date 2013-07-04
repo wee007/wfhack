@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.188
+Version:     0.0.189
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,10 @@ fi
 
 
 %changelog
+* Thu Jul 04 2013 ci <doperations@au.westfield.com> 0.0.189-1
+- Added twitter bootstrap. Included bootstrap dropdown.
+  (ben@germanforblack.com)
+
 * Thu Jul 04 2013 ci <doperations@au.westfield.com> 0.0.188-1
 - 
 

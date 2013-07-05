@@ -57,16 +57,16 @@
       <div class="flexslider flexslider--gallery flexslider--gallery-lrg-img">
         <ul class="slides">
           <!-- [BACK END] 4 images is the max, dimensions are 469px x 474px (938px x 948px for retina which we serve for all but reduce the compression) and `alt` attr's need to be dynamically populated e.g. 'Product name photo' -->
-          <li><%= image_tag("dummy/product.jpg") %></li>
-          <li><%= image_tag("dummy/product2.jpg") %></li>
-          <li><%= image_tag("dummy/product3.jpg") %></li>
+          <%- @product.images.each do |img| -%>
+            <li><%= image_tag(img) %></li>
+          <%- end -%>
         </ul>
       </div>
       <div class="flexslider flexslider--gallery flexslider--gallery-thumbs">
         <ul class="slides">
-          <li><%= image_tag("dummy/product.jpg") %></li>
-          <li><%= image_tag("dummy/product2.jpg") %></li>
-          <li><%= image_tag("dummy/product3.jpg") %></li>
+          <%- @product.images.each do |img| -%>
+            <li><%= image_tag(img) %></li>
+          <%- end -%>
         </ul>
       </div>
       <!-- //Flexslider -->
@@ -85,10 +85,11 @@
   <div class="detail-view__divider--top-non-palm grid__item non-palm-two-fifths">
     <div class="island island--btm-palm">
       <h3 class="detail-view__hdr-sub hn">Available Colours</h3>
-      <ul class="horiz-list horiz-list--comma">
-        <li><strong>Black</strong></li><!--
-        --><li><strong>Blue</strong></li>
-      </ul>
+      <ul class="horiz-list horiz-list--comma"><!--
+        <%- @product.available_colours.each do |colour| -%>
+          --><li><strong><%= colour %></strong></li><!--
+        <%- end -%>
+      --></ul>
     </div>
   </div>
   <!-- //Available Colours -->

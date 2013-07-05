@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.196
+Version:     0.0.197
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,14 @@ fi
 
 
 %changelog
+* Fri Jul 05 2013 ci <doperations@au.westfield.com> 0.0.197-1
+- Assign @product on products#show (cwalsh2@au.westfield.com)
+- Change product show URL to include retailer code and sku
+  (cwalsh2@au.westfield.com)
+- ProductService - work with show url too (cwalsh2@au.westfield.com)
+- Product Service url has changed, no need to use AppConfig now.
+  (cwalsh2@au.westfield.com)
+
 * Fri Jul 05 2013 ci <doperations@au.westfield.com> 0.0.196-1
 - Update trading hour method name (ewee@au.westfield.com)
 

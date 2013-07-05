@@ -1,21 +1,10 @@
+/* Do stuff on `$(window).resize` via Enquire library */
 (function ( $ ) {
+
   var telLinks = $('a[href^="tel:"]'),
       mq = 'all and (min-width: 40.0625em)';
 
-
-  /* --Do stuff on `$(window).resize` via Enquire library-- */
   enquire.register(mq, {
-
-    deferSetup: true,
-
-    setup: function() {
-
-      // Conditionally load scripts
-      /*$.getScript('/Cheetah/js/modules/conditionally-loaded.js', function() {
-          $('.js-menu-accessible-ddown').accessibleDropDownMenu();
-      }, true);*/
-
-    },
 
     // Not palm size viewport
     match: function() {
@@ -50,4 +39,5 @@
     }
 
   }, true);
+
 }( jQuery ));

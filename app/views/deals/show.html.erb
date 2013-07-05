@@ -1,31 +1,66 @@
-<div class="island island--top-btm detail-view__divider">
-  <div class="container">
-    
-    <div class="page1">
-      <div class="deal-details">
-        <h2><%= @deal.title %></h2>
-        <p>from <%= @store.name %></p>
-        <p>Deal ends <%= DateTime.parse(@deal.available_to).strftime("%A %e %B") %></p>
-      </div>
-    
-      <div class="map"></div>
-    
-      <div>Check nearby availability and fine print</div>
+<div class="detail-view__divider detail-view__divider--col grid grid--gutterless grid--flush">
+
+  <!-- The Deal -->
+  <div class="grid__item non-palm-one-half">
+    <div class="island detail-view__divider--palm">
+      <header class="deal-main box box--torn">
+        <h2 class="deal-main__hdr txt-break-word"><%= @deal.title %></h2>
+        <p class="deal-main__meta">from <%= @store.name %> <span>Deal ends <time datetime="<%= DateTime.parse(@deal.available_to).strftime("%Y-%m-%d") %>"><%= DateTime.parse(@deal.available_to).strftime("%A %e %B") %></time></span></p>
+      </header>
     </div>
-    
-    <div class="page2">
-      <h2>Also available at</h2>
-      <ul>
-        <% @deal.stores.each do |store| %>
-          <li><%= store.centre.short_name %></li>
-        <% end %>
-      </ul>
-      
-      <h3>The fine print</h3>
-      <%=raw @deal.terms_and_conditions %>
-      
-      <div>Return to deal</div>
-    </div>
-    
   </div>
+  <!-- //The Deal -->
+
+  <!-- Store location & contact store -->
+  <div class="grid__item non-palm-one-half">
+
+    <!-- Store location -->
+    <div class="store-location detail-view__divider" style="background: gold;">
+      map
+    </div>
+    <!-- //Store location -->
+
+    <!-- Contact store -->
+    <div class="island island--fill island--center islet-tops">
+      <!-- [BACK END] Need to remove (trim) white space coming from the `<%= @store.phone_number %>` text field -->
+      <span class="hide-fully--non-palm">
+        <a href="tel:<%= @store.phone_number %>" class="btn btn--full btn--main btn--main-alt2 btn--main-lrg"><span class="icon icon--phone icon--xlrg icon--spacing-lrg icon--flush-top" aria-hidden="true"></span><strong>Call <%= @store.name %></strong></a>
+      </span>
+      <p class="detail-view__check-avble hide-fully--palm"><span class="detail-view__subtle-txt">Check store availability</span> <em><span class="icon icon--phone icon--lrg icon--spacing" aria-hidden="true"></span> <%= @store.phone_number %></em></p>
+    </div>
+    <!-- //Contact store -->
+
+  </div>
+  <!-- //Store location & contact store -->
+
+  <span class="detail-view__divider--col-line hide-fully--palm"></span>
+
 </div>
+
+<!-- Availability & fine print -->
+<div class="island">
+
+  <!-- Availability -->
+  <h3 class="detail-view__hdr-sub hn">Also available at</h3>
+  <ul class="detail-view__mrg-base">
+    <% @deal.stores.each do |store| %>
+      <li><a href="<%= centre_deal_path(store.centre.code, @deal.id)%>" class="centres-list"><span class="icon icon--pin icon--lrg icon--spacing-lrg" aria-hidden="true"></span><%= store.centre.short_name %><span class="icon icon--arrow-right icon--lrg" aria-hidden="true"></span></a></li>
+    <% end %>
+  </ul>
+  <!-- //Availability -->
+
+  <!-- Fine print -->
+  <!-- <button type="button" class="btn btn--main btn--main-alt3">The fine print</button> -->
+  <h3 class="detail-view__hdr-sub hn">The fine print</h3>
+  <div class="detail-view__desc detail-view__desc--fine-print detail-view__subtle-txt">
+    <!-- [BACK END] Each new line (ENTER) entered in the HTML `textarea` to generate a `p` element then can remove the static `p`s below -->
+    <% @deal.terms_and_conditions do |paragraph| %>
+      <p><%= paragraph %></p>
+    <% end %>
+    <p>Porta adipiscing lundium nec tristique tristique, natoque est! Lacus magnis! Etiam dis a nascetur, eu, enim. Enim magna nunc? Auctor vel habitasse odio purus pulvinar nascetur, habitasse eu, est lorem urna et porta! Mauris aliquet et, dis velit scelerisque cum scelerisque duis, cursus, aenean nisi tincidunt? Elementum auctor, dignissim, turpis ac duis pellentesque parturient porttitor sed tempor vel montes! Nisi mauris. Et platea vut! Tincidunt tempor! Facilisis in. Nascetur a turpis dignissim ultrices purus habitasse. A velit porttitor augue proin, lorem ultrices, et augue ultrices vel in. Auctor, lundium magnis? Proin odio, nisi facilisis mus. Parturient. Magna porttitor elit phasellus duis natoque diam porttitor diam, porttitor rhoncus massa, scelerisque elementum aenean velit, elementum proin et eu dis nisi urna in.</p>
+    <p>Porta adipiscing lundium nec tristique tristique, natoque est! Lacus magnis! Etiam dis a nascetur, eu, enim. Enim magna nunc? Auctor vel habitasse odio purus pulvinar nascetur, habitasse eu, est lorem urna et porta! Mauris aliquet et.</p>
+  </div>
+  <!-- //Fine print -->
+
+</div>
+<!-- //Availability & fine print -->

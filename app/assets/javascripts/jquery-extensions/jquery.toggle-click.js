@@ -10,11 +10,13 @@ $.fn.toggleClick = function() {
 
     // Use return this to maintain jQuery chainability
     return this.each(function(i, item){
-        // For each element you bind to
-        var index = 0; // Create a local counter for that element
-        $(item).click(function(){ // Bind a click handler to that element
-            return methods[index++ % count].apply(this,arguments); // That when called will apply the 'index' th method to that element
+        // For each element you bind to create a local counter for that element
+        var index = 0;
+
+        // Bind a click handler to that element that when called will apply the 'index' th method to that element
+        $(item).click(function(){
             // The index % count means that we constrain our iterator between 0 and (count-1)
+            return methods[index++ % count].apply(this,arguments);
         });
     });
 };

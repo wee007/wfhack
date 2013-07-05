@@ -4,10 +4,10 @@
 
 /*
   Usage:
-    Creates a box shaddow.
+    Simple cosmetics for a container.
 
   Note:
-    The default box style for tiles etc
+    The default box style is mostly used for the 'Tile' module.
 
   Demo:
     Style Guide -> Abstractions -> Box
@@ -15,5 +15,36 @@
 
 .box {
   background-color: #fff;
-  box-shadow: 0 0 3px rgba(#000, 0.4);
+  box-shadow: 0 1px 2px rgba(#000, 0.25);
+}
+
+/* [WIP] Torn paper treatment */
+.box--torn {
+  background: none;
+  box-shadow: none;
+  border: 1px solid $color-grey-2;
+  position: relative;
+  /* Need this to accommodate the height of the pseudo element */
+  //@include to-rem(margin-bottom, 8);
+
+  &:after {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    left: -1px;
+    right: -1px;
+    height: 8px;
+    background: linear-gradient(-45deg, #fff 33%, transparent 33%) 0 50%,
+                linear-gradient(45deg, #fff 33%, $color-grey-2 33%) 0 50%;
+    background-repeat: repeat-x;
+    background-size: 8px 8px, 8px 8px;
+
+    /* http://lea.verou.me/css3patterns/#zig-zag
+    background:
+    linear-gradient(135deg, $color-grey-2 25%, transparent 25%) -50px 0,
+    linear-gradient(225deg, $color-grey-2 25%, transparent 25%) -50px 0,
+    linear-gradient(315deg, $color-grey-2 25%, transparent 25%),
+    linear-gradient(45deg, $color-grey-2 25%, transparent 25%);
+    background-size: 10px 10px;*/
+  }
 }

@@ -59,3 +59,35 @@ describe "Map", ->
     it 'sets the theme family', ->
       @subject.applyCustomTheme(@gui, @canvas)
       expect(@canvas.setThemeFamily).toHaveBeenCalledWith('Standard')
+
+  describe "#onMapChanged", ->
+
+    options = select: 123
+
+    beforeEach ->
+      @subject.data = community: d: 0: l: []
+
+    it 'selects a store if the option is set', ->
+      @subject.highlight = jasmine.createSpy('highlight')
+      @subject.options = options
+      @subject.onMapChanged(comLoad: 1)
+      waitsFor((->
+        @subject.highlight.callCount
+      ), 'highlight to be called', 500)
+      runs(->
+        expect(@subject.highlight).toHaveBeenCalledWith(options.select)
+      )
+
+  describe "#highlight", ->
+
+    beforeEach ->
+      @storeId = 21
+      @indexObj = {id: 21, gid: 24, store: {}}
+      @subject.index.findById = jasmine.createSpy('findById').andReturn(@indexObj)
+      @subject.data = jasmine.createSpyObj('data', ['removeInlay', 'getCurrentLevel', 'getGeometryLevel', 'setLevel', 'addInlay'])
+      @subject.control = jasmine.createSpyObj('control', ['showInfoWindow'])
+      @subject.data.getCurrentLevel.andReturn(cid: 123)
+      @subject.data.getGeometryLevel.andReturn(id: 123)
+
+    it 'returns an index object', ->
+      expect(@subject.highlight(@storeId)).toEqual(@indexObj)

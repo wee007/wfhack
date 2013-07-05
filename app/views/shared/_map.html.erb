@@ -6,6 +6,6 @@
 <%= javascript_include_tag 'http://maps.micello.com/webmap/v0/micellomap.js' %>
 <%= javascript_include_tag 'map' %>
 <%= javascript_tag do %>
-  new Map
+  new Map({select: <%= store_id || 'null' %>})
 <% end %>
 <!--><![endif]-->

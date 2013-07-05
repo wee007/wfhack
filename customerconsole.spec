@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.198
+Version:     0.0.199
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,10 @@ fi
 
 
 %changelog
+* Fri Jul 05 2013 ci <doperations@au.westfield.com> 0.0.199-1
+- Delete .ruby-version, Gemfile does the job with ruby 2.0.0 anyway
+  (cwalsh2@au.westfield.com)
+
 * Fri Jul 05 2013 ci <doperations@au.westfield.com> 0.0.198-1
 - Merge pull request #100 from cpearce/master (ldewey@au.westfield.com)
 - adding hooks to 'Deal Main' module (CPearce@au.westfield.com)

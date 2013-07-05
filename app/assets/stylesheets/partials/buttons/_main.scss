@@ -32,7 +32,7 @@
 
 	/* Pseudo classes */
 	&:hover,
-	&:focus {@include opacity(0.8);}
+	&:focus {background-color: lighten($color-cta-green, 10%);}
 
 	&:active {box-shadow: inset 0 1px 0 rgba(#000, 0.4);}
 }
@@ -47,6 +47,10 @@
 		&,
 		&[disabled],
 		&.is-disabled {background-color: $color-cta-blue;}
+
+		/* Pseudo classes */
+		&:hover,
+		&:focus {background-color: lighten($color-cta-blue, 10%);}
 	}
 
 	/* Dark */
@@ -55,6 +59,10 @@
 		&,
 		&[disabled],
 		&.is-disabled {background-color: $color-med-txt;}
+
+		/* Pseudo classes */
+		&:hover,
+		&:focus {background-color: lighten($color-med-txt, 10%);}
 	}
 
 	/* Subtle */
@@ -72,6 +80,9 @@
 		&:hover,
 		&:focus {color: $color-dark-txt;}
 
+		&:hover,
+		&:focus {background-color: lighten($color-grey-3, 3%);}
+
 		&:active {box-shadow: inset 0 1px 0 rgba(#000, 0.15);}
 	}
 
@@ -81,11 +92,32 @@
 	/* Large - increase top/btm padding */
 	.btn--main-lrg {@include to-em(padding-top padding-bottom, $spacing-half+$spacing-micro);}
 
+	/* Pointer - used when you need to position an arrow icon over to the far right, has to be used with the `.btn--pointer` base extender */
+	.btn--pointer.btn--main {
+		@include to-em(padding-right, $spacing-base+$spacing-half+$spacing-micro);
+
+		/* Icon */
+		.btn--pointer__icon {@include to-em(right, $spacing-half);}
+	}
+
+	/* As above but position icon over to the far left */
+	.btn--pointer-alt.btn--main,
+	.toggle-content--btn .btn--pointer.btn--main.is-expanded {
+		@include to-em(padding-left, $spacing-base+$spacing-half+$spacing-micro);
+		@include to-em(padding-right, $spacing-base+$spacing-half);
+
+		/* Icon */
+		.btn--pointer__icon {
+			right: auto;
+			@include to-em(left, $spacing-half);
+		}
+	}
+
 	/* Flanked - position 2 icons either ends, has to be used with the `.btn--pointer` base extender */
-	.btn.btn--main-flanked {
+	.btn--main.btn--main-flanked {
 		@include to-em(padding, $spacing-half+$spacing-micro+$spacing-micro $spacing-dbl);
 
-		/* Arrow icon */
+		/* Icons */
 		.btn--pointer__icon + .btn--pointer__icon {
 			@include to-em(left, $spacing-half);
 			right: auto;

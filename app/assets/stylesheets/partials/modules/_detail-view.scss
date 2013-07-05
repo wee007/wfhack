@@ -225,6 +225,11 @@
 
       .grid__item:first-child {background-color: #fff;}
 
+    /* Adjustment for the `.box--torn` abstraction so the torn paper bg image aligns with left/right borders */
+    .box--torn {
+      margin-left: -1px;
+      margin-right: -1px;
+    }
   }
 
   /* Product */

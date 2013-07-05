@@ -16,6 +16,12 @@
 .deal-main {
 	@include to-rem(min-height, 316);
 	@include to-rem(padding, 88 $spacing-base);
+
+	/* Old IE */
+	@include old-ie {
+		min-height: 0;
+		@include to-rem(padding-top padding-bottom, 108);
+	}
 }
 
 	/* Title */

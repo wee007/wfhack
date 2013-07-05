@@ -23,6 +23,7 @@ gem 'service_helper',
 
 # Presentation, pagination etc.
 gem 'kaminari'
+gem 'money'
 
 group :development do
   gem "foreman"

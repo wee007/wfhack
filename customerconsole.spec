@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.197
+Version:     0.0.198
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,19 @@ fi
 
 
 %changelog
+* Fri Jul 05 2013 ci <doperations@au.westfield.com> 0.0.198-1
+- Merge pull request #100 from cpearce/master (ldewey@au.westfield.com)
+- adding hooks to 'Deal Main' module (CPearce@au.westfield.com)
+- adding a new module - 'Deal Main' (CPearce@au.westfield.com)
+- adding a new extender (WIP) (CPearce@au.westfield.com)
+- cleaning up comments (CPearce@au.westfield.com)
+- cleaning up comments (CPearce@au.westfield.com)
+- cleaning up comments (CPearce@au.westfield.com)
+- adding text colour to make it more legible (CPearce@au.westfield.com)
+- Fixing up indentation (CPearce@au.westfield.com)
+- adding a new module: 'Deal Main' (CPearce@au.westfield.com)
+- adding 'box' abstraction to detail view layout (CPearce@au.westfield.com)
+
 * Fri Jul 05 2013 ci <doperations@au.westfield.com> 0.0.197-1
 - Assign @product on products#show (cwalsh2@au.westfield.com)
 - Change product show URL to include retailer code and sku

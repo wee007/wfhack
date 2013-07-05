@@ -63,6 +63,10 @@ class window.Map
     return unless data.cid == @community
     @index.addAddresses(data.g)
 
+  zoomTo: (storeId) ->
+    index = @highlight(storeId)
+    @control.centerOnGeom(index.geom, 100)
+
   highlight: (storeId) ->
     @data.removeInlay("slct", true)
     index = @index.findById(storeId)
@@ -70,6 +74,7 @@ class window.Map
     @data.setLevel(level) if level.id != @data.getCurrentLevel().cid
     @data.addInlay(id: index.gid, t: 'Selected', anm: 'slct')
     @control.showInfoWindow(index.geom, @popupHtml(index.store))
+    index
 
   popupHtml: (store) ->
     """
@@ -84,7 +89,7 @@ class window.Map
     for level in @data.community.d[0].l
       @index.addGeoms(level.g)
     if @options.select
-      setTimeout((=> @highlight(@options.select)), 0)
+      setTimeout((=> @zoomTo(@options.select)), 0)
 
   onClick: (mx, my, event) =>
     return if !event || !event.id

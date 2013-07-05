@@ -1,14 +1,18 @@
-<ul class="map__stores">
-  <li class="list__header">Stores / A-Z</li>
-  <% @stores.each do |letter, stores| %>
-    <li class="list__heading"><%= letter %></li>
-    <% stores.each do |store| %>
-      <li class="list__store" data-store-id="<%= store.id %>">
-        <%= responsive_image_tag normal: store.logo, alt: store.name %>
-        <h1><%= link_to store.name, (centre_store_url @centre.code , store.id) %></h1>
-        <%= store.phone_number %>
-      </li>
+<div class="stores-map-content">
+  <ul>
+    <li class="list__header">Stores / A-Z</li>
+    <% @stores.each do |letter, stores| %>
+      <li class="list__heading"><%= letter %></li>
+      <% stores.each do |store| %>
+        <li class="list__store" data-store-id="<%= store.id %>">
+          <%= responsive_image_tag normal: store.logo, alt: store.name %>
+          <h1><%= link_to store.name, (centre_store_url @centre.code , store.id) %></h1>
+          <%= store.phone_number %>
+        </li>
+      <% end %>
     <% end %>
-  <% end %>
-</ul>
-<%= render partial: 'shared/map', locals: {store_id: nil} %>
+  </ul>
+  <div class="map">
+    <%= render partial: 'shared/map', locals: {store_id: nil} %>
+  </div>
+</div>

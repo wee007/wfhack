@@ -1,33 +1,49 @@
-.map__stores {
-  background-color: #fff;
-  border-right: 1px solid #bababa;
-  overflow: auto;
+.stores-map-content {
   position: absolute;
   @include to-rem(top, 110);
   bottom: 0;
   left: 0;
-  @include to-rem(width, 450);
+  right: 0;
 
-  li {
-    @include to-rem(padding, 10 20);
-    border-bottom: 1px solid #bababa;
+  ul {
+    background-color: #fff;
+    border-right: 1px solid #bababa;
+    overflow: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    @include to-rem(width, 450);
 
-    &.list__store {
-      position: relative;
-      @include to-rem(padding-left, 120);
+    li {
+      @include to-rem(padding, 10 20);
+      border-bottom: 1px solid #bababa;
 
-      img {
-        position: absolute;
-        @include to-rem(top, 10);
-        @include to-rem(left, 20);
-        @include to-rem(width, 60);
-        @include to-rem(height, 60);
+      &.list__store {
+        position: relative;
+        @include to-rem(padding-left, 120);
+
+        img {
+          position: absolute;
+          @include to-rem(top, 10);
+          @include to-rem(left, 20);
+          @include to-rem(width, 60);
+          @include to-rem(height, 60);
+        }
+      }
+
+      &.list__heading {
+        background-color: #e8e8e8;
       }
     }
+  }
 
-    &.list__heading {
-      background-color: #e8e8e8;
-    }
+  .map {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    @include to-rem(left, 450);
+    right: 0;
   }
 }
 
@@ -35,9 +51,9 @@
   $background-color: #e9e6e3; 
   background-color: $background-color;
   position: absolute;
-  @include to-rem(top, 110);
+  top: 0;
   bottom: 0;
-  @include to-rem(left, 450);
+  left: 0;
   right: 0;
 
   #micello-map #ui-levels-floors-container {
@@ -45,3 +61,16 @@
   }
 }
 
+.store-location {
+  position: relative;
+  @include to-rem(height, 400);
+
+  #ui-name, #ui-geo {
+    opacity: 1 !important;
+    display: block !important;
+  }
+
+  #ui-zoom, #ui-levels {
+    display: none !important;
+  }
+}

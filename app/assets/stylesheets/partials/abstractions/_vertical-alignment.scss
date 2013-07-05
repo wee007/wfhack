@@ -3,21 +3,21 @@
    ====================================================================================== */
 
 /*
-	Usage:
-		Vertically align an element within it's parent via CSS `display: table`.
+  Usage:
+    Vertically align an element within it's parent via CSS `display: table`.
 
-	Demo:
-		Style Guide -> Abstractions -> Vertical Alignment
+  Demo:
+    Style Guide -> Abstractions -> Vertical Alignment
 */
 
 .vert-align {
-	display: table;
-	width: 100%;
-	height: 100%;
+  display: table;
+  width: 100%;
+  height: 100%;
 }
 
-	.vert-align__inner {
-		display: table-cell;
-   	text-align: center;
-   	vertical-align: middle;
-	}
+  .vert-align__inner {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+  }

@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.200
+Version:     0.0.201
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,10 @@ fi
 
 
 %changelog
+* Fri Jul 05 2013 ci <doperations@au.westfield.com> 0.0.201-1
+- adds zoom to and inserts map into product show (matt.wratt@trineo.co.nz)
+- adds default store pre-select to maps (matt.wratt@trineo.co.nz)
+
 * Fri Jul 05 2013 ci <doperations@au.westfield.com> 0.0.200-1
 - Merge pull request #101 from ldewey/master (cpearce@au.westfield.com)
 - Removed code thats not working / not used (ldewey@au.westfield.com)

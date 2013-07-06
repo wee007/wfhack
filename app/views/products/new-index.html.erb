@@ -1,16 +1,18 @@
-<div ng-app="Westfield">
+<div ng-app="Westfield" ng-controller="BrowseController">
   <div class="selected-categories">
-    <h3>Selected categories:</h3>
+    <h1>Selected filters:</h1>
     <ul>
-      <li ng-repeat="category in selectedCategories">
-        {{ category.label }}
-
-        <button ng-click="removeSelectedCategory({{ category.code }})">X</button>
+      <li ng-repeat="filter in search.appliedFilters">
+        {{ filter.title }}
+        <button ng-click="removeSelectedFilter( filter.type, filter.value )">X</button>
       </li>
     </ul>
   </div>
 
-  <form ng-controller="BrowseController" ng-submit="filterSearch('search_query')" method="get">
+  <h1>Available filters</h1>
+  {{ search.availableFilters }}
+
+  <form  ng-submit="filterSearch('search_query')" method="get">
 
     <div class="select-filter">
       <label for="search_query">Keyword search</label>
@@ -33,15 +35,16 @@
       <input ng-model="storeSearch" type="search" placeholder="Enter a store name">
 
       <ul class="multi-facet-list">
-        <li ng-repeat="retailer in search.retailers | filter: storeSearch">
+        <li ng-repeat="retailer in search.retailers | filter: storeSearch | limitTo: 250">
           <input ng-model="retailer.checked"
+                 ng-checked="retailer.selected"
                  ng-check-list="selectedRetailers"
-                 ng-change="$parent.multiValueFacet('selectedRetailers')"
+                 ng-change="$parent.multiValueFacetSearch('selectedRetailers')"
                  value="{{ retailer.code }}"
                  id="retailer_{{ retailer.code }}"
                  type="checkbox">
 
-          <label for="retailer_{{ retailer.code }}">{{ retailer.name }}</label>
+          <label for="retailer_{{ retailer.code }}">{{ retailer.name }} ({{ retailer.count }})</label>
         </li>
         Selected: {{ selectedRetailers }}
       </ul>
@@ -51,22 +54,26 @@
       <input ng-model="brandSearch" type="search" placeholder="Enter a brand name">
 
       <ul class="multi-facet-list">
-        <li ng-repeat="brand in search.brands | filter: brandSearch">
+        <li ng-repeat="brand in search.brands | filter: brandSearch | limitTo: 250">
           <input ng-model="brand.checked"
+                 ng-checked="retailer.selected"
                  ng-check-list="selectedBrands"
-                 ng-change="$parent.multiValueFacet('selectedBrands')"
+                 ng-change="$parent.multiValueFacetSearch('selectedBrands')"
                  value="{{ brand.code }}"
                  id="brand_{{ brand.code }}"
                  type="checkbox">
 
-          <label for="brand_{{ brand.code }}">{{ brand.name }}</label>
+          <label for="brand_{{ brand.code }}">{{ brand.name }} ({{ brand.count }})</label>
         </li>
         Selected: {{ selectedBrands }}
       </ul>
     </div>
 
     <div class="select-filter colour"></div>
-    <div class="select-filter price-range"></div>
+    <div class="select-filter price-range">
+      <input ng-model="price_min" ng-change="filterSearch('price-min')" type="text">
+      <input ng-model="price_max" ng-change="filterSearch('price')" type="text">
+    </div>
 
     <div class="select-filter on-sale">
       <label for="sale-items">

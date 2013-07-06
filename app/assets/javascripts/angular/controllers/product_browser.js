@@ -4,7 +4,6 @@
 
     $scope.categories = CategoryList;
     $scope.search = Search;
-    $scope.selectedCategories = [];
 
     // Multi-facet search fields
     $scope.selectedRetailers = [];
@@ -12,10 +11,10 @@
 
     // TODO
     // available_filters
-    // show selected filters
     // super_cat
     // category
     // sub category is multi-value
+
 
     // router
     // /bondijunction/products?retailer[]=supre
@@ -28,13 +27,20 @@
     // name of the model. eg. selectedBrands should become brands
     // Use this method instead of filterSearch for multi-value fields
 
-    var multiValueFacetMap = {
+    var searchParamMap = {
       'selectedRetailers': 'retailer',
-      'selectedBrands': 'brand'
+      'selectedBrands': 'brand',
+      'price-min': 'price',
+      'price-max': 'price'
     };
 
-    $scope.multiValueFacet = function ( modelName ) {
-      name = multiValueFacetMap[modelName];
+    $scope.removeSelectedFilter = function ( paramName, paramValue ) {
+      Search.removeParam( paramName, paramValue );
+      Search.getSearch();
+    };
+
+    $scope.multiValueFacetSearch = function ( modelName ) {
+      name = searchParamMap[modelName];
 
       Search.addParam( name, $scope[modelName] );
       Search.getSearch();

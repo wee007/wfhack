@@ -2,8 +2,6 @@
   // Search
   // http://product-service.systest.dbg.westfield.com/api/product/latest/products/search.json?centre=bondijunction
   app.service( 'Search', function ( $http ) {
-    var self = this;
-
     // Params, with types
     this.params = {
       brand: [],
@@ -17,7 +15,10 @@
     this.retailers = [];
     this.brands = [];
     this.sortOptions = [];
+    this.availableFilters = [];
+    this.appliedFilters = [];
 
+    var self = this;
     this.getSearch = function () {
       return $http.get('http://productservice.syt2.dbg.westfield.com/api/product/latest/products/search.json', {
         params: this.buildRequestParams(),
@@ -30,14 +31,22 @@
     // Params will be modified prior to being sent to the server.
     // This ensures that array based params will not be sent as empty arrays.
     this.buildRequestParams = function () {
-      var params = this.params;
+      params = {};
+      angular.extend( params, this.params );
 
       for ( var param in params ) {
-        if ( angular.isArray( this.params[param] ) && !this.params[param].length ) {
+        // No need to transmit empty values
+        if ( typeof params[param] === 'string' || angular.isArray( params[param] ) ) {
+          if ( !params[param].length ) delete params[param];
+        }
+
+        // False booleans can be omitted
+        if ( params[param] === false ) {
           delete params[param];
         }
 
-        if ( angular.isArray( this.params[param] ) ) {
+        // Solr expects arrays to be passed as key[]=value
+        if ( angular.isArray( params[param] ) ) {
           paramName = param + '[]';
           params[paramName] = params[param];
           delete params[param];
@@ -47,15 +56,8 @@
       return params;
     };
 
-    this.formatSearchResults = function ( response ) {
-      this.products = response.results;
-      this.retailers = this.getFacet( response.facets, 'retailer' );
-      this.brands = this.getFacet( response.facets, 'brand' );
-      this.sortOptions = response.display_options.sort_options;
-    };
-
     this.getFacet = function ( facets, facetName ) {
-      var values = [];
+      values = [];
       angular.forEach( facets, function ( facet ) {
         if ( facet.field === facetName ) {
           values = facet.values;
@@ -64,6 +66,37 @@
 
       return values;
     };
+
+    // Return the displayable / human readable
+    // filters from the applied_filters.facets object.
+    this.formatFilters = function ( filters ) {
+      appliedFilters = [];
+      if ( filters.facets ) {
+        for ( var facetName in filters.facets ) {
+          angular.forEach( filters.facets[facetName].selected_values, function ( filter ) {
+            if ( filter.title ) {
+              appliedFilters.push({
+                type: facetName,
+                title: filter.title,
+                value: filter.value
+              });
+            }
+          });
+        }
+      }
+
+      return appliedFilters;
+    };
+
+    this.formatSearchResults = function ( response ) {
+      this.products = response.results;
+      this.retailers = this.getFacet( response.facets, 'retailer' );
+      this.brands = this.getFacet( response.facets, 'brand' );
+      this.sortOptions = response.display_options.sort_options;
+      this.availableFilters = response.available_filters;
+      this.appliedFilters = this.formatFilters( response.applied_filters );
+    };
+
 
     this.addParam = function ( param, value ) {
       // Array params should be added to the 'last'
@@ -76,13 +109,14 @@
       this.params[param] = value;
     };
 
-    this.removeParam = function ( param, value ) {
-      var index;
-      if ( angular.isArray( this.params[param] ) ) {
-        index = this.params[param].indexOf( value );
-        this.params[param].splice( index, 1 );
-      } else {
-        delete this.params[param];
+    this.removeParam = function ( paramName, value ) {
+      param = this.params[paramName];
+
+      if ( angular.isArray( param ) ) {
+        index = param.indexOf( value );
+        param.splice( index, 1 );
+      } else if ( param === value ) {
+        delete param;
       }
     };
 

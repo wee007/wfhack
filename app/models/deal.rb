@@ -14,6 +14,10 @@ class Deal < OpenStruct
     end
   end
 
+  def terms_and_conditions
+    (super || '').split(/\r?\n/)
+  end
+
 private
   def store
     @store ||= get_store

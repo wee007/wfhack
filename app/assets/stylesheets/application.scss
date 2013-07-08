@@ -7,7 +7,7 @@
  *
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
-▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂
+======================================================================================
 
 Global stylesheet
 
@@ -39,7 +39,7 @@ Global stylesheet
     - DEBUG.................enable to add visual flags for debugging purposes
     - SHAME.................home for housing nasty, hacky, quick-fix CSS
 
-▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂
+======================================================================================
 */
 
 /* [IMPORT ALL PARTIALS]
@@ -108,6 +108,7 @@ Global stylesheet
 @import "partials/abstractions/preserve-aspect-ratio";
 @import "partials/abstractions/dropdown";
 @import "partials/abstractions/box";
+@import "partials/abstractions/toggle-content";
 
 /* Modules */
 @import "partials/modules/feedback";

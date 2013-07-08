@@ -169,6 +169,11 @@
 /* Remove the negative 1px top positiong */
 .icon--flush-top:before {position: static;}
 
+/* Firefox */
+@include target-mozilla {
+	.icon--flush-top-mozilla:before {position: static;}
+}
+
 /* Fixed width */
 .icon--fixed-width:before {
 	width: 1em;

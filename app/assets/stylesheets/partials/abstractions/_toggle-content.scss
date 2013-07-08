@@ -1,0 +1,24 @@
+/* ======================================================================================
+   @ABSTRACTIONS -> TOGGLE CONTENT
+   ====================================================================================== */
+
+/*
+  Usage:
+    Simply expands/collapses some content via jQuery.
+
+  Demo:
+    Style Guide -> Abstractions -> Toggle Content
+*/
+
+.toggle-content {
+	display: none;
+	outline: none;
+}
+
+/* --Toggle button container-- */
+
+/* Center align */
+.toggle-content--btn-center {text-align: center;}
+
+/* Apply base bottom margin */
+.toggle-content--btn-mrg-base .is-expanded {@include to-rem(margin-bottom, $spacing-base);}

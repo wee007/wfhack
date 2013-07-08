@@ -54,22 +54,41 @@
 	/* Apply right spacing for adjacent buttons */
 	&.btn--spacing {margin-right: to-em($spacing-quarter);}
 
-	/* Used when you need to position an arrow icon over to the far right */
+	/* When you need to position an icon over to the far right */
 	&.btn--pointer {
 		position: relative;
-		@include to-em(padding-right, $spacing-base);
+		@include to-em(padding-right, $spacing-half+$spacing-quarter);
 
-		/* Arrow icon */
+		/* Icon */
 		.btn--pointer__icon {
 			position: absolute;
-			@include to-em(right, $spacing-half);
+			right: 0;
 			top: 50%;
 			@include translate(0, -50%);
+
+			/* IE 10/9 */
+			@include ie-10-up {
+				@include translate(0, -40%);
+			}
+			.ie-9 & {@include translate(0, -40%);}
 
 			/* Old IE */
 			@include old-ie {
 				top: 28%;
 			}
+		}
+	}
+
+	/* As above but position icon over to the far left */
+	&.btn--pointer-alt,
+	.toggle-content--btn &.btn--pointer.is-expanded {
+		padding-right: 0;
+		@include to-em(padding-left, $spacing-half+$spacing-quarter);
+
+		/* Icon */
+		.btn--pointer__icon {
+			left: 0;
+			right: auto;
 		}
 	}
 }

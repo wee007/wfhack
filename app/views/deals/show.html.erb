@@ -15,14 +15,14 @@
   <div class="grid__item non-palm-one-half">
 
     <!-- Store location -->
-    <div class="store-location detail-view__divider" style="background: gold;">
+    <div class="store-location detail-view__divider">
       map
     </div>
     <!-- //Store location -->
 
     <!-- Contact store -->
     <div class="island island--fill island--center islet-tops">
-      <!-- [BACK END] Need to remove (trim) white space coming from the `<%= @store.phone_number %>` text field -->
+      <!-- [BACK END] Need to remove (trim) white space coming from the `<%= @store.phone_number %>` text field as it screwing up the `tel:` link -->
       <span class="hide-fully--non-palm">
         <a href="tel:<%= @store.phone_number %>" class="btn btn--full btn--main btn--main-alt2 btn--main-lrg"><span class="icon icon--phone icon--xlrg icon--spacing-lrg icon--flush-top" aria-hidden="true"></span><strong>Call <%= @store.name %></strong></a>
       </span>
@@ -50,9 +50,8 @@
   <!-- //Availability -->
 
   <!-- Fine print -->
-  <!-- <button type="button" class="btn btn--main btn--main-alt3">The fine print</button> -->
-  <h3 class="detail-view__hdr-sub hn">The fine print</h3>
-  <div class="detail-view__desc detail-view__desc--fine-print detail-view__subtle-txt">
+  <h3 class="hide-visually">The fine print</h3>
+  <div class="detail-view__desc detail-view__desc--fine-print detail-view__subtle-txt toggle-content js-toggle-content js-hide-show">
     <!-- [BACK END] Each new line (ENTER) entered in the HTML `textarea` to generate a `p` element then can remove the static `p`s below -->
     <p>Porta adipiscing lundium nec tristique tristique, natoque est! Lacus magnis! Etiam dis a nascetur, eu, enim. Enim magna nunc? Auctor vel habitasse odio purus pulvinar nascetur, habitasse eu, est lorem urna et porta! Mauris aliquet et, dis velit scelerisque cum scelerisque duis, cursus, aenean nisi tincidunt? Elementum auctor, dignissim, turpis ac duis pellentesque parturient porttitor sed tempor vel montes! Nisi mauris. Et platea vut! Tincidunt tempor! Facilisis in. Nascetur a turpis dignissim ultrices purus habitasse. A velit porttitor augue proin, lorem ultrices, et augue ultrices vel in. Auctor, lundium magnis? Proin odio, nisi facilisis mus. Parturient. Magna porttitor elit phasellus duis natoque diam porttitor diam, porttitor rhoncus massa, scelerisque elementum aenean velit, elementum proin et eu dis nisi urna in.</p>
     <p>Porta adipiscing lundium nec tristique tristique, natoque est! Lacus magnis! Etiam dis a nascetur, eu, enim. Enim magna nunc? Auctor vel habitasse odio purus pulvinar nascetur, habitasse eu, est lorem urna et porta! Mauris aliquet et.</p>
@@ -61,3 +60,18 @@
 
 </div>
 <!-- //Availability & fine print -->
+
+<%- content_for :javascript do -%>
+  <script>
+    $(function() {
+      // Run 'Toggle content' plugin
+      $('.js-toggle-content').toggleContent({
+        btnTxtOpen: 'Read the fine print <span aria-hidden="true" class="icon icon--arrow-right-big icon--lrg icon--flush-top-mozilla btn--pointer__icon"></span>',
+        btnTxtClose: 'Close the fine print <span aria-hidden="true" class="icon icon--arrow-left-big icon--lrg icon--flush-top-mozilla btn--pointer__icon"></span>',
+        toggleBtnTrigger: $('<button type="button" class="btn btn--pointer btn--main btn--main-alt3"></button>'),
+        toggleBtnWrap: $('<div class="toggle-content--btn toggle-content--btn-center toggle-content--btn-mrg-base"></div>'),
+        btnPos: 'insertBefore'
+      });
+    });
+  </script>
+<%- end -%>

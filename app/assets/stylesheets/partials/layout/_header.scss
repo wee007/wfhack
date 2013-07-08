@@ -806,10 +806,7 @@ $hero-banner-height-lrg: 380 !default;
 
 			/* Hover & focus states */
 			a:hover .icon:before,
-			a:focus .icon:before,
-			.btn:hover .icon:before,
-			.btn:focus .icon:before,
-			.btn.is-expanded .icon:before {color: $color-link-hover;}
+			a:focus .icon:before {color: $color-link-hover;}
 
 			/* Search icon */
 			.icon--search:before {

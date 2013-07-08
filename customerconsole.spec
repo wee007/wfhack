@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.201
+Version:     0.0.202
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,31 @@ fi
 
 
 %changelog
+* Mon Jul 08 2013 ci <doperations@au.westfield.com> 0.0.202-1
+- Moved the parsing of deal available_to date in to the model.
+  (craigm.smith@au.westfield.com)
+- Added link to movies. (craigm.smith@au.westfield.com)
+- Make the terms and conditions display code a little more readable.
+  (craigm.smith@au.westfield.com)
+- HTML editing has been removed so preserving the white space like this.
+  (craigm.smith@au.westfield.com)
+- Merge pull request #105 from cpearce/master (ldewey@au.westfield.com)
+- fixing up the bg image for retina (CPearce@au.westfield.com)
+- removing redundant @mixin (CPearce@au.westfield.com)
+- updating bg image path to use asset pipeline (CPearce@au.westfield.com)
+- Merge pull request #104 from csmith/master (ldewey@au.westfield.com)
+- working on deal detail view (CPearce@au.westfield.com)
+- adding toggle content plugin and styles (CPearce@au.westfield.com)
+- fixing annoying Chrome bug and tidying up 'Pointer' extender
+  (CPearce@au.westfield.com)
+- finalising box--torn abstraction (CPearce@au.westfield.com)
+- removing hover state for search toggle button at palm size as it sticks
+  (CPearce@au.westfield.com)
+- adding a 'Firefox' specific hook to make it behave (CPearce@au.westfield.com)
+- adding a new abstraction - 'Toggle Content' (CPearce@au.westfield.com)
+- tidying up broken characters (CPearce@au.westfield.com)
+- Added images to movies page. (craigm.smith@au.westfield.com)
+
 * Fri Jul 05 2013 ci <doperations@au.westfield.com> 0.0.201-1
 - adds zoom to and inserts map into product show (matt.wratt@trineo.co.nz)
 - adds default store pre-select to maps (matt.wratt@trineo.co.nz)

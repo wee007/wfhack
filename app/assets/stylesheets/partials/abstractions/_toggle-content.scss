@@ -13,6 +13,9 @@
 .toggle-content {
 	display: none;
 	outline: none;
+
+	/* Non JS users */
+	.no-js & {display: block !important;}
 }
 
 /* --Toggle button container-- */

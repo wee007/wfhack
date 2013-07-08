@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.204
+Version:     0.0.205
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,10 @@ fi
 
 
 %changelog
+* Tue Jul 09 2013 ci <doperations@au.westfield.com> 0.0.205-1
+- Merge pull request #111 from ldewey/master (ldewey@au.westfield.com)
+- Moved swagger into the API folder (ldewey@au.westfield.com)
+
 * Tue Jul 09 2013 ci <doperations@au.westfield.com> 0.0.204-1
 - Systest fix, only require the service proxy in dev (ldewey@au.westfield.com)
 

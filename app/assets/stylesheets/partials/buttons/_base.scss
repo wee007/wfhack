@@ -82,7 +82,7 @@
 	/* As above but position icon over to the far left */
 	&.btn--pointer-alt,
 	.toggle-content--btn &.btn--pointer.is-expanded {
-		@include to-em(padding-right, 0);
+		padding-right: 0;
 		@include to-em(padding-left, $spacing-half+$spacing-quarter);
 
 		/* Icon */

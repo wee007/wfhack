@@ -4,11 +4,7 @@ class CentreService
 
     def build(json)
       body = json.respond_to?(:body) ? json.body : json
-      if body.is_a? Hash # Or Hashie::Mash etc.
-        body['centres'] || body['centre'] || body
-      else
-        body
-      end
+      Centre.build(body)
     end
 
     def request_uri(centre=nil,options={})

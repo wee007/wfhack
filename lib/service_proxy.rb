@@ -1,6 +1,6 @@
 require 'rack-proxy'
 
-class AppProxy < Rack::Proxy
+class ServiceProxy < Rack::Proxy
 
   def initialize(app)
     @app = app

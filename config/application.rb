@@ -4,6 +4,8 @@ require File.expand_path('../boot', __FILE__)
 require "action_controller/railtie"
 require "sprockets/railtie"
 
+require File.expand_path('../../lib/service_proxy', __FILE__)
+
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(:default, Rails.env)
@@ -23,5 +25,7 @@ module Customerconsole
     # config.i18n.default_locale = :de
 
     config.assets.precompile += %w( old-ie.css vendor/modernizr.min.js init/enquire.js enquire/dist/enquire.js map.js html5shiv/src/html5shiv-printshiv.js)
+
+    config.middleware.use "ServiceProxy" if ["development"].include? Rails.env
   end
 end

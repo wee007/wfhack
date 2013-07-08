@@ -5,7 +5,7 @@
     <div class="island detail-view__divider--palm">
       <header class="deal-main box box--torn">
         <h2 class="deal-main__hdr txt-break-word"><%= @deal.title %></h2>
-        <p class="deal-main__meta">from <%= @store.name %> <span>Deal ends <time datetime="<%= DateTime.parse(@deal.available_to).strftime("%Y-%m-%d") %>"><%= DateTime.parse(@deal.available_to).strftime("%A %e %B") %></time></span></p>
+        <p class="deal-main__meta">from <%= @store.name %> <span>Deal ends <time datetime="<%= @deal.available_to.strftime("%Y-%m-%d") %>"><%= @deal.available_to.strftime("%A %e %B") %></time></span></p>
       </header>
     </div>
   </div>

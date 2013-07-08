@@ -18,6 +18,10 @@ class Deal < OpenStruct
     (super || '').split(/\r?\n/)
   end
 
+  def available_to
+    DateTime.parse(super)
+  end
+
 private
   def store
     @store ||= get_store

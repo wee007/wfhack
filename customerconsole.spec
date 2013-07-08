@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.202
+Version:     0.0.203
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,12 @@ fi
 
 
 %changelog
+* Tue Jul 09 2013 ci <doperations@au.westfield.com> 0.0.203-1
+- Merge pull request #109 from ldewey/master (matt.wratt@trineo.co.nz)
+- Renamed app proxy to service proxy (ldewey@au.westfield.com)
+- Added proxy and swagger ui (ldewey@au.westfield.com)
+- Gem update (ldewey@au.westfield.com)
+
 * Mon Jul 08 2013 ci <doperations@au.westfield.com> 0.0.202-1
 - Moved the parsing of deal available_to date in to the model.
   (craigm.smith@au.westfield.com)

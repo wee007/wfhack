@@ -109,9 +109,16 @@
 <div class="island">
   <h3 class="detail-view__hdr-sub hn">Also available at</h3>
   <ul>
-    <li><a href="#" class="centres-list"><span class="icon icon--pin icon--lrg icon--spacing-lrg" aria-hidden="true"></span>Eastgardens<span class="icon icon--arrow-right icon--lrg" aria-hidden="true"></span></a></li>
-    <li><a href="#" class="centres-list"><span class="icon icon--pin icon--lrg icon--spacing-lrg" aria-hidden="true"></span>Warringah Mall<span class="icon icon--arrow-right icon--lrg" aria-hidden="true"></span></a></li>
-    <li><a href="#" class="centres-list"><span class="icon icon--pin icon--lrg icon--spacing-lrg" aria-hidden="true"></span>Bondi Junction<span class="icon icon--arrow-right icon--lrg" aria-hidden="true"></span></a></li>
+    <%- @product.centres.each do |centre| -%>
+      <li>
+        <%= link_to centre_product_path(centre_id: centre.code, retailer_code: @product.retailer_code, sku: @product.sku),
+          class: "centres-list" do %>
+          <span class="icon icon--pin icon--lrg icon--spacing-lrg" aria-hidden="true"></span>
+          <%= centre.name %>
+          <span class="icon icon--arrow-right icon--lrg" aria-hidden="true"></span>
+        <%- end -%>
+      </li>
+    <%- end -%>
   </ul>
 </div>
 <!-- //Availability -->

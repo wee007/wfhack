@@ -1,4 +1,4 @@
-var app = angular.module( 'Westfield', ['ngRoute'] );
+var app = angular.module( 'Westfield', ['ngRoute', 'ngMobile'] );
 
 app.config(function ( $httpProvider, $routeProvider, $locationProvider ) {
   // Allow CORS

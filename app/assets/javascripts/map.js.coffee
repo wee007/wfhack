@@ -178,21 +178,21 @@ class window.IEMap
     @levelUI = @el.find('.level-select__level')
     @levels = @el.find('img')
     @selectLevel(1)
+    self = @
     @levels.each ->
       el = $(@)
-      el.data(width: el.width(), height: el.height())
-    self = @
-    # @zoomUI.on('click', '.zoom__in', -> self.zoom(0.25))
-    # @zoomUI.on('click', '.zoom__out', -> self.zoom(-0.25))
+      el.data(width: self.el.width())
+      el.width(el.data('width'))
+    @zoomUI.on('click', '.zoom__in', -> self.zoom(0.25))
+    @zoomUI.on('click', '.zoom__out', -> self.zoom(-0.25))
     @levelUI.on('click', -> self.selectLevel($(@).data('level')))
     $('body', document).on('click', '[data-store-id]', -> self.highlight($(@).data('storeId')))
 
   zoom: (amount) ->
-    zoomAmount = @zoomAmount += amount
+    zoomAmount = @zoomAmount = Math.max(Math.min(@zoomAmount + amount, 3), 0.5)
     @levels.each ->
       el = $(@)
       el.width(el.data('width') * zoomAmount)
-      el.height(el.data('height') * zoomAmount)
 
   selectLevel: (level) ->
     selector = "[data-level=\"#{level}\"]"

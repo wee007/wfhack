@@ -5,7 +5,7 @@
       <div class="zoom__out">-</div>
     </div>
     <div class="level-select">
-      <% [6,5,4,3,2,1].each do |level| %>
+      <% (1..6).to_a.reverse.each do |level| %>
         <div class="level-select__level" data-level="<%= level %>"><%= level %></div>
       <% end %>
     </div>

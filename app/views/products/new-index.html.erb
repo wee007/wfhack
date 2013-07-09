@@ -1,17 +1,6 @@
 <div ng-app="Westfield">
   <div ng-view></div>
 
-  <script type="text/ng-template" id="search_query_template">
-    <div class="select-filter">
-      <label for="search_query">Keyword search</label>
-      <input ng-model="search_query"
-             placeholder="Search"
-             id="search_query"
-             type="search">
-      <button type="submit">Search</button>
-    </div>
-  </script>
-
   <script type="text/ng-template" id="super_cat_template">
     <div class="select-filter categories">
       <ul>
@@ -23,29 +12,18 @@
   </script>
 
   <script type="text/ng-template" id="productBrowseTemplate">
-    <div class="selected-categories">
-      <h1>Selected filters:</h1>
-      <ul>
-        <li ng-repeat="filter in search.appliedFilters">
-          {{ filter.title }}
-          <button ng-click="removeSelectedFilter( filter.type, filter.value )">X</button>
-        </li>
-      </ul>
-    </div>
-
     <form ng-submit="filterSearch('search_query')" method="get">
-      <div ng-include src="'search_query_template'"></div>
       <div ng-include src="'super_cat_template'"></div>
 
 
       <div class="select-filter">
+        <button ng-click="mvFilterSearch( 'retailers' )">Apply</button>
         <input ng-model="storeSearch" type="search" placeholder="Enter a store name">
 
         <ul class="multi-facet-list">
           <li ng-repeat="retailer in search.retailers | filter: storeSearch">
             <input ng-model="retailer.selected"
                    ng-checked="retailer.selected"
-                   ng-change="mvFilterSearch( 'retailers' )"
                    value="{{ retailer.code }}"
                    id="retailer_{{ retailer.code }}"
                    type="checkbox">
@@ -56,13 +34,13 @@
       </div>
 
       <div class="select-filter brand">
+        <button ng-click="mvFilterSearch( 'brands' )">Apply</button>
         <input ng-model="brandSearch" type="search" placeholder="Enter a brand name">
 
         <ul class="multi-facet-list">
           <li ng-repeat="brand in search.brands | filter: brandSearch">
             <input ng-model="brand.selected"
                    ng-checked="brand.selected"
-                   ng-change="mvFilterSearch( 'brands' )"
                    value="{{ brand.code }}"
                    id="brand_{{ brand.code }}"
                    type="checkbox">
@@ -73,8 +51,9 @@
 
       <div class="select-filter colour"></div>
       <div class="select-filter price-range">
-        <input ng-model="price_min" ng-change="filterSearch('price-min')" type="text">
-        <input ng-model="price_max" ng-change="filterSearch('price')" type="text">
+        Price range
+        <input ng-model="search.price.range_start" ng-change="rangeFilter('price')" type="text">
+        <input ng-model="search.price.range_end" ng-change="rangeFilter('price')" type="text">
       </div>
 
       <div class="select-filter on-sale">
@@ -95,6 +74,17 @@
                 class="sort-options"></select>
       </label>
     </form>
+
+    <hr>
+    <div class="selected-categories">
+      <ul>
+        <li ng-repeat="filter in search.appliedFilters">
+          {{ filter.title }}
+          <button ng-click="removeSelectedFilter( filter.type, filter.value )">X</button>
+        </li>
+      </ul>
+      <button ng-click="clearFilters()">Clear all</div>
+    </div>
 
     <div class="product-results">
       <div ng-hide="productsDidLoad" class="spinner"><h1>Loading</h1></div>

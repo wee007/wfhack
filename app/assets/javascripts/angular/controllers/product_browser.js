@@ -17,12 +17,13 @@
 
     useRouteParams = function () {
       params = ParamCleaner.deserialize( $routeParams );
+
       angular.forEach( params, function ( param, key ) {
         // Add params to the controller
         // not all params will be used by the view
         // but we'll map them anyway.
         $scope[key] = param;
-        Search.addParam( key, param );
+        Search.setParam( key, param );
       });
     };
 
@@ -30,16 +31,20 @@
     executeInitialSearch = function () {
       useRouteParams();
 
+      $scope.productsDidLoad = false;
       Search.getSearch(function () {
         $scope.productsDidLoad = true;
       });
-    }(); // Self init!
+    };
+
+    executeInitialSearch(); // Init
 
     updateSearch = function () {
+      $scope.productsDidLoad = false;
+
       cleanParams = ParamCleaner.build( Search.params );
       $location.search( cleanParams );
 
-      $scope.productsDidLoad = false;
       Search.getSearch(function () {
         $scope.productsDidLoad = true;
       });
@@ -51,7 +56,7 @@
     };
 
     $scope.filterSearch = function ( modelName ) {
-      Search.addParam( modelName, $scope[modelName] );
+      Search.setParam( modelName, $scope[modelName] );
       updateSearch();
     };
 
@@ -64,9 +69,28 @@
         values.push( selectedValue.code );
       });
 
-      if ( searchParamMap[attributeName] !== undefined ) { attributeName = searchParamMap[attributeName] }
-      Search.addParam( attributeName, values );
+      if ( searchParamMap[attributeName] !== undefined ) { attributeName = searchParamMap[attributeName]; }
+      Search.setParam( attributeName, values );
       updateSearch();
+    };
+
+    $scope.clearFilters = function () {
+      // Reset Search params to default
+      Search.resetParams();
+
+      // Remove query strings
+      $location.search("");
+
+      // Start over
+      executeInitialSearch();
+    };
+
+    $scope.rangeFilter = function ( paramName ) {
+      min = $scope.search[paramName].range_start;
+      max = $scope.search[paramName].range_end;
+      paramValue = min + '-' + max;
+
+      Search.setParam( paramName, paramValue );
     }
   });
 }( angular.module( 'Westfield' ) ));

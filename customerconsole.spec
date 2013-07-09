@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.209
+Version:     0.0.210
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,9 @@ fi
 
 
 %changelog
+* Tue Jul 09 2013 ci <doperations@au.westfield.com> 0.0.210-1
+- 
+
 * Tue Jul 09 2013 ci <doperations@au.westfield.com> 0.0.209-1
 - Link through to products from the product stream (cwalsh2@au.westfield.com)
 - Fix available colours display (cwalsh2@au.westfield.com)

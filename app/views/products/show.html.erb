@@ -65,7 +65,7 @@
       <div class="flexslider flexslider--gallery flexslider--gallery-thumbs">
         <ul class="slides">
           <%- @product.images.each do |img| -%>
-            <li><%= image_tag(img, alt: "Thumbnail of#{@product.name}") %></li>
+            <li><%= image_tag(img, alt: "Thumbnail of #{@product.name}") %></li>
           <%- end -%>
         </ul>
       </div>

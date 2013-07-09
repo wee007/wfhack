@@ -6,9 +6,4 @@ class Centre < Hashie::Mash
       array_or_hash.map{|centre| new centre}
     end
   end
-
-  def short_name
-    self.name.sub(/^Westfield\s*/i,'')
-  end
-
 end

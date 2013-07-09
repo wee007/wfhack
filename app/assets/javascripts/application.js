@@ -31,6 +31,7 @@
 //= require ./init/unveil
 //= require ./init/tiles
 
-//= require angular-unstable
+//= require ./vendor/angular-head
+//= require ./vendor/angular-head-route
 //= require ./angular/app
 //= require_tree ./angular/

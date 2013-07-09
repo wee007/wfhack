@@ -1,19 +1,7 @@
-<div ng-app="Westfield" ng-controller="BrowseController">
-  <div class="selected-categories">
-    <h1>Selected filters:</h1>
-    <ul>
-      <li ng-repeat="filter in search.appliedFilters">
-        {{ filter.title }}
-        <button ng-click="removeSelectedFilter( filter.type, filter.value )">X</button>
-      </li>
-    </ul>
-  </div>
+<div ng-app="Westfield">
+  <div ng-view></div>
 
-  <h1>Available filters</h1>
-  {{ search.availableFilters }}
-
-  <form  ng-submit="filterSearch('search_query')" method="get">
-
+  <script type="text/ng-template" id="search_query_template">
     <div class="select-filter">
       <label for="search_query">Keyword search</label>
       <input ng-model="search_query"
@@ -22,76 +10,95 @@
              type="search">
       <button type="submit">Search</button>
     </div>
+  </script>
 
+  <script type="text/ng-template" id="super_cat_template">
     <div class="select-filter categories">
       <ul>
-        <li ng-repeat="category in categories.all | orderBy: 'sort_order'">
-          {{ category.display_name }}
+        <li ng-repeat="category in search.super_cats | orderBy: 'sort_order'">
+          {{ category.name }}
+        </li>
+      </ul>
+    </div>
+  </script>
+
+  <script type="text/ng-template" id="productBrowseTemplate">
+    <div class="selected-categories">
+      <h1>Selected filters:</h1>
+      <ul>
+        <li ng-repeat="filter in search.appliedFilters">
+          {{ filter.title }}
+          <button ng-click="removeSelectedFilter( filter.type, filter.value )">X</button>
         </li>
       </ul>
     </div>
 
-    <div class="select-filter">
-      <input ng-model="storeSearch" type="search" placeholder="Enter a store name">
+    <form ng-submit="filterSearch('search_query')" method="get">
+      <div ng-include src="'search_query_template'"></div>
+      <div ng-include src="'super_cat_template'"></div>
 
-      <ul class="multi-facet-list">
-        <li ng-repeat="retailer in search.retailers | filter: storeSearch | limitTo: 250">
-          <input ng-model="retailer.checked"
-                 ng-checked="retailer.selected"
-                 ng-check-list="selectedRetailers"
-                 ng-change="$parent.multiValueFacetSearch('selectedRetailers')"
-                 value="{{ retailer.code }}"
-                 id="retailer_{{ retailer.code }}"
+
+      <div class="select-filter">
+        <input ng-model="storeSearch" type="search" placeholder="Enter a store name">
+
+        <ul class="multi-facet-list">
+          <li ng-repeat="retailer in search.retailers | filter: storeSearch">
+            <input ng-model="retailer.selected"
+                   ng-checked="retailer.selected"
+                   ng-change="mvFilterSearch( 'retailers' )"
+                   value="{{ retailer.code }}"
+                   id="retailer_{{ retailer.code }}"
+                   type="checkbox">
+
+            <label for="retailer_{{ retailer.code }}">{{ retailer.name }} ({{ retailer.count }})</label>
+          </li>
+        </ul>
+      </div>
+
+      <div class="select-filter brand">
+        <input ng-model="brandSearch" type="search" placeholder="Enter a brand name">
+
+        <ul class="multi-facet-list">
+          <li ng-repeat="brand in search.brands | filter: brandSearch">
+            <input ng-model="brand.selected"
+                   ng-checked="brand.selected"
+                   ng-change="mvFilterSearch( 'brands' )"
+                   value="{{ brand.code }}"
+                   id="brand_{{ brand.code }}"
+                   type="checkbox">
+            <label for="brand_{{ brand.code }}">{{ brand.name }} ({{ brand.count }})</label>
+          </li>
+        </ul>
+      </div>
+
+      <div class="select-filter colour"></div>
+      <div class="select-filter price-range">
+        <input ng-model="price_min" ng-change="filterSearch('price-min')" type="text">
+        <input ng-model="price_max" ng-change="filterSearch('price')" type="text">
+      </div>
+
+      <div class="select-filter on-sale">
+        <label for="sale-items">
+          Sale items only:
+          <input ng-model="on_sale"
+                 ng-checked="search.params.on_sale"
+                 ng-change="filterSearch('on_sale')"
                  type="checkbox">
+        </label>
+      </div>
 
-          <label for="retailer_{{ retailer.code }}">{{ retailer.name }} ({{ retailer.count }})</label>
-        </li>
-        Selected: {{ selectedRetailers }}
-      </ul>
-    </div>
-
-    <div class="select-filter brand">
-      <input ng-model="brandSearch" type="search" placeholder="Enter a brand name">
-
-      <ul class="multi-facet-list">
-        <li ng-repeat="brand in search.brands | filter: brandSearch | limitTo: 250">
-          <input ng-model="brand.checked"
-                 ng-checked="retailer.selected"
-                 ng-check-list="selectedBrands"
-                 ng-change="$parent.multiValueFacetSearch('selectedBrands')"
-                 value="{{ brand.code }}"
-                 id="brand_{{ brand.code }}"
-                 type="checkbox">
-
-          <label for="brand_{{ brand.code }}">{{ brand.name }} ({{ brand.count }})</label>
-        </li>
-        Selected: {{ selectedBrands }}
-      </ul>
-    </div>
-
-    <div class="select-filter colour"></div>
-    <div class="select-filter price-range">
-      <input ng-model="price_min" ng-change="filterSearch('price-min')" type="text">
-      <input ng-model="price_max" ng-change="filterSearch('price')" type="text">
-    </div>
-
-    <div class="select-filter on-sale">
-      <label for="sale-items">
-        Sale items only:
-        <input ng-model="on_sale" ng-change="filterSearch('on_sale')" type="checkbox">
+      <label>
+        Sort by:
+        <select ng-model="sort"
+                ng-change="filterSearch('sort')"
+                ng-options="option.code as option.description for option in search.sortOptions | filter:{display: true}"
+                class="sort-options"></select>
       </label>
-    </div>
-
-    <label>
-      Sort by:
-      <select ng-model="sort"
-              ng-change="filterSearch('sort')"
-              ng-options="option.code as option.description for option in search.sortOptions | filter:{display: true}"
-              class="sort-options"></select>
-    </label>
+    </form>
 
     <div class="product-results">
-      <ul>
+      <div ng-hide="productsDidLoad" class="spinner"><h1>Loading</h1></div>
+      <ul ng-show="productsDidLoad">
         <li ng-repeat="product in search.products" class="product">
           <img ng-src="{{product.default_image_url}}" class="image" alt="{{product.name}}">
           <h2>{{product.name}}</h2> ({{product.retail_chain_name}})
@@ -99,5 +106,5 @@
         </li>
       </ul>
     </div>
-  </form>
+  </script>
 </div>

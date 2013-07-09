@@ -1,54 +1,72 @@
 ( function ( app ) {
-  app.controller( 'BrowseController', function ( $scope, CategoryList, Search ) {
-    Search.addParam( 'rows', '10' );
-
-    $scope.categories = CategoryList;
+  app.controller( 'BrowseController', function ( $scope, $filter, $location, $routeParams, ParamCleaner, Search ) {
     $scope.search = Search;
+    $scope.productsDidLoad = false;
 
     // Multi-facet search fields
-    $scope.selectedRetailers = [];
-    $scope.selectedBrands = [];
-
-    // TODO
-    // available_filters
-    // super_cat
-    // category
-    // sub category is multi-value
-
-
-    // router
-    // /bondijunction/products?retailer[]=supre
-    // search by multi-centre - centre[]
-    // centre[]=all
-
-    // supré vs supre in filtering down results
+    $scope.retailers = [];
+    $scope.brands = [];
 
     // Multi-value facets must be sent back using the original
-    // name of the model. eg. selectedBrands should become brands
-    // Use this method instead of filterSearch for multi-value fields
-
+    // name of the model. eg. 'brands' should become 'brands'
     var searchParamMap = {
-      'selectedRetailers': 'retailer',
-      'selectedBrands': 'brand',
-      'price-min': 'price',
-      'price-max': 'price'
+      'selectedSubCategory': 'sub_category',
+      'retailers': 'retailer',
+      'brands': 'brand'
+    };
+
+    useRouteParams = function () {
+      params = ParamCleaner.deserialize( $routeParams );
+      angular.forEach( params, function ( param, key ) {
+        // Add params to the controller
+        // not all params will be used by the view
+        // but we'll map them anyway.
+        $scope[key] = param;
+        Search.addParam( key, param );
+      });
+    };
+
+    // Adds params to search from URL string
+    executeInitialSearch = function () {
+      useRouteParams();
+
+      Search.getSearch(function () {
+        $scope.productsDidLoad = true;
+      });
+    }(); // Self init!
+
+    updateSearch = function () {
+      cleanParams = ParamCleaner.build( Search.params );
+      $location.search( cleanParams );
+
+      $scope.productsDidLoad = false;
+      Search.getSearch(function () {
+        $scope.productsDidLoad = true;
+      });
     };
 
     $scope.removeSelectedFilter = function ( paramName, paramValue ) {
       Search.removeParam( paramName, paramValue );
-      Search.getSearch();
-    };
-
-    $scope.multiValueFacetSearch = function ( modelName ) {
-      name = searchParamMap[modelName];
-
-      Search.addParam( name, $scope[modelName] );
-      Search.getSearch();
+      updateSearch();
     };
 
     $scope.filterSearch = function ( modelName ) {
       Search.addParam( modelName, $scope[modelName] );
-      Search.getSearch();
+      updateSearch();
     };
+
+    // multi-facet filter search
+    $scope.mvFilterSearch = function ( attributeName ) {
+      selectedValues = $filter('filter')($scope.search[attributeName], { selected: true });
+
+      values = [];
+      angular.forEach( selectedValues, function ( selectedValue ) {
+        values.push( selectedValue.code );
+      });
+
+      if ( searchParamMap[attributeName] !== undefined ) { attributeName = searchParamMap[attributeName] }
+      Search.addParam( attributeName, values );
+      updateSearch();
+    }
   });
 }( angular.module( 'Westfield' ) ));

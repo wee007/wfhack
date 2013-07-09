@@ -165,7 +165,6 @@ class GeomIndex
 class window.IEMap
 
   zoomAmount: 1
-  mouseDown: false
 
   constructor: ->
     @index = new GeomIndex()
@@ -181,15 +180,24 @@ class window.IEMap
     self = @
     @levels.each ->
       el = $(@)
-      el.data(width: self.el.width())
+      el.data(width: self.el.width(), height: self.el.height())
       el.width(el.data('width'))
     @zoomUI.on('click', '.zoom__in', -> self.zoom(0.25))
     @zoomUI.on('click', '.zoom__out', -> self.zoom(-0.25))
     @levelUI.on('click', -> self.selectLevel($(@).data('level')))
     $('body', document).on('click', '[data-store-id]', -> self.highlight($(@).data('storeId')))
+    @mouse = new Mouse(@levels, @drag)
+
+  drag: (delta) =>
+    top = parseInt(@levels.css('top'), 10)
+    left = parseInt(@levels.css('left'), 10)
+    @levels.css(top: top + delta.y, left: left + delta.x)
 
   zoom: (amount) ->
-    zoomAmount = @zoomAmount = Math.max(Math.min(@zoomAmount + amount, 3), 0.5)
+    zoomAmount = Math.max(Math.min(@zoomAmount + amount, 3), 0.5)
+    if zoomAmount != @zoomAmount
+      @drag(x: amount * @levels.data('width') / -2, y: amount * @levels.data('height') / -2)
+      @zoomAmount = zoomAmount
     @levels.each ->
       el = $(@)
       el.width(el.data('width') * zoomAmount)
@@ -203,6 +211,38 @@ class window.IEMap
 
   highlight: (storeId) ->
     @selectLevel(@index.findById(storeId).store.level)
+
+class Mouse
+
+  x: false
+  y: false
+  down: false
+
+  constructor: (@el, @callback) ->
+    @el.on('mousedown', @mouseDown)
+    @el.on('mouseup', @mouseUp)
+    @el.on('mousemove', @mouseMove)
+
+  set: (event) ->
+    @x = event.clientX
+    @y = event.clientY
+
+  mouseDown: (event) =>
+    @down = true
+    @set(event)
+    false
+
+  mouseUp: (event) =>
+    @down = false
+    @set(event)
+    false
+
+  mouseMove: (event) =>
+    dx = event.clientX - @x
+    dy = event.clientY - @y
+    @callback(x: dx, y: dy) if @down
+    @set(event)
+    false
 
 wait = (callback, ready) ->
   do ->

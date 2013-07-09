@@ -15,8 +15,8 @@ class Product < Hashie::Mash
       colour = detail.attributes.detect do |attr|
         attr[:name] == 'colour_description'
       end
-      colour ? colour[:value] : []
-    end
+      colour ? colour[:value] : nil
+    end.compact
   end
 
 private

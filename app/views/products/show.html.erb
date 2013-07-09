@@ -84,12 +84,14 @@
   <!-- Available Colours -->
   <div class="detail-view__divider--top-non-palm grid__item non-palm-two-fifths">
     <div class="island island--btm-palm">
-      <h3 class="detail-view__hdr-sub hn">Available Colours</h3>
-      <ul class="horiz-list horiz-list--comma"><!--
-        <%- @product.available_colours.each do |colour| -%>
-          --><li><strong><%= colour %></strong></li><!--
-        <%- end -%>
-      --></ul>
+      <%- if @product.available_colours.present? -%>
+        <h3 class="detail-view__hdr-sub hn">Available Colours</h3>
+        <ul class="horiz-list horiz-list--comma"><!--
+          <%- @product.available_colours.each do |colour| -%>
+            --><li><strong><%= colour %></strong></li><!--
+          <%- end -%>
+        --></ul>
+      <%- end -%>
     </div>
   </div>
   <!-- //Available Colours -->

@@ -41,12 +41,12 @@ Global stylesheet
 
 ======================================================================================
 */
-
+hr { clear: both; }
 .select-filter {
   /*border: 1px solid red;*/
-  max-width: 200px;
+  max-width: 175px;
   float: left;
-  margin-right: 50px;
+  margin-right: 10px;
 }
 
 .product-results { clear: both; }

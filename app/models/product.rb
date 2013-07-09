@@ -16,7 +16,7 @@ class Product < Hashie::Mash
         attr[:name] == 'colour_description'
       end
       colour ? colour[:value] : nil
-    end.compact
+    end.compact.uniq
   end
 
 private

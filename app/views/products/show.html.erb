@@ -11,8 +11,10 @@
     <!-- //Product name, brand and price -->
 
     <!-- Store location -->
-    <div class="store-location detail-view__divider">
-      <%= render partial: 'shared/map', locals: {store_id: 490} %>
+    <div class="map-micello map-micello--static preserve-aspect-ratio detail-view__divider">
+      <div class="preserve-aspect-ratio__inner">
+        <%= render partial: 'shared/map', locals: {store_id: 490} %>
+      </div>
     </div>
     <!-- //Store location -->
 

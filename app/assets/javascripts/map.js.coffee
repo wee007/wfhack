@@ -78,9 +78,20 @@ class window.Map
 
   popupHtml: (store) ->
     """
-    <h1>#{store.name}</h1>
-    Enquiries: #{store.phone_number}<br/>
-    <a href="#{store.url}">#{store.url}</a>
+    <div class="map-micello__overlay islet">
+      <div class="map-micello__overlay__retailer map-micello__mrg-base">
+        <div class="map-micello__overlay__retailer__img">
+          <!-- [BACKEND] logo source needs to be made dynamic and size of the logo needs to be 168px x 54px (retina size) and padded out if necassary -->
+          <img src="/assets/dummy/retailer-logo.png" alt="#{store.name} logo">
+        </div>
+        <div class="map-micello__overlay__retailer__body">
+          <em class="map-micello__hdr txt-break-word">#{store.name}</em>
+          <p>Open till <time datetime="">6pm</time> tonight</p>
+        </div>
+      </div>
+      <a href="#{store.url}" class="btn btn--full btn--main"><span class="icon icon--store icon--lrg icon--spacing-lrg" aria-hidden="true"></span>Store details</a>
+    </div>
+    <span class="map-micello__overlay__close icon icon--close-sml icon--xlrg icon--flush-top" aria-hidden="true"></span>
     """
 
   onMapChanged: (event) =>

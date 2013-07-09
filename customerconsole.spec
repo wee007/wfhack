@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.211
+Version:     0.0.212
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,16 @@ fi
 
 
 %changelog
+* Tue Jul 09 2013 ci <doperations@au.westfield.com> 0.0.212-1
+- Merge pull request #113 from cpearce/master (ldewey@au.westfield.com)
+- removing some rules to temporarily fix 'Stores' (CPearce@au.westfield.com)
+- working on map component for product detail view (CPearce@au.westfield.com)
+- messing with the logo size to stress test (CPearce@au.westfield.com)
+- renaming selector so doesn't conflict with Micello map module
+  (CPearce@au.westfield.com)
+- update module name: map = map-micello (CPearce@au.westfield.com)
+- update for non JS users to content isn't hidden (CPearce@au.westfield.com)
+
 * Tue Jul 09 2013 ci <doperations@au.westfield.com> 0.0.211-1
 - Only show unique colours (cwalsh2@au.westfield.com)
 - Don't show 'also available at' if there aren't any centres

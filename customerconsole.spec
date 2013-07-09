@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.205
+Version:     0.0.206
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,23 @@ fi
 
 
 %changelog
+* Tue Jul 09 2013 ci <doperations@au.westfield.com> 0.0.206-1
+- WSF-4294 Fix code review findings (cwalsh2@au.westfield.com)
+- Fix alt tags (cwalsh2@au.westfield.com)
+- WSF-4924 Show 'also available at' (cwalsh2@au.westfield.com)
+- WSF-4924 Build stores from json - should make the Store model do this
+  (cwalsh2@au.westfield.com)
+- WSF-4924 Build Centre models from centre_service - they have a short name
+  (cwalsh2@au.westfield.com)
+- WSF-4924 Link up the 'also available at' centres (cwalsh2@au.westfield.com)
+- WSF-4924 Add Photo of product.name as alt tag (cwalsh2@au.westfield.com)
+- WSF-4924 Hook up images and colours (cwalsh2@au.westfield.com)
+- WSF-4924 Use a Product model to contain product logic
+  (cwalsh2@au.westfield.com)
+- WSF-4924 Hook up product name, price, retailer name, phone no, desc.
+  (cwalsh2@au.westfield.com)
+- WSF-4924 Add the Money gem for money formatting (cwalsh2@au.westfield.com)
+
 * Tue Jul 09 2013 ci <doperations@au.westfield.com> 0.0.205-1
 - Merge pull request #111 from ldewey/master (ldewey@au.westfield.com)
 - Moved swagger into the API folder (ldewey@au.westfield.com)

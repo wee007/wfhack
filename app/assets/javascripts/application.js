@@ -33,5 +33,6 @@
 
 //= require ./vendor/angular-head
 //= require ./vendor/angular-head-route
+//= require ./vendor/angular-mobile
 //= require ./angular/app
 //= require_tree ./angular/

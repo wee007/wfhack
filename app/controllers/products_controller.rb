@@ -13,16 +13,18 @@ class ProductsController < ApplicationController
   end
 
   def show
-    centre, product, store = nil
+    centre, product, stores = nil
     Service::API.in_parallel do
       centre = CentreService.fetch params[:centre_id]
       product = ProductService.fetch params.dup
-      store = StoreService.fetch centre: params[:centre_id], per_page: 1000
+      stores = StoreService.fetch retailer_code: params[:retailer_code], per_page: 1000
     end
     @centre = CentreService.build centre
     @product = ProductService.build product
-    stores = StoreService.build(store).map {|store_attrs| Store.new(store_attrs) }
-    gon.push(:centre => @centre, :stores => stores)
+    @stores = StoreService.build(stores)
+    centre_ids = @stores.map(&:centre_id).uniq
+    @centres = centre_ids.present? ? CentreService.find(:all, centre_id: centre_ids) : []
+    gon.push(:centre => @centre, :stores => @stores)
   end
 
 end

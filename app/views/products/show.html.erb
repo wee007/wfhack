@@ -5,8 +5,19 @@
 
     <!-- Product name, brand and price -->
     <header class="island detail-view__divider">
-      <h2 class="detail-view__hdr hn detail-view__mrg-half" id="detail-view__hdr">Sieynna Boot</h2>
-      <p class="detail-view__meta"><span class="detail-view__subtle-txt">from</span> Saba <em>$499.00</em><!-- [BACK END] markup for when there's a sale price <em class="detail-view__meta__sale-price"><span>$499.00</span> $459.00</em> --></p>
+      <h2 class="detail-view__hdr hn detail-view__mrg-half" id="detail-view__hdr"><%= @product.name %></h2>
+      <p class="detail-view__meta">
+        <span class="detail-view__subtle-txt">from</span>
+        <%= @product.retail_chain_name %>
+        <%- if @product.is_discounted -%>
+          <em class="detail-view__meta__sale-price">
+            <span><%= Money.new(@product.price).format%></span>
+            <%= Money.new(@product.sale_price).format %>
+          </em>
+        <%- else -%>
+          <em><%= Money.new(@product.sale_price).format %></em>
+        <%- end -%>
+      </p>
     </header>
     <!-- //Product name, brand and price -->
 
@@ -19,15 +30,19 @@
     <!-- Contact store -->
     <div class="island island--fill island--center islet-tops detail-view__divider">
       <span class="hide-fully--non-palm">
-        <a href="tel:0298311525" class="btn btn--full btn--main btn--main-alt2 btn--main-lrg"><span class="icon icon--phone icon--xlrg icon--spacing-lrg icon--flush-top" aria-hidden="true"></span><strong>Call SABA</strong></a>
+        <a href="tel:<%= @product.retail_chain.phone_no %>" class="btn btn--full btn--main btn--main-alt2 btn--main-lrg"><span class="icon icon--phone icon--xlrg icon--spacing-lrg icon--flush-top" aria-hidden="true"></span><strong>Call <%= @product.retail_chain_name %></strong></a>
       </span>
-      <p class="detail-view__check-avble hide-fully--palm"><span class="detail-view__subtle-txt">Check store availability</span> <em><span class="icon icon--phone icon--lrg icon--spacing" aria-hidden="true"></span> 02 9381 1525</em></p>
+      <p class="detail-view__check-avble hide-fully--palm"><span class="detail-view__subtle-txt">Check store availability</span> <em><span class="icon icon--phone icon--lrg icon--spacing" aria-hidden="true"></span> <%= @product.retail_chain.phone_no %></em></p>
     </div>
     <!-- //Contact store -->
 
     <!-- Store link -->
     <div class="island island--center detail-view__divider--palm">
-      <a href="#" class="btn btn--pointer btn--full btn--full-left btn--main btn--main-alt2 btn--main-lrg btn--main-flanked" rel="external">Buy from Saba<span class="icon icon--arrow-right-big icon--lrg btn--pointer__icon" aria-hidden="true"></span><span class="icon icon--link icon--xlrg icon--flush-top btn--pointer__icon" aria-hidden="true"></span></a>
+      <%= link_to '#', class: "btn btn--pointer btn--full btn--full-left btn--main btn--main-alt2 btn--main-lrg btn--main-flanked", rel: "external" do %>
+        Buy from <%= @product.retail_chain_name %>
+        <span class="icon icon--arrow-right-big icon--lrg btn--pointer__icon" aria-hidden="true"></span>
+        <span class="icon icon--link icon--xlrg icon--flush-top btn--pointer__icon" aria-hidden="true"></span>
+      <%- end -%>
     </div>
     <!-- //Store link -->
 
@@ -42,16 +57,16 @@
       <div class="flexslider flexslider--gallery flexslider--gallery-lrg-img">
         <ul class="slides">
           <!-- [BACK END] 4 images is the max, dimensions are 469px x 474px (938px x 948px for retina which we serve for all but reduce the compression) and `alt` attr's need to be dynamically populated e.g. 'Product name photo' -->
-          <li><img src="<%= asset_path("assets/dummy/product.jpg") %>" alt=""></li>
-          <li><img src="<%= asset_path("assets/dummy/product2.jpg") %>" alt=""></li>
-          <li><img src="<%= asset_path("assets/dummy/product3.jpg") %>" alt=""></li>
+          <%- @product.images.each do |img| -%>
+            <li><%= image_tag(img, alt: "Photo of #{@product.name}") %></li>
+          <%- end -%>
         </ul>
       </div>
       <div class="flexslider flexslider--gallery flexslider--gallery-thumbs">
         <ul class="slides">
-          <li><img src="<%= asset_path("assets/dummy/product.jpg") %>" alt=""></li>
-          <li><img src="<%= asset_path("assets/dummy/product2.jpg") %>" alt=""></li>
-          <li><img src="<%= asset_path("assets/dummy/product3.jpg") %>" alt=""></li>
+          <%- @product.images.each do |img| -%>
+            <li><%= image_tag(img, alt: "Thumbnail of #{@product.name}") %></li>
+          <%- end -%>
         </ul>
       </div>
       <!-- //Flexslider -->
@@ -70,10 +85,11 @@
   <div class="detail-view__divider--top-non-palm grid__item non-palm-two-fifths">
     <div class="island island--btm-palm">
       <h3 class="detail-view__hdr-sub hn">Available Colours</h3>
-      <ul class="horiz-list horiz-list--comma">
-        <li><strong>Black</strong></li><!--
-        --><li><strong>Blue</strong></li>
-      </ul>
+      <ul class="horiz-list horiz-list--comma"><!--
+        <%- @product.available_colours.each do |colour| -%>
+          --><li><strong><%= colour %></strong></li><!--
+        <%- end -%>
+      --></ul>
     </div>
   </div>
   <!-- //Available Colours -->
@@ -82,8 +98,7 @@
   <div class="detail-view__desc detail-view__divider--top-non-palm grid__item non-palm-three-fifths">
     <div class="island">
       <h3 class="detail-view__hdr-sub hn">Description</h3>
-      <!-- [BACK END] this should come a HTML textarea input with each new line (ENTER) to generate a `p` element, see 'Deals' fine print or 'Events' desc -->
-      <p>Integer posuere erat a ante <a href="#">venenatis</a> dapibus posuere velit aliquet. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Aenean lacinia bibendum nulla sed consectetur. Maecenas faucibus mollis interdum. Duis mollis, est non commodo luctus, nisi erat porttitor ligula.</p>
+      <%= raw(@product.detailed_description || @product.short_description) %>
     </div>
   </div>
   <!-- //Description -->
@@ -94,9 +109,16 @@
 <div class="island">
   <h3 class="detail-view__hdr-sub hn">Also available at</h3>
   <ul>
-    <li><a href="#" class="centres-list"><span class="icon icon--pin icon--lrg icon--spacing-lrg" aria-hidden="true"></span>Eastgardens<span class="icon icon--arrow-right icon--lrg" aria-hidden="true"></span></a></li>
-    <li><a href="#" class="centres-list"><span class="icon icon--pin icon--lrg icon--spacing-lrg" aria-hidden="true"></span>Warringah Mall<span class="icon icon--arrow-right icon--lrg" aria-hidden="true"></span></a></li>
-    <li><a href="#" class="centres-list"><span class="icon icon--pin icon--lrg icon--spacing-lrg" aria-hidden="true"></span>Bondi Junction<span class="icon icon--arrow-right icon--lrg" aria-hidden="true"></span></a></li>
+    <%- @centres.each do |centre| -%>
+      <li>
+        <%= link_to centre_product_path(centre_id: centre.code, retailer_code: @product.retailer_code, sku: @product.sku),
+          class: "centres-list" do %>
+          <span class="icon icon--pin icon--lrg icon--spacing-lrg" aria-hidden="true"></span>
+          <%= centre.short_name %>
+          <span class="icon icon--arrow-right icon--lrg" aria-hidden="true"></span>
+        <%- end -%>
+      </li>
+    <%- end -%>
   </ul>
 </div>
 <!-- //Availability -->

@@ -11,7 +11,7 @@ class ProductService
         Hashie::Mash.new results.merge(products: products, facets: facets,
           sort_options: sort_options).merge(pagination)
       else
-        results
+        Product.new results
       end
     end
 

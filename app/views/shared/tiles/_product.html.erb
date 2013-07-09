@@ -1,4 +1,4 @@
-<a class="tile tile--products" href="<%= centre_product_path((params[:centre_id] || params[:id]), result[:id]) %>">
+<a class="tile tile--products" href="<%= result[:_links][:self][:href] %>">
   <article class="box" role="article">
 
     <span class="tile__image">

@@ -7,19 +7,26 @@
     // Params, with types
     // Types are supplied as either defaults
     // or to signify multi-value facets
-    this.params = {
+    defaultParams = {
       brand: [],
       retailer: [],
       colour: [],
       size: [],
       centre: [],
+      last: "",
       rows: 15
     };
+
+    // Params can be reset to the defaults, so we'll dupe
+    // the object so that it can be modified without polluting the original object
+    this.params = {};
+    angular.extend( this.params, defaultParams );
 
     this.super_cats = [];
     this.products = [];
     this.retailers = [];
     this.brands = [];
+    this.price = {};
 
     this.sortOptions = [];
     this.availableFilters = [];
@@ -39,7 +46,7 @@
       values = [];
       angular.forEach( facets, function ( facet ) {
         if ( facet.field === facetName ) {
-          values = facet.values;
+          values = ( facet.values.length ) ? facet.values : facet;
         }
       });
 
@@ -82,17 +89,18 @@
       this.super_cats = this.getFacet( response.facets, 'super_cat' );
       this.retailers = this.getFacet( response.facets, 'retailer' );
       this.brands = this.getFacet( response.facets, 'brand' );
+      this.price = this.getFacet( response.facets, 'price' );
       this.sortOptions = response.display_options.sort_options;
       this.availableFilters = response.available_filters;
       this.appliedFilters = this.formatFilters( response.applied_filters );
     };
 
-    this.addParam = function ( param, value ) {
+    this.setParam = function ( param, value ) {
       // Array params should be added to the 'last'
       // param which will ensure that the full array list
       // is returned for a given facet
       if ( angular.isArray( this.params[param] ) ) {
-        this.addParam( 'last', param );
+        this.setParam( 'last', param );
       }
 
       this.params[param] = value;
@@ -106,6 +114,12 @@
       } else if ( param === value ) {
         delete this.params[paramName];
       }
+    };
+
+    this.resetParams = function () {
+      delete this.params;
+      this.params = {}
+      angular.extend( this.params, defaultParams );
     };
   });
 }( angular.module('Westfield') ));

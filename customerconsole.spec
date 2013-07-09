@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.206
+Version:     0.0.207
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,10 @@ fi
 
 
 %changelog
+* Tue Jul 09 2013 ci <doperations@au.westfield.com> 0.0.207-1
+- Remove hashie requires and just autorequire from Gemfile
+  (cwalsh2@au.westfield.com)
+
 * Tue Jul 09 2013 ci <doperations@au.westfield.com> 0.0.206-1
 - WSF-4294 Fix code review findings (cwalsh2@au.westfield.com)
 - Fix alt tags (cwalsh2@au.westfield.com)

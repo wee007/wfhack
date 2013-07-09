@@ -3,8 +3,8 @@
    ====================================================================================== */
 
 .main {
-	position: relative;
-	z-index: 1;
+	//position: relative;
+	//z-index: 1;
 
 	/* Turn off `.container` rules for detail views */
 	.page-detail-view & {width: auto;}

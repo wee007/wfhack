@@ -1,5 +1,3 @@
-require 'hashie'
-
 class Store < Hashie::Mash
 
   def first_letter

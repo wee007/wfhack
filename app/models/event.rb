@@ -1,5 +1,3 @@
-require 'hashie'
-
 class Event < Hashie::Mash
 
   def start_date

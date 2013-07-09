@@ -59,14 +59,14 @@
       <div class="flexslider flexslider--gallery flexslider--gallery-lrg-img">
         <ul class="slides">
           <!-- [BACK END] 4 images is the max, dimensions are 469px x 474px (938px x 948px for retina which we serve for all but reduce the compression) and `alt` attr's need to be dynamically populated e.g. 'Product name photo' -->
-          <%- @product.images.each do |img| -%>
+          <%- @product.images[0...4].each do |img| -%>
             <li><%= image_tag(img, alt: "Photo of #{@product.name}") %></li>
           <%- end -%>
         </ul>
       </div>
       <div class="flexslider flexslider--gallery flexslider--gallery-thumbs">
         <ul class="slides">
-          <%- @product.images.each do |img| -%>
+          <%- @product.images[0...4].each do |img| -%>
             <li><%= image_tag(img, alt: "Thumbnail of #{@product.name}") %></li>
           <%- end -%>
         </ul>

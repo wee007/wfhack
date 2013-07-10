@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.213
+Version:     0.0.214
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,11 @@ fi
 
 
 %changelog
+* Wed Jul 10 2013 ci <doperations@au.westfield.com> 0.0.214-1
+- Merge pull request #112 from mwratt/feature/deal-map-insert
+  (cwalsh2@au.westfield.com)
+- adds retailer_code to filter the store in the map (matt.wratt@trineo.co.nz)
+
 * Wed Jul 10 2013 ci <doperations@au.westfield.com> 0.0.213-1
 - Precompile flexslider assets (cwalsh2@au.westfield.com)
 - WSF-4294 Display only 4 images on carousel (cwalsh2@au.westfield.com)

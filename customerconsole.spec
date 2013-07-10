@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.212
+Version:     0.0.213
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,10 @@ fi
 
 
 %changelog
+* Wed Jul 10 2013 ci <doperations@au.westfield.com> 0.0.213-1
+- Precompile flexslider assets (cwalsh2@au.westfield.com)
+- WSF-4294 Display only 4 images on carousel (cwalsh2@au.westfield.com)
+
 * Tue Jul 09 2013 ci <doperations@au.westfield.com> 0.0.212-1
 - Merge pull request #113 from cpearce/master (ldewey@au.westfield.com)
 - removing some rules to temporarily fix 'Stores' (CPearce@au.westfield.com)

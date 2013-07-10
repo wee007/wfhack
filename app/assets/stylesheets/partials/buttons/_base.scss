@@ -80,8 +80,7 @@
 	}
 
 	/* As above but position icon over to the far left */
-	&.btn--pointer-alt,
-	.toggle-content--btn &.btn--pointer.is-expanded {
+	&.btn--pointer-alt {
 		padding-right: 0;
 		@include to-em(padding-left, $spacing-half+$spacing-quarter);
 

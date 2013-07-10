@@ -1,0 +1,18 @@
+/* ======================================================================================
+   @BUTTONS -> Expand / Collapse
+   ====================================================================================== */
+
+/*
+	Usage:
+		Used when something needs to be expanded and collapsed.
+
+	Demo:
+		Style Guide -> Buttons -> Expand/Collapse
+*/
+
+.btn--expand-collapse {
+	color: $color-light-txt;
+	@include font-size($font-size-sml, 1);
+
+	.icon:before {margin-left: to-em($spacing-third);}
+}

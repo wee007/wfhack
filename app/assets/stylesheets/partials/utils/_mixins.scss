@@ -822,12 +822,12 @@
 		}
 */
 
-@mixin img-2x($image, $width, $height) {
+@mixin img-2x($image, $width, $height, $sledgehammer: "") {
 	@media 	(-o-min-device-pixel-ratio: 5/4),
 					(-webkit-min-device-pixel-ratio: 1.25),
 					(min-resolution: 120dpi) {
-						background-image: image-url($image);
-						background-size: $width $height;
+						background-image: image-url($image)#{$sledgehammer};
+						background-size: $width $height#{$sledgehammer};
 	}
 }
 

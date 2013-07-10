@@ -3,9 +3,9 @@
    ====================================================================================== */
 
 /*
-	Usage: 
+	Usage:
 		Various helpers specifically for text.
-	
+
 	Demo:
 		Style Guide -> Helpers -> Text
 */
@@ -34,18 +34,18 @@
 /* Truncate */
 .txt-truncate {
 	max-width: 100% !important;
-    overflow: hidden !important;
-    text-overflow: ellipsis !important;
-    white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
 }
 
 /* Break word */
 .txt-break-word {
-	word-wrap: break-word !important; 
+	word-wrap: break-word !important;
 	-ms-word-break: break-all !important;
-    word-break: break-all !important;
+  word-break: break-all !important;
 	/* Non standard for webkit */
-    word-break: break-word !important;
+  word-break: break-word !important;
 	/* Hyphens */
 	@include prefix(hyphens, auto);
 	/* Note: 'layout' is needed for IE. */

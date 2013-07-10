@@ -9,7 +9,7 @@ $hero-banner-height-lrg: 380 !default;
 /* Start header */
 .header {
 	position: fixed;
-	z-index: 99;
+	z-index: 1000;
 	width: 100%;
 	border-bottom: 1px solid #bababa;
 

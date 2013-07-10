@@ -19,7 +19,7 @@
     <script type="text/javascript">
 	$(function () {
 	    window.swaggerUi = new SwaggerUi({
-                discoveryUrl: (window.location.origin + '/api/'+location.hash.substr(3)+'/swagger-doc.json'),
+                discoveryUrl: (window.location.origin + '/api/'+window.location.search.replace('?service=', '')+'/swagger-doc.json'),
                 apiKey:"",
                 dom_id:"swagger-ui-container",
                 supportHeaderParams: false,

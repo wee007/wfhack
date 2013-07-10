@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.214
+Version:     0.0.215
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,9 @@ fi
 
 
 %changelog
+* Wed Jul 10 2013 ci <doperations@au.westfield.com> 0.0.215-1
+- Add category API docs link and sort alphabetically (malc@wholemeal.co.nz)
+
 * Wed Jul 10 2013 ci <doperations@au.westfield.com> 0.0.214-1
 - Merge pull request #112 from mwratt/feature/deal-map-insert
   (cwalsh2@au.westfield.com)

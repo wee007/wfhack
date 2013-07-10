@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.216
+Version:     0.0.217
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,12 @@ fi
 
 
 %changelog
+* Wed Jul 10 2013 ci <doperations@au.westfield.com> 0.0.217-1
+- Open deals and events tab up in swagger (craigm.smith@au.westfield.com)
+- Fixed small bug that was preventing swagger from working.
+  (craigm.smith@au.westfield.com)
+- Removing unused code. (craigm.smith@au.westfield.com)
+
 * Wed Jul 10 2013 ci <doperations@au.westfield.com> 0.0.216-1
 - Updated API list to include swagger API docs. (craigm.smith@au.westfield.com)
 

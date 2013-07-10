@@ -22,10 +22,9 @@
     <!-- //Product name, brand and price -->
 
     <!-- Store location -->
-    <div class="map-micello map-micello--static preserve-aspect-ratio detail-view__divider">
-      <div class="preserve-aspect-ratio__inner">
-        <%= render partial: 'shared/map', locals: {store_id: @stores.first.id} %>
-      </div>
+    <div class="map-micello map-micello--static detail-view__divider">
+      <%= render partial: 'shared/map', locals: {store_id: @stores.first.id} %>
+      <div class="map-micello__disable-interaction"></div>
     </div>
     <!-- //Store location -->
 
@@ -58,7 +57,6 @@
       <!-- Flexslider -->
       <div class="flexslider flexslider--gallery flexslider--gallery-lrg-img">
         <ul class="slides">
-          <!-- [BACK END] 4 images is the max, dimensions are 469px x 474px (938px x 948px for retina which we serve for all but reduce the compression) and `alt` attr's need to be dynamically populated e.g. 'Product name photo' -->
           <%- @product.images[0...4].each do |img| -%>
             <li><%= image_tag(img, alt: "Photo of #{@product.name}") %></li>
           <%- end -%>
@@ -81,7 +79,7 @@
 
 </div>
 
-<div class="grid grid--gutterless grid--rev grid--flush detail-view__divider">
+<div class="grid grid--gutterless grid--rev grid--flush">
 
   <!-- Available Colours -->
   <div class="detail-view__divider--top-non-palm grid__item non-palm-two-fifths">
@@ -110,9 +108,9 @@
 </div>
 
 <!-- Availability -->
-<div class="island">
+<div class="island detail-view__divider--top-non-palm">
   <%- if @centres.present? -%>
-    <h3 class="detail-view__hdr-sub hn">Also available at</h3>
+    <h3 class="detail-view__hdr-sub detail-view__mrg-off hn">Also available at</h3>
     <ul>
       <%- @centres.each do |centre| -%>
         <li>

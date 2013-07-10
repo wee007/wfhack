@@ -4,7 +4,7 @@
   <div class="grid__item non-palm-one-half">
     <div class="island detail-view__divider--palm">
       <header class="deal-main box box--torn">
-        <h2 class="deal-main__hdr txt-break-word"><%= @deal.title %></h2>
+        <h2 class="deal-main__hdr"><%= @deal.title %></h2>
         <p class="deal-main__meta">from <%= @store.name %> <span>Deal ends <time datetime="<%= @deal.available_to.strftime("%Y-%m-%d") %>"><%= @deal.available_to.strftime("%A %e %B") %></time></span></p>
       </header>
     </div>
@@ -15,8 +15,9 @@
   <div class="grid__item non-palm-one-half">
 
     <!-- Store location -->
-    <div class="store-location detail-view__divider">
-      map
+    <div class="map-micello map-micello--static detail-view__divider">
+      <%= render partial: 'shared/map', locals: {store_id: 490} %>
+      <div class="map-micello__disable-interaction"></div>
     </div>
     <!-- //Store location -->
 
@@ -37,41 +38,41 @@
 
 </div>
 
-<!-- Availability & fine print -->
-<div class="island">
-
-  <!-- Availability -->
-  <h3 class="detail-view__hdr-sub hn">Also available at</h3>
+<!-- Availability -->
+<!-- [BACK END] This won't always render so in that case do not render of this in the front end -->
+<div class="island detail-view__availability">
+  <h3 class="detail-view__hdr-sub detail-view__mrg-off hn">Also available at</h3>
   <ul class="detail-view__mrg-base">
     <% @deal.stores.each do |store| %>
       <li><a href="<%= centre_deal_path(store.centre.code, @deal.id)%>" class="centres-list"><span class="icon icon--pin icon--lrg icon--spacing-lrg" aria-hidden="true"></span><%= store.centre.short_name %><span class="icon icon--arrow-right icon--lrg" aria-hidden="true"></span></a></li>
     <% end %>
   </ul>
-  <!-- //Availability -->
-
-  <!-- Fine print -->
-  <h3 class="hide-visually">The fine print</h3>
-  <div class="detail-view__desc detail-view__desc--fine-print detail-view__subtle-txt toggle-content js-toggle-content js-hide-show">
-    <!-- [BACK END] Each new line (ENTER) entered in the HTML `textarea` to generate a `p` element then can remove the static `p`s below -->
-    <% @deal.terms_and_conditions.each do |paragraph| %>
-      <p><%= paragraph %></p>
-    <% end %>
-  </div>
-  <!-- //Fine print -->
-
 </div>
-<!-- //Availability & fine print -->
+<!-- //Availability -->
+
+<!-- Fine print -->
+<!-- [BACK END] This won't always render so in that case do not render of this in the front end -->
+<div class="detail-view__desc detail-view__desc--fine-print detail-view__subtle-txt toggle-content js-toggle-content js-hide-show island">
+  <h3 class="detail-view__hdr-sub hn">The fine print</h3>
+  <% @deal.terms_and_conditions.each do |paragraph| %>
+    <p><%= paragraph %></p>
+  <% end %>
+</div>
+<!-- //Fine print -->
 
 <%- content_for :javascript do -%>
   <script>
     $(function() {
+
+      // Check if 'Availability' content exists so we can add divider to 'Fine print' container
+      if ($('.detail-view__availability').length) {
+        $('.toggle-content').addClass('detail-view__divider detail-view__divider--top');
+      }
+
       // Run 'Toggle content' plugin
       $('.js-toggle-content').toggleContent({
-        btnTxtOpen: 'Read the fine print <span aria-hidden="true" class="icon icon--arrow-right-big icon--lrg icon--flush-top-mozilla btn--pointer__icon"></span>',
-        btnTxtClose: 'Close the fine print <span aria-hidden="true" class="icon icon--arrow-left-big icon--lrg icon--flush-top-mozilla btn--pointer__icon"></span>',
-        toggleBtnTrigger: $('<button type="button" class="btn btn--pointer btn--main btn--main-alt3"></button>'),
-        toggleBtnWrap: $('<div class="toggle-content--btn toggle-content--btn-center toggle-content--btn-mrg-base"></div>'),
-        btnPos: 'insertBefore'
+        btnTxtOpen: 'Read the fine print <span aria-hidden="true" class="icon icon--arrow-down-full icon--lrg"></span>',
+        btnTxtClose: 'Collapse the fine print <span aria-hidden="true" class="icon icon--arrow-up-full icon--lrg"></span>'
       });
     });
   </script>

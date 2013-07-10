@@ -1,5 +1,5 @@
 /* ======================================================================================
-   @BUTTONS -> Expand / Collapse
+   @BUTTONS -> Expand/Collapse
    ====================================================================================== */
 
 /*
@@ -13,6 +13,9 @@
 .btn--expand-collapse {
 	color: $color-light-txt;
 	@include font-size($font-size-sml, 1);
+	@include to-em(padding-top padding-bottom, $spacing-third);
+	border-top: 1px solid $color-grey-1;
 
-	.icon:before {margin-left: to-em($spacing-third);}
+	/* Icon */
+	.icon:before {margin-left: to-em($spacing-sixth);}
 }

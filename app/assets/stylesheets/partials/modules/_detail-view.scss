@@ -25,7 +25,7 @@
   @include respond-min($non-palm) {
     @include font-size($font-size);
     width: 92%;
-    margin: 0 auto;
+    @include to-rem(margin, $spacing-base auto);
   }
 
   /* --Set fixed widths for each detail view at these breakpoints-- */
@@ -94,6 +94,7 @@
   .detail-view__divider--top-btm {border-top-width: 1px;}
 
   /* Top only */
+  .detail-view__divider--top,
   .detail-view__divider--top-non-palm {border-width: 1px 0 0 0;}
 
   /* Dividers only at these breakpoints */
@@ -128,6 +129,8 @@
   .detail-view__mrg-base {@extend %mrg-base;}
 
   .detail-view__mrg-half {@include to-rem(margin-bottom, $spacing-half);}
+
+  .detail-view__mrg-off {margin-bottom: 0;}
 
   /* Description */
   .detail-view__desc p {
@@ -229,6 +232,21 @@
     .box--torn {
       margin-left: -1px;
       margin-right: -1px;
+    }
+
+    /* Toggle content plugin adjustments */
+    .toggle-content,
+    .toggle-content--btn {@include to-rem(margin-top, $spacing-base);}
+
+    .btn--expand-collapse {
+      @include to-em(padding-top, $spacing-half);
+      border-top: 0;
+      box-shadow: inset 0 5px 5px -5px rgba(#000, 0.4);
+
+      /* Old IE */
+      @include old-ie {
+        border-top: 1px solid $color-grey-1;
+      }
     }
   }
 

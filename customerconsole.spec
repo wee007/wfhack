@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.220
+Version:     0.0.221
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,11 @@ fi
 
 
 %changelog
+* Thu Jul 11 2013 ci <doperations@au.westfield.com> 0.0.221-1
+- Merge pull request #121 from ldewey/master (ben@germanforblack.com)
+- The dev proxy should now work if you are using localhost:3000 etc
+  (ldewey@au.westfield.com)
+
 * Thu Jul 11 2013 ci <doperations@au.westfield.com> 0.0.220-1
 - Merge pull request #118 from cpearce/master (ldewey@au.westfield.com)
 - removing bottom border for header as it should only be for centre home page

@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.218
+Version:     0.0.219
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,11 @@ fi
 
 
 %changelog
+* Thu Jul 11 2013 ci <doperations@au.westfield.com> 0.0.219-1
+- Added uat symlink of config/environments/production.rb
+  (ldewey@au.westfield.com)
+- Fix /api to work like /api/ does (cwalsh2@au.westfield.com)
+
 * Wed Jul 10 2013 ci <doperations@au.westfield.com> 0.0.218-1
 - update links to imageservice and fileservice (acohen@au.westfield.com)
 

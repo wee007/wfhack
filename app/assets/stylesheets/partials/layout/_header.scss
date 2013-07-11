@@ -156,7 +156,7 @@ $hero-banner-height-lrg: 380 !default;
 			&.is-expanded {
 				display: block;
 				position: absolute;
-				z-index: $z-index-max;
+				z-index: $z-index-high;
 				top: 100%;
 				left: 0;
 			}
@@ -434,7 +434,7 @@ $hero-banner-height-lrg: 380 !default;
 			@include respond-range($non-palm, $ipad-landscape - 1) {
 				.header & {
 					position: absolute;
-					z-index: $z-index-max;
+					z-index: $z-index-high;
 					@include to-rem(top, 10);
 					left: 0;
 				}
@@ -1021,7 +1021,7 @@ $hero-banner-height-lrg: 380 !default;
 				&.header__overlay--stick {
 					width: 100%;
 					position: absolute;
-					z-index: $z-index-max - 1;
+					z-index: $z-index-high - 1;
 					top: 0;
 					left: 0;
 				}

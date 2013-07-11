@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.219
+Version:     0.0.220
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,27 @@ fi
 
 
 %changelog
+* Thu Jul 11 2013 ci <doperations@au.westfield.com> 0.0.220-1
+- Merge pull request #118 from cpearce/master (ldewey@au.westfield.com)
+- removing bottom border for header as it should only be for centre home page
+  version (CPearce@au.westfield.com)
+- adding non JS fallback and updating position of 'if' statement for products
+  show (CPearce@au.westfield.com)
+- working on finalising product/deal detail views (CPearce@au.westfield.com)
+- adding a new button (CPearce@au.westfield.com)
+- removing redundant text-decoration rules (CPearce@au.westfield.com)
+- removing redundant toggle button rules (CPearce@au.westfield.com)
+- adding a new button (CPearce@au.westfield.com)
+- cleaning up indentation (CPearce@au.westfield.com)
+- adding bottom spacing for non-palm (CPearce@au.westfield.com)
+- fixing up bg image path (CPearce@au.westfield.com)
+- removing redudant rules (CPearce@au.westfield.com)
+- increasing the z-index of the fixed header to ensure any absolutely
+  positioned elements outside of the header will always sit under it
+  (CPearce@au.westfield.com)
+- Updating IE7 fallback msg after product owner review
+  (CPearce@au.westfield.com)
+
 * Thu Jul 11 2013 ci <doperations@au.westfield.com> 0.0.219-1
 - Added uat symlink of config/environments/production.rb
   (ldewey@au.westfield.com)

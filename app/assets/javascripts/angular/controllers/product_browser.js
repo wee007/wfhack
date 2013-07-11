@@ -4,13 +4,14 @@
     $scope.productsDidLoad = false;
 
     // Multi-facet search fields
+    $scope.categories = [];
     $scope.retailers = [];
     $scope.brands = [];
 
     // Multi-value facets must be sent back using the original
     // name of the model. eg. 'brands' should become 'brands'
     var searchParamMap = {
-      'selectedSubCategory': 'sub_category',
+      'categories': 'type',
       'retailers': 'retailer',
       'brands': 'brand'
     };
@@ -27,28 +28,21 @@
       });
     };
 
-    // Adds params to search from URL string
-    executeInitialSearch = function () {
-      useRouteParams();
-
-      $scope.productsDidLoad = false;
-      Search.getSearch(function () {
-        $scope.productsDidLoad = true;
-      });
-    };
-
-    executeInitialSearch(); // Init
-
     updateSearch = function () {
       $scope.productsDidLoad = false;
 
-      cleanParams = ParamCleaner.build( Search.params );
-      $location.search( cleanParams );
-
       Search.getSearch(function () {
         $scope.productsDidLoad = true;
+        cleanParams = ParamCleaner.build( Search.params );
+        $location.search( cleanParams );
       });
     };
+
+    // Adds params to search from URL string
+    executeInitialSearch = function () {
+      useRouteParams();
+      updateSearch();
+    }(); // Self init
 
     $scope.removeSelectedFilter = function ( paramName, paramValue ) {
       Search.removeParam( paramName, paramValue );
@@ -62,7 +56,7 @@
 
     // multi-facet filter search
     $scope.mvFilterSearch = function ( attributeName ) {
-      selectedValues = $filter('filter')($scope.search[attributeName], { selected: true });
+      selectedValues = $filter('filter')($scope.search[attributeName].values, { selected: true });
 
       values = [];
       angular.forEach( selectedValues, function ( selectedValue ) {
@@ -75,14 +69,15 @@
     };
 
     $scope.clearFilters = function () {
-      // Reset Search params to default
-      Search.resetParams();
+      newParams = {};
+      if ( $routeParams.centre ) { newParams.centre = $routeParams.centre; }
+      Search.resetParams( newParams );
+      updateSearch();
+    };
 
-      // Remove query strings
-      $location.search("");
-
-      // Start over
-      executeInitialSearch();
+    $scope.filterCategory = function ( categoryType, categoryCode ) {
+      Search.setParam( categoryType, categoryCode );
+      updateSearch();
     };
 
     $scope.rangeFilter = function ( paramName ) {
@@ -91,6 +86,6 @@
       paramValue = min + '-' + max;
 
       Search.setParam( paramName, paramValue );
-    }
+    };
   });
 }( angular.module( 'Westfield' ) ));

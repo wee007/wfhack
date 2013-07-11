@@ -19,11 +19,13 @@
 	font-weight: bold;
 	display: block;
 	border-bottom: 1px solid $color-grey-2;
-	@include to-rem(padding-top padding-bottom, $spacing-quarter);
+	@include to-rem(padding-top, $spacing-half);
+	@include to-rem(padding-bottom, $spacing-quarter);
 
 	/* Increase padding at this breakpoint */
 	@include respond-min($non-palm) {
-    @include to-rem(padding-top padding-bottom, $spacing-third);
+    @include to-rem(padding-top, $spacing-base);
+		@include to-rem(padding-bottom, $spacing-half);
 
     /* Increase right spacing for icon */
   	.icon--spacing-lrg:before {margin-right: to-em($spacing-half);}
@@ -37,3 +39,4 @@
   /* Position arrow icon over to the right */
   .icon--arrow-right {float: right;}
 }
+

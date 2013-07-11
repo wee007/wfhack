@@ -101,8 +101,7 @@
 	}
 
 	/* As above but position icon over to the far left */
-	.btn--pointer-alt.btn--main,
-	.toggle-content--btn .btn--pointer.btn--main.is-expanded {
+	.btn--pointer-alt.btn--main {
 		@include to-em(padding-left, $spacing-base+$spacing-half+$spacing-micro);
 		@include to-em(padding-right, $spacing-base+$spacing-half);
 

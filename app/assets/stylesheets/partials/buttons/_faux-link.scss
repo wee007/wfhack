@@ -3,25 +3,21 @@
    ====================================================================================== */
 
 /*
-	Usage: 
+	Usage:
 		Make a button look like a link.
-	
-	Note: 
-		-	The base link styles are repeated here so not very DRY (need to look into this). 
+
+	Note:
+		-	The base link styles are repeated here so not very DRY (need to look into this).
 		-	Extends from `.btn`, see: 'buttons/base'.
-	
+
 	Demo:
 		Style Guide -> Buttons -> Faux Link
 */
 
 .btn--faux-link {
 	color: $color-link;
-	text-decoration: underline; /* Note: this may be redundant? */
-	
+
 	/* Pseudo classes */
 	&:hover,
-	&:focus {
-		color: complement($color-link);
-		text-decoration: none; /* Note: this may be redundant? */
-	}
+	&:focus {color: $color-link-hover;}
 }

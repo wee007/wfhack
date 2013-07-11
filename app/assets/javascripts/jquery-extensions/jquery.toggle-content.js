@@ -12,7 +12,7 @@ $.fn.toggleContent = function(options, toggleBtnWrap, toggleBtnTrigger, btnTxtOp
       // Wrapper around button element
       toggleBtnWrap: $('<div class="toggle-content--btn"></div>'),
       // HTML for button element
-      toggleBtnTrigger: $('<button type="button" class="btn btn--faux-link"></button>'),
+      toggleBtnTrigger: $('<button type="button" class="btn btn--full btn--expand-collapse"></button>'),
       // Text you want in the button *before* toggling
       btnTxtOpen: 'Show more',
       // Text you want in the button *after* toggling

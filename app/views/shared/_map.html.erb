@@ -2,7 +2,8 @@
 	<div id="map">Upgrade your browser, limited support for older browsers coming soon.</div>
 <![endif]-->
 <!--[if gt IE 8]><!-->
-	<div id="map" class="map-micello__api"><span class="preloader preloader--light"><span class="preloader__spinner"></span><em class="hide-visually">Loading, please wait&#8230;</em></span></div>
+	<p class="feedback feedback--warning js-enabled-hide">You need JavaScript enabled to view this map. <a href="http://enable-javascript.com/" rel="external">Visit here</a> for instructions on how to enable JavaScript.</p>
+	<div id="map" class="map-micello__api js-disabled-hide"><span class="preloader preloader--light"><span class="preloader__spinner"></span><em class="hide-visually">Loading, please wait&#8230;</em></span></div>
 	<%= javascript_include_tag 'http://maps.micello.com/webmap/v0/micellomap.js' %>
 	<%= javascript_include_tag 'map' %>
 	<%= javascript_tag do %>

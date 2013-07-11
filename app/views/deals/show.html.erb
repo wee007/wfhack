@@ -17,7 +17,7 @@
     <!-- Store location -->
     <div class="map-micello map-micello--static detail-view__divider">
       <%= render partial: 'shared/map', locals: {store_id: 490} %>
-      <div class="map-micello__disable-interaction"></div>
+      <div class="map-micello__disable-interaction js-disabled-hide"></div>
     </div>
     <!-- //Store location -->
 
@@ -39,7 +39,7 @@
 </div>
 
 <!-- Availability -->
-<!-- [BACK END] This won't always render so in that case do not render of this in the front end -->
+<!-- [BACK END] This won't always be available so we need to make sure it doesn't render in the front end -->
 <div class="island detail-view__availability">
   <h3 class="detail-view__hdr-sub detail-view__mrg-off hn">Also available at</h3>
   <ul class="detail-view__mrg-base">
@@ -51,7 +51,7 @@
 <!-- //Availability -->
 
 <!-- Fine print -->
-<!-- [BACK END] This won't always render so in that case do not render of this in the front end -->
+<!-- [BACK END] This won't always be available so we need to make sure it doesn't render in the front end -->
 <div class="detail-view__desc detail-view__desc--fine-print detail-view__subtle-txt toggle-content js-toggle-content js-hide-show island">
   <h3 class="detail-view__hdr-sub hn">The fine print</h3>
   <% @deal.terms_and_conditions.each do |paragraph| %>

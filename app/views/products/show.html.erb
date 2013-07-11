@@ -24,7 +24,7 @@
     <!-- Store location -->
     <div class="map-micello map-micello--static detail-view__divider">
       <%= render partial: 'shared/map', locals: {store_id: @stores.first.id} %>
-      <div class="map-micello__disable-interaction"></div>
+      <div class="map-micello__disable-interaction js-disabled-hide"></div>
     </div>
     <!-- //Store location -->
 
@@ -83,16 +83,16 @@
 
   <!-- Available Colours -->
   <div class="detail-view__divider--top-non-palm grid__item non-palm-two-fifths">
+    <%- if @product.available_colours.present? -%>
     <div class="island island--btm-palm">
-      <%- if @product.available_colours.present? -%>
-        <h3 class="detail-view__hdr-sub hn">Available Colours</h3>
-        <ul class="horiz-list horiz-list--comma"><!--
-          <%- @product.available_colours.each do |colour| -%>
-            --><li><strong><%= colour %></strong></li><!--
-          <%- end -%>
-        --></ul>
-      <%- end -%>
+      <h3 class="detail-view__hdr-sub hn">Available Colours</h3>
+      <ul class="horiz-list horiz-list--comma"><!--
+        <%- @product.available_colours.each do |colour| -%>
+          --><li><strong><%= colour %></strong></li><!--
+        <%- end -%>
+      --></ul>
     </div>
+    <%- end -%>
   </div>
   <!-- //Available Colours -->
 

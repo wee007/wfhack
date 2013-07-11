@@ -198,8 +198,69 @@
           @include to-rem(padding, 12 $spacing-base+$spacing-half 11);
           @include font-size($font-size-sml, 1);
 
-          /* Icon */
-          .icon--share:before {top: -2px;}
+          /* Hover/focus states */
+          &:hover,
+          &:focus {
+            &,
+            .icon:before {color: $color-light-txt;}
+          }
+
+          /* Saved state for 'Save' button */
+          &.is-saved {
+            &,
+            .icon:before {color: $color-brand;}
+          }
+
+            /* Icon */
+            .icon:before {@extend %transition-subtle;}
+
+            /* Webkit */
+            @include target-webkit {
+              .icon--share:before {top: -2px;}
+            }
+        }
+
+        /* --Drop down menu-- */
+
+        /* Make the drop down span full width of viewport at this breakpoint */
+        @include respond-max($palm) {
+          .drop-down {
+            width: 204%;
+            left: -104%;
+          }
+        }
+
+        /* Alter position and width at this breakpoint */
+        @include respond-min($non-palm) {
+          .drop-down {
+            @include to-rem(width, 290);
+            left: 100%;
+            top: 0;
+          }
+        }
+
+        /* -Drop down trigger- */
+
+        /* Hide elements that need to be shown when the drop down is active */
+        .drop-down-container__active {display: none;}
+
+        /* Active state */
+        .drop-down-container.is-active {
+
+          & > .drop-down.horiz-list--fit {display: table;}
+
+          /* Trigger button */
+          .detail-view__controls__btn {
+            background: $color-med-txt !important;
+            &,
+            .icon:before {color: #fff;}
+          }
+
+          /* Hide elements that need to be shown when the drop down is non-active */
+          .drop-down-container__non-active {display: none;}
+
+          /* Show elements that need to be shown when the drop down is active */
+          .drop-down-container__active {display: inline-block;}
         }
   }
 

@@ -22,6 +22,7 @@ class ServiceProxy < Rack::Proxy
     if request.path =~ %r{^/api/}
       service = request.path.split('/')[2]
       env["HTTP_HOST"] = "#{service}-service.#{Rails.env}.dbg.westfield.com"
+      env['SERVER_PORT'] = '80'
     end
 
     env

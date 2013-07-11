@@ -27,6 +27,10 @@ module ApplicationHelper
     asset_path 'placeholder.png'
   end
 
+  def current_url
+    "#{request.protocol}#{request.host_with_port}#{request.fullpath}"
+  end
+
   def parent_layout(layout)
     @view_flow.set(:layout,output_buffer)
     self.output_buffer = render(:file => "layouts/#{layout}")

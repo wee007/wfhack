@@ -40,7 +40,6 @@
 
 <!-- Availability -->
 <% if @deal.stores and @deal.stores.size > 1 %>
-  <!-- [BACK END] This won't always be available so we need to make sure it doesn't render in the front end -->
   <div class="island detail-view__availability">
     <h3 class="detail-view__hdr-sub detail-view__mrg-off hn">Also available at</h3>
     <ul class="detail-view__mrg-base">
@@ -55,7 +54,6 @@
 <!-- //Availability -->
 <!-- Fine print -->
 <% if @deal.terms_and_conditions and !@deal.terms_and_conditions.empty? %>
-  <!-- [BACK END] This won't always be available so we need to make sure it doesn't render in the front end -->
   <div class="detail-view__desc detail-view__desc--fine-print detail-view__subtle-txt toggle-content js-toggle-content js-hide-show island">
     <h3 class="detail-view__hdr-sub hn">The fine print</h3>
     <% @deal.terms_and_conditions.each do |paragraph| %>

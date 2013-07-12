@@ -27,15 +27,18 @@
   app.factory( 'SearchFacet', function (  ) {
     return {
       retrieve: function ( facets, facetName ) {
-        values = [];
+        facetObject = {};
         angular.forEach( facets, function ( facet ) {
           if ( facet.field === facetName ) {
             // Singular facet details are stored on the object
-            values = ( facet.values.length ) ? facet.values : [facet];
+            facetObject = {
+              field: facet.field,
+              values: ( facet.values.length ) ? facet.values : [facet]
+            }
           }
         });
 
-        return values;
+        return facetObject;
       }
     };
   });

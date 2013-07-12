@@ -1,7 +1,7 @@
 ( function ( app ) {
-  app.controller( 'BrowseController', function ( $scope, $filter, $location, $routeParams, ParamCleaner, Search ) {
+  app.controller( 'BrowseController', function ( $window, $scope, $filter, $location, $routeParams, ParamCleaner, Search, Products ) {
     $scope.search = Search;
-    $scope.productsDidLoad = false;
+    $scope.products = Products;
 
     // Multi-facet search fields
     $scope.categories = [];
@@ -28,20 +28,30 @@
       });
     };
 
-    updateSearch = function () {
-      $scope.productsDidLoad = false;
-
+    updateFilters = function () {
       Search.getSearch(function () {
-        $scope.productsDidLoad = true;
-        cleanParams = ParamCleaner.build( Search.params );
+        cleanParams = ParamCleaner.build( Search.params() );
         $location.search( cleanParams );
       });
+    };
+
+    updateProducts = function () {
+      Products.get( $location.path(), Search.params(), function () {
+        setTimeout(function () {
+          $window.initPlugin.isotope();
+        }, 250);
+      });
+    };
+
+    updateSearch = function () {
+      updateProducts();
+      updateFilters();
     };
 
     // Adds params to search from URL string
     executeInitialSearch = function () {
       useRouteParams();
-      updateSearch();
+      updateFilters();
     }(); // Self init
 
     $scope.removeSelectedFilter = function ( paramName, paramValue ) {

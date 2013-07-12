@@ -1,19 +1,50 @@
 <div ng-app="Westfield">
   <div ng-view></div>
 
-  <script type="text/ng-template" id="super_cat_template">
-    <div class="select-filter categories">
-      <ul>
-        <li ng-repeat="category in search.super_cats | orderBy: 'sort_order'">
-          {{ category.name }}
-        </li>
-      </ul>
-    </div>
+  <!-- Used to list 'super_cat' and 'category' -->
+  <script type="text/ng-template" id="categoryItemTemplate">
+    <ul>
+      <li ng-repeat="category in search.categories.values | orderBy: 'sort_order'">
+        <a href="" ng-click="filterCategory( search.categories.field, category.code )">{{ category.name }}</a>
+      </li>
+    </ul>
+  </script>
+
+  <script type="text/ng-template" id="TypeListTemplate">
+    <button ng-click="mvFilterSearch( 'categories' )">Apply</button>
+    <ul>
+      <li ng-repeat="category in search.categories.values | orderBy: 'sort_order'">
+        <input ng-model="category.selected"
+               ng-checked="category.selected"
+               value="{{ category.code }}"
+               id="category_{{ category.code }}"
+               type="checkbox">
+        <label for="category_{{ category.code }}">{{ category.name }} ({{ category.count }})</label>
+      </li>
+    </ul>
+  </script>
+
+  <script type="text/ng-template" id="super_catTemplate">
+    <div ng-include src="'categoryItemTemplate'"></div>
+  </script>
+
+  <script type="text/ng-template" id="categoryTemplate">
+    <div ng-include src="'categoryItemTemplate'"></div>
+  </script>
+
+  <script type="text/ng-template" id="sub_categoryTemplate">
+    <div ng-include src="'categoryItemTemplate'"></div>
+  </script>
+
+  <script type="text/ng-template" id="typeTemplate">
+    <div ng-include src="'TypeListTemplate'"></div>
   </script>
 
   <script type="text/ng-template" id="productBrowseTemplate">
-    <form ng-submit="filterSearch('search_query')" method="get">
-      <div ng-include src="'super_cat_template'"></div>
+    <form ng-submit="updateSearch()" method="get">
+      <div class="select-filter categories">
+        <div ng-include src="search.categories.field + 'Template'"></div>
+      </div>
 
 
       <div class="select-filter">
@@ -21,7 +52,7 @@
         <input ng-model="storeSearch" type="search" placeholder="Enter a store name">
 
         <ul class="multi-facet-list">
-          <li ng-repeat="retailer in search.retailers | filter: storeSearch">
+          <li ng-repeat="retailer in search.retailers.values | filter: storeSearch | limitTo: 250">
             <input ng-model="retailer.selected"
                    ng-checked="retailer.selected"
                    value="{{ retailer.code }}"
@@ -38,7 +69,7 @@
         <input ng-model="brandSearch" type="search" placeholder="Enter a brand name">
 
         <ul class="multi-facet-list">
-          <li ng-repeat="brand in search.brands | filter: brandSearch">
+          <li ng-repeat="brand in search.brands.values | filter: brandSearch | limitTo: 250">
             <input ng-model="brand.selected"
                    ng-checked="brand.selected"
                    value="{{ brand.code }}"
@@ -76,7 +107,7 @@
     </form>
 
     <hr>
-    <div class="selected-categories">
+    <div class="selected-filters">
       <ul>
         <li ng-repeat="filter in search.appliedFilters">
           {{ filter.title }}
@@ -87,14 +118,14 @@
     </div>
 
     <div class="product-results">
-      <div ng-hide="productsDidLoad" class="spinner"><h1>Loading</h1></div>
-      <ul ng-show="productsDidLoad">
-        <li ng-repeat="product in search.products" class="product">
-          <img ng-src="{{product.default_image_url}}" class="image" alt="{{product.name}}">
-          <h2>{{product.name}}</h2> ({{product.retail_chain_name}})
-          <span class="price">{{product.display_price}}</span>
-        </li>
-      </ul>
+      <div ng-hide="products.loaded" class="spinner"><h1>Loading</h1></div>
+
+      <div ng-show="products.loaded" ng-bind-html-unsafe="products.list"></div>
+
+      <%# Using a !products.loaded on ng-hide so that the loader will be shown immediately %>
+      <div ng-hide="!products.loaded" ng-if="!products.list.length">
+        <%= render 'products' %>
+      </div>
     </div>
   </script>
 </div>

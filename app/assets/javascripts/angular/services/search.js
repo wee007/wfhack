@@ -1,6 +1,4 @@
 ( function ( app ) {
-  // Search
-  // http://product-service.systest.dbg.westfield.com/api/product/latest/products/search.json?centre=bondijunction
   app.service( 'Search', function ( $http, ParamCleaner, SearchFacet ) {
     var self = this;
 
@@ -20,11 +18,10 @@
 
     // Params can be reset to the defaults, so we'll dupe
     // the object so that it can be modified without polluting the original object
-    this.params = {};
-    angular.extend( this.params, defaultParams );
+    params = {};
+    angular.extend( params, defaultParams );
 
     this.categories = [];
-    this.products = [];
     this.retailers = [];
     this.brands = [];
     this.price = {};
@@ -34,8 +31,8 @@
     this.appliedFilters = [];
 
     this.getSearch = function ( callback ) {
-      return $http.get('http://productservice.syt2.dbg.westfield.com/api/product/latest/products/search.json', {
-        params: ParamCleaner.build( this.params )
+      $http.get('/api/product/master/products/search.json', {
+        params: ParamCleaner.build( params )
       }).then( function( response ) {
         if ( angular.isFunction( callback ) ) { callback(); }
         self.formatSearchResults( response.data );
@@ -91,7 +88,6 @@
     };
 
     this.formatSearchResults = function ( response ) {
-      this.products = response.results;
       this.categories = this.getCategoryFacet( response.facets );
 
       this.retailers = SearchFacet.retrieve( response.facets, 'retailer' );
@@ -103,31 +99,35 @@
       this.appliedFilters = this.formatFilters( response.applied_filters );
     };
 
+    this.params = function () {
+      return angular.extend( {}, params );
+    };
+
     this.setParam = function ( param, value ) {
       // Array params should be added to the 'last'
       // param which will ensure that the full array list
       // is returned for a given facet
-      if ( angular.isArray( this.params[param] ) ) {
+      if ( angular.isArray( params[param] ) ) {
         this.setParam( 'last', param );
       }
 
-      this.params[param] = value;
+      params[param] = value;
     };
 
     this.removeParam = function ( paramName, value ) {
-      param = this.params[paramName];
+      param = params[paramName];
       if ( angular.isArray( param ) ) {
         index = param.indexOf( value );
-        this.params[paramName].splice( index, 1 );
+        params[paramName].splice( index, 1 );
       } else if ( param === value ) {
-        delete this.params[paramName];
+        delete params[paramName];
       }
     };
 
     this.resetParams = function ( newParams ) {
-      this.params = {};
-      angular.extend( this.params, defaultParams );
-      angular.extend( this.params, newParams );
+      params = {};
+      angular.extend( params, defaultParams );
+      angular.extend( params, newParams );
     };
   });
 }( angular.module('Westfield') ));

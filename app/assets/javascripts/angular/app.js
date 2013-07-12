@@ -1,9 +1,8 @@
 var app = angular.module( 'Westfield', ['ngRoute', 'ngMobile'] );
 
 app.config(function ( $httpProvider, $routeProvider, $locationProvider ) {
-  // Allow CORS
-  $httpProvider.defaults.useXDomain = true;
-  delete $httpProvider.defaults.headers.common['X-Requested-With'];
+  // Tell rails that we're using XMLHttpRequests
+  $httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
   // Routes
   $routeProvider.when( '/:centre/products', {
@@ -11,7 +10,7 @@ app.config(function ( $httpProvider, $routeProvider, $locationProvider ) {
     templateUrl: 'productBrowseTemplate'
   });
 
-  // Use pushState
+  // Use pushState, and hashbang (for google)
   $locationProvider.hashPrefix( '!' );
   $locationProvider.html5Mode( true );
 });

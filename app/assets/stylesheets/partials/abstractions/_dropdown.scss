@@ -11,16 +11,18 @@
 */
 
 /* Container for the drop down and drop down trigger */
-.drop-down-container {position: relative;}
+.drop-down-container {
+  position: relative;
 
-/* The drop down (JS users only) */
-.js .drop-down {
-  display: none;
-  position: absolute;
-  z-index: $z-index-max;
-  top: 100%;
-  left: 0;
+  /* Show the drop down */
+  &.is-active > .drop-down {display: block;}
 }
 
-/* The drop down opened */
-.drop-down-container.is-active > .drop-down {display: block;}
+  /* The drop down (JS users only) */
+  .js .drop-down {
+    display: none;
+    position: absolute;
+    z-index: $z-index-high;
+    top: 100%;
+    left: 0;
+  }

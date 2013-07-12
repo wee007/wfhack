@@ -10,3 +10,74 @@
 		Style Guide -> Modules -> Social Share
 */
 
+/* Set vairables */
+$share-facebook: #355f9f !default;
+$share-twitter: #2ba9e1 !default;
+$share-email: #f4801f !default;
+$share-google: #db5442 !default;
+$share-pinterest: #ca2026 !default;
+
+/* Start module */
+.social-share {
+
+	/* Items */
+	li {width: 20%;}
+
+		/* Links */
+		a {
+			@include to-rem(padding-top padding-bottom, $spacing-half);
+			color: #fff;
+
+			/* --Custom rules-- */
+
+			/* Detail view controls */
+			.detail-view__controls & {@include to-rem(padding-top padding-bottom, 9);}
+		}
+}
+
+	/* --Colour scheme for icons-- */
+
+	/* Facebook */
+	.social-share__facebook a {
+		background-color: $share-facebook;
+
+		/* Hover/focus states */
+		&:hover,
+		&:focus {background-color: darken($share-facebook, 5%);}
+	}
+
+	/* Twitter */
+	.social-share__twitter a {
+		background-color: $share-twitter;
+
+		/* Hover/focus states */
+		&:hover,
+		&:focus {background-color: darken($share-twitter, 5%);}
+	}
+
+	/* Email */
+	.social-share__email a {
+		background-color: $share-email;
+
+		/* Hover/focus states */
+		&:hover,
+		&:focus {background-color: darken($share-email, 5%);}
+	}
+
+	/* Google */
+	.social-share__google a {
+		background-color: $share-google;
+
+		/* Hover/focus states */
+		&:hover,
+		&:focus {background-color: darken($share-google, 5%);}
+	}
+
+	/* Pinterest */
+	.social-share__pinterest a {
+		background-color: $share-pinterest;
+
+		/* Hover/focus states */
+		&:hover,
+		&:focus {background-color: darken($share-pinterest, 5%);}
+	}

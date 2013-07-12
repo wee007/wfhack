@@ -342,7 +342,9 @@ $eleven-twelfths: 91.666% !default;
 /* Off-screen px value */
 $off-screen-distance: -9999px !default;
 
-/* `z-index` max value */
+/* `z-index` values */
+$z-index-high: 2147483640 !default;
+
 $z-index-max: 2147483647 !default;
 
 /* Border radius */

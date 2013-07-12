@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.222
+Version:     0.0.223
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,14 @@ fi
 
 
 %changelog
+* Fri Jul 12 2013 ci <doperations@au.westfield.com> 0.0.223-1
+- Merge pull request #122 from cpearce/master (ldewey@au.westfield.com)
+- working on detail view controls (CPearce@au.westfield.com)
+- adding a new helper to get the current URL (CPearce@au.westfield.com)
+- fixing 'z-index' values to make the site more bullet proof
+  (CPearce@au.westfield.com)
+- tidying up drop down abstraction formatting (CPearce@au.westfield.com)
+
 * Thu Jul 11 2013 ci <doperations@au.westfield.com> 0.0.222-1
 - Merge pull request #120 from csmith/master (ldewey@au.westfield.com)
 - Removed comments (craigm.smith@au.westfield.com)

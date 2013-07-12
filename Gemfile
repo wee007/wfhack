@@ -26,16 +26,21 @@ gem 'hashie'
 gem 'kaminari'
 gem 'money'
 
+# CSS (cant live in development or css will not get minified)
+# https://github.com/rails/rails/issues/10084#issuecomment-20855970
+gem 'sass-rails', '~> 4.0.0'
+
+
 group :development do
   gem "foreman"
 end
+
 
 group :development, :test do
   gem 'pry'
   gem 'pry-remote'
   gem "debugger"
   gem "rspec-rails"
-  gem 'sass-rails', '~> 4.0.0'
   gem 'uglifier', '>= 1.3.0'
   gem 'coffee-rails', '~> 4.0.0'
   gem 'guard', '~> 1.8.0'

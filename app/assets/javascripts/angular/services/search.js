@@ -24,6 +24,8 @@
     this.categories = [];
     this.retailers = [];
     this.brands = [];
+    this.colours = [];
+    this.sizes = [];
     this.price = {};
 
     this.sortOptions = [];
@@ -39,10 +41,10 @@
       });
     };
 
-    // The current category facet could be 'super_cat', 'category', 'sub_category' or 'type'
+    // The current category facet could be 'super_cat', 'category' or 'sub_category'
     this.getCategoryFacet = function ( facets ) {
       var category = {},
-          possibleCategories = ['super_cat', 'category', 'sub_category', 'type'];
+          possibleCategories = ['super_cat', 'category', 'sub_category'];
 
       for ( var i = 0; i < possibleCategories.length; i++ ) {
         type = possibleCategories[i];
@@ -93,6 +95,8 @@
       this.retailers = SearchFacet.retrieve( response.facets, 'retailer' );
       this.brands = SearchFacet.retrieve( response.facets, 'brand' );
       this.price = SearchFacet.retrieve( response.facets, 'price' );
+      this.colours = SearchFacet.retrieve( response.facets, 'colour' );
+      this.sizes = SearchFacet.retrieve( response.facets, 'size' );
 
       this.sortOptions = response.display_options.sort_options;
       this.availableFilters = response.available_filters;

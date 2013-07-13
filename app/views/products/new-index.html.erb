@@ -5,14 +5,14 @@
   <script type="text/ng-template" id="categoryItemTemplate">
     <ul>
       <li ng-repeat="category in search.categories.values | orderBy: 'sort_order'">
-        <a href="" ng-click="filterCategory( search.categories.field, category.code )">{{ category.name }}</a>
+        <a href="" ng-click="filterCategory( search.categories.field, category.code )">{{ category.name }} ({{ category.count }})</a>
       </li>
     </ul>
   </script>
 
-  <script type="text/ng-template" id="TypeListTemplate">
-    <button ng-click="mvFilterSearch( 'categories' )">Apply</button>
-    <ul>
+  <script type="text/ng-template" id="SubCategoryTemplate">
+    <button ng-click="mvFilterSearch( 'categories' )" class="btn btn--main btn--sml">Apply</button>
+    <ul class="box arrow--up">
       <li ng-repeat="category in search.categories.values | orderBy: 'sort_order'">
         <input ng-model="category.selected"
                ng-checked="category.selected"
@@ -24,34 +24,20 @@
     </ul>
   </script>
 
-  <script type="text/ng-template" id="super_catTemplate">
-    <div ng-include src="'categoryItemTemplate'"></div>
-  </script>
-
-  <script type="text/ng-template" id="categoryTemplate">
-    <div ng-include src="'categoryItemTemplate'"></div>
-  </script>
-
-  <script type="text/ng-template" id="sub_categoryTemplate">
-    <div ng-include src="'categoryItemTemplate'"></div>
-  </script>
-
-  <script type="text/ng-template" id="typeTemplate">
-    <div ng-include src="'TypeListTemplate'"></div>
-  </script>
-
   <script type="text/ng-template" id="productBrowseTemplate">
     <form ng-submit="updateSearch()" method="get">
-      <div class="select-filter categories">
-        <div ng-include src="search.categories.field + 'Template'"></div>
+      <div ng-switch on="search.categories.field" class="select-filter categories">
+        <div ng-switch-when="super_cat" ng-include src="'categoryItemTemplate'"></div>
+        <div ng-switch-when="category" ng-include src="'categoryItemTemplate'"></div>
+        <div ng-switch-when="sub_category" ng-include src="'SubCategoryTemplate'"></div>
       </div>
 
-
-      <div class="select-filter">
-        <button ng-click="mvFilterSearch( 'retailers' )">Apply</button>
+      <!-- Retailers -->
+      <div ng-if="filterIsAvailable('retailer')" class="select-filter">
+        <button ng-click="mvFilterSearch( 'retailers' )" class="btn btn--main btn--sml">Apply</button>
         <input ng-model="storeSearch" type="search" placeholder="Enter a store name">
 
-        <ul class="multi-facet-list">
+        <ul class="box arrow--up">
           <li ng-repeat="retailer in search.retailers.values | filter: storeSearch | limitTo: 250">
             <input ng-model="retailer.selected"
                    ng-checked="retailer.selected"
@@ -64,11 +50,12 @@
         </ul>
       </div>
 
-      <div class="select-filter brand">
-        <button ng-click="mvFilterSearch( 'brands' )">Apply</button>
+      <!-- Brands -->
+      <div ng-if="filterIsAvailable('brand')" class="select-filter brand">
+        <button ng-click="mvFilterSearch( 'brands' )" class="btn btn--main btn--sml">Apply</button>
         <input ng-model="brandSearch" type="search" placeholder="Enter a brand name">
 
-        <ul class="multi-facet-list">
+        <ul class="box arrow--up">
           <li ng-repeat="brand in search.brands.values | filter: brandSearch | limitTo: 250">
             <input ng-model="brand.selected"
                    ng-checked="brand.selected"
@@ -80,8 +67,38 @@
         </ul>
       </div>
 
-      <div class="select-filter colour"></div>
-      <div class="select-filter price-range">
+      <!-- Colour -->
+      <div ng-if="filterIsAvailable('colour')" class="select-filter colour">
+        <button ng-click="mvFilterSearch( 'colours' )" class="btn btn--main btn--sml">Apply</button>
+        <ul class="box arrow--up">
+          <li ng-repeat="colour in search.colours.values">
+            <input ng-model="colour.selected"
+                   ng-checked="colour.selected"
+                   value="{{ colour.code }}"
+                   id="colour_{{ colour.code }}"
+                   type="checkbox">
+            <label for="colour_{{ colour.code }}">{{ colour.name }} ({{ colour.count }})</label>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Size -->
+      <div ng-if="filterIsAvailable('size')" class="select-filter size">
+        <button ng-click="mvFilterSearch( 'sizes' )" class="btn btn--main btn--sml">Apply</button>
+        <ul class="box arrow--up">
+          <li ng-repeat="size in search.sizes.values">
+            <input ng-model="size.selected"
+                   ng-checked="size.selected"
+                   value="{{ size.code }}"
+                   id="size_{{ size.code }}"
+                   type="checkbox">
+            <label for="size_{{ size.code }}">{{ size.name }} ({{ size.count }})</label>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Price -->
+      <div ng-if="filterIsAvailable('price')" class="box">
         Price range
         <input ng-model="search.price.range_start" ng-change="rangeFilter('price')" type="text">
         <input ng-model="search.price.range_end" ng-change="rangeFilter('price')" type="text">
@@ -106,26 +123,29 @@
       </label>
     </form>
 
-    <hr>
     <div class="selected-filters">
-      <ul>
+      <ul class="tags horiz-list">
         <li ng-repeat="filter in search.appliedFilters">
           {{ filter.title }}
-          <button ng-click="removeSelectedFilter( filter.type, filter.value )">X</button>
+          <button ng-click="removeSelectedFilter( filter.type, filter.value )" class="btn">
+            <span class="icon icon--close-sml icon--flush-top" aria-hidden="true">
+            <span class="hide-visually">Close</span>
+          </button>
         </li>
       </ul>
-      <button ng-click="clearFilters()">Clear all</div>
-    </div>
-
-    <div class="product-results">
-      <div ng-hide="products.loaded" class="spinner"><h1>Loading</h1></div>
-
-      <div ng-show="products.loaded" ng-bind-html-unsafe="products.list"></div>
-
-      <%# Using a !products.loaded on ng-hide so that the loader will be shown immediately %>
-      <div ng-hide="!products.loaded" ng-if="!products.list.length">
-        <%= render 'products' %>
-      </div>
+      <button ng-click="clearFilters()" class="btn btn--faux-link">Clear all</div>
     </div>
   </script>
+
+  <div ng-controller="ProductsController" class="product-results">
+    <div ng-hide="products.loaded" class="spinner"><h1>Loading</h1></div>
+
+    <div ng-show="products.loaded" ng-bind-html-unsafe="products.list"></div>
+
+    <%# Using a !products.loaded on ng-hide so that the loader will be shown immediately %>
+    <div ng-hide="!products.loaded" ng-if="!products.list.length">
+      <%= render 'products' %>
+    </div>
+  </div>
+
 </div>

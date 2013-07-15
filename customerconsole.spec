@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.230
+Version:     0.0.231
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,12 @@ fi
 
 
 %changelog
+* Tue Jul 16 2013 ci <doperations@au.westfield.com> 0.0.231-1
+- Merge pull request #130 from mwratt/feature/deal-map-insert
+  (ldewey@au.westfield.com)
+- adds code required for maps to deals controller (matt.wratt@trineo.co.nz)
+- tweaks map UX and popup overlay (matt.wratt@trineo.co.nz)
+
 * Mon Jul 15 2013 ci <doperations@au.westfield.com> 0.0.230-1
 - Bug fix. (craigm.smith@au.westfield.com)
 

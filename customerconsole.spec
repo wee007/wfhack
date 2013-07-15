@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.227
+Version:     0.0.228
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,12 @@ fi
 
 
 %changelog
+* Mon Jul 15 2013 ci <doperations@au.westfield.com> 0.0.228-1
+- Merge pull request #124 from cpearce/master (ldewey@au.westfield.com)
+- changing icons over to IcoMoon (CPearce@au.westfield.com)
+- finishing detail view controls and a few touch ups for product/deal detail
+  views (CPearce@au.westfield.com)
+
 * Mon Jul 15 2013 ci <doperations@au.westfield.com> 0.0.227-1
 - Merge pull request #127 from ldewey/master (craigM.smith@au.westfield.com)
 - Cleaned up stub deprecation, warnings (ldewey@au.westfield.com)

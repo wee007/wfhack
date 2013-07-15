@@ -21,7 +21,7 @@ describe "Map", ->
       @temp = jQuery
       jQuery = null
       @subject.initMap = jasmine.createSpy('initMap')
-      @subject.attachClickHandler = jasmine.createSpy('attachClickHandler')
+      @subject.attachListeners = jasmine.createSpy('attachListeners')
       @subject.init()
 
     afterEach ->
@@ -37,13 +37,13 @@ describe "Map", ->
         expect(@subject.initMap).toHaveBeenCalled()
       )
 
-    it 'calls attachClickHandler', ->
+    it 'calls attachListeners', ->
       jQuery = {}
       waitsFor((->
-        !!@subject.attachClickHandler.callCount
-      ), 'attachClickHandler to be called', 500)
+        !!@subject.attachListeners.callCount
+      ), 'attachListeners to be called', 500)
       runs(->
-        expect(@subject.attachClickHandler).toHaveBeenCalled()
+        expect(@subject.attachListeners).toHaveBeenCalled()
       )
 
   describe "#applyCustomTheme", ->

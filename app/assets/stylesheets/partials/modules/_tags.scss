@@ -1,0 +1,25 @@
+/*
+
+  Styleguide Module - Tag
+*/
+.tags {
+  li {
+    @include to-rem(margin-right padding, $spacing-quarter);
+    @include to-rem(padding-left, $spacing-half);
+    @include to-rem(padding-right, $spacing-base);
+    position: relative;
+
+    @include font-size($font-size-sml, 1);
+    color: $color-light-txt;
+
+    border: 1px solid $color-grey-1;
+    border-radius: $border-radius;
+  }
+
+  .btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: $color-light-txt;
+  }
+}

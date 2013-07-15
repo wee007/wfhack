@@ -1,7 +1,7 @@
 <h1>Movies @ <%= @centre.name %></h1>
 
 <ul id="sessions">
-<% days(@movie_sessions.last['start_time'], @centre.code, params['date'] || Time.now.strftime("%d-%m-%Y")).each do |day| %>
+<% days(@movie_sessions.last['start_time'], @centre.code, params['date']).each do |day| %>
   <li><%= day %></li>
 <% end %>
 </ul>

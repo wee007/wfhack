@@ -25,139 +25,154 @@
 /* --Set icons-- */
 
 /* Store */
-.icon--store:before {content: "\e815";}
+.icon--store:before {content: "\e002";}
 
 /* Products */
-.icon--products:before {content: "\e816";}
+.icon--products:before {content: "\e000";}
 
 /* Deals */
-.icon--deals:before {content: "\e813";}
+.icon--deals:before {content: "\e001";}
 
 /* Events */
-.icon--events:before {content: "\e814";}
+.icon--events:before {content: "\e003";}
 
 /* Favourites */
-.icon--favs:before {content: "\e811";}
-
-/* Favourites 2 */
-.icon--favs2:before {content: "\e81b";}
-
-/* Tag */
-.icon--tag:before {content: "\e810";}
+.icon--favs:before {content: "\e02a";}
 
 /* Search */
-.icon--search:before {content: "\e812";}
-
-/* Search 2 */
-.icon--search2:before {content: "\e804";}
+.icon--search:before {content: "\e014";}
 
 /* Dining */
-.icon--dining:before {content: "\e803";}
+.icon--dining:before {content: "\e00c";}
 
 /* Share */
-.icon--share:before {content: "\e808";}
+.icon--share:before {content: "\e026";}
 
 /* Information */
-.icon--info:before {content: "\e807";}
+.icon--info:before {content: "\e01d";}
 
 /* Pin */
-.icon--pin:before {content: "\e809";}
+.icon--pin:before {content: "\e01e";}
 
 /* Map */
-.icon--map:before {content: "\e80a";}
+.icon--map:before {content: "\e01f";}
 
 /* Map 2 */
-.icon--map2:before {content: "\e828";}
+.icon--map2:before {content: "\e029";}
 
 /* Location */
-.icon--location:before {content: "\e82a";}
+.icon--location:before {content: "\e00d";}
 
 /* Video */
-.icon--video:before {content: "\e800";}
+.icon--video:before {content: "\e004";}
 
 /* User */
-.icon--user:before {content: "\e805";}
+.icon--user:before {content: "\e02b";}
 
 /* Phone */
-.icon--phone:before {content: "\e801";}
+.icon--phone:before {content: "\e005";}
 
 /* Phone2 */
-.icon--phone2:before {content: "\e82c";}
+.icon--phone2:before {content: "\e006";}
 
 /* Hours */
-.icon--hours:before {content: "\e80b";}
+.icon--hours:before {content: "\e021";}
 
 /* Signout */
-.icon--signout:before {content: "\e802";}
+.icon--signout:before {content: "\e00e";}
 
 /* List */
-.icon--list:before {content: "\e829";}
+.icon--list:before {content: "\e02e";}
 
 /* Comment */
-.icon--comment:before {content: "\e818";}
+.icon--comment:before {content: "\e010";}
 
 /* Email */
-.icon--email:before {content: "\e823";}
+.icon--email:before {content: "\e020";}
 
 /* Link */
-.icon--link:before {content: "\e82b";}
+.icon--link:before {content: "\e013";}
 
 /* Twitter */
-.icon--twitter:before {content: "\e822";}
+.icon--twitter:before {content: "\e022";}
 
 /* Facebook */
-.icon--facebook:before {content: "\e81d";}
+.icon--facebook:before {content: "\e023";}
 
 /* Google + */
-.icon--google-plus:before {content: "\e820";}
+.icon--google-plus:before {content: "\e025";}
 
 /* Pinterest */
-.icon--pinterest:before {content: "\e821";}
+.icon--pinterest:before {content: "\e024";}
 
 /* Close large */
-.icon--close-lrg:before {content: "\e817";}
+.icon--close-lrg:before {content: "\e00f";}
 
 /* Close small */
-.icon--close-sml:before {content: "\e806";}
+.icon--close-sml:before {content: "\e011";}
 
 /* Close full */
-.icon--close-full:before {content: "\e81f";}
+.icon--close-full:before {content: "\e028";}
 
 /* Tick */
-.icon--tick:before {content: "\e81c";}
+.icon--tick:before {content: "\e012";}
 
 /* Tick full */
-.icon--tick-full:before {content: "\e81e";}
+.icon--tick-full:before {content: "\e027";}
+
+/* Service */
+.icon--service:before {content: "\e031";}
+
+/* Switch vertical */
+.icon--switch-vertical-full:before {content: "\e02c";}
+
+/* Switch horizontal */
+.icon--switch-horizontal-full:before {content: "\e02d";}
 
 /* Arrow up */
-.icon--arrow-up:before {content: "\e824";}
+.icon--arrow-up:before {content: "\e018";}
 
 /* Arrow down */
-.icon--arrow-down:before {content: "\e80c";}
+.icon--arrow-down:before {content: "\e017";}
 
 /* Arrow left */
-.icon--arrow-left:before {content: "\e826";}
+.icon--arrow-left:before {content: "\e016";}
 
 /* Arrow right */
-.icon--arrow-right:before {content: "\e80d";}
+.icon--arrow-right:before {content: "\e015";}
+
+/* Arrow big up */
+.icon--arrow-up-big:before {content: "\e01b";}
+
+/* Arrow big down */
+.icon--arrow-down-big:before {content: "\e01a";}
 
 /* Arrow big left */
-.icon--arrow-left-big:before {content: "\e80e";}
+.icon--arrow-left-big:before {content: "\e019";}
 
 /* Arrow big right */
-.icon--arrow-right-big:before {content: "\e80f";}
+.icon--arrow-right-big:before {content: "\e01c";}
 
-/* Arrow down up */
-.icon--arrow-up-full:before {content: "\e825";}
+/* Arrow full up */
+.icon--arrow-up-full:before {content: "\e00b";}
 
-/* Arrow down full */
-.icon--arrow-down-full:before {content: "\e819";}
+/* Arrow full down */
+.icon--arrow-down-full:before {content: "\e00a";}
 
-/* Arrow down left */
-.icon--arrow-left-full:before {content: "\e827";}
+/* Arrow full left */
+.icon--arrow-left-full:before {content: "\e008";}
 
-/* Arrow down right */
-.icon--arrow-right-full:before {content: "\e81a";}
+/* Arrow full right */
+.icon--arrow-right-full:before {content: "\e009";}
+
+/* Arrow double up */
+.icon--arrow-up-dbl:before {content: "\e02f";}
+
+/* Arrow double down */
+.icon--arrow-down-dbl:before {content: "\e030";}
+
+/* Arrow opposites */
+.icon--arrow-opposites:before {content: "\e007";}
 
 /* --Extenders-- */
 

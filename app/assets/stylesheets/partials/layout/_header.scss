@@ -1040,7 +1040,7 @@ $hero-banner-height-lrg: 380 !default;
 					/* Close button */
 					.header__overlay__close-btn {
 						position: absolute;
-						@include to-rem(top, 0);
+						@include to-rem(top, 2);
 						@include to-rem(right, -3);
 						@include to-rem(padding, 6 $spacing-third);
 

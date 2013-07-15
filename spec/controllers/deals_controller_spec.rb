@@ -29,6 +29,9 @@ describe DealsController do
       StoreService.stub(:build).with("STORE JSON").and_return(@stub_store)
       @stub_deal = double(:deal, :deal_stores => stub_deal_store).as_null_object
       DealService.stub(:build).with("DEAL JSON").and_return(@stub_deal)
+      @gon = double :gon
+      @gon.stub(:push)
+      DealsController.any_instance.stub(:gon).and_return(@gon)
       get :show, id: 1, centre_id: 'bondijunction'
     end
     it "assigns the requested deal" do
@@ -40,6 +43,10 @@ describe DealsController do
     it "renders the :show template" do
       get :show, id: 1, centre_id: 'bondijunction'
       response.should render_template :show
+    end
+    it "adds centre and store to gon" do
+      @gon.should_receive(:push).with(centre: {}, stores: [@stub_store])
+      get :show, id: 1, centre_id: 'bondijunction'
     end
   end
 

@@ -22,14 +22,13 @@ class window.Map
 
   init: =>
     wait(@initMap, -> !!window.westfield)
-    wait(@attachClickHandler, -> !!window.jQuery)
+    wait(@attachListeners, -> !!window.jQuery)
 
   initMap: =>
     @index.addStores(westfield.stores)
     @community = westfield.centre.micello_community
     if @community == undefined
-      $('#map').text('No map, sorry.')
-      return
+      throw 'Missing micello_community for centre'
     else
       $('#map').text('')
     @getAddresses()
@@ -42,9 +41,18 @@ class window.Map
     @data.mapChanged = @onMapChanged
     @data.loadCommunity(@community)
 
-  attachClickHandler: =>
+  attachListeners: =>
     self = @
     $('body', document).on('click', '[data-store-id]', -> self.highlight($(@).data('storeId')))
+    $(window).on('resize', @handleResize)
+
+  handleResize: =>
+    if @options.select
+      resize = =>
+        @timeout = null
+        @zoomTo(@options.select)
+      clearTimeout(@timeout) if @timeout
+      @timeout = setTimeout(resize, 100)
 
   applyCustomTheme: (gui, canvas) ->
     gui.ZOOM_POSITION = 'right top'
@@ -77,22 +85,40 @@ class window.Map
     index
 
   popupHtml: (store) ->
-    """
-    <div class="map-micello__overlay islet">
-      <div class="map-micello__overlay__retailer map-micello__mrg-base">
-        <div class="map-micello__overlay__retailer__img">
-          <!-- [BACKEND] logo source needs to be made dynamic and size of the logo needs to be 168px x 54px (retina size) and padded out if necassary -->
-          <img src="/assets/dummy/retailer-logo.png" alt="#{store.name} logo">
+    if($('#map').hasClass('js-disabled-hide'))
+      """
+      <div class="map-micello__overlay islet">
+        <div class="map-micello__overlay__retailer map-micello__mrg-base">
+          <div class="map-micello__overlay__retailer__img">
+            <!-- [BACKEND] logo source needs to be made dynamic and size of the logo needs to be 168px x 54px (retina size) and padded out if necassary -->
+            <img src="/assets/dummy/retailer-logo.png" alt="#{store.name} logo">
+          </div>
+          <div class="map-micello__overlay__retailer__body">
+            <em class="map-micello__hdr txt-break-word">#{store.name}</em>
+            <p>Open till <time datetime="">6pm</time> tonight</p>
+          </div>
         </div>
-        <div class="map-micello__overlay__retailer__body">
-          <em class="map-micello__hdr txt-break-word">#{store.name}</em>
-          <p>Open till <time datetime="">6pm</time> tonight</p>
-        </div>
+        <a href="#{store.url}" class="btn btn--full btn--main"><span class="icon icon--store icon--lrg icon--spacing-lrg" aria-hidden="true"></span>Store details</a>
       </div>
-      <a href="#{store.url}" class="btn btn--full btn--main"><span class="icon icon--store icon--lrg icon--spacing-lrg" aria-hidden="true"></span>Store details</a>
-    </div>
-    <span class="map-micello__overlay__close icon icon--close-sml icon--xlrg icon--flush-top" aria-hidden="true"></span>
-    """
+      <span class="map-micello__overlay__close icon icon--close-sml icon--xlrg icon--flush-top" aria-hidden="true"></span>
+      """
+    else
+      """
+      <div class="map-micello__overlay islet">
+        <div class="map-micello__overlay__retailer map-micello__mrg-base">
+          <div class="map-micello__overlay__retailer__img">
+            <!-- [BACKEND] logo source needs to be made dynamic and size of the logo needs to be 168px x 54px (retina size) and padded out if necassary -->
+            <img src="/assets/dummy/retailer-logo.png" alt="#{store.name} logo">
+          </div>
+          <div class="map-micello__overlay__retailer__body">
+            <em class="map-micello__hdr txt-break-word">#{store.name}</em>
+            <p>Open till <time datetime="">5:30pm</time> tonight</p>
+          </div>
+        </div>
+        <a href="#{store.url}" class="btn btn--full btn--main"><span class="icon icon--store icon--lrg icon--spacing-lrg" aria-hidden="true"></span>Store details</a>
+      </div>
+      <span class="map-micello__overlay__close icon icon--close-sml icon--xlrg icon--flush-top" aria-hidden="true"></span>
+      """
 
   onMapChanged: (event) =>
     return unless event.comLoad

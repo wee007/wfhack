@@ -160,7 +160,15 @@
 
       /* Wrapper */
       .infoWrapper,
-      .menuWrapper {padding-bottom: 13px !important;}
+      .menuWrapper {
+        padding-bottom: 13px !important;
+        @include to-rem(margin-left, -106, !important);
+
+        /* Reduce the width at this breakpoint range */
+        @include respond-range($non-palm, $ipad-portrait - 1) {
+          @include to-rem(margin-left, -80, !important);
+        }
+      }
 
         /* Back */
         .infoBack {

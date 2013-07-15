@@ -4,7 +4,7 @@ describe Deal do
 
   context "When asking for the retailer name and logo" do
     it "should only query the store service once" do
-      mock_deal_store = stub('store_service_id' => 123, "name" => "Wittner", "_links" => stub({'logo' => stub({'href' => "http://example.com/wittner.jpg"})}))
+      mock_deal_store = double('store_service_id' => 123, "name" => "Wittner", "_links" => double({'logo' => double({'href' => "http://example.com/wittner.jpg"})}))
       StoreService.should_receive(:fetch).with(123).once.and_return("STORE_SERVICE")
       StoreService.should_receive(:build).with("STORE_SERVICE").once.and_return(mock_deal_store)
 
@@ -15,7 +15,7 @@ describe Deal do
   end
 
   it "should get the store name" do
-    mock_deal_store = stub('store_service_id' => 123, "name" => "Wittner")
+    mock_deal_store = double('store_service_id' => 123, "name" => "Wittner")
     StoreService.should_receive(:fetch).with(123).once.and_return("STORE_SERVICE")
     StoreService.should_receive(:build).with("STORE_SERVICE").once.and_return(mock_deal_store)
 
@@ -24,7 +24,7 @@ describe Deal do
   end
 
   it "should get the retailer logo url" do
-    mock_deal_store = stub('store_service_id' => 123, "_links" => stub({'logo' => stub({'href' => "http://example.com/wittner.jpg"})}))
+    mock_deal_store = double('store_service_id' => 123, "_links" => double({'logo' => double({'href' => "http://example.com/wittner.jpg"})}))
 
     StoreService.should_receive(:fetch).with(123).and_return("STORE_SERVICE")
     StoreService.should_receive(:build).with("STORE_SERVICE").and_return(mock_deal_store)

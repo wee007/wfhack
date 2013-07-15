@@ -1,23 +1,33 @@
 ( function ( app ) {
-  app.controller( 'BrowseController', function ( $window, $scope, $filter, $location, $routeParams, ParamCleaner, Search, Products ) {
+  app.controller( 'ProductBrowseController', function ( $scope, $filter, $location, ParamCleaner, Search, Products ) {
     $scope.search = Search;
-    $scope.products = Products;
 
     // Multi-facet search fields
     $scope.categories = [];
     $scope.retailers = [];
     $scope.brands = [];
+    $scope.colours = [];
+    $scope.sizes = [];
 
     // Multi-value facets must be sent back using the original
     // name of the model. eg. 'brands' should become 'brands'
     var searchParamMap = {
-      'categories': 'type',
+      'categories': 'sub_category',
       'retailers': 'retailer',
-      'brands': 'brand'
+      'brands': 'brand',
+      'colours': 'colour',
+      'sizes': 'size'
     };
 
-    useRouteParams = function () {
-      params = ParamCleaner.deserialize( $routeParams );
+    getCentre = function () {
+      path = $location.path().replace(/^\//, '');
+      return path.split('/')[0];
+    };
+
+    useUrlParams = function () {
+      urlParams = angular.extend( $location.search(), { centre : getCentre() } );
+
+      params = ParamCleaner.deserialize( urlParams );
 
       angular.forEach( params, function ( param, key ) {
         // Add params to the controller
@@ -36,11 +46,7 @@
     };
 
     updateProducts = function () {
-      Products.get( $location.path(), Search.params(), function () {
-        setTimeout(function () {
-          $window.initPlugin.isotope();
-        }, 250);
-      });
+      Products.get( $location.path(), angular.extend( Search.params(), { page: 1 } ) );
     };
 
     updateSearch = function () {
@@ -50,9 +56,13 @@
 
     // Adds params to search from URL string
     executeInitialSearch = function () {
-      useRouteParams();
+      useUrlParams();
       updateFilters();
     }(); // Self init
+
+    $scope.filterIsAvailable = function ( filterName ) {
+      return Search.availableFilters.indexOf( filterName ) !== -1;
+    };
 
     $scope.removeSelectedFilter = function ( paramName, paramValue ) {
       Search.removeParam( paramName, paramValue );
@@ -79,9 +89,7 @@
     };
 
     $scope.clearFilters = function () {
-      newParams = {};
-      if ( $routeParams.centre ) { newParams.centre = $routeParams.centre; }
-      Search.resetParams( newParams );
+      Search.resetParams( { centre: getCentre() } );
       updateSearch();
     };
 

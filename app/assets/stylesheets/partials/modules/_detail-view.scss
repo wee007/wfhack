@@ -165,6 +165,11 @@
     }
   }
 
+  /* Centres list ('Also available at') */
+  @include respond-max($palm) {
+    .detail-view__centres {@include to-rem(margin-top, $spacing-sixth);}
+  }
+
   /* --Controls-- */
   .detail-view__controls {
 
@@ -251,7 +256,7 @@
 
           /* Trigger button */
           .detail-view__controls__btn {
-            background: $color-med-txt !important;
+            background: $color-med-txt;
             &,
             .icon:before {color: #fff;}
           }

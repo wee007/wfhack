@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.228
+Version:     0.0.229
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,11 @@ fi
 
 
 %changelog
+* Mon Jul 15 2013 ci <doperations@au.westfield.com> 0.0.229-1
+- Use routes helpers (craigm.smith@au.westfield.com)
+- Show the list of days sessions are available and allow the user to filter
+  movies by those days. (craigm.smith@au.westfield.com)
+
 * Mon Jul 15 2013 ci <doperations@au.westfield.com> 0.0.228-1
 - Merge pull request #124 from cpearce/master (ldewey@au.westfield.com)
 - changing icons over to IcoMoon (CPearce@au.westfield.com)

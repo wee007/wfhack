@@ -335,6 +335,11 @@
   /* Event */
   .detail-view--event {
 
+    /* Schedule */
+    .detail-view__schedule {
+      @include to-rem(padding-bottom, 40);
+    }
+
     /* Meta */
     .detail-view__meta li {
       width: 50%;

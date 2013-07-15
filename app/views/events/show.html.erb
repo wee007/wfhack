@@ -7,7 +7,7 @@
       </h2>
 
       <ul class="detail-view__meta islet islet--top-btm detail-view__divider detail-view__divider--top-btm horiz-list horiz-list--fit">
-        <li class="detail-view__subtle-txt"><time datetime="<%= Time.new(@event.start).strftime("%Y-%m-%d") %>"><%= Time.new(@event.start).strftime("%d %b %Y") %></time> to <time datetime="<%= Time.new(@event.start).strftime("%Y-%m-%d") %>"><%= Time.new(@event.finish).strftime("%d %b %Y") %></time></li><!--
+        <li class="detail-view__subtle-txt"><%= @event.start '%d %b %Y' %> to <%= @event.finish '%d %b %Y' %></li><!--
       --><li><span class="icon icon--pin icon--lrg icon--spacing" aria-hidden="true"></span><span itemprop="location"><%= @event.location %></span></li>
       </ul>
     </header>
@@ -29,20 +29,20 @@
     </div>
   </div>
 
-  <div class="island">
+  <div class="detail-view__schedule island">
     <h3 class="detail-view__hdr-sub hn">Event Schedule</h3>
 
     <dl class="timeline">
       <dt>
-        <%= @event.start_day_of_week %>
+        <%= @event.start '%A' %>
         <em class="timeline__date">
-          <span><%= @event.start_day %></span>
-          <%= @event.start_month %>
+          <span><%= @event.start '%-d' %></span>
+          <%= @event.start '%b' %>
         </em>
       </dt>
       <dd>
-        <time itemprop="startDate" datetime="<%= @event.start %>"><%= @event.start_time %></time> -
-        <time itemprop="endDate" datetime="<%= @event.finish %>"><%= @event.finish_time %></time>
+        <time itemprop="startDate" datetime="<%= @event.start %>"><%= @event.start '%l:%M%P' %></time> -
+        <time itemprop="endDate" datetime="<%= @event.finish %>"><%= @event.finish '%l:%M%P' %></time>
       </dd>
     </dl>
 

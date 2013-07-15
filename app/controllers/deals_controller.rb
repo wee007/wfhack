@@ -21,7 +21,7 @@ class DealsController < ApplicationController
     @centre = CentreService.build centre
     @deal = DealService.build deal
 
-    store = StoreService.fetch @deal.deal_stores.first.id
+    store = StoreService.fetch @deal.deal_stores.find{|store| store.centre_id == params[:centre_id]}.id
     @store = StoreService.build store
   end
 

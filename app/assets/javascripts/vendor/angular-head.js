@@ -1,5 +1,5 @@
 /**
- * @license AngularJS v1.1.6-a7150f1
+ * @license AngularJS v1.1.6-a170fc1
  * (c) 2010-2012 Google, Inc. http://angularjs.org
  * License: MIT
  */
@@ -317,12 +317,6 @@ function inherit(parent, extra) {
   return extend(new (extend(function() {}, {prototype:parent}))(), extra);
 }
 
-var START_SPACE = /^\s*/;
-var END_SPACE = /\s*$/;
-function stripWhitespace(str) {
-  return isString(str) ? str.replace(START_SPACE, '').replace(END_SPACE, '') : str;
-}
-
 /**
  * @ngdoc function
  * @name angular.noop
@@ -353,7 +347,7 @@ noop.$inject = [];
  *
    <pre>
      function transformer(transformationFn, value) {
-       return (transformationFn || identity)(value);
+       return (transformationFn || angular.identity)(value);
      };
    </pre>
  */
@@ -478,6 +472,18 @@ function isArray(value) {
  * @returns {boolean} True if `value` is a `Function`.
  */
 function isFunction(value){return typeof value == 'function';}
+
+
+/**
+ * Determines if a value is a regular expression object.
+ *
+ * @private
+ * @param {*} value Reference to check.
+ * @returns {boolean} True if `value` is a `RegExp`.
+ */
+function isRegExp(value) {
+  return toString.apply(value) == '[object RegExp]';
+}
 
 
 /**
@@ -713,7 +719,7 @@ function shallowCopy(src, dst) {
  * @function
  *
  * @description
- * Determines if two objects or two values are equivalent. Supports value types, arrays and
+ * Determines if two objects or two values are equivalent. Supports value types, regular expressions, arrays and
  * objects.
  *
  * Two objects or values are considered equivalent if at least one of the following is true:
@@ -721,6 +727,9 @@ function shallowCopy(src, dst) {
  * * Both objects or values pass `===` comparison.
  * * Both objects or values are of the same type and all of their properties pass `===` comparison.
  * * Both values are NaN. (In JavasScript, NaN == NaN => false. But we consider two NaN as equal)
+ * * Both values represent the same regular expression (In JavasScript,
+ *   /abc/ == /abc/ => false. But we consider two regular expressions as equal when their textual
+ *   representation matches).
  *
  * During a property comparison, properties of `function` type and properties with names
  * that begin with `$` are ignored.
@@ -747,6 +756,8 @@ function equals(o1, o2) {
         }
       } else if (isDate(o1)) {
         return isDate(o2) && o1.getTime() == o2.getTime();
+      } else if (isRegExp(o1) && isRegExp(o2)) {
+        return o1.toString() == o2.toString();
       } else {
         if (isScope(o1) || isScope(o2) || isWindow(o1) || isWindow(o2)) return false;
         keySet = {};
@@ -842,9 +853,10 @@ function toJsonReplacer(key, value) {
  *
  * @param {Object|Array|Date|string|number} obj Input to be serialized into JSON.
  * @param {boolean=} pretty If set to true, the JSON output will contain newlines and whitespace.
- * @returns {string} Jsonified string representing `obj`.
+ * @returns {string|undefined} Jsonified string representing `obj`.
  */
 function toJson(obj, pretty) {
+  if (typeof obj === 'undefined') return undefined;
   return JSON.stringify(obj, toJsonReplacer, pretty ? '  ' : null);
 }
 
@@ -1272,7 +1284,9 @@ function setupModuleLoader(window) {
       }
       return ensure(modules, name, function() {
         if (!requires) {
-          throw minErr('$injector')('nomod', "Module '{0}' is not available! You either misspelled the module name or forgot to load it.", name);
+          throw minErr('$injector')('nomod', "Module '{0}' is not available! You either misspelled the module name " +
+              "or forgot to load it. If registering a module ensure that you specify the dependencies as the second " +
+              "argument.", name);
         }
 
         /** @type {!Array.<Array.<*>>} */
@@ -1491,7 +1505,7 @@ function setupModuleLoader(window) {
  * - `codeName` – `{string}` – Code name of the release, such as "jiggling-armfat".
  */
 var version = {
-  full: '1.1.6-a7150f1',    // all of these placeholder strings will be replaced by grunt's
+  full: '1.1.6-a170fc1',    // all of these placeholder strings will be replaced by grunt's
   major: 1,    // package task
   minor: 1,
   dot: 6,
@@ -1565,7 +1579,6 @@ function publishExternalAPI(angular){
             ngPluralize: ngPluralizeDirective,
             ngRepeat: ngRepeatDirective,
             ngShow: ngShowDirective,
-            ngSubmit: ngSubmitDirective,
             ngStyle: ngStyleDirective,
             ngSwitch: ngSwitchDirective,
             ngSwitchWhen: ngSwitchWhenDirective,
@@ -8617,7 +8630,7 @@ function $RootScopeProvider(){
                   watch = watchers[length];
                   // Most common watches are on primitives, in which case we can short
                   // circuit it with === operator, only when === fails do we use .equals
-                  if ((value = watch.get(current)) !== (last = watch.last) &&
+                  if (watch && (value = watch.get(current)) !== (last = watch.last) &&
                       !(watch.eq
                           ? equals(value, last)
                           : (typeof value == 'number' && typeof last == 'number'
@@ -9822,6 +9835,7 @@ function $HttpProvider() {
 
 
       var serverRequest = function(config) {
+        headers = config.headers;
         var reqData = transformData(config.data, headersGetter(headers), config.transformRequest);
 
         // strip content-type if data is undefined
@@ -13567,8 +13581,9 @@ var requiredDirective = function() {
        </script>
        <form name="myForm" ng-controller="Ctrl">
          List: <input name="namesInput" ng-model="names" ng-list required>
-         <span class="error" ng-show="myForm.list.$error.required">
+         <span class="error" ng-show="myForm.namesInput.$error.required">
            Required!</span>
+         <br>
          <tt>names = {{names}}</tt><br/>
          <tt>myForm.namesInput.$valid = {{myForm.namesInput.$valid}}</tt><br/>
          <tt>myForm.namesInput.$error = {{myForm.namesInput.$error}}</tt><br/>
@@ -13580,12 +13595,14 @@ var requiredDirective = function() {
         it('should initialize to model', function() {
           expect(binding('names')).toEqual('["igor","misko","vojta"]');
           expect(binding('myForm.namesInput.$valid')).toEqual('true');
+          expect(element('span.error').css('display')).toBe('none');
         });
 
         it('should be invalid if empty', function() {
           input('names').enter('');
           expect(binding('names')).toEqual('[]');
           expect(binding('myForm.namesInput.$valid')).toEqual('false');
+          expect(element('span.error').css('display')).not().toBe('none');
         });
       </doc:scenario>
     </doc:example>
@@ -13635,7 +13652,7 @@ var ngValueDirective = function() {
       } else {
         return function(scope, elm, attr) {
           scope.$watch(attr.ngValue, function valueWatchAction(value) {
-            attr.$set('value', value, false);
+            attr.$set('value', value);
           });
         };
       }
@@ -14291,7 +14308,7 @@ var ngCspDirective = ['$sniffer', function($sniffer) {
  */
 var ngEventDirectives = {};
 forEach(
-  'click dblclick mousedown mouseup mouseover mouseout mousemove mouseenter mouseleave keydown keyup keypress'.split(' '),
+  'click dblclick mousedown mouseup mouseover mouseout mousemove mouseenter mouseleave keydown keyup keypress submit'.split(' '),
   function(name) {
     var directiveName = directiveNormalize('ng-' + name);
     ngEventDirectives[directiveName] = ['$parse', function($parse) {
@@ -14478,7 +14495,7 @@ forEach(
  * attribute**.
  *
  * @element form
- * @param {expression} ngSubmit {@link guide/expression Expression} to eval.
+ * @param {expression} ngSubmit {@link guide/expression Expression} to eval. (Event object is available as `$event`)
  *
  * @example
    <doc:example>
@@ -14518,11 +14535,6 @@ forEach(
      </doc:scenario>
    </doc:example>
  */
-var ngSubmitDirective = ngDirective(function(scope, element, attrs) {
-  element.on('submit', function() {
-    scope.$apply(attrs.ngSubmit);
-  });
-});
 
 /**
  * @ngdoc directive
@@ -15064,13 +15076,20 @@ var ngPluralizeDirective = ['$locale', '$interpolate', function($locale, $interp
     restrict: 'EA',
     link: function(scope, element, attr) {
       var numberExp = attr.count,
-          whenExp = element.attr(attr.$attr.when), // this is because we have {{}} in attrs
+          whenExp = attr.$attr.when && element.attr(attr.$attr.when), // we have {{}} in attrs
           offset = attr.offset || 0,
-          whens = scope.$eval(whenExp),
+          whens = scope.$eval(whenExp) || {},
           whensExpFns = {},
           startSymbol = $interpolate.startSymbol(),
-          endSymbol = $interpolate.endSymbol();
+          endSymbol = $interpolate.endSymbol(),
+          isWhen = /^when(Minus)?(.+)$/;
 
+      forEach(attr, function(expression, attributeName) {
+        if (isWhen.test(attributeName)) {
+          whens[lowercase(attributeName.replace('when', '').replace('Minus', '-'))] =
+            element.attr(attr.$attr[attributeName]);
+        }
+      });
       forEach(whens, function(expression, key) {
         whensExpFns[key] =
           $interpolate(expression.replace(BRACE, startSymbol + numberExp + '-' +

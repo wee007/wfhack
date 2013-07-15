@@ -23,6 +23,7 @@ class DealsController < ApplicationController
 
     store = StoreService.fetch @deal.deal_stores.first.id
     @store = StoreService.build store
+    gon.push(centre: @centre, stores: [@store])
   end
 
 end

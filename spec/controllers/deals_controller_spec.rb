@@ -6,7 +6,7 @@ describe DealsController do
 
   describe "GET #index" do
     before :each do
-      CentreService.stub(:fetch).with('bondijunction').and_return mock :response, body: {}
+      CentreService.stub(:fetch).with('bondijunction').and_return double :response, body: {}
       DealService.stub(:fetch).with(centre: 'bondijunction', rows: 50).and_return("DEAL JSON")
       DealService.stub(:build).with("DEAL JSON").and_return(['Deal', 'Deal1'])
       get :index, centre_id: 'bondijunction'
@@ -21,14 +21,17 @@ describe DealsController do
 
   describe "GET #show" do
     before :each do
-      CentreService.stub(:fetch).with('bondijunction').and_return mock :response, body: {}
+      CentreService.stub(:fetch).with('bondijunction').and_return double :response, body: {}
       DealService.stub(:fetch).with("1").and_return("DEAL JSON")
-      stub_deal_store = stub(:deal_store, :id => 12).as_null_object
+      stub_deal_store = double(:deal_store, :id => 12).as_null_object
       StoreService.stub(:fetch).with(12).and_return("STORE JSON")
-      @stub_store = stub(:store).as_null_object
+      @stub_store = double(:store).as_null_object
       StoreService.stub(:build).with("STORE JSON").and_return(@stub_store)
-      @stub_deal = stub(:deal, :deal_stores => stub_deal_store).as_null_object
+      @stub_deal = double(:deal, :deal_stores => stub_deal_store).as_null_object
       DealService.stub(:build).with("DEAL JSON").and_return(@stub_deal)
+      @gon = double :gon
+      @gon.stub(:push)
+      DealsController.any_instance.stub(:gon).and_return(@gon)
       get :show, id: 1, centre_id: 'bondijunction'
     end
     it "assigns the requested deal" do
@@ -40,6 +43,10 @@ describe DealsController do
     it "renders the :show template" do
       get :show, id: 1, centre_id: 'bondijunction'
       response.should render_template :show
+    end
+    it "adds centre and store to gon" do
+      @gon.should_receive(:push).with(centre: {}, stores: [@stub_store])
+      get :show, id: 1, centre_id: 'bondijunction'
     end
   end
 

@@ -33,6 +33,7 @@
             // Singular facet details are stored on the object
             facetObject = {
               field: facet.field,
+              title: facet.title,
               values: ( facet.values.length ) ? facet.values : [facet]
             }
           }

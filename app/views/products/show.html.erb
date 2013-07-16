@@ -5,7 +5,7 @@
 
     <!-- Product name, brand and price -->
     <header class="island detail-view__divider">
-      <h2 class="detail-view__hdr hn detail-view__mrg-half" id="detail-view__hdr"><%= @product.name %></h2>
+      <h1 class="detail-view__hdr hn detail-view__mrg-half" id="detail-view__hdr"><%= @product.name %></h1>
       <p class="detail-view__meta">
         <span class="detail-view__subtle-txt">from</span>
         <%= @product.retail_chain_name %>
@@ -85,7 +85,7 @@
   <div class="detail-view__divider--top-non-palm grid__item non-palm-two-fifths">
     <%- if @product.available_colours.present? -%>
     <div class="island island--btm-palm">
-      <h3 class="detail-view__hdr-sub hn">Available Colours</h3>
+      <h2 class="detail-view__hdr-sub hn">Available Colours</h2>
       <ul class="horiz-list horiz-list--comma"><!--
         <%- @product.available_colours.each do |colour| -%>
           --><li><strong><%= colour %></strong></li><!--
@@ -99,7 +99,7 @@
   <!-- Description -->
   <div class="detail-view__desc detail-view__divider--top-non-palm grid__item non-palm-three-fifths">
     <div class="island">
-      <h3 class="detail-view__hdr-sub hn">Description</h3>
+      <h2 class="detail-view__hdr-sub hn">Description</h2>
       <%= raw(@product.detailed_description || @product.short_description) %>
     </div>
   </div>
@@ -110,7 +110,7 @@
 <!-- Availability -->
 <div class="island detail-view__divider--top-non-palm">
   <%- if @centres.present? -%>
-    <h3 class="detail-view__hdr-sub detail-view__mrg-off hn">Also available at</h3>
+    <h2 class="detail-view__hdr-sub detail-view__mrg-off hn">Also available at</h2>
     <ul class="detail-view__centres">
       <%- @centres.each do |centre| -%>
         <li>

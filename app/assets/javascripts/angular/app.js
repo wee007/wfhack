@@ -1,4 +1,4 @@
-var app = angular.module( 'Westfield', ['ngMobile', 'infinite-scroll'] );
+var app = angular.module( 'Westfield', ['ngMobile'] );
 
 app.config(function ( $httpProvider, $locationProvider ) {
   // Tell rails that we're using XMLHttpRequests

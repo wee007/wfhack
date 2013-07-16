@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.237
+Version:     0.0.238
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,11 @@ fi
 
 
 %changelog
+* Tue Jul 16 2013 ci <doperations@au.westfield.com> 0.0.238-1
+- Merge pull request #136 from cpearce/master (ldewey@au.westfield.com)
+- changing heading levels for events/deals/products detail views
+  (CPearce@au.westfield.com)
+
 * Tue Jul 16 2013 ci <doperations@au.westfield.com> 0.0.237-1
 - 
 

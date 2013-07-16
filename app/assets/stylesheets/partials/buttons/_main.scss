@@ -94,6 +94,7 @@
 
 	/* Pointer - used when you need to position an arrow icon over to the far right, has to be used with the `.btn--pointer` base extender */
 	.btn--pointer.btn--main {
+		@include to-em(padding-left, $spacing-half);
 		@include to-em(padding-right, $spacing-base+$spacing-half+$spacing-micro);
 
 		/* Icon */
@@ -103,7 +104,7 @@
 	/* As above but position icon over to the far left */
 	.btn--pointer-alt.btn--main {
 		@include to-em(padding-left, $spacing-base+$spacing-half+$spacing-micro);
-		@include to-em(padding-right, $spacing-base+$spacing-half);
+		@include to-em(padding-right, $spacing-half);
 
 		/* Icon */
 		.btn--pointer__icon {

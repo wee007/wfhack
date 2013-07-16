@@ -60,6 +60,10 @@
       updateFilters();
     }(); // Self init
 
+    $scope.hasActiveFilters = function () {
+      return !!Search.appliedFilters.length;
+    };
+
     $scope.filterIsAvailable = function ( filterName ) {
       return Search.availableFilters.indexOf( filterName ) !== -1;
     };

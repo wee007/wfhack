@@ -1,0 +1,47 @@
+/*
+  Styleguide - Modules - Filters
+*/
+
+.filters {
+  .drop-down:before {
+    position: absolute;
+    top: 0;
+    // margin-top: ; // height of arrow
+    content: "^";
+    border: 1px solid red;
+  }
+  .filters__hdr {
+    position: relative;
+    @include to-rem(padding, $spacing-half 0);
+    font-weight: normal;
+    text-align: center;
+    color: $color-light-txt;
+    background-color: $color-off-white;
+    border-bottom: 1px solid $color-grey-1;
+  }
+
+    .filters__hdr .btn {
+      position: absolute;
+      top: 50%;
+      @include to-rem(margin-top, -8); // half the height
+      @include to-rem(left, $spacing-half);
+    }
+
+  .filters__list { position: relative; }
+    .filters__apply {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+
+    dd {
+      @include to-rem(padding, $spacing-half);
+      @include font-size($font-size-sml);
+      border-bottom: 1px solid $color-grey-1;
+
+      label { display: block; }
+      [type="checkbox"] { @include to-rem(margin-right, $spacing-quarter); }
+      .btn { line-height: 1.5; }
+      &:last-child { border-bottom: 0; }
+    }
+}

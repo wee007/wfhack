@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.235
+Version:     0.0.236
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,14 @@ fi
 
 
 %changelog
+* Tue Jul 16 2013 ci <doperations@au.westfield.com> 0.0.236-1
+- start of the 'Stores' styling (CPearce@au.westfield.com)
+- re-working social share module to make it reusable with 'tiles'
+  (CPearce@au.westfield.com)
+- adding fix for absolutely positioned elements in 'main'
+  (CPearce@au.westfield.com)
+- adding new module (CPearce@au.westfield.com)
+
 * Tue Jul 16 2013 ci <doperations@au.westfield.com> 0.0.235-1
 - 
 

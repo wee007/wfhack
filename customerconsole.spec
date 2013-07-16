@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.232
+Version:     0.0.233
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,10 @@ fi
 
 
 %changelog
+* Tue Jul 16 2013 ci <doperations@au.westfield.com> 0.0.233-1
+- Merge pull request #128 from ewee/master (ldewey@au.westfield.com)
+- Convert trading hour time to 12 hour format (ewee@au.westfield.com)
+
 * Tue Jul 16 2013 ci <doperations@au.westfield.com> 0.0.232-1
 - updates deployment host as per recent ops changes (matt.wratt@trineo.co.nz)
 

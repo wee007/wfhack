@@ -36,4 +36,10 @@ module ApplicationHelper
     self.output_buffer = render(:file => "layouts/#{layout}")
   end
 
+  def twelve_hour_format(time)
+    DateTime.parse(time)
+      .strftime('%l:%M%P')
+      .lstrip rescue nil
+  end
+
 end

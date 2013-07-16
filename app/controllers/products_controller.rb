@@ -24,7 +24,8 @@ class ProductsController < ApplicationController
     @stores = StoreService.build(stores)
     centre_ids = @stores.map(&:centre_id).uniq
     @centres = centre_ids.present? ? CentreService.find(:all, centre_id: centre_ids) : []
-    gon.push(:centre => @centre, :stores => @stores.select {|store| store['centre_id'] == @centre['code']})
+    @centre_stores = @stores.select {|store| store['centre_id'] == @centre['code']}
+    gon.push(:centre => @centre, :stores => @centre_stores)
   end
 
 end

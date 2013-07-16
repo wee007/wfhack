@@ -1,17 +1,21 @@
 module MoviesHelper
 
-  def days(last_date, centre_id, selected_date = Time.now.strftime("%d-%m-%Y"))
+  def days(last_date, centre_id, selected_date = nil, movie_id = nil)
+    selected_date = Time.now.strftime("%d-%m-%Y") if selected_date.nil?
     today = Time.now
     last_date = Time.parse(last_date)
 
     days = []
     ((last_date - today)/60/60/24).ceil.times do |i|
-      if i == 0
-        days << link_to("Today", centre_movies_path(centre_id, date: Time.now.strftime('%d-%m-%Y')), class: selected_date == Time.now.strftime('%d-%m-%Y') ? "selected" : "")
-      elsif i == 1
-        days << link_to("Tomorrow", centre_movies_path(centre_id, date: 1.days.from_now.strftime('%d-%m-%Y')), class: selected_date == 1.days.from_now.strftime('%d-%m-%Y') ? "selected" : "")
+      text = i.days.from_now.localtime.strftime("%A %-d")
+      text = "Today" if i == 0
+      text = "Tomorrow" if i == 1
+
+      i_day = i.days.from_now.localtime.strftime('%d-%m-%Y')
+      if movie_id
+        days << link_to(text, centre_movie_path(centre_id, movie_id, date: i_day), class: selected_date == i_day ? "selected" : "")
       else
-        days << link_to(i.days.from_now.strftime("%A %-d"), centre_movies_path(centre_id, date: i.days.from_now.strftime('%d-%m-%Y')), class: selected_date == i.days.from_now.strftime('%d-%m-%Y') ? "selected" : "")
+        days << link_to(text, centre_movies_path(centre_id, date: i_day), class: selected_date == i_day ? "selected" : "")
       end
     end
     days

@@ -3,7 +3,7 @@ class MovieService
     include ApiClientRequests
     def build(json)
       body = json.respond_to?(:body) ? json.body : json
-      body['movies'] || body['movie']
+      body['movies'] || body
     end
 
     def request_uri(options={})

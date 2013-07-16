@@ -9,8 +9,10 @@
 <ul id="movies">
 <% @movies.each do |movie| %>
   <li class="title">
-    <%= image_tag ImageService.transform(ref: movie.image_url, size: "400x400"), alt: movie.title %>
-    <%= movie.title %>
+    <a href="<%= centre_movie_path(centre_id: @centre.code, id: movie.id) %>">
+      <%= image_tag ImageService.transform(ref: movie.image_url, size: "400x400"), alt: movie.title %>
+      <%= movie.title %>
+    </a>
   </li>
 <% end %>
 </ul>

@@ -1,9 +1,10 @@
 class MovieSessionService
   class << self
     include ApiClientRequests
-    def build(json)
-      body = json.respond_to?(:body) ? json.body : json
-      body['movie_sessions'] || body['movie_session']
+    def build(json_response)
+      super(json_response.body['movie_sessions']).map do |session_json|
+        MovieSession.new(session_json)
+      end
     end
 
     def request_uri(options={})

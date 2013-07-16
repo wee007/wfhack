@@ -21,7 +21,7 @@ describe "Movie" do
   describe "When viewing Superman movie" do
     it "display the details for that movie" do
       VCR.use_cassette('superman_movie') do
-        get centre_movie_path(centre_id: 'bondijunction', id: 557)
+        get centre_movie_path(centre_id: 'bondijunction', id: 557, date: '16-07-2013')
         assert_select "h1", "Man of Steel"
         assert_select "p", "A young boy learns that he has extraordinary powers and is not of this Earth."
       end

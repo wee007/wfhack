@@ -1,0 +1,10 @@
+<% unless sessions.empty? %>
+  <h4><%= time_of_day.upcase %></h4>
+  <ul id="<%= time_of_day.downcase %>_sessions">
+    <% sessions.each do |session| %>
+      <li>
+        <span class="<%= session.session_type.to_s.downcase.gsub(/ /, '_') %>"><%= link_to session.start_time.strftime("%l:%M"), session.booking_url %></span>
+      </li>
+    <% end %>
+  </ul>
+<% end %>

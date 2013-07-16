@@ -13,4 +13,20 @@ class MoviesController < ApplicationController
     @movies = MovieService.build movies
     @movie_sessions = MovieSessionService.build movie_sessions
   end
+
+  def show
+    centre, movie, movie_sessions, selected_days_sessions = nil
+    Service::API.in_parallel do
+      centre = CentreService.fetch params[:centre_id]
+      movie = MovieService.fetch params[:id]
+      movie_sessions = MovieSessionService.fetch movie_id: params[:id], centre: params[:centre_id]
+      selected_days_sessions = MovieSessionService.fetch movie_id: params[:id], centre: params[:centre_id], date: params[:date] || Time.now.strftime("%d-%m-%Y")
+    end
+    @centre = CentreService.build centre
+    @movie = MovieService.build movie
+    @movie_sessions = MovieSessionService.build movie_sessions
+    selected_days_sessions = MovieSessionService.build selected_days_sessions
+    @morning_sessions = selected_days_sessions.find_all{ |session| session.morning? }
+    @afternoon_sessions = selected_days_sessions.find_all{ |session| session.afternoon? }
+  end
 end

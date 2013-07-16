@@ -6,6 +6,9 @@
 	Usage:
 		List of social media share links.
 
+	Note:
+		This module is used in the detail views and on the tiles, the default styles are set for the detail views.
+
 	Demo:
 		Style Guide -> Modules -> Social Share
 */
@@ -20,19 +23,80 @@ $share-pinterest: #ca2026 !default;
 /* Start module */
 .social-share {
 
-	/* Items */
-	li {width: 20%;}
+	/* Links */
+	a {
+		@include to-rem(padding-top padding-bottom, 9);
+		color: #fff;
+	}
 
-		/* Links */
-		a {
-			@include to-rem(padding-top padding-bottom, $spacing-half);
-			color: #fff;
+		/* Icon for 'Tile' version */
+		.tile & .icon:before {margin-right: 0;}
 
-			/* --Custom rules-- */
+	/* --Drop down menu-- */
+	.drop-down {
 
-			/* Detail view controls */
-			.detail-view__controls & {@include to-rem(padding-top padding-bottom, 9);}
-		}
+		/* Make the drop down span full width of viewport at this breakpoint */
+	  @include respond-max($palm) {
+      width: 204%;
+      left: -104%;
+
+      /* Non JS users */
+      .no-js & {width: 100%;}
+	  }
+
+	  /* Alter position and width at this breakpoint */
+	  @include respond-min($non-palm) {
+      @include to-rem(width, 290);
+      left: 100%;
+      top: 0;
+	  }
+
+	  /* 'Tile' version */
+	  .tile & {
+	  	width: 100%;
+	  	left: 0;
+	  	top: 100%;
+
+	  	li {
+	  		display: block;
+
+	  		/* Round off bottom left/right corners */
+	  		&:last-child a {border-radius: 0 0 3px 3px;}
+	  	}
+	  }
+	}
+
+	/* -Drop down menu trigger- */
+
+	/* Hide button text for 'Tile' version */
+	.tile & .social-share__trigger__txt {@include hide-visually;}
+
+	  /* Hide elements that need to be shown when the drop down is active */
+	  .drop-down-container__active {display: none;}
+
+  /* Active state */
+  &.is-active {
+
+    & > .drop-down.horiz-list--fit {
+    	display: table;
+
+    	/* 'Tile' version */
+    	.tile & {display: block;}
+    }
+
+    /* Trigger button */
+    .social-share__trigger {
+      background: $color-med-txt;
+      &,
+      .icon:before {color: #fff;}
+    }
+
+    /* Hide elements that need to be shown when the drop down is non-active */
+    .drop-down-container__non-active {display: none;}
+
+    /* Show elements that need to be shown when the drop down is active */
+    .drop-down-container__active {display: inline-block;}
+  }
 }
 
 	/* --Colour scheme for icons-- */

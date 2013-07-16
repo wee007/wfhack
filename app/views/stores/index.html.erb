@@ -1,4 +1,10 @@
-<div class="stores-map-content">
+<div class="stores-maps">
+  <div class="map-micello">
+    <%= render partial: 'shared/map', locals: {store_id: nil, js_disabled: false} %>
+  </div>
+</div>
+
+<div class="stores-map-content" style="display: none;">
   <ul>
     <li class="list__header">Stores / A-Z</li>
     <% @stores.each do |letter, stores| %>
@@ -12,7 +18,4 @@
       <% end %>
     <% end %>
   </ul>
-  <div class="map-micello">
-    <%= render partial: 'shared/map', locals: {store_id: nil, js_disabled: false} %>
-  </div>
 </div>

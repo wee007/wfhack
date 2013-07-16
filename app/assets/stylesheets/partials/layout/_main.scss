@@ -7,6 +7,15 @@
   position: relative;
   z-index: 1;
 
-	/* Turn off `.container` rules for detail views */
-	.page-detail-view & {width: auto;}
+	/* Turn off `.container` rules (full width) for: 'Detail views' & 'Stores' */
+	.page-detail-view &,
+  .stores & {
+    width: auto;
+    max-width: none;
+  }
+
+  /* Make full height of the viewport for 'Stores' */
+  .stores & {
+    height: 100%;
+  }
 }

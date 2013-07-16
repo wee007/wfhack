@@ -1011,6 +1011,14 @@ $hero-banner-height-lrg: 380 !default;
 		/* --Generic overlay (search/stores)-- */
 		.header__overlay {
 
+			/* Sticky version (stores) */
+			&.header__overlay--stick {
+				display: none;
+
+				/* Show for 'Stores' section */
+				.stores & {display: block;}
+			}
+
 			/* Styles at this breakpoint */
 			@include respond-max($palm) {
 				background-color: $color-dark-txt;
@@ -1238,10 +1246,15 @@ $hero-banner-height-lrg: 380 !default;
 				@include to-rem(padding-left, 24);
 			}
 
-			/* Increase padding at this breakpoint */
+			/* Increase padding and toggle display when in 'Stores' section at this breakpoint */
 			@include respond-min($non-palm) {
 				@include to-rem(padding-top, 9);
 				@include to-rem(padding-bottom, 9);
+
+				/* Toggle display of search in 'Stores' section */
+				.stores & {display: none;}
+
+				.stores &.search-mini--stores {display: block;}
 			}
 
 			/* Increase padding at this breakpoint */

@@ -2,6 +2,9 @@
    @BASE -> MAIN
    ====================================================================================== */
 
+html,
+body {height: 100%;}
+
 html {
 	font-size: ($font-size/16)+em;
 	line-height: $line-height-ratio;

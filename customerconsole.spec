@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.238
+Version:     0.0.239
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,15 @@ fi
 
 
 %changelog
+* Wed Jul 17 2013 ci <doperations@au.westfield.com> 0.0.239-1
+- Merge pull request #135 from mwratt/feature/deal-map-insert
+  (cwalsh2@au.westfield.com)
+- Build fix, the url calling VCR was based on today. (ldewey@au.westfield.com)
+- Merge pull request #137 from csmith/master (ldewey@au.westfield.com)
+- Added the movie show page. (craigm.smith@au.westfield.com)
+- centre stores only passed to the map (matt.wratt@trineo.co.nz)
+- extracts popup into own views, fixes js disabled (matt.wratt@trineo.co.nz)
+
 * Tue Jul 16 2013 ci <doperations@au.westfield.com> 0.0.238-1
 - Merge pull request #136 from cpearce/master (ldewey@au.westfield.com)
 - changing heading levels for events/deals/products detail views

@@ -1,9 +1,16 @@
 ( function ( app ) {
   app.service( 'Products', function( $http, ParamCleaner ) {
+    var callbacks = [];
     this.list = '';
     this.loaded = true;
 
-    this.get = function ( url, params, callback ) {
+    this.onChange = function ( callback ) {
+      if ( angular.isFunction( callback ) ) {
+        callbacks.push( callback );
+      }
+    };
+
+    this.get = function ( url, params ) {
       this.loaded = false;
 
       angular.extend( params, {
@@ -16,7 +23,7 @@
       $http( params ).success( function ( response ) {
         self.loaded = true;
         self.list = response;
-        if ( angular.isFunction( callback ) ) { callback(); }
+        angular.forEach( callbacks, function ( callback ) { callback( self.list ); } );
       });
     }
   });

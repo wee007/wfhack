@@ -52,7 +52,7 @@
         <!-- Categories -->
         <li>
           <button class="drop-down-menu__hdr btn btn--full">{{ search.categories.title }}</button>
-          <div ng-switch on="search.categories.field" class="drop-down-menu__list">
+          <div ng-switch on="search.categories.field">
             <div ng-switch-when="super_cat" ng-include src="'categoryItemTemplate'"></div>
             <div ng-switch-when="category" ng-include src="'categoryItemTemplate'"></div>
             <div ng-switch-when="sub_category" ng-include src="'SubCategoryTemplate'"></div>

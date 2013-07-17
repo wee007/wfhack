@@ -3,6 +3,9 @@
 */
 
 .filters {
+  @include font-size($font-size-sml);
+
+  // Drop down pointer
   .drop-down:before {
     position: absolute;
     top: 0;
@@ -10,30 +13,54 @@
     content: "^";
     border: 1px solid red;
   }
-  .filters__hdr {
-    position: relative;
-    @include to-rem(padding, $spacing-half 0);
-    font-weight: normal;
-    text-align: center;
-    color: $color-light-txt;
-    background-color: $color-off-white;
-    border-bottom: 1px solid $color-grey-1;
-  }
-
-    .filters__hdr .btn {
-      position: absolute;
-      top: 50%;
-      @include to-rem(margin-top, -8); // half the height
-      @include to-rem(left, $spacing-half);
-    }
 
   .filters__list { position: relative; }
-    .filters__apply {
-      position: absolute;
-      right: 0;
-      top: 0;
+
+    // Wraps up hdr && search
+    .filters__banner {
+      border-bottom: 1px solid $color-grey-1;
+      background-color: $color-off-white;
     }
 
+      // Wrapper for back button, title and apply (palm)
+      // Wrapper for title (other)
+      .filters__hdr,
+      .filters__trigger {
+        position: relative;
+        @include to-rem(padding, $spacing-half 0);
+        @include font-size($font-size);
+        font-weight: normal;
+        text-align: center;
+        color: $color-light-txt;
+        border-bottom: 1px solid $color-grey-1;
+        background-color: $color-off-white;
+      }
+
+        // Back button (only seen on palm)
+        .filters__hdr .btn {
+          position: absolute;
+          top: 50%;
+          @include to-rem(margin-top, -8); // half the height
+          @include to-rem(left, $spacing-half);
+        }
+
+      .filters__search {
+        @include to-rem(padding, $spacing-half);
+
+        input {
+          @include prefix(box-sizing, border-box);
+          @include to-rem(padding, $spacing-half);
+          font-style: italic;
+          color: $color-light-txt;
+          border-radius: $border-radius;
+          border: 1px solid $color-grey-1;
+          width: 100%;
+        }
+      }
+
+    dl { margin-bottom: 0; }
+
+    // List items
     dd {
       @include to-rem(padding, $spacing-half);
       @include font-size($font-size-sml);
@@ -43,5 +70,13 @@
       [type="checkbox"] { @include to-rem(margin-right, $spacing-quarter); }
       .btn { line-height: 1.5; }
       &:last-child { border-bottom: 0; }
+    }
+
+    // Apply filter button (used on multi-facet lists)
+    .filters__apply {
+      position: absolute;
+      @include to-rem(right, $spacing-half);
+      @include to-rem(top, $spacing-quarter);
+      @include to-em(padding-left padding-right, $spacing-base);
     }
 }

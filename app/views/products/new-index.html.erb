@@ -4,10 +4,7 @@
     <dl>
       <dt class="filters__hdr">
         {{search.categories.title}}
-        <button class="btn">
-          <span class="icon icon--arrow-left-big icon--lrg icon--flush-top" aria-hidden="true">
-          <span class="hide-visually">Back</span>
-        </button>
+        <div ng-include src="'FilterItemBackButton'"></div>
       </dt>
       <dd ng-repeat="category in search.categories.values | orderBy: 'sort_order'">
         <button ng-click="filterCategory( search.categories.field, category.code )" class="btn btn--full btn--full-left btn--pointer">
@@ -23,10 +20,7 @@
     <dl>
       <dt class="filters__hdr">
         {{search.categories.title}}
-        <button class="btn">
-          <span class="icon icon--arrow-left-big icon--lrg icon--flush-top" aria-hidden="true">
-          <span class="hide-visually">Back</span>
-        </button>
+        <div ng-include src="'FilterItemBackButton'"></div>
       </dt>
       <dd ng-repeat="category in search.categories.values | orderBy: 'sort_order'">
         <label for="category_{{ category.code }}">
@@ -42,6 +36,13 @@
     <button ng-click="mvFilterSearch( 'categories' )" class="btn btn--main btn--sml filters__apply">Apply</button>
   </script>
 
+  <script type="text/ng-template" id="FilterItemBackButton">
+    <button class="btn">
+      <span class="icon icon--arrow-left-big icon--lrg icon--flush-top" aria-hidden="true">
+      <span class="hide-visually">Back</span>
+    </button>
+  </script>
+
   <div ng-controller="ProductBrowseController">
     <div class="filters drop-down-container">
       <button class="js-drop-down-trigger btn btn--main btn--main-alt2 btn--pointer hide-fully--non-palm">
@@ -52,55 +53,85 @@
       <div class="drop-down box js-drop-down">
         <ul>
           <li>
-            <button class="btn btn--full filters__hdr">Category</button>
-            <div ng-switch on="search.categories.field" class="filters__list categories">
+            <button class="filters__hdr btn btn--full">{{ search.categories.title }}</button>
+            <div ng-switch on="search.categories.field" class="filters__list">
               <div ng-switch-when="super_cat" ng-include src="'categoryItemTemplate'"></div>
               <div ng-switch-when="category" ng-include src="'categoryItemTemplate'"></div>
               <div ng-switch-when="sub_category" ng-include src="'SubCategoryTemplate'"></div>
             </div>
           </li>
-          <li ng-if="filterIsAvailable('retailer')"><button class="btn">Stores</button></li>
-          <li ng-if="filterIsAvailable('brand')"><button class="btn">Brands</button></li>
-          <li ng-if="filterIsAvailable('colour')"><button class="btn">Colour</button></li>
-          <li ng-if="filterIsAvailable('size')"><button class="btn">Size</button></li>
-          <li ng-if="filterIsAvailable('price')"><button class="btn">Price</button></li>
-          <li><button>On Sale</button></li>
+          <li ng-if="filterIsAvailable('retailer')">
+            <button class="filters__trigger btn btn--full">{{ search.retailers.title }}</button>
+            <!-- Retailers -->
+            <div class="filters__list">
+              <dl>
+                <dt class="filters__banner">
+                  <div class="filters__hdr">
+                    {{ search.retailers.title }}
+                    <div ng-include src="'FilterItemBackButton'"></div>
+                  </div>
+
+                  <div class="filters__search">
+                    <input ng-model="storeSearch" type="search" placeholder="Enter a store name">
+                  </div>
+                </dt>
+                <dd ng-repeat="retailer in search.retailers.values | filter: storeSearch | limitTo: 250">
+                  <label for="retailer_{{ retailer.code }}">
+                    <input ng-model="retailer.selected" ng-checked="retailer.selected" value="{{ retailer.code }}" id="retailer_{{ retailer.code }}" type="checkbox">
+
+                    {{ retailer.name }} ({{ retailer.count }})
+                  </label>
+                </dd>
+              </dl>
+
+              <button ng-click="mvFilterSearch( 'retailers' )" class="btn btn--main filters__apply">Apply</button>
+            </div>
+          </li>
+          <li ng-if="filterIsAvailable('brand')">
+            <button class="filters__trigger btn btn--full">{{ search.brands.title }}</button>
+
+            <!-- Brands -->
+            <div class="filters__list">
+              <dl>
+                <dt class="filters__banner">
+                  <div class="filters__hdr">
+                    {{ search.brands.title }}
+                    <div ng-include src="'FilterItemBackButton'"></div>
+                  </div>
+
+                  <div class="filters__search">
+                    <input ng-model="brandSearch" type="search" placeholder="Enter a brand name">
+                  </div>
+                </dt>
+
+                <dd ng-repeat="brand in search.brands.values | filter: brandSearch | limitTo: 250">
+                  <label for="brand_{{ brand.code }}">
+                    <input ng-model="brand.selected" ng-checked="brand.selected" value="{{ brand.code }}" id="brand_{{ brand.code }}" type="checkbox">
+
+                    {{ brand.name }} ({{ brand.count }})</label>
+                </dd>
+              </dl>
+
+              <button ng-click="mvFilterSearch( 'brands' )" class="btn btn--main filters__apply">Apply</button>
+            </div>
+          </li>
+          <li ng-if="filterIsAvailable('colour')">
+            <button class="filters__hdr btn btn--full">{{ search.colours.title }}</button>
+          </li>
+          <li ng-if="filterIsAvailable('size')">
+            <button class="filters__hdr btn btn--full">{{ search.sizes.title }}</button>
+          </li>
+          <li ng-if="filterIsAvailable('price')">
+            <button class="filters__hdr btn btn--full">{{ search.price.title }}</button>
+          </li>
+          <li>
+            <button class="filters__hdr btn btn--full">On sale</button>
+          </li>
         </ul>
 
-        <!-- Retailers -->
-        <div ng-if="filterIsAvailable('retailer')" class="select-filter">
-          <button ng-click="mvFilterSearch( 'retailers' )" class="btn btn--main btn--sml">Apply</button>
-          <input ng-model="storeSearch" type="search" placeholder="Enter a store name">
 
-          <ul class="box arrow--up">
-            <li ng-repeat="retailer in search.retailers.values | filter: storeSearch | limitTo: 250">
-              <input ng-model="retailer.selected"
-                     ng-checked="retailer.selected"
-                     value="{{ retailer.code }}"
-                     id="retailer_{{ retailer.code }}"
-                     type="checkbox">
 
-              <label for="retailer_{{ retailer.code }}">{{ retailer.name }} ({{ retailer.count }})</label>
-            </li>
-          </ul>
-        </div>
 
-        <!-- Brands -->
-        <div ng-if="filterIsAvailable('brand')" class="select-filter brand">
-          <button ng-click="mvFilterSearch( 'brands' )" class="btn btn--main btn--sml">Apply</button>
-          <input ng-model="brandSearch" type="search" placeholder="Enter a brand name">
-
-          <ul class="box arrow--up">
-            <li ng-repeat="brand in search.brands.values | filter: brandSearch | limitTo: 250">
-              <input ng-model="brand.selected"
-                     ng-checked="brand.selected"
-                     value="{{ brand.code }}"
-                     id="brand_{{ brand.code }}"
-                     type="checkbox">
-              <label for="brand_{{ brand.code }}">{{ brand.name }} ({{ brand.count }})</label>
-            </li>
-          </ul>
-        </div>
 
         <!-- Colour -->
         <div ng-if="filterIsAvailable('colour')" class="select-filter colour">
@@ -148,15 +179,16 @@
                    type="checkbox">
           </label>
         </div>
-
-        <label>
-          Sort by:
-          <select ng-model="sort"
-                  ng-change="filterSearch('sort')"
-                  ng-options="option.code as option.description for option in search.sortOptions | filter:{display: true}"
-                  class="sort-options"></select>
-        </label>
       </div>
+
+      <label>
+        <span class="hide-visually">Sort product results by</span>
+        <select ng-model="sort"
+                ng-change="filterSearch('sort')"
+                ng-options="option.code as option.description for option in search.sortOptions | filter:{display: true}"
+                class="sort-options">
+        </select>
+      </label>
     </div>
 
     <div ng-if="hasActiveFilters()" class="tags divider divider--sml">
@@ -173,11 +205,14 @@
     </div>
   </div>
   <div ng-controller="ProductsController" class="product-results">
-    <div ng-hide="products.loaded" class="spinner"><h1>Loading</h1></div>
+    <div ng-hide="products.loaded">
+      <span class="preloader preloader--light">
+        <span class="preloader__spinner"></span>
+        <em class="hide-visually">Loading, please wait&#8230;</em>
+      </span>
+    </div>
 
     <div ng-show="products.loaded" ng-bind-html-unsafe="products.list"></div>
-    <div>{{products.loaded}}</div>
-    {{products.list}}
     <%# Using a !products.loaded on ng-hide so that the loader will be shown immediately %>
     <div ng-hide="!products.loaded" ng-if="!products.list.length">
       <%= render 'products' %>

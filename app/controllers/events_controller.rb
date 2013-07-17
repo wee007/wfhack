@@ -6,7 +6,7 @@ class EventsController < ApplicationController
     centre, event = nil
     Service::API.in_parallel do
       centre = CentreService.fetch params[:centre_id]
-      event = EventService.fetch centre: params[:centre_id], rows: 50
+      event = EventService.fetch centre: params[:centre_id], published: true, rows: 50
     end
     @centre = CentreService.build centre
     @events = EventService.build event

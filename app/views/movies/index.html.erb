@@ -1,5 +1,20 @@
-<h1>Movies @ <%= @centre.name %></h1>
+<div id='store_info'>
+  <!-- retailer banner -->
+  <%= @cinema.store_front %>
 
+  <!-- retailer logo -->
+  <%= @cinema.logo %>
+
+  <!-- phone number -->
+  <span class="phone_number"><%= @cinema.phone_number %></span>
+
+  <!-- email address -->
+  <span class="email_address"><%= @cinema.email_address %></span>
+
+  <!-- Store map link? -->
+</div>
+
+<h2>Session Times</h2>
 <ul id="sessions">
 <% days(@movie_sessions.last['start_time'], @centre.code, params['date']).each do |day| %>
   <li><%= day %></li>

@@ -2,6 +2,122 @@
 http_interactions:
 - request:
     method: get
+    uri: http://store-service.test.dbg.westfield.com/api/store/master/stores/22739.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.7
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-UA-Compatible:
+      - chrome=1
+      Content-Type:
+      - application/json; charset=utf-8
+      ETag:
+      - '"e2fefd0492b1c48c5b5436be846e13e8"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 4fd08daa-a45b-4ead-921d-0eb1640e0c36
+      X-Runtime:
+      - '0.015527'
+      Date:
+      - Wed, 17 Jul 2013 06:47:49 GMT
+      Connection:
+      - close
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJpZCI6MjI3MzksImNlbnRyZV9pZCI6ImJvbmRpanVuY3Rpb24iLCJkZXNj
+        cmlwdGlvbiI6IjExIHNjcmVlbnMgb2YgcHVyZSBsdXh1cnksIGluY2x1ZGlu
+        ZyB0d28gVm1heCBjaW5lbWFzIGZlYXR1cmluZyBsYXJnZXIgbW9yZSBjb21m
+        b3J0YWJsZSBzZWF0cywgYSAyMCBtZXRyZSBzY3JlZW4gYW5kIGF3ZXNvbWUg
+        ZGlnaXRhbCBzb3VuZC4gIFNldmVuIHN0YXRlIG9mIHRoZSBhcnQgU2Vuc3Rh
+        ZGl1bSBjaW5lbWFzIGFuZCB0d28gc3VwZXJiIEdvbGQgQ2xhc3MgY2luZW1h
+        cy5cclxuXHJcblNldCBDYWbDqSBhbmQgQmFyIGlzIG9uZSBvZiBCb25kaSBK
+        dW5jdGlvbnMgYmVzdCBrZXB0IHNlY3JldHMuICBTdHVubmluZyBQYW5vcmFt
+        aWMgdmlld3Mgb2YgU3lkbmV5IGhhcmJvdXIgYXJlIG9uIG9mZmVyIHRocm91
+        Z2ggZmxvb3IgdG8gY2VpbGluZyB3aW5kb3dzIGluIGEgc3R5bGlzaGx5IHNv
+        cGhpc3RpY2F0ZWQgY2Fmw6kgXHUwMDI2IGJhci4gQSB3YXJtIGFtYmllbmNl
+        IGhhcyBiZWVuIGNyZWF0ZWQgYnkgdGhlIHJlY2VudGx5IHJlbm92YXRlZCBk
+        w6ljb3IgZGVsaXZlcmluZyBhIHVuaXF1ZSBhbmQgcGVyc29uYWxpc2VkIGV4
+        cGVyaWVuY2UuIEJlIGl0IGJlZm9yZSwgYWZ0ZXIgb3IgZXZlbiBkdXJpbmcg
+        YSBzaG93LCBTZXQgaXMgYSBncmVhdCBlc2NhcGUuXHJcblxyXG5Mb2NhdGVk
+        IGF0IHRoZSB0b3Agb2YgdGhlIGVzY2FsYXRvcnMgYmVmb3JlIEV2ZW50IGNp
+        bmVtYXMuXHJcbk9wZW5pbmcgaG91cnM6IG1pZGRheSAtIDExcG0gZGFpbHki
+        LCJlcnJvcnMiOnt9LCJsZXZlbCI6bnVsbCwibGV2ZWxfc3BhbiI6bnVsbCwi
+        bmFtZSI6IkV2ZW50IENpbmVtYXMiLCJwaG9uZV9udW1iZXIiOiI5MzAwIDE1
+        NTUiLCJzaG9wX251bWJlciI6Ik1HVSIsInN0b3JlX2Zyb250X2ltYWdlX3Jl
+        ZiI6bnVsbCwidXJsIjoiaHR0cDovL3d3dy5ldmVudGNpbmVtYXMuY29tLmF1
+        IiwiZW1haWxfYWRkcmVzcyI6ImJvbmRpQGV2ZW50c2NpbmVtYXMuY29tLmF1
+        IiwiX2xpbmtzIjp7InNlbGYiOnsiaHJlZiI6Imh0dHA6Ly9zdG9yZS1zZXJ2
+        aWNlLnRlc3QuZGJnLndlc3RmaWVsZC5jb20vYXBpL3N0b3JlL21hc3Rlci9z
+        dG9yZXMvMjI3MzkifSwibG9nbyI6eyJocmVmIjoiaHR0cDovL2ltYWdlLXNl
+        cnZpY2UuZGV2ZWxvcG1lbnQuZGJnLndlc3RmaWVsZC5jb206ODAvdHJhbnNm
+        b3JtP3JlZj1QTEFDRUhPTERFUi5qcGcifSwic3RvcmVfZnJvbnQiOnsiaHJl
+        ZiI6Imh0dHA6Ly9pbWFnZS1zZXJ2aWNlLmRldmVsb3BtZW50LmRiZy53ZXN0
+        ZmllbGQuY29tOjgwL3RyYW5zZm9ybT9yZWY9In19fQ==
+    http_version: 
+  recorded_at: Wed, 17 Jul 2013 06:47:49 GMT
+- request:
+    method: get
+    uri: http://centre-service.test.dbg.westfield.com/api/centre/master/centres/bondijunction.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.7
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-UA-Compatible:
+      - chrome=1
+      Content-Type:
+      - application/json; charset=utf-8
+      ETag:
+      - '"567ae91be4a8b99b76f79cb7956f6c8c"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - d4ca0040-4dbe-48d9-ade5-77df9b22dec3
+      X-Runtime:
+      - '0.030496'
+      Date:
+      - Wed, 17 Jul 2013 06:47:49 GMT
+      Connection:
+      - close
+    body:
+      encoding: UTF-8
+      string: '{"code":"bondijunction","name":"Westfield Bondi Junction","short_name":"Bondi
+        Junction","street_address":"500 Oxford St","postcode":"2022","state":"NSW","country":"au","latitude":"-33.891289","longitude":"151.250815","email_address":"bondijunction@au.westfield.com","retail":true,"enabled":true,"trading_hours":[],"_links":{"self":{"href":"http://localhost:3005/centres/bondijunction"}}}'
+    http_version: 
+  recorded_at: Wed, 17 Jul 2013 06:47:49 GMT
+- request:
+    method: get
     uri: http://movie-service.test.dbg.westfield.com/api/movie/master/movies.json?centre=bondijunction&date=15-07-2013
     body:
       encoding: US-ASCII
@@ -31,11 +147,11 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - c90c4d9b-3aad-4fed-9b02-bcbf95af3ed7
+      - 81f8abae-9794-43f2-bf8b-8b167a4c6f0e
       X-Runtime:
-      - '0.296223'
+      - '0.066894'
       Date:
-      - Tue, 16 Jul 2013 07:15:46 GMT
+      - Wed, 17 Jul 2013 06:47:49 GMT
       Connection:
       - close
     body:
@@ -105,51 +221,7 @@ http_interactions:
         UN employee is racing against time and fate, as he travels the world trying
         to stop the outbreak of a deadly zombie pandemic."}]}'
     http_version: 
-  recorded_at: Tue, 16 Jul 2013 07:15:46 GMT
-- request:
-    method: get
-    uri: http://centre-service.test.dbg.westfield.com/api/centre/master/centres/bondijunction.json
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Faraday v0.8.7
-      Content-Type:
-      - application/json
-  response:
-    status:
-      code: 200
-      message: 
-    headers:
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-XSS-Protection:
-      - 1; mode=block
-      X-Content-Type-Options:
-      - nosniff
-      X-UA-Compatible:
-      - chrome=1
-      Content-Type:
-      - application/json; charset=utf-8
-      ETag:
-      - '"567ae91be4a8b99b76f79cb7956f6c8c"'
-      Cache-Control:
-      - max-age=0, private, must-revalidate
-      X-Request-Id:
-      - 19812a84-77c6-4320-bab1-b1f88ed699a6
-      X-Runtime:
-      - '0.398199'
-      Date:
-      - Tue, 16 Jul 2013 07:15:46 GMT
-      Connection:
-      - close
-    body:
-      encoding: UTF-8
-      string: '{"code":"bondijunction","name":"Westfield Bondi Junction","short_name":"Bondi
-        Junction","street_address":"500 Oxford St","postcode":"2022","state":"NSW","country":"au","latitude":"-33.891289","longitude":"151.250815","email_address":"bondijunction@au.westfield.com","retail":true,"enabled":true,"trading_hours":[],"_links":{"self":{"href":"http://localhost:3005/centres/bondijunction"}}}'
-    http_version: 
-  recorded_at: Tue, 16 Jul 2013 07:15:46 GMT
+  recorded_at: Wed, 17 Jul 2013 06:47:49 GMT
 - request:
     method: get
     uri: http://movie-service.test.dbg.westfield.com/api/movie/master/movie_sessions.json?centre=bondijunction
@@ -177,46 +249,36 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       ETag:
-      - '"1a02280df7b182bd13aa3d0626b47cec"'
+      - '"d1a5a354f124316aff09aec5be95bf5c"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 255b1a23-62bc-4192-be3c-e70557a619f7
+      - c7b4fd47-16a4-45d8-aa60-27e2116f10a5
       X-Runtime:
-      - '1.100658'
+      - '0.632013'
       Date:
-      - Tue, 16 Jul 2013 07:15:46 GMT
+      - Wed, 17 Jul 2013 06:47:50 GMT
       Connection:
       - close
     body:
       encoding: UTF-8
-      string: '{"movie_sessions":[{"movie_id":564,"start_time":"2013-07-15T14:15:00.000Z","id":157739,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3849776\u0026source=HWW"},{"movie_id":563,"start_time":"2013-07-15T14:30:00.000Z","id":157721,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848738\u0026source=HWW"},{"movie_id":557,"start_time":"2013-07-15T14:50:00.000Z","id":157627,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848683\u0026source=HWW"},{"movie_id":556,"start_time":"2013-07-15T15:00:00.000Z","id":157595,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848709\u0026source=HWW"},{"movie_id":568,"start_time":"2013-07-15T15:00:00.000Z","id":156625,"session_type":"Gold
-        Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3835985\u0026source=HWW"},{"movie_id":562,"start_time":"2013-07-15T15:30:00.000Z","id":157686,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848825\u0026source=HWW"},{"movie_id":560,"start_time":"2013-07-15T15:30:00.000Z","id":157657,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3849817\u0026source=HWW"},{"movie_id":568,"start_time":"2013-07-15T15:40:00.000Z","id":157824,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3849761\u0026source=HWW"},{"movie_id":565,"start_time":"2013-07-15T16:00:00.000Z","id":156578,"session_type":"Gold
-        Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3835971\u0026source=HWW"},{"movie_id":563,"start_time":"2013-07-15T16:00:00.000Z","id":157731,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848725\u0026source=HWW"},{"movie_id":565,"start_time":"2013-07-15T16:15:00.000Z","id":157759,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848657\u0026source=HWW"},{"movie_id":584,"start_time":"2013-07-15T16:30:00.000Z","id":157846,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3849794\u0026source=HWW"},{"movie_id":577,"start_time":"2013-07-15T16:55:00.000Z","id":157806,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848811\u0026source=HWW"},{"movie_id":557,"start_time":"2013-07-15T18:00:00.000Z","id":157605,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848684\u0026source=HWW"},{"movie_id":576,"start_time":"2013-07-15T18:00:00.000Z","id":156600,"session_type":"Gold
-        Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3835999\u0026source=HWW"},{"movie_id":560,"start_time":"2013-07-15T18:30:00.000Z","id":157681,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3849818\u0026source=HWW"},{"movie_id":566,"start_time":"2013-07-15T18:30:00.000Z","id":157793,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848844\u0026source=HWW"},{"movie_id":575,"start_time":"2013-07-15T18:30:00.000Z","id":157857,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848849\u0026source=HWW"},{"movie_id":568,"start_time":"2013-07-15T18:40:00.000Z","id":157830,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3849762\u0026source=HWW"},{"movie_id":565,"start_time":"2013-07-15T18:40:00.000Z","id":156577,"session_type":"Gold
-        Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3835972\u0026source=HWW"},{"movie_id":584,"start_time":"2013-07-15T19:00:00.000Z","id":157837,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3849795\u0026source=HWW"},{"movie_id":565,"start_time":"2013-07-15T19:00:00.000Z","id":157763,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848658\u0026source=HWW"},{"movie_id":577,"start_time":"2013-07-15T19:10:00.000Z","id":157816,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848812\u0026source=HWW"},{"movie_id":568,"start_time":"2013-07-15T20:50:00.000Z","id":156619,"session_type":"Gold
-        Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3835986\u0026source=HWW"},{"movie_id":575,"start_time":"2013-07-15T21:00:00.000Z","id":157871,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848865\u0026source=HWW"},{"movie_id":565,"start_time":"2013-07-15T21:00:00.000Z","id":157776,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848637\u0026source=HWW"},{"movie_id":557,"start_time":"2013-07-15T21:00:00.000Z","id":157626,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848681\u0026source=HWW"},{"movie_id":565,"start_time":"2013-07-15T21:15:00.000Z","id":156582,"session_type":"Gold
-        Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3846963\u0026source=HWW"},{"movie_id":576,"start_time":"2013-07-15T21:20:00.000Z","id":157803,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848719\u0026source=HWW"},{"movie_id":568,"start_time":"2013-07-15T21:30:00.000Z","id":157821,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848699\u0026source=HWW"},{"movie_id":560,"start_time":"2013-07-15T21:30:00.000Z","id":157665,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3849819\u0026source=HWW"},{"movie_id":584,"start_time":"2013-07-15T21:40:00.000Z","id":157848,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3849796\u0026source=HWW"},{"movie_id":563,"start_time":"2013-07-15T21:40:00.000Z","id":157726,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3849789\u0026source=HWW"},{"movie_id":565,"start_time":"2013-07-15T21:40:00.000Z","id":157767,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848659\u0026source=HWW"},{"movie_id":559,"start_time":"2013-07-16T09:30:00.000Z","id":157649,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848796\u0026source=HWW"},{"movie_id":560,"start_time":"2013-07-16T09:30:00.000Z","id":157660,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3849820\u0026source=HWW"},{"movie_id":577,"start_time":"2013-07-16T09:30:00.000Z","id":156612,"session_type":"Gold
-        Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3836006\u0026source=HWW"},{"movie_id":564,"start_time":"2013-07-16T09:40:00.000Z","id":157742,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3849777\u0026source=HWW"},{"movie_id":563,"start_time":"2013-07-16T09:45:00.000Z","id":157711,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848742\u0026source=HWW"},{"movie_id":559,"start_time":"2013-07-16T10:00:00.000Z","id":157633,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848774\u0026source=HWW"},{"movie_id":565,"start_time":"2013-07-16T10:00:00.000Z","id":157766,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848640\u0026source=HWW"},{"movie_id":560,"start_time":"2013-07-16T10:00:00.000Z","id":156556,"session_type":"Gold
-        Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3836013\u0026source=HWW"},{"movie_id":566,"start_time":"2013-07-16T10:10:00.000Z","id":157792,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3849839\u0026source=HWW"},{"movie_id":562,"start_time":"2013-07-16T10:30:00.000Z","id":157693,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848828\u0026source=HWW"},{"movie_id":563,"start_time":"2013-07-16T10:30:00.000Z","id":157719,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848754\u0026source=HWW"},{"movie_id":559,"start_time":"2013-07-16T11:45:00.000Z","id":157642,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848797\u0026source=HWW"},{"movie_id":568,"start_time":"2013-07-16T11:50:00.000Z","id":156622,"session_type":"Gold
-        Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3846965\u0026source=HWW"},{"movie_id":564,"start_time":"2013-07-16T12:00:00.000Z","id":157736,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3849778\u0026source=HWW"},{"movie_id":563,"start_time":"2013-07-16T12:15:00.000Z","id":157716,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848743\u0026source=HWW"},{"movie_id":559,"start_time":"2013-07-16T12:15:00.000Z","id":157638,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848775\u0026source=HWW"},{"movie_id":560,"start_time":"2013-07-16T12:30:00.000Z","id":157673,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3849821\u0026source=HWW"},{"movie_id":565,"start_time":"2013-07-16T12:30:00.000Z","id":157765,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848641\u0026source=HWW"},{"movie_id":557,"start_time":"2013-07-16T12:45:00.000Z","id":157613,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3849758\u0026source=HWW"},{"movie_id":563,"start_time":"2013-07-16T13:00:00.000Z","id":157728,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848755\u0026source=HWW"},{"movie_id":575,"start_time":"2013-07-16T13:15:00.000Z","id":157861,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848852\u0026source=HWW"},{"movie_id":565,"start_time":"2013-07-16T13:15:00.000Z","id":156574,"session_type":"Gold
-        Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3835973\u0026source=HWW"},{"movie_id":559,"start_time":"2013-07-16T14:00:00.000Z","id":157647,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848786\u0026source=HWW"},{"movie_id":564,"start_time":"2013-07-16T14:15:00.000Z","id":157748,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3849779\u0026source=HWW"},{"movie_id":563,"start_time":"2013-07-16T14:30:00.000Z","id":157712,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848739\u0026source=HWW"},{"movie_id":557,"start_time":"2013-07-16T14:50:00.000Z","id":157622,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848685\u0026source=HWW"},{"movie_id":568,"start_time":"2013-07-16T15:00:00.000Z","id":156621,"session_type":"Gold
-        Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3835987\u0026source=HWW"},{"movie_id":556,"start_time":"2013-07-16T15:00:00.000Z","id":157601,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848710\u0026source=HWW"},{"movie_id":560,"start_time":"2013-07-16T15:30:00.000Z","id":157658,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3849810\u0026source=HWW"},{"movie_id":562,"start_time":"2013-07-16T15:30:00.000Z","id":157691,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848826\u0026source=HWW"},{"movie_id":568,"start_time":"2013-07-16T15:40:00.000Z","id":157829,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3849763\u0026source=HWW"},{"movie_id":563,"start_time":"2013-07-16T16:00:00.000Z","id":157696,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848726\u0026source=HWW"},{"movie_id":565,"start_time":"2013-07-16T16:00:00.000Z","id":156571,"session_type":"Gold
-        Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3835974\u0026source=HWW"},{"movie_id":565,"start_time":"2013-07-16T16:15:00.000Z","id":157775,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848660\u0026source=HWW"},{"movie_id":584,"start_time":"2013-07-16T16:30:00.000Z","id":157852,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3849797\u0026source=HWW"},{"movie_id":577,"start_time":"2013-07-16T16:55:00.000Z","id":157814,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848813\u0026source=HWW"},{"movie_id":576,"start_time":"2013-07-16T18:00:00.000Z","id":156608,"session_type":"Gold
-        Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3836000\u0026source=HWW"},{"movie_id":557,"start_time":"2013-07-16T18:00:00.000Z","id":157610,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848686\u0026source=HWW"},{"movie_id":556,"start_time":"2013-07-16T18:00:00.000Z","id":157603,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848711\u0026source=HWW"},{"movie_id":563,"start_time":"2013-07-16T18:25:00.000Z","id":157720,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848727\u0026source=HWW"},{"movie_id":560,"start_time":"2013-07-16T18:30:00.000Z","id":157670,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3849811\u0026source=HWW"},{"movie_id":575,"start_time":"2013-07-16T18:30:00.000Z","id":157869,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848850\u0026source=HWW"},{"movie_id":565,"start_time":"2013-07-16T18:40:00.000Z","id":156595,"session_type":"Gold
-        Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3835975\u0026source=HWW"},{"movie_id":568,"start_time":"2013-07-16T18:40:00.000Z","id":157835,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3849764\u0026source=HWW"},{"movie_id":584,"start_time":"2013-07-16T19:00:00.000Z","id":157842,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3849798\u0026source=HWW"},{"movie_id":565,"start_time":"2013-07-16T19:00:00.000Z","id":157777,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848661\u0026source=HWW"},{"movie_id":577,"start_time":"2013-07-16T19:10:00.000Z","id":157810,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848808\u0026source=HWW"},{"movie_id":568,"start_time":"2013-07-16T20:50:00.000Z","id":156632,"session_type":"Gold
-        Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3835988\u0026source=HWW"},{"movie_id":557,"start_time":"2013-07-16T20:50:00.000Z","id":157608,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848674\u0026source=HWW"},{"movie_id":565,"start_time":"2013-07-16T21:00:00.000Z","id":157760,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848638\u0026source=HWW"},{"movie_id":575,"start_time":"2013-07-16T21:00:00.000Z","id":157868,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848854\u0026source=HWW"},{"movie_id":565,"start_time":"2013-07-16T21:15:00.000Z","id":156566,"session_type":"Gold
-        Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3846961\u0026source=HWW"},{"movie_id":576,"start_time":"2013-07-16T21:20:00.000Z","id":157805,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848720\u0026source=HWW"},{"movie_id":568,"start_time":"2013-07-16T21:30:00.000Z","id":157828,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848700\u0026source=HWW"},{"movie_id":560,"start_time":"2013-07-16T21:30:00.000Z","id":157662,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3849812\u0026source=HWW"},{"movie_id":584,"start_time":"2013-07-16T21:40:00.000Z","id":157844,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3849790\u0026source=HWW"},{"movie_id":566,"start_time":"2013-07-16T21:40:00.000Z","id":157797,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3849840\u0026source=HWW"},{"movie_id":565,"start_time":"2013-07-16T21:40:00.000Z","id":157758,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848662\u0026source=HWW"},{"movie_id":560,"start_time":"2013-07-17T09:30:00.000Z","id":157679,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3849813\u0026source=HWW"},{"movie_id":577,"start_time":"2013-07-17T09:30:00.000Z","id":156610,"session_type":"Gold
-        Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3836007\u0026source=HWW"},{"movie_id":559,"start_time":"2013-07-17T09:30:00.000Z","id":157655,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848787\u0026source=HWW"},{"movie_id":564,"start_time":"2013-07-17T09:40:00.000Z","id":157750,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3849771\u0026source=HWW"},{"movie_id":563,"start_time":"2013-07-17T09:45:00.000Z","id":157724,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848744\u0026source=HWW"},{"movie_id":560,"start_time":"2013-07-17T10:00:00.000Z","id":156561,"session_type":"Gold
-        Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3836014\u0026source=HWW"},{"movie_id":559,"start_time":"2013-07-17T10:00:00.000Z","id":157651,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848771\u0026source=HWW"},{"movie_id":565,"start_time":"2013-07-17T10:00:00.000Z","id":157786,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848642\u0026source=HWW"},{"movie_id":566,"start_time":"2013-07-17T10:10:00.000Z","id":157791,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3849841\u0026source=HWW"},{"movie_id":563,"start_time":"2013-07-17T10:30:00.000Z","id":157732,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848756\u0026source=HWW"},{"movie_id":562,"start_time":"2013-07-17T10:30:00.000Z","id":157684,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848829\u0026source=HWW"},{"movie_id":559,"start_time":"2013-07-17T11:45:00.000Z","id":157652,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848788\u0026source=HWW"},{"movie_id":568,"start_time":"2013-07-17T11:50:00.000Z","id":156633,"session_type":"Gold
+      string: '{"movie_sessions":[{"movie_id":564,"start_time":"2013-07-16T14:15:00.000Z","id":157748,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3849779\u0026source=HWW"},{"movie_id":563,"start_time":"2013-07-16T14:30:00.000Z","id":157712,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848739\u0026source=HWW"},{"movie_id":557,"start_time":"2013-07-16T14:50:00.000Z","id":157622,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848685\u0026source=HWW"},{"movie_id":568,"start_time":"2013-07-16T15:00:00.000Z","id":156621,"session_type":"Gold
+        Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3835987\u0026source=HWW"},{"movie_id":556,"start_time":"2013-07-16T15:00:00.000Z","id":157601,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848710\u0026source=HWW"},{"movie_id":560,"start_time":"2013-07-16T15:30:00.000Z","id":157658,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3849810\u0026source=HWW"},{"movie_id":562,"start_time":"2013-07-16T15:30:00.000Z","id":157691,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848826\u0026source=HWW"},{"movie_id":568,"start_time":"2013-07-16T15:40:00.000Z","id":157829,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3849763\u0026source=HWW"},{"movie_id":565,"start_time":"2013-07-16T16:00:00.000Z","id":156571,"session_type":"Gold
+        Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3835974\u0026source=HWW"},{"movie_id":563,"start_time":"2013-07-16T16:00:00.000Z","id":157696,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848726\u0026source=HWW"},{"movie_id":565,"start_time":"2013-07-16T16:15:00.000Z","id":157775,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848660\u0026source=HWW"},{"movie_id":584,"start_time":"2013-07-16T16:30:00.000Z","id":157852,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3849797\u0026source=HWW"},{"movie_id":577,"start_time":"2013-07-16T16:55:00.000Z","id":157814,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848813\u0026source=HWW"},{"movie_id":576,"start_time":"2013-07-16T18:00:00.000Z","id":156608,"session_type":"Gold
+        Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3836000\u0026source=HWW"},{"movie_id":556,"start_time":"2013-07-16T18:00:00.000Z","id":157603,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848711\u0026source=HWW"},{"movie_id":557,"start_time":"2013-07-16T18:00:00.000Z","id":157610,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848686\u0026source=HWW"},{"movie_id":563,"start_time":"2013-07-16T18:25:00.000Z","id":157720,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848727\u0026source=HWW"},{"movie_id":560,"start_time":"2013-07-16T18:30:00.000Z","id":157670,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3849811\u0026source=HWW"},{"movie_id":575,"start_time":"2013-07-16T18:30:00.000Z","id":157869,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848850\u0026source=HWW"},{"movie_id":568,"start_time":"2013-07-16T18:40:00.000Z","id":157835,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3849764\u0026source=HWW"},{"movie_id":565,"start_time":"2013-07-16T18:40:00.000Z","id":156595,"session_type":"Gold
+        Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3835975\u0026source=HWW"},{"movie_id":565,"start_time":"2013-07-16T19:00:00.000Z","id":157777,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848661\u0026source=HWW"},{"movie_id":584,"start_time":"2013-07-16T19:00:00.000Z","id":157842,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3849798\u0026source=HWW"},{"movie_id":577,"start_time":"2013-07-16T19:10:00.000Z","id":157810,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848808\u0026source=HWW"},{"movie_id":568,"start_time":"2013-07-16T20:50:00.000Z","id":156632,"session_type":"Gold
+        Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3835988\u0026source=HWW"},{"movie_id":557,"start_time":"2013-07-16T20:50:00.000Z","id":157608,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848674\u0026source=HWW"},{"movie_id":575,"start_time":"2013-07-16T21:00:00.000Z","id":157868,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848854\u0026source=HWW"},{"movie_id":565,"start_time":"2013-07-16T21:00:00.000Z","id":157760,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848638\u0026source=HWW"},{"movie_id":565,"start_time":"2013-07-16T21:15:00.000Z","id":156566,"session_type":"Gold
+        Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3846961\u0026source=HWW"},{"movie_id":576,"start_time":"2013-07-16T21:20:00.000Z","id":157805,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848720\u0026source=HWW"},{"movie_id":560,"start_time":"2013-07-16T21:30:00.000Z","id":157662,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3849812\u0026source=HWW"},{"movie_id":568,"start_time":"2013-07-16T21:30:00.000Z","id":157828,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848700\u0026source=HWW"},{"movie_id":584,"start_time":"2013-07-16T21:40:00.000Z","id":157844,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3849790\u0026source=HWW"},{"movie_id":566,"start_time":"2013-07-16T21:40:00.000Z","id":157797,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3849840\u0026source=HWW"},{"movie_id":565,"start_time":"2013-07-16T21:40:00.000Z","id":157758,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848662\u0026source=HWW"},{"movie_id":559,"start_time":"2013-07-17T09:30:00.000Z","id":157655,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848787\u0026source=HWW"},{"movie_id":577,"start_time":"2013-07-17T09:30:00.000Z","id":156610,"session_type":"Gold
+        Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3836007\u0026source=HWW"},{"movie_id":560,"start_time":"2013-07-17T09:30:00.000Z","id":157679,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3849813\u0026source=HWW"},{"movie_id":564,"start_time":"2013-07-17T09:40:00.000Z","id":157750,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3849771\u0026source=HWW"},{"movie_id":563,"start_time":"2013-07-17T09:45:00.000Z","id":157724,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848744\u0026source=HWW"},{"movie_id":559,"start_time":"2013-07-17T10:00:00.000Z","id":157651,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848771\u0026source=HWW"},{"movie_id":560,"start_time":"2013-07-17T10:00:00.000Z","id":156561,"session_type":"Gold
+        Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3836014\u0026source=HWW"},{"movie_id":565,"start_time":"2013-07-17T10:00:00.000Z","id":157786,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848642\u0026source=HWW"},{"movie_id":566,"start_time":"2013-07-17T10:10:00.000Z","id":157791,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3849841\u0026source=HWW"},{"movie_id":562,"start_time":"2013-07-17T10:30:00.000Z","id":157684,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848829\u0026source=HWW"},{"movie_id":563,"start_time":"2013-07-17T10:30:00.000Z","id":157732,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848756\u0026source=HWW"},{"movie_id":559,"start_time":"2013-07-17T11:45:00.000Z","id":157652,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848788\u0026source=HWW"},{"movie_id":568,"start_time":"2013-07-17T11:50:00.000Z","id":156633,"session_type":"Gold
         Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3846966\u0026source=HWW"},{"movie_id":564,"start_time":"2013-07-17T12:00:00.000Z","id":157747,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3849772\u0026source=HWW"},{"movie_id":563,"start_time":"2013-07-17T12:15:00.000Z","id":157710,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848745\u0026source=HWW"},{"movie_id":559,"start_time":"2013-07-17T12:15:00.000Z","id":157650,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848772\u0026source=HWW"},{"movie_id":565,"start_time":"2013-07-17T12:30:00.000Z","id":157774,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848643\u0026source=HWW"},{"movie_id":560,"start_time":"2013-07-17T12:30:00.000Z","id":157683,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3849814\u0026source=HWW"},{"movie_id":557,"start_time":"2013-07-17T12:45:00.000Z","id":157624,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3849753\u0026source=HWW"},{"movie_id":563,"start_time":"2013-07-17T13:00:00.000Z","id":157702,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848757\u0026source=HWW"},{"movie_id":575,"start_time":"2013-07-17T13:15:00.000Z","id":157867,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848853\u0026source=HWW"},{"movie_id":565,"start_time":"2013-07-17T13:15:00.000Z","id":156569,"session_type":"Gold
-        Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3835976\u0026source=HWW"},{"movie_id":559,"start_time":"2013-07-17T14:00:00.000Z","id":157643,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848789\u0026source=HWW"},{"movie_id":564,"start_time":"2013-07-17T14:15:00.000Z","id":157744,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3849773\u0026source=HWW"},{"movie_id":563,"start_time":"2013-07-17T14:30:00.000Z","id":157730,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848740\u0026source=HWW"},{"movie_id":557,"start_time":"2013-07-17T14:50:00.000Z","id":157607,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848687\u0026source=HWW"},{"movie_id":568,"start_time":"2013-07-17T15:00:00.000Z","id":156634,"session_type":"Gold
-        Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3835989\u0026source=HWW"},{"movie_id":556,"start_time":"2013-07-17T15:00:00.000Z","id":157596,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848704\u0026source=HWW"},{"movie_id":560,"start_time":"2013-07-17T15:30:00.000Z","id":157676,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3849815\u0026source=HWW"},{"movie_id":562,"start_time":"2013-07-17T15:30:00.000Z","id":157695,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848827\u0026source=HWW"},{"movie_id":568,"start_time":"2013-07-17T15:40:00.000Z","id":157822,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3849759\u0026source=HWW"},{"movie_id":565,"start_time":"2013-07-17T16:00:00.000Z","id":156576,"session_type":"Gold
-        Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3835969\u0026source=HWW"},{"movie_id":563,"start_time":"2013-07-17T16:00:00.000Z","id":157701,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848728\u0026source=HWW"},{"movie_id":565,"start_time":"2013-07-17T16:15:00.000Z","id":157769,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848651\u0026source=HWW"},{"movie_id":584,"start_time":"2013-07-17T16:30:00.000Z","id":157838,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3849791\u0026source=HWW"},{"movie_id":577,"start_time":"2013-07-17T16:55:00.000Z","id":157813,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848809\u0026source=HWW"},{"movie_id":576,"start_time":"2013-07-17T18:00:00.000Z","id":156601,"session_type":"Gold
-        Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3836001\u0026source=HWW"},{"movie_id":557,"start_time":"2013-07-17T18:00:00.000Z","id":157620,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848676\u0026source=HWW"},{"movie_id":556,"start_time":"2013-07-17T18:00:00.000Z","id":157594,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848705\u0026source=HWW"},{"movie_id":563,"start_time":"2013-07-17T18:25:00.000Z","id":157703,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848729\u0026source=HWW"},{"movie_id":560,"start_time":"2013-07-17T18:30:00.000Z","id":157671,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3849808\u0026source=HWW"},{"movie_id":575,"start_time":"2013-07-17T18:30:00.000Z","id":157862,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848860\u0026source=HWW"},{"movie_id":568,"start_time":"2013-07-17T18:40:00.000Z","id":157823,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3849760\u0026source=HWW"},{"movie_id":565,"start_time":"2013-07-17T18:40:00.000Z","id":156565,"session_type":"Gold
-        Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3835970\u0026source=HWW"},{"movie_id":584,"start_time":"2013-07-17T19:00:00.000Z","id":157841,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3849792\u0026source=HWW"},{"movie_id":565,"start_time":"2013-07-17T19:00:00.000Z","id":157755,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848652\u0026source=HWW"},{"movie_id":577,"start_time":"2013-07-17T19:10:00.000Z","id":157812,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848810\u0026source=HWW"},{"movie_id":568,"start_time":"2013-07-17T20:50:00.000Z","id":156618,"session_type":"Gold
+        Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3835976\u0026source=HWW"},{"movie_id":559,"start_time":"2013-07-17T14:00:00.000Z","id":157643,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848789\u0026source=HWW"},{"movie_id":564,"start_time":"2013-07-17T14:15:00.000Z","id":157744,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3849773\u0026source=HWW"},{"movie_id":563,"start_time":"2013-07-17T14:30:00.000Z","id":157730,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848740\u0026source=HWW"},{"movie_id":557,"start_time":"2013-07-17T14:50:00.000Z","id":157607,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848687\u0026source=HWW"},{"movie_id":556,"start_time":"2013-07-17T15:00:00.000Z","id":157596,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848704\u0026source=HWW"},{"movie_id":568,"start_time":"2013-07-17T15:00:00.000Z","id":156634,"session_type":"Gold
+        Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3835989\u0026source=HWW"},{"movie_id":560,"start_time":"2013-07-17T15:30:00.000Z","id":157676,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3849815\u0026source=HWW"},{"movie_id":562,"start_time":"2013-07-17T15:30:00.000Z","id":157695,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848827\u0026source=HWW"},{"movie_id":568,"start_time":"2013-07-17T15:40:00.000Z","id":157822,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3849759\u0026source=HWW"},{"movie_id":565,"start_time":"2013-07-17T16:00:00.000Z","id":156576,"session_type":"Gold
+        Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3835969\u0026source=HWW"},{"movie_id":563,"start_time":"2013-07-17T16:00:00.000Z","id":157701,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848728\u0026source=HWW"},{"movie_id":565,"start_time":"2013-07-17T16:15:00.000Z","id":157769,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848651\u0026source=HWW"},{"movie_id":584,"start_time":"2013-07-17T16:30:00.000Z","id":157838,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3849791\u0026source=HWW"},{"movie_id":577,"start_time":"2013-07-17T16:55:00.000Z","id":157813,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848809\u0026source=HWW"},{"movie_id":557,"start_time":"2013-07-17T18:00:00.000Z","id":157620,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848676\u0026source=HWW"},{"movie_id":556,"start_time":"2013-07-17T18:00:00.000Z","id":157594,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848705\u0026source=HWW"},{"movie_id":576,"start_time":"2013-07-17T18:00:00.000Z","id":156601,"session_type":"Gold
+        Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3836001\u0026source=HWW"},{"movie_id":563,"start_time":"2013-07-17T18:25:00.000Z","id":157703,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848729\u0026source=HWW"},{"movie_id":575,"start_time":"2013-07-17T18:30:00.000Z","id":157862,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848860\u0026source=HWW"},{"movie_id":560,"start_time":"2013-07-17T18:30:00.000Z","id":157671,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3849808\u0026source=HWW"},{"movie_id":565,"start_time":"2013-07-17T18:40:00.000Z","id":156565,"session_type":"Gold
+        Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3835970\u0026source=HWW"},{"movie_id":568,"start_time":"2013-07-17T18:40:00.000Z","id":157823,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3849760\u0026source=HWW"},{"movie_id":565,"start_time":"2013-07-17T19:00:00.000Z","id":157755,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848652\u0026source=HWW"},{"movie_id":584,"start_time":"2013-07-17T19:00:00.000Z","id":157841,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3849792\u0026source=HWW"},{"movie_id":577,"start_time":"2013-07-17T19:10:00.000Z","id":157812,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848810\u0026source=HWW"},{"movie_id":568,"start_time":"2013-07-17T20:50:00.000Z","id":156618,"session_type":"Gold
         Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3835983\u0026source=HWW"},{"movie_id":557,"start_time":"2013-07-17T20:50:00.000Z","id":157612,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848675\u0026source=HWW"},{"movie_id":575,"start_time":"2013-07-17T21:00:00.000Z","id":157858,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848855\u0026source=HWW"},{"movie_id":565,"start_time":"2013-07-17T21:00:00.000Z","id":157764,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848632\u0026source=HWW"},{"movie_id":565,"start_time":"2013-07-17T21:15:00.000Z","id":156590,"session_type":"Gold
-        Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3846960\u0026source=HWW"},{"movie_id":576,"start_time":"2013-07-17T21:20:00.000Z","id":157804,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848717\u0026source=HWW"},{"movie_id":560,"start_time":"2013-07-17T21:30:00.000Z","id":157667,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3849809\u0026source=HWW"},{"movie_id":568,"start_time":"2013-07-17T21:30:00.000Z","id":157826,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848701\u0026source=HWW"},{"movie_id":584,"start_time":"2013-07-17T21:40:00.000Z","id":157850,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3849793\u0026source=HWW"},{"movie_id":565,"start_time":"2013-07-17T21:40:00.000Z","id":157787,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848653\u0026source=HWW"},{"movie_id":566,"start_time":"2013-07-17T21:40:00.000Z","id":157798,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3849842\u0026source=HWW"},{"movie_id":565,"start_time":"2013-07-18T10:00:00.000Z","id":156572,"session_type":"Gold
+        Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3846960\u0026source=HWW"},{"movie_id":576,"start_time":"2013-07-17T21:20:00.000Z","id":157804,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848717\u0026source=HWW"},{"movie_id":568,"start_time":"2013-07-17T21:30:00.000Z","id":157826,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848701\u0026source=HWW"},{"movie_id":560,"start_time":"2013-07-17T21:30:00.000Z","id":157667,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3849809\u0026source=HWW"},{"movie_id":566,"start_time":"2013-07-17T21:40:00.000Z","id":157798,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3849842\u0026source=HWW"},{"movie_id":584,"start_time":"2013-07-17T21:40:00.000Z","id":157850,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3849793\u0026source=HWW"},{"movie_id":565,"start_time":"2013-07-17T21:40:00.000Z","id":157787,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3848653\u0026source=HWW"},{"movie_id":565,"start_time":"2013-07-18T10:00:00.000Z","id":156572,"session_type":"Gold
         Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3854123\u0026source=HWW"},{"movie_id":568,"start_time":"2013-07-18T10:30:00.000Z","id":156624,"session_type":"Gold
         Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3854142\u0026source=HWW"},{"movie_id":576,"start_time":"2013-07-18T12:40:00.000Z","id":156609,"session_type":"Gold
         Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3854153\u0026source=HWW"},{"movie_id":565,"start_time":"2013-07-18T13:30:00.000Z","id":156579,"session_type":"Gold
@@ -247,5 +309,5 @@ http_interactions:
         Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3854135\u0026source=HWW"},{"movie_id":565,"start_time":"2013-07-20T21:40:00.000Z","id":156564,"session_type":"Gold
         Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=3854108\u0026source=HWW"}]}'
     http_version: 
-  recorded_at: Tue, 16 Jul 2013 07:15:46 GMT
+  recorded_at: Wed, 17 Jul 2013 06:47:50 GMT
 recorded_with: VCR 2.5.0

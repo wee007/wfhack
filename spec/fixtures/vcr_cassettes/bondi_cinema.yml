@@ -1,0 +1,74 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://store-service.test.dbg.westfield.com/api/store/master/stores/22739.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.7
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-UA-Compatible:
+      - chrome=1
+      Content-Type:
+      - application/json; charset=utf-8
+      ETag:
+      - '"52733ff1b88353043c09d6b95057b2b2"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - f5f1f1c8-a5ba-442c-9d55-5be04361535b
+      X-Runtime:
+      - '0.012819'
+      Date:
+      - Wed, 17 Jul 2013 05:10:10 GMT
+      Connection:
+      - close
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJpZCI6MjI3MzksImNlbnRyZV9pZCI6ImJvbmRpanVuY3Rpb24iLCJkZXNj
+        cmlwdGlvbiI6IjExIHNjcmVlbnMgb2YgcHVyZSBsdXh1cnksIGluY2x1ZGlu
+        ZyB0d28gVm1heCBjaW5lbWFzIGZlYXR1cmluZyBsYXJnZXIgbW9yZSBjb21m
+        b3J0YWJsZSBzZWF0cywgYSAyMCBtZXRyZSBzY3JlZW4gYW5kIGF3ZXNvbWUg
+        ZGlnaXRhbCBzb3VuZC4gIFNldmVuIHN0YXRlIG9mIHRoZSBhcnQgU2Vuc3Rh
+        ZGl1bSBjaW5lbWFzIGFuZCB0d28gc3VwZXJiIEdvbGQgQ2xhc3MgY2luZW1h
+        cy5cclxuXHJcblNldCBDYWbDqSBhbmQgQmFyIGlzIG9uZSBvZiBCb25kaSBK
+        dW5jdGlvbnMgYmVzdCBrZXB0IHNlY3JldHMuICBTdHVubmluZyBQYW5vcmFt
+        aWMgdmlld3Mgb2YgU3lkbmV5IGhhcmJvdXIgYXJlIG9uIG9mZmVyIHRocm91
+        Z2ggZmxvb3IgdG8gY2VpbGluZyB3aW5kb3dzIGluIGEgc3R5bGlzaGx5IHNv
+        cGhpc3RpY2F0ZWQgY2Fmw6kgXHUwMDI2IGJhci4gQSB3YXJtIGFtYmllbmNl
+        IGhhcyBiZWVuIGNyZWF0ZWQgYnkgdGhlIHJlY2VudGx5IHJlbm92YXRlZCBk
+        w6ljb3IgZGVsaXZlcmluZyBhIHVuaXF1ZSBhbmQgcGVyc29uYWxpc2VkIGV4
+        cGVyaWVuY2UuIEJlIGl0IGJlZm9yZSwgYWZ0ZXIgb3IgZXZlbiBkdXJpbmcg
+        YSBzaG93LCBTZXQgaXMgYSBncmVhdCBlc2NhcGUuXHJcblxyXG5Mb2NhdGVk
+        IGF0IHRoZSB0b3Agb2YgdGhlIGVzY2FsYXRvcnMgYmVmb3JlIEV2ZW50IGNp
+        bmVtYXMuXHJcbk9wZW5pbmcgaG91cnM6IG1pZGRheSAtIDExcG0gZGFpbHki
+        LCJlcnJvcnMiOnt9LCJsZXZlbCI6bnVsbCwibGV2ZWxfc3BhbiI6bnVsbCwi
+        bmFtZSI6IkV2ZW50IENpbmVtYXMiLCJwaG9uZV9udW1iZXIiOiI5MzAwIDE1
+        NTUiLCJzaG9wX251bWJlciI6Ik1HVSIsInN0b3JlX2Zyb250X2ltYWdlX3Jl
+        ZiI6bnVsbCwidXJsIjoiaHR0cDovL3d3dy5ldmVudGNpbmVtYXMuY29tLmF1
+        IiwiX2xpbmtzIjp7InNlbGYiOnsiaHJlZiI6Imh0dHA6Ly9zdG9yZS1zZXJ2
+        aWNlLnRlc3QuZGJnLndlc3RmaWVsZC5jb20vYXBpL3N0b3JlL21hc3Rlci9z
+        dG9yZXMvMjI3MzkifSwibG9nbyI6eyJocmVmIjoiaHR0cDovL2ltYWdlLXNl
+        cnZpY2UuZGV2ZWxvcG1lbnQuZGJnLndlc3RmaWVsZC5jb206ODAvdHJhbnNm
+        b3JtP3JlZj1QTEFDRUhPTERFUi5qcGcifSwic3RvcmVfZnJvbnQiOnsiaHJl
+        ZiI6Imh0dHA6Ly9pbWFnZS1zZXJ2aWNlLmRldmVsb3BtZW50LmRiZy53ZXN0
+        ZmllbGQuY29tOjgwL3RyYW5zZm9ybT9yZWY9In19fQ==
+    http_version: 
+  recorded_at: Wed, 17 Jul 2013 05:10:10 GMT
+recorded_with: VCR 2.5.0

@@ -1,0 +1,133 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://movie-service.test.dbg.westfield.com/api/movie/master/movie_sessions.json?centre=sydney
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.7
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-UA-Compatible:
+      - chrome=1
+      Content-Type:
+      - application/json; charset=utf-8
+      ETag:
+      - '"251b7b1864fb701057bf9e6f91655370"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - d8c87b5d-0b96-4868-9144-2c512fc8102d
+      X-Runtime:
+      - '0.014899'
+      Date:
+      - Wed, 17 Jul 2013 05:27:57 GMT
+      Connection:
+      - close
+    body:
+      encoding: UTF-8
+      string: '{"movie_sessions":[]}'
+    http_version: 
+  recorded_at: Wed, 17 Jul 2013 05:27:57 GMT
+- request:
+    method: get
+    uri: http://movie-service.test.dbg.westfield.com/api/movie/master/movies.json?centre=sydney&date=17-07-2013
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.7
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-UA-Compatible:
+      - chrome=1
+      Content-Type:
+      - application/json; charset=utf-8
+      ETag:
+      - '"283a5a8f3eb069eaaba85f6109c8bb42"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 33ad5ceb-37f1-4734-aa82-023bdd2ed537
+      X-Runtime:
+      - '0.019883'
+      Date:
+      - Wed, 17 Jul 2013 05:27:57 GMT
+      Connection:
+      - close
+    body:
+      encoding: UTF-8
+      string: '{"movies":[]}'
+    http_version: 
+  recorded_at: Wed, 17 Jul 2013 05:27:57 GMT
+- request:
+    method: get
+    uri: http://centre-service.test.dbg.westfield.com/api/centre/master/centres/sydney.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.7
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-UA-Compatible:
+      - chrome=1
+      Content-Type:
+      - application/json; charset=utf-8
+      ETag:
+      - '"bb189f0aa12a6917d5c3ac06ad9b1729"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - b03dec53-7c29-4751-8d1d-24b6c0c1f8bb
+      X-Runtime:
+      - '0.027219'
+      Date:
+      - Wed, 17 Jul 2013 05:27:57 GMT
+      Connection:
+      - close
+    body:
+      encoding: UTF-8
+      string: '{"code":"sydney","name":"Westfield Sydney","short_name":"Sydney","street_address":"Cnr
+        Pitt St Mall and Market St","postcode":"2000","state":"NSW","country":"au","latitude":"-33.870371","longitude":"151.207735","email_address":"","retail":true,"enabled":true,"trading_hours":[],"_links":{"self":{"href":"http://localhost:3005/centres/sydney"}}}'
+    http_version: 
+  recorded_at: Wed, 17 Jul 2013 05:27:57 GMT
+recorded_with: VCR 2.5.0

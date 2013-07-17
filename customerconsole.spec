@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.240
+Version:     0.0.241
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,11 @@ fi
 
 
 %changelog
+* Thu Jul 18 2013 ci <doperations@au.westfield.com> 0.0.241-1
+- Merge pull request #140 from csmith/feature/store_details_on_movie_index
+  (ldewey@au.westfield.com)
+- Add the store information on the movies page. (craigm.smith@au.westfield.com)
+
 * Thu Jul 18 2013 ci <doperations@au.westfield.com> 0.0.240-1
 - Filter by nearby centres (cwalsh2@au.westfield.com)
 

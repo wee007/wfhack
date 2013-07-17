@@ -10,7 +10,6 @@
     "matchMedia": "latest",
     "selectivizr": "~1.0.2",
     "flexslider": "latest",
-    "html5shiv": "~3.6.2",
-    "angular-unstable": "~1.1.5"
+    "html5shiv": "~3.6.2"
   }
 }

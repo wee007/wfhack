@@ -34,7 +34,7 @@
             facetObject = {
               field: facet.field,
               title: facet.title,
-              values: ( facet.values.length ) ? facet.values : [facet]
+              values: ( facet.values.length ) ? facet.values : facet
             }
           }
         });

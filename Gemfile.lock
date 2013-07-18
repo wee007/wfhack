@@ -1,4 +1,12 @@
 GIT
+  remote: git@github.dbg.westfield.com:digital/aaa_client.git
+  revision: 3421f33d6f50b2f5a50144a65a762a0f90290d2a
+  specs:
+    aaa_client (0.0.9)
+      rubycas-client (> 2.3.9)
+      rubycas-client-rails
+
+GIT
   remote: git@github.dbg.westfield.com:digital/service_api.git
   revision: cd3161db7330ec9db330bfaf76961056108b6586
   specs:
@@ -13,7 +21,6 @@ GIT
 GIT
   remote: git@github.dbg.westfield.com:digital/service_helper.git
   revision: a9c67106955fb6496a6ad45cee46aea55c4596ff
-  branch: master
   specs:
     service_helper (0.0.1)
 
@@ -40,6 +47,21 @@ GIT
   revision: 0c86814c441fd2614dd4117eb4083e8208539fde
   specs:
     kss (0.4.0)
+
+GIT
+  remote: https://github.com/rubycas/rubycas-client-rails.git
+  revision: b97de6edc7871bc43ca1c9572f4d9188a210b341
+  specs:
+    rubycas-client-rails (0.1.1)
+      rails (>= 3.0.0)
+      rubycas-client (~> 2.3.9.rc1)
+
+GIT
+  remote: https://github.com/rubycas/rubycas-client.git
+  revision: 0bdd87d4d7ca29a49e0a77a9adbc5a5c175e618e
+  specs:
+    rubycas-client (2.3.10.rc1)
+      activesupport
 
 GEM
   remote: https://rubygems.org/
@@ -110,9 +132,9 @@ GEM
       multi_json (~> 1.3)
     faraday_middleware (0.9.0)
       faraday (>= 0.7.4, < 0.9)
-    faraday_middleware-parse_oj (0.2)
+    faraday_middleware-parse_oj (0.2.1)
       faraday_middleware (~> 0.8)
-      oj (~> 1.2)
+      oj (~> 2.0)
     ffi (1.9.0)
     foreman (0.63.0)
       dotenv (>= 0.7)
@@ -159,7 +181,7 @@ GEM
     multipart-post (1.2.0)
     nokogiri (1.6.0)
       mini_portile (~> 0.5.0)
-    oj (1.4.7)
+    oj (2.1.4)
     polyglot (0.3.3)
     pry (0.9.12.2)
       coderay (~> 1.0.5)
@@ -194,7 +216,7 @@ GEM
       ffi (>= 0.5.0)
     rb-kqueue (0.2.0)
       ffi (>= 0.5.0)
-    rspec-core (2.14.2)
+    rspec-core (2.14.3)
     rspec-expectations (2.14.0)
       diff-lcs (>= 1.1.3, < 2.0)
     rspec-mocks (2.14.1)
@@ -235,7 +257,7 @@ GEM
     typhoeus (0.6.3)
       ethon (~> 0.5.11)
     tzinfo (0.3.37)
-    uglifier (2.1.1)
+    uglifier (2.1.2)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
     vcr (2.5.0)
@@ -244,6 +266,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  aaa_client (~> 0.0.9)!
   coffee-rails (~> 4.0.0)
   debugger
   dotenv-rails
@@ -269,9 +292,11 @@ DEPENDENCIES
   rails (~> 4.0.0)
   rb-fsevent
   rspec-rails
+  rubycas-client (> 2.3.9)!
+  rubycas-client-rails!
   sass-rails (~> 4.0.0)
   service_api!
-  service_helper!
+  service_helper (~> 0.0.1)!
   settingslogic
   simplecov
   uglifier (>= 1.3.0)

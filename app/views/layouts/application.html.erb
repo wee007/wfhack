@@ -46,7 +46,11 @@
 	<!-- Prompt old IE users to upgrade their browser or install 'Chrome Frame' -->
 	<!--[if lte IE 7]><p class="old-ie-notification">Apologies for the appearance of this page but you are viewing it in a very old browser that we no longer support. We highly recommend <a href="http://browsehappy.com/" rel="external">upgrading to a more modern browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true" rel="external">install Google Chrome Frame</a> to experience this site and to reap the many other benefits of using a modern browser.</p><![endif]-->
 
-	<%= render "/layouts/header" %>
+<% if controller_name == 'visitor' %>
+	<%= render "/layouts/header_visitor" %>
+<% else %>
+  <%= render "/layouts/header" %>
+<% end %>
 
 	<main class="main container" id="main" role="main">
 		<%= yield %>

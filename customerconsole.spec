@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.244
+Version:     0.0.245
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,9 @@ fi
 
 
 %changelog
+* Thu Jul 18 2013 ci <doperations@au.westfield.com> 0.0.245-1
+- Added correct markup for Cinema images. (craigm.smith@au.westfield.com)
+
 * Thu Jul 18 2013 ci <doperations@au.westfield.com> 0.0.244-1
 - Update customer_console.conf (ldewey@au.westfield.com)
 

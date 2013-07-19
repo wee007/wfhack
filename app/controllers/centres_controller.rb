@@ -10,6 +10,7 @@ class CentresController < ApplicationController
 
   def show
     stream
+    render_404 unless @centre
   end
 
   def product_stream

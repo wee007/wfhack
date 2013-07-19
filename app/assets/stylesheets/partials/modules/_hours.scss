@@ -1,0 +1,44 @@
+/* ======================================================================================
+   @MODULES -> Hours
+   ====================================================================================== */
+
+/*
+  Usage:
+    This is used to create a hours table
+
+  Demo:
+    Style Guide -> Modules -> Hours
+*/
+
+.hours {
+  caption {
+    @include font-size($font-size-lrg);
+    font-weight: bold;
+    @include to-rem(margin-bottom, $spacing-base);
+  }
+}
+
+  .hours__desc {
+    display: none;
+    @include to-rem(padding, $spacing-quarter);
+    border-radius: 3px;
+
+    /* Only show on non palm as we have the room */
+    @include respond-min($non-palm) {
+      display: inline-block;
+      @include to-rem(margin-left, $spacing-base);
+    }
+  }
+
+  .hours__day {
+    width: $one-fifth;
+  }
+
+  .hours__date {
+    width: $two-fifths;
+  }
+
+  .hours__time {
+    width: $two-fifths;
+    text-align: center;
+  }

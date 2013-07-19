@@ -1,0 +1,55 @@
+<%# Tabs %>
+<div class="tabs">
+
+  <%# Tab nav %>
+  <nav role="navigation" aria-label="Contextual navigation" class="">
+    <ul class="tab__nav">
+      <% hours.each_with_index do |hours, week| %>
+        <li>
+          <a class="<%= 'is-active' if week == 0 %>" href="#tab-<%= week %>">
+            Week <%= week + 1 %>
+          </a>
+        </li>
+      <% end %>
+    </ul>
+  </nav>
+  <%# //Tab nav %>
+
+  <%# Hours %>
+  <% hours.each_with_index do |hours, week| %>
+    <div id="tab-<%= week %>" class="tab__content island box <%= 'is-active' if week == 0 %>">
+
+      <table class="hours table-striped">
+        <caption><%= heading %></caption>
+
+        <thead class="hide-visually">
+          <tr>
+            <th scope="col" class="hours__day">Day</th>
+            <th scope="col" class="hours__date">Date</th>
+            <th scope="col" class="hours__time">Time</th>
+          </th>
+        </thead>
+
+        <tbody>
+          <% hours.each do |hour| %>
+            <tr>
+              <td class="hours__day">
+                <%= hour.date '%a' %>
+              </td>
+              <td class="hours__date">
+                <%= hour.date '%d %b' %>
+                <%= content_tag :span, hour.description, class: 'box btn btn--main btn--main-alt4' if hour.description %>
+              </td>
+              <td class="hours__time">
+                <%= hour.opening_time '%-I:%M%P' %> - <%= hour.closing_time '%-I:%M%P' %>
+              </td>
+            </tr>
+          <% end -%>
+        </tbody>
+      </table>
+    </div>
+  <% end %>
+  <%# // Hours %>
+
+</div>
+<%# // Tabs %>

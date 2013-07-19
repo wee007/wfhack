@@ -49,7 +49,7 @@
 
 	<%= render "/layouts/header" %>
 	<%= yield :nav_contextual %>
-	<main class="main container" id="main" role="main">
+	<main class="main container <%= yield(:class_for_main) %>" id="main" role="main">
 		<%= yield %>
 	</main>
 

@@ -18,6 +18,7 @@
 //= require unveil/jquery.unveil.js
 //= require ./vendor/bootstrap-dropdown
 //= require ./vendor/jquery.isotope.gutters
+//= require ./vendor/jquery.tabs
 
 // If console is unimplemented in a browser, and someone
 // accidently leaves a log, debug, error, etc the browser won't throw & die.
@@ -29,6 +30,7 @@
 //= require ./init/toggle
 //= require ./init/unveil
 //= require ./init/tiles
+//= require ./init/tabs
 
 //= require ./vendor/angular-head
 //= require ./vendor/angular-mobile

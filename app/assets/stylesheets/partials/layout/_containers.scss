@@ -14,3 +14,12 @@
 		width: auto;
 	}
 }
+
+.container--wide {
+  width: auto;
+  max-width: none;
+}
+
+.container--narrow {
+  @include to-rem(max-width, $page-container-max-width-narrow);
+}

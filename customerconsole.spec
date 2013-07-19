@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.248
+Version:     0.0.249
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,11 @@ fi
 
 
 %changelog
+* Fri Jul 19 2013 ci <doperations@au.westfield.com> 0.0.249-1
+- Merge pull request #149 from ldewey/master (ewee@au.westfield.com)
+- Added 404 on centre show for when a centre does not exist.
+  (ldewey@au.westfield.com)
+
 * Fri Jul 19 2013 ci <doperations@au.westfield.com> 0.0.248-1
 - Merge pull request #147 from mmell/aaa_service_documentation
   (ldewey@au.westfield.com)

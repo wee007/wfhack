@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.246
+Version:     0.0.247
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,11 @@ fi
 
 
 %changelog
+* Fri Jul 19 2013 ci <doperations@au.westfield.com> 0.0.247-1
+- Merge pull request #148 from cpearce/master (matt.wratt@trineo.co.nz)
+- making 'store details' button clickable for detail view maps and setting up
+  structure for 'Stores' (CPearce@au.westfield.com)
+
 * Fri Jul 19 2013 ci <doperations@au.westfield.com> 0.0.246-1
 - rename app from Customerconsole to CustomerConsole (mike.mell@nthwave.net)
 

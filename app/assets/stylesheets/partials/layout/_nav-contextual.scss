@@ -1,0 +1,31 @@
+/*
+  Contextual navigation
+*/
+.nav-contextual {
+  @include to-rem(padding-top padding-bottom, $spacing-half);
+  background-color: $color-med-txt;
+
+
+  a:hover {color:#fff;}
+}
+
+.nav-contextual__top-level-items {
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+  .nav-contextual__top-level-items > li a {
+    @include to-rem(padding-top padding-bottom, $spacing-half);
+  }
+
+.nav-contextual__centre-selector {
+
+}
+
+.nav-contextual__centre-selector__group {
+  @include to-rem(margin-bottom, $spacing-quarter);
+  background-color: $color-grey-3;
+  border-radius: $border-radius;
+
+  &:last-child {margin-bottom: 0;}
+}

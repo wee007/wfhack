@@ -435,6 +435,12 @@
 		#{$property}: $value;
   }
 
+  /* Appearance */
+  @else if $property == appearance {
+    -webkit-#{$property}: $value;
+    -moz-#{$property}: $value;
+    #{$property}: $value;
+  }
 }
 
 /* If you need to prefix something quicky and it's not in the above list, but the above `@mixin` should always be used */

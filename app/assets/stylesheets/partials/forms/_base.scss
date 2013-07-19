@@ -35,6 +35,9 @@ textarea {
 	resize: vertical;
 }
 
+/* Search fields */
+input[type="search"] {@include prefix(appearance, none);}
+
 /* Select list */
 select {width: auto;}
 

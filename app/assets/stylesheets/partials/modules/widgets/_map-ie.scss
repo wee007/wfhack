@@ -37,14 +37,6 @@
       }
     }
   }
-
-  .map {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    @include to-rem(left, 450);
-    right: 0;
-  }
 }
 
 #map {
@@ -76,7 +68,10 @@
   }
 }
 
-.map--ie-support {
+#map.map--ie-support {
+  position: absolute;
+  bottom: 0;
+  right: 0;
 
   .hidden {
     display: none !important;
@@ -147,5 +142,11 @@
         border-top: 0;
       }
     }
+  }
+}
+
+.map--non-interactive {
+  .zoom, .level-select {
+    display: none;
   }
 }

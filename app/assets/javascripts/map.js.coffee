@@ -166,7 +166,7 @@ class window.IEMap
 
   zoomAmount: 1
 
-  constructor: ->
+  constructor: (@options) ->
     @index = new GeomIndex()
     wait(@init, -> window.jQuery && window.westfield)
 
@@ -187,6 +187,7 @@ class window.IEMap
     @levelUI.on('click', -> self.selectLevel($(@).data('level')))
     $('body', document).on('click', '[data-store-id]', -> self.highlight($(@).data('storeId')))
     @mouse = new Mouse(@levels, @drag)
+    @highlight(@options.select) if @options.select
 
   drag: (delta) =>
     top = parseInt(@levels.css('top'), 10)
@@ -203,6 +204,7 @@ class window.IEMap
       el.width(el.data('width') * zoomAmount)
 
   selectLevel: (level) ->
+    level = parseInt(level)
     selector = "[data-level=\"#{level}\"]"
     @levelUI.removeClass('selected')
     @levelUI.filter(selector).addClass('selected')
@@ -210,7 +212,7 @@ class window.IEMap
     @levels.filter(selector).removeClass('hidden')
 
   highlight: (storeId) ->
-    @selectLevel(@index.findById(storeId).store.level)
+    @selectLevel(@index.findById(storeId).store.level || 1)
 
 class Mouse
 

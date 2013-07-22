@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe VisitorController do
+describe VisitorsController do
 
 
   # HACK! make every request from an authenticated Customer
@@ -10,11 +10,11 @@ describe VisitorController do
 
   context "GET" do
 
-    describe :index do
+    describe :show do
 
       it "renders visitor view" do
-        get :index
-        response.should render_template :index
+        get :show
+        response.should render_template :show
       end
 
     end

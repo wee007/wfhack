@@ -55,6 +55,37 @@
   /* Headings */
   .hn {font-family: $font-family-opensans;}
 
+  /* Micello map */
+  .map-micello {
+    position: relative;
+    background-color: $color-off-white;
+    @include to-rem(min-height, 270);
+  }
+
+    /* Product detail view min heights */
+    &.detail-view--product .map-micello {
+
+      @include respond-min($non-palm) {
+        @include to-rem(min-height, 240);
+      }
+
+      @include respond-min(978) {
+        @include to-rem(min-height, 300);
+      }
+    }
+
+    /* Deal detail view min heights */
+    &.detail-view--deal .map-micello {
+
+      @include respond-range($non-palm, 899) {
+        @include to-rem(min-height, 295);
+      }
+
+      @include respond-min($lap-sml-end) {
+        @include to-rem(min-height, 313);
+      }
+    }
+
 }
 
   /* --Global-- */

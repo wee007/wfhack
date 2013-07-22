@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.251
+Version:     0.0.252
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,18 @@ fi
 
 
 %changelog
+* Tue Jul 23 2013 ci <doperations@au.westfield.com> 0.0.252-1
+- Build fix (ldewey@au.westfield.com)
+- Merge pull request #151 from mwratt/feature/maps (ldewey@au.westfield.com)
+- Merge pull request #153 from ldewey/aaa (mike.mell@nthwave.net)
+- Removed _header_visitor.html.erb (ldewey@au.westfield.com)
+- removes non-ie specific styles (matt.wratt@trineo.co.nz)
+- moves ie maps import to ie specific style sheet (matt.wratt@trineo.co.nz)
+- makes centre levels for ie maps dynamic (matt.wratt@trineo.co.nz)
+- adds mouse drag to IE8 maps (matt.wratt@trineo.co.nz)
+- adds zoom to IE8 versions of maps (matt.wratt@trineo.co.nz)
+- adds partial IE8 support (matt.wratt@trineo.co.nz)
+
 * Tue Jul 23 2013 ci <doperations@au.westfield.com> 0.0.251-1
 - 
 

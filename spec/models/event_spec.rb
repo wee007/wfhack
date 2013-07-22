@@ -29,7 +29,10 @@ describe Event do
   end
 
   context '#image' do
-    it { subject.image.should eql('http://image-service.test.dbg.westfield.com/transform?ref=12345678&size=400x400') }
+    it {
+      ImageService.should_receive(:transform).with(ref: '12345678', size: '300x300').and_return('transformed_image')
+      subject.image('300x300').should eql('transformed_image')
+    }
   end
 
 end

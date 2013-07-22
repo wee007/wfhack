@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.252
+Version:     0.0.253
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,10 @@ fi
 
 
 %changelog
+* Tue Jul 23 2013 ci <doperations@au.westfield.com> 0.0.253-1
+- Merge pull request #146 from ldewey/apache_modules (ldewey@au.westfield.com)
+- More apache rules/config (ldewey@au.westfield.com)
+
 * Tue Jul 23 2013 ci <doperations@au.westfield.com> 0.0.252-1
 - Build fix (ldewey@au.westfield.com)
 - Merge pull request #151 from mwratt/feature/maps (ldewey@au.westfield.com)

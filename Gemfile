@@ -17,14 +17,18 @@ gem 'health_check'
 gem 'service_api', git: 'git@github.dbg.westfield.com:digital/service_api.git'
 gem 'faraday'
 gem 'faraday_middleware'
-gem 'service_helper',
-  git: 'git@github.dbg.westfield.com:digital/service_helper.git',
-  branch: 'master'
+gem 'service_helper', '~> 0.0.1',
+  git: 'git@github.dbg.westfield.com:digital/service_helper.git'
 gem 'hashie'
 
 # Presentation, pagination etc.
 gem 'kaminari'
 gem 'money'
+
+# AAA
+gem 'rubycas-client', '> 2.3.9', git: 'https://github.com/rubycas/rubycas-client.git' # force rubycas-client-rails to use latest
+gem 'rubycas-client-rails', git: 'https://github.com/rubycas/rubycas-client-rails.git'
+gem 'aaa_client', '~> 0.0.9', git: 'git@github.dbg.westfield.com:digital/aaa_client.git'
 
 # CSS (cant live in development or css will not get minified)
 # https://github.com/rails/rails/issues/10084#issuecomment-20855970

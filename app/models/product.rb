@@ -20,7 +20,15 @@ class Product < Hashie::Mash
   end
 
   def primary_image
-    images.first
+    _links ? _links[:image][:href] : images.first
+  end
+
+  def kind
+    self.class.name.downcase
+  end
+
+  def meta
+    {title: name, image: primary_image}
   end
 
 private

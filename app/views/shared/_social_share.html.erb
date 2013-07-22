@@ -28,7 +28,7 @@
     </li>
     <!-- //Google+ -->
 
-    <% if page? :products %>
+    <% if defined?(image) %>
       <!-- Pinterest -->
       <li class="social-share__pinterest">
         <a href="http://pinterest.com/pin/create/button/?url=<%=URI::encode current_url %>&media=<%=URI::encode image %>&description=<%=URI::encode title %>" rel="external" target="_blank"><span class="icon icon--pinterest icon--xlrg icon--flush-top" aria-hidden="true"></span><span class="hide-visually"> Pinterest</span></a>

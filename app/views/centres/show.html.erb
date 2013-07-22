@@ -20,12 +20,16 @@
 
 <div id="pin-board" class="pin-board">
 
-  <%- @stream.each_slice(4) do |group| -%>
-    <%- group.each do |result| -%>
-      <% if %w(deal event product).include?(result['type']) %>
-        <%= render partial: "shared/tiles/#{result['type']}", locals: {result: result} %>
-      <% end %>
-    <%- end -%>
+  <%- @stream.each do |result| -%>
+    <%= render partial: "/shared/tiles/#{result.kind}",
+        layout: '/layouts/tile',
+        locals: {
+          result: result,
+          url: (result.kind == 'product' ? centre_product_path(@centre, retailer_code: result.retailer_code, sku: result.sku) : nil)
+        }
+    %>
   <%- end -%>
 
 </div>
+
+

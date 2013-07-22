@@ -1,15 +1,10 @@
-<a class="tile tile--deals" href="<%= centre_deal_path(params[:centre_id], result.id) %>">
-  <article class="box" role="article">
-    <div class="tile__meta">
-      <p class="tile__meta__desc"><%= result.title %></p>
-      <span class="tile__meta__image" data-picture data-alt="<%= result.store_name %> logo">
-        <img src="<%= result.retailer_logo_url %>" alt="<%= result.store_name %> logo">
-      </span>
-    </div>
+<div class="tile__meta">
+  <p class="tile__meta__desc"><%= result.title %></p>
+  <span class="tile__meta__image" data-picture data-alt="<%#= result.store_name %> logo">
+    <img src="<%#= result.retailer_logo_url %>" alt="<%#= result.store_name %> logo">
+  </span>
+</div>
 
-    <span class="tile__meta__icon">
-      <span class="icon icon--deals" aria-hidden="true"></span>
-    </span>
-
-  </article>
-</a>
+<span class="tile__meta__icon">
+  <span class="icon icon--deals" aria-hidden="true"></span>
+</span>

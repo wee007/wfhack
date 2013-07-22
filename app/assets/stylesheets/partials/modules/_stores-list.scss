@@ -1,0 +1,77 @@
+/* ======================================================================================
+   @MODULES -> STORES LIST
+   ====================================================================================== */
+
+/*
+	Usage:
+		List of stores.
+
+	Demo:
+		Style Guide -> Modules -> Store List
+*/
+
+.stores-list {
+  background-color: #fff;
+  @include font-size($font-size-sml);
+
+  /* Store A-Z grouping header */
+  dt {
+    background-color: $color-off-white;
+    font-weight: normal;
+    color: $color-light-txt;
+    text-transform: uppercase;
+    border-top: 1px solid $color-grey-1;
+    @include to-rem(padding-top padding-bottom, $spacing-micro);
+  }
+
+  /* Stores */
+  dd {
+    border-top: 1px solid $color-grey-1;
+    position: relative;
+
+    /* Inner container */
+    .container {@extend %clear-fix;}
+  }
+}
+
+  /* Data cell */
+  .stores-list__data-cell {
+    @include to-rem(padding-top padding-bottom, $spacing-half);
+  }
+
+    /* Logo */
+    .stores-list__img {
+      float: left;
+      @include to-rem(width, 41);
+    }
+
+    /* Store name */
+    .stores-list__store-name {
+      float: left;
+
+      a {
+        display: block;
+        color: $color-dark-txt;
+      }
+    }
+
+    /* Icons - phone & map pin */
+    .stores-list__data-cell--icon {
+      //float: right;
+      position: absolute;
+      right: 0;
+      top: 0;
+      @include to-rem(width, 54);
+      text-align: center;
+      border-left: 1px solid $color-grey-1;
+
+      .icon {
+        @include font-size(28, 1);
+      }
+    }
+
+      /* Phone icon */
+      .stores-list__phone-no .icon {color: $color-cta-green;}
+
+      /* Map pin icon */
+      .stores-list__map-pin .icon {color: $color-brand;}

@@ -10,8 +10,63 @@
 		Style Guide -> Modules -> Stores / Maps
 */
 
+/* Turn off .container
+.stores-maps__list-detail {
+  width: auto;
+  max-width: none;
+} */
+
 .stores-maps {
   position: relative;
   z-index: 2;
   height: 100%;
 }
+
+  /* Listing and detail views container */
+  .stores-maps__inner {
+    position: relative;
+    z-index: 4;
+  }
+
+    /* Filters / toggle */
+    .stores-maps__filters-toggle {
+      background-color: $color-grey-3;
+      @include to-rem(padding-top padding-bottom, $spacing-half);
+
+      /* Inner container */
+      .container {
+        position: relative;
+
+        /* Turn off `.container` at this breakpoint */
+        @include respond-min($desk) {
+          width: auto;
+          max-width: none;
+        }
+      }
+
+        /* Header */
+        .stores-maps__hdr {
+          /* Hide the header at this breakpoint */
+          @include respond-max($lap-end) {
+            @include hide-visually;
+          }
+        }
+    }
+
+      /* Toggle button */
+      .stores-maps__toggle {
+        position: absolute;
+        right: 0;
+        top: 0;
+
+        /* Reveal button text at this breakpoint */
+        @include respond-min($non-palm) {
+          .hide-visually {@include hide-visually-off;}
+        }
+      }
+
+  /* Micello map */
+  .stores-maps__map {
+    position: relative;
+    z-index: 3;
+  }

@@ -1,22 +1,93 @@
 <div class="stores-maps container">
   <h1 class="hide-visually">Stores</h1>
-  <div class="map-micello">
+
+  <%# Contain filters, map/listing toggle, listings and map %>
+  <div class="stores-maps__inner">
+
+    <%# Filters & listing/map toggle button %>
+    <div class="stores-maps__filters-toggle">
+      <div class="container">
+
+        <h2 class="stores-maps__hdr">Stores A-Z</h2>
+
+        <%# Filters %>
+        <button class="btn btn--main btn--main-alt4">Filter</button>
+        <%# Filters %>
+
+        <%# Listing/map toggle %>
+        <button class="stores-maps__toggle btn btn--main btn--main-alt4 btn--main-compact-icon hide-fully--desk js-stores-maps-toggle">
+          <span class="hide-visually">View map</span>
+          <span class="icon icon--map2 icon--flush-top icon--xlrg" aria-hidden="true"></span>
+        </button>
+        <%# //Listing/map toggle %>
+
+      </div>
+    </div>
+    <%# //Filters & listing/map toggle button %>
+
+    <%# Stores listing %>
+    <div class="stores-maps__listing js-stores-maps-toggle__listing">
+      <dl class="stores-list">
+        <% @stores.each do |letter, stores| %>
+
+          <dt>
+            <div class="container">
+              <%= letter %>
+            </div>
+          </dt>
+
+          <% stores.each do |store| %>
+          <dd data-store-id="<%= store.id %>">
+            <div class="container">
+
+              <%# Image %>
+              <div class="stores-list__img stores-list__data-cell">
+                <%#<%= responsive_image_tag normal: store.logo, alt: store.name %>
+                <img src="/assets/dummy/retailer-logo.png">
+                <!-- <img src="http://cs2.wol.io/img_resized/retailer/logos/360baranddining_110x40.gif?allow_404=true"> -->
+              </div>
+              <%# //Image %>
+
+              <%# Store name %>
+              <div class="stores-list__store-name stores-list__data-cell">
+                <em><%= link_to store.name, (centre_store_url @centre.code , store.id) %></em>
+              </div>
+              <%# //Store name %>
+
+              <%# Phone no %>
+              <div class="stores-list__phone-no stores-list__data-cell stores-list__data-cell--icon hide-fully--non-palm">
+                <a href="tel:<%= store.phone_number %>">
+                  <span class="hide-visually"><%= store.phone_number %></span>
+                  <span class="icon icon--phone2"></span>
+                </a>
+              </div>
+              <%# //Phone no %>
+
+              <%# Map pin %>
+              <div class="stores-list__map-pin stores-list__data-cell stores-list__data-cell--icon hide-fully--desk">
+                <button type="button" class="btn">
+                  <span class="hide-visually">View on map</span>
+                  <span class="icon icon--pin"></span>
+                </button>
+              </div>
+              <%# //Map pin %>
+
+            </div>
+          </dd>
+          <% end %>
+
+        <% end %>
+      </dl>
+    </div>
+    <%#//Stores listing %>
+
+  </div>
+  <%# //Contain filters, map/listing toggle, listings and map %>
+
+  <%# Map %>
+  <div class="stores-maps__map map-micello js-stores-maps-toggle__map">
     <%= render partial: 'shared/map', locals: {store_id: nil, interactive: true} %>
   </div>
-</div>
+  <%# //Map %>
 
-<div class="stores-map-content" style="display: none;">
-  <ul>
-    <li class="list__header">Stores / A-Z</li>
-    <% @stores.each do |letter, stores| %>
-      <li class="list__heading"><%= letter %></li>
-      <% stores.each do |store| %>
-        <li class="list__store" data-store-id="<%= store.id %>">
-          <%= image_tag store.logo(width: 100, retina: true), alt: store.name %>
-          <h1><%= link_to store.name, (centre_store_url @centre.code , store.id) %></h1>
-          <%= store.phone_number %>
-        </li>
-      <% end %>
-    <% end %>
-  </ul>
 </div>

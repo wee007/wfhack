@@ -6,7 +6,7 @@ describe DealsController do
 
   describe "GET #index" do
     before :each do
-      CentreService.stub(:fetch).with('bondijunction').and_return double :response, body: {}
+      CentreService.stub(:fetch).with('bondijunction').and_return double :response, body: {name: 'Centre name'}
       DealService.stub(:fetch).with(centre: 'bondijunction', rows: 50).and_return("DEAL JSON")
       DealService.stub(:build).with("DEAL JSON").and_return(['Deal', 'Deal1'])
       get :index, centre_id: 'bondijunction'
@@ -16,6 +16,9 @@ describe DealsController do
     end
     it "renders the :index view" do
       response.should render_template :index
+    end
+    it "populates page_title" do
+      expect(assigns(:page_title)).to eql "Centre name deals"
     end
   end
 
@@ -27,7 +30,7 @@ describe DealsController do
       StoreService.stub(:fetch).with(12).and_return("STORE JSON")
       @stub_store = double(:store).as_null_object
       StoreService.stub(:build).with("STORE JSON").and_return(@stub_store)
-      @stub_deal = double(:deal, :deal_stores => stub_deal_store).as_null_object
+      @stub_deal = double(:deal, title: 'Deal title', :deal_stores => stub_deal_store).as_null_object
       DealService.stub(:build).with("DEAL JSON").and_return(@stub_deal)
       @gon = double :gon
       @gon.stub(:push)
@@ -47,6 +50,9 @@ describe DealsController do
     it "adds centre and store to gon" do
       @gon.should_receive(:push).with(centre: {}, stores: [@stub_store])
       get :show, id: 1, centre_id: 'bondijunction'
+    end
+    it "populates page_title" do
+      expect(assigns(:page_title)).to eql "Deal title"
     end
   end
 

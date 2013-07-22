@@ -26,6 +26,8 @@ class ProductsController < ApplicationController
     @centres = centre_ids.present? ? CentreService.find(:all, centre_id: centre_ids, near_to: params[:centre_id]) : []
     @centre_stores = @stores.select {|store| store['centre_id'] == @centre['code']}
     gon.push(:centre => @centre, :stores => @centre_stores)
+    @page_title = @product.name
+    @page_image = @product.primary_image
   end
 
 end

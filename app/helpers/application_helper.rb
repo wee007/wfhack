@@ -9,7 +9,15 @@ module ApplicationHelper
   end
 
   def page? page
-    params[:controller] == page.to_s ? 'is-active' : nil
+    params[:controller] == page.to_s
+  end
+
+  def page_title
+    @page_title || 'Home'
+  end
+
+  def page_image
+    @page_image || ''
   end
 
   def responsive_image_tag(options = {})

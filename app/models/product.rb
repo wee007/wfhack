@@ -19,6 +19,10 @@ class Product < Hashie::Mash
     end.compact.uniq
   end
 
+  def primary_image
+    images.first
+  end
+
 private
   def resized_url(url, width: 469, height: 474)
     url.sub("[WIDTH]x[HEIGHT]", "#{width}x#{height}")

@@ -17,8 +17,7 @@ gem 'health_check'
 gem 'service_api', git: 'git@github.dbg.westfield.com:digital/service_api.git'
 gem 'faraday'
 gem 'faraday_middleware'
-gem 'service_helper', '~> 0.0.1',
-  git: 'git@github.dbg.westfield.com:digital/service_helper.git'
+gem 'service_helper', git: 'git@github.dbg.westfield.com:digital/service_helper.git'
 gem 'hashie'
 
 # Presentation, pagination etc.

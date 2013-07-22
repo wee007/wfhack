@@ -14,10 +14,10 @@
 */
 
 .tile {
+  position: relative;
   display: block;
   color: $color-base-txt;
   width: 48%; /* Show 2 tiles by default */
-    background-color: red;
 
   @include font-size($font-size-sml);
   @include to-rem(margin-bottom, $spacing-half);
@@ -34,6 +34,35 @@
 
   /* Global styles */
   p { margin-bottom: 0; }
+
+  .social-share {
+    display: none;
+  }
+
+  &:hover {
+    .social-share {
+      display: block;
+      position: absolute;
+      @include to-rem(top, $spacing-quarter);
+      @include to-rem(right, $spacing-quarter);
+      @include to-rem(width, $spacing-base* 2);
+      &.is-active .social-share__trigger {
+        border-bottom-right-radius:0;
+        border-bottom-left-radius:0;
+        background-color: $color-med-txt;
+        color: #fff;
+      }
+    }
+    .social-share__trigger {
+      @include to-rem(width, $spacing-base* 2);
+      @include to-rem(height, $spacing-base* 2);
+      border: 1px solid rgba(0,0,0,0.15);
+      border-radius: 2px;
+      background-color: #fff;
+    }
+  }
+
+
 
 }
 

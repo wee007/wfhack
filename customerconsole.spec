@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.257
+Version:     0.0.258
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,14 @@ fi
 
 
 %changelog
+* Wed Jul 24 2013 ci <doperations@au.westfield.com> 0.0.258-1
+- Merge pull request #161 from ldewey/WSF-4933-image-cleanup
+  (matt.wratt@trineo.co.nz)
+- responsive becomes retina, as this is what its really doing.
+  (ldewey@au.westfield.com)
+- Removed responsive_image_tag, and made ImageService responsive
+  (ldewey@au.westfield.com)
+
 * Tue Jul 23 2013 ci <doperations@au.westfield.com> 0.0.257-1
 - 
 

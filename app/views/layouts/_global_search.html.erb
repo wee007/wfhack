@@ -21,8 +21,8 @@
     <p>Are you looking for</p>
     <div class='results__products'>
       <ul>
-        <li ng-repeat="result in resultUrlQueries()">
-          <a href="<%= centre_products_path(params[:id]) %>{{result}}">{{result}}</a>
+        <li ng-repeat="suggestion in didYouMean()">
+          <a href="<%= centre_products_path(params[:id]) %>">{{suggestion['description']}}</a>
         </li>
       </ul>
     </div>

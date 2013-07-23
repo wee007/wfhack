@@ -10,44 +10,37 @@ app.controller "GlobalSearchCtrl", ($scope) ->
     else
       $scope.searchResults = {}
 
-  $scope.resultCombinations = ->
-    return [] unless $scope.searchResults['results']
-    results = $scope.searchResults['results']
-    combinations = []
-    angular.forEach(['longest','single'], (match_type)->
-      combo = {}
-      query = ''
-      angular.forEach(results[match_type], (match)->
-        if match[1]
-          combo[match[1][0]['data']['param_name']] ||= []
-          combo[match[1][0]['data']['param_name']].push match[1][0]['data']['param_value']
-        else
-          query = "#{query} #{match[0]}".trim
-      )
-      if not query is ''
-        combo['search_query'] = query
-      if combo != {}
-        combinations.push combo
-    )
-    combinations
-
-  $scope.resultUrlQueries = ->
-    # Angular has no map function =(
-    queries = []
-    angular.forEach($scope.resultCombinations(), (combo)->
-      search_query = combo['search_query']
-      delete combo['search_query']
-      if search_query
-        query = "?search_query=#{query}"
-      else
-        query = '?'
-      console.debug combo
-      angular.forEach combo, (values,key)->
-        angular.forEach values, (value)->
-          query += "&#{key}[]=#{value}"
-      queries.push query
-    )
-    queries
+  $scope.didYouMean = ->
+    results = []
+    angular.forEach $scope.searchResults['results'], (searchResult)->
+      result = {}
+      angular.forEach searchResult, (value,key)->
+        result[value['data']['param_name']] ||= []
+        result[value['data']['param_name']].push({display: value['data']['display'], value: value['data']['param_value']})
+      description = ""
+      if result['colour']
+        window.colour = result['colour']
+        length = result['colour'].length
+        angular.forEach result['colour'], (item, ind)->
+          console.debug(ind, length, length - 1, item)
+          description += item['display']
+          if ind < (length - 2)
+            description += ', '
+          else if ind < (length - 1)
+            description += ' or '
+      description += " products"
+      if result['retailer']
+        description += ' from '
+        length = result['retailer'].length
+        angular.forEach result['retailer'], (item, ind)->
+          description += item['display']
+          if ind < (length - 2)
+            description += ', '
+          else if ind < (length - 1)
+            description += ' or '
+      result['description'] = description
+      results.push(result)
+    results
 
   $scope.search = ->
     url = "/api/search/master/search.json" +

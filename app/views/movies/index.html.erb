@@ -25,7 +25,7 @@
 <% @movies.each do |movie| %>
   <li class="title">
     <a href="<%= centre_movie_path(centre_id: @centre.code, id: movie.id) %>">
-      <%= image_tag ImageService.transform(ref: movie.image_url, width: 400, responsive: true), alt: movie.title %>
+      <%= image_tag ImageService.transform(ref: movie.image_url, width: 400, retina: true), alt: movie.title %>
       <%= movie.title %>
     </a>
   </li>

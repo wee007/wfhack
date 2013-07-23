@@ -2,7 +2,7 @@ class ImageService
   class << self
 
     def transform(options)
-      add_responsive options
+      add_retina options
       add_size options
       "#{self.url}/transform?#{options.to_query}"
     end
@@ -19,8 +19,8 @@ class ImageService
       options[:size] = "#{width || height || 100}x#{height || width || 100}"
     end
 
-    def add_responsive(options)
-      if options.delete(:responsive)
+    def add_retina(options)
+      if options.delete(:retina)
         options[:height] = options[:height].to_i * 2 if options[:height]
         options[:width] = options[:width].to_i * 2 if options[:width]
         options[:quality] ||= 25

@@ -10,7 +10,7 @@
     </header>
 
     <div class="detail-view__media detail-view__mrg-base">
-      <%= image_tag @event.image(width: 638, responsive: true), alt: @event.name, itemprop: "photo" %>
+      <%= image_tag @event.image(width: 638, retina: true), alt: @event.name, itemprop: "photo" %>
     </div>
 
     <h2 class="detail-view__hdr-sub hn">Event Details</h2>

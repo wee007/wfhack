@@ -27,20 +27,20 @@ describe ImageService do
     )
   end
 
-  it 'generates responsive image url' do
-    expect(subject.transform ref: 'ref', width: 100, height: 100, responsive: true).to eq(
+  it 'generates retina image url' do
+    expect(subject.transform ref: 'ref', width: 100, height: 100, retina: true).to eq(
       "#{subject.url}/transform?quality=25&ref=ref&size=200x200"
     )
   end
 
-  it 'generates responsive image url, with only width passed' do
-    expect(subject.transform ref: 'ref', width: 400, responsive: true).to eq(
+  it 'generates retina image url, with only width passed' do
+    expect(subject.transform ref: 'ref', width: 400, retina: true).to eq(
       "#{subject.url}/transform?quality=25&ref=ref&size=800x800"
     )
   end
 
-  it 'generates responsive image url, with only height passed' do
-    expect(subject.transform ref: 'ref', height: 400, responsive: true).to eq(
+  it 'generates retina image url, with only height passed' do
+    expect(subject.transform ref: 'ref', height: 400, retina: true).to eq(
       "#{subject.url}/transform?quality=25&ref=ref&size=800x800"
     )
   end

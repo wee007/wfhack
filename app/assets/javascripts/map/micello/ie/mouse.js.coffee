@@ -1,4 +1,4 @@
-class map.ie_support.Mouse
+class map.micello.ie.Mouse
 
   x: false
   y: false

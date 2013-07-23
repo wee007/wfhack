@@ -1,4 +1,4 @@
-map.ie_support = Map: class Map extends map.Map
+map.micello.ie = Map: class Map extends map.micello.MapBase
 
   zoomAmount: 1
 
@@ -18,7 +18,7 @@ map.ie_support = Map: class Map extends map.Map
     @levelUI.on('click', -> self.selectLevel($(@).data('level')))
     $('body', document).on('click', '[data-store-id]', -> self.highlight($(@).data('storeId')))
     unless @el.hasClass('map--non-interactive')
-      @mouse = new map.ie_support.Mouse(@levels, @drag)
+      @mouse = new map.micello.ie.Mouse(@levels, @drag)
     @selectLevel(1)
     @highlight(@options.select) if @options.select
 

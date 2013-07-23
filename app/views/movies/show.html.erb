@@ -1,5 +1,5 @@
 <!-- Large image -->
-<%= image_tag ImageService.transform(ref: @movie.image_url, size: "550x550"), alt: @movie.title %>
+<%= image_tag ImageService.transform(ref: @movie.image_url, width: 550, retina: true), alt: @movie.title %>
 
 <!-- movie title -->
 <h1><%= @movie.title %></h1>

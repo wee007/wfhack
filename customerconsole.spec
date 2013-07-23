@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.254
+Version:     0.0.255
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,16 @@ fi
 
 
 %changelog
+* Tue Jul 23 2013 ci <doperations@au.westfield.com> 0.0.255-1
+- Merge pull request #157 from ldewey/WSF-4933 (cpearce@au.westfield.com)
+- Css fixes for social tiles (ldewey@au.westfield.com)
+- Added a wrapper the social shares, for the tiles. (ldewey@au.westfield.com)
+- Event spec fix (ldewey@au.westfield.com)
+- Tile clean up and added socal links (ldewey@au.westfield.com)
+- A start tile socal styles (ldewey@au.westfield.com)
+- Added page titles (ldewey@au.westfield.com)
+- Event specs (ldewey@au.westfield.com)
+
 * Tue Jul 23 2013 ci <doperations@au.westfield.com> 0.0.254-1
 - Merge pull request #155 from mwratt/feature/maps (ldewey@au.westfield.com)
 - extracts micello address api url into own method (matt.wratt@trineo.co.nz)

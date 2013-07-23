@@ -22,9 +22,12 @@ map.micello = Map: class Map extends map.Map
     micello.maps.init(@key, @micelloLoaded)
     @getAddresses()
 
+  micelloAddressApiUrl: ->
+    "http://maps.micello.com/v3_java/meta/geo_address/cid/#{@community}?api_key=#{@key}"
+
   getAddresses: ->
     $.ajax(
-      url: "http://maps.micello.com/v3_java/meta/geo_address/cid/#{@community}?api_key=#{@key}"
+      url: @micelloAddressApiUrl()
       dataType: 'json'
     ).success(@parseAddresses)
 

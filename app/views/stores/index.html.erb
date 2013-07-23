@@ -1,7 +1,7 @@
 <div class="stores-maps container">
   <h1 class="hide-visually">Stores</h1>
 
-  <%# Contain filters, map/listing toggle, listings and map %>
+  <%# Contain filters, map/listing toggle, and listings %>
   <div class="stores-maps__inner">
 
     <%# Filters & listing/map toggle button %>
@@ -31,46 +31,51 @@
         <% @stores.each do |letter, stores| %>
 
           <dt>
-            <div class="container">
-              <%= letter %>
-            </div>
+            <div class="container"><%= letter %></div>
           </dt>
 
           <% stores.each do |store| %>
           <dd data-store-id="<%= store.id %>">
             <div class="container">
 
-              <%# Image %>
-              <div class="stores-list__img stores-list__data-cell">
-                <%#<%= responsive_image_tag normal: store.logo, alt: store.name %>
-                <img src="/assets/dummy/retailer-logo.png">
-                <!-- <img src="http://cs2.wol.io/img_resized/retailer/logos/360baranddining_110x40.gif?allow_404=true"> -->
-              </div>
-              <%# //Image %>
-
               <%# Store name %>
-              <div class="stores-list__store-name stores-list__data-cell">
-                <em><%= link_to store.name, (centre_store_url @centre.code , store.id) %></em>
+              <div class="stores-list__data-cell stores-list__data-cell--store-name">
+                <strong><%= link_to store.name, (centre_store_url @centre.code , store.id) %></strong>
+                <!-- <strong><a href="#">Via Del Corso Pasticceria e Caffé</a></strong> -->
+                <%# Phone no %>
+                <span class="hide-fully--palm"><%= store.phone_number %></span>
+                <%# //Phone no %>
               </div>
               <%# //Store name %>
 
-              <%# Phone no %>
-              <div class="stores-list__phone-no stores-list__data-cell stores-list__data-cell--icon hide-fully--non-palm">
-                <a href="tel:<%= store.phone_number %>">
-                  <span class="hide-visually"><%= store.phone_number %></span>
-                  <span class="icon icon--phone2"></span>
-                </a>
+              <%# Logo %>
+              <div class="stores-list__data-cell stores-list__data-cell--logo hide-fully--palm">
+                <%#<%= responsive_image_tag normal: store.logo, alt: store.name %>
+                <!-- <img src="http://cs3.wol.io/img_resized/retailer/logos/2xu_110x40.gif?allow_404=true"> -->
+                <img src="http://cs2.wol.io/img_resized/retailer/logos/360baranddining_110x40.gif?allow_404=true">
+                <!-- <img src="http://cs2.wol.io/img_resized/retailer/logos/100squared_110x40.gif?allow_404=true"> -->
               </div>
-              <%# //Phone no %>
+              <%# //Logo %>
 
-              <%# Map pin %>
-              <div class="stores-list__map-pin stores-list__data-cell stores-list__data-cell--icon hide-fully--desk">
-                <button type="button" class="btn">
+              <%# Icon links %>
+              <div class="stores-list__data-cell stores-list__data-cell--icons hide-fully--desk">
+
+                <%# Phone no %>
+                <a href="tel:<%= store.phone_number %>" class="stores-list__data-cell__icon stores-list__data-cell__icon--phone hide-fully--non-palm">
+                  <span class="hide-visually"><%= store.phone_number %></span>
+                  <span class="icon icon--phone2 icon--flush-top"></span>
+                </a>
+                <%# //Phone no %>
+
+                <%# Location %>
+                <a href="#infoDiv" class="stores-list__data-cell__icon stores-list__data-cell__icon--location">
                   <span class="hide-visually">View on map</span>
-                  <span class="icon icon--pin"></span>
-                </button>
+                  <span class="icon icon--pin icon--flush-top"></span>
+                </a>
+                <%# //Location %>
+
               </div>
-              <%# //Map pin %>
+              <%# //Icon links %>
 
             </div>
           </dd>
@@ -82,7 +87,7 @@
     <%#//Stores listing %>
 
   </div>
-  <%# //Contain filters, map/listing toggle, listings and map %>
+  <%# //Contain filters, map/listing toggle, and listings %>
 
   <%# Map %>
   <div class="stores-maps__map map-micello js-stores-maps-toggle__map">

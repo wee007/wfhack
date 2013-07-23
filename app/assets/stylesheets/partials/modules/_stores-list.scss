@@ -12,7 +12,7 @@
 
 .stores-list {
   background-color: #fff;
-  @include font-size($font-size-sml);
+  @include font-size($font-size-sml, 1.5);
 
   /* Store A-Z grouping header */
   dt {
@@ -24,54 +24,72 @@
     @include to-rem(padding-top padding-bottom, $spacing-micro);
   }
 
-  /* Stores */
+  /* Store items */
   dd {
     border-top: 1px solid $color-grey-1;
-    position: relative;
 
     /* Inner container */
-    .container {@extend %clear-fix;}
+    .container {position: relative;}
   }
 }
 
-  /* Data cell */
-  .stores-list__data-cell {
-    @include to-rem(padding-top padding-bottom, $spacing-half);
+  /* Shared rules */
+  .stores-list__data-cell,
+  .stores-list__data-cell__icon {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    //background: green;
   }
 
-    /* Logo */
-    .stores-list__img {
-      float: left;
-      @include to-rem(width, 41);
-    }
+  /* Logo */
+  .stores-list__data-cell--logo {
+    left: 0;
+    @include to-rem(padding-top, $spacing-half - 1);
+    @include to-rem(width, 41);
+    @include to-rem(max-width, 82);
+  }
 
-    /* Store name */
-    .stores-list__store-name {
-      float: left;
+  /* Store name */
+  .stores-list__data-cell--store-name {
+    position: static;
+    @include to-rem(margin-right, 110);
+    @include to-rem(padding-top padding-bottom, $spacing-half);
+
+    strong {font-weight: normal;}
 
       a {
         display: block;
         color: $color-dark-txt;
       }
-    }
+  }
 
-    /* Icons - phone & map pin */
-    .stores-list__data-cell--icon {
-      //float: right;
-      position: absolute;
+  /* Icon links - phone & location */
+  .stores-list__data-cell--icons {right: -4.5%;}
+
+    .stores-list__data-cell__icon {
       right: 0;
-      top: 0;
+      border-left: 1px solid $color-grey-1;
       @include to-rem(width, 54);
       text-align: center;
-      border-left: 1px solid $color-grey-1;
 
-      .icon {
+      /* Icons */
+      .icon:before {
+        //@include to-rem(margin-top, 5.5);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        @include translate(-50%, -50%);
         @include font-size(28, 1);
       }
     }
 
-      /* Phone icon */
-      .stores-list__phone-no .icon {color: $color-cta-green;}
+    /* Phone icon */
+    .stores-list__data-cell__icon--phone {
+      @include to-rem(right, 54);
 
-      /* Map pin icon */
-      .stores-list__map-pin .icon {color: $color-brand;}
+      .icon:before {color: $color-cta-green;}
+    }
+
+    /* Location icon */
+    .stores-list__data-cell__icon--location .icon:before {color: $color-brand;}

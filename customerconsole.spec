@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.253
+Version:     0.0.254
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,12 @@ fi
 
 
 %changelog
+* Tue Jul 23 2013 ci <doperations@au.westfield.com> 0.0.254-1
+- Merge pull request #155 from mwratt/feature/maps (ldewey@au.westfield.com)
+- extracts micello address api url into own method (matt.wratt@trineo.co.nz)
+- Display the movie classification (craigm.smith@au.westfield.com)
+- refactor and split up javascript for maps (matt.wratt@trineo.co.nz)
+
 * Tue Jul 23 2013 ci <doperations@au.westfield.com> 0.0.253-1
 - Merge pull request #146 from ldewey/apache_modules (ldewey@au.westfield.com)
 - More apache rules/config (ldewey@au.westfield.com)

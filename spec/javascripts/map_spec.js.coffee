@@ -1,8 +1,12 @@
-describe "Map", ->
+describe "map.micello.Map", ->
 
   beforeEach ->
-    window.micello = maps: jasmine.createSpyObj('map', ['init'])
-    @subject = new Map
+    window.micello = maps: jasmine.createSpyObj('map', ['init', 'MapControl'])
+    micello.maps.MapControl.andReturn jasmine.createSpyObj('MapControl', ['getMapData', 'getMapCanvas', 'getMapGUI'])
+    micello.maps.MapControl().getMapCanvas.andReturn jasmine.createSpyObj('MapCanvas', ['createPopup', 'setThemeFamily', 'setOverrideTheme'])
+    micello.maps.MapControl().getMapGUI.andReturn {}
+    micello.maps.MapControl().getMapData.andReturn jasmine.createSpyObj('MapData', ['loadCommunity'])
+    @subject = new map.micello.Map
 
   afterEach ->
     delete micello
@@ -18,32 +22,27 @@ describe "Map", ->
   describe "#init", ->
 
     beforeEach ->
-      @temp = jQuery
+      @tempJQuery = jQuery
       jQuery = null
-      @subject.initMap = jasmine.createSpy('initMap')
-      @subject.attachListeners = jasmine.createSpy('attachListeners')
-      @subject.init()
+      @tempInit = map.micello.Map.prototype.init
+      @initSpy = jasmine.createSpy('init')
+      map.micello.Map.prototype.init = @initSpy
+      @subject = new map.micello.Map
 
     afterEach ->
       delete westfield
       jQuery = @temp
+      map.micello.Map.prototype.init = @tempInit
 
-    it 'calls initMap once the westfield object is defined', ->
-      window.westfield = {}
+    it 'calls init once ready', ->
+      window.westfield = {stores: [], centre: micello_community: 7297}
+      jQuery = {}
+      @subject.micelloLoaded()
       waitsFor((->
-        !!@subject.initMap.callCount
+        !!@initSpy.callCount
       ), 'initMap to be called', 500)
       runs(->
-        expect(@subject.initMap).toHaveBeenCalled()
-      )
-
-    it 'calls attachListeners', ->
-      jQuery = {}
-      waitsFor((->
-        !!@subject.attachListeners.callCount
-      ), 'attachListeners to be called', 500)
-      runs(->
-        expect(@subject.attachListeners).toHaveBeenCalled()
+        expect(@initSpy).toHaveBeenCalled()
       )
 
   describe "#applyCustomTheme", ->

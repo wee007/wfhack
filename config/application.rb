@@ -22,8 +22,8 @@ module CustomerConsole
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
 
-    config.assets.precompile += %w( old-ie.css vendor/modernizr.min.js map.js
-      init/enquire.js enquire/dist/enquire.js flexslider/jquery.flexslider.js
+    config.assets.precompile += %w( old-ie.css vendor/modernizr.min.js map/ie_support.js
+      map/micello.js init/enquire.js enquire/dist/enquire.js flexslider/jquery.flexslider.js
       flexslider/flexslider.css html5shiv/src/html5shiv-printshiv.js)
 
     if Rails.env.development?

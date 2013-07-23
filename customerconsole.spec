@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.255
+Version:     0.0.256
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,14 @@ fi
 
 
 %changelog
+* Tue Jul 23 2013 ci <doperations@au.westfield.com> 0.0.256-1
+- Merge pull request #160 from ldewey/WSF-4933 (matt.wratt@trineo.co.nz)
+- Added in commented deal fields (ldewey@au.westfield.com)
+- Merge pull request #159 from mwratt/feature/maps (ldewey@au.westfield.com)
+- adds missing floor (no image currently) (matt.wratt@trineo.co.nz)
+- renames ie map stylesheet to match convention (matt.wratt@trineo.co.nz)
+- restuctures map namespace for better understanding (matt.wratt@trineo.co.nz)
+
 * Tue Jul 23 2013 ci <doperations@au.westfield.com> 0.0.255-1
 - Merge pull request #157 from ldewey/WSF-4933 (cpearce@au.westfield.com)
 - Css fixes for social tiles (ldewey@au.westfield.com)

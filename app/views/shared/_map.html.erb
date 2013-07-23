@@ -5,18 +5,18 @@
       <div class="zoom__out">-</div>
     </div>
     <div class="level-select">
-      <% (1...@centre.number_of_levels).to_a.reverse.each do |level| %>
+      <% (1..@centre.number_of_levels).to_a.reverse.each do |level| %>
         <div class="level-select__level" data-level="<%= level %>"><%= level %></div>
       <% end %>
     </div>
     <div class="container">
-      <% (1...@centre.number_of_levels).each do |level| %>
+      <% (1..@centre.number_of_levels).each do |level| %>
         <img class="hidden" data-level="<%= level %>" src="<%= image_path("centre/#{@centre.micello_community}_#{level}.png") %>"/>
       <% end %>
     </div>
-    <%= javascript_include_tag 'map/ie_support' %>
+    <%= javascript_include_tag 'map/micello_ie' %>
     <%= javascript_tag do %>
-      new map.ie_support.Map({select: <%= store_id || 'null' %>})
+      new map.micello.ie.Map({select: <%= store_id || 'null' %>})
     <% end %>
   </div>
 <![endif]-->

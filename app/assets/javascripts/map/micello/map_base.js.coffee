@@ -1,11 +1,11 @@
-window.map = Map: class Map
+window.map = micello: MapBase: class MapBase
 
   _waitFor:
     westfield: -> !!window.westfield
     jquery: -> !!window.jQuery
 
   constructor: (@options) ->
-    @index = new map.GeomIndex()
+    @index = new map.micello.GeomIndex()
     awaitAll(@_waitFor, @init)
 
   init: =>

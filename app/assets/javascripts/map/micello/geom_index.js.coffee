@@ -1,4 +1,4 @@
-class map.GeomIndex
+class map.micello.GeomIndex
 
   constructor: ->
     @gid = {}

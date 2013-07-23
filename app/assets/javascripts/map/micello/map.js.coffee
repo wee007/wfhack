@@ -1,4 +1,4 @@
-map.micello = Map: class Map extends map.Map
+class map.micello.Map extends map.micello.MapBase
 
   key: '458dc5a4-547f-4fb7-a760-575d8176f70b'
   themeFamily: 'Standard'

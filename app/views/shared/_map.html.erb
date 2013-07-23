@@ -14,10 +14,6 @@
         <img class="hidden" data-level="<%= level %>" src="<%= image_path("centre/#{@centre.micello_community}_#{level}.png") %>"/>
       <% end %>
     </div>
-    <%= javascript_include_tag 'map/micello_ie' %>
-    <%= javascript_tag do %>
-      new map.micello.ie.Map({select: <%= store_id || 'null' %>})
-    <% end %>
   </div>
 <![endif]-->
 <!--[if gt IE 8]><!-->
@@ -30,9 +26,27 @@
       <%= render partial: 'shared/map_popups/non_interactive' %>
     <% end %>
   </div>
-	<%= javascript_include_tag 'http://maps.micello.com/webmap/v0/micellomap.js' %>
-	<%= javascript_include_tag 'map/micello' %>
-	<%= javascript_tag do %>
-	  new map.micello.Map({select: <%= store_id || 'null' %>})
-	<% end %>
 <!--<![endif]-->
+<% content_for :javascript do %>
+  <%= javascript_tag do %>
+    (function initMaps() {
+
+      function supported() {
+        return !$('#map').hasClass('map--ie-support');
+      }
+
+      function createMap() {
+        var Map = supported() ? map.micello.Map : map.micello.ie.Map;
+        new Map({select: <%= store_id || 'null' %>});
+      }
+
+      Modernizr.load([{
+        test: supported(),
+        yep: ['http://maps.micello.com/webmap/v0/micellomap.js', '/assets/map/micello.js'],
+        nope: '/assets/map/micello_ie.js',
+        complete: createMap
+      }]);
+
+    }());
+  <% end %>
+<% end %>

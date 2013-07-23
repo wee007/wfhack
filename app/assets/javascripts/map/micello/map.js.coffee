@@ -17,10 +17,9 @@ class map.micello.Map extends map.micello.MapBase
         m: '#dbd9d7'
 
   constructor: (@options) ->
-    @_waitFor.micello = => @_micelloLoaded
     super
-    micello.maps.init(@key, @micelloLoaded)
     @getAddresses()
+    micello.maps.init(@key, @init)
 
   micelloAddressApiUrl: ->
     "http://maps.micello.com/v3_java/meta/geo_address/cid/#{@community}?api_key=#{@key}"
@@ -35,12 +34,7 @@ class map.micello.Map extends map.micello.MapBase
     return unless data.cid == @community
     @index.addAddresses(data.g)
 
-
-  micelloLoaded: =>
-    @_micelloLoaded = true
-
   init: =>
-    super
     @initMap()
     @attachEventListeners()
 

@@ -3,7 +3,7 @@
 <div id="pin-board" class="pin-board">
 
 	<%- @events.each do |event| -%>
-	  <%= render partial: "shared/tiles/event", locals: {result: event} %>
+	  <%= render partial: "shared/tiles/event", layout: '/layouts/tile', locals: {result: event} %>
 	<%- end -%>
 
 </div>

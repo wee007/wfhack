@@ -11,6 +11,7 @@ class CentresController < ApplicationController
   def show
     stream
     render_404 unless @centre
+    @page_title = @centre.short_name
   end
 
   def product_stream

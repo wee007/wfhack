@@ -1,5 +1,10 @@
 class Deal < OpenStruct
 
+  # TODO: remove this
+  def title
+    super || name
+  end
+
   def retailer_logo_url
     store._links.logo.href
   end
@@ -20,6 +25,18 @@ class Deal < OpenStruct
 
   def available_to
     DateTime.parse(super)
+  end
+
+  def to_param
+    id
+  end
+
+  def kind
+    self.class.name.downcase
+  end
+
+  def meta
+    {title: title}
   end
 
 private

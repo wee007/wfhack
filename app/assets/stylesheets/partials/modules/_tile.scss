@@ -14,10 +14,9 @@
 */
 
 .tile {
-  display: block;
+  position: relative;
   color: $color-base-txt;
   width: 48%; /* Show 2 tiles by default */
-    background-color: red;
 
   @include font-size($font-size-sml);
   @include to-rem(margin-bottom, $spacing-half);
@@ -35,6 +34,29 @@
   /* Global styles */
   p { margin-bottom: 0; }
 
+}
+
+.tile__controls {
+  display: none;
+  position: absolute;
+  @include to-rem(top right, $spacing-quarter);
+
+  .controls__btn {
+    @include to-rem(width, $spacing-base* 2);
+    @include to-rem(height, $spacing-base* 2);
+    border: 1px solid rgba(#000, 0.15);
+    border-radius: 2px;
+    background-color: #fff;
+
+    &.is-active {
+      border-bottom-right-radius:0;
+      border-bottom-left-radius:0;
+    }
+  }
+
+  .tile:hover & {
+    display: block;
+  }
 }
 
 .tile__image {

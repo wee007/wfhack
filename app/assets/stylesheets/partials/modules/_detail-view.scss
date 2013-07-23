@@ -197,7 +197,7 @@
       }
 
         /* Buttons */
-        .detail-view__controls__btn {
+        .controls__btn {
           display: inline-block;
           width: 100%;
           @include to-rem(padding, 12 $spacing-base+$spacing-half 11);

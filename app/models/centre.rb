@@ -8,4 +8,9 @@ class Centre < Hashie::Mash
       nil
     end
   end
+
+  def to_param
+    code
+  end
+
 end

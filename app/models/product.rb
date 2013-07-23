@@ -19,6 +19,18 @@ class Product < Hashie::Mash
     end.compact.uniq
   end
 
+  def primary_image
+    _links ? _links[:image][:href] : images.first
+  end
+
+  def kind
+    self.class.name.downcase
+  end
+
+  def meta
+    {title: name, image: primary_image}
+  end
+
 private
   def resized_url(url, width: 469, height: 474)
     url.sub("[WIDTH]x[HEIGHT]", "#{width}x#{height}")

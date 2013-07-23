@@ -3,11 +3,12 @@ class StreamService
     include ApiClientRequests
     def build(response)
       body = response.is_a?(Faraday::Response) ? response.body : response
-      if body.is_a? Hash
-        body['stream']
-      else
-        []
-      end
+      stream = body.is_a?(Hash) ? body['stream'] : []
+      stream.map do |result|
+        if defined?(result[:type].titleize.constantize)
+          result[:type].titleize.constantize.new result
+        end
+      end.flatten
     end
 
     def request_uri(options={})

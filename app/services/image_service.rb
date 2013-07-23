@@ -23,7 +23,8 @@ class ImageService
       if options.delete(:retina)
         options[:height] = options[:height].to_i * 2 if options[:height]
         options[:width] = options[:width].to_i * 2 if options[:width]
-        options[:quality] ||= 25
+        # TODO: Get image service accpet quality
+        # options[:quality] ||= 25
       end
     end
 

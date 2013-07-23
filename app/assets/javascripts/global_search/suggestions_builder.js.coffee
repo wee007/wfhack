@@ -16,6 +16,25 @@
           sentence += " #{conjunction} "
       sentence
 
+    @urlParams = (result) ->
+      colours = []
+      retailers = []
+      angular.forEach result['colour'], (colour)->
+        colours.push(colour['value']) unless colour['value'] in colours
+      angular.forEach result['retailer'], (retailer)->
+        retailers.push(retailer['value']) unless retailer['value'] in retailers
+      {colour: colours, retailer: retailers}
+
+    @queryString = (result) ->
+      qs=""
+      angular.forEach @urlParams(result), (vs,k) ->
+        angular.forEach vs, (v)->
+          if qs.length == 0
+            qs += "?#{k}[]=#{v}"
+          else
+            qs += "&#{k}[]=#{v}"
+      qs
+
     self = this
     @didYouMean = (searchResults)->
       results = []
@@ -34,6 +53,7 @@
           description += ' from '
           description += self.to_sentence result['retailer'], 'display'
         result['description'] = description.trim()
+        result['queryString'] = self.queryString(result)
         results.push result
       results
 

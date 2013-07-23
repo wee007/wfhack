@@ -51,19 +51,13 @@
     &.is-active {
       border-bottom-right-radius:0;
       border-bottom-left-radius:0;
-      background-color: $color-med-txt;
-      color: #fff;
     }
   }
-}
 
-.tile:hover {
-  .tile__controls {
+  .tile:hover & {
     display: block;
   }
 }
-
-
 
 .tile__image {
   img {

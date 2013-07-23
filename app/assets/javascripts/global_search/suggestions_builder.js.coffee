@@ -2,14 +2,17 @@
   app.service "SuggestionsBuilder", ->
     @to_sentence = (items, key=nil, conjunction = 'or') ->
       sentence = ''
-      angular.forEach items, (item, ind)->
+      unique = []
+      angular.forEach items, (item)->
         if key
-          sentence += item[key]
+          unique.push(item[key]) unless item[key] in unique
         else
-          sentence += item
-        if ind < items.length - 2
+          unique.push(item) unless item in unique
+      angular.forEach unique, (item, ind)->
+        sentence += item
+        if ind < unique.length - 2
           sentence += ', '
-        else if ind < items.length - 1
+        else if ind < unique.length - 1
           sentence += " #{conjunction} "
       sentence
 

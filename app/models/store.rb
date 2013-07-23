@@ -9,8 +9,9 @@ class Store < Hashie::Mash
     end
   end
 
-  def logo
-    _links.logo.href
+  def logo(options = {})
+    options.merge!({url: _links.logo.href})
+    ImageService.transform options
   end
 
   def store_front_image_url

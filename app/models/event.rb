@@ -17,8 +17,9 @@ class Event < Hashie::Mash
     (super || '').split(/\r?\n/).collect &:strip
   end
 
-  def image(size = '400x400')
-    ImageService.transform ref: image_ref, size: size
+  def image(options = {})
+    options.merge!({width: 400, ref: image_ref})
+    ImageService.transform options
   end
 
   def to_param

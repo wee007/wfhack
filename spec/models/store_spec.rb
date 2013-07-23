@@ -37,7 +37,8 @@ describe Store do
     subject { Store.new store_attrs }
 
     it 'returns the contents of _links.logo.href' do
-      subject.logo.should == logo
+      ImageService.should_receive(:transform).with(url: logo).and_return('transformed_image')
+      subject.logo.should eql('transformed_image')
     end
 
   end

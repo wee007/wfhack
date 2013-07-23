@@ -20,17 +20,6 @@ module ApplicationHelper
     @page_image || ''
   end
 
-  def responsive_image_tag(options = {})
-    src = options.delete(:placeholder) || default_placeholder_image
-    options[:data] = { :src => options.delete(:normal) }
-    if options.has_key? :retina
-      options[:data][:'src-retina'] = options.delete(:retina)
-    end
-    image_tag(src, options) + content_tag(:noscript) do
-      image_tag options[:data][:src]
-    end
-  end
-
   def default_placeholder_image
     asset_path 'placeholder.png'
   end

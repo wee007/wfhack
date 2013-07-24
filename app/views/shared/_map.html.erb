@@ -38,8 +38,8 @@
 
       Modernizr.load([{
         test: supported(),
-        yep: ['http://maps.micello.com/webmap/v0/micellomap.js', '/assets/map/micello.js'],
-        nope: '/assets/map/micello_ie.js',
+        yep: ['http://maps.micello.com/webmap/v0/micellomap.js', '<%= asset_path 'map/micello.js' %>'],
+        nope: '<%= asset_path 'map/micello_ie.js' %>',
         complete: createMap
       }]);
 

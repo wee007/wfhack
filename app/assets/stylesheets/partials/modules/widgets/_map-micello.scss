@@ -211,7 +211,9 @@
           }
 
       /* --Floor levels-- */
-      #ui-levels {}
+      #ui-levels {
+        #ui-levels-floors-container {background-color: transparent;}
+      }
 
       /* Cosmetics */
       .micello-rounded {border-radius: 0;}

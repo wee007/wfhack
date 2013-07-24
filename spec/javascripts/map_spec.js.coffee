@@ -1,6 +1,7 @@
 describe "map.micello.Map", ->
 
   beforeEach ->
+    window.westfield = {stores: [], centre: micello_community: 7297}
     window.micello = maps: jasmine.createSpyObj('map', ['init', 'MapControl'])
     micello.maps.MapControl.andReturn jasmine.createSpyObj('MapControl', ['getMapData', 'getMapCanvas', 'getMapGUI'])
     micello.maps.MapControl().getMapCanvas.andReturn jasmine.createSpyObj('MapCanvas', ['createPopup', 'setThemeFamily', 'setOverrideTheme'])
@@ -10,6 +11,7 @@ describe "map.micello.Map", ->
 
   afterEach ->
     delete micello
+    delete westfield
 
   describe "#constructor", ->
 
@@ -18,32 +20,6 @@ describe "map.micello.Map", ->
 
     it 'creates an index', ->
       expect(@subject.index).toBeDefined()
-
-  describe "#init", ->
-
-    beforeEach ->
-      @tempJQuery = jQuery
-      jQuery = null
-      @tempInit = map.micello.Map.prototype.init
-      @initSpy = jasmine.createSpy('init')
-      map.micello.Map.prototype.init = @initSpy
-      @subject = new map.micello.Map
-
-    afterEach ->
-      delete westfield
-      jQuery = @temp
-      map.micello.Map.prototype.init = @tempInit
-
-    it 'calls init once ready', ->
-      window.westfield = {stores: [], centre: micello_community: 7297}
-      jQuery = {}
-      @subject.micelloLoaded()
-      waitsFor((->
-        !!@initSpy.callCount
-      ), 'initMap to be called', 500)
-      runs(->
-        expect(@initSpy).toHaveBeenCalled()
-      )
 
   describe "#applyCustomTheme", ->
 

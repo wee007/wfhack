@@ -2,7 +2,7 @@ map.micello.ie = Map: class Map extends map.micello.MapBase
 
   zoomAmount: 1
 
-  init: =>
+  constructor: (@options) ->
     super
     @el = $('#map')
     @zoomUI = @el.find('.zoom')

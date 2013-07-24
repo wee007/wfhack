@@ -28,7 +28,7 @@ class Product < Hashie::Mash
   end
 
   def meta
-    {title: name, image: primary_image}
+    Hashie::Mash.new title: name, image: primary_image
   end
 
 private

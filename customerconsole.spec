@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.263
+Version:     0.0.264
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,11 @@ fi
 
 
 %changelog
+* Wed Jul 24 2013 ci <doperations@au.westfield.com> 0.0.264-1
+- uses asset_path becuase filenames change in prod (matt.wratt@trineo.co.nz)
+- Merge pull request #168 from ldewey/WSF-4933 (ldewey@au.westfield.com)
+- Tile/socal share z-index fix (ldewey@au.westfield.com)
+
 * Wed Jul 24 2013 ci <doperations@au.westfield.com> 0.0.263-1
 - Touch device fix for social shares (ldewey@au.westfield.com)
 

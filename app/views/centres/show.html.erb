@@ -23,13 +23,8 @@
   <%- @stream.each do |result| -%>
     <%= render partial: "/shared/tiles/#{result.kind}",
         layout: '/layouts/tile',
-        locals: {
-          result: result,
-          url: (result.kind == 'product' ? centre_product_path(@centre, retailer_code: result.retailer_code, sku: result.sku) : nil)
-        }
+        locals: { result: result }
     %>
   <%- end -%>
 
 </div>
-
-

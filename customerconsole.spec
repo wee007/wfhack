@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.266
+Version:     0.0.267
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,9 @@ fi
 
 
 %changelog
+* Thu Jul 25 2013 ci <doperations@au.westfield.com> 0.0.267-1
+- fixes white stip on micello map level selector (matt.wratt@trineo.co.nz)
+
 * Thu Jul 25 2013 ci <doperations@au.westfield.com> 0.0.266-1
 - The tiles will now pass the right link to the social shares.
   (ldewey@au.westfield.com)

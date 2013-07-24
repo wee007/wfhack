@@ -1,13 +1,13 @@
 module TileHelper
 
-  def tile_path(centre, result)
+  def tile_url(centre, result)
     case result.kind.to_s
     when 'product'
-      centre_product_path(centre, retailer_code: result.retailer_code, sku: result.sku)
+      centre_product_url(centre, retailer_code: result.retailer_code, sku: result.sku)
     when 'event'
-      centre_event_path(centre, result)
+      centre_event_url(centre, result)
     when 'deal'
-      centre_deal_path(centre, result)
+      centre_deal_url(centre, result)
     end
   end
 

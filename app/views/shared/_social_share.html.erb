@@ -12,33 +12,33 @@
 
     <!-- Facebook -->
     <li class="social-share__facebook">
-      <a href="http://www.facebook.com/sharer/sharer.php?u=<%=URI::encode current_url %>&t=<%=URI::encode title %>" rel="external" target="_blank"><span class="icon icon--facebook icon--xlrg icon--flush-top" aria-hidden="true"></span><span class="hide-visually"> Facebook</span></a>
+      <a href="http://www.facebook.com/sharer/sharer.php?u=<%=URI::encode url %>&t=<%=URI::encode title %>" rel="external" target="_blank"><span class="icon icon--facebook icon--xlrg icon--flush-top" aria-hidden="true"></span><span class="hide-visually"> Facebook</span></a>
     </li>
     <!-- //Facebook -->
 
     <!-- Twitter -->
     <li class="social-share__twitter">
-      <a href="http://twitter.com/intent/tweet?url=<%=URI::encode current_url %>&text=<%=URI::encode title %>" rel="external" target="_blank"><span class="icon icon--twitter icon--xlrg icon--flush-top" aria-hidden="true"></span><span class="hide-visually"> Twitter</span></a>
+      <a href="http://twitter.com/intent/tweet?url=<%=URI::encode url %>&text=<%=URI::encode title %>" rel="external" target="_blank"><span class="icon icon--twitter icon--xlrg icon--flush-top" aria-hidden="true"></span><span class="hide-visually"> Twitter</span></a>
     </li>
     <!-- //Twitter -->
 
     <!-- Google+ -->
     <li class="social-share__google">
-      <a href="https://plus.google.com/share?url=<%=URI::encode current_url %>" rel="external" target="_blank"><span class="icon icon--google-plus icon--xlrg icon--flush-top" aria-hidden="true"></span><span class="hide-visually"> Google+</span></a>
+      <a href="https://plus.google.com/share?url=<%=URI::encode url %>" rel="external" target="_blank"><span class="icon icon--google-plus icon--xlrg icon--flush-top" aria-hidden="true"></span><span class="hide-visually"> Google+</span></a>
     </li>
     <!-- //Google+ -->
 
-    <% if defined?(image) %>
+    <% if defined?(image) && !image.nil? %>
       <!-- Pinterest -->
       <li class="social-share__pinterest">
-        <a href="http://pinterest.com/pin/create/button/?url=<%=URI::encode current_url %>&media=<%=URI::encode image %>&description=<%=URI::encode title %>" rel="external" target="_blank"><span class="icon icon--pinterest icon--xlrg icon--flush-top" aria-hidden="true"></span><span class="hide-visually"> Pinterest</span></a>
+        <a href="http://pinterest.com/pin/create/button/?url=<%=URI::encode url %>&media=<%=URI::encode image %>&description=<%=URI::encode title %>" rel="external" target="_blank"><span class="icon icon--pinterest icon--xlrg icon--flush-top" aria-hidden="true"></span><span class="hide-visually"> Pinterest</span></a>
       </li>
       <!-- //Pinterest -->
     <% end -%>
 
     <!-- Email -->
     <li class="social-share__email">
-      <a href="mailto:?subject=<%=URI::encode title %>&amp;body=Please%20enter%20a%20personal%20message%20to%20yourself%20or%20a%20friend%20%0A%20%0A<%=URI::encode current_url %>%20%0A%20%0APlease%20notify%20the%20sender%20of%20this%20message%20if%20you%20do%20not%20want%20to%20receive%20further%20emails%20of%20this%20nature%20in%20future."><span class="icon icon--email icon--xlrg icon--flush-top" aria-hidden="true"></span><span class="hide-visually"> Email</span></a>
+      <a href="mailto:?subject=<%=URI::encode title %>&amp;body=Please%20enter%20a%20personal%20message%20to%20yourself%20or%20a%20friend%20%0A%20%0A<%=URI::encode url %>%20%0A%20%0APlease%20notify%20the%20sender%20of%20this%20message%20if%20you%20do%20not%20want%20to%20receive%20further%20emails%20of%20this%20nature%20in%20future."><span class="icon icon--email icon--xlrg icon--flush-top" aria-hidden="true"></span><span class="hide-visually"> Email</span></a>
     </li>
     <!-- //Email -->
 

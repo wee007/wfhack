@@ -18,7 +18,7 @@ class Event < Hashie::Mash
   end
 
   def image(options = {})
-    options.merge!({width: 400, ref: image_ref})
+    options = {width: 400, ref: image_ref}.merge(options)
     ImageService.transform options
   end
 

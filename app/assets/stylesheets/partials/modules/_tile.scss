@@ -54,7 +54,8 @@
     }
   }
 
-  .tile:hover & {
+  /* Only show on non-touch devices as they dont have hover */
+  .no-touch .tile:hover & {
     display: block;
   }
 }

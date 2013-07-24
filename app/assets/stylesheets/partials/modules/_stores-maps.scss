@@ -43,6 +43,11 @@
         position: relative;
         @include to-rem(padding-top padding-bottom, $spacing-half);
 
+        /* Increase padding at this breakpoint */
+        @include respond-min($non-palm) {
+          @include to-rem(padding-top padding-bottom, $spacing-half+$spacing-quarter);
+        }
+
         /* Turn off `.container` at this breakpoint */
         @include respond-min($desk) {
           width: auto;
@@ -64,9 +69,7 @@
 
       /* Toggle button */
       .stores-maps__toggle {
-        position: absolute;
-        right: 0;
-        @include to-rem(top, $spacing-half);
+        float: right;
 
         /* Reveal button text at this breakpoint */
         @include respond-min($non-palm) {
@@ -80,7 +83,14 @@
         border-top: 1px solid $color-grey-1;
 
         /* Inner container */
-        .container {@include to-rem(padding-top padding-bottom, $spacing-micro);}
+        .container {
+          @include to-rem(padding-top padding-bottom, $spacing-micro);
+
+          /* Increase padding at this breakpoint */
+          @include respond-min($non-palm) {
+            @include to-rem(padding-top padding-bottom, $spacing-sixth);
+          }
+        }
 
           /* Icon */
           .icon:before {margin-left: -4px;}

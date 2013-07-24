@@ -15,6 +15,11 @@
   @include font-size($font-size-sml, 1.5);
   overflow: hidden;
 
+  /* Increase font size at this breakpoint */
+  @include respond-min($non-palm) {
+    @include font-size($font-size);
+  }
+
   /* Store A-Z grouping header */
   dt {
     background-color: $color-off-white;
@@ -23,6 +28,11 @@
     text-transform: uppercase;
     border-top: 1px solid $color-grey-1;
     @include to-rem(padding-top padding-bottom, $spacing-micro);
+
+    /* Increase padding at this breakpoint */
+    @include respond-min($non-palm) {
+      @include to-rem(padding-top padding-bottom, $spacing-quarter);
+    }
   }
 
   /* Store items */
@@ -34,34 +44,68 @@
   }
 }
 
-  /* Shared rules */
+  /* --Shared rules-- */
+
+  /* Data cells */
   .stores-list__data-cell,
   .stores-list__data-cell__icon {
     position: absolute;
     top: 0;
     height: 100%;
+    //background: salmon;
   }
 
-  /* Logo */
-  .stores-list__data-cell--logo {
-    left: 0;
-    @include to-rem(padding-top, $spacing-half - 1);
-    @include to-rem(width, 41);
-    @include to-rem(max-width, 82);
+  /* Vertically align */
+  .stores-list__data-cell--logo img,
+  .stores-list__data-cell__icon .icon:before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    @include translate(-50%, -50%);
+
+    /* Old IE */
+    @include old-ie {
+      position: static;
+      @include to-rem(margin-top, $spacing-base+$spacing-micro);
+    }
   }
 
   /* Store name */
   .stores-list__data-cell--store-name {
     position: static;
-    @include to-rem(margin-right, 110);
+    @include to-rem(margin-right, 116);
     @include to-rem(padding-top padding-bottom, $spacing-half);
 
-    strong {font-weight: normal;}
+    /* Adjust spacing and padding at this breakpoint */
+    @include respond-min($non-palm) {
+      @include to-rem(margin-left, 132);
+      @include to-rem(margin-right, 70);
+      @include to-rem(padding-top padding-bottom, $spacing-base+$spacing-micro);
+    }
 
-      a {
-        display: block;
-        color: $color-dark-txt;
+    strong {
+      font-weight: normal;
+      display: block;
+
+      /* Restore bold at this breakpoint */
+      @include respond-min($non-palm) {
+        font-weight: bold;
       }
+    }
+
+      a {color: $color-dark-txt;}
+
+    /* Phone no at non-palm */
+    span {
+      color: $color-light-txt;
+      @include font-size($font-size-sml, 1.5);
+    }
+  }
+
+  /* Logo */
+  .stores-list__data-cell--logo {
+    left: 0;
+    @include to-rem(width, 82);
   }
 
   /* Icon links - phone & location */
@@ -73,13 +117,19 @@
       @include to-rem(width, 54);
       text-align: center;
 
+      /* Increase width at this breakpoint */
+      @include respond-min($non-palm) {
+        @include to-rem(width, 68);
+      }
+
       /* Icons */
       .icon:before {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        @include translate(-50%, -50%);
         @include font-size(28, 1);
+
+        /* Increase icon size at this breakpoint */
+        @include respond-min($non-palm) {
+          @include font-size(34, 1);
+        }
       }
     }
 

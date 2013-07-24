@@ -13,6 +13,7 @@
 .stores-list {
   background-color: #fff;
   @include font-size($font-size-sml, 1.5);
+  overflow: hidden;
 
   /* Store A-Z grouping header */
   dt {
@@ -39,7 +40,6 @@
     position: absolute;
     top: 0;
     height: 100%;
-    //background: green;
   }
 
   /* Logo */
@@ -75,7 +75,6 @@
 
       /* Icons */
       .icon:before {
-        //@include to-rem(margin-top, 5.5);
         position: absolute;
         top: 50%;
         left: 50%;

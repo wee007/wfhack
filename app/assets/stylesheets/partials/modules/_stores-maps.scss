@@ -10,16 +10,19 @@
 		Style Guide -> Modules -> Stores / Maps
 */
 
-/* Turn off .container
-.stores-maps__list-detail {
-  width: auto;
-  max-width: none;
-} */
-
 .stores-maps {
   position: relative;
   z-index: 2;
   height: 100%;
+
+  /* --Global rules-- */
+  p {margin-bottom: 0;}
+
+  /* Location icon */
+  .icon--pin:before {
+    color: $color-brand;
+    @include font-size(28, 1);
+  }
 }
 
   /* Listing and detail views container */
@@ -31,11 +34,14 @@
     /* Filters / toggle */
     .stores-maps__filters-toggle {
       background-color: $color-grey-3;
-      @include to-rem(padding-top padding-bottom, $spacing-half);
+
+      /* When map view is in view */
+      .is-map-view & {background: none;}
 
       /* Inner container */
       .container {
         position: relative;
+        @include to-rem(padding-top padding-bottom, $spacing-half);
 
         /* Turn off `.container` at this breakpoint */
         @include respond-min($desk) {
@@ -50,6 +56,9 @@
           @include respond-max($lap-end) {
             @include hide-visually;
           }
+
+          /* When map view is in view */
+          .is-map-view & {display: none;}
         }
     }
 
@@ -57,7 +66,7 @@
       .stores-maps__toggle {
         position: absolute;
         right: 0;
-        top: 0;
+        @include to-rem(top, $spacing-half);
 
         /* Reveal button text at this breakpoint */
         @include respond-min($non-palm) {
@@ -65,8 +74,27 @@
         }
       }
 
+      /* Post filter count */
+      .stores-maps__filters-count {
+        @include font-size($font-size-sml, 1.5);
+        border-top: 1px solid $color-grey-1;
+
+        /* Inner container */
+        .container {@include to-rem(padding-top padding-bottom, $spacing-micro);}
+
+          /* Icon */
+          .icon:before {margin-left: -4px;}
+      }
+
+    /* Listing */
+    .stores-maps__listing {}
+
   /* Micello map */
   .stores-maps__map {
-    position: relative;
+    position: absolute;
     z-index: 3;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
   }

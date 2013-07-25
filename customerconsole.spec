@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.267
+Version:     0.0.268
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,9 @@ fi
 
 
 %changelog
+* Thu Jul 25 2013 ci <doperations@au.westfield.com> 0.0.268-1
+- Added save button back in. (ldewey@au.westfield.com)
+
 * Thu Jul 25 2013 ci <doperations@au.westfield.com> 0.0.267-1
 - fixes white stip on micello map level selector (matt.wratt@trineo.co.nz)
 

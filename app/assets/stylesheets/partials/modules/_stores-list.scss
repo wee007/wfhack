@@ -13,7 +13,6 @@
 .stores-list {
   background-color: #fff;
   @include font-size($font-size-sml, 1.5);
-  overflow: hidden;
 
   /* Increase font size at this breakpoint */
   @include respond-min($non-palm) {
@@ -24,7 +23,6 @@
   dt {
     background-color: $color-off-white;
     font-weight: normal;
-    color: $color-light-txt;
     text-transform: uppercase;
     border-top: 1px solid $color-grey-1;
     @include to-rem(padding-top padding-bottom, $spacing-micro);
@@ -40,7 +38,7 @@
     border-top: 1px solid $color-grey-1;
 
     /* Inner container */
-    .container {position: relative;}
+    .stores-list__inner {position: relative;}
   }
 }
 
@@ -52,27 +50,11 @@
     position: absolute;
     top: 0;
     height: 100%;
-    //background: salmon;
-  }
-
-  /* Vertically align */
-  .stores-list__data-cell--logo img,
-  .stores-list__data-cell__icon .icon:before {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    @include translate(-50%, -50%);
-
-    /* Old IE */
-    @include old-ie {
-      position: static;
-      @include to-rem(margin-top, $spacing-base+$spacing-micro);
-    }
   }
 
   /* Store name */
   .stores-list__data-cell--store-name {
-    position: static;
+    position: relative;
     @include to-rem(margin-right, 116);
     @include to-rem(padding-top padding-bottom, $spacing-half);
 
@@ -105,11 +87,13 @@
   /* Logo */
   .stores-list__data-cell--logo {
     left: 0;
-    @include to-rem(width, 82);
+    @include to-rem(width, 84);
+
+    img {width: 100%;}
   }
 
   /* Icon links - phone & location */
-  .stores-list__data-cell--icons {right: -4.5%;}
+  .stores-list__data-cell--icons {right: -4%;}
 
     .stores-list__data-cell__icon {
       right: 0;
@@ -117,13 +101,29 @@
       @include to-rem(width, 54);
       text-align: center;
 
-      /* Increase width at this breakpoint */
+      /* Increase width at these breakpoints */
       @include respond-min($non-palm) {
         @include to-rem(width, 68);
       }
 
+      @include respond-min($ipad-portrait) {
+        @include to-rem(width, 74);
+      }
+
+      @include respond-min(840) {
+        @include to-rem(width, 79);
+      }
+
+      @include respond-min(930) {
+        @include to-rem(width, 84);
+      }
+
       /* Icons */
       .icon:before {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        @include translate(-50%, -50%);
         @include font-size(28, 1);
 
         /* Increase icon size at this breakpoint */

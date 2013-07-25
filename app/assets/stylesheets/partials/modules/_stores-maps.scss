@@ -25,10 +25,24 @@
   }
 }
 
+  /* --Shared rules-- */
+
+  /* Outdent the pin icons so they're flush to left edge */
+  .stores-list__data-cell--store-name .icon--pin:before,
+  .stores-maps__filters-count .icon--pin:before {@include to-rem(margin-left, -4);}
+
   /* Listing and detail views container */
   .stores-maps__inner {
     position: relative;
     z-index: 4;
+
+    /* Sit on top of map canvas at this breakpoint */
+    @include respond-min($ipad-landscape) {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 50%;
+    }
   }
 
     /* Filters / toggle */
@@ -75,6 +89,11 @@
         @include respond-min($non-palm) {
           .hide-visually {@include hide-visually-off;}
         }
+
+        /* Hide at this breakpoint */
+        @include respond-min($ipad-landscape) {
+          &.btn {display: none;}
+        }
       }
 
       /* Post filter count */
@@ -91,13 +110,38 @@
             @include to-rem(padding-top padding-bottom, $spacing-sixth);
           }
         }
-
-          /* Icon */
-          .icon:before {margin-left: -4px;}
       }
 
     /* Listing */
-    .stores-maps__listing {}
+    .stores-maps__listing {
+
+      /* --Store list module-- */
+
+      /* Remove right indent for store name at this breakpoint */
+      @include respond-min($ipad-landscape) {
+        .stores-list__data-cell--store-name {margin-right: 0;}
+      }
+
+        /* Hide location icon at this breakpoint */
+        @include respond-min($ipad-landscape) {
+          .stores-list__data-cell__icon--location {display: none;}
+        }
+    }
+
+      /* Category applied indicator at this breakpoint */
+      @include respond-min($desk) {
+        .stores-list__data-cell--store-name.is-filter-selected {
+          @include to-rem(padding-left, $spacing-base+$spacing-quarter);
+
+          /* Location icon */
+          .icon--pin:before {
+            position: absolute;
+            left: 0;
+            @include to-rem(top, $spacing-base+$spacing-micro);
+            @include to-rem(margin-top, -$spacing-sixth);
+          }
+        }
+      }
 
   /* Micello map */
   .stores-maps__map {

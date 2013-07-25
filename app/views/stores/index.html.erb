@@ -17,7 +17,7 @@
         <%# Filters %>
 
         <%# Listing/map toggle %>
-        <button class="stores-maps__toggle btn btn--main btn--main-alt4 btn--main-compact-icon hide-fully--desk js-stores-maps-toggle">
+        <button class="stores-maps__toggle btn btn--main btn--main-alt4 btn--main-compact-icon js-stores-maps-toggle">
           <span class="hide-visually">View map</span>
           <span class="icon icon--map2 icon--flush-top icon--xlrg" aria-hidden="true"></span>
         </button>
@@ -42,34 +42,40 @@
         <% @stores.each do |letter, stores| %>
 
           <dt>
-            <div class="container"><%= letter %></div>
+            <div class="stores-list__inner container"><%= letter %></div>
           </dt>
 
           <% stores.each do |store| %>
           <dd data-store-id="<%= store.id %>">
-            <div class="container">
+            <div class="stores-list__inner container">
 
               <%# Store name %>
-              <div class="stores-list__data-cell stores-list__data-cell--store-name">
+              <div class="stores-list__data-cell stores-list__data-cell--store-name is-filter-selected">
                 <strong><%= link_to store.name, (centre_store_url @centre.code , store.id) %></strong>
                 <!-- <strong><a href="#">Via Del Corso Pasticceria e Caffé Pasticceria</a></strong> -->
                 <%# Phone no %>
                 <span class="hide-fully--palm"><%= store.phone_number %></span>
                 <%# //Phone no %>
+                <!-- [BACKEND] inject this `span` when a category filter has been applied and append `is-filter-applied` class to the container `div` so: `<div class="stores-list__data-cell stores-list__data-cell--store-name is-filter-selected">` -->
+                <span class="icon icon--pin icon--flush-top hide-fully--portable"></span>
               </div>
               <%# //Store name %>
 
               <%# Logo %>
               <div class="stores-list__data-cell stores-list__data-cell--logo hide-fully--palm">
-                <%#<%= responsive_image_tag normal: store.logo, alt: store.name %>
-                <img src="http://cs3.wol.io/img_resized/retailer/logos/2xu_110x40.gif?allow_404=true">
-                <!-- <img src="http://cs2.wol.io/img_resized/retailer/logos/360baranddining_110x40.gif?allow_404=true"> -->
-                <!-- <img src="http://cs2.wol.io/img_resized/retailer/logos/100squared_110x40.gif?allow_404=true"> -->
+                <div class="vert-align">
+                  <div class="vert-align__inner">
+                    <%#<%= responsive_image_tag normal: store.logo, alt: store.name %>
+                    <img src="http://cs3.wol.io/img_resized/retailer/logos/2xu_110x40.gif?allow_404=true">
+                    <!-- <img src="http://cs2.wol.io/img_resized/retailer/logos/360baranddining_110x40.gif?allow_404=true"> -->
+                    <!-- <img src="http://cs3.wol.io/img_resized/retailer/logos/2xu_110x40.gif?allow_404=true"> -->
+                  </div>
+                </div>
               </div>
               <%# //Logo %>
 
               <%# Icon links %>
-              <div class="stores-list__data-cell stores-list__data-cell--icons hide-fully--desk">
+              <div class="stores-list__data-cell stores-list__data-cell--icons">
 
                 <%# Phone no %>
                 <a href="tel:<%= store.phone_number %>" class="stores-list__data-cell__icon stores-list__data-cell__icon--phone hide-fully--non-palm">

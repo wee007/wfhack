@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.269
+Version:     0.0.270
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,10 @@ fi
 
 
 %changelog
+* Thu Jul 25 2013 ci <doperations@au.westfield.com> 0.0.270-1
+- Merge pull request #175 from ldewey/master (matt.wratt@trineo.co.nz)
+- Changed nil to blank for social shares (ldewey@au.westfield.com)
+
 * Thu Jul 25 2013 ci <doperations@au.westfield.com> 0.0.269-1
 - Merge pull request #174 from ldewey/WSF-4933 (cpearce@au.westfield.com)
 - Border radius fix up for social shares, when on tiles.

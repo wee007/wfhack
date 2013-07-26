@@ -9,6 +9,7 @@ app.controller "GlobalSearchCtrl", ($scope, SuggestionsBuilder, Search) ->
       $scope.search()
     else
       $scope.searchResults = {}
+      $scope.suggestions = self.didYouMean()
 
   @didYouMean = ->
     SuggestionsBuilder.didYouMean($scope.searchResults['results'])

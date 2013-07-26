@@ -48,7 +48,9 @@
         description = ""
         if result['colour']
           description += self.to_sentence result['colour'], 'display'
-        description += " products"
+          description += " products"
+        else
+          description = "Products"
         if result['retailer']
           description += ' from '
           description += self.to_sentence result['retailer'], 'display'

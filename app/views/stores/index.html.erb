@@ -2,6 +2,7 @@
   <h1 class="hide-visually">Stores</h1>
 
   <%# Contain filters, map/listing toggle, and listings %>
+  <%# [BACKEND] append `is-filter-applied` class to this container when a category filter has been applied %>
   <div class="stores-maps__inner">
 
     <%# Filters & listing/map toggle button %>
@@ -12,32 +13,33 @@
         <h2 class="stores-maps__hdr">Stores A-Z</h2>
 
         <%# Filters %>
-        <!-- TODO: need to add aria-controls to the 'Apply' button that points to the filters count -->
-        <button class="btn btn--main btn--main-alt4">Filter</button>
+        <%# [CHRIS TODO] need to add aria-controls to the 'Apply' button that points to the filters count %>
+        <%# <button class="btn btn--main btn--main-alt2">Filter</button> %>
         <%# Filters %>
 
         <%# Listing/map toggle %>
-        <button class="stores-maps__toggle btn btn--main btn--main-alt4 btn--main-compact-icon js-stores-maps-toggle">
+        <button class="stores-maps__toggle btn btn--main btn--main-alt2 js-stores-maps-toggle">
           <span class="hide-visually">View map</span>
-          <span class="icon icon--map2 icon--flush-top icon--xlrg" aria-hidden="true"></span>
+          <span class="icon icon--map2 icon--flush-top icon--lrg" aria-hidden="true"></span>
         </button>
         <%# //Listing/map toggle %>
 
       </div>
 
       <%# Post filter count %>
-      <div class="stores-maps__filters-count">
+      <%# [BACKEND] inject this when a category filter has been applied, see the store name in the list below for further instructions %>
+      <%# <div class="stores-maps__filters-count">
         <div class="container">
           <p aria-live="polite"><span class="icon icon--pin"></span> 44 Results found</p>
         </div>
-      </div>
+      </div> %>
       <%# //Post filter count %>
 
     </div>
     <%# //Filters & listing/map toggle button %>
 
     <%# Stores listing %>
-    <div class="stores-maps__listing js-stores-maps-toggle__listing">
+    <div class="stores-maps__listing-detail js-stores-maps-toggle__listing">
       <dl class="stores-list">
         <% @stores.each do |letter, stores| %>
 
@@ -50,14 +52,15 @@
             <div class="stores-list__inner container">
 
               <%# Store name %>
-              <div class="stores-list__data-cell stores-list__data-cell--store-name is-filter-selected">
-                <strong><%= link_to store.name, (centre_store_url @centre.code , store.id) %></strong>
-                <!-- <strong><a href="#">Via Del Corso Pasticceria e Caffé Pasticceria</a></strong> -->
+              <div class="stores-list__data-cell stores-list__data-cell--store-name">
+                <%# [BACKEND] cannot use the link until storefront feature is complete %>
+                <!-- <strong><%= link_to store.name, (centre_store_url @centre.code , store.id) %></strong> -->
+                <strong><%= store.name %></strong>
                 <%# Phone no %>
                 <span class="hide-fully--palm"><%= store.phone_number %></span>
                 <%# //Phone no %>
-                <!-- [BACKEND] inject this `span` when a category filter has been applied and append `is-filter-applied` class to the container `div` so: `<div class="stores-list__data-cell stores-list__data-cell--store-name is-filter-selected">` -->
-                <span class="icon icon--pin icon--flush-top hide-fully--portable"></span>
+                <%# [BACKEND] inject this `span` when a category filter has been applied %>
+                <%# <span class="icon icon--pin icon--flush-top"></span> %>
               </div>
               <%# //Store name %>
 
@@ -67,8 +70,6 @@
                   <div class="vert-align__inner">
                     <%#<%= responsive_image_tag normal: store.logo, alt: store.name %>
                     <img src="http://cs3.wol.io/img_resized/retailer/logos/2xu_110x40.gif?allow_404=true">
-                    <!-- <img src="http://cs2.wol.io/img_resized/retailer/logos/360baranddining_110x40.gif?allow_404=true"> -->
-                    <!-- <img src="http://cs3.wol.io/img_resized/retailer/logos/2xu_110x40.gif?allow_404=true"> -->
                   </div>
                 </div>
               </div>

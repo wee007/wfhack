@@ -14,9 +14,9 @@ $.fn.toggleContent = function(options, toggleBtnWrap, toggleBtnTrigger, btnTxtOp
       // HTML for button element
       toggleBtnTrigger: $('<button type="button" class="btn btn--full btn--expand-collapse"></button>'),
       // Text you want in the button *before* toggling
-      btnTxtOpen: 'Show more',
+      btnTxtOpen: 'Expand <span aria-hidden="true" class="icon icon--arrow-down-full icon--lrg"></span>',
       // Text you want in the button *after* toggling
-      btnTxtClose: 'Show less',
+      btnTxtClose: 'Collapse <span aria-hidden="true" class="icon icon--arrow-up-full icon--lrg"></span>',
       // Where you want to inject the button. Values: "insertAfter" || "insertBefore"
       btnPos: 'insertAfter',
       // Button class when content is hidden and button indicates it can be opened

@@ -27,6 +27,8 @@
     border-top: 1px solid $color-grey-1;
     @include to-rem(padding-top padding-bottom, $spacing-micro);
 
+    &:first-child {border-top: 0;}
+
     /* Increase padding at this breakpoint */
     @include respond-min($non-palm) {
       @include to-rem(padding-top padding-bottom, $spacing-quarter);
@@ -36,6 +38,8 @@
   /* Store items */
   dd {
     border-top: 1px solid $color-grey-1;
+
+    &:last-child {border-bottom: 1px solid $color-grey-1;}
 
     /* Inner container */
     .stores-list__inner {position: relative;}

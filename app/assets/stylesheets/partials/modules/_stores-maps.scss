@@ -33,27 +33,48 @@
 
   /* Listing and detail views container */
   .stores-maps__inner {
-    position: relative;
+    position: absolute;
     z-index: 4;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
 
-    /* Sit on top of map canvas at this breakpoint */
+    /* Half the width at this breakpoint */
     @include respond-min($ipad-landscape) {
-      position: absolute;
-      top: 0;
-      left: 0;
       width: 50%;
     }
+
+      /* Toggle button */
+      .toggle-content--btn {
+        @include box;
+        @include box-heavy;
+      }
   }
 
     /* Filters / toggle */
     .stores-maps__filters-toggle {
       background-color: $color-grey-3;
+      border-bottom: 1px solid $color-grey-1;
 
       /* When map view is in view */
-      .is-map-view & {background: none;}
+      .is-map-view & {
+        background: none;
+        border: 0;
+      }
+
+      /* Apply box treatments at this breakpoint */
+      @include respond-min($ipad-landscape) {
+        border: 0;
+        @include box;
+        @include box-heavy;
+        @include to-rem(margin-bottom margin-top, $spacing-base);
+      }
 
       /* Inner container */
       .container {
+        /* Temp style so current feature can be released */
+        text-align: right;
         position: relative;
         @include to-rem(padding-top padding-bottom, $spacing-half);
 
@@ -62,17 +83,23 @@
           @include to-rem(padding-top padding-bottom, $spacing-half+$spacing-quarter);
         }
 
-        /* Turn off `.container` at this breakpoint */
-        @include respond-min($desk) {
-          width: auto;
-          max-width: none;
+        /* Temp style so current feature can be released */
+        @include respond-min($ipad-landscape) {
+          text-align: left;
         }
       }
 
         /* Header */
         .stores-maps__hdr {
+          font-family: $font-family-opensans;
+          @include font-size(24, 1.5);
+          font-weight: normal;
+          @include to-rem(margin-bottom, $spacing-base);
+          /* Temp style so current feature can be released */
+          margin-bottom: 0;
+
           /* Hide the header at this breakpoint */
-          @include respond-max($lap-end) {
+          @include respond-max($ipad-landscape - 1) {
             @include hide-visually;
           }
 
@@ -83,7 +110,7 @@
 
       /* Toggle button */
       .stores-maps__toggle {
-        float: right;
+        //float: right;
 
         /* Reveal button text at this breakpoint */
         @include respond-min($non-palm) {
@@ -112,8 +139,39 @@
         }
       }
 
-    /* Listing */
-    .stores-maps__listing {
+    /* Listing / Detail */
+    .stores-maps__listing-detail {
+      position: absolute;
+      @include to-rem(top, 57);
+      bottom: 0;
+      left: 0;
+      right: 0;
+      overflow: auto;
+      -webkit-overflow-scrolling: touch;
+
+      /* Post filter count */
+      .is-filter-applied & {@include to-rem(top, 88);}
+
+      /* Alter top/btm positioning at this breakpoint */
+      @include respond-min($non-palm) {
+        @include to-rem(top, 67);
+
+        /* Post filter count */
+        .is-filter-applied & {@include to-rem(top, 102);}
+      }
+
+      /* Apply box treatments and alter top/btm positioning at this breakpoint */
+      @include respond-min($ipad-landscape) {
+        /* Temp style so current feature can be released */
+        @include to-rem(top, 110);
+        //@include to-rem(top, 164);
+        @include to-rem(bottom, $spacing-base);
+        @include box;
+        @include box-heavy;
+
+        /* Post filter count */
+        .is-filter-applied & {@include to-rem(top, 200);}
+      }
 
       /* --Store list module-- */
 
@@ -129,12 +187,18 @@
     }
 
       /* Category applied indicator at this breakpoint */
-      @include respond-min($desk) {
-        .stores-list__data-cell--store-name.is-filter-selected {
-          @include to-rem(padding-left, $spacing-base+$spacing-quarter);
+      .is-filter-applied .stores-list__data-cell--store-name {
 
-          /* Location icon */
-          .icon--pin:before {
+        @include respond-min($ipad-landscape) {
+          @include to-rem(padding-left, $spacing-base+$spacing-quarter);
+        }
+
+        /* Location pin */
+        .icon--pin:before {
+          display: none;
+
+          @include respond-min($ipad-landscape) {
+            display: block;
             position: absolute;
             left: 0;
             @include to-rem(top, $spacing-base+$spacing-micro);
@@ -151,4 +215,18 @@
     right: 0;
     top: 0;
     bottom: 0;
+    display: none;
+
+    /* When map view is in view */
+    .is-map-view & {display: block;}
+
+    /* Always show at this breakpoint */
+    @include respond-min($ipad-landscape) {
+      display: block;
+    }
+
+    /* Preloader */
+    @include respond-min($ipad-landscape) {
+      &.map-micello .preloader {left: 75%;}
+    }
   }

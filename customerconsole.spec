@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.270
+Version:     0.0.271
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,10 @@ fi
 
 
 %changelog
+* Fri Jul 26 2013 ci <doperations@au.westfield.com> 0.0.271-1
+- Merge pull request #176 from mwratt/fix/ie_js (ben@germanforblack.com)
+- delays running of problem scripts until page ready (matt.wratt@trineo.co.nz)
+
 * Thu Jul 25 2013 ci <doperations@au.westfield.com> 0.0.270-1
 - Merge pull request #175 from ldewey/master (matt.wratt@trineo.co.nz)
 - Changed nil to blank for social shares (ldewey@au.westfield.com)

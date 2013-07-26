@@ -1,6 +1,5 @@
 /* Do stuff on `$(window).resize` via Enquire library */
-(function ( $ ) {
-
+$(function() {
   var telLinks = $('a[href^="tel:"]'),
       mq = 'all and (min-width: 40.0625em)';
 
@@ -39,5 +38,4 @@
     }
 
   }, true);
-
-}( jQuery ));
+});

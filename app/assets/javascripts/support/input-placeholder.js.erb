@@ -3,7 +3,9 @@ Modernizr.load([
     test: Modernizr.input.placeholder,
     nope: ['<%= asset_path "jquery-placeholder/jquery.placeholder.js" %>'],
     callback: function () {
-      $('input, textarea').placeholder();
+      $(function() {
+        $('input, textarea').placeholder();
+      });
     }
   }
 ]);

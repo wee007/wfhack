@@ -20,32 +20,6 @@
     @include to-em(padding-top padding-bottom, $spacing-half+$spacing-micro);
   }
 
-  /* White button */
-  .drop-down-menu__trigger--light {
-    box-shadow: inset 0 -1px 0 rgba(#000, 0.15);
-    background-color: #fff;
-
-    /* Parent + pseudo classes */
-    &,
-    &:visited,
-    &:hover,
-    &:focus {color: $color-light-txt;}
-
-    &:hover,
-    &:focus {background-color: darken(#fff, 3%);}
-
-    &:active,
-    &.is-active {
-
-      box-shadow: inset 0 1px 0 rgba(#000, 0.15);
-    }
-  }
-
-  /* Dark button */
-  .drop-down-menu__trigger--dark {
-    @extend .btn--main-alt2;
-  }
-
   // Filter header and Wrapper for back button, title and apply (palm)
   // Wrapper for title (other)
   .drop-down-menu__hdr {

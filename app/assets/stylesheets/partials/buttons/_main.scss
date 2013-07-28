@@ -88,6 +88,7 @@
 
 	/* White */
 	.btn--main-alt4 {
+		background: #fff !important;
 		box-shadow: inset 0 -1px 0 rgba(#000, 0.15);
 
 		/* Bg colour combined with disabled state */
@@ -99,7 +100,7 @@
 		&,
 		&:visited,
 		&:hover,
-		&:focus {color: $color-dark-txt;}
+		&:focus {color: $color-light-txt;}
 
 		&:hover,
 		&:focus {background-color: lighten($color-off-white, 3%);}

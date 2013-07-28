@@ -1,5 +1,5 @@
 /**
- * @license AngularJS v1.1.6-a7150f1
+ * @license AngularJS v1.1.6-258e986
  * (c) 2010-2012 Google, Inc. http://angularjs.org
  * License: MIT
  */
@@ -381,10 +381,9 @@ ngMobile.directive('ngClick', ['$parse', '$timeout', '$rootElement',
           tapElement.blur();
         }
 
-        scope.$apply(function() {
-          // TODO(braden): This is sending the touchend, not a tap or click. Is that kosher?
-          clickHandler(scope, {$event: event});
-        });
+        if (!angular.isDefined(attr.disabled) || attr.disabled === false) {
+          element.triggerHandler('click', event);
+        }
       }
 
       resetState();
@@ -394,9 +393,12 @@ ngMobile.directive('ngClick', ['$parse', '$timeout', '$rootElement',
     // something else nearby.
     element.onclick = function(event) { };
 
-    // Fallback click handler.
-    // Busted clicks don't get this far, and adding this handler allows ng-tap to be used on
-    // desktop as well, to allow more portable sites.
+    // Actual click handler.
+    // There are three different kinds of clicks, only two of which reach this point.
+    // - On desktop browsers without touch events, their clicks will always come here.
+    // - On mobile browsers, the simulated "fast" click will call this.
+    // - But the browser's follow-up slow click will be "busted" before it reaches this handler.
+    // Therefore it's safe to use this directive on both mobile and desktop.
     element.on('click', function(event) {
       scope.$apply(function() {
         clickHandler(scope, {$event: event});
@@ -468,7 +470,7 @@ ngMobile.directive('ngClick', ['$parse', '$timeout', '$rootElement',
     </doc:example>
  */
 
-function makeSwipeDirective(directiveName, direction) {
+function makeSwipeDirective(directiveName, direction, eventName) {
   ngMobile.directive(directiveName, ['$parse', '$swipe', function($parse, $swipe) {
     // The maximum vertical delta for a swipe should be less than 75px.
     var MAX_VERTICAL_DISTANCE = 75;
@@ -512,6 +514,7 @@ function makeSwipeDirective(directiveName, direction) {
         'end': function(coords) {
           if (validSwipe(coords)) {
             scope.$apply(function() {
+              element.triggerHandler(eventName);
               swipeHandler(scope);
             });
           }
@@ -522,8 +525,8 @@ function makeSwipeDirective(directiveName, direction) {
 }
 
 // Left is negative X-coordinate, right is positive.
-makeSwipeDirective('ngSwipeLeft', -1);
-makeSwipeDirective('ngSwipeRight', 1);
+makeSwipeDirective('ngSwipeLeft', -1, 'swipeleft');
+makeSwipeDirective('ngSwipeRight', 1, 'swiperight');
 
 
 

@@ -11,7 +11,7 @@
   <ul class="drop-down-menu__list">
     <li ng-repeat="category in search.categories.values | orderBy: 'sort_order'">
       <button ng-click="filterCategory( search.categories.field, category.code )" class="btn btn--full btn--full-left btn--pointer">
-        {{ category.name }} ({{ category.count }})
+        {{ category.name }}
 
         <span class="btn--pointer__icon icon icon--arrow-right-big icon--lrg icon--flush-top" aria-hidden="true"></span>
       </button>
@@ -29,7 +29,7 @@
     <li ng-repeat="category in search.categories.values | orderBy: 'sort_order'">
       <label for="category_{{ category.code }}">
         <input ng-model="category.selected" ng-checked="category.selected" value="{{ category.code }}" id="category_{{ category.code }}" type="checkbox">
-        {{ category.name }} ({{ category.count }})
+        {{ category.name }}
       </label>
     </li>
   </ul>
@@ -89,7 +89,7 @@
               <label for="retailer_{{ retailer.code }}">
                 <input ng-model="retailer.selected" ng-checked="retailer.selected" value="{{ retailer.code }}" id="retailer_{{ retailer.code }}" type="checkbox">
 
-                {{ retailer.name }} ({{ retailer.count }})
+                {{ retailer.name }}
               </label>
             </li>
           </ul>
@@ -122,7 +122,8 @@
               <label for="brand_{{ brand.code }}">
                 <input ng-model="brand.selected" ng-checked="brand.selected" value="{{ brand.code }}" id="brand_{{ brand.code }}" type="checkbox">
 
-                {{ brand.name }} ({{ brand.count }})</label>
+                {{ brand.name }}
+              </label>
             </li>
           </ul>
 
@@ -150,7 +151,7 @@
               <label for="colour_{{ colour.code }}">
                 <input ng-model="colour.selected" ng-checked="colour.selected" value="{{ colour.code }}" id="colour_{{ colour.code }}" type="checkbox">
 
-                {{ colour.name }} ({{ colour.count }})
+                {{ colour.name }}
               </label>
             </li>
           </ul>
@@ -179,7 +180,7 @@
               <label for="size_{{ size.code }}">
                 <input ng-model="size.selected" ng-checked="size.selected" value="{{ size.code }}" id="size_{{ size.code }}" type="checkbox">
 
-                {{ size.name }} ({{ size.count }})
+                {{ size.name }}
               </label>
             </li>
           </ul>

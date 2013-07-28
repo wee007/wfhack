@@ -15,7 +15,7 @@ class ProductsController < ApplicationController
       if request.xhr?
         format.html { render partial: "products" }
       else
-        format.html { render "new-index" }
+        format.html { render :index }
       end
     end
   end

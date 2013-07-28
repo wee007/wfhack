@@ -20,7 +20,10 @@
     };
 
     getCentre = function () {
-      path = $location.path().replace(/^\//, '');
+      // $location.path() returns the wrong path
+      // due to inconsistant issues in the angular router code
+      // using document.location because is consistant across browsers
+      path = document.location.pathname.replace(/^\//, '');
       return path.split('/')[0];
     };
 

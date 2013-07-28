@@ -49,9 +49,10 @@
       Products.get( $location.path(), angular.extend( Search.params(), { page: 1 } ) );
     };
 
-    updateSearch = function () {
+    $scope.updateSearch = function () {
       updateProducts();
       updateFilters();
+      $scope.closeFilters();
     };
 
     // Adds params to search from URL string
@@ -96,12 +97,12 @@
 
     $scope.removeSelectedFilter = function ( paramName, paramValue ) {
       Search.removeParam( paramName, paramValue );
-      updateSearch();
+      $scope.updateSearch();
     };
 
     $scope.filterSearch = function ( modelName ) {
       Search.setParam( modelName, $scope[modelName] );
-      updateSearch();
+      $scope.updateSearch();
     };
 
     // multi-facet filter search
@@ -115,25 +116,25 @@
 
       if ( searchParamMap[attributeName] !== undefined ) { attributeName = searchParamMap[attributeName]; }
       Search.setParam( attributeName, values );
-      updateSearch();
+      $scope.updateSearch();
 
       $scope.closeFilters();
     };
 
     $scope.clearFilters = function () {
       Search.resetParams( { centre: getCentre() } );
-      updateSearch();
+      $scope.updateSearch();
     };
 
     $scope.filterCategory = function ( categoryType, categoryCode ) {
       $scope.closeFilters();
       Search.setParam( categoryType, categoryCode );
-      updateSearch();
+      $scope.updateSearch();
     };
 
     $scope.rangeFilter = function ( paramName ) {
-      min = $scope.search[paramName].range_start;
-      max = $scope.search[paramName].range_end;
+      min = $scope.search[paramName].values.range_start;
+      max = $scope.search[paramName].values.range_end;
       paramValue = min + '-' + max;
 
       Search.setParam( paramName, paramValue );

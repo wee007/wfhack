@@ -206,14 +206,15 @@
 
           <div class="filters__range__inner">
             <label class="hide-visually" for="price_range_start">Price range start</label>
-            <input ng-model="search.price.values.range_start" ng-change="rangeFilter('price')" class="filters__input-txt" id="price_range_start" type="number">
+            <input ng-model="search.price.values.range_start" ng-change="rangeFilter('price')" class="filters__input-txt" id="price_range_start">
 
             <span>to</span>
 
             <label class="hide-visually" for="price_range_end">Price range end</label>
-            <input ng-model="search.price.values.range_end" ng-change="rangeFilter('price')" class="filters__input-txt" id="price_range_end" type="number">
+            <input ng-model="search.price.values.range_end" ng-change="rangeFilter('price')" class="filters__input-txt" id="price_range_end">
           </div>
 
+          <button ng-click="updateSearch()" class="btn btn--main filters__apply">Apply</button>
           <!-- SLIDER -->
         </div>
       </li>

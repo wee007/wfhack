@@ -23,7 +23,10 @@
   // Custom rule for drop down
   .drop-down-menu__target {
     padding: 0;
-    @include respond-max($palm) {display: none;}
+    @include respond-max($palm) {
+      display: none;
+      @include to-rem(margin-top, 10);
+    }
 
     // Override 'box' for desktop breakpoint
     @include respond-min($non-palm) {
@@ -40,6 +43,18 @@
     @extend .drop-down-menu__trigger--light;
   }
 }
+
+  // Desktop edition of filters
+  .non-palm .filters__target {
+    position: absolute;
+    @include to-rem(margin-top, 10);
+    z-index: 1;
+
+    @include to-rem(width, 285);
+
+    @extend .box;
+    border: 1px solid $color-grey-lightest;
+  }
 
   .filters__list {
     @include respond-min($non-palm) {

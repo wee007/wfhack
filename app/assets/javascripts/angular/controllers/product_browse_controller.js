@@ -1,5 +1,5 @@
 ( function ( app ) {
-  app.controller( 'ProductBrowseController', function ( $scope, $filter, $location, ParamCleaner, Search, Products ) {
+  app.controller( 'ProductBrowseController', function ( $scope, $filter, $location, $element, ParamCleaner, Search, Products ) {
     $scope.search = Search;
 
     // Multi-facet search fields
@@ -60,6 +60,32 @@
       updateFilters();
     }(); // Self init
 
+    // Filter controls / toggle / open / close
+    $scope.activeFilter = '';
+    $scope.toggleFilter = function ( filterName, event ) {
+      if ( $scope.activeFilter !== filterName ) {
+        $scope.activeFilter = filterName;
+
+        // The button must be hidden on palm breakpoint
+        if( !angular.element('html').hasClass('non-palm') ) {
+          angular.element(event.target).hide();
+        }
+      } else {
+        $scope.closeFilters();
+      }
+    };
+
+    // Filter buttons are hidden on mobile in certain circumstances,
+    // this ensures that they're visible when this is clicked (resets the interface)
+    $scope.showFilterButtons = function () {
+      angular.element('.filters__trigger').show();
+    }
+
+    $scope.closeFilters = function () {
+      $scope.activeFilter = '';
+      $scope.showFilterButtons();
+    };
+
     $scope.hasActiveFilters = function () {
       return !!Search.appliedFilters.length;
     };
@@ -90,6 +116,8 @@
       if ( searchParamMap[attributeName] !== undefined ) { attributeName = searchParamMap[attributeName]; }
       Search.setParam( attributeName, values );
       updateSearch();
+
+      $scope.closeFilters();
     };
 
     $scope.clearFilters = function () {
@@ -98,6 +126,7 @@
     };
 
     $scope.filterCategory = function ( categoryType, categoryCode ) {
+      $scope.closeFilters();
       Search.setParam( categoryType, categoryCode );
       updateSearch();
     };

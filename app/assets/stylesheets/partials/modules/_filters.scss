@@ -35,6 +35,11 @@
     }
   }
 
+  // Custom rule for pointer inside hdr
+  .drop-down-menu__hdr .icon {
+    @include to-rem(margin-right, $spacing-quarter);
+  }
+
   // Overrides for non-palm filter trigger buttons
   .non-palm & .filters__trigger {
     @extend .btn--main;

@@ -63,13 +63,13 @@
 
     // Filter controls / toggle / open / close
     $scope.activeFilter = '';
-    $scope.toggleFilter = function ( filterName, event ) {
+    $scope.toggleFilter = function ( filterName ) {
       if ( $scope.activeFilter !== filterName ) {
         $scope.activeFilter = filterName;
 
         // The button must be hidden on palm breakpoint
-        if( !angular.element('html').hasClass('non-palm') ) {
-          angular.element(event.target).hide();
+        if ( !angular.element('html').hasClass('non-palm') ) {
+          $scope.hideFilterButtons();
         }
       } else {
         $scope.closeFilters();
@@ -80,7 +80,11 @@
     // this ensures that they're visible when this is clicked (resets the interface)
     $scope.showFilterButtons = function () {
       angular.element('.filters__trigger').show();
-    }
+    };
+
+    $scope.hideFilterButtons = function () {
+      angular.element('.filters__trigger').hide();
+    };
 
     $scope.closeFilters = function () {
       $scope.activeFilter = '';

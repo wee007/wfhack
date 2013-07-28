@@ -1,66 +1,54 @@
 <div class="nav-contextual">
   <div class="container">
-    <nav role="navigation" aria-label="Contextual navigation">
-      <ul class="nav-contextual__top-level-items horiz-list horiz-list--center">
-        <li>
-          <a href="#">Women's Fashion</a>
-          <div class="drop-down-menu box">
-            <ul>
-              <li><a href="#">link</a></li>
-              <li><a href="#">link</a></li>
-            </ul>
-          </div>
-        </li>
-        <li>
-          <a href="#">Men's Fashion</a>
-        </li>
-        <li>
-          <a href="#">Kids</a>
-        </li>
-        <li>
-          <a href="#">Shoes</a>
-        </li>
-        <li>
-          <a href="#">Homewares</a>
-        </li>
-      </ul>
-    </nav>
+    <div class="nav-contextual__clip">
+      <nav role="navigation" aria-label="Contextual navigation">
+        <ul class="nav-contextual__main-items horiz-list">
+          <li>
+            <a class="is-active" href="#">Women's Fashion</a>
+            <div class="nav-contextual__sub-items box">
+              <ul>
+                <li><a href="#">link</a></li>
+                <li><a href="#">link</a></li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <a href="#">Men's Fashion</a>
+          </li>
+          <li>
+            <a href="#">Kids</a>
+          </li>
+          <li>
+            <a href="#">Shoes</a>
+          </li>
+          <li>
+            <a href="#">Homewares</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="nav-contextual__show-more icon icon--arrow-right icon--mega icon--flush-top"></div>
+    </div>
+  </div>
 
-    <div class="nav-contextual__centre-selector">
-      <span>Showing products from stores at</span>
+  <!-- Centre selector -->
+  <div class="nav-contextual__centre-selector">
+    <button toggle-visibility="centre_selector" class="hide-fully--non-palm btn btn--main btn--main-alt4 btn--main-compact-icon">
+      <span class="icon icon-ellipsis-horizontal icon--xlrg icon--flush-top" aria-hidden="true"></span>
+      <span class="hide-visually">Sort centres by</span>
+    </button>
 
-      <div class="drop-down-menu">
-        <button class="drop-down-menu__trigger drop-down-menu__trigger--light btn btn--main btn--pointer hide-fully--non-palm">
-          Bondi Junction
-          <span class="icon icon--lrg icon--arrow-down-full icon--flush-top btn--pointer__icon" aria-hidden="true"></span>
-        </button>
+    <div class="container">
+      <div class="nav-contextual__centre-selector-control" id="centre_selector">
+        <label for="centre_select">Showing products from stores at</label>
 
-        <div class="drop-down-menu__target box">
-          <form action="#">
-            <fieldset>
-              <div class="nav-contextual__centre-selector__group island">
-                <input id="current_centre" name="" type="radio" checked>
-                <label for="current_centre">Bondi Junction</label>
-              </div>
-
-              <div class="nav-contextual__centre-selector__group island">
-               <span>Nearby Centres</span>
-
-                <ul>
-                  <li><input type="checkbox" id="nearby_centre_1"><label for="nearby_centre_1">Sydney</label></li>
-                  <li><input type="checkbox" id="nearby_centre_2"><label for="nearby_centre_2">Eastgardens</label></li>
-                  <li><input type="checkbox" id="nearby_centre_3"><label for="nearby_centre_3">Burwood</label></li>
-                </ul>
-
-              </div>
-
-              <div class="nav-contextual__centre-selector__group island">
-                <input id="all_centres" type="radio">
-                <label for="all_centres">Bondi Junction</label>
-              </div>
-            </fieldset>
-          </form>
-        </div>
+        <select id="centre_select" class="nav-contextual__selector">
+          <option>Bondi junction</option>
+          <optgroup label="Nearby Centres">
+            <option value="burwood">Burwood</option>
+            <option value="sydney">Sydney</option>
+          </optgroup>
+          <option value="all">All Centres</option>
+        </select>
       </div>
     </div>
   </div>

@@ -1,8 +1,12 @@
 /*
+  Filters, used on product browse
+
   Styleguide - Modules - Filters
 */
 
 .filters {
+  @include to-rem(margin-top margin-bottom, $spacing-half);
+
   label { display: block; }
   [type="checkbox"] { @include to-rem(margin-right, $spacing-quarter); }
 
@@ -15,7 +19,29 @@
     border: 1px solid $color-grey-1;
     width: 100%;
   }
+
+  // Custom rule for drop down
+  .drop-down-menu__target {
+    padding: 0;
+
+    @include respond-max($palm) {display: none;}
+  }
+
+  // Overrides for non-palm filter trigger buttons
+  .filters__trigger {
+    @include respond-min($non-palm) {
+      @extend .drop-down-menu__trigger;
+      @extend .drop-down-menu__trigger--light;
+      @extend .btn--pointer;
+    }
+  }
 }
+
+  .filters__list {
+    @include respond-min($non-palm) {
+      > li { display: inline-block; }
+    }
+  }
 
   .filters__range {
     @include to-rem(padding, $spacing-half);
@@ -65,3 +91,10 @@
     }
 
   .filters__sale label { display: inline }
+  .filters__sort-options {
+    @include to-rem(padding-top padding-bottom, $spacing-quarter);
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+

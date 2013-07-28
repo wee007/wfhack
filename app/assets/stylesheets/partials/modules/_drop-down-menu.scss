@@ -62,6 +62,7 @@
 
 .drop-down-menu__target {
   position: relative;
+  @include to-rem(padding, $spacing-quarter);
   width: 100%;
 }
 

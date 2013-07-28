@@ -86,8 +86,32 @@
 		&:active {box-shadow: inset 0 1px 0 rgba(#000, 0.15);}
 	}
 
+	/* White */
+	.btn--main-alt4 {
+		box-shadow: inset 0 -1px 0 rgba(#000, 0.15);
+
+		/* Bg colour combined with disabled state */
+		&,
+		&[disabled],
+		&.is-disabled {background-color: $color-grey-3;}
+
+		/* Parent + pseudo classes */
+		&,
+		&:visited,
+		&:hover,
+		&:focus {color: $color-dark-txt;}
+
+		&:hover,
+		&:focus {background-color: lighten($color-off-white, 3%);}
+
+		&:active {box-shadow: inset 0 1px 0 rgba(#000, 0.15);}
+	}
+
 	/* Compact - decrease padding */
 	.btn--main-compact {@include to-em(padding, $spacing-third $spacing-base);}
+
+	/* Compact - extra compact padding (use with icons) */
+	.btn--main-compact-icon {@include to-em(padding, $spacing-quarter $spacing-half);}
 
 	/* Large - increase top/btm padding */
 	.btn--main-lrg {@include to-em(padding-top padding-bottom, $spacing-half+$spacing-micro);}

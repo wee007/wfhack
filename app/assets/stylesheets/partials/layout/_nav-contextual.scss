@@ -5,10 +5,6 @@
   position: relative;
   background-color: $color-med-txt;
 
-  @include respond-min($non-palm) {
-    @include to-rem(padding-top padding-bottom, $spacing-half);
-  }
-
   a:hover {color:#fff;}
 
   /* Scroll the contents of the navigation when the viewport is narrow enough */
@@ -30,15 +26,15 @@
 /* Holds menus items and sets container to be wide-enough that they are horiz aligned */
 .nav-contextual__main-items {
   width: 250%; /* magic number */
-
   > li {@include to-rem(margin-right, $spacing-base);}
-
-  // Temporary
-  .nav-contextual__sub-items {display: none;}
 }
 
   .nav-contextual__main-items > li a {
     @include to-rem(padding-top padding-bottom, $spacing-half);
+
+    @include respond-min($non-palm) {
+      @include to-rem(padding-top padding-bottom, $spacing-base);
+    }
 
     border-bottom: 2px solid transparent;
 
@@ -60,8 +56,20 @@
     background: -webkit-linear-gradient(left, rgba($color-med-txt, 0) 0%, rgba($color-med-txt, 1) 100%);
   }
 
+// Centre selector / nearest centre
 .nav-contextual__centre-selector {
   @include respond-max($palm) {border-top: 1px solid $color-light-txt;}
+  @include respond-min($non-palm) {
+    position: absolute;
+    top:0;
+    right:0;
+    width: 100%;
+    @include to-rem(padding-top padding-bottom, $spacing-half);
+
+    text-align: right;
+    label { display:inline-block; vertical-align: bottom; }
+    select {display: inline-block;}
+  }
 
   button {
     position: absolute;

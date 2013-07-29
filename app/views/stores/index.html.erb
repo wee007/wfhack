@@ -1,11 +1,11 @@
 <div class="stores-maps container">
   <h1 class="hide-visually">Stores</h1>
 
-  <%# Contain filters, map/listing toggle, and listings %>
+  <%# Contain filters, map/list toggle, and listings %>
   <%# [BACKEND] append `is-filter-applied` class to this container when a category filter has been applied %>
   <div class="stores-maps__inner">
 
-    <%# Filters & listing/map toggle button %>
+    <%# Filters & list/map toggle button %>
     <div class="stores-maps__filters-toggle">
 
       <div class="container">
@@ -17,12 +17,13 @@
         <%# <button class="btn btn--main btn--main-alt2">Filter</button> %>
         <%# Filters %>
 
-        <%# Listing/map toggle %>
+        <%# List/map toggle %>
         <button class="stores-maps__toggle btn btn--main btn--main-alt2 js-stores-maps-toggle">
-          <span class="hide-visually">View map</span>
+          <span class="hide-visually">View <span class="js-stores-maps-toggle__txt">map</span></span>
           <span class="icon icon--map2 icon--flush-top icon--lrg" aria-hidden="true"></span>
+          <span class="icon icon--list icon--flush-top icon--lrg" aria-hidden="true"></span>
         </button>
-        <%# //Listing/map toggle %>
+        <%# //List/map toggle %>
 
       </div>
 
@@ -36,10 +37,10 @@
       <%# //Post filter count %>
 
     </div>
-    <%# //Filters & listing/map toggle button %>
+    <%# //Filters & list/map toggle button %>
 
-    <%# Stores listing %>
-    <div class="stores-maps__listing-detail js-stores-maps-toggle__listing">
+    <%# Stores list %>
+    <div class="stores-maps__list-detail js-stores-maps-toggle__list">
       <dl class="stores-list">
         <% @stores.each do |letter, stores| %>
 
@@ -69,7 +70,7 @@
                 <div class="vert-align">
                   <div class="vert-align__inner">
                     <%#<%= responsive_image_tag normal: store.logo, alt: store.name %>
-                    <img src="http://cs3.wol.io/img_resized/retailer/logos/2xu_110x40.gif?allow_404=true">
+                    <img src="http://cs3.wol.io/img_resized/retailer/logos/2xu_110x40.gif?allow_404=true" alt="store name + logo">
                   </div>
                 </div>
               </div>
@@ -102,10 +103,10 @@
         <% end %>
       </dl>
     </div>
-    <%#//Stores listing %>
+    <%#//Stores list %>
 
   </div>
-  <%# //Contain filters, map/listing toggle, and listings %>
+  <%# //Contain filters, map/list toggle, and listings %>
 
   <%# Map %>
   <div class="stores-maps__map map-micello js-stores-maps-toggle__map">

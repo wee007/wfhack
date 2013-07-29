@@ -58,9 +58,11 @@
       border-bottom: 1px solid $color-grey-1;
 
       /* When map view is in view */
-      .is-map-view & {
-        background: none;
-        border: 0;
+      @include respond-max($palm) {
+        .is-map-view & {
+          background: none;
+          border: 0;
+        }
       }
 
       /* Apply box treatments at this breakpoint */
@@ -121,6 +123,17 @@
         @include respond-min($ipad-landscape) {
           &.btn {display: none;}
         }
+
+        /* Hide for non JS users */
+        .no-js & {display: none;}
+
+          /* Hide/show icons */
+          .icon--list {display: none;}
+
+          .is-map-view & {
+            .icon--map2 {display: none;}
+            .icon--list {display: inline-block;}
+          }
       }
 
       /* Post filter count */
@@ -139,8 +152,8 @@
         }
       }
 
-    /* Listing / Detail */
-    .stores-maps__listing-detail {
+    /* List / Detail views */
+    .stores-maps__list-detail {
       position: absolute;
       @include to-rem(top, 57);
       bottom: 0;
@@ -148,6 +161,9 @@
       right: 0;
       overflow: auto;
       -webkit-overflow-scrolling: touch;
+
+      /* When map view is in view */
+      .is-map-view & {display: none;}
 
       /* Post filter count */
       .is-filter-applied & {@include to-rem(top, 88);}
@@ -215,14 +231,14 @@
     right: 0;
     top: 0;
     bottom: 0;
-    display: none;
+    visibility: hidden;
 
     /* When map view is in view */
-    .is-map-view & {display: block;}
+    .is-map-view & {visibility: visible;}
 
     /* Always show at this breakpoint */
     @include respond-min($ipad-landscape) {
-      display: block;
+      visibility: visible;
     }
 
     /* Preloader */

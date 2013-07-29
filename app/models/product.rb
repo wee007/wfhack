@@ -20,7 +20,7 @@ class Product < Hashie::Mash
   end
 
   def primary_image
-    _links ? _links[:image][:href] : images.first
+    _links ? _links[:image][:href] : default_image_url || images.first
   end
 
   def kind

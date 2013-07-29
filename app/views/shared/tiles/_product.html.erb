@@ -1,22 +1,15 @@
-<%= link_to centre_product_path(centre_id: params[:centre_id] || params[:id], retailer_code: result[:retailer_code], sku: result[:sku]),
-  class: "tile tile--products", target: "_self" do %>
-  <article class="box" role="article">
+<div class="tile__image">
+  <% # TODO: fix alt tag %>
+  <%= image_tag result.primary_image, alt: result.title %>
+</div>
 
-    <span class="tile__image">
-      <% # TODO: fix alt tag %>
-      <%= image_tag image[:href], alt: image[:title] %>
-    </span>
-
-    <div class="tile__meta">
-      <span class="tile__meta__icon">
-        <span class="icon icon--products" aria-hidden="true"></span>
-        <span class="hide-visually">Product</span>
-      </span>
-      <div class="tile__meta__inner">
-        <h3 class="tile__meta__hdr"><%= result[:name] %></h3>
-        <p class="tile__meta__desc">from <strong><%= result.retail_chain_name %></strong></p>
-      </div>
-    </div>
-
-  </article>
-<% end %>
+<div class="tile__meta">
+  <span class="tile__meta__icon">
+    <span class="icon icon--products" aria-hidden="true"></span>
+    <span class="hide-visually">Product</span>
+  </span>
+  <div class="tile__meta__inner">
+    <h3 class="tile__meta__hdr"><%= result.name %></h3>
+    <p class="tile__meta__desc">from <strong><%= result.retail_chain_name %></strong></p>
+  </div>
+</div>

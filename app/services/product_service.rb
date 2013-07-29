@@ -1,11 +1,12 @@
 class ProductService
+
   class << self
     include ApiClientRequests
     def build(json)
       results = json.respond_to?(:body) ? json.body : json
       if results.has_key? :facets
         facets = build_facets(results)
-        products = results.delete :results
+        products = results.delete(:results).collect { |result| Product.new result }
         pagination = build_pagination(results)
         sort_options = results.delete(:display_options)[:sort_options]
         Hashie::Mash.new results.merge(products: products, facets: facets,

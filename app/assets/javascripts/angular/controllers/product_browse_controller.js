@@ -49,7 +49,7 @@
     };
 
     updateProducts = function () {
-      Products.get( $location.path(), angular.extend( Search.params(), { page: 1 } ) );
+      Products.get( document.location.pathname, angular.extend( Search.params(), { page: 1 } ) );
     };
 
     $scope.updateSearch = function () {

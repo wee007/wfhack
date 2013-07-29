@@ -1,0 +1,5 @@
+<div id="pin-board" class="pin-board">
+  <%- @search.products.each do |product| -%>
+    <%= render partial: "shared/tiles/product", locals: { result: product, image: { href: product.default_image_url, title: product.lozenge_name } } %>
+  <%- end -%>
+</div>

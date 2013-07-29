@@ -10,6 +10,11 @@ describe EventsController do
 
   describe "GET #index" do
     before :each do
+      CentreService.should_receive(:fetch).with('bondijunction').and_return double :response, body: {}
+      EventService.should_receive(:fetch).with centre: 'bondijunction', rows: 50
+    end
+
+    it "populates an array of events" do
       get :index, centre_id: 'bondijunction'
     end
 
@@ -25,6 +30,11 @@ describe EventsController do
   describe "GET #show" do
 
     before :each do
+      CentreService.should_receive(:fetch).with('bondijunction').and_return double :response, body: {}
+      EventService.should_receive(:fetch).with "1"
+    end
+
+    it "assigns the requested event to @event" do
       get :show, id: 1, centre_id: 'bondijunction'
     end
 

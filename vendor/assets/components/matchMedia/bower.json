@@ -1,19 +1,12 @@
 {
-  "author": {
-    "name": "Paul Irish"
-  },
+  "author": "Scott Jehl",
   "name": "matchMedia",
   "description": "matchMedia polyfill for testing media queries in JS",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "homepage": "http://github.com/paulirish/matchMedia.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/paulirish/matchMedia.js.git"
+    "url": "git://github.com/paulirish/matchMedia.js"
   },
-  "main": "./matchMedia.js",
-  "gitHead": "bfcbb0b020cb3ae78cf22f331c8be23162aedef3",
-  "readme": "#matchMedia() polyfill\n\n## test whether a CSS media type or media query applies\n\n* **Authors**: Scott Jehl, Paul Irish, Nicholas Zakas \n* **Spec**: [dev.w3.org/csswg/cssom-view/#dom-window-matchmedia](http://dev.w3.org/csswg/cssom-view/#dom-window-matchmedia)\n* **Native support**: Chrome [since m10](http://trac.webkit.org/changeset/72552), Firefox [since 6](https://developer.mozilla.org/en/Firefox_6_for_developers), and Safari [since 5.1](https://developer.mozilla.org/en/DOM/window.matchMedia#Browser_compatibility)\n\n### How about resizing the browser?\nPaul Hayes made [tackled this using CSS transitions and their transitionEnd event](http://www.paulrhayes.com/2011-11/use-css-transitions-to-link-media-queries-and-javascript/) \n\nHis code: https://github.com/fofr/matchMedia.js -- though currently it doesnt support IE6-9, since they dont have transitions, obviously. :)\n\n\n## Usage\n\n#### test 'tv' media type\n    if (matchMedia('tv').matches) {\n      // tv media type supported\n    }\n\n### test a mobile device media query\n    if (matchMedia('only screen and (max-width: 480px)').matches) {\n      // smartphone/iphone... maybe run some small-screen related dom scripting?\n    }\n    \n#### test landscape orientation\n    if (matchMedia('all and (orientation:landscape)').matches) {\n      // probably tablet in widescreen view\n    }\n\n\n## Used in: \n\n* [Respond.js](https://github.com/scottjehl/Respond)\n* [FormFactor](https://github.com/PaulKinlan/formfactor)\n* [Modernizr](http://www.modernizr.com/)",
-  "readmeFilename": "README.md",
-  "_id": "matchMedia@0.1.0",
-  "commit": "bfcbb0b020cb3ae78cf22f331c8be23162aedef3"
+  "main": "./matchMedia.js"
 }

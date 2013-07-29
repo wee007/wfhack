@@ -1,0 +1,49 @@
+<div class="nav-contextual">
+  <div class="container">
+    <div class="nav-contextual__clip">
+      <nav role="navigation" aria-label="Contextual navigation">
+        <ul class="nav-contextual__main-items horiz-list">
+          <li>
+            <a class="is-active" href="#">Women's Fashion</a>
+          </li>
+          <li>
+            <a href="#">Men's Fashion</a>
+          </li>
+          <li>
+            <a href="#">Kids</a>
+          </li>
+          <li>
+            <a href="#">Shoes</a>
+          </li>
+          <li>
+            <a href="#">Homewares</a>
+          </li>
+        </ul>
+      </nav>
+      <div class="nav-contextual__show-more icon icon--arrow-right icon--mega icon--flush-top"></div>
+    </div>
+  </div>
+
+  <!-- Centre selector -->
+  <div class="nav-contextual__centre-selector">
+    <button toggle-visibility="centre_selector" class="hide-fully--non-palm btn btn--main btn--main-alt4 btn--main-compact-icon">
+      <span class="icon icon-ellipsis-horizontal icon--xlrg icon--flush-top" aria-hidden="true"></span>
+      <span class="hide-visually">Sort centres by</span>
+    </button>
+
+    <div class="container">
+      <div class="nav-contextual__centre-selector-control" id="centre_selector">
+        <label for="centre_select">Showing products from stores at</label>
+
+        <select id="centre_select" class="nav-contextual__selector">
+          <option>Bondi junction</option>
+          <optgroup label="Nearby Centres">
+            <option value="burwood">Burwood</option>
+            <option value="sydney">Sydney</option>
+          </optgroup>
+          <option value="all">All Centres</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,123 @@
+/*
+  Filters, used on product browse
+
+  Styleguide - Modules - Filters
+*/
+
+.filters {
+  @include to-rem(margin-top margin-bottom, $spacing-half);
+
+  label { display: block; }
+  [type="checkbox"] { @include to-rem(margin-right, $spacing-quarter); }
+
+  .filters__input-txt {
+    @include prefix(box-sizing, border-box);
+    @include to-rem(padding, $spacing-half);
+    font-style: italic;
+    color: $color-light-txt;
+    border-radius: $border-radius;
+    border: 1px solid $color-grey-1;
+    width: 100%;
+  }
+
+  // Custom rule for drop down
+  .drop-down-menu__target {
+    padding: 0;
+    @include respond-max($palm) {
+      display: none;
+      @include to-rem(margin-top, 10);
+    }
+
+    // Override 'box' for desktop breakpoint
+    @include respond-min($non-palm) {
+      background: none;
+      box-shadow: none;
+    }
+  }
+
+  // Custom rule for pointer inside hdr
+  .drop-down-menu__hdr .icon {
+    @include to-rem(margin-right, $spacing-quarter);
+  }
+
+  // Overrides for non-palm filter trigger buttons
+  .non-palm & .filters__trigger {
+    @extend .btn--main;
+    @extend .btn--main-alt4;
+    @extend .drop-down-menu__trigger;
+    @extend .drop-down-menu__trigger--light;
+  }
+}
+
+  // Desktop edition of filters
+  .non-palm .filters__target {
+    position: absolute;
+    @include to-rem(margin-top, 10);
+    z-index: 1;
+
+    @include to-rem(width, 285);
+
+    @extend .box;
+    border: 1px solid $color-grey-lightest;
+  }
+
+  .filters__list {
+    @include respond-min($non-palm) {
+      > li { display: inline-block; }
+    }
+  }
+
+  .filters__range {
+    @include to-rem(padding, $spacing-half);
+
+    .filters__banner {
+      @include to-rem(margin, -$spacing-half);
+      @include to-rem(margin-bottom, $spacing-half);
+    }
+  }
+
+    .filters__range__inner {
+      position: relative;
+
+      .filters__input-txt {
+        width: 40%;
+
+        &:last-child {
+          position: absolute;
+          top: 0;
+          right: 0;
+        }
+      }
+
+      span {
+        position: absolute;
+        top: 50%;
+        @include to-rem(margin-top, -10);
+        left: 50%;
+        @include to-rem(margin-left, -5);
+      }
+    }
+
+
+    // Search field
+    .filters__search {
+      @include to-rem(padding, $spacing-half);
+      border-bottom: 1px solid $color-grey-1;
+    }
+
+
+    // Apply filter button (used on multi-facet lists)
+    .filters__apply {
+      position: absolute;
+      @include to-rem(right, $spacing-half);
+      @include to-rem(top, $spacing-quarter);
+      @include to-em(padding-left padding-right, $spacing-base);
+    }
+
+  .filters__sort-options {
+    @include to-rem(padding-top padding-bottom, $spacing-quarter);
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+

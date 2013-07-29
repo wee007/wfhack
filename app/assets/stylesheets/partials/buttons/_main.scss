@@ -86,14 +86,40 @@
 		&:active {box-shadow: inset 0 1px 0 rgba(#000, 0.15);}
 	}
 
+	/* White */
+	.btn--main-alt4 {
+		background: #fff !important;
+		box-shadow: inset 0 -1px 0 rgba(#000, 0.15);
+
+		/* Bg colour combined with disabled state */
+		&,
+		&[disabled],
+		&.is-disabled {background-color: $color-grey-3;}
+
+		/* Parent + pseudo classes */
+		&,
+		&:visited,
+		&:hover,
+		&:focus {color: $color-light-txt;}
+
+		&:hover,
+		&:focus {background-color: lighten($color-off-white, 3%);}
+
+		&:active {box-shadow: inset 0 1px 0 rgba(#000, 0.15);}
+	}
+
 	/* Compact - decrease padding */
 	.btn--main-compact {@include to-em(padding, $spacing-third $spacing-base);}
+
+	/* Compact - extra compact padding (use with icons) */
+	.btn--main-compact-icon {@include to-em(padding, $spacing-quarter $spacing-half);}
 
 	/* Large - increase top/btm padding */
 	.btn--main-lrg {@include to-em(padding-top padding-bottom, $spacing-half+$spacing-micro);}
 
 	/* Pointer - used when you need to position an arrow icon over to the far right, has to be used with the `.btn--pointer` base extender */
 	.btn--pointer.btn--main {
+		@include to-em(padding-left, $spacing-half);
 		@include to-em(padding-right, $spacing-base+$spacing-half+$spacing-micro);
 
 		/* Icon */
@@ -103,7 +129,7 @@
 	/* As above but position icon over to the far left */
 	.btn--pointer-alt.btn--main {
 		@include to-em(padding-left, $spacing-base+$spacing-half+$spacing-micro);
-		@include to-em(padding-right, $spacing-base+$spacing-half);
+		@include to-em(padding-right, $spacing-half);
 
 		/* Icon */
 		.btn--pointer__icon {

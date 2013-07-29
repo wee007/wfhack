@@ -1,8 +1,0 @@
-{
-  "name": "jquery-placeholder",
-  "version": "2.0.7",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/mathiasbynens/jquery-placeholder.git"
-  }
-}

@@ -1,0 +1,67 @@
+/*
+  Styleguide - Modules - Drop down
+*/
+
+.drop-down-menu {
+  @include font-size($font-size-sml);
+
+  // Drop down arrow
+  .drop-down:before {
+    position: absolute;
+    top: 0;
+    // margin-top: ; // height of arrow
+    content: "^";
+    border: 1px solid red;
+  }
+
+
+  // Trigger
+  .drop-down-menu__trigger {
+    @include to-em(padding-top padding-bottom, $spacing-half+$spacing-micro);
+  }
+
+  // Filter header and Wrapper for back button, title and apply (palm)
+  // Wrapper for title (other)
+  .drop-down-menu__hdr {
+    position: relative;
+    @include to-rem(padding, $spacing-half 0);
+    @include font-size($font-size);
+    font-weight: normal;
+    text-align: center;
+    color: $color-light-txt;
+    border-bottom: 1px solid $color-grey-1;
+    background-color: $color-off-white;
+  }
+}
+
+.drop-down-menu__target {
+  position: relative;
+  @include to-rem(padding, $spacing-quarter);
+  width: 100%;
+}
+
+  // Back button (palm)
+  .drop-down-menu__hdr .btn {
+    position: absolute;
+    top: 50%;
+    @include to-rem(margin-top, -8); // half the height
+    @include to-rem(left, $spacing-half);
+  }
+
+  // Wraps up hdr && search
+  .drop-down-menu__banner {
+    background-color: $color-off-white;
+  }
+
+  .drop-down-menu__list {
+    max-height: 150px;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+
+    li {
+      @include to-rem(padding, $spacing-half);
+      @include font-size($font-size-sml);
+      border-bottom: 1px solid $color-grey-1;
+      &:last-child { border-bottom: 0; }
+    }
+  }

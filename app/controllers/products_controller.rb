@@ -10,6 +10,14 @@ class ProductsController < ApplicationController
     end
     @centre = CentreService.build centre
     @search = ProductService.build products
+
+    respond_to do |format|
+      if request.xhr?
+        format.html { render partial: "products" }
+      else
+        format.html { render :index }
+      end
+    end
   end
 
   def show

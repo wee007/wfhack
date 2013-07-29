@@ -10,7 +10,7 @@ $.fn.calculateHeaderHeight = function() {
       headerHeight = $(this).height();
 
   // Only apply when header is fixed
-  if (!$(this).hasClass('is-header-hero')) {
-    $('.main').css('padding-top', headerHeight);
+  if (!$(header).hasClass('is-header-hero')) {
+    $('.header-height-ghost').height(headerHeight);
   }
 };

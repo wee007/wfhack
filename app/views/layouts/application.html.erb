@@ -3,7 +3,8 @@
 <!--[if (IE 9) & (!IEMobile)]>    <html class="no-js ie-9 ie" lang="en">    <![endif]-->
 <!--[if gt IE 8]><!-->            <html class="no-js" lang="en">          	<!--<![endif]-->
 <head>
-
+	<base href="<%= request.path %>">
+	<meta name="fragment" content="!">
 	<meta charset="utf-8">
 	<meta name="viewport" content="initial-scale=1.0, width=device-width">
 
@@ -37,7 +38,7 @@
 
 </head>
 
-<body class="<%= params[:controller] %> <%= params[:action] %> <%= yield :class_for_body %>">
+<body ng-app="Westfield" class="<%= params[:controller] %> <%= params[:action] %> <%= yield :class_for_body %>">
 
 	<!-- Skip link -->
 	<a href="#main" class="hide-visually skip-link">Skip to main content</a>
@@ -47,7 +48,7 @@
 	<!--[if lte IE 7]><p class="old-ie-notification">Apologies for the appearance of this page but you are viewing it in a very old browser that we no longer support. We highly recommend <a href="http://browsehappy.com/" rel="external">upgrading to a more modern browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true" rel="external">install Google Chrome Frame</a> to experience this site and to reap the many other benefits of using a modern browser.</p><![endif]-->
 
 	<%= render "/layouts/header" %>
-
+	<%= yield :nav_contextual %>
 	<main class="main container" id="main" role="main">
 		<%= yield %>
 	</main>

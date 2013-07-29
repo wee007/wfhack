@@ -1,5 +1,5 @@
 #unveil.js
-###A very lightweight plugin to lazy load images
+###A very lightweight plugin to lazy load images for jQuery or Zepto.js
 
 
 
@@ -23,7 +23,7 @@ You don't need to include a "data-src-retina" attribute in all the image tags, u
 If you care about users without javascript enabled, you can include the original image inside a ```noscript``` tag:
 ```html
 <noscript>
-  <img src="bg.png" src="img1.jpg" />
+  <img src="img1.jpg" />
 </noscript>
 ```
 Run the script on document ready:
@@ -39,7 +39,7 @@ $(document).ready(function() {
 By default, images are only loaded and "unveiled" when user scrolls to them and they became visible on the screen.
 If you want your images to load earlier than that, lets say 200px before they appear on the screen, you just have to:
 ```javascript
-$("img").unveil( 200 );
+$("img").unveil(200);
 ```
 
 
@@ -56,6 +56,10 @@ $("img").trigger( "unveil" );
 ###Demo
 Visit [project page](http://luis-almeida.github.com/unveil/) to see it working.
 
+
+
+###Browser support
+Compatible with All Browsers and IE7+.
 
 
 ###License

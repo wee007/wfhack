@@ -30,3 +30,9 @@
 //= require ./init/header
 //= require ./init/unveil
 //= require ./init/tiles
+
+//= require ./vendor/angular-head
+//= require ./vendor/angular-mobile
+//= require ./vendor/angular-sanitize
+//= require ./angular/app
+//= require_tree ./angular/

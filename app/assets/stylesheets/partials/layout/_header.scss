@@ -1317,3 +1317,6 @@ $hero-banner-height-lrg: 380 !default;
 				/* Focus */
 				&:focus {outline: none;}
 			}
+
+/* Ghost element added to the dom to accomodate for fixed header with variable height (between viewports) */
+.header-height-ghost {min-height: 88px;}

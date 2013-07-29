@@ -23,7 +23,7 @@
   <%- @stream.each do |result| -%>
     <%= render partial: "/shared/tiles/#{result.kind}",
         layout: '/layouts/tile',
-        locals: { result: result }
+        locals: { result: result, image: {href: result[:_links][:image][:href], title: result[:name]} }
     %>
   <%- end -%>
 

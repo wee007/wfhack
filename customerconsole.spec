@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.271
+Version:     0.0.272
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,136 @@ fi
 
 
 %changelog
+* Mon Jul 29 2013 ci <doperations@au.westfield.com> 0.0.272-1
+- Chose the 0e0d50818fdd585de5170eef68a164965c3f90bc diff of this spec (passes
+  build) (ben@germanforblack.com)
+- Added angular-sanitize (ben@germanforblack.com)
+- Target _self for header links. Angular will otherwise take over the links on
+  the page. (ben@germanforblack.com)
+- Use entire path for products endpoint (ben@germanforblack.com)
+- ng-bind-html-unsafe has been removed in favour of using $sce (Ref:
+  https://github.com/angular/angular.js/pull/3306/files)
+  (ben@germanforblack.com)
+- Set the base for angular routing / location (ben@germanforblack.com)
+- Use document.location.path rather than $location.path (Cross browser fix)
+  (ben@germanforblack.com)
+- Update angular (Closes router issue for oldIE) (ben@germanforblack.com)
+- Set correct icons for mobile (ben@germanforblack.com)
+- Added apply button to price range. Price range fields to be able to have
+  strings (ben@germanforblack.com)
+- Remove counts from filters (ben@germanforblack.com)
+- Implemented script for special drop downs (ben@germanforblack.com)
+- Styles for filter buttons on desktop breakpoint (ben@germanforblack.com)
+- Removed canned search && centre selector (Can be re-added when thew features
+  are played) (ben@germanforblack.com)
+- Updated styles for canned search bar. (ben@germanforblack.com)
+- No drop down. This feature isn't being built yet! (ben@germanforblack.com)
+- Render index (ben@germanforblack.com)
+- Replaced boilerplate markup with app (ben@germanforblack.com)
+- Styles for dropdowns and filters (ben@germanforblack.com)
+- Added karma tests for search facet & param cleaner (ben@germanforblack.com)
+- Added toggle visibility directive (ben@germanforblack.com)
+- Updated layout for new-index (ben@germanforblack.com)
+- Unveil updated to 1.1.0 (ben@germanforblack.com)
+- Added angular-mocks for tests (ben@germanforblack.com)
+- Updated to bower 1.0.0 (ben@germanforblack.com)
+- Added new button style, white. Added compact button style for when button
+  only contains an icon (ben@germanforblack.com)
+- Added nav contextual layout (ben@germanforblack.com)
+- Check facet 'value' attribute exists (ben@germanforblack.com)
+- Use hash bang (ben@germanforblack.com)
+- Added updated icon font (ben@germanforblack.com)
+- Added angular app to the body. No adverse effects for pages that aren't using
+  angular (ben@germanforblack.com)
+- Added first cut of contextual navigation (ben@germanforblack.com)
+- Show the back button for the palm only (ben@germanforblack.com)
+- Added global rule for search element appearance (ben@germanforblack.com)
+- Use a ghost element for the calculated header height (ben@germanforblack.com)
+- Remove misplaced class (ben@germanforblack.com)
+- Split drop down and filters apart (ben@germanforblack.com)
+- Added drop down menu (ben@germanforblack.com)
+- Return the facet, not the facet in an array (ben@germanforblack.com)
+- Added onChange callback system for Products service. (ben@germanforblack.com)
+- Working up filter markup & styles (ben@germanforblack.com)
+- Remove angular from bower (ben@germanforblack.com)
+- Product tile has image details passed into the partial
+  (ben@germanforblack.com)
+- Close button (ben@germanforblack.com)
+- Remove development styles Added reference to filter module
+  (ben@germanforblack.com)
+- Remove angular routing (ben@germanforblack.com)
+- Added conditional method for when there are no filters
+  (ben@germanforblack.com)
+- Left alignment for items with a pointer (ben@germanforblack.com)
+- Add first cut edition of filter styles (ben@germanforblack.com)
+- Send through the title of a given facet (ben@germanforblack.com)
+- Completed implementation for tags (ben@germanforblack.com)
+- Infinite scroll not coming in yet (ben@germanforblack.com)
+- Added new products controller (ben@germanforblack.com)
+- Added initial tag styles (ben@germanforblack.com)
+- Don't use routes to initialise product browse controller
+  (ben@germanforblack.com)
+- Update angular-head (ben@germanforblack.com)
+- Rename product browse controller Remove use of $routeParams due to bugs in
+  angular that aren't fixed in HEAD. Parse centre name from the url
+  (ben@germanforblack.com)
+- Cleaned up stub deprecation, warnings (ldewey@au.westfield.com)
+- Added colours and sizes multi-facets (ben@germanforblack.com)
+- Split Search and Product services (ben@germanforblack.com)
+- Show products rendered by rails initially, then remove them when angular is
+  invoked. (ben@germanforblack.com)
+- Added a partial to be rendered either by rails, or a angular ajax request
+  (ben@germanforblack.com)
+- Render a partial, or the full layout — depending on XHR
+  (ben@germanforblack.com)
+- Remove CORS configuration for angular. Tell rails that the http request is a
+  XMLHTTPRequest (ben@germanforblack.com)
+- Moved init/tiles to create a namespace for window.initPlugin
+  (ben@germanforblack.com)
+- Added product service (ben@germanforblack.com)
+- Return an object for search facets (ben@germanforblack.com)
+- Made Search#params private after overreaching into the service. Added method
+  to return a copy of the params that can't be modified
+  (ben@germanforblack.com)
+- Fixing deal show issues (craigm.smith@au.westfield.com)
+- * Move search facet parsing to its own service * Implement categories *
+  Implement filter clearing (ben@germanforblack.com)
+- Service not in use (ben@germanforblack.com)
+- Inject ngMobile (Tap support) (ben@germanforblack.com)
+- Make it easier to see whats going on (ben@germanforblack.com)
+- Implemented range / price queries (ben@germanforblack.com)
+- * Add price facet * Add mechanism to reset all params to default
+  (ben@germanforblack.com)
+- Added angular mobile for tap support (ben@germanforblack.com)
+- * Added basic loader * Updated methods for multi facet search values * Store
+  all params on the customer's url bar and retrieve them on initialisation of
+  the application (ben@germanforblack.com)
+- Added routes to pass the centre name (ben@germanforblack.com)
+- Added angular-head (not in bower) — Temporary until unstable-1.1.6 is
+  released. (ben@germanforblack.com)
+- Added ParamCleaner service. This prepares params that are compatible with the
+  search api. (ben@germanforblack.com)
+- Remove directive (ben@germanforblack.com)
+- Implement selected filters / remove active filters feature
+  (ben@germanforblack.com)
+- Render new index (ben@germanforblack.com)
+- Add "Show selected filters" to the todo list (ben@germanforblack.com)
+- Added throw-away styles to make it manageable for development Added view for
+  product browser (ben@germanforblack.com)
+- Not a bug! (ben@germanforblack.com)
+- Tidy up (ben@germanforblack.com)
+- Todo notes (ben@germanforblack.com)
+- Filter isn't being used, so don't inject it (ben@germanforblack.com)
+- Added stubbed category service (ben@germanforblack.com)
+- Added ngChecklist directive (ben@germanforblack.com)
+- Added product browser controller (ben@germanforblack.com)
+- Add base app. We'll be using CORS, so enable it globally.
+  (ben@germanforblack.com)
+- Added search service (ben@germanforblack.com)
+- Include angular in application. Load any angular files
+  (ben@germanforblack.com)
+- Added angular-unstable (ben@germanforblack.com)
+
 * Fri Jul 26 2013 ci <doperations@au.westfield.com> 0.0.271-1
 - Merge pull request #176 from mwratt/fix/ie_js (ben@germanforblack.com)
 - delays running of problem scripts until page ready (matt.wratt@trineo.co.nz)

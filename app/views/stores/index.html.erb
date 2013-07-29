@@ -69,8 +69,7 @@
               <div class="stores-list__data-cell stores-list__data-cell--logo hide-fully--palm">
                 <div class="vert-align">
                   <div class="vert-align__inner">
-                    <%#<%= responsive_image_tag normal: store.logo, alt: store.name %>
-                    <img src="http://cs3.wol.io/img_resized/retailer/logos/2xu_110x40.gif?allow_404=true" alt="store name + logo">
+                    <%= image_tag store.logo(width: 168, height: 80), alt: "#{store.name} #{store.logo}", itemprop: "photo" %>
                   </div>
                 </div>
               </div>

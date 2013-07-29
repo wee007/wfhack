@@ -1,5 +1,6 @@
 ((app) ->
   app.service "SuggestionsBuilder", ->
+    self = this
     @to_sentence = (items, key=nil, conjunction = 'or') ->
       sentence = ''
       unique = []
@@ -25,7 +26,7 @@
         retailers.push(retailer['value']) unless retailer['value'] in retailers
       {colour: colours, retailer: retailers}
 
-    @queryString = (result) ->
+    @queryString = (result, remainder) ->
       qs=""
       angular.forEach @urlParams(result), (vs,k) ->
         angular.forEach vs, (v)->
@@ -33,10 +34,21 @@
             qs += "?#{k}[]=#{v}"
           else
             qs += "&#{k}[]=#{v}"
+      if remainder.length > 0
+        if qs.length == 0
+          qs = "?search_query=#{remainder}"
+        else
+          qs += "&search_query=#{remainder}"
       qs
 
-    self = this
-    @didYouMean = (searchResults)->
+    @remainingWords =(searchString, searchResults)->
+      remainder = searchString
+      angular.forEach searchResults, (searchResult)->
+        angular.forEach searchResult, (value,key)->
+          remainder = remainder.replace(RegExp("#{key}($|[^a-zA-Z]+)"), ' ')
+      remainder.trim()
+
+    @didYouMean = (searchString, searchResults)->
       results = []
       angular.forEach searchResults, (searchResult)->
         result = {}
@@ -54,11 +66,17 @@
         if result['retailer']
           description += ' from '
           description += self.to_sentence result['retailer'], 'display'
+        remainder = self.remainingWords(searchString, searchResults)
+        if remainder.length > 0
+          description += " matching '#{remainder}'"
         result['description'] = description.trim()
-        result['queryString'] = self.queryString(result)
+        result['queryString'] = self.queryString(result, remainder)
         results.push result
+      results.push self.dummyResult(searchString) unless searchString is null or searchString.length == 0
       results
 
-    
+    @dummyResult = (searchString)->
+      "description": "Products matching '#{searchString}'",
+      "queryString": "?search_query=#{searchString}"
 
 ) angular.module("Westfield")

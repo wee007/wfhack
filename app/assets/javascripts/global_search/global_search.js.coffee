@@ -12,7 +12,7 @@
       $scope.suggestions = self.didYouMean()
 
   @didYouMean = ->
-    SuggestionsBuilder.didYouMean($scope.searchResults['results'])
+    SuggestionsBuilder.didYouMean($scope.searchQuery, $scope.searchResults['results'])
 
   self = this
 

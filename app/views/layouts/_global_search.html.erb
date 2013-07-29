@@ -1,14 +1,18 @@
 <div class="container" ng-controller='GlobalSearchCtrl'>
   <!-- Search form -->
-  <form class="search-mini" action="#" method="get" role="search">
+  <%= form_tag centre_products_path(centre_id: params[:centre_id] || params[:id]),
+      class: "search-mini", role: "search", method: :get do %>
     <span class="icon icon--search" aria-hidden="true"></span>
     <label for="global-search" class="hide-visually">Search site</label>
     <input type="hidden" ng-model="centre" value="<%= params[:centre_id] || params[:id]%>">
-    <input type="search" class="search-mini__input" id="global-search" 
-      ng-model='searchQuery' 
-      name="global-search" autocomplete="off"
+    <input type="search" class="search-mini__input" id="global-search"
+      ng-model='searchQuery'
+      ng-init='searching=false'
+      ng-keyup='searching=true'
+      ng-blur='searching=false'
+      name="search_query" autocomplete="off"
       placeholder="Search stores, products, deals &amp; events&#8230;">
-  </form>
+  <% end %>
   <!-- //Search form -->
 
   <!-- Close search -->
@@ -17,12 +21,12 @@
     <span class="hide-visually"> Close search</span>
   </button>
   <!-- //Close search -->
-  <div class='global-search-results'>
+  <div class='global-search-results' ng-show='searching'>
     <p>Are you looking for</p>
     <div class='results__products'>
       <ul>
         <li ng-repeat="suggestion in suggestions">
-          <a href="<%= centre_products_path(params[:id]) %>{{suggestion['queryString']}}">{{suggestion['description']}}</a>
+          <a href="<%= centre_products_path(params[:centre_id] || params[:id]) %>{{suggestion['queryString']}}">{{suggestion['description']}}</a>
         </li>
       </ul>
     </div>

@@ -7,9 +7,6 @@
     <input type="hidden" ng-model="centre" value="<%= params[:centre_id] || params[:id]%>">
     <input type="search" class="search-mini__input" id="global-search"
       ng-model='searchQuery'
-      ng-init='searching=false'
-      ng-keyup='searching=true'
-      ng-blur='searching=false'
       name="search_query" autocomplete="off"
       placeholder="Search stores, products, deals &amp; events&#8230;">
   <% end %>
@@ -21,7 +18,7 @@
     <span class="hide-visually"> Close search</span>
   </button>
   <!-- //Close search -->
-  <div class='global-search-results' ng-show='searching'>
+  <div class='global-search-results' ng-show='suggestions.length > 0'>
     <p>Are you looking for</p>
     <div class='results__products'>
       <ul>

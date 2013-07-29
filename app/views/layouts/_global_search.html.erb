@@ -26,7 +26,7 @@
     <div class='results__products'>
       <ul>
         <li ng-repeat="suggestion in suggestions">
-          <a href="<%= centre_products_path(params[:centre_id] || params[:id]) %>{{suggestion['queryString']}}">{{suggestion['description']}}</a>
+          <a href="<%= centre_products_path(params[:centre_id] || params[:id]) %>{{suggestion['queryString']}}" target="_self">{{suggestion['description']}}</a>
         </li>
       </ul>
     </div>

@@ -1,5 +1,5 @@
 ((app) ->
-  app.service "Search", ($http) ->
+  app.service "GlobalSearch", ($http) ->
     callbacks = []
     @list = ""
     @loaded = true

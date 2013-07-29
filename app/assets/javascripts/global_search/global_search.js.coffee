@@ -1,6 +1,6 @@
-app = angular.module("Westfield", [])
+@app ||= angular.module( 'Westfield', ['ngMobile', 'ngSanitize'] );
 
-app.controller "GlobalSearchCtrl", ($scope, SuggestionsBuilder, Search) ->
+@app.controller "GlobalSearchCtrl", ($scope, SuggestionsBuilder, GlobalSearch) ->
   $scope.searchQuery = null
   $scope.searchResults = {}
 
@@ -18,7 +18,7 @@ app.controller "GlobalSearchCtrl", ($scope, SuggestionsBuilder, Search) ->
 
   $scope.search = ->
     url = "/api/search/master/search.json"
-    Search.onChange (data)->
+    GlobalSearch.onChange (data)->
       $scope.searchResults = data
       $scope.suggestions = self.didYouMean()
-    Search.get url, {term: $scope.searchQuery}
+    GlobalSearch.get url, {term: $scope.searchQuery}

@@ -1,5 +1,5 @@
 ( function ( app ) {
-  app.service( 'Products', function( $http, ParamCleaner ) {
+  app.service( 'Products', function( $http, $sce, ParamCleaner ) {
     var callbacks = [];
     this.list = '';
     this.loaded = true;
@@ -22,7 +22,7 @@
       var self = this;
       $http( params ).success( function ( response ) {
         self.loaded = true;
-        self.list = response;
+        self.list = $sce.trustAsHtml(response);
         angular.forEach( callbacks, function ( callback ) { callback( self.list ); } );
       });
     }

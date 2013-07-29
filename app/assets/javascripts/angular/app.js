@@ -1,4 +1,4 @@
-var app = angular.module( 'Westfield', ['ngMobile'] );
+var app = angular.module( 'Westfield', ['ngMobile', 'ngSanitize'] );
 
 app.config(function ( $httpProvider, $locationProvider ) {
   // Tell rails that we're using XMLHttpRequests

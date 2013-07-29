@@ -268,7 +268,7 @@
     </span>
   </div>
 
-  <div ng-show="products.loaded" ng-bind-html-unsafe="products.list"></div>
+  <div ng-show="products.loaded" ng-bind-html="products.list"></div>
   <%# Using a !products.loaded on ng-hide so that the loader will be shown immediately %>
   <div ng-hide="!products.loaded" ng-if="!products.list.length">
     <%= render 'products' %>

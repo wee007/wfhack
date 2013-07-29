@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.272
+Version:     0.0.273
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,10 @@ fi
 
 
 %changelog
+* Mon Jul 29 2013 ci <doperations@au.westfield.com> 0.0.273-1
+- HACK - Fix image on product tile, Leon will fix this up.
+  (cwalsh2@au.westfield.com)
+
 * Mon Jul 29 2013 ci <doperations@au.westfield.com> 0.0.272-1
 - Chose the 0e0d50818fdd585de5170eef68a164965c3f90bc diff of this spec (passes
   build) (ben@germanforblack.com)

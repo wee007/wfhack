@@ -6,7 +6,7 @@
 		<div class="container">
 
 			<!-- Logo -->
-			<a href="<%= centre_path(params[:centre_id] || params[:id]) %>" rel="home" class="logo"><img src="<%= image_path "logo.svg" %>" alt="Westfield" data-svg-fallback="<%= image_path "logo.png" %>"></a>
+			<a href="<%= centre_path(params[:centre_id] || params[:id]) %>" target ="_self" rel="home" class="logo"><img src="<%= image_path "logo.svg" %>" alt="Westfield" data-svg-fallback="<%= image_path "logo.png" %>"></a>
 			<!-- //Logo -->
 
 			<!-- Menu toggle button for palm devices -->
@@ -21,8 +21,8 @@
 
 				<!-- Shopping centre select -->
 				<div class="shopping-centre-select container">
-					<h1><a href="/" rel="home" title="Change shopping centre"><%= @centre.short_name %> <span class="icon icon--arrow-right-full hide-fully--palm" aria-hidden="true"></span></a></h1>
-					<a href="/" class="btn hide-fully--non-palm" rel="home">Change <span class="icon icon--arrow-right icon--flush-top" aria-hidden="true"></span></a>
+					<h1><a href="/" target ="_self" rel="home" title="Change shopping centre"><%= @centre.short_name %> <span class="icon icon--arrow-right-full hide-fully--palm" aria-hidden="true"></span></a></h1>
+					<a href="/" target ="_self" class="btn hide-fully--non-palm" rel="home">Change <span class="icon icon--arrow-right icon--flush-top" aria-hidden="true"></span></a>
 				</div>
 				<!-- //Shopping centre select -->
 
@@ -39,13 +39,13 @@
 					<nav class="header-menu-toggle__nav drop-down js-drop-down" role="navigation" aria-label="Sub navigation" id="nav-sub">
 						<ul class="nav-sub">
 							<!-- Shopping centre opening hours -->
-							<li class="open-hours-link"><a href="<%= centre_trading_hours_path( params[ :centre_id ] || params[ :id ] ) %>"><span class="icon icon--hours" aria-hidden="true"></span> <strong>Open <%= twelve_hour_format(@centre.today_opening_time) %> - <%= twelve_hour_format(@centre.today_closing_time) %> today</strong> <span class="icon icon--arrow-right" aria-hidden="true"></span></a></li>
+							<li class="open-hours-link"><a href="<%= centre_trading_hours_path( params[ :centre_id ] || params[ :id ] ) %>" target ="_self"><span class="icon icon--hours" aria-hidden="true"></span> <strong>Open <%= twelve_hour_format(@centre.today_opening_time) %> - <%= twelve_hour_format(@centre.today_closing_time) %> today</strong> <span class="icon icon--arrow-right" aria-hidden="true"></span></a></li>
 							<!-- //Shopping centre opening hours -->
-							<li class="shopping-hrs-link"><a href="#"><span class="icon icon--hours icon--fixed-width icon--spacing" aria-hidden="true"></span><span class="nav-sub__txt"> Shopping Hours</span></a></li>
-							<li><a href="#"><span class="icon icon--dining icon--fixed-width icon--spacing" aria-hidden="true"></span><span class="nav-sub__txt"> Dining</span></a></li>
-							<li><a href="<%= centre_movies_path(params[ :centre_id ] || params[ :id ]) %>"><span class="icon icon--video icon--fixed-width icon--spacing" aria-hidden="true"></span><span class="nav-sub__txt"> Cinemas</span></a></li>
-							<li><a href="#"><span class="icon icon--info icon--fixed-width icon--spacing" aria-hidden="true"></span><span class="nav-sub__txt"> Concierge</span></a></li>
-							<li><a href="#"><span class="icon icon--map icon--fixed-width icon--spacing" aria-hidden="true"></span><span class="nav-sub__txt"> Getting There</span></a></li>
+							<li class="shopping-hrs-link"><a href="#" target ="_self"><span class="icon icon--hours icon--fixed-width icon--spacing" aria-hidden="true"></span><span class="nav-sub__txt"> Shopping Hours</span></a></li>
+							<li><a href="#" target ="_self"><span class="icon icon--dining icon--fixed-width icon--spacing" aria-hidden="true"></span><span class="nav-sub__txt"> Dining</span></a></li>
+							<li><a href="<%= centre_movies_path(params[ :centre_id ] || params[ :id ]) %>" target ="_self"><span class="icon icon--video icon--fixed-width icon--spacing" aria-hidden="true"></span><span class="nav-sub__txt"> Cinemas</span></a></li>
+							<li><a href="#" target ="_self"><span class="icon icon--info icon--fixed-width icon--spacing" aria-hidden="true"></span><span class="nav-sub__txt"> Concierge</span></a></li>
+							<li><a href="#" target ="_self"><span class="icon icon--map icon--fixed-width icon--spacing" aria-hidden="true"></span><span class="nav-sub__txt"> Getting There</span></a></li>
 						</ul>
 					</nav>
 
@@ -73,8 +73,8 @@
 						<div class="header-menu-toggle__nav header-menu-toggle__mrg-btm drop-down js-drop-down" id="my-account-links">
 							<ul>
 								<!-- [BACK END] `is-active` class needs to be appended to the active anchor element e.g. `<a href="#" class="is-active">` -->
-								<li><a href="#"><span class="icon icon--user icon--fixed-width icon--spacing" aria-hidden="true"></span> Account Settings</a></li>
-								<li><a href="#"><span class="icon icon--signout icon--fixed-width icon--spacing" aria-hidden="true"></span> Sign out</a></li>
+								<li><a href="#" target ="_self"><span class="icon icon--user icon--fixed-width icon--spacing" aria-hidden="true"></span> Account Settings</a></li>
+								<li><a href="#" target ="_self"><span class="icon icon--signout icon--fixed-width icon--spacing" aria-hidden="true"></span> Sign out</a></li>
 							</ul>
 						</div>
 					</div>
@@ -84,7 +84,7 @@
 					<div class="my-account-container my-account-signedout">
 						<strong class="my-account-container__hdr container hide-fully--non-palm">My Account</strong>
 						<div class="header-menu-toggle__nav header-menu-toggle__nav--plain header-menu-toggle__mrg-btm">
-							<a href="#"><span class="icon icon--user icon--fixed-width icon--spacing" aria-hidden="true"></span> Sign in<span class="my-account-signedout__member"> / Become a member</span></a>
+							<a href="#" target ="_self"><span class="icon icon--user icon--fixed-width icon--spacing" aria-hidden="true"></span> Sign in<span class="my-account-signedout__member"> / Become a member</span></a>
 						</div>
 					</div>
 					<!-- //signed out -->
@@ -93,7 +93,7 @@
 
 					<!-- Favourites (non-palm devices) -->
 					<!-- [BACK END] when an item has been added to 'Favourites' need to append class `is-favs-added` -->
-					<a href="#" class="favs-link hide-fully--palm">
+					<a href="#" target ="_self" class="favs-link hide-fully--palm">
 						<span class="favs-link__count-icon">
 							<span class="icon icon--favs icon--flush-top icon--kilo" aria-hidden="true"></span>
 							<em></em>
@@ -108,8 +108,8 @@
 				<!-- Tertiary navigation -->
 				<nav class="header-menu-toggle__nav hide-fully--non-palm" role="navigation" aria-label="Tertiary navigation">
 						<ul class="nav-tertiary">
-								<li><a href="#">Terms &amp; Conditions</a></li>
-								<li><a href="#">Privacy Policy</a></li>
+								<li><a href="#" target ="_self">Terms &amp; Conditions</a></li>
+								<li><a href="#" target ="_self">Privacy Policy</a></li>
 						</ul>
 				</nav>
 				<!-- //Tertiary navigation -->
@@ -129,7 +129,7 @@
 
 				<!-- Favourites -->
 				<!-- [BACK END] when an item has been added to 'Favourites' need to append class `is-favs-added` -->
-				<a href="#" class="favs-link">
+				<a href="#"  target ="_self" class="favs-link">
 					<span class="favs-link__count-icon">
 						<span class="icon icon--favs icon--flush-top icon--kilo" aria-hidden="true"></span>
 						<em></em>
@@ -153,12 +153,12 @@
 
 			<!-- Shopping centre select -->
 			<div class="shopping-centre-select">
-				<h1><a href="/" rel="home" title="Change shopping centre"><%= @centre.short_name %> <span class="icon icon--arrow-right-full" aria-hidden="true"></span></a></h1>
+				<h1><a href="/" rel="home" target ="_self" title="Change shopping centre"><%= @centre.short_name %> <span class="icon icon--arrow-right-full" aria-hidden="true"></span></a></h1>
 			</div>
 			<!-- //Shopping centre select -->
 
 			<!-- Shopping centre opening hours -->
-      <a href="<%= centre_trading_hours_path( params[ :centre_id ] || params[ :id ] ) %>" class="open-hours-link"><span class="icon icon--hours" aria-hidden="true"></span> <strong>Open <%= @centre.today_opening_time %> - <%= @centre.today_closing_time %> today</strong> <span class="icon icon--arrow-right" aria-hidden="true"></span></a>
+      <a href="<%= centre_trading_hours_path( params[ :centre_id ] || params[ :id ] ) %>" target ="_self" class="open-hours-link"><span class="icon icon--hours" aria-hidden="true"></span> <strong>Open <%= @centre.today_opening_time %> - <%= @centre.today_closing_time %> today</strong> <span class="icon icon--arrow-right" aria-hidden="true"></span></a>
 			<!-- //Shopping centre opening hours -->
 
 		</div>
@@ -178,13 +178,13 @@
 			<nav role="navigation" aria-label="Main navigation">
 					<ul class="nav-main horiz-list horiz-list--fit horiz-list--center horiz-list--dividers">
 					  <li><%= link_to centre_stores_path(params[:centre_id] || params[:id]),
-					    :class => (page?(:stores) ? 'is-active' : nil) do %><span class="icon icon--store" aria-hidden="true"></span><span class="hide-visually"> Stores</span><% end %></li>
+					    :class => (page?(:stores) ? 'is-active' : nil), target: '_self' do %><span class="icon icon--store" aria-hidden="true"></span><span class="hide-visually"> Stores</span><% end %></li>
 					  <li><%= link_to centre_products_path(params[:centre_id] || params[:id]),
-					    :class => (page?(:products) ? 'is-active' : nil) do %><span class="icon icon--products icon--flush-top" aria-hidden="true"></span><span class="hide-visually"> Products</span><% end %></li>
+					    :class => (page?(:products) ? 'is-active' : nil), target: '_self' do %><span class="icon icon--products icon--flush-top" aria-hidden="true"></span><span class="hide-visually"> Products</span><% end %></li>
 					  <li><%= link_to centre_deals_path(params[:centre_id] || params[:id]),
-					    :class => (page?(:deals) ? 'is-active' : nil) do %><span class="icon icon--deals icon--flush-top" aria-hidden="true"></span><span class="hide-visually"> Deals</span><% end %></li>
+					    :class => (page?(:deals) ? 'is-active' : nil), target: '_self' do %><span class="icon icon--deals icon--flush-top" aria-hidden="true"></span><span class="hide-visually"> Deals</span><% end %></li>
 					  <li><%= link_to centre_events_path(params[:centre_id] || params[:id]),
-					    :class => (page?(:events) ? 'is-active' : nil) do %><span class="icon icon--events" aria-hidden="true"></span><span class="hide-visually"> Events</span><% end %></li>
+					    :class => (page?(:events) ? 'is-active' : nil), target: '_self' do %><span class="icon icon--events" aria-hidden="true"></span><span class="hide-visually"> Events</span><% end %></li>
 					</ul>
 			</nav>
 			<!-- //Main navigation -->

@@ -244,6 +244,15 @@
     right: 0;
     top: 0;
     bottom: 0;
+    visibility: hidden;
+
+    /* When map view is in view */
+    .is-map-view & {visibility: visible;}
+
+    /* Always show at this breakpoint */
+    @include respond-min($ipad-landscape) {
+      visibility: visible;
+    }
 
     /* Non JS users */
     .no-js & {display: none;}

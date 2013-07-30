@@ -45,17 +45,16 @@
       width: 50%;
     }
 
-      /* Toggle button */
-      .toggle-content--btn {
-        @include box;
-        @include box-heavy;
-      }
+    /* Non JS users */
+    .no-js & {position: static;}
   }
 
     /* Filters / toggle */
     .stores-maps__filters-toggle {
       background-color: $color-grey-3;
       border-bottom: 1px solid $color-grey-1;
+      position: relative;
+      z-index: 6;
 
       /* When map view is in view */
       @include respond-max($palm) {
@@ -103,19 +102,21 @@
           /* Hide the header at this breakpoint */
           @include respond-max($ipad-landscape - 1) {
             @include hide-visually;
-          }
 
-          /* When map view is in view */
-          .is-map-view & {display: none;}
+            /* When map view is in view */
+            .is-map-view & {display: none;}
+          }
         }
     }
 
       /* Toggle button */
       .stores-maps__toggle {
+        /* Temp removal so current feature can be released */
         //float: right;
 
-        /* Reveal button text at this breakpoint */
+        /* Reveal button text and fix a width at this breakpoint */
         @include respond-min($non-palm) {
+          @include to-rem(min-width, 120);
           .hide-visually {@include hide-visually-off;}
         }
 
@@ -127,9 +128,15 @@
         /* Hide for non JS users */
         .no-js & {display: none;}
 
+          /* Left spacing for icon at this breakpoint */
+          @include respond-min($non-palm) {
+            .icon {@include to-rem(margin-left, $spacing-base);}
+          }
+
           /* Hide/show icons */
           .icon--list {display: none;}
 
+          /* When map view is in view */
           .is-map-view & {
             .icon--map2 {display: none;}
             .icon--list {display: inline-block;}
@@ -155,7 +162,8 @@
     /* List / Detail views */
     .stores-maps__list-detail {
       position: absolute;
-      @include to-rem(top, 57);
+      z-index: 5;
+      @include to-rem(top, 55);
       bottom: 0;
       left: 0;
       right: 0;
@@ -163,14 +171,19 @@
       -webkit-overflow-scrolling: touch;
 
       /* When map view is in view */
-      .is-map-view & {display: none;}
+      @include respond-max($ipad-landscape - 1) {
+        .is-map-view & {display: none;}
+      }
+
+      /* Non JS users */
+      .no-js & {position: static;}
 
       /* Post filter count */
       .is-filter-applied & {@include to-rem(top, 88);}
 
-      /* Alter top/btm positioning at this breakpoint */
+      /* Alter top positioning at this breakpoint */
       @include respond-min($non-palm) {
-        @include to-rem(top, 67);
+        @include to-rem(top, 65);
 
         /* Post filter count */
         .is-filter-applied & {@include to-rem(top, 102);}
@@ -231,15 +244,9 @@
     right: 0;
     top: 0;
     bottom: 0;
-    visibility: hidden;
 
-    /* When map view is in view */
-    .is-map-view & {visibility: visible;}
-
-    /* Always show at this breakpoint */
-    @include respond-min($ipad-landscape) {
-      visibility: visible;
-    }
+    /* Non JS users */
+    .no-js & {display: none;}
 
     /* Preloader */
     @include respond-min($ipad-landscape) {

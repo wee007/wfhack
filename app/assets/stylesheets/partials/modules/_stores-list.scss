@@ -27,6 +27,7 @@
     border-top: 1px solid $color-grey-1;
     @include to-rem(padding-top padding-bottom, $spacing-micro);
 
+    /* Border off for first child */
     &:first-child {border-top: 0;}
 
     /* Increase padding at this breakpoint */
@@ -39,6 +40,7 @@
   dd {
     border-top: 1px solid $color-grey-1;
 
+    /* Bottom border for last child */
     &:last-child {border-bottom: 1px solid $color-grey-1;}
 
     /* Inner container */
@@ -141,8 +143,15 @@
     .stores-list__data-cell__icon--phone {
       @include to-rem(right, 54);
 
+      /* Non JS users */
+      .no-js & {right: 0;}
+
+      /* Icon */
       .icon:before {color: $color-cta-green;}
     }
 
     /* Location icon */
     .stores-list__data-cell__icon--location .icon:before {color: $color-brand;}
+
+    /* Non JS users */
+    .no-js .stores-list__data-cell__icon--location {display: none;}

@@ -28,7 +28,6 @@
 // do it in an init/initName file
 //= require_tree ./jquery-extensions
 //= require ./init/toggle
-//= require ./init/unveil
 //= require ./init/tiles
 //= require ./init/tabs
 
@@ -37,5 +36,4 @@
 //= require ./vendor/angular-sanitize
 //= require ./angular/app
 //= require_tree ./angular/
-
 //= require_tree ./global_search

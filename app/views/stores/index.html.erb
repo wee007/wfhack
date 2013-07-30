@@ -18,10 +18,10 @@
         <%# Filters %>
 
         <%# List/map toggle %>
-        <button class="stores-maps__toggle btn btn--main btn--main-alt2 js-stores-maps-toggle">
-          <span class="hide-visually">View <span class="js-stores-maps-toggle__txt">map</span></span>
-          <span class="icon icon--map2 icon--flush-top icon--lrg" aria-hidden="true"></span>
-          <span class="icon icon--list icon--flush-top icon--lrg" aria-hidden="true"></span>
+        <button class="stores-maps__toggle btn btn--main btn--main-alt4 btn--main-compact-icon js-stores-maps-toggle-btn">
+          <span class="hide-visually">View <span class="js-stores-maps-toggle-btn__txt">map</span></span>
+          <span class="icon icon--map2 icon--lrg" aria-hidden="true"></span>
+          <span class="icon icon--list icon--lrg" aria-hidden="true"></span>
         </button>
         <%# //List/map toggle %>
 
@@ -40,7 +40,7 @@
     <%# //Filters & list/map toggle button %>
 
     <%# Stores list %>
-    <div class="stores-maps__list-detail js-stores-maps-toggle__list">
+    <div class="stores-maps__list-detail js-stores-maps-toggle-listing-detail">
       <dl class="stores-list">
         <% @stores.each do |letter, stores| %>
 
@@ -109,7 +109,7 @@
   <%# //Contain filters, map/list toggle, and listings %>
 
   <%# Map %>
-  <div class="stores-maps__map map-micello js-stores-maps-toggle__map">
+  <div class="stores-maps__map map-micello js-stores-maps-toggle-map">
     <%= render partial: 'shared/map', locals: {store_id: nil, interactive: true} %>
   </div>
   <%# //Map %>

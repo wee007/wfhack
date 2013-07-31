@@ -12,6 +12,8 @@ files = [
   'app/assets/javascripts/vendor/angular-sanitize.js',
   'app/assets/javascripts/angular/app.js',
   'app/assets/javascripts/angular/**/*.js',
+  'app/assets/javascripts/global_search/**/*.coffee',
+  'app/assets/javascripts/global_search/**/*.js',
   'vendor/assets/components/angular-mocks-unstable/angular-mocks.js',
 
   'spec/mock/**/*.js',

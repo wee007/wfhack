@@ -55,9 +55,12 @@ group :development, :test do
   gem 'rb-fsevent', require: false if RUBY_PLATFORM =~ /darwin/i
   gem 'guard-jasmine', git: 'https://github.com/cwalsh/guard-jasmine.git' # Fix coverage issue
   gem 'rack-proxy'
+  gem 'launchy'
 end
 
 group :test do
+  gem 'capybara'
+  gem 'poltergeist'
   gem 'vcr'
   gem 'nokogiri'
   gem 'simplecov'

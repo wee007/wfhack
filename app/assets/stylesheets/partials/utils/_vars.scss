@@ -198,13 +198,6 @@ $color-med-txt: #42444d !default;
 /* Dark text color */
 $color-dark-txt: #292a2e !default;
 
-/* Link colors */
-$color-link: $color-light-txt !default;
-
-$color-link-hover: $color-brand !default;
-
-$color-link-visited: lighten($color-link-hover, 15%) !default;
-
 /* Off white */
 $color-off-white: #f2f2f2 !default;
 
@@ -212,6 +205,13 @@ $color-off-white: #f2f2f2 !default;
 $color-cta-green: #52c884 !default;
 
 $color-cta-blue: #3498db !default;
+
+/* Link colors */
+$color-link: $color-cta-blue !default;
+
+$color-link-hover: #52a7e0 !default;
+
+$color-link-visited: lighten($color-link-hover, 15%) !default;
 
 /* Greys */
 /*

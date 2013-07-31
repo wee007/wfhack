@@ -1,5 +1,5 @@
 ((app) ->
-  app.service "GlobalSearch", ($http) ->
+  app.service "GlobalSearch", ['$http', ($http) ->
     callbacks = []
     @list = ""
     @loaded = true
@@ -19,5 +19,5 @@
         self.list = response
         angular.forEach callbacks, (callback) ->
           callback self.list
-
+  ]
 ) angular.module("Westfield")

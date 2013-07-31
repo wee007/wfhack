@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.277
+Version:     0.0.278
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,38 @@ fi
 
 
 %changelog
+* Wed Jul 31 2013 ci <doperations@au.westfield.com> 0.0.278-1
+- Merge pull request #181 from cawalsh/feature/global_search
+  (cwalsh2@au.westfield.com)
+- Run Karma tests on CI (cwalsh2@au.westfield.com)
+- WSF-4649 Tests for remaining words, fix bug with too many spaces in query
+  string (cwalsh2@au.westfield.com)
+- WSF-4649 Karma tests for SuggestionsBuilder (cwalsh2@au.westfield.com)
+- WSF-4649 Fix bug when to_sentence not given key (cwalsh2@au.westfield.com)
+- WSF-4649 Basic spec for submitting the search form (cwalsh2@au.westfield.com)
+- WSF-4649 Add capybara, launchy and poltergeist for deeper stack testing
+  (cwalsh2@au.westfield.com)
+- WSF-4649 Add hidden submit button to enable capybara testing
+  (cwalsh2@au.westfield.com)
+- WSF-4649 Use box/island classes to achieve white background with padding
+  (cwalsh2@au.westfield.com)
+- WSF-4649 Add a 'products matching' query to catch everything else
+  (cwalsh2@au.westfield.com)
+- WSF-4649 Show/Hide search results bar based on number of results
+  (cwalsh2@au.westfield.com)
+- WSF-4649 Fix namespace clashes with Ben's code (cwalsh2@au.westfield.com)
+- WSF-4649 Show/Hide search results dropdown and let enter take you to product
+  browse (cwalsh2@au.westfield.com)
+- WSF-4649 Capitalise, set to blank when query blank (cwalsh2@au.westfield.com)
+- WSF-4649 Generate URLs (cwalsh2@au.westfield.com)
+- WSF-4649 Use Angular  instead of jQuery.ajax (cwalsh2@au.westfield.com)
+- WSF-4649 Hide duplicate items in a result (cwalsh2@au.westfield.com)
+- WSF-4649 Cleaning up, fixing error (cwalsh2@au.westfield.com)
+- WSF-4649 Works with SS #ef62e85, but needs cleanup, and keeps throwing errors
+  (cwalsh2@au.westfield.com)
+- WSF-4649 WIP Proof of concept integration with search service as of 53ea491
+  (cwalsh2@au.westfield.com)
+
 * Wed Jul 31 2013 ci <doperations@au.westfield.com> 0.0.277-1
 - Merge pull request #184 from cpearce/master (cpearce@au.westfield.com)
 - removing links from header and various clean ups for base stylesheets

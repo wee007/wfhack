@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.275
+Version:     0.0.276
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,9 @@ fi
 
 
 %changelog
+* Wed Jul 31 2013 ci <doperations@au.westfield.com> 0.0.276-1
+- Include angular-sanitize.js in karma tests (cwalsh2@au.westfield.com)
+
 * Wed Jul 31 2013 ci <doperations@au.westfield.com> 0.0.275-1
 - Adding global link style (CPearce@au.westfield.com)
 - Removing fade in CSS animation on body element (CPearce@au.westfield.com)

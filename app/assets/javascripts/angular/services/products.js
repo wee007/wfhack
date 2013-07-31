@@ -1,5 +1,5 @@
 ( function ( app ) {
-  app.service( 'Products', function( $http, $sce, ParamCleaner ) {
+  app.service( 'Products', ['$http', '$sce', 'ParamCleaner', function( $http, $sce, ParamCleaner ) {
     var callbacks = [];
     this.list = '';
     this.loaded = true;
@@ -26,5 +26,5 @@
         angular.forEach( callbacks, function ( callback ) { callback( self.list ); } );
       });
     }
-  });
+  }]);
 }( angular.module( 'Westfield' ) ));

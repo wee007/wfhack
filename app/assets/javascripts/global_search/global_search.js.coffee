@@ -1,6 +1,6 @@
 @app ||= angular.module( 'Westfield', ['ngMobile', 'ngSanitize'] );
 
-@app.controller "GlobalSearchCtrl", ($scope, SuggestionsBuilder, GlobalSearch) ->
+@app.controller "GlobalSearchCtrl", ['$scope', 'SuggestionsBuilder', 'GlobalSearch', ($scope, SuggestionsBuilder, GlobalSearch) ->
   $scope.searchQuery = null
   $scope.searchResults = {}
 
@@ -22,3 +22,4 @@
       $scope.searchResults = data
       $scope.suggestions = self.didYouMean()
     GlobalSearch.get url, {term: $scope.searchQuery}
+]

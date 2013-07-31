@@ -1,6 +1,6 @@
 class map.micello.Map extends map.micello.MapBase
 
-  key: '458dc5a4-547f-4fb7-a760-575d8176f70b'
+  key: '3ad0ea61-8448-4b7a-b01e-ccac0252f21e'
   themeFamily: 'Standard'
   customTheme:
     s:

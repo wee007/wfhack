@@ -20,9 +20,9 @@ GIT
 
 GIT
   remote: git@github.dbg.westfield.com:digital/service_helper.git
-  revision: 2bba31816200ccf9b83df3d477ad9c3b56996e01
+  revision: afdfea65bde331f7ed0df2e40bec0d7c9574fa0d
   specs:
-    service_helper (0.0.2)
+    service_helper (0.0.7)
 
 GIT
   remote: https://github.com/bradphelan/jasminerice.git

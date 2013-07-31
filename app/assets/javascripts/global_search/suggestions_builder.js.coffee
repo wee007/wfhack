@@ -45,7 +45,7 @@
       remainder = searchString
       angular.forEach searchResults, (searchResult)->
         angular.forEach searchResult, (value,key)->
-          remainder = remainder.replace(RegExp("#{key}($|[^a-zA-Z]+)"), ' ')
+          remainder = remainder.replace(RegExp("[^a-zA-Z]*#{key}[^a-zA-Z]*"), ' ')
       remainder.trim()
 
     @didYouMean = (searchString, searchResults)->

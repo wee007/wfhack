@@ -3,9 +3,6 @@
    ====================================================================================== */
 
 .main {
-  /* This ensures any absolutely positioned elements with `.main` will never overlap the fixed header */
-  position: relative;
-  z-index: 1;
 
 	/* Turn off `.container` rules (full width) for: 'Detail views' & 'Stores' */
 	.page-detail-view &,

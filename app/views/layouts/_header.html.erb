@@ -107,10 +107,10 @@
 
 				<!-- Tertiary navigation -->
 				<nav class="header-menu-toggle__nav hide-fully--non-palm" role="navigation" aria-label="Tertiary navigation">
-						<ul class="nav-tertiary">
-								<li><a href="#" target ="_self">Terms &amp; Conditions</a></li>
-								<li><a href="#" target ="_self">Privacy Policy</a></li>
-						</ul>
+					<ul class="nav-tertiary">
+						<li><a href="#" target ="_self">Terms &amp; Conditions</a></li>
+						<li><a href="#" target ="_self">Privacy Policy</a></li>
+					</ul>
 				</nav>
 				<!-- //Tertiary navigation -->
 
@@ -176,16 +176,16 @@
 
 			<!-- Main navigation -->
 			<nav role="navigation" aria-label="Main navigation">
-					<ul class="nav-main horiz-list horiz-list--fit horiz-list--center horiz-list--dividers">
-					  <li><%= link_to centre_stores_path(params[:centre_id] || params[:id]),
-					    :class => (page?(:stores) ? 'is-active' : nil), target: '_self' do %><span class="icon icon--store" aria-hidden="true"></span><span class="hide-visually"> Stores</span><% end %></li>
-					  <li><%= link_to centre_products_path(params[:centre_id] || params[:id]),
-					    :class => (page?(:products) ? 'is-active' : nil), target: '_self' do %><span class="icon icon--products icon--flush-top" aria-hidden="true"></span><span class="hide-visually"> Products</span><% end %></li>
-					  <li><%= link_to centre_deals_path(params[:centre_id] || params[:id]),
-					    :class => (page?(:deals) ? 'is-active' : nil), target: '_self' do %><span class="icon icon--deals icon--flush-top" aria-hidden="true"></span><span class="hide-visually"> Deals</span><% end %></li>
-					  <li><%= link_to centre_events_path(params[:centre_id] || params[:id]),
-					    :class => (page?(:events) ? 'is-active' : nil), target: '_self' do %><span class="icon icon--events" aria-hidden="true"></span><span class="hide-visually"> Events</span><% end %></li>
-					</ul>
+				<ul class="nav-main horiz-list horiz-list--fit horiz-list--center horiz-list--dividers">
+				  <li><%= link_to centre_stores_path(params[:centre_id] || params[:id]),
+				    :class => (page?(:stores) ? 'is-active' : nil), target: '_self' do %><span class="icon icon--store" aria-hidden="true"></span><span class="hide-visually"> Stores</span><% end %></li>
+				  <li><%= link_to centre_products_path(params[:centre_id] || params[:id]),
+				    :class => (page?(:products) ? 'is-active' : nil), target: '_self' do %><span class="icon icon--products icon--flush-top" aria-hidden="true"></span><span class="hide-visually"> Products</span><% end %></li>
+				  <li><%= link_to centre_deals_path(params[:centre_id] || params[:id]),
+				    :class => (page?(:deals) ? 'is-active' : nil), target: '_self' do %><span class="icon icon--deals icon--flush-top" aria-hidden="true"></span><span class="hide-visually"> Deals</span><% end %></li>
+				  <li><%= link_to centre_events_path(params[:centre_id] || params[:id]),
+				    :class => (page?(:events) ? 'is-active' : nil), target: '_self' do %><span class="icon icon--events" aria-hidden="true"></span><span class="hide-visually"> Events</span><% end %></li>
+				</ul>
 			</nav>
 			<!-- //Main navigation -->
 
@@ -211,13 +211,13 @@
 
 			<!-- Store search -->
 			<div class="header__overlay header__overlay--stick">
-					<div class="container">
-						<form class="search-mini search-mini--stores" action="#" method="post" role="search">
-							<span class="icon icon--store" aria-hidden="true"></span>
-							<label for="store-search" class="hide-visually">Search stores</label>
-							<input type="search" class="search-mini__input" id="store-search" name="store-search" placeholder="Search store names, categories &amp; brands&#8230;">
-					</form>
-				</div>
+				<div class="container">
+					<form class="search-mini search-mini--stores" action="#" method="post" role="search">
+						<span class="icon icon--store" aria-hidden="true"></span>
+						<label for="store-search" class="hide-visually">Search stores</label>
+						<input type="search" class="search-mini__input" id="store-search" name="store-search" placeholder="Search store names, categories &amp; brands&#8230;">
+				</form>
+			</div>
 			</div>
 			<!-- //Store search -->
 
@@ -227,4 +227,3 @@
 
 </header>
 <!-- //Header -->
-<div class="header-height-ghost"></div>

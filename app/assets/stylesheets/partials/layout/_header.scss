@@ -5,21 +5,16 @@
 /* Set variables */
 $hero-banner-height-sml: 270 !default;
 $hero-banner-height-lrg: 380 !default;
+$header-color-grey: #bababa !default;
+$header-color-link-hover: $color-brand !default;
 
 /* Start header */
 .header {
-	position: fixed;
-	z-index: 1000;
-	width: 100%;
-
-	/* Non JS users + toggle `position: fixed` via the jQuery toggle menu/search plugin */
-	//&.is-header-unfixed,
-	.no-js & {position: static;}
 
 	/* Centre home page hero banner */
 	&.is-header-hero {
 		position: relative;
-		border-bottom: 1px solid #bababa;
+		border-bottom: 1px solid $header-color-grey;
 	}
 
 	/* --Global rules-- */
@@ -188,9 +183,6 @@ $hero-banner-height-lrg: 380 !default;
 			@include respond-max($palm) {
 				background-color: $color-dark-txt;
 				color: #fff;
-				/* Make menu scrollable */
-				height: 330px;
-				overflow: auto;
 
 				/* Create bottom spacing */
 				.header-menu-toggle__mrg-btm {@include to-rem(margin-bottom, $spacing-half);}
@@ -226,7 +218,7 @@ $hero-banner-height-lrg: 380 !default;
 
 					/* Items */
 					li {
-						border-bottom: 1px solid #26292f;
+						border-bottom: 1px solid $color-dark-txt;
 
 						/* Turn off borders and throw into horizontal mode for sub nav at this breakpoint */
 						@include respond-min($ipad-landscape) {
@@ -255,7 +247,7 @@ $hero-banner-height-lrg: 380 !default;
 							}
 
 							/* My account nav drop down */
-							.is-header-hero .my-account-signedin & {border-color: #bababa;}
+							.is-header-hero .my-account-signedin & {border-color: $header-color-grey;}
 						}
 
 						/* Increase right spacing at this breakpoint */
@@ -288,7 +280,7 @@ $hero-banner-height-lrg: 380 !default;
 								.is-header-hero .sub-nav-container & {padding: 0;}
 
 								/* Change colour for 'Centre home page hero banner' my account nav drop down */
-								.is-header-hero .my-account-signedin & {color: #292a2e;}
+								.is-header-hero .my-account-signedin & {color: $color-dark-txt;}
 							}
 
 							/* Reduce left/right padding at this breakpoint */
@@ -309,7 +301,7 @@ $hero-banner-height-lrg: 380 !default;
 
 									/* Change state styles at this breakpoint */
 									@include respond-min($ipad-landscape) {
-										color: $color-link-hover;
+										color: $header-color-link-hover;
 									}
 								}
 							}
@@ -320,7 +312,7 @@ $hero-banner-height-lrg: 380 !default;
 								.is-header-hero &:focus,
 								.is-header-hero &.is-active {
 									&,
-									.icon:before {color: $color-link-hover;}
+									.icon:before {color: $header-color-link-hover;}
 								}
 							}
 
@@ -346,8 +338,9 @@ $hero-banner-height-lrg: 380 !default;
 							.icon:before {
 								color: #fff;
 
-								/* Bump up more for iOS */
-								.ios & {top: -2px;}
+								/* Bump up more for iOS/Android */
+								.ios &,
+								.android & {top: -2px;}
 
 								/* Change colour at this breakpoint */
 								@include respond-min($ipad-landscape) {
@@ -355,10 +348,18 @@ $hero-banner-height-lrg: 380 !default;
 										color: $color-light-txt;
 										@include font-size(17, 1);
 
+										/* Bump up more for iOS/Android */
+										.ios &,
+										.android & {top: -3px;}
+
 										/* Change colour for 'Centre home page hero banner' */
 										.is-header-hero & {
 											color: #fff;
 											@include font-size(14, 1);
+
+											/* Bump down for iOS/Android */
+											.ios &,
+											.android & {top: -2px;}
 										}
 									}
 								}
@@ -512,8 +513,9 @@ $hero-banner-height-lrg: 380 !default;
 				@include to-rem(top, 3);
 				@include to-rem(margin-left, 5);
 
-				/* iOS */
-				.ios & {@include to-rem(top, 2);}
+				/* iOS/Android */
+				.ios &,
+				.android & {@include to-rem(top, 2);}
 
 				/* Centre home page hero banner */
 				.is-header-hero & {
@@ -619,10 +621,15 @@ $hero-banner-height-lrg: 380 !default;
 					position: absolute;
 					right: 0;
 					top: 50%;
-					margin-top: -(to-em($spacing-third));
+					@include translate(0, -50%);
 
 					/* Icon */
-					.icon:before {color: #fff;}
+					.icon:before {
+						color: #fff;
+
+						/* Bump up more for iOS */
+						.ios & {position: relative;}
+					}
 				}
 		}
 
@@ -641,7 +648,7 @@ $hero-banner-height-lrg: 380 !default;
 				.header & .btn:hover,
 				.header & .btn:focus {
 					&,
-					.icon:before {color: $color-link-hover;}
+					.icon:before {color: $header-color-link-hover;}
 				}
 
 					/* 'Signed in' hover & focus states */
@@ -657,7 +664,7 @@ $hero-banner-height-lrg: 380 !default;
 					.is-header-hero &.is-my-account-signedin .header-menu-toggle__nav a:focus,
 					.is-header-hero &.is-my-account-signedin .header-menu-toggle__nav .is-active {
 						&,
-						.icon:before {color: $color-link-hover;}
+						.icon:before {color: $header-color-link-hover;}
 					}
 
 				/* 'Signed in' positioning */
@@ -808,7 +815,7 @@ $hero-banner-height-lrg: 380 !default;
 
 			/* Hover & focus states */
 			a:hover .icon:before,
-			a:focus .icon:before {color: $color-link-hover;}
+			a:focus .icon:before {color: $header-color-link-hover;}
 
 			/* Search icon */
 			.icon--search:before {
@@ -882,13 +889,19 @@ $hero-banner-height-lrg: 380 !default;
 					width: 100%;
 					position: absolute;
 					left: 0;
-					top: 4px;
+					top: 0;
 					@include font-size(11, 1);
+					line-height: 22px;
 					font-weight: bold;
 					text-align: center;
 
-					/* iOS */
-					.ios & {top: 5px;}
+					/* IE 9/10 fixes */
+					@include ie-10-up {
+						line-height: 20px;
+					}
+					.ie-9 & {
+						line-height: 20px;
+					}
 				}
 
 			/* Favourites text, reduce text size at this breakpoint range */
@@ -947,7 +960,7 @@ $hero-banner-height-lrg: 380 !default;
 			.header .open-hours-link:hover,
 			.header .open-hours-link:focus {
 				&,
-				.icon:before {color: $color-link-hover;}
+				.icon:before {color: $header-color-link-hover;}
 			}
 
 			/* Hide when not 'Centre home page hero banner' */
@@ -1159,7 +1172,7 @@ $hero-banner-height-lrg: 380 !default;
 							color: #fff;
 
 							/* Centre home page hero banner */
-							.is-header-hero & {color: $color-link-hover;}
+							.is-header-hero & {color: $header-color-link-hover;}
 						}
 					}
 
@@ -1199,9 +1212,6 @@ $hero-banner-height-lrg: 380 !default;
 						@include respond-min($iphone-landscape) {
 							@include font-size(17, 1);
 							margin-right: to-em($spacing-sixth);
-
-							/* iOS */
-							.ios & {top: -2px;}
 						}
 
 						/* Increase text size, turn off right margin and change position context at this breakpoint range */
@@ -1210,15 +1220,16 @@ $hero-banner-height-lrg: 380 !default;
 							margin-right: 0;
 							position: static;
 						}
-					}
 
-						/* iOS */
+						/* Bump up more for iOS/Android */
 						@include respond-min($iphone-landscape) {
-							.ios & .icon--flush-top:before {
+							.ios &,
+							.android & {
 								position: relative;
 								top: -2px;
 							}
 						}
+					}
 		}
 
 		/* Search */
@@ -1264,7 +1275,7 @@ $hero-banner-height-lrg: 380 !default;
 			}
 
 			/* Centre home page hero banner */
-			.is-header-hero & {border-color: #bababa;}
+			.is-header-hero & {border-color: $header-color-grey;}
 
 				/* Icon */
 				.icon:before {
@@ -1317,6 +1328,3 @@ $hero-banner-height-lrg: 380 !default;
 				/* Focus */
 				&:focus {outline: none;}
 			}
-
-/* Ghost element added to the dom to accomodate for fixed header with variable height (between viewports) */
-.header-height-ghost {min-height: 88px;}

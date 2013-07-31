@@ -9,6 +9,7 @@ files = [
   JASMINE_ADAPTER,
   'app/assets/javascripts/vendor/angular-head.js',
   'app/assets/javascripts/vendor/angular-mobile.js',
+  'app/assets/javascripts/vendor/angular-sanitize.js',
   'app/assets/javascripts/angular/app.js',
   'app/assets/javascripts/angular/**/*.js',
   'vendor/assets/components/angular-mocks-unstable/angular-mocks.js',

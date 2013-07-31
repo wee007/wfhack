@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.274
+Version:     0.0.275
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,11 @@ fi
 
 
 %changelog
+* Wed Jul 31 2013 ci <doperations@au.westfield.com> 0.0.275-1
+- Adding global link style (CPearce@au.westfield.com)
+- Removing fade in CSS animation on body element (CPearce@au.westfield.com)
+- unfixing the header (CPearce@au.westfield.com)
+
 * Tue Jul 30 2013 ci <doperations@au.westfield.com> 0.0.274-1
 - Product tile fixes (ldewey@au.westfield.com)
 

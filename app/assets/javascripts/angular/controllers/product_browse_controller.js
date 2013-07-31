@@ -1,5 +1,5 @@
 ( function ( app ) {
-  app.controller( 'ProductBrowseController', function ( $scope, $filter, $location, $element, ParamCleaner, Search, Products ) {
+  app.controller( 'ProductBrowseController', ['$scope', '$filter', '$location', '$element', 'ParamCleaner', 'Search', 'Products', function ( $scope, $filter, $location, $element, ParamCleaner, Search, Products ) {
     $scope.search = Search;
 
     // Multi-facet search fields
@@ -146,5 +146,5 @@
 
       Search.setParam( paramName, paramValue );
     };
-  });
+  }]);
 }( angular.module( 'Westfield' ) ));

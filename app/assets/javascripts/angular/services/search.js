@@ -1,5 +1,5 @@
 ( function ( app ) {
-  app.service( 'Search', function ( $http, ParamCleaner, SearchFacet ) {
+  app.service( 'Search', ['$http', 'ParamCleaner', 'SearchFacet', function ( $http, ParamCleaner, SearchFacet ) {
     var self = this;
 
     // Params, with types
@@ -133,5 +133,5 @@
       angular.extend( params, defaultParams );
       angular.extend( params, newParams );
     };
-  });
+  }]);
 }( angular.module('Westfield') ));

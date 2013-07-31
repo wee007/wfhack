@@ -10,12 +10,11 @@ $header-color-link-hover: $color-brand !default;
 
 /* Start header */
 .header {
+	position: relative;
+	z-index: 99;
 
 	/* Centre home page hero banner */
-	&.is-header-hero {
-		position: relative;
-		border-bottom: 1px solid $header-color-grey;
-	}
+	&.is-header-hero {border-bottom: 1px solid $header-color-grey;}
 
 	/* --Global rules-- */
 

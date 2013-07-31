@@ -6,11 +6,11 @@
 -------------------------------------------------------*/
 hr {
 	@extend %mrg-base;
-    display: block;
-    height: 1px;
-    border: 0;
-    border-top: 1px solid $color-grey-light;
-    padding: 0;
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid $color-grey-light;
+  padding: 0;
 	position: relative;
 }
 

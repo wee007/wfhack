@@ -27,7 +27,6 @@
 // do it in an init/initName file
 //= require_tree ./jquery-extensions
 //= require ./init/toggle
-//= require ./init/header
 //= require ./init/unveil
 //= require ./init/tiles
 

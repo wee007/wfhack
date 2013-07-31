@@ -11,19 +11,12 @@ html {
 }
 
 body {
-	@include prefix(animation, fade-in 1.5s 0.5s both);
 	background-color: $color-grey-3;
 
 	/* Change bg color to white for detail views at this breakpoint */
 	@include respond-max($palm) {
 		&.page-detail-view {background-color: #fff;}
 	}
-}
-
-/* Animation: fade in the `body` */
-@include prefix-keyframe(fade-in) {
-	from {opacity: 0;}
-	to {opacity: 1;}
 }
 
 /* Set `font-family` and `color` */

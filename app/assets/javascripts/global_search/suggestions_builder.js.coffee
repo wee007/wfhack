@@ -1,7 +1,7 @@
 ((app) ->
   app.service "SuggestionsBuilder", ->
     self = this
-    @to_sentence = (items, key=nil, conjunction = 'or') ->
+    @to_sentence = (items, key=null, conjunction = 'or') ->
       sentence = ''
       unique = []
       angular.forEach items, (item)->

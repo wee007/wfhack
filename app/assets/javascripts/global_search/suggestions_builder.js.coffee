@@ -18,13 +18,12 @@
       sentence
 
     @urlParams = (result) ->
-      colours = []
-      retailers = []
-      angular.forEach result['colour'], (colour)->
-        colours.push(colour['value']) unless colour['value'] in colours
-      angular.forEach result['retailer'], (retailer)->
-        retailers.push(retailer['value']) unless retailer['value'] in retailers
-      {colour: colours, retailer: retailers}
+      params = {}
+      angular.forEach ['colour','retailer','super_cat','category','sub_category','type'], (match_type)->
+        angular.forEach result[match_type], (match)->
+          params[match_type] ||= []
+          params[match_type].push(match['value']) unless match['value'] in params[match_type]
+      params
 
     @queryString = (result, remainder) ->
       qs=""
@@ -60,9 +59,19 @@
         description = ""
         if result['colour']
           description += self.to_sentence result['colour'], 'display'
-          description += " products"
+        res = result['super_cat'] || []
+        res = res.concat result['category'] || []
+        res = res.concat result['sub_category'] || []
+        res = res.concat result['type'] || []
+        if res.length > 0
+          if description.length > 0
+            description += " "
+          description += self.to_sentence res, 'display'
         else
-          description = "Products"
+          if description.length > 0
+            description += " products"
+          else
+            description += "Products"
         if result['retailer']
           description += ' from '
           description += self.to_sentence result['retailer'], 'display'

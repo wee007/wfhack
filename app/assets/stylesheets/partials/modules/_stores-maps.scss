@@ -11,9 +11,28 @@
 */
 
 .stores-maps {
-  position: relative;
-  z-index: 2;
-  height: 100%;
+  position: absolute;
+  z-index: 1;
+  @include to-rem(top, 88);
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  /* Increase top positioning at this breakpoint */
+  @include respond-min($non-palm) {
+    @include to-rem(top, 110);
+  }
+
+  /* Turn off `.container` rules at this breakpoint */
+  @include respond-max($ipad-landscape - 1) {
+    &.container {
+      width: auto;
+      max-width: none;
+    }
+  }
+
+  /* Non JS users */
+  .no-js & {position: static;}
 
   /* --Global rules-- */
   p {margin-bottom: 0;}
@@ -34,7 +53,7 @@
   /* Listing and detail views container */
   .stores-maps__inner {
     position: absolute;
-    z-index: 4;
+    z-index: 3;
     top: 0;
     bottom: 0;
     left: 0;
@@ -43,6 +62,16 @@
     /* Half the width at this breakpoint */
     @include respond-min($ipad-landscape) {
       width: 50%;
+    }
+
+    /* When map view is in view */
+    .is-map-view & {
+      position: static;
+
+      /* Back to absolute positioning at this breakpoint */
+      @include respond-min($ipad-landscape) {
+        position: absolute;
+      }
     }
 
     /* Non JS users */
@@ -54,13 +83,17 @@
       background-color: $color-grey-3;
       border-bottom: 1px solid $color-grey-1;
       position: relative;
-      z-index: 6;
+      z-index: 5;
 
       /* When map view is in view */
       @include respond-max($palm) {
         .is-map-view & {
           background: none;
           border: 0;
+          pointer-events: none;
+
+          /* Make buttons clickable */
+          .btn {pointer-events: auto;}
         }
       }
 
@@ -125,7 +158,7 @@
           &.btn {display: none;}
         }
 
-        /* Hide for non JS users */
+        /* Non JS users */
         .no-js & {display: none;}
 
           /* Left spacing for icon at this breakpoint */
@@ -162,17 +195,28 @@
     /* List / Detail views */
     .stores-maps__list-detail {
       position: absolute;
-      z-index: 5;
+      z-index: 4;
       @include to-rem(top, 55);
       bottom: 0;
       left: 0;
       right: 0;
       overflow: auto;
-      -webkit-overflow-scrolling: touch;
+
+      /* iOS/Android */
+      .ios &,
+      .android & {
+        overflow: scroll;
+        -webkit-overflow-scrolling: touch;
+      }
 
       /* When map view is in view */
-      @include respond-max($ipad-landscape - 1) {
-        .is-map-view & {display: none;}
+      .is-map-view & {
+        display: none;
+
+        /* Always show at this breakpoint */
+        @include respond-min($ipad-landscape) {
+          display: block;
+        }
       }
 
       /* Non JS users */
@@ -239,19 +283,24 @@
   /* Micello map */
   .stores-maps__map {
     position: absolute;
-    z-index: 3;
+    z-index: 2;
     left: 0;
     right: 0;
     top: 0;
     bottom: 0;
-    visibility: hidden;
 
-    /* When map view is in view */
-    .is-map-view & {visibility: visible;}
+    /* Map/list view toggling */
+    &,
+    canvas {
+      visibility: hidden !important;
 
-    /* Always show at this breakpoint */
-    @include respond-min($ipad-landscape) {
-      visibility: visible;
+      /* When map view is in view */
+      .is-map-view & {visibility: visible !important;}
+
+      /* Always show at this breakpoint */
+      @include respond-min($ipad-landscape) {
+        visibility: visible !important;
+      }
     }
 
     /* Non JS users */

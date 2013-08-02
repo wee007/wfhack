@@ -1,15 +1,17 @@
 require 'spec_helper'
 
-describe TradingHoursController do
+describe CentreHoursController do
 
   context "GET" do
 
-    describe :index do
+    describe :show do
 
       it "renders trading_hours_index view" do
         CentreService.should_receive( :fetch ).with('chatswood').and_return double :response, body: {}
-        get :index, centre_id: 'chatswood'
-        response.should render_template :index
+        CentreTradingHourService.should_receive( :fetch ).with('chatswood').and_return double :response, body: {}
+
+        get :show, centre_id: 'chatswood'
+        response.should render_template :show
       end
 
     end

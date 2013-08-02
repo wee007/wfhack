@@ -293,8 +293,7 @@
     bottom: 0;
 
     /* Map/list view toggling */
-    &,
-    canvas {
+    & {
       visibility: hidden !important;
 
       /* When map view is in view */

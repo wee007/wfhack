@@ -14,10 +14,6 @@ class CentreTradingHour < Hashie::Mash
     hour_type == 'christmas'
   end
 
-  def extended?
-    hour_type == 'extended'
-  end
-
   def date(strftime = nil)
     strftime ? Time.parse(super).strftime(strftime) : super
   end

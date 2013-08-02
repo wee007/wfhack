@@ -6,7 +6,7 @@ CustomerConsole::Application.routes.draw do
 
   get 'status' => 'health_check/health_check#index', 'checks' => 'cache_and_site'
 
-  get 'api', to: redirect('api/index.html') # This lets /api work, not just /api/
+  get 'api', to: redirect('/api/index.html') # This lets /api work, not just /api/
 
   resource :visitor, only: :show
 

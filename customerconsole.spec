@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.285
+Version:     0.0.286
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,9 @@ fi
 
 
 %changelog
+* Fri Aug 02 2013 ci <doperations@au.westfield.com> 0.0.286-1
+- 
+
 * Fri Aug 02 2013 ci <doperations@au.westfield.com> 0.0.285-1
 - add slash to allow /api redirect to work (charles.horn@gmail.com)
 

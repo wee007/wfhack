@@ -109,8 +109,65 @@
 
   <%# Map %>
   <div class="stores-maps__map map-micello js-stores-maps-toggle-map" id="stores-maps-toggle-map">
-    <%= render partial: 'shared/map', locals: {store_id: nil, interactive: true} %>
+    <%= render partial: 'shared/map', locals: {store_id: nil, interactive: true, load_immediately: false} %>
   </div>
+  <%- content_for :javascript do -%>
+    <%= javascript_tag do %>
+      (function() {
+
+        var map = new window.map.Micello(),
+            viewingList = true;
+
+        function resetView(listView) {
+          <%# listView = [true, false, null]
+                true = list view
+                false = map view
+                null = desktop view
+          %>
+          viewingList = listView;
+
+          if(!listView) map.load();
+
+          $('.js-stores-maps-toggle').toggleClass('is-expanded', listView === false); <%# toggle button        %>
+          $('.js-stores-maps-toggle__txt').html(listView ? 'map' : 'list');           <%# toggle button text   %>
+          $('.js-stores-maps-toggle__map')[listView ? 'hide' : 'show']();             <%# map container        %>
+          $('.stores-maps').toggleClass('is-map-view', listView === false);           <%# store list container %>
+        }
+
+        function desktopView() {
+          resetView(null);
+          $('*', document).off('.map-palm')
+          $('[data-store-id]').on('click.map-desktop', function() {
+            map.highlight($(this).data('store-id'));
+          });
+        }
+
+        function palmView() {
+          resetView(true);
+          $('*', document).off('.map-desktop')
+          $('.stores-maps__toggle').on('click.map-palm', function() {
+            resetView(!viewingList);
+          });
+          $('[data-store-id]').on('click.map-palm', 'a[href="#infoDiv"]', function(event) {
+            resetView(false);
+            map.highlight($(event.delegateTarget).data('store-id'));
+          });
+        }
+
+        Modernizr.load({
+          load: '<%= asset_path 'enquire.js' %>',
+          complete: function() {
+            enquire.register("all and (min-width: 64em)", {
+              match: desktopView,
+              unmatch: palmView,
+              setup: palmView
+            });
+          }
+        });
+
+      }());
+    <% end %>
+  <%- end -%>
   <%# //Map %>
 
 </div>

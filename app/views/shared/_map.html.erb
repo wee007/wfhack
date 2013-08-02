@@ -29,36 +29,10 @@
     <%= render partial: 'shared/micello_map_popup' %>
   </div>
 <!--<![endif]-->
-
-<% content_for :javascript do %>
-  <%= javascript_tag do %>
-    (function initMaps() {
-
-      function supported() {
-        return !$('#map-micello-api').hasClass('map-micello-oldie');
-      }
-
-      function ready() {
-        return window.map && map.micello && (map.micello.ie && map.micello.ie.Map || map.micello.Map && window.micello);
-      }
-
-      function createMap() {
-        if(ready()) {
-          var Map = supported() ? map.micello.Map : map.micello.ie.Map;
-          new Map({select: <%= store_id || 'null' %>});
-        } else {
-          <%# yepnope complete does not always execute in the correct order -%>
-          setTimeout(arguments.callee, 100);
-        }
-      }
-
-      Modernizr.load([{
-        test: supported(),
-        yep: ['http://maps.micello.com/webmap/v0/micellomap.js', '<%= asset_url 'map/micello.js' %>'],
-        nope: '<%= asset_url 'map/micello_ie.js' %>',
-        complete: createMap
-      }]);
-
-    }());
+<% if load_immediately %>
+  <% content_for :javascript do %>
+    <%= javascript_tag do %>
+      new map.Micello().load().zoomTo(<%= store_id %>);
+    <% end %>
   <% end %>
 <% end %>

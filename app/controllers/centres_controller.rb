@@ -10,13 +10,17 @@ class CentresController < ApplicationController
 
   def show
     stream
-    render_404 unless @centre
+    handle_error(@centre) if @centre.is_a?(NullCentre)
     @page_title = @centre.short_name
   end
 
   def product_stream
     stream 'product'
-    render :show
+    if @centre.is_a?(NullCentre)
+      handle_error(@centre)
+    else
+      render :show
+    end
   end
 
 private

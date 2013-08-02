@@ -13,8 +13,7 @@ class CentreHoursController < ApplicationController
     @page_title = "#{@centre.name} hours"
 
     # TODO: Should this be a presenter?
-    @hero = Hashie::Mash.new heading: 'heading',
-                             text: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem distinctio quam ex aliquid incidunt repudiandae quisquam sequi ipsum? Porro possimus accusamus voluptas perspiciatis magnam minima nisi numquam architecto quod fugit.',
+    @hero = Hashie::Mash.new heading: 'Opening Hours',
                              image: 'hours'
   end
 

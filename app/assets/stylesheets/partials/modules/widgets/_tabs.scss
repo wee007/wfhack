@@ -32,13 +32,13 @@
 	/* JS off */
 	.no-js & {
 		display: block;
-		margin-bottom: to-rem($spacing-base);
+    @extend %mrg-base;
 	}
 
 	/* Print */
 	@media print {
 		display: block;
-		margin-bottom: to-rem($spacing-base);
+		@extend %mrg-base;
 	}
 }
 

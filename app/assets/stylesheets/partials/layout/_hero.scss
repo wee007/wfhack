@@ -13,7 +13,6 @@
 .hero {
   @include to-rem(height, 220);
   color: #fff;
-  text-align: center;
 
   @include respond-min($non-palm) {
     @include to-rem(height, 379);
@@ -26,28 +25,29 @@
     }
   }
 
-  .hero__icon {
-    @include font-size(30);
+    .hero__icon {
+      @include font-size(30, 1);
 
-    @include respond-min($non-palm) {
-      @include font-size(50);
-      float: left;
+      @include respond-min($non-palm) {
+        @include font-size(50, 1);
+        float: left;
+      }
     }
-  }
 
-  .hero__hdr {
-    text-transform: uppercase;
-    @include font-size(30);
+    .hero__hdr {
+      text-transform: uppercase;
+      @include font-size(30);
 
-    @include respond-min($non-palm) {
-      @include font-size(60);
+      @include respond-min($non-palm) {
+        @include font-size(60);
+      }
     }
-  }
 
-  .hero__txt {
-    font-family: $font-family-opensans;
+    .hero__txt {
+      font-family: $font-family-opensans;
+      margin-bottom: 0;
 
-    @include respond-min($non-palm) {
-      @include font-size(24);
+      @include respond-min($non-palm) {
+        @include font-size(24);
+      }
     }
-  }

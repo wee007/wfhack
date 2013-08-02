@@ -2,20 +2,18 @@
 <div class="tabs">
 
   <%# Tab nav %>
-  <nav role="navigation" aria-label="Contextual navigation" class="mrg-base mrg-dbl--top">
-    <ul class="tab__nav horiz-list horiz-list--dividers">
-      <% @weeks.each_with_index do |week, week_number| %>
-        <li>
-          <a class="<%= 'is-active' if week_number == 0 %>" href="#tab-<%= week_number %>">
-            <%=
-              ["This week", "Next week"][week_number] ||
-              "#{week.first.date '%-d %b'} - #{week.last.date '%-d %b'}"
-            %>
-          </a>
-        </li>
-      <% end %>
-    </ul>
-  </nav>
+  <ul class="tab__nav horiz-list horiz-list--dividers mrg-base mrg-dbl--top">
+    <% @weeks.each_with_index do |week, week_number| %>
+      <li>
+        <a class="<%= 'is-active' if week_number == 0 %>" href="#tab-<%= week_number %>">
+          <%=
+            ["This week", "Next week"][week_number] ||
+            "#{week.first.date '%-d %b'} - #{week.last.date '%-d %b'}"
+          %>
+        </a>
+      </li>
+    <% end %>
+  </ul>
   <%# //Tab nav %>
 
 

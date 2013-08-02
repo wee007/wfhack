@@ -27,7 +27,7 @@ table {
 	caption {
     @include font-size($font-size-lrg);
     font-weight: bold;
-    @include to-rem(margin-bottom, $spacing-base);
+    @extend %mrg-base;
   }
 
 	/* Cell header */

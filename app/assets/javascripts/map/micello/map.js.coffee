@@ -39,8 +39,8 @@ class map.micello.Map extends map.micello.MapBase
     @attachEventListeners()
 
   initMap: =>
-    $('#map').text('')
-    @control = new micello.maps.MapControl('map')
+    $('#map-micello-api').text('')
+    @control = new micello.maps.MapControl('map-micello-api')
     @data = @control.getMapData()
     canvas = @control.getMapCanvas()
     @applyCustomTheme(@control.getMapGUI(), canvas)

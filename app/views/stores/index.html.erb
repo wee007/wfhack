@@ -128,10 +128,10 @@
 
           if(!listView) map.load();
 
-          $('.js-stores-maps-toggle').toggleClass('is-expanded', listView === false); <%# toggle button        %>
-          $('.js-stores-maps-toggle__txt').html(listView ? 'map' : 'list');           <%# toggle button text   %>
-          $('.js-stores-maps-toggle__map')[listView ? 'hide' : 'show']();             <%# map container        %>
-          $('.stores-maps').toggleClass('is-map-view', listView === false);           <%# store list container %>
+          $('.js-stores-maps-toggle-btn').toggleClass('is-expanded', listView === false); <%# toggle button        %>
+          $('.js-stores-maps-toggle-btn__txt').html(listView ? 'map' : 'list');           <%# toggle button text   %>
+          $('.stores-maps__map')[listView ? 'hide' : 'show']();                           <%# map container        %>
+          $('.stores-maps').toggleClass('is-map-view', listView === false);               <%# store list container %>
         }
 
         function desktopView() {

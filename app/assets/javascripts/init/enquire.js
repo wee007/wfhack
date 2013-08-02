@@ -17,9 +17,6 @@ $(function() {
 
       // Add a non-palm class as a mediaquery utility
       $('html').addClass('non-palm');
-
-      // Run 'Calculate the height of the fixed header' plugin
-      $('.header').calculateHeaderHeight();
     },
 
     // Palm size viewport
@@ -31,9 +28,6 @@ $(function() {
 
       // Remove non-palm class
       $('html').removeClass('non-palm');
-
-      // Run 'Calculate the height of the fixed header' plugin
-      $('.header').calculateHeaderHeight();
     }
 
   }, true);

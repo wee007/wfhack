@@ -37,3 +37,6 @@
 //= require ./angular/app
 //= require_tree ./angular/
 //= require_tree ./global_search
+
+// Map deferred loader
+//= require ./map/deferred_map

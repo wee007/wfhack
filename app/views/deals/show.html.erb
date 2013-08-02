@@ -16,7 +16,7 @@
 
     <!-- Store location -->
     <div class="map-micello map-micello--static detail-view__divider">
-      <%= render partial: 'shared/map', locals: {store_id: @store.id, interactive: false} %>
+      <%= render partial: 'shared/map', locals: {store_id: @store.id, interactive: false, load_immediately: true} %>
     </div>
     <!-- //Store location -->
 

@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.288
+Version:     0.0.289
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,9 @@ fi
 
 
 %changelog
+* Mon Aug 05 2013 ci <doperations@au.westfield.com> 0.0.289-1
+- Cleaning up IE8 Micello maps CSS (CPearce@au.westfield.com)
+
 * Fri Aug 02 2013 ci <doperations@au.westfield.com> 0.0.288-1
 - 
 

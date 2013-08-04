@@ -30,9 +30,6 @@ $fix-mqs: 1600;
 /* Import everything from 'application.scss' */
 @import "application";
 
-/* Import extra styling for maps */
-@import "partials/modules/widgets/map-micello-ie";
-
 /* ======================================================================================
    @OLD IE NOTIFICATION
    ====================================================================================== */

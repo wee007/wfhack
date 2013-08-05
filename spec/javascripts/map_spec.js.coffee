@@ -1,6 +1,10 @@
 describe "map.micello.Map", ->
 
   beforeEach ->
+    @jquery = window.$
+    jquery = jasmine.createSpyObj('jQeury', ['html'])
+    window.$ = jasmine.createSpy().andReturn(jquery)
+    window.$.ajax = jasmine.createSpy().andReturn(jasmine.createSpyObj('ajax', ['success']))
     window.westfield = {stores: [], centre: micello_community: 7297}
     window.micello = maps: jasmine.createSpyObj('map', ['init', 'MapControl'])
     micello.maps.MapControl.andReturn jasmine.createSpyObj('MapControl', ['getMapData', 'getMapCanvas', 'getMapGUI'])
@@ -12,14 +16,15 @@ describe "map.micello.Map", ->
   afterEach ->
     delete micello
     delete westfield
+    window.$ = @jquery
 
   describe "#constructor", ->
 
-    it 'calls micello init', ->
-      expect(micello.maps.init).toHaveBeenCalled()
+    it 'loads addresses', ->
+      expect($.ajax).toHaveBeenCalled()
 
-    it 'creates an index', ->
-      expect(@subject.index).toBeDefined()
+    it 'inits the micello map', ->
+      expect(micello.maps.init).toHaveBeenCalled()
 
   describe "#applyCustomTheme", ->
 
@@ -37,21 +42,13 @@ describe "map.micello.Map", ->
 
   describe "#onMapChanged", ->
 
-    options = select: 123
-
     beforeEach ->
       @subject.data = community: d: 0: l: []
+      @subject.ready = jasmine.createSpy()
 
-    it 'selects a store if the option is set', ->
-      @subject.highlight = jasmine.createSpy('highlight')
-      @subject.options = options
+    it 'calls ready', ->
       @subject.onMapChanged(comLoad: 1)
-      waitsFor((->
-        @subject.highlight.callCount
-      ), 'highlight to be called', 500)
-      runs(->
-        expect(@subject.highlight).toHaveBeenCalledWith(options.select)
-      )
+      expect(@subject.ready).toHaveBeenCalled()
 
   describe "#highlight", ->
 

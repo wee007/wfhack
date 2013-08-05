@@ -1,0 +1,59 @@
+<%# Tabs %>
+<div class="tabs">
+
+  <%# Tab nav %>
+  <ul class="tab__nav horiz-list horiz-list--dividers mrg-base mrg-dbl--top">
+    <% @weeks.each_with_index do |week, week_number| %>
+      <li>
+        <a class="<%= 'is-active' if week_number == 0 %>" href="#tab-<%= week_number %>">
+          <%=
+            ["This week", "Next week"][week_number] ||
+            "#{week.first.date '%-d %b'} - #{week.last.date '%-d %b'}"
+          %>
+        </a>
+      </li>
+    <% end %>
+  </ul>
+  <%# //Tab nav %>
+
+
+  <%# Hours %>
+  <% @weeks.each_with_index do |week, week_number| %>
+    <div id="tab-<%= week_number %>" class="tab__content island box <%= 'is-active' if week_number == 0 %>">
+
+      <table class="table-striped">
+        <caption>
+          <%= week.find { |hour| hour.christmas? } ? "Christmas Centre Hours" : "Centre Hours" %>
+        </caption>
+
+        <thead class="hide-visually">
+          <tr>
+            <th scope="col" class="one-fifth">Day</th>
+            <th scope="col">Date</th>
+            <th scope="col" class="two-fifths">Time</th>
+          </th>
+        </thead>
+
+        <tbody>
+          <% week.each do |day| %>
+            <tr>
+              <td class="one-fifth">
+                <%= day.date '%a' %>
+              </td>
+              <td>
+                <%= day.date '%-d %b' %>
+                <%= content_tag :span, day.description, class: 'pill pill--spacing hide-fully--palm' if day.description %>
+              </td>
+              <td class="two-fifths">
+                <%= day.opening_time '%-I:%M%P' %> - <%= day.closing_time '%-I:%M%P' %>
+              </td>
+            </tr>
+          <% end -%>
+        </tbody>
+      </table>
+    </div>
+  <% end %>
+  <%# // Hours %>
+
+</div>
+<%# // Tabs %>

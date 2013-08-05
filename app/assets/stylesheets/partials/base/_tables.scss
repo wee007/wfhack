@@ -24,7 +24,11 @@ table {
 	}
 
 	/* Caption */
-	caption {@extend h2};
+	caption {
+    @include font-size($font-size-lrg);
+    font-weight: bold;
+    @extend %mrg-base;
+  }
 
 	/* Cell header */
 	th {font-weight: bold;}

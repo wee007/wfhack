@@ -1,22 +1,6 @@
-<% content_for :custom_styles do %>
-  <!-- [BACK END] These bg images need to be dynamically updated according to the shopping centre site user is on -->
-  <style>
-    /* Hero image at this breakpoint (small) */
-    @media (max-width: 25em) {
-        .header__hero {background-image: url(<%= asset_path("heroes/#{params[:id]}-sml.jpg") %>);}
-    }
-    /* Hero image at this breakpoint (medium) */
-    @media (min-width: 25.0625em) and (max-width: 48em) {
-        .header__hero {background-image: url(<%= asset_path("heroes/#{params[:id]}-med.jpg") %>);}
-    }
-    /* Hero image at this breakpoint (large) */
-    @media (min-width: 48.0625em) {
-        .header__hero {background-image: url(<%= asset_path("heroes/#{params[:id]}-lrg.jpg") %>);}
-    }
-    /* Old IE */
-    .old-ie .header__hero {background-image: url(<%= asset_path("heroes/#{params[:id]}-lrg.jpg") %>);}
-  </style>
-<% end %>
+<% content_for :custom_styles,
+  render('/shared/hero_custom_styles', image: @centre.code, target: '.header__hero')
+%>
 
 <div id="pin-board" class="pin-board">
 

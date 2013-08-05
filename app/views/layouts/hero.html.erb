@@ -1,0 +1,27 @@
+<% content_for :class_for_main, "container--wide" %>
+
+<% content_for :custom_styles,
+  render('/shared/hero_custom_styles', image: @hero.image, target: '.hero')
+%>
+
+<article role="article">
+  <header class="hero">
+    <div class="vert-align">
+      <div class="vert-align__inner">
+
+        <div class="hero__inner container container--narrow">
+          <span class="hero__icon icon icon--hours icon--spacing-lrg" aria-hidden="true"></span>
+          <h1 class="hero__hdr"><%= @hero.heading %></h1>
+          <%= content_tag :p, @hero.text, class: 'hero__txt' if @hero.text %>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <div class="container container--narrow">
+    <%= yield %>
+  </div>
+</article>
+
+<%= parent_layout 'application' %>

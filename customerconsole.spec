@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.297
+Version:     0.0.298
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,10 @@ fi
 
 
 %changelog
+* Tue Aug 06 2013 ci <doperations@au.westfield.com> 0.0.298-1
+- Merge pull request #201 from mwratt/fix/hours_link (matt.wratt@trineo.co.nz)
+- adds link to centre hours (matt.wratt@trineo.co.nz)
+
 * Tue Aug 06 2013 ci <doperations@au.westfield.com> 0.0.297-1
 - 
 

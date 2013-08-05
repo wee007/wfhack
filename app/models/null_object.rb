@@ -3,6 +3,6 @@ class NullObject < Hashie::Mash
     "Page"
   end
   def status
-    self[:status] || 500
+    self[:status] || 503
   end
 end

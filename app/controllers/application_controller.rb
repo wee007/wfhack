@@ -9,8 +9,10 @@ class ApplicationController < ActionController::Base
 
   def handle_error(null_object=nil)
     null_object ||= NullObject.new
+    file_name = "#{Rails.root}/public/#{null_object.status}"
+    error_file = File.exist?(file_name) ? file_name : "#{Rails.root}/public/503"
     respond_to do |format|
-      format.html { render :file => "#{Rails.root}/public/#{null_object.status}", :layout => false, :status => null_object.status }
+      format.html { render :file => error_file, :layout => false, :status => null_object.status }
       format.xml  { head null_object.status }
       format.json { head null_object.status }
       format.any  { head null_object.status }

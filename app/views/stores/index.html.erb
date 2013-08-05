@@ -134,17 +134,17 @@
           $('.stores-maps').toggleClass('is-map-view', listView === false);               <%# store list container %>
         }
 
-        function desktopView() {
+        function nonPalmView() {
           resetView(null);
           $('*', document).off('.map-palm')
-          $('[data-store-id]').on('click.map-desktop', function() {
+          $('[data-store-id]').on('click.map-non-palm', function() {
             map.highlight($(this).data('store-id'));
           });
         }
 
         function palmView() {
           resetView(true);
-          $('*', document).off('.map-desktop')
+          $('*', document).off('.map-non-palm')
           $('.stores-maps__toggle').on('click.map-palm', function() {
             resetView(!viewingList);
           });
@@ -158,7 +158,7 @@
           load: '<%= asset_path 'enquire.js' %>',
           complete: function() {
             enquire.register("all and (min-width: 64em)", {
-              match: desktopView,
+              match: nonPalmView,
               unmatch: palmView,
               setup: palmView
             });

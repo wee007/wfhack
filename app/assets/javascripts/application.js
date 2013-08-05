@@ -15,7 +15,6 @@
 //= require ./support/input-placeholder
 
 //= require isotope/jquery.isotope.js
-//= require unveil/jquery.unveil.js
 //= require ./vendor/bootstrap-dropdown
 //= require ./vendor/jquery.isotope.gutters
 //= require ./vendor/jquery.tabs

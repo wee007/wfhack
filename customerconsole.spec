@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.292
+Version:     0.0.293
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,10 @@ fi
 
 
 %changelog
+* Mon Aug 05 2013 ci <doperations@au.westfield.com> 0.0.293-1
+- Hack: Tiles now link to _self to stop angular grabbing the links
+  (cwalsh2@au.westfield.com)
+
 * Mon Aug 05 2013 ci <doperations@au.westfield.com> 0.0.292-1
 - Merge pull request #197 from cpearce/master (cpearce@au.westfield.com)
 - Changing layouts to use new '.container' extenders and adding bottom padding

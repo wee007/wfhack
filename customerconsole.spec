@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.301
+Version:     0.0.302
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,19 @@ fi
 
 
 %changelog
+* Tue Aug 06 2013 ci <doperations@au.westfield.com> 0.0.302-1
+- Remove Karma config duplication for CI (cwalsh2@au.westfield.com)
+- Default to 'Bad Gateway' error (cwalsh2@au.westfield.com)
+- Add null centre option to show how it could work if centre service went down
+  (cwalsh2@au.westfield.com)
+- Pass through error codes if not in the range 200-299
+  (cwalsh2@au.westfield.com)
+- Merge pull request #202 from bschwarz/master (cwalsh2@au.westfield.com)
+- Correct dependency injection (ben@germanforblack.com)
+- Karma now processeses coffescript (ben@germanforblack.com)
+- Move formatFilters() method into a factory: AppliedFilters
+  (ben@germanforblack.com)
+
 * Tue Aug 06 2013 ci <doperations@au.westfield.com> 0.0.301-1
 - update apache configuration to work in uat (pmcinerney@au.westfield.com)
 

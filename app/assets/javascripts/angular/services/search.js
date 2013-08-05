@@ -1,5 +1,5 @@
 ( function ( app ) {
-  app.service( 'Search', ['$http', 'ParamCleaner', 'SearchFacet', function ( $http, ParamCleaner, SearchFacet ) {
+  app.service( 'Search', ['$http', 'ParamCleaner', 'AppliedFilters', 'SearchFacet', function ( $http, ParamCleaner, AppliedFilters, SearchFacet ) {
     var self = this;
 
     // Params, with types
@@ -55,40 +55,6 @@
       return category;
     };
 
-    // Return the displayable / human readable
-    // filters from the applied_filters.facets object.
-    filterBlacklistR = /(centre|on_sale|price)/
-    this.formatFilters = function ( filters ) {
-      appliedFilters = [];
-
-      // Regular facets
-      if ( filters.facets ) {
-        for ( var facetName in filters.facets ) {
-          if ( facetName.match( filterBlacklistR ) ) { continue; }
-          angular.forEach( filters.facets[facetName].selected_values, function ( filter ) {
-            appliedFilters.push({
-              type: facetName,
-              title: filter.title,
-              value: filter.value
-            });
-          });
-        }
-      };
-
-      // Categories
-      if ( filters.categories ) {
-        angular.forEach( filters.categories, function ( category ) {
-          appliedFilters.push({
-            type: category.type,
-            title: category.title,
-            value: category.value
-          });
-        });
-      }
-
-      return appliedFilters;
-    };
-
     this.formatSearchResults = function ( response ) {
       this.categories = this.getCategoryFacet( response.facets );
 
@@ -100,7 +66,7 @@
 
       this.sortOptions = response.display_options.sort_options;
       this.availableFilters = response.available_filters;
-      this.appliedFilters = this.formatFilters( response.applied_filters );
+      this.appliedFilters = AppliedFilters.format( response.applied_filters );
     };
 
     this.params = function () {

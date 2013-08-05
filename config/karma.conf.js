@@ -12,12 +12,13 @@ files = [
   'app/assets/javascripts/vendor/angular-sanitize.js',
   'app/assets/javascripts/angular/app.js',
   'app/assets/javascripts/angular/**/*.js',
+  'app/assets/javascripts/angular/**/*.coffee',
   'app/assets/javascripts/global_search/**/*.coffee',
   'app/assets/javascripts/global_search/**/*.js',
   'vendor/assets/components/angular-mocks-unstable/angular-mocks.js',
 
   'spec/mock/**/*.js',
-  'spec/karma/**/*.js'
+  'spec/karma/**/*_spec.{js,coffee}'
 ];
 
 // list of files to exclude
@@ -59,3 +60,8 @@ captureTimeout = 5000;
 // Continuous Integration mode
 // if true, it capture browsers, run tests and exit
 singleRun = false;
+
+
+preprocessors = {
+  '**/*.coffee': 'coffee'
+};

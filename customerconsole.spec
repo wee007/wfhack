@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.293
+Version:     0.0.294
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,10 @@ fi
 
 
 %changelog
+* Mon Aug 05 2013 ci <doperations@au.westfield.com> 0.0.294-1
+- Tidying up css formatting for icon module and changing 'em' to 'rem' for pill
+  module (CPearce@au.westfield.com)
+
 * Mon Aug 05 2013 ci <doperations@au.westfield.com> 0.0.293-1
 - Hack: Tiles now link to _self to stop angular grabbing the links
   (cwalsh2@au.westfield.com)

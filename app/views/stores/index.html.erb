@@ -1,3 +1,5 @@
+<% content_for :class_for_main, "container--wide" %>
+
 <div class="stores-maps container js-stores-maps-toggle-wrap">
   <h1 class="hide-visually">Stores</h1>
 
@@ -80,7 +82,7 @@
 
                 <%# Phone no %>
                 <a href="tel:<%= store.phone_number %>" class="stores-list__data-cell__icon stores-list__data-cell__icon--phone hide-fully--non-palm">
-                  <span class="hide-visually"><%= store.phone_number %></span>
+                  <span class="hide-visually">Call store: <%= store.phone_number %></span>
                   <span class="icon icon--phone2 icon--flush-top"></span>
                 </a>
                 <%# //Phone no %>

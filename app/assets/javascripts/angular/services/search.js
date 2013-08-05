@@ -1,5 +1,5 @@
 ( function ( app ) {
-  app.service( 'Search', ['$http', 'ParamCleaner', 'AppliedFilters', 'SearchFacet', function ( $http, ParamCleaner, SearchFacet ) {
+  app.service( 'Search', ['$http', 'ParamCleaner', 'AppliedFilters', 'SearchFacet', function ( $http, ParamCleaner, AppliedFilters, SearchFacet ) {
     var self = this;
 
     // Params, with types

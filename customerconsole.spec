@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.294
+Version:     0.0.295
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,9 @@ fi
 
 
 %changelog
+* Mon Aug 05 2013 ci <doperations@au.westfield.com> 0.0.295-1
+- 
+
 * Mon Aug 05 2013 ci <doperations@au.westfield.com> 0.0.294-1
 - Tidying up css formatting for icon module and changing 'em' to 'rem' for pill
   module (CPearce@au.westfield.com)

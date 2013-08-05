@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.299
+Version:     0.0.300
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,59 @@ fi
 
 
 %changelog
+* Tue Aug 06 2013 ci <doperations@au.westfield.com> 0.0.300-1
+- Merge pull request #196 from mwratt/feature/stores-list
+  (matt.wratt@trineo.co.nz)
+- Merge remote-tracking branch 'cpearce/feature/stores-list-final' into
+  safepoint (matt.wratt@trineo.co.nz)
+- Working on styling stores listing - WSF 4896 (CPearce@au.westfield.com)
+- deferred logo image loading (matt.wratt@trineo.co.nz)
+- minor fixes after rebase (matt.wratt@trineo.co.nz)
+- fixes broken js specs (matt.wratt@trineo.co.nz)
+- minor fixes after rebase (matt.wratt@trineo.co.nz)
+- deferres loading of maps till required (matt.wratt@trineo.co.nz)
+- adds dynamic shop logo (matt.wratt@trineo.co.nz)
+- Working on styling stores listing - WSF 4896 (CPearce@au.westfield.com)
+- fixes maps execution order issue (matt.wratt@trineo.co.nz)
+- Working on styling stores listing - WSF-4896 (CPearce@au.westfield.com)
+- Working on styling stores listing - WSF 4896 (CPearce@au.westfield.com)
+- Working on styling stores listing - WSF 4896 (CPearce@au.westfield.com)
+- working on styling stores listing - WSF 4896 (CPearce@au.westfield.com)
+- removing unveil plugin (CPearce@au.westfield.com)
+- removing unveil plugin (CPearce@au.westfield.com)
+- Working on styling stores listing - WSF 4896 (CPearce@au.westfield.com)
+- Working on styling stores listing - WSF 4896 (CPearce@au.westfield.com)
+- Working on styling stores listing - WSF 4896 (CPearce@au.westfield.com)
+- working on styling stores listing - WSF-4896 (CPearce@au.westfield.com)
+- working on styling stores listing - WSF-4896 (CPearce@au.westfield.com)
+- working on styling stores listing - WSF-4896 (CPearce@au.westfield.com)
+- working on styling stores listing - WSF-4896 (CPearce@au.westfield.com)
+- bringing Micello map styles into Detail View module
+  (CPearce@au.westfield.com)
+- adding new module (CPearce@au.westfield.com)
+- fixes broken js specs (matt.wratt@trineo.co.nz)
+- minor fixes after rebase (matt.wratt@trineo.co.nz)
+- deferres loading of maps till required (matt.wratt@trineo.co.nz)
+- adds dynamic shop logo (matt.wratt@trineo.co.nz)
+- Working on styling stores listing - WSF 4896 (CPearce@au.westfield.com)
+- fixes maps execution order issue (matt.wratt@trineo.co.nz)
+- Working on styling stores listing - WSF-4896 (CPearce@au.westfield.com)
+- Working on styling stores listing - WSF 4896 (CPearce@au.westfield.com)
+- Working on styling stores listing - WSF 4896 (CPearce@au.westfield.com)
+- working on styling stores listing - WSF 4896 (CPearce@au.westfield.com)
+- removing unveil plugin (CPearce@au.westfield.com)
+- removing unveil plugin (CPearce@au.westfield.com)
+- Working on styling stores listing - WSF 4896 (CPearce@au.westfield.com)
+- Working on styling stores listing - WSF 4896 (CPearce@au.westfield.com)
+- Working on styling stores listing - WSF 4896 (CPearce@au.westfield.com)
+- working on styling stores listing - WSF-4896 (CPearce@au.westfield.com)
+- working on styling stores listing - WSF-4896 (CPearce@au.westfield.com)
+- working on styling stores listing - WSF-4896 (CPearce@au.westfield.com)
+- working on styling stores listing - WSF-4896 (CPearce@au.westfield.com)
+- bringing Micello map styles into Detail View module
+  (CPearce@au.westfield.com)
+- adding new module (CPearce@au.westfield.com)
+
 * Tue Aug 06 2013 ci <doperations@au.westfield.com> 0.0.299-1
 - 
 

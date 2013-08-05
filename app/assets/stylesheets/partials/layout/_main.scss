@@ -2,15 +2,4 @@
    @LAYOUT -> MAIN
    ====================================================================================== */
 
-.main {
-
-	/* Turn off `.container` rules (full width) for: 'Detail views' & 'Stores' */
-	.page-detail-view &,
-  .stores & {
-    width: auto;
-    max-width: none;
-  }
-
-  /* Make full height of the viewport for 'Stores' */
-  .stores & {height: 100%;}
-}
+.main {}

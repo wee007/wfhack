@@ -12,10 +12,12 @@
 
 .pin-board {
 	@include to-rem(margin-top, $spacing-half);
+	/* We need this to accommodate for the bottom padding on `body` as each tile has a bottom margin */
+	@include to-rem(margin-bottom, -$spacing-base);
 
-	/* Increase top padding at this breakpoint */
+	/* Increase top/bottom margin at this breakpoint */
 	@include respond-min($non-palm) {
 		@include to-rem(margin-top, $spacing-base);
-		@include to-rem(margin-bottom, $spacing-half);
+		@include to-rem(margin-bottom, -$spacing-half);
 	}
 }

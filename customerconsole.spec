@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.300
+Version:     0.0.301
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,9 @@ fi
 
 
 %changelog
+* Tue Aug 06 2013 ci <doperations@au.westfield.com> 0.0.301-1
+- update apache configuration to work in uat (pmcinerney@au.westfield.com)
+
 * Tue Aug 06 2013 ci <doperations@au.westfield.com> 0.0.300-1
 - Merge pull request #196 from mwratt/feature/stores-list
   (matt.wratt@trineo.co.nz)

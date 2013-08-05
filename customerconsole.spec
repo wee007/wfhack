@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.290
+Version:     0.0.291
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,16 @@ fi
 
 
 %changelog
+* Mon Aug 05 2013 ci <doperations@au.westfield.com> 0.0.291-1
+- Merge pull request #193 from ldewey/WSF-4893 (cpearce@au.westfield.com)
+- PR feed back fixes (ldewey@au.westfield.com)
+- Using "@extend %%mrg-base;" on table captions (ldewey@au.westfield.com)
+- Tests and refactor of centre hours (ldewey@au.westfield.com)
+- trading hours test cleanup (ldewey@au.westfield.com)
+- Made the hero paragraph optionl (ldewey@au.westfield.com)
+- Added hours table (ldewey@au.westfield.com)
+- Centre hours (ewee@au.westfield.com)
+
 * Mon Aug 05 2013 ci <doperations@au.westfield.com> 0.0.290-1
 - 
 

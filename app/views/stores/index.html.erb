@@ -69,7 +69,7 @@
               <div class="stores-list__data-cell stores-list__data-cell--logo hide-fully--palm">
                 <div class="vert-align">
                   <div class="vert-align__inner">
-                    <%= image_tag store.logo(width: 168, height: 80), alt: "#{store.name} #{store.logo}", itemprop: "photo" %>
+                    <%= image_tag 'logo-tile.png', data: {image: store.logo(width: 168, height: 80)}, alt: "#{store.name} #{store.logo}", itemprop: "photo" %>
                   </div>
                 </div>
               </div>
@@ -164,6 +164,31 @@
             });
           }
         });
+
+        var timeout = 0;
+        
+        function loadImages() {
+          var list = $('#stores-maps-toggle-listing-detail');
+          var offset = list.offset();
+          var height = list.height();
+          var top = offset.top;
+          var bottom = offset.top + height;
+          $('img[data-image]', list).each(function() {
+            var img = $(this);
+            offset  = img.offset();
+            height = img.height();
+            if((offset.top + height) > top && offset.top < bottom) {
+              img.attr('src', img.data('image')).removeAttr('data-image');
+            }
+          });
+        }
+
+        $('#stores-maps-toggle-listing-detail').on('scroll', function() {
+          clearTimeout(timeout);
+          timeout = setTimeout(loadImages, 100);
+        });
+
+        $(loadImages);
 
       }());
     <% end %>

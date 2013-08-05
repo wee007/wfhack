@@ -4,7 +4,7 @@
 
 /* Generic container */
 .container {
-	width: 92%;
+	width: $page-container-width;
 	@include to-rem(min-width, 220);
 	@include to-rem(max-width, $page-container-max-width);
 	margin: 0 auto;
@@ -15,11 +15,11 @@
 	}
 }
 
+/* Wide container (full width of viewport) */
 .container--wide {
   width: auto;
   max-width: none;
 }
 
-.container--narrow {
-  @include to-rem(max-width, $page-container-max-width-narrow);
-}
+/* Narrow container (max-width of 980px) */
+.container--narrow {@include to-rem(max-width, $page-container-max-width-narrow);}

@@ -2,9 +2,6 @@
    @BASE -> MAIN
    ====================================================================================== */
 
-html,
-body {height: 100%;}
-
 html {
 	font-size: ($font-size/16)+em;
 	line-height: $line-height-ratio;
@@ -12,11 +9,18 @@ html {
 
 body {
 	background-color: $color-grey-3;
+	@include to-rem(padding-bottom, $spacing-base);
 
-	/* Change bg color to white for detail views at this breakpoint */
+	/* Change bg color to white and turn off bottom padding for detail views at this breakpoint */
 	@include respond-max($palm) {
-		&.page-detail-view {background-color: #fff;}
+		&.page-detail-view {
+			background-color: #fff;
+			padding-bottom: 0;
+		}
 	}
+
+	/* Turn off bottom padding for 'Stores' */
+	&.stores {padding-bottom: 0;}
 }
 
 /* Set `font-family` and `color` */

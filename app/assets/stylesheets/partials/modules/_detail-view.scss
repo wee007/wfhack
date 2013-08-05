@@ -25,7 +25,9 @@
   @include respond-min($non-palm) {
     @include font-size($font-size);
     width: 92%;
-    @include to-rem(margin, $spacing-base auto);
+    margin-left: auto;
+    margin-right: auto;
+    @include to-rem(margin-top, $spacing-base);
   }
 
   /* --Set fixed widths for each detail view at these breakpoints-- */

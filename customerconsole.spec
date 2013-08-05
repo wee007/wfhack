@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.302
+Version:     0.0.303
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,9 @@ fi
 
 
 %changelog
+* Tue Aug 06 2013 ci <doperations@au.westfield.com> 0.0.303-1
+- 
+
 * Tue Aug 06 2013 ci <doperations@au.westfield.com> 0.0.302-1
 - Remove Karma config duplication for CI (cwalsh2@au.westfield.com)
 - Default to 'Bad Gateway' error (cwalsh2@au.westfield.com)

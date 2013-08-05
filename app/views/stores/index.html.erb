@@ -1,22 +1,200 @@
-<div class="stores-maps container">
-  <h1 class="hide-visually">Stores</h1>
-  <div class="map-micello">
-    <%= render partial: 'shared/map', locals: {store_id: nil, interactive: true} %>
-  </div>
-</div>
+<% content_for :class_for_main, "container--wide" %>
 
-<div class="stores-map-content" style="display: none;">
-  <ul>
-    <li class="list__header">Stores / A-Z</li>
-    <% @stores.each do |letter, stores| %>
-      <li class="list__heading"><%= letter %></li>
-      <% stores.each do |store| %>
-        <li class="list__store" data-store-id="<%= store.id %>">
-          <%= image_tag store.logo(width: 100, retina: true), alt: store.name %>
-          <h1><%= link_to store.name, (centre_store_url @centre.code , store.id) %></h1>
-          <%= store.phone_number %>
-        </li>
-      <% end %>
+<div class="stores-maps container js-stores-maps-toggle-wrap">
+  <h1 class="hide-visually">Stores</h1>
+
+  <%# Contain filters, map/list toggle, and listings %>
+  <%# [BACKEND] append `is-filter-applied` class to this container when a category filter has been applied %>
+  <div class="stores-maps__inner">
+
+    <%# Filters & list/map toggle button %>
+    <div class="stores-maps__filters-toggle">
+
+      <div class="container">
+
+        <h2 class="stores-maps__hdr">Stores A-Z</h2>
+
+        <%# Filters %>
+        <%# [CHRIS TODO] need to add `aria-owns` to the 'Apply' button that points to the filters count %>
+        <%# <button class="btn btn--main btn--main-alt2">Filter</button> %>
+        <%# Filters %>
+
+        <%# List/map toggle %>
+        <button class="stores-maps__toggle btn btn--main btn--main-alt4 btn--main-compact-icon js-stores-maps-toggle-btn" aria-owns="stores-maps-toggle-listing-detail, stores-maps-toggle-map">
+          <span class="hide-visually">View <span class="js-stores-maps-toggle-btn__txt">map</span></span>
+          <span class="icon icon--map2 icon--lrg" aria-hidden="true"></span>
+          <span class="icon icon--list icon--lrg" aria-hidden="true"></span>
+        </button>
+        <%# //List/map toggle %>
+
+      </div>
+
+      <%# Post filter count %>
+      <%# [BACKEND] inject this when a category filter has been applied, see the store name in the list below for further instructions %>
+      <%# <div class="stores-maps__filters-count">
+        <div class="container">
+          <p aria-live="polite"><span class="icon icon--pin"></span> 44 Results found</p>
+        </div>
+      </div> %>
+      <%# //Post filter count %>
+
+    </div>
+    <%# //Filters & list/map toggle button %>
+
+    <%# Stores list %>
+    <div class="stores-maps__list-detail js-stores-maps-toggle-listing-detail" id="stores-maps-toggle-listing-detail">
+      <dl class="stores-list">
+        <% @stores.each do |letter, stores| %>
+
+          <dt>
+            <div class="stores-list__inner container"><%= letter %></div>
+          </dt>
+
+          <% stores.each do |store| %>
+          <dd data-store-id="<%= store.id %>">
+            <div class="stores-list__inner container">
+
+              <%# Store name %>
+              <div class="stores-list__data-cell stores-list__data-cell--store-name">
+                <%# [BACKEND] cannot use the link until storefront feature is complete %>
+                <!-- <strong><%= link_to store.name, (centre_store_url @centre.code , store.id) %></strong> -->
+                <strong><%= store.name %></strong>
+                <%# Phone no %>
+                <span class="hide-fully--palm"><%= store.phone_number %></span>
+                <%# //Phone no %>
+                <%# [BACKEND] inject this `span` when a category filter has been applied %>
+                <%# <span class="icon icon--pin icon--flush-top"></span> %>
+              </div>
+              <%# //Store name %>
+
+              <%# Logo %>
+              <div class="stores-list__data-cell stores-list__data-cell--logo hide-fully--palm">
+                <div class="vert-align">
+                  <div class="vert-align__inner">
+                    <%= image_tag 'logo-tile.png', data: {image: store.logo(width: 168, height: 80)}, alt: "#{store.name} #{store.logo}", itemprop: "photo" %>
+                  </div>
+                </div>
+              </div>
+              <%# //Logo %>
+
+              <%# Icon links %>
+              <div class="stores-list__data-cell stores-list__data-cell--icons">
+
+                <%# Phone no %>
+                <a href="tel:<%= store.phone_number %>" class="stores-list__data-cell__icon stores-list__data-cell__icon--phone hide-fully--non-palm">
+                  <span class="hide-visually">Call store: <%= store.phone_number %></span>
+                  <span class="icon icon--phone2 icon--flush-top"></span>
+                </a>
+                <%# //Phone no %>
+
+                <%# Location %>
+                <a href="#infoDiv" class="stores-list__data-cell__icon stores-list__data-cell__icon--location">
+                  <span class="hide-visually">View on map</span>
+                  <span class="icon icon--pin icon--flush-top"></span>
+                </a>
+                <%# //Location %>
+
+              </div>
+              <%# //Icon links %>
+
+            </div>
+          </dd>
+          <% end %>
+
+        <% end %>
+      </dl>
+    </div>
+    <%#//Stores list %>
+
+  </div>
+  <%# //Contain filters, map/list toggle, and listings %>
+
+  <%# Map %>
+  <div class="stores-maps__map map-micello js-stores-maps-toggle-map" id="stores-maps-toggle-map">
+    <%= render partial: 'shared/map', locals: {store_id: nil, interactive: true, load_immediately: false} %>
+  </div>
+  <%- content_for :javascript do -%>
+    <%= javascript_tag do %>
+      (function() {
+
+        var map = new window.map.Micello(),
+            viewingList = true;
+
+        function resetView(listView) {
+          <%# listView = [true, false, null]
+                true = list view
+                false = map view
+                null = desktop view
+          %>
+          viewingList = listView;
+
+          if(!listView) map.load();
+
+          $('.js-stores-maps-toggle-btn').toggleClass('is-expanded', listView === false); <%# toggle button        %>
+          $('.js-stores-maps-toggle-btn__txt').html(listView ? 'map' : 'list');           <%# toggle button text   %>
+          $('.stores-maps__map')[listView ? 'hide' : 'show']();                           <%# map container        %>
+          $('.stores-maps').toggleClass('is-map-view', listView === false);               <%# store list container %>
+        }
+
+        function nonPalmView() {
+          resetView(null);
+          $('*', document).off('.map-palm')
+          $('[data-store-id]').on('click.map-non-palm', function() {
+            map.highlight($(this).data('store-id'));
+          });
+        }
+
+        function palmView() {
+          resetView(true);
+          $('*', document).off('.map-non-palm')
+          $('.stores-maps__toggle').on('click.map-palm', function() {
+            resetView(!viewingList);
+          });
+          $('[data-store-id]').on('click.map-palm', 'a[href="#infoDiv"]', function(event) {
+            resetView(false);
+            map.highlight($(event.delegateTarget).data('store-id'));
+          });
+        }
+
+        Modernizr.load({
+          load: '<%= asset_path 'enquire.js' %>',
+          complete: function() {
+            enquire.register("all and (min-width: 64em)", {
+              match: nonPalmView,
+              unmatch: palmView,
+              setup: palmView
+            });
+          }
+        });
+
+        var timeout = 0;
+        
+        function loadImages() {
+          var list = $('#stores-maps-toggle-listing-detail');
+          var offset = list.offset();
+          var height = list.height();
+          var top = offset.top;
+          var bottom = offset.top + height;
+          $('img[data-image]', list).each(function() {
+            var img = $(this);
+            offset  = img.offset();
+            height = img.height();
+            if((offset.top + height) > top && offset.top < bottom) {
+              img.attr('src', img.data('image')).removeAttr('data-image');
+            }
+          });
+        }
+
+        $('#stores-maps-toggle-listing-detail').on('scroll', function() {
+          clearTimeout(timeout);
+          timeout = setTimeout(loadImages, 100);
+        });
+
+        $(loadImages);
+
+      }());
     <% end %>
-  </ul>
+  <%- end -%>
+  <%# //Map %>
+
 </div>

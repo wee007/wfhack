@@ -1,0 +1,157 @@
+/* ======================================================================================
+   @MODULES -> STORES LIST
+   ====================================================================================== */
+
+/*
+	Usage:
+		List of stores.
+
+	Demo:
+		Style Guide -> Modules -> Store List
+*/
+
+.stores-list {
+  background-color: #fff;
+  @include font-size($font-size-sml, 1.5);
+
+  /* Increase font size at this breakpoint */
+  @include respond-min($non-palm) {
+    @include font-size($font-size);
+  }
+
+  /* Store A-Z grouping header */
+  dt {
+    background-color: $color-off-white;
+    font-weight: normal;
+    text-transform: uppercase;
+    border-top: 1px solid $color-grey-1;
+    @include to-rem(padding-top padding-bottom, $spacing-micro);
+
+    /* Border off for first child */
+    &:first-child {border-top: 0;}
+
+    /* Increase padding at this breakpoint */
+    @include respond-min($non-palm) {
+      @include to-rem(padding-top padding-bottom, $spacing-quarter);
+    }
+  }
+
+  /* Store items */
+  dd {
+    border-top: 1px solid $color-grey-1;
+
+    /* Bottom border for last child */
+    &:last-child {border-bottom: 1px solid $color-grey-1;}
+
+    /* Inner container */
+    .stores-list__inner {position: relative;}
+  }
+}
+
+  /* --Shared rules-- */
+
+  /* Data cells */
+  .stores-list__data-cell,
+  .stores-list__data-cell__icon {
+    position: absolute;
+    top: 0;
+    height: 100%;
+  }
+
+  /* Store name */
+  .stores-list__data-cell--store-name {
+    position: relative;
+    @include to-rem(margin-right, 116);
+    @include to-rem(padding-top padding-bottom, $spacing-half);
+
+    /* Adjust spacing and padding at this breakpoint */
+    @include respond-min($non-palm) {
+      @include to-rem(margin-left, 132);
+      @include to-rem(margin-right, 70);
+      @include to-rem(padding-top padding-bottom, $spacing-base+$spacing-micro);
+    }
+
+    strong {
+      font-weight: normal;
+      display: block;
+
+      /* Restore bold at this breakpoint */
+      @include respond-min($non-palm) {
+        font-weight: bold;
+      }
+    }
+
+      a {color: $color-dark-txt;}
+
+    /* Phone no at non-palm */
+    span {
+      color: $color-light-txt;
+      @include font-size($font-size-sml, 1.5);
+    }
+  }
+
+  /* Logo */
+  .stores-list__data-cell--logo {
+    left: 0;
+    @include to-rem(width, 84);
+
+    img {width: 100%;}
+  }
+
+  /* Icon links - phone & location */
+  .stores-list__data-cell--icons {right: -4%;}
+
+    .stores-list__data-cell__icon {
+      right: 0;
+      border-left: 1px solid $color-grey-1;
+      @include to-rem(width, 54);
+      text-align: center;
+
+      /* Increase width at these breakpoints */
+      @include respond-min($non-palm) {
+        @include to-rem(width, 68);
+      }
+
+      @include respond-min($ipad-portrait) {
+        @include to-rem(width, 74);
+      }
+
+      @include respond-min(840) {
+        @include to-rem(width, 79);
+      }
+
+      @include respond-min(930) {
+        @include to-rem(width, 84);
+      }
+
+      /* Icons */
+      .icon:before {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        @include translate(-50%, -50%);
+        @include font-size(28, 1);
+
+        /* Increase icon size at this breakpoint */
+        @include respond-min($non-palm) {
+          @include font-size(34, 1);
+        }
+      }
+    }
+
+    /* Phone icon */
+    .stores-list__data-cell__icon--phone {
+      @include to-rem(right, 54);
+
+      /* Non JS users */
+      .no-js & {right: 0;}
+
+      /* Icon */
+      .icon:before {color: $color-cta-green;}
+    }
+
+    /* Location icon */
+    .stores-list__data-cell__icon--location .icon:before {color: $color-brand;}
+
+    /* Non JS users */
+    .no-js .stores-list__data-cell__icon--location {display: none;}

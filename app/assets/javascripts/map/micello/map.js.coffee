@@ -18,6 +18,7 @@ class map.micello.Map extends map.micello.MapBase
 
   constructor: (@options) ->
     super
+    @targetStore = null
     @getAddresses()
     micello.maps.init(@key, @init)
 
@@ -25,7 +26,7 @@ class map.micello.Map extends map.micello.MapBase
     "http://maps.micello.com/v3_java/meta/geo_address/cid/#{@community}?api_key=#{@key}"
 
   getAddresses: ->
-    $.ajax(
+    @addressFetch = $.ajax(
       url: @micelloAddressApiUrl()
       dataType: 'json'
     ).success(@parseAddresses)
@@ -33,6 +34,12 @@ class map.micello.Map extends map.micello.MapBase
   parseAddresses: (data) =>
     return unless data.cid == @community
     @index.addAddresses(data.g)
+
+  ready: ->
+    if @addressFetch.state() == 'resolved'
+      super
+    else
+      @addressFetch.then => super
 
   init: =>
     @initMap()
@@ -50,15 +57,13 @@ class map.micello.Map extends map.micello.MapBase
     @data.loadCommunity(@community)
 
   attachEventListeners: =>
-    self = @
-    $('body', document).on('click', '[data-store-id]', -> self.highlight($(@).data('storeId')))
     $(window).on('resize', @handleResize)
 
   handleResize: =>
-    if @options.select
+    if @targetStore?
       resize = =>
         @timeout = null
-        @zoomTo(@options.select)
+        @zoomTo(@targetStore)
       clearTimeout(@timeout) if @timeout
       @timeout = setTimeout(resize, 100)
 
@@ -69,21 +74,15 @@ class map.micello.Map extends map.micello.MapBase
     canvas.setThemeFamily(@themeFamily)
     canvas.setOverrideTheme(@customTheme)
 
-  getAddresses: ->
-    $.ajax(
-      url: "http://maps.micello.com/v3_java/meta/geo_address/cid/#{@community}?api_key=#{@key}"
-      dataType: 'json'
-    ).success(@parseAddresses)
-
-  parseAddresses: (data) =>
-    return unless data.cid == @community
-    @index.addAddresses(data.g)
-
   zoomTo: (storeId) ->
+    return if storeId == undefined
     index = @highlight(storeId)
     @control.centerOnGeom(index.geom, 100)
+    @targetStore = storeId
 
   highlight: (storeId) ->
+    return if storeId == undefined
+    @targetStore = storeId
     @data.removeInlay("slct", true)
     index = @index.findById(storeId)
     level = @data.getGeometryLevel(index.gid)
@@ -102,8 +101,7 @@ class map.micello.Map extends map.micello.MapBase
     @geom = {}
     for level in @data.community.d[0].l
       @index.addGeoms(level.g)
-    if @options.select
-      setTimeout((=> @zoomTo(@options.select)), 0)
+    @ready()
 
   onClick: (mx, my, event) =>
     return if !event || !event.id

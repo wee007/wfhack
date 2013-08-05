@@ -4,8 +4,7 @@
 # spec/javascripts/*_spec.js
 # spec/javascripts/*_spec.js.erb
 #
-#=require map/micello
-#=require map/micello_ie
 #=require application
+#=require map/micello
 #=require spec_helpers
 #=require_tree ./

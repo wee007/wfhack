@@ -1,0 +1,47 @@
+window.map = Micello: class Micello
+
+  @loadTriggered: false
+
+  constructor: (@options = {}) ->
+    @initialized = false
+    @deferred = @options.deferred = $.Deferred()
+
+  micelloSupported: ->
+    !$('#map-micello-api').hasClass('map-micello-oldie')
+
+  load: ->
+    return @initializeMap() if Micello.loadTriggered
+    Micello.loadTriggered = true
+    Modernizr.load({
+      test: @micelloSupported()
+      yep: '<%= asset_url 'map/micello.js' %>'
+      nope: '<%= asset_url 'map/micello_ie.js' %>'
+      callback: @initializeMap
+    })
+    @
+
+  initializeMap: =>
+    return @ if @initialized
+    if window.map?.micello?
+      @initialized = true
+      @map = new map.micello.Map(@options)
+    else
+      setTimeout(arguments.callee)
+    @
+
+  mapReady: ->
+    @deferred.state() == 'resolved'
+
+  zoomTo: (storeId) ->
+    if @mapReady()
+      @map.zoomTo(storeId)
+    else
+      @options.deferred.then -> @zoomTo(storeId)
+    @
+
+  highlight: (storeId) ->
+    if @mapReady()
+      @map.highlight(storeId)
+    else
+      @options.deferred.then -> @highlight(storeId)
+    @

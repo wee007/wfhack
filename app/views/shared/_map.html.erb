@@ -29,27 +29,10 @@
     <%= render partial: 'shared/micello_map_popup' %>
   </div>
 <!--<![endif]-->
-
-<% content_for :javascript do %>
-  <%= javascript_tag do %>
-    (function initMaps() {
-
-      function supported() {
-        return !$('#map-micello-api').hasClass('map-micello-oldie');
-      }
-
-      function createMap() {
-        var Map = supported() ? map.micello.Map : map.micello.ie.Map;
-        new Map({select: <%= store_id || 'null' %>});
-      }
-
-      Modernizr.load([{
-        test: supported(),
-        yep: ['http://maps.micello.com/webmap/v0/micellomap.js', '<%= asset_path 'map/micello.js' %>'],
-        nope: '<%= asset_path 'map/micello_ie.js' %>',
-        complete: createMap
-      }]);
-
-    }());
+<% if load_immediately %>
+  <% content_for :javascript do %>
+    <%= javascript_tag do %>
+      new map.Micello().load().zoomTo(<%= store_id %>);
+    <% end %>
   <% end %>
 <% end %>

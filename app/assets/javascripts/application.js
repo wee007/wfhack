@@ -15,7 +15,6 @@
 //= require ./support/input-placeholder
 
 //= require isotope/jquery.isotope.js
-//= require unveil/jquery.unveil.js
 //= require ./vendor/bootstrap-dropdown
 //= require ./vendor/jquery.isotope.gutters
 //= require ./vendor/jquery.tabs
@@ -28,7 +27,6 @@
 // do it in an init/initName file
 //= require_tree ./jquery-extensions
 //= require ./init/toggle
-//= require ./init/unveil
 //= require ./init/tiles
 //= require ./init/tabs
 
@@ -37,5 +35,7 @@
 //= require ./vendor/angular-sanitize
 //= require ./angular/app
 //= require_tree ./angular/
-
 //= require_tree ./global_search
+
+// Map deferred loader
+//= require ./map/deferred_map

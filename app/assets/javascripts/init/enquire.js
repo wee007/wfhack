@@ -1,9 +1,10 @@
 /* Do stuff on `$(window).resize` via Enquire library */
 $(function() {
   var telLinks = $('a[href^="tel:"]'),
-      mq = 'all and (min-width: 40.0625em)';
+      mqNonPalm = 'all and (min-width: 40.0625em)';
 
-  enquire.register(mq, {
+  // Do stuff between palm and non-palm breakpoints
+  enquire.register(mqNonPalm, {
 
     // Not palm size viewport
     match: function() {
@@ -16,7 +17,6 @@ $(function() {
 
       // Add a non-palm class as a mediaquery utility
       $('html').addClass('non-palm');
-
     },
 
     // Palm size viewport

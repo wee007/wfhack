@@ -222,9 +222,6 @@
       /* Non JS users */
       .no-js & {position: static;}
 
-      /* When map view is in view */
-      .is-map-view & {display: none;}
-
       /* Post filter count */
       .is-filter-applied & {@include to-rem(top, 88);}
 
@@ -291,22 +288,23 @@
     right: 0;
     top: 0;
     bottom: 0;
+    display: none;
 
-    /* Map/list view toggling */
-    & {
-      visibility: hidden !important;
+    /* When map view is in view */
+    .is-map-view & {display: block;}
 
-      /* When map view is in view */
-      .is-map-view & {visibility: visible !important;}
+    /* Always show at this breakpoint */
+    @include respond-min($ipad-landscape) {
+      display: block;
+    }
 
-      /* Always show at this breakpoint */
-      @include respond-min($ipad-landscape) {
-        visibility: visible !important;
-      }
+    /* Always show for old IE */
+    @include old-ie {
+      display: block;
     }
 
     /* Non JS users */
-    .no-js & {display: none;}
+    .no-js & {position: static;}
 
     /* Preloader */
     @include respond-min($ipad-landscape) {

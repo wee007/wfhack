@@ -7,7 +7,7 @@ window.map = Micello: class Micello
     @deferred = @options.deferred = $.Deferred()
 
   micelloSupported: ->
-    !$('#map').hasClass('map--ie-support')
+    !$('#map-micello-api').hasClass('map-micello-oldie')
 
   load: ->
     return @initializeMap() if Micello.loadTriggered

@@ -119,6 +119,7 @@
           @include to-rem(right, 3);
           color: $color-light-txt;
 
+          /* Static version */
           .map-micello--static & {display: none;}
         }
 
@@ -225,7 +226,7 @@
 
       .ui-shadow,
       .micello-pop-shadow {box-shadow: none !important;}
-}
+    }
 
 /* --Old IE version-- */
 @include old-ie {
@@ -288,5 +289,4 @@
           }
         }
     }
-
 }

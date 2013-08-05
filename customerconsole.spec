@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.291
+Version:     0.0.292
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,11 @@ fi
 
 
 %changelog
+* Mon Aug 05 2013 ci <doperations@au.westfield.com> 0.0.292-1
+- Merge pull request #197 from cpearce/master (cpearce@au.westfield.com)
+- Changing layouts to use new '.container' extenders and adding bottom padding
+  to 'body' element (CPearce@au.westfield.com)
+
 * Mon Aug 05 2013 ci <doperations@au.westfield.com> 0.0.291-1
 - Merge pull request #193 from ldewey/WSF-4893 (cpearce@au.westfield.com)
 - PR feed back fixes (ldewey@au.westfield.com)

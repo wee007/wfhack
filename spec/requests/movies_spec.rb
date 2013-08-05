@@ -5,7 +5,8 @@ describe "Movies" do
   describe "When asking for movies for a centre with no cinema" do
     it "should return a 404" do
       VCR.use_cassette('sydney_movies') do
-        expect { get centre_movies_path(centre_id: 'sydney', date: '17-07-2013')}.to raise_exception(ActionController::RoutingError)
+        get centre_movies_path(centre_id: 'sydney', date: '17-07-2013')
+        expect(response.code).to eq "404"
       end
     end
   end

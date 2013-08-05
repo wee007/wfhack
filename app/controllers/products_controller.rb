@@ -10,6 +10,7 @@ class ProductsController < ApplicationController
     end
     @centre = CentreService.build centre
     @search = ProductService.build products
+    handle_error(@search) if @search.is_a? NullObject
 
     respond_to do |format|
       if request.xhr?
@@ -29,6 +30,7 @@ class ProductsController < ApplicationController
     end
     @centre = CentreService.build centre
     @product = ProductService.build product
+    handle_error(@product) if @product.is_a? NullObject
     @stores = StoreService.build(stores)
     centre_ids = @stores.map(&:centre_id).uniq
     @centres = centre_ids.present? ? CentreService.find(:all, centre_id: centre_ids, near_to: params[:centre_id]) : []

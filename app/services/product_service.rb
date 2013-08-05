@@ -3,6 +3,7 @@ class ProductService
   class << self
     include ApiClientRequests
     def build(json)
+      return null_product(json) if json.respond_to?(:status) && !json.status.between?(200,299)
       results = json.respond_to?(:body) ? json.body : json
       if results.has_key? :facets
         facets = build_facets(results)
@@ -17,6 +18,10 @@ class ProductService
     end
 
   private
+
+    def null_product(json)
+      NullProduct.new(status: json.status, body: json.body, url: json.env[:url])
+    end
 
     def build_pagination(results)
       total_pages = ([1,results[:count]-1].max / results.rows) + 1

@@ -1,5 +1,5 @@
 ( function ( app ) {
-  app.controller( 'ProductBrowseController', ['$scope', '$filter', '$location', '$element', 'ParamCleaner', 'Search', 'Products', function ( $scope, $filter, $location, $element, ParamCleaner, Search, Products ) {
+  app.controller( 'ProductBrowseController', ['$scope', '$window', '$filter', '$location', '$element', 'ParamCleaner', 'Search', 'Products', function ( $scope, $window, $filter, $location, $element, ParamCleaner, Search, Products ) {
     $scope.search = Search;
 
     // Multi-facet search fields
@@ -10,7 +10,7 @@
     $scope.sizes = [];
 
     // Multi-value facets must be sent back using the original
-    // name of the model. eg. 'brands' should become 'brands'
+    // name of the model. eg. 'brands' should become 'brand'
     var searchParamMap = {
       'categories': 'sub_category',
       'retailers': 'retailer',
@@ -52,17 +52,15 @@
       Products.get( document.location.pathname, angular.extend( Search.params(), { page: 1 } ) );
     };
 
+    $scope.bootstrap = function () {
+      Search.formatSearchResults( $window.westfield.products );
+    };
+
     $scope.updateSearch = function () {
       updateProducts();
       updateFilters();
       $scope.closeFilters();
     };
-
-    // Adds params to search from URL string
-    executeInitialSearch = function () {
-      useUrlParams();
-      updateFilters();
-    }(); // Self init
 
     // Filter controls / toggle / open / close
     $scope.activeFilter = '';

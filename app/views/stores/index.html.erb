@@ -121,7 +121,20 @@
 
 <%- content_for :javascript do -%>
   <%= javascript_tag do %>
-    (function() {
+    function deferCall(<%# tests... %>) {
+      <%# If any of the tests are falsey a timeout is queued to call the function again %>
+      for(var i in arguments) {
+        if(arguments.hasOwnProperty(i) && !arguments[i]) {
+          setTimeout(deferCall.caller, 100);
+          return true;
+        }
+      }
+      return false;
+    }
+
+    (function initialiseResponsiveMap() {
+      <%# Deferres this function until enquire is avaliable %>
+      if(deferCall(window.enquire)) return;
 
       var map = new window.map.Micello(),
           viewingList = true;
@@ -168,6 +181,11 @@
           setup: palmView
         }, true);
       });
+    }());
+
+    (function initialiseDeferredLogos() {
+      <%# Deferres this function until enquire is avaliable %>
+      if(deferCall(window.enquire)) return;
 
       var timeout = 0;
 
@@ -187,12 +205,25 @@
         });
       }
 
-      $('.js-stores-maps-toggle-listing-detail').on('scroll', function() {
-        clearTimeout(timeout);
-        timeout = setTimeout(loadImages, 100);
-      });
+      function attachDeferredListener() {
+        loadImages();
+        $('.js-stores-maps-toggle-listing-detail').on('scroll.deferred-logos', function() {
+          clearTimeout(timeout);
+          timeout = setTimeout(loadImages, 100);
+        });
+      }
 
-      $(loadImages);
+      function detachDeferredListener() {
+        clearTimeout(timeout);
+        $('.js-stores-maps-toggle-listing-detail').off('.deferred-logos');
+      }
+
+      $(function() {
+        enquire.register("all and (min-width: 40.0625em)", {
+          match: attachDeferredListener,
+          unmatch: detachDeferredListener
+        }, true);
+      });
 
     }());
   <% end %>

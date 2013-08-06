@@ -68,13 +68,15 @@
               <%# //Store name %>
 
               <%# Logo %>
-              <div class="stores-list__data-cell stores-list__data-cell--logo hide-fully--palm">
-                <div class="vert-align">
-                  <div class="vert-align__inner">
-                    <%= image_tag 'logo-tile.png', data: {image: store.logo(width: 168, height: 80)}, alt: "#{store.name} #{store.logo}", itemprop: "photo" %>
+              <% if store.logo.present? %>
+                <div class="stores-list__data-cell stores-list__data-cell--logo hide-fully--palm">
+                  <div class="vert-align">
+                    <div class="vert-align__inner">
+                      <%= image_tag 'logo-tile.png', data: {image: store.logo(width: 168, height: 80)}, alt: "#{store.name} #{store.logo}", itemprop: "photo" %>
+                    </div>
                   </div>
                 </div>
-              </div>
+              <% end %>
               <%# //Logo %>
 
               <%# Icon links %>

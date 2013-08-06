@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.307
+Version:     0.0.308
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,10 @@ fi
 
 
 %changelog
+* Tue Aug 06 2013 ci <doperations@au.westfield.com> 0.0.308-1
+- Merge pull request #207 from mwratt/fix/stores-list (matt.wratt@trineo.co.nz)
+- fixes IE8 maps image hidden bug (matt.wratt@trineo.co.nz)
+
 * Tue Aug 06 2013 ci <doperations@au.westfield.com> 0.0.307-1
 - Merge pull request #206 from cpearce/master (ben@germanforblack.com)
 - Making sure the column dividing line always sits on top of Micello map canvas

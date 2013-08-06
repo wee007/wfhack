@@ -44,7 +44,7 @@
   </button>
 </script>
 
-<div ng-controller="ProductBrowseController" class="filters drop-down-menu">
+<div ng-controller="ProductBrowseController" ng-init="bootstrap()" class="filters drop-down-menu">
   <button ng-click="showFilterButtons" toggle-visibility="filters" class="drop-down-menu__trigger btn btn--main btn--main-alt4 btn--pointer hide-fully--non-palm">
     Filter
     <span class="icon icon--lrg icon--arrow-down-full icon--flush-top btn--pointer__icon" aria-hidden="true"></span>

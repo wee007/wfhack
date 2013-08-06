@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.309
+Version:     0.0.310
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,20 @@ fi
 
 
 %changelog
+* Tue Aug 06 2013 ci <doperations@au.westfield.com> 0.0.310-1
+- Remove testing centtre name (cwalsh2@au.westfield.com)
+- Add fallback centre names (cwalsh2@au.westfield.com)
+- Render correct status (cwalsh2@au.westfield.com)
+- Merge pull request #208 from cpearce/master (cwalsh2@au.westfield.com)
+- Removing white space from 'tel:' links (CPearce@au.westfield.com)
+- Merge pull request #209 from bschwarz/product-browser-bootstrap
+  (cwalsh2@au.westfield.com)
+- Removing white space from 'tel:' links (CPearce@au.westfield.com)
+- Position relative to correct position of sort options
+  (ben@germanforblack.com)
+- Don't use ng-switch, simply hide / show (ben@germanforblack.com)
+- Bootstrap filter data from json returned by 'gon' (ben@germanforblack.com)
+
 * Tue Aug 06 2013 ci <doperations@au.westfield.com> 0.0.309-1
 - Merge pull request #210 from mwratt/fix/stores-list
   (cwalsh2@au.westfield.com)

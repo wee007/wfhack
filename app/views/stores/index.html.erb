@@ -113,88 +113,88 @@
   <div class="stores-maps__map map-micello js-stores-maps-toggle-map" id="stores-maps-toggle-map">
     <%= render partial: 'shared/map', locals: {store_id: nil, interactive: true, load_immediately: false} %>
   </div>
-  <%- content_for :javascript do -%>
-    <%= javascript_tag do %>
-      (function() {
-
-        var map = new window.map.Micello(),
-            viewingList = true;
-
-        function resetView(listView) {
-          <%# listView = [true, false, null]
-                true = list view
-                false = map view
-                null = desktop view
-          %>
-          viewingList = listView;
-
-          if(!listView) map.load();
-
-          $('.js-stores-maps-toggle-btn').toggleClass('is-expanded', listView === false); <%# toggle button        %>
-          $('.js-stores-maps-toggle-btn__txt').html(listView ? 'map' : 'list');           <%# toggle button text   %>
-          $('.stores-maps__map')[listView ? 'hide' : 'show']();                           <%# map container        %>
-          $('.stores-maps').toggleClass('is-map-view', listView === false);               <%# store list container %>
-        }
-
-        function nonPalmView() {
-          resetView(null);
-          $('*', document).off('.map-palm')
-          $('[data-store-id]').on('click.map-non-palm', function() {
-            map.highlight($(this).data('store-id'));
-          });
-        }
-
-        function palmView() {
-          resetView(true);
-          $('*', document).off('.map-non-palm')
-          $('.stores-maps__toggle').on('click.map-palm', function() {
-            resetView(!viewingList);
-          });
-          $('[data-store-id]').on('click.map-palm', 'a[href="#infoDiv"]', function(event) {
-            resetView(false);
-            map.highlight($(event.delegateTarget).data('store-id'));
-          });
-        }
-
-        Modernizr.load({
-          load: '<%= asset_path 'enquire.js' %>',
-          complete: function() {
-            enquire.register("all and (min-width: 64em)", {
-              match: nonPalmView,
-              unmatch: palmView,
-              setup: palmView
-            });
-          }
-        });
-
-        var timeout = 0;
-        
-        function loadImages() {
-          var list = $('#stores-maps-toggle-listing-detail');
-          var offset = list.offset();
-          var height = list.height();
-          var top = offset.top;
-          var bottom = offset.top + height;
-          $('img[data-image]', list).each(function() {
-            var img = $(this);
-            offset  = img.offset();
-            height = img.height();
-            if((offset.top + height) > top && offset.top < bottom) {
-              img.attr('src', img.data('image')).removeAttr('data-image');
-            }
-          });
-        }
-
-        $('#stores-maps-toggle-listing-detail').on('scroll', function() {
-          clearTimeout(timeout);
-          timeout = setTimeout(loadImages, 100);
-        });
-
-        $(loadImages);
-
-      }());
-    <% end %>
-  <%- end -%>
   <%# //Map %>
 
 </div>
+
+<%- content_for :javascript do -%>
+  <%= javascript_tag do %>
+    (function() {
+
+      var map = new window.map.Micello(),
+          viewingList = true;
+
+      function resetView(listView) {
+        <%# listView = [true, false, null]
+              true = list view
+              false = map view
+              null = desktop view
+        %>
+        viewingList = listView;
+
+        if(!listView) map.load();
+
+        $('.js-stores-maps-toggle-btn').toggleClass('is-expanded', listView === false);   <%# toggle button        %>
+        $('.js-stores-maps-toggle-btn__txt').html(listView ? 'map' : 'list');             <%# toggle button text   %>
+        $('.js-stores-maps-toggle-wrap').toggleClass('is-map-view', listView === false);  <%# store list container %>
+      }
+
+      function nonPalmView() {
+        resetView(null);
+        $('*', document).off('.map-palm')
+        $('[data-store-id]').on('click.map-non-palm', function() {
+          map.highlight($(this).data('store-id'));
+        });
+      }
+
+      function palmView() {
+        resetView(true);
+        $('*', document).off('.map-non-palm')
+        $('.js-stores-maps-toggle-btn').on('click.map-palm', function() {
+          resetView(!viewingList);
+        });
+        $('[data-store-id]').on('click.map-palm', 'a[href="#infoDiv"]', function(event) {
+          resetView(false);
+          map.highlight($(event.delegateTarget).data('store-id'));
+        });
+      }
+
+      Modernizr.load({
+        load: '<%= asset_path 'enquire.js' %>',
+        complete: function() {
+          enquire.register("all and (min-width: 64em)", {
+            match: nonPalmView,
+            unmatch: palmView,
+            setup: palmView
+          });
+        }
+      });
+
+      var timeout = 0;
+
+      function loadImages() {
+        var list = $('.js-stores-maps-toggle-listing-detail');
+        var offset = list.offset();
+        var height = list.height();
+        var top = offset.top;
+        var bottom = offset.top + height;
+        $('img[data-image]', list).each(function() {
+          var img = $(this);
+          offset  = img.offset();
+          height = img.height();
+          if((offset.top + height) > top && offset.top < bottom) {
+            img.attr('src', img.data('image')).removeAttr('data-image');
+          }
+        });
+      }
+
+      $('.js-stores-maps-toggle-listing-detail').on('scroll', function() {
+        clearTimeout(timeout);
+        timeout = setTimeout(loadImages, 100);
+      });
+
+      $(loadImages);
+
+    }());
+  <% end %>
+<%- end -%>

@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.303
+Version:     0.0.304
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,11 @@ fi
 
 
 %changelog
+* Tue Aug 06 2013 ci <doperations@au.westfield.com> 0.0.304-1
+- Adding back in missing css/html from yesterday's commit
+  (CPearce@au.westfield.com)
+- Remove unused styles (CPearce@au.westfield.com)
+
 * Tue Aug 06 2013 ci <doperations@au.westfield.com> 0.0.303-1
 - 
 

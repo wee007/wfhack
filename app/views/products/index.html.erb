@@ -59,10 +59,10 @@
           <span class="hide-fully--palm icon icon--arrow-down-full icon--flush-top btn--pointer__icon" aria-hidden="true"></span>
           <span class="hide-fully--non-palm icon icon--arrow-right-big icon--lrg icon--flush-top btn--pointer__icon" aria-hidden="true">
         </button>
-        <div ng-show="activeFilter === 'category'" ng-switch on="search.categories.field" class="filters__target">
-          <div ng-switch-when="super_cat" ng-include src="'categoryItemTemplate'"></div>
-          <div ng-switch-when="category" ng-include src="'categoryItemTemplate'"></div>
-          <div ng-switch-when="sub_category" ng-include src="'SubCategoryTemplate'"></div>
+        <div ng-show="activeFilter === 'category'" class="filters__target">
+          <div ng-show="search.categories.field === 'super_cat'"><div ng-include src="'categoryItemTemplate'"></div></div>
+          <div ng-show="search.categories.field === 'category'"><div ng-include src="'categoryItemTemplate'"></div></div>
+          <div ng-show="search.categories.field === 'sub_category'"><div ng-include src="'SubCategoryTemplate'"></div></div>
         </div>
       </li>
 

@@ -51,4 +51,4 @@ map.micello.ie = Map: class Map extends map.micello.MapBase
     return if storeId == undefined
     @selectLevel(@index.findById(storeId).store.level || 1)
 
-map.micello.Map = map.micello.ie.Map
+map.micello.Map = map.micello.ie.Map unless map.micello.Map

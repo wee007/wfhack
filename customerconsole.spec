@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.314
+Version:     0.0.315
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,10 @@ fi
 
 
 %changelog
+* Wed Aug 07 2013 ci <doperations@au.westfield.com> 0.0.315-1
+- does not load logos in smallest palm view (matt.wratt@trineo.co.nz)
+- deferres init functions until enquire is defined (matt.wratt@trineo.co.nz)
+
 * Tue Aug 06 2013 ci <doperations@au.westfield.com> 0.0.314-1
 - implement the cas /sso changes with gem updates (mike.mell@nthwave.net)
 

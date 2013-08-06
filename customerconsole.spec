@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.310
+Version:     0.0.311
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,12 @@ fi
 
 
 %changelog
+* Tue Aug 06 2013 ci <doperations@au.westfield.com> 0.0.311-1
+- Merge pull request #212 from cpearce/master (ben@germanforblack.com)
+- Merge pull request #211 from mmell/master (mmell@us.westfield.com)
+- Changing  to  where applicable (CPearce@au.westfield.com)
+- update aaa_client gems (mike.mell@nthwave.net)
+
 * Tue Aug 06 2013 ci <doperations@au.westfield.com> 0.0.310-1
 - Remove testing centtre name (cwalsh2@au.westfield.com)
 - Add fallback centre names (cwalsh2@au.westfield.com)

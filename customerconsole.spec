@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.306
+Version:     0.0.307
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,11 @@ fi
 
 
 %changelog
+* Tue Aug 06 2013 ci <doperations@au.westfield.com> 0.0.307-1
+- Merge pull request #206 from cpearce/master (ben@germanforblack.com)
+- Making sure the column dividing line always sits on top of Micello map canvas
+  (CPearce@au.westfield.com)
+
 * Tue Aug 06 2013 ci <doperations@au.westfield.com> 0.0.306-1
 - Remove some of the hackery around product service, it's no longer required
   (cwalsh2@au.westfield.com)

@@ -5,6 +5,7 @@
 */
 
 .filters {
+  position: relative;
   @include to-rem(margin-top margin-bottom, $spacing-half);
 
   label { display: block; }

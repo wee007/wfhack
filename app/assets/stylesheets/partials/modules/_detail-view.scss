@@ -58,6 +58,7 @@
   /* Micello map */
   .map-micello {
     position: relative;
+    z-index: 1;
     background-color: $color-off-white;
     @include to-rem(min-height, 270);
   }
@@ -145,6 +146,7 @@
 
       .detail-view__divider--col-line {
         position: absolute;
+        z-index: 2;
         top: 0;
         background-color: $color-grey-1;
         width: 1px;

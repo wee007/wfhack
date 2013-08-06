@@ -22,9 +22,8 @@
 
     <!-- Contact store -->
     <div class="island island--fill island--center islet-tops">
-      <!-- [BACK END] Need to remove (trim) white space coming from the `<%= @store.phone_number %>` text field as it screwing up the `tel:` link -->
       <span class="hide-fully--non-palm">
-        <a href="tel:<%= @store.phone_number %>" class="btn btn--full btn--main btn--main-alt2 btn--main-lrg"><span class="icon icon--phone icon--xlrg icon--spacing-lrg icon--flush-top" aria-hidden="true"></span><strong>Call <%= @store.name %></strong></a>
+        <a href="tel:<%= @store.phone_number.gsub(/\s+/,'') %>" class="btn btn--full btn--main btn--main-alt2 btn--main-lrg"><span class="icon icon--phone icon--xlrg icon--spacing-lrg icon--flush-top" aria-hidden="true"></span><strong>Call <%= @store.name %></strong></a>
       </span>
       <p class="detail-view__check-avble hide-fully--palm"><span class="detail-view__subtle-txt">Check store availability</span> <em><span class="icon icon--phone icon--lrg icon--spacing" aria-hidden="true"></span> <%= @store.phone_number %></em></p>
     </div>

@@ -205,12 +205,25 @@
         });
       }
 
-      $('.js-stores-maps-toggle-listing-detail').on('scroll', function() {
-        clearTimeout(timeout);
-        timeout = setTimeout(loadImages, 100);
-      });
+      function attachDeferredListener() {
+        loadImages();
+        $('.js-stores-maps-toggle-listing-detail').on('scroll.deferred-logos', function() {
+          clearTimeout(timeout);
+          timeout = setTimeout(loadImages, 100);
+        });
+      }
 
-      $(loadImages);
+      function detachDeferredListener() {
+        clearTimeout(timeout);
+        $('.js-stores-maps-toggle-listing-detail').off('.deferred-logos');
+      }
+
+      $(function() {
+        enquire.register("all and (min-width: 40.0625em)", {
+          match: attachDeferredListener,
+          unmatch: detachDeferredListener
+        }, true);
+      });
 
     }());
   <% end %>

@@ -1,8 +1,8 @@
 GIT
   remote: git@github.dbg.westfield.com:digital/aaa_client.git
-  revision: b0416e4474ba0e97d1426c4aa4b634028de4fbd1
+  revision: cd25fb66fe7d1b8f58361608629a1ab64f4deedb
   specs:
-    aaa_client (0.0.16)
+    aaa_client (0.0.17)
       request_store
       rubycas-client (> 2.3.9)
       service_helper
@@ -22,9 +22,9 @@ GIT
 
 GIT
   remote: git@github.dbg.westfield.com:digital/service_helper.git
-  revision: ff6dfb1d7302fffc6316c37a906d61122dce3268
+  revision: edf6abe70d55f41964e62079079349ee0915a9b2
   specs:
-    service_helper (0.0.9)
+    service_helper (0.0.10)
 
 GIT
   remote: https://github.com/bradphelan/jasminerice.git

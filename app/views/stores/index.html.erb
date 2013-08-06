@@ -159,15 +159,12 @@
         });
       }
 
-      Modernizr.load({
-        load: '<%= asset_path 'enquire.js' %>',
-        complete: function() {
-          enquire.register("all and (min-width: 64em)", {
-            match: nonPalmView,
-            unmatch: palmView,
-            setup: palmView
-          });
-        }
+      $(function() {
+        enquire.register("all and (min-width: 64em)", {
+          match: nonPalmView,
+          unmatch: palmView,
+          setup: palmView
+        }, true);
       });
 
       var timeout = 0;

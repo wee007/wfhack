@@ -10,7 +10,7 @@
 			<!-- //Logo -->
 
 			<!-- Menu toggle button for palm devices -->
-			<button type="button" class="btn btn--menu-toggle hide-fully--non-palm js-disabled-hide js-menu-toggle-btn" aria-haspopup="true" aria-owns="header-menu-toggle">
+			<button type="button" class="btn btn--menu-toggle hide-fully--non-palm js-disabled-hide js-menu-toggle-btn" aria-haspopup="true" aria-controls="header-menu-toggle">
 				<span class="btn--menu-toggle__txt hide-visually">Open menu</span>
 				<span class="btn--menu-toggle__icon"></span>
 			</button>
@@ -30,7 +30,7 @@
 				<div class="sub-nav-container drop-down-container">
 
 					<!-- Menu toggle button for lap small devices -->
-					<button type="button" class="btn btn--menu-toggle js-disabled-hide js-drop-down-trigger" aria-haspopup="true" aria-owns="nav-sub">
+					<button type="button" class="btn btn--menu-toggle js-disabled-hide js-drop-down-trigger" aria-haspopup="true" aria-controls="nav-sub">
 						<span class="btn--menu-toggle__txt hide-visually">Open sub menu</span>
 						<span class="btn--menu-toggle__icon"></span>
 					</button>
@@ -65,7 +65,7 @@
 						<strong class="my-account-container__hdr container txt-truncate hide-fully--non-palm">
 							<img src="<%= image_path "dummy/avatar.jpg" %>" alt="User avatar photo"> Hi username
 						</strong>
-						<button type="button" class="my-account-container__hdr btn hide-fully--palm js-drop-down-trigger" aria-haspopup="true" aria-owns="my-account-links">
+						<button type="button" class="my-account-container__hdr btn hide-fully--palm js-drop-down-trigger" aria-haspopup="true" aria-controls="my-account-links">
 							<img src="<%= image_path "dummy/avatar.jpg" %>" alt="User avatar photo"> Hi<span class="hide-visually my-account-signedin__username"> username</span>
 							<span class="hide-visually"> select for settings / sign out</span>
 							<span class="icon icon--arrow-down-full icon--flush-top" aria-hidden="true"></span>

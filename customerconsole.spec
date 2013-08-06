@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.305
+Version:     0.0.306
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,11 @@ fi
 
 
 %changelog
+* Tue Aug 06 2013 ci <doperations@au.westfield.com> 0.0.306-1
+- Remove some of the hackery around product service, it's no longer required
+  (cwalsh2@au.westfield.com)
+- Fix double render error (cwalsh2@au.westfield.com)
+
 * Tue Aug 06 2013 ci <doperations@au.westfield.com> 0.0.305-1
 - Merge pull request #204 from mwratt/fix/revert_modernizr
   (matt.wratt@trineo.co.nz)

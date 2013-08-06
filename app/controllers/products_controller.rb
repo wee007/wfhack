@@ -10,13 +10,15 @@ class ProductsController < ApplicationController
     end
     @centre = CentreService.build centre
     @search = ProductService.build products
-    handle_error(@search) if @search.is_a? NullObject
-
-    respond_to do |format|
-      if request.xhr?
-        format.html { render partial: "products" }
-      else
-        format.html { render :index }
+    if @search.is_a? NullObject
+      handle_error(@search)
+    else
+      respond_to do |format|
+        if request.xhr?
+          format.html { render partial: "products" }
+        else
+          format.html { render :index }
+        end
       end
     end
   end

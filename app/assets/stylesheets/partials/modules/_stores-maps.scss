@@ -222,9 +222,6 @@
       /* Non JS users */
       .no-js & {position: static;}
 
-      /* When map view is in view */
-      .is-map-view & {display: none;}
-
       /* Post filter count */
       .is-filter-applied & {@include to-rem(top, 88);}
 

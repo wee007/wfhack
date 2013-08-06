@@ -83,7 +83,7 @@
               <div class="stores-list__data-cell stores-list__data-cell--icons">
 
                 <%# Phone no %>
-                <a href="tel:<%= store.phone_number %>" class="stores-list__data-cell__icon stores-list__data-cell__icon--phone hide-fully--non-palm">
+                <a href="tel:<%= (store.phone_number || "").gsub(/\s+/,'') %>" class="stores-list__data-cell__icon stores-list__data-cell__icon--phone hide-fully--non-palm">
                   <span class="hide-visually">Call store: <%= store.phone_number %></span>
                   <span class="icon icon--phone2 icon--flush-top"></span>
                 </a>

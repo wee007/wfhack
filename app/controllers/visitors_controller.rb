@@ -1,4 +1,4 @@
 class VisitorsController < ApplicationController
-  include AaaClientAuthentication
+  include AaaConsoleAuthentication
   layout false
 end

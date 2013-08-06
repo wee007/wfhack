@@ -121,7 +121,20 @@
 
 <%- content_for :javascript do -%>
   <%= javascript_tag do %>
-    (function() {
+    function deferCall(<%# tests... %>) {
+      <%# If any of the tests are falsey a timeout is queued to call the function again %>
+      for(var i in arguments) {
+        if(arguments.hasOwnProperty(i) && !arguments[i]) {
+          setTimeout(deferCall.caller, 100);
+          return true;
+        }
+      }
+      return false;
+    }
+
+    (function initialiseResponsiveMap() {
+      <%# Deferres this function until enquire is avaliable %>
+      if(deferCall(window.enquire)) return;
 
       var map = new window.map.Micello(),
           viewingList = true;
@@ -168,6 +181,11 @@
           setup: palmView
         }, true);
       });
+    }());
+
+    (function initialiseDeferredLogos() {
+      <%# Deferres this function until enquire is avaliable %>
+      if(deferCall(window.enquire)) return;
 
       var timeout = 0;
 

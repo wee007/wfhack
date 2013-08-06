@@ -6,12 +6,8 @@ class ProductService
       return null_product(json) if json.respond_to?(:status) && !json.status.between?(200,299)
       results = json.respond_to?(:body) ? json.body : json
       if results.has_key? :facets
-        facets = build_facets(results)
         products = results.delete(:results).collect { |result| Product.new result }
-        pagination = build_pagination(results)
-        sort_options = results.delete(:display_options)[:sort_options]
-        Hashie::Mash.new results.merge(products: products, facets: facets,
-          sort_options: sort_options).merge(pagination)
+        Hashie::Mash.new results.merge products: products
       else
         Product.new results
       end
@@ -21,20 +17,6 @@ class ProductService
 
     def null_product(json)
       NullProduct.new(status: json.status, body: json.body, url: json.env[:url])
-    end
-
-    def build_pagination(results)
-      total_pages = ([1,results[:count]-1].max / results.rows) + 1
-      current_page = (results.start + results.rows) / results.rows
-      {current_page: current_page, total_pages: total_pages}
-    end
-
-    def build_facets(results)
-      facets = Hashie::Mash.new
-      results.facets.each do |facet|
-        facets[facet.field] = facet
-      end
-      facets
     end
 
     def request_uri(options)

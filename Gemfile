@@ -24,10 +24,10 @@ gem 'hashie'
 gem 'kaminari'
 gem 'money'
 
-# AAA
+gem 'service_helper', git: 'git@github.dbg.westfield.com:digital/service_helper.git'
 gem 'rubycas-client', '> 2.3.9', git: 'https://github.com/rubycas/rubycas-client.git' # force rubycas-client-rails to use latest
-gem 'rubycas-client-rails', git: 'https://github.com/rubycas/rubycas-client-rails.git'
-gem 'aaa_client', '~> 0.0.9', git: 'git@github.dbg.westfield.com:digital/aaa_client.git'
+gem 'aaa_client', git: 'git@github.dbg.westfield.com:digital/aaa_client.git'
+gem 'splunk_logger', git: 'https://github.com/westfield/splunk_logger.git'
 
 # CSS (cant live in development or css will not get minified)
 # https://github.com/rails/rails/issues/10084#issuecomment-20855970

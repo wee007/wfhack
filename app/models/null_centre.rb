@@ -44,7 +44,7 @@ class NullCentre < NullObject
     vancouver: "Westfield Vancouver", warrawong: "Westfield Warrawong", westcounty: "Westfield West County",
     westcovina: "Westfield West Covina", westlakes: "Westfield West Lakes", westpark: "Westfield West Park",
     westcity: "Westfield WestCity", westland: "Westfield Westland", wheaton: "Westfield Wheaton",
-    whitfordcity: "Westfield Whitford City", woden: "Westfield Woden", foo: 'FOO'
+    whitfordcity: "Westfield Whitford City", woden: "Westfield Woden"
   }
 
   def name

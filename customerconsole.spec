@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.323
+Version:     0.0.324
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,11 @@ fi
 
 
 %changelog
+* Wed Aug 07 2013 ci <doperations@au.westfield.com> 0.0.324-1
+- Merge branch 'master' of github.dbg.westfield.com:digital/customer_console
+  (ben@germanforblack.com)
+- Enable angular-cloak (ben@germanforblack.com)
+
 * Wed Aug 07 2013 ci <doperations@au.westfield.com> 0.0.323-1
 - Merge pull request #224 from mwratt/fix/stores-list (matt.wratt@trineo.co.nz)
 - fixes broken js map spec (matt.wratt@trineo.co.nz)

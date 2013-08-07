@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.320
+Version:     0.0.321
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,11 @@ fi
 
 
 %changelog
+* Wed Aug 07 2013 ci <doperations@au.westfield.com> 0.0.321-1
+- Merge pull request #218 from bschwarz/hideEmptyLists (ben@germanforblack.com)
+- Render filters only if there is data for them (ben@germanforblack.com)
+- Gosh damn (ben@germanforblack.com)
+
 * Wed Aug 07 2013 ci <doperations@au.westfield.com> 0.0.320-1
 - Merge pull request #217 from mwratt/fix/stores-list
   (cwalsh2@au.westfield.com)

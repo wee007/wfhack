@@ -29,7 +29,6 @@
     this.price = {};
 
     this.sortOptions = [];
-    this.availableFilters = [];
     this.appliedFilters = [];
 
     this.getSearch = function ( callback ) {
@@ -65,7 +64,6 @@
       this.sizes = SearchFacet.retrieve( response.facets, 'size' );
 
       this.sortOptions = response.display_options.sort_options;
-      this.availableFilters = response.available_filters;
       this.appliedFilters = AppliedFilters.format( response.applied_filters );
     };
 

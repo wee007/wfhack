@@ -96,8 +96,8 @@
       return !!Search.appliedFilters.length;
     };
 
-    $scope.filterIsAvailable = function ( filterName ) {
-      return Search.availableFilters.indexOf( filterName ) !== -1;
+    $scope.filterIsAvailable = function ( filterValues ) {
+      return filterValues !== undefined;
     };
 
     $scope.removeSelectedFilter = function ( paramName, paramValue ) {

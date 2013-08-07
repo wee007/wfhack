@@ -53,7 +53,7 @@
   <div id="filters" class="drop-down-menu__target box">
     <ul class="filters__list">
       <!-- Categories -->
-      <li>
+      <li ng-if="filterIsAvailable(search.categories.values)">
         <button ng-click="toggleFilter('category')" class="filters__trigger drop-down-menu__hdr btn btn--full btn--pointer">
           {{ search.categories.title }}
           <span class="hide-fully--palm icon icon--arrow-down-full icon--flush-top btn--pointer__icon" aria-hidden="true"></span>
@@ -67,7 +67,7 @@
       </li>
 
       <!-- Retailers -->
-      <li ng-if="filterIsAvailable('retailer')">
+      <li ng-if="filterIsAvailable(search.retailers.values)">
         <button ng-click="toggleFilter('retailer')" class="filters__trigger drop-down-menu__hdr btn btn--full btn--pointer">
           {{ search.retailers.title }}
           <span class="hide-fully--palm icon icon--arrow-down-full icon--flush-top btn--pointer__icon" aria-hidden="true"></span>
@@ -101,7 +101,7 @@
       </li>
 
       <!-- Brands -->
-      <li ng-if="filterIsAvailable('brand')">
+      <li ng-if="filterIsAvailable(search.brands.values)">
         <button ng-click="toggleFilter('brand')" class="filters__trigger drop-down-menu__hdr btn btn--full btn--pointer">
           {{ search.brands.title }}
           <span class="hide-fully--palm icon icon--arrow-down-full icon--flush-top btn--pointer__icon" aria-hidden="true"></span>
@@ -135,7 +135,7 @@
       </li>
 
       <!-- Colour -->
-      <li ng-if="filterIsAvailable('colour')">
+      <li ng-if="filterIsAvailable(search.colours.values)">
         <button ng-click="toggleFilter('colour')" class="filters__trigger drop-down-menu__hdr btn btn--full btn--pointer">
           {{ search.colours.title }}
           <span class="hide-fully--palm icon icon--arrow-down-full icon--flush-top btn--pointer__icon" aria-hidden="true"></span>
@@ -165,7 +165,7 @@
       </li>
 
       <!-- Size -->
-      <li ng-if="filterIsAvailable('size')">
+      <li ng-if="filterIsAvailable(search.sizes.values)">
         <button ng-click="toggleFilter('size')" class="filters__trigger drop-down-menu__hdr btn btn--full btn--pointer">
           {{ search.sizes.title }}
           <span class="hide-fully--palm icon icon--arrow-down-full icon--flush-top btn--pointer__icon" aria-hidden="true"></span>
@@ -195,7 +195,7 @@
       </li>
 
       <!-- Price -->
-      <li ng-if="filterIsAvailable('price')">
+      <li ng-if="filterIsAvailable(search.price.values)">
         <button ng-click="toggleFilter('price')" class="filters__trigger drop-down-menu__hdr btn btn--full btn--pointer">
           {{ search.price.title }}
           <span class="hide-fully--palm icon icon--arrow-down-full icon--flush-top btn--pointer__icon" aria-hidden="true"></span>

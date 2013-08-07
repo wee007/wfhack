@@ -50,8 +50,6 @@
   }
 }
 
-  .filters__trigger {overflow: hidden;}
-
   // Desktop edition of filters
   .non-palm .filters__target {
     position: absolute;
@@ -66,7 +64,10 @@
 
   .filters__list {
     @include respond-min($non-palm) {
-      > li { display: inline-block; }
+      > li {
+        display: inline-block;
+        vertical-align: middle;
+      }
     }
   }
 

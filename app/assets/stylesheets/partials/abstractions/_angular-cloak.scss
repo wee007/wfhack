@@ -1,0 +1,17 @@
+/*
+  Overrides ngCloak styles for an angular component.
+
+  Usage:
+    Add ng-cloak as an attribute (or class)
+    Add `ng-cloaked-transition` class (Optional)
+
+  <div ng-cloak class="ng-cloaked-transition">
+*/
+:root {
+  [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+    display: block !important;
+    opacity: 0;
+  }
+
+  .ng-cloaked-transition { transition: opacity 1s; }
+}

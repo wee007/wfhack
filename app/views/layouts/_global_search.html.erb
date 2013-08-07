@@ -9,7 +9,7 @@
       ng-model='searchQuery'
       name="search_query" autocomplete="off"
       placeholder="Search stores, products, deals &amp; events&#8230;">
-    <input type='submit' value='Search Products' ng-hide='true'>
+    <input type='submit' value='Search Products' ng-cloak ng-hide='true'>
   <% end %>
   <!-- //Search form -->
 
@@ -19,7 +19,7 @@
     <span class="hide-visually"> Close search</span>
   </button>
   <!-- //Close search -->
-  <div class='global-search-results box' ng-show='suggestions.length > 0'>
+  <div class='global-search-results box' ng-cloak ng-show='suggestions.length > 0'>
     <div class='island'>
       <p>Are you looking for</p>
       <div class='results__products'>

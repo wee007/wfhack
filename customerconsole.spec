@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.321
+Version:     0.0.322
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,13 @@ fi
 
 
 %changelog
+* Wed Aug 07 2013 ci <doperations@au.westfield.com> 0.0.322-1
+- Fix 500 if centre service reports no store (cwalsh2@au.westfield.com)
+- Merge pull request #219 from bschwarz/filter-buttons-desktop
+  (ben@germanforblack.com)
+- Replace hack with better fix. (Also, for IE) (ben@germanforblack.com)
+- Remove firefox hack (ben@germanforblack.com)
+
 * Wed Aug 07 2013 ci <doperations@au.westfield.com> 0.0.321-1
 - Merge pull request #218 from bschwarz/hideEmptyLists (ben@germanforblack.com)
 - Render filters only if there is data for them (ben@germanforblack.com)

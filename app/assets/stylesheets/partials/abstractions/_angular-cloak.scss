@@ -9,10 +9,9 @@
   those default styles using opacity.
 
   Usage:
-    Add ng-cloak as an attribute (or class)
-    Add `ng-cloaked-transition` class (Optional)
+    Add ng-cloak as an element, attribute or class
 
-  <div ng-cloak class="ng-cloaked-transition">
+  <div ng-cloak>
 */
 html {
   [ng\:cloak],

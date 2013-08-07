@@ -129,7 +129,7 @@
 
 				<!-- Favourites -->
 				<!-- [BACK END] when an item has been added to 'Favourites' need to append class `is-favs-added` -->
-				<a href="#"  target="_self" class="favs-link">
+				<a href="#" target="_self" class="favs-link">
 					<span class="favs-link__count-icon">
 						<span class="icon icon--favs icon--flush-top icon--kilo" aria-hidden="true"></span>
 						<em></em>
@@ -190,22 +190,8 @@
 			<!-- //Main navigation -->
 
 			<!-- Global search -->
-			<div class="header__overlay header__overlay--toggle js-search-toggle" id="search-mini">
-                          <%= render partial: 'layouts/global_search' %>
-			</div>
+      <%= render partial: 'layouts/global_search' %>
 			<!-- //Global search -->
-
-			<!-- Store search -->
-			<div class="header__overlay header__overlay--stick">
-				<div class="container">
-					<form class="search-mini search-mini--stores" action="#" method="post" role="search">
-						<span class="icon icon--store" aria-hidden="true"></span>
-						<label for="store-search" class="hide-visually">Search stores</label>
-						<input type="search" class="search-mini__input" id="store-search" name="store-search" placeholder="Search store names, categories &amp; brands&#8230;">
-				</form>
-			</div>
-			</div>
-			<!-- //Store search -->
 
 		</div>
 	</div>

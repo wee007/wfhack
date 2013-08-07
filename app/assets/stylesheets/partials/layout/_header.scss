@@ -175,6 +175,9 @@ $header-color-link-hover: $color-brand !default;
 			}
 		}
 
+		/* Always show when in 'Stores' */
+		.stores .js-search-toggle {display: block;}
+
 		/* Toggle menu */
 		.header-menu-toggle {
 
@@ -1247,7 +1250,7 @@ $header-color-link-hover: $color-brand !default;
 				@include to-rem(margin-right, 30);
 
 				/* Store search & non JS users */
-				&.search-mini--stores,
+				.stores &,
 				.no-js & {margin-right: 0;}
 			}
 
@@ -1260,11 +1263,6 @@ $header-color-link-hover: $color-brand !default;
 			@include respond-min($non-palm) {
 				@include to-rem(padding-top, 9);
 				@include to-rem(padding-bottom, 9);
-
-				/* Toggle display of search in 'Stores' section */
-				.stores & {display: none;}
-
-				.stores &.search-mini--stores {display: block;}
 			}
 
 			/* Increase padding at this breakpoint */
@@ -1327,3 +1325,6 @@ $header-color-link-hover: $color-brand !default;
 				/* Focus */
 				&:focus {outline: none;}
 			}
+
+		/* Hide the search toggle buttons for 'Stores' */
+		.stores .js-search-btn-toggle {display: none;}

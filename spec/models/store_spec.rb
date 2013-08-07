@@ -31,14 +31,24 @@ describe Store do
 
   context '#logo' do
 
-    let(:logo) { 'my test logo' }
+    let(:logo) { '' }
     let(:store_attrs) { Hashie::Mash.new _links: {logo: {href: logo}} }
 
     subject { Store.new store_attrs }
 
-    it 'returns the contents of _links.logo.href' do
-      ImageService.should_receive(:transform).with(url: logo).and_return('transformed_image')
-      subject.logo.should eql('transformed_image')
+    it { should_not have_logo }
+
+    describe 'with logo' do
+
+      let(:logo) { 'my test logo' }
+
+      it { should have_logo }
+
+      it 'returns the contents of _links.logo.href' do
+        ImageService.should_receive(:transform).with(url: logo).and_return('transformed_image')
+        subject.logo.should eql('transformed_image')
+      end
+
     end
 
   end

@@ -92,6 +92,7 @@ class map.micello.Map extends map.micello.MapBase
     index
 
   popupHtml: (store) ->
+    store.logo = store._links.logo.href
     popup = @popupContent ||= $('.map-micello__overlay-wrap').html()
     popup = popup.replace(new RegExp("\#{store.#{name}}", 'g'), value) for name, value of store
     popup

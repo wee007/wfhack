@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.319
+Version:     0.0.320
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,17 @@ fi
 
 
 %changelog
+* Wed Aug 07 2013 ci <doperations@au.westfield.com> 0.0.320-1
+- Merge pull request #217 from mwratt/fix/stores-list
+  (cwalsh2@au.westfield.com)
+- Merge branch 'ng-cloak' (ben@germanforblack.com)
+- Tidy (ben@germanforblack.com)
+- improves handling of optional store logos (matt.wratt@trineo.co.nz)
+- Remove transition. Use html rather than :root (ben@germanforblack.com)
+- Code style. Better doco. (ben@germanforblack.com)
+- Use ng-cloak to avoid FOUC for search autocomplete area
+  (ben@germanforblack.com)
+
 * Wed Aug 07 2013 ci <doperations@au.westfield.com> 0.0.319-1
 - 
 

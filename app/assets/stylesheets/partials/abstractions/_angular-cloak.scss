@@ -1,5 +1,12 @@
+/* ======================================================================================
+   @ABSTRACTIONS -> NG-CLOAK
+   ====================================================================================== */
+
 /*
-  Overrides ngCloak styles for an angular component.
+  Overrides ngCloak styles for angular.js
+
+  Angular will use display: none !important, this abstraction overrides
+  those default styles using opacity.
 
   Usage:
     Add ng-cloak as an attribute (or class)
@@ -8,10 +15,15 @@
   <div ng-cloak class="ng-cloaked-transition">
 */
 :root {
-  [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  [ng\:cloak],
+  [ng-cloak],
+  [data-ng-cloak],
+  [x-ng-cloak],
+  .ng-cloak,
+  .x-ng-cloak {
     display: block !important;
     opacity: 0;
   }
 
-  .ng-cloaked-transition { transition: opacity 1s; }
+  .ng-cloaked-transition { @include prefix(transition, opacity .5s); }
 }

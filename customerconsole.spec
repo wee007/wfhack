@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.318
+Version:     0.0.319
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,9 @@ fi
 
 
 %changelog
+* Wed Aug 07 2013 ci <doperations@au.westfield.com> 0.0.319-1
+- 
+
 * Wed Aug 07 2013 ci <doperations@au.westfield.com> 0.0.318-1
 - Merge pull request #216 from cpearce/master (cwalsh2@au.westfield.com)
 - Removing Stores search as it's now combined into global search

@@ -1,6 +1,6 @@
-worker_processes ENV["UNICORN_WORKERS"].to_i || 1
-timeout ENV["UNICORN_TIMEOUT"].to_i || 30
-preload_app ENV["UNICORN_PRELOAD_APP"] == "true"
+worker_processes ( [ENV["UNICORN_WORKERS"].to_i, 4].max )
+timeout ([ENV["UNICORN_TIMEOUT"].to_i, 15].max )
+preload_app (ENV["UNICORN_PRELOAD_APP"] == "true")
 
 before_fork do |server, worker|
   if defined? ActiveRecord::Base

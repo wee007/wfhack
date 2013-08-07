@@ -25,7 +25,7 @@ gem 'kaminari'
 gem 'money'
 
 gem 'service_helper', git: 'git@github.dbg.westfield.com:digital/service_helper.git'
-gem 'rubycas-client', '> 2.3.9', git: 'https://github.com/rubycas/rubycas-client.git' # force rubycas-client-rails to use latest
+gem 'rubycas-client', git: 'https://github.com/mmell/rubycas-client.git' # force rubycas-client-rails to use latest
 gem 'aaa_client', git: 'git@github.dbg.westfield.com:digital/aaa_client.git'
 gem 'splunk_logger', git: 'https://github.com/westfield/splunk_logger.git'
 

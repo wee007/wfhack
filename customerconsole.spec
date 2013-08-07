@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.326
+Version:     0.0.327
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,9 @@ fi
 
 
 %changelog
+* Wed Aug 07 2013 ci <doperations@au.westfield.com> 0.0.327-1
+- ImageService uses service_helper (michael@michaelbamford.com)
+
 * Wed Aug 07 2013 ci <doperations@au.westfield.com> 0.0.326-1
 - Merge pull request #190 from csmith/master (craigM.smith@au.westfield.com)
 - Don't show the retailer logo on a deal if it's not there.

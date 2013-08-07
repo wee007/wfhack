@@ -64,7 +64,10 @@
 
   .filters__list {
     @include respond-min($non-palm) {
-      > li { display: inline-block; }
+      > li {
+        display: inline-block;
+        vertical-align: middle;
+      }
     }
   }
 

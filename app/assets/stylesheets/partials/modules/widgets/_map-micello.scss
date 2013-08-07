@@ -84,6 +84,9 @@
           @include respond-range($non-palm, $ipad-portrait - 1) {
             .map-micello--static & {padding-left: 0;}
           }
+
+          /* Remove the indent when there is no logo */
+          .is-no-store-logo & {padding-left: 0;}
         }
 
           /* Logo */

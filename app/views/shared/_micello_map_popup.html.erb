@@ -1,8 +1,8 @@
+<%# FIXME: This really needs to be moved to something that can handle templating in JS better %>
 <div class="map-micello__overlay islet">
   <div class="map-micello__overlay__retailer map-micello__mrg-base">
     <div class="map-micello__overlay__retailer__img">
-      <!-- [BACKEND] logo source needs to be made dynamic and size of the logo needs to be 168px x 54px (retina size) and padded out if necassary -->
-      <img src="/assets/dummy/retailer-logo.png" alt="#{store.name} logo">
+      <img src="#{store.logo}" alt="#{store.name} #{store.logo}" onerror="window.$ && $(this).parents('.map-micello__overlay.islet').addClass('is-no-store-logo').find('.map-micello__overlay__retailer__img').remove()">
     </div>
     <div class="map-micello__overlay__retailer__body">
       <em class="map-micello__hdr txt-break-word">#{store.name}</em>

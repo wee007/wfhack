@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="header__overlay header__overlay--toggle js-search-toggle" id="search-mini">
   <div class="container" ng-controller='GlobalSearchCtrl'>
 
@@ -11,7 +12,7 @@
         ng-model='searchQuery'
         name="search_query" autocomplete="off"
         placeholder="Search stores, products, deals &amp; events&#8230;">
-      <input type='submit' value='Search Products' ng-hide='true'>
+      <input type='submit' value='Search Products' ng-cloak ng-hide='true'>
     <% end %>
     <%# //Search form %>
 
@@ -23,7 +24,7 @@
     <%# //Close search %>
 
     <%# Search results %>
-    <div class='global-search-results box' ng-show='suggestions.length > 0'>
+    <div class='global-search-results box' ng-cloak ng-show='suggestions.length > 0'>
       <div class='island'>
         <p>Are you looking for</p>
         <div class='results__products'>

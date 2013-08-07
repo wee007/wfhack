@@ -8,7 +8,8 @@ class ImageService
     end
 
     def url
-      "http://image-service.#{Rails.env}.dbg.westfield.com"
+      # "http://image-service.#{Rails.env}.dbg.westfield.com"
+      WestfieldUri::Service.uri_for 'image'
     end
 
   private

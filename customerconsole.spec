@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.320
+Version:     0.0.323
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,31 @@ fi
 
 
 %changelog
+* Wed Aug 07 2013 ci <doperations@au.westfield.com> 0.0.323-1
+- Merge pull request #224 from mwratt/fix/stores-list (matt.wratt@trineo.co.nz)
+- fixes broken js map spec (matt.wratt@trineo.co.nz)
+- Merge pull request #223 from mwratt/fix/stores-list
+  (cpearce@au.westfield.com)
+- fixes logo height on stores list page (matt.wratt@trineo.co.nz)
+- fixes alt text on store list page logo (matt.wratt@trineo.co.nz)
+- Merge pull request #221 from mwratt/fix/stores-list (ben@germanforblack.com)
+- Merge pull request #222 from cpearce/master (matt.wratt@trineo.co.nz)
+- Removing indent when there is no store logo for Micello map popup
+  (CPearce@au.westfield.com)
+- fixes missing logo on map popup error (matt.wratt@trineo.co.nz)
+
+* Wed Aug 07 2013 ci <doperations@au.westfield.com> 0.0.322-1
+- Fix 500 if centre service reports no store (cwalsh2@au.westfield.com)
+- Merge pull request #219 from bschwarz/filter-buttons-desktop
+  (ben@germanforblack.com)
+- Replace hack with better fix. (Also, for IE) (ben@germanforblack.com)
+- Remove firefox hack (ben@germanforblack.com)
+
+* Wed Aug 07 2013 ci <doperations@au.westfield.com> 0.0.321-1
+- Merge pull request #218 from bschwarz/hideEmptyLists (ben@germanforblack.com)
+- Render filters only if there is data for them (ben@germanforblack.com)
+- Gosh damn (ben@germanforblack.com)
+
 * Wed Aug 07 2013 ci <doperations@au.westfield.com> 0.0.320-1
 - Merge pull request #217 from mwratt/fix/stores-list
   (cwalsh2@au.westfield.com)

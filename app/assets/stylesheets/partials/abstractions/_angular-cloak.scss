@@ -14,7 +14,7 @@
 
   <div ng-cloak class="ng-cloaked-transition">
 */
-:root {
+html {
   [ng\:cloak],
   [ng-cloak],
   [data-ng-cloak],
@@ -24,6 +24,4 @@
     display: block !important;
     opacity: 0;
   }
-
-  .ng-cloaked-transition { @include prefix(transition, opacity .5s); }
 }

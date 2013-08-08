@@ -64,6 +64,11 @@
       width: 50%;
     }
 
+    /* Turn off absolute positioning for 'detail view' at this breakpoint */
+    @include respond-max($ipad-landscape - 1) {
+      .stores-maps--detail & {position: static;}
+    }
+
     /* When map view is in view */
     .is-map-view & {
       position: static;
@@ -85,6 +90,9 @@
       position: relative;
       z-index: 5;
 
+      /* Hide for detail view */
+      .stores-maps--detail & {display: none;}
+
       /* When map view is in view */
       @include respond-max($palm) {
         .is-map-view & {
@@ -103,6 +111,9 @@
         @include box;
         @include box-heavy;
         @include to-rem(margin-bottom margin-top, $spacing-base);
+
+        /* Show for detail view */
+        .stores-maps--detail & {display: block;}
       }
 
       /* Inner container */
@@ -128,9 +139,17 @@
           font-family: $font-family-opensans;
           @include font-size(24, 1.5);
           font-weight: normal;
+          color: $color-dark-txt;
           @include to-rem(margin-bottom, $spacing-base);
           /* Temp style so current feature can be released */
           margin-bottom: 0;
+
+          /* Detail view */
+          .stores-maps--detail & {
+            margin-bottom: 0;
+
+            span {color: $color-light-txt;}
+          }
 
           /* Hide the header at this breakpoint */
           @include respond-max($ipad-landscape - 1) {
@@ -207,6 +226,14 @@
       .android & {
         overflow: scroll;
         -webkit-overflow-scrolling: touch;
+      }
+
+      /* Turn off absolute positioning/overflow for 'detail view' at this breakpoint */
+      @include respond-max($ipad-landscape - 1) {
+        .stores-maps--detail & {
+          position: static;
+          overflow: visible;
+        }
       }
 
       /* When map view is in view */

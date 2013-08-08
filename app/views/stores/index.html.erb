@@ -1,9 +1,10 @@
 <% content_for :class_for_main, "container--wide" %>
 
-<div class="stores-maps container js-stores-maps-toggle-wrap">
+<div class="stores-maps stores-maps--listing container js-stores-maps-toggle-wrap">
+
   <h1 class="hide-visually">Stores</h1>
 
-  <%# Contain filters, map/list toggle, and listings %>
+  <%# Contain 'filters', 'map/list toggle', and 'listings' %>
   <%# [BACKEND] append `is-filter-applied` class to this container when a category filter has been applied %>
   <div class="stores-maps__inner">
 
@@ -109,7 +110,7 @@
     <%#//Stores list %>
 
   </div>
-  <%# //Contain filters, map/list toggle, and listings %>
+  <%# //Contain 'filters', 'map/list toggle', and 'listings' %>
 
   <%# Map %>
   <div class="stores-maps__map map-micello js-stores-maps-toggle-map" id="stores-maps-toggle-map">

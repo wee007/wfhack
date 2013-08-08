@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.327
+Version:     0.0.328
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,9 @@ fi
 
 
 %changelog
+* Thu Aug 08 2013 ci <doperations@au.westfield.com> 0.0.328-1
+- comments out hard coded store hours (matt.wratt@trineo.co.nz)
+
 * Wed Aug 07 2013 ci <doperations@au.westfield.com> 0.0.327-1
 - ImageService uses service_helper (michael@michaelbamford.com)
 

@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.329
+Version:     0.0.330
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,10 @@ fi
 
 
 %changelog
+* Fri Aug 09 2013 ci <doperations@au.westfield.com> 0.0.330-1
+- Removing 'vendor' dir and jQuery UI slider style sheet
+  (CPearce@au.westfield.com)
+
 * Fri Aug 09 2013 ci <doperations@au.westfield.com> 0.0.329-1
 - Merge pull request #227 from cpearce/master (matt.wratt@trineo.co.nz)
 - Styling of storefront and refactoring image carousel to make it more reusable

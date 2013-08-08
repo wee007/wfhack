@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.328
+Version:     0.0.329
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,11 @@ fi
 
 
 %changelog
+* Fri Aug 09 2013 ci <doperations@au.westfield.com> 0.0.329-1
+- Merge pull request #227 from cpearce/master (matt.wratt@trineo.co.nz)
+- Styling of storefront and refactoring image carousel to make it more reusable
+  (CPearce@au.westfield.com)
+
 * Thu Aug 08 2013 ci <doperations@au.westfield.com> 0.0.328-1
 - comments out hard coded store hours (matt.wratt@trineo.co.nz)
 

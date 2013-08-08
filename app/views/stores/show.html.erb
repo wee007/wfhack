@@ -1,3 +1,93 @@
-<h1><%= @store.name %></h1>
-<p><%= @store.description %></p>
-<%= image_tag @store.store_front_image_url, alt:@store.name, onError: %Q(this.parentNode.removeChild(this);) %>
+<% content_for :class_for_main, "container--wide" %>
+
+<div class="stores-maps stores-maps--detail container js-stores-maps-toggle-wrap">
+
+  <h1 class="hide-visually"><%= @store.name %> storefront</h1>
+
+  <%# Contain 'back to listing link' and 'store details' %>
+  <div class="stores-maps__inner">
+
+    <%# Back to listing link %>
+    <div class="stores-maps__filters-toggle">
+      <div class="container">
+        <a href="<%= centre_stores_path(@centre) %>" class="stores-maps__hdr"><span class="icon icon--arrow-left-big" aria-hidden="true"></span> <span>Stores A-Z</span> / <%= @store.name %></a>
+      </div>
+    </div>
+    <%# //Back to listing link %>
+
+    <%# Store detail %>
+    <div class="stores-maps__list-detail js-stores-maps-toggle-listing-detail" id="stores-maps-toggle-listing-detail">
+
+      <div class="storefront">
+
+        <%# Flexslider %>
+        <div class="flexslider flexslider--contain-controls" style="background-image: url(/assets/dummy/store-banner.jpg);">
+          <ul class="slides">
+            <li><img src="/assets/dummy/store-banner.jpg" alt="<%= @store.name %> banner"></li>
+            <%# [BACKEND] this absolutely cannot exceed 300 characters not including the full stop at the very end AND because this is optional do not render the `li` if nothing is there (via server side not JS). %>
+            <li><p>Quis pulvinar in, a. Nascetur egestas, mus vel, tortor cursus, eu, et, aenean turpis natoque? Diam tristique parturient parturient, hac in dignissim aliquam nec integer, nunc cum aliquet scelerisque aenean lacus tristique? Mauris ultricies magna nisi. Mid dictumst, habitasse quis in nec placerat wa.</p></li>
+          </ul>
+        </div>
+        <%# //Flexslider %>
+
+      </div>
+
+    </div>
+    <%#//Store detail %>
+
+  </div>
+  <%# //Contain 'back to listing link' and 'store details' %>
+
+  <%# Map %>
+  <div class="stores-maps__map map-micello js-stores-maps-toggle-map" id="stores-maps-toggle-map">
+    <%= render partial: 'shared/map', locals: {store_id: nil, interactive: true, load_immediately: false} %>
+  </div>
+  <%# //Map %>
+
+</div>
+
+<%- content_for :javascript do -%>
+
+  <%= javascript_include_tag 'flexslider/jquery.flexslider' %>
+  <script>
+
+    // Run 'Flexslider' plugin
+    $(window).load(function() {
+
+      // Get the count of flexslider items
+      var flexsliderItemsCount = $('.flexslider .slides li').length;
+
+      // Only initialise flexslider if more than 1 item
+      if (flexsliderItemsCount > 1) {
+
+        $('.flexslider').flexslider({
+          animationSpeed: 50,
+          controlNav: true,
+          slideshow: false,
+          prevText: '<span class="hide-visually">Previous</span>',
+          nextText: '<span class="hide-visually">Next</span>',
+          // Do stuff when the slider loads the first slide
+          start: function(slider) {
+            // Add some ARIA
+            slider.container.attr('role', 'listbox');
+            slider.slides.attr({'role': 'option', 'aria-selected': 'false'});
+            slider.slides.eq(slider.currentSlide).attr('aria-selected', 'true');
+            slider.controlNav.attr({'href' : '#', 'role' : 'button'});
+            slider.directionNav.attr('role', 'button');
+            // Inject classes into prev/next buttons
+            $('.flexslider').find('.flex-prev').addClass('icon icon--arrow-left-big icon--flush-top'); // prev
+            $('.flexslider').find('.flex-next').addClass('icon icon--arrow-right-big icon--flush-top'); // next
+          },
+          // Do stuff after each slider animation completes
+          after: function(slider) {
+            slider.slides.attr('aria-selected', 'false');
+            slider.slides.eq(slider.currentSlide).attr('aria-selected', 'true');
+          }
+        });
+
+      }
+
+    });
+
+  </script>
+<%- end -%>

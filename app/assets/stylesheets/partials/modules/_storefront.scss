@@ -1,0 +1,28 @@
+/* ======================================================================================
+   @MODULES -> STOREFRONT
+   ====================================================================================== */
+
+/*
+	Usage:
+		Detail view of a store.
+
+	Demo:
+		Style Guide -> Modules -> Storefront
+*/
+
+.storefront {
+
+  /* Flexslider */
+  .flexslider {
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    /* Slides */
+    .slides > li {
+      @include to-rem(min-height, 120);
+    }
+
+    img {visibility: hidden;}
+  }
+}

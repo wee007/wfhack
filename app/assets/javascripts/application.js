@@ -29,6 +29,7 @@
 //= require ./init/toggle
 //= require ./init/tiles
 //= require ./init/tabs
+//= require ./init/deferred_images
 
 //= require ./vendor/angular-head
 //= require ./vendor/angular-mobile

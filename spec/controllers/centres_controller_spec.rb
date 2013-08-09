@@ -7,7 +7,7 @@ describe CentresController do
     describe :index do
 
       it "renders index view" do
-        CentreService.should_receive( :find ).with(:all, { country: 'au' }).and_return []
+        CentreService.should_receive( :find ).with(:all, { country: 'au', retail: '1' }).and_return []
         get :index
         response.should render_template :index
       end

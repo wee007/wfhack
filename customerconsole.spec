@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.330
+Version:     0.0.331
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,12 @@ fi
 
 
 %changelog
+* Fri Aug 09 2013 ci <doperations@au.westfield.com> 0.0.331-1
+- Merge pull request #229 from bschwarz/styleguide-routes
+  (ben@germanforblack.com)
+- Allow style guide in any environment that isn't production
+  (ben@germanforblack.com)
+
 * Fri Aug 09 2013 ci <doperations@au.westfield.com> 0.0.330-1
 - Removing 'vendor' dir and jQuery UI slider style sheet
   (CPearce@au.westfield.com)

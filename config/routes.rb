@@ -1,5 +1,5 @@
 CustomerConsole::Application.routes.draw do
-  if Rails.env.development?
+  if !Rails.env.production?
     resources :styleguides, only: [:index, :show]
     get 'styleguide', to: redirect('/styleguides')
   end

@@ -1,10 +1,9 @@
 class CentresController < ApplicationController
   layout 'national', :only => :index
 
-
   def index
-    @centres = CentreService.find :all, country: 'au'
-    @centres = @centres.group_by {|c| c.state }
+    @centres = CentreService.find( :all, country: 'au', retail: '1' )
+    @centres = @centres.group_by { |c| c.state } if @centres.present?
     @centres
   end
 

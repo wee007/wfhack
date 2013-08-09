@@ -4,7 +4,13 @@
 
 /*
 	Usage:
-		'Stores' section of the site, includes store listings, store detail, and centre maps.
+		'Stores' section of the site, layout for both listing and detail views and any other 'Stores' specific styling.
+
+  Notes:
+    Modules that live here:
+    -  Store listings
+    -  Storefront
+    -  Micello maps
 
 	Demo:
 		Style Guide -> Modules -> Stores / Maps
@@ -148,7 +154,15 @@
           .stores-maps--detail & {
             margin-bottom: 0;
 
-            span {color: $color-light-txt;}
+            .icon:before {
+              top: -2px;
+
+              /* IE 10/9 fixes */
+              @include ie-10-up {
+                top: 0;
+              }
+              .ie-9 & {top: 0;}
+            }
           }
 
           /* Hide the header at this breakpoint */
@@ -220,6 +234,7 @@
       left: 0;
       right: 0;
       overflow: auto;
+      //max-height: 80%;
 
       /* iOS/Android */
       .ios &,

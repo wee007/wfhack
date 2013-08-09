@@ -2,35 +2,77 @@
 
 <div class="stores-maps stores-maps--detail container js-stores-maps-toggle-wrap">
 
-  <h1 class="hide-visually"><%= @store.name %> storefront</h1>
-
   <%# Contain 'back to listing link' and 'store details' %>
-  <div class="stores-maps__inner">
+  <div class="stores-maps__inner js-stores-maps-toggle-listing-detail" id="stores-maps-toggle-listing-detail">
 
     <%# Back to listing link %>
     <div class="stores-maps__filters-toggle">
       <div class="container">
-        <a href="<%= centre_stores_path(@centre) %>" class="stores-maps__hdr"><span class="icon icon--arrow-left-big" aria-hidden="true"></span> <span>Stores A-Z</span> / <%= @store.name %></a>
+        <a href="<%= centre_stores_path(@centre) %>" class="stores-maps__hdr"><span class="icon icon--arrow-left-big" aria-hidden="true"></span> Stores A-Z</a>
       </div>
     </div>
     <%# //Back to listing link %>
 
     <%# Store detail %>
-    <div class="stores-maps__list-detail js-stores-maps-toggle-listing-detail" id="stores-maps-toggle-listing-detail">
+    <div class="stores-maps__list-detail">
 
-      <div class="storefront">
+      <article class="storefront" role="article">
 
-        <%# Flexslider %>
-        <div class="flexslider flexslider--contain-controls" style="background-image: url(/assets/dummy/store-banner.jpg);">
-          <ul class="slides">
-            <li><img src="/assets/dummy/store-banner.jpg" alt="<%= @store.name %> banner"></li>
-            <%# [BACKEND] this absolutely cannot exceed 300 characters not including the full stop at the very end AND because this is optional do not render the `li` if nothing is there (via server side not JS). %>
-            <li><p>Quis pulvinar in, a. Nascetur egestas, mus vel, tortor cursus, eu, et, aenean turpis natoque? Diam tristique parturient parturient, hac in dignissim aliquam nec integer, nunc cum aliquet scelerisque aenean lacus tristique? Mauris ultricies magna nisi. Mid dictumst, habitasse quis in nec placerat wa.</p></li>
-          </ul>
+        <%# Header (flexslider) %>
+        <header>
+          <h1 class="hide-visually"><%= @store.name %> storefront</h1>
+          <div class="flexslider flexslider--contain-controls" style="background-image: url(/assets/dummy/store-banner.jpg);">
+            <ul class="slides">
+              <li>
+                <img src="/assets/dummy/store-banner.jpg" alt="<%= @store.name %> banner">
+                <%#
+                    FIXME: [BACKEND] the storefront banner is optional so if no banner provided then:
+                    - Render the below HTML.
+                    - Remove the above image.
+                    - Remove the `h1` element above: `<h1 class="hide-visually">`.
+                    - Remove the inline `style` attr on the Flexslider `div` container above.
+                    - Append class `.is-no-store-banner` to the Flexslider `div` container above.
+                    - If store name exceeds or equals 58 chars then append class `.is-long-store-name` to the `em` element: `<em class="h1">`.
+                    All via server side not JS
+                %>
+                <!-- <div class="storefront__flexslider-storename vert-align">
+                  <div class="vert-align__inner">
+                    <h1><%= @store.name %></h1>
+                  </div>
+                </div> -->
+              </li>
+              <%# FIXME: [BACKEND] this blurb absolutely cannot exceed 300 characters in back office console or wherever it's coming from AND because this is optional do not render the `li` if no blurb is provided (via server side not JS) %>
+              <li class="storefront__flexslider-blurb">
+                <div class="vert-align">
+                  <div class="vert-align__inner">
+                    <p><%= @store.description %></p>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </header>
+        <%# //Header (flexslider) %>
+
+        <%# Store details %>
+        <div class="storefront__details">
+          <dl class="storefront__details__meta">
+            <dt class="hide-visually">Opening hours</dt>
+            <dd class="storefront__details__meta__no-indent">Open till <time datetime="">6pm</time> tonight</dd>
+            <dt class="hide-fully--palm"><span class="hide-visually">Store phone number</span><span class="icon icon--phone2 icon--xlrg icon--flush-top" aria-hidden="true"></span></dt>
+            <dd class="hide-fully--palm">02 9635 6895</dd>
+            <dt><span class="hide-visually">Store email</span><span class="icon icon--email icon--xlrg icon--flush-top" aria-hidden="true"></span></dt>
+            <dd class="txt-break-word"><a href="mailto:">westfield@saba.com.au</a></dd>
+            <dt><span class="hide-visually">Westfield gift card</span><span class="icon icon--email icon--xlrg icon--flush-top" aria-hidden="true"></span></dt>
+            <dd>Accepted</dd>
+          </dl>
+          <div class="storefront__details__contact-map">
+
+          </div>
         </div>
-        <%# //Flexslider %>
+        <%# //Store details %>
 
-      </div>
+      </article>
 
     </div>
     <%#//Store detail %>
@@ -63,9 +105,8 @@
         $('.flexslider').flexslider({
           animationSpeed: 50,
           controlNav: true,
+          directionNav: false,
           slideshow: false,
-          prevText: '<span class="hide-visually">Previous</span>',
-          nextText: '<span class="hide-visually">Next</span>',
           // Do stuff when the slider loads the first slide
           start: function(slider) {
             // Add some ARIA
@@ -73,10 +114,6 @@
             slider.slides.attr({'role': 'option', 'aria-selected': 'false'});
             slider.slides.eq(slider.currentSlide).attr('aria-selected', 'true');
             slider.controlNav.attr({'href' : '#', 'role' : 'button'});
-            slider.directionNav.attr('role', 'button');
-            // Inject classes into prev/next buttons
-            $('.flexslider').find('.flex-prev').addClass('icon icon--arrow-left-big icon--flush-top'); // prev
-            $('.flexslider').find('.flex-next').addClass('icon icon--arrow-right-big icon--flush-top'); // next
           },
           // Do stuff after each slider animation completes
           after: function(slider) {

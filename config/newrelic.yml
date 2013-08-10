@@ -1,0 +1,47 @@
+common: &default_settings
+  license_key: '504e11bc03bd8d450896c59ac27516ffacca2a7f'
+  app_name: Customer Console
+  monitor_mode: true
+  developer_mode: false
+  log_level: info
+  browser_monitoring:
+      auto_instrument: true
+  audit_log:
+    enabled: false
+  capture_params: true
+  transaction_tracer:
+    enabled: true
+    transaction_threshold: apdex_f
+    record_sql: obfuscated
+    stack_trace_threshold: 0.500
+  error_collector:
+    enabled: true
+    capture_source: true
+    ignore_errors: "ActionController::RoutingError,Sinatra::NotFound"
+  proxy_host: proxy.dbg.westfield.com
+  proxy_port: 8080
+  port_user: newrelic
+  port_pass: newrelic
+
+development:
+  <<: *default_settings
+  monitor_mode: false
+  developer_mode: true
+test:
+  <<: *default_settings
+  monitor_mode: false
+systest:
+  <<: *default_settings
+  monitor_mode: true
+  app_name: Customer Console (Systest)
+uat:
+  <<: *default_settings
+  monitor_mode: true
+  app_name: Customer Console (UAT)
+production:
+  <<: *default_settings
+  monitor_mode: true
+staging:
+  <<: *default_settings
+  monitor_mode: true
+

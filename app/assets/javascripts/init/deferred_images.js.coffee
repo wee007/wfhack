@@ -6,38 +6,64 @@ window.deferCall = ->
       return true
   false
 
-do initialiseDeferredLogos = ->
-  # Deferres this function until enquire is avaliable
-  return if deferCall(window.enquire)
+$ = window.jQuery
+name = 'deferImages'
 
-  timeout = 0
+do ($, name) ->
 
-  loadImages = ->
-    list = $('.js-stores-maps-toggle-listing-detail')
-    offset = list.offset()
-    height = list.height()
-    top = offset.top
-    bottom = offset.top + height
-    $('img[data-image]', list).each ->
-      img = $(this)
-      offset  = img.offset()
-      height = img.height()
-      if (offset.top + height) > top && offset.top < bottom
-        img.attr('src', img.data('image')).removeAttr('data-image')
+  deferred = $.Deferred()
+  deferImages = null
 
-  attachDeferredListener = ->
-    loadImages()
-    $('.js-stores-maps-toggle-listing-detail').on('scroll.deferred-logos', ->
-      clearTimeout(timeout)
-      timeout = setTimeout(loadImages, 100)
-    )
+  do ->
+    # Deferres this function until enquire is avaliable
+    return if deferCall(window.enquire)
+    deferred.resolve()
 
-  detachDeferredListener = ->
-    clearTimeout(timeout)
-    $('.js-stores-maps-toggle-listing-detail').off('.deferred-logos')
+  class DeferredImages
 
-  $ ->
-    enquire.register("all and (min-width: 40.0625em)", {
-      match: attachDeferredListener
-      unmatch: detachDeferredListener
-    }, true)
+    constructor: (@containers, @options = {}) ->
+      if @options.matchMedia
+        window.enquire.register(@options.matchMedia, {
+          match: @attachListeners
+          unmatch: @detachListeners
+        }, true)
+      else
+        @attachListeners()
+
+    loadVisibleImages: =>
+      $(@containers).each ->
+        container = $(@)
+        offset = container.offset()
+        containerTop = offset.top
+        containerBottom = offset.top + container.height()
+        $('[data-image-src]', container).each ->
+          el = $(@)
+          offset = el.offset()
+          if (offset.top + el.height()) > containerTop && offset.top < containerBottom
+            img = $('<img>')
+            for attr in ['src', 'alt', 'itemprop']
+              img.attr(attr, el.data("image-#{attr}")) if el.data("image-#{attr}")
+            img.on('load', do (el) -> -> el.remove())
+            img.on('error', do (el) -> -> el.add(this).remove())
+            el.after(img)
+
+    attachListeners: =>
+      @loadVisibleImages()
+      $(@containers).on('scroll.deferred-logos', =>
+        clearTimeout(@timeout)
+        @timeout = setTimeout(@loadVisibleImages, 100)
+      )
+
+    detachListeners: =>
+      clearTimeout(@timeout)
+      $(@containers).off('.deferred-logos')
+
+  deferImages = (containers, options) ->
+    new DeferredImages(containers, options)
+
+  $.fn[name] = (options) ->
+    if deferred.state() == 'resolved'
+      deferImages(@, options)
+    else
+      self = @
+      deferred.then -> deferImages(self, options)

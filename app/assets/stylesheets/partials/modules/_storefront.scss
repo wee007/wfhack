@@ -11,6 +11,10 @@
 */
 
 .storefront {
+  @include font-size($font-size-sml, 1.5);
+
+  /* --Global rules-- */
+  p {margin-bottom: 0;}
 
   /* Flexslider */
   .flexslider {
@@ -18,11 +22,152 @@
     background-repeat: no-repeat;
     background-size: cover;
 
-    /* Slides */
-    .slides > li {
-      @include to-rem(min-height, 120);
+    /* When there is no store banner */
+    &.is-no-store-banner {@include linear-gradient($color-med-txt, $color-dark-txt);}
+
+    /* Old IE */
+    @include old-ie {
+      background-position: 30% 50%;
     }
 
-    img {visibility: hidden;}
+    /* Slides */
+    .slides > li {
+      @include to-rem(height, 140);
+      overflow: hidden;
+
+      /* Increase heights at these breakpoints */
+      @include respond-min($iphone-landscape) {
+        @include to-rem(height, 180);
+      }
+
+      @include respond-min($non-palm) {
+        @include to-rem(height, 288);
+      }
+
+      @include respond-min($ipad-landscape) {
+        @include to-rem(height, 210);
+      }
+
+      @include respond-min(1400) {
+        @include to-rem(height, 228);
+      }
+
+      /* Hide the image and fallback to bg image as we always need the image to be always in view between slides */
+      img {@include hide-visually;}
+    }
   }
 }
+
+    /* Fix positioning of prev/next nav for old IE */
+    @include old-ie {
+      .flex-control-paging {@include to-rem(margin-left, -$spacing-base);}
+    }
+
+      /* Flexslider store name when no store banner is provided */
+      .storefront__flexslider-storename {
+
+        h1 {
+          color: #fff;
+          @include to-rem(padding-left padding-right, $spacing-base);
+          @include to-rem(margin-top, -6);
+          @include font-size(21, 1.3);
+          text-transform: uppercase;
+
+          /* Super long store name */
+          &.is-long-store-name {@include font-size(18, 1.3);}
+
+          /* Increase font size at these breakpoints */
+          @include respond-min($iphone-landscape) {
+            @include font-size(26, 1.3);
+
+            /* Super long store name */
+            &.is-long-store-name {@include font-size(23, 1.3);}
+          }
+
+          @include respond-min($non-palm) {
+            @include font-size(40, 1.3);
+            @include to-rem(margin-top, 0);
+
+            /* Super long store name */
+            &.is-long-store-name {@include font-size(36, 1.3);}
+          }
+
+          @include respond-min($ipad-landscape) {
+            /* Super long store name */
+            &.is-long-store-name {@include font-size(28, 1.3);}
+          }
+
+          @include respond-range($ipad-landscape, $desk) {
+            @include font-size(32, 1.3);
+          }
+        }
+      }
+
+      /* Flexslider blurb */
+      .storefront__flexslider-blurb {
+        @include rgba-bg(#000, 0.8);
+        color: #fff;
+
+        /* When there is no store banner */
+        .is-no-store-banner & {background: none;}
+
+        p {
+          width: $page-container-width;
+          margin-left: auto;
+          margin-right: auto;
+          @include to-rem(margin-top, -14);
+
+          /* Remove negative top positioning at this breakpoint */
+          @include respond-min($iphone-landscape) {
+            margin-top: 0;
+          }
+
+          /* Increase width and font size at these breakpoints */
+          @include respond-min($non-palm) {
+            width: 66%;
+            @include font-size($font-size, 1.5);
+          }
+
+          @include respond-min($ipad-landscape) {
+            width: 80%;
+          }
+
+          @include respond-range($ipad-landscape, 1100) {
+            @include font-size($font-size-sml, 1.5);
+          }
+        }
+      }
+
+  /* --Store details-- */
+  .storefront__details {
+    border-bottom: 1px solid $color-grey-1;
+  }
+
+    /* Store meta */
+    .storefront__details__meta {
+      @extend %clear-fix;
+      @include to-rem(padding-top, $spacing-third);
+      @include to-rem(padding-bottom, $spacing-third - $spacing-micro);
+      margin-bottom: 0;
+
+      /* Shared */
+      dt,
+      dd {
+        float: left;
+        @include to-rem(margin-bottom, $spacing-micro);
+
+        &:last-child {margin-bottom: 0;}
+      }
+
+      /* Label */
+      dt {
+        clear: left;
+        @include to-rem(width, $spacing-base + $spacing-micro + $spacing-micro);
+        text-align: center;
+      }
+
+      /* Value */
+      dd {
+
+      }
+    }

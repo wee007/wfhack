@@ -2,6 +2,11 @@
   app.controller( 'ProductBrowseController', ['$scope', '$window', '$filter', '$location', '$element', 'ParamCleaner', 'Search', 'Products', function ( $scope, $window, $filter, $location, $element, ParamCleaner, Search, Products ) {
     $scope.search = Search;
 
+    Search.onChange( function () {
+      cleanParams = ParamCleaner.build( Search.params() );
+      $location.search( cleanParams );
+    });
+
     // Multi-facet search fields
     $scope.categories = [];
     $scope.retailers = [];
@@ -41,13 +46,6 @@
       });
     };
 
-    updateFilters = function () {
-      Search.getSearch(function () {
-        cleanParams = ParamCleaner.build( Search.params() );
-        $location.search( cleanParams );
-      });
-    };
-
     updateProducts = function () {
       Products.get( document.location.pathname, angular.extend( Search.params(), { page: 1 } ) );
     };
@@ -58,7 +56,7 @@
 
     $scope.updateSearch = function () {
       updateProducts();
-      updateFilters();
+      Search.getSearch();
       $scope.closeFilters();
     };
 

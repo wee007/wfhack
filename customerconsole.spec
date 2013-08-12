@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.339
+Version:     0.0.340
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,13 @@ fi
 
 
 %changelog
+* Tue Aug 13 2013 ci <doperations@au.westfield.com> 0.0.340-1
+- Merge pull request #233 from mwratt/fix/stores-list (matt.wratt@trineo.co.nz)
+- Merge pull request #238 from cpearce/master (matt.wratt@trineo.co.nz)
+- Styling storefront (CPearce@au.westfield.com)
+- refactors deferred image loading to jquery plugin (matt.wratt@trineo.co.nz)
+- extracts deferred image loading to a coffeescript (matt.wratt@trineo.co.nz)
+
 * Mon Aug 12 2013 ci <doperations@au.westfield.com> 0.0.339-1
 - Merge pull request #237 from cpearce/master (ldewey@au.westfield.com)
 - Adding new icon fonts (CPearce@au.westfield.com)

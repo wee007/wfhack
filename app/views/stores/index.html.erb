@@ -56,7 +56,7 @@
             <div class="stores-list__inner container">
 
               <%# Store name %>
-              <div class="stores-list__data-cell stores-list__data-cell--store-name">
+              <div class="stores-list__store-name">
                 <%# [BACKEND] cannot use the link until storefront feature is complete %>
                 <!-- <strong><%= link_to store.name, (centre_store_url @centre.code , store.id) %></strong> -->
                 <strong><%= store.name %></strong>
@@ -70,7 +70,7 @@
 
               <%# Logo %>
               <% if store.has_logo? %>
-                <div class="stores-list__data-cell stores-list__data-cell--logo hide-fully--palm">
+                <div class="stores-list__logo hide-fully--palm">
                   <div class="vert-align">
                     <div class="vert-align__inner">
                       <%= image_tag 'logo-tile.png', data: {image: store.logo(width: 168, height: 62)}, alt: "#{store.name} logo", itemprop: "photo" %>
@@ -81,19 +81,19 @@
               <%# //Logo %>
 
               <%# Icon links %>
-              <div class="stores-list__data-cell stores-list__data-cell--icons">
+              <div class="stores-list__phone-map storefront-storelist-phone-map-links">
 
                 <%# Phone no %>
-                <a href="tel:<%= (store.phone_number || "").gsub(/\s+/,'') %>" class="stores-list__data-cell__icon stores-list__data-cell__icon--phone hide-fully--non-palm">
+                <a href="tel:<%= (store.phone_number || "").gsub(/\s+/,'') %>" class="storefront-storelist-phone-map-links__cell storefront-storelist-phone-map-links__cell--phone hide-fully--non-palm">
                   <span class="hide-visually">Call store: <%= store.phone_number %></span>
-                  <span class="icon icon--phone2 icon--flush-top"></span>
+                  <span class="icon icon--phone2 icon--flush-top storefront-storelist-phone-map-links__cell__valign"></span>
                 </a>
                 <%# //Phone no %>
 
                 <%# Location %>
-                <a href="#infoDiv" class="stores-list__data-cell__icon stores-list__data-cell__icon--location">
+                <a href="#infoDiv" class="storefront-storelist-phone-map-links__cell storefront-storelist-phone-map-links__cell--location">
                   <span class="hide-visually">View on map</span>
-                  <span class="icon icon--pin icon--flush-top"></span>
+                  <span class="icon icon--pin icon--flush-top storefront-storelist-phone-map-links__cell__valign"></span>
                 </a>
                 <%# //Location %>
 

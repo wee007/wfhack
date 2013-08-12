@@ -56,19 +56,66 @@
 
         <%# Store details %>
         <div class="storefront__details">
-          <dl class="storefront__details__meta">
-            <dt class="hide-visually">Opening hours</dt>
-            <dd class="storefront__details__meta__no-indent">Open till <time datetime="">6pm</time> tonight</dd>
-            <dt class="hide-fully--palm"><span class="hide-visually">Store phone number</span><span class="icon icon--phone2 icon--xlrg icon--flush-top" aria-hidden="true"></span></dt>
-            <dd class="hide-fully--palm">02 9635 6895</dd>
-            <dt><span class="hide-visually">Store email</span><span class="icon icon--email icon--xlrg icon--flush-top" aria-hidden="true"></span></dt>
-            <dd class="txt-break-word"><a href="mailto:">westfield@saba.com.au</a></dd>
-            <dt><span class="hide-visually">Westfield gift card</span><span class="icon icon--email icon--xlrg icon--flush-top" aria-hidden="true"></span></dt>
-            <dd>Accepted</dd>
-          </dl>
-          <div class="storefront__details__contact-map">
+
+          <%# Inner container %>
+          <div class="container">
+
+            <%# Store meta %>
+            <dl class="storefront__details__meta">
+              <dt class="hide-visually">Opening hours</dt>
+              <%# FIXME: [BACKEND] make dynamic inc. the `datetime` attr in the `time` element %>
+              <dd class="storefront__details__meta__no-indent">Open till <time datetime="">6pm</time> tonight</dd>
+              <dt class="hide-visually hide-fully--palm">Store phone number</dt>
+              <%# FIXME: [BACKEND] make dynamic %>
+              <dd class="hide-fully--palm">02 9869 5263<span class="icon icon--phone2 icon--xlrg" aria-hidden="true"></span></dd>
+              <dt class="hide-visually">Store email</dt>
+              <%# FIXME: [BACKEND] make dynamic inc. the `mailto:` attr %>
+              <dd class="txt-truncate"><a href="mailto:">westfield@sabaloremipsumhellocheck.com.au</a><span class="icon icon--email icon--xlrg" aria-hidden="true"></span></dd>
+              <dt class="hide-visually">Westfield gift card</dt>
+              <%# FIXME: [BACKEND] if store doesn't except gift cards then say "Not accepted" %>
+              <dd>Accepted<span class="icon icon-gift-card icon--xlrg" aria-hidden="true"></span></dd>
+            </dl>
+            <%# //Store meta %>
+
+            <%# Icon links - store phone no and location %>
+            <div class="storefront__details__phone-map storefront-storelist-phone-map-links">
+
+              <%# Phone no %>
+              <%# FIXME: [BACKEND] make dynamic inc. the `tel:` attr which needs all white space stripped out ala: `tel: (store.phone_number || "").gsub(/\s+/,'') ` %>
+              <a href="tel:" class="storefront-storelist-phone-map-links__cell storefront-storelist-phone-map-links__cell--phone hide-fully--non-palm">
+                <span class="hide-visually">Call store: </span>
+                <span class="icon icon--phone2 icon--flush-top storefront-storelist-phone-map-links__cell__valign"></span>
+              </a>
+              <%# //Phone no %>
+
+              <%# Location %>
+              <a href="#infoDiv" class="storefront-storelist-phone-map-links__cell storefront-storelist-phone-map-links__cell--location">
+                <span class="storefront-storelist-phone-map-links__cell__valign">
+                  <span class="icon icon--pin icon--flush-top"></span>
+                  <span class="hide-visually">Store location</span>
+                </span>
+              </a>
+              <%# //Location %>
+
+            </div>
+            <%# //Icon links - store phone no and location %>
 
           </div>
+          <%# //Inner container %>
+
+          <%# Store external link %>
+          <div class="storefront__details__storelink">
+            <div class="container">
+              <%# FIXME: [BACKEND] make dynamic, see 'Store link' in products show %>
+              <a href="#" class="btn btn--pointer btn--full btn--full-left btn--main btn--main-alt2 btn--main-lrg btn--main-flanked" rel="external nofollow">
+                Buy from Justice Health - Centre for Health Research and Criminal Justice
+                <span class="icon icon--arrow-right-big icon--lrg btn--pointer__icon" aria-hidden="true"></span>
+                <span class="icon icon--link icon--xlrg icon--flush-top btn--pointer__icon" aria-hidden="true"></span>
+              </a>
+            </div>
+          </div>
+          <%# //Store external link %>
+
         </div>
         <%# //Store details %>
 

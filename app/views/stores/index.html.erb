@@ -73,7 +73,10 @@
                 <div class="stores-list__logo hide-fully--palm">
                   <div class="vert-align">
                     <div class="vert-align__inner">
-                      <%= image_tag 'logo-tile.png', data: {image: store.logo(width: 168, height: 62)}, alt: "#{store.name} logo", itemprop: "photo" %>
+                      <span class="preloader preloader--light" data-image-src="<%= store.logo(width: 168, height: 62) %>" data-image-alt="<%= "#{store.name} logo" %>" data-image-itemprop="photo">
+                        <span class="preloader__spinner"></span>
+                        <em class="hide-visually">Loading, please wait&#8230;</em>
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -122,17 +125,6 @@
 
 <%- content_for :javascript do -%>
   <%= javascript_tag do %>
-    function deferCall(<%# tests... %>) {
-      <%# If any of the tests are falsey a timeout is queued to call the function again %>
-      for(var i in arguments) {
-        if(arguments.hasOwnProperty(i) && !arguments[i]) {
-          setTimeout(deferCall.caller, 100);
-          return true;
-        }
-      }
-      return false;
-    }
-
     (function initialiseResponsiveMap() {
       <%# Deferres this function until enquire is avaliable %>
       if(deferCall(window.enquire)) return;
@@ -184,48 +176,6 @@
       });
     }());
 
-    (function initialiseDeferredLogos() {
-      <%# Deferres this function until enquire is avaliable %>
-      if(deferCall(window.enquire)) return;
-
-      var timeout = 0;
-
-      function loadImages() {
-        var list = $('.js-stores-maps-toggle-listing-detail');
-        var offset = list.offset();
-        var height = list.height();
-        var top = offset.top;
-        var bottom = offset.top + height;
-        $('img[data-image]', list).each(function() {
-          var img = $(this);
-          offset  = img.offset();
-          height = img.height();
-          if((offset.top + height) > top && offset.top < bottom) {
-            img.attr('src', img.data('image')).removeAttr('data-image');
-          }
-        });
-      }
-
-      function attachDeferredListener() {
-        loadImages();
-        $('.js-stores-maps-toggle-listing-detail').on('scroll.deferred-logos', function() {
-          clearTimeout(timeout);
-          timeout = setTimeout(loadImages, 100);
-        });
-      }
-
-      function detachDeferredListener() {
-        clearTimeout(timeout);
-        $('.js-stores-maps-toggle-listing-detail').off('.deferred-logos');
-      }
-
-      $(function() {
-        enquire.register("all and (min-width: 40.0625em)", {
-          match: attachDeferredListener,
-          unmatch: detachDeferredListener
-        }, true);
-      });
-
-    }());
+    $('.js-stores-maps-toggle-listing-detail').deferImages({matchMedia: 'all and (min-width: 40.0625em)'});
   <% end %>
 <%- end -%>

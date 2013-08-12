@@ -5,6 +5,7 @@
     Search.onChange( function () {
       cleanParams = ParamCleaner.build( Search.params() );
       $location.search( cleanParams );
+      updateProducts();
     });
 
     // Multi-facet search fields
@@ -33,7 +34,11 @@
     };
 
     useUrlParams = function () {
-      urlParams = angular.extend( $location.search(), { centre : getCentre() } );
+      var urlParams = $location.search();
+
+      // If there is not centre supplied in the query string,
+      // retrieve it from the route
+      if ( !urlParams.centre ) { urlParams.centre = getCentre(); }
 
       params = ParamCleaner.deserialize( urlParams );
 
@@ -52,10 +57,10 @@
 
     $scope.bootstrap = function () {
       Search.formatSearchResults( $window.westfield.products );
+      useUrlParams();
     };
 
     $scope.updateSearch = function () {
-      updateProducts();
       Search.getSearch();
       $scope.closeFilters();
     };

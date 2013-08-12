@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.337
+Version:     0.0.338
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,10 @@ fi
 
 
 %changelog
+* Mon Aug 12 2013 ci <doperations@au.westfield.com> 0.0.338-1
+- Merge pull request #236 from ldewey/master (itinsley@au.westfield.com)
+- Fixed dates on centre hours page (ldewey@au.westfield.com)
+
 * Mon Aug 12 2013 ci <doperations@au.westfield.com> 0.0.337-1
 - Added New relic to the gem lock (ldewey@au.westfield.com)
 - Merge pull request #234 from cpearce/master (ben@germanforblack.com)

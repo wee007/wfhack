@@ -1,0 +1,72 @@
+/* ======================================================================================
+   @MODULES -> STOREFRONT / STORE LIST / PHONE MAP LINKS
+   ====================================================================================== */
+
+/*
+	Usage:
+		A sub module that renders the phone / map link icons in the 'Storefront' and 'Store list' modules.
+
+  Notes:
+    This sub module was created to keep things DRY as there where too many shared styles between the 'Storefront' and 'Store list' modules for the phone / map icon links.
+
+	Demo:
+		Style Guide -> Modules -> Storefront / Store list / phone map links
+*/
+
+.storefront-storelist-phone-map-links {
+  right: -4%;
+
+  /* Shared rules */
+  &,
+  .storefront-storelist-phone-map-links__cell {
+    position: absolute;
+    top: 0;
+    height: 100%;
+  }
+}
+
+  /* Cells */
+  .storefront-storelist-phone-map-links__cell {
+    right: 0;
+    border-left: 1px solid $color-grey-1;
+    @include to-rem(width, 54);
+
+    /* Vertically align */
+    .storefront-storelist-phone-map-links__cell__valign {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      @include translate(-50%, -50%);
+    }
+
+    /* Icons */
+    .icon:before {
+      @include font-size(28, 1);
+
+      /* Increase icon size at this breakpoint */
+      @include respond-min($non-palm) {
+        @include font-size(34, 1);
+      }
+    }
+  }
+
+  /* Phone no */
+  .storefront-storelist-phone-map-links__cell--phone {
+    @include to-rem(right, 54);
+
+    /* Non JS users */
+    .no-js & {right: 0;}
+
+    /* Icon */
+    .icon:before {color: $color-cta-green;}
+  }
+
+  /* Location */
+  .storefront-storelist-phone-map-links__cell--location {
+
+    /* Non JS users */
+    .no-js & {display: none;}
+
+    /* Icon */
+    .icon:before {color: $color-brand;}
+  }

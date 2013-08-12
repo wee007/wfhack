@@ -53,7 +53,7 @@
   /* --Shared rules-- */
 
   /* Outdent the pin icons so they're flush to left edge */
-  .stores-list__data-cell--store-name .icon--pin:before,
+  .stores-list__store-name .icon--pin:before,
   .stores-maps__filters-count .icon--pin:before {@include to-rem(margin-left, -4);}
 
   /* Listing and detail views container */
@@ -284,25 +284,28 @@
         @include box;
         @include box-heavy;
 
+        /* Detail view */
+        .stores-maps--detail & {background-color: $color-grey-3;}
+
         /* Post filter count */
         .is-filter-applied & {@include to-rem(top, 200);}
       }
 
-      /* --Store list module-- */
+      /* Store list module */
 
       /* Remove right indent for store name at this breakpoint */
       @include respond-min($ipad-landscape) {
-        .stores-list__data-cell--store-name {margin-right: 0;}
+        .stores-list__store-name {margin-right: 0;}
       }
 
-        /* Hide location icon at this breakpoint */
-        @include respond-min($ipad-landscape) {
-          .stores-list__data-cell__icon--location {display: none;}
-        }
+      /* Hide location icon for 'storefront' and 'store list' modules at this breakpoint */
+      @include respond-min($ipad-landscape) {
+        .storefront-storelist-phone-map-links__cell--location {display:  none;}
+      }
     }
 
       /* Category applied indicator at this breakpoint */
-      .is-filter-applied .stores-list__data-cell--store-name {
+      .is-filter-applied .stores-list__store-name {
 
         @include respond-min($ipad-landscape) {
           @include to-rem(padding-left, $spacing-base+$spacing-quarter);

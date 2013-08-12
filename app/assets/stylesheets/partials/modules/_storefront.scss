@@ -141,6 +141,14 @@
   /* --Store details-- */
   .storefront__details {
     border-bottom: 1px solid $color-grey-1;
+
+    /* Allow store link to be positioned over to the far right at this breakpoint */
+    @include respond-min($ipad-portrait) {
+      position: relative;
+    }
+
+    /* Inner container */
+    .container {position: relative; background: gold;}
   }
 
     /* Store meta */
@@ -148,26 +156,112 @@
       @extend %clear-fix;
       @include to-rem(padding-top, $spacing-third);
       @include to-rem(padding-bottom, $spacing-third - $spacing-micro);
+      @include to-rem(margin-right, 100);
       margin-bottom: 0;
+      //background: red;
 
-      /* Shared */
-      dt,
+      /* Increase right spacing at this breakpoint */
+      @include respond-min($non-palm) {
+        @include to-rem(margin-right, 130);
+      }
+
       dd {
-        float: left;
         @include to-rem(margin-bottom, $spacing-micro);
+        @include to-rem(padding-left, $spacing-base + $spacing-micro);
+        position: relative;
 
         &:last-child {margin-bottom: 0;}
+
+        /* Icons */
+        .icon:before {
+          position: absolute;
+          left: 0;
+          top: 1px;
+
+          /* Webkit */
+          @include target-webkit {
+            top: 0;
+          }
+        }
       }
 
-      /* Label */
-      dt {
-        clear: left;
-        @include to-rem(width, $spacing-base + $spacing-micro + $spacing-micro);
-        text-align: center;
+      /* No indent */
+      .storefront__details__meta__no-indent {padding-left: 0;}
+    }
+
+    /* --Store phone no and location-- */
+
+    /* Mods to location link at this breakpoint */
+    @include respond-min($non-palm) {
+      .storefront__details__phone-map .storefront-storelist-phone-map-links__cell--location {
+        @include to-rem(width, 120);
+
+        /* Add right border at this breakpoint */
+        @include respond-min($ipad-portrait) {
+          border-right: 1px solid $color-grey-1;
+        }
+
+        /* Vertically align */
+        .storefront-storelist-phone-map-links__cell__valign {
+          width: 100%;
+          text-align: center;
+          left: 0;
+          @include translate(0, -50%);
+        }
+
+          /* Icon */
+          .icon:before {@include font-size(40, 1);}
+
+          /* Show link text */
+          .hide-visually {
+            @include hide-visually-off;
+            color: $color-light-txt;
+            display: block;
+          }
+      }
+    }
+
+    /* Remove negative right outdent at this breakpoint */
+    @include respond-min($ipad-portrait) {
+      .storefront__details__phone-map {@include to-rem(right, 241);}
+    }
+
+    /* Store external link */
+    .storefront__details__storelink {
+      @include to-rem(padding-top padding-bottom, $spacing-base);
+      border-top: 1px solid $color-grey-1;
+
+      /* Position over to the far right at this breakpoint */
+      @include respond-min($ipad-portrait) {
+        padding-top: 0;
+        padding-bottom: 0;
+        @include to-rem(padding-left, $spacing-base);
+        @include to-rem(width, 241);
+        position: absolute;
+        right: 4%;
+        top: 0;
+        height: 100%;
+        background: orange;
+
+        /* Remove container rules */
+        .container {
+          width: auto;
+          max-width: none;
+          min-width: 0;
+        }
       }
 
-      /* Value */
-      dd {
+        /* Decrease width of button at this breakpoint */
+        @include respond-min($non-palm) {
+          .btn.btn--full {
+            width: 70%;
+            margin-left: auto;
+            margin-right: auto;
 
-      }
+            /* Back to full width at this breakpoint */
+            @include respond-min($ipad-portrait) {
+              width: 100%;
+            }
+          }
+        }
     }

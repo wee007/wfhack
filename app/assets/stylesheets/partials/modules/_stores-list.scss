@@ -48,18 +48,8 @@
   }
 }
 
-  /* --Shared rules-- */
-
-  /* Data cells */
-  .stores-list__data-cell,
-  .stores-list__data-cell__icon {
-    position: absolute;
-    top: 0;
-    height: 100%;
-  }
-
   /* Store name */
-  .stores-list__data-cell--store-name {
+  .stores-list__store-name {
     position: relative;
     @include to-rem(margin-right, 116);
     @include to-rem(padding-top padding-bottom, $spacing-half);
@@ -91,67 +81,33 @@
   }
 
   /* Logo */
-  .stores-list__data-cell--logo {
+  .stores-list__logo {
+    position: absolute;
+    top: 0;
     left: 0;
+    height: 100%;
     @include to-rem(width, 84);
 
     img {width: 100%;}
   }
 
-  /* Icon links - phone & location */
-  .stores-list__data-cell--icons {right: -4%;}
+  /* Phone no and location */
+  .stores-list__phone-map .storefront-storelist-phone-map-links__cell {
 
-    .stores-list__data-cell__icon {
-      right: 0;
-      border-left: 1px solid $color-grey-1;
-      @include to-rem(width, 54);
-      text-align: center;
-
-      /* Increase width at these breakpoints */
-      @include respond-min($non-palm) {
-        @include to-rem(width, 68);
-      }
-
-      @include respond-min($ipad-portrait) {
-        @include to-rem(width, 74);
-      }
-
-      @include respond-min(840) {
-        @include to-rem(width, 79);
-      }
-
-      @include respond-min(930) {
-        @include to-rem(width, 84);
-      }
-
-      /* Icons */
-      .icon:before {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        @include translate(-50%, -50%);
-        @include font-size(28, 1);
-
-        /* Increase icon size at this breakpoint */
-        @include respond-min($non-palm) {
-          @include font-size(34, 1);
-        }
-      }
+    /* Increase width at these breakpoints */
+    @include respond-min($non-palm) {
+      @include to-rem(width, 68);
     }
 
-    /* Phone icon */
-    .stores-list__data-cell__icon--phone {
-      @include to-rem(right, 54);
-
-      /* Non JS users */
-      .no-js & {right: 0;}
-
-      /* Icon */
-      .icon:before {color: $color-cta-green;}
+    @include respond-min($ipad-portrait) {
+      @include to-rem(width, 74);
     }
 
-    /* Location icon */
-    .stores-list__data-cell__icon--location .icon:before {color: $color-brand;}
+    @include respond-min(840) {
+      @include to-rem(width, 79);
+    }
 
-    /* Non JS users */
-    .no-js .stores-list__data-cell__icon--location {display: none;}
+    @include respond-min(930) {
+      @include to-rem(width, 84);
+    }
+  }

@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.338
+Version:     0.0.339
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,10 @@ fi
 
 
 %changelog
+* Mon Aug 12 2013 ci <doperations@au.westfield.com> 0.0.339-1
+- Merge pull request #237 from cpearce/master (ldewey@au.westfield.com)
+- Adding new icon fonts (CPearce@au.westfield.com)
+
 * Mon Aug 12 2013 ci <doperations@au.westfield.com> 0.0.338-1
 - Merge pull request #236 from ldewey/master (itinsley@au.westfield.com)
 - Fixed dates on centre hours page (ldewey@au.westfield.com)

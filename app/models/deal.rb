@@ -36,7 +36,7 @@ class Deal < OpenStruct
   end
 
   def meta
-    Hashie::Mash.new title: title
+    Meta.new title: title
   end
 
 private

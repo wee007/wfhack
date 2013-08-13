@@ -8,9 +8,9 @@ class StoresController < ApplicationController
     end
     @centre = CentreService.build centre
     stores = StoreService.build(store).map {|store_attrs| Store.new(store_attrs) }
-    gon.push(:centre => @centre, :stores => stores)
     @stores = stores.group_by(&:first_letter)
-    @page_title = "#{@centre.short_name} stores"
+    gon.push centre: @centre, stores: stores
+    meta.push title: "#{@centre.short_name} stores"
   end
 
   def show
@@ -21,7 +21,7 @@ class StoresController < ApplicationController
     end
     @centre = CentreService.build centre
     @store = Store.new StoreService.build store
-    @page_title = "#{@store.name} at #{@centre.short_name}"
+    meta.push title: "#{@store.name} at #{@centre.short_name}"
   end
 
 end

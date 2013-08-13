@@ -31,7 +31,8 @@ class Event < Hashie::Mash
   end
 
   def meta
-    Hashie::Mash.new title: title, image: image
+    Meta.new title: title,
+             image: image
   end
 
 end

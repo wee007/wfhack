@@ -10,6 +10,8 @@ class ProductsController < ApplicationController
     end
     @centre = CentreService.build centre
     @search = ProductService.build products
+    meta.push title: "#{@centre.short_name} Products"
+
     if @search.is_a? NullObject
       handle_error(@search)
     else
@@ -38,9 +40,8 @@ class ProductsController < ApplicationController
     centre_ids = @stores.map(&:centre_id).uniq
     @centres = centre_ids.present? ? CentreService.find(:all, centre_id: centre_ids, near_to: params[:centre_id]) : []
     @centre_stores = @stores.select {|store| store['centre_id'] == @centre['code']}
-    gon.push(:centre => @centre, :stores => @centre_stores)
-    @page_title = @product.name
-    @page_image = @product.primary_image
+    gon.push centre: @centre, stores: @centre_stores
+    meta.push @product.meta
   end
 
 end

@@ -10,7 +10,7 @@ class DealsController < ApplicationController
     end
     @centre = CentreService.build centre
     @deals = DealService.build deal
-    @page_title = "#{@centre.name} deals"
+    meta.push title: "#{@centre.short_name} deals"
   end
 
   def show
@@ -24,8 +24,8 @@ class DealsController < ApplicationController
 
     store = StoreService.fetch @deal.deal_stores.find{|store| store.centre_id == params[:centre_id]}.id
     @store = StoreService.build store
-    gon.push(centre: @centre, stores: [@store])
-    @page_title = @deal.title
+    gon.push centre: @centre, stores: [@store]
+    meta.push title: @deal.title
   end
 
 end

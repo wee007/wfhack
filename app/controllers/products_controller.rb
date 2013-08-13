@@ -3,13 +3,16 @@ class ProductsController < ApplicationController
   layout 'detail_view', only: :show
 
   def index
-    centre, products = nil
+    centre, nearby_centres, products = nil
     Service::API.in_parallel do
       centre = CentreService.fetch params[:centre_id]
+      nearby_centres = CentreService.fetch nil, near_to: params[:centre_id]
       products = ProductService.fetch params
     end
     @centre = CentreService.build centre
+    @nearby_centres = CentreService.build nearby_centres
     @search = ProductService.build products
+
     if @search.is_a? NullObject
       handle_error(@search)
     else

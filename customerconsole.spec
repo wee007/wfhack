@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.344
+Version:     0.0.345
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,16 @@ fi
 
 
 %changelog
+* Wed Aug 14 2013 ci <doperations@au.westfield.com> 0.0.345-1
+- Merge pull request #242 from cpearce/master (matt.wratt@trineo.co.nz)
+- Merge pull request #240 from ldewey/WSF-4886 (matt.wratt@trineo.co.nz)
+- Added Universal Tagging (ldewey@au.westfield.com)
+- Styling storefront (CPearce@au.westfield.com)
+- Removing text from product tile icon (CPearce@au.westfield.com)
+- Removing old PictureFill attributes from Deal tile image
+  (CPearce@au.westfield.com)
+- Create a meta model, and added page titles to that. (ldewey@au.westfield.com)
+
 * Tue Aug 13 2013 ci <doperations@au.westfield.com> 0.0.344-1
 - Link to retailer product url if provided in api (cwalsh2@au.westfield.com)
 

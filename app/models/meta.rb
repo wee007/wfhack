@@ -8,4 +8,8 @@ class Meta < Hashie::Mash
     [title, "Westfield"].join " | "
   end
 
+  def to_hash
+    super.merge(page_title: page_title)
+  end
+
 end

@@ -30,10 +30,12 @@ class Product < Hashie::Mash
   def meta
     Meta.new title: name,
              image: primary_image,
-             product_sku: sku,
+             # For universal tagging
+             product_sku: [sku],
+             product_category_code: '',
              currency: 'AUD',
              retailer_code: retailer_code,
-             product_name: name
+             product_name: [name]
   end
 
 private

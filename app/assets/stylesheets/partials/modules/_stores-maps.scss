@@ -139,41 +139,47 @@
           text-align: left;
         }
       }
+    }
 
-        /* Header */
-        .stores-maps__hdr {
-          font-family: $font-family-opensans;
-          @include font-size(24, 1.5);
-          font-weight: normal;
-          color: $color-dark-txt;
-          @include to-rem(margin-bottom, $spacing-base);
-          /* Temp style so current feature can be released */
+      /* Header */
+      .stores-maps__filters-toggle__hdr {
+        display: block;
+        font-family: $font-family-opensans;
+        @include font-size(24, 1.5);
+        color: $color-dark-txt;
+        @extend %mrg-base;
+        /* Temp style so current feature can be released */
+        margin-bottom: 0;
+
+        /* Detail view */
+        .stores-maps--detail & {
           margin-bottom: 0;
 
-          /* Detail view */
-          .stores-maps--detail & {
-            margin-bottom: 0;
+          .icon:before {
+            top: -2px;
 
-            .icon:before {
-              top: -2px;
-
-              /* IE 10/9 fixes */
-              @include ie-10-up {
-                top: 0;
-              }
-              .ie-9 & {top: 0;}
+            /* IE 10/9 fixes */
+            @include ie-10-up {
+              top: 0;
             }
-          }
-
-          /* Hide the header at this breakpoint */
-          @include respond-max($ipad-landscape - 1) {
-            @include hide-visually;
-
-            /* When map view is in view */
-            .is-map-view & {display: none;}
+            .ie-9 & {top: 0;}
           }
         }
-    }
+
+        /* Hide the header at this breakpoint */
+        @include respond-max($ipad-landscape - 1) {
+          @include hide-visually;
+
+          /* When map view is in view */
+          .is-map-view & {display: none;}
+        }
+
+          > span {color: $color-light-txt;}
+      }
+
+          /* Reapply global link hover to first child `span` */
+          a.stores-maps__filters-toggle__hdr:hover > span,
+          a.stores-maps__filters-toggle__hdr:focus > span {color: $color-link-hover;}
 
       /* Toggle button */
       .stores-maps__toggle {
@@ -234,7 +240,6 @@
       left: 0;
       right: 0;
       overflow: auto;
-      //max-height: 80%;
 
       /* iOS/Android */
       .ios &,
@@ -284,14 +289,14 @@
         @include box;
         @include box-heavy;
 
-        /* Detail view */
-        .stores-maps--detail & {background-color: $color-grey-3;}
+        /* Detail view - when there are 'Featured items' */
+        .stores-maps--detail &.is-featured-items {background-color: $color-grey-3;}
 
         /* Post filter count */
         .is-filter-applied & {@include to-rem(top, 200);}
       }
 
-      /* Store list module */
+      /* --Store list module-- */
 
       /* Remove right indent for store name at this breakpoint */
       @include respond-min($ipad-landscape) {

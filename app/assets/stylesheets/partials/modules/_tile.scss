@@ -17,9 +17,11 @@
   position: relative;
   color: $color-base-txt;
   width: 48%; /* Show 2 tiles by default */
-
   @include font-size($font-size-sml);
   @include to-rem(margin-bottom, $spacing-half);
+
+  /* Needed so the social share controls can be seen */
+  &:hover {z-index: 2;}
 
   /* Show 3 tiles at this breakpoint */
   @include respond-min($lap) {
@@ -31,113 +33,113 @@
     width: 18%;
   }
 
-  &:hover { z-index: 2; }
-
   /* Global styles */
   a {color: $color-light-txt;}
 
-  p { margin-bottom: 0; }
-
+  p {margin-bottom: 0;}
 }
 
-.tile__controls {
-  display: none;
-  position: absolute;
-  @include to-rem(top right, $spacing-quarter);
-
-  .controls__btn {
-    @include to-rem(width, $spacing-base* 2);
-    @include to-rem(height, $spacing-base* 2);
-    border: 1px solid rgba(#000, 0.15);
-    border-radius: 3px;
-    background-color: #fff;
+  /* Meta */
+  .tile__meta {
+    position: relative;
+    @include to-rem(min-height, $spacing-base*2);
+    @include to-rem(padding, 8 0);
   }
 
-  /* Remove the border when button is active */
-  .is-active .controls__btn {
-    border-bottom-right-radius:0;
-    border-bottom-left-radius:0;
+    /* Inner container */
+    .tile__meta__inner {
+      @include to-rem(margin, 0 10 0 35);
+
+      /* Increase the left margin at this breakpoint */
+      @include respond-min($non-palm) {
+        @include to-rem(margin-left, 40);
+      }
+    }
+
+  /* Image */
+  .tile__image {text-align: center;}
+
+  /* Icon */
+  .tile__meta__icon {
+    position: absolute;
+    @include to-rem(left, -2);
+    @include to-rem(top, 9);
+    border-left: 2px solid $color-brand;
+    background-color: $color-off-white;
+    color: $color-light-txt;
+    @include font-size($font-size-lrg, 1);
+    @include to-rem(padding, 3 5);
+
+    /* Increase the padding at this breakpoint, as we have more space */
+    @include respond-min($non-palm) {
+      @include to-rem(padding, 5 7);
+    }
   }
 
-  /* Only show on non-touch devices as they dont have hover */
-  .no-touch .tile:hover & {
+  /* Header */
+  .tile__meta__hdr {
+    font-weight: bold;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    @include font-size($font-size-milli, 1.5);
+
+    /* Increase the font size at this breakpoint */
+    @include respond-min($desk) {
+      @include font-size($font-size-sml, 1.5);
+    }
+  }
+
+  /* Description */
+  .tile__meta__desc {
+    color: $color-light-txt;
+    @include font-size($font-size - 4, 1.5);
+
+    /* Increse font size at this breakpoint */
+    @include respond-min($desk) {
+      @include font-size($font-size-milli, 1);
+    }
+
+  }
+
+  /* Price */
+  .tile__meta__price {
+    color: $color-dark-txt;
+    position: relative;
+    font-weight: bold;
     display: block;
-  }
-}
+    @include to-rem(padding-top, 4);
+    @include font-size($font-size - 4, 1);
 
-.tile__image {
-  text-align: center;
-}
-
-.tile__meta {
-  position: relative;
-  @include to-rem(min-height, $spacing-base*2);
-  @include to-rem(padding, 8 0);
-}
-
-.tile__meta__icon {
-  position: absolute;
-  border-left: 2px solid $color-brand;
-  background-color: #f2f2f2;
-  color: #888;
-  @include to-rem(left, -2);
-  @include to-rem(top, 9);
-  @include font-size($font-size-lrg, 1);
-  @include to-rem(padding, 3 5);
-
-  /* Increase the padding at this breakpoint, as we have more space */
-  @include respond-min($non-palm) {
-    @include to-rem(padding, 5 7);
-  }
-}
-
-.tile__meta__inner {
-  @include to-rem(margin, 0 10 0 35);
-
-  /* Increase the margin at this breakpoint */
-  @include respond-min($non-palm) {
-    @include to-rem(margin-left, 40);
-  }
-}
-
-
-.tile__meta__hdr {
-  font-weight: bold;
-  overflow: hidden;
-  text-overflow:ellipsis;
-  @include font-size($font-size-milli, 1.5);
-
-  /* Increase the font size at this breakpoint */
-  @include respond-min($desk) {
-    @include font-size($font-size-sml, 1.5);
-  }
-}
-
-.tile__meta__desc {
-  color: $color-light-txt;
-  @include font-size($font-size - 4, 1.5);
-
-  @include respond-min($desk) {
-    @include font-size($font-size-milli, 1);
+    /* Float right at this breakpoint, as we have the space */
+    @include respond-min($desk) {
+      @include font-size($font-size-milli, 0.5);
+      float: right;
+    }
   }
 
-}
+  /* Controls - share/favourites */
+  .tile__controls {
+    display: none;
+    position: absolute;
+    @include to-rem(top right, $spacing-quarter);
 
-.tile__meta__price {
-  color: $color-dark-txt;
-  position: relative;
-  font-weight: bold;
-  display: block;
-  @include to-rem(padding-top, 4);
-  @include font-size($font-size - 4, 1);
+    .controls__btn {
+      @include to-rem(width, $spacing-base* 2);
+      @include to-rem(height, $spacing-base* 2);
+      border: 1px solid rgba(#000, 0.15);
+      border-radius: 3px;
+      background-color: #fff;
+    }
 
-  /* Float right at this breakpoint, as we have the space. */
-  @include respond-min($desk) {
-    @include font-size($font-size-milli, 0.5);
-    float: right;
+    /* Remove the border radius when button is active */
+    .is-active .controls__btn {
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+
+    /* Only show on non-touch devices as they dont have hover */
+    .no-touch .tile:hover & {display: block;}
   }
-}
-
 
 /* Deals */
 .tile--deals {
@@ -146,8 +148,7 @@
   .tile__meta {
     @include to-rem(padding, 45 15);
 
-    /* Increase the padding at this breakpoint
-       to keep the proportions right. */
+    /* Increase the padding at this breakpoint to keep the proportions right */
     @include respond-min($non-palm) {
       @include to-rem(padding, 65 25);
     }
@@ -156,11 +157,10 @@
   .tile__meta__desc {
     color: $color-dark-txt;
     text-transform: uppercase;
-    font-size: $font-size-sml;
+    @include font-size($font-size-sml);
     @include to-rem(margin-top, 7);
 
-    /* Increase the font size and margin at this breakpoint
-       to keep the proportions right. */
+    /* Increase the font size and margin at this breakpoint to keep the proportions right */
     @include respond-min($non-palm) {
       @include font-size($font-size-lrg);
       @include to-rem(margin-top, 15);
@@ -170,9 +170,44 @@
   .tile__meta__icon {
     top: auto;
     @include to-rem(bottom, 7.5);
+
+    /* Increase bottom spacing at this breakpoint */
     @include respond-min($non-palm) {
       @include to-rem(bottom, 9);
     }
   }
-
 }
+
+/* Non-pinboard (isotope) version */
+.tiles-non-pinboard {
+  @extend %clear-fix;
+  @include to-rem(margin-left, - $spacing-half);
+
+  /* Increase negative left outdent at this breakpoint */
+  @include respond-min($ipad-portrait) {
+    @include to-rem(margin-left, - $spacing-base);
+  }
+}
+
+  /* Tile containers */
+  .tiles-non-pinboard__tile {
+    float: left;
+    width: 50%;
+    @include to-rem(padding-left, $spacing-half);
+
+    /* Decrease width at this breakpoint */
+    @include respond-min($iphone-landscape) {
+      width: 33.33333333333333%;
+    }
+
+    /* Increase gutter at this breakpoint */
+    @include respond-min($ipad-portrait) {
+      @include to-rem(padding-left, $spacing-base);
+    }
+
+    /* Tile */
+    .tile {
+      margin-bottom: 0;
+      width: 100%;
+    }
+  }

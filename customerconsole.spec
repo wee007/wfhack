@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.343
+Version:     0.0.344
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,9 @@ fi
 
 
 %changelog
+* Tue Aug 13 2013 ci <doperations@au.westfield.com> 0.0.344-1
+- Link to retailer product url if provided in api (cwalsh2@au.westfield.com)
+
 * Tue Aug 13 2013 ci <doperations@au.westfield.com> 0.0.343-1
 - updates selected store style in map (matt.wratt@trineo.co.nz)
 

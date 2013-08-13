@@ -5,7 +5,7 @@ class CentreTradingHour < Hashie::Mash
       if array_or_hash.is_a?(Hash)
         new array_or_hash
       elsif array_or_hash.is_a?(Array)
-        weeks array_or_hash
+        weeks array_or_hash.collect { |day| new day }
       else
         nil
       end

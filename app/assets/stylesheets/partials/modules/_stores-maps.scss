@@ -4,7 +4,13 @@
 
 /*
 	Usage:
-		'Stores' section of the site, includes store listings, store detail, and centre maps.
+		'Stores' section of the site, layout for both listing and detail views and any other 'Stores' specific styling.
+
+  Notes:
+    Modules that live here:
+    -  Store listings
+    -  Storefront
+    -  Micello maps
 
 	Demo:
 		Style Guide -> Modules -> Stores / Maps
@@ -47,7 +53,7 @@
   /* --Shared rules-- */
 
   /* Outdent the pin icons so they're flush to left edge */
-  .stores-list__data-cell--store-name .icon--pin:before,
+  .stores-list__store-name .icon--pin:before,
   .stores-maps__filters-count .icon--pin:before {@include to-rem(margin-left, -4);}
 
   /* Listing and detail views container */
@@ -62,6 +68,11 @@
     /* Half the width at this breakpoint */
     @include respond-min($ipad-landscape) {
       width: 50%;
+    }
+
+    /* Turn off absolute positioning for 'detail view' at this breakpoint */
+    @include respond-max($ipad-landscape - 1) {
+      .stores-maps--detail & {position: static;}
     }
 
     /* When map view is in view */
@@ -85,6 +96,9 @@
       position: relative;
       z-index: 5;
 
+      /* Hide for detail view */
+      .stores-maps--detail & {display: none;}
+
       /* When map view is in view */
       @include respond-max($palm) {
         .is-map-view & {
@@ -103,6 +117,9 @@
         @include box;
         @include box-heavy;
         @include to-rem(margin-bottom margin-top, $spacing-base);
+
+        /* Show for detail view */
+        .stores-maps--detail & {display: block;}
       }
 
       /* Inner container */
@@ -128,9 +145,25 @@
           font-family: $font-family-opensans;
           @include font-size(24, 1.5);
           font-weight: normal;
+          color: $color-dark-txt;
           @include to-rem(margin-bottom, $spacing-base);
           /* Temp style so current feature can be released */
           margin-bottom: 0;
+
+          /* Detail view */
+          .stores-maps--detail & {
+            margin-bottom: 0;
+
+            .icon:before {
+              top: -2px;
+
+              /* IE 10/9 fixes */
+              @include ie-10-up {
+                top: 0;
+              }
+              .ie-9 & {top: 0;}
+            }
+          }
 
           /* Hide the header at this breakpoint */
           @include respond-max($ipad-landscape - 1) {
@@ -201,12 +234,21 @@
       left: 0;
       right: 0;
       overflow: auto;
+      //max-height: 80%;
 
       /* iOS/Android */
       .ios &,
       .android & {
         overflow: scroll;
         -webkit-overflow-scrolling: touch;
+      }
+
+      /* Turn off absolute positioning/overflow for 'detail view' at this breakpoint */
+      @include respond-max($ipad-landscape - 1) {
+        .stores-maps--detail & {
+          position: static;
+          overflow: visible;
+        }
       }
 
       /* When map view is in view */
@@ -242,25 +284,28 @@
         @include box;
         @include box-heavy;
 
+        /* Detail view */
+        .stores-maps--detail & {background-color: $color-grey-3;}
+
         /* Post filter count */
         .is-filter-applied & {@include to-rem(top, 200);}
       }
 
-      /* --Store list module-- */
+      /* Store list module */
 
       /* Remove right indent for store name at this breakpoint */
       @include respond-min($ipad-landscape) {
-        .stores-list__data-cell--store-name {margin-right: 0;}
+        .stores-list__store-name {margin-right: 0;}
       }
 
-        /* Hide location icon at this breakpoint */
-        @include respond-min($ipad-landscape) {
-          .stores-list__data-cell__icon--location {display: none;}
-        }
+      /* Hide location icon for 'storefront' and 'store list' modules at this breakpoint */
+      @include respond-min($ipad-landscape) {
+        .storefront-storelist-phone-map-links__cell--location {display:  none;}
+      }
     }
 
       /* Category applied indicator at this breakpoint */
-      .is-filter-applied .stores-list__data-cell--store-name {
+      .is-filter-applied .stores-list__store-name {
 
         @include respond-min($ipad-landscape) {
           @include to-rem(padding-left, $spacing-base+$spacing-quarter);

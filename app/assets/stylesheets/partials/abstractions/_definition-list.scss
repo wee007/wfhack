@@ -3,7 +3,7 @@
    ====================================================================================== */
 
 /*
-	Usage: 
+	Usage:
 		Make the `dt` and `dd` elements of a definition list render side-by-side.
 
 	Demo:
@@ -15,12 +15,12 @@
 	float: left;
 	clear: left;
 	margin-right: to-em($spacing-quarter);
-	
+
 	/* Left indent at this breakpoint */
 	@include respond-min($ipad-portrait) {
 		margin-right: 0;
 	}
-	
+
 	/* Pseudo element - colon */
 	&:after {content: ":";}
 }

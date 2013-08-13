@@ -38,7 +38,8 @@
 
     <!-- Store link -->
     <div class="island island--center detail-view__divider--palm">
-      <%= link_to '#', class: "btn btn--pointer btn--full btn--full-left btn--main btn--main-alt2 btn--main-lrg btn--main-flanked", rel: "external" do %>
+      <%= link_to @product.primary_retailer_product_url || '#', 
+        class: "btn btn--pointer btn--full btn--full-left btn--main btn--main-alt2 btn--main-lrg btn--main-flanked", rel: "external nofollow" do %>
         Buy from <%= @product.retail_chain_name %>
         <span class="icon icon--arrow-right-big icon--lrg btn--pointer__icon" aria-hidden="true"></span>
         <span class="icon icon--link icon--xlrg icon--flush-top btn--pointer__icon" aria-hidden="true"></span>
@@ -54,14 +55,14 @@
 
     <div class="island island--top-btm detail-view__divider--palm">
       <!-- Flexslider -->
-      <div class="flexslider flexslider--gallery flexslider--gallery-lrg-img">
+      <div class="flexslider flexslider--lrg-img flexslider--gallery">
         <ul class="slides">
           <%- @product.images[0...4].each do |img| -%>
             <li><%= image_tag(img, alt: "Photo of #{@product.name}") %></li>
           <%- end -%>
         </ul>
       </div>
-      <div class="flexslider flexslider--gallery flexslider--gallery-thumbs">
+      <div class="flexslider flexslider--thumbs flexslider--gallery">
         <ul class="slides">
           <%- @product.images[0...4].each do |img| -%>
             <li><%= image_tag(img, alt: "Thumbnail of #{@product.name}") %></li>
@@ -135,14 +136,14 @@
       // Get the count of flexslider items
       var flexsliderItemsCount = $('.flexslider .slides li').length;
       // Flexslider thumbs
-      var flexsliderThumbs = $('.flexslider--gallery-thumbs');
+      var flexsliderThumbs = $('.flexslider--thumbs');
 
-      // Only initialise flexslider if more than 1 item
+      // Only initialise flexslider if more than 2 items
       if (flexsliderItemsCount > 2) {
 
         // Thumbnails
         flexsliderThumbs.addClass('is-multiple-items');
-        $('.flexslider--gallery-thumbs').flexslider({
+        $('.flexslider--thumbs').flexslider({
           animation: 'slide',
           animationSpeed: 200,
           multipleKeyboard: true,
@@ -152,7 +153,7 @@
           itemWidth: 76,
           itemMargin: 3,
           slideshow: false,
-          asNavFor: '.flexslider--gallery-lrg-img',
+          asNavFor: '.flexslider--lrg-img',
           // Do stuff when the slider loads the first slide
           start: function(slider) {
             // Add some ARIA
@@ -163,11 +164,11 @@
         });
 
         // Large image
-        $('.flexslider--gallery-lrg-img').flexslider({
+        $('.flexslider--lrg-img').flexslider({
           animationSpeed: 50,
           multipleKeyboard: true,
           slideshow: false,
-          sync: '.flexslider--gallery-thumbs',
+          sync: '.flexslider--thumbs',
           prevText: '<span class="hide-visually">Previous</span>',
           nextText: '<span class="hide-visually">Next</span>',
           // Do stuff when the slider loads the first slide
@@ -179,18 +180,18 @@
             slider.controlNav.attr({'href' : '#', 'role' : 'button'});
             slider.directionNav.attr('role', 'button');
             // Inject classes into prev/next buttons
-            $('.flexslider--gallery-lrg-img').find('.flex-prev').addClass('icon icon--arrow-left-big icon--flush-top'); // prev
-            $('.flexslider--gallery-lrg-img').find('.flex-next').addClass('icon icon--arrow-right-big icon--flush-top'); // next
+            $('.flexslider--lrg-img').find('.flex-prev').addClass('icon icon--arrow-left-big icon--flush-top'); // prev
+            $('.flexslider--lrg-img').find('.flex-next').addClass('icon icon--arrow-right-big icon--flush-top'); // next
           },
           // Do stuff asynchronously with each slider animation
           before: function(slider) {
-            $('.flexslider--gallery-thumbs').find('.flex-active-slide').attr('aria-selected', 'false');
+            $('.flexslider--thumbs').find('.flex-active-slide').attr('aria-selected', 'false');
           },
           // Do stuff after each slider animation completes
           after: function(slider) {
             slider.slides.attr('aria-selected', 'false');
             slider.slides.eq(slider.currentSlide).attr('aria-selected', 'true');
-            $('.flexslider--gallery-thumbs').find('.flex-active-slide').attr('aria-selected', 'true');
+            $('.flexslider--thumbs').find('.flex-active-slide').attr('aria-selected', 'true');
           }
         });
 

@@ -15,9 +15,19 @@
 
 .flexslider {
 	position: relative;
+	@include to-rem(padding-left padding-right, $spacing-base);
+
+	/* Contain controls version */
+	&.flexslider--contain-controls {
+		padding-left: 0;
+		padding-right: 0;
+	}
 
 	/* Slides container */
-	.slides {@extend %clear-fix;}
+	.slides {
+		@extend %clear-fix;
+		text-align: center;
+	}
 
 		/* Slides - hide the slides before JS is loaded to avoid images jumping */
 		.slides > li {
@@ -30,6 +40,9 @@
 				-webkit-backface-visibility: visible;
 			}
 
+			/* Contain controls version */
+			.flexslider--contain-controls & {z-index: 1;}
+
 			/* Print */
 			@media print {
 				float: none !important;
@@ -37,22 +50,14 @@
 		}
 }
 
-/* --Photo gallery-- */
-.flexslider--gallery .slides {text-align: center;}
-
-/* Large image */
-.flexslider--gallery-lrg-img {
-	@include to-rem(padding-left padding-right, 30);
-}
-
-/* Thumbs */
-.flexslider--gallery-thumbs {
+/* Thumbnails */
+.flexslider--thumbs {
 
 	/* Hide for palm, non JS users and when there is only 1 item */
 	&,
 	.no-js & {display: none;}
 
-	/* Show at this breakpoint when there are multiple items */
+	/* Show at this breakpoint when they're multiple items */
 	@include respond-min($non-palm) {
 		&.is-multiple-items {
 			display: block;
@@ -97,15 +102,21 @@
 .flex-control-paging {
 	text-align: center;
 	@include to-rem(height, 20);
+	@include to-rem(margin-top, $spacing-quarter);
 
-	/* Photo gallery */
-	.flexslider--gallery & {
-		@include to-rem(margin-top, $spacing-half);
+	/* Hide if thumbnails are being used (aka: gallery) at this breakpoint */
+	@include respond-min($non-palm) {
+		.flexslider--gallery & {display: none;}
+	}
 
-		/* Hide for photo gallery at this breakpoint */
-		@include respond-min($non-palm) {
-			display: none;
-		}
+	/* Contain controls version */
+	.flexslider--contain-controls & {
+		margin-top: 0;
+		position: absolute;
+		z-index: 2;
+		left: 50%;
+		@include to-rem(bottom, $spacing-quarter);
+		@include translate(-50%, 0);
 	}
 
 	/* Print */
@@ -141,13 +152,21 @@
 				left: 50%;
 				@include to-rem(margin, -4 0 0 -4);
 				@extend %transition-subtle;
+
+				/* Contain controls version */
+				.flexslider--contain-controls & {background-color: $color-light-txt;}
 			}
 		}
 
 		/* Pseudo classes + active state */
 		a:hover:before,
 		a:focus:before,
-		.flex-active:before {background-color: $color-dark-txt;}
+		.flex-active:before {
+			background-color: $color-dark-txt;
+
+			/* Contain controls version */
+			.flexslider--contain-controls & {background-color: #fff;}
+		}
 }
 
 /* Prev/next */
@@ -161,36 +180,43 @@
 	/* Links */
 	.icon {
 		position: absolute;
+		z-index: 2;
 		top: 50%;
 		left: 0;
+		@include to-rem(padding, 6 8 6 0);
+		@include to-rem(margin-top, -27.5); /* 12.5px = half pager nav height + half height of this icon = 15px == 27.5px */
 
-		/* Photo gallery */
-		.flexslider--gallery & {
-			@include to-rem(padding, 6 11);
-			@include to-rem(margin-top, -30.25);
-
-			/* Decrease negative top outdent at this breakpoint */
-			@include respond-min($non-palm) {
-				@include to-rem(margin-top, -15);
-			}
+		/* Contain controls version */
+		.flexslider--contain-controls & {
+			@include to-rem(margin-top, -15);
+			@include to-rem(left, $spacing-sixth);
 		}
 
 		/* Next */
 		&.flex-next {
 			left: auto;
 			right: 0;
+			@include to-rem(padding-left, 8);
+			@include to-rem(padding-right, 0);
+
+			/* Contain controls version */
+			.flexslider--contain-controls & {@include to-rem(right, $spacing-sixth);}
+		}
+
+		/* Decrease negative top outdent at this breakpoint */
+		@include respond-min($non-palm) {
+			@include to-rem(margin-top, -15);
 		}
 
 		/* Pseudo element - arrows */
 		&:before {
 			display: block;
 			@extend %transition-subtle;
+			color: $color-dark-txt;
+			@include font-size(18, 1);
 
-			/* Photo gallery */
-			.flexslider--gallery & {
-				color: $color-dark-txt;
-				@include font-size(18, 1);
-			}
+			/* Contain controls version */
+			.flexslider--contain-controls & {color: #fff;}
 		}
 	}
 }

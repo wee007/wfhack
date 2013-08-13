@@ -32,7 +32,7 @@ gem 'splunk_logger', git: 'https://github.com/westfield/splunk_logger.git'
 # CSS (cant live in development or css will not get minified)
 # https://github.com/rails/rails/issues/10084#issuecomment-20855970
 gem 'sass-rails', '~> 4.0.0'
-
+gem 'newrelic_rpm'
 
 group :development do
   gem "foreman"

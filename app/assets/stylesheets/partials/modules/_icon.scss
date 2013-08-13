@@ -105,6 +105,12 @@
 /* Pinterest */
 .icon--pinterest:before {content: "\e024";}
 
+/* Instagram */
+.icon-instagram:before {content: "\e032";}
+
+/* YouTube */
+.icon-youtube:before {content: "\f167";}
+
 /* Close large */
 .icon--close-lrg:before {content: "\e00f";}
 
@@ -121,19 +127,34 @@
 .icon--tick-full:before {content: "\e027";}
 
 /* Service */
-.icon--service:before {content: "\e031";}
+.icon--service:before {content: "\e02d";}
 
 /* Switch vertical */
 .icon--switch-vertical-full:before {content: "\e02c";}
 
 /* Switch horizontal */
-.icon--switch-horizontal-full:before {content: "\e02d";}
+.icon--switch-horizontal-full:before {content: "\e035";}
 
 /* Ellipses horizontal */
 .icon-ellipsis-horizontal:before {content: "\f141";}
 
 /* Ellipses vertical */
 .icon-ellipsis-vertical:before {content: "\f142";}
+
+/* Plus */
+.icon-plus:before {content: "\f067";}
+
+/* Back to top */
+.icon-back-to-top:before {content: "\e031";}
+
+/* PDF */
+.icon-pdf:before {content: "\e033";}
+
+/* Gift card */
+.icon-gift-card:before {
+  content: "\e034";
+  color: $color-brand;
+}
 
 /* Arrow up */
 .icon--arrow-up:before {content: "\e018";}

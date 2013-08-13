@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.323
+Version:     0.0.344
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,91 @@ fi
 
 
 %changelog
+* Tue Aug 13 2013 ci <doperations@au.westfield.com> 0.0.344-1
+- Link to retailer product url if provided in api (cwalsh2@au.westfield.com)
+
+* Tue Aug 13 2013 ci <doperations@au.westfield.com> 0.0.343-1
+- updates selected store style in map (matt.wratt@trineo.co.nz)
+
+* Tue Aug 13 2013 ci <doperations@au.westfield.com> 0.0.342-1
+- Merge pull request #239 from bschwarz/also-available-at
+  (ben@germanforblack.com)
+- Title changed to "Available at" for cases when the product isn't actually
+  available at the currently selected centre. (ben@germanforblack.com)
+
+* Tue Aug 13 2013 ci <doperations@au.westfield.com> 0.0.341-1
+- 
+
+* Tue Aug 13 2013 ci <doperations@au.westfield.com> 0.0.340-1
+- Merge pull request #233 from mwratt/fix/stores-list (matt.wratt@trineo.co.nz)
+- Merge pull request #238 from cpearce/master (matt.wratt@trineo.co.nz)
+- Styling storefront (CPearce@au.westfield.com)
+- refactors deferred image loading to jquery plugin (matt.wratt@trineo.co.nz)
+- extracts deferred image loading to a coffeescript (matt.wratt@trineo.co.nz)
+
+* Mon Aug 12 2013 ci <doperations@au.westfield.com> 0.0.339-1
+- Merge pull request #237 from cpearce/master (ldewey@au.westfield.com)
+- Adding new icon fonts (CPearce@au.westfield.com)
+
+* Mon Aug 12 2013 ci <doperations@au.westfield.com> 0.0.338-1
+- Merge pull request #236 from ldewey/master (itinsley@au.westfield.com)
+- Fixed dates on centre hours page (ldewey@au.westfield.com)
+
+* Mon Aug 12 2013 ci <doperations@au.westfield.com> 0.0.337-1
+- Added New relic to the gem lock (ldewey@au.westfield.com)
+- Merge pull request #234 from cpearce/master (ben@germanforblack.com)
+- Adding nofollow to rel attr for SEO purposes (CPearce@au.westfield.com)
+
+* Mon Aug 12 2013 ci <doperations@au.westfield.com> 0.0.336-1
+- 
+
+* Mon Aug 12 2013 ci <doperations@au.westfield.com> 0.0.335-1
+- Merge pull request #231 from cpearce/master (matt.wratt@trineo.co.nz)
+- Styling storefront (CPearce@au.westfield.com)
+
+* Sat Aug 10 2013 ci <doperations@au.westfield.com> 0.0.334-1
+- add newrelic (pmcinerney@au.westfield.com)
+
+* Fri Aug 09 2013 ci <doperations@au.westfield.com> 0.0.333-1
+- Show only retail centres (ewee@au.westfield.com)
+
+* Fri Aug 09 2013 ci <doperations@au.westfield.com> 0.0.332-1
+- 
+
+* Fri Aug 09 2013 ci <doperations@au.westfield.com> 0.0.331-1
+- Merge pull request #229 from bschwarz/styleguide-routes
+  (ben@germanforblack.com)
+- Allow style guide in any environment that isn't production
+  (ben@germanforblack.com)
+
+* Fri Aug 09 2013 ci <doperations@au.westfield.com> 0.0.330-1
+- Removing 'vendor' dir and jQuery UI slider style sheet
+  (CPearce@au.westfield.com)
+
+* Fri Aug 09 2013 ci <doperations@au.westfield.com> 0.0.329-1
+- Merge pull request #227 from cpearce/master (matt.wratt@trineo.co.nz)
+- Styling of storefront and refactoring image carousel to make it more reusable
+  (CPearce@au.westfield.com)
+
+* Thu Aug 08 2013 ci <doperations@au.westfield.com> 0.0.328-1
+- comments out hard coded store hours (matt.wratt@trineo.co.nz)
+
+* Wed Aug 07 2013 ci <doperations@au.westfield.com> 0.0.327-1
+- ImageService uses service_helper (michael@michaelbamford.com)
+
+* Wed Aug 07 2013 ci <doperations@au.westfield.com> 0.0.326-1
+- Merge pull request #190 from csmith/master (craigM.smith@au.westfield.com)
+- Don't show the retailer logo on a deal if it's not there.
+  (craigm.smith@au.westfield.com)
+
+* Wed Aug 07 2013 ci <doperations@au.westfield.com> 0.0.325-1
+- 
+
+* Wed Aug 07 2013 ci <doperations@au.westfield.com> 0.0.324-1
+- Merge branch 'master' of github.dbg.westfield.com:digital/customer_console
+  (ben@germanforblack.com)
+- Enable angular-cloak (ben@germanforblack.com)
+
 * Wed Aug 07 2013 ci <doperations@au.westfield.com> 0.0.323-1
 - Merge pull request #224 from mwratt/fix/stores-list (matt.wratt@trineo.co.nz)
 - fixes broken js map spec (matt.wratt@trineo.co.nz)

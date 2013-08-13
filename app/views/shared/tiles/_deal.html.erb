@@ -1,7 +1,7 @@
 <div class="tile__meta">
   <p class="tile__meta__desc"><%= result.title %></p>
   <span class="tile__meta__image" data-picture data-alt="<%= result.store_name %> logo">
-    <img src="<%= result.retailer_logo_url %>" alt="<%= result.store_name %> logo">
+    <%= image_tag result.retailer_logo_url, alt: "#{result.store_name} logo", onError: %Q(this.parentNode.removeChild(this);)%>
   </span>
 </div>
 

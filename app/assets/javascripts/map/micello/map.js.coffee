@@ -4,6 +4,11 @@ class map.micello.Map extends map.micello.MapBase
   themeFamily: 'Standard'
   customTheme:
     s:
+      'Selected':
+        m: '#d7ccbd'
+        o: '#695648'
+        t: '#333333'
+        w: 1
       'Unit':
         m: '#f7f2df'
         o: '#d8bca9'

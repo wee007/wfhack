@@ -28,7 +28,12 @@ class Product < Hashie::Mash
   end
 
   def meta
-    Hashie::Mash.new title: name, image: primary_image
+    Meta.new title: name,
+             image: primary_image,
+             product_sku: sku,
+             currency: 'AUD',
+             retailer_code: retailer_code,
+             product_name: name
   end
 
 private

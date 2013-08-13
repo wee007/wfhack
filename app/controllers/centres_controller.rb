@@ -10,7 +10,7 @@ class CentresController < ApplicationController
   def show
     stream
     handle_error(@centre) if @centre.is_a?(NullCentre)
-    @page_title = @centre.short_name
+    meta.push title: @centre.short_name
   end
 
   def product_stream

@@ -227,10 +227,12 @@
 
       <!-- On sale -->
       <li>
-        <label for="sale-items" class="filters__trigger drop-down-menu__hdr filters__sale">
-          <input ng-model="on_sale" ng-checked="search.params.on_sale" ng-change="filterSearch('on_sale')" id="sale-items" type="checkbox">
-          <span>On sale</span>
-        </label>
+        <div class="filters__trigger drop-down-menu__hdr filters__sale">
+          <label for="sale-items" class="">
+            <input ng-model="on_sale" ng-checked="search.params.on_sale" ng-change="filterSearch('on_sale')" id="sale-items" type="checkbox">
+            <span>On sale</span>
+          </label>
+        </div>
       </li>
     </ul>
   </div>

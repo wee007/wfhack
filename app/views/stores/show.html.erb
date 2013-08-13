@@ -8,13 +8,13 @@
     <%# Back to listing link %>
     <div class="stores-maps__filters-toggle">
       <div class="container">
-        <a href="<%= centre_stores_path(@centre) %>" class="stores-maps__hdr"><span class="icon icon--arrow-left-big" aria-hidden="true"></span> Stores A-Z</a>
+        <a href="<%= centre_stores_path(@centre) %>" class="stores-maps__filters-toggle__hdr txt-truncate"><span><span class="icon icon--arrow-left-big" aria-hidden="true"></span> Stores A-Z</span> / Justice Health - Centre for Health Research and Criminal Justice</a>
       </div>
     </div>
     <%# //Back to listing link %>
 
-    <%# Store detail %>
-    <div class="stores-maps__list-detail">
+    <%# Store details %>
+    <div class="stores-maps__list-detail is-featured-items">
 
       <article class="storefront" role="article">
 
@@ -31,7 +31,7 @@
                     - Remove the above image.
                     - Remove the `h1` element above: `<h1 class="hide-visually">`.
                     - Remove the inline `style` attr on the Flexslider `div` container above.
-                    - Append class `.is-no-store-banner` to the Flexslider `div` container above.
+                    - Append class `.is-no-store-banner` to the Flexslider `div` container above: `<div class="flexslider flexslider--contain-controls">`.
                     - If store name exceeds or equals 58 chars then append class `.is-long-store-name` to the `em` element: `<em class="h1">`.
                     All via server side not JS
                 %>
@@ -63,14 +63,14 @@
             <%# Store meta %>
             <dl class="storefront__details__meta">
               <dt class="hide-visually">Opening hours</dt>
-              <%# FIXME: [BACKEND] make dynamic inc. the `datetime` attr in the `time` element %>
+              <%# FIXME: [BACKEND] make dynamic inc. the `datetime` attr %>
               <dd class="storefront__details__meta__no-indent">Open till <time datetime="">6pm</time> tonight</dd>
               <dt class="hide-visually hide-fully--palm">Store phone number</dt>
               <%# FIXME: [BACKEND] make dynamic %>
               <dd class="hide-fully--palm">02 9869 5263<span class="icon icon--phone2 icon--xlrg" aria-hidden="true"></span></dd>
               <dt class="hide-visually">Store email</dt>
               <%# FIXME: [BACKEND] make dynamic inc. the `mailto:` attr %>
-              <dd class="txt-truncate"><a href="mailto:">westfield@sabaloremipsumhellocheck.com.au</a><span class="icon icon--email icon--xlrg" aria-hidden="true"></span></dd>
+              <dd class="txt-truncate"><a href="mailto:">westfield@areallymassivelongemailaddress.com.au</a><span class="icon icon--email icon--xlrg" aria-hidden="true"></span></dd>
               <dt class="hide-visually">Westfield gift card</dt>
               <%# FIXME: [BACKEND] if store doesn't except gift cards then say "Not accepted" %>
               <dd>Accepted<span class="icon icon-gift-card icon--xlrg" aria-hidden="true"></span></dd>
@@ -83,7 +83,7 @@
               <%# Phone no %>
               <%# FIXME: [BACKEND] make dynamic inc. the `tel:` attr which needs all white space stripped out ala: `tel: (store.phone_number || "").gsub(/\s+/,'') ` %>
               <a href="tel:" class="storefront-storelist-phone-map-links__cell storefront-storelist-phone-map-links__cell--phone hide-fully--non-palm">
-                <span class="hide-visually">Call store: </span>
+                <span class="hide-visually">Call store: 02 9236 6589</span>
                 <span class="icon icon--phone2 icon--flush-top storefront-storelist-phone-map-links__cell__valign"></span>
               </a>
               <%# //Phone no %>
@@ -104,11 +104,12 @@
           <%# //Inner container %>
 
           <%# Store external link %>
+          <%# FIXME: [BACKEND] not all stores will have a website so do not render any of this HTML and append class `.is-no-external-link` to the main container above: `<div class="storefront__details">` when this is the case (server side) %>
           <div class="storefront__details__storelink">
             <div class="container">
-              <%# FIXME: [BACKEND] make dynamic, see 'Store link' in products show %>
+              <%# FIXME: [BACKEND] make URL dynamic, see 'Store link' in products show %>
               <a href="#" class="btn btn--pointer btn--full btn--full-left btn--main btn--main-alt2 btn--main-lrg btn--main-flanked" rel="external nofollow">
-                Buy from Justice Health - Centre for Health Research and Criminal Justice
+                <span class="txt-truncate">Buy from <%= @store.name %></span>
                 <span class="icon icon--arrow-right-big icon--lrg btn--pointer__icon" aria-hidden="true"></span>
                 <span class="icon icon--link icon--xlrg icon--flush-top btn--pointer__icon" aria-hidden="true"></span>
               </a>
@@ -119,10 +120,78 @@
         </div>
         <%# //Store details %>
 
+        <%# Product and Deal tiles %>
+        <%# FIXME: [BACKEND] the following HTML won't be available for every store so do not render any of the HTML when this is the case or only render the applicable HTML e.g. either render 'Product' or 'Deal' tiles AND when they're tiles (any) append class `.is-featured-items` to `<div class="stores-maps__list-detail">` (server side) %>
+        <footer class="storefront__featured">
+
+            <%# Product tiles %>
+            <div class="storefront__featured__item storefront__featured__item--products island island--top-btm">
+              <div class="container">
+                <h2 class="storefront__featured__hdr">Featured from <%= @store.name %></h2>
+                <div class="tiles-non-pinboard">
+                  <%# FIXME: [BACKEND] hacked this together so needs to be done properly and we only show 3 tiles %>
+                  <% 3.times do |n| %>
+                    <div class="tiles-non-pinboard__tile">
+                      <%= render partial: '/shared/tiles/product',
+                          layout: '/layouts/tile',
+                          locals: {result: Hashie::Mash.new(
+                            title: 'Leigh Structured Skirt',
+                            sku: 'Leigh Structured Skirt',
+                            retailer_code: 'Saba',
+                            primary_image: 'http://cs1.wol.io/img_resized/sheike-shimmer-ring/5736ff15e337203d4d7b9b960fb4e8eec30a06e7_182x182.jpg',
+                            kind: 'product',
+                            meta: Hashie::Mash.new(
+                              title: 'Leigh Structured Skirt',
+                              image: ''
+                            )
+                          )
+                      } %>
+                    </div>
+                  <% end %>
+                </div>
+                <%# FIXME: [BACKEND] make URL dynamic %>
+                <a href="#" class="storefront__featured__view-more">View more<span class="icon icon--arrow-right icon--lrg" aria-hidden="true"></span></a>
+              </div>
+            </div>
+            <%# //Product tiles %>
+
+            <%# Deal tiles %>
+            <div class="storefront__featured__item storefront__featured__item--deals island island--top-btm">
+              <div class="container">
+                <h2 class="storefront__featured__hdr">Deals from <%= @store.name %></h2>
+                <div class="tiles-non-pinboard">
+                  <%# FIXME: [BACKEND] hacked this together so needs to be done properly and we only show 3 tiles %>
+                  <% 3.times do |n| %>
+                    <div class="tiles-non-pinboard__tile">
+                      <%= render partial: '/shared/tiles/deal',
+                          layout: '/layouts/tile',
+                          locals: {result: Hashie::Mash.new(
+                            title: 'deal super #{n}',
+                            retailer_logo_url: 'http://image-service.systest.dbg.westfield.com/transform?ref=fcc997784861edcc4a1bd8abd93cb5930c75dacca267636afa4a5ff47d4c3693.gif',
+                            store_name: '',
+                            kind: 'deal',
+                            meta: Hashie::Mash.new(
+                              title: '',
+                              image: ''
+                            )
+                          )
+                      } %>
+                    </div>
+                  <% end %>
+                </div>
+                <%# FIXME: [BACKEND] make URL dynamic %>
+                <a href="#" class="storefront__featured__view-more">View more<span class="icon icon--arrow-right icon--lrg" aria-hidden="true"></span></a>
+              </div>
+            </div>
+            <%# //Deal tiles %>
+
+        </footer>
+        <%# Product and Deal tiles %>
+
       </article>
 
     </div>
-    <%#//Store detail %>
+    <%#//Store details %>
 
   </div>
   <%# //Contain 'back to listing link' and 'store details' %>

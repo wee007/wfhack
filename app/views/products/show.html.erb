@@ -38,7 +38,8 @@
 
     <!-- Store link -->
     <div class="island island--center detail-view__divider--palm">
-      <%= link_to '#', class: "btn btn--pointer btn--full btn--full-left btn--main btn--main-alt2 btn--main-lrg btn--main-flanked", rel: "external nofollow" do %>
+      <%= link_to @product.primary_retailer_product_url || '#', 
+        class: "btn btn--pointer btn--full btn--full-left btn--main btn--main-alt2 btn--main-lrg btn--main-flanked", rel: "external nofollow" do %>
         Buy from <%= @product.retail_chain_name %>
         <span class="icon icon--arrow-right-big icon--lrg btn--pointer__icon" aria-hidden="true"></span>
         <span class="icon icon--link icon--xlrg icon--flush-top btn--pointer__icon" aria-hidden="true"></span>

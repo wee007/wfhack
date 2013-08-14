@@ -52,59 +52,6 @@
 				</div>
 				<!-- //Sub navigation -->
 
-				<!-- My account / favourites -->
-				<!-- [BACK END] when the user is signed in to their account append the class `is-my-account-signedin` to this `div` element e.g. `<div class="my-account-favs is-my-account-signedin">` -->
-				<div class="my-account-favs">
-
-					<!-- My account -->
-					<!-- [BACK END] inject relevant HTML based on whether user is signed in/out, see 'signed in' / 'signed out' below -->
-
-					<!-- signed in -->
-					<div class="my-account-container my-account-signedin drop-down-container hide-fully">
-						<!-- [BACK END] for displaying username and avatar we have to have 2 sets of HTML; 1 for palm devices and 1 for non-palm devices, avatar needs to be 64px x 64px -->
-						<strong class="my-account-container__hdr container txt-truncate hide-fully--non-palm">
-							<img src="<%= image_path "dummy/avatar.jpg" %>" alt="User avatar photo"> Hi username
-						</strong>
-						<button type="button" class="my-account-container__hdr btn hide-fully--palm js-drop-down-trigger" aria-haspopup="true" aria-controls="my-account-links">
-							<img src="<%= image_path "dummy/avatar.jpg" %>" alt="User avatar photo"> Hi<span class="hide-visually my-account-signedin__username"> username</span>
-							<span class="hide-visually"> select for settings / sign out</span>
-							<span class="icon icon--arrow-down-full icon--flush-top" aria-hidden="true"></span>
-						</button>
-						<div class="header-menu-toggle__nav header-menu-toggle__mrg-btm drop-down js-drop-down" id="my-account-links">
-							<ul>
-								<!-- [BACK END] `is-active` class needs to be appended to the active anchor element e.g. `<a href="#" class="is-active">` -->
-								<li><a href="#" target="_self"><span class="icon icon--user icon--fixed-width icon--spacing" aria-hidden="true"></span> Account Settings</a></li>
-								<li><a href="#" target="_self"><span class="icon icon--signout icon--fixed-width icon--spacing" aria-hidden="true"></span> Sign out</a></li>
-							</ul>
-						</div>
-					</div>
-					<!-- //signed in -->
-
-					<!-- signed out -->
-					<div class="my-account-container my-account-signedout">
-						<strong class="my-account-container__hdr container hide-fully--non-palm">My Account</strong>
-						<div class="header-menu-toggle__nav header-menu-toggle__nav--plain header-menu-toggle__mrg-btm">
-							<a href="#" target="_self"><span class="icon icon--user icon--fixed-width icon--spacing" aria-hidden="true"></span> Sign in<span class="my-account-signedout__member"> / Become a member</span></a>
-						</div>
-					</div>
-					<!-- //signed out -->
-
-					<!-- //My account -->
-
-					<!-- Favourites (non-palm devices) -->
-					<!-- [BACK END] when an item has been added to 'Favourites' need to append class `is-favs-added` -->
-					<a href="#" target="_self" class="favs-link hide-fully--palm">
-						<span class="favs-link__count-icon">
-							<span class="icon icon--favs icon--flush-top icon--kilo" aria-hidden="true"></span>
-							<em></em>
-						</span>
-						<span class="favs-link__txt"> Favourites</span>
-					</a>
-					<!-- //Favourites (non-palm devices) -->
-
-				</div>
-				<!-- //My account / favourites -->
-
 				<!-- Tertiary navigation -->
 				<!-- <nav class="header-menu-toggle__nav hide-fully--non-palm" role="navigation" aria-label="Tertiary navigation">
 					<ul class="nav-tertiary">
@@ -126,17 +73,6 @@
 					<span class="hide-visually">Open site search</span>
 				</button>
 				<!-- //Search toggle btn -->
-
-				<!-- Favourites -->
-				<!-- [BACK END] when an item has been added to 'Favourites' need to append class `is-favs-added` -->
-				<a href="#" target="_self" class="favs-link">
-					<span class="favs-link__count-icon">
-						<span class="icon icon--favs icon--flush-top icon--kilo" aria-hidden="true"></span>
-						<em></em>
-					</span>
-					<span class="hide-visually"> Favourites</span>
-				</a>
-				<!-- //Favourites -->
 
 			</div>
 			<!-- //Search toggle / favourites (palm devices) -->

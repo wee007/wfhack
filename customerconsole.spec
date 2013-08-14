@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.346
+Version:     0.0.347
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,9 @@ fi
 
 
 %changelog
+* Wed Aug 14 2013 ci <doperations@au.westfield.com> 0.0.347-1
+- adds params to get correctly resized image (matt.wratt@trineo.co.nz)
+
 * Wed Aug 14 2013 ci <doperations@au.westfield.com> 0.0.346-1
 - Merge pull request #245 from cpearce/master (matt.wratt@trineo.co.nz)
 - Creating a new global var for box shadow (CPearce@au.westfield.com)

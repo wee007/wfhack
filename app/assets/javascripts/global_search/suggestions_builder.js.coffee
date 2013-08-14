@@ -22,18 +22,27 @@
       angular.forEach ['colour','retailer','category'], (match_type)->
         angular.forEach result[match_type], (match)->
           angular.forEach match['attributes'], (value,key) ->
-            params[key] ||= []
-            params[key].push(value) unless value in params[key]
+            if key in ['super_cat', 'category']
+              params[key] = value
+            else
+              params[key] ||= []
+              params[key].push(value) unless value in params[key]
       params
 
     @queryString = (result, remainder) ->
       qs=""
       angular.forEach @urlParams(result), (vs,k) ->
-        angular.forEach vs, (v)->
-          if qs.length == 0
-            qs += "?#{k}[]=#{v}"
-          else
-            qs += "&#{k}[]=#{v}"
+        if vs instanceof Array
+          angular.forEach vs, (v)->
+            if qs.length == 0
+              qs += "?#{k}[]=#{v}"
+            else
+              qs += "&#{k}[]=#{v}"
+        else
+         if qs.length == 0
+           qs += "?#{k}=#{vs}"
+         else
+           qs += "&#{k}=#{vs}"
       if remainder.length > 0
         if qs.length == 0
           qs = "?search_query=#{remainder}"

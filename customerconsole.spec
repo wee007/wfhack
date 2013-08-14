@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.347
+Version:     0.0.348
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,13 @@ fi
 
 
 %changelog
+* Wed Aug 14 2013 ci <doperations@au.westfield.com> 0.0.348-1
+- Merge pull request #248 from ldewey/master (cpearce@au.westfield.com)
+- Only show tile heading on stream page. (ldewey@au.westfield.com)
+- Merge pull request #246 from cawalsh/feature/wsf-5069
+  (DOCallaghan@au.westfield.com)
+- WSF-5069 Work with the new search service api (cwalsh2@au.westfield.com)
+
 * Wed Aug 14 2013 ci <doperations@au.westfield.com> 0.0.347-1
 - adds params to get correctly resized image (matt.wratt@trineo.co.nz)
 

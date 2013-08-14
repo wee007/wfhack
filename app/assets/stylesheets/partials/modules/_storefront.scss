@@ -352,17 +352,31 @@
   .storefront__featured__item {
     border-top: 1px solid $color-grey-1;
 
-    /* Tile rules */
+    /* Tiles */
     .tiles-non-pinboard {
       @extend %mrg-base;
 
-      /* Hide 3rd tile for palm */
-      .tiles-non-pinboard__tile:last-child {
-        display: none;
+      /* Decrease negative left outdent at this breakpoint range */
+      @include respond-range($ipad-landscape, 1400) {
+        @include to-rem(margin-left, - $spacing-half);
+      }
 
-        /* Show 3rd tile at this breakpoint */
-        @include respond-min($iphone-landscape) {
-          display: block;
+      /* Tile containers */
+      .tiles-non-pinboard__tile {
+
+        /* Decrease gutter at this breakpoint range */
+        @include respond-range($ipad-landscape, 1400) {
+          @include to-rem(padding-left, $spacing-half);
+        }
+
+        /* Hide 3rd tile for palm */
+        &:last-child {
+          display: none;
+
+          /* Show 3rd tile at this breakpoint */
+          @include respond-min($iphone-landscape) {
+            display: block;
+          }
         }
       }
     }

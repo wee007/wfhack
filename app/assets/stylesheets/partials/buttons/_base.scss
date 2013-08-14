@@ -76,6 +76,9 @@
 			@include old-ie {
 				top: 28%;
 			}
+
+				/* Pseudo element - remove negative top position */
+				&:before {position: static;}
 		}
 
 		/* Truncate */

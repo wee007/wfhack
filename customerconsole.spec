@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.348
+Version:     0.0.349
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,13 @@ fi
 
 
 %changelog
+* Thu Aug 15 2013 ci <doperations@au.westfield.com> 0.0.349-1
+- Merge pull request #249 from cpearce/master (ldewey@au.westfield.com)
+- Styling storefront (CPearce@au.westfield.com)
+- TO REVERT BACK - removing favs from detail views (CPearce@au.westfield.com)
+- TO REVERT BACK - removing my account and favs from site header
+  (CPearce@au.westfield.com)
+
 * Wed Aug 14 2013 ci <doperations@au.westfield.com> 0.0.348-1
 - Merge pull request #248 from ldewey/master (cpearce@au.westfield.com)
 - Only show tile heading on stream page. (ldewey@au.westfield.com)

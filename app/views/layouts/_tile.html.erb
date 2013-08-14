@@ -1,5 +1,9 @@
 <article class="tile tile--<%= result.kind.pluralize %> box" role="article">
-  <em class="hide-visually"><%= result.kind %></em>
+
+  <% unless params[:controller] == result.kind.pluralize %>
+    <em class="hide-visually"><%= result.kind.titlecase %></em>
+  <% end %>
+
   <%= link_to yield, tile_url(@centre, result), target: "_self" %>
   <div class="tile__controls">
     <%= render "/shared/social_share",

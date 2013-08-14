@@ -23,6 +23,13 @@ $share-pinterest: #ca2026 !default;
 /* Start module */
 .social-share {
 
+  @include respond-min($non-palm) {
+    display: inline-block;
+
+    /* 'Tile' version */
+    .tile & {display: block;}
+  }
+
 	/* Links */
 	a {
 		@include to-rem(padding-top padding-bottom, 9);
@@ -35,20 +42,12 @@ $share-pinterest: #ca2026 !default;
 	/* --Drop down menu-- */
 	.drop-down {
 
-		/* Make the drop down span full width of viewport at this breakpoint */
-	  @include respond-max($palm) {
-      width: 204%;
-      left: -104%;
-
-      /* Non JS users */
-      .no-js & {width: 100%;}
-	  }
-
 	  /* Alter position and width at this breakpoint */
 	  @include respond-min($non-palm) {
       @include to-rem(width, 290);
       left: 100%;
       top: 0;
+      margin-left: -1px;
 	  }
 
 	  /* 'Tile' version */
@@ -56,6 +55,7 @@ $share-pinterest: #ca2026 !default;
 	  	width: 100%;
 	  	left: 0;
 	  	top: 100%;
+      margin-left: 0;
 
 	  	li {
 	  		display: block;

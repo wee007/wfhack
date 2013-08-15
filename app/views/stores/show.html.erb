@@ -26,13 +26,13 @@
               <li>
                 <img src="/assets/dummy/store-banner.jpg" alt="<%= @store.name %> banner">
                 <%#
-                    FIXME: [BACKEND] the storefront banner is optional so if no banner provided then:
+                    FIXME: [BACKEND] the storefront banner is optional so if no banner is provided then:
                     - Render the below HTML.
                     - Remove the above image.
                     - Remove the `h1` element above: `<h1 class="hide-visually">`.
                     - Remove the inline `style` attr on the Flexslider `div` container above.
                     - Append class `.is-no-store-banner` to the Flexslider `div` container above: `<div class="flexslider flexslider--contain-controls">`.
-                    - If store name exceeds or equals 58 chars then append class `.is-long-store-name` to the `em` element: `<em class="h1">`.
+                    - If store name exceeds or equals 58 chars then append class `.is-long-store-name` to the `h1` element.
                     All via server side not JS
                 %>
                 <!-- <div class="storefront__flexslider-storename vert-align">
@@ -89,7 +89,7 @@
               <%# //Phone no %>
 
               <%# Location %>
-              <a href="#infoDiv" class="storefront-storelist-phone-map-links__cell storefront-storelist-phone-map-links__cell--location">
+              <a href="#infoDiv" class="storefront-storelist-phone-map-links__cell storefront-storelist-phone-map-links__cell--location js-stores-maps-toggle-btn">
                 <span class="storefront-storelist-phone-map-links__cell__valign">
                   <span class="icon icon--pin icon--flush-top"></span>
                   <span class="hide-visually">Store location</span>
@@ -120,28 +120,28 @@
         </div>
         <%# //Store details %>
 
-        <%# Product and Deal tiles %>
+        <%# 'Product' and 'Deal' tiles %>
         <%# FIXME: [BACKEND] the following HTML won't be available for every store so do not render any of the HTML when this is the case or only render the applicable HTML e.g. either render 'Product' or 'Deal' tiles AND when they're tiles (any) append class `.is-featured-items` to `<div class="stores-maps__list-detail">` (server side) %>
         <footer class="storefront__featured">
 
-            <%# Product tiles %>
+            <%# 'Product' tiles %>
             <div class="storefront__featured__item storefront__featured__item--products island island--top-btm">
               <div class="container">
                 <h2 class="storefront__featured__hdr">Featured from <%= @store.name %></h2>
                 <div class="tiles-non-pinboard">
-                  <%# FIXME: [BACKEND] hacked this together so needs to be done properly and we only show 3 tiles %>
+                  <%# FIXME: [BACKEND] hacked this together so needs to be done properly and we only show 3 tiles or less %>
                   <% 3.times do |n| %>
                     <div class="tiles-non-pinboard__tile">
                       <%= render partial: '/shared/tiles/product',
                           layout: '/layouts/tile',
                           locals: {result: Hashie::Mash.new(
-                            title: 'Leigh Structured Skirt',
-                            sku: 'Leigh Structured Skirt',
-                            retailer_code: 'Saba',
+                            title: '',
+                            sku: '',
+                            retailer_code: '',
                             primary_image: 'http://cs1.wol.io/img_resized/sheike-shimmer-ring/5736ff15e337203d4d7b9b960fb4e8eec30a06e7_182x182.jpg',
                             kind: 'product',
                             meta: Hashie::Mash.new(
-                              title: 'Leigh Structured Skirt',
+                              title: '',
                               image: ''
                             )
                           )
@@ -160,7 +160,7 @@
               <div class="container">
                 <h2 class="storefront__featured__hdr">Deals from <%= @store.name %></h2>
                 <div class="tiles-non-pinboard">
-                  <%# FIXME: [BACKEND] hacked this together so needs to be done properly and we only show 3 tiles %>
+                  <%# FIXME: [BACKEND] hacked this together so needs to be done properly and we only show 3 tiles or less %>
                   <% 3.times do |n| %>
                     <div class="tiles-non-pinboard__tile">
                       <%= render partial: '/shared/tiles/deal',
@@ -241,6 +241,57 @@
       }
 
     });
+
+    // Conditionally load Micello maps for palm view and toggle the detail/map views
+    /*
+      FIXME: [BACKEND] this is now being shared across 'index' and 'show' with the exception of `deferImages` and 'show' doesn't need this:
+        $('.js-stores-maps-toggle-btn').toggleClass('is-expanded', listView === false);
+        $('.js-stores-maps-toggle-btn__txt').html(listView ? 'map' : 'list');
+        So pull this into an external JS file
+    */
+    (function initialiseResponsiveMap() {
+
+      if(deferCall(window.enquire)) return;
+
+      var map = new window.map.Micello(),
+          viewingList = true;
+
+      function resetView(listView) {
+        viewingList = listView;
+
+        if(!listView) map.load();
+
+        $('.js-stores-maps-toggle-wrap').toggleClass('is-map-view', listView === false);  // storefront/maps container
+      }
+
+      function nonPalmView() {
+        resetView(null);
+        $('*', document).off('.map-palm')
+        $('[data-store-id]').on('click.map-non-palm', function() {
+          map.highlight($(this).data('store-id'));
+        });
+      }
+
+      function palmView() {
+        resetView(true);
+        $('*', document).off('.map-non-palm')
+        $('.js-stores-maps-toggle-btn').on('click.map-palm', function() {
+          resetView(!viewingList);
+        });
+        $('[data-store-id]').on('click.map-palm', 'a[href="#infoDiv"]', function(event) {
+          resetView(false);
+          map.highlight($(event.delegateTarget).data('store-id'));
+        });
+      }
+
+      $(function() {
+        enquire.register("all and (min-width: 64em)", {
+          match: nonPalmView,
+          unmatch: palmView,
+          setup: palmView
+        }, true);
+      });
+    }());
 
   </script>
 <%- end -%>

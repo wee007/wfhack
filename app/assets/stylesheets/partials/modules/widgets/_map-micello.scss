@@ -94,7 +94,7 @@
             width: 84px;
             position: absolute;
             left: 0;
-            @include to-rem(top, 4);
+            top: 0;
 
             /* --Make linear at these breakpoints-- */
 
@@ -103,6 +103,8 @@
               .stores-maps__map & {
                 position: static;
                 @include to-rem(margin-bottom, $spacing-quarter);
+                margin: 0 auto;
+                width: 108px;
               }
             }
 
@@ -111,7 +113,19 @@
               .map-micello--static & {
                 position: static;
                 @include to-rem(margin-bottom, $spacing-quarter);
+                margin: 0 auto;
+                width: 108px;
               }
+            }
+          }
+
+          /* Hide the 'Store details' link at this breakpoint for the relevant store in 'Stores show' */
+          .map-micello__overlay.is-active-store {
+            a.map-micello__overlay__cta.btn {display: none;}
+
+            /* Hide both the button and the link at this breakpoint */
+            @include respond-min($ipad-landscape) {
+              .map-micello__overlay__cta.btn  {display: none;}
             }
           }
 

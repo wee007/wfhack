@@ -11,10 +11,12 @@
     <% end %>
   </div>
 
+  <div class="sg-h3">Base style</div>
   <div class="sg-element">
     <%= example_html.html_safe %>
   </div>
 
+  <div class="sg-h3">With modifier</div>
   <% section.modifiers.each do |modifier| %>
     <div class="sg-element sg-modifier">
       <span class="sg-modifier-name"><%= modifier.name %></span>
@@ -22,5 +24,5 @@
     </div>
   <% end %>
 
-  <pre class="sg-code"><code data-language="html"><%= example_html.strip %></code></pre>
+  <pre class="sg-code"><code data-language="html"><%= example_html.strip.gsub(' $modifier_class', '') %></code></pre>
 </div>

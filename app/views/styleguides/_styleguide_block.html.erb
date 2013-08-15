@@ -1,7 +1,10 @@
-<div class="sg-example">
-  <div class="sg-h2"><%= section.section %> <em><%= section.filename %></em></div>
+<div class="sg-section">
+  <div class="sg-h2"><%= section.section %> <small><%= section.filename %></small></div>
   <div class="sg-note">
-    <p><%= section.description %></p>
+    <% unless section.description.blank? %>
+      <p><%= section.description %></p>
+    <% end %>
+
     <% if section.modifiers.any? %>
       <ul>
         <% section.modifiers.each do |modifier| %>

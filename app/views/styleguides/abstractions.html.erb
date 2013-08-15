@@ -2,7 +2,7 @@
 <div class="sg-note">An abstraction is a CSS methodology that basically removes a pattern from a specific idea and makes a more generic idea out of it e.g. make a list render horizontally. They exist to avoid writing the same similar patterns over and over, instead create a single more generic representation of those patterns and reuse that instead.</div>
 
 
-<%= styleguide_block 'horizontal list' do %>
+<%= styleguide_block 'Horizontal List' do %>
   <ul class="horiz-list $modifier_class">
       <li><a href="#">Semper</a></li><!--
     --><li><a href="#">Virtute</a></li><!--
@@ -13,7 +13,7 @@
 <% end %>
 
 <!-- Vertical Alignment -->
-<%= styleguide_block 'vertical alignment' do %>
+<%= styleguide_block 'Vertical Alignment' do %>
   <div style="height: 400px">
       <div class="vert-align">
         <div class="vert-align__inner sg-demo-boxed">
@@ -25,7 +25,7 @@
 <!-- //Vertical Alignment -->
 
 <!-- Preserve Aspect Ratio -->
-<%= styleguide_block 'preserve aspect ratio' do %>
+<%= styleguide_block 'Preserve Aspect Ratio' do %>
 <div class="preserve-aspect-ratio">
   <iframe class="preserve-aspect-ratio__inner" width="560" height="315" src="http://www.youtube.com/embed/8KdtgoSCXpU?rel=0" frameborder="0" allowfullscreen></iframe>
 </div>
@@ -33,21 +33,18 @@
 <!-- //Preserve Aspect Ratio -->
 
 <!-- Block List -->
-<div class="sg-h2">Block List</div>
-<div class="sg-note">Big blocky lists of content.</div>
-
+<%= styleguide_block 'Block List' do %>
 <ul class="block-list">
   <li>Semper</li>
   <li>Virtute</li>
   <li>Natoque</li>
   <li><a href="#" class="block-list__link">Gubergren</a></li>
 </ul>
+<% end %>
 <!-- //Block List -->
 
 <!-- Definition List -->
-<div class="sg-h2">Definition List</div>
-<div class="sg-note">Make the <code class="sg-code">dt</code> and <code class="sg-code">dd</code> elements of a definition list render side-by-side.</div>
-
+<%= styleguide_block 'Definition List' do %>
 <dl class="def-list">
     <dt class="def-list__title"><a href="#">Semper</a></dt>
     <dd class="def-list__desc">Virtute</dd>
@@ -56,12 +53,11 @@
     <dt class="def-list__title"><a href="#">Gubergren</a></dt>
     <dd class="def-list__desc">Semper</dd>
 </dl>
+<% end %>
 <!-- //Definition List -->
 
 <!-- Split -->
-<div class="sg-h2">Split</div>
-<div class="sg-note">Simple split item for creating two elements floated away from one another.</div>
-
+<%= styleguide_block 'Split' do %>
 <dl class="split" style="width: 50%;">
     <dt class="split__title">Pericula honestatis</dt>
     <dd>$5.99</dd>
@@ -70,11 +66,13 @@
     <dt class="split__title">Possit iracundia</dt>
     <dd>$2.99</dd>
 </dl>
+
 <ol class="split" style="width: 50%;">
     <li><b class="split__title">1st place</b> Bob</li>
     <li><b class="split__title">2nd place</b> Lilly</li>
     <li><b class="split__title">3rd place</b> Ted</li>
 </ol>​
+<% end %>
 <!-- //Split -->
 
 <!-- Complex Link -->

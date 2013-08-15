@@ -4,9 +4,13 @@
 
 /*
   To preserve the aspect ratio (16:9) of an element usually a video delivered via an `iframe`.
+  
+  Credit:
+		http://css-tricks.com/NetMag/FluidWidthVideo/Article-FluidWidthVideo.php
 
   Styleguide preserve aspect ratio
 */
+
 
 .preserve-aspect-ratio {
 	position: relative;

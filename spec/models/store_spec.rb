@@ -32,7 +32,7 @@ describe Store do
   context '#logo' do
 
     let(:logo) { '' }
-    let(:store_attrs) { Hashie::Mash.new _links: {logo: {href: logo}} }
+    let(:store_attrs) { Hashie::Mash.new _links: {logo: {ref: logo}} }
 
     subject { Store.new store_attrs }
 
@@ -44,20 +44,9 @@ describe Store do
 
       it { should have_logo }
 
-      it 'returns the contents of _links.logo.href' do
-        ImageService.should_receive(:transform).with(url: logo).and_return('transformed_image')
+      it 'returns the contents of _links.logo.ref' do
+        ImageService.should_receive(:transform).with(ref: logo).and_return('transformed_image')
         subject.logo.should eql('transformed_image')
-      end
-
-      describe 'using a ref' do
-
-        let(:ref) { 'logo_ref' }
-        let(:logo) { "http://imageservice.com?params&ref=#{ref}&stuff" }
-
-        it 'returns the contents of _links.logo.href' do
-          ImageService.should_receive(:transform).with(ref: ref).and_return('transformed_image')
-          subject.logo.should eql('transformed_image')
-        end
       end
 
     end

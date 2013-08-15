@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.354
+Version:     0.0.355
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,10 @@ fi
 
 
 %changelog
+* Fri Aug 16 2013 ci <doperations@au.westfield.com> 0.0.355-1
+- Merge pull request #257 from ldewey/master (cpearce@au.westfield.com)
+- Addded uuid to social share aria (ldewey@au.westfield.com)
+
 * Thu Aug 15 2013 ci <doperations@au.westfield.com> 0.0.354-1
 - 
 

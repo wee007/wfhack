@@ -1,6 +1,6 @@
 ( function ( app ) {
   app.service( 'Search', ['$http', 'ParamCleaner', 'AppliedFilters', 'SearchFacet', function ( $http, ParamCleaner, AppliedFilters, SearchFacet ) {
-    var self = this;
+    var self = this,
 
     // Params, with types
     // Types are supplied as either defaults
@@ -14,7 +14,9 @@
       centre: [],
       last: "",
       rows: 15
-    };
+    },
+
+    callbacks = [];
 
     // Params can be reset to the defaults, so we'll dupe
     // the object so that it can be modified without polluting the original object
@@ -31,12 +33,19 @@
     this.sortOptions = [];
     this.appliedFilters = [];
 
+    this.onChange = function ( callback ) {
+      if ( angular.isFunction( callback ) ) {
+        callbacks.push( callback );
+      }
+    };
+
     this.getSearch = function ( callback ) {
       $http.get('/api/product/master/products/search.json', {
         params: ParamCleaner.build( params )
       }).then( function( response ) {
-        if ( angular.isFunction( callback ) ) { callback(); }
         self.formatSearchResults( response.data );
+
+        angular.forEach( callbacks, function ( callback ) { callback(); } );
       });
     };
 

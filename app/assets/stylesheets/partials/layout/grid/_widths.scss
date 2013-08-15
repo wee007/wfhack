@@ -3,84 +3,84 @@
    ====================================================================================== */
 
 /*
-	Usage:
-		Set-up flexible widths via classes which are mostly used for the grid system, the mixin allows you to define widths at specific breakpoints.
+  Usage:
+    Set-up flexible widths via classes which are mostly used for the grid system, the mixin allows you to define widths at specific breakpoints.
 
-	Note:
-		All the width values come from: 'utils/vars -> FLEXIBLE WIDTHS' so they can be used outside of this `@mixin`.
+  Note:
+    All the width values come from: 'utils/vars -> FLEXIBLE WIDTHS' so they can be used outside of this `@mixin`.
 
-	Credit:
-		https://github.com/csswizardry/csswizardry-grids/blob/master/csswizardry-grids.scss
+  Credit:
+    https://github.com/csswizardry/csswizardry-grids/blob/master/csswizardry-grids.scss
 */
 
 @mixin width-classes($namespace: "") {
 
-	/* Whole */
-    .#{$namespace}one-whole {width: $one-whole;}
+  /* Whole */
+  .#{$namespace}one-whole {width: $one-whole;}
 
-    /* Halves */
-    .#{$namespace}one-half {width: $one-half;}
+  /* Halves */
+  .#{$namespace}one-half {width: $one-half;}
 
-    /* Thirds */
-    .#{$namespace}one-third {width: $one-third;}
-    .#{$namespace}two-thirds {width: $two-thirds;}
+  /* Thirds */
+  .#{$namespace}one-third {width: $one-third;}
+  .#{$namespace}two-thirds {width: $two-thirds;}
 
-    /* Quarters */
-    .#{$namespace}one-quarter {width: $one-quarter;}
-    .#{$namespace}two-quarters {width: $one-half;}
-    .#{$namespace}three-quarters {width: $three-quarters;}
+  /* Quarters */
+  .#{$namespace}one-quarter {width: $one-quarter;}
+  .#{$namespace}two-quarters {width: $one-half;}
+  .#{$namespace}three-quarters {width: $three-quarters;}
 
-    /* Fifths */
-    .#{$namespace}one-fifth {width: $one-fifth;}
-    .#{$namespace}two-fifths {width: $two-fifths;}
-    .#{$namespace}three-fifths {width: $three-fifths;}
-    .#{$namespace}four-fifths {width: $four-fifths;}
+  /* Fifths */
+  .#{$namespace}one-fifth {width: $one-fifth;}
+  .#{$namespace}two-fifths {width: $two-fifths;}
+  .#{$namespace}three-fifths {width: $three-fifths;}
+  .#{$namespace}four-fifths {width: $four-fifths;}
 
-    /* Sixths */
-    .#{$namespace}one-sixth {width: $one-sixth;}
-    .#{$namespace}two-sixths {width: $one-third;}
-    .#{$namespace}three-sixths {width: $one-half;}
-    .#{$namespace}four-sixths {width: $two-thirds;}
-    .#{$namespace}five-sixths {width: $five-sixths;}
+  /* Sixths */
+  .#{$namespace}one-sixth {width: $one-sixth;}
+  .#{$namespace}two-sixths {width: $one-third;}
+  .#{$namespace}three-sixths {width: $one-half;}
+  .#{$namespace}four-sixths {width: $two-thirds;}
+  .#{$namespace}five-sixths {width: $five-sixths;}
 
-    /* Eighths */
-    .#{$namespace}one-eighth {width: $one-eighth;}
-    .#{$namespace}two-eighths {width: $one-quarter;}
-    .#{$namespace}three-eighths {width: $three-eighths;}
-    .#{$namespace}four-eighths {width: $one-half;}
-    .#{$namespace}five-eighths {width: $five-eighths;}
-    .#{$namespace}six-eighths {width: $three-quarters;}
-    .#{$namespace}seven-eighths {width: $seven-eighths;}
+  /* Eighths */
+  .#{$namespace}one-eighth {width: $one-eighth;}
+  .#{$namespace}two-eighths {width: $one-quarter;}
+  .#{$namespace}three-eighths {width: $three-eighths;}
+  .#{$namespace}four-eighths {width: $one-half;}
+  .#{$namespace}five-eighths {width: $five-eighths;}
+  .#{$namespace}six-eighths {width: $three-quarters;}
+  .#{$namespace}seven-eighths {width: $seven-eighths;}
 
-    /* Tenths */
-    .#{$namespace}one-tenth {width: $one-tenth;}
-    .#{$namespace}two-tenths {width: $one-fifth;}
-    .#{$namespace}three-tenths {width: $three-tenths;}
-    .#{$namespace}four-tenths {width: $two-fifths;}
-    .#{$namespace}five-tenths {width: $one-half;}
-    .#{$namespace}six-tenths {width: $three-fifths;}
-    .#{$namespace}seven-tenths {width: $seven-tenths;}
-    .#{$namespace}eight-tenths {width: $four-fifths;}
-    .#{$namespace}nine-tenths {width: $nine-tenths;}
+  /* Tenths */
+  .#{$namespace}one-tenth {width: $one-tenth;}
+  .#{$namespace}two-tenths {width: $one-fifth;}
+  .#{$namespace}three-tenths {width: $three-tenths;}
+  .#{$namespace}four-tenths {width: $two-fifths;}
+  .#{$namespace}five-tenths {width: $one-half;}
+  .#{$namespace}six-tenths {width: $three-fifths;}
+  .#{$namespace}seven-tenths {width: $seven-tenths;}
+  .#{$namespace}eight-tenths {width: $four-fifths;}
+  .#{$namespace}nine-tenths {width: $nine-tenths;}
 
-    /* Twelfths */
-    .#{$namespace}one-twelfth {width: $one-twelfth;}
-    .#{$namespace}two-twelfths {width: $one-sixth;}
-    .#{$namespace}three-twelfths {width: $one-quarter;}
-    .#{$namespace}four-twelfths {width: $one-third;}
-    .#{$namespace}five-twelfths {width: $five-twelfths;}
-    .#{$namespace}six-twelfths {width: $one-half;}
-    .#{$namespace}seven-twelfths {width: $seven-twelfths;}
-    .#{$namespace}eight-twelfths {width: $two-thirds;}
-    .#{$namespace}nine-twelfths {width: $three-quarters;}
-    .#{$namespace}ten-twelfths {width: $five-sixths;}
-    .#{$namespace}eleven-twelfths {width: $eleven-twelfths;}
+  /* Twelfths */
+  .#{$namespace}one-twelfth {width: $one-twelfth;}
+  .#{$namespace}two-twelfths {width: $one-sixth;}
+  .#{$namespace}three-twelfths {width: $one-quarter;}
+  .#{$namespace}four-twelfths {width: $one-third;}
+  .#{$namespace}five-twelfths {width: $five-twelfths;}
+  .#{$namespace}six-twelfths {width: $one-half;}
+  .#{$namespace}seven-twelfths {width: $seven-twelfths;}
+  .#{$namespace}eight-twelfths {width: $two-thirds;}
+  .#{$namespace}nine-twelfths {width: $three-quarters;}
+  .#{$namespace}ten-twelfths {width: $five-sixths;}
+  .#{$namespace}eleven-twelfths {width: $eleven-twelfths;}
 }
 
 /* Output all the flexible width classes */
 
 /*
-	Note: these may not be required esp. if the width classes are only being used for the grid.
+  Note: these may not be required esp. if the width classes are only being used for the grid.
 */
 
 @include width-classes();
@@ -88,45 +88,45 @@
 /* --Output all the flexible width classes under specific breakpoints applied via specific classes (namespaced) e.g. `.lap-one-half` (all pre-defined breakpoints)-- */
 
 /*
-	Note: be sure to comment out what you don't use as a lot of CSS is generated from all of this.
+  Note: be sure to comment out what you don't use as a lot of CSS is generated from all of this.
 */
 
 /* Non-palm */
 @include respond-min($non-palm) {
-	@include width-classes("non-palm-");
+  @include width-classes("non-palm-");
 }
 
 /* Lap */
 @include respond-range-fixed(lap) {
-	@include width-classes("lap-");
+  @include width-classes("lap-");
 }
 
 /* Lap small */
 @include respond-range-fixed(lap-sml) {
-	@include width-classes("lap-sml-");
+  @include width-classes("lap-sml-");
 }
 
 /* Lap large */
 @include respond-range-fixed(lap-lrg) {
-	@include width-classes("lap-lrg-");
+  @include width-classes("lap-lrg-");
 }
 
 /* Portable */
 @include respond-max($lap-end) {
-	@include width-classes("portable-");
+  @include width-classes("portable-");
 }
 
 /* Desk */
 @include respond-min($desk) {
-	@include width-classes("desk-");
+  @include width-classes("desk-");
 }
 
 /* Desk small */
 @include respond-range-fixed(desk-sml) {
-	@include width-classes("desk-sml-");
+  @include width-classes("desk-sml-");
 }
 
 /* Desk large */
 @include respond-min($desk-lrg) {
-	@include width-classes("desk-lrg-");
+  @include width-classes("desk-lrg-");
 }

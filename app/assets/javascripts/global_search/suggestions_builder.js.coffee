@@ -19,20 +19,30 @@
 
     @urlParams = (result) ->
       params = {}
-      angular.forEach ['colour','retailer','super_cat','category','sub_category','type'], (match_type)->
+      angular.forEach ['colour','retailer','category'], (match_type)->
         angular.forEach result[match_type], (match)->
-          params[match_type] ||= []
-          params[match_type].push(match['value']) unless match['value'] in params[match_type]
+          angular.forEach match['attributes'], (value,key) ->
+            if key in ['super_cat', 'category']
+              params[key] = value
+            else
+              params[key] ||= []
+              params[key].push(value) unless value in params[key]
       params
 
     @queryString = (result, remainder) ->
       qs=""
       angular.forEach @urlParams(result), (vs,k) ->
-        angular.forEach vs, (v)->
-          if qs.length == 0
-            qs += "?#{k}[]=#{v}"
-          else
-            qs += "&#{k}[]=#{v}"
+        if vs instanceof Array
+          angular.forEach vs, (v)->
+            if qs.length == 0
+              qs += "?#{k}[]=#{v}"
+            else
+              qs += "&#{k}[]=#{v}"
+        else
+         if qs.length == 0
+           qs += "?#{k}=#{vs}"
+         else
+           qs += "&#{k}=#{vs}"
       if remainder.length > 0
         if qs.length == 0
           qs = "?search_query=#{remainder}"
@@ -52,21 +62,17 @@
       angular.forEach searchResults, (searchResult)->
         result = {}
         angular.forEach searchResult, (value, key)->
-          result[value['data']['param_name']] ||= []
-          result[value['data']['param_name']].push
+          result[value['data']['result_type']] ||= []
+          result[value['data']['result_type']].push
             display: value['data']['display'],
-            value: value['data']['param_value']
+            attributes: value['data']['attributes']
         description = ""
         if result['colour']
           description += self.to_sentence result['colour'], 'display'
-        res = result['super_cat'] || []
-        res = res.concat result['category'] || []
-        res = res.concat result['sub_category'] || []
-        res = res.concat result['type'] || []
-        if res.length > 0
+        if result['category']
           if description.length > 0
             description += " "
-          description += self.to_sentence res, 'display'
+          description += self.to_sentence result['category'], 'display'
         else
           if description.length > 0
             description += " products"

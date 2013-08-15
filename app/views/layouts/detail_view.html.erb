@@ -9,17 +9,7 @@
 <% end %>
 
   <div class="detail-view__controls detail-view__divider">
-    <ul class="horiz-list horiz-list--fit horiz-list--center horiz-list--dividers">
-      <li>
-        <!-- [BACK END] this button toggles the saving/unsaving of an item, what needs to be toggled: class `is-saved` and button text 'Save' / 'Saved' -->
-        <button type="button" class="controls__btn btn"><span class="icon icon--favs icon--lrg icon--spacing-lrg" aria-hidden="true"></span>Save</button>
-      </li><!--
-      -->
-      <li>
-        <%= render "/shared/social_share", url: current_url, title: page_title, image: page_image %>
-      </li>
-    </ul>
-
+    <%= render "/shared/social_share", url: current_url, title: meta.title, image: meta.image %>
     <% if in_lightbox? %>
       <button type="button" class="btn btn--close"><span class="icon icon--close-sml icon--flush-top" aria-hidden="true"></span><span class="hide-visually"> Close</span></button>
     <% end %>

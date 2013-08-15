@@ -13,7 +13,7 @@
 
       <div class="container">
 
-        <h2 class="stores-maps__hdr">Stores A-Z</h2>
+        <h2 class="stores-maps__filters-toggle__hdr">Stores A-Z</h2>
 
         <%# Filters %>
         <%# [CHRIS TODO] need to add `aria-owns` to the 'Apply' button that points to the filters count %>
@@ -73,7 +73,7 @@
                 <div class="stores-list__logo hide-fully--palm">
                   <div class="vert-align">
                     <div class="vert-align__inner">
-                      <span class="preloader preloader--light" data-image-src="<%= store.logo(width: 168, height: 62) %>" data-image-alt="<%= "#{store.name} logo" %>" data-image-itemprop="photo">
+                      <span class="preloader preloader--light" data-image-src="<%= store.logo(width: 168, height: 62, pad: true, background: 'ffffff') %>" data-image-alt="<%= "#{store.name} logo" %>" data-image-itemprop="photo">
                         <span class="preloader__spinner"></span>
                         <em class="hide-visually">Loading, please wait&#8230;</em>
                       </span>

@@ -19,4 +19,9 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def meta
+    gon.meta ||= Meta.new
+  end
+  helper_method :meta
+
 end

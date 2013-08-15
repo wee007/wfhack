@@ -1,8 +1,8 @@
 module ApplicationHelper
 
-	def header_hero?
+  def header_hero?
     params[:controller] == 'centres' && params[:action] == "show"
-	end
+  end
 
   def in_lightbox?
     false #TODO Add logic here to check if we are in a lightbox.
@@ -10,14 +10,6 @@ module ApplicationHelper
 
   def page? page
     params[:controller] == page.to_s
-  end
-
-  def page_title
-    @page_title || 'Home'
-  end
-
-  def page_image
-    @page_image || ''
   end
 
   def default_placeholder_image

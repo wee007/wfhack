@@ -10,11 +10,11 @@ class CentreHoursController < ApplicationController
     end
     @centre = CentreService.build centre
     @weeks = CentreTradingHourService.build trading_hours
-    @page_title = "#{@centre.name} hours"
 
     # TODO: Should this be a presenter?
     @hero = Hashie::Mash.new heading: 'Opening Hours',
                              image: 'hours'
+    meta.push title: "#{@centre.name} Opening Hours"
   end
 
 end

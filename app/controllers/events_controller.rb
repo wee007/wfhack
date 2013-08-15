@@ -10,7 +10,7 @@ class EventsController < ApplicationController
     end
     @centre = CentreService.build centre
     @events = EventService.build event
-    @page_title = "#{@centre.name} events"
+    meta.push title: "#{@centre.short_name} events"
   end
 
   def show
@@ -21,8 +21,7 @@ class EventsController < ApplicationController
     end
     @centre = CentreService.build centre
     @event = EventService.build event
-    @page_title = @event.name
-    @page_image = @event.image
+    meta.push @event.meta
   end
 
 end

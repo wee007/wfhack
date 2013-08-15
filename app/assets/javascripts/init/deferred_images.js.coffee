@@ -43,6 +43,7 @@ do ($, name) ->
             img = $('<img>')
             for attr in ['src', 'alt', 'itemprop']
               img.attr(attr, el.data("image-#{attr}")) if el.data("image-#{attr}")
+            el.removeAttr('data-image-src')
             img.on('load', do (el) -> -> el.remove())
             img.on('error', do (el) -> -> el.add(this).remove())
             el.after(img)

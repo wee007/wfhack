@@ -208,73 +208,42 @@
   /* --Controls-- */
   .detail-view__controls {
 
-    /* Horizontal list */
-    > .horiz-list {
+    /* Buttons */
+    .controls__btn {
+      display: block;
+      width: 100%;
+      @include to-rem(padding, 12 $spacing-base+$spacing-half 11);
+      @include font-size($font-size-sml, 1);
 
-      /* Adjustments at this breakpoint */
+      /* Remove full width and add right border at this breakpoint */
       @include respond-min($non-palm) {
-        text-align: left;
+        border-right: 1px solid $color-grey-1;
+        display: inline-block;
+        width: auto;
       }
 
-        > li {
-          border-color: $color-grey-1;
-          width: 50%;
-
-          /* Change display at this breakpoint */
-          @include respond-min($non-palm) {
-            display: inline-block;
-            width: auto;
-
-            /* Add right border for last child */
-            &:last-child {border-right: 1px solid $color-grey-1;}
-          }
-        }
+      /* Hover/focus states */
+      &:hover,
+      &:focus {
+        &,
+        .icon:before {color: $color-light-txt;}
       }
 
-        /* Buttons */
-        .controls__btn {
-          display: inline-block;
-          width: 100%;
-          @include to-rem(padding, 12 $spacing-base+$spacing-half 11);
-          @include font-size($font-size-sml, 1);
+      /* Saved state for 'Save' button */
+      &.is-saved {
+        &,
+        .icon:before {color: $color-brand;}
+      }
 
-          /* Hover/focus states */
-          &:hover,
-          &:focus {
-            &,
-            .icon:before {color: $color-light-txt;}
-          }
+        /* Icon */
+        .icon:before {@extend %transition-subtle;}
 
-          /* Saved state for 'Save' button */
-          &.is-saved {
-            &,
-            .icon:before {color: $color-brand;}
-          }
-
-            /* Icon */
-            .icon:before {@extend %transition-subtle;}
-
-            /* Webkit */
-            @include target-webkit {
-              .icon--share:before {top: -2px;}
-            }
+        /* Webkit */
+        @include target-webkit {
+          .icon--share:before {top: -2px;}
         }
+    }
   }
-
-    /*.detail-view__controls__button--close {
-      border: 0;
-      background-color: black;
-      color: white;
-      float: right;
-      border-bottom: 1px solid black;
-      display: none;
-      @include to-rem(width, 40);
-      @include to-rem(padding, $spacing-half);
-
-      @include respond-min($non-palm) {
-        display: block;
-      }
-    }*/
 
   /* --Variations-- */
 

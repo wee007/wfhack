@@ -140,15 +140,21 @@
 
   /* --Store details-- */
   .storefront__details {
-    border-bottom: 1px solid $color-grey-1;
 
     /* Allow store link to be positioned over to the far right at this breakpoint */
     @include respond-min($ipad-portrait) {
       position: relative;
     }
 
+    @include respond-range($ipad-portrait, $ipad-landscape - 1) {
+      border-bottom: 1px solid $color-grey-1;
+
+      /* When there are featured items */
+      .is-featured-items & {border-bottom: 0;}
+    }
+
     /* Inner container */
-    .container {position: relative; background: gold;}
+    .container {position: relative;}
   }
 
     /* Store meta */
@@ -158,11 +164,35 @@
       @include to-rem(padding-bottom, $spacing-third - $spacing-micro);
       @include to-rem(margin-right, 100);
       margin-bottom: 0;
-      //background: red;
 
-      /* Increase right spacing at this breakpoint */
+      /* Increase/decrease right spacing at these breakpoints */
       @include respond-min($non-palm) {
         @include to-rem(margin-right, 130);
+        @include to-rem(padding-top, $spacing-half);
+        @include to-rem(padding-bottom, $spacing-half - $spacing-micro);
+      }
+
+      @include respond-min($ipad-portrait) {
+        @include to-rem(margin-right, 394);
+      }
+
+      @include respond-min(860) {
+        @include to-rem(margin-right, 434);
+      }
+
+      @include respond-min($ipad-landscape) {
+        @include to-rem(margin-right, 235);
+
+        /* When there is no store external link */
+        .is-no-external-link & {margin-right: 0;}
+      }
+
+      @include respond-min($desk) {
+        @include to-rem(margin-right, 265);
+      }
+
+      @include respond-min(1360) {
+        @include to-rem(margin-right, 305);
       }
 
       dd {
@@ -189,16 +219,42 @@
       .storefront__details__meta__no-indent {padding-left: 0;}
     }
 
-    /* --Store phone no and location-- */
+    /* Store phone no and location */
+    .storefront__details__phone-map {
+
+      /* Increase right indents at these breakpoints */
+      @include respond-min($ipad-portrait) {
+        @include to-rem(right, 261);
+      }
+
+      @include respond-min(860) {
+        @include to-rem(right, 301);
+      }
+
+      /* Hide at this breakpoint */
+      @include respond-min($ipad-landscape) {
+        display: none;
+      }
+
+      /* When there is no store external link */
+      @include respond-min($non-palm) {
+        .is-no-external-link & {right: 0;}
+      }
+
+    }
 
     /* Mods to location link at this breakpoint */
     @include respond-min($non-palm) {
       .storefront__details__phone-map .storefront-storelist-phone-map-links__cell--location {
-        @include to-rem(width, 120);
+        @include to-rem(width, 126);
 
-        /* Add right border at this breakpoint */
+        /* Add right border and decrease width at this breakpoint */
         @include respond-min($ipad-portrait) {
+          @include to-rem(width, 120);
           border-right: 1px solid $color-grey-1;
+
+          /* When there is no store external link */
+          .is-no-external-link & {border-right: 0;}
         }
 
         /* Vertically align */
@@ -214,16 +270,15 @@
 
           /* Show link text */
           .hide-visually {
+            @include prefix(transition, all 0.2s);
             @include hide-visually-off;
             color: $color-light-txt;
             display: block;
           }
-      }
-    }
 
-    /* Remove negative right outdent at this breakpoint */
-    @include respond-min($ipad-portrait) {
-      .storefront__details__phone-map {@include to-rem(right, 241);}
+          &:hover .hide-visually,
+          &:focus .hide-visually {color: $color-med-txt;}
+      }
     }
 
     /* Store external link */
@@ -236,12 +291,34 @@
         padding-top: 0;
         padding-bottom: 0;
         @include to-rem(padding-left, $spacing-base);
-        @include to-rem(width, 241);
+        @include to-rem(width, 261);
         position: absolute;
         right: 4%;
         top: 0;
-        height: 100%;
-        background: orange;
+
+        /* Increase width at this breakpoint */
+        @include respond-min(860) {
+          @include to-rem(width, 301);
+        }
+
+        /* Remove left padding and decrease width at this breakpoint */
+        @include respond-min($ipad-landscape) {
+          padding-left: 0;
+          @include to-rem(width, 220);
+        }
+
+        /* Increase widths at these breakpoints */
+        @include respond-min($desk) {
+          @include to-rem(width, 250);
+        }
+
+        @include respond-min(1360) {
+          @include to-rem(width, 290);
+        }
+
+        /* Shared rules */
+        &,
+        .container {height: 100%;}
 
         /* Remove container rules */
         .container {
@@ -258,10 +335,71 @@
             margin-left: auto;
             margin-right: auto;
 
-            /* Back to full width at this breakpoint */
+            /* Back to full width and vertically align at this breakpoint */
             @include respond-min($ipad-portrait) {
               width: 100%;
+              margin: 0;
+              position: absolute;
+              left: 0;
+              top: 50%;
+              @include translate(0, -50%);
             }
           }
         }
     }
+
+  /* Featured items */
+  .storefront__featured__item {
+    border-top: 1px solid $color-grey-1;
+
+    /* Tiles */
+    .tiles-non-pinboard {
+      @extend %mrg-base;
+
+      /* Decrease negative left outdent at this breakpoint range */
+      @include respond-range($ipad-landscape, 1400) {
+        @include to-rem(margin-left, - $spacing-half);
+      }
+
+      /* Tile containers */
+      .tiles-non-pinboard__tile {
+
+        /* Decrease gutter at this breakpoint range */
+        @include respond-range($ipad-landscape, 1400) {
+          @include to-rem(padding-left, $spacing-half);
+        }
+
+        /* Hide 3rd tile for palm */
+        &:last-child {
+          display: none;
+
+          /* Show 3rd tile at this breakpoint */
+          @include respond-min($iphone-landscape) {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+
+    /* Shared rules */
+    .storefront__featured__hdr,
+    .storefront__featured__view-more {
+      font-family: $font-family-opensans;
+      color: $color-light-txt;
+    }
+
+    /* Headings */
+    .storefront__featured__hdr {
+      @include font-size(18, 1.5);
+      @include to-rem(margin-bottom, $spacing-half);
+
+      /* Increase font size at this breakpoint */
+      @include respond-min($non-palm) {
+        @include font-size(22, 1.5);
+      }
+    }
+
+    /* View more links */
+    .storefront__featured__view-more:hover,
+    .storefront__featured__view-more:focus {color: $color-med-txt;}

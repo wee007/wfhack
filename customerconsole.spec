@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.344
+Version:     0.0.351
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,44 @@ fi
 
 
 %changelog
+* Thu Aug 15 2013 ci <doperations@au.westfield.com> 0.0.351-1
+- Fixed social_share's (ldewey@au.westfield.com)
+
+* Thu Aug 15 2013 ci <doperations@au.westfield.com> 0.0.350-1
+- WSF-5069 Treat super_cat and category as single-value facets
+  (cwalsh2@au.westfield.com)
+
+* Thu Aug 15 2013 ci <doperations@au.westfield.com> 0.0.349-1
+- Merge pull request #249 from cpearce/master (ldewey@au.westfield.com)
+- Styling storefront (CPearce@au.westfield.com)
+- TO REVERT BACK - removing favs from detail views (CPearce@au.westfield.com)
+- TO REVERT BACK - removing my account and favs from site header
+  (CPearce@au.westfield.com)
+
+* Wed Aug 14 2013 ci <doperations@au.westfield.com> 0.0.348-1
+- Merge pull request #248 from ldewey/master (cpearce@au.westfield.com)
+- Only show tile heading on stream page. (ldewey@au.westfield.com)
+- Merge pull request #246 from cawalsh/feature/wsf-5069
+  (DOCallaghan@au.westfield.com)
+- WSF-5069 Work with the new search service api (cwalsh2@au.westfield.com)
+
+* Wed Aug 14 2013 ci <doperations@au.westfield.com> 0.0.347-1
+- adds params to get correctly resized image (matt.wratt@trineo.co.nz)
+
+* Wed Aug 14 2013 ci <doperations@au.westfield.com> 0.0.346-1
+- Merge pull request #245 from cpearce/master (matt.wratt@trineo.co.nz)
+- Creating a new global var for box shadow (CPearce@au.westfield.com)
+
+* Wed Aug 14 2013 ci <doperations@au.westfield.com> 0.0.345-1
+- Merge pull request #242 from cpearce/master (matt.wratt@trineo.co.nz)
+- Merge pull request #240 from ldewey/WSF-4886 (matt.wratt@trineo.co.nz)
+- Added Universal Tagging (ldewey@au.westfield.com)
+- Styling storefront (CPearce@au.westfield.com)
+- Removing text from product tile icon (CPearce@au.westfield.com)
+- Removing old PictureFill attributes from Deal tile image
+  (CPearce@au.westfield.com)
+- Create a meta model, and added page titles to that. (ldewey@au.westfield.com)
+
 * Tue Aug 13 2013 ci <doperations@au.westfield.com> 0.0.344-1
 - Link to retailer product url if provided in api (cwalsh2@au.westfield.com)
 

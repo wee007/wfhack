@@ -97,10 +97,20 @@ class map.micello.Map extends map.micello.MapBase
     index
 
   popupHtml: (store) ->
-    store.logo = store._links.logo.href if store?.links?.logo?.href?
+    return 'Store not found' unless store.id
+    if store?._links?.logo?.href?
+      store.logo = new map.micello.Link(store._links.logo.href).params(size: '168x62', pad: true, background: 'ffffff').href
     popup = @popupContent ||= $('.map-micello__overlay-wrap').html()
     popup = popup.replace(new RegExp("\#{store.#{name}}", 'g'), value) for name, value of store
-    popup
+    popup = $(popup)
+    removeLogo = ($el = $(@)) ->
+      $el.parents('.js-toggle-logo-image').addClass('is-no-store-logo')
+      $el.remove()
+    if store.logo
+      popup.find('img').on('error', removeLogo)
+    else
+      removeLogo.call(popup.find('img'))
+    popup[0].outerHTML
 
   onMapChanged: (event) =>
     return unless event.comLoad

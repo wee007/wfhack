@@ -1,9 +1,9 @@
 <%# FIXME: This really needs to be moved to something that can handle templating in JS better %>
 <%# FIXME: [BACKEND] when on 'stores show' the relevant store popup needs a hook on the container: `<div class="map-micello__overlay islet">` so that we can hide the 'Store details' button when in large view (i.e. storefront and map are both showing), and show it for all the other stores, the class is `.is-active-store` %>
-<div class="map-micello__overlay islet">
+<div class="map-micello__overlay islet js-toggle-logo-image">
   <div class="map-micello__overlay__retailer map-micello__mrg-base">
     <div class="map-micello__overlay__retailer__img">
-      <img src="#{store.logo}" alt="#{store.name} logo" onerror="window.$ && $(this).parents('.map-micello__overlay.islet').addClass('is-no-store-logo').find('.map-micello__overlay__retailer__img').remove()">
+      <img src="#{store.logo}" alt="#{store.name} logo">
     </div>
     <div class="map-micello__overlay__retailer__body">
       <em class="map-micello__hdr txt-break-word">#{store.name}</em>

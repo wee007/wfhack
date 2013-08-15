@@ -3,7 +3,7 @@
   <div class="sg-note">
     <p><%= section.description %></p>
     <% if section.modifiers.any? %>
-      <ul class="styleguide-modifier">
+      <ul>
         <% section.modifiers.each do |modifier| %>
           <li><strong><%= modifier.name %></strong> - <%= modifier.description %></li>
         <% end %>
@@ -11,18 +11,16 @@
     <% end %>
   </div>
 
-  <div class="sg-h3">Base style</div>
-  <div class="sg-element">
+  <div class="sg-example">
     <%= example_html.html_safe %>
   </div>
 
-  <div class="sg-h3">With modifier</div>
   <% section.modifiers.each do |modifier| %>
-    <div class="sg-element sg-modifier">
+    <div class="sg-example sg-modifier">
       <span class="sg-modifier-name"><%= modifier.name %></span>
       <%= example_html.gsub('$modifier_class', modifier.class_name).html_safe %>
     </div>
   <% end %>
 
-  <pre class="sg-code"><code data-language="html"><%= example_html.strip.gsub(' $modifier_class', '') %></code></pre>
+  <pre><code data-language="html"><%= example_html.strip.gsub(' $modifier_class', '') %></code></pre>
 </div>

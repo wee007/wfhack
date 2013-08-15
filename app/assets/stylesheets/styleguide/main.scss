@@ -307,10 +307,6 @@ body {
 	margin-left: 0;
 }
 
-.sg-example {
-	border-bottom: 1px solid #839496;
-}
-
 /* [NOTE]
 -------------------------------------------------------*/
 .sg-note {
@@ -352,12 +348,17 @@ body {
 
 .sg-inputs-btns li * {vertical-align: middle;}
 
+/* [EXAMPLE]
+-------------------------------------------------------*/
+.sg-example {
+	padding: 25px 35px 35px 0;
+}
+
 /* [MODIFIER]
 -------------------------------------------------------*/
 .sg-modifier {
 	position: relative;
-	padding: 25px 35px 35px 35px;
-	border-top: 1px solid #93a1a1;
+	border-top: 1px solid #073642;
 }
 
 .sg-modifier-name {
@@ -389,8 +390,14 @@ body {
 	font-size: 12px;
 	display: inline-block;
 	margin: 0 2px 1px;
-	width: 100%;
 	text-shadow: none;
+}
+
+pre {
+	padding: 1px 6px;
+	background-color: #f8f8f8;
+	border: 1px solid #ccc;
+	border-radius: 4px;
 }
 
 /* [ALERTS]

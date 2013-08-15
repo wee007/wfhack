@@ -18,8 +18,7 @@ class Store < Hashie::Mash
   end
 
   def logo(options = {})
-    options.merge!({url: logo_href})
-    ImageService.transform options
+    ImageService.transform logo_transform_options(logo_href, options)
   end
 
   def store_front_image_url
@@ -31,10 +30,19 @@ class Store < Hashie::Mash
   end
 
 private
+
   def get_centre
     centre_service = CentreService.fetch(centre_id)
     CentreService.build centre_service
   end
 
+  def logo_transform_options(url, options)
+    ref = url.gsub(/.*ref=([^\&#]+).*/, '\\1')
+    if ref == url
+      options.merge!({url: url})
+    else
+      options.merge!({ref: ref})
+    end
+  end
 
 end

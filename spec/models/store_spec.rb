@@ -49,6 +49,17 @@ describe Store do
         subject.logo.should eql('transformed_image')
       end
 
+      describe 'using a ref' do
+
+        let(:ref) { 'logo_ref' }
+        let(:logo) { "http://imageservice.com?params&ref=#{ref}&stuff" }
+
+        it 'returns the contents of _links.logo.href' do
+          ImageService.should_receive(:transform).with(ref: ref).and_return('transformed_image')
+          subject.logo.should eql('transformed_image')
+        end
+      end
+
     end
 
   end

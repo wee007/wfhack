@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.350
+Version:     0.0.351
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,9 @@ fi
 
 
 %changelog
+* Thu Aug 15 2013 ci <doperations@au.westfield.com> 0.0.351-1
+- Fixed social_share's (ldewey@au.westfield.com)
+
 * Thu Aug 15 2013 ci <doperations@au.westfield.com> 0.0.350-1
 - WSF-5069 Treat super_cat and category as single-value facets
   (cwalsh2@au.westfield.com)

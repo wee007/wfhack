@@ -254,6 +254,14 @@ body {
 	margin-top: 24px;
 	background-color: #839496;
 	text-shadow: 0 1px 1px rgba(0, 0, 0, 0.6);
+
+	code {
+		float: right;
+		margin-top: 3px;
+		color: #fff;
+		text-shadow: none;
+		font-size: 14px;
+	}
 }
 
 /* [H3]

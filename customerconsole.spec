@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.358
+Version:     0.0.359
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,11 @@ fi
 
 
 %changelog
+* Fri Aug 16 2013 ci <doperations@au.westfield.com> 0.0.359-1
+- Merge pull request #261 from cpearce/master (ldewey@au.westfield.com)
+- Adding clearfix to pinboard to better contain tiles pre-isotope
+  (CPearce@au.westfield.com)
+
 * Fri Aug 16 2013 ci <doperations@au.westfield.com> 0.0.358-1
 - Remove nextPage method (ben@germanforblack.com)
 - Merge remote-tracking branch 'digital/master' (ben@germanforblack.com)

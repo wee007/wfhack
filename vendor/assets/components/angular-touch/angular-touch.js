@@ -1,5 +1,5 @@
 /**
- * @license AngularJS v1.1.6-258e986
+ * @license AngularJS v1.2.0rc1
  * (c) 2010-2012 Google, Inc. http://angularjs.org
  * License: MIT
  */
@@ -7,24 +7,24 @@
 
 /**
  * @ngdoc overview
- * @name ngMobile
+ * @name ngTouch
  * @description
  * Touch events and other mobile helpers.
  * Based on jQuery Mobile touch event handling (jquerymobile.com)
  */
 
-// define ngMobile module
-var ngMobile = angular.module('ngMobile', []);
+// define ngTouch module
+var ngTouch = angular.module('ngTouch', []);
 
 /**
      * @ngdoc object
-     * @name ngMobile.$swipe
+     * @name ngTouch.$swipe
      *
      * @description
      * The `$swipe` service is a service that abstracts the messier details of hold-and-drag swipe
      * behavior, to make implementing swipe-related directives more convenient.
      *
-     * It is used by the `ngSwipeLeft` and `ngSwipeRight` directives in `ngMobile`, and by
+     * It is used by the `ngSwipeLeft` and `ngSwipeRight` directives in `ngTouch`, and by
      * `ngCarousel` in a separate component.
      *
      * # Usage
@@ -33,7 +33,7 @@ var ngMobile = angular.module('ngMobile', []);
      * documentation for `bind` below.
      */
 
-ngMobile.factory('$swipe', [function() {
+ngTouch.factory('$swipe', [function() {
   // The total distance in any direction before we make the call on swipe vs. scroll.
   var MOVE_BUFFER_RADIUS = 10;
 
@@ -53,8 +53,8 @@ ngMobile.factory('$swipe', [function() {
   return {
     /**
      * @ngdoc method
-     * @name ngMobile.$swipe#bind
-     * @methodOf ngMobile.$swipe
+     * @name ngTouch.$swipe#bind
+     * @methodOf ngTouch.$swipe
      *
      * @description
      * The main method of `$swipe`. It takes an element to be watched for swipe motions, and an
@@ -151,7 +151,7 @@ ngMobile.factory('$swipe', [function() {
 
 /**
  * @ngdoc directive
- * @name ngMobile.directive:ngClick
+ * @name ngTouch.directive:ngClick
  *
  * @description
  * A more powerful replacement for the default ngClick designed to be used on touchscreen
@@ -180,7 +180,7 @@ ngMobile.factory('$swipe', [function() {
     </doc:example>
  */
 
-ngMobile.config(['$provide', function($provide) {
+ngTouch.config(['$provide', function($provide) {
   $provide.decorator('ngClickDirective', ['$delegate', function($delegate) {
     // drop the default ngClick directive
     $delegate.shift();
@@ -188,7 +188,7 @@ ngMobile.config(['$provide', function($provide) {
   }]);
 }]);
 
-ngMobile.directive('ngClick', ['$parse', '$timeout', '$rootElement',
+ngTouch.directive('ngClick', ['$parse', '$timeout', '$rootElement',
     function($parse, $timeout, $rootElement) {
   var TAP_DURATION = 750; // Shorter than 750ms is a tap, longer is a taphold or drag.
   var MOVE_TOLERANCE = 12; // 12px seems to work in most mobile browsers.
@@ -284,6 +284,9 @@ ngMobile.directive('ngClick', ['$parse', '$timeout', '$rootElement',
     // If we didn't find an allowable region, bust the click.
     event.stopPropagation();
     event.preventDefault();
+
+    // Blur focused form elements
+    event.target && event.target.blur();
   }
 
 
@@ -418,7 +421,7 @@ ngMobile.directive('ngClick', ['$parse', '$timeout', '$rootElement',
 
 /**
  * @ngdoc directive
- * @name ngMobile.directive:ngSwipeLeft
+ * @name ngTouch.directive:ngSwipeLeft
  *
  * @description
  * Specify custom behavior when an element is swiped to the left on a touchscreen device.
@@ -445,7 +448,7 @@ ngMobile.directive('ngClick', ['$parse', '$timeout', '$rootElement',
 
 /**
  * @ngdoc directive
- * @name ngMobile.directive:ngSwipeRight
+ * @name ngTouch.directive:ngSwipeRight
  *
  * @description
  * Specify custom behavior when an element is swiped to the right on a touchscreen device.
@@ -471,7 +474,7 @@ ngMobile.directive('ngClick', ['$parse', '$timeout', '$rootElement',
  */
 
 function makeSwipeDirective(directiveName, direction, eventName) {
-  ngMobile.directive(directiveName, ['$parse', '$swipe', function($parse, $swipe) {
+  ngTouch.directive(directiveName, ['$parse', '$swipe', function($parse, $swipe) {
     // The maximum vertical delta for a swipe should be less than 75px.
     var MAX_VERTICAL_DISTANCE = 75;
     // Vertical distance should not be more than a fraction of the horizontal distance.

@@ -3,7 +3,7 @@
 <div class="stores-maps stores-maps--detail container js-stores-maps-toggle-wrap">
 
   <%# Contain 'back to listing link' and 'store details' %>
-  <div class="stores-maps__inner js-stores-maps-toggle-listing-detail" id="stores-maps-toggle-listing-detail">
+  <div class="stores-maps__inner" id="stores-maps-toggle-listing-detail">
 
     <%# Back to listing link %>
     <div class="stores-maps__filters-toggle">
@@ -198,7 +198,7 @@
 
   <%# Map %>
   <%# FIXME: [BACKEND] map not rendering %>
-  <div class="stores-maps__map map-micello js-stores-maps-toggle-map" id="stores-maps-toggle-map">
+  <div class="stores-maps__map map-micello" id="stores-maps-toggle-map">
     <%= render partial: 'shared/map', locals: {store_id: nil, interactive: true, load_immediately: false} %>
   </div>
   <%# //Map %>

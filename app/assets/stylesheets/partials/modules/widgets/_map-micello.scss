@@ -73,14 +73,7 @@
           position: relative;
           @include to-rem(padding-left, 95);
 
-          /* --Make linear at these breakpoints-- */
-
-          /* Stores & maps */
-          @include respond-max($palm) {
-            .stores-maps__map & {padding-left: 0;}
-          }
-
-          /* Static version */
+          /* Make linear for static version at this breakpoint range */
           @include respond-range($non-palm, $ipad-portrait - 1) {
             .map-micello--static & {padding-left: 0;}
           }
@@ -96,19 +89,7 @@
             left: 0;
             top: 0;
 
-            /* --Make linear at these breakpoints-- */
-
-            /* Stores & maps */
-            @include respond-max($palm) {
-              .stores-maps__map & {
-                position: static;
-                @include to-rem(margin-bottom, $spacing-quarter);
-                margin: 0 auto;
-                width: 108px;
-              }
-            }
-
-            /* Static version */
+            /* Make linear for static version at this breakpoint range */
             @include respond-range($non-palm, $ipad-portrait - 1) {
               .map-micello--static & {
                 position: static;
@@ -171,14 +152,7 @@
         padding-bottom: 13px !important;
         @include to-rem(margin-left, -106, !important);
 
-        /* --Reduce the width at these breakpoints-- */
-
-        /* Stores & maps */
-        @include respond-max($palm) {
-          .stores-maps__map & {@include to-rem(margin-left, -80, !important);}
-        }
-
-        /* Static version */
+        /* Reduce the width for static version at this breakpoint range */
         @include respond-range($non-palm, $ipad-portrait - 1) {
           .map-micello--static & {@include to-rem(margin-left, -80, !important);}
         }
@@ -192,14 +166,7 @@
           overflow: visible !important;
           margin-bottom: -14px !important;
 
-          /* --Reduce the width at these breakpoints-- */
-
-          /* Stores & maps */
-          @include respond-max($palm) {
-            .stores-maps__map & {@include to-rem(width, 200, !important);}
-          }
-
-          /* Static version */
+          /* Reduce the width for static version at this breakpoint range */
           @include respond-range($non-palm, $ipad-portrait - 1) {
             .map-micello--static & {@include to-rem(width, 200, !important);}
           }

@@ -9,16 +9,16 @@ class Store < Hashie::Mash
     end
   end
 
-  def logo_href
-    _links.logo.href
+  def logo_ref
+    _links.logo.ref
   end
 
   def has_logo?
-    logo_href.present?
+    logo_ref.present?
   end
 
   def logo(options = {})
-    options.merge!({url: logo_href})
+    options.merge!({ref: logo_ref})
     ImageService.transform options
   end
 
@@ -31,10 +31,10 @@ class Store < Hashie::Mash
   end
 
 private
+
   def get_centre
     centre_service = CentreService.fetch(centre_id)
     CentreService.build centre_service
   end
-
 
 end

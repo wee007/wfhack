@@ -58,6 +58,8 @@
     $scope.bootstrap = function () {
       Search.formatSearchResults( $window.westfield.products );
       useUrlParams();
+
+      if ( !$scope.sort ) $scope.sort = '';
     };
 
     $scope.updateSearch = function () {

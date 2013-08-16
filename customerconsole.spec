@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.351
+Version:     0.0.357
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,42 @@ fi
 
 
 %changelog
+* Fri Aug 16 2013 ci <doperations@au.westfield.com> 0.0.357-1
+- 
+
+* Fri Aug 16 2013 ci <doperations@au.westfield.com> 0.0.356-1
+- 
+
+* Fri Aug 16 2013 ci <doperations@au.westfield.com> 0.0.355-1
+- Merge pull request #257 from ldewey/master (cpearce@au.westfield.com)
+- Addded uuid to social share aria (ldewey@au.westfield.com)
+
+* Thu Aug 15 2013 ci <doperations@au.westfield.com> 0.0.354-1
+- 
+
+* Thu Aug 15 2013 ci <doperations@au.westfield.com> 0.0.353-1
+- Utag data update (ldewey@au.westfield.com)
+
+* Thu Aug 15 2013 ci <doperations@au.westfield.com> 0.0.352-1
+- Regenerated vcd run for global search (ben@germanforblack.com)
+- Merge remote-tracking branch 'digital/master' into centre-selector
+  (ben@germanforblack.com)
+- Merge remote-tracking branch 'digital/master' into centre-selector
+  (ben@germanforblack.com)
+- Added centre selector controller (ben@germanforblack.com)
+- Made the on sale filter option more like the other filter options
+  (ben@germanforblack.com)
+- Added nearby centres query (ben@germanforblack.com)
+- Render the contextual navigation (ben@germanforblack.com)
+- Change up styles now that canned search is being pulled
+  (ben@germanforblack.com)
+- Title changed to "Available at" for cases when the product isn't actually
+  available at the currently selected centre. (ben@germanforblack.com)
+- Copy url params on bootstrap. Move product update to after filters have been
+  updated. (ben@germanforblack.com)
+- Introduce Search.onChange, product browse controller now registers a global
+  callback whenever the search is updated. (ben@germanforblack.com)
+
 * Thu Aug 15 2013 ci <doperations@au.westfield.com> 0.0.351-1
 - Fixed social_share's (ldewey@au.westfield.com)
 

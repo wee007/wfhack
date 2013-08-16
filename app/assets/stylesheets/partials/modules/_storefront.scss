@@ -288,6 +288,7 @@
 
       /* Position over to the far right at this breakpoint */
       @include respond-min($ipad-portrait) {
+        border-top: 0;
         padding-top: 0;
         padding-bottom: 0;
         @include to-rem(padding-left, $spacing-base);
@@ -343,12 +344,17 @@
               left: 0;
               top: 50%;
               @include translate(0, -50%);
+
+              /* Old IE */
+              @include old-ie {
+                top: 30%;
+              }
             }
           }
         }
     }
 
-  /* Featured items */
+  /* Featured items (tiles) */
   .storefront__featured__item {
     border-top: 1px solid $color-grey-1;
 
@@ -368,19 +374,28 @@
         @include respond-range($ipad-landscape, 1400) {
           @include to-rem(padding-left, $spacing-half);
         }
-
-        /* Hide 3rd tile for palm */
-        &:last-child {
-          display: none;
-
-          /* Show 3rd tile at this breakpoint */
-          @include respond-min($iphone-landscape) {
-            display: block;
-          }
-        }
       }
     }
+
+      /* Mods for 'Deals' tile at this breakpoint range */
+      @include respond-range($ipad-landscape, 1300) {
+        .tile--deals .tile__meta {
+          @include to-rem(padding, 55 15);
+
+          .tile__meta__desc {@include font-size($font-size-sml, 1.5);}
+        }
+      }
   }
+
+    /* Hide 3rd tile for palm */
+    .storefront__featured__item .tiles-non-pinboard__tile + .tiles-non-pinboard__tile + .tiles-non-pinboard__tile {
+      display: none;
+
+      /* Show 3rd tile at this breakpoint */
+      @include respond-min($iphone-landscape) {
+        display: block;
+      }
+    }
 
     /* Shared rules */
     .storefront__featured__hdr,

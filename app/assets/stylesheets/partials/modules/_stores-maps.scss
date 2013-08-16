@@ -241,19 +241,14 @@
       right: 0;
       overflow: auto;
 
+      /* Post filter count */
+      .is-filter-applied & {@include to-rem(top, 88);}
+
       /* iOS/Android */
       .ios &,
       .android & {
         overflow: scroll;
         -webkit-overflow-scrolling: touch;
-      }
-
-      /* Turn off absolute positioning/overflow for 'detail view' at this breakpoint */
-      @include respond-max($ipad-landscape - 1) {
-        .stores-maps--detail & {
-          position: static;
-          overflow: visible;
-        }
       }
 
       /* When map view is in view */
@@ -269,8 +264,18 @@
       /* Non JS users */
       .no-js & {position: static;}
 
-      /* Post filter count */
-      .is-filter-applied & {@include to-rem(top, 88);}
+      /* Old IE - change the bg colour */
+      @include old-ie {
+        .stores-maps.stores-maps--detail .stores-maps__inner & {background-color: lighten($color-grey-3, 5%);}
+      }
+
+      /* Turn off absolute positioning/overflow for 'detail view' at this breakpoint */
+      @include respond-max($ipad-landscape - 1) {
+        .stores-maps--detail & {
+          position: static;
+          overflow: visible;
+        }
+      }
 
       /* Alter top positioning at this breakpoint */
       @include respond-min($non-palm) {
@@ -289,8 +294,16 @@
         @include box;
         @include box-heavy;
 
-        /* Detail view - when there are 'Featured items' */
-        .stores-maps--detail &.is-featured-items {background-color: $color-grey-3;}
+        /* Detail view */
+        .stores-maps--detail & {
+          bottom: auto;
+
+          /* When they're 'Featured items' */
+          &.is-featured-items {
+            background-color: $color-grey-3;
+            @include to-rem(bottom, $spacing-base);
+          }
+        }
 
         /* Post filter count */
         .is-filter-applied & {@include to-rem(top, 200);}

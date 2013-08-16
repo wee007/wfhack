@@ -66,12 +66,6 @@
 			top: 50%;
 			@include translate(0, -50%);
 
-			/* IE 10/9 */
-			@include ie-10-up {
-				@include translate(0, -40%);
-			}
-			.ie-9 & {@include translate(0, -40%);}
-
 			/* Old IE */
 			@include old-ie {
 				top: 28%;

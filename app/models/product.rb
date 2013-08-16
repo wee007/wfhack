@@ -28,11 +28,13 @@ class Product < Hashie::Mash
   end
 
   def meta
+    product_category_code = categories ? categories.collect { |cat| cat['code'] } : []
+
     Meta.new title: name,
              image: primary_image,
              # For universal tagging
              product_sku: [sku],
-             product_category_code: '',
+             product_category_code: product_category_code,
              currency: 'AUD',
              retailer_code: retailer_code,
              product_name: [name]

@@ -117,15 +117,13 @@
   <!-- //Everything Else -->
 
   <!-- Clickable Inputs & Buttons -->
-  <ul class="list sg-list--reset">
-    <li><label class="sg-lbl pt-sans-narrow-reg">Image (input)</label> <input type="image" src="http://placekitten.com/90/24" alt="Image (input)"></li>
-    <li><input type="reset" value="Reset (input)"></li>
-    <li><input type="button" value="Button (input)"></li>
-    <li><input type="submit" value="Submit (input)"></li>
-    <li><button type="reset">Reset (button)</button></li>
-    <li><button type="button">Button (button)</button></li>
-    <li><button type="submit">Submit (button)</button></li>
-  </ul>
+    <ul class="list sg-list--reset">
+      <%= styleguide_block 'Button Main' do %>
+        <li><button class="btn btn--main $modifier_class" type="button">Button (button)</button></li>
+      <% end %>
+    </ul>
+      <!-- <li><button class="btn" type="reset">Reset (button)</button></li>
+      <li><button class="btn" type="submit">Submit (button)</button></li> -->
 
   <div class="sg-h3">Disabled</div>
   <ul class="list sg-list--reset">

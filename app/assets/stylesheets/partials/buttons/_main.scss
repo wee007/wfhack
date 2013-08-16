@@ -3,147 +3,156 @@
    ====================================================================================== */
 
 /*
-	Usage:
-		The main button for the site.
+  The main button for the site.
+  
+  .btn--main-alt              - Blue
+  .btn--main-alt2             - Dark
+  .btn--main-alt3             - Subtle
+  .btn--main-alt4             - White
+  .btn--main-compact          - Decrease padding
+  .btn--main-lrg              - Large - increase top/btm padding 
 
-	Note:
-		Extends from `.btn`, see: 'buttons/base'.
+  Styleguide Button Main
+*/
 
-	Demo:
-		Style Guide -> Buttons -> Main
+//TODO: .btn-main-compact-icon
+
+/*
+  Note:
+    Extends from `.btn`, see: 'buttons/base'.
 */
 
 .btn--main {
-	@include font-size($font-size-sml, normal);
-	@include to-em(padding, $spacing-half $spacing-base+$spacing-half);
-	box-shadow: inset 0 -1px 0 rgba(#000, 0.4);
-	border-radius: $border-radius;
+  @include font-size($font-size-sml, normal);
+  @include to-em(padding, $spacing-half $spacing-base+$spacing-half);
+  box-shadow: inset 0 -1px 0 rgba(#000, 0.4);
+  border-radius: $border-radius;
 
-	/* Bg colour combined with disabled state */
-	&,
-	&[disabled],
-	&.is-disabled {background-color: $color-cta-green;}
+  /* Bg colour combined with disabled state */
+  &,
+  &[disabled],
+  &.is-disabled {background-color: $color-cta-green;}
 
-	/* Parent + pseudo classes */
-	&,
-	&:visited,
-	&:hover,
-	&:focus {color: #fff;}
+  /* Parent + pseudo classes */
+  &,
+  &:visited,
+  &:hover,
+  &:focus {color: #fff;}
 
-	/* Pseudo classes */
-	&:hover,
-	&:focus {background-color: lighten($color-cta-green, 10%);}
+  /* Pseudo classes */
+  &:hover,
+  &:focus {background-color: lighten($color-cta-green, 10%);}
 
-	&:active {box-shadow: inset 0 1px 0 rgba(#000, 0.4);}
+  &:active {box-shadow: inset 0 1px 0 rgba(#000, 0.4);}
 }
 
-	/* --Extenders-- */
+  /* --Extenders-- */
 
-	/* -Alternate colours- */
+  /* -Alternate colours- */
 
-	/* Blue */
-	.btn--main-alt {
-		/* Bg colour combined with disabled state */
-		&,
-		&[disabled],
-		&.is-disabled {background-color: $color-cta-blue;}
+  /* Blue */
+  .btn--main-alt {
+    /* Bg colour combined with disabled state */
+    &,
+    &[disabled],
+    &.is-disabled {background-color: $color-cta-blue;}
 
-		/* Pseudo classes */
-		&:hover,
-		&:focus {background-color: lighten($color-cta-blue, 10%);}
-	}
+    /* Pseudo classes */
+    &:hover,
+    &:focus {background-color: lighten($color-cta-blue, 10%);}
+  }
 
-	/* Dark */
-	.btn--main-alt2 {
-		/* Bg colour combined with disabled state */
-		&,
-		&[disabled],
-		&.is-disabled {background-color: $color-med-txt;}
+  /* Dark */
+  .btn--main-alt2 {
+    /* Bg colour combined with disabled state */
+    &,
+    &[disabled],
+    &.is-disabled {background-color: $color-med-txt;}
 
-		/* Pseudo classes */
-		&:hover,
-		&:focus {background-color: lighten($color-med-txt, 10%);}
-	}
+    /* Pseudo classes */
+    &:hover,
+    &:focus {background-color: lighten($color-med-txt, 10%);}
+  }
 
-	/* Subtle */
-	.btn--main-alt3 {
-		box-shadow: inset 0 -1px 0 rgba(#000, 0.15);
+  /* Subtle */
+  .btn--main-alt3 {
+    box-shadow: inset 0 -1px 0 rgba(#000, 0.15);
 
-		/* Bg colour combined with disabled state */
-		&,
-		&[disabled],
-		&.is-disabled {background-color: $color-grey-3;}
+    /* Bg colour combined with disabled state */
+    &,
+    &[disabled],
+    &.is-disabled {background-color: $color-grey-3;}
 
-		/* Parent + pseudo classes */
-		&,
-		&:visited,
-		&:hover,
-		&:focus {color: $color-dark-txt;}
+    /* Parent + pseudo classes */
+    &,
+    &:visited,
+    &:hover,
+    &:focus {color: $color-dark-txt;}
 
-		&:hover,
-		&:focus {background-color: lighten($color-grey-3, 3%);}
+    &:hover,
+    &:focus {background-color: lighten($color-grey-3, 3%);}
 
-		&:active {box-shadow: inset 0 1px 0 rgba(#000, 0.15);}
-	}
+    &:active {box-shadow: inset 0 1px 0 rgba(#000, 0.15);}
+  }
 
-	/* White */
-	.btn--main-alt4 {
-		box-shadow: inset 0 -1px 0 rgba(#000, 0.15);
+  /* White */
+  .btn--main-alt4 {
+    box-shadow: inset 0 -1px 0 rgba(#000, 0.15);
 
-		/* Bg colour combined with disabled state */
-		&,
-		&[disabled],
-		&.is-disabled {background-color: #fff;}
+    /* Bg colour combined with disabled state */
+    &,
+    &[disabled],
+    &.is-disabled {background-color: #fff;}
 
-		/* Parent + pseudo classes */
-		&,
-		&:visited,
-		&:hover,
-		&:focus {color: $color-light-txt;}
+    /* Parent + pseudo classes */
+    &,
+    &:visited,
+    &:hover,
+    &:focus {color: $color-light-txt;}
 
-		&:hover,
-		&:focus {background-color: lighten($color-off-white, 3%);}
+    &:hover,
+    &:focus {background-color: lighten($color-off-white, 3%);}
 
-		&:active {box-shadow: inset 0 1px 0 rgba(#000, 0.15);}
-	}
+    &:active {box-shadow: inset 0 1px 0 rgba(#000, 0.15);}
+  }
 
-	/* Compact - decrease padding */
-	.btn--main-compact {@include to-em(padding, $spacing-third $spacing-base);}
+  /* Compact - decrease padding */
+  .btn--main-compact {@include to-em(padding, $spacing-third $spacing-base);}
 
-	/* Compact - extra compact padding (use with icons) */
-	.btn--main-compact-icon {@include to-em(padding, $spacing-half $spacing-half+3.5);}
+  /* Compact - extra compact padding (use with icons) */
+  .btn--main-compact-icon {@include to-em(padding, $spacing-half $spacing-half+3.5);}
 
-	/* Large - increase top/btm padding */
-	.btn--main-lrg {@include to-em(padding-top padding-bottom, $spacing-half+$spacing-micro);}
+  /* Large - increase top/btm padding */
+  .btn--main-lrg {@include to-em(padding-top padding-bottom, $spacing-half+$spacing-micro);}
 
-	/* Pointer - used when you need to position an arrow icon over to the far right, has to be used with the `.btn--pointer` base extender */
-	.btn--pointer.btn--main {
-		@include to-em(padding-left, $spacing-half);
-		@include to-em(padding-right, $spacing-base+$spacing-half+$spacing-micro);
+  /* Pointer - used when you need to position an arrow icon over to the far right, has to be used with the `.btn--pointer` base extender */
+  .btn--pointer.btn--main {
+    @include to-em(padding-left, $spacing-half);
+    @include to-em(padding-right, $spacing-base+$spacing-half+$spacing-micro);
 
-		/* Icon */
-		.btn--pointer__icon {@include to-em(right, $spacing-half);}
-	}
+    /* Icon */
+    .btn--pointer__icon {@include to-em(right, $spacing-half);}
+  }
 
-	/* As above but position icon over to the far left */
-	.btn--pointer-alt.btn--main {
-		@include to-em(padding-left, $spacing-base+$spacing-half+$spacing-micro);
-		@include to-em(padding-right, $spacing-half);
+  /* As above but position icon over to the far left */
+  .btn--pointer-alt.btn--main {
+    @include to-em(padding-left, $spacing-base+$spacing-half+$spacing-micro);
+    @include to-em(padding-right, $spacing-half);
 
-		/* Icon */
-		.btn--pointer__icon {
-			right: auto;
-			@include to-em(left, $spacing-half);
-		}
-	}
+    /* Icon */
+    .btn--pointer__icon {
+      right: auto;
+      @include to-em(left, $spacing-half);
+    }
+  }
 
-	/* Flanked - position 2 icons either ends, has to be used with the `.btn--pointer` base extender */
-	.btn--main.btn--main-flanked {
-		@include to-em(padding, $spacing-half+$spacing-micro+$spacing-micro $spacing-dbl);
+  /* Flanked - position 2 icons either ends, has to be used with the `.btn--pointer` base extender */
+  .btn--main.btn--main-flanked {
+    @include to-em(padding, $spacing-half+$spacing-micro+$spacing-micro $spacing-dbl);
 
-		/* Icons */
-		.btn--pointer__icon + .btn--pointer__icon {
-			@include to-em(left, $spacing-half);
-			right: auto;
-		}
-	}
+    /* Icons */
+    .btn--pointer__icon + .btn--pointer__icon {
+      @include to-em(left, $spacing-half);
+      right: auto;
+    }
+  }

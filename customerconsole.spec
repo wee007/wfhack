@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.361
+Version:     0.0.362
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,14 @@ fi
 
 
 %changelog
+* Fri Aug 16 2013 ci <doperations@au.westfield.com> 0.0.362-1
+- Merge pull request #254 from mwratt/feature/logos-fix-up
+  (cwalsh2@au.westfield.com)
+- use logo ref intead of regex'n it (matt.wratt@trineo.co.nz)
+- fixes popping issue with deferred logo spinner (matt.wratt@trineo.co.nz)
+- removed double call to image transform service (matt.wratt@trineo.co.nz)
+- fixes logo on map popup (matt.wratt@trineo.co.nz)
+
 * Fri Aug 16 2013 ci <doperations@au.westfield.com> 0.0.361-1
 - Merge pull request #260 from ldewey/WSF-5054 (ben@germanforblack.com)
 - Added product price (ldewey@au.westfield.com)

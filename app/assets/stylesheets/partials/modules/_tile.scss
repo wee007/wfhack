@@ -119,13 +119,12 @@
     position: relative;
     font-weight: bold;
     display: block;
-    @include to-rem(padding-top, 4);
+    @include to-rem(padding-top, 7);
     @include font-size($font-size - 4, 1);
 
     /* Float right at this breakpoint, as we have the space */
     @include respond-min($desk) {
       @include font-size($font-size-milli, 0.5);
-      float: right;
     }
   }
 

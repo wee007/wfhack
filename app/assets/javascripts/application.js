@@ -31,9 +31,10 @@
 //= require ./init/tabs
 //= require ./init/deferred_images
 
-//= require ./vendor/angular-head
-//= require ./vendor/angular-mobile
-//= require ./vendor/angular-sanitize
+//= require angular
+//= require angular-touch
+//= require angular-sanitize
+
 //= require ./angular/app
 //= require_tree ./angular/
 //= require_tree ./global_search

@@ -15,7 +15,7 @@
 <!-- Vertical Alignment -->
 <%= styleguide_block 'Vertical Alignment' do %>
   <div style="height: 400px">
-      <div class="vert-align">
+      <div class="vert-align $modifier_class">
         <div class="vert-align__inner sg-demo-boxed">
           <p>Nec at quodsi elaboraret definitionem. Ne facilisi pericula honestatis qui. In sanctus platonem voluptatum ius. Ad sed labores inermis disputando, etiam adversarium quo te. Eu vis nostrud deseruisse, est possit iracundia no, has an ferri meliore nusquam. Semper apeirian pericula eos id. Error graeci graecis sed no, quo ex hinc justo pertinax. Pro nostro placerat ex, id tamquam sadipscing vim, te tota errem audiam duo. Vim scripta recusabo elaboraret eu, sea periculis iracundia repudiandae ea, has duis modus persequeris in.</p>
         </div>
@@ -26,7 +26,7 @@
 
 <!-- Preserve Aspect Ratio -->
 <%= styleguide_block 'Preserve Aspect Ratio' do %>
-<div class="preserve-aspect-ratio">
+<div class="preserve-aspect-ratio $modifier_class">
   <iframe class="preserve-aspect-ratio__inner" width="560" height="315" src="http://www.youtube.com/embed/8KdtgoSCXpU?rel=0" frameborder="0" allowfullscreen></iframe>
 </div>
 <% end %>
@@ -34,7 +34,7 @@
 
 <!-- Block List -->
 <%= styleguide_block 'Block List' do %>
-<ul class="block-list">
+<ul class="block-list $modifier_class">
   <li>Semper</li>
   <li>Virtute</li>
   <li>Natoque</li>
@@ -45,7 +45,7 @@
 
 <!-- Definition List -->
 <%= styleguide_block 'Definition List' do %>
-<dl class="def-list">
+<dl class="def-list $modifier_class">
     <dt class="def-list__title"><a href="#">Semper</a></dt>
     <dd class="def-list__desc">Virtute</dd>
     <dt class="def-list__title"><a href="#">Euripidis</a></dt>
@@ -58,7 +58,7 @@
 
 <!-- Split -->
 <%= styleguide_block 'Split' do %>
-<dl class="split" style="width: 50%;">
+<dl class="split $modifier_class" style="width: 50%;">
     <dt class="split__title">Pericula honestatis</dt>
     <dd>$5.99</dd>
     <dt class="split__title">Nostrud deseruisse</dt>
@@ -67,7 +67,7 @@
     <dd>$2.99</dd>
 </dl>
 
-<ol class="split" style="width: 50%;">
+<ol class="split $modifier_class" style="width: 50%;">
     <li><b class="split__title">1st place</b> Bob</li>
     <li><b class="split__title">2nd place</b> Lilly</li>
     <li><b class="split__title">3rd place</b> Ted</li>
@@ -76,26 +76,27 @@
 <!-- //Split -->
 
 <!-- Complex Link -->
-<div class="sg-h2">Complex Link</div>
-<div class="sg-note">Add hover behaviour to only selected items within links.</div>
+<%= styleguide_block 'Complex Link' do %>
+<p><a href="#" class="complex-link $modifier_class"><img src="http://placekitten.com/16/16" alt="" class="sg-demo-right-space"><span class="complex-link__target sg-demo-right-space">Log in</span></a></p>
 
-<p><a href="#" class="complex-link"><img src="http://placekitten.com/16/16" alt="" class="sg-demo-right-space"><span class="complex-link__target sg-demo-right-space">Log in</span></a></p>
-<p><a href="#" class="complex-link">I don't want link styles, <span class="complex-link__target">but I do</span></a></p>
+<p><a href="#" class="complex-link $modifier_class">I don't want link styles, <span class="complex-link__target">but I do</span></a></p>
+<% end %>
 <!-- //Complex Link -->
 
 <!-- Island -->
-<div class="sg-h2">Island</div>
-<div class="sg-note">Simple, boxed off content.</div>
+<%= styleguide_block 'Island' do %>
+<div class="sg-demo-boxed">
+  <div class="island $modifier_class">
+    <p>Nec at quodsi elaboraret definitionem. Ne facilisi pericula honestatis qui. In sanctus platonem voluptatum ius. Ad sed labores inermis disputando, etiam adversarium quo te. Eu vis nostrud deseruisse, est possit iracundia no, has an ferri meliore nusquam. Semper apeirian pericula eos id. Error graeci graecis sed no, quo ex hinc justo pertinax. Pro nostro placerat ex, id tamquam sadipscing vim, te tota errem audiam duo. Vim scripta recusabo elaboraret eu, sea periculis iracundia repudiandae ea, has duis modus persequeris in.</p>
+  </div>
+</div>
+<% end %>
 
-<div class="sg-h3">Island</div>
-<div class="island sg-demo-boxed">
+<%= styleguide_block 'Islet' do %>
+<div class="islet sg-demo-boxed $modifier_class">
   <p>Nec at quodsi elaboraret definitionem. Ne facilisi pericula honestatis qui. In sanctus platonem voluptatum ius. Ad sed labores inermis disputando, etiam adversarium quo te. Eu vis nostrud deseruisse, est possit iracundia no, has an ferri meliore nusquam. Semper apeirian pericula eos id. Error graeci graecis sed no, quo ex hinc justo pertinax. Pro nostro placerat ex, id tamquam sadipscing vim, te tota errem audiam duo. Vim scripta recusabo elaboraret eu, sea periculis iracundia repudiandae ea, has duis modus persequeris in.</p>
 </div>
-
-<div class="sg-h3">Islet</div>
-<div class="islet sg-demo-boxed">
-  <p>Nec at quodsi elaboraret definitionem. Ne facilisi pericula honestatis qui. In sanctus platonem voluptatum ius. Ad sed labores inermis disputando, etiam adversarium quo te. Eu vis nostrud deseruisse, est possit iracundia no, has an ferri meliore nusquam. Semper apeirian pericula eos id. Error graeci graecis sed no, quo ex hinc justo pertinax. Pro nostro placerat ex, id tamquam sadipscing vim, te tota errem audiam duo. Vim scripta recusabo elaboraret eu, sea periculis iracundia repudiandae ea, has duis modus persequeris in.</p>
-</div>
+<% end %>
 <!-- //Island -->
 
 <!-- Frame -->

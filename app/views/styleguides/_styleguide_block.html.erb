@@ -1,18 +1,21 @@
 <div class="sg-section">
   <div class="sg-h2"><%= section.section %> <small><%= section.filename %></small></div>
-  <div class="sg-note">
-    <% unless section.description.blank? %>
-      <p><%= section.description %></p>
-    <% end %>
 
-    <% if section.modifiers.any? %>
-      <ul>
-        <% section.modifiers.each do |modifier| %>
-          <li><strong><%= modifier.name %></strong> - <%= modifier.description %></li>
-        <% end %>
-      </ul>
-    <% end %>
-  </div>
+  <% unless section.description.blank? %>
+    <div class="sg-note">
+      <p><%= section.description %></p>
+    </div>
+  <% end %>
+
+  <% if section.modifiers.any? %>
+    <div class="sg-note">
+        <ul>
+          <% section.modifiers.each do |modifier| %>
+            <li><strong><%= modifier.name %></strong> - <%= modifier.description %></li>
+          <% end %>
+        </ul>
+    </div>
+  <% end %>
 
   <div class="sg-example">
     <%= example_html.html_safe %>
@@ -25,5 +28,5 @@
     </div>
   <% end %>
 
-  <pre><code data-language="html"><%= example_html.strip.gsub(' $modifier_class', '') %></code></pre>
+  <pre class="sg-code-block"><code class="language-markup"><%= example_html.strip.gsub(' $modifier_class', '') %></code></pre>
 </div>

@@ -351,13 +351,14 @@ body {
 /* [EXAMPLE]
 -------------------------------------------------------*/
 .sg-example {
-	padding: 25px 35px 35px 0;
+	margin-bottom: 25px;
 }
 
 /* [MODIFIER]
 -------------------------------------------------------*/
 .sg-modifier {
 	position: relative;
+	padding-top: 35px;
 	border-top: 1px solid #073642;
 }
 
@@ -393,11 +394,12 @@ body {
 	text-shadow: none;
 }
 
-pre {
+.sg-code-block {
 	padding: 1px 6px;
 	background-color: #f8f8f8;
 	border: 1px solid #ccc;
 	border-radius: 4px;
+	@include .txt-break-word;
 }
 
 /* [ALERTS]

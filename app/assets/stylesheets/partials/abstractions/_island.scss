@@ -3,12 +3,24 @@
    ====================================================================================== */
 
 /*
-	Usage:
-		Simple, boxed off content.
+	Simple, boxed off content.
 
-	Demo:
-		Style Guide -> Abstractions -> Island
+  .island--top-btm    - Top and bottom padding only.
+  .island--center     - Align text to the center
+  .island--fill       - Solid background
 
+  Styleguide Island
+*/
+
+/*
+  Same as island, but with half the spacing.
+  
+  .islet              - Top and bottom padding only
+
+  Styleguide Islet
+*/
+
+/*
 	Credit:
 		http://csswizardry.com/2011/10/the-island-object
 */

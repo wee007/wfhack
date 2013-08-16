@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Swagger UI</title>
+    <title>Westfield Labs API</title>
     <link href='//fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'/>
+    <link href='//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css' rel='stylesheet'>
     <link href='css/hightlight.default.css' media='screen' rel='stylesheet' type='text/css'/>
     <link href='css/screen.css' media='screen' rel='stylesheet' type='text/css'/>
+    <link href='/api/css/styles.css' rel='stylesheet'>
     <script src='lib/jquery-1.8.0.min.js' type='text/javascript'></script>
     <script src='lib/jquery.slideto.min.js' type='text/javascript'></script>
     <script src='lib/jquery.wiggle.min.js' type='text/javascript'></script>
@@ -15,46 +17,133 @@
     <script src='lib/swagger.js' type='text/javascript'></script>
     <script src='swagger-ui.js' type='text/javascript'></script>
     <script src='lib/highlight.7.3.pack.js' type='text/javascript'></script>
+    <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
 
     <script type="text/javascript">
 	$(function () {
-	    window.swaggerUi = new SwaggerUi({
-                discoveryUrl: (window.location.origin + '/api/'+window.location.search.replace('?service=', '')+'/swagger-doc.json'),
-                apiKey:"",
-                dom_id:"swagger-ui-container",
-                supportHeaderParams: false,
-                supportedSubmitMethods: ['get', 'post', 'put', 'delete'],
-                onComplete: function(swaggerApi, swaggerUi){
-                	if(console) {
-                        console.log("Loaded SwaggerUI")
-                        console.log(swaggerApi);
-                        console.log(swaggerUi);
-                    }
-                  $('pre code').each(function(i, e) {hljs.highlightBlock(e)});
-                },
-                onFailure: function(data) {
-                	if(console) {
-                        console.log("Unable to Load SwaggerUI");
-                        console.log(data);
-                    }
-                },
-                docExpansion: "none"
-            });
+        var service = window.location.search.replace('?service=', ''),
+            discoveryUrl = service+'/swagger-doc.json';
 
-            window.swaggerUi.load();
+        window.swaggerUi = new SwaggerUi({
+            discoveryUrl: discoveryUrl,
+            apiKey: "",
+            dom_id: "swagger-ui-container",
+            supportHeaderParams: false,
+            supportedSubmitMethods: ['get', 'post', 'put', 'delete'],
+            onComplete: function(swaggerApi, swaggerUi){
+                _.each(swaggerApi.apisArray, function(resource) {
+                    resource.basePath = '';
+                });
+                if(console) {
+                    console.log("Loaded SwaggerUI")
+                    console.log(swaggerApi);
+                    console.log(swaggerUi);
+                }
+              $('pre code').each(function(i, e) {hljs.highlightBlock(e)});
+            },
+            onFailure: function(data) {
+                if(console) {
+                    console.log("Unable to Load SwaggerUI");
+                    console.log(data);
+                }
+            },
+            docExpansion: "none"
+        });
+        window.swaggerUi.load();
+
+        $(document).on('click', '.swagger-doc', function (e) {
+            e.preventDefault();
+            window.swaggerUi.headerView.trigger('update-swagger-ui', {
+                discoveryUrl: e.target.href + '/swagger-doc.json'
+            });
         });
 
+        $(document).on('show hide', '.accordion-body', function (e) {
+            $(e.target).siblings('.accordion-heading').find('.accordion-toggle').toggleClass('dropup');
+        });
+    });
     </script>
 </head>
 
-<body>
+<body class="home">
+    <div class="container-fluid">
+        <div class="row-fluid header">
+            <div class="span12">
+                <a href="/api/index.html"><img src="/api/i/westfieldLabs_logo_240x60.png" class="logo"></a>
+            </div>
+        </div>
 
-<div id="message-bar" class="swagger-ui-wrap">
-    &nbsp;
-</div>
+        <div class="row-fluid">
+            <div class="span3 left_col" style="">
+                <div class="accordion affix" id="group">
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <a class="accordion-toggle dropup" data-toggle="collapse" data-parent="#group" href="#collapseOne">
+                                Directory Content
+                                <span class="caret pull-right"></span>
+                            </a>
+                        </div>
+                        <div id="collapseOne" class="accordion-body collapse in">
+                            <div class="accordion-inner">
+                                <ul>
+                                    <li><a href="/api/product/master/categories">Category Service</a></li>
+                                    <li><a href="/api/centre" class="swagger-doc">Centre Service</a></li>
+                                    <li><a href="/api/deal" class="swagger-doc">Deal Service</a></li>
+                                    <li><a href="/api/event" class="swagger-doc">Event Service</a></li>
+                                    <li><a href="/api/store" class="swagger-doc">Store Service</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#group" href="#collapseTwo">
+                                Users &amp; Authentication
+                                <span class="caret pull-right"></span>
+                            </a>
+                        </div>
+                        <div id="collapseTwo" class="accordion-body collapse">
+                            <div class="accordion-inner">
+                                <ul>
+                                    <li><a href="/api/aaa" class="swagger-doc">AAA Service</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-group">
+                        <div class="accordion-heading">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#group" href="#collapseThree">
+                                Platform/Micro Services
+                                <span class="caret pull-right"></span>
+                            </a>
+                        </div>
+                        <div id="collapseThree" class="accordion-body collapse">
+                            <div class="accordion-inner">
+                                <ul>
+                                    <li><a href="/api/file" class="swagger-doc">File Service</a></li>
+                                    <li><a href="/api/image" class="swagger-doc">Image Service</a></li>
+                                    <li><a href="/api/movie" class="swagger-doc">Movie Service</a></li>
+                                    <li><a href="/api/search" class="swagger-doc">Search Service</a></li>
+                                    <li><a href="/api/stream" class="swagger-doc">Stream Service</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="span8">
+                <div class="row-fluid">
+                    <div class="span12">
+                        <div id="message-bar" class="swagger-ui-wrap">
+                            &nbsp;
+                        </div>
 
-<div id="swagger-ui-container" class="swagger-ui-wrap"></div>
-
+                        <div id="swagger-ui-container" class="swagger-ui-wrap"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>

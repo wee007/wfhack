@@ -1,0 +1,157 @@
+h1, h3 {
+	font-family: Helvetica; font-size: 18px; color: #5F6A6D
+}
+h3 {
+	margin-top: 0;
+	padding-top: 0;
+}
+
+.container-fluid {
+padding: 0 !important;
+}
+#switch {
+	height: 26px;
+	float: right;
+	color: #FFFFFF;
+	font-size: 14px;
+	margin: 30px 30px 0 0;
+}
+
+#switch span {
+	position: relative;
+	top: -10px;
+}
+#switch .switch {
+	background: url('i/Group.png');
+	height: 26px;
+	width: 76px;
+	display: inline-block;
+	
+}
+#switch .switch.developer {
+	background: url('i/Group_reverse.png');
+	position: relative;
+	top: -2px;
+}
+
+#switch .active, #switch span:hover {
+	color: #B8D380;
+}
+
+.left_col {
+	background-color: #F6F6F6;
+	height: 800px;
+	text-align: center;
+}
+
+body.home .left_col {
+	text-align: left;
+	background-color: #FFF;
+	padding-left: 23px;
+	
+}
+
+body.home .left_col h1 {
+	font-family: Helvetica;
+	font-size: 21px;
+	line-height: 25px;
+	text-shadow: 0px 1px 0px #FFFFFF;
+	font-weight: normal !important;
+	margin-top: 45px;
+	color: #595959 !important;
+}
+
+body.home .left_col p {
+	font-family: Helvetica;
+	font-size: 13px;
+	line-height: 28px;
+	padding-right: 30px;
+	color: #595959 !important;
+}
+
+input, select {
+	display: inline-block;
+	float: left;
+	margin-right: 20px;
+}
+
+.input-block {
+	display: inline-block;
+	padding: 20px 20px 0 0;
+}
+
+.req_center {
+	display: block !important;
+	clear: both;
+}
+
+.results {
+	clear: both;
+	background-color: #F4F4F4 !important;
+	margin-top: 80px;
+	padding: 20px;
+	word-wrap: break-word;
+	overflow: scroll;
+	border: 1px solid #FFFFFF;
+	-webkit-box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+	-moz-box-shadow:    1px 1px 4px rgba(0, 0, 0, 0.5);
+	box-shadow:         1px 1px 4px rgba(0, 0, 0, 0.5);
+	
+}
+
+#prod_results {
+	margin-bottom: 20px;
+	border: 1px solid #CCC;
+	height: 250px;
+	padding: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+}
+
+#prod_results div {
+	float: left;
+	margin: 0 20px 20px 0;
+}
+
+.view_more {
+	margin: 20px 0 0 0;
+	clear: both !important;
+	float: none !important;
+}
+
+.header {
+	background-color: #282828;
+	height: 83px;
+}
+
+.logo {
+	margin: 15px 0 0 15px;
+}
+
+.affix {
+	margin-top: 40px;
+}
+
+.container, .navbar-static-top .container, .navbar-fixed-top .container, .navbar-fixed-bottom .container {
+	width: auto;
+}
+
+ul, ol {
+	margin: 0;
+}
+
+.accordion-group {
+	width: 250px;
+}
+
+.accordion-toggle .caret {
+	margin-top: 3px;
+	border-left-width: 6px;
+	border-right-width: 6px;
+	border-top: 7px solid #cbd1d1;
+}
+
+.accordion-toggle.dropup .caret {
+	border-top: 0 !important;
+	border-bottom: 7px solid #6d7e80;
+}

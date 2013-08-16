@@ -53,16 +53,17 @@
   <div id="filters" class="drop-down-menu__target box">
     <ul class="filters__list">
       <!-- Categories -->
-      <li ng-if="filterIsAvailable(search.categories.values)">
+      <li ng-show="filterIsAvailable(search.categories.values)">
         <button ng-click="toggleFilter('category')" class="filters__trigger drop-down-menu__hdr btn btn--full btn--pointer">
           {{ search.categories.title }}
           <span class="hide-fully--palm icon icon--arrow-down-full icon--flush-top btn--pointer__icon" aria-hidden="true"></span>
           <span class="hide-fully--non-palm icon icon--arrow-right-big icon--lrg icon--flush-top btn--pointer__icon" aria-hidden="true">
         </button>
+
         <div ng-show="activeFilter === 'category'" class="filters__target">
-          <div ng-show="search.categories.field === 'super_cat'"><div ng-include src="'categoryItemTemplate'"></div></div>
-          <div ng-show="search.categories.field === 'category'"><div ng-include src="'categoryItemTemplate'"></div></div>
-          <div ng-show="search.categories.field === 'sub_category'"><div ng-include src="'SubCategoryTemplate'"></div></div>
+          <div ng-show="search.categories.field === 'super_cat'" ng-include="'categoryItemTemplate'"></div>
+          <div ng-show="search.categories.field === 'category'" ng-include="'categoryItemTemplate'"></div>
+          <div ng-show="search.categories.field === 'sub_category'" ng-include="'SubCategoryTemplate'"></div>
         </div>
       </li>
 

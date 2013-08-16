@@ -1,7 +1,7 @@
 {
   "name": "customer_console",
   "version": "0.0.0",
-  "devDependencies": {
+  "dependencies": {
     "jquery": "1.10.1",
     "enquire": "~2.0.2",
     "isotope": "~1.5.25",
@@ -10,7 +10,9 @@
     "selectivizr": "~1.0.2",
     "flexslider": "latest",
     "html5shiv": "~3.6.2",
-    "angular-unstable": "~1.1.5",
-    "angular-mocks-unstable": "~1.1.5"
+    "angular": "1.2.0rc1",
+    "angular-touch": "1.2.0rc1",
+    "angular-sanitize": "1.2.0rc1",
+    "angular-mocks": "1.2.0rc1"
   }
 }

@@ -11,11 +11,13 @@
 
   <%= render "shared/stylesheets_global" %>
 
+  <link rel="stylesheet" href="<%= asset_path "prism/prism.css" %>">
+
   <!-- 'Style Guide' styles -->
   <link href="<%= asset_path 'styleguide/main.css' %>" rel="stylesheet">
   <!-- //'Style Guide' styles -->
 
-  <%= javascript_include_tag "vendor/modernizr.min" %>
+  <%= javascript_include_tag "vendor/modernizr.min" %> 
 
   <%= render 'shared/oldie' %>
   <%= javascript_include_tag 'vendor/kss' %>
@@ -94,6 +96,6 @@
 
            });
 </script>
-
+<%= javascript_include_tag "prism/prism.js" %>
 </body>
 </html>

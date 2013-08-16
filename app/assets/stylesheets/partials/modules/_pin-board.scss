@@ -11,6 +11,7 @@
 */
 
 .pin-board {
+	@extend %clear-fix;
 	@include to-rem(margin-top, $spacing-half);
 	/* We need this to accommodate for the bottom padding on `body` as each tile has a bottom margin */
 	@include to-rem(margin-bottom, -$spacing-base);

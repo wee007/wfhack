@@ -405,6 +405,24 @@ body {
   word-break: break-word !important;
 }
 
+/* [TABLE]
+-------------------------------------------------------*/
+.sg-table {
+	border: 1px solid #eee;
+	border-width: 0 1px 1px 0;
+
+	.sg-table__class {
+    width: 20%;
+  }
+
+  th,
+  td {
+    padding: 10px 20px;
+    border: 1px solid #eee;
+    border-width: 1px 0 0 1px;
+  }
+}
+
 /* [ALERTS]
 -------------------------------------------------------*/
 .sg-alert {

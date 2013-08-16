@@ -8,13 +8,26 @@
   <% end %>
 
   <% if section.modifiers.any? %>
-    <div class="sg-note">
-        <ul>
-          <% section.modifiers.each do |modifier| %>
-            <li><strong><%= modifier.name %></strong> - <%= modifier.description %></li>
-          <% end %>
-        </ul>
-    </div>
+  <table class="sg-table" caption="<%= section.section %> modifier classes">
+    <thead>
+      <tr>
+        <th>Modifier Classes</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% section.modifiers.each do |modifier| %>
+        <tr>
+          <td>
+            <code><%= modifier.name %></code>
+          </td>
+          <td>
+            <%= modifier.description %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
   <% end %>
 
   <div class="sg-example">

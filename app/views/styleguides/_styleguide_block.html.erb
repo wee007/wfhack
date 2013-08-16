@@ -41,5 +41,5 @@
     </div>
   <% end %>
 
-  <pre class="sg-code-block"><code class="language-markup"><%= example_html.strip.gsub(' $modifier_class', '') %></code></pre>
+  <pre class="sg-code-block"><code class="language-markup"><%= example_html.strip.gsub(' $modifier_class', '').gsub(" class=\"\"", "") %></code></pre>
 </div>

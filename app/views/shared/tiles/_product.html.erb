@@ -10,6 +10,9 @@
   </span>
   <div class="tile__meta__inner">
     <h3 class="tile__meta__hdr"><%= result.name %></h3>
-    <p class="tile__meta__desc">from <strong><%= result.retail_chain_name %></strong></p>
+    <p class="tile__meta__desc">
+      <span class="txt-break-word">from <strong><%= result.retail_chain_name %></strong></span>
+      <span class="tile__meta__price"><%=number_to_currency result.price %></span>
+    </p>
   </div>
 </div>

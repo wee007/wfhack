@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.363
+Version:     0.0.364
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,15 @@ fi
 
 
 %changelog
+* Mon Aug 19 2013 ci <doperations@au.westfield.com> 0.0.364-1
+- Merge pull request #265 from ldewey/WSF-5060 (ben@germanforblack.com)
+- Merge pull request #263 from bschwarz/master (ldewey@au.westfield.com)
+- Fixed tile/facet menu z-index issue. (ldewey@au.westfield.com)
+- Even up the spacing on filters (ben@germanforblack.com)
+- Cloak products (Layout jumps around less this way) (ben@germanforblack.com)
+- Added SortOptions formatter that will append "Sort by…"
+  (ben@germanforblack.com)
+
 * Mon Aug 19 2013 ci <doperations@au.westfield.com> 0.0.363-1
 - Merge pull request #264 from cpearce/master (matt.wratt@trineo.co.nz)
 - Fixing iOS orientation bug: WSF-5035 (CPearce@au.westfield.com)

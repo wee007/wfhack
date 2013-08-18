@@ -1,5 +1,5 @@
 ( function ( app ) {
-  app.service( 'Search', ['$http', 'ParamCleaner', 'AppliedFilters', 'SearchFacet', function ( $http, ParamCleaner, AppliedFilters, SearchFacet ) {
+  app.service( 'Search', ['$http', 'ParamCleaner', 'AppliedFilters', 'SearchFacet', 'SortOptions', function ( $http, ParamCleaner, AppliedFilters, SearchFacet, SortOptions ) {
     var self = this,
 
     // Params, with types
@@ -72,7 +72,7 @@
       this.colours = SearchFacet.retrieve( response.facets, 'colour' );
       this.sizes = SearchFacet.retrieve( response.facets, 'size' );
 
-      this.sortOptions = response.display_options.sort_options;
+      this.sortOptions = SortOptions.format(response.display_options.sort_options);
       this.appliedFilters = AppliedFilters.format( response.applied_filters );
     };
 

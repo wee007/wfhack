@@ -263,8 +263,8 @@
   </div>
 </div>
 
-<div ng-controller="ProductsController" class="product-results">
-  <div ng-hide="products.loaded">
+<div ng-cloak ng-controller="ProductsController" class="product-results">
+  <div ng-if="!products.loaded">
     <span class="preloader preloader--light">
       <span class="preloader__spinner"></span>
       <em class="hide-visually">Loading, please wait&#8230;</em>

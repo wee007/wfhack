@@ -1,8 +1,9 @@
 GIT
   remote: git@github.dbg.westfield.com:digital/aaa_client.git
-  revision: cd25fb66fe7d1b8f58361608629a1ab64f4deedb
+  revision: 913f9ee4a04629860869b7c7b76e96207e746fb5
   specs:
-    aaa_client (0.0.17)
+    aaa_client (0.0.21)
+      redis
       request_store
       rubycas-client (> 2.3.9)
       service_helper
@@ -22,9 +23,9 @@ GIT
 
 GIT
   remote: git@github.dbg.westfield.com:digital/service_helper.git
-  revision: edf6abe70d55f41964e62079079349ee0915a9b2
+  revision: 249ada93c45c397304c0546dc4f2986f810e68b1
   specs:
-    service_helper (0.0.10)
+    service_helper (0.0.17)
 
 GIT
   remote: https://github.com/bradphelan/jasminerice.git
@@ -51,10 +52,10 @@ GIT
     kss (0.4.0)
 
 GIT
-  remote: https://github.com/rubycas/rubycas-client.git
-  revision: 0da93937e05d2a904fac1fc77af7e1a8f6c58a0f
+  remote: https://github.com/mmell/rubycas-client.git
+  revision: fa46fbf92938d95761b691319425b9a18ae389e5
   specs:
-    rubycas-client (2.3.10.rc1)
+    rubycas-client (2.3.11)
       activesupport
 
 GIT
@@ -92,7 +93,7 @@ GEM
       tzinfo (~> 0.3.37)
     addressable (2.3.5)
     arel (4.0.0)
-    atomic (1.1.12)
+    atomic (1.1.13)
     builder (3.1.4)
     capybara (2.1.0)
       mime-types (>= 1.16)
@@ -167,7 +168,7 @@ GEM
       rails (>= 2.3.0)
     hike (1.2.3)
     http_parser.rb (0.5.3)
-    i18n (0.6.4)
+    i18n (0.6.5)
     json (1.8.0)
     kaminari (0.14.1)
       actionpack (>= 3.0.0)
@@ -188,7 +189,7 @@ GEM
     minitest (4.7.5)
     money (5.1.1)
       i18n (~> 0.6.0)
-    multi_json (1.7.8)
+    multi_json (1.7.9)
     multipart-post (1.2.0)
     newrelic_rpm (3.6.6.147)
     nokogiri (1.6.0)
@@ -232,6 +233,7 @@ GEM
       ffi (>= 0.5.0)
     rb-kqueue (0.2.0)
       ffi (>= 0.5.0)
+    redis (3.0.4)
     request_store (1.0.5)
     rspec-core (2.14.4)
     rspec-expectations (2.14.0)
@@ -315,7 +317,7 @@ DEPENDENCIES
   rails (~> 4.0.0)
   rb-fsevent
   rspec-rails
-  rubycas-client (> 2.3.9)!
+  rubycas-client!
   sass-rails (~> 4.0.0)
   service_api!
   service_helper!

@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.362
+Version:     0.0.363
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,11 @@ fi
 
 
 %changelog
+* Mon Aug 19 2013 ci <doperations@au.westfield.com> 0.0.363-1
+- Merge pull request #264 from cpearce/master (matt.wratt@trineo.co.nz)
+- Fixing iOS orientation bug: WSF-5035 (CPearce@au.westfield.com)
+- Styling storefront (CPearce@au.westfield.com)
+
 * Fri Aug 16 2013 ci <doperations@au.westfield.com> 0.0.362-1
 - Merge pull request #254 from mwratt/feature/logos-fix-up
   (cwalsh2@au.westfield.com)

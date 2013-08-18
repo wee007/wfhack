@@ -6,7 +6,10 @@
 
 .filters {
   position: relative;
-  @include to-rem(margin-top margin-bottom, $spacing-half);
+  @include to-rem(margin-top, $spacing-base);
+  @include to-rem(margin-bottom, $spacing-half);
+
+  @include respond-min($non-palm) {@include to-rem(max-height, 32);}
 
   label { display: block; }
   [type="checkbox"] { @include to-rem(margin-right, $spacing-quarter); }

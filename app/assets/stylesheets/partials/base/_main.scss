@@ -7,6 +7,15 @@ html {
 	line-height: $line-height-ratio;
 }
 
+/* iOS orientation bug fix: https://github.com/twbs/bootstrap/issues/6643 */
+.ios {
+	&,
+	body {overflow-x: hidden;}
+
+	/* Have to remove for 'Stores' as it screws up the `z-index` stacking order for header elements */
+	.stores {overflow-x: visible;}
+}
+
 body {
 	background-color: $color-grey-3;
 	@include to-rem(padding-bottom, $spacing-base);

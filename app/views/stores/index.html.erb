@@ -43,8 +43,8 @@
     <%# //Filters & list/map toggle button %>
 
     <%# Stores list %>
-    <div class="stores-maps__list-detail js-stores-maps-toggle-listing-detail" id="stores-maps-toggle-listing-detail">
-      <dl class="stores-list">
+    <div class="stores-maps__list-detail" id="stores-maps-toggle-listing-detail">
+      <dl class="stores-list js-defer-image-load-container">
         <% @stores.each do |letter, stores| %>
 
           <dt>
@@ -176,6 +176,6 @@
       });
     }());
 
-    $('.js-stores-maps-toggle-listing-detail').deferImages({matchMedia: 'all and (min-width: 40.0625em)'});
+    $('.js-defer-image-load-container').deferImages({matchMedia: 'all and (min-width: 40.0625em)'});
   <% end %>
 <%- end -%>

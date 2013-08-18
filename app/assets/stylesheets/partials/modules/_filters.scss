@@ -57,7 +57,7 @@
   .non-palm .filters__target {
     position: absolute;
     @include to-rem(margin-top, 10);
-    z-index: 1;
+    z-index: 3;
 
     @include to-rem(width, 285);
 

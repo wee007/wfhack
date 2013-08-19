@@ -15,7 +15,7 @@ table {
 	/* Cell padding */
 	th,
 	td {
-		padding: to-em($spacing-sixth);
+		padding: to-em($spacing-quarter);
 
 		/* Increase at this breakpoint */
 		@include respond-min($non-palm) {
@@ -25,9 +25,14 @@ table {
 
 	/* Caption */
 	caption {
-    @include font-size($font-size-lrg);
+    @include font-size(13, 1.5);
     font-weight: bold;
     @extend %mrg-base;
+
+    /* Increase text size at this breakpoint */
+    @include respond-min($non-palm) {
+      @include font-size(15, 1.5);
+    }
   }
 
 	/* Cell header */
@@ -51,20 +56,33 @@ table {
 	}
 
 /* Striped */
-.table-striped tbody tr:nth-of-type(odd) {background-color: $color-grey-lightest;}
+.table-striped tbody tr:nth-of-type(odd) {background-color: $color-grey-3;}
 
-/* Bordered */
-.table-bordered {
+/* Enable horizontal scroll bar */
+.table-horiz-scroll {
+  overflow-x: auto;
+  @extend %mrg-base;
 
-    th,
-    td {
-        border: 1px solid $color-grey-light;
-
-		/* No borders for empty cells */
-        &:empty {border: 0;}
-    }
-
-	/* Thicker border for the last row in the `thead` */
-    thead tr:last-child th {border-bottom-width: 2px;}
+  /* iOS/Android */
+  .ios &,
+  .android & {
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
+  }
 }
 
+/* Bordered */
+.table-bordered,
+.txt-formatted--user-generated table {
+
+  th,
+  td {
+    border: 1px solid $color-grey-2;
+
+    /* No borders for empty cells */
+    &:empty {border: 0;}
+  }
+
+	/* Thicker border for the last row in the `thead` */
+  thead tr:last-child th {border-bottom-width: 2px;}
+}

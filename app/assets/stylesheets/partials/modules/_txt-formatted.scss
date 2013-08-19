@@ -1,0 +1,96 @@
+/* ======================================================================================
+   @MODULES -> TEXT FORMATTED
+   ====================================================================================== */
+
+/*
+	Usage:
+		Styles for text formatting which aren't provided by the base styles, this is usually used for user generated text e.g. product description.
+
+	Note:
+		User generated text needs the extender: `.txt-formatted--user-generated`.
+
+	Demo:
+		Style Guide -> Modules -> Text Formatted
+*/
+
+.txt-formatted {
+  @include font-size($font-size-sml);
+
+  /* Increase text size at this breakpoint */
+  @include respond-min($non-palm) {
+    @include font-size($font-size);
+  }
+
+  /* Shared rules */
+  h3,
+  h4,
+  h5 {font-weight: bold;}
+
+  h4,
+  h5,
+  h6 {
+    @include to-rem(margin-bottom, $spacing-half);
+
+    &:last-child {margin-bottom: 0;}
+  }
+
+  h4,
+  h6 {
+    @include font-size($font-size-sml, 1.5);
+
+    /* Increase text size at this breakpoint */
+    @include respond-min($non-palm) {
+      @include font-size($font-size, 1.5);
+    }
+  }
+
+  p,
+  h2,
+  h3 {@extend %mrg-base;}
+
+  /* --Headings-- */
+
+  /* H2 */
+  h2 {
+    font-family: $font-family-opensans;
+    @include font-size(18, 1.5);
+    color: $color-light-txt;
+
+    /* Increase text size at this breakpoint */
+    @include respond-min($non-palm) {
+      @include font-size(24, 1.5);
+    }
+  }
+
+  /* H3 */
+  h3 {
+    @include font-size(13, 1.5);
+
+    /* Increase text size at this breakpoint */
+    @include respond-min($non-palm) {
+      @include font-size(15, 1.5);
+    }
+  }
+
+  /* H5 */
+  h5 {
+    @include font-size($font-size-milli, 1.5);
+    text-transform: uppercase;
+
+    /* Increase text size at this breakpoint */
+    @include respond-min($non-palm) {
+      @include font-size(13, 1.5);
+    }
+  }
+
+  /* Inline elements */
+  u {text-decoration: none;}
+}
+
+/* User generated rules */
+.txt-formatted--user-generated {
+
+  /* Inline elements */
+  i,
+  em {font-style: italic;}
+}

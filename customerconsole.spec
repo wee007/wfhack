@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.368
+Version:     0.0.369
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,9 @@ fi
 
 
 %changelog
+* Mon Aug 19 2013 ci <doperations@au.westfield.com> 0.0.369-1
+- incorrect usage of %%config in rpmspec (pmcinerney@au.westfield.com)
+
 * Mon Aug 19 2013 ci <doperations@au.westfield.com> 0.0.368-1
 - re-add .production. and .uat. serveralias entries so that nagios polling of
   health checks work again (pmcinerney@au.westfield.com)

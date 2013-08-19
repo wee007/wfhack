@@ -273,6 +273,11 @@
   /* Product */
   .detail-view--product {
 
+    /* Apply `table-layout: fixed` to grid so 'store link' text can be truncated */
+    @include respond-max($palm) {
+      .grid--rev-stack {table-layout: fixed;}
+    }
+
     /* Meta */
     .detail-view__meta em {
       display: block;
@@ -288,7 +293,6 @@
         }
       }
     }
-
   }
 
   /* Event */
@@ -310,5 +314,4 @@
         text-align: right;
       }
     }
-
   }

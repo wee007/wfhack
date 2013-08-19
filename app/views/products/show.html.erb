@@ -82,8 +82,8 @@
 <div class="grid grid--gutterless grid--rev grid--flush">
 
   <!-- Available Colours -->
+  <%- if @product.available_colours.present? -%>
   <div class="detail-view__divider--top-non-palm grid__item non-palm-two-fifths">
-    <%- if @product.available_colours.present? -%>
     <div class="island island--btm-palm">
       <h2 class="detail-view__hdr-sub hn">Available Colours</h2>
       <ul class="horiz-list horiz-list--comma"><!--
@@ -92,12 +92,16 @@
         <%- end -%>
       --></ul>
     </div>
-    <%- end -%>
   </div>
+  <%- end -%>
   <!-- //Available Colours -->
 
   <!-- Description -->
+  <%- if @product.available_colours.present? -%>
   <div class="detail-view__desc detail-view__divider--top-non-palm grid__item non-palm-three-fifths">
+  <% else %>
+  <div class="detail-view__desc detail-view__divider--top-non-palm grid__item non-palm-one-whole">
+  <%- end -%>
     <div class="island">
       <h2 class="detail-view__hdr-sub hn">Description</h2>
       <div class="txt-formatted txt-formatted--user-generated">

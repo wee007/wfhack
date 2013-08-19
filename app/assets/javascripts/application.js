@@ -30,6 +30,7 @@
 //= require ./init/tiles
 //= require ./init/tabs
 //= require ./init/deferred_images
+//= require ./init/table-horizontal-scroll
 
 //= require angular
 //= require angular-touch

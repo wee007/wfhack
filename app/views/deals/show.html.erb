@@ -50,13 +50,16 @@
   </div>
 <% end %>
 <!-- //Availability -->
+
 <!-- Fine print -->
 <% if @deal.terms_and_conditions and !@deal.terms_and_conditions.empty? %>
-  <div class="detail-view__desc detail-view__desc--fine-print detail-view__subtle-txt toggle-content js-toggle-content js-hide-show island">
+  <div class="island toggle-content js-toggle-content js-hide-show">
     <h2 class="detail-view__hdr-sub hn">The fine print</h2>
-    <% @deal.terms_and_conditions.each do |paragraph| %>
-      <% unless paragraph.empty? %><p><%= paragraph %></p><% end %>
-    <% end %>
+    <div class="detail-view__desc detail-view__desc--fine-print detail-view__subtle-txt txt-formatted txt-formatted--user-generated">
+      <% @deal.terms_and_conditions.each do |paragraph| %>
+        <% unless paragraph.empty? %><p><%= paragraph %></p><% end %>
+      <% end %>
+    </div>
   </div>
 <% end %>
 <!-- //Fine print -->

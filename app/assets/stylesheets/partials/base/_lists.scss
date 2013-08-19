@@ -4,7 +4,9 @@
 
 /* [UNORDERED / ORDERED]
 -------------------------------------------------------*/
-.list {
+.list,
+.txt-formatted ul,
+.txt-formatted ol {
 	@extend %mrg-base;
 
 	/* Left indent */
@@ -21,7 +23,8 @@
 }
 
 	/* Unordered bullets */
-	ul.list {
+	ul.list,
+	.txt-formatted ul {
 		list-style: disc;
 
 		ul {
@@ -34,7 +37,8 @@
 	}
 
 	/* Ordered bullets */
-	ol.list {
+	ol.list,
+	.txt-formatted ol {
 		list-style: decimal;
 
 		ol {

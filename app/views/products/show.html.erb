@@ -38,7 +38,7 @@
 
     <!-- Store link -->
     <div class="island island--center detail-view__divider--palm">
-      <%= link_to @product.primary_retailer_product_url || '#', 
+      <%= link_to @product.primary_retailer_product_url || '#',
         class: "btn btn--pointer btn--full btn--full-left btn--main btn--main-alt2 btn--main-lrg btn--main-flanked", rel: "external nofollow" do %>
         Buy from <%= @product.retail_chain_name %>
         <span class="icon icon--arrow-right-big icon--lrg btn--pointer__icon" aria-hidden="true"></span>
@@ -100,7 +100,9 @@
   <div class="detail-view__desc detail-view__divider--top-non-palm grid__item non-palm-three-fifths">
     <div class="island">
       <h2 class="detail-view__hdr-sub hn">Description</h2>
-      <%= raw(@product.detailed_description || @product.short_description) %>
+      <div class="txt-formatted txt-formatted--user-generated">
+        <%= raw(@product.detailed_description || @product.short_description) %>
+      </div>
     </div>
   </div>
   <!-- //Description -->
@@ -108,7 +110,7 @@
 </div>
 
 <!-- Availability -->
-<div class="island detail-view__divider--top-non-palm">
+<div class="island detail-view__divider--top-btm detail-view__divider--top">
   <%- if @centres.present? -%>
     <h2 class="detail-view__hdr-sub detail-view__mrg-off hn">Available at</h2>
     <ul class="detail-view__centres">

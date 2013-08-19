@@ -4,14 +4,14 @@
 
 /* Firefox */
 ::-moz-selection {
-	background: $color-brand;
+	background: $color-cta-blue;
 	color: #fff;
 	text-shadow: none;
 }
 
 /* Everyone else */
 ::selection {
-	background: $color-brand;
+	background: $color-cta-blue;
 	color: #fff;
 	text-shadow: none;
 }

@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.367
+Version:     0.0.368
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,12 @@ fi
 
 
 %changelog
+* Mon Aug 19 2013 ci <doperations@au.westfield.com> 0.0.368-1
+- re-add .production. and .uat. serveralias entries so that nagios polling of
+  health checks work again (pmcinerney@au.westfield.com)
+- make rpm install replace existing apache configurations with new copy instead
+  of making new file .rpmnew (pmcinerney@au.westfield.com)
+
 * Mon Aug 19 2013 ci <doperations@au.westfield.com> 0.0.367-1
 - removes micello loading spinner (matt.wratt@trineo.co.nz)
 - refactors deferred image loading (matt.wratt@trineo.co.nz)

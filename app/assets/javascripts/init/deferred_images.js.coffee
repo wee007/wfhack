@@ -19,9 +19,37 @@ do ($, name) ->
     return if deferCall(window.enquire)
     deferred.resolve()
 
+  class DeferredImageLoader
+
+    attrs: ['src', 'alt', 'itemprop']
+
+    constructor: (@el, @img = $('<img>')) ->
+
+    load: ->
+      @setAttributes()
+      @img.on('load', @success)
+      @img.on('error', @error)
+      @img.hide()
+      @el.after(@img)
+
+    setAttributes: ->
+      for attr in @attrs
+        if @el.data("image-#{attr}")
+          @img.attr(attr, @el.data("image-#{attr}"))
+          @el.removeAttr("data-image-#{attr}")
+
+    success: =>
+      @el.remove()
+      @img.show()
+
+    error: =>
+      @el.remove()
+      @img.remove()
+
   class DeferredImages
 
-    constructor: (@containers, @options = {}) ->
+    constructor: (container, @options = {}) ->
+      @container = $(container)
       if @options.matchMedia
         window.enquire.register(@options.matchMedia, {
           match: @attachListeners
@@ -31,41 +59,39 @@ do ($, name) ->
         @attachListeners()
 
     loadVisibleImages: =>
-      $(@containers).each ->
-        container = $(@)
-        offset = container.offset()
-        containerTop = offset.top
-        containerBottom = offset.top + container.height()
-        $('[data-image-src]', container).each ->
-          el = $(@)
-          offset = el.offset()
-          if (offset.top + el.height()) > containerTop && offset.top < containerBottom
-            img = $('<img>')
-            for attr in ['src', 'alt', 'itemprop']
-              img.attr(attr, el.data("image-#{attr}")) if el.data("image-#{attr}")
-            el.removeAttr('data-image-src')
-            img.on('load', do (el) -> -> el.remove(); $(@).show())
-            img.on('error', do (el) -> -> el.add(this).remove())
-            img.hide()
-            el.after(img)
+      visibleImages = $('[data-image-src]', @container).map(@visibleIn(@container))
+      visibleImages.each -> new DeferredImageLoader(@).load()
+
+    visibleIn: (container) ->
+      offset = container.offset()
+      top = offset.top
+      bottom = offset.top + container.height()
+      return ->
+        el = $(@)
+        offset = el.offset()
+        if (offset.top + el.height()) > top && offset.top < bottom
+          return el
+        else
+          return null
 
     attachListeners: =>
       @loadVisibleImages()
-      $(@containers).on('scroll.deferred-logos', =>
+      @container.on('scroll.deferred-logos', =>
         clearTimeout(@timeout)
         @timeout = setTimeout(@loadVisibleImages, 100)
       )
 
     detachListeners: =>
       clearTimeout(@timeout)
-      $(@containers).off('.deferred-logos')
+      @container.off('.deferred-logos')
 
-  deferImages = (containers, options) ->
-    new DeferredImages(containers, options)
+  deferImages = (container, options) ->
+    new DeferredImages(container, options)
 
   $.fn[name] = (options) ->
-    if deferred.state() == 'resolved'
-      deferImages(@, options)
-    else
-      self = @
-      deferred.then -> deferImages(self, options)
+    $(@).each ->
+      if deferred.state() == 'resolved'
+        deferImages(@, options)
+      else
+        self = @
+        deferred.then -> deferImages(self, options)

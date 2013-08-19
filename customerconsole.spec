@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.366
+Version:     0.0.367
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,11 @@ fi
 
 
 %changelog
+* Mon Aug 19 2013 ci <doperations@au.westfield.com> 0.0.367-1
+- removes micello loading spinner (matt.wratt@trineo.co.nz)
+- refactors deferred image loading (matt.wratt@trineo.co.nz)
+- moves deferred loading class to correct container (matt.wratt@trineo.co.nz)
+
 * Mon Aug 19 2013 ci <doperations@au.westfield.com> 0.0.366-1
 - Merge pull request #259 from mmell/master (ldewey@au.westfield.com)
 - add production vhost (mike.mell@nthwave.net)

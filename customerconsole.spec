@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.370
+Version:     0.0.371
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,14 @@ fi
 
 
 %changelog
+* Tue Aug 20 2013 ci <doperations@au.westfield.com> 0.0.371-1
+- Merge pull request #268 from cpearce/master (ldewey@au.westfield.com)
+- Making prod desc full width if no available colours - WSF-4983
+  (CPearce@au.westfield.com)
+- CSS for product desc: WSF-5023 which is a reusable module for user generated
+  content or any content needing base typography styles
+  (CPearce@au.westfield.com)
+
 * Tue Aug 20 2013 ci <doperations@au.westfield.com> 0.0.370-1
 - Merge pull request #269 from ldewey/WSF-5054 (ldewey@au.westfield.com)
 - Changed price to sale_price (ldewey@au.westfield.com)

@@ -72,7 +72,7 @@ fi
 %attr(755,nobody,nobody)%{appdir}/shared
 %attr(755,nobody,nobody)%{appdir}/current/tmp
 %dir %{appdir}/shared/log
-%config(noreplace) %{_sysconfdir}/httpd/conf.d/customer_console.conf
+%config(replace) %{_sysconfdir}/httpd/conf.d/customer_console.conf
 
 
 %changelog

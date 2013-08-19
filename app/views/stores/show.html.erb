@@ -8,7 +8,7 @@
     <%# Back to listing link %>
     <div class="stores-maps__filters-toggle">
       <div class="container">
-        <a href="<%= centre_stores_path(@centre) %>" class="stores-maps__filters-toggle__hdr txt-truncate"><span><span class="icon icon--arrow-left-big" aria-hidden="true"></span> Stores A-Z</span> / Justice Health - Centre for Health Research and Criminal Justice</a>
+        <a href="<%= centre_stores_path(@centre) %>" class="stores-maps__filters-toggle__hdr txt-truncate"><span><span class="icon icon--arrow-left-big" aria-hidden="true"></span> Stores A-Z</span> / <%= @store.name %></a>
       </div>
     </div>
     <%# //Back to listing link %>
@@ -41,7 +41,7 @@
                   </div>
                 </div> -->
               </li>
-              <%# FIXME: [BACKEND] this blurb absolutely cannot exceed 300 characters in back office console or wherever it's coming from AND because this is optional do not render the `li` if no blurb is provided (via server side not JS) %>
+              <%# FIXME: [BACKEND] this blurb absolutely cannot exceed 300 characters in back office console or wherever it's coming from AND because this is optional do not render the `li` if no blurb is provided, see 'https://jira.mywestfield.com/browse/WSF-4899' for more info (via server side not JS) %>
               <li class="storefront__flexslider-blurb">
                 <div class="vert-align">
                   <div class="vert-align__inner">

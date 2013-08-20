@@ -34,3 +34,11 @@
 
 	/* Remove the spinner as it's parent has hijacked it's styles */
 	.preloader--light .preloader__spinner {display: none;}
+
+	/* Position the loader in the centre of its parent */
+	.preloader--middle {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		@include translate(-50%, -50%);
+	}

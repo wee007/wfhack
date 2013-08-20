@@ -20,7 +20,7 @@ map.micello.ie = Map: class Map extends map.micello.MapBase
     unless @el.parent().hasClass('map-micello--static')
       @mouse = new map.micello.ie.Mouse(@levels, @drag)
     @selectLevel(1)
-    @ready()
+    setTimeout @ready
 
   drag: (delta) =>
     top = parseInt(@levels.css('top'), 10)

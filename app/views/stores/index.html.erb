@@ -152,18 +152,22 @@
         %>
         viewingList = listView;
 
-        if(!listView) map.load();
-
         $('.js-stores-maps-toggle-btn').toggleClass('is-expanded', listView === false);   <%# toggle button        %>
         $('.js-stores-maps-toggle-btn__txt').html(listView ? 'map' : 'list');             <%# toggle button text   %>
         $('.js-stores-maps-toggle-wrap').toggleClass('is-map-view', listView === false);  <%# store list container %>
+
+        if(!listView) map.load().centreOffset({x: listView === false ? 0.5 : 0.75, y: 0.5});
+      }
+
+      function showStoreDetail(storeId) {
+        map.setTarget(storeId).showLevel().centre().highlight().detail();
       }
 
       function nonPalmView() {
         resetView(null);
         $('*', document).off('.map-palm')
         $('[data-store-id]').on('click.map-non-palm', function() {
-          map.highlight($(this).data('store-id'));
+          showStoreDetail($(this).data('store-id'));
         });
       }
 
@@ -175,7 +179,7 @@
         });
         $('[data-store-id]').on('click.map-palm', 'a[href="#infoDiv"]', function(event) {
           resetView(false);
-          map.highlight($(event.delegateTarget).data('store-id'));
+          showStoreDetail($(event.delegateTarget).data('store-id'));
         });
       }
 

@@ -20,14 +20,6 @@
   /* Apply bottom spacing */
   .map-micello__mrg-base {@include to-rem(margin-bottom, $spacing-half);}
 
-  /* Preloader */
-  .preloader {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    @include translate(-50%, -50%);
-  }
-
   /* Turn off text selection styles */
   * {@include prefix(user-select, none);}
 }

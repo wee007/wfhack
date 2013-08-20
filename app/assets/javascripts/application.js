@@ -14,9 +14,9 @@
 //= require ./support/svg
 //= require ./support/input-placeholder
 
-//= require isotope/jquery.isotope.js
+//= require isotope/jquery.isotope
+//= require ./vendor/jquery.isotope.responsive
 //= require ./vendor/bootstrap-dropdown
-//= require ./vendor/jquery.isotope.gutters
 //= require ./vendor/jquery.tabs
 
 // If console is unimplemented in a browser, and someone

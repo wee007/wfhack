@@ -49,22 +49,24 @@
     @extend .btn--main;
     @extend .btn--main-alt4;
     @extend .drop-down-menu__trigger;
-    @extend .drop-down-menu__trigger--light;
   }
 }
 
-  // Desktop edition of filters
-  .non-palm .filters__target {
-    position: absolute;
-    @include to-rem(margin-top, 10);
-    z-index: 3;
+  // Contents of dropdown menu
+  .filters__target {
+    @include respond-min($non-palm) {
+      position: absolute;
+      @include to-rem(margin-top, 10);
+      z-index: 3;
 
-    @include to-rem(width, 285);
+      @include to-rem(width, 285);
+      border: 1px solid $color-grey-3;
+    }
 
-    @extend .box;
-    border: 1px solid $color-grey-lightest;
+    .non-palm & {@extend .box;}
   }
 
+  // Lists within dropdown menu
   .filters__list {
     @include respond-min($non-palm) {
       > li {

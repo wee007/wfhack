@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.376
+Version:     0.0.377
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,13 @@ fi
 
 
 %changelog
+* Tue Aug 20 2013 ci <doperations@au.westfield.com> 0.0.377-1
+- Merge pull request #274 from bschwarz/master (ben@germanforblack.com)
+- Use preloader--middle for maps too (ben@germanforblack.com)
+- Use preloader--middle (ben@germanforblack.com)
+- Added a preloader--middle modifier (ben@germanforblack.com)
+- Remove unused class (ben@germanforblack.com)
+
 * Tue Aug 20 2013 ci <doperations@au.westfield.com> 0.0.376-1
 - Merge pull request #275 from ldewey/WSF-5074 (matt.wratt@trineo.co.nz)
 - Created isotope responsive, to create consistent padding between tiles

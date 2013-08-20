@@ -52,9 +52,6 @@
   }
 }
 
-  // Desktop edition of filters
-  .non-palm .filters__target {@extend .box;}
-
   // Contents of dropdown menu
   .filters__target {
     @include respond-min($non-palm) {
@@ -63,8 +60,10 @@
       z-index: 3;
 
       @include to-rem(width, 285);
-      border: 1px solid $color-grey-lightest;
+      border: 1px solid $color-grey-3;
     }
+
+    .non-palm & {@extend .box;}
   }
 
   // Lists within dropdown menu

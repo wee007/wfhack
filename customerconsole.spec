@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.374
+Version:     0.0.375
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,11 @@ fi
 
 
 %changelog
+* Tue Aug 20 2013 ci <doperations@au.westfield.com> 0.0.375-1
+- Nest the selector & Use a non greyscale colour value (ben@germanforblack.com)
+- Remove as much of the filter styles from conditional javascript as possible.
+  (ben@germanforblack.com)
+
 * Tue Aug 20 2013 ci <doperations@au.westfield.com> 0.0.374-1
 - Merge pull request #272 from cpearce/master (matt.wratt@trineo.co.nz)
 - Making store name dynamic for back to index link (CPearce@au.westfield.com)

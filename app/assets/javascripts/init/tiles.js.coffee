@@ -1,4 +1,4 @@
-((window, $) ->
+do (window, $ = jQuery) ->
   init = ->
     $("#pin-board").isotope
       containerClass: '.pin-board'
@@ -13,7 +13,4 @@
         position: "relative"
         overflow: "visible"
 
-  window.initPlugin = window.initPlugin or {}
-  window.initPlugin.isotope = init
-  $(window).load init
-) this, jQuery
+  $(window).on 'load', init

@@ -116,15 +116,12 @@
   /* Price */
   .tile__meta__price {
     color: $color-dark-txt;
-    position: relative;
     font-weight: bold;
-    display: block;
-    @include to-rem(padding-top, 7);
     @include font-size($font-size - 4, 1);
 
-    /* Float right at this breakpoint, as we have the space */
+    /* Make the font larger at this breakpoint, as we have the space */
     @include respond-min($desk) {
-      @include font-size($font-size-milli, 0.5);
+      @include font-size($font-size-milli, 1);
     }
   }
 

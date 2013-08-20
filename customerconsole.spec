@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.373
+Version:     0.0.374
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,10 @@ fi
 
 
 %changelog
+* Tue Aug 20 2013 ci <doperations@au.westfield.com> 0.0.374-1
+- Merge pull request #272 from cpearce/master (matt.wratt@trineo.co.nz)
+- Making store name dynamic for back to index link (CPearce@au.westfield.com)
+
 * Tue Aug 20 2013 ci <doperations@au.westfield.com> 0.0.373-1
 - Merge pull request #271 from cpearce/master (ldewey@au.westfield.com)
 - Adding CSS text truncate to external store link (CPearce@au.westfield.com)

@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.375
+Version:     0.0.376
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,11 @@ fi
 
 
 %changelog
+* Tue Aug 20 2013 ci <doperations@au.westfield.com> 0.0.376-1
+- Merge pull request #275 from ldewey/WSF-5074 (matt.wratt@trineo.co.nz)
+- Created isotope responsive, to create consistent padding between tiles
+  (ldewey@au.westfield.com)
+
 * Tue Aug 20 2013 ci <doperations@au.westfield.com> 0.0.375-1
 - Nest the selector & Use a non greyscale colour value (ben@germanforblack.com)
 - Remove as much of the filter styles from conditional javascript as possible.

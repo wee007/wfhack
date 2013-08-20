@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.377
+Version:     0.0.378
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,10 @@ fi
 
 
 %changelog
+* Tue Aug 20 2013 ci <doperations@au.westfield.com> 0.0.378-1
+- Moved price to the left and added txt-truncate to both lines
+  (ldewey@au.westfield.com)
+
 * Tue Aug 20 2013 ci <doperations@au.westfield.com> 0.0.377-1
 - Merge pull request #274 from bschwarz/master (ben@germanforblack.com)
 - Use preloader--middle for maps too (ben@germanforblack.com)

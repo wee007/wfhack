@@ -1,9 +1,9 @@
 ( function ( app ) {
-  app.controller( 'ProductBrowseController', ['$scope', '$window', '$filter', '$location', '$element', 'ParamCleaner', 'Search', 'Products', function ( $scope, $window, $filter, $location, $element, ParamCleaner, Search, Products ) {
-    $scope.search = Search;
+  app.controller( 'ProductBrowseController', ['$scope', '$window', '$filter', '$location', '$element', 'ParamCleaner', 'ProductSearch', 'Products', function ( $scope, $window, $filter, $location, $element, ParamCleaner, ProductSearch, Products ) {
+    $scope.search = ProductSearch;
 
-    Search.onChange( function () {
-      cleanParams = ParamCleaner.build( Search.params() );
+    ProductSearch.onChange( function () {
+      cleanParams = ParamCleaner.build( ProductSearch.params() );
       $location.search( cleanParams );
       updateProducts();
     });
@@ -47,23 +47,23 @@
         // not all params will be used by the view
         // but we'll map them anyway.
         $scope[key] = param;
-        Search.setParam( key, param );
+        ProductSearch.setParam( key, param );
       });
     };
 
     updateProducts = function () {
-      Products.get( document.location.pathname, angular.extend( Search.params(), { page: 1 } ) );
+      Products.get( document.location.pathname, angular.extend( ProductSearch.params(), { page: 1 } ) );
     };
 
     $scope.bootstrap = function () {
-      Search.formatSearchResults( $window.westfield.products );
+      ProductSearch.formatSearchResults( $window.westfield.products );
       useUrlParams();
 
       if ( !$scope.sort ) $scope.sort = '';
     };
 
     $scope.updateSearch = function () {
-      Search.getSearch();
+      ProductSearch.getSearch();
       $scope.closeFilters();
     };
 
@@ -98,7 +98,7 @@
     };
 
     $scope.hasActiveFilters = function () {
-      return !!Search.appliedFilters.length;
+      return !!ProductSearch.appliedFilters.length;
     };
 
     $scope.filterIsAvailable = function ( filterValues ) {
@@ -106,12 +106,12 @@
     };
 
     $scope.removeSelectedFilter = function ( paramName, paramValue ) {
-      Search.removeParam( paramName, paramValue );
+      ProductSearch.removeParam( paramName, paramValue );
       $scope.updateSearch();
     };
 
     $scope.filterSearch = function ( modelName ) {
-      Search.setParam( modelName, $scope[modelName] );
+      ProductSearch.setParam( modelName, $scope[modelName] );
       $scope.updateSearch();
     };
 
@@ -125,14 +125,14 @@
       });
 
       if ( searchParamMap[attributeName] !== undefined ) { attributeName = searchParamMap[attributeName]; }
-      Search.setParam( attributeName, values );
+      ProductSearch.setParam( attributeName, values );
       $scope.updateSearch();
 
       $scope.closeFilters();
     };
 
     $scope.clearFilters = function () {
-      Search.resetParams( { centre: getCentre() } );
+      ProductSearch.resetParams( { centre: getCentre() } );
       $scope.updateSearch();
     };
 
@@ -147,7 +147,7 @@
       max = $scope.search[paramName].values.range_end;
       paramValue = min + '-' + max;
 
-      Search.setParam( paramName, paramValue );
+      ProductSearch.setParam( paramName, paramValue );
     };
   }]);
 }( angular.module( 'Westfield' ) ));

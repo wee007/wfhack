@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.385
+Version:     0.0.386
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,10 @@ fi
 
 
 %changelog
+* Wed Aug 21 2013 ci <doperations@au.westfield.com> 0.0.386-1
+- Disabling stores filters (CPearce@au.westfield.com)
+- Product browse style clean up - WSF-5053 (CPearce@au.westfield.com)
+
 * Wed Aug 21 2013 ci <doperations@au.westfield.com> 0.0.385-1
 - 
 

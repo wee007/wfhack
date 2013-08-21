@@ -51,45 +51,6 @@
 
   }
 
-// Centre selector / nearest centre
-.nav-contextual__centre-selector {
-  // Added when left hand navigation was removed
-  @include to-rem(padding-top padding-bottom, $spacing-half);
-  // End Added when left hand navigation was removed
-
-  float: right;
-  display: none;
-
-  @include respond-min($non-palm) {
-    float: right;
-    text-align: right;
-    @include to-rem(padding-top padding-bottom, $spacing-half + $spacing-quarter);
-  }
-
-  label,
-  .select  {
-    display: inline-block;
-    vertical-align: bottom;
-  }
-
-  // Hide/show button only visible on mobile
-  button {float: right;}
-}
-
-  .nav-contextual__centre-selector-control {
-    @include respond-max($palm) {
-      display: none;
-      float: left;
-      width: 80%;
-    }
-
-    @include font-size($font-size-sml);
-    color: $color-light-txt;
-
-    // Space the select away from the label
-    label {@include to-rem(margin-right, $spacing-base);}
-  }
-
 /* --Extenders-- */
 
 /* Dark color */

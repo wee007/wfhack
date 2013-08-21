@@ -63,6 +63,17 @@
         $(document).on('show hide', '.accordion-body', function (e) {
             $(e.target).siblings('.accordion-heading').find('.accordion-toggle').toggleClass('dropup');
         });
+
+        switch(service) {
+            case '/api/aaa':
+                $('.aaa .accordion-body').collapse('show')
+                break;
+            case '/api/file':
+                $('.micro .accordion-body').collapse('show')
+                break;
+            default:
+                $('.content .accordion-body').collapse('show')
+        }
     });
     </script>
 </head>
@@ -78,14 +89,14 @@
         <div class="row-fluid">
             <div class="left_col span3" style="">
                 <div class="accordion affix" id="group">
-                    <div class="accordion-group">
+                    <div class="accordion-group content">
                         <div class="accordion-heading">
-                            <a class="accordion-toggle dropup" data-toggle="collapse" data-parent="#group" href="#collapseOne">
+                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#group" href="#collapseOne">
                                 Directory Content
                                 <span class="caret pull-right"></span>
                             </a>
                         </div>
-                        <div id="collapseOne" class="accordion-body collapse in">
+                        <div id="collapseOne" class="accordion-body collapse">
                             <div class="accordion-inner">
                                 <ul>
                                     <li><a href="http://product-service.development.dbg.westfield.com/api/product/master/categories" target="_blank">Categories</a></li>
@@ -98,7 +109,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="accordion-group">
+                    <div class="accordion-group aaa">
                         <div class="accordion-heading">
                             <a class="accordion-toggle" data-toggle="collapse" data-parent="#group" href="#collapseTwo">
                                 Users &amp; Authentication
@@ -113,7 +124,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="accordion-group">
+                    <div class="accordion-group micro">
                         <div class="accordion-heading">
                             <a class="accordion-toggle" data-toggle="collapse" data-parent="#group" href="#collapseThree">
                                 Platform/Micro Services

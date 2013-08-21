@@ -135,6 +135,26 @@ ul, ol {
 	margin: 0;
 }
 
+.swagger-link {
+	position: relative;
+	margin-top: 110px;
+	display: inline-block;
+}
+
+.swagger-link a {
+	position: absolute;
+	width: 212px;
+	height: 200px;
+}
+
+.swagger-link a.aaa {
+	left: 212px;
+}
+
+.swagger-link a.file {
+	left: 424px;
+}
+
 .accordion-group {
 	padding: 18px 69px;
 	border: 0;

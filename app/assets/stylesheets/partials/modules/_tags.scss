@@ -1,42 +1,66 @@
-/*
+/* ======================================================================================
+   @MODULES -> TAGS
+   ====================================================================================== */
 
-  Styleguide Module - Tag
+/*
+  Usage:
+    Tags typically used when filtering.
+
+  Demo:
+    Style Guide -> Modules -> Tags
 */
+
 .tags {
   border-width: 1px 0;
   border-style: solid;
   border-color: $color-grey-1;
-
-  @include to-rem(margin-top, $spacing-base);
+  @include to-rem(margin-top, $spacing-half);
   @include to-rem(padding-top, $spacing-quarter);
   @include to-rem(padding-bottom, $spacing-quarter*2);
 
+  /* Button */
   .btn {
     @include to-rem(margin-right margin-top, $spacing-quarter);
-    @include to-rem(padding, $spacing-third);
+    @include to-rem(padding-top padding-bottom, $spacing-third);
     @include to-rem(padding-left, $spacing-half);
     @include to-rem(padding-right, $spacing-base);
-
     position: relative;
-
     @include font-size($font-size-sml, 1);
     color: $color-light-txt;
-
     border: 1px solid $color-grey-1;
     border-radius: $border-radius;
 
-    .icon {
+    /* Hover states */
+    &:hover,
+    &:focus {
+      border-color: $color-link-hover;
+      color: $color-link-hover;
+      text-decoration: line-through;
+    }
+
+    /* Close icon */
+    .icon:before {
       position: absolute;
       top: 50%;
-      @include to-rem(margin-top, -8);
       @include to-rem(right, $spacing-micro);
-      color: $color-light-txt;
+      @include translate(0, -50%);
+
+      /* Old IE */
+      @include old-ie {
+        @include to-rem(margin-top, -8);
+      }
     }
   }
 
+  /* Clear button */
   .btn--faux-link {
     border: 0;
+    margin-right: 0;
     padding-left: 0;
     padding-right: 0;
+
+    /* Hover states */
+    &:hover,
+    &:focus {text-decoration: none;}
   }
 }

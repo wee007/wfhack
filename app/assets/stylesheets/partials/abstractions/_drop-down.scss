@@ -21,8 +21,5 @@
   /* The drop down (JS users only) */
   .js .drop-down {
     display: none;
-    position: absolute;
-    z-index: $z-index-high;
-    top: 100%;
-    left: 0;
+    @include drop-down;
   }

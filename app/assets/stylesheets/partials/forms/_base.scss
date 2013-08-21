@@ -10,22 +10,17 @@ label {cursor: pointer;}
 textarea,
 select {
 	width: 100%;
-	padding: to-em($spacing-third);
-	border: 1px solid $color-grey-light;
-	border-radius: $border-radius;
-	box-shadow: inset -1px 1px 1px 0 rgba(#000, 0.1);
+  @include to-rem(padding, $spacing-third $spacing-half);
+  color: $color-base-txt;
+  border-radius: $border-radius;
+  border: 1px solid $color-grey-1;
 	background: #fff;
-	@include prefix(transition, border 0.2s linear, box-shadow 0.2s linear);
+	@include prefix(transition, border 0.2s linear);
 
 	/* Focus pseudo class */
 	&:focus {
 		outline: none;
-		border-color: rgba(#000, 0.35);
-		box-shadow: inset 0 1px 3px rgba(#000, 0.1),
-					0 0 10px rgba(#000, 0.35);
-
-		/* Old IE */
-		@include old-ie {border-color: $color-grey;}
+		border-color: darken($color-grey-1, 12%);
 	}
 }
 
@@ -39,7 +34,10 @@ textarea {
 input[type="search"] {@include prefix(appearance, none);}
 
 /* Select list */
-select {width: auto;}
+select {
+	width: auto;
+	@include to-rem(padding, $spacing-third);
+}
 
 /* Alternate sizes */
 .txt-input--sml {@include to-rem(width, 80);}
@@ -47,7 +45,10 @@ select {width: auto;}
 .txt-input--med {@include to-rem(width, 236);}
 
 /* Placeholder */
-@include input-placeholder {color: #aaa;}
+@include input-placeholder {
+	color: $color-light-txt;
+	font-style: italic;
+}
 
 /* Disabled and Read-only */
 

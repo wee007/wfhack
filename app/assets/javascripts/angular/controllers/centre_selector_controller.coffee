@@ -1,12 +1,12 @@
 ((app) ->
-  app.controller 'CentreSelectorController', ['$scope', 'Search', ( $scope, Search ) ->
+  app.controller 'CentreSelectorController', ['$scope', 'ProductSearch', ( $scope, ProductSearch ) ->
     $scope.selectCentre = ->
       # Selected centre could be a list,
       # so we'll always treat it as such
       centres = $scope.selectedCentre.split( ',' )
 
-      Search.setParam "centre", centres
-      Search.getSearch()
+      ProductSearch.setParam "centre", centres
+      ProductSearch.getSearch()
 
   ]
 ) angular.module("Westfield")

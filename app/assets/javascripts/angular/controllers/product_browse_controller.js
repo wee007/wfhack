@@ -138,7 +138,7 @@
 
     $scope.filterCategory = function ( categoryType, categoryCode ) {
       $scope.closeFilters();
-      Search.setParam( categoryType, categoryCode );
+      ProductSearch.setParam( categoryType, categoryCode );
       $scope.updateSearch();
     };
 

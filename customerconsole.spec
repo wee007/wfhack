@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.380
+Version:     0.0.381
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,10 @@ fi
 
 
 %changelog
+* Wed Aug 21 2013 ci <doperations@au.westfield.com> 0.0.381-1
+- Merge pull request #281 from ldewey/WSF-5079 (matt.wratt@trineo.co.nz)
+- Changed product images to use cloudinary (ldewey@au.westfield.com)
+
 * Wed Aug 21 2013 ci <doperations@au.westfield.com> 0.0.380-1
 - Update button doc (fiona@fionachan.net)
 - Convert form doc to 2 space indentation (fiona@fionachan.net)

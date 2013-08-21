@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.387
+Version:     0.0.388
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,10 @@ fi
 
 
 %changelog
+* Thu Aug 22 2013 ci <doperations@au.westfield.com> 0.0.388-1
+- Merge pull request #282 from mmell/master (ldewey@au.westfield.com)
+- apache vhost with internal and external hosts (mike.mell@nthwave.net)
+
 * Thu Aug 22 2013 ci <doperations@au.westfield.com> 0.0.387-1
 - Merge pull request #279 from ldewey/WSF-5074 (matt.wratt@trineo.co.nz)
 - tile load fixes (ldewey@au.westfield.com)

@@ -14,13 +14,6 @@
 */
 
 .filters {
-  position: relative;
-  @include to-rem(margin-top, $spacing-half);
-
-  /* Increase top margin at this breakpoint */
-  @include respond-min($non-palm) {
-    @include to-rem(margin-top, $spacing-base);
-  }
 
   /* --Global rules-- */
 
@@ -64,6 +57,19 @@
   }
 }
 
+/* --Extenders-- */
+
+/* When used for pin board */
+.filters--pin-board {
+  position: relative;
+  @include to-rem(margin-top, $spacing-half);
+
+  /* Increase top margin at this breakpoint */
+  @include respond-min($non-palm) {
+    @include to-rem(margin-top, $spacing-base);
+  }
+}
+
   /* Throw list into horizontal mode at this breakpoint */
   @include respond-min($non-palm) {
     .filters__list > li {
@@ -81,7 +87,7 @@
         @include drop-down;
         @include box;
         @include to-rem(width, 285);
-        @include to-rem(margin-top, 10);
+        @include to-rem(margin-top, 11);
         /* Apply the arrow pointer */
         @include arrow(top, left, red, $color-light-txt);
       }

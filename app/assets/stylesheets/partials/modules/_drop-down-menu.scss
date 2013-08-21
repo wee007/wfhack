@@ -1,67 +1,87 @@
+/* ======================================================================================
+   @MODULES -> DROP DOWN MENU
+   ====================================================================================== */
+
 /*
-  Styleguide - Modules - Drop down
+  Usage:
+    Common styles for a drop down menu.
+
+  Note:
+    -  Uses the 'Angular toggle visibility' plugin.
+    -  Requires the 'Drop down' abstraction.
+    -  A lot of these styles flow into the 'Filters' module for 'Product browse'.
+
+  Demo:
+    Style Guide -> Modules -> Drop Down Menu
 */
 
 .drop-down-menu {
   @include font-size($font-size-sml);
 
-  // Drop down arrow
-  .drop-down:before {
-    position: absolute;
-    top: 0;
-    // margin-top: ; // height of arrow
-    content: "^";
-    border: 1px solid red;
-  }
-
-
-  // Trigger
-  .drop-down-menu__trigger {
-    @include to-em(padding-top padding-bottom, $spacing-half+$spacing-micro);
-  }
-
-  // Filter header and Wrapper for back button, title and apply (palm)
-  // Wrapper for title (other)
-  .drop-down-menu__hdr {
-    position: relative;
-    @include to-rem(padding, $spacing-half 0);
-    @include font-size($font-size);
-    font-weight: normal;
-    text-align: center;
-    color: $color-light-txt;
-    border-bottom: 1px solid $color-grey-1;
-    background-color: $color-off-white;
-  }
+  /* Trigger - apply more top/bottom padding than '.btn--main' */
+  .drop-down-menu__trigger {@include to-em(padding-top padding-bottom, $spacing-half+$spacing-micro);}
 }
 
-.drop-down-menu__target {
-  position: relative;
-  @include to-rem(padding, $spacing-quarter);
-  width: 100%;
-}
+  /* Target (drop down) */
+  .drop-down-menu__target {
+    width: 100%;
+    @include to-rem(margin-top, 10);
+    /* Apply the arrow pointer */
+    @include arrow(top, left, white, $color-light-txt);
 
-  // Back button (palm)
-  .drop-down-menu__hdr .btn {
-    position: absolute;
-    top: 50%;
-    @include to-rem(margin-top, -8); // half the height
-    @include to-rem(left, $spacing-half);
-  }
-
-  // Wraps up hdr && search
-  .drop-down-menu__banner {
-    background-color: $color-off-white;
-  }
-
-  .drop-down-menu__list {
-    max-height: 150px;
-    overflow: auto;
-    -webkit-overflow-scrolling: touch;
-
-    li {
-      @include to-rem(padding, $spacing-half);
-      @include font-size($font-size-sml);
+    /* Category header */
+    .drop-down-menu__hdr {
+      position: relative;
+      @include to-rem(padding-top padding-bottom, $spacing-half);
+      @include font-size($font-size);
+      font-weight: normal;
+      text-align: center;
+      color: $color-light-txt;
       border-bottom: 1px solid $color-grey-1;
-      &:last-child { border-bottom: 0; }
+      background-color: $color-off-white;
+
+      /* When it's a button */
+      &.btn {
+        background-color: #fff;
+        text-align: left;
+        color: $color-dark-txt;
+        @include font-size($font-size-sml);
+        @include to-rem(padding-left, $spacing-half);
+      }
+
+      /* Forward indicator (arrow icon) */
+      .icon.btn--pointer__icon {
+        @include to-rem(right, $spacing-half);
+      }
+
+      /* Back button */
+      .btn {
+        position: absolute;
+        top: 50%;
+        @include to-rem(left, $spacing-half);
+        @include translate(0, -50%);
+      }
     }
   }
+
+    /* List */
+    .drop-down-menu__list {
+      max-height: 220px;
+      overflow: auto;
+
+      /* iOS/Android */
+      .ios &,
+      .android & {
+        overflow: scroll;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      /* List items */
+      > li {
+        @include to-rem(padding, $spacing-half);
+        border-bottom: 1px solid $color-grey-1;
+
+        /* Turn off border for last child */
+        &:last-child {border-bottom: 0;}
+      }
+    }

@@ -1,26 +1,45 @@
-<div class="sg-example">
-  <div class="sg-h2"><%= section.section %> <em><%= section.filename %></em></div>
-  <div class="sg-note">
-    <p><%= section.description %></p>
-    <% if section.modifiers.any? %>
-      <ul class="styleguide-modifier">
-        <% section.modifiers.each do |modifier| %>
-          <li><strong><%= modifier.name %></strong> - <%= modifier.description %></li>
-        <% end %>
-      </ul>
-    <% end %>
-  </div>
+<div class="sg-section">
+  <div class="sg-h2"><%= section.section %> <code><%= section.filename %></code></div>
 
-  <div class="sg-element">
-    <%= example_html.html_safe %>
+  <% unless section.description.blank? %>
+    <div class="sg-note">
+      <p><%= section.description %></p>
+    </div>
+  <% end %>
+
+  <% if section.modifiers.any? %>
+  <table class="sg-table" caption="<%= section.section %> modifier classes">
+    <thead>
+      <tr>
+        <th class="sg-table__class">Modifier Classes</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% section.modifiers.each do |modifier| %>
+        <tr>
+          <td>
+            <code><%= modifier.name %></code>
+          </td>
+          <td>
+            <%= modifier.description %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <% end %>
+
+  <div class="sg-example">
+    <%= example_html.strip.gsub(' $modifier_class', '').html_safe %>
   </div>
 
   <% section.modifiers.each do |modifier| %>
-    <div class="sg-element sg-modifier">
+    <div class="sg-example sg-modifier">
       <span class="sg-modifier-name"><%= modifier.name %></span>
       <%= example_html.gsub('$modifier_class', modifier.class_name).html_safe %>
     </div>
   <% end %>
 
-  <pre class="sg-code"><code data-language="html"><%= example_html.strip %></code></pre>
+  <pre class="sg-code-block"><code class="language-markup"><%= example_html.strip.gsub(' $modifier_class', '').gsub(" class=\"\"", "") %></code></pre>
 </div>

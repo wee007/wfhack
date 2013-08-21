@@ -3,38 +3,47 @@
    ====================================================================================== */
 
 /*
-	Usage:
-		The main button for the site.
+  The main button for the site.
 
-	Note:
-		Extends from `.btn`, see: 'buttons/base'.
+  .btn--main-alt              - Blue
+  .btn--main-alt2             - Dark
+  .btn--main-alt3             - Subtle
+  .btn--main-alt4             - White
+  .btn--main-compact          - Decrease padding
+  .btn--main-lrg              - Large - increase top/btm padding
 
-	Demo:
-		Style Guide -> Buttons -> Main
+  Styleguide Button Main
+*/
+
+//TODO: .btn-main-compact-icon
+
+/*
+  Note:
+    Extends from `.btn`, see: 'buttons/base'.
 */
 
 .btn--main {
-	@include font-size($font-size-sml, normal);
-	@include to-em(padding, $spacing-half $spacing-base+$spacing-half);
-	box-shadow: inset 0 -1px 0 rgba(#000, 0.4);
-	border-radius: $border-radius;
+  @include font-size($font-size-sml, normal);
+  @include to-em(padding, $spacing-half $spacing-base+$spacing-half);
+  box-shadow: inset 0 -1px 0 rgba(#000, 0.4);
+  border-radius: $border-radius;
 
-	/* Bg colour combined with disabled state */
-	&,
-	&[disabled],
-	&.is-disabled {background-color: $color-cta-green;}
+  /* Bg colour combined with disabled state */
+  &,
+  &[disabled],
+  &.is-disabled {background-color: $color-cta-green;}
 
-	/* Parent + pseudo classes */
-	&,
-	&:visited,
-	&:hover,
-	&:focus {color: #fff;}
+  /* Parent + pseudo classes */
+  &,
+  &:visited,
+  &:hover,
+  &:focus {color: #fff;}
 
-	/* Pseudo classes */
-	&:hover,
-	&:focus {background-color: lighten($color-cta-green, 10%);}
+  /* Pseudo classes */
+  &:hover,
+  &:focus {background-color: lighten($color-cta-green, 10%);}
 
-	&:active {box-shadow: inset 0 1px 0 rgba(#000, 0.4);}
+  &:active {box-shadow: inset 0 1px 0 rgba(#000, 0.4);}
 }
 
 	/* --Extenders-- */
@@ -99,10 +108,10 @@
 		&,
 		&:visited,
 		&:hover,
-		&:focus {color: $color-light-txt;}
+		&:focus {color: $color-dark-txt;}
 
 		&:hover,
-		&:focus {background-color: lighten($color-off-white, 3%);}
+		&:focus {background-color: lighten($color-off-white, 2%);}
 
 		&:active {box-shadow: inset 0 1px 0 rgba(#000, 0.15);}
 	}
@@ -136,6 +145,11 @@
 			@include to-em(left, $spacing-half);
 		}
 	}
+
+	/* Add more right padding to 'pointer' */
+	.btn--pointer-padding-med.btn--main {@include to-em(padding-right, $spacing-dbl);}
+
+	.btn--pointer-padding-lrg.btn--main {@include to-em(padding-right, $spacing-dbl+$spacing-base);}
 
 	/* Flanked - position 2 icons either ends, has to be used with the `.btn--pointer` base extender */
 	.btn--main.btn--main-flanked {

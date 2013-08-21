@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.374
+Version:     0.0.388
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,91 @@ fi
 
 
 %changelog
+* Thu Aug 22 2013 ci <doperations@au.westfield.com> 0.0.388-1
+- Merge pull request #282 from mmell/master (ldewey@au.westfield.com)
+- apache vhost with internal and external hosts (mike.mell@nthwave.net)
+
+* Thu Aug 22 2013 ci <doperations@au.westfield.com> 0.0.387-1
+- Merge pull request #279 from ldewey/WSF-5074 (matt.wratt@trineo.co.nz)
+- tile load fixes (ldewey@au.westfield.com)
+
+* Wed Aug 21 2013 ci <doperations@au.westfield.com> 0.0.386-1
+- Disabling stores filters (CPearce@au.westfield.com)
+- Product browse style clean up - WSF-5053 (CPearce@au.westfield.com)
+
+* Wed Aug 21 2013 ci <doperations@au.westfield.com> 0.0.385-1
+- 
+
+* Wed Aug 21 2013 ci <doperations@au.westfield.com> 0.0.384-1
+- Merge pull request #285 from ldewey/WSF-5079 (ldewey@au.westfield.com)
+- Changed scale to limit so we dont get huge speakers :)
+  (ldewey@au.westfield.com)
+
+* Wed Aug 21 2013 ci <doperations@au.westfield.com> 0.0.383-1
+- Workaround for curl dying when proxied service returned chunked encoding.
+  (cwalsh2@au.westfield.com)
+
+* Wed Aug 21 2013 ci <doperations@au.westfield.com> 0.0.382-1
+- Merge pull request #283 from ldewey/WSF-5079 (ldewey@au.westfield.com)
+- Removed trim as that removed to much white space (ldewey@au.westfield.com)
+
+* Wed Aug 21 2013 ci <doperations@au.westfield.com> 0.0.381-1
+- Merge pull request #281 from ldewey/WSF-5079 (matt.wratt@trineo.co.nz)
+- Changed product images to use cloudinary (ldewey@au.westfield.com)
+
+* Wed Aug 21 2013 ci <doperations@au.westfield.com> 0.0.380-1
+- Update button doc (fiona@fionachan.net)
+- Convert form doc to 2 space indentation (fiona@fionachan.net)
+- Rename form doc file name (fiona@fionachan.net)
+- Update embedded content doc (fiona@fionachan.net)
+- Renamed embedded content doc file name (fiona@fionachan.net)
+- Added regex to remove empty class attr (fiona@fionachan.net)
+- Update table doc (fiona@fionachan.net)
+- Rename tables doc file name (fiona@fionachan.net)
+- Update typography doc (fiona@fionachan.net)
+- Change typography doc file name (fiona@fionachan.net)
+- Update styleguide template (fiona@fionachan.net)
+- Remove styleguide demo class (fiona@fionachan.net)
+- Update modifier class table styles (fiona@fionachan.net)
+- Change from list to table of modifier classes (fiona@fionachan.net)
+- Update divider doc (fiona@fionachan.net)
+- Update arrows doc (fiona@fionachan.net)
+- Updated slats and columns doc (fiona@fionachan.net)
+- Remove modifier class variable in mark up (fiona@fionachan.net)
+- Fix up islet doc (fiona@fionachan.net)
+- Update complex link and island to doc (fiona@fionachan.net)
+- Added Prism to Bower (fiona@fionachan.net)
+- Update section names and def list doc (fiona@fionachan.net)
+- Put back in credit for preserve aspect ratio (fiona@fionachan.net)
+- Update preserve aspect ratio doc (fiona@fionachan.net)
+- Update vertical alignment doc (fiona@fionachan.net)
+- Style code block and update horiz list comment (fiona@fionachan.net)
+- Updated horizontal-list in style guide (fiona@fionachan.net)
+
+* Tue Aug 20 2013 ci <doperations@au.westfield.com> 0.0.379-1
+- Fix callback re-creation (cwalsh2@au.westfield.com)
+
+* Tue Aug 20 2013 ci <doperations@au.westfield.com> 0.0.378-1
+- Moved price to the left and added txt-truncate to both lines
+  (ldewey@au.westfield.com)
+
+* Tue Aug 20 2013 ci <doperations@au.westfield.com> 0.0.377-1
+- Merge pull request #274 from bschwarz/master (ben@germanforblack.com)
+- Use preloader--middle for maps too (ben@germanforblack.com)
+- Use preloader--middle (ben@germanforblack.com)
+- Added a preloader--middle modifier (ben@germanforblack.com)
+- Remove unused class (ben@germanforblack.com)
+
+* Tue Aug 20 2013 ci <doperations@au.westfield.com> 0.0.376-1
+- Merge pull request #275 from ldewey/WSF-5074 (matt.wratt@trineo.co.nz)
+- Created isotope responsive, to create consistent padding between tiles
+  (ldewey@au.westfield.com)
+
+* Tue Aug 20 2013 ci <doperations@au.westfield.com> 0.0.375-1
+- Nest the selector & Use a non greyscale colour value (ben@germanforblack.com)
+- Remove as much of the filter styles from conditional javascript as possible.
+  (ben@germanforblack.com)
+
 * Tue Aug 20 2013 ci <doperations@au.westfield.com> 0.0.374-1
 - Merge pull request #272 from cpearce/master (matt.wratt@trineo.co.nz)
 - Making store name dynamic for back to index link (CPearce@au.westfield.com)

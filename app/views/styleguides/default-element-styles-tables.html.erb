@@ -1,0 +1,38 @@
+<div class="sg-h1">Default Element Styles - Tables</div>
+<div class="sg-note sg-note--outdent">All default elements e.g. paragraphs, links, headings, images, etc. are given base styles that define how the element should look in all occurrences on the page. Base styles include setting heading sizes, default link styles, default font styles, etc. This page shows all the default elements concerned with <span class="pt-sans-narrow-bold">tables</span>.</div>
+
+<!-- Base -->
+<%= styleguide_block 'Tables' do %>
+  <table cellspacing="0" class=" $modifier_class">
+      <caption>Jimi Hendrix - albums</caption>
+      <thead>
+          <tr>
+              <th scope="col">Album</th>
+              <th scope="col">Year</th>
+              <th scope="col">Price</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+              <td>Are You Experienced</td>
+              <td>1967</td>
+              <td>$10.00</td>
+          </tr>
+          <tr>
+              <td>Axis: Bold as Love</td>
+              <td>1967</td>
+              <td>$12.00</td>
+          </tr>
+          <tr>
+              <td>Electric Ladyland</td>
+              <td>1968</td>
+              <td>$10.00</td>
+          </tr>
+          <tr>
+              <td>Band of Gypsys</td>
+              <td>1970</td>
+              <td>$12.00</td>
+          </tr>
+      </tbody>
+  </table>
+<% end %>

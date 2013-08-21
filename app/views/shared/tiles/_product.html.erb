@@ -1,6 +1,11 @@
 <div class="tile__image">
   <% # TODO: fix alt tag %>
-  <%= image_tag result.primary_image, alt: result.title %>
+  <%= fetch_image_tag result.primary_image,
+    alt: result.title,
+    width: 576,
+    crop: :limit,
+    quality: 25
+  %>
 </div>
 
 <div class="tile__meta">
@@ -9,10 +14,10 @@
     <span class="hide-visually"></span>
   </span>
   <div class="tile__meta__inner">
-    <h3 class="tile__meta__hdr"><%= result.name %></h3>
-    <p class="tile__meta__desc">
-      <span class="txt-break-word">from <strong><%= result.retail_chain_name %></strong></span>
+    <h3 class="tile__meta__hdr txt-truncate"><%= result.name %></h3>
+    <p class="tile__meta__desc txt-truncate">
       <span class="tile__meta__price"><%=number_to_currency result.sale_price %></span>
+      from <strong><%= result.retail_chain_name %></strong>
     </p>
   </div>
 </div>

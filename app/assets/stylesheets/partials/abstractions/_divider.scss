@@ -3,16 +3,17 @@
    ====================================================================================== */
 
 /*
-	Usage:
-		Apply a dividing line between two elements.
+  Apply a dividing line between two elements.
+	
+  .divider--lrg         - Larger spacing
+  .divider--sml         - Smaller spacing
 
-	Demo:
-		Style Guide -> Abstractions -> Divider
+	Styleguide Divider
 */
 
 .divider {
 	border-bottom: 1px solid $color-grey;
-	box-shadow: 0 1px 0 $color-grey-lightest;
+	box-shadow: 0 1px 0 $color-grey-1;
 	@include to-rem(padding-bottom, $spacing-base);
 	@extend %mrg-base;
 }

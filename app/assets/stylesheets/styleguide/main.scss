@@ -8,7 +8,6 @@ Style Guide stylesheet
 
 */
 
-
 /* ======================================================================================
    @CUSTOM FONTS
    ====================================================================================== */
@@ -255,6 +254,14 @@ body {
 	margin-top: 24px;
 	background-color: #839496;
 	text-shadow: 0 1px 1px rgba(0, 0, 0, 0.6);
+
+	code {
+		float: right;
+		margin-top: 3px;
+		color: #fff;
+		text-shadow: none;
+		font-size: 14px;
+	}
 }
 
 /* [H3]
@@ -307,10 +314,6 @@ body {
 	margin-left: 0;
 }
 
-.sg-example {
-	border-bottom: 1px solid #839496;
-}
-
 /* [NOTE]
 -------------------------------------------------------*/
 .sg-note {
@@ -352,12 +355,18 @@ body {
 
 .sg-inputs-btns li * {vertical-align: middle;}
 
+/* [EXAMPLE]
+-------------------------------------------------------*/
+.sg-example {
+	margin-bottom: 25px;
+}
+
 /* [MODIFIER]
 -------------------------------------------------------*/
 .sg-modifier {
 	position: relative;
-	padding: 25px 35px 35px 35px;
-	border-top: 1px solid #93a1a1;
+	padding-top: 35px;
+	border-top: 1px solid #073642;
 }
 
 .sg-modifier-name {
@@ -389,8 +398,37 @@ body {
 	font-size: 12px;
 	display: inline-block;
 	margin: 0 2px 1px;
-	width: 100%;
 	text-shadow: none;
+}
+
+.sg-code-block {
+	padding: 1px 6px;
+	background-color: #f8f8f8;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	word-wrap: break-word !important;
+	-ms-word-break: break-all !important;
+  word-break: break-all !important;
+	/* Non standard for webkit */
+  word-break: break-word !important;
+}
+
+/* [TABLE]
+-------------------------------------------------------*/
+.sg-table {
+	border: 1px solid #eee;
+	border-width: 0 1px 1px 0;
+
+	.sg-table__class {
+    width: 40%;
+  }
+
+  th,
+  td {
+    padding: 10px 20px;
+    border: 1px solid #eee;
+    border-width: 1px 0 0 1px;
+  }
 }
 
 /* [ALERTS]

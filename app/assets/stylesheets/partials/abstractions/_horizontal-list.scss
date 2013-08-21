@@ -3,15 +3,17 @@
    ====================================================================================== */
 
 /*
-	Usage:
-		Make list items for `ul` and `ol` elements render horizontally.
+  Make list items for `ul` and `ol` elements render horizontally.
 
-	Demo:
-		Style Guide -> Abstractions -> Horizontal List
+  .horiz-list--dividers          - With dividers.
+  .horiz-list--center            - Center align.
+  .horiz-list--fit               - Force the items to occupy 100% of the available width of its parent.
+  .horiz-list--comma             - Comma separated.
+  .horiz-list--slash             - Slash separated.
 
-	Credit:
-		https://github.com/csswizardry/inuit.css/blob/master/inuit.css/objects/_nav.scss
+  Styleguide Horizontal List
 */
+
 
 .horiz-list {
 
@@ -22,25 +24,6 @@
 		&,
 		> a {display: inline-block;}
 	}
-}
-
-/* --Use the horizontal list abstraction under specific breakpoints applied via specific classes (namespaced) e.g. `.non-palm-horiz-list` (all pre-defined breakpoints)-- */
-
-@mixin horiz-list-classes($namespace: "") {
-
-	/* Non-palm */
-  .#{$namespace}horiz-list {
-		> li {
-			&,
-			> a {display: inline-block;}
-		}
-  }
-
-}
-
-/* Non-palm */
-@include respond-min($non-palm) {
-	@include horiz-list-classes("non-palm-");
 }
 
 /* --Extenders-- */

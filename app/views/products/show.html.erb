@@ -58,14 +58,28 @@
       <div class="flexslider flexslider--lrg-img flexslider--gallery">
         <ul class="slides">
           <%- @product.images[0...4].each do |img| -%>
-            <li><%= image_tag(img, alt: "Photo of #{@product.name}") %></li>
+            <li><%= fetch_image_tag(img,
+              alt: "Photo of #{@product.name}",
+              width: 938,
+              height: 948,
+              quality: 25,
+              crop: :pad,
+              effect: 'trim'
+            ) %></li>
           <%- end -%>
         </ul>
       </div>
       <div class="flexslider flexslider--thumbs flexslider--gallery">
         <ul class="slides">
           <%- @product.images[0...4].each do |img| -%>
-            <li><%= image_tag(img, alt: "Thumbnail of #{@product.name}") %></li>
+            <li><%= fetch_image_tag(img,
+              alt: "Photo of #{@product.name}",
+              width: 938,
+              height: 948,
+              quality: 25,
+              crop: :pad,
+              effect: 'trim'
+            ) %></li>
           <%- end -%>
         </ul>
       </div>

@@ -1,23 +1,23 @@
 ((app) ->
   app.service "GlobalSearch", ['$http', ($http) ->
     callbacks = []
-    @list = ""
+    @results = []
     @loaded = true
     @onChange = (callback) ->
-      callbacks.push callback  if angular.isFunction(callback)
+      callbacks.push callback if angular.isFunction(callback)
 
-    @get = (url, params) ->
+    @get = (params) ->
       @loaded = false
       params =
-        url: url,
-        method: "GET",
+        url: "/api/search/master/search.json"
+        method: "GET"
         params: params
 
       self = this
+
       $http(params).success (response) ->
         self.loaded = true
-        self.list = response
-        angular.forEach callbacks, (callback) ->
-          callback self.list
+        self.results = response.results
+        angular.forEach callbacks, (callback) -> callback()
   ]
 ) angular.module("Westfield")

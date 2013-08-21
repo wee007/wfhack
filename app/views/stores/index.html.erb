@@ -17,7 +17,19 @@
 
         <%# Filters %>
         <%# [CHRIS TODO] need to add `aria-owns` to the 'Apply' button that points to the filters count %>
-        <%# <button class="btn btn--main btn--main-alt2">Filter</button> %>
+        <div class="drop-down-menu drop-down-container">
+          <button class="drop-down-menu__trigger btn btn--main btn--main-alt2 btn--pointer btn--pointer-padding-lrg" toggle-visibility="stores-filters">Category<span aria-hidden="true" class="icon icon--lrg icon--arrow-down-full icon--flush-top btn--pointer__icon"></span></button>
+          <div class="drop-down-menu__target drop-down box" id="stores-filters">
+            <ul class="drop-down-menu__list">
+              <li><button class="btn btn--full btn--full-left">Women's Fashion</button></li>
+              <li><button class="btn btn--full btn--full-left">Shoes &amp; Footwear</button></li>
+              <li><button class="btn btn--full btn--full-left">Jewellery &amp; Watches</button></li>
+              <li><button class="btn btn--full btn--full-left">Bags &amp; Luggage</button></li>
+              <li><button class="btn btn--full btn--full-left">Computers &amp; Electronics</button></li>
+              <li><button class="btn btn--full btn--full-left">Movies &amp; Music</button></li>
+            </ul>
+          </div>
+        </div>
         <%# Filters %>
 
         <%# List/map toggle %>

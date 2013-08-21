@@ -1051,10 +1051,7 @@ $header-color-link-hover: $color-brand !default;
 				}
 
 				/* Placeholder */
-				@include input-placeholder {
-					color: $color-dark-txt;
-					font-style: italic;
-				}
+				@include input-placeholder {color: $color-dark-txt;}
 		}
 
 			/* Text input */

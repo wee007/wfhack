@@ -984,6 +984,14 @@
   box-shadow: 0 0 7px rgba(#000, 0.3);
 }
 
+/* Drop down */
+@mixin drop-down {
+  position: absolute;
+  z-index: $z-index-high;
+  top: 100%;
+  left: 0;
+}
+
 /* --Hide-- */
 
 /* Hide only visually but have it available for screen readers */

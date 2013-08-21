@@ -26,25 +26,6 @@
 	}
 }
 
-/* --Use the horizontal list abstraction under specific breakpoints applied via specific classes (namespaced) e.g. `.non-palm-horiz-list` (all pre-defined breakpoints)-- */
-
-@mixin horiz-list-classes($namespace: "") {
-
-	/* Non-palm */
-  .#{$namespace}horiz-list {
-		> li {
-			&,
-			> a {display: inline-block;}
-		}
-  }
-
-}
-
-/* Non-palm */
-@include respond-min($non-palm) {
-	@include horiz-list-classes("non-palm-");
-}
-
 /* --Extenders-- */
 
 /* With dividers */

@@ -1,132 +1,131 @@
-/*
-  Filters, used on product browse
+/* ======================================================================================
+   @MODULES -> FILTERS
+   ====================================================================================== */
 
-  Styleguide - Modules - Filters
+/*
+  Usage:
+    Pin board filters and sorting.
+
+  Note:
+    A lot of styles are being used from the 'Drop down menu' module.
+
+  Demo:
+    Style Guide -> Modules -> Filters
 */
 
 .filters {
   position: relative;
-  @include to-rem(margin-top, $spacing-base);
-  @include to-rem(margin-bottom, $spacing-half);
+  @include to-rem(margin-top, $spacing-half);
 
-  @include respond-min($non-palm) {@include to-rem(max-height, 32);}
-
-  label { display: block; }
-  [type="checkbox"] { @include to-rem(margin-right, $spacing-quarter); }
-
-  .filters__input-txt {
-    @include prefix(box-sizing, border-box);
-    @include to-rem(padding, $spacing-half);
-    font-style: italic;
-    color: $color-light-txt;
-    border-radius: $border-radius;
-    border: 1px solid $color-grey-1;
-    width: 100%;
+  /* Increase top margin at this breakpoint */
+  @include respond-min($non-palm) {
+    @include to-rem(margin-top, $spacing-base);
   }
 
-  // Custom rule for drop down
-  .drop-down-menu__target {
-    padding: 0;
-    @include respond-max($palm) {
-      display: none;
-      @include to-rem(margin-top, 10);
-    }
+  /* --Global rules-- */
 
-    // Override 'box' for desktop breakpoint
-    @include respond-min($non-palm) {
+  /* Form elements */
+  label,
+  input[type="checkbox"] {vertical-align: middle;}
+
+  input[type="checkbox"] {@include to-rem(margin-right, $spacing-quarter);}
+
+  .txt-input {@include prefix(box-sizing, border-box);}
+
+  /* --Overrides for 'Drop down' module-- */
+
+  /* Turn off the drop down hidden rules and 'box' treatment for drop down target at this breakpoint */
+  @include respond-min($non-palm) {
+    .drop-down-menu__target {
+      display: block;
+      position: static;
       background: none;
       box-shadow: none;
+
+      /* Turn off the arrow pointer from 'Drop down' module */
+      &:before,
+      &:after {display: none;}
     }
   }
 
-  // Custom rule for pointer inside hdr
-  .drop-down-menu__hdr .icon {
-    @include to-rem(margin-right, $spacing-quarter);
-  }
-
-  // Overrides for non-palm filter trigger buttons
+  /* Drop down trigger - need to make look like buttons at non-palm breakpoint */
   .non-palm & .filters__trigger {
     @extend .btn--main;
     @extend .btn--main-alt4;
     @extend .drop-down-menu__trigger;
   }
+
+  /* 'Apply' button (used on multi-facet lists) */
+  .filters__apply {
+    position: absolute;
+    @include to-rem(right, $spacing-half);
+    @include to-rem(top, 4.5);
+    @include to-em(padding, $spacing-half $spacing-base);
+  }
 }
 
-  // Contents of dropdown menu
-  .filters__target {
-    @include respond-min($non-palm) {
-      position: absolute;
-      @include to-rem(margin-top, 10);
-      z-index: 3;
-
-      @include to-rem(width, 285);
-      border: 1px solid $color-grey-3;
-    }
-
-    .non-palm & {@extend .box;}
-  }
-
-  // Lists within dropdown menu
-  .filters__list {
-    @include respond-min($non-palm) {
-      > li {
-        display: inline-block;
-        vertical-align: middle;
-      }
-    }
-  }
-
-  .filters__range {
-    @include to-rem(padding, $spacing-half);
-
-    .filters__banner {
-      @include to-rem(margin, -$spacing-half);
-      @include to-rem(margin-bottom, $spacing-half);
-    }
-  }
-
-    .filters__range__inner {
+  /* Throw list into horizontal mode at this breakpoint */
+  @include respond-min($non-palm) {
+    .filters__list > li {
+      display: inline-block;
+      vertical-align: middle;
       position: relative;
+      @include to-rem(margin-right, $spacing-micro);
 
-      .filters__input-txt {
-        width: 40%;
+      /* Turn off right margin for last child */
+      &:last-child {margin-right: 0;}
+    }
 
-        &:last-child {
-          position: absolute;
-          top: 0;
-          right: 0;
+      /* Filters target (drop down) */
+      .filters__target {
+        @include drop-down;
+        @include box;
+        @include to-rem(width, 285);
+        @include to-rem(margin-top, 10);
+        /* Apply the arrow pointer */
+        @include arrow(top, left, red, $color-light-txt);
+      }
+  }
+
+        /* Range */
+        /* [TODO - make into abstraction] Range inner container */
+        .filters__range {
+          position: relative;
+
+          /* Range text inputs - position them side by side */
+          .txt-input {
+            width: 40%;
+
+            /* Right most text input */
+            &:last-child {float: right;}
+          }
+
+          /* 'To' label (sits in the middle of the text inputs) */
+          span {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            @include translate(-50%, -50%);
+
+            /* Old IE */
+            @include old-ie {
+              @include to-rem(margin-top, -10);
+              @include to-rem(margin-left, -5);
+            }
+          }
         }
-      }
 
-      span {
-        position: absolute;
-        top: 50%;
-        @include to-rem(margin-top, -10);
-        left: 50%;
-        @include to-rem(margin-left, -5);
-      }
-    }
+        /* Search */
+        .filters__search {
+          /* [TODO - make this DRY] */
+          @include to-rem(padding, $spacing-half);
+          border-bottom: 1px solid $color-grey-1;
+        }
 
-
-    // Search field
-    .filters__search {
-      @include to-rem(padding, $spacing-half);
-      border-bottom: 1px solid $color-grey-1;
-    }
-
-
-    // Apply filter button (used on multi-facet lists)
-    .filters__apply {
-      position: absolute;
-      @include to-rem(right, $spacing-half);
-      @include to-rem(top, $spacing-quarter);
-      @include to-em(padding-left padding-right, $spacing-base);
-    }
-
+  /* Sort */
   .filters__sort-options {
-    @include to-rem(padding-top padding-bottom, $spacing-quarter);
+    @include font-size($font-size-sml);
     position: absolute;
     top: 0;
     right: 0;
   }
-

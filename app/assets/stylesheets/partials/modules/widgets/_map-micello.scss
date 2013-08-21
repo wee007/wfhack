@@ -167,12 +167,12 @@
 
         /* Pointer */
         .menuTip {
-            background: image-url("images/map-overlay-pointer.png") no-repeat 50% 0 !important;
-            @include img-2x("images/map-overlay-pointer@2x.png", 20px, 13px, !important);
-            position: relative;
-            top: 13px !important;
-            width: 100% !important;
-            height: 13px !important;
+          background: image-url("images/arrow-down.png") no-repeat 50% 0 !important;
+          @include img-2x("images/arrow-down@2x.png", 20px, 13px, !important);
+          position: relative;
+          top: 13px !important;
+          width: 100% !important;
+          height: 13px !important;
         }
 
           /* In */

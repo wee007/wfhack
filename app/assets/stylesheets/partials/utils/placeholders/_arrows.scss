@@ -14,7 +14,7 @@
 */
 
 /* Set variables */
-$arrow-size: $spacing-third !default;
+$arrow-size: $spacing-half !default;
 
 $arrow-border: 1 !default;
 
@@ -26,113 +26,113 @@ $arrow: ($arrow-size - $arrow-border)+px;
 
 /* Forms the basis for any/all CSS arrows */
 %arrow {
-    position: relative;
+  position: relative;
 
-	/* Pseudo elements */
-    &:before,
-    &:after {
-        content: "";
-        position: absolute;
-        border-collapse: separate;
-    }
+  /* Pseudo elements */
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    border-collapse: separate;
+  }
 
-    &:before {border: $border inset transparent;}
+  &:before {border: $border inset transparent;}
 
-    &:after {border: $arrow inset transparent;}
+  &:after {border: $arrow inset transparent;}
 }
 
 /* --Define individual edges so we can combine what we need, when we need-- */
 
 /* Top */
 %arrow--top {
-    @extend %arrow;
+  @extend %arrow;
 
-    &:before,
-    &:after {bottom: 100%;}
+  &:before,
+  &:after {bottom: 100%;}
 }
 
 /* Upper */
 %arrow--upper {
-    @extend %arrow;
+  @extend %arrow;
 
-    &:before {top: $arrow;}
+  &:before {top: $arrow;}
 
-    &:after {top: $border;}
+  &:after {top: $border;}
 }
 
 /* Middle */
 %arrow--middle {
-    @extend %arrow;
+  @extend %arrow;
 
-    &:before,
-    &:after {
-        top: 50%;
-        margin-top: -$border;
-    }
+  &:before,
+  &:after {
+    top: 50%;
+    margin-top: -$border;
+  }
 
-    &:after {margin-top: -$arrow;}
+  &:after {margin-top: -$arrow;}
 }
 
 /* Lower */
 %arrow--lower {
-    @extend %arrow;
+  @extend %arrow;
 
-    &:before {bottom: $arrow;}
+  &:before {bottom: $arrow;}
 
-    &:after {bottom: $border;}
+  &:after {bottom: $border;}
 }
 
 /* Bottom */
 %arrow--bottom {
-    @extend %arrow;
+  @extend %arrow;
 
-    &:before,
-    &:after {top: 100%;}
+  &:before,
+  &:after {top: 100%;}
 }
 
 /* Near */
 %arrow--near {
-    @extend %arrow;
+  @extend %arrow;
 
-    &:before,
-    &:after {right: 100%;}
+  &:before,
+  &:after {right: 100%;}
 }
 
 /* Left */
 %arrow--left {
-    @extend %arrow;
+  @extend %arrow;
 
-    &:before {left: $arrow;}
+  &:before {left: $arrow;}
 
-    &:after {left: $border;}
+  &:after {left: $border;}
 }
 
 /* Center */
 %arrow--center {
-    @extend %arrow;
+  @extend %arrow;
 
-    &:before,
-    &:after {
-        left: 50%;
-        margin-left: -$border;
-    }
+  &:before,
+  &:after {
+    left: 50%;
+    margin-left: -$border;
+  }
 
-    &:after {margin-left: -$arrow;}
+  &:after {margin-left: -$arrow;}
 }
 
 /* Right */
 %arrow--right {
-    @extend %arrow;
+  @extend %arrow;
 
-    &:before {right: $arrow;}
+  &:before {right: $arrow;}
 
-    &:after {right: $border;}
+  &:after {right: $border;}
 }
 
 /* Far */
 %arrow--far {
-    @extend %arrow;
+  @extend %arrow;
 
-    &:before,
-    &:after {left: 100%;}
+  &:before,
+  &:after {left: 100%;}
 }

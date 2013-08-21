@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.379
+Version:     0.0.380
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,35 @@ fi
 
 
 %changelog
+* Wed Aug 21 2013 ci <doperations@au.westfield.com> 0.0.380-1
+- Update button doc (fiona@fionachan.net)
+- Convert form doc to 2 space indentation (fiona@fionachan.net)
+- Rename form doc file name (fiona@fionachan.net)
+- Update embedded content doc (fiona@fionachan.net)
+- Renamed embedded content doc file name (fiona@fionachan.net)
+- Added regex to remove empty class attr (fiona@fionachan.net)
+- Update table doc (fiona@fionachan.net)
+- Rename tables doc file name (fiona@fionachan.net)
+- Update typography doc (fiona@fionachan.net)
+- Change typography doc file name (fiona@fionachan.net)
+- Update styleguide template (fiona@fionachan.net)
+- Remove styleguide demo class (fiona@fionachan.net)
+- Update modifier class table styles (fiona@fionachan.net)
+- Change from list to table of modifier classes (fiona@fionachan.net)
+- Update divider doc (fiona@fionachan.net)
+- Update arrows doc (fiona@fionachan.net)
+- Updated slats and columns doc (fiona@fionachan.net)
+- Remove modifier class variable in mark up (fiona@fionachan.net)
+- Fix up islet doc (fiona@fionachan.net)
+- Update complex link and island to doc (fiona@fionachan.net)
+- Added Prism to Bower (fiona@fionachan.net)
+- Update section names and def list doc (fiona@fionachan.net)
+- Put back in credit for preserve aspect ratio (fiona@fionachan.net)
+- Update preserve aspect ratio doc (fiona@fionachan.net)
+- Update vertical alignment doc (fiona@fionachan.net)
+- Style code block and update horiz list comment (fiona@fionachan.net)
+- Updated horizontal-list in style guide (fiona@fionachan.net)
+
 * Tue Aug 20 2013 ci <doperations@au.westfield.com> 0.0.379-1
 - Fix callback re-creation (cwalsh2@au.westfield.com)
 

@@ -38,17 +38,8 @@ padding: 0 !important;
 	color: #B8D380;
 }
 
-.left_col {
-	background-color: #F6F6F6;
-	height: 800px;
-	text-align: center;
-}
-
 body.home .left_col {
-	text-align: left;
-	background-color: #FFF;
 	padding-left: 23px;
-	
 }
 
 body.home .left_col h1 {
@@ -67,6 +58,10 @@ body.home .left_col p {
 	line-height: 28px;
 	padding-right: 30px;
 	color: #595959 !important;
+}
+
+body.swagger .left_col {
+	color: #F6F6F6;
 }
 
 input, select {
@@ -141,17 +136,50 @@ ul, ol {
 }
 
 .accordion-group {
-	width: 250px;
+	padding: 18px 69px;
+	border: 0;
+	border-top: 1px solid #eeeeee;
+	border-bottom: 1px solid #ffffff;
+}
+
+.accordion-group a {
+	color: #5F6A6D;
+	font-size: 14px;
+}
+
+.accordion-inner {
+	border-top: 0;
+	padding: 9px 15px 0;
+}
+
+.accordion-inner li {
+	padding: 5px 0;
+	font-weight: bold;
+}
+
+.accordion-heading .accordion-toggle {
+	padding: 8px 0;
 }
 
 .accordion-toggle .caret {
 	margin-top: 3px;
-	border-left-width: 6px;
-	border-right-width: 6px;
-	border-top: 7px solid #cbd1d1;
+	border-left-width: 7px;
+	border-right-width: 7px;
+	border-top: 8px solid #cbd1d1;
 }
 
 .accordion-toggle.dropup .caret {
 	border-top: 0 !important;
-	border-bottom: 7px solid #6d7e80;
+	border-bottom: 8px solid #6d7e80;
+}
+
+body ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation.get div.heading h3 span.http_method a,
+body ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation.post div.heading h3 span.http_method a,
+body ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation.put div.heading h3 span.http_method a,
+body ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation.delete div.heading h3 span.http_method a {
+	font-size: 0.6em;
+}
+
+form.sandbox {
+	clear: both;
 }

@@ -30,7 +30,7 @@
       params
 
     @queryString = (result, remainder) ->
-      qs=""
+      qs= ""
       angular.forEach @urlParams(result), (vs,k) ->
         if vs instanceof Array
           angular.forEach vs, (v)->

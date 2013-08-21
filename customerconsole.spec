@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.388
+Version:     0.0.389
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,18 @@ fi
 
 
 %changelog
+* Thu Aug 22 2013 ci <doperations@au.westfield.com> 0.0.389-1
+- Merge remote-tracking branch 'digital/master' into angular-search-reorg
+  (ben@germanforblack.com)
+- Move the global search controller to the angular controllers directory
+  (ben@germanforblack.com)
+- Format properly in sublime (ben@germanforblack.com)
+- ProductSearch (ben@germanforblack.com)
+- Move global search service to angular dir Service now has its own url
+  (ben@germanforblack.com)
+- Rename Search service to Product service (ben@germanforblack.com)
+- Move suggestions builder to angular/services (ben@germanforblack.com)
+
 * Thu Aug 22 2013 ci <doperations@au.westfield.com> 0.0.388-1
 - Merge pull request #282 from mmell/master (ldewey@au.westfield.com)
 - apache vhost with internal and external hosts (mike.mell@nthwave.net)

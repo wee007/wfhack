@@ -10,7 +10,9 @@ class ServiceProxy < Rack::Proxy
     original_host = env["HTTP_HOST"]
     rewrite_env(env)
     if env["HTTP_HOST"] != original_host
-      perform_request(env)
+      status, headers, response = perform_request(env)
+      headers.delete "transfer-encoding"
+      [status, headers, response]
     else
       @app.call(env) # just regular
     end

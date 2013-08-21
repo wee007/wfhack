@@ -2,17 +2,7 @@
   Contextual navigation
 */
 .nav-contextual {
-  // Added when left hand navigation was removed
-  .container{@include clear-fix;}
-
   position: relative;
-  background-color: $color-med-txt;
-
-  a {
-    color: $color-light-txt;
-
-    &:hover {color:#fff;}
-  }
 
   /* Scroll the contents of the navigation when the viewport is narrow enough */
   nav {
@@ -27,7 +17,8 @@
 .nav-contextual__clip {
   position: relative;
 
-  @include to-rem(margin-right padding-right, $spacing-base +  $spacing-base);
+  @include to-rem(margin-right, $spacing-base +  $spacing-base);
+  @include to-rem(padding-right, 20);
 }
 
 /* Holds menus items and sets container to be wide-enough that they are horiz aligned */
@@ -46,7 +37,6 @@
     border-bottom: 2px solid transparent;
 
     &.is-active {
-      color: #fff;
       border-bottom-color: $color-brand;
     }
   }
@@ -54,22 +44,21 @@
   .nav-contextual__show-more {
     @include respond-min($palm) {display: none;}
 
-    float: right;
+    position: absolute;
+    right: 0;
     @include to-rem(top, 7); // half height
-    @include to-rem(padding-left, $spacing-base);
-    color: $color-light-txt;
-    @include linear-gradient(#f63, #ff6, top left, top right);
-    background: -webkit-linear-gradient(left, rgba($color-med-txt, 0) 0%, rgba($color-med-txt, 1) 100%);
+    @include to-rem(padding-left, $spacing-base +  $spacing-base);
+
   }
 
 // Centre selector / nearest centre
 .nav-contextual__centre-selector {
   // Added when left hand navigation was removed
-  width: 100%;
   @include to-rem(padding-top padding-bottom, $spacing-half);
   // End Added when left hand navigation was removed
 
-  float: left;
+  float: right;
+  display: none;
 
   @include respond-min($non-palm) {
     float: right;
@@ -100,3 +89,29 @@
     // Space the select away from the label
     label {@include to-rem(margin-right, $spacing-base);}
   }
+
+/* --Extenders-- */
+
+/* Dark color */
+.nav-contextual--dark {
+
+  a {
+    color: $color-light-txt;
+
+    &:hover {color:#fff;}
+  }
+
+  .nav-contextual__main-items > li a {
+    &.is-active {
+      color: #fff;
+    }
+  }
+
+    .nav-contextual__show-more {
+      color: $color-light-txt;
+      //TODO: other prefixes
+      // background: -webkit-linear-gradient(left, rgba($color-med-txt, 0) 0%, rgba($color-med-txt, 1) 100%);
+      // background: -webkit-linear-gradient(left, rgba($color-med-txt, 0) 0%, rgba($color-med-txt, 1) 50%);
+      @include linear-gradient($from: rgba($color-med-txt, 0) 0%, $to: rgba($color-med-txt, 1) 50%, $dir: right, $override-bg-color: false, $bg-color-override: "")
+    }
+}

@@ -23,3 +23,6 @@
 
 /* Narrow container (max-width of 980px) */
 .container--narrow {@include to-rem(max-width, $page-container-max-width-narrow);}
+
+/* Dark container */
+.container--dark {background: $color-med-txt;}

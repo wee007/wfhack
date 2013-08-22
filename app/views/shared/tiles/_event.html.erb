@@ -1,7 +1,11 @@
 <div class="tile__image">
-  <%= image_tag result.image(width: 288, retina: true) , alt: result.name %>
+  <%= fetch_image_tag result.image,
+    alt: result.name,
+    width: 576,
+    crop: :limit,
+    quality: 25
+  %>
 </div>
-
 <div class="tile__meta">
   <span class="tile__meta__icon">
     <span class="icon icon--events" aria-hidden="true"></span>

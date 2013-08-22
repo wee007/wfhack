@@ -17,9 +17,8 @@ class Event < Hashie::Mash
     (super || '').split(/\r?\n/).collect &:strip
   end
 
-  def image(options = {})
-    options = {width: 400, ref: image_ref}.merge(options)
-    ImageService.transform options
+  def image
+    WestfieldUri::Service.uri_for("file", 'http').to_s + image_ref
   end
 
   def to_param

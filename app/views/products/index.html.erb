@@ -103,7 +103,7 @@
             </div>
 
             <ul class="drop-down-menu__list">
-              <li ng-repeat="retailer in search.retailers.values | filter: storeSearch | limitTo: 250">
+              <li ng-repeat="retailer in search.retailers.values | nameStartsWith: storeSearch | limitTo: 250">
                 <input ng-model="retailer.selected" ng-checked="retailer.selected" value="{{ retailer.code }}" id="retailer_{{ retailer.code }}" type="checkbox">
                 <label for="retailer_{{ retailer.code }}">{{ retailer.name }}</label>
               </li>
@@ -137,7 +137,7 @@
             </div>
 
             <ul class="drop-down-menu__list">
-              <li ng-repeat="brand in search.brands.values | filter: brandSearch | limitTo: 250">
+              <li ng-repeat="brand in search.brands.values | nameStartsWith: brandSearch | limitTo: 250">
                 <input ng-model="brand.selected" ng-checked="brand.selected" value="{{ brand.code }}" id="brand_{{ brand.code }}" type="checkbox">
                 <label for="brand_{{ brand.code }}">{{ brand.name }}</label>
               </li>

@@ -26,12 +26,9 @@ window.map = Micello: class Micello
     @
 
   initializeMap: =>
-    return @ if @initialized
-    if window.map?.micello?
+    unless @initialized
       @initialized = true
       @map = new map.micello.Map(@options)
-    else
-      setTimeout(@initializeMap)
     @
 
 do (proto = map.Micello.prototype, toProxy = ['setTarget', 'showLevel', 'zoom', 'detail', 'highlight', 'centre', 'centreOffset', 'reset']) ->

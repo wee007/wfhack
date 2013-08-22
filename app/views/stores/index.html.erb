@@ -138,8 +138,6 @@
 <%- content_for :javascript do -%>
   <%= javascript_tag do %>
     (function initialiseResponsiveMap() {
-      <%# Deferres this function until enquire is avaliable %>
-      if(deferCall(window.enquire)) return;
 
       var map = new window.map.Micello(),
           viewingList = true;
@@ -183,13 +181,15 @@
         });
       }
 
-      $(function() {
-        enquire.register("all and (min-width: 64em)", {
-          match: nonPalmView,
-          unmatch: palmView,
-          setup: palmView
-        }, true);
-      });
+      $script.ready('<%= asset_path 'enquire.js' %>', function() {
+        $(function() {
+          enquire.register("all and (min-width: 64em)", {
+            match: nonPalmView,
+            unmatch: palmView,
+            setup: palmView
+          }, true);
+        });
+      }, function() { console.log(this, arguments); });
     }());
 
     $('.js-defer-image-load-container').deferImages({matchMedia: 'all and (min-width: 40.0625em)'});

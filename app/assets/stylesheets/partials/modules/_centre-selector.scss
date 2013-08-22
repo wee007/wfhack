@@ -12,15 +12,13 @@
 
 .centre-selector {
   // Added when left hand navigation was removed
+  width: 100%;
   @include to-rem(padding-top padding-bottom, $spacing-half);
   // End Added when left hand navigation was removed
+  @include clear-fix();
 
-  position: absolute;
-  right: 0;
-  // display: none;
 
   @include respond-min($non-palm) {
-    float: right;
     text-align: right;
     @include to-rem(padding-top padding-bottom, $spacing-half + $spacing-quarter);
   }
@@ -28,14 +26,20 @@
   label,
   .select  {
     display: inline-block;
-    vertical-align: bottom;
+    vertical-align: middle;
   }
 
   // Hide/show button only visible on mobile
-  button {float: right;}
+  button {
+    float: right;
+
+    @include respond-min($non-palm) {
+      display: none;
+    }
+  }
 }
 
-  .nav-contextual__centre-selector-control {
+  .centre-selector-control {
     @include respond-max($palm) {
       display: none;
       float: left;

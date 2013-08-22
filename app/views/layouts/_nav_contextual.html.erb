@@ -1,9 +1,9 @@
 <div class="container--width container--dark">
-  <div class="container">
-    <div class="nav-contextual nav-contextual--dark">
+  <div class="container container--position">
+    <!-- <div class="nav-contextual nav-contextual--dark">
       <div class="nav-contextual__clip">
-        <nav role="navigation" aria-label="Contextual navigation">
-          <ul class="nav-contextual__main-items horiz-list">
+        <nav class="nav-contextual__clip-inner" role="navigation" aria-label="Contextual navigation">
+          <ul class="nav-contextual__list horiz-list">
             <li>
               <a class="is-active" href="#">Women's Fashion</a>
             </li>
@@ -21,14 +21,14 @@
             </li>
           </ul>
         </nav>
-        <span class="nav-contextual__show-more icon icon--arrow-right icon--mega icon--flush-top" aria-hidden="true"></span>
+        <span class="nav-contextual__overlay icon icon--arrow-right icon--mega icon--flush-top" aria-hidden="true"></span>
       </div>
-    </div>
+    </div> -->
 
     <!-- Centre selector -->
-    <div class="nav-contextual__centre-selector">
-      <div class="nav-contextual__centre-selector-control" id="centre_selector">
-        <label for="centre_select">Showing products from stores at</label>
+    <div class="centre-selector">
+      <div class="centre-selector-control" id="centre_selector">
+        <label for="centre_select">Show products at</label>
 
         <select ng-controller="CentreSelectorController"
                 ng-model="selectedCentre"
@@ -43,7 +43,7 @@
         </select>
       </div>
 
-      <button toggle-visibility="centre_selector" class="hide-fully--non-palm btn btn--main btn--main-alt4 btn--main-compact-icon">
+      <button toggle-visibility="centre_selector" class="btn btn--main btn--main-alt4 btn--main-compact-icon">
         <span class="icon icon-ellipsis-horizontal icon--xlrg icon--flush-top" aria-hidden="true"></span>
         <span class="hide-visually">Sort centres by</span>
       </button>

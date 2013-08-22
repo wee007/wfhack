@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.392
+Version:     0.0.393
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,16 @@ fi
 
 
 %changelog
+* Thu Aug 22 2013 ci <doperations@au.westfield.com> 0.0.393-1
+- Merge pull request #276 from mwratt/feature/responsive_maps
+  (ldewey@au.westfield.com)
+- adds sinon build files (matt.wratt@trineo.co.nz)
+- improves test coverage of maps js (matt.wratt@trineo.co.nz)
+- adds sinon for better js spec stubs (matt.wratt@trineo.co.nz)
+- puts js specs in the correct folder structure (matt.wratt@trineo.co.nz)
+- fixes load odering issue with IE8 maps (matt.wratt@trineo.co.nz)
+- makes maps responsive when browser is resized (matt.wratt@trineo.co.nz)
+
 * Thu Aug 22 2013 ci <doperations@au.westfield.com> 0.0.392-1
 - Merge pull request #291 from ldewey/master (ben@germanforblack.com)
 - Produdct browse isotope fix (ldewey@au.westfield.com)

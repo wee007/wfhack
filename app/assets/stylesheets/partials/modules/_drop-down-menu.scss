@@ -59,7 +59,6 @@
       @include to-rem(padding-top padding-bottom, $spacing-half);
       text-align: center;
       color: $color-light-txt;
-      border-bottom: 1px solid $color-grey-1;
       background-color: $color-off-white;
 
       /* When it's a button */
@@ -83,6 +82,9 @@
         @include translate(0, -50%);
       }
     }
+
+    /* Divider */
+    .drop-down-menu__divider {border-bottom: 1px solid $color-grey-1;}
   }
 
     /* List */
@@ -99,11 +101,18 @@
 
       /* List items */
       > li {
-        @include to-rem(padding, $spacing-half);
-        border-bottom: 1px solid $color-grey-1;
 
         /* Turn off border for last child */
         &:last-child {border-bottom: 0;}
+
+        /* Apply 'Islet' padding to buttons */
+        .btn--full {@extend .islet;}
+      }
+
+      label.txt-truncate {
+        display: inline-block;
+        /* Need to override the helper class `!important` keyword */
+        max-width: 90% !important;
       }
     }
 
@@ -132,9 +141,4 @@
           @include to-rem(margin-left, -5);
         }
       }
-    }
-
-    /* Search */
-    .drop-down-menu__search {
-      border-bottom: 1px solid $color-grey-1;
     }

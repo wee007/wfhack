@@ -39,8 +39,6 @@
     .drop-down-menu__hdr {
       position: relative;
       @include to-rem(padding-top padding-bottom, $spacing-half);
-      @include font-size($font-size);
-      font-weight: normal;
       text-align: center;
       color: $color-light-txt;
       border-bottom: 1px solid $color-grey-1;
@@ -51,7 +49,6 @@
         background-color: #fff;
         text-align: left;
         color: $color-dark-txt;
-        @include font-size($font-size-sml);
         @include to-rem(padding-left, $spacing-half);
       }
 

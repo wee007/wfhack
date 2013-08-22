@@ -13,10 +13,7 @@
 
   <ul class="drop-down-menu__list">
     <li ng-repeat="category in search.categories.values | orderBy: 'sort_order'">
-      <button ng-click="filterCategory( search.categories.field, category.code )" class="btn btn--full btn--full-left btn--pointer">
-        {{ category.name }}
-        <span class="btn--pointer__icon icon icon--arrow-right-big icon--lrg icon--flush-top" aria-hidden="true"></span>
-      </button>
+      <button ng-click="filterCategory( search.categories.field, category.code )" class="btn btn--full btn--full-left btn--pointer">{{ category.name }}</button>
     </li>
   </ul>
 </script>

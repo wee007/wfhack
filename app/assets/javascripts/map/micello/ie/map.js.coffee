@@ -20,7 +20,7 @@ map.micello.ie = Map: class Map extends map.micello.MapBase
     unless @el.parent().hasClass('map-micello--static')
       @mouse = new map.micello.ie.Mouse(@levels, @drag)
     @selectLevel(1)
-    @ready()
+    setTimeout @ready
 
   drag: (delta) =>
     top = parseInt(@levels.css('top'), 10)
@@ -44,11 +44,9 @@ map.micello.ie = Map: class Map extends map.micello.MapBase
     @levels.addClass('hide-fully')
     @levels.filter(selector).removeClass('hide-fully')
 
-  zoomTo: (storeId) ->
-    @highlight(storeId)
-
-  highlight: (storeId) ->
-    return if storeId == undefined
-    @selectLevel(@index.findById(storeId).store.level || 1)
+  showLevel: ->
+    return unless @hasTarget()
+    @selectLevel(@target.store.level || 1)
+    @
 
 map.micello.Map = map.micello.ie.Map unless map.micello.Map

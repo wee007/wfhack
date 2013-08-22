@@ -60,17 +60,11 @@ class map.micello.Map extends map.micello.MapBase
     @control.onMapClick = @onClick
     @data.mapChanged = @onMapChanged
     @data.loadCommunity(@community)
+    @view = @control.getMapView()
 
   attachEventListeners: =>
+    @recordSize()
     $(window).on('resize', @handleResize)
-
-  handleResize: =>
-    if @targetStore?
-      resize = =>
-        @timeout = null
-        @zoomTo(@targetStore)
-      clearTimeout(@timeout) if @timeout
-      @timeout = setTimeout(resize, 100)
 
   applyCustomTheme: (gui, canvas) ->
     gui.ZOOM_POSITION = 'right top'
@@ -79,22 +73,41 @@ class map.micello.Map extends map.micello.MapBase
     canvas.setThemeFamily(@themeFamily)
     canvas.setOverrideTheme(@customTheme)
 
-  zoomTo: (storeId) ->
-    return if storeId == undefined
-    index = @highlight(storeId)
-    @control.centerOnGeom(index.geom, 100)
-    @targetStore = storeId
-
-  highlight: (storeId) ->
-    return if storeId == undefined
-    @targetStore = storeId
+  setTarget: ->
     @data.removeInlay("slct", true)
-    index = @index.findById(storeId)
-    level = @data.getGeometryLevel(index.gid)
-    @data.setLevel(level) if level.id != @data.getCurrentLevel().cid
-    @data.addInlay(id: index.gid, t: 'Selected', anm: 'slct')
-    @control.showInfoWindow(index.geom, @popupHtml(index.store))
-    index
+    @control.hideInfoWindow()
+    super
+
+  showLevel: ->
+    if @hasTarget()
+      level = @data.getGeometryLevel(@target.gid)
+      @data.setLevel(level) if level.id != @data.getCurrentLevel().cid
+    @
+
+  zoom: ->
+    if @hasTarget()
+      @control.centerOnGeom(@target.geom, 100)
+      @applyOffset()
+    @
+
+  detail: ->
+    if @hasTarget()
+      @control.showInfoWindow(@target.geom, @popupHtml(@target.store))
+    @
+
+  highlight: ->
+    if @hasTarget()
+      @data.addInlay(id: @target.gid, t: 'Selected', anm: 'slct')
+    @
+
+  centre: ->
+    if @hasTarget()
+      zoom = @view.getZoom()
+      @control.centerOnGeom(@target.geom)
+      offset = @viewportCentre()
+      @view.setZoom(zoom)
+      @applyOffset()
+    @
 
   popupHtml: (store) ->
     return 'Store not found' unless store.id
@@ -120,7 +133,69 @@ class map.micello.Map extends map.micello.MapBase
     @ready()
 
   onClick: (mx, my, event) =>
+    @setTarget()
     return if !event || !event.id
     index = @index.findByGid(event.id)
     return if !index || !index.gid || !index.id
-    @highlight(index.id)
+    @setTarget(index.id).highlight().detail()
+
+  reset: ->
+    @control.getMapView().resetView()
+    setTimeout =>
+      @control.getMapGUI().onResize()
+    @recordSize()
+    @
+
+  maxTranslate: (translate) ->
+    size = @getSize()
+    halfWidth = size.width / 2 - @view.mapXInViewport
+    halfHeight = size.height / 2 - @view.mapYInViewport
+    translate.x = Math.min(Math.max(translate.x, -halfWidth), halfWidth)
+    translate.y = Math.min(Math.max(translate.y, -halfHeight), halfHeight)
+    translate
+
+  viewportCentre: (offset = @offset, size = @getSize()) ->
+    x: size.width * offset.x
+    y: size.height * offset.y
+
+  viewportCentreOffsetDelta: ->
+    size = @getSize()
+    centre = @viewportCentre({x: 0.5, y: 0.5}, size)
+    offset = @viewportCentre(@offset, size)
+
+    x: offset.x - centre.x
+    y: offset.y - centre.y
+
+  applyOffset: (@offset = @offset) ->
+    translate = @maxTranslate @viewportCentreOffsetDelta()
+    @view.translate(translate.x, translate.y)
+
+  centreOffset: (offset) ->
+    @reset()
+    @applyOffset(offset)
+    @
+
+  getSize: ->
+    width: @view.getViewportWidth()
+    height: @view.getViewportHeight()
+
+  recordSize: (size) ->
+    @size = size || @getSize()
+
+  moveMapForResize: =>
+    @timeout = null
+    size = @getSize()
+    return if size.width == 0 || size.height == 0
+    dX = (size.width - @size.width) / 2
+    dY = (size.height - @size.height) / 2
+    @view.translate(dX, dY)
+    dZoomX = size.width / @size.width
+    dZoomY = size.height / @size.height
+    dZoom = (dZoomX + dZoomY) / 2
+    offset = @viewportCentre(@offset, size)
+    @view.setZoom(@view.getZoom() * dZoom, offset.x, offset.y)
+    @recordSize(size)
+
+  handleResize: =>
+    clearTimeout(@timeout) if @timeout
+    @timeout = setTimeout(@moveMapForResize, 100)

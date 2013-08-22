@@ -10,5 +10,18 @@ window.map.micello = MapBase: class MapBase
   ready: ->
     @options.deferred.resolveWith(@)
     
-  zoomTo: (storeId) ->
-  highlight: (storeId) ->
+  setTarget: (storeId) ->
+    @target = null
+    @target = @index.findById(storeId) if storeId
+    @
+
+  hasTarget: ->
+    !!@target
+
+  showLevel: ->
+  zoom: ->
+  detail: ->
+  highlight: ->
+  centre: ->
+  centreOffset: (offset) ->
+  reset: ->

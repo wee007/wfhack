@@ -13,9 +13,11 @@
     "angular": "1.2.0rc1",
     "angular-touch": "1.2.0rc1",
     "angular-sanitize": "1.2.0rc1",
-    "angular-mocks": "1.2.0rc1"
-  },
-  "dependencies": {
+    "angular-mocks": "1.2.0rc1",
     "prism": "gh-pages"
+  }
+  "devDependencies": {
+    "sinon": "~1.7.3",
+    "jasmine-sinon": "~0.1.0"
   }
 }

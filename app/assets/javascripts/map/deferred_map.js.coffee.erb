@@ -6,8 +6,13 @@ window.map = Micello: class Micello
     @initialized = false
     @deferred = @options.deferred = $.Deferred()
 
+  mapContainer: ->
+    $('#map-micello-api')
+
+  noSupportClass: 'map-micello-oldie'
+
   micelloSupported: ->
-    !$('#map-micello-api').hasClass('map-micello-oldie')
+    !@mapContainer().hasClass(@noSupportClass)
 
   load: ->
     return @initializeMap() if Micello.loadTriggered
@@ -26,22 +31,15 @@ window.map = Micello: class Micello
       @initialized = true
       @map = new map.micello.Map(@options)
     else
-      setTimeout(arguments.callee)
+      setTimeout(@initializeMap)
     @
 
-  mapReady: ->
-    @deferred.state() == 'resolved'
-
-  zoomTo: (storeId) ->
-    if @mapReady()
-      @map.zoomTo(storeId)
-    else
-      @options.deferred.then -> @zoomTo(storeId)
-    @
-
-  highlight: (storeId) ->
-    if @mapReady()
-      @map.highlight(storeId)
-    else
-      @options.deferred.then -> @highlight(storeId)
-    @
+do (proto = map.Micello.prototype, toProxy = ['setTarget', 'showLevel', 'zoom', 'detail', 'highlight', 'centre', 'centreOffset', 'reset']) ->
+  for name in toProxy
+    proto[name] = do (name) -> (args...) ->
+      func = => @map[name].apply(@map, args)
+      if @deferred.state() == 'resolved'
+        func()
+      else
+        @deferred.then(func)
+      @

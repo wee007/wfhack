@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.394
+Version:     0.0.395
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,21 @@ fi
 
 
 %changelog
+* Thu Aug 22 2013 ci <doperations@au.westfield.com> 0.0.395-1
+- Decreasing the top margin of the drop down offset (CPearce@au.westfield.com)
+- Fixing padding inconsistency for filter tags (CPearce@au.westfield.com)
+- Removing deals and events from global search placeholder - WSF-5061
+  (CPearce@au.westfield.com)
+- Refactoring filter/drop down modules to be more modular and truncating
+  store/brand names (CPearce@au.westfield.com)
+- Bringing filter styles over to drop down menu module so it can be reused
+  (CPearce@au.westfield.com)
+- Removing arrow icons on category filters - WSF-5080
+  (CPearce@au.westfield.com)
+- Applying arrows to filter drop downs - WSF-5083 (CPearce@au.westfield.com)
+- Isolating filter top spacing for pin board filtering
+  (CPearce@au.westfield.com)
+
 * Thu Aug 22 2013 ci <doperations@au.westfield.com> 0.0.394-1
 - Merge pull request #293 from ldewey/master (matt.wratt@trineo.co.nz)
 - Added the centre info page (ldewey@au.westfield.com)

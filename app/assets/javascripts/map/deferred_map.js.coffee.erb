@@ -34,9 +34,9 @@ window.map = Micello: class Micello
 do (proto = map.Micello.prototype, toProxy = ['setTarget', 'showLevel', 'zoom', 'detail', 'highlight', 'centre', 'centreOffset', 'reset']) ->
   for name in toProxy
     proto[name] = do (name) -> (args...) ->
-      func = => @map[name].apply(@map, args)
+      func = -> @[name].apply(@, args)
       if @deferred.state() == 'resolved'
-        func()
+        func.apply(@map)
       else
         @deferred.then(func)
       @

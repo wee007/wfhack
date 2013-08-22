@@ -29,16 +29,16 @@
     vertical-align: middle;
   }
 
-  // Hide/show button only visible on mobile
+  /* Button that toggles the shopping centre select dropdown */
   button {
-    float: right;
-
     @include respond-min($non-palm) {
+      float: right;
       display: none;
     }
   }
 }
-
+  
+  /* Wrapper around the label and select */
   .centre-selector-control {
     @include respond-max($palm) {
       display: none;

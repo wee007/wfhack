@@ -1,6 +1,15 @@
+/* ======================================================================================
+   @MODULES -> NAV CONTEXTUAL
+   ====================================================================================== */
+
 /*
-  Contextual navigation
+  Usage:
+    Contextual nav that's scrollable at smaller viewport
+
+  Demo:
+    Style Guide -> Modules -> Nav Contextual
 */
+
 .nav-contextual {
   position: relative;
 }
@@ -38,7 +47,7 @@
       }
     }
 
-    /* Background */
+    /* Gradient that lays on top of the list */
     .nav-contextual__overlay {
       position: absolute;
       top: 0;

@@ -1,9 +1,9 @@
 class Product < Hashie::Mash
   def images
-    images = [clean_image_url(default_image_url)]
+    images = [default_image_url]
     details.each do |detail|
       detail.media.each do |media|
-        url = clean_image_url(media)
+        url = media
         images.append url unless images.include?(url)
       end
     end
@@ -20,7 +20,7 @@ class Product < Hashie::Mash
   end
 
   def primary_image
-    clean_image_url(_links ? _links[:image][:href] : default_image_url || images.first)
+    _links ? _links[:image][:href] : default_image_url || images.first
   end
 
   def kind
@@ -40,11 +40,4 @@ class Product < Hashie::Mash
              product_name: [name]
   end
 
-private
-  def clean_image_url(url)
-    url.
-      gsub('_[WIDTH]x[HEIGHT]', '').
-      gsub(/_\d+x\d+/, '').
-      gsub('_resized', '')
-  end
 end

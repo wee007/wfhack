@@ -74,7 +74,7 @@
         @include drop-down;
         @include box;
         @include to-rem(width, 285);
-        @include to-rem(margin-top, 11);
+        @include to-rem(margin-top, 10.5);
 
         /* Drop down pointer arrow */
         > .arrow {border-bottom-color: $color-off-white;}

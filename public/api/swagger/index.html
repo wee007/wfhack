@@ -22,6 +22,7 @@
     <script type="text/javascript">
 	$(function () {
         var service = window.location.search.replace('?service=', ''),
+            group,
             discoveryUrl = service+'/swagger-doc.json';
 
         window.swaggerUi = new SwaggerUi({
@@ -66,14 +67,18 @@
 
         switch(service) {
             case '/api/aaa':
-                $('.aaa .accordion-body').collapse('show')
+                group = 'aaa';
                 break;
             case '/api/file':
-                $('.micro .accordion-body').collapse('show')
+            case '/api/search':
+            case '/api/stream':
+                group = 'micro';
                 break;
             default:
-                $('.content .accordion-body').collapse('show')
+                group = 'content';
         }
+        $('.'+ group +' .accordion-body').addClass('in')
+        $('.'+ group +' .accordion-toggle').addClass('dropup')
     });
     </script>
 </head>

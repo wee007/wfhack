@@ -175,6 +175,7 @@ $page-container-max-width-narrow: 980 !default;
 
 /* Gutter */
 $grid-gutter: $spacing-base !default;
+$grid-gutter-dbl: $spacing-dbl !default;
 
 /*
 	Note: be sure to set the vars below to 'false' if they're not needed as they generate a lot of CSS.

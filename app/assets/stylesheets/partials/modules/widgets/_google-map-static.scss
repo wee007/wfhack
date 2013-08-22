@@ -1,0 +1,30 @@
+/* ======================================================================================
+   @MODULES -> WIDGETS -> GOOGLE MAP STATIC
+   ====================================================================================== */
+
+/*
+  Usage:
+    Static Google map.
+
+  Note:
+    Hides the Google static map image. It gets applied as a background image (but done via style block on the page)
+
+  Demo:
+    Style Guide -> Modules -> Widgets -> Static Google Map
+
+  Credit:
+    http://codepen.io/bradfrost/full/tLxAs
+*/
+
+.map-google-static {
+  /* Will need this for positioning the location address box */
+  position: relative;
+
+  /* Hide image so we can use a bg img instead to maintain scale, see: http://webdesigntutsplus.s3.amazonaws.com/tuts/365_google_maps/demo/index.html */
+  img {
+    opacity: 0;
+
+    /* Print */
+    @media print {opacity: 1;}
+  }
+}

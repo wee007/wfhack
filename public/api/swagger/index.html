@@ -38,7 +38,7 @@
                     }
                 });
                 if(console) {
-                    console.log("Loaded SwaggerUI")
+                    console.log("Loaded SwaggerUI");
                     console.log(swaggerApi);
                     console.log(swaggerUi);
                 }
@@ -56,9 +56,14 @@
 
         $(document).on('click', '.swagger-doc', function (e) {
             e.preventDefault();
+            $('#image-doc').collapse('hide');
             window.swaggerUi.headerView.trigger('update-swagger-ui', {
                 discoveryUrl: e.target.href + '/swagger-doc.json'
             });
+        });
+
+        $(document).on('show hide', '#image-doc', function (e) {
+          $('#swagger-ui-container').collapse('toggle');
         });
 
         $(document).on('show hide', '.accordion-body', function (e) {
@@ -77,8 +82,8 @@
             default:
                 group = 'content';
         }
-        $('.'+ group +' .accordion-body').addClass('in')
-        $('.'+ group +' .accordion-toggle').addClass('dropup')
+        $('.'+ group +' .accordion-body').addClass('in');
+        $('.'+ group +' .accordion-toggle').addClass('dropup');
     });
     </script>
 </head>
@@ -140,7 +145,7 @@
                             <div class="accordion-inner">
                                 <ul>
                                     <li><a href="/api/file" class="swagger-doc">Files</a></li>
-                                    <li><a href="http://cloudinary.com/documentation" target="_blank">Images (cloudinary.com)</a></li>
+                                    <li><a href="#image-doc" data-toggle="collapse">Images</a></li>
                                     <li><a href="/api/search" class="swagger-doc">Search</a></li>
                                     <li><a href="/api/stream" class="swagger-doc">Streams</a></li>
                                 </ul>
@@ -157,6 +162,18 @@
                         </div>
 
                         <div id="swagger-ui-container" class="swagger-ui-wrap"></div>
+
+                        <div id="image-doc" class="collapse">
+                            <h2>images</h2>
+                            <p>
+                                Westfield uses <a href="http://cloudinary.com" target="_blank">Cloudinary</a> for image transformation services.
+                            </p>
+                            <p>
+                                If the images you need to transform are hosted by Westfield, you can use the service by following
+                                the <a href="http://cloudinary.com/documentation" target="_blank">Cloudinary Documentation</a> and using
+                                Westfield's Cloud Name: <strong>wlabs</strong>.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>

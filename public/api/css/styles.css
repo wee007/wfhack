@@ -179,6 +179,7 @@ ul, ol {
 
 .accordion-heading .accordion-toggle {
 	padding: 8px 0;
+	width: 204px;
 }
 
 .accordion-toggle .caret {
@@ -202,4 +203,15 @@ body ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operatio
 
 form.sandbox {
 	clear: both;
+}
+
+#image-doc {
+	max-width: 960px;
+}
+
+#image-doc h2 {
+	color: #999999;
+	font-weight: bold;
+	font-size: 19px;
+	padding-bottom: 20px;
 }

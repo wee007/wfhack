@@ -13,4 +13,6 @@ do (window, $ = jQuery) ->
         position: "relative"
         overflow: "visible"
 
+  window.initPlugin = window.initPlugin or {}
+  window.initPlugin.isotope = init
   $(window).on 'load', init

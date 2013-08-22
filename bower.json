@@ -14,7 +14,8 @@
     "angular-touch": "1.2.0rc1",
     "angular-sanitize": "1.2.0rc1",
     "angular-mocks": "1.2.0rc1",
-    "prism": "gh-pages"
+    "prism": "gh-pages",
+    "script.js": "*"
   }
   "devDependencies": {
     "sinon": "~1.7.3",

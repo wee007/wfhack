@@ -339,6 +339,7 @@ DEPENDENCIES
   rack-livereload (~> 0.3.15)
   rack-proxy
   rails (~> 4.0.0)
+  rb-fsevent
   rspec-rails
   rubycas-client!
   sass-rails (~> 4.0.0)

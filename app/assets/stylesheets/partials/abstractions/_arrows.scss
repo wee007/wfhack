@@ -19,17 +19,22 @@
 */
 
 /* Set variables */
-$arrow-width: 10px !default;
+$arrow-width: 8px;
 
-$arrow-bg: $color-grey-darker !default;
+$arrow-bg: $color-light-txt;
 
 /* Start abstraction */
 .arrow {
 	width: 0;
 	height: 0;
-	border: $arrow-width inset transparent;
+	border: $arrow-width solid rgba(255, 255, 255, 0);
 	display: inline-block;
 	vertical-align: middle;
+
+  /* Old IE */
+  @include old-ie {
+    border-color: transparent;
+  }
 }
 
 /* Down */

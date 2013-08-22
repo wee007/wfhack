@@ -16,18 +16,24 @@
 */
 
 .drop-down-menu {
-  @include font-size($font-size-sml);
 
   /* Trigger - apply more top/bottom padding than '.btn--main' */
   .drop-down-menu__trigger {@include to-em(padding-top padding-bottom, $spacing-half+$spacing-micro);}
+
+  /* Drop down pointer arrow */
+  .arrow {
+    position: absolute;
+    left: 10px;
+    top: -8px;
+    border-bottom-color: #fff;
+  }
 }
 
   /* Target (drop down) */
   .drop-down-menu__target {
+    @include font-size($font-size-sml);
     width: 100%;
-    @include to-rem(margin-top, 10);
-    /* Apply the arrow pointer */
-    @include arrow(top, left, white, $color-light-txt);
+    @include to-rem(margin-top, 11);
 
     /* Category header */
     .drop-down-menu__hdr {

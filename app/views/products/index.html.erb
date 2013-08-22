@@ -62,6 +62,8 @@
 
     <%# Drop down target (palm) %>
     <div id="filters" class="drop-down-menu__target drop-down box">
+      <span class="arrow arrow--up"></span>
+
       <ul class="filters__list">
 
         <%# Categories %>
@@ -74,6 +76,7 @@
           </button>
 
           <div ng-show="activeFilter === 'category'" class="filters__target">
+            <span class="arrow arrow--up"></span>
             <div ng-show="search.categories.field === 'super_cat'" ng-include="'categoryItemTemplate'"></div>
             <div ng-show="search.categories.field === 'category'" ng-include="'categoryItemTemplate'"></div>
             <div ng-show="search.categories.field === 'sub_category'" ng-include="'SubCategoryTemplate'"></div>
@@ -92,6 +95,7 @@
           </button>
 
           <div ng-show="activeFilter === 'retailer'" class="filters__target">
+            <span class="arrow arrow--up"></span>
 
             <div class="drop-down-menu__hdr">
               <em>{{ search.retailers.title }}</em>
@@ -126,6 +130,7 @@
           </button>
 
           <div ng-show="activeFilter === 'brand'" class="filters__target">
+            <span class="arrow arrow--up"></span>
 
             <div class="drop-down-menu__hdr">
               <em>{{ search.brands.title }}</em>
@@ -160,6 +165,7 @@
           </button>
 
           <div ng-show="activeFilter === 'colour'" class="filters__target">
+            <span class="arrow arrow--up"></span>
 
             <div class="drop-down-menu__hdr">
               <em>{{ search.colours.title }}</em>
@@ -190,6 +196,7 @@
           </button>
 
           <div ng-show="activeFilter === 'size'" class="filters__target">
+            <span class="arrow arrow--up"></span>
 
             <div class="drop-down-menu__hdr">
               <em>{{ search.sizes.title }}</em>
@@ -220,6 +227,7 @@
           </button>
 
           <div ng-show="activeFilter === 'price'" class="filters__target">
+            <span class="arrow arrow--up"></span>
 
             <div class="drop-down-menu__hdr">
               <em>{{ search.price.title }}</em>

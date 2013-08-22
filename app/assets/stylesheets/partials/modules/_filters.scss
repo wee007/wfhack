@@ -35,9 +35,8 @@
       background: none;
       box-shadow: none;
 
-      /* Turn off the arrow pointer from 'Drop down' module */
-      &:before,
-      &:after {display: none;}
+      /* Hide the arrow pointer from 'Drop down' module */
+      > .arrow {display: none;}
     }
   }
 
@@ -46,6 +45,7 @@
     @extend .btn--main;
     @extend .btn--main-alt4;
     @extend .drop-down-menu__trigger;
+    border-bottom: 0;
   }
 
   /* 'Apply' button (used on multi-facet lists) */
@@ -80,6 +80,11 @@
 
       /* Turn off right margin for last child */
       &:last-child {margin-right: 0;}
+
+      /* Old IE */
+      @include old-ie {
+        @include to-rem(margin-right, $spacing-quarter);
+      }
     }
 
       /* Filters target (drop down) */
@@ -88,8 +93,9 @@
         @include box;
         @include to-rem(width, 285);
         @include to-rem(margin-top, 11);
-        /* Apply the arrow pointer */
-        @include arrow(top, left, red, $color-light-txt);
+
+        /* Drop down pointer arrow */
+        > .arrow {border-bottom-color: $color-off-white;}
       }
   }
 

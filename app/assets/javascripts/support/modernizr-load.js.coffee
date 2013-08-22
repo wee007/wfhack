@@ -1,6 +1,10 @@
+makeArray = (obj) ->
+  obj = [obj] unless obj instanceof Array
+  obj
+
 Modernizr.load = (options) ->
   
-  remaining = if options instanceof Array then options else [options]
+  remaining = makeArray(options)
   options = remaining.shift()
 
   scripts = []
@@ -10,7 +14,7 @@ Modernizr.load = (options) ->
   keys.push('nope') if !options.test && options.nope
 
   for key in keys
-    scripts = scripts.concat if options[key] instanceof Array then options[key] else [options[key]]
+    scripts = scripts.concat makeArray(options[key])
 
   for script in scripts
     $script(script, script)

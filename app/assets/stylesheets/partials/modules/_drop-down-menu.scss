@@ -16,28 +16,49 @@
 */
 
 .drop-down-menu {
-  @include font-size($font-size-sml);
 
   /* Trigger - apply more top/bottom padding than '.btn--main' */
   .drop-down-menu__trigger {@include to-em(padding-top padding-bottom, $spacing-half+$spacing-micro);}
+
+  /* Drop down pointer arrow */
+  .arrow {
+    position: absolute;
+    left: 10px;
+    top: -8px;
+    border-bottom-color: #fff;
+  }
+
+  /* 'Apply' button (used on multi-facet lists) */
+  .drop-down-menu__apply {
+    position: absolute;
+    @include to-rem(right, $spacing-half);
+    @include to-rem(top, 4.5);
+    @include to-em(padding, $spacing-half $spacing-base);
+  }
+
+  /* --Global rules-- */
+
+  /* Form elements */
+  label,
+  input[type="checkbox"] {vertical-align: middle;}
+
+  input[type="checkbox"] {@include to-rem(margin-right, $spacing-quarter);}
+
+  .txt-input {@include prefix(box-sizing, border-box);}
 }
 
   /* Target (drop down) */
   .drop-down-menu__target {
+    @include font-size($font-size-sml);
     width: 100%;
-    @include to-rem(margin-top, 10);
-    /* Apply the arrow pointer */
-    @include arrow(top, left, white, $color-light-txt);
+    @include to-rem(margin-top, 10.5);
 
     /* Category header */
     .drop-down-menu__hdr {
       position: relative;
       @include to-rem(padding-top padding-bottom, $spacing-half);
-      @include font-size($font-size);
-      font-weight: normal;
       text-align: center;
       color: $color-light-txt;
-      border-bottom: 1px solid $color-grey-1;
       background-color: $color-off-white;
 
       /* When it's a button */
@@ -45,7 +66,6 @@
         background-color: #fff;
         text-align: left;
         color: $color-dark-txt;
-        @include font-size($font-size-sml);
         @include to-rem(padding-left, $spacing-half);
       }
 
@@ -62,11 +82,14 @@
         @include translate(0, -50%);
       }
     }
+
+    /* Divider */
+    .drop-down-menu__divider {border-bottom: 1px solid $color-grey-1;}
   }
 
     /* List */
     .drop-down-menu__list {
-      max-height: 220px;
+      max-height: 230px;
       overflow: auto;
 
       /* iOS/Android */
@@ -78,10 +101,44 @@
 
       /* List items */
       > li {
-        @include to-rem(padding, $spacing-half);
-        border-bottom: 1px solid $color-grey-1;
 
         /* Turn off border for last child */
         &:last-child {border-bottom: 0;}
+
+        /* Apply 'Islet' padding to buttons */
+        .btn--full {@extend .islet;}
+      }
+
+      label.txt-truncate {
+        display: inline-block;
+        /* Need to override the helper class `!important` keyword */
+        max-width: 90% !important;
+      }
+    }
+
+    /* Range */
+    .drop-down-menu__range {
+      position: relative;
+
+      /* Range text inputs - position them side by side */
+      .txt-input {
+        width: 40%;
+
+        /* Right most text input */
+        &:last-child {float: right;}
+      }
+
+      /* 'To' label (sits in the middle of the text inputs) */
+      span {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        @include translate(-50%, -50%);
+
+        /* Old IE */
+        @include old-ie {
+          @include to-rem(margin-top, -10);
+          @include to-rem(margin-left, -5);
+        }
       }
     }

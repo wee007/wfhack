@@ -6,17 +6,14 @@
 
 <%# 'Super_cat' and 'Category' %>
 <script type="text/ng-template" id="categoryItemTemplate">
-  <div class="drop-down-menu__hdr">
+  <div class="drop-down-menu__hdr drop-down-menu__divider">
     <em>{{search.categories.title}}</em>
     <div ng-include src="'FilterItemBackButton'"></div>
   </div>
 
   <ul class="drop-down-menu__list">
-    <li ng-repeat="category in search.categories.values | orderBy: 'sort_order'">
-      <button ng-click="filterCategory( search.categories.field, category.code )" class="btn btn--full btn--full-left btn--pointer">
-        {{ category.name }}
-        <span class="btn--pointer__icon icon icon--arrow-right-big icon--lrg icon--flush-top" aria-hidden="true"></span>
-      </button>
+    <li ng-repeat="category in search.categories.values | orderBy: 'sort_order'" class="drop-down-menu__divider">
+      <button ng-click="filterCategory( search.categories.field, category.code )" class="btn btn--full btn--full-left btn--pointer">{{ category.name }}</button>
     </li>
   </ul>
 </script>
@@ -24,19 +21,19 @@
 
 <%# Category %>
 <script type="text/ng-template" id="SubCategoryTemplate">
-  <div class="drop-down-menu__hdr">
+  <div class="drop-down-menu__hdr drop-down-menu__divider">
     <em>{{search.categories.title}}</em>
     <div ng-include src="'FilterItemBackButton'"></div>
   </div>
 
   <ul class="drop-down-menu__list">
-    <li ng-repeat="category in search.categories.values | orderBy: 'sort_order'">
+    <li ng-repeat="category in search.categories.values | orderBy: 'sort_order'" class="drop-down-menu__divider islet">
       <input ng-model="category.selected" ng-checked="category.selected" value="{{ category.code }}" id="category_{{ category.code }}" type="checkbox">
       <label for="category_{{ category.code }}">{{ category.name }}</label>
     </li>
   </ul>
 
-  <button ng-click="mvFilterSearch( 'categories' )" class="btn btn--main btn--sml filters__apply">Apply</button>
+  <button ng-click="mvFilterSearch( 'categories' )" class="btn btn--main btn--sml drop-down-menu__apply">Apply</button>
 </script>
 <%# //Category %>
 
@@ -49,9 +46,9 @@
 </script>
 <%# //Back button %>
 
-<div ng-controller="ProductBrowseController" ng-init="bootstrap()" class="ng-cloak filters">
+<div ng-controller="ProductBrowseController" ng-init="bootstrap()" class="ng-cloak filters filters--pin-board">
 
-  <h2 class="hide-visually">Filters</h2>
+  <h2 class="hide-visually">Filter products</h2>
 
   <div class="drop-down-menu drop-down-container">
 
@@ -62,18 +59,21 @@
 
     <%# Drop down target (palm) %>
     <div id="filters" class="drop-down-menu__target drop-down box">
+      <span class="arrow arrow--up"></span>
+
       <ul class="filters__list">
 
         <%# Categories %>
         <li ng-show="filterIsAvailable(search.categories.values)">
 
-          <button ng-click="toggleFilter('category')" class="filters__trigger drop-down-menu__hdr btn btn--full btn--pointer">
+          <button ng-click="toggleFilter('category')" class="filters__trigger drop-down-menu__hdr drop-down-menu__divider btn btn--full btn--pointer">
             {{ search.categories.title }}
             <span class="hide-fully--palm icon icon--arrow-down-full btn--pointer__icon" aria-hidden="true"></span>
             <span class="hide-fully--non-palm icon icon--arrow-right-big icon--lrg btn--pointer__icon" aria-hidden="true">
           </button>
 
           <div ng-show="activeFilter === 'category'" class="filters__target">
+            <span class="arrow arrow--up"></span>
             <div ng-show="search.categories.field === 'super_cat'" ng-include="'categoryItemTemplate'"></div>
             <div ng-show="search.categories.field === 'category'" ng-include="'categoryItemTemplate'"></div>
             <div ng-show="search.categories.field === 'sub_category'" ng-include="'SubCategoryTemplate'"></div>
@@ -85,31 +85,33 @@
         <%# Retailers %>
         <li ng-if="filterIsAvailable(search.retailers.values)">
 
-          <button ng-click="toggleFilter('retailer')" class="filters__trigger drop-down-menu__hdr btn btn--full btn--pointer">
+          <button ng-click="toggleFilter('retailer')" class="filters__trigger drop-down-menu__hdr drop-down-menu__divider btn btn--full btn--pointer">
             {{ search.retailers.title }}
             <span class="hide-fully--palm icon icon--arrow-down-full btn--pointer__icon" aria-hidden="true"></span>
             <span class="hide-fully--non-palm icon icon--arrow-right-big icon--lrg btn--pointer__icon" aria-hidden="true">
           </button>
 
           <div ng-show="activeFilter === 'retailer'" class="filters__target">
+            <span class="arrow arrow--up"></span>
 
-            <div class="drop-down-menu__hdr">
+            <div class="drop-down-menu__hdr drop-down-menu__divider">
               <em>{{ search.retailers.title }}</em>
               <div ng-include src="'FilterItemBackButton'"></div>
             </div>
 
-            <div class="filters__search">
-              <input ng-model="storeSearch" class="txt-input" type="search" placeholder="Enter a store name">
+            <div class="drop-down-menu__divider islet">
+              <label for="filters-stores-search" class="hide-visually">Search stores</label>
+              <input ng-model="storeSearch" class="txt-input" type="search" placeholder="Enter a store name" id="filters-stores-search">
             </div>
 
             <ul class="drop-down-menu__list">
-              <li ng-repeat="retailer in search.retailers.values | nameStartsWith: storeSearch | limitTo: 250">
+              <li ng-repeat="retailer in search.retailers.values | nameStartsWith: storeSearch | limitTo: 250" class="drop-down-menu__divider islet">
                 <input ng-model="retailer.selected" ng-checked="retailer.selected" value="{{ retailer.code }}" id="retailer_{{ retailer.code }}" type="checkbox">
-                <label for="retailer_{{ retailer.code }}">{{ retailer.name }}</label>
+                <label for="retailer_{{ retailer.code }}" class="txt-truncate">{{ retailer.name }}</label>
               </li>
             </ul>
 
-            <button ng-click="mvFilterSearch( 'retailers' )" class="btn btn--main filters__apply">Apply</button>
+            <button ng-click="mvFilterSearch( 'retailers' )" class="btn btn--main drop-down-menu__apply">Apply</button>
 
           </div>
 
@@ -119,31 +121,33 @@
         <%# Brands %>
         <li ng-if="filterIsAvailable(search.brands.values)">
 
-          <button ng-click="toggleFilter('brand')" class="filters__trigger drop-down-menu__hdr btn btn--full btn--pointer">
+          <button ng-click="toggleFilter('brand')" class="filters__trigger drop-down-menu__hdr drop-down-menu__divider btn btn--full btn--pointer">
             {{ search.brands.title }}
             <span class="hide-fully--palm icon icon--arrow-down-full btn--pointer__icon" aria-hidden="true"></span>
             <span class="hide-fully--non-palm icon icon--arrow-right-big icon--lrg btn--pointer__icon" aria-hidden="true">
           </button>
 
           <div ng-show="activeFilter === 'brand'" class="filters__target">
+            <span class="arrow arrow--up"></span>
 
-            <div class="drop-down-menu__hdr">
+            <div class="drop-down-menu__hdr drop-down-menu__divider">
               <em>{{ search.brands.title }}</em>
               <div ng-include src="'FilterItemBackButton'"></div>
             </div>
 
-            <div class="filters__search">
-              <input ng-model="brandSearch" class="txt-input" type="search" placeholder="Enter a brand name">
+            <div class="drop-down-menu__divider islet">
+              <label for="filters-brands-search" class="hide-visually">Search stores</label>
+              <input ng-model="brandSearch" class="txt-input" type="search" placeholder="Enter a brand name" id="filters-brands-search">
             </div>
 
             <ul class="drop-down-menu__list">
-              <li ng-repeat="brand in search.brands.values | nameStartsWith: brandSearch | limitTo: 250">
+              <li ng-repeat="brand in search.brands.values | nameStartsWith: brandSearch | limitTo: 250" class="drop-down-menu__divider islet">
                 <input ng-model="brand.selected" ng-checked="brand.selected" value="{{ brand.code }}" id="brand_{{ brand.code }}" type="checkbox">
-                <label for="brand_{{ brand.code }}">{{ brand.name }}</label>
+                <label for="brand_{{ brand.code }}" class="txt-truncate">{{ brand.name }}</label>
               </li>
             </ul>
 
-            <button ng-click="mvFilterSearch( 'brands' )" class="btn btn--main filters__apply">Apply</button>
+            <button ng-click="mvFilterSearch( 'brands' )" class="btn btn--main drop-down-menu__apply">Apply</button>
 
           </div>
 
@@ -153,27 +157,28 @@
         <%# Colours %>
         <li ng-if="filterIsAvailable(search.colours.values)">
 
-          <button ng-click="toggleFilter('colour')" class="filters__trigger drop-down-menu__hdr btn btn--full btn--pointer">
+          <button ng-click="toggleFilter('colour')" class="filters__trigger drop-down-menu__hdr drop-down-menu__divider btn btn--full btn--pointer">
             {{ search.colours.title }}
             <span class="hide-fully--palm icon icon--arrow-down-full btn--pointer__icon" aria-hidden="true"></span>
             <span class="hide-fully--non-palm icon icon--arrow-right-big icon--lrg btn--pointer__icon" aria-hidden="true">
           </button>
 
           <div ng-show="activeFilter === 'colour'" class="filters__target">
+            <span class="arrow arrow--up"></span>
 
-            <div class="drop-down-menu__hdr">
+            <div class="drop-down-menu__hdr drop-down-menu__divider">
               <em>{{ search.colours.title }}</em>
               <div ng-include src="'FilterItemBackButton'"></div>
             </div>
 
             <ul class="drop-down-menu__list">
-              <li ng-repeat="colour in search.colours.values">
+              <li ng-repeat="colour in search.colours.values" class="drop-down-menu__divider islet">
                 <input ng-model="colour.selected" ng-checked="colour.selected" value="{{ colour.code }}" id="colour_{{ colour.code }}" type="checkbox">
                 <label for="colour_{{ colour.code }}">{{ colour.name }}</label>
               </li>
             </ul>
 
-            <button ng-click="mvFilterSearch( 'colours' )" class="btn btn--main filters__apply">Apply</button>
+            <button ng-click="mvFilterSearch( 'colours' )" class="btn btn--main drop-down-menu__apply">Apply</button>
 
           </div>
 
@@ -183,27 +188,28 @@
         <%# Size %>
         <li ng-if="filterIsAvailable(search.sizes.values)">
 
-          <button ng-click="toggleFilter('size')" class="filters__trigger drop-down-menu__hdr btn btn--full btn--pointer">
+          <button ng-click="toggleFilter('size')" class="filters__trigger drop-down-menu__hdr drop-down-menu__divider btn btn--full btn--pointer">
             {{ search.sizes.title }}
             <span class="hide-fully--palm icon icon--arrow-down-full btn--pointer__icon" aria-hidden="true"></span>
             <span class="hide-fully--non-palm icon icon--arrow-right-big icon--lrg btn--pointer__icon" aria-hidden="true">
           </button>
 
           <div ng-show="activeFilter === 'size'" class="filters__target">
+            <span class="arrow arrow--up"></span>
 
-            <div class="drop-down-menu__hdr">
+            <div class="drop-down-menu__hdr drop-down-menu__divider">
               <em>{{ search.sizes.title }}</em>
               <div ng-include src="'FilterItemBackButton'"></div>
             </div>
 
             <ul class="drop-down-menu__list">
-              <li ng-repeat="size in search.sizes.values">
+              <li ng-repeat="size in search.sizes.values" class="drop-down-menu__divider islet">
                 <label for="size_{{ size.code }}">{{ size.name }}</label>
                 <input ng-model="size.selected" ng-checked="size.selected" value="{{ size.code }}" id="size_{{ size.code }}" type="checkbox">
               </li>
             </ul>
 
-            <button ng-click="mvFilterSearch( 'sizes' )" class="btn btn--main filters__apply">Apply</button>
+            <button ng-click="mvFilterSearch( 'sizes' )" class="btn btn--main drop-down-menu__apply">Apply</button>
 
           </div>
 
@@ -213,20 +219,21 @@
         <%# Price %>
         <li ng-if="filterIsAvailable(search.price.values)">
 
-          <button ng-click="toggleFilter('price')" class="filters__trigger drop-down-menu__hdr btn btn--full btn--pointer">
+          <button ng-click="toggleFilter('price')" class="filters__trigger drop-down-menu__hdr drop-down-menu__divider btn btn--full btn--pointer">
             {{ search.price.title }}
             <span class="hide-fully--palm icon icon--arrow-down-full btn--pointer__icon" aria-hidden="true"></span>
             <span class="hide-fully--non-palm icon icon--arrow-right-big icon--lrg btn--pointer__icon" aria-hidden="true">
           </button>
 
           <div ng-show="activeFilter === 'price'" class="filters__target">
+            <span class="arrow arrow--up"></span>
 
-            <div class="drop-down-menu__hdr">
+            <div class="drop-down-menu__hdr drop-down-menu__divider">
               <em>{{ search.price.title }}</em>
               <div ng-include src="'FilterItemBackButton'"></div>
             </div>
 
-            <div class="filters__range islet">
+            <div class="drop-down-menu__range islet">
               <label class="hide-visually" for="price-range-start">Price range start</label>
               <input ng-model="search.price.values.range_start" ng-change="rangeFilter('price')" id="price-range-start" class="txt-input">
               <span>to</span>
@@ -234,7 +241,7 @@
               <input ng-model="search.price.values.range_end" ng-change="rangeFilter('price')" id="price-range-end" class="txt-input">
             </div>
 
-            <button ng-click="updateSearch()" class="btn btn--main filters__apply">Apply</button>
+            <button ng-click="updateSearch()" class="btn btn--main drop-down-menu__apply">Apply</button>
 
           </div>
 

@@ -15,16 +15,6 @@
 
 .filters {
 
-  /* --Global rules-- */
-
-  /* Form elements */
-  label,
-  input[type="checkbox"] {vertical-align: middle;}
-
-  input[type="checkbox"] {@include to-rem(margin-right, $spacing-quarter);}
-
-  .txt-input {@include prefix(box-sizing, border-box);}
-
   /* --Overrides for 'Drop down' module-- */
 
   /* Turn off the drop down hidden rules and 'box' treatment for drop down target at this breakpoint */
@@ -46,14 +36,6 @@
     @extend .btn--main-alt4;
     @extend .drop-down-menu__trigger;
     border-bottom: 0;
-  }
-
-  /* 'Apply' button (used on multi-facet lists) */
-  .filters__apply {
-    position: absolute;
-    @include to-rem(right, $spacing-half);
-    @include to-rem(top, 4.5);
-    @include to-em(padding, $spacing-half $spacing-base);
   }
 }
 
@@ -98,41 +80,6 @@
         > .arrow {border-bottom-color: $color-off-white;}
       }
   }
-
-        /* Range */
-        /* [TODO - make into abstraction] Range inner container */
-        .filters__range {
-          position: relative;
-
-          /* Range text inputs - position them side by side */
-          .txt-input {
-            width: 40%;
-
-            /* Right most text input */
-            &:last-child {float: right;}
-          }
-
-          /* 'To' label (sits in the middle of the text inputs) */
-          span {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            @include translate(-50%, -50%);
-
-            /* Old IE */
-            @include old-ie {
-              @include to-rem(margin-top, -10);
-              @include to-rem(margin-left, -5);
-            }
-          }
-        }
-
-        /* Search */
-        .filters__search {
-          /* [TODO - make this DRY] */
-          @include to-rem(padding, $spacing-half);
-          border-bottom: 1px solid $color-grey-1;
-        }
 
   /* Sort */
   .filters__sort-options {

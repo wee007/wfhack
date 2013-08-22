@@ -33,7 +33,7 @@
     </li>
   </ul>
 
-  <button ng-click="mvFilterSearch( 'categories' )" class="btn btn--main btn--sml filters__apply">Apply</button>
+  <button ng-click="mvFilterSearch( 'categories' )" class="btn btn--main btn--sml drop-down-menu__apply">Apply</button>
 </script>
 <%# //Category %>
 
@@ -99,7 +99,7 @@
               <div ng-include src="'FilterItemBackButton'"></div>
             </div>
 
-            <div class="filters__search">
+            <div class="drop-down-menu__search islet">
               <input ng-model="storeSearch" class="txt-input" type="search" placeholder="Enter a store name">
             </div>
 
@@ -110,7 +110,7 @@
               </li>
             </ul>
 
-            <button ng-click="mvFilterSearch( 'retailers' )" class="btn btn--main filters__apply">Apply</button>
+            <button ng-click="mvFilterSearch( 'retailers' )" class="btn btn--main drop-down-menu__apply">Apply</button>
 
           </div>
 
@@ -134,7 +134,7 @@
               <div ng-include src="'FilterItemBackButton'"></div>
             </div>
 
-            <div class="filters__search">
+            <div class="drop-down-menu__search islet">
               <input ng-model="brandSearch" class="txt-input" type="search" placeholder="Enter a brand name">
             </div>
 
@@ -145,7 +145,7 @@
               </li>
             </ul>
 
-            <button ng-click="mvFilterSearch( 'brands' )" class="btn btn--main filters__apply">Apply</button>
+            <button ng-click="mvFilterSearch( 'brands' )" class="btn btn--main drop-down-menu__apply">Apply</button>
 
           </div>
 
@@ -176,7 +176,7 @@
               </li>
             </ul>
 
-            <button ng-click="mvFilterSearch( 'colours' )" class="btn btn--main filters__apply">Apply</button>
+            <button ng-click="mvFilterSearch( 'colours' )" class="btn btn--main drop-down-menu__apply">Apply</button>
 
           </div>
 
@@ -207,7 +207,7 @@
               </li>
             </ul>
 
-            <button ng-click="mvFilterSearch( 'sizes' )" class="btn btn--main filters__apply">Apply</button>
+            <button ng-click="mvFilterSearch( 'sizes' )" class="btn btn--main drop-down-menu__apply">Apply</button>
 
           </div>
 
@@ -231,7 +231,7 @@
               <div ng-include src="'FilterItemBackButton'"></div>
             </div>
 
-            <div class="filters__range islet">
+            <div class="drop-down-menu__range islet">
               <label class="hide-visually" for="price-range-start">Price range start</label>
               <input ng-model="search.price.values.range_start" ng-change="rangeFilter('price')" id="price-range-start" class="txt-input">
               <span>to</span>
@@ -239,7 +239,7 @@
               <input ng-model="search.price.values.range_end" ng-change="rangeFilter('price')" id="price-range-end" class="txt-input">
             </div>
 
-            <button ng-click="updateSearch()" class="btn btn--main filters__apply">Apply</button>
+            <button ng-click="updateSearch()" class="btn btn--main drop-down-menu__apply">Apply</button>
 
           </div>
 

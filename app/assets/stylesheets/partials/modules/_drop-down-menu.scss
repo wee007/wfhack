@@ -27,6 +27,24 @@
     top: -8px;
     border-bottom-color: #fff;
   }
+
+  /* 'Apply' button (used on multi-facet lists) */
+  .drop-down-menu__apply {
+    position: absolute;
+    @include to-rem(right, $spacing-half);
+    @include to-rem(top, 4.5);
+    @include to-em(padding, $spacing-half $spacing-base);
+  }
+
+  /* --Global rules-- */
+
+  /* Form elements */
+  label,
+  input[type="checkbox"] {vertical-align: middle;}
+
+  input[type="checkbox"] {@include to-rem(margin-right, $spacing-quarter);}
+
+  .txt-input {@include prefix(box-sizing, border-box);}
 }
 
   /* Target (drop down) */
@@ -69,7 +87,7 @@
 
     /* List */
     .drop-down-menu__list {
-      max-height: 220px;
+      max-height: 230px;
       overflow: auto;
 
       /* iOS/Android */
@@ -87,4 +105,36 @@
         /* Turn off border for last child */
         &:last-child {border-bottom: 0;}
       }
+    }
+
+    /* Range */
+    .drop-down-menu__range {
+      position: relative;
+
+      /* Range text inputs - position them side by side */
+      .txt-input {
+        width: 40%;
+
+        /* Right most text input */
+        &:last-child {float: right;}
+      }
+
+      /* 'To' label (sits in the middle of the text inputs) */
+      span {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        @include translate(-50%, -50%);
+
+        /* Old IE */
+        @include old-ie {
+          @include to-rem(margin-top, -10);
+          @include to-rem(margin-left, -5);
+        }
+      }
+    }
+
+    /* Search */
+    .drop-down-menu__search {
+      border-bottom: 1px solid $color-grey-1;
     }

@@ -10,42 +10,48 @@
     Style Guide -> Modules -> Nav Contextual
 */
 
-.nav-contextual {
-  position: relative;
-}
+.nav-contextual {position: relative;}
 
   /* Clip scrollable contents (palm) */
   .nav-contextual__clip {
-    @include to-rem(margin-right, $spacing-base +  $spacing-base);
+    /* Make space for the arrow on the right */
+    @include to-rem(margin-right, $spacing-dbl);
   }
 
     /* Scroll the contents of the navigation when the viewport is narrow enough */
     .nav-contextual__clip-inner {
       overflow-x: scroll;
       -webkit-overflow-scrolling: touch;
+      border-bottom: 1px solid $color-light-txt;
     }
 
-  /* List of nav items */
-  .nav-contextual__list {
-    /* Sets container to be wide-enough that they are horiz aligned. Just a magic number */
-    width: 250%;
+      /* List of nav items */
+      .nav-contextual__list {
+        /* Sets container to be wide-enough that they are horiz aligned. Just a magic number */
+        width: 250%;
 
-    > li {@include to-rem(margin-right, $spacing-base);}
-  }
+        > li {
+          @include to-rem(margin-left, $spacing-base);
 
-    .nav-contextual__list > li a {
-      @include to-rem(padding-top padding-bottom, $spacing-half);
+          &:first-child {
+            margin-left: 0;
+          }
 
-      @include respond-min($non-palm) {
-        @include to-rem(padding-top padding-bottom, $spacing-base);
+          a {
+            @include to-rem(padding-top padding-bottom, $spacing-half);
+            border-bottom: 2px solid transparent;
+
+            @include respond-min($non-palm) {
+              @include to-rem(padding-top padding-bottom, $spacing-base);
+            }
+
+            /* When the nav item is the selected section */
+            &.is-active {
+              border-bottom-color: $color-brand;
+            }
+          }
+        }
       }
-
-      border-bottom: 2px solid transparent;
-
-      &.is-active {
-        border-bottom-color: $color-brand;
-      }
-    }
 
     /* Gradient that lays on top of the list */
     .nav-contextual__overlay {
@@ -53,7 +59,7 @@
       top: 0;
       right: 0;
       @include to-rem(padding-top padding-bottom, $spacing-third);
-      @include to-rem(padding-left, $spacing-base +  $spacing-base);
+      @include to-rem(padding-left, $spacing-dbl);
 
       @include respond-min($non-palm) {
         @include to-rem(padding-top padding-bottom, $spacing-base - 4);
@@ -65,21 +71,25 @@
 /* Dark color */
 .nav-contextual--dark {
 
-  a {
-    color: $color-light-txt;
-
-    &:hover,
-    &:focus {color: #fff;}
+  .nav-contextual__clip-inner {
+    border-bottom: 0;
   }
 
-  .nav-contextual__list > li a {
-    &.is-active {
-      color: #fff;
-    }
-  }
-
-    .nav-contextual__overlay {
+    a {
       color: $color-light-txt;
-      @include linear-gradient($from: rgba($color-med-txt, 0) 0%, $to: rgba($color-med-txt, 1) 50%, $dir: right, $override-bg-color: false, $bg-color-override: "")
+
+      &:hover,
+      &:focus {color: #fff;}
     }
+
+    .nav-contextual__list > li a {
+      &.is-active {
+        color: #fff;
+      }
+    }
+
+  .nav-contextual__overlay {
+    color: $color-light-txt;
+    @include linear-gradient($from: rgba($color-med-txt, 0) 0%, $to: rgba($color-med-txt, 1) 50%, $dir: right)
+  }
 }

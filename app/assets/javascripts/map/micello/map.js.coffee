@@ -79,34 +79,34 @@ class map.micello.Map extends map.micello.MapBase
     super
 
   showLevel: ->
-    return unless @hasTarget()
-    level = @data.getGeometryLevel(@target.gid)
-    @data.setLevel(level) if level.id != @data.getCurrentLevel().cid
+    if @hasTarget()
+      level = @data.getGeometryLevel(@target.gid)
+      @data.setLevel(level) if level.id != @data.getCurrentLevel().cid
     @
 
   zoom: ->
-    return unless @hasTarget()
-    @control.centerOnGeom(@target.geom, 100)
-    @applyOffset()
+    if @hasTarget()
+      @control.centerOnGeom(@target.geom, 100)
+      @applyOffset()
     @
 
   detail: ->
-    return unless @hasTarget()
-    @control.showInfoWindow(@target.geom, @popupHtml(@target.store))
+    if @hasTarget()
+      @control.showInfoWindow(@target.geom, @popupHtml(@target.store))
     @
 
   highlight: ->
-    return unless @hasTarget()
-    @data.addInlay(id: @target.gid, t: 'Selected', anm: 'slct')
+    if @hasTarget()
+      @data.addInlay(id: @target.gid, t: 'Selected', anm: 'slct')
     @
 
   centre: ->
-    return unless @hasTarget()
-    zoom = @view.getZoom()
-    @control.centerOnGeom(@target.geom)
-    offset = @viewportCentre()
-    @view.setZoom(zoom)
-    @applyOffset()
+    if @hasTarget()
+      zoom = @view.getZoom()
+      @control.centerOnGeom(@target.geom)
+      offset = @viewportCentre()
+      @view.setZoom(zoom)
+      @applyOffset()
     @
 
   popupHtml: (store) ->

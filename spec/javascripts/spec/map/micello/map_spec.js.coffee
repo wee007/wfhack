@@ -1,22 +1,45 @@
 describe "map.micello.Map", ->
 
   beforeEach ->
-    @jquery = window.$
-    jquery = jasmine.createSpyObj('jQeury', ['html'])
-    window.$ = jasmine.createSpy().andReturn(jquery)
-    window.$.ajax = jasmine.createSpy().andReturn(jasmine.createSpyObj('ajax', ['success']))
+    sinon.stub(window, '$').returns({
+      text: sinon.stub()
+      on: sinon.stub()
+    })
+    $.ajax = sinon.stub().returns(success: sinon.stub())
     window.westfield = {stores: [], centre: micello_community: 7297}
-    window.micello = maps: jasmine.createSpyObj('map', ['init', 'MapControl'])
-    micello.maps.MapControl.andReturn jasmine.createSpyObj('MapControl', ['getMapData', 'getMapCanvas', 'getMapGUI'])
-    micello.maps.MapControl().getMapCanvas.andReturn jasmine.createSpyObj('MapCanvas', ['createPopup', 'setThemeFamily', 'setOverrideTheme'])
-    micello.maps.MapControl().getMapGUI.andReturn {}
-    micello.maps.MapControl().getMapData.andReturn jasmine.createSpyObj('MapData', ['loadCommunity'])
+    window.micello = {
+      maps: {
+        init: sinon.stub().callsArg(1)
+        MapControl: sinon.stub().returns({
+          getMapData: sinon.stub().returns({
+            loadCommunity: sinon.stub()
+            removeInlay: sinon.stub()
+            getCurrentLevel: sinon.stub()
+            getGeometryLevel: sinon.stub()
+            setLevel: sinon.stub()
+            addInlay: sinon.stub()
+          })
+          getMapCanvas: sinon.stub().returns({
+            createPopup: sinon.stub()
+            setThemeFamily: sinon.stub()
+            setOverrideTheme: sinon.stub()
+          })
+          getMapView: sinon.stub().returns({
+            getViewportWidth: sinon.stub()
+            getViewportHeight: sinon.stub()
+          })
+          getMapGUI: sinon.stub().returns({})
+          showInfoWindow: sinon.stub()
+          hideInfoWindow: sinon.stub()
+        })
+      }
+    }
     @subject = new map.micello.Map
 
   afterEach ->
     delete micello
     delete westfield
-    window.$ = @jquery
+    $.restore()
 
   describe "#constructor", ->
 
@@ -30,7 +53,7 @@ describe "map.micello.Map", ->
 
     beforeEach ->
       @gui = {}
-      @canvas = jasmine.createSpyObj('canvas', ['setThemeFamily', 'setOverrideTheme'])
+      @canvas = micello.maps.MapControl().getMapCanvas()
 
     it 'applies theme overrides', ->
       @subject.applyCustomTheme(@gui, @canvas)
@@ -44,7 +67,7 @@ describe "map.micello.Map", ->
 
     beforeEach ->
       @subject.data = community: d: 0: l: []
-      @subject.ready = jasmine.createSpy()
+      @subject.ready = sinon.stub()
 
     it 'calls ready', ->
       @subject.onMapChanged(comLoad: 1)
@@ -55,11 +78,19 @@ describe "map.micello.Map", ->
     beforeEach ->
       @storeId = 21
       @indexObj = {id: 21, gid: 24, store: {}}
-      @subject.index.findById = jasmine.createSpy('findById').andReturn(@indexObj)
-      @subject.data = jasmine.createSpyObj('data', ['removeInlay', 'getCurrentLevel', 'getGeometryLevel', 'setLevel', 'addInlay'])
-      @subject.control = jasmine.createSpyObj('control', ['showInfoWindow'])
-      @subject.data.getCurrentLevel.andReturn(cid: 123)
-      @subject.data.getGeometryLevel.andReturn(id: 123)
+      @subject.index.findById = sinon.stub().returns().withArgs(21).returns(@indexObj)
+      @subject.data.getCurrentLevel.returns(cid: 123)
+      @subject.data.getGeometryLevel.returns(id: 123)
 
-    it 'returns an index object', ->
-      expect(@subject.highlight(@storeId)).toEqual(@indexObj)
+    it 'does nothing', ->
+      @subject.highlight()
+      expect(@subject.data.addInlay).not.toHaveBeenCalled()
+
+    describe 'with target', ->
+
+      beforeEach ->
+        @subject.setTarget(@storeId)
+
+      it 'adds an inlay', ->
+        @subject.highlight()
+        expect(@subject.data.addInlay).toHaveBeenCalled()

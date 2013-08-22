@@ -15,7 +15,7 @@
   border-style: solid;
   border-color: $color-grey-1;
   @include to-rem(margin-top, $spacing-half);
-  @include to-rem(padding-top, $spacing-quarter);
+  @include to-rem(padding-top, $spacing-quarter - 1);
   @include to-rem(padding-bottom, $spacing-quarter*2);
 
   /* Button */

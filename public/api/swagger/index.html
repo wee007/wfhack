@@ -29,7 +29,7 @@
             apiKey: "",
             dom_id: "swagger-ui-container",
             supportHeaderParams: false,
-            supportedSubmitMethods: ['get', 'post', 'put', 'delete'],
+            supportedSubmitMethods: ['get'],
             onComplete: function(swaggerApi, swaggerUi){
                 _.each(swaggerApi.apisArray, function(resource) {
                     if (resource.basePath.match('dbg.westfield.com')) {

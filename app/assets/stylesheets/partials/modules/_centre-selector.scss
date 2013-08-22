@@ -11,12 +11,11 @@
 */
 
 .centre-selector {
-  // Added when left hand navigation was removed
+  // Temporary solution. Added when left hand navigation was removed.
   width: 100%;
   @include to-rem(padding-top padding-bottom, $spacing-half);
   // End Added when left hand navigation was removed
   @include clear-fix();
-
 
   @include respond-min($non-palm) {
     text-align: right;
@@ -31,8 +30,9 @@
 
   /* Button that toggles the shopping centre select dropdown */
   button {
+    float: right;
+
     @include respond-min($non-palm) {
-      float: right;
       display: none;
     }
   }
@@ -49,6 +49,6 @@
     @include font-size($font-size-sml);
     color: $color-light-txt;
 
-    // Space the select away from the label
+    /* Space the select away from the label */
     label {@include to-rem(margin-right, $spacing-base);}
   }

@@ -1,13 +1,14 @@
 // Modernizr included in HTML
 // All other requires are handled here
 
-
 //= require ./support/custom-modernizr-tests
 
 // External dependencies, handled via Bower.
 // See: https://gist.github.com/benschwarz/5874031/
 
 //= require jquery
+//= require script.js/dist/script
+//= require ./support/modernizr-load
 
 // Conditional support
 //= require ./support/mediaqueries

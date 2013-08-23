@@ -26,20 +26,14 @@ window.map = Micello: class Micello
     @
 
   initializeMap: =>
-    return @ if @initialized
-    if window.map?.micello?
+    unless @initialized
       @initialized = true
       @map = new map.micello.Map(@options)
-    else
-      setTimeout(@initializeMap)
     @
 
 do (proto = map.Micello.prototype, toProxy = ['setTarget', 'showLevel', 'zoom', 'detail', 'highlight', 'centre', 'centreOffset', 'reset']) ->
   for name in toProxy
     proto[name] = do (name) -> (args...) ->
-      func = => @map[name].apply(@map, args)
-      if @deferred.state() == 'resolved'
-        func()
-      else
-        @deferred.then(func)
+      func = -> @[name].apply(@, args)
+      if @map then func.apply(@map) else @deferred.then(func)
       @

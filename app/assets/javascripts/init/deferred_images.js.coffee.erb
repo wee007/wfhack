@@ -1,11 +1,3 @@
-window.deferCall = ->
-  # If any of the tests are falsey a timeout is queued to call the function again
-  for test in arguments
-    if !test
-      setTimeout(deferCall.caller, 100)
-      return true
-  false
-
 $ = window.jQuery
 name = 'deferImages'
 
@@ -14,10 +6,7 @@ do ($, name) ->
   deferred = $.Deferred()
   deferImages = null
 
-  do ->
-    # Deferres this function until enquire is avaliable
-    return if deferCall(window.enquire)
-    deferred.resolve()
+  $script.ready('<%= asset_path 'enquire.js' %>', deferred.resolve)
 
   class DeferredImageLoader
 
@@ -86,12 +75,11 @@ do ($, name) ->
       @container.off('.deferred-logos')
 
   deferImages = (container, options) ->
-    new DeferredImages(container, options)
+    if deferred.state() == 'resolved'
+      new DeferredImages(container, options)
+    else
+      deferred.then -> new DeferredImages(container, options)
 
   $.fn[name] = (options) ->
     $(@).each ->
-      if deferred.state() == 'resolved'
-        deferImages(@, options)
-      else
-        self = @
-        deferred.then -> deferImages(self, options)
+      deferImages(@, options)

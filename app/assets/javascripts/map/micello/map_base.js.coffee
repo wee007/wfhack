@@ -7,7 +7,7 @@ window.map.micello = MapBase: class MapBase
       throw 'Missing micello_community for centre'
     @index.addStores(westfield.stores)
 
-  ready: ->
+  ready: =>
     @options.deferred.resolveWith(@)
     
   setTarget: (storeId) ->

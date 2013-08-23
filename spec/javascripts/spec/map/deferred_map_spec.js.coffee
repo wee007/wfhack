@@ -67,21 +67,6 @@ describe 'map.Micello', ->
         @subject.initializeMap()
         expect(map.micello.Map).toHaveBeenCalledOnce()
 
-    describe 'when map scripts have not been loaded', ->
-
-      beforeEach ->
-        sinon.stub(window, 'setTimeout')
-        @tmp = map.micello
-        map.micello = undefined
-
-      afterEach ->
-        setTimeout.restore()
-        map.micello = @tmp
-
-      it 'queues the intialization to be re-run', ->
-        @subject.initializeMap()
-        expect(setTimeout).toHaveBeenCalledWith(@subject.initializeMap)
-
   describe 'proxied method', ->
 
     proxiedMethods = ['setTarget', 'showLevel', 'zoom', 'detail', 'highlight', 'centre', 'centreOffset', 'reset']

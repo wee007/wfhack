@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.398
+Version:     0.0.399
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,22 @@ fi
 
 
 %changelog
+* Fri Aug 23 2013 ci <doperations@au.westfield.com> 0.0.399-1
+- Merge pull request #292 from fchan/nav-contextual (cpearce@au.westfield.com)
+- Move CSS rule to 1 line (fiona@fionachan.net)
+- Fix PR feedback (fiona@fionachan.net)
+- Fix PR feedback (fiona@fionachan.net)
+- More tiding up and remove container-wide from nav-contextual
+  (fiona@fionachan.net)
+- Fix up nav contextual after PR feedback (fiona@fionachan.net)
+- More tidying up in centre-selector module (fiona@fionachan.net)
+- Added some comments (fiona@fionachan.net)
+- Rename _nav_contextual to _section_nav (fiona@fionachan.net)
+- Rework nav-contextual and centre-selector (fiona@fionachan.net)
+- Move centre selector as its own module (fiona@fionachan.net)
+- Move nav-contextual to modules (fiona@fionachan.net)
+- Some nav-contextual refactoring (fiona@fionachan.net)
+
 * Fri Aug 23 2013 ci <doperations@au.westfield.com> 0.0.398-1
 - 
 

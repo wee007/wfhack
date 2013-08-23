@@ -25,44 +25,53 @@
       border-bottom: 1px solid $color-light-txt;
     }
 
-      /* List of nav items */
-      .nav-contextual__list {
-        /* Sets container to be wide-enough that they are horiz aligned. Just a magic number */
-        width: 250%;
-
-        > li {
-          @include to-rem(margin-left, $spacing-base);
-
-          &:first-child {
-            margin-left: 0;
-          }
-
-          a {
-            @include to-rem(padding-top padding-bottom, $spacing-half);
-            border-bottom: 2px solid transparent;
-
-            @include respond-min($non-palm) {
-              @include to-rem(padding-top padding-bottom, $spacing-base);
-            }
-
-            /* When the nav item is the selected section */
-            &.is-active {
-              border-bottom-color: $color-brand;
-            }
-          }
-        }
-      }
-
     /* Gradient that lays on top of the list */
-    .nav-contextual__overlay {
-      position: absolute;
+    .nav-contextual__clip-overlay {
       top: 0;
-      right: 0;
-      @include to-rem(padding-top padding-bottom, $spacing-third);
+      height: 100%;
       @include to-rem(padding-left, $spacing-dbl);
 
-      @include respond-min($non-palm) {
-        @include to-rem(padding-top padding-bottom, $spacing-base - 4);
+      /* Hide the gradient */
+      @include respond-min($lap-lrg) {
+        display: none;
+      }
+
+      /* Shared rules */
+      &,
+      &:before {
+        position: absolute;
+        right: 0;
+      }
+
+      &:before {
+        top: 50%;
+        @include translate(0, -50%);
+      }
+    }
+
+    /* List of nav items */
+    .nav-contextual__list {
+      /* Sets container to be wide-enough that they are horiz aligned. Just a magic number */
+      width: 250%;
+
+      > li {
+        @include to-rem(margin-left, $spacing-base);
+
+        &:first-child {margin-left: 0;}
+
+        a {
+          @include to-rem(padding-top padding-bottom, $spacing-half);
+          border-bottom: 2px solid transparent;
+
+          @include respond-min($non-palm) {
+            @include to-rem(padding-top padding-bottom, $spacing-base);
+          }
+
+          /* When the nav item is the selected section */
+          &.is-active {
+            border-bottom-color: $color-brand;
+          }
+        }
       }
     }
 
@@ -75,20 +84,20 @@
     border-bottom: 0;
   }
 
-    a {
-      color: $color-light-txt;
+    .nav-contextual__list > li  {
+      a {
+        color: $color-light-txt;
 
-      &:hover,
-      &:focus {color: #fff;}
-    }
+        &:hover,
+        &:focus {color: #fff;}
 
-    .nav-contextual__list > li a {
-      &.is-active {
-        color: #fff;
+        &.is-active {
+          color: #fff;
+        }
       }
     }
 
-  .nav-contextual__overlay {
+  .nav-contextual__clip-overlay {
     color: $color-light-txt;
     @include linear-gradient($from: rgba($color-med-txt, 0) 0%, $to: rgba($color-med-txt, 1) 50%, $dir: right)
   }

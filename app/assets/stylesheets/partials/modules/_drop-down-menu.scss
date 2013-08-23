@@ -9,7 +9,7 @@
   Note:
     -  Uses the 'Angular toggle visibility' plugin.
     -  Requires the 'Drop down' abstraction.
-    -  A lot of these styles flow into the 'Filters' module for 'Product browse'.
+    -  A lot of these styles flow into the 'Filters' module.
 
   Demo:
     Style Guide -> Modules -> Drop Down Menu
@@ -53,34 +53,29 @@
     width: 100%;
     @include to-rem(margin-top, 10.5);
 
-    /* Category header */
+    /* Header */
     .drop-down-menu__hdr {
       position: relative;
-      @include to-rem(padding-top padding-bottom, $spacing-half);
       text-align: center;
       color: $color-light-txt;
       background-color: $color-off-white;
-
-      /* When it's a button */
-      &.btn {
-        background-color: #fff;
-        text-align: left;
-        color: $color-dark-txt;
-        @include to-rem(padding-left, $spacing-half);
-      }
-
-      /* Forward indicator (arrow icon) */
-      .icon.btn--pointer__icon {
-        @include to-rem(right, $spacing-half);
-      }
 
       /* Back button */
       .btn {
         position: absolute;
         top: 50%;
-        @include to-rem(left, $spacing-half);
+        left: 0;
         @include translate(0, -50%);
+        @include to-rem(padding, $spacing-half);
       }
+    }
+
+    /* Header button */
+    .drop-down-menu__hdr-btn.btn {
+      @extend .islet;
+
+      /* Forward indicator (arrow icon) */
+      .icon.btn--pointer__icon {@include to-rem(right, $spacing-half);}
     }
 
     /* Divider */
@@ -109,6 +104,7 @@
         .btn--full {@extend .islet;}
       }
 
+      /* Truncate `label`s */
       label.txt-truncate {
         display: inline-block;
         /* Need to override the helper class `!important` keyword */

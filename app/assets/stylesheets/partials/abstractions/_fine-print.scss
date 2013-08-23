@@ -1,0 +1,23 @@
+/* ======================================================================================
+   @ABSTRACTIONS -> FINE PRINT
+   ====================================================================================== */
+
+/*
+  Usage:
+    For fine print text such as terms and conditions
+
+  Demo:
+    Style Guide -> Abstractions -> Fine Print
+*/
+
+.fine-print {
+  @include to-rem(margin, 10 0);
+  @include to-rem(font-size, 11);
+  display: block;
+  font-style: italic;
+}
+
+/* --Extenders-- */
+
+/* Centre aligns the text */
+.fine-print--center {text-align: center;}

@@ -4,49 +4,58 @@ map.micello.ie = Map: class Map extends map.micello.MapBase
 
   constructor: (@options) ->
     super
-    @el = $('#map-micello-api')
-    @zoomUI = @el.find('.map-micello-oldie__controls__zoom')
-    @levelUI = @el.find('.map-micello-oldie__controls__levels .btn')
-    @levels = @el.find('.map-micello-oldie__map-img')
-    self = @
-    @levels.each ->
-      el = $(@)
-      el.data(width: self.el.width(), height: self.el.height())
-      el.width(el.data('width'))
-    @zoomUI.on('click', '.map-micello-oldie__controls__zoom__in', -> self.zoom(0.25))
-    @zoomUI.on('click', '.map-micello-oldie__controls__zoom__out', -> self.zoom(-0.25))
-    @levelUI.on('click', -> self.selectLevel($(@).data('level')))
-    $('body', document).on('click', '[data-store-id]', -> self.highlight($(@).data('storeId')))
-    unless @el.parent().hasClass('map-micello--static')
-      @mouse = new map.micello.ie.Mouse(@levels, @drag)
+    @html = @getElements()
+    @setSizeData(@html.levelImages)
+    @attachEvents()
+    unless @html.el.parent().hasClass('map-micello--static')
+      @mouse = new map.micello.ie.Mouse(@html.levelImages, @drag)
     @selectLevel(1)
     setTimeout @ready
 
+  attachEvents: ->
+    self = @
+    @html.ui.zoom.on('click', '.map-micello-oldie__controls__zoom__in', => @zoom(0.25))
+    @html.ui.zoom.on('click', '.map-micello-oldie__controls__zoom__out', => @zoom(-0.25))
+    @html.ui.levels.on('click', -> self.selectLevel($(@).data('level')))
+
+  setSizeData: (els) ->
+    size = width: @html.el.width(), height: @html.el.height()
+    els.each ->
+      el = $(@)
+      el.data(size).width(el.data('width'))
+
+  getElements: ->
+    html = el: $('#map-micello-api')
+    html.levelImages = html.el.find('.map-micello-oldie__map-img')
+    html.ui =
+      zoom: html.el.find('.map-micello-oldie__controls__zoom')
+      levels: html.el.find('.map-micello-oldie__controls__levels .btn')
+    html
+
   drag: (delta) =>
-    top = parseInt(@levels.css('top'), 10)
-    left = parseInt(@levels.css('left'), 10)
-    @levels.css(top: top + delta.y, left: left + delta.x)
+    top = parseInt(@html.levelImages.css('top'), 10)
+    left = parseInt(@html.levelImages.css('left'), 10)
+    @html.levelImages.css(top: top + delta.y, left: left + delta.x)
 
   zoom: (amount) ->
     zoomAmount = Math.max(Math.min(@zoomAmount + amount, 3), 0.5)
     if zoomAmount != @zoomAmount
-      @drag(x: amount * @levels.data('width') / -2, y: amount * @levels.data('height') / -2)
+      @drag(x: amount * @html.levelImages.data('width') / -2, y: amount * @html.levelImages.data('height') / -2)
       @zoomAmount = zoomAmount
-    @levels.each ->
+    @html.levelImages.each ->
       el = $(@)
       el.width(el.data('width') * zoomAmount)
 
   selectLevel: (level) ->
     level = parseInt(level)
     selector = "[data-level=\"#{level}\"]"
-    @levelUI.removeClass('is-active')
-    @levelUI.filter(selector).addClass('is-active')
-    @levels.addClass('hide-fully')
-    @levels.filter(selector).removeClass('hide-fully')
+    @html.ui.levels.removeClass('is-active')
+    @html.ui.levels.filter(selector).addClass('is-active')
+    @html.levelImages.addClass('hide-fully')
+    @html.levelImages.filter(selector).removeClass('hide-fully')
 
   showLevel: ->
-    return unless @hasTarget()
-    @selectLevel(@target.store.level || 1)
+    @selectLevel(@target.store.level || 1) if @hasTarget()
     @
 
 map.micello.Map = map.micello.ie.Map unless map.micello.Map

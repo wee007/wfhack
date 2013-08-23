@@ -1,0 +1,217 @@
+h1, h3 {
+	font-family: Helvetica; font-size: 18px; color: #5F6A6D
+}
+h3 {
+	margin-top: 0;
+	padding-top: 0;
+}
+
+.container-fluid {
+padding: 0 !important;
+}
+#switch {
+	height: 26px;
+	float: right;
+	color: #FFFFFF;
+	font-size: 14px;
+	margin: 30px 30px 0 0;
+}
+
+#switch span {
+	position: relative;
+	top: -10px;
+}
+#switch .switch {
+	background: url('i/Group.png');
+	height: 26px;
+	width: 76px;
+	display: inline-block;
+	
+}
+#switch .switch.developer {
+	background: url('i/Group_reverse.png');
+	position: relative;
+	top: -2px;
+}
+
+#switch .active, #switch span:hover {
+	color: #B8D380;
+}
+
+body.home .left_col {
+	padding-left: 23px;
+}
+
+body.home .left_col h1 {
+	font-family: Helvetica;
+	font-size: 21px;
+	line-height: 25px;
+	text-shadow: 0px 1px 0px #FFFFFF;
+	font-weight: normal !important;
+	margin-top: 45px;
+	color: #595959 !important;
+}
+
+body.home .left_col p {
+	font-family: Helvetica;
+	font-size: 13px;
+	line-height: 28px;
+	padding-right: 30px;
+	color: #595959 !important;
+}
+
+body.swagger .left_col {
+	color: #F6F6F6;
+}
+
+input, select {
+	display: inline-block;
+	float: left;
+	margin-right: 20px;
+}
+
+.input-block {
+	display: inline-block;
+	padding: 20px 20px 0 0;
+}
+
+.req_center {
+	display: block !important;
+	clear: both;
+}
+
+.results {
+	clear: both;
+	background-color: #F4F4F4 !important;
+	margin-top: 80px;
+	padding: 20px;
+	word-wrap: break-word;
+	overflow: scroll;
+	border: 1px solid #FFFFFF;
+	-webkit-box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+	-moz-box-shadow:    1px 1px 4px rgba(0, 0, 0, 0.5);
+	box-shadow:         1px 1px 4px rgba(0, 0, 0, 0.5);
+	
+}
+
+#prod_results {
+	margin-bottom: 20px;
+	border: 1px solid #CCC;
+	height: 250px;
+	padding: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+}
+
+#prod_results div {
+	float: left;
+	margin: 0 20px 20px 0;
+}
+
+.view_more {
+	margin: 20px 0 0 0;
+	clear: both !important;
+	float: none !important;
+}
+
+.header {
+	background-color: #282828;
+	height: 83px;
+}
+
+.logo {
+	margin: 15px 0 0 15px;
+}
+
+.affix {
+	margin-top: 40px;
+}
+
+.container, .navbar-static-top .container, .navbar-fixed-top .container, .navbar-fixed-bottom .container {
+	width: auto;
+}
+
+ul, ol {
+	margin: 0;
+}
+
+.swagger-link {
+	position: relative;
+	margin-top: 110px;
+	display: inline-block;
+}
+
+.swagger-link a {
+	position: absolute;
+	width: 212px;
+	height: 200px;
+}
+
+.swagger-link a.aaa {
+	left: 212px;
+}
+
+.swagger-link a.file {
+	left: 424px;
+}
+
+.accordion-group {
+	padding: 18px 69px;
+	border: 0;
+	border-top: 1px solid #eeeeee;
+	border-bottom: 1px solid #ffffff;
+}
+
+.accordion-group a {
+	color: #5F6A6D;
+	font-size: 14px;
+}
+
+.accordion-inner {
+	border-top: 0;
+	padding: 9px 15px 0;
+}
+
+.accordion-inner li {
+	padding: 5px 0;
+	font-weight: bold;
+}
+
+.accordion-heading .accordion-toggle {
+	padding: 8px 0;
+	width: 204px;
+}
+
+.accordion-toggle .caret {
+	margin-top: 3px;
+	border-left-width: 7px;
+	border-right-width: 7px;
+	border-top: 8px solid #cbd1d1;
+}
+
+.accordion-toggle.dropup .caret {
+	border-top: 0 !important;
+	border-bottom: 8px solid #6d7e80;
+}
+
+body ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation.get div.heading h3 span.http_method a,
+body ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation.post div.heading h3 span.http_method a,
+body ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation.put div.heading h3 span.http_method a,
+body ul#resources li.resource ul.endpoints li.endpoint ul.operations li.operation.delete div.heading h3 span.http_method a {
+	font-size: 0.6em;
+}
+
+form.sandbox {
+	clear: both;
+}
+
+#image-doc {
+	max-width: 960px;
+}
+
+#image-doc h2 {
+	color: #999999;
+	font-weight: bold;
+	font-size: 19px;
+	padding-bottom: 20px;
+}

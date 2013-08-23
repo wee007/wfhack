@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.399
+Version:     0.0.400
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,15 @@ fi
 
 
 %changelog
+* Fri Aug 23 2013 ci <doperations@au.westfield.com> 0.0.400-1
+- Merge pull request #295 from ldewey/master (matt.wratt@trineo.co.nz)
+- Retailer logos are now rendered via cloudinary (ldewey@au.westfield.com)
+- Image resize fixups for product show (ldewey@au.westfield.com)
+- Events now use mywf.io and cloudinary (ldewey@au.westfield.com)
+- Removed duplicate service_helper gem in Gemfile. (ldewey@au.westfield.com)
+- Removed uneeded hacks as now product service is doing the right thing.
+  (ldewey@au.westfield.com)
+
 * Fri Aug 23 2013 ci <doperations@au.westfield.com> 0.0.399-1
 - Merge pull request #292 from fchan/nav-contextual (cpearce@au.westfield.com)
 - Move CSS rule to 1 line (fiona@fionachan.net)

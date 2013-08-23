@@ -13,21 +13,57 @@
     Style Guide -> Modules -> Filters
 */
 
+/* Set variables */
+$filter-drop-down-width: 285;
+
 .filters {
 
-  /* --Overrides for 'Drop down' module-- */
+  /* Hide elements at 'wide' layout at this breakpoint */
+  @include respond-min($lap-lrg) {
+    .filters__hide-wide {display: none;}
+  }
 
-  /* Turn off the drop down hidden rules and 'box' treatment for drop down target at this breakpoint */
-  @include respond-min($non-palm) {
-    .drop-down-menu__target {
-      display: block;
-      position: static;
-      background: none;
-      box-shadow: none;
+  /* Overrides for 'Drop down menu target' */
+  .drop-down-menu__target {
 
-      /* Hide the arrow pointer from 'Drop down' module */
-      > .arrow {display: none;}
+    /* Reduce the width at this breakpoint range */
+    @include respond-range($non-palm, $lap-lrg - 1) {
+        @include to-rem(width, $filter-drop-down-width);
     }
+
+    /* Bring into view and remove 'box' styles at this breakpoint */
+    @include respond-min($lap-lrg) {
+        display: block;
+        position: static;
+        background: none;
+        box-shadow: none;
+
+        /* Hide the arrow pointer */
+        > .arrow {display: none;}
+    }
+  }
+
+  /* 'On sale' toggle */
+  .filters__sale {
+    @extend .islet;
+    @extend %transition-subtle;
+
+    /* Turn off styles at this breakpoint */
+    @include respond-max($lap-lrg - 1) {
+      box-shadow: none;
+      border-radius: 0;
+
+      /* Hover state */
+      &:hover {background: none;}
+    }
+
+    /* Change top/bottom padding at this breakpoint */
+    @include respond-min($lap-lrg) {
+      @include to-em(padding-top padding-bottom, $spacing-half+1.5);
+    }
+
+      /* Less right margin for checkbox */
+      input[type="checkbox"] {@include to-rem(margin-right, $spacing-sixth);}
   }
 }
 
@@ -42,10 +78,15 @@
   @include respond-min($non-palm) {
     @include to-rem(margin-top, $spacing-base);
   }
+
+  /* Inline script set by the palm viewport when the filters are set to be hidden, requires override at this breakpoint */
+  @include respond-min($lap-lrg) {
+    .drop-down-menu__target {display: block !important;}
+  }
 }
 
   /* Throw list into horizontal mode at this breakpoint */
-  @include respond-min($non-palm) {
+  @include respond-min($lap-lrg) {
     .filters__list > li {
       display: inline-block;
       vertical-align: middle;
@@ -65,7 +106,7 @@
       .filters__target {
         @include drop-down;
         @include box;
-        @include to-rem(width, 285);
+        @include to-rem(width, $filter-drop-down-width);
         @include to-rem(margin-top, 10.5);
 
         /* Drop down pointer arrow */
@@ -76,12 +117,12 @@
     /* Filter trigger (drop down trigger) - we need to toggle the display of the triggers between viewports as we have 2 triggers for each */
     .filters__trigger {
 
-      &.hide-fully--palm {display: none !important;}
+      &.filters__trigger--wide {display: none !important;}
 
-      @include respond-min($non-palm) {
-        &.hide-fully--non-palm {display: none !important;}
+      @include respond-min($lap-lrg) {
+        &.filters__trigger--narrow {display: none !important;}
 
-        &.hide-fully--palm {display: block !important;}
+        &.filters__trigger--wide {display: block !important;}
       }
     }
 

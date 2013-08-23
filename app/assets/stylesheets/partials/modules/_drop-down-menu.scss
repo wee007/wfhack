@@ -32,7 +32,7 @@
   .drop-down-menu__apply {
     position: absolute;
     @include to-rem(right, $spacing-half);
-    @include to-rem(top, 4.5);
+    @include to-rem(top, 5);
     @include to-em(padding, $spacing-half $spacing-base);
   }
 
@@ -44,7 +44,7 @@
 
   input[type="checkbox"] {@include to-rem(margin-right, $spacing-quarter);}
 
-  .txt-input {@include prefix(box-sizing, border-box);}
+  input[type="search"] {@include prefix(box-sizing, border-box);}
 }
 
   /* Target (drop down) */

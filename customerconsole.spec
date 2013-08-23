@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.403
+Version:     0.0.404
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,9 @@ fi
 
 
 %changelog
+* Fri Aug 23 2013 ci <doperations@au.westfield.com> 0.0.404-1
+- 
+
 * Fri Aug 23 2013 ci <doperations@au.westfield.com> 0.0.403-1
 - Merge pull request #299 from cpearce/master (ben@germanforblack.com)
 - Fixing issue where product browse filters disappear between viewports -

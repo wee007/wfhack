@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.395
+Version:     0.0.396
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,12 @@ fi
 
 
 %changelog
+* Fri Aug 23 2013 ci <doperations@au.westfield.com> 0.0.396-1
+- Merge pull request #297 from cpearce/master (ben@germanforblack.com)
+- Refactoring prod browse filter headers and replicating trigger for non-palm
+  (CPearce@au.westfield.com)
+- Closing icon span element in product filters (CPearce@au.westfield.com)
+
 * Thu Aug 22 2013 ci <doperations@au.westfield.com> 0.0.395-1
 - Decreasing the top margin of the drop down offset (CPearce@au.westfield.com)
 - Fixing padding inconsistency for filter tags (CPearce@au.westfield.com)

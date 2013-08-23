@@ -298,11 +298,9 @@
 
         <%# On sale %>
         <li>
-          <div class="filters__trigger filters__sale">
-            <label for="sale-items">
-              <input ng-model="on_sale" ng-checked="search.params.on_sale" ng-change="filterSearch('on_sale')" id="sale-items" type="checkbox">
-              <span>On sale</span>
-            </label>
+          <div class="filters__trigger filters__sale btn--main btn--main-alt4">
+            <input ng-model="on_sale" ng-checked="search.params.on_sale" ng-change="filterSearch('on_sale')" id="sale-items" type="checkbox">
+            <label for="sale-items">On sale</label>
           </div>
         </li>
         <%# //On sale %>

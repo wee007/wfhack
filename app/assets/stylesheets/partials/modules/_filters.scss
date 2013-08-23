@@ -29,6 +29,22 @@
       > .arrow {display: none;}
     }
   }
+
+  /* 'On sale' toggle */
+  .filters__sale {
+    @extend .islet;
+    @extend %transition-subtle;
+
+    /* Turn off hover state at this breakpoint */
+    @include respond-max($palm) {
+      &:hover {background: none;}
+    }
+
+    /* Change top/bottom padding at this breakpoint */
+    @include respond-min($non-palm) {
+      @include to-em(padding-top padding-bottom, $spacing-half+1.5);
+    }
+  }
 }
 
 /* --Extenders-- */

@@ -30,8 +30,7 @@ describe Event do
 
   context '#image' do
     it {
-      ImageService.should_receive(:transform).with(ref: '12345678', width: 400).and_return('transformed_image')
-      subject.image.should eql('transformed_image')
+      subject.image.should =~ /#{event_data[:image_ref]}/
     }
   end
 

@@ -5,12 +5,12 @@ class Deal < OpenStruct
     super || name
   end
 
-  def retailer_logo_url
-    store._links.logo.href
-  end
-
   def store_name
     store.name
+  end
+
+  def logo
+    store.logo if store && store.has_logo?
   end
 
   def stores

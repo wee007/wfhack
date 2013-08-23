@@ -1,24 +1,26 @@
 <%# Render high res Google static map of the centre  - http://webdesigntutsplus.s3.amazonaws.com/tuts/365_google_maps/demo/index.html %>
-<style>
-  .map-google-static {
-    background: url("http://maps.googleapis.com/maps/api/staticmap?center=<%= @centre.latitude %>,<%= @centre.longitude %>&zoom=11&size=640x280&sensor=false") no-repeat 50% 50%;
-  }
-  @media  (-o-min-device-pixel-ratio: 5/4),
-          (-webkit-min-device-pixel-ratio: 1.25),
-          (min-resolution: 120dpi) {
-            .map-google__static {
-              background-image: url("http://maps.googleapis.com/maps/api/staticmap?center=<%= @centre.latitude %>,<%= @centre.longitude %>&zoom=11&size=640x280&sensor=false&scale=2");
-              background-size: 640px 280px;
-            }
-  }
-</style>
+<% content_for :custom_styles do %>
+  <style>
+    .map-google-static {
+      background: url("http://maps.googleapis.com/maps/api/staticmap?center=<%= @centre.latitude %>,<%= @centre.longitude %>&zoom=11&size=640x280&sensor=false") no-repeat 50% 50%;
+    }
+    @media  (-o-min-device-pixel-ratio: 5/4),
+            (-webkit-min-device-pixel-ratio: 1.25),
+            (min-resolution: 120dpi) {
+              .map-google__static {
+                background-image: url("http://maps.googleapis.com/maps/api/staticmap?center=<%= @centre.latitude %>,<%= @centre.longitude %>&zoom=11&size=640x280&sensor=false&scale=2");
+                background-size: 640px 280px;
+              }
+    }
+  </style>
+<% end %>
 
 <div class="txt-formatted">
 
   <%# Getting here %>
+  <h2>Getting Here</h2>
   <div class="grid non-palm-grid--bottom-dbl">
     <div class="grid__item">
-      <h2>Getting Here</h2>
 
       <div class="map-google-static">
         <img src="http://maps.googleapis.com/maps/api/staticmap?center=<%= @centre.latitude %>,<%= @centre.longitude %>&zoom=11&size=640x280&sensor=false">
@@ -32,8 +34,8 @@
   <h2>Parking</h2>
   <div class="grid grid--gutter-dbl">
     <div class="grid__item non-palm-one-half">
-      <div class="box island">
-        <table cellspacing="0" class="table-striped ">
+      <div class="box islet island--btm-non-palm">
+        <table cellspacing="0" class="table-striped">
           <caption class="hide-visually">Parking rates</caption>
           <thead>
             <tr>

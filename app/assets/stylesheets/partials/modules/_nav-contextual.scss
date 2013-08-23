@@ -68,9 +68,7 @@
           }
 
           /* When the nav item is the selected section */
-          &.is-active {
-            border-bottom-color: $color-brand;
-          }
+          &.is-active {border-bottom-color: $color-brand;}
         }
       }
     }
@@ -89,9 +87,7 @@
         &:hover,
         &:focus {color: #fff;}
 
-        &.is-active {
-          color: #fff;
-        }
+        &.is-active {color: #fff;}
       }
     }
 

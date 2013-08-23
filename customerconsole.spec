@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.396
+Version:     0.0.397
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,26 @@ fi
 
 
 %changelog
+* Fri Aug 23 2013 ci <doperations@au.westfield.com> 0.0.397-1
+- Merge pull request #296 from mwratt/feature/IE8_maps
+  (ldewey@au.westfield.com)
+- Merge pull request #289 from btillman/api_docs (ldewey@au.westfield.com)
+- adds js spec coverage of IE8 maps (matt.wratt@trineo.co.nz)
+- extracted makeArray for clarity (matt.wratt@trineo.co.nz)
+- bug fix for IE8 maps (matt.wratt@trineo.co.nz)
+- altered to use $script loading (matt.wratt@trineo.co.nz)
+- fixes undefined map error (matt.wratt@trineo.co.nz)
+- adds Modernizr.load support with $script (matt.wratt@trineo.co.nz)
+- replaces yepnope with $script (matt.wratt@trineo.co.nz)
+- adds API documentation for Cloudinary (ben.tillman@gmail.com)
+- fixes bug with pre-expanded navigation not being added to accordian group
+  (ben.tillman@gmail.com)
+- disables put, post and delete api documentation test methods
+  (ben.tillman@gmail.com)
+- adds API docs landing page links (ben.tillman@gmail.com)
+- tweaks css for API docs (ben.tillman@gmail.com)
+- adds API docs navigation (ben.tillman@gmail.com)
+
 * Fri Aug 23 2013 ci <doperations@au.westfield.com> 0.0.396-1
 - Merge pull request #297 from cpearce/master (ben@germanforblack.com)
 - Refactoring prod browse filter headers and replicating trigger for non-palm

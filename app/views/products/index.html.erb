@@ -39,8 +39,8 @@
 
 <%# Back button %>
 <script type="text/ng-template" id="FilterItemBackButton">
-  <button ng-click="closeFilters()" class="btn">
-    <span class="hide-fully--non-palm icon icon--arrow-left-big icon--lrg" aria-hidden="true">
+  <button ng-click="closeFilters()" class="filters__hide-wide btn">
+    <span class="icon icon--arrow-left-big icon--lrg" aria-hidden="true">
     <span class="hide-visually">Back</span>
   </button>
 </script>
@@ -53,8 +53,7 @@
   <div class="drop-down-menu drop-down-container">
 
     <%# Drop down trigger (palm) %>
-    <button ng-click="showFilterButtons" toggle-visibility="filters" class="drop-down-menu__trigger btn btn--main btn--main-alt4 btn--pointer btn--pointer-padding-med hide-fully--non-palm">Filter<span class="icon icon--lrg icon--arrow-down-full btn--pointer__icon" aria-hidden="true"></span>
-    </button>
+    <button ng-click="showFilterButtons" toggle-visibility="filters" class="filters__hide-wide drop-down-menu__trigger btn btn--main btn--main-alt4 btn--pointer btn--pointer-padding-med">Filter<span class="icon icon--lrg icon--arrow-down-full btn--pointer__icon" aria-hidden="true"></span></button>
     <%# //Drop down trigger (palm) %>
 
     <%# Drop down target (palm) %>
@@ -67,14 +66,14 @@
         <li ng-show="filterIsAvailable(search.categories.values)">
 
           <%# Palm trigger %>
-          <button ng-click="toggleFilter('category')" class="filters__trigger drop-down-menu__hdr-btn drop-down-menu__divider btn btn--full btn--full-left btn--pointer hide-fully--non-palm">
+          <button ng-click="toggleFilter('category')" class="filters__trigger filters__trigger--narrow drop-down-menu__hdr-btn drop-down-menu__divider btn btn--full btn--full-left btn--pointer">
             {{ search.categories.title }}
             <span class="icon icon--arrow-right-big icon--lrg btn--pointer__icon" aria-hidden="true"></span>
           </button>
           <%# //Palm trigger %>
 
           <%# Non-palm trigger %>
-          <button ng-click="toggleFilter('category')" class="filters__trigger drop-down-menu__trigger btn btn--main btn--main-alt4 btn--pointer hide-fully--palm">
+          <button ng-click="toggleFilter('category')" class="filters__trigger filters__trigger--wide drop-down-menu__trigger btn btn--main btn--main-alt4 btn--pointer">
             {{ search.categories.title }}
             <span class="icon icon--arrow-down-full btn--pointer__icon" aria-hidden="true"></span>
           </button>
@@ -94,14 +93,14 @@
         <li ng-if="filterIsAvailable(search.retailers.values)">
 
           <%# Palm trigger %>
-          <button ng-click="toggleFilter('retailer')" class="filters__trigger drop-down-menu__hdr-btn drop-down-menu__divider btn btn--full btn--full-left btn--pointer hide-fully--non-palm">
+          <button ng-click="toggleFilter('retailer')" class="filters__trigger filters__trigger--narrow drop-down-menu__hdr-btn drop-down-menu__divider btn btn--full btn--full-left btn--pointer">
             {{ search.retailers.title }}
             <span class="icon icon--arrow-right-big icon--lrg btn--pointer__icon" aria-hidden="true"></span>
           </button>
           <%# //Palm trigger %>
 
           <%# Non-palm trigger %>
-          <button ng-click="toggleFilter('retailer')" class="filters__trigger drop-down-menu__trigger btn btn--main btn--main-alt4 btn--pointer hide-fully--palm">
+          <button ng-click="toggleFilter('retailer')" class="filters__trigger filters__trigger--wide drop-down-menu__trigger btn btn--main btn--main-alt4 btn--pointer">
             {{ search.retailers.title }}
             <span class="icon icon--arrow-down-full btn--pointer__icon" aria-hidden="true"></span>
           </button>
@@ -138,14 +137,14 @@
         <li ng-if="filterIsAvailable(search.brands.values)">
 
           <%# Palm trigger %>
-          <button ng-click="toggleFilter('brand')" class="filters__trigger drop-down-menu__hdr-btn drop-down-menu__divider btn btn--full btn--full-left btn--pointer hide-fully--non-palm">
+          <button ng-click="toggleFilter('brand')" class="filters__trigger filters__trigger--narrow drop-down-menu__hdr-btn drop-down-menu__divider btn btn--full btn--full-left btn--pointer">
             {{ search.brands.title }}
-            <span class="hide-fully--non-palm icon icon--arrow-right-big icon--lrg btn--pointer__icon" aria-hidden="true"></span>
+            <span class="icon icon--arrow-right-big icon--lrg btn--pointer__icon" aria-hidden="true"></span>
           </button>
           <%# //Palm trigger %>
 
           <%# Non-palm trigger %>
-          <button ng-click="toggleFilter('brand')" class="filters__trigger drop-down-menu__trigger btn btn--main btn--main-alt4 btn--pointer hide-fully--palm">
+          <button ng-click="toggleFilter('brand')" class="filters__trigger filters__trigger--wide drop-down-menu__trigger btn btn--main btn--main-alt4 btn--pointer">
             {{ search.brands.title }}
             <span class="icon icon--arrow-down-full btn--pointer__icon" aria-hidden="true"></span>
           </button>
@@ -182,14 +181,14 @@
         <li ng-if="filterIsAvailable(search.colours.values)">
 
           <%# Palm trigger %>
-          <button ng-click="toggleFilter('colour')" class="filters__trigger drop-down-menu__hdr-btn drop-down-menu__divider btn btn--full btn--full-left btn--pointer hide-fully--non-palm">
+          <button ng-click="toggleFilter('colour')" class="filters__trigger filters__trigger--narrow drop-down-menu__hdr-btn drop-down-menu__divider btn btn--full btn--full-left btn--pointer">
             {{ search.colours.title }}
-            <span class="hide-fully--non-palm icon icon--arrow-right-big icon--lrg btn--pointer__icon" aria-hidden="true"></span>
+            <span class="icon icon--arrow-right-big icon--lrg btn--pointer__icon" aria-hidden="true"></span>
           </button>
           <%# //Palm trigger %>
 
           <%# Non-palm trigger %>
-          <button ng-click="toggleFilter('colour')" class="filters__trigger drop-down-menu__trigger btn btn--main btn--main-alt4 btn--pointer hide-fully--palm">
+          <button ng-click="toggleFilter('colour')" class="filters__trigger filters__trigger--wide drop-down-menu__trigger btn btn--main btn--main-alt4 btn--pointer">
             {{ search.colours.title }}
             <span class="icon icon--arrow-down-full btn--pointer__icon" aria-hidden="true"></span>
           </button>
@@ -221,14 +220,14 @@
         <li ng-if="filterIsAvailable(search.sizes.values)">
 
           <%# Palm trigger %>
-          <button ng-click="toggleFilter('size')" class="filters__trigger drop-down-menu__hdr-btn drop-down-menu__divider btn btn--full btn--full-left btn--pointer hide-fully--non-palm">
+          <button ng-click="toggleFilter('size')" class="filters__trigger filters__trigger--narrow drop-down-menu__hdr-btn drop-down-menu__divider btn btn--full btn--full-left btn--pointer">
             {{ search.sizes.title }}
-            <span class="hide-fully--non-palm icon icon--arrow-right-big icon--lrg btn--pointer__icon" aria-hidden="true"></span>
+            <span class="icon icon--arrow-right-big icon--lrg btn--pointer__icon" aria-hidden="true"></span>
           </button>
           <%# //Palm trigger %>
 
           <%# Non-palm trigger %>
-          <button ng-click="toggleFilter('size')" class="filters__trigger drop-down-menu__trigger btn btn--main btn--main-alt4 btn--pointer hide-fully--palm">
+          <button ng-click="toggleFilter('size')" class="filters__trigger filters__trigger--wide drop-down-menu__trigger btn btn--main btn--main-alt4 btn--pointer">
             {{ search.sizes.title }}
             <span class="icon icon--arrow-down-full btn--pointer__icon" aria-hidden="true"></span>
           </button>
@@ -260,14 +259,14 @@
         <li ng-if="filterIsAvailable(search.price.values)">
 
           <%# Palm trigger %>
-          <button ng-click="toggleFilter('price')" class="filters__trigger drop-down-menu__hdr-btn drop-down-menu__divider btn btn--full btn--full-left btn--pointer hide-fully--non-palm">
+          <button ng-click="toggleFilter('price')" class="filters__trigger filters__trigger--narrow drop-down-menu__hdr-btn drop-down-menu__divider btn btn--full btn--full-left btn--pointer">
             {{ search.price.title }}
-            <span class="hide-fully--non-palm icon icon--arrow-right-big icon--lrg btn--pointer__icon" aria-hidden="true"></span>
+            <span class="icon icon--arrow-right-big icon--lrg btn--pointer__icon" aria-hidden="true"></span>
           </button>
           <%# //Palm trigger %>
 
           <%# Non-palm trigger %>
-          <button ng-click="toggleFilter('price')" class="filters__trigger drop-down-menu__trigger btn btn--main btn--main-alt4 btn--pointer hide-fully--palm">
+          <button ng-click="toggleFilter('price')" class="filters__trigger filters__trigger--wide drop-down-menu__trigger btn btn--main btn--main-alt4 btn--pointer">
             {{ search.price.title }}
             <span class="icon icon--arrow-down-full btn--pointer__icon" aria-hidden="true"></span>
           </button>

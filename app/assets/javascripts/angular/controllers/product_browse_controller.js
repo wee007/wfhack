@@ -74,7 +74,7 @@
         $scope.activeFilter = filterName;
 
         // The button must be hidden on palm breakpoint
-        if ( !angular.element('html').hasClass('non-palm') ) {
+        if ( !angular.element('html').hasClass('lap-lrg') ) {
           $scope.hideFilterButtons();
         }
       } else {

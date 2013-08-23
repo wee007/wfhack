@@ -1,8 +1,11 @@
 <div class="tile__meta">
+
   <p class="tile__meta__desc"><%= result.title %></p>
-  <span class="tile__meta__image">
-    <%= image_tag result.retailer_logo_url, alt: "#{result.store_name} logo", onError: %Q(this.parentNode.removeChild(this);)%>
-  </span>
+  <% if result.logo %>
+    <span class="tile__meta__image">
+      <%= fetch_image_tag(result.logo, width: 168, height: 62, quality: 25, crop: :pad, background: 'rgb:FFFFFF') %>
+    </span>
+  <% end %>
 </div>
 
 <span class="tile__meta__icon">

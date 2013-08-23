@@ -24,12 +24,11 @@ describe Deal do
   end
 
   it "should get the retailer logo url" do
-    mock_deal_store = double('store_service_id' => 123, "_links" => double({'logo' => double({'href' => "http://example.com/wittner.jpg"})}))
-
-    StoreService.should_receive(:fetch).with(123).and_return("STORE_SERVICE")
-    StoreService.should_receive(:build).with("STORE_SERVICE").and_return(mock_deal_store)
-
-    deal = Deal.new(deal_stores:[mock_deal_store])
-    expect(deal.retailer_logo_url).to eql("http://example.com/wittner.jpg")
+    deal = Deal.new
+    deal.stub(:store).and_return double(
+      "has_logo?" => true,
+      "logo" => "http://example.com/wittner.jpg"
+    )
+    expect(deal.logo).to eql("http://example.com/wittner.jpg")
   end
 end

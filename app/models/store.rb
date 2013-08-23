@@ -17,9 +17,8 @@ class Store < Hashie::Mash
     logo_ref.present?
   end
 
-  def logo(options = {})
-    options.merge!({ref: logo_ref})
-    ImageService.transform options
+  def logo
+    "#{WestfieldUri::Service.uri_for("file", 'http')}#{logo_ref}"
   end
 
   def store_front_image_url

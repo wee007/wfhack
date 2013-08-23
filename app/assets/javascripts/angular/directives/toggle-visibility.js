@@ -19,6 +19,9 @@
         // Change the display of the target
         target.hide();
 
+        trigger.removeClass( 'is-active' );
+        target.removeClass( 'is-active' );
+
         // Aria state for target
         target.attr( 'aria-hidden', true );
       } else {
@@ -30,6 +33,9 @@
 
         // Change the display of the target
         target.show();
+
+        trigger.addClass( 'is-active' );
+        target.addClass( 'is-active' );
 
         // Aria state for target
         target.attr( 'aria-hidden', false );

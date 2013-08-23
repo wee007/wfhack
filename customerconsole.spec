@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.404
+Version:     0.0.405
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,11 @@ fi
 
 
 %changelog
+* Fri Aug 23 2013 ci <doperations@au.westfield.com> 0.0.405-1
+- Merge pull request #301 from cpearce/master (fchan@au.westfield.com)
+- Fixing the drop down arrow colour to be set based on whether you're in the
+  root or sub levels for product browse filters (CPearce@au.westfield.com)
+
 * Fri Aug 23 2013 ci <doperations@au.westfield.com> 0.0.404-1
 - 
 

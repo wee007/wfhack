@@ -85,7 +85,6 @@ Global stylesheet
 @import "partials/layout/header";
 @import "partials/layout/main";
 @import "partials/layout/footer";
-@import "partials/layout/hero";
 
   /* Layout -> Grid */
   @import "partials/layout/grid/grid";
@@ -141,6 +140,7 @@ Global stylesheet
 @import "partials/modules/txt-formatted";
 @import "partials/modules/nav-contextual";
 @import "partials/modules/centre-selector";
+@import "partials/modules/hero";
 
   /* Modules -> Widgets */
   @import "partials/modules/widgets/accordion";

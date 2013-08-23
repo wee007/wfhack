@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.402
+Version:     0.0.403
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,16 @@ fi
 
 
 %changelog
+* Fri Aug 23 2013 ci <doperations@au.westfield.com> 0.0.403-1
+- Merge pull request #299 from cpearce/master (ben@germanforblack.com)
+- Fixing issue where product browse filters disappear between viewports -
+  WSF-5132, tiles overlapping (CPearce@au.westfield.com)
+- Automatic commit of package [wf-customerconsole] release [0.0.402-1]. (ci)
+- Changing the layout of product browse filters to stop it colliding with
+  product sort (CPearce@au.westfield.com)
+- Fixing formatting issues with on sale toggle for product browse filters
+  (CPearce@au.westfield.com)
+
 * Fri Aug 23 2013 ci <doperations@au.westfield.com> 0.0.402-1
 - 
 

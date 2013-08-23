@@ -15,11 +15,37 @@
   </style>
 <% end %>
 
+<div class="nav-contextual">
+  <div class="nav-contextual__clip">
+    <nav class="nav-contextual__clip-inner" role="navigation" aria-label="Contextual navigation">
+      <ul class="nav-contextual__list horiz-list">
+        <li>
+          <a href="#getting-here">Getting Here</a>
+        </li>
+        <li>
+          <a href="#parking">Parking</a>
+        </li>
+        <li>
+          <a href="#developments">Developments</a>
+        </li>
+        <li>
+          <a href="#contact-us">Contact Us</a>
+        </li>
+        <li>
+          <a href="#follow-us">Follow Us</a>
+        </li>
+      </ul>
+    </nav>
+    <span class="nav-contextual__clip-overlay icon icon--arrow-right icon--mega icon--flush-top" aria-hidden="true"></span>
+  </div>
+</div>
+
+<%# Text formatted %>
 <div class="txt-formatted">
 
   <%# Getting here %>
-  <h2>Getting Here</h2>
-  <div class="grid non-palm-grid--bottom-dbl">
+  <h2 id="getting-here">Getting Here</h2>
+  <div class="grid grid--bottom-dbl-non-palm">
     <div class="grid__item">
 
       <div class="map-google-static">
@@ -31,8 +57,8 @@
   <%# //Getting here %>
 
   <%# Parking %>
-  <h2>Parking</h2>
-  <div class="grid grid--gutter-dbl">
+  <h2 id="parking">Parking</h2>
+  <div class="grid grid--gutter-dbl grid--bottom-dbl-non-palm">
     <div class="grid__item non-palm-one-half">
       <div class="box box--mrg-btm-half islet island--non-palm">
         <table cellspacing="0" class="table-striped">
@@ -86,4 +112,16 @@
   </div>
   <%# //Parking %>
 
+  <%# Community %>
+  <h2 id="community">Community</h2>
+  <img src="http://placehold.it/980x280">
+
+  <div class="grid grid--gutter-dbl grid--bottom-dbl-non-palm">
+    <div class="grid__item non-palm-one-half">
+    </div>
+  </div>
+  <%# //Community %>
+
+
 </div>
+<%# //Text formatted %>

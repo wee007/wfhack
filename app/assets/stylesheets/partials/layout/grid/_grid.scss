@@ -68,21 +68,12 @@
 }
 
 /* Double the bottom margin */
-@mixin bottom-dbl-classes($namespace: "") {
-	.#{$namespace}grid--bottom-dbl {
-		.grid__item {
-			@include respond-min($non-palm, $screen-only: true) {
-				@include to-rem(margin-bottom, $spacing-dbl);
-			}
+.grid--bottom-dbl-non-palm {
+	.grid__item {
+		@include respond-min($non-palm, $screen-only: true) {
+			@include to-rem(margin-bottom, $spacing-dbl);
 		}
 	}
-}
-
-/* --Output all the double bottom margin classes for the grid under specific breakpoints applied via specific classes (namespaced) e.g. `.lap-grid--bottom-dbl` (all pre-defined breakpoints)-- */
-
-/* Non-palm */
-@include respond-min($non-palm) {
-  @include bottom-dbl-classes("non-palm-");
 }
 
 /* Double the gutter */

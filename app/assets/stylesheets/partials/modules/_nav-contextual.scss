@@ -10,26 +10,31 @@
     Style Guide -> Modules -> Nav Contextual
 */
 
-.nav-contextual {position: relative;}
+.nav-contextual {
+  position: relative;
+  @include to-rem(margin-bottom, $spacing-base);
+  border-bottom: 1px solid $color-grey-1;
+}
 
   /* Clip scrollable contents (palm) */
   .nav-contextual__clip {
-    /* Make space for the arrow on the right */
-    @include to-rem(margin-right, $spacing-dbl);
+    /* Make space for the arrow on the right. The spacing needs to be smaller than .nav-contextual__clip-overlay */
+    @include to-rem(margin-right, $spacing-base);
   }
 
     /* Scroll the contents of the navigation when the viewport is narrow enough */
     .nav-contextual__clip-inner {
       overflow-x: scroll;
       -webkit-overflow-scrolling: touch;
-      border-bottom: 1px solid $color-light-txt;
     }
 
     /* Gradient that lays on top of the list */
     .nav-contextual__clip-overlay {
       top: 0;
       height: 100%;
+      color: $color-light-txt;
       @include to-rem(padding-left, $spacing-dbl);
+      @include linear-gradient($from: rgba($color-grey-3, 0) 0%, $to: rgba($color-grey-3, 1) 50%, $dir: right);
 
       /* Hide the gradient */
       @include respond-min($lap-lrg) {
@@ -61,6 +66,7 @@
 
         a {
           @include to-rem(padding-top padding-bottom, $spacing-half);
+          color: $color-light-txt;
           border-bottom: 2px solid transparent;
 
           @include respond-min($non-palm) {
@@ -77,8 +83,8 @@
 
 /* Dark color */
 .nav-contextual--dark {
-
-  .nav-contextual__clip-inner {border-bottom: 0;}
+  margin-bottom: 0;
+  border-bottom: 0;
 
     .nav-contextual__list > li  {
       a {

@@ -33,13 +33,13 @@ $filter-drop-down-width: 285;
 
     /* Bring into view and remove 'box' styles at this breakpoint */
     @include respond-min($lap-lrg) {
-        display: block;
-        position: static;
-        background: none;
-        box-shadow: none;
+      display: block;
+      position: static;
+      background: none;
+      box-shadow: none;
 
-        /* Hide the arrow pointer */
-        > .arrow {display: none;}
+      /* Hide drop down pointer arrow */
+      > .arrow {display: none;}
     }
   }
 
@@ -101,17 +101,6 @@ $filter-drop-down-width: 285;
         @include to-rem(margin-right, $spacing-quarter);
       }
     }
-
-      /* Filters target (drop down) */
-      .filters__target {
-        @include drop-down;
-        @include box;
-        @include to-rem(width, $filter-drop-down-width);
-        @include to-rem(margin-top, 10.5);
-
-        /* Drop down pointer arrow */
-        > .arrow {border-bottom-color: $color-off-white;}
-      }
   }
 
     /* Filter trigger (drop down trigger) - we need to toggle the display of the triggers between viewports as we have 2 triggers for each */
@@ -126,8 +115,23 @@ $filter-drop-down-width: 285;
       }
     }
 
+    /* Filters target */
+    .filters__target {
+
+      /* Drop down pointer arrow */
+      .arrow {border-bottom-color: $color-off-white;}
+
+      /* Make into drop down at this breakpoint */
+      @include respond-min($lap-lrg) {
+        @include drop-down;
+        @include box;
+        @include to-rem(width, $filter-drop-down-width);
+        @include to-rem(margin-top, 10.5);
+      }
+    }
+
   /* Sort */
-  .filters__sort-options {
+  .filters__sort {
     @include font-size($font-size-sml);
     position: absolute;
     top: 0;

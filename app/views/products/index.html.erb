@@ -311,7 +311,7 @@
   </div>
 
   <%# Sort %>
-  <div class="filters__sort-options">
+  <div class="filters__sort">
     <label>
       <span class="hide-visually">Sort product results by</span>
       <select ng-model="sort" ng-change="filterSearch('sort')" ng-options="option.code as option.description for option in search.sortOptions | filter:{display: true}"></select>

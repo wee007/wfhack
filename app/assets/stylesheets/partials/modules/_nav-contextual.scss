@@ -1,0 +1,98 @@
+/* ======================================================================================
+   @MODULES -> NAV CONTEXTUAL
+   ====================================================================================== */
+
+/*
+  Usage:
+    Contextual nav that's scrollable at smaller viewport
+
+  Demo:
+    Style Guide -> Modules -> Nav Contextual
+*/
+
+.nav-contextual {position: relative;}
+
+  /* Clip scrollable contents (palm) */
+  .nav-contextual__clip {
+    /* Make space for the arrow on the right */
+    @include to-rem(margin-right, $spacing-dbl);
+  }
+
+    /* Scroll the contents of the navigation when the viewport is narrow enough */
+    .nav-contextual__clip-inner {
+      overflow-x: scroll;
+      -webkit-overflow-scrolling: touch;
+      border-bottom: 1px solid $color-light-txt;
+    }
+
+    /* Gradient that lays on top of the list */
+    .nav-contextual__clip-overlay {
+      top: 0;
+      height: 100%;
+      @include to-rem(padding-left, $spacing-dbl);
+
+      /* Hide the gradient */
+      @include respond-min($lap-lrg) {
+        display: none;
+      }
+
+      /* Shared rules */
+      &,
+      &:before {
+        position: absolute;
+        right: 0;
+      }
+
+      &:before {
+        top: 50%;
+        @include translate(0, -50%);
+      }
+    }
+
+    /* List of nav items */
+    .nav-contextual__list {
+      /* Sets container to be wide-enough that they are horiz aligned. Just a magic number */
+      width: 250%;
+
+      > li {
+        @include to-rem(margin-left, $spacing-base);
+
+        &:first-child {margin-left: 0;}
+
+        a {
+          @include to-rem(padding-top padding-bottom, $spacing-half);
+          border-bottom: 2px solid transparent;
+
+          @include respond-min($non-palm) {
+            @include to-rem(padding-top padding-bottom, $spacing-base);
+          }
+
+          /* When the nav item is the selected section */
+          &.is-active {border-bottom-color: $color-brand;}
+        }
+      }
+    }
+
+/* --Extenders-- */
+
+/* Dark color */
+.nav-contextual--dark {
+
+  .nav-contextual__clip-inner {border-bottom: 0;}
+
+    .nav-contextual__list > li  {
+      a {
+        color: $color-light-txt;
+
+        &:hover,
+        &:focus {color: #fff;}
+
+        &.is-active {color: #fff;}
+      }
+    }
+
+  .nav-contextual__clip-overlay {
+    color: $color-light-txt;
+    @include linear-gradient($from: rgba($color-med-txt, 0) 0%, $to: rgba($color-med-txt, 1) 50%, $dir: right)
+  }
+}

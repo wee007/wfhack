@@ -48,7 +48,7 @@
 
 /* Island at non-palm */
 @include respond-min($non-palm) {
-  .island--btm-non-palm {@include to-rem(padding, $spacing-base);}
+  .island--non-palm {@include to-rem(padding, $spacing-base);}
 }
 
 /* --Turn off padding-- */

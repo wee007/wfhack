@@ -19,7 +19,7 @@
 
   <%# Hours %>
   <% @weeks.each_with_index do |week, week_number| %>
-    <div id="tab-<%= week_number %>" class="tab__content islet island--btm-non-palm box <%= 'is-active' if week_number == 0 %>">
+    <div id="tab-<%= week_number %>" class="tab__content islet island--non-palm box <%= 'is-active' if week_number == 0 %>">
 
       <table class="table-striped">
         <caption>

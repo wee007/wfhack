@@ -54,7 +54,7 @@ group :development, :test do
   gem 'json'
   gem 'rb-fsevent', require: false if RUBY_PLATFORM =~ /darwin/i
   gem 'guard-jasmine', git: 'https://github.com/cwalsh/guard-jasmine.git' # Fix coverage issue
-  gem 'rack-proxy'
+  gem 'rack-proxy', '0.4.0' # Updating it broke our proxying (/api/<service>/...)
   gem 'launchy'
 end
 

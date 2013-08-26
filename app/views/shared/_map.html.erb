@@ -32,7 +32,7 @@
 <% if load_immediately %>
   <% content_for :javascript do %>
     <%= javascript_tag do %>
-      new map.Micello().load().zoomTo(<%= store_id %>);
+      new map.Micello().load().setTarget(<%= store_id %>).showLevel().zoom().detail().highlight();
     <% end %>
   <% end %>
 <% end %>

@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.410
+Version:     0.0.411
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,28 @@ fi
 
 
 %changelog
+* Tue Aug 27 2013 ci <doperations@au.westfield.com> 0.0.411-1
+- Merge pull request #302 from cpearce/master (matt.wratt@trineo.co.nz)
+- Updating Angular cloak and non JS hide styles to make the site more accesible
+  (CPearce@au.westfield.com)
+- Applying max width to applied filter tags (CPearce@au.westfield.com)
+- Removing placeholder PNG image (CPearce@au.westfield.com)
+- Removing large preloader gif (CPearce@au.westfield.com)
+- Updates to preloader (CPearce@au.westfield.com)
+- Removing grey bg for product browse filter drop down headers - WSF-5084
+  (CPearce@au.westfield.com)
+- Fixing sort position in product browse when applied filter tags are in view
+  (CPearce@au.westfield.com)
+- Increasing box shadow for product browse filter drop downs - WSF-5084
+  (CPearce@au.westfield.com)
+- Making the product browse sort select list sit in the middle of it's
+  container (CPearce@au.westfield.com)
+- Adding active states to buttons for drop down triggers
+  (CPearce@au.westfield.com)
+- Updates to angular toggle visibility directive to remove inline CSS for
+  hide/show and fix missing aria-hidden attr on loaded state
+  (CPearce@au.westfield.com)
+
 * Mon Aug 26 2013 ci <doperations@au.westfield.com> 0.0.410-1
 - Merge pull request #306 from mwratt/feature/remove_yepnope_style
   (matt.wratt@trineo.co.nz)

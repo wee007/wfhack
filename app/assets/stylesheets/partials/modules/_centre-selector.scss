@@ -37,13 +37,16 @@
     }
   }
 }
-  
+
   /* Wrapper around the label and select */
   .centre-selector-control {
     @include respond-max($palm) {
-      display: none;
       float: left;
       width: 80%;
+    }
+
+    @include respond-min($non-palm) {
+      .centre-selector & {display: block;}
     }
 
     @include font-size($font-size-sml);

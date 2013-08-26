@@ -78,11 +78,6 @@ $filter-drop-down-width: 285;
   @include respond-min($non-palm) {
     @include to-rem(margin-top, $spacing-base);
   }
-
-  /* Inline script set by the palm viewport when the filters are set to be hidden, requires override at this breakpoint */
-  @include respond-min($lap-lrg) {
-    .drop-down-menu__target {display: block !important;}
-  }
 }
 
   /* Throw list into horizontal mode at this breakpoint */

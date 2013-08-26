@@ -16,9 +16,6 @@
         // Aria state for trigger
         trigger.attr( 'aria-expanded', false );
 
-        // Change the display of the target
-        target.hide();
-
         trigger.removeClass( 'is-active' );
         target.removeClass( 'is-active' );
 
@@ -27,12 +24,8 @@
       } else {
         // Show the target
 
-
         // Aria state for the trigger
         trigger.attr( 'aria-expanded', true );
-
-        // Change the display of the target
-        target.show();
 
         trigger.addClass( 'is-active' );
         target.addClass( 'is-active' );
@@ -53,6 +46,9 @@
 
         // The element that invokes the toggle should have an aria-haspopup
         trigger.attr( 'aria-haspopup', true );
+
+        // Aria state for target
+        target.attr( 'aria-hidden', true );
 
         // Aria ID and labelledby
         id = elementID();

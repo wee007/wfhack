@@ -120,6 +120,7 @@ $filter-drop-down-width: 285;
       @include respond-min($lap-lrg) {
         @include drop-down;
         @include box;
+        @include box-drop-down;
         @include to-rem(width, $filter-drop-down-width);
         @include to-rem(margin-top, 10);
       }

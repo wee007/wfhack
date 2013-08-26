@@ -2,9 +2,9 @@
 if(!window.matchMedia) {
   $script('<%= asset_path "matchMedia/matchMedia.js" %>', function() {
     $script('<%= asset_path "matchMedia/matchMedia.addListener.js" %>', function() {
-      $script('<%= asset_path "enquire.js" %>', function() {
+      $script.ready('<%= asset_path "enquire.js" %>', function() {
         $script('<%= asset_path "init/enquire.js" %>');
-      });
+      }, $script);
     });
   });
 } else {

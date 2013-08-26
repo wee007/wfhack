@@ -129,6 +129,12 @@ $filter-drop-down-width: 285;
   .filters__sort {
     @include font-size($font-size-sml);
     position: absolute;
-    top: 0;
+    top: 50%;
     right: 0;
+    @include translate(0, -50%);
+
+    /* Old IE */
+    @include old-ie {
+      top: 0;
+    }
   }

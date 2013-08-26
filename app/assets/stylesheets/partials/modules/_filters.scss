@@ -18,6 +18,8 @@ $filter-drop-down-width: 285;
 
 .filters {
 
+  //.no-js & {display: none !important;}
+
   /* Hide elements at 'wide' layout at this breakpoint */
   @include respond-min($lap-lrg) {
     .filters__hide-wide {display: none;}

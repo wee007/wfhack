@@ -80,12 +80,9 @@
               </div>
               <%# //Store name %>
 
-
-
-
               <%# Logo %>
               <% if store.has_logo? %>
-                <div class="stores-list__logo hide-fully--palm">
+                <div class="stores-list__logo hide-fully--palm js-disabled-hide">
                   <div class="vert-align">
                     <div class="vert-align__inner">
                       <span class="preloader preloader--light" data-image-src="<%= cl_image_path(store.logo, type: "fetch", width: 168, height: 62, quality: 25, crop: :pad, background: 'rgb:FFFFFF') %>" data-image-alt="<%= "#{store.name} logo" %>" data-image-itemprop="photo">

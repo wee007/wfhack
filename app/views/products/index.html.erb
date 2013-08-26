@@ -46,7 +46,7 @@
 </script>
 <%# //Back button %>
 
-<div ng-controller="ProductBrowseController" ng-init="bootstrap()" class="ng-cloak filters filters--pin-board">
+<div ng-controller="ProductBrowseController" ng-init="bootstrap()" class="ng-cloak filters filters--pin-board js-disabled-hide">
 
   <div class="filters__filter-sort">
 
@@ -343,7 +343,7 @@
 
   <%# Preloader %>
   <div ng-if="!products.loaded">
-    <span class="preloader preloader--middle preloader--light">
+    <span class="preloader preloader--middle preloader--light js-disabled-hide">
       <span class="preloader__spinner"></span>
       <em class="hide-visually">Loading, please wait&#8230;</em>
     </span>

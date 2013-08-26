@@ -112,14 +112,9 @@ $filter-drop-down-width: 285;
         }
       }
 
-      /* Filters target */
-      .filters__target {
-
-        /* Drop down pointer arrow */
-        .arrow {border-bottom-color: $color-off-white;}
-
-        /* Make into drop down at this breakpoint */
-        @include respond-min($lap-lrg) {
+      /* Filters target - make into drop down at this breakpoint */
+      @include respond-min($lap-lrg) {
+        .filters__target {
           @include drop-down;
           @include box;
           @include box-drop-down;

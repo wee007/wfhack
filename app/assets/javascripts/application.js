@@ -8,7 +8,6 @@
 
 //= require jquery
 //= require script.js/dist/script
-//= require ./support/modernizr-load
 
 // Conditional support
 //= require ./support/mediaqueries

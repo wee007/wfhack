@@ -1,11 +1,7 @@
-Modernizr.load([
-  {
-    test: Modernizr.input.placeholder,
-    nope: ['<%= asset_path "jquery-placeholder/jquery.placeholder.js" %>'],
-    callback: function () {
-      $(function() {
-        $('input, textarea').placeholder();
-      });
-    }
-  }
-]);
+if(!Modernizr.input.placeholder) {
+  $script('<%= asset_path "jquery-placeholder/jquery.placeholder.js" %>', function() {
+    $(function() {
+      $('input, textarea').placeholder();
+    });
+  });
+}

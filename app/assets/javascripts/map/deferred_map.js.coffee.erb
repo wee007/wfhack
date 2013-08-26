@@ -17,12 +17,10 @@ window.map = Micello: class Micello
   load: ->
     return @initializeMap() if Micello.loadTriggered
     Micello.loadTriggered = true
-    Modernizr.load({
-      test: @micelloSupported()
-      yep: '<%= asset_url 'map/micello.js' %>'
-      nope: '<%= asset_url 'map/micello_ie.js' %>'
-      callback: @initializeMap
-    })
+    if @micelloSupported()
+      $script('<%= asset_url 'map/micello.js' %>', @initializeMap)
+    else
+      $script('<%= asset_url 'map/micello_ie.js' %>', @initializeMap)
     @
 
   initializeMap: =>

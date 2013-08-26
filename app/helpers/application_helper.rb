@@ -12,10 +12,6 @@ module ApplicationHelper
     params[:controller] == page.to_s
   end
 
-  def default_placeholder_image
-    asset_path 'placeholder.png'
-  end
-
   def current_url
     "#{request.protocol}#{request.host_with_port}#{request.fullpath}"
   end

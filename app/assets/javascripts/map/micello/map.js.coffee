@@ -23,6 +23,7 @@ class map.micello.Map extends map.micello.MapBase
 
   constructor: (@options) ->
     super
+    @offset = x: 0.5, y: 0.5
     @targetStore = null
     @getAddresses()
     micello.maps.init(@key, @init)

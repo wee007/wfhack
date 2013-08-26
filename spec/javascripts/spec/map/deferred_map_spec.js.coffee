@@ -26,16 +26,16 @@ describe 'map.Micello', ->
   describe '#load', ->
 
     beforeEach ->
-      sinon.stub(Modernizr, 'load')
+      sinon.stub(window, '$script')
       sinon.stub(map.micello, 'Map')
 
     afterEach ->
-      Modernizr.load.restore()
+      $script.restore()
       map.micello.Map.restore()
 
     it 'calls Modernizr.load', ->
       @subject.load()
-      expect(Modernizr.load).toHaveBeenCalled()
+      expect($script).toHaveBeenCalled()
 
     describe 'once called', ->
 
@@ -44,7 +44,7 @@ describe 'map.Micello', ->
 
       it 'does not call Modernizr.load again', ->
         @subject.load()
-        expect(Modernizr.load).toHaveBeenCalledOnce()
+        expect($script).toHaveBeenCalledOnce()
 
   describe '#initilizeMap', ->
 

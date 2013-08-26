@@ -4,7 +4,7 @@
 
 /*
 	Usage:
-		A generic drop down powered by the 'Twitter Bootstrap Drop down' plugin. Individual drop down's that require custom styles will become a 'module'.
+		A generic drop down powered by the 'Twitter Bootstrap Drop down' plugin.
 
 	Demo:
 		Style Guide -> Abstractions -> Drop Down
@@ -14,7 +14,7 @@
 .drop-down-container {
   position: relative;
 
-  /* Show the drop down */
+  /* Show the drop down - this to be sunsetted once the 'Twitter Bootstrap Drop down' plugin has been replaced with 'Angular toggle visibility' directive */
   &.is-active > .drop-down {display: block;}
 }
 
@@ -22,4 +22,7 @@
   .js .drop-down {
     display: none;
     @include drop-down;
+
+    /* Show the drop down */
+    &.is-active {display: block;}
   }

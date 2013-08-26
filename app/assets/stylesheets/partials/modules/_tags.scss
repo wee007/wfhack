@@ -21,21 +21,30 @@
   /* Button */
   .btn {
     @include to-rem(margin-right margin-top, $spacing-quarter);
-    @include to-rem(padding-top padding-bottom, $spacing-third);
-    @include to-rem(padding-left, $spacing-half);
-    @include to-rem(padding-right, $spacing-base);
     position: relative;
     @include font-size($font-size-sml, 1);
     color: $color-light-txt;
     border: 1px solid $color-grey-1;
     border-radius: $border-radius;
+    @include to-rem(max-width, 120);
 
-    /* Hover states */
+    /* Hover/focus states */
     &:hover,
     &:focus {
       border-color: $color-link-hover;
       color: $color-link-hover;
-      text-decoration: line-through;
+
+      /* Button text (truncate) */
+      & .txt-truncate {text-decoration: line-through;}
+    }
+
+    /* Button text (truncate) */
+    .txt-truncate {
+      display: block;
+      vertical-align: middle;
+      @include to-rem(padding-top padding-bottom, $spacing-third);
+      @include to-rem(padding-right, $spacing-base);
+      @include to-rem(margin-left, $spacing-half);
     }
 
     /* Close icon */
@@ -56,11 +65,5 @@
   .btn--faux-link {
     border: 0;
     margin-right: 0;
-    padding-left: 0;
-    padding-right: 0;
-
-    /* Hover states */
-    &:hover,
-    &:focus {text-decoration: none;}
   }
 }

@@ -51,14 +51,13 @@
   .drop-down-menu__target {
     @include font-size($font-size-sml);
     width: 100%;
-    @include to-rem(margin-top, 10.5);
+    @include to-rem(margin-top, 10);
 
     /* Header */
     .drop-down-menu__hdr {
       position: relative;
       text-align: center;
       color: $color-light-txt;
-      background-color: $color-off-white;
 
       /* Back button */
       .btn {

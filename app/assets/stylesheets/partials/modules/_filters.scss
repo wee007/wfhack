@@ -18,6 +18,8 @@ $filter-drop-down-width: 285;
 
 .filters {
 
+  //.no-js & {display: none !important;}
+
   /* Hide elements at 'wide' layout at this breakpoint */
   @include respond-min($lap-lrg) {
     .filters__hide-wide {display: none;}
@@ -71,69 +73,68 @@ $filter-drop-down-width: 285;
 
 /* When used for pin board */
 .filters--pin-board {
-  position: relative;
   @include to-rem(margin-top, $spacing-half);
 
   /* Increase top margin at this breakpoint */
   @include respond-min($non-palm) {
     @include to-rem(margin-top, $spacing-base);
   }
-
-  /* Inline script set by the palm viewport when the filters are set to be hidden, requires override at this breakpoint */
-  @include respond-min($lap-lrg) {
-    .drop-down-menu__target {display: block !important;}
-  }
 }
 
-  /* Throw list into horizontal mode at this breakpoint */
-  @include respond-min($lap-lrg) {
-    .filters__list > li {
-      display: inline-block;
-      vertical-align: middle;
-      position: relative;
-      @include to-rem(margin-right, $spacing-micro);
+  /* Contain filters and sort */
+  .filters__filter-sort {position: relative;}
 
-      /* Turn off right margin for last child */
-      &:last-child {margin-right: 0;}
+    /* Throw list into horizontal mode at this breakpoint */
+    @include respond-min($lap-lrg) {
+      .filters__list > li {
+        display: inline-block;
+        vertical-align: middle;
+        position: relative;
+        @include to-rem(margin-right, $spacing-micro);
+
+        /* Turn off right margin for last child */
+        &:last-child {margin-right: 0;}
+
+        /* Old IE */
+        @include old-ie {
+          @include to-rem(margin-right, $spacing-quarter);
+        }
+      }
+    }
+
+      /* Filter trigger (drop down trigger) - we need to toggle the display of the triggers between viewports as we have 2 triggers for each */
+      .filters__trigger {
+
+        &.filters__trigger--wide {display: none !important;}
+
+        @include respond-min($lap-lrg) {
+          &.filters__trigger--narrow {display: none !important;}
+
+          &.filters__trigger--wide {display: block !important;}
+        }
+      }
+
+      /* Filters target - make into drop down at this breakpoint */
+      @include respond-min($lap-lrg) {
+        .filters__target {
+          @include drop-down;
+          @include box;
+          @include box-drop-down;
+          @include to-rem(width, $filter-drop-down-width);
+          @include to-rem(margin-top, 10);
+        }
+      }
+
+    /* Sort */
+    .filters__sort {
+      @include font-size($font-size-sml);
+      position: absolute;
+      top: 50%;
+      right: 0;
+      @include translate(0, -50%);
 
       /* Old IE */
       @include old-ie {
-        @include to-rem(margin-right, $spacing-quarter);
+        top: 0;
       }
     }
-  }
-
-    /* Filter trigger (drop down trigger) - we need to toggle the display of the triggers between viewports as we have 2 triggers for each */
-    .filters__trigger {
-
-      &.filters__trigger--wide {display: none !important;}
-
-      @include respond-min($lap-lrg) {
-        &.filters__trigger--narrow {display: none !important;}
-
-        &.filters__trigger--wide {display: block !important;}
-      }
-    }
-
-    /* Filters target */
-    .filters__target {
-
-      /* Drop down pointer arrow */
-      .arrow {border-bottom-color: $color-off-white;}
-
-      /* Make into drop down at this breakpoint */
-      @include respond-min($lap-lrg) {
-        @include drop-down;
-        @include box;
-        @include to-rem(width, $filter-drop-down-width);
-        @include to-rem(margin-top, 10.5);
-      }
-    }
-
-  /* Sort */
-  .filters__sort {
-    @include font-size($font-size-sml);
-    position: absolute;
-    top: 0;
-    right: 0;
-  }

@@ -981,7 +981,12 @@
 
 /* Heavy */
 @mixin box-heavy {
-  box-shadow: 0 0 7px rgba(#000, 0.3);
+  box-shadow: $box-shadow-heavy;
+}
+
+/* Drop down */
+@mixin box-drop-down {
+  box-shadow: $box-shadow-drop-down;
 }
 
 /* Drop down */

@@ -67,9 +67,10 @@ legend.hide-visually {left: $off-screen-distance;}
 .hide-visually-off {@extend %hide-visually-off;}
 
 /* Hide stuff relating to JS */
-.no-js .js-disabled-hide,
 .js .js-enabled-hide,
 .js .js-hide-show {display: none;}
+
+.no-js .js-disabled-hide {display: none !important;}
 
 /* Print */
 @media print {

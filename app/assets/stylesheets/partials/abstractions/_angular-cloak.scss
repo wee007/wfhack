@@ -1,18 +1,18 @@
 /* ======================================================================================
-   @ABSTRACTIONS -> NG-CLOAK
+   @ABSTRACTIONS -> ANGULAR CLOAK
    ====================================================================================== */
 
 /*
-  Overrides ngCloak styles for angular.js
-
-  Angular will use display: none !important, this abstraction overrides
-  those default styles using opacity.
-
   Usage:
-    Add ng-cloak as an element, attribute or class
+    Overrides ngCloak styles for angular.js.
 
-  <div ng-cloak>
+  Notes:
+    Angular will use `display: none !important;`, this abstraction overrides those default styles using opacity.
+
+  Demo:
+    Style Guide -> Abstractions -> Angular Cloak
 */
+
 html {
   [ng\:cloak],
   [ng-cloak],
@@ -22,5 +22,15 @@ html {
   .x-ng-cloak {
     display: block !important;
     opacity: 0;
+  }
+
+  /* JS off */
+  &.no-js {
+    [ng\:cloak],
+    [ng-cloak],
+    [data-ng-cloak],
+    [x-ng-cloak],
+    .ng-cloak,
+    .x-ng-cloak {opacity: 1;}
   }
 }

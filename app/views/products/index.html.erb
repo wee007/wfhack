@@ -327,10 +327,7 @@
   <div ng-if="hasActiveFilters()" class="tags">
     <ul class="horiz-list">
       <li ng-repeat="filter in search.appliedFilters">
-        <button ng-click="removeSelectedFilter( filter.type, filter.value )" class="btn">
-          {{ filter.title }}
-          <span class="icon icon--close-sml icon--lrg icon--flush-top" aria-hidden="true"></span>
-        </button>
+        <button ng-click="removeSelectedFilter( filter.type, filter.value )" class="btn"><span class="txt-truncate">{{ filter.title }}</span><span class="icon icon--close-sml icon--lrg icon--flush-top" aria-hidden="true"></span></button>
       </li>
       <li>
         <button ng-click="clearFilters()" class="btn btn--faux-link">Clear all</button>

@@ -30,10 +30,9 @@
 	left: 50%;
 	@include translate(-50%, -50%);
 
-	/* Light version doesn't need the translate trick as we know it's dimensions */
-	&.preloader--light {
-		transform: none;
-		margin: -20px 0 0 -20px;
+	/* Old IE */
+	@include old-ie {
+		&.preloader--light {margin: -20px 0 0 -20px;}
 	}
 }
 

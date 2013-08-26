@@ -184,15 +184,13 @@
         });
       }
 
-      $script.ready('<%= asset_path 'enquire.js' %>', function() {
-        $(function() {
-          enquire.register("all and (min-width: 64em)", {
-            match: nonPalmView,
-            unmatch: palmView,
-            setup: palmView
-          }, true);
-        });
-      }, loadDependency);
+      $(function() {
+        enquire.register("all and (min-width: 64em)", {
+          match: nonPalmView,
+          unmatch: palmView,
+          setup: palmView
+        }, true);
+      });
     }());
 
     $('.js-defer-image-load-container').deferImages({matchMedia: 'all and (min-width: 40.0625em)'});

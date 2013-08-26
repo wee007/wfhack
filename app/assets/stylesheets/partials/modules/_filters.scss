@@ -121,7 +121,7 @@ $filter-drop-down-width: 285;
         @include drop-down;
         @include box;
         @include to-rem(width, $filter-drop-down-width);
-        @include to-rem(margin-top, 10.5);
+        @include to-rem(margin-top, 10);
       }
     }
 

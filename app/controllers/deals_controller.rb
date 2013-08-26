@@ -22,8 +22,9 @@ class DealsController < ApplicationController
     @centre = CentreService.build centre
     @deal = DealService.build deal
 
-    store = StoreService.fetch @deal.deal_stores.find{|store| store.centre_id == params[:centre_id]}.id
+    store = StoreService.fetch @deal.deal_stores.find{|store| store.centre_id == params[:centre_id]}.store_service_id
     @store = StoreService.build store
+
     gon.push centre: @centre, stores: [@store]
     meta.push title: @deal.title
   end

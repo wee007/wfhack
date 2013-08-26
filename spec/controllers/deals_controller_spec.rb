@@ -29,7 +29,7 @@ describe DealsController do
     before :each do
       CentreService.stub(:fetch).with('bondijunction').and_return double :response, body: {}
       DealService.stub(:fetch).with("1").and_return("DEAL JSON")
-      stub_deal_store = double(:deal_store, :id => 12).as_null_object
+      stub_deal_store = double(:deal_store, :store_service_id => 12).as_null_object
       StoreService.stub(:fetch).with(12).and_return("STORE JSON")
       @stub_store = double(:store).as_null_object
       StoreService.stub(:build).with("STORE JSON").and_return(@stub_store)

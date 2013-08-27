@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.420
+Version:     0.0.421
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,11 @@ fi
 
 
 %changelog
+* Tue Aug 27 2013 ci <doperations@au.westfield.com> 0.0.421-1
+- Merge pull request #314 from cpearce/master (ldewey@au.westfield.com)
+- Removing redundant class from product browse category buttons
+  (CPearce@au.westfield.com)
+
 * Tue Aug 27 2013 ci <doperations@au.westfield.com> 0.0.420-1
 - Merge pull request #313 from cpearce/master (ldewey@au.westfield.com)
 - Moving if statement up a level in the DOM for product detail availability at

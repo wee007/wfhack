@@ -89,12 +89,12 @@
     /* List */
     .drop-down-menu__list {
       max-height: 230px;
-      overflow: auto;
+      overflow-y: auto;
 
       /* iOS/Android */
       .ios &,
       .android & {
-        overflow: scroll;
+        overflow-y: scroll;
         -webkit-overflow-scrolling: touch;
       }
 

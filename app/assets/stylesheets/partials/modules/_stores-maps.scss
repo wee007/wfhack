@@ -239,7 +239,7 @@
       bottom: 0;
       left: 0;
       right: 0;
-      overflow: auto;
+      overflow-y: auto;
 
       /* Post filter count */
       .is-filter-applied & {@include to-rem(top, 88);}
@@ -247,7 +247,7 @@
       /* iOS/Android */
       .ios &,
       .android & {
-        overflow: scroll;
+        overflow-y: scroll;
         -webkit-overflow-scrolling: touch;
       }
 
@@ -273,7 +273,7 @@
       @include respond-max($ipad-landscape - 1) {
         .stores-maps--detail & {
           position: static;
-          overflow: visible;
+          overflow-y: visible;
         }
       }
 

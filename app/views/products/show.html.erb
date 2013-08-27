@@ -126,23 +126,23 @@
 </div>
 
 <!-- Availability -->
+<%- if @centres.present? -%>
 <div class="island detail-view__divider--top-btm detail-view__divider--top">
-  <%- if @centres.present? -%>
-    <h2 class="detail-view__hdr-sub detail-view__mrg-off hn">Available at</h2>
-    <ul class="detail-view__centres">
-      <%- @centres.each do |centre| -%>
-        <li>
-          <%= link_to centre_product_path(centre_id: centre.code, retailer_code: @product.retailer_code, sku: @product.sku),
-            class: "centres-list" do %>
-            <span class="icon icon--pin icon--lrg icon--spacing-lrg" aria-hidden="true"></span>
-            <%= centre.short_name %>
-            <span class="icon icon--arrow-right icon--lrg" aria-hidden="true"></span>
-          <%- end -%>
-        </li>
-      <%- end -%>
-    </ul>
-  <%- end -%>
+  <h2 class="detail-view__hdr-sub detail-view__mrg-off hn">Available at</h2>
+  <ul class="detail-view__centres">
+    <%- @centres.each do |centre| -%>
+      <li>
+        <%= link_to centre_product_path(centre_id: centre.code, retailer_code: @product.retailer_code, sku: @product.sku),
+          class: "centres-list" do %>
+          <span class="icon icon--pin icon--lrg icon--spacing-lrg" aria-hidden="true"></span>
+          <%= centre.short_name %>
+          <span class="icon icon--arrow-right icon--lrg" aria-hidden="true"></span>
+        <%- end -%>
+      </li>
+    <%- end -%>
+  </ul>
 </div>
+<%- end -%>
 <!-- //Availability -->
 
 <%- content_for :javascript do -%>

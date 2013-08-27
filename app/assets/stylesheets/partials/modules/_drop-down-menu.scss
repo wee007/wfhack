@@ -34,6 +34,11 @@
     @include to-rem(right, $spacing-half);
     @include to-rem(top, 5);
     @include to-em(padding, $spacing-half $spacing-base);
+
+    /* Webkit */
+    @include target-webkit {
+      @include to-rem(top, 4.5);
+    }
   }
 
   /* --Global rules-- */

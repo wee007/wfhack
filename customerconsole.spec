@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.418
+Version:     0.0.419
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,10 @@ fi
 
 
 %changelog
+* Tue Aug 27 2013 ci <doperations@au.westfield.com> 0.0.419-1
+- Merge pull request #312 from cpearce/master (ldewey@au.westfield.com)
+- Adding new CSS Normalize (CPearce@au.westfield.com)
+
 * Tue Aug 27 2013 ci <doperations@au.westfield.com> 0.0.418-1
 - Merge pull request #311 from cpearce/master (matt.wratt@trineo.co.nz)
 - Updating CSS overflow properties to use x/y direction

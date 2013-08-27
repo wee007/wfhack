@@ -5,6 +5,10 @@ class Event < Hashie::Mash
     super || name
   end
 
+  def date(strftime = nil)
+    strftime ? Time.parse(super).strftime(strftime) : super
+  end
+
   def start(strftime = nil)
     strftime ? Time.parse(super).strftime(strftime) : super
   end

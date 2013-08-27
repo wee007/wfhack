@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.413
+Version:     0.0.414
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,9 @@ fi
 
 
 %changelog
+* Tue Aug 27 2013 ci <doperations@au.westfield.com> 0.0.414-1
+- 
+
 * Tue Aug 27 2013 ci <doperations@au.westfield.com> 0.0.413-1
 - Merge pull request #307 from mwratt/feature/remove_yepnope_style
   (ldewey@au.westfield.com)

@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.411
+Version:     0.0.412
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,9 @@ fi
 
 
 %changelog
+* Tue Aug 27 2013 ci <doperations@au.westfield.com> 0.0.412-1
+- 
+
 * Tue Aug 27 2013 ci <doperations@au.westfield.com> 0.0.411-1
 - Merge pull request #302 from cpearce/master (matt.wratt@trineo.co.nz)
 - Updating Angular cloak and non JS hide styles to make the site more accesible

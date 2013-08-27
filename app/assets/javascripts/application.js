@@ -9,8 +9,11 @@
 //= require jquery
 //= require script.js/dist/script
 
+//= require matchMedia/matchMedia
+//= require matchMedia/matchMedia.addListener
+//= require enquire
+
 // Conditional support
-//= require ./support/mediaqueries
 //= require ./support/svg
 //= require ./support/input-placeholder
 
@@ -26,6 +29,7 @@
 // When you need to initialize any jquery plugins or general global stuff,
 // do it in an init/initName file
 //= require_tree ./jquery-extensions
+//= require ./init/enquire
 //= require ./init/toggle
 //= require ./init/tiles
 //= require ./init/tabs

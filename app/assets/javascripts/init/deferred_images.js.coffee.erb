@@ -1,12 +1,6 @@
-$ = window.jQuery
-name = 'deferImages'
+do ($ = jQuery, name = 'deferImages') ->
 
-do ($, name) ->
-
-  deferred = $.Deferred()
   deferImages = null
-
-  $script.ready('<%= asset_path 'enquire.js' %>', deferred.resolve)
 
   class DeferredImageLoader
 
@@ -75,10 +69,7 @@ do ($, name) ->
       @container.off('.deferred-logos')
 
   deferImages = (container, options) ->
-    if deferred.state() == 'resolved'
-      new DeferredImages(container, options)
-    else
-      deferred.then -> new DeferredImages(container, options)
+    new DeferredImages(container, options)
 
   $.fn[name] = (options) ->
     $(@).each ->

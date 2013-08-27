@@ -11,7 +11,9 @@
     <span class="icon icon--events" aria-hidden="true"></span>
   </span>
   <div class="tile__meta__inner">
-    <h3 class="tile__meta__hdr"><%= result.name %></h3>
-    <p class="tile__meta__desc"><%= result.description %></p>
+    <h3 class="tile__meta__hdr txt-truncate"><%= result.name %></h3>
+    <p class="tile__meta__desc txt-truncate">
+      <%= result.date "%-m %b %Y" %>, <%= result.start "%I:%M %p" %>
+    </p>
   </div>
 </div>

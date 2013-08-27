@@ -30,8 +30,11 @@ textarea {
 	resize: vertical;
 }
 
-/* Search fields */
-input[type="search"] {@include prefix(appearance, none);}
+/* Search inputs */
+input[type="search"] {
+  @include prefix(appearance, none);
+  @include prefix(box-sizing, border-box);
+}
 
 /* Select list */
 .no-touch select {

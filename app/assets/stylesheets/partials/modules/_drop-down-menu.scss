@@ -48,8 +48,6 @@
   input[type="checkbox"] {vertical-align: middle;}
 
   input[type="checkbox"] {@include to-rem(margin-right, $spacing-quarter);}
-
-  input[type="search"] {@include prefix(box-sizing, border-box);}
 }
 
   /* Target (drop down) */

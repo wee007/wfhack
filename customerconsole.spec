@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.416
+Version:     0.0.417
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,11 @@ fi
 
 
 %changelog
+* Tue Aug 27 2013 ci <doperations@au.westfield.com> 0.0.417-1
+- Merge pull request #310 from cpearce/master (ldewey@au.westfield.com)
+- Removing redudant CSS rule from product browse filters
+  (CPearce@au.westfield.com)
+
 * Tue Aug 27 2013 ci <doperations@au.westfield.com> 0.0.416-1
 - Merge pull request #309 from cpearce/master (ldewey@au.westfield.com)
 - Fixing up product browse issues post device testing

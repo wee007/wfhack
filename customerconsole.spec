@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.423
+Version:     0.0.424
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,12 @@ fi
 
 
 %changelog
+* Tue Aug 27 2013 ci <doperations@au.westfield.com> 0.0.424-1
+- Merge pull request #317 from ldewey/WSF-5091 (ldewey@au.westfield.com)
+- Updated the dates on the event detail page. (ldewey@au.westfield.com)
+- Replaced event description with event date, on the event tiles.
+  (ldewey@au.westfield.com)
+
 * Tue Aug 27 2013 ci <doperations@au.westfield.com> 0.0.423-1
 - Merge pull request #316 from csmith/master (ldewey@au.westfield.com)
 - Pass the id of the store on store service, not on deal service.

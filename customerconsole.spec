@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.422
+Version:     0.0.423
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,11 @@ fi
 
 
 %changelog
+* Tue Aug 27 2013 ci <doperations@au.westfield.com> 0.0.423-1
+- Merge pull request #316 from csmith/master (ldewey@au.westfield.com)
+- Pass the id of the store on store service, not on deal service.
+  (craigm.smith@au.westfield.com)
+
 * Tue Aug 27 2013 ci <doperations@au.westfield.com> 0.0.422-1
 - The movie service json has changed structure. (craigm.smith@au.westfield.com)
 

@@ -8,7 +8,7 @@ label {cursor: pointer;}
 /* Text inputs via the `.txt-input` class, `textarea` and `select` */
 .txt-input,
 textarea,
-select {
+.no-touch select {
 	width: 100%;
   @include to-rem(padding, $spacing-third $spacing-half);
   color: $color-base-txt;
@@ -34,7 +34,7 @@ textarea {
 input[type="search"] {@include prefix(appearance, none);}
 
 /* Select list */
-select {
+.no-touch select {
 	width: auto;
 	@include to-rem(padding, $spacing-third);
 }

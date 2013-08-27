@@ -2,7 +2,7 @@
 <%= image_tag ImageService.transform(ref: @movie.image_url, width: 550, retina: true), alt: @movie.title %>
 
 <!-- movie title -->
-<h1><%= @movie.title %></h1>
+<h1 class="title"><%= @movie.title %></h1>
 
 <!-- Movie rating -->
 <p><%= @movie.classification %></p>

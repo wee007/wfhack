@@ -8,7 +8,7 @@ http_interactions:
       string: ''
     headers:
       User-Agent:
-      - Faraday v0.8.7
+      - Faraday v0.8.8
       Content-Type:
       - application/json
   response:
@@ -27,15 +27,15 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       ETag:
-      - '"52733ff1b88353043c09d6b95057b2b2"'
+      - '"fb8c6a89a9411a363f1c0a4621b52141"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - f5f1f1c8-a5ba-442c-9d55-5be04361535b
+      - 124ac67d-4260-4e4c-8f2d-c6d6ba4013f6
       X-Runtime:
-      - '0.012819'
+      - '0.007466'
       Date:
-      - Wed, 17 Jul 2013 05:10:10 GMT
+      - Tue, 27 Aug 2013 05:50:17 GMT
       Connection:
       - close
     body:
@@ -61,14 +61,15 @@ http_interactions:
         LCJlcnJvcnMiOnt9LCJsZXZlbCI6bnVsbCwibGV2ZWxfc3BhbiI6bnVsbCwi
         bmFtZSI6IkV2ZW50IENpbmVtYXMiLCJwaG9uZV9udW1iZXIiOiI5MzAwIDE1
         NTUiLCJzaG9wX251bWJlciI6Ik1HVSIsInN0b3JlX2Zyb250X2ltYWdlX3Jl
-        ZiI6bnVsbCwidXJsIjoiaHR0cDovL3d3dy5ldmVudGNpbmVtYXMuY29tLmF1
-        IiwiX2xpbmtzIjp7InNlbGYiOnsiaHJlZiI6Imh0dHA6Ly9zdG9yZS1zZXJ2
-        aWNlLnRlc3QuZGJnLndlc3RmaWVsZC5jb20vYXBpL3N0b3JlL21hc3Rlci9z
-        dG9yZXMvMjI3MzkifSwibG9nbyI6eyJocmVmIjoiaHR0cDovL2ltYWdlLXNl
-        cnZpY2UuZGV2ZWxvcG1lbnQuZGJnLndlc3RmaWVsZC5jb206ODAvdHJhbnNm
-        b3JtP3JlZj1QTEFDRUhPTERFUi5qcGcifSwic3RvcmVfZnJvbnQiOnsiaHJl
-        ZiI6Imh0dHA6Ly9pbWFnZS1zZXJ2aWNlLmRldmVsb3BtZW50LmRiZy53ZXN0
-        ZmllbGQuY29tOjgwL3RyYW5zZm9ybT9yZWY9In19fQ==
+        ZiI6IjI2NWNlNzJmOTg0NTVlZGVjNjFkNmUyN2FiMjBlYWMwN2M0NmNjMjNm
+        NDg5YThmMzA2YWRmZWZmOTRkNDZjZDcuanBlZyIsInVybCI6Imh0dHA6Ly93
+        d3cuZXZlbnRjaW5lbWFzLmNvbS5hdSIsIl9saW5rcyI6eyJzZWxmIjp7Imhy
+        ZWYiOiJodHRwOi8vc3RvcmUtc2VydmljZS50ZXN0LmRiZy53ZXN0ZmllbGQu
+        Y29tL2FwaS9zdG9yZS4yMjczOSJ9LCJsb2dvIjp7ImhyZWYiOiIiLCJyZWYi
+        Om51bGx9LCJzdG9yZV9mcm9udCI6eyJocmVmIjoiaHR0cDovL2ltYWdlLXNl
+        cnZpY2UuZGV2ZWxvcG1lbnQuZGJnLndlc3RmaWVsZC5jb20vdHJhbnNmb3Jt
+        P3JlZj0yNjVjZTcyZjk4NDU1ZWRlYzYxZDZlMjdhYjIwZWFjMDdjNDZjYzIz
+        ZjQ4OWE4ZjMwNmFkZmVmZjk0ZDQ2Y2Q3LmpwZWcifX19
     http_version: 
-  recorded_at: Wed, 17 Jul 2013 05:10:10 GMT
+  recorded_at: Tue, 27 Aug 2013 05:50:17 GMT
 recorded_with: VCR 2.5.0

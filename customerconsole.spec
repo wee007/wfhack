@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.414
+Version:     0.0.415
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,9 @@ fi
 
 
 %changelog
+* Tue Aug 27 2013 ci <doperations@au.westfield.com> 0.0.415-1
+- rename images centre folder to ie8-maps (matt.wratt@trineo.co.nz)
+
 * Tue Aug 27 2013 ci <doperations@au.westfield.com> 0.0.414-1
 - 
 

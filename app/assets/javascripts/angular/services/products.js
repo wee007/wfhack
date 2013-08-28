@@ -18,7 +18,8 @@
       angular.extend( params, {
         url: url,
         method: 'GET',
-        params: ParamCleaner.build( params )
+        params: ParamCleaner.build( params ),
+        cache: true
       });
 
       var self = this;

@@ -36,10 +36,9 @@
 //= require ./init/deferred_images
 //= require ./init/table-horizontal-scroll
 
-//= require angular
-//= require angular-touch
-//= require angular-sanitize
-
+//= require ./vendor/angular-head
+//= require ./vendor/angular-mobile
+//= require ./vendor/angular-sanitize
 //= require ./angular/app
 //= require_tree ./angular/
 

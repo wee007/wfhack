@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.425
+Version:     0.0.426
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,10 @@ fi
 
 
 %changelog
+* Wed Aug 28 2013 ci <doperations@au.westfield.com> 0.0.426-1
+- Merge pull request #319 from ldewey/WSF-5169 (matt.wratt@trineo.co.nz)
+- Fixed double loading and fixed up preloader (ldewey@au.westfield.com)
+
 * Wed Aug 28 2013 ci <doperations@au.westfield.com> 0.0.425-1
 - Clean up from the angular version revert (ldewey@au.westfield.com)
 - Revert "Add angular, angular-touch and angular-sanitise at the new 1.2.0rc1

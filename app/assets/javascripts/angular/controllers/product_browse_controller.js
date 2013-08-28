@@ -102,7 +102,7 @@
     };
 
     $scope.filterIsAvailable = function ( filterValues ) {
-      return filterValues !== undefined;
+      return filterValues !== undefined && filterValues.length > 0;
     };
 
     $scope.removeSelectedFilter = function ( paramName, paramValue ) {

@@ -106,17 +106,23 @@
     };
 
     $scope.removeSelectedFilter = function ( paramName, paramValue ) {
+      Products.loading = true;
+
       ProductSearch.removeParam( paramName, paramValue );
       $scope.updateSearch();
     };
 
     $scope.filterSearch = function ( modelName ) {
+      Products.loading = true;
+
       ProductSearch.setParam( modelName, $scope[modelName] );
       $scope.updateSearch();
     };
 
     // multi-facet filter search
     $scope.mvFilterSearch = function ( attributeName ) {
+      Products.loading = true;
+
       selectedValues = $filter('filter')($scope.search[attributeName].values, { selected: true });
 
       values = [];
@@ -132,11 +138,15 @@
     };
 
     $scope.clearFilters = function () {
+      Products.loading = true;
+
       ProductSearch.resetParams( { centre: getCentre() } );
       $scope.updateSearch();
     };
 
     $scope.filterCategory = function ( categoryType, categoryCode ) {
+      Products.loading = true;
+
       $scope.closeFilters();
       ProductSearch.setParam( categoryType, categoryCode );
       $scope.updateSearch();

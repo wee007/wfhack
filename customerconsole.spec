@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.427
+Version:     0.0.428
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,13 @@ fi
 
 
 %changelog
+* Wed Aug 28 2013 ci <doperations@au.westfield.com> 0.0.428-1
+- Merge pull request #321 from cpearce/master (ldewey@au.westfield.com)
+- Fixing IE8 issue for Angular cloak and removing html selector
+  (CPearce@au.westfield.com)
+- Changing the drop down menu to use icon font for the arrow pointer and some
+  other small mods (CPearce@au.westfield.com)
+
 * Wed Aug 28 2013 ci <doperations@au.westfield.com> 0.0.427-1
 - Do not show facet if it has no values (ldewey@au.westfield.com)
 - Added 10 mins of page cache to products (ldewey@au.westfield.com)

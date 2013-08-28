@@ -16,7 +16,7 @@
   color: #fff;
 
   @include respond-min($non-palm) {
-    @include to-rem(height, 379);
+    @include to-rem(height, 300);
     @include to-rem(margin-bottom, $spacing-dbl);
   }
 }

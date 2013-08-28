@@ -2,13 +2,15 @@
 <% content_for :custom_styles do %>
   <style>
     .map-google-static {
-      background: url("http://maps.googleapis.com/maps/api/staticmap?center=<%= @centre.latitude %>,<%= @centre.longitude %>&zoom=11&size=640x280&sensor=false") no-repeat 50% 50%;
+      /*background: url("http://maps.googleapis.com/maps/api/staticmap?center=<%= @centre.latitude %>,<%= @centre.longitude %>&zoom=11&size=640x280&sensor=false") no-repeat 50% 50%;*/
+      background: url("http://placehold.it/980x280") no-repeat 50% 50%;
     }
     @media  (-o-min-device-pixel-ratio: 5/4),
             (-webkit-min-device-pixel-ratio: 1.25),
             (min-resolution: 120dpi) {
               .map-google__static {
-                background-image: url("http://maps.googleapis.com/maps/api/staticmap?center=<%= @centre.latitude %>,<%= @centre.longitude %>&zoom=11&size=640x280&sensor=false&scale=2");
+                /*background-image: url("http://maps.googleapis.com/maps/api/staticmap?center=<%= @centre.latitude %>,<%= @centre.longitude %>&zoom=11&size=640x280&sensor=false&scale=2");*/
+                background-image: url("http://placehold.it/980x280");
                 background-size: 640px 280px;
               }
     }
@@ -26,7 +28,10 @@
           <a href="#parking">Parking</a>
         </li>
         <li>
-          <a href="#developments">Developments</a>
+          <a href="#community">Community</a>
+        </li>
+        <li>
+          <a href="#community">Notices</a>
         </li>
         <li>
           <a href="#contact-us">Contact Us</a>
@@ -48,8 +53,31 @@
   <div class="grid grid--bottom-dbl-non-palm">
     <div class="grid__item">
 
-      <div class="map-google-static">
-        <img src="http://maps.googleapis.com/maps/api/staticmap?center=<%= @centre.latitude %>,<%= @centre.longitude %>&zoom=11&size=640x280&sensor=false">
+      <%# Shopping centre map %>
+      <div class="centre-map">
+        <%# Static Google map %>
+        <div class="map-google-static">
+          <!-- <img src="http://maps.googleapis.com/maps/api/staticmap?center=<%= @centre.latitude %>,<%= @centre.longitude %>&zoom=11&size=640x280&sensor=false"> -->
+          <img src="http://placehold.it/980x280">
+        </div>
+        <%# //Static Google map %>
+
+        <%# Address box %>
+        <div class="box slats non-palm-slats--stacked centre-map__location">
+          <div class="slats__img slats__img--compact">
+            <img src="http://placehold.it/200x196" class="center-map__img">
+          </div>
+          <div class="slats__body islet">
+            <%# TODO: if the address is empty then don't output the p %>
+            <p class="centre-map__address"><%= @centre.street_address %> <br>[Suburb] <br><%= @centre.state %> <%= @centre.postcode %></p>
+            <a href="#">Open in Google Maps <span class="icon icon--arrow-right icon--lrg" aria-hidden="true"></span></a>
+          </div>
+        </div>
+        <%# //Address box %>
+      </div>
+      <%# //Shopping centre map %>
+
+      <div class="">
       </div>
 
     </div>
@@ -103,7 +131,6 @@
     </div>
 
     <div class="grid__item non-palm-one-half">
-      <%# Free %>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque convallis leo at ligula ultricies, ac mollis lectus bibendum. Ut nec.</p>
 
       <h3>Valet Parking</h3>
@@ -117,11 +144,59 @@
   <img src="http://placehold.it/980x280">
 
   <div class="grid grid--gutter-dbl grid--bottom-dbl-non-palm">
+    <div class="grid__item one-whole non-palm-txt-cols--2">
+      <p>P1. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque convallis leo at ligula ultricies, ac mollis lectus bibendum. Ut nec. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque convallis leo at ligula ultricies, ac mollis lectus bibendum. Ut nec. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque convallis leo at ligula ultricies, ac mollis lectus bibendum.</p>
+
+      <p>P2. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque convallis leo at ligula ultricies, ac mollis lectus bibendum. Ut nec.</p>
+
+      <p>P3. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque convallis leo at ligula ultricies, ac mollis lectus bibendum. Ut nec. Lorem ipsum dolor sit amet, consectetur.</p>
+    </div>
+  </div>
+
+  <div class="grid grid--gutter-dbl grid--bottom-dbl-non-palm">
     <div class="grid__item non-palm-one-half">
+      <div class="box">
+        <img src="http://placehold.it/600x436">
+      </div>
+    </div>
+
+    <div class="grid__item non-palm-one-half">
+      <h3>[Name of organisation]</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque convallis leo at ligula ultricies, ac mollis lectus bibendum. Ut nec. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque convallis leo at ligula ultricies, ac mollis lectus bibendum. Ut nec.</p>
     </div>
   </div>
   <%# //Community %>
 
+  <%# Notices %>
+  <h2 id="notice">Notices</h2>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+
+  <ul class="txt-formatted__list-unstyled">
+    <li>
+        <a href="#" class="list-divider">Contruction in Food Court
+        <span class="icon icon--arrow-right icon--lrg" aria-hidden="true"></span>
+      </a>
+    </li>
+    <li>
+      <a href="#" class="list-divider">
+        Elevator will stop working for Biggest Loser
+        <span class="icon icon--arrow-right icon--lrg" aria-hidden="true"></span>
+      </a>
+    </li>
+  </ul>
+
+  <%# //Notices %>
+
+  <%# Social media %>
+  <% if @centre.facebook.present? %>
+    <%= @centre.facebook %>
+  <% end %>
+  <%= @centre.twitter %>
+  <%= @centre.google_plus %>
+  <%= @centre.instagram %>
+  <%= @centre.pinterest %>
+  <%= @centre.youtube %>
+  <%# //Social media %>
 
 </div>
 <%# //Text formatted %>

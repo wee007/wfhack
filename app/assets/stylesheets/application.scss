@@ -126,7 +126,7 @@ Global stylesheet
 @import "partials/modules/social-share";
 @import "partials/modules/tags";
 @import "partials/modules/pin-board";
-@import "partials/modules/centres-list";
+@import "partials/modules/list-divider";
 @import "partials/modules/timeline";
 @import "partials/modules/deal-main";
 @import "partials/modules/filters";
@@ -141,6 +141,7 @@ Global stylesheet
 @import "partials/modules/nav-contextual";
 @import "partials/modules/centre-selector";
 @import "partials/modules/hero";
+@import "partials/modules/centre-map";
 
   /* Modules -> Widgets */
   @import "partials/modules/widgets/accordion";
@@ -151,7 +152,7 @@ Global stylesheet
   @import "partials/modules/widgets/social-media-share";
   @import "partials/modules/widgets/tabs";
   @import "partials/modules/widgets/tooltip";
-  @import "partials/modules/widgets/google-map-static";
+  @import "partials/modules/widgets/map-google-static";
 
 /* Forms */
 @import "partials/forms/base";

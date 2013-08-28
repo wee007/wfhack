@@ -56,6 +56,11 @@
 	Note: be sure to comment out what you don't use as a lot of CSS is generated from all of this.
 */
 
+/* Non-palm */
+@include respond-min($non-palm) {
+  @include col-classes("non-palm-");
+}
+
 /* Lap */
 @include respond-range-fixed(lap) {
 	@include col-classes("lap-");

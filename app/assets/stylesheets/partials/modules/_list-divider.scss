@@ -4,16 +4,16 @@
 
 /*
 	Usage:
-		List of shopping centres.
+		List of content with divider inbetween
 
 	Note:
 		For most cases this module will be a list but they're cases when there can be a single item hence no styling is set on the list HTML (`ul/li`).
 
 	Demo:
-		Style Guide -> Modules -> Centres List
+		Style Guide -> Modules -> List Divider
 */
 
-.centres-list {
+.list-divider {
 	color: $color-dark-txt;
 	@include font-size($font-size-sml, 1.5);
 	font-weight: bold;

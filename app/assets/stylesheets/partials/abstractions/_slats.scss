@@ -33,9 +33,31 @@
 		.islet & {@include to-rem(margin-left, $spacing-half);}
 	}
 
+	/* Extend: remove spacing on the right of the image */
+	.slats__img--compact {margin-right: 0;}
+
 		/* Images */
 		.slats__img img,
 		.slats__img--rev img {display: block;}
 
 	/* Body container columnised at this breakpoint */
-	.slats__body {overflow: hidden;}
+	.slats__body {
+		/* Creates new block formatting context. Taken from OOCSS's clearfix-facebook https://github.com/stubbornella/oocss/blob/master/oocss/src/components/utils/_clearfix-me.scss */
+		display: table-cell;
+	  vertical-align: top;
+	  width: 10000px;
+	}
+
+/* --Extenders-- */
+
+/* Stack image on top of body for non-palm */
+@include respond-min($non-palm) {
+	.non-palm-slats--stacked {
+		.slats__img {
+			float: none;
+			margin-right: 0;
+		}
+
+		.slats__body {width: auto;}
+	}
+}

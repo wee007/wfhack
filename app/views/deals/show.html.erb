@@ -43,7 +43,7 @@
     <ul class="detail-view__mrg-base">
       <% @deal.stores.each do |store| %>
         <% unless store.id == @store.id %>
-          <li><a href="<%= centre_deal_path(store.centre.code, @deal.id)%>" class="centres-list"><span class="icon icon--pin icon--lrg icon--spacing-lrg" aria-hidden="true"></span><%= store.centre.short_name %><span class="icon icon--arrow-right icon--lrg" aria-hidden="true"></span></a></li>
+          <li><a href="<%= centre_deal_path(store.centre.code, @deal.id)%>" class="list-divider"><span class="icon icon--pin icon--lrg icon--spacing-lrg" aria-hidden="true"></span><%= store.centre.short_name %><span class="icon icon--arrow-right icon--lrg" aria-hidden="true"></span></a></li>
         <% end %>
       <% end %>
     </ul>

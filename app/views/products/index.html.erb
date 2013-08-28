@@ -342,7 +342,7 @@
 <div ng-cloak ng-controller="ProductsController">
 
   <%# Preloader %>
-  <div ng-if="!products.loaded">
+  <div ng-if="products.loading">
     <span class="preloader preloader--middle preloader--light js-disabled-hide">
       <span class="preloader__spinner"></span>
       <em class="hide-visually">Loading, please wait&#8230;</em>
@@ -350,10 +350,12 @@
   </div>
   <%# //Preloader %>
 
-  <div ng-show="products.loaded" ng-bind-html="products.list"></div>
-  <%# Using a !products.loaded on ng-hide so that the loader will be shown immediately %>
-  <div ng-hide="!products.loaded" ng-if="!products.list.length">
-    <%= render 'products' %>
+  <div ng-if="!products.loading">
+    <div ng-show="products.loaded" ng-bind-html="products.list"></div>
+    <%# Using a !products.loaded on ng-hide so that the loader will be shown immediately %>
+    <div ng-hide="products.loaded" ng-if="!products.list.length">
+      <%= render 'products' %>
+    </div>
   </div>
 
 </div>

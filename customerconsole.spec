@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.426
+Version:     0.0.427
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,11 @@ fi
 
 
 %changelog
+* Wed Aug 28 2013 ci <doperations@au.westfield.com> 0.0.427-1
+- Do not show facet if it has no values (ldewey@au.westfield.com)
+- Added 10 mins of page cache to products (ldewey@au.westfield.com)
+- Added angular http cache (ldewey@au.westfield.com)
+
 * Wed Aug 28 2013 ci <doperations@au.westfield.com> 0.0.426-1
 - Merge pull request #319 from ldewey/WSF-5169 (matt.wratt@trineo.co.nz)
 - Fixed double loading and fixed up preloader (ldewey@au.westfield.com)

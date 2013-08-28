@@ -10,19 +10,28 @@
     Style Guide -> Modules -> Centre Map
 */
 
-.centre-map {
+.centre-location {
   position: relative;
 
   .map-google-static {@include to-rem(margin-bottom, $spacing-sixth);}
 
-  .centre-map__address {@include to-rem(margin-bottom, $spacing-sixth);}
-
-    @include respond-min($non-palm) {
-      .centre-map__location {
-        @include to-rem(top, $spacing-half);
-        @include to-rem(left, $spacing-half);
-        position: absolute;
-        width: 200px;
+    /* The location box containing the img and the address */
+    .centre-location__info {
+      @include respond-min($non-palm) {
+        & {
+          @include to-rem(top, $spacing-half);
+          @include to-rem(left, $spacing-half);
+          position: absolute;
+          width: 200px;
+        }
       }
     }
+      /* The thumbnail photo of the shopping centre */
+      .centre-location__img {
+        @include respond-min ($non-palm) {
+          @include to-rem(width, 200);
+        }
+      }
+
+      .centre-location__address {@include to-rem(margin-bottom, $spacing-sixth);}
 }

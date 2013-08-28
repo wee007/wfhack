@@ -20,6 +20,7 @@
   /* Hide image so we can use a bg img instead to maintain scale, see: http://webdesigntutsplus.s3.amazonaws.com/tuts/365_google_maps/demo/index.html */
   img {
     opacity: 0;
+    @include to-rem(height, 280);
 
     /* Print */
     @media print {opacity: 1;}

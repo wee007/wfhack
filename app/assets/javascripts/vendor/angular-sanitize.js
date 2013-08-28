@@ -1,11 +1,11 @@
 /**
- * @license AngularJS v1.2.0rc1
+ * @license AngularJS v1.1.6-258e986
  * (c) 2010-2012 Google, Inc. http://angularjs.org
  * License: MIT
  */
 (function(window, angular, undefined) {'use strict';
 
-var $sanitizeMinErr = angular.$$minErr('$sanitize');
+var ngSanitizeMinErr = angular.$$minErr('ngSanitize');
 
 /**
  * @ngdoc overview
@@ -279,7 +279,7 @@ function htmlParser( html, handler ) {
     }
 
     if ( html == last ) {
-      throw $sanitizeMinErr('badparse', "The sanitizer was unable to parse the following block of html: {0}", html);
+      throw ngSanitizeMinErr('badparse', "The sanitizer was unable to parse the following block of html: {0}", html);
     }
     last = html;
   }

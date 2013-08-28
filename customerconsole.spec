@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.424
+Version:     0.0.425
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,18 @@ fi
 
 
 %changelog
+* Wed Aug 28 2013 ci <doperations@au.westfield.com> 0.0.425-1
+- Clean up from the angular version revert (ldewey@au.westfield.com)
+- Revert "Add angular, angular-touch and angular-sanitise at the new 1.2.0rc1
+  release" (ldewey@au.westfield.com)
+- Revert "Use bower managed angular" (ldewey@au.westfield.com)
+- Revert "Remove hand-build HEAD angular" (ldewey@au.westfield.com)
+- Revert "ngMobile has been renamed to ngTouch" (ldewey@au.westfield.com)
+- Revert "Angular 1.2.0rc1 has issues with ng-includes nested within ng-if
+  directives. (https://github.com/angular/angular.js/issues/3307)"
+  (ldewey@au.westfield.com)
+- Revert "Use angular from bower" (ldewey@au.westfield.com)
+
 * Tue Aug 27 2013 ci <doperations@au.westfield.com> 0.0.424-1
 - Merge pull request #317 from ldewey/WSF-5091 (ldewey@au.westfield.com)
 - Updated the dates on the event detail page. (ldewey@au.westfield.com)

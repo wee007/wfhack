@@ -65,7 +65,7 @@
         <ul class="filters__list">
 
           <%# Categories %>
-          <li ng-show="filterIsAvailable(search.categories.values)">
+          <li ng-if="filterIsAvailable(search.categories.values)">
 
             <%# Palm trigger %>
             <button ng-click="toggleFilter('category')" class="filters__trigger filters__trigger--narrow drop-down-menu__hdr-btn drop-down-menu__divider btn btn--full btn--full-left btn--pointer">
@@ -83,9 +83,9 @@
 
             <div ng-show="activeFilter === 'category'" class="filters__target">
               <span class="arrow arrow--up"></span>
-              <div ng-show="search.categories.field === 'super_cat'" ng-include="'categoryItemTemplate'"></div>
-              <div ng-show="search.categories.field === 'category'" ng-include="'categoryItemTemplate'"></div>
-              <div ng-show="search.categories.field === 'sub_category'" ng-include="'SubCategoryTemplate'"></div>
+              <div ng-show="search.categories.field === 'super_cat'" ng-include src=="'categoryItemTemplate'"></div>
+              <div ng-show="search.categories.field === 'category'" ng-include src=="'categoryItemTemplate'"></div>
+              <div ng-show="search.categories.field === 'sub_category'" ng-include src=="'SubCategoryTemplate'"></div>
             </div>
 
           </li>

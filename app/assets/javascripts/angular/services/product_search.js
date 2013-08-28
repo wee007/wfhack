@@ -41,7 +41,8 @@
 
     this.getSearch = function ( callback ) {
       $http.get('/api/product/master/products/search.json', {
-        params: ParamCleaner.build( params )
+        params: ParamCleaner.build( params ),
+        cache: true
       }).then( function( response ) {
         self.formatSearchResults( response.data );
 

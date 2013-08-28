@@ -128,7 +128,7 @@
 	.btn--main-compact {@include to-em(padding, $spacing-third $spacing-base);}
 
 	/* Compact - extra compact padding (use with icons) */
-	.btn--main-compact-icon {@include to-em(padding, $spacing-half $spacing-half+3.5);}
+	.btn--main-compact-icon {@include to-em(padding, $spacing-half+1 $spacing-half+3.5);}
 
 	/* Large - increase top/btm padding */
 	.btn--main-lrg {@include to-em(padding-top padding-bottom, $spacing-half+$spacing-micro);}

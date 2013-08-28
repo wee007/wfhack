@@ -4,33 +4,24 @@
 
 /*
   Usage:
-    Overrides ngCloak styles for angular.js.
-
-  Notes:
-    Angular will use `display: none !important;`, this abstraction overrides those default styles using opacity.
+    Overrides `ngCloak` styles for angular.js. Angular will use `display: none !important;`, we override this so that the UI doesn't shift around so much.
 
   Demo:
     Style Guide -> Abstractions -> Angular Cloak
 */
 
-html {
-  [ng\:cloak],
-  [ng-cloak],
-  [data-ng-cloak],
-  [x-ng-cloak],
-  .ng-cloak,
-  .x-ng-cloak {
-    display: block !important;
-    opacity: 0;
-  }
+[ng\:cloak],
+[ng-cloak],
+[data-ng-cloak],
+[x-ng-cloak],
+.ng-cloak,
+.x-ng-cloak {
+  display: block !important;
+  opacity: 0;
+
+  /* Old IE */
+  .old-ie & {display: none !important;}
 
   /* JS off */
-  &.no-js {
-    [ng\:cloak],
-    [ng-cloak],
-    [data-ng-cloak],
-    [x-ng-cloak],
-    .ng-cloak,
-    .x-ng-cloak {opacity: 1;}
-  }
+  .no-js & {opacity: 1;}
 }

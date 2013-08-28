@@ -60,7 +60,6 @@
 
       <%# Drop down target (palm) %>
       <div id="filters" class="drop-down-menu__target drop-down box box--drop-down">
-        <span class="arrow arrow--up"></span>
 
         <ul class="filters__list">
 
@@ -82,7 +81,6 @@
             <%# //Non-palm trigger %>
 
             <div ng-show="activeFilter === 'category'" class="filters__target">
-              <span class="arrow arrow--up"></span>
               <div ng-show="search.categories.field === 'super_cat'"><div ng-include src="'categoryItemTemplate'"></div></div>
               <div ng-show="search.categories.field === 'category'"><div ng-include src="'categoryItemTemplate'"></div></div>
               <div ng-show="search.categories.field === 'sub_category'"><div ng-include src="'SubCategoryTemplate'"></div></div>
@@ -109,7 +107,6 @@
             <%# //Non-palm trigger %>
 
             <div ng-show="activeFilter === 'retailer'" class="filters__target">
-              <span class="arrow arrow--up"></span>
 
               <div class="drop-down-menu__hdr drop-down-menu__divider islet">
                 <em>{{ search.retailers.title }}</em>
@@ -153,7 +150,6 @@
             <%# //Non-palm trigger %>
 
             <div ng-show="activeFilter === 'brand'" class="filters__target">
-              <span class="arrow arrow--up"></span>
 
               <div class="drop-down-menu__hdr drop-down-menu__divider islet">
                 <em>{{ search.brands.title }}</em>
@@ -197,7 +193,6 @@
             <%# //Non-palm trigger %>
 
             <div ng-show="activeFilter === 'colour'" class="filters__target">
-              <span class="arrow arrow--up"></span>
 
               <div class="drop-down-menu__hdr drop-down-menu__divider islet">
                 <em>{{ search.colours.title }}</em>
@@ -275,7 +270,6 @@
             <%# //Non-palm trigger %>
 
             <div ng-show="activeFilter === 'price'" class="filters__target">
-              <span class="arrow arrow--up"></span>
 
               <div class="drop-down-menu__hdr drop-down-menu__divider islet">
                 <em>{{ search.price.title }}</em>

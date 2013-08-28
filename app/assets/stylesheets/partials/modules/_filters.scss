@@ -28,18 +28,19 @@ $filter-drop-down-width: 285;
 
     /* Reduce the width at this breakpoint range */
     @include respond-range($non-palm, $lap-lrg - 1) {
-        @include to-rem(width, $filter-drop-down-width);
+      @include to-rem(width, $filter-drop-down-width);
     }
 
     /* Bring into view and remove 'box' styles at this breakpoint */
     @include respond-min($lap-lrg) {
+      width: 100%;
       display: block;
       position: static;
       background: none;
       box-shadow: none;
 
       /* Hide drop down pointer arrow */
-      > .arrow {display: none;}
+      &:before {display: none;}
     }
   }
 
@@ -112,7 +113,14 @@ $filter-drop-down-width: 285;
         }
       }
 
-      /* Filters target - make into drop down at this breakpoint */
+      /* --Filters target-- */
+
+      /* Remove the drop down pointer arrowat this breakpoint */
+      @include respond-max($lap-lrg - 1) {
+        .filters__target:before {display: none;}
+      }
+
+      /* Make into drop down at this breakpoint */
       @include respond-min($lap-lrg) {
         .filters__target {
           @include drop-down;
@@ -120,6 +128,16 @@ $filter-drop-down-width: 285;
           @include box-drop-down;
           @include to-rem(width, $filter-drop-down-width);
           @include to-rem(margin-top, 10);
+
+          /* Reduce the top margin for IE 9/8 */
+          .ie-9 &,
+          .old-ie & {@include to-rem(margin-top, 4);}
+
+          /* Old IE */
+          @include old-ie {
+            border: 1px solid $color-grey-3;
+            border-bottom-width: 2px;
+          }
         }
       }
 

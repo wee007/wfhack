@@ -20,14 +20,6 @@
   /* Trigger - apply more top/bottom padding than '.btn--main' */
   .drop-down-menu__trigger {@include to-em(padding-top padding-bottom, $spacing-half+$spacing-micro);}
 
-  /* Drop down pointer arrow */
-  .arrow {
-    position: absolute;
-    left: 10px;
-    top: -8px;
-    border-bottom-color: #fff;
-  }
-
   /* 'Apply' button (used on multi-facet lists) */
   .drop-down-menu__apply {
     position: absolute;
@@ -55,6 +47,51 @@
     @include font-size($font-size-sml);
     width: 100%;
     @include to-rem(margin-top, 10);
+
+    /* Reduce the width at this breakpoint */
+    @include respond-min($iphone-landscape) {
+      @include to-rem(width, 285);
+    }
+
+    /* Reduce the top margin for IE 9/8 */
+    .ie-9 &,
+    .old-ie & {@include to-rem(margin-top, 4);}
+
+    /* Old IE */
+    @include old-ie {
+      border: 1px solid $color-grey-3;
+      border-bottom-width: 2px;
+    }
+
+    /* Drop down pointer arrow (inc. for 'Filters' module) */
+    &:before,
+    .filters__target:before {
+      pointer-events: none;
+      display: block;
+      position: absolute;
+      left: 10px;
+      top: -9px;
+      font-size: 26px;
+      line-height: 11px;
+      height: 11px;
+      overflow: hidden;
+      color: #fff;
+      text-shadow: 0 -2px rgba(#e5e5e5, 0.9);
+      @extend .icon:before;
+      @extend .icon--arrow-up-full:before;
+
+      /* iOS */
+      .ios & {top: -10px;}
+
+      /* IE 10 */
+      @include ie-10-up {
+        top: -8px;
+      }
+
+      /* Hide for IE 9/8 */
+      .ie-9 &,
+      .old-ie & {display: none;}
+    }
 
     /* Header */
     .drop-down-menu__hdr {
@@ -117,6 +154,11 @@
     /* Range */
     .drop-down-menu__range {
       position: relative;
+
+      /* Old IE */
+      @include old-ie {
+        width: 100%;
+      }
 
       /* Range text inputs - position them side by side */
       .txt-input {

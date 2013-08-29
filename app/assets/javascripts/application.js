@@ -42,5 +42,7 @@
 //= require ./angular/app
 //= require_tree ./angular/
 
+//= require cloudinary/jquery.cloudinary
+
 // Map deferred loader
 //= require ./map/deferred_map

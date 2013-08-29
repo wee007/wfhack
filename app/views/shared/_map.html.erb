@@ -29,8 +29,9 @@
     <%= render partial: 'shared/micello_map_popup' %>
   </div>
 <!--<![endif]-->
-<% if load_immediately %>
-  <% content_for :javascript do %>
+<% content_for :javascript do %>
+  <%= cloudinary_js_config %>
+  <% if load_immediately %>
     <%= javascript_tag do %>
       new map.Micello().load().setTarget(<%= store_id %>).showLevel().zoom().detail().highlight();
     <% end %>

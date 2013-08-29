@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.431
+Version:     0.0.432
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,10 @@ fi
 
 
 %changelog
+* Fri Aug 30 2013 ci <doperations@au.westfield.com> 0.0.432-1
+- Merge pull request #327 from mwratt/fix/popup_logo (ldewey@au.westfield.com)
+- fixes popup logo tidyup after error or no logo (matt.wratt@trineo.co.nz)
+
 * Thu Aug 29 2013 ci <doperations@au.westfield.com> 0.0.431-1
 - Merge pull request #325 from mwratt/fix/popup_logo (ldewey@au.westfield.com)
 - Merge pull request #323 from ldewey/WSF-5091 (ldewey@au.westfield.com)

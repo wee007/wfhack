@@ -112,6 +112,7 @@ Global stylesheet
 @import "partials/abstractions/toggle-content";
 @import "partials/abstractions/angular-cloak";
 @import "partials/abstractions/fine-print";
+@import "partials/abstractions/flag";
 
 /* Modules */
 @import "partials/modules/feedback";
@@ -141,7 +142,9 @@ Global stylesheet
 @import "partials/modules/nav-contextual";
 @import "partials/modules/centre-selector";
 @import "partials/modules/hero";
-@import "partials/modules/centre-map";
+@import "partials/modules/centre-location";
+@import "partials/modules/map-google-static";
+@import "partials/modules/social-follow";
 
   /* Modules -> Widgets */
   @import "partials/modules/widgets/accordion";
@@ -152,7 +155,6 @@ Global stylesheet
   @import "partials/modules/widgets/social-media-share";
   @import "partials/modules/widgets/tabs";
   @import "partials/modules/widgets/tooltip";
-  @import "partials/modules/widgets/map-google-static";
 
 /* Forms */
 @import "partials/forms/base";

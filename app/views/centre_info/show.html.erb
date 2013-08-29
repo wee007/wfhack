@@ -3,23 +3,29 @@
   <style>
     .map-google-static {
       /*background: url("http://maps.googleapis.com/maps/api/staticmap?center=<%= @centre.latitude %>,<%= @centre.longitude %>&zoom=11&size=640x280&sensor=false") no-repeat 50% 50%;*/
-      background: url("http://placehold.it/980x280") no-repeat 50% 50%;
+      background: url("http://placehold.it/980x280/666666/000000") no-repeat 50% 50%;
     }
+    /* High res */
     @media  (-o-min-device-pixel-ratio: 5/4),
             (-webkit-min-device-pixel-ratio: 1.25),
             (min-resolution: 120dpi) {
               .map-google__static {
                 /*background-image: url("http://maps.googleapis.com/maps/api/staticmap?center=<%= @centre.latitude %>,<%= @centre.longitude %>&zoom=11&size=640x280&sensor=false&scale=2");*/
-                background-image: url("http://placehold.it/980x280");
-                background-size: 640px 280px;
+                background-image: url("http://placehold.it/980x280/666666/000000");
+                background-size: 980px 280px;
               }
+    }
+
+    .hero {
+      background-repeat: no-repeat;
+      background-position: 100% 0;
     }
   </style>
 <% end %>
 
 <div class="nav-contextual">
   <div class="nav-contextual__clip">
-    <nav class="nav-contextual__clip-inner" role="navigation" aria-label="Contextual navigation">
+    <div class="nav-contextual__clip-inner">
       <ul class="nav-contextual__list horiz-list">
         <li>
           <a href="#getting-here">Getting Here</a>
@@ -40,7 +46,7 @@
           <a href="#follow-us">Follow Us</a>
         </li>
       </ul>
-    </nav>
+    </div>
     <span class="nav-contextual__clip-overlay icon icon--arrow-right icon--mega icon--flush-top" aria-hidden="true"></span>
   </div>
 </div>
@@ -50,43 +56,48 @@
 
   <%# Getting here %>
   <h2 id="getting-here">Getting Here</h2>
-  <div class="grid grid--bottom-dbl-non-palm">
-    <div class="grid__item">
 
-      <%# Shopping centre map %>
-      <div class="centre-map">
-        <%# Static Google map %>
-        <div class="map-google-static">
-          <!-- <img src="http://maps.googleapis.com/maps/api/staticmap?center=<%= @centre.latitude %>,<%= @centre.longitude %>&zoom=11&size=640x280&sensor=false"> -->
-          <img src="http://placehold.it/980x280">
-        </div>
-        <%# //Static Google map %>
+  <%# Shopping centre map %>
+  <div class="centre-location">
+    <%# Static Google map %>
+    <div class="map-google-static">
+      <!-- <img src="http://maps.googleapis.com/maps/api/staticmap?center=<%= @centre.latitude %>,<%= @centre.longitude %>&zoom=11&size=640x280&sensor=false"> -->
+      <img src="http://placehold.it/980x280/666666/000000">
+    </div>
+    <%# //Static Google map %>
 
-        <%# Address box %>
-        <div class="box slats non-palm-slats--stacked centre-map__location">
-          <div class="slats__img slats__img--compact">
-            <img src="http://placehold.it/200x196" class="center-map__img">
-          </div>
-          <div class="slats__body islet">
-            <%# TODO: if the address is empty then don't output the p %>
-            <p class="centre-map__address"><%= @centre.street_address %> <br>[Suburb] <br><%= @centre.state %> <%= @centre.postcode %></p>
-            <a href="#">Open in Google Maps <span class="icon icon--arrow-right icon--lrg" aria-hidden="true"></span></a>
-          </div>
-        </div>
-        <%# //Address box %>
+    <%# Address box %>
+    <div class="box slats slats--stacked-non-palm centre-location__info">
+      <div class="slats__img slats__img--compact">
+        <%# [BACKEND] Make `alt` attr dynamic where indicated %>
+        <img src="http://placehold.it/200x100&text=image" class="centre-location__img" alt="Photo of [dynamic] shopping centre">
       </div>
-      <%# //Shopping centre map %>
-
-      <div class="">
+      <div class="slats__body islet">
+        <p class="centre-location__address"><%= @centre.street_address %> <br>[Suburb] <br><%= @centre.state %> <%= @centre.postcode %></p>
+        <a href="#">Open in Google Maps <span class="icon icon--arrow-right icon--lrg" aria-hidden="true"></span></a>
       </div>
+    </div>
+    <%# //Address box %>
+  </div>
+  <%# //Shopping centre map %>
 
+  <div class="grid grid--gutter-dbl grid--mrg-dbl-non-palm">
+    <div class="grid__item non-palm-one-half">
+      <h3>By Train</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque convallis leo at ligula ultricies, ac mollis lectus bibendum. Ut nec. Lorem ipsum dolor sit amet</p>
+    </div>
+
+    <div class="grid__item non-palm-one-half">
+      <h3>By Bus</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque convallis.t</p>
     </div>
   </div>
+
   <%# //Getting here %>
 
   <%# Parking %>
   <h2 id="parking">Parking</h2>
-  <div class="grid grid--gutter-dbl grid--bottom-dbl-non-palm">
+  <div class="grid grid--gutter-dbl grid--mrg-dbl-non-palm">
     <div class="grid__item non-palm-one-half">
       <div class="box box--mrg-btm-half islet island--non-palm">
         <table cellspacing="0" class="table-striped">
@@ -94,35 +105,35 @@
           <thead>
             <tr>
                 <th scope="col">Time</th>
-                <th scope="col">Weekday</th>
-                <th scope="col">Weekend</th>
+                <th scope="col" class="txt-right">Weekday</th>
+                <th scope="col" class="txt-right">Weekend</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td>0 - 2hrs</td>
-              <td>Free</td>
-              <td>Free</td>
+              <td class="txt-right">Free</td>
+              <td class="txt-right">Free</td>
             </tr>
             <tr>
               <td>2hrs - 2.5hrs</td>
-              <td>$8</td>
-              <td>$8</td>
+              <td class="txt-right">$8</td>
+              <td class="txt-right">$8</td>
             </tr>
             <tr>
               <td>2.5hrs - 3hrs</td>
-              <td>$10</td>
-              <td>$10</td>
+              <td class="txt-right">$10</td>
+              <td class="txt-right">$10</td>
             </tr>
             <tr>
               <td>3hrs - 3.5hrs</td>
-              <td>$15</td>
-              <td>$15</td>
+              <td class="txt-right">$15</td>
+              <td class="txt-right">$15</td>
             </tr>
             <tr>
               <td>3.5hrs - 4hrs</td>
-              <td>$20</td>
-              <td>$20</td>
+              <td class="txt-right">$20</td>
+              <td class="txt-right">$20</td>
             </tr>
           </tbody>
         </table>
@@ -143,7 +154,7 @@
   <h2 id="community">Community</h2>
   <img src="http://placehold.it/980x280">
 
-  <div class="grid grid--gutter-dbl grid--bottom-dbl-non-palm">
+  <div class="grid grid--gutter-dbl grid--mrg-dbl-non-palm">
     <div class="grid__item one-whole non-palm-txt-cols--2">
       <p>P1. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque convallis leo at ligula ultricies, ac mollis lectus bibendum. Ut nec. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque convallis leo at ligula ultricies, ac mollis lectus bibendum. Ut nec. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque convallis leo at ligula ultricies, ac mollis lectus bibendum.</p>
 
@@ -153,7 +164,7 @@
     </div>
   </div>
 
-  <div class="grid grid--gutter-dbl grid--bottom-dbl-non-palm">
+  <div class="grid grid--gutter-dbl grid--mrg-dbl-non-palm">
     <div class="grid__item non-palm-one-half">
       <div class="box">
         <img src="http://placehold.it/600x436">
@@ -171,32 +182,175 @@
   <h2 id="notice">Notices</h2>
   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 
-  <ul class="txt-formatted__list-unstyled">
-    <li>
-        <a href="#" class="list-divider">Contruction in Food Court
-        <span class="icon icon--arrow-right icon--lrg" aria-hidden="true"></span>
-      </a>
-    </li>
-    <li>
-      <a href="#" class="list-divider">
-        Elevator will stop working for Biggest Loser
-        <span class="icon icon--arrow-right icon--lrg" aria-hidden="true"></span>
-      </a>
-    </li>
-  </ul>
-
+  <div class="grid grid--gutter-dbl grid--mrg-dbl-non-palm">
+    <div class="grid__item">
+      <ul class="txt-formatted__list-unstyled">
+        <li>
+            <a href="#" class="list-divider list-divider--first">Lorem ipsum dolor sit amet, consectetur adipiscing elit
+            <span class="icon icon--arrow-right icon--lrg icon--dark" aria-hidden="true"></span>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="list-divider">
+            Quisque convallis leo at ligula ultricies
+            <span class="icon icon--arrow-right icon--lrg icon--dark" aria-hidden="true"></span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
   <%# //Notices %>
 
-  <%# Social media %>
-  <% if @centre.facebook.present? %>
-    <%= @centre.facebook %>
-  <% end %>
-  <%= @centre.twitter %>
-  <%= @centre.google_plus %>
-  <%= @centre.instagram %>
-  <%= @centre.pinterest %>
-  <%= @centre.youtube %>
-  <%# //Social media %>
+  <%# Contact Us %>
+  <%# [BACKEND] Contact Us section should not populate if there are no contact info %>
+  <h2 id="contact-us">Contact Us</h2>
+  <div class="grid grid--gutter-dbl grid--mrg-dbl-non-palm">
+
+    <%# Phone number %>
+    <% if @centre.phone_number.present? %>
+      <div class="grid__item non-palm-one-half">
+        <%# Show centre number if at non-palm size %>
+        <div class="box island txt-center hide-fully--palm" itemscope itemtype="http://schema.org/Organization">
+          <span class="icon icon--phone2 icon--kilo icon--spacing-lrg" aria-hidden="true"></span>
+          <span class="hide-visually">Phone number</span>
+          <span itemprop="telephone"><%= @centre.phone_number %></span>
+        </div>
+
+        <%# Show CTA button for centre contact number %>
+        <span class="hide-fully--non-palm">
+          <a href="tel:<%= (@centre.number || "").gsub(/\s+/,'') %>" class="txt-center btn btn--full btn--main btn--main-alt2 btn--main-lrg">
+            <span class="icon icon--phone icon--xlrg icon--spacing-lrg icon--flush-top" aria-hidden="true"></span>
+            <strong>Call <%= @centre.short_name %> Centre</strong></a>
+        </span>
+      </div>
+    <% end %>
+    <%# //Phone number %>
+
+    <% if @centre.email_address.present? %>
+      <div class="grid__item non-palm-one-half">
+        <div class="box island vert-align">
+          <div class="vert-align__inner">
+            <span class="icon icon--email icon--kilo icon--spacing-lrg" aria-hidden="true"></span>
+            <span class="hide-visually">Email</span>
+            <a href="mailto:<%= @centre.email_address %>"><%= @centre.email_address %></a>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <%# //Contact Us %>
+
+  <%# Follow Us %>
+  <%# [BACKEND] If no social media from centre, don't populate this section %>
+  <div class="divider divider--lrg">
+    <h2 id="follow-us">Follow Us</h2>
+    <div class="grid grid--mrg-dbl-non-palm">
+      <%# Facebook %>
+      <% if @centre.facebook.present? %>
+        <div class="grid__item one-half non-palm-one-quarter">
+          <a href="<%= @centre.facebook %>" class="flag social-follow" rel="external">
+            <div class="flag__image">
+              <div class="box islet">
+                <span class="icon icon--facebook icon--dark" aria-hidden="true"></span>
+              </div>
+            </div>
+            <div class="flag__body">
+              Facebook
+            </div>
+          </a>
+        </div>
+      <% end %>
+      <%# //Facebook %>
+
+      <%# Twitter %>
+      <% if @centre.twitter.present? %>
+        <div class="grid__item one-half non-palm-one-quarter">
+          <a href="<%= @centre.twitter %>" class="flag social-follow" rel="external">
+            <div class="flag__image">
+              <div class="box islet">
+                <span class="icon icon--twitter icon--dark" aria-hidden="true"></span>
+              </div>
+            </div>
+            <div class="flag__body">
+              Twitter
+            </div>
+          </a>
+        </div>
+      <% end %>
+      <%# //Twitter %>
+
+      <%# Instagram %>
+      <% if @centre.instagram.present? %>
+        <div class="grid__item one-half non-palm-one-quarter">
+          <a href="<%= @centre.instagram %>" class="flag social-follow" rel="external">
+            <div class="flag__image">
+              <div class="box islet">
+                <span class="icon icon--instagram icon--dark" aria-hidden="true"></span>
+              </div>
+            </div>
+            <div class="flag__body">
+              Instragram
+            </div>
+          </a>
+        </div>
+      <% end %>
+      <%# //Instagram %>
+
+      <%# Pinterest %>
+      <% if @centre.pinterest.present? %>
+        <div class="grid__item one-half non-palm-one-quarter">
+          <a href="<%= @centre.pinterest %>" class="flag social-follow" rel="external">
+            <div class="flag__image">
+              <div class="box islet">
+                <span class="icon icon--pinterest icon--dark" aria-hidden="true"></span>
+              </div>
+            </div>
+            <div class="flag__body">
+              Pinterest
+            </div>
+          </a>
+        </div>
+      <% end %>
+      <%# //Pinterest %>
+    </div>
+
+    <div class="grid grid--mrg-dbl-non-palm">
+      <%# YouTube %>
+      <% if @centre.youtube.present? %>
+        <div class="grid__item one-half non-palm-one-quarter">
+          <a href="<%= @centre.youtube %>" class="flag social-follow" rel="external">
+            <div class="flag__image">
+              <div class="box islet">
+                <span class="icon icon--youtube icon--dark" aria-hidden="true"></span>
+              </div>
+            </div>
+            <div class="flag__body">
+              YouTube
+            </div>
+          </a>
+        </div>
+      <% end %>
+      <%# //YouTube %>
+
+      <%# Google+ %>
+      <% if @centre.google_plus.present? %>
+        <div class="grid__item one-half non-palm-one-quarter">
+          <a href="<%= @centre.google_plus %>" class="flag social-follow" rel="external">
+            <div class="flag__image">
+              <div class="box islet">
+                <span class="icon icon--google-plus icon--dark" aria-hidden="true"></span>
+              </div>
+            </div>
+            <div class="flag__body">
+              Google Plus
+            </div>
+          </a>
+        </div>
+      <% end %>
+      <%# //Google+ %>
+    </div>
+  </div>
+  <%# //Follow Us %>
 
 </div>
 <%# //Text formatted %>

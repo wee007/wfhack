@@ -22,6 +22,11 @@
     opacity: 0;
     @include to-rem(height, 280);
 
+    /* Old IE */
+    @include old-ie {
+      opacity: 1;
+    }
+
     /* Print */
     @media print {opacity: 1;}
   }

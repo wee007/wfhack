@@ -42,7 +42,7 @@
 
 	/* Body container columnised at this breakpoint */
 	.slats__body {
-		/* Creates new block formatting context. Taken from OOCSS's clearfix-facebook https://github.com/stubbornella/oocss/blob/master/oocss/src/components/utils/_clearfix-me.scss */
+		/* Creates new block formatting context so the container will just take up remaining space next to the floated slats__img. Taken from OOCSS's clearfix-facebook https://github.com/stubbornella/oocss/blob/master/oocss/src/components/utils/_clearfix-me.scss */
 		display: table-cell;
 	  vertical-align: top;
 	  width: 10000px;
@@ -52,7 +52,7 @@
 
 /* Stack image on top of body for non-palm */
 @include respond-min($non-palm) {
-	.non-palm-slats--stacked {
+	.slats--stacked-non-palm {
 		.slats__img {
 			float: none;
 			margin-right: 0;

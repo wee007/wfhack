@@ -12,7 +12,7 @@
 
 .nav-contextual {
   position: relative;
-  @include to-rem(margin-bottom, $spacing-base);
+  @extend %mrg-base;
   border-bottom: 1px solid $color-grey-1;
 }
 
@@ -48,6 +48,7 @@
         right: 0;
       }
 
+      /* Aligning the arrow and gradient overlay vertically */
       &:before {
         top: 50%;
         @include translate(0, -50%);

@@ -29,35 +29,28 @@
     }
   }
 
+    /* Shared styles */
+    .hero__icon,
+    h1 {
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    /* Hero icon next to the heading   */
     .hero__icon {
-      @include font-size(30);
+      @include font-size(30, 1);
 
       @include respond-min($non-palm) {
-        @include font-size(50);
+        @include font-size(50, 1);
       }
     }
 
-    .hero__hdr {
+    /* Hero heading */
+    h1 {
       text-transform: uppercase;
       @include font-size(30);
 
       @include respond-min($non-palm) {
         @include font-size(60);
-      }
-    }
-
-    /* Shared styles */
-    .hero__icon,
-    .hero__hdr {
-      display: inline-block;
-      vertical-align: middle;
-    }
-
-    .hero__txt {
-      font-family: $font-family-opensans;
-      margin-bottom: 0;
-
-      @include respond-min($non-palm) {
-        @include font-size(24);
       }
     }

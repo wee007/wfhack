@@ -11,7 +11,7 @@
 
         <div class="hero__inner container container--narrow">
           <span class="hero__icon icon icon--hours icon--spacing-lrg" aria-hidden="true"></span>
-          <h1 class="hero__hdr"><%= @hero.heading %></h1>
+          <h1><%= @hero.heading %></h1>
           <%= content_tag :p, @hero.text, class: 'hero__txt' if @hero.text %>
         </div>
 

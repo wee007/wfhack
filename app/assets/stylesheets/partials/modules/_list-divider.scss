@@ -14,7 +14,6 @@
 */
 
 .list-divider {
-	color: $color-dark-txt;
 	@include font-size($font-size-sml, 1.5);
 	font-weight: bold;
 	display: block;
@@ -39,4 +38,9 @@
   /* Position arrow icon over to the right */
   .icon--arrow-right {float: right;}
 }
+
+/* --Extenders-- */
+
+/* Turn off top padding for the first item */
+.list-divider--first {padding-top: 0;}
 

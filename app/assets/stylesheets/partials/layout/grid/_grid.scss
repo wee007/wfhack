@@ -67,10 +67,10 @@
 	> .grid__item {margin-bottom: 0;}
 }
 
-/* Double the bottom margin */
-.grid--bottom-dbl-non-palm {
+/* Double the bottom margin at non-palm */
+.grid--mrg-dbl-non-palm {
 	.grid__item {
-		@include respond-min($non-palm, $screen-only: true) {
+		@include respond-min($non-palm) {
 			@include to-rem(margin-bottom, $spacing-dbl);
 		}
 	}

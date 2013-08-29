@@ -106,10 +106,10 @@
 .icon--pinterest:before {content: "\e024";}
 
 /* Instagram */
-.icon-instagram:before {content: "\e032";}
+.icon--instagram:before {content: "\e032";}
 
 /* YouTube */
-.icon-youtube:before {content: "\f167";}
+.icon--youtube:before {content: "\f167";}
 
 /* Close large */
 .icon--close-lrg:before {content: "\e00f";}
@@ -241,3 +241,7 @@
 
 /* Default */
 .icon--default:before {font-size: inherit;}
+
+/* -Alternate colors- */
+
+.icon--dark:before {color: $color-base-txt;}

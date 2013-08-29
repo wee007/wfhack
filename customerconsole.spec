@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.430
+Version:     0.0.431
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,16 @@ fi
 
 
 %changelog
+* Thu Aug 29 2013 ci <doperations@au.westfield.com> 0.0.431-1
+- Merge pull request #325 from mwratt/fix/popup_logo (ldewey@au.westfield.com)
+- Merge pull request #323 from ldewey/WSF-5091 (ldewey@au.westfield.com)
+- includes only jquery.cloudinary js (matt.wratt@trineo.co.nz)
+- Removed retina rendering from event images. (ldewey@au.westfield.com)
+- Removed retina rendering from product images. (ldewey@au.westfield.com)
+- removes dup cloudinary js and fixes js include (matt.wratt@trineo.co.nz)
+- revmoves unused js specs and script (matt.wratt@trineo.co.nz)
+- fixes icons sizes and switches to use cloudinary (matt.wratt@trineo.co.nz)
+
 * Thu Aug 29 2013 ci <doperations@au.westfield.com> 0.0.430-1
 - Product tile alt tag clean up. (ldewey@au.westfield.com)
 

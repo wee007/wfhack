@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.428
+Version:     0.0.429
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,10 @@ fi
 
 
 %changelog
+* Thu Aug 29 2013 ci <doperations@au.westfield.com> 0.0.429-1
+- Filters will now close when option has been selected on mobile.
+  (ldewey@au.westfield.com)
+
 * Wed Aug 28 2013 ci <doperations@au.westfield.com> 0.0.428-1
 - Merge pull request #321 from cpearce/master (ldewey@au.westfield.com)
 - Fixing IE8 issue for Angular cloak and removing html selector

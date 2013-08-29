@@ -3,8 +3,7 @@
 <div class="map-micello__overlay islet js-toggle-logo-image">
   <div class="map-micello__overlay__retailer map-micello__mrg-base">
     <div class="map-micello__overlay__retailer__img">
-      <%# Error events from images don't buddle so we need to explicitly call onerror %> 
-      <img src="#{store.logo}" alt="#{store.name} logo" onerror="window.map && map.micello.Map.removeImage(this)">
+      #{store.logo}
     </div>
     <div class="map-micello__overlay__retailer__body">
       <em class="map-micello__hdr txt-break-word">#{store.name}</em>

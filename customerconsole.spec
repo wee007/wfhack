@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.429
+Version:     0.0.430
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,9 @@ fi
 
 
 %changelog
+* Thu Aug 29 2013 ci <doperations@au.westfield.com> 0.0.430-1
+- Product tile alt tag clean up. (ldewey@au.westfield.com)
+
 * Thu Aug 29 2013 ci <doperations@au.westfield.com> 0.0.429-1
 - Filters will now close when option has been selected on mobile.
   (ldewey@au.westfield.com)

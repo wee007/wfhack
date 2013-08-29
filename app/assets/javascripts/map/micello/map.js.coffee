@@ -125,13 +125,14 @@ class map.micello.Map extends map.micello.MapBase
 
   popupHtml: (store) ->
     return 'Store not found' unless store.id
+    popup = @popupContent ||= $('.map-micello__overlay-wrap').html()
     if !!store?._links?.logo?.href
       store.logo = $.cloudinary.fetch_image(store._links.logo.href, @logoOptions).attr('alt', "#{store.name} logo").attr('onerror', 'map.micello.Map.removeLogo(this)')[0].outerHTML
-    popup = @popupContent ||= $('.map-micello__overlay-wrap').html()
+    else
+      store.logo = ''
+      popup  = popup.replace(/(js-toggle-logo-image)/, '$1 is-no-store-logo')
     popup = popup.replace(new RegExp("\#{store.#{name}}", 'g'), value) for name, value of store
-    popup = $(popup)
-    map.micello.Map.removeLogo(popup.find('img')) unless store.logo
-    popup[0].outerHTML
+    popup
 
   onMapChanged: (event) =>
     return unless event.comLoad

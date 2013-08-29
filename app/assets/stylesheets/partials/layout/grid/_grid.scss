@@ -67,7 +67,16 @@
 	> .grid__item {margin-bottom: 0;}
 }
 
-/* Double the bottom margin at non-palm */
+/* Base margin of grid__item at non-palm */
+.grid--mrg-base-non-palm {
+	.grid__item {
+		@include respond-min($non-palm) {
+			@include to-rem(margin-bottom, $spacing-base);
+		}
+	}
+}
+
+/* Double the bottom margin of grid__item at non-palm */
 .grid--mrg-dbl-non-palm {
 	.grid__item {
 		@include respond-min($non-palm) {

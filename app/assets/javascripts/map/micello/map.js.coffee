@@ -22,7 +22,7 @@ class map.micello.Map extends map.micello.MapBase
         m: '#dbd9d7'
 
   # Error events from images don't buddle so we need to explicitly call onerror
-  @removeImage: (img) ->
+  @removeLogo: (img) ->
     $el = $(img)
     $el.parents('.js-toggle-logo-image').addClass('is-no-store-logo')
     $el.remove()
@@ -125,12 +125,12 @@ class map.micello.Map extends map.micello.MapBase
 
   popupHtml: (store) ->
     return 'Store not found' unless store.id
-    if store?._links?.logo?.href?
-      store.logo = $.cloudinary.fetch_image(store._links.logo.href, @logoOptions).attr('src')
+    if !!store?._links?.logo?.href
+      store.logo = $.cloudinary.fetch_image(store._links.logo.href, @logoOptions).attr('alt', "#{store.name} logo").attr('onerror', 'map.micello.Map.removeLogo(this)')[0].outerHTML
     popup = @popupContent ||= $('.map-micello__overlay-wrap').html()
     popup = popup.replace(new RegExp("\#{store.#{name}}", 'g'), value) for name, value of store
     popup = $(popup)
-    removeLogo.call(popup.find('img')) unless store.logo
+    map.micello.Map.removeLogo(popup.find('img')) unless store.logo
     popup[0].outerHTML
 
   onMapChanged: (event) =>

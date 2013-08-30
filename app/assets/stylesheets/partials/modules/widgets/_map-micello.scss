@@ -167,12 +167,29 @@
 
         /* Pointer */
         .menuTip {
-          background: image-url("images/arrow-down.png") no-repeat 50% 0 !important;
-          @include img-2x("images/arrow-down@2x.png", 20px, 13px, !important);
+          background: none !important;
           position: relative;
           top: 13px !important;
           width: 100% !important;
           height: 13px !important;
+          text-align: center;
+
+          /* Use icon font for the pointer */
+          &:after {
+            top: -3px;
+            vertical-align: top;
+            font-size: 30px;
+            line-height: 11px;
+            color: #fff;
+            text-shadow: 0 3px 1px rgba(#c7c7c7, 0.9);
+            @extend .icon:before;
+            @extend .icon--arrow-down-full:before;
+
+            /* IE 10 */
+            @include ie-10-up {
+              top: -2px;
+            }
+          }
         }
 
           /* In */

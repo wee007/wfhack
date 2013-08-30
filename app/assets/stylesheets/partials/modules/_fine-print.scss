@@ -11,7 +11,7 @@
 */
 
 .fine-print {
-  @include to-rem(font-size, 11);
+  @include to-rem(font-size, $font-size-milli);
   font-style: italic;
 }
 
@@ -19,7 +19,7 @@
 
 /* Centre aligns the text */
 .fine-print--center {
-  /* Need this as it's most likely we'l apply the classes to a <small> element */
+  /* Need this as it's most likely we'll apply the classes to a <small> element */
   display: block;
   text-align: center;
 }

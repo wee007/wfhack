@@ -60,7 +60,7 @@
   <%# Shopping centre map %>
   <div class="centre-location">
     <%# Static Google map %>
-    <div class="map-google-static">
+    <div class="map-google-static mrg-base">
       <!-- <img src="http://maps.googleapis.com/maps/api/staticmap?center=<%= @centre.latitude %>,<%= @centre.longitude %>&zoom=11&size=640x280&sensor=false"> -->
       <img src="http://placehold.it/980x280/666666/000000">
     </div>
@@ -97,9 +97,21 @@
 
   <%# Parking %>
   <h2 id="parking">Parking</h2>
+
+  <%# Complimentary parking %>
+  <div class="grid grid--gutter-dbl grid--mrg-dbl-non-palm">
+    <div class="grid__item one-whole">
+      <p>Complimentary parking available for all customers.</p>
+
+      <small class="fine-print">Parking <a href="#">terms &amp; conditions</a> apply</small>
+    </div>
+  </div>
+  <%# //Complimentary parking %>
+
+  <%# Parking rates %>
   <div class="grid grid--gutter-dbl grid--mrg-dbl-non-palm">
     <div class="grid__item non-palm-one-half">
-      <div class="box box--mrg-btm-half islet island--non-palm">
+      <div class="box box--mrg-half islet island--non-palm">
         <table cellspacing="0" class="table-striped">
           <caption class="hide-visually">Parking rates</caption>
           <thead>
@@ -148,16 +160,21 @@
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
     </div>
   </div>
+  <%# //Parking rates %>
   <%# //Parking %>
 
   <%# Community %>
   <h2 id="community">Community</h2>
-  <img src="http://placehold.it/980x280">
+  <%# [BACKEND] Replace the `alt` attribute with dynamic data where indicated %>
+  <img src="http://placehold.it/980x280" class="mrg-base" alt="Photo of [name of the community where the photo came from]">
 
+  <%# [BACKEND] To do the 2 columns, please set up two text fields in back office with character limit for each text field (that needs to be determined later). Each text field will correspond to one `grid__item` %>
   <div class="grid grid--gutter-dbl grid--mrg-dbl-non-palm">
-    <div class="grid__item one-whole non-palm-txt-cols--2">
+    <div class="grid__item non-palm-one-half">
       <p>P1. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque convallis leo at ligula ultricies, ac mollis lectus bibendum. Ut nec. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque convallis leo at ligula ultricies, ac mollis lectus bibendum. Ut nec. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque convallis leo at ligula ultricies, ac mollis lectus bibendum.</p>
+    </div>
 
+    <div class="grid__item non-palm-one-half">
       <p>P2. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque convallis leo at ligula ultricies, ac mollis lectus bibendum. Ut nec.</p>
 
       <p>P3. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque convallis leo at ligula ultricies, ac mollis lectus bibendum. Ut nec. Lorem ipsum dolor sit amet, consectetur.</p>
@@ -167,7 +184,8 @@
   <div class="grid grid--gutter-dbl grid--mrg-dbl-non-palm">
     <div class="grid__item non-palm-one-half">
       <div class="box">
-        <img src="http://placehold.it/600x436">
+        <%# [BACKEND] Replace the `alt` attribute with dynamic data where indicated %>
+        <img src="http://placehold.it/600x436" alt="Logo of [the name of the community]">
       </div>
     </div>
 
@@ -186,12 +204,13 @@
     <div class="grid__item">
       <ul class="txt-formatted__list-unstyled">
         <li>
-            <a href="#" class="list-divider list-divider--first">Lorem ipsum dolor sit amet, consectetur adipiscing elit
+            <%# [BACKEND] The first link in the list needs to have class `list-divider--first` %>
+            <a href="#" class="list-divider list-divider--first txt-truncate">Lorem ipsum dolor sit amet, consectetur adipiscing elitLorem ipsumdolorsitametconsectetur adipiscinfelit
             <span class="icon icon--arrow-right icon--lrg icon--dark" aria-hidden="true"></span>
           </a>
         </li>
         <li>
-          <a href="#" class="list-divider">
+          <a href="#" class="list-divider txt-truncate">
             Quisque convallis leo at ligula ultricies
             <span class="icon icon--arrow-right icon--lrg icon--dark" aria-hidden="true"></span>
           </a>
@@ -228,12 +247,10 @@
 
     <% if @centre.email_address.present? %>
       <div class="grid__item non-palm-one-half">
-        <div class="box island vert-align">
-          <div class="vert-align__inner">
-            <span class="icon icon--email icon--kilo icon--spacing-lrg" aria-hidden="true"></span>
-            <span class="hide-visually">Email</span>
-            <a href="mailto:<%= @centre.email_address %>"><%= @centre.email_address %></a>
-          </div>
+        <div class="box island txt-center txt-truncate">
+          <span class="icon icon--email icon--kilo icon--spacing-lrg" aria-hidden="true"></span>
+          <span class="hide-visually">Email</span>
+          <a href="mailto:<%= @centre.email_address %>"><%= @centre.email_address %></a>
         </div>
       </div>
     <% end %>

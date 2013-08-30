@@ -14,12 +14,13 @@
 */
 
 .list-divider {
+  position: relative;
 	@include font-size($font-size-sml, 1.5);
 	font-weight: bold;
 	display: block;
 	border-bottom: 1px solid $color-grey-2;
-	@include to-rem(padding-top, $spacing-half);
-	@include to-rem(padding-bottom, $spacing-quarter);
+  /* The padding-right is to make space for the arrow icon*/
+	@include to-rem(padding, $spacing-half $spacing-base $spacing-quarter 0);
 
 	/* Increase padding at this breakpoint */
 	@include respond-min($non-palm) {
@@ -36,7 +37,10 @@
 	}
 
   /* Position arrow icon over to the right */
-  .icon--arrow-right {float: right;}
+  .icon--arrow-right {
+    position: absolute;
+    right: 0;
+  }
 }
 
 /* --Extenders-- */

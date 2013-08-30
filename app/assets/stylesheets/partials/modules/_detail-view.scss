@@ -292,7 +292,8 @@
       &.detail-view__meta__sale-price {
         color: $color-brand;
 
-        span {
+        /* Original price */
+        s {
           color: $color-dark-txt;
           text-decoration: line-through;
         }

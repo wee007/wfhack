@@ -11,7 +11,7 @@
         <%= @product.retail_chain_name %>
         <%- if @product.is_discounted -%>
           <em class="detail-view__meta__sale-price">
-            <span><%= Money.new(@product.price).format%></span>
+            <s><%= Money.new(@product.price).format%></s>
             <%= Money.new(@product.sale_price).format %>
           </em>
         <%- else -%>

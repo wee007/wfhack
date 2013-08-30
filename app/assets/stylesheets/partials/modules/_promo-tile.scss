@@ -1,0 +1,45 @@
+/* ======================================================================================
+   @MODULES -> PROMO TILE
+   ====================================================================================== */
+
+/*
+  Usage:
+    Special tile design with specific icon centred in the middle
+
+  Demo:
+    Style Guide -> Modules -> Promo Tile
+*/
+
+.promo-tile {
+  text-align: center;
+
+  img {border-bottom: 1px solid $color-grey-1;}
+
+  p {
+    @include to-rem(margin-bottom, $spacing-half);
+    @include font-size($font-size-sml);
+  }
+}
+
+  /* The tile's heading */
+  .promo-tile__hdr {
+    @include font-size($font-size-lrg);
+    @include to-rem(margin-bottom, $spacing-quarter);
+  }
+
+  /* The main icon of The tile that's above the text */
+  .promo-tile__icon-main:before {
+    @include to-rem(padding, $spacing-third);
+    @include font-size(24, 1);
+    @include to-rem(margin-top, -20);
+    background: #fff;
+    border-radius: 100%;
+    border: 1px solid $color-grey-1;
+
+    @include respond-min($non-palm) {
+      @include to-rem(padding, $spacing-half);
+      /* Using to-rem mixin instead of font-size mixin because font-size mixin will auto-gen the line-height */
+      @include to-rem(font-size, 36);
+      @include to-rem(margin-top, -28);
+    }
+  }

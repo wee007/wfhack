@@ -274,7 +274,7 @@
   <%# //Contact Us %>
 
   <%# Follow Us - title %>
-  <%# [BACKEND] If no social media from centre, don't title %>
+  <%# [BACKEND] If no social media from centre, don't output title %>
     <%# Need mrg-base spacing class as the :last-child on txt-formatted removed the margin %>
     <h2 id="follow-us" class="mrg-base">Follow Us</h2>
   <%# //Follow Us - title %>
@@ -388,4 +388,36 @@
   </ul>
 </div>
 <%# //Follow Us - list of social media %>
+
+<footer>
+  <div class="grid grid--gutter-dbl">
+    <div class="grid__item non-palm-one-half">
+      <%# Shopping hours box %>
+      <div class="promo-tile box">
+        <img src="http://placehold.it/600x132">
+        <span class="promo-tile__icon-main icon icon--hours" aria-hidden="true"></span>
+        <div class="islet island--non-palm">
+          <h2 class="promo-tile__hdr">Opening Hours</h2>
+          <p>We have a great range of fantastic retailers to choose from.</p>
+          <a href="#">Check Shopping Hours</a>
+        </div>
+      </div>
+      <%# //Shopping hours box %>
+    </div>
+
+    <div class="grid__item non-palm-one-half">
+      <%# Centre services box %>
+      <div class="promo-tile box">
+        <img src="http://placehold.it/600x132">
+        <span class="promo-tile__icon-main icon icon--service" aria-hidden="true"></span>
+        <div class="islet island--non-palm">
+          <h2 class="promo-tile__hdr">Centre Services</h2>
+          <p>Travelling to <%= @centre.short_name %>?<br> We have all your parking &amp; transport needs covered.</p>
+          <a href="#">Get Directions</a>
+        </div>
+      </div>
+      <%# //Centre services box %>
+    </div>
+  </div>
+</footer>
 

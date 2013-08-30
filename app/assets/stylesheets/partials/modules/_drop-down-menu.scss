@@ -69,6 +69,7 @@
       pointer-events: none;
       display: block;
       position: absolute;
+      z-index: $z-index-high+1;
       left: 10px;
       top: -9px;
       font-size: 26px;
@@ -123,6 +124,8 @@
 
     /* List */
     .drop-down-menu__list {
+      position: relative;
+      z-index: $z-index-high+2;
       max-height: 230px;
       overflow-y: auto;
 

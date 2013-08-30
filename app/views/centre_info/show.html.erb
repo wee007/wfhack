@@ -60,20 +60,20 @@
   <%# Shopping centre map %>
   <div class="centre-location">
     <%# Static Google map %>
-    <div class="map-google-static mrg-base">
+    <div class="map-google-static">
       <!-- <img src="http://maps.googleapis.com/maps/api/staticmap?center=<%= @centre.latitude %>,<%= @centre.longitude %>&zoom=11&size=640x280&sensor=false"> -->
       <img src="http://placehold.it/980x280/666666/000000">
     </div>
     <%# //Static Google map %>
 
     <%# Address box %>
-    <div class="box slats slats--stacked-non-palm centre-location__info">
+    <div class="box slats centre-location__info">
       <div class="slats__img slats__img--compact">
         <%# [BACKEND] Make `alt` attr dynamic where indicated %>
-        <img src="http://placehold.it/200x100&text=image" class="centre-location__img" alt="Photo of [dynamic] shopping centre">
+        <img src="http://placehold.it/150x125&text=image" alt="Photo of [dynamic] shopping centre">
       </div>
       <div class="slats__body islet">
-        <p class="centre-location__address"><%= @centre.street_address %> <br>[Suburb] <br><%= @centre.state %> <%= @centre.postcode %></p>
+        <p><%= @centre.street_address %> <br>[Suburb] <br><%= @centre.state %> <%= @centre.postcode %></p>
         <a href="#">Open in Google Maps <span class="icon icon--arrow-right icon--lrg" aria-hidden="true"></span></a>
       </div>
     </div>
@@ -81,7 +81,8 @@
   </div>
   <%# //Shopping centre map %>
 
-  <div class="grid grid--gutter-dbl grid--mrg-dbl-non-palm">
+  <%# Need spacing class `mrg-base--top` here as the map location will stack beflow the map image above %>
+  <div class="grid grid--gutter-dbl grid--mrg-dbl-non-palm mrg-base--top">
     <div class="grid__item non-palm-one-half">
       <h3>By Train</h3>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque convallis leo at ligula ultricies, ac mollis lectus bibendum. Ut nec. Lorem ipsum dolor sit amet</p>

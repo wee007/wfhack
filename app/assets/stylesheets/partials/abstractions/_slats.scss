@@ -47,17 +47,3 @@
 	  vertical-align: top;
 	  width: 10000px;
 	}
-
-/* --Extenders-- */
-
-/* Stack image on top of body for non-palm */
-@include respond-min($non-palm) {
-	.slats--stacked-non-palm {
-		.slats__img {
-			float: none;
-			margin-right: 0;
-		}
-
-		.slats__body {width: auto;}
-	}
-}

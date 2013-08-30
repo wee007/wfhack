@@ -106,8 +106,9 @@
           border: 0;
           pointer-events: none;
 
-          /* Make buttons clickable */
-          .btn {pointer-events: auto;}
+          /* Make nested elements clickable */
+          .drop-down-menu *,
+          .stores-maps__toggle {pointer-events: auto;}
         }
       }
 
@@ -128,6 +129,7 @@
         text-align: right;
         position: relative;
         @include to-rem(padding-top padding-bottom, $spacing-half);
+        @extend %clear-fix;
 
         /* Increase padding at this breakpoint */
         @include respond-min($non-palm) {
@@ -139,6 +141,20 @@
           text-align: left;
         }
       }
+
+        /* Filter drop down */
+        .drop-down-menu {
+
+          /* Need to float left at this breakpoint range */
+          @include respond-range($non-palm, $ipad-landscape - 1) {
+            float: left;
+          }
+
+          /* Increase right padding for trigger at this breakpoint */
+          @include respond-min($non-palm) {
+            .drop-down-menu__trigger {@include to-em(padding-right, $spacing-dbl+$spacing-base);}
+          }
+        }
     }
 
       /* Header */
@@ -147,7 +163,7 @@
         font-family: $font-family-opensans;
         @include font-size(24, 1.5);
         color: $color-dark-txt;
-        @extend %mrg-base;
+        @include to-em(margin-bottom, $spacing-third);
         /* Temp style so current feature can be released */
         margin-bottom: 0;
 
@@ -184,10 +200,16 @@
       /* Toggle button */
       .stores-maps__toggle {
         /* Temp removal so current feature can be released */
-        //float: right;
+        /*@include respond-max($palm) {
+          position: absolute;
+          right: 0;
+          top: 50%;
+          @include translate(0, -50%);
+        }*/
 
-        /* Reveal button text and fix a width at this breakpoint */
+        /* Reveal button text, float right and fix a width at this breakpoint */
         @include respond-min($non-palm) {
+          float: right;
           @include to-rem(min-width, 120);
           .hide-visually {@include hide-visually-off;}
         }
@@ -235,7 +257,7 @@
     .stores-maps__list-detail {
       position: absolute;
       z-index: 5;
-      @include to-rem(top, 55);
+      @include to-rem(top, 56);
       bottom: 0;
       left: 0;
       right: 0;
@@ -279,7 +301,7 @@
 
       /* Alter top positioning at this breakpoint */
       @include respond-min($non-palm) {
-        @include to-rem(top, 65);
+        @include to-rem(top, 66);
 
         /* Post filter count */
         .is-filter-applied & {@include to-rem(top, 102);}
@@ -288,7 +310,7 @@
       /* Apply box treatments and alter top/btm positioning at this breakpoint */
       @include respond-min($ipad-landscape) {
         /* Temp style so current feature can be released */
-        @include to-rem(top, 110);
+        @include to-rem(top, 111);
         //@include to-rem(top, 164);
         @include to-rem(bottom, $spacing-base);
         @include box;

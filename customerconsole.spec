@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.434
+Version:     0.0.435
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,11 @@ fi
 
 
 %changelog
+* Fri Aug 30 2013 ci <doperations@au.westfield.com> 0.0.435-1
+- Merge pull request #330 from cpearce/master (fchan@au.westfield.com)
+- Fixing drop down menu arrow pointer so it always go behind scrollable list
+  (CPearce@au.westfield.com)
+
 * Fri Aug 30 2013 ci <doperations@au.westfield.com> 0.0.434-1
 - Merge pull request #329 from cpearce/master (matt.wratt@trineo.co.nz)
 - MVP Stores filter - WSF-4897 (CPearce@au.westfield.com)

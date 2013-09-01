@@ -17,7 +17,6 @@
 
   p {
     @include to-rem(margin-bottom, $spacing-half);
-    @include font-size($font-size-sml);
   }
 }
 
@@ -27,7 +26,7 @@
     @include to-rem(margin-bottom, $spacing-quarter);
   }
 
-  /* The main icon of The tile that's above the text */
+  /* The main icon of the tile that sits above the text */
   .promo-tile__icon-main:before {
     @include to-rem(padding, $spacing-third);
     @include font-size(24, 1);

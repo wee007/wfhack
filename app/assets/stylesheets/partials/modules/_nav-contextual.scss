@@ -14,19 +14,24 @@
   position: relative;
   @extend %mrg-base;
   border-bottom: 1px solid $color-grey-1;
-
-  /* Only show the clip overlay when clipped */
-  &.is-clipped .nav-contextual__clip-overlay {
-    display: block;
-  }
-
-  /* Scroll the contents of the navigation when the viewport is narrow enough */
-  &.is-clipped .nav-contextual__clip-inner {
-    overflow-x: scroll;
-    -webkit-overflow-scrolling: touch;
-  }
-
 }
+
+  .nav-contextual__clip-inner {
+    /* To prevent the flash between page load and the JS getting applied. This hides the scrollbar */
+    overflow: hidden;
+
+    /* Allows scrolling of the list of links when JS detects that the width of `nav-contextual__list` is wider than `nav-contextual__clip-inner`  */
+    .is-clipped & {
+      overflow-x: scroll;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    /* No JS */
+    .no-js & {
+      overflow: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+  }
 
   /* Clip scrollable contents (palm) */
   .nav-contextual__clip {
@@ -36,12 +41,18 @@
 
     /* Gradient that lays on top of the list */
     .nav-contextual__clip-overlay {
+      /* Hide the overlay by default */
+      display: none;
       top: 0;
       height: 100%;
       color: $color-light-txt;
       @include to-rem(padding-left, $spacing-dbl);
-      @include linear-gradient($from: rgba($color-grey-3, 0) 0%, $to: rgba($color-grey-3, 1) 50%, $dir: right);
-      display: none;
+      @include linear-gradient($from: rgba($color-grey-3, 0) 0%, $to: rgba($color-grey-3, 1) 50%, $dir: right, $dir-webkit: left);
+
+      /* Shows the overlay when JS detects that the width of `nav-contextual__list` is wider than `nav-contextual__clip-inner` */
+      .is-clipped & {
+        display: block;
+      }
 
       /* Shared rules */
       &,
@@ -59,6 +70,12 @@
 
     /* List of nav items */
     .nav-contextual__list {
+      /* To prevent the flash between page load and the JS getting applied. This gives the list a big enough width to cater for all the LI */
+      width: 10000px;
+
+      /* No JS */
+      .no-js & {width: auto}
+
       > li {
         @include to-rem(margin-left, $spacing-base);
 

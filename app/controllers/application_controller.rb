@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
 
   if Rails.env.production? || Rails.env.uat?
-    http_basic_authenticate_with name: "guest", password: "Westfield1"
+    http_basic_authenticate_with name: "guest", password: "searchablemall"
   end
 
   # Prevent CSRF attacks by raising an exception.

@@ -8,7 +8,7 @@ describe "Global Search" do
       VCR.use_cassette('global_search') do
         visit centre_path("bondijunction")
         fill_in "global-search", with: "red"
-        click_button "Search Products"
+        click_button "Search"
         expect(current_url).to match(/\/bondijunction\/products\?.*search_query=red/)
       end
     end

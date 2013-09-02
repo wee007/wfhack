@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.0
+Version:     0.1.1
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,9 @@ fi
 
 
 %changelog
+* Mon Sep 02 2013 ci <doperations@au.westfield.com> 0.1.1-1
+- set application to version 0.1 (pmcinerney@au.westfield.com)
+
 * Mon Sep 02 2013 ci <doperations@au.westfield.com> 0.0.439-1
 - Change password for global auth (itinsley@Ians-MacBook-Pro.local)
 

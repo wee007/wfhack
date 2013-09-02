@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.437
+Version:     0.0.438
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,11 @@ fi
 
 
 %changelog
+* Mon Sep 02 2013 ci <doperations@au.westfield.com> 0.0.438-1
+- Merge pull request #332 from ldewey/master (itinsley@au.westfield.com)
+- Adding basic auth to the customer console for UAT and PROD.
+  (ldewey@au.westfield.com)
+
 * Mon Sep 02 2013 ci <doperations@au.westfield.com> 0.0.437-1
 - Marking up original price more semantic for product detail view
   (CPearce@au.westfield.com)

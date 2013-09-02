@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.0.436
+Version:     0.0.437
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,12 @@ fi
 
 
 %changelog
+* Mon Sep 02 2013 ci <doperations@au.westfield.com> 0.0.437-1
+- Marking up original price more semantic for product detail view
+  (CPearce@au.westfield.com)
+- Changing map popup to use icon font to eliminate bg img
+  (CPearce@au.westfield.com)
+
 * Fri Aug 30 2013 ci <doperations@au.westfield.com> 0.0.436-1
 - Merge pull request #331 from cpearce/master (fchan@au.westfield.com)
 - Adding a conditional rule to Angular Cloak abstraction

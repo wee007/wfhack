@@ -992,7 +992,22 @@ $header-color-link-hover: $color-brand !default;
 					}
 		}
 
-		/* Search */
+		/* --Search-- */
+
+		/* -Global rules- */
+
+		/* Right margin for search form/results to make room for the 'close' button at this breakpoint */
+		@include respond-max($palm) {
+			.search-mini,
+			.search-results__inner {
+				@include to-rem(margin-right, 30);
+
+				/* Turn off for 'Stores' */
+				.stores & {margin-right: 0;}
+			}
+		}
+
+		/* -Search form- */
 		.search-mini {
 			background-color: #fff;
 			border:	1px solid transparent;
@@ -1002,15 +1017,6 @@ $header-color-link-hover: $color-brand !default;
 
 			/* Focus pseudo class */
 			&:focus {outline: none;}
-
-			/* Right margin to make room for the 'close' button at this breakpoint */
-			@include respond-max($palm) {
-				@include to-rem(margin-right, 30);
-
-				/* Store search & non JS users */
-				.stores &,
-				.no-js & {margin-right: 0;}
-			}
 
 			/* Decrease left padding at this breakpoint range */
 			@include respond-range($ipad-portrait, 839) {
@@ -1060,16 +1066,95 @@ $header-color-link-hover: $color-brand !default;
 				@include to-rem(padding, 4);
 				border: 0;
 				color: $color-dark-txt;
-				@include font-size(12, 1.2);
+				@include font-size($font-size-sml, 1.2);
 
 				/* Increase text size at this breakpoint */
 				@include respond-min($non-palm) {
-					@include font-size(14, 1.2);
+					@include font-size($font-size, 1.2);
 				}
 
 				/* Focus */
 				&:focus {outline: none;}
+
+				/* Hide the 'close' button for IE10 */
+				&::-ms-clear {display: none;}
 			}
 
 		/* Hide the search toggle buttons for 'Stores' */
 		.stores .js-search-btn-toggle {display: none;}
+
+		/* Search results */
+		.search-results {
+			@include drop-down;
+			width: 100%;
+			@include to-rem(margin-top, -2);
+			@include font-size($font-size-sml, 1.5);
+
+			/* Increase font size at this breakpoint */
+			@include respond-min($non-palm) {
+				@include font-size($font-size, 1.5);
+	  	}
+		}
+
+			/* Inner container */
+			.search-results__inner {
+				background-color: #fff;
+				box-shadow: 0 -3px 0 #fff,
+										0 1px 3px rgba(#000, 0.5);
+				max-height: 300px;
+		    overflow-y: auto;
+
+		    /* iOS/Android */
+	      .ios &,
+	      .android & {
+	        overflow-y: scroll;
+	        -webkit-overflow-scrolling: touch;
+	      }
+
+	      /* Centre home page hero banner */
+				.is-header-hero & {
+					box-shadow: none;
+					border: 1px solid $header-color-grey;
+					border-top: 0;
+				}
+			}
+
+				/* Header */
+				.search-results__hdr {
+					@include to-rem(margin-bottom, $spacing-half);
+					font-family: $font-family-opensans;
+    			color: $color-light-txt;
+    			@include font-size(13, 1.5);
+
+					/* Increase font size at this breakpoint */
+					@include respond-min($non-palm) {
+						@include font-size(15, 1.5);
+			  	}
+				}
+
+				/* List */
+				.search-results__list {
+					@include to-rem(padding-bottom, $spacing-base);
+
+					li {
+						@include to-rem(margin-bottom, $spacing-quarter);
+
+						&:last-child {margin-bottom: 0;}
+
+						/* Links */
+						a {
+							display: block;
+							color: $color-link;
+
+							/* Hover/Focus */
+							&:hover,
+							&:focus {color: $color-link-hover;}
+						}
+
+							/* Highlight keyword */
+							mark {
+								background-color: $color-link;
+								color: #fff;
+							}
+					}
+				}

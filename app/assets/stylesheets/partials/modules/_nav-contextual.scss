@@ -14,6 +14,18 @@
   position: relative;
   @extend %mrg-base;
   border-bottom: 1px solid $color-grey-1;
+
+  /* Only show the clip overlay when clipped */
+  &.is-clipped .nav-contextual__clip-overlay {
+    display: block;
+  }
+
+  /* Scroll the contents of the navigation when the viewport is narrow enough */
+  &.is-clipped .nav-contextual__clip-inner {
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
+  }
+
 }
 
   /* Clip scrollable contents (palm) */
@@ -22,12 +34,6 @@
     @include to-rem(margin-right, $spacing-base);
   }
 
-    /* Scroll the contents of the navigation when the viewport is narrow enough */
-    .nav-contextual__clip-inner {
-      overflow-x: scroll;
-      -webkit-overflow-scrolling: touch;
-    }
-
     /* Gradient that lays on top of the list */
     .nav-contextual__clip-overlay {
       top: 0;
@@ -35,11 +41,7 @@
       color: $color-light-txt;
       @include to-rem(padding-left, $spacing-dbl);
       @include linear-gradient($from: rgba($color-grey-3, 0) 0%, $to: rgba($color-grey-3, 1) 50%, $dir: right);
-
-      /* Hide the gradient */
-      @include respond-min($lap-lrg) {
-        display: none;
-      }
+      display: none;
 
       /* Shared rules */
       &,
@@ -57,9 +59,6 @@
 
     /* List of nav items */
     .nav-contextual__list {
-      /* Sets container to be wide-enough that they are horiz aligned. Just a magic number */
-      width: 250%;
-
       > li {
         @include to-rem(margin-left, $spacing-base);
 

@@ -245,7 +245,7 @@
 
         <%# Show CTA button for centre contact number %>
         <span class="hide-fully--non-palm">
-          <a href="tel:<%= (@centre.number || "").gsub(/\s+/,'') %>" class="txt-center btn btn--full btn--main btn--main-alt2 btn--main-lrg">
+          <a href="tel:<%= (@centre.phone_number || "").gsub(/\s+/,'') %>" class="txt-center btn btn--full btn--main btn--main-alt2 btn--main-lrg">
             <span class="icon icon--phone icon--xlrg icon--spacing-lrg icon--flush-top" aria-hidden="true"></span>
             <strong>Call <%= @centre.short_name %> Centre</strong></a>
         </span>

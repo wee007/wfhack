@@ -40,6 +40,4 @@
 		.slats__img img,
 		.slats__img--rev img {display: block;}
 
-	.slats__body {
-		@extend %new-block-formatting-context;
-	}
+	.slats__body {@extend %new-block-formatting-context;}

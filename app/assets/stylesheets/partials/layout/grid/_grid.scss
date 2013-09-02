@@ -67,18 +67,14 @@
 	> .grid__item {margin-bottom: 0;}
 }
 
-/* Base margin of grid__item at non-palm */
+/* Base margin of `grid__item` at non-palm */
 @include respond-min($non-palm) {
-	.grid--mrg-base-non-palm > .grid__item {
-		@include to-rem(margin-bottom, $spacing-base);
-	}
+	.grid--mrg-base-non-palm > .grid__item {@include to-rem(margin-bottom, $spacing-base);}
 }
 
-/* Double the bottom margin of grid__item at non-palm */
+/* Double the bottom margin of `grid__item` at non-palm */
 @include respond-min($non-palm) {
-	.grid--mrg-dbl-non-palm > .grid__item {
-		@include to-rem(margin-bottom, $spacing-dbl);
-	}
+	.grid--mrg-dbl-non-palm > .grid__item {@include to-rem(margin-bottom, $spacing-dbl);}
 }
 
 /* Double the gutter */
@@ -87,9 +83,7 @@
 	@include to-rem(margin-left, -$grid-gutter-dbl);
 
 	/* Grid item */
-	> .grid__item {
-		@include to-rem(padding-left, $grid-gutter-dbl);
-	}
+	> .grid__item {@include to-rem(padding-left, $grid-gutter-dbl);}
 }
 
 /* Center align */

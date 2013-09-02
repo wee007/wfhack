@@ -30,8 +30,7 @@
 
     @include respond-min($lap-lrg) {
       position: absolute;
-      @include to-rem(top, $spacing-half);
-      @include to-rem(left, $spacing-half);
+      @include to-rem(left top, $spacing-half);
       /* Restricts the width of the box so if the text is really long, it won't keep stretching the box */
       @include to-rem(width, 340);
     }

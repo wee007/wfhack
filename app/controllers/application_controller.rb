@@ -1,4 +1,9 @@
 class ApplicationController < ActionController::Base
+
+  if Rails.env.production? || Rails.env.uat?
+    http_basic_authenticate_with name: "guest", password: "Westfield1"
+  end
+
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception

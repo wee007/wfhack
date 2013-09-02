@@ -40,10 +40,6 @@
 		.slats__img img,
 		.slats__img--rev img {display: block;}
 
-	/* Body container columnised at this breakpoint */
 	.slats__body {
-		/* Creates new block formatting context so the container will just take up remaining space next to the floated slats__img. Taken from OOCSS's clearfix-facebook https://github.com/stubbornella/oocss/blob/master/oocss/src/components/utils/_clearfix-me.scss */
-		display: table-cell;
-	  vertical-align: top;
-	  width: 10000px;
+		@extend %new-block-formatting-context;
 	}

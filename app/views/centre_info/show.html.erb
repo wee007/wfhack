@@ -26,7 +26,7 @@
 <div class="nav-contextual js-nav-contextual">
   <div class="nav-contextual__clip">
     <div class="nav-contextual__clip-inner">
-      <ul class="nav-contextual__list horiz-list js-list">
+      <ul class="nav-contextual__list horiz-list js-nav-contextual-list">
         <li>
           <a href="#getting-here">Getting Here</a>
         </li><!--
@@ -47,11 +47,11 @@
         </li>
       </ul>
     </div>
-    <span class="nav-contextual__clip-overlay icon icon--arrow-right icon--mega icon--flush-top js-clip-overlay" aria-hidden="true"></span>
+    <span class="nav-contextual__clip-overlay icon icon--arrow-right icon--mega icon--flush-top js-nav-contextual-clip-overlay" aria-hidden="true"></span>
   </div>
 </div>
 <% content_for :javascript do %>
-  <script type="text/javascript">
+  <script>
     $('.js-nav-contextual').navContextual();
   </script>
 <% end -%>

@@ -1,5 +1,5 @@
 /* ======================================================================================
-   @ABSTRACTIONS -> FINE PRINT
+   @MODULES -> FINE PRINT
    ====================================================================================== */
 
 /*
@@ -7,11 +7,11 @@
     For fine print text such as terms and conditions
 
   Demo:
-    Style Guide -> Abstractions -> Fine Print
+    Style Guide -> Modules -> Fine Print
 */
 
 .fine-print {
-  @include to-rem(font-size, $font-size-milli);
+  @include font-size($font-size-milli);
   font-style: italic;
 }
 
@@ -19,7 +19,7 @@
 
 /* Centre aligns the text */
 .fine-print--center {
-  /* Need this as it's most likely we'll apply the classes to a <small> element */
+  /* Need this as it's most likely we'll apply the classes to a `small` element */
   display: block;
   text-align: center;
 }

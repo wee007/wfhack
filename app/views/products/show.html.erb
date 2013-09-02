@@ -131,10 +131,10 @@
     <%- @centres.each do |centre| -%>
       <li>
         <%= link_to centre_product_path(centre_id: centre.code, retailer_code: @product.retailer_code, sku: @product.sku),
-          class: "centres-list" do %>
-          <span class="icon icon--pin icon--lrg icon--spacing-lrg" aria-hidden="true"></span>
+          class: "list-divider" do %>
+          <span class="icon icon--pin icon--lrg icon--spacing-lrg icon--dark" aria-hidden="true"></span>
           <%= centre.short_name %>
-          <span class="icon icon--arrow-right icon--lrg" aria-hidden="true"></span>
+          <span class="icon icon--arrow-right icon--lrg icon--dark" aria-hidden="true"></span>
         <%- end -%>
       </li>
     <%- end -%>

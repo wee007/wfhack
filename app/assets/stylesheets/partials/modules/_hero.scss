@@ -12,45 +12,43 @@
 
 .hero {
   @include to-rem(height, 220);
-  @include to-rem(margin-bottom, $spacing-base);
+  @extend %mrg-base;
   color: #fff;
 
   @include respond-min($non-palm) {
     @include to-rem(height, 300);
     @include to-rem(margin-bottom, $spacing-dbl);
   }
+
+  /* Shared styles */
+  .icon,
+  h1 {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  /* Hero icon next to the heading   */
+  .icon:before {
+    @include font-size(30, 1);
+
+    @include respond-min($non-palm) {
+      @include font-size(50, 1);
+    }
+  }
+
+  /* Hero heading */
+  h1 {
+    text-transform: uppercase;
+    @include font-size(30);
+
+    @include respond-min($non-palm) {
+      @include font-size(60);
+    }
+  }
 }
 
   .hero__inner {
-    position: relative;
-
     @include respond-min($lap-lrg) {
       text-align: left;
     }
   }
-
-    /* Shared styles */
-    .hero__icon,
-    h1 {
-      display: inline-block;
-      vertical-align: middle;
-    }
-
-    /* Hero icon next to the heading   */
-    .hero__icon {
-      @include font-size(30, 1);
-
-      @include respond-min($non-palm) {
-        @include font-size(50, 1);
-      }
-    }
-
-    /* Hero heading */
-    h1 {
-      text-transform: uppercase;
-      @include font-size(30);
-
-      @include respond-min($non-palm) {
-        @include font-size(60);
-      }
-    }

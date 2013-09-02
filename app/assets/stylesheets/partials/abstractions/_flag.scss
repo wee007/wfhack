@@ -28,9 +28,11 @@
     .flag--bottom & {vertical-align: bottom;}
   }
 
+  /* Image container */
   .flag__image {
     @include to-rem(padding-right, $spacing-base);
 
+    /* Extend: Switch the padding around for when the image is on the right of `flag__body` */
     .flag--rev & {
       padding-right: 0;
       @include to-rem(padding-left, $spacing-base);

@@ -1,5 +1,5 @@
 /* ======================================================================================
-   @MODULES -> CENTRE MAP
+   @MODULES -> CENTRE LOCATION
    ====================================================================================== */
 
 /*
@@ -13,6 +13,7 @@
 .centre-location {
   position: relative;
 
+  /* `map-google-static` module which contains the static Google Map image */
   .map-google-static {
     @include to-rem(margin-bottom, $spacing-sixth);
 
@@ -28,10 +29,10 @@
     line-height: 1.4;
 
     @include respond-min($lap-lrg) {
+      position: absolute;
       @include to-rem(top, $spacing-half);
       @include to-rem(left, $spacing-half);
-      position: absolute;
-      /* Restricts the width of the box so it doesn't go 100% */
+      /* Restricts the width of the box so if the text is really long, it won't keep stretching the box */
       @include to-rem(width, 340);
     }
 

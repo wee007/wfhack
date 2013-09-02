@@ -6,8 +6,8 @@ $.fn.navContextual = (options) ->
   settings = $.extend {
     # defaults
     isClippedClass: 'is-clipped'
-    listSelector: '.js-list'
-    clipOverlaySelector: '.js-clip-overlay'
+    listSelector: '.js-nav-contextual-list'
+    clipOverlaySelector: '.js-nav-contextual-clip-overlay'
   }, options
 
   list = @find settings.listSelector

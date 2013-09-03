@@ -14,7 +14,7 @@
 
 /*
   Same as island, but with half the spacing.
-  
+
   .islet--top-btm      - Top and bottom padding only
   .islet--center      - Align text to the center
   .islet--fill        - Solid background
@@ -46,11 +46,14 @@
   padding-right: 0;
 }
 
-/* --Turn off padding-- */
+/* -Turn off padding- */
 
-/* Bottom - palm only */
+/* Bottom */
+.island--flush-btm {padding-bottom: 0;}
+
+/* Palm only */
 @include respond-max($palm) {
-	.island--btm-palm {padding-bottom: 0;}
+	.island--flush-btm-palm {padding-bottom: 0;}
 }
 
 /* Mix em up */

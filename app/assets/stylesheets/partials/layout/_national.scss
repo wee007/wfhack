@@ -1,0 +1,19 @@
+.national {
+  background: image-url("national/national-hero-01.jpg") top center;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.national-header {
+  color: #fff;
+  @include to-rem(min-height, 516);
+  @include to-rem(max-height, 1000);
+
+  .logo img {
+    /* Increase logo size at this breakpoint, same as dimension in `.is-header-hero .logo` */
+    @include respond-min($non-palm) {
+      width: 126px;
+      height: 41px;
+    }
+  } 
+}

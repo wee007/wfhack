@@ -1,10 +1,16 @@
-<%- @centres.each do |state, centres| -%>
-  <div>
-    <%= state %>
-    <ul>
-      <%- centres.each do |centre| -%>
-        <li><%= link_to centre.short_name, centre_path(centre.code) %></li>
-      <%- end -%>
-    </ul>
+<header role="banner" class="national-header">
+  <!-- Logo -->
+  <span class="logo">
+    <img src="<%= image_path "logo-white.svg" %>" alt="Westfield" data-svg-fallback="<%= image_path "logo-white.png" %>">
+  </span>
+  <!-- //Logo -->
+  <h1>You want. We find.</h1>
+</header>
+
+<main class="main" id="main" role="main">
+  <div class="container <%= yield(:class_for_main) %>">
+  <p>lasdflaksjaldskf ;lkasjdf ;alksdjf ;laksdjf ;aslkdjf ;lkajds f;lkja ;sdlfkj ;aslkdfja ;sdlkfj ;alsdkjfa ;sldkfja;lskdfj</p>
+
+  <p>lasdflaksjaldskf ;lkasjdf ;alksdjf ;laksdjf ;aslkdjf ;lkajds f;lkja ;sdlfkj ;aslkdfja ;sdlkfj ;alsdkjfa ;sldkfja;lskdfj</p>
   </div>
-<%- end -%>
+</main>

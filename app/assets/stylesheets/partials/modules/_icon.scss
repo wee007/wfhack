@@ -244,4 +244,5 @@
 
 /* -Alternate colors- */
 
-.icon--dark:before {color: $color-base-txt;}
+/* For turning the icon back to base colour. Useful for when you wrap a link around the icon and the icon gets turned into the link colour */
+.icon--base:before {color: $color-base-txt;}

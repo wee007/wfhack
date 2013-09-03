@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.2
+Version:     0.1.3
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,9 @@ fi
 
 
 %changelog
+* Tue Sep 03 2013 ci <doperations@au.westfield.com> 0.1.3-1
+- removes jquery-placeholder (matt.wratt@trineo.co.nz)
+
 * Tue Sep 03 2013 ci <doperations@au.westfield.com> 0.1.2-1
 - Merge pull request #337 from cpearce/master (ldewey@au.westfield.com)
 - Spec fix (ldewey@au.westfield.com)

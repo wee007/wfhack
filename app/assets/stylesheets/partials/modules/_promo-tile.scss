@@ -15,15 +15,17 @@
 
   img {border-bottom: 1px solid $color-grey-1;}
 
-  p {
-    @include to-rem(margin-bottom, $spacing-half);
-  }
+  p {@include to-rem(margin-bottom, $spacing-half);}
 }
 
   /* The tile's heading */
   .promo-tile__hdr {
     @include font-size($font-size-lrg);
     @include to-rem(margin-bottom, $spacing-quarter);
+
+    @include respond-min($non-palm) {
+      @include font-size(18);
+    }
   }
 
   /* The main icon of the tile that sits above the text */
@@ -31,14 +33,14 @@
     @include to-rem(padding, $spacing-third);
     @include font-size(24, 1);
     @include to-rem(margin-top, -20);
-    background: #fff;
+    background-color: #fff;
     border-radius: 100%;
     border: 1px solid $color-grey-1;
 
     @include respond-min($non-palm) {
       @include to-rem(padding, $spacing-half);
       /* Using to-rem mixin instead of font-size mixin because font-size mixin will auto-gen the line-height */
-      @include to-rem(font-size, 36);
+      @include font-size(36, 1);
       @include to-rem(margin-top, -28);
     }
   }

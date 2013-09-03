@@ -1,6 +1,6 @@
 class CentreInfoController < ApplicationController
 
-  layout 'hero', only: :show
+  layout 'sub_page', only: :show
 
   def show
     centre = nil

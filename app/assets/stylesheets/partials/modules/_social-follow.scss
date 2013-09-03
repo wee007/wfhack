@@ -7,18 +7,16 @@
     List of social media follow links.
 
   Note:
-    This module is used in the centre detail view for the "Follow Us" section
+    This module is used in the centre info view for the "Follow Us" section
 
   Demo:
     Style Guide -> Modules -> Social Follow
 */
 
-.social-follow {
-  .icon:before {
-    @include font-size(24, 1);
+.social-follow .icon:before {
+  @include font-size(24, 1);
 
-    @include respond-min($ipad-portrait) {
-      @include font-size(48, 1);
-    }
+  @include respond-min($ipad-portrait) {
+    @include font-size(48, 1);
   }
 }

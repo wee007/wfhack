@@ -3,7 +3,7 @@
   <style>
     .map-google-static {
       /*background: url("http://maps.googleapis.com/maps/api/staticmap?center=<%= @centre.latitude %>,<%= @centre.longitude %>&zoom=11&size=640x280&sensor=false") no-repeat 50% 50%;*/
-      background: url("http://placehold.it/980x280/666666/000000") no-repeat 50% 50%;
+      background-image: url("http://placehold.it/980x280/666666/000000");
     }
     /* High res */
     @media  (-o-min-device-pixel-ratio: 5/4),
@@ -12,20 +12,15 @@
               .map-google__static {
                 /*background-image: url("http://maps.googleapis.com/maps/api/staticmap?center=<%= @centre.latitude %>,<%= @centre.longitude %>&zoom=11&size=640x280&sensor=false&scale=2");*/
                 background-image: url("http://placehold.it/980x280/666666/000000");
-                background-size: 980px 280px;
               }
-    }
-
-    .hero {
-      background-repeat: no-repeat;
-      background-position: 100% 0;
     }
   </style>
 <% end %>
 
+<%# Nav contextual %>
 <div class="nav-contextual js-nav-contextual">
   <div class="nav-contextual__clip">
-    <div class="nav-contextual__clip-inner">
+    <div class="nav-contextual__clip__inner">
       <ul class="nav-contextual__list horiz-list js-nav-contextual-list">
         <li>
           <a href="#getting-here">Getting Here</a>
@@ -37,7 +32,7 @@
           <a href="#community">Community</a>
         </li><!--
       --><li>
-          <a href="#community">Notices</a>
+          <a href="#notices">Notices</a>
         </li><!--
       --><li>
           <a href="#contact-us">Contact Us</a>
@@ -47,7 +42,7 @@
         </li>
       </ul>
     </div>
-    <span class="nav-contextual__clip-overlay icon icon--arrow-right icon--mega icon--flush-top js-nav-contextual-clip-overlay" aria-hidden="true"></span>
+    <span class="nav-contextual__clip__overlay icon icon--arrow-right icon--mega icon--flush-top js-nav-contextual-clip-overlay" aria-hidden="true"></span>
   </div>
 </div>
 <% content_for :javascript do %>
@@ -55,7 +50,7 @@
     $('.js-nav-contextual').navContextual();
   </script>
 <% end -%>
-
+<%# //Nav contextual %>
 
 <div class="divider">
   <%# Text formatted %>
@@ -74,7 +69,7 @@
       <%# //Static Google map %>
 
       <%# Address box %>
-      <div class="box slats centre-location__info">
+      <div class="centre-location__info box slats">
         <div class="slats__img slats__img--compact">
           <%# [BACKEND] Make `alt` attr dynamic where indicated %>
           <img src="http://placehold.it/120x130&text=image" alt="Photo of [dynamic] shopping centre">
@@ -82,24 +77,25 @@
         <div class="slats__body islet">
           <p itemscope itemtype="http://schema.org/Organization">
             <span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
-              <span itemprop="streetAddress"> Cnr Narre Warren Cranbourne Rd &amp; Littlecroft Ave</span>
+              <span itemprop="streetAddress">Cnr Narre Warren Cranbourne Rd &amp; Littlecroft Ave</span>
               <br>
               <span itemprop="addressLocality">Narre Warren</span>
               <br>
               <span itemprop="addressRegion"><%= @centre.state %> <%= @centre.postcode %></span>
             </span>
           </p>
-          <a href="#">Open in Google Maps <span class="icon icon--arrow-right icon--lrg" aria-hidden="true"></span></a>
+          <a href="#" rel="external">Open in Google Maps <span class="icon icon--arrow-right icon--lrg" aria-hidden="true"></span></a>
         </div>
       </div>
       <%# //Address box %>
     </div>
     <%# //Shopping centre map %>
 
-    <%# Need spacing class `mrg-base--top` here as the map location will stack beflow the map image above %>
+    <%# Need spacing class `mrg-base--top` here as the map location will stack below the map image above %>
     <div class="grid grid--gutter-dbl grid--mrg-dbl-non-palm mrg-base--top">
       <div class="grid__item non-palm-one-half">
         <h3>By Train</h3>
+        <%# [BACKEND] In backoffice console, if user hits `ENTER`, need to make sure a new `p` is generated %>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque convallis leo at ligula ultricies, ac mollis lectus bibendum. Ut nec. Lorem ipsum dolor sit amet</p>
       </div>
 
@@ -140,8 +136,8 @@
             <tbody>
               <tr>
                 <td>0 - 2hrs</td>
-                <td class="txt-right">Free</td>
-                <td class="txt-right">Free</td>
+                <td class="txt-right txt-caps">Free</td>
+                <td class="txt-right txt-caps">Free</td>
               </tr>
               <tr>
                 <td>2hrs - 2.5hrs</td>
@@ -170,6 +166,7 @@
       </div>
 
       <div class="grid__item non-palm-one-half">
+        <%# [BACKEND] In backoffice console, if user hits `ENTER`, need to make sure a new `p` is generated %>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque convallis leo at ligula ultricies, ac mollis lectus bibendum. Ut nec.</p>
 
         <h3>Valet Parking</h3>
@@ -187,6 +184,7 @@
     <%# [BACKEND] To do the 2 columns, please set up two text fields in back office with character limit for each text field (that needs to be determined later). Each text field will correspond to one `grid__item` %>
     <div class="grid grid--gutter-dbl grid--mrg-dbl-non-palm">
       <div class="grid__item non-palm-one-half">
+        <%# [BACKEND] In backoffice console, if user hits `ENTER`, need to make sure a new `p` is generated %>
         <p>P1. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque convallis leo at ligula ultricies, ac mollis lectus bibendum. Ut nec. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque convallis leo at ligula ultricies, ac mollis lectus bibendum. Ut nec. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque convallis leo at ligula ultricies, ac mollis lectus bibendum.</p>
       </div>
 
@@ -197,6 +195,7 @@
       </div>
     </div>
 
+    <%# [BACKEND] Individual community - the number of community shown will be dynamic so need to replicate this block of code for each one %>
     <div class="grid grid--gutter-dbl grid--mrg-dbl-non-palm">
       <div class="grid__item non-palm-one-half">
         <div class="box">
@@ -210,6 +209,7 @@
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque convallis leo at ligula ultricies, ac mollis lectus bibendum. Ut nec. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque convallis leo at ligula ultricies, ac mollis lectus bibendum. Ut nec.</p>
       </div>
     </div>
+    <%# //Individual community %>
     <%# //Community %>
 
     <%# Notices %>
@@ -217,18 +217,18 @@
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 
     <div class="grid grid--gutter-dbl grid--mrg-dbl-non-palm">
-      <div class="grid__item">
+      <div class="grid__item non-palm-one-whole">
         <ul class="txt-formatted__list-unstyled">
           <li>
               <%# [BACKEND] The first link in the list needs to have class `list-divider--first` %>
               <a href="#" class="list-divider list-divider--first txt-truncate">Lorem ipsum dolor sit amet, consectetur adipiscing elitLorem ipsumdolorsitametconsectetur adipiscinfelit
-              <span class="icon icon--arrow-right icon--lrg icon--base" aria-hidden="true"></span>
+              <span class="icon icon--arrow-right icon--lrg icon--base-color" aria-hidden="true"></span>
             </a>
           </li>
           <li>
             <a href="#" class="list-divider txt-truncate">
               Quisque convallis leo at ligula ultricies
-              <span class="icon icon--arrow-right icon--lrg icon--base" aria-hidden="true"></span>
+              <span class="icon icon--arrow-right icon--lrg icon--base-color" aria-hidden="true"></span>
             </a>
           </li>
         </ul>
@@ -250,13 +250,16 @@
               <span class="hide-visually">Phone number</span>
               <span itemprop="telephone"><%= @centre.phone_number %></span>
             </div>
+            <%# //Show centre number if at non-palm size %>
 
-            <%# Show CTA button for centre contact number %>
+            <%# Show CTA button for centre contact number for palm %>
             <span class="hide-fully--non-palm">
               <a href="tel:<%= (@centre.phone_number || "").gsub(/\s+/,'') %>" class="txt-center btn btn--full btn--main btn--main-alt2 btn--main-lrg">
                 <span class="icon icon--phone icon--xlrg icon--spacing-lrg icon--flush-top" aria-hidden="true"></span>
-                <strong>Call <%= @centre.short_name %> Centre</strong></a>
+                <strong>Call <%= @centre.short_name %> Centre</strong>
+              </a>
             </span>
+            <%# //Show CTA button for centre contact number for palm %>
           </div>
         <% end %>
         <%# //Phone number %>
@@ -292,7 +295,7 @@
           <a href="<%= @centre.facebook %>" class="flag social-follow" rel="external">
             <div class="flag__image">
               <div class="box islet">
-                <span class="icon icon--facebook icon--base" aria-hidden="true"></span>
+                <span class="icon icon--facebook icon--base-color" aria-hidden="true"></span>
               </div>
             </div>
             <div class="flag__body">
@@ -309,7 +312,7 @@
           <a href="<%= @centre.twitter %>" class="flag social-follow" rel="external">
             <div class="flag__image">
               <div class="box islet">
-                <span class="icon icon--twitter icon--base" aria-hidden="true"></span>
+                <span class="icon icon--twitter icon--base-color" aria-hidden="true"></span>
               </div>
             </div>
             <div class="flag__body">
@@ -326,7 +329,7 @@
           <a href="<%= @centre.instagram %>" class="flag social-follow" rel="external">
             <div class="flag__image">
               <div class="box islet">
-                <span class="icon icon--instagram icon--base" aria-hidden="true"></span>
+                <span class="icon icon--instagram icon--base-color" aria-hidden="true"></span>
               </div>
             </div>
             <div class="flag__body">
@@ -343,7 +346,7 @@
           <a href="<%= @centre.pinterest %>" class="flag social-follow" rel="external">
             <div class="flag__image">
               <div class="box islet">
-                <span class="icon icon--pinterest icon--base" aria-hidden="true"></span>
+                <span class="icon icon--pinterest icon--base-color" aria-hidden="true"></span>
               </div>
             </div>
             <div class="flag__body">
@@ -360,7 +363,7 @@
           <a href="<%= @centre.youtube %>" class="flag social-follow" rel="external">
             <div class="flag__image">
               <div class="box islet">
-                <span class="icon icon--youtube icon--base" aria-hidden="true"></span>
+                <span class="icon icon--youtube icon--base-color" aria-hidden="true"></span>
               </div>
             </div>
             <div class="flag__body">
@@ -377,7 +380,7 @@
           <a href="<%= @centre.google_plus %>" class="flag social-follow" rel="external">
             <div class="flag__image">
               <div class="box islet">
-                <span class="icon icon--google-plus icon--base" aria-hidden="true"></span>
+                <span class="icon icon--google-plus icon--base-color" aria-hidden="true"></span>
               </div>
             </div>
             <div class="flag__body">
@@ -393,39 +396,37 @@
 </div>
 <%# //Divider %>
 
-<footer>
-  <div class="grid grid--gutter-dbl">
-    <div class="grid__item non-palm-one-half">
-      <%# Shopping hours box %>
-      <div class="promo-tile box">
-        <img src="http://placehold.it/600x132">
-        <span class="promo-tile__icon-main icon icon--hours icon--flush-top" aria-hidden="true"></span>
-        <div class="islet island--non-palm">
-          <h2 class="promo-tile__hdr">Opening Hours</h2>
-          <div class="txt-formatted">
-            <p>Find out specific hours for our department stores.</p>
-            <a href="#">Check Shopping Hours</a>
-          </div>
+<footer class="grid grid--gutter-dbl"> 
+  <div class="grid__item non-palm-one-half">
+    <%# Shopping hours box %>
+    <div class="promo-tile box">
+      <img src="http://placehold.it/600x132" alt="">
+      <span class="promo-tile__icon-main icon icon--hours icon--flush-top" aria-hidden="true"></span>
+      <div class="islet island--non-palm">
+        <h2 class="promo-tile__hdr">Opening Hours</h2>
+        <div class="txt-formatted">
+          <p>Find out specific hours for our department stores.</p>
+          <a href="#">Check Shopping Hours</a>
         </div>
       </div>
-      <%# //Shopping hours box %>
     </div>
+    <%# //Shopping hours box %>
+  </div>
 
-    <div class="grid__item non-palm-one-half">
-      <%# Centre services box %>
-      <div class="promo-tile box">
-        <img src="http://placehold.it/600x132">
-        <span class="promo-tile__icon-main icon icon--service icon--flush-top" aria-hidden="true"></span>
-        <div class="islet island--non-palm">
-          <h2 class="promo-tile__hdr">Centre Services</h2>
-          <div class="txt-formatted">
-            <p>Find out the full selection of services available.</p>
-            <a href="#">Get Directions</a>
-          </div>
+  <div class="grid__item non-palm-one-half">
+    <%# Centre services box %>
+    <div class="promo-tile box">
+      <img src="http://placehold.it/600x132" alt="">
+      <span class="promo-tile__icon-main icon icon--service icon--flush-top" aria-hidden="true"></span>
+      <div class="islet island--non-palm">
+        <h2 class="promo-tile__hdr">Centre Services</h2>
+        <div class="txt-formatted">
+          <p>Find out the full selection of services available.</p>
+          <a href="#">Get Directions</a>
         </div>
       </div>
-      <%# //Centre services box %>
     </div>
+    <%# //Centre services box %>
   </div>
 </footer>
 

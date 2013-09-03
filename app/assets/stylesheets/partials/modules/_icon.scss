@@ -239,10 +239,10 @@
 
 .icon--kilo:before {@include font-size(24, 1);}
 
-/* Default */
-.icon--default:before {font-size: inherit;}
+/* -Restore base rules- */
 
-/* -Alternate colors- */
+/* Font size */
+.icon--base-size:before {font-size: inherit;}
 
-/* For turning the icon back to base colour. Useful for when you wrap a link around the icon and the icon gets turned into the link colour */
-.icon--base:before {color: $color-base-txt;}
+/* Colour */
+.icon--base-color:before {color: $color-base-txt;}

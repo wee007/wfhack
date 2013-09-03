@@ -24,9 +24,7 @@
   @media  (-o-min-device-pixel-ratio: 5/4),
           (-webkit-min-device-pixel-ratio: 1.25),
           (min-resolution: 120dpi) {
-            & {
-              background-size: 980px 280px;
-            }
+            background-size: 980px 280px;
           }
 
   /* Hide image so we can use a bg img instead to maintain scale, see: http://webdesigntutsplus.s3.amazonaws.com/tuts/365_google_maps/demo/index.html */

@@ -49,8 +49,8 @@
   }
 }
 
-  .hero__inner {
-    @include respond-min($lap-lrg) {
+  @include respond-min($lap-lrg) {
+    .hero__inner {
       text-align: left;
     }
   }

@@ -39,7 +39,6 @@
 
     @include respond-min($non-palm) {
       @include to-rem(padding, $spacing-half);
-      /* Using to-rem mixin instead of font-size mixin because font-size mixin will auto-gen the line-height */
       @include font-size(36, 1);
       @include to-rem(margin-top, -28);
     }

@@ -64,6 +64,7 @@ Global stylesheet
   @import "partials/utils/placeholders/arrows";
   @import "partials/utils/placeholders/box-shadows";
   @import "partials/utils/placeholders/hide";
+  @import "partials/utils/placeholders/new-block-formatting-context";
 
 /* Base */
 @import "partials/base/fonts";
@@ -85,7 +86,6 @@ Global stylesheet
 @import "partials/layout/header";
 @import "partials/layout/main";
 @import "partials/layout/footer";
-@import "partials/layout/hero";
 
   /* Layout -> Grid */
   @import "partials/layout/grid/grid";
@@ -112,6 +112,7 @@ Global stylesheet
 @import "partials/abstractions/box";
 @import "partials/abstractions/toggle-content";
 @import "partials/abstractions/angular-cloak";
+@import "partials/abstractions/flag";
 
 /* Modules */
 @import "partials/modules/feedback";
@@ -126,7 +127,7 @@ Global stylesheet
 @import "partials/modules/social-share";
 @import "partials/modules/tags";
 @import "partials/modules/pin-board";
-@import "partials/modules/centres-list";
+@import "partials/modules/list-divider";
 @import "partials/modules/timeline";
 @import "partials/modules/deal-main";
 @import "partials/modules/filters";
@@ -140,6 +141,12 @@ Global stylesheet
 @import "partials/modules/txt-formatted";
 @import "partials/modules/nav-contextual";
 @import "partials/modules/centre-selector";
+@import "partials/modules/hero";
+@import "partials/modules/centre-location";
+@import "partials/modules/map-google-static";
+@import "partials/modules/social-follow";
+@import "partials/modules/fine-print";
+@import "partials/modules/promo-tile";
 
   /* Modules -> Widgets */
   @import "partials/modules/widgets/accordion";

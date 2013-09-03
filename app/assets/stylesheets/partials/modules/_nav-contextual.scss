@@ -10,31 +10,43 @@
     Style Guide -> Modules -> Nav Contextual
 */
 
-.nav-contextual {position: relative;}
+.nav-contextual {
+  position: relative;
+  @extend %mrg-base;
+  border-bottom: 1px solid $color-grey-1;
+}
 
-  /* Clip scrollable contents (palm) */
+  /* Clip scrollable contents */
   .nav-contextual__clip {
-    /* Make space for the arrow on the right */
-    @include to-rem(margin-right, $spacing-dbl);
+    /* Make space for the arrow on the right. The spacing needs to be smaller than .nav-contextual__clip__overlay */
+    @include to-rem(margin-right, $spacing-base);
   }
 
-    /* Scroll the contents of the navigation when the viewport is narrow enough */
-    .nav-contextual__clip-inner {
-      overflow-x: scroll;
-      -webkit-overflow-scrolling: touch;
-      border-bottom: 1px solid $color-light-txt;
+    .nav-contextual__clip__inner {
+      /* Before the JS kicks in, we'll see a scrollbar if the list of links is long. This prevents the flash of styles you get between page load and the JS getting applied.  */
+      overflow: hidden;
+
+      /* Allows scrolling of the list of links when JS detects that the width of `nav-contextual__list` is wider than `nav-contextual__clip__inner`  */
+      .is-clipped & {
+        overflow-x: scroll;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      /* No JS */
+      .no-js & {overflow-x: auto;}
     }
 
     /* Gradient that lays on top of the list */
-    .nav-contextual__clip-overlay {
+    .nav-contextual__clip__overlay {
+      /* Hide the overlay by default */
+      display: none;
       top: 0;
       height: 100%;
       @include to-rem(padding-left, $spacing-dbl);
+      @include linear-gradient($from: rgba($color-grey-3, 0) 0%, $to: rgba($color-grey-3, 1) 50%, $dir: right, $dir-webkit: left);
 
-      /* Hide the gradient */
-      @include respond-min($lap-lrg) {
-        display: none;
-      }
+      /* Shows the overlay when JS detects that the width of `nav-contextual__list` is wider than `nav-contextual__clip__inner` */
+      .is-clipped & {display: block;}
 
       /* Shared rules */
       &,
@@ -43,6 +55,7 @@
         right: 0;
       }
 
+      /* Aligning the arrow and gradient overlay vertically */
       &:before {
         top: 50%;
         @include translate(0, -50%);
@@ -51,8 +64,11 @@
 
     /* List of nav items */
     .nav-contextual__list {
-      /* Sets container to be wide-enough that they are horiz aligned. Just a magic number */
-      width: 250%;
+      /* To prevent the flash between page load and the JS getting applied. This gives the list a big enough width to cater for all the LI */
+      width: 10000px;
+
+      /* No JS */
+      .no-js & {width: auto}
 
       > li {
         @include to-rem(margin-left, $spacing-base);
@@ -61,6 +77,7 @@
 
         a {
           @include to-rem(padding-top padding-bottom, $spacing-half);
+          color: $color-light-txt;
           border-bottom: 2px solid transparent;
 
           @include respond-min($non-palm) {
@@ -77,22 +94,18 @@
 
 /* Dark color */
 .nav-contextual--dark {
-
-  .nav-contextual__clip-inner {border-bottom: 0;}
+  margin-bottom: 0;
+  border-bottom: 0;
 
     .nav-contextual__list > li  {
       a {
-        color: $color-light-txt;
-
         &:hover,
-        &:focus {color: #fff;}
-
+        &:focus,
         &.is-active {color: #fff;}
       }
     }
 
-  .nav-contextual__clip-overlay {
-    color: $color-light-txt;
+  .nav-contextual__clip__overlay {
     @include linear-gradient($from: rgba($color-med-txt, 0) 0%, $to: rgba($color-med-txt, 1) 50%, $dir: right)
   }
 }

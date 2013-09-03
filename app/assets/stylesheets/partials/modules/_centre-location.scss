@@ -1,0 +1,41 @@
+/* ======================================================================================
+   @MODULES -> CENTRE LOCATION
+   ====================================================================================== */
+
+/*
+  Usage:
+    Contains the Google static map of the centre and the centre addres
+
+  Demo:
+    Style Guide -> Modules -> Centre Location
+*/
+
+.centre-location {
+  position: relative;
+
+  /* `map-google-static` module which contains the static Google Map image */
+  .map-google-static {
+    @include to-rem(margin-bottom, $spacing-sixth);
+
+    @include respond-min($lap-lrg) {
+      margin-bottom: 0;
+    }
+  }
+}
+
+  /* The location box containing the img and the address */
+  .centre-location__info {
+    /* Needs a tighter line-height than the default */
+    line-height: 1.4;
+
+    @include respond-min($lap-lrg) {
+      position: absolute;
+      @include to-rem(left top, $spacing-half);
+      /* Restricts the width of the box so if the text is really long, it won't keep stretching the box */
+      @include to-rem(width, 340);
+    }
+
+    /* The address of the centre */
+    p {@include to-rem(margin-bottom, $spacing-sixth);}
+  }
+  

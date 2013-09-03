@@ -1,0 +1,38 @@
+/* ======================================================================================
+   @MODULES -> GOOGLE MAP STATIC
+   ====================================================================================== */
+
+/*
+  Usage:
+    Static Google map.
+
+  Note:
+    Hides the Google static map image. It gets applied as a background image (but done via style block on the page)
+
+  Demo:
+    Style Guide -> Modules -> Google Map Static
+
+  Credit:
+    http://webdesigntutsplus.s3.amazonaws.com/tuts/365_google_maps/demo/index.html
+*/
+
+.map-google-static {
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+
+  /* High res */
+  @media  (-o-min-device-pixel-ratio: 5/4),
+          (-webkit-min-device-pixel-ratio: 1.25),
+          (min-resolution: 120dpi) {
+            background-size: 980px 280px;
+          }
+
+  /* Hide image so we can use a bg img instead to maintain scale, see: http://webdesigntutsplus.s3.amazonaws.com/tuts/365_google_maps/demo/index.html */
+  img {
+    @include opacity(0);
+    @include to-rem(height, 280);
+
+    /* Print */
+    @media print {opacity: 1;}
+  }
+}

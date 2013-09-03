@@ -106,10 +106,10 @@
 .icon--pinterest:before {content: "\e024";}
 
 /* Instagram */
-.icon-instagram:before {content: "\e032";}
+.icon--instagram:before {content: "\e032";}
 
 /* YouTube */
-.icon-youtube:before {content: "\f167";}
+.icon--youtube:before {content: "\f167";}
 
 /* Close large */
 .icon--close-lrg:before {content: "\e00f";}
@@ -239,5 +239,10 @@
 
 .icon--kilo:before {@include font-size(24, 1);}
 
-/* Default */
-.icon--default:before {font-size: inherit;}
+/* -Restore base rules- */
+
+/* Font size */
+.icon--base-size:before {font-size: inherit;}
+
+/* Colour */
+.icon--base-color:before {color: $color-base-txt;}

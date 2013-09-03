@@ -4,39 +4,56 @@
 
 /*
 	Usage:
-		List of shopping centres.
+		List of content with divider inbetween
 
 	Note:
 		For most cases this module will be a list but they're cases when there can be a single item hence no styling is set on the list HTML (`ul/li`).
 
 	Demo:
-		Style Guide -> Modules -> Centres List
+		Style Guide -> Modules -> List Divider
 */
 
-.centres-list {
-	color: $color-dark-txt;
+.list-divider {
+  position: relative;
 	@include font-size($font-size-sml, 1.5);
 	font-weight: bold;
 	display: block;
 	border-bottom: 1px solid $color-grey-2;
-	@include to-rem(padding-top, $spacing-half);
-	@include to-rem(padding-bottom, $spacing-quarter);
+  /* The padding-right is to make space for the arrow icon*/
+	@include to-rem(padding, $spacing-half $spacing-base $spacing-quarter 0);
 
 	/* Increase padding at this breakpoint */
 	@include respond-min($non-palm) {
     @include to-rem(padding-top, $spacing-base);
 		@include to-rem(padding-bottom, $spacing-half);
 
-    /* Increase right spacing for icon */
-  	.icon--spacing-lrg:before {margin-right: to-em($spacing-half);}
   }
 
-  /* Webkit */
-  @include target-webkit {
-		.icon--spacing-lrg:before {top: -2px;}
-	}
+  /* --Icon-- */
+
+  /* Left hand side icon */
+	.icon--spacing-lrg:before {
+
+    /* Increase right spacing for icon */
+    @include respond-min($non-palm) {
+      margin-right: to-em($spacing-half);
+    }
+
+    /* Webkit */
+    @include target-webkit {
+  		top: -2px;
+  	}
+  }
 
   /* Position arrow icon over to the right */
-  .icon--arrow-right {float: right;}
+  .icon--arrow-right {
+    position: absolute;
+    right: 0;
+  }
 }
+
+/* --Extenders-- */
+
+/* Turn off top padding for the first item */
+.list-divider--first {padding-top: 0;}
 

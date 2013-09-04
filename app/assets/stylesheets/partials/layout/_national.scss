@@ -2,12 +2,15 @@
    @LAYOUT -> NATIONAL HOMEPAGE
    ====================================================================================== */
 
-/* Class on `html` */
-.national {
-  &,
-  body {
-    padding-bottom: 0;
-    height: 100%;
+@include respond-min($non-palm) {
+  /* Class on `html` */
+  .national {
+    &,
+    body {
+      /* Need to remove bottom padding otherwise it gets included into the `height: 100%`. Don't need it for palm size devices as they don't have full viewport images */
+      padding-bottom: 0;
+      height: 100%;
+    }
   }
 }
 
@@ -17,6 +20,7 @@
   @include to-rem(height, 259);
 
   @include respond-min($non-palm) {
+    /* By making it shorter than 100%, we will have room to show the centres tiles in the viewport */
     height: 90%;
   }
 
@@ -26,11 +30,15 @@
     position: absolute;
   }
 
+  /* Contains the logo, tagline and nav */
   .container {
+    /* Setting a higher `z-index` so it will sit on top of the hero images */
     z-index: 2;
+    /* Full height of the header height */
     height: 100%;
 
     @include respond-min($non-palm) {
+      /* Allows users to "click through" to the layer that sits under it, which is the link around the hero images */
       pointer-events: none;
     }
   }
@@ -46,23 +54,36 @@
     }
 
     h1 {
-      /* Aligns text centre vertically*/
+      /* Aligns text centre vertically */
       top: 50%;
       left: 50%;
       @include translate(-50%, -50%);
 
       @include respond-min($non-palm) {
+        /* Aligns text centre horizontall as well at this breakpoint */
         left: 0;
         @include translate(0, -50%);
       }
     }
 
+    /* Reset the pointer event so user can click on the nav link instead of the link around the hero images */
     nav {pointer-events: auto;}
 }
 
-/* Hero image */
+/* Animation for the rotating hero images. Used in `.national hero div` */
+@-webkit-keyframes hero-animation { 
+  0% {opacity: 0;}
+  10% {opacity: 1;}
+  50% {opacity: 1;}
+  60% {opacity: 0;}
+  100% {opacity: 0;}
+}
+
+/* Hero image that rotates in the background */
 .national-hero {
+  /* The container for each image */
   div {
+    /* Lower z-index than `.national-header .container`so it will sit under the logo, tagline and nav */
     z-index: 1;
     position: absolute;
     top: 0;
@@ -75,20 +96,30 @@
     opacity: 0;
 
     @include respond-min($non-palm) {
+      /* Because it's `position: absolute`, we need to redeclare this height even though it was already declared for the header */
       height: 90%;
       background-attachment: fixed;
     }
+
+    /* When lazy loading is completed for each image */
+    &.is-loaded {
+      -webkit-animation: hero-animation 10s linear infinite 0s;
+      // -moz-animation: hero-animation 36s linear infinite 0s;
+      // -o-animation: hero-animation 36s linear infinite 0s;
+      // -ms-animation: hero-animation 36s linear infinite 0s;
+      // animation: hero-animation 36s linear infinite 0s; 
+    }
+
+    &:nth-of-type(1) {
+      -webkit-animation-delay: 0;
+    }
+
+    &:nth-of-type(2) {
+      -webkit-animation-delay: 5s;
+    }
   }
 }
-  
-  .is-loaded {
-    -webkit-animation: hero-animation 10s linear infinite 0s;
-    // -moz-animation: hero-animation 36s linear infinite 0s;
-    // -o-animation: hero-animation 36s linear infinite 0s;
-    // -ms-animation: hero-animation 36s linear infinite 0s;
-    // animation: hero-animation 36s linear infinite 0s; 
-  }
-
+  /*-- Hero image path --*/ 
   .national-hero__img-1 {
     background-image: image-url("national/national-hero-01-sml.jpg");
 
@@ -96,22 +127,7 @@
       background-image: image-url("national/national-hero-01.jpg");
     }
   }
+
   .national-hero__img-2 {
     background-image: image-url("national/national-hero-02.jpg");
-    -webkit-animation-delay: 5s;
-    // -moz-animation-delay: 2s;
-    // -o-animation-delay: 2s;
-    // -ms-animation-delay: 2s;
-    // animation-delay: 6s; 
   }
-
-/* Animation for the slideshow images */
-@-webkit-keyframes hero-animation { 
-  0% { opacity: 0;
-  -webkit-animation-timing-function: ease-in; }
-  8% { opacity: 1;
-       -webkit-animation-timing-function: ease-out; }
-  30% { opacity: 1 }
-  50% { opacity: 0 }
-  100% { opacity: 0 }
-}

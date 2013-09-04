@@ -22,7 +22,8 @@
     <%# //Product name, brand and price %>
 
     <%# Check if a product is available at a centre %>
-    <% if @centres.empty? %>
+    <%# if @centres.empty? %>
+    <% if @centres.any? %>
 
       <%# When product is not available at a centre %>
       <div class="detail-view__product-not-avble detail-view__divider">
@@ -30,7 +31,7 @@
           <div class="vert-align__inner">
             <span class="icon icon--map icon--flush-top" aria-hidden="true"></span>
             <span class="icon icon--pin" aria-hidden="true"></span>
-            <p>This product is not available at <strong><%= @product.retail_chain_name %></strong> in <%= @centre.short_name %></p>
+            <p><strong><%= @product.retail_chain_name %></strong> is not located in <%= @centre.name %></p>
           </div>
         </div>
       </div>

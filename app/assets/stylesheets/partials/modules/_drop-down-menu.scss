@@ -78,8 +78,6 @@
       overflow: hidden;
       color: #fff;
       text-shadow: 0 -2px rgba(#e5e5e5, 0.9);
-      @extend .icon:before;
-      @extend .icon--arrow-up-full:before;
 
       /* iOS */
       .ios & {top: -10px;}
@@ -112,7 +110,7 @@
 
     /* Header button */
     .drop-down-menu__hdr-btn.btn {
-      @extend .islet;
+      @include to-rem(padding, $spacing-half);
 
       /* Forward indicator (arrow icon) */
       .icon.btn--pointer__icon {@include to-rem(right, $spacing-half);}
@@ -143,7 +141,7 @@
         &:last-child {border-bottom: 0;}
 
         /* Apply 'Islet' padding to buttons */
-        .btn--full {@extend .islet;}
+        .btn--full {@include to-rem(padding, $spacing-half);}
       }
 
       /* Truncate `label`s */

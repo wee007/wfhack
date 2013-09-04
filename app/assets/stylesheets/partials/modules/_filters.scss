@@ -46,7 +46,7 @@ $filter-drop-down-width: 285;
 
   /* 'On sale' toggle */
   .filters__sale {
-    @extend .islet;
+    @include to-rem(padding, $spacing-half);
     @extend %transition-subtle;
 
     /* Turn off styles at this breakpoint */

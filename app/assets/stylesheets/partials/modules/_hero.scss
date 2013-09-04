@@ -16,7 +16,8 @@
   color: #fff;
   background-repeat: no-repeat;
   background-position: 100% 0;
-  
+  background-size: cover;
+
   @include respond-min($non-palm) {
     @include to-rem(height, 300);
     @include to-rem(margin-bottom, $spacing-dbl);

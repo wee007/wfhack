@@ -314,8 +314,8 @@
         @include to-rem(height, 344);
       }
 
-        /* Vertically align abstraction mods */
-        .vert-align {
+        /* Inner container */
+        > div {
           width: 80%;
           margin: 0 auto;
         }
@@ -324,14 +324,16 @@
           .icon {
 
             &,
-            &:before {display: block;}
+            &:before {
+              display: block;
+
+              /* Old IE */
+              @include old-ie {
+                display: none;
+              }
+            }
 
             &:before {color: $color-grey-1;}
-
-            /* Old IE */
-            @include old-ie {
-              display: none;
-            }
           }
 
           /* Map icon */

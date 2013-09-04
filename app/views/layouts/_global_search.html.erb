@@ -5,10 +5,11 @@
     <%= form_tag centre_products_path(centre_id: params[:centre_id] || params[:id]), class: "search-mini", role: "search", method: :get do %>
       <span class="icon icon--search" aria-hidden="true"></span>
       <label for="global-search" class="hide-visually">Search site</label>
-      <input type="hidden" ng-model="centre" value="<%= params[:centre_id] || params[:id]%>">
-      <input type="search" class="search-mini__input" id="global-search" ng-model="searchQuery" name="search_query" autocomplete="off" placeholder="Search products&#8230;">
+      <input type="hidden" ng-model="centre" value="<%= params[:centre_id] || params[:id] %>">
+      <input ng-model="searchQuery" ng-keyup="makeSuggestions()" ng-keydown="navigateSuggestions($event)" type="search" class="search-mini__input" id="global-search" name="search_query" autocomplete="off" placeholder="Search products&#8230;">
       <input type="submit" value="Search" ng-hide="true">
-      <em role="status" aria-live="polite" class="hide-visually">[search results total] results are available, use up and down arrow keys to navigate.</em>
+
+      <em ng-if="suggestions" ng-pluralize count="suggestions.length" when="searchResultText()" role="status" aria-live="polite" class="hide-visually"></em>
     <% end %>
     <%# //Search form %>
 

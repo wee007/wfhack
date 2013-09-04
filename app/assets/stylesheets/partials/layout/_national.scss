@@ -1,19 +1,79 @@
+/* ======================================================================================
+   @LAYOUT -> NATIONAL HOMEPAGE
+   ====================================================================================== */
+
+/* Class on `html` */
 .national {
-  background: image-url("national/national-hero-01.jpg") top center;
-  background-attachment: fixed;
-  background-size: cover;
+  &,
+  body {height: 100%;}
 }
 
+
+/* Header section - containing logo, nav and heading */
 .national-header {
   color: #fff;
-  @include to-rem(min-height, 516);
-  @include to-rem(max-height, 1000);
+  @include to-rem(height, 259);
 
-  .logo img {
-    /* Increase logo size at this breakpoint, same as dimension in `.is-header-hero .logo` */
+  /* -- Shared styles -- */
+  /* Make the header and hero containers 90% height of the body */
+  @include respond-min($non-palm) {
+    &,
+    .national-hero {height: 90%;}
+  }
+
+  .logo img,
+  h1,
+  nav {
+    position: absolute;
+  }
+
+  .container {
+    z-index: 2;
+    height: 100%;
+
     @include respond-min($non-palm) {
-      width: 126px;
-      height: 41px;
+      pointer-events: none;
     }
-  } 
+  }
+
+    .logo img {
+      @include to-rem(top, 35);
+
+      @include respond-min($non-palm) {
+        /* Increase logo size at this breakpoint, same as dimension in `.is-header-hero .logo` */
+        width: 126px;
+        height: 41px;
+      }
+    }
+
+    h1 {
+      /* Aligns text centre vertically*/
+      top: 50%;
+      left: 50%;
+      @include translate(-50%, -50%);
+
+      @include respond-min($non-palm) {
+        left: 0;
+        @include translate(0, -50%);
+      }
+    }
+
+    nav {pointer-events: auto;}
+}
+
+/* Hero image */
+.national-hero {
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  @include to-rem(min-height, 259);
+  background: image-url("national/national-hero-01-sml.jpg") no-repeat 0 0;
+  background-size: cover;
+
+  @include respond-min($non-palm) {
+    background-attachment: fixed;
+    background-image: image-url("national/national-hero-01.jpg");
+  }
 }

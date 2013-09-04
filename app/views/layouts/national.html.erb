@@ -1,7 +1,7 @@
 <!doctype html>
-<!--[if (lt IE 9) & (!IEMobile)]> <html class="no-js old-ie ie" lang="en">  <![endif]-->
-<!--[if (IE 9) & (!IEMobile)]>    <html class="no-js ie-9 ie" lang="en">    <![endif]-->
-<!--[if gt IE 8]><!-->            <html class="no-js" lang="en">            <!--<![endif]-->
+<!--[if (lt IE 9) & (!IEMobile)]> <html class="no-js old-ie ie national" lang="en">  <![endif]-->
+<!--[if (IE 9) & (!IEMobile)]>    <html class="no-js ie-9 ie national" lang="en">    <![endif]-->
+<!--[if gt IE 8]><!-->            <html class="no-js national" lang="en">            <!--<![endif]-->
 <head>
   <base href="<%= request.path %>">
   <meta name="fragment" content="!">
@@ -38,7 +38,7 @@
 
 </head>
 
-<body class="national <%= params[:controller] %> <%= params[:action] %> <%= yield :class_for_body %>" ng-app="Westfield" ng-init="centre_id='<%= params[:centre_id] || params[:id] %>'">
+<body class="<%= params[:controller] %> <%= params[:action] %> <%= yield :class_for_body %>" ng-app="Westfield" ng-init="centre_id='<%= params[:centre_id] || params[:id] %>'">
 
   <!-- Skip link -->
   <a href="#main" class="hide-visually skip-link">Skip to main content</a>

@@ -238,11 +238,6 @@
     }
   }
 
-  /* The image */
-  .detail-view__media {
-    text-align: center;
-  }
-
   /* --Variations-- */
 
   /* Deal */
@@ -299,10 +294,73 @@
         }
       }
     }
+
+    /* Product not available in a centre */
+    .detail-view__product-not-avble {
+      @include font-size($font-size);
+      @include to-rem(height, 330);
+      background-color: $color-off-white;
+
+      /* Alternate heights at these breakpoints */
+      @include respond-range($non-palm, 899) {
+        @include to-rem(height, 304);
+      }
+
+      @include respond-range(900, 977) {
+        @include to-rem(height, 284);
+      }
+
+      @include respond-min(978) {
+        @include to-rem(height, 344);
+      }
+
+        /* Vertically align abstraction mods */
+        .vert-align {
+          width: 80%;
+          margin: 0 auto;
+        }
+
+          /* --Icons-- */
+          .icon {
+
+            &,
+            &:before {display: block;}
+
+            &:before {color: $color-grey-1;}
+
+            /* Old IE */
+            @include old-ie {
+              display: none;
+            }
+          }
+
+          /* Map icon */
+          .icon--map:before {
+            @include font-size(58, 1);
+            @include to-rem(margin-bottom, -23);
+
+            /* IE 9 */
+            .ie-9 & {@include to-rem(margin-bottom, -26);}
+          }
+
+          /* Pin icon */
+          .icon--pin:before {
+            text-shadow: -2px -2px 0 $color-off-white,
+                         3px 3px 0 $color-off-white;
+            @include font-size(38, 1);
+            @include to-rem(left, $spacing-half);
+
+            /* IE 9 */
+            .ie-9 & {color: darken($color-grey-1, 5%);}
+          }
+    }
   }
 
   /* Event */
   .detail-view--event {
+
+    /* Main image */
+    .detail-view__media {text-align: center;}
 
     /* Schedule */
     .detail-view__schedule {

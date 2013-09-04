@@ -1,9 +1,9 @@
 <div class="detail-view__divider--col grid grid--gutterless grid--rev-stack grid--rev grid--flush">
 
-  <!-- Product name, brand, price, location and contact -->
+  <%# Product name, brand, price, location and contact %>
   <div class="grid__item non-palm-two-fifths">
 
-    <!-- Product name, brand and price -->
+    <%# Product name, brand and price %>
     <header class="island detail-view__divider">
       <h1 class="detail-view__hdr hn detail-view__mrg-half" id="detail-view__hdr"><%= @product.name %></h1>
       <p class="detail-view__meta">
@@ -19,24 +19,48 @@
         <%- end -%>
       </p>
     </header>
-    <!-- //Product name, brand and price -->
+    <%# //Product name, brand and price %>
 
-    <!-- Store location -->
-    <div class="map-micello map-micello--static detail-view__divider">
-      <%= render partial: 'shared/map', locals: {store_id: @centre_stores.first.try(:id), interactive: false, load_immediately: true} %>
-    </div>
-    <!-- //Store location -->
+    <%# Check if a product is available at a centre %>
+    <% if @centres.empty? %>
 
-    <!-- Contact store -->
-    <div class="island island--fill island--center islet-tops detail-view__divider">
-      <span class="hide-fully--non-palm">
-        <a href="tel:<%= (@product.retail_chain.phone_no || "").gsub(/\s+/,'') %>" class="btn btn--full btn--main btn--main-alt2 btn--main-lrg"><span class="icon icon--phone icon--xlrg icon--spacing-lrg icon--flush-top" aria-hidden="true"></span><strong>Call <%= @product.retail_chain_name %></strong></a>
-      </span>
-      <p class="detail-view__check-avble hide-fully--palm"><span class="detail-view__subtle-txt">Check store availability</span> <em><span class="icon icon--phone icon--lrg icon--spacing" aria-hidden="true"></span> <%= @product.retail_chain.phone_no %></em></p>
-    </div>
-    <!-- //Contact store -->
+      <%# When product is not available at a centre %>
+      <div class="detail-view__product-not-avble detail-view__divider">
+        <div class="vert-align">
+          <div class="vert-align__inner">
+            <span class="icon icon--map icon--flush-top" aria-hidden="true"></span>
+            <span class="icon icon--pin" aria-hidden="true"></span>
+            <p>This product is not available at <strong><%= @product.retail_chain_name %></strong> in <%= @centre.short_name %></p>
+          </div>
+        </div>
+      </div>
+      <%# //When product is not available at a centre %>
 
-    <!-- Store link -->
+    <%- else -%>
+
+      <%# When product is available at a centre %>
+
+        <%# Store location %>
+        <div class="map-micello map-micello--static detail-view__divider">
+          <%= render partial: 'shared/map', locals: {store_id: @centre_stores.first.try(:id), interactive: false, load_immediately: true} %>
+        </div>
+        <%# //Store location %>
+
+        <%# Contact store %>
+        <div class="island island--fill island--center islet-tops detail-view__divider">
+          <span class="hide-fully--non-palm">
+            <a href="tel:<%= (@product.retail_chain.phone_no || "").gsub(/\s+/,'') %>" class="btn btn--full btn--main btn--main-alt2 btn--main-lrg"><span class="icon icon--phone icon--xlrg icon--spacing-lrg icon--flush-top" aria-hidden="true"></span><strong>Call <%= @product.retail_chain_name %></strong></a>
+          </span>
+          <p class="detail-view__check-avble hide-fully--palm"><span class="detail-view__subtle-txt">Check store availability</span> <em><span class="icon icon--phone icon--lrg icon--spacing" aria-hidden="true"></span> <%= @product.retail_chain.phone_no %></em></p>
+        </div>
+        <%# //Contact store %>
+
+      <%# //When product is available at a centre %>
+
+    <%- end -%>
+    <%# //Check if a product is available at a centre %>
+
+    <%# Store link %>
     <div class="island island--center detail-view__divider--palm">
       <%= link_to @product.primary_retailer_product_url || '#',
         class: "btn btn--pointer btn--full btn--full-left btn--main btn--main-alt2 btn--main-lrg btn--main-flanked", rel: "external nofollow" do %>
@@ -45,16 +69,16 @@
         <span class="icon icon--link icon--xlrg icon--flush-top btn--pointer__icon" aria-hidden="true"></span>
       <%- end -%>
     </div>
-    <!-- //Store link -->
+    <%# //Store link %>
 
   </div>
-  <!-- //Product name, brand, price, location and contact -->
+  <%# //Product name, brand, price, location and contact %>
 
-  <!-- Product images -->
+  <%# Product images %>
   <div class="grid__item non-palm-three-fifths">
 
     <div class="island island--top-btm detail-view__divider--palm">
-      <!-- Flexslider -->
+      <%# Flexslider %>
       <div class="flexslider flexslider--lrg-img flexslider--gallery">
         <ul class="slides">
           <%- @product.images[0...4].each do |img| -%>
@@ -79,11 +103,11 @@
           <%- end -%>
         </ul>
       </div>
-      <!-- //Flexslider -->
+      <%# //Flexslider %>
     </div>
 
   </div>
-  <!-- //Product images -->
+  <%# //Product images %>
 
   <span class="detail-view__divider--col-line hide-fully--palm"></span>
 
@@ -91,7 +115,7 @@
 
 <div class="grid grid--gutterless grid--rev grid--flush">
 
-  <!-- Available Colours -->
+  <%# Available Colours %>
   <%- if @product.available_colours.present? -%>
   <div class="detail-view__divider--top-non-palm grid__item non-palm-two-fifths">
     <div class="island island--flush-btm-palm">
@@ -104,9 +128,9 @@
     </div>
   </div>
   <%- end -%>
-  <!-- //Available Colours -->
+  <%# //Available Colours %>
 
-  <!-- Description -->
+  <%# Description %>
   <%- if @product.available_colours.present? -%>
   <div class="detail-view__desc detail-view__divider--top-non-palm grid__item non-palm-three-fifths">
   <% else %>
@@ -119,11 +143,11 @@
       </div>
     </div>
   </div>
-  <!-- //Description -->
+  <%# //Description %>
 
 </div>
 
-<!-- Availability -->
+<%# Availability %>
 <%- if @centres.present? -%>
 <div class="island detail-view__divider--top-btm detail-view__divider--top">
   <h2 class="detail-view__hdr-sub detail-view__mrg-off hn">Available at</h2>
@@ -141,10 +165,10 @@
   </ul>
 </div>
 <%- end -%>
-<!-- //Availability -->
+<%# //Availability %>
 
 <%- content_for :javascript do -%>
-  <!-- Run 'Flexslider' plugin -->
+  <%# Run 'Flexslider' plugin %>
   <%= javascript_include_tag 'flexslider/jquery.flexslider' %>
   <script>
     $(window).load(function() {

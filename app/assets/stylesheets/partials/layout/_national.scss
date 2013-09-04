@@ -5,20 +5,19 @@
 /* Class on `html` */
 .national {
   &,
-  body {height: 100%;}
+  body {
+    padding-bottom: 0;
+    height: 100%;
+  }
 }
-
 
 /* Header section - containing logo, nav and heading */
 .national-header {
   color: #fff;
   @include to-rem(height, 259);
 
-  /* -- Shared styles -- */
-  /* Make the header and hero containers 90% height of the body */
   @include respond-min($non-palm) {
-    &,
-    .national-hero {height: 90%;}
+    height: 90%;
   }
 
   .logo img,
@@ -63,17 +62,56 @@
 
 /* Hero image */
 .national-hero {
-  z-index: 1;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  @include to-rem(min-height, 259);
-  background: image-url("national/national-hero-01-sml.jpg") no-repeat 0 0;
-  background-size: cover;
+  div {
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    @include to-rem(min-height, 259);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    opacity: 0;
 
-  @include respond-min($non-palm) {
-    background-attachment: fixed;
-    background-image: image-url("national/national-hero-01.jpg");
+    @include respond-min($non-palm) {
+      height: 90%;
+      background-attachment: fixed;
+    }
   }
+}
+  
+  .is-loaded {
+    -webkit-animation: hero-animation 10s linear infinite 0s;
+    // -moz-animation: hero-animation 36s linear infinite 0s;
+    // -o-animation: hero-animation 36s linear infinite 0s;
+    // -ms-animation: hero-animation 36s linear infinite 0s;
+    // animation: hero-animation 36s linear infinite 0s; 
+  }
+
+  .national-hero__img-1 {
+    background-image: image-url("national/national-hero-01-sml.jpg");
+
+    @include respond-min($non-palm) {
+      background-image: image-url("national/national-hero-01.jpg");
+    }
+  }
+  .national-hero__img-2 {
+    background-image: image-url("national/national-hero-02.jpg");
+    -webkit-animation-delay: 5s;
+    // -moz-animation-delay: 2s;
+    // -o-animation-delay: 2s;
+    // -ms-animation-delay: 2s;
+    // animation-delay: 6s; 
+  }
+
+/* Animation for the slideshow images */
+@-webkit-keyframes hero-animation { 
+  0% { opacity: 0;
+  -webkit-animation-timing-function: ease-in; }
+  8% { opacity: 1;
+       -webkit-animation-timing-function: ease-out; }
+  30% { opacity: 1 }
+  50% { opacity: 0 }
+  100% { opacity: 0 }
 }

@@ -3,8 +3,6 @@ class ProductsController < ApplicationController
   layout 'detail_view', only: :show
 
   def index
-    expires_in 10.minutes, public: true
-
     centre, nearby_centres, products = nil
     Service::API.in_parallel do
       centre = CentreService.fetch params[:centre_id]
@@ -36,8 +34,6 @@ class ProductsController < ApplicationController
   end
 
   def show
-    expires_in 10.minutes, public: true
-
     centre, product, stores = nil
     Service::API.in_parallel do
       centre = CentreService.fetch params[:centre_id]

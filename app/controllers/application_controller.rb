@@ -4,6 +4,11 @@ class ApplicationController < ActionController::Base
     http_basic_authenticate_with name: "guest", password: "searchablemall"
   end
 
+  # Blanket site wide cache of one hour.
+  before_action do
+    expires_in 1.hour, public: true unless Rails.env.development? || Rails.env.test?
+  end
+
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception

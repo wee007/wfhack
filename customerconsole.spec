@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.6
+Version:     0.1.7
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,19 @@ fi
 
 
 %changelog
+* Wed Sep 04 2013 ci <doperations@au.westfield.com> 0.1.7-1
+- Merge pull request #343 from cpearce/master (ben@germanforblack.com)
+- Creating UI for when a product is not available at a centre - WSF-5029
+  (CPearce@au.westfield.com)
+- Removing @extend rules for drop down menu, filters and micello map modules to
+  prevent bloated css (CPearce@au.westfield.com)
+- Creating UI for when a product is not available at a centre - WSF-5029
+  (CPearce@au.westfield.com)
+- Creating UI for when a product is not available at a centre - WSF-5029
+  (CPearce@au.westfield.com)
+- Creating UI for when a product is not available at a centre - WSF-5029
+  (CPearce@au.westfield.com)
+
 * Wed Sep 04 2013 ci <doperations@au.westfield.com> 0.1.6-1
 - Merge pull request #341 from fchan/fix-hero (cpearce@au.westfield.com)
 - Fix hero images and module (fiona@fionachan.net)

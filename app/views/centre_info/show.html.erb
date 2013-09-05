@@ -22,6 +22,8 @@
   <div class="nav-contextual__clip">
     <div class="nav-contextual__clip__inner">
       <ul class="nav-contextual__list horiz-list js-nav-contextual-list">
+        <%# Remove "if false" conditional statement once other sections are ready %>
+        <% if false %>
         <li>
           <a href="#getting-here">Getting Here</a>
         </li><!--
@@ -34,12 +36,19 @@
       --><li>
           <a href="#notices">Notices</a>
         </li><!--
-      --><li>
-          <a href="#contact-us">Contact Us</a>
-        </li><!--
-      --><li>
-          <a href="#follow-us">Follow Us</a>
-        </li>
+      -->
+        <% end %>
+        <% if @centre.phone_number.present? or @centre.email_address.present? %>
+          <li>
+            <a href="#contact-us">Contact Us</a>
+          </li><!--
+        -->
+        <% end %>
+        <% if social_media.present? %>
+          <li>
+            <a href="#follow-us">Follow Us</a>
+          </li>
+        <% end %>
       </ul>
     </div>
     <span class="nav-contextual__clip__overlay icon icon--arrow-right icon--mega icon--flush-top js-nav-contextual-clip-overlay" aria-hidden="true"></span>
@@ -55,7 +64,8 @@
 <div class="divider">
   <%# Text formatted %>
   <div class="txt-formatted">
-
+    <%# Remove "if false" conditional statement once other sections are ready %>
+    <% if false %>
     <%# Getting here %>
     <h2 id="getting-here">Getting Here</h2>
 
@@ -235,7 +245,7 @@
       </div>
     </div>
     <%# //Notices %>
-
+    <% end %>
     <%# Contact Us %>
     <% if @centre.phone_number.present? or @centre.email_address.present? %>
       <h2 id="contact-us">Contact Us</h2>

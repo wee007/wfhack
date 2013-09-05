@@ -39,8 +39,6 @@
 
       if $scope.searchQuery && $scope.searchQuery != ""
         GlobalSearch.get {term: $scope.searchQuery}
-      else
-        $scope.suggestions = didYouMean()
 
     $scope.navigateSuggestions = (event) ->
       switch event.keyCode

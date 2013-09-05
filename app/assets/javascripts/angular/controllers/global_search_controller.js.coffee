@@ -1,15 +1,10 @@
 ((app) ->
-  app.controller "GlobalSearchCtrl", ['$scope', '$window', '$element', 'SuggestionsBuilder', 'GlobalSearch', ($scope, $window, $element, SuggestionsBuilder, GlobalSearch) ->
+  app.controller "GlobalSearchCtrl", ['$scope', '$element', 'SuggestionsBuilder', 'GlobalSearch', ($scope, $element, SuggestionsBuilder, GlobalSearch) ->
     $scope.search = GlobalSearch
     $scope.searchQuery = ""
     highlightedItem = -1
     highlightedClass = 'is-active'
     $suggestionsList = angular.element('.search-results__list')
-
-    # Clicking anywhere on the screen should close the suggestions list if its open
-    angular.element($window).bind 'click', ->
-      if angular.isArray($scope.suggestions)
-        $scope.$apply -> $scope.suggestions = []
 
     GlobalSearch.onChange ->
       $scope.suggestions = didYouMean()
@@ -34,7 +29,14 @@
       'one': "Press enter to search for products."
       'other': $scope.suggestions.length + " results are available, use up and down arrow keys to navigate."
 
-    $scope.makeSuggestions = ->
+    $scope.hideSuggestions = ->
+      $scope.suggestions = []
+      highlightedItem = -1
+
+    $scope.makeSuggestions = (event) ->
+      # Hide suggestions when escape is pressed
+      $scope.hideSuggestions() if event and event.keyCode == 27
+
       if $scope.searchQuery && $scope.searchQuery != ""
         GlobalSearch.get {term: $scope.searchQuery}
       else
@@ -42,10 +44,6 @@
 
     $scope.navigateSuggestions = (event) ->
       switch event.keyCode
-        when 27 # escape
-          $scope.suggestions = []
-          highlightedItem = -1
-          angular.element('#global-search').focus()
         when 38 # up
           event.preventDefault()
           highlightSuggestion('prev')

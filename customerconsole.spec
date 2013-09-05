@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.9
+Version:     0.1.10
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,17 @@ fi
 
 
 %changelog
+* Thu Sep 05 2013 ci <doperations@au.westfield.com> 0.1.10-1
+- Merge remote-tracking branch 'digital/master' into search-enhancements
+  (ben@germanforblack.com)
+- Add String#trim for IE8 (ben@germanforblack.com)
+- Not required now that we're using a callback (ben@germanforblack.com)
+- $window is required to set $window.location (ben@germanforblack.com)
+- Set active search result colour to dotted line (ben@germanforblack.com)
+- Remove window click and use mg-blur and focus (ben@germanforblack.com)
+- Search suggestion keyboard controls as described in #335
+  (ben@germanforblack.com)
+
 * Thu Sep 05 2013 ci <doperations@au.westfield.com> 0.1.9-1
 - Comment out footer on centre info page until its ready
   (ewee@au.westfield.com)

@@ -1,5 +1,5 @@
 ((app) ->
-  app.controller "GlobalSearchCtrl", ['$scope', '$element', 'SuggestionsBuilder', 'GlobalSearch', ($scope, $element, SuggestionsBuilder, GlobalSearch) ->
+  app.controller "GlobalSearchCtrl", ['$scope', '$element', '$window', 'SuggestionsBuilder', 'GlobalSearch', ($scope, $element, $window, SuggestionsBuilder, GlobalSearch) ->
     $scope.search = GlobalSearch
     $scope.searchQuery = ""
     highlightedItem = -1

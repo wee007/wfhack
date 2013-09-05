@@ -14,113 +14,82 @@
   }
 }
 
-/* Header section - containing logo, nav and heading */
-.national-header {
-  color: #fff;
-  @include to-rem(height, 259);
-
-  @include respond-min($non-palm) {
-    /* By making it shorter than 100%, we will have room to show the centres tiles in the viewport */
-    height: 90%;
-  }
-
-  .logo img,
-  h1,
-  nav {
-    position: absolute;
-  }
-
-  /* Contains the logo, tagline and nav */
-  .container {
-    /* Setting a higher `z-index` so it will sit on top of the hero images */
-    z-index: 2;
-    /* Full height of the header height */
-    height: 100%;
+  /* Header - containing logo, nav and heading */
+  .national-header {
+    color: #fff;
+    @include to-rem(height, 259);
 
     @include respond-min($non-palm) {
-      /* Allows users to "click through" to the layer that sits under it, which is the link around the hero images */
-      pointer-events: none;
-    }
-  }
-
-    .logo img {
-      @include to-rem(top, 35);
-
-      @include respond-min($non-palm) {
-        /* Increase logo size at this breakpoint, same as dimension in `.is-header-hero .logo` */
-        width: 126px;
-        height: 41px;
-      }
-    }
-
-    h1 {
-      /* Aligns text centre vertically */
-      top: 50%;
-      left: 50%;
-      @include translate(-50%, -50%);
-
-      @include respond-min($non-palm) {
-        /* Aligns text centre horizontall as well at this breakpoint */
-        left: 0;
-        @include translate(0, -50%);
-      }
-    }
-
-    /* Reset the pointer event so user can click on the nav link instead of the link around the hero images */
-    nav {pointer-events: auto;}
-}
-
-/* Animation for the rotating hero images. Used in `.national hero div` */
-@-webkit-keyframes hero-animation { 
-  0% {opacity: 0;}
-  10% {opacity: 1;}
-  50% {opacity: 1;}
-  60% {opacity: 0;}
-  100% {opacity: 0;}
-}
-
-/* Hero image that rotates in the background */
-.national-hero {
-  /* The container for each image */
-  div {
-    /* Lower z-index than `.national-header .container`so it will sit under the logo, tagline and nav */
-    z-index: 1;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    @include to-rem(min-height, 259);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: 0 0;
-    opacity: 0;
-
-    @include respond-min($non-palm) {
-      /* Because it's `position: absolute`, we need to redeclare this height even though it was already declared for the header */
+      /* By making it shorter than 100%, we will have room to show the centres tiles in the viewport */
       height: 90%;
-      background-attachment: fixed;
     }
 
-    /* When lazy loading is completed for each image */
-    &.is-loaded {
-      -webkit-animation: hero-animation 10s linear infinite 0s;
-      // -moz-animation: hero-animation 36s linear infinite 0s;
-      // -o-animation: hero-animation 36s linear infinite 0s;
-      // -ms-animation: hero-animation 36s linear infinite 0s;
-      // animation: hero-animation 36s linear infinite 0s; 
+    .logo img,
+    h1,
+    nav {
+      position: absolute;
     }
 
-    &:nth-of-type(1) {
-      -webkit-animation-delay: 0;
+    /* Contains the logo, tagline and nav */
+    .container {
+      /* Setting a higher `z-index` so it will sit on top of the hero images */
+      z-index: 2;
+      /* Full height of the header height */
+      height: 100%;
+
+      @include respond-min($non-palm) {
+        /* Allows users to "click through" to the layer that sits under it, which is the link around the hero images */
+        pointer-events: none;
+      }
     }
 
-    &:nth-of-type(2) {
-      -webkit-animation-delay: 5s;
+      .logo img {
+        @include to-rem(top, 35);
+
+        @include respond-min($non-palm) {
+          /* Increase logo size at this breakpoint, same as dimension in `.is-header-hero .logo` */
+          width: 126px;
+          height: 41px;
+        }
+      }
+
+      h1 {
+        /* Aligns text centre vertically */
+        top: 50%;
+        left: 50%;
+        @include translate(-50%, -50%);
+
+        @include respond-min($non-palm) {
+          /* Aligns text centre horizontall as well at this breakpoint */
+          left: 0;
+          @include translate(0, -50%);
+          @include font-size(48);
+        }
+      }
+
+      /* Reset the pointer event so user can click on the nav link instead of the link around the hero images */
+      nav {pointer-events: auto;}
+  }
+
+  .national__gallery {
+    /* The container for each image */
+    .gallery__item {
+      /* Lower z-index than `.national-header .container`so it will sit under the logo, tagline and nav */
+      z-index: 1;
+      @include to-rem(min-height, 259);
+      /* Overwrites the `height: 100%` set as the default for `.gallery__item` */
+      height: auto;
+
+      @include respond-min($non-palm) {
+        height: 100%;
+        background-attachment: fixed;
+      }
     }
   }
-}
-  /*-- Hero image path --*/ 
-  .national-hero__img-1 {
+
+  /*-- Hero image paths --*/ 
+
+  .national__hero__1 {
     background-image: image-url("national/national-hero-01-sml.jpg");
 
     @include respond-min($non-palm) {
@@ -128,6 +97,6 @@
     }
   }
 
-  .national-hero__img-2 {
+  .national__hero__2 {
     background-image: image-url("national/national-hero-02.jpg");
   }

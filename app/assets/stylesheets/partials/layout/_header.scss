@@ -1146,6 +1146,9 @@ $header-color-link-hover: $color-brand !default;
 							display: block;
 							color: $color-link;
 
+							/* Active / focus */
+							&.is-active {outline: 1px dotted $color-link;}
+
 							/* Hover/Focus */
 							&:hover,
 							&:focus {color: $color-link-hover;}

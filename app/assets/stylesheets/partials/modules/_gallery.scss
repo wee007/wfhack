@@ -1,4 +1,4 @@
-// @include gallery($item-count: 2, $display-duration: 7, $transition-duration: 2);
+@include gallery($item-count: 2, $display-duration: 7, $transition-duration: 2);
 
 .gallery {
   position: relative;
@@ -9,10 +9,12 @@
     left: 0;
     width: 100%;
     height: 100%;
-    // background-size: cover;
+    background-size: cover;
     background-repeat: no-repeat;
     background-position: 0 0;
+    /* IE8 will just ignore this rule so will always show the image */
     opacity: 0;
 
+    /* IE8 will just ignore this rule */
     &:first-of-type {opacity: 1;}
   }

@@ -388,6 +388,7 @@
   @else if $property == keyframes {
     @-webkit-keyframes $value {@content;}
     @-moz-keyframes $value {@content;}
+    @-o-keyframes $value {@content;}
     @keyframes $value {@content;}
   }
 
@@ -975,6 +976,11 @@
 
   Credit:
     https://github.com/benschwarz/gallery-css
+  
+  Variables:
+    $item-count             How many items there are to animate
+    $display-duration       How long should each item be displayed for
+    $transition-duration    How long is the transition between each image going to be
 
   Examples:
     @include gallery($item-count: 2, $display-duration: 7, $transition-duration: 2);
@@ -987,6 +993,7 @@
   /* Creates the keyframe animation */
   @include prefix(keyframes, gallery-animation-#{$item-count}) {
     0% {opacity: 0;}
+    /* Works out the time in % that the fade in and out should happen, according to the animation's total duration, transition duration and display duration */
     #{100% * $transition-duration / $total-duration},
     #{100% * $display-duration / $total-duration} {opacity: 1;}
     #{100% * ($display-duration + $transition-duration) / $total-duration},
@@ -1001,6 +1008,7 @@
 
   @for $j from 1 through $item-count {
     .gallery__item.is-loaded:nth-of-type(#{$j}) {
+      /* By setting negative value for `animation-delay` we'll achieve the effect of one image fading out while the other one fading in */
       $delay: #{($j - 1) * ($display-duration) - $transition-duration}s;
       @include prefix(animation-delay, #{$delay});
     }

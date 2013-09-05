@@ -5,43 +5,47 @@
 @include respond-min($non-palm) {
   /* Class on `html` */
   .national {
-    &,
-    body {
-      /* Need to remove bottom padding otherwise it gets included into the `height: 100%`. Don't need it for palm size devices as they don't have full viewport images */
-      padding-bottom: 0;
-      height: 100%;
-    }
+    position: absolute;
+    width: 100%;
+    height: 100%;
   }
 }
 
-  /* Header - containing logo, nav and heading */
+  /* Header */
   .national-header {
-    color: #fff;
+    /* Setting a dark background colour so you can still see the white text even in case the images in the gallery don't get loaded/take a long time to load */
+    background-color: $color-base-txt;
     @include to-rem(height, 259);
 
     @include respond-min($non-palm) {
       /* By making it shorter than 100%, we will have room to show the centres tiles in the viewport */
-      height: 90%;
+      height: 60%;
     }
 
-    .logo img,
-    h1,
-    nav {
-      position: absolute;
+    @include respond-min($lap-lrg-start) {
+      /* Show more of the image at this breakpoint */
+      height: 80%;
     }
 
-    /* Contains the logo, tagline and nav */
-    .container {
-      /* Setting a higher `z-index` so it will sit on top of the hero images */
-      z-index: 2;
-      /* Full height of the header height */
-      height: 100%;
+    /* --Shared rules-- */
 
-      @include respond-min($non-palm) {
-        /* Allows users to "click through" to the layer that sits under it, which is the link around the hero images */
-        pointer-events: none;
+    /* Set common colours */
+    &,
+    a,
+    .icon:before {color: #fff;}
+
+    /* `.container` wraps around the logo, nav and tagline. This sets its height to be the full height `.national-header` */
+    .container {height: 100%;}
+
+      /* --Shared rules-- */
+
+      .logo img,
+      h1,
+      nav {
+        position: absolute;
+        /* Setting it at a higher `z-index` than `gallery__item` */
+        z-index: 2;
       }
-    }
 
       .logo img {
         @include to-rem(top, 35);
@@ -60,43 +64,36 @@
         @include translate(-50%, -50%);
 
         @include respond-min($non-palm) {
-          /* Aligns text centre horizontall as well at this breakpoint */
+          /* Aligns text centre horizontally as well at this breakpoint */
           left: 0;
           @include translate(0, -50%);
           @include font-size(48);
         }
       }
 
-      /* Reset the pointer event so user can click on the nav link instead of the link around the hero images */
-      nav {pointer-events: auto;}
-  }
+      nav {
+        @include to-rem(top, 40);
+        right: 0;
+        @include font-size(12);
 
-  .national__gallery {
-    /* The container for each image */
-    .gallery__item {
-      /* Lower z-index than `.national-header .container`so it will sit under the logo, tagline and nav */
-      z-index: 1;
-      @include to-rem(min-height, 259);
-      /* Overwrites the `height: 100%` set as the default for `.gallery__item` */
-      height: auto;
+        a {
+          text-align: center;
+        }
 
-      @include respond-min($non-palm) {
-        height: 100%;
-        background-attachment: fixed;
+          .icon:before {
+            display: block;
+          }
       }
-    }
   }
 
-  /*-- Hero image paths --*/ 
+      /*-- Hero image paths --*/ 
 
-  .national__hero__1 {
-    background-image: image-url("national/national-hero-01-sml.jpg");
+      .national__hero__1 {
+        background-image: image-url("national/national-hero-01-sml.jpg");
 
-    @include respond-min($non-palm) {
-      background-image: image-url("national/national-hero-01.jpg");
-    }
-  }
+        @include respond-min($non-palm) {
+          background-image: image-url("national/national-hero-01.jpg");
+        }
+      }
 
-  .national__hero__2 {
-    background-image: image-url("national/national-hero-02.jpg");
-  }
+      .national__hero__2 {background-image: image-url("national/national-hero-02.jpg");}

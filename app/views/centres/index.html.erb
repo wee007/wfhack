@@ -1,5 +1,9 @@
+<div class="national">
+
 <%# Header %>
 <header role="banner" class="national-header national__gallery gallery gallery--items-2"> 
+
+  <%# Container %>
   <div class="container container--position">
     <!-- Logo -->
     <span class="logo">
@@ -9,13 +13,22 @@
 
     <h1>You want. We find.</h1>
 
-    <nav>
-      <a href="http://westfield.com">A link</a>
+    <%# Nav %>
+    <nav role="navigation">
+      <ul class="horiz-list">
+        <li>
+          <a href="http://www.westfieldgiftcards.com.au" rel="external">
+            <span class="icon icon-gift-card" aria-hidden="true"></span>Buy Gift Cards
+          </a>
+        </li>
+      </ul>
     </nav>
+    <%# //Nav %>
   </div>
+  <%# //Container %>
 
   <%# Gallery items that get rotated %>
-  <a href="http://youtube.com" rel="external">
+  <a href="#" rel="external">
     <span class="hide-visually">Westfield Campaign video</span>
     <div class="national__hero__1 gallery__item gallery__item__1 is-loaded"></div>
     <div class="national__hero__2 gallery__item gallery__item__2 is-loaded"></div>
@@ -23,6 +36,7 @@
   <%# //Gallery items that get rotated %>
 </header>
 <%# //Header %>
+
 
 <main class="main" id="main" role="main">
   <div class="container <%= yield(:class_for_main) %>">
@@ -85,6 +99,7 @@
   <p>lasdflaksjaldskf ;lkasjdf ;alksdjf ;laksdjf ;aslkdjf ;lkajds f;lkja ;sdlfkj ;aslkdfja ;sdlkfj ;alsdkjfa ;sldkfja;lskdfj</p>
   </div>
 </main>
+</div>
 
 <script>
   // var hero = document.getElementById('js-national-hero');

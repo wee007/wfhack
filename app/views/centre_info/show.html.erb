@@ -412,13 +412,13 @@
   <div class="grid__item non-palm-one-half">
     <%# Shopping hours box %>
     <div class="promo-tile box">
-      <img src="http://placehold.it/600x132" alt="">
+      <img src="<%= image_path "promo-tiles/promo-tile-01.jpg" %>" alt="">
       <span class="promo-tile__icon-main icon icon--hours icon--flush-top" aria-hidden="true"></span>
       <div class="islet island--non-palm">
         <h2 class="promo-tile__hdr">Opening Hours</h2>
         <div class="txt-formatted">
           <p>Find out specific hours for our department stores.</p>
-          <a href="#">Check Shopping Hours</a>
+          <a href="/<%= @centre.code %>/hours">Check Shopping Hours</a>
         </div>
       </div>
     </div>
@@ -428,7 +428,7 @@
   <div class="grid__item non-palm-one-half">
     <%# Centre services box %>
     <div class="promo-tile box">
-      <img src="http://placehold.it/600x132" alt="">
+      <img src="<%= image_path "promo-tiles/promo-tile-02.jpg" %>" alt="">
       <span class="promo-tile__icon-main icon icon--service icon--flush-top" aria-hidden="true"></span>
       <div class="islet island--non-palm">
         <h2 class="promo-tile__hdr">Centre Services</h2>

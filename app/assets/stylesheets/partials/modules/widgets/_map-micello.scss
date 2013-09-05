@@ -182,8 +182,6 @@
             line-height: 11px;
             color: #fff;
             text-shadow: 0 3px 1px rgba(#c7c7c7, 0.9);
-            @extend .icon:before;
-            @extend .icon--arrow-down-full:before;
 
             /* IE 10 */
             @include ie-10-up {

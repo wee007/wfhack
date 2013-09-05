@@ -15,6 +15,8 @@
 
 .box {@include box;}
 
+/* --Extenders-- */
+
 /* Heavy */
 .box--heavy {@include box-heavy;}
 
@@ -41,3 +43,6 @@
     height: 6px;
   }
 }
+
+/* Box with small margin bottom */
+.box--mrg-half {@include to-rem(margin-bottom, $spacing-half);}

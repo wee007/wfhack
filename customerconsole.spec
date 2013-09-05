@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.2
+Version:     0.1.9
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,74 @@ fi
 
 
 %changelog
+* Thu Sep 05 2013 ci <doperations@au.westfield.com> 0.1.9-1
+- Comment out footer on centre info page until its ready
+  (ewee@au.westfield.com)
+
+* Thu Sep 05 2013 ci <doperations@au.westfield.com> 0.1.8-1
+- Merge pull request #344 from ewee/master (ldewey@au.westfield.com)
+- Commented out incomplete sections (ewee@au.westfield.com)
+
+* Wed Sep 04 2013 ci <doperations@au.westfield.com> 0.1.7-1
+- Merge pull request #343 from cpearce/master (ben@germanforblack.com)
+- Creating UI for when a product is not available at a centre - WSF-5029
+  (CPearce@au.westfield.com)
+- Removing @extend rules for drop down menu, filters and micello map modules to
+  prevent bloated css (CPearce@au.westfield.com)
+- Creating UI for when a product is not available at a centre - WSF-5029
+  (CPearce@au.westfield.com)
+- Creating UI for when a product is not available at a centre - WSF-5029
+  (CPearce@au.westfield.com)
+- Creating UI for when a product is not available at a centre - WSF-5029
+  (CPearce@au.westfield.com)
+
+* Wed Sep 04 2013 ci <doperations@au.westfield.com> 0.1.6-1
+- Merge pull request #341 from fchan/fix-hero (cpearce@au.westfield.com)
+- Fix hero images and module (fiona@fionachan.net)
+
+* Wed Sep 04 2013 ci <doperations@au.westfield.com> 0.1.5-1
+- 
+
+* Tue Sep 03 2013 ci <doperations@au.westfield.com> 0.1.4-1
+- Merge pull request #336 from fchan/5090-centre-info
+  (cpearce@au.westfield.com)
+- PR feedback fix (fiona@fionachan.net)
+- PR feedback fix (fiona@fionachan.net)
+- PR feedback fixes (fiona@fionachan.net)
+- PR feedback fixes (fiona@fionachan.net)
+- More PR fixes (fiona@fionachan.net)
+- Update comment (fiona@fionachan.net)
+- Move code to one line and add back ticks (fiona@fionachan.net)
+- Combine mixin in centre location (fiona@fionachan.net)
+- Move divider div (fiona@fionachan.net)
+- Fixes after PR feedback (fiona@fionachan.net)
+- Added conditional checks for contact us and social media
+  (ewee@au.westfield.com)
+- Reworked the nav-contextual (fiona@fionachan.net)
+- Fix spacing issue on icon (fiona@fionachan.net)
+- Added promo tiles (fiona@fionachan.net)
+- Fix up centre location width (fiona@fionachan.net)
+- Small updates to JS for nav-contextual (ldewey@au.westfield.com)
+- Fixed reference to centre phone number on CTA button (ewee@au.westfield.com)
+- Added Js for nav-contextual (ldewey@au.westfield.com)
+- Reworked centre location module a bit (fiona@fionachan.net)
+- More code review changes (fiona@fionachan.net)
+- Updated follow us section (fiona@fionachan.net)
+- Some changes after code reviews (fiona@fionachan.net)
+- Adjustments to centre map and google map modules (fiona@fionachan.net)
+- Adjusted hero size and added centre info img (fiona@fionachan.net)
+- More centre info stuff. Also refactored centres-list class name
+  (fiona@fionachan.net)
+- More centre info page stuff (fiona@fionachan.net)
+- Extended box, fix island extender class and fine-print (fiona@fionachan.net)
+- Refactor hero to become module (fiona@fionachan.net)
+- Added non-palm-island to center info and hours page (fiona@fionachan.net)
+- Added fine-print abstraction (fiona@fionachan.net)
+- Update grid and added new google map static module (fiona@fionachan.net)
+
+* Tue Sep 03 2013 ci <doperations@au.westfield.com> 0.1.3-1
+- removes jquery-placeholder (matt.wratt@trineo.co.nz)
+
 * Tue Sep 03 2013 ci <doperations@au.westfield.com> 0.1.2-1
 - Merge pull request #337 from cpearce/master (ldewey@au.westfield.com)
 - Spec fix (ldewey@au.westfield.com)

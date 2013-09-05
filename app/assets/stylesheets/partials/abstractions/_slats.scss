@@ -33,9 +33,11 @@
 		.islet & {@include to-rem(margin-left, $spacing-half);}
 	}
 
+	/* Extend: remove spacing on the right of the image */
+	.slats__img--compact {margin-right: 0;}
+
 		/* Images */
 		.slats__img img,
 		.slats__img--rev img {display: block;}
 
-	/* Body container columnised at this breakpoint */
-	.slats__body {overflow: hidden;}
+	.slats__body {@extend %new-block-formatting-context;}

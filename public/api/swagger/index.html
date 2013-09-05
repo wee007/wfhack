@@ -54,9 +54,14 @@
         });
         window.swaggerUi.load();
 
+        /*
+         * Images
+         */
         $(document).on('click', '.swagger-doc', function (e) {
             e.preventDefault();
-            $('#image-doc').collapse('hide');
+            if ($('#image-doc').hasClass('in')) {
+                $('#image-doc').collapse('hide');
+            }
             window.swaggerUi.headerView.trigger('update-swagger-ui', {
                 discoveryUrl: e.target.href + '/swagger-doc.json'
             });
@@ -66,6 +71,9 @@
           $('#swagger-ui-container').collapse('toggle');
         });
 
+        /*
+         * Navigation
+         */
         $(document).on('show hide', '.accordion-body', function (e) {
             $(e.target).siblings('.accordion-heading').find('.accordion-toggle').toggleClass('dropup');
         });
@@ -89,16 +97,21 @@
 </head>
 
 <body class="swagger">
-    <div class="container-fluid">
-        <div class="row-fluid header">
-            <div class="span12">
-                <a href="/api/index.html"><img src="/api/i/westfieldLabs_logo_240x60.png" class="logo"></a>
+    <div class="navbar navbar-inverse">
+        <div class="navbar-inner">
+            <div class="container-fluid">
+                <div class="row-fluid">
+                    <div class="span12">
+                        <a href="/api/index.html"><img src="/api/i/logo.png" class="logo"></a>
+                    </div>
+                </div>
             </div>
         </div>
-
+    </div>
+    <div class="container-fluid">
         <div class="row-fluid">
-            <div class="left_col span3" style="">
-                <div class="accordion affix" id="group">
+            <div class="sidebar-nav">
+                <div class="accordion" id="group">
                     <div class="accordion-group content">
                         <div class="accordion-heading">
                             <a class="accordion-toggle" data-toggle="collapse" data-parent="#group" href="#collapseOne">
@@ -109,7 +122,7 @@
                         <div id="collapseOne" class="accordion-body collapse">
                             <div class="accordion-inner">
                                 <ul>
-                                    <li><a href="http://product-service.development.dbg.westfield.com/api/product/master/categories" target="_blank">Categories</a></li>
+                                    <li><a href="/api/product/master/categories" class="swagger-doc">Categories</a></li>
                                     <li><a href="/api/centre" class="swagger-doc">Centres</a></li>
                                     <li><a href="/api/deal" class="swagger-doc">Deals</a></li>
                                     <li><a href="/api/event" class="swagger-doc">Events</a></li>
@@ -154,14 +167,14 @@
                     </div>
                 </div>
             </div>
-            <div class="span8">
+            <div class="span9 offset3">
                 <div class="row-fluid">
-                    <div class="span12">
+                    <div class="span11">
                         <div id="message-bar" class="swagger-ui-wrap">
                             &nbsp;
                         </div>
 
-                        <div id="swagger-ui-container" class="swagger-ui-wrap"></div>
+                        <div id="swagger-ui-container" class="swagger-ui-wrap collapse in"></div>
 
                         <div id="image-doc" class="collapse">
                             <h2>images</h2>

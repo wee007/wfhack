@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.15
+Version:     0.1.16
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,11 @@ fi
 
 
 %changelog
+* Sat Sep 07 2013 ci <doperations@au.westfield.com> 0.1.16-1
+- Merge pull request #354 from thiago/master (ldewey@au.westfield.com)
+- Add non-lorem-ipsum placeholder copy for API Documentation
+  (tfigueiro@au.westfield.com)
+
 * Sat Sep 07 2013 ci <doperations@au.westfield.com> 0.1.15-1
 - Merge pull request #347 from btillman/api_doc_theme
   (tfigueiro@au.westfield.com)

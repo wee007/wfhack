@@ -58,7 +58,10 @@
           event.preventDefault()
           highlightSuggestion('next')
         when 13 # enter
-          event.preventDefault()
-          $window.location = $suggestionsList.find('.' + highlightedClass).attr('href')
+          location = $suggestionsList.find('.' + highlightedClass).attr('href')
+          unless location == undefined
+            event.preventDefault()
+            $window.location = location
+
   ]
 ) angular.module("Westfield")

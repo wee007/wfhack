@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.10
+Version:     0.1.13
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,22 @@ fi
 
 
 %changelog
+* Fri Sep 06 2013 ci <doperations@au.westfield.com> 0.1.13-1
+- When you hit enter on search with out selecting an item it will work
+  (ldewey@au.westfield.com)
+
+* Fri Sep 06 2013 ci <doperations@au.westfield.com> 0.1.12-1
+- Merge pull request #350 from bschwarz/master (ldewey@au.westfield.com)
+- * Added suggestionsVisible, rather than emptying the suggestions list * Added
+  a delay to closing the suggestions list so that the links can receive the
+  click event * Cycle through the list in both directions
+  (ben@germanforblack.com)
+
+* Fri Sep 06 2013 ci <doperations@au.westfield.com> 0.1.11-1
+- Merge pull request #348 from fchan/centre-info-footer (ewee@au.westfield.com)
+- Fix up link syntax (fiona@fionachan.net)
+- Added promo tile images and path to centre hours (fiona@fionachan.net)
+
 * Thu Sep 05 2013 ci <doperations@au.westfield.com> 0.1.10-1
 - Merge remote-tracking branch 'digital/master' into search-enhancements
   (ben@germanforblack.com)

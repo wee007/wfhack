@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.11
+Version:     0.1.12
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,13 @@ fi
 
 
 %changelog
+* Fri Sep 06 2013 ci <doperations@au.westfield.com> 0.1.12-1
+- Merge pull request #350 from bschwarz/master (ldewey@au.westfield.com)
+- * Added suggestionsVisible, rather than emptying the suggestions list * Added
+  a delay to closing the suggestions list so that the links can receive the
+  click event * Cycle through the list in both directions
+  (ben@germanforblack.com)
+
 * Fri Sep 06 2013 ci <doperations@au.westfield.com> 0.1.11-1
 - Merge pull request #348 from fchan/centre-info-footer (ewee@au.westfield.com)
 - Fix up link syntax (fiona@fionachan.net)

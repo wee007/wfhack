@@ -81,7 +81,7 @@
         // Escape key
         $document.bind( 'keydown', function ( event ) {
           if ( event.keyCode == 27 ) { hide( trigger, target ); }
-        })
+        });
       }
     }
   }]);

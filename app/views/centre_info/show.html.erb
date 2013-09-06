@@ -418,7 +418,7 @@
         <h2 class="promo-tile__hdr">Opening Hours</h2>
         <div class="txt-formatted">
           <p>Find out specific hours for our department stores.</p>
-          <a href="/<%= @centre.code %>/hours">Check Shopping Hours</a>
+          <%= link_to "Check Shopping Hours", centre_hours_path(@centre) %>
         </div>
       </div>
     </div>

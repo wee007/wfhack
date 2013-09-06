@@ -1,111 +1,90 @@
+<%# National landing page wrapper %>
 <div class="national">
 
-<%# Header %>
-<header role="banner" class="national-header national__gallery gallery gallery--items-2"> 
+  <%# Header %>
+  <header role="banner" class="national__header national__gallery gallery gallery--items-2"> 
 
-  <%# Container %>
-  <div class="container container--position">
-    <!-- Logo -->
-    <span class="logo">
-      <img src="<%= image_path "logo-white.svg" %>" alt="Westfield" data-svg-fallback="<%= image_path "logo-white.png" %>">
-    </span>
-    <!-- //Logo -->
+    <%# Container %>
+    <div class="container container--position">
+      <!-- Logo -->
+      <span class="logo">
+        <img src="<%= image_path "logo-white.svg" %>" alt="Westfield" data-svg-fallback="<%= image_path "logo-white.png" %>">
+      </span>
+      <!-- //Logo -->
 
-    <h1>You want. We find.</h1>
+      <h1>
+        <span>3,300 stores. 60,000 products</span>
+        You want. We find.
+      </h1>
 
-    <%# Nav %>
-    <nav role="navigation">
-      <ul class="horiz-list">
-        <li>
-          <a href="http://www.westfieldgiftcards.com.au" rel="external">
-            <span class="icon icon-gift-card" aria-hidden="true"></span>Buy Gift Cards
-          </a>
-        </li>
+      <%# Nav %>
+      <nav role="navigation">
+        <ul class="horiz-list">
+          <li>
+            <a href="http://www.westfieldgiftcards.com.au" rel="external">
+              <span class="icon icon--gift-card" aria-hidden="true"></span>Buy Gift Cards
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <%# //Nav %>
+    </div>
+    <%# //Container %>
+
+    <%# Gallery items that get rotated %>
+    <a href="#" rel="external">
+      <span class="hide-visually">Westfield Campaign video</span>
+      <div class="national__hero__1 gallery__item gallery__item__1 is-loaded"></div>
+      <div class="national__hero__2 gallery__item gallery__item__2 is-loaded"></div>
+    </a>
+    <%# //Gallery items that get rotated %>
+  </header>
+  <%# //Header %>
+
+  <%# Tabs %>
+  <main class="national__tabs tabs main" id="main" role="main">
+
+    <div class="container">
+      <h2>Find your centre</h2>
+      <%# Tab nav %>
+      <ul class="tab__nav horiz-list">
+          <li>
+            <a class="is-active" href="#tab-nsw">NSW</a>
+          </li>
+          <li>
+            <a href="#tab-act">ACT</a>
+          </li>
       </ul>
-    </nav>
-    <%# //Nav %>
-  </div>
-  <%# //Container %>
+      <%# //Tab nav %>
+    </div>
 
-  <%# Gallery items that get rotated %>
-  <a href="#" rel="external">
-    <span class="hide-visually">Westfield Campaign video</span>
-    <div class="national__hero__1 gallery__item gallery__item__1 is-loaded"></div>
-    <div class="national__hero__2 gallery__item gallery__item__2 is-loaded"></div>
-  </a>
-  <%# //Gallery items that get rotated %>
-</header>
-<%# //Header %>
+    <%# NSW %>
+    <div id="tab-nsw" class="tab__content is-active">
+      <a class="national__centre-tile--nsw national__centre-tile" href="#">
+        <div class="national__centre-tile__content container">
+          <h3>Bondi Junction</h3>
+        </div>
+      </a>
 
+      <a class="national__centre-tile--nsw national__centre-tile" href="#">
+        <div class="national__centre-tile__content container">
+          <h3>Burwood</h3>
+        </div>
+      </a>
+    </div>
+    <%# //NSW %>
 
-<main class="main" id="main" role="main">
-  <div class="container <%= yield(:class_for_main) %>">
-  <p>First line. lasdflaksjaldskf ;lkasjdf ;alksdjf ;laksdjf ;aslkdjf ;lkajds f;lkja ;sdlfkj ;aslkdfja ;sdlkfj ;alsdkjfa ;sldkfja;lskdfj</p>
+    <%# ACT %>
+    <div id="tab-act" class="tab__content">
+      <a class="national__centre-tile--nsw national__centre-tile" href="#">
+        <div class="national__centre-tile__content container">
+          <h3>Burwood</h3>
+        </div>
+      </a>
+    </div>
+    <%# //ACT %>
+  </main>
+  <%# //Tabs %>
 
-  <p>lasdflaksjaldskf ;lkasjdf ;alksdjf ;laksdjf ;aslkdjf ;lkajds f;lkja ;sdlfkj ;aslkdfja ;sdlkfj ;alsdkjfa ;sldkfja;lskdfj</p>
-
-  <p>lasdflaksjaldskf ;lkasjdf ;alksdjf ;laksdjf ;aslkdjf ;lkajds f;lkja ;sdlfkj ;aslkdfja ;sdlkfj ;alsdkjfa ;sldkfja;lskdfj</p>
-
-  <p>lasdflaksjaldskf ;lkasjdf ;alksdjf ;laksdjf ;aslkdjf ;lkajds f;lkja ;sdlfkj ;aslkdfja ;sdlkfj ;alsdkjfa ;sldkfja;lskdfj</p>
-
-  <p>lasdflaksjaldskf ;lkasjdf ;alksdjf ;laksdjf ;aslkdjf ;lkajds f;lkja ;sdlfkj ;aslkdfja ;sdlkfj ;alsdkjfa ;sldkfja;lskdfj</p>
-
-  <p>lasdflaksjaldskf ;lkasjdf ;alksdjf ;laksdjf ;aslkdjf ;lkajds f;lkja ;sdlfkj ;aslkdfja ;sdlkfj ;alsdkjfa ;sldkfja;lskdfj</p>
-
-  <p>First line. lasdflaksjaldskf ;lkasjdf ;alksdjf ;laksdjf ;aslkdjf ;lkajds f;lkja ;sdlfkj ;aslkdfja ;sdlkfj ;alsdkjfa ;sldkfja;lskdfj</p>
-
-  <p>lasdflaksjaldskf ;lkasjdf ;alksdjf ;laksdjf ;aslkdjf ;lkajds f;lkja ;sdlfkj ;aslkdfja ;sdlkfj ;alsdkjfa ;sldkfja;lskdfj</p>
-
-  <p>lasdflaksjaldskf ;lkasjdf ;alksdjf ;laksdjf ;aslkdjf ;lkajds f;lkja ;sdlfkj ;aslkdfja ;sdlkfj ;alsdkjfa ;sldkfja;lskdfj</p>
-
-  <p>lasdflaksjaldskf ;lkasjdf ;alksdjf ;laksdjf ;aslkdjf ;lkajds f;lkja ;sdlfkj ;aslkdfja ;sdlkfj ;alsdkjfa ;sldkfja;lskdfj</p>
-
-  <p>lasdflaksjaldskf ;lkasjdf ;alksdjf ;laksdjf ;aslkdjf ;lkajds f;lkja ;sdlfkj ;aslkdfja ;sdlkfj ;alsdkjfa ;sldkfja;lskdfj</p>
-
-  <p>lasdflaksjaldskf ;lkasjdf ;alksdjf ;laksdjf ;aslkdjf ;lkajds f;lkja ;sdlfkj ;aslkdfja ;sdlkfj ;alsdkjfa ;sldkfja;lskdfj</p>
-
-  <p>First line. lasdflaksjaldskf ;lkasjdf ;alksdjf ;laksdjf ;aslkdjf ;lkajds f;lkja ;sdlfkj ;aslkdfja ;sdlkfj ;alsdkjfa ;sldkfja;lskdfj</p>
-
-  <p>lasdflaksjaldskf ;lkasjdf ;alksdjf ;laksdjf ;aslkdjf ;lkajds f;lkja ;sdlfkj ;aslkdfja ;sdlkfj ;alsdkjfa ;sldkfja;lskdfj</p>
-
-  <p>lasdflaksjaldskf ;lkasjdf ;alksdjf ;laksdjf ;aslkdjf ;lkajds f;lkja ;sdlfkj ;aslkdfja ;sdlkfj ;alsdkjfa ;sldkfja;lskdfj</p>
-
-  <p>lasdflaksjaldskf ;lkasjdf ;alksdjf ;laksdjf ;aslkdjf ;lkajds f;lkja ;sdlfkj ;aslkdfja ;sdlkfj ;alsdkjfa ;sldkfja;lskdfj</p>
-
-  <p>lasdflaksjaldskf ;lkasjdf ;alksdjf ;laksdjf ;aslkdjf ;lkajds f;lkja ;sdlfkj ;aslkdfja ;sdlkfj ;alsdkjfa ;sldkfja;lskdfj</p>
-
-  <p>lasdflaksjaldskf ;lkasjdf ;alksdjf ;laksdjf ;aslkdjf ;lkajds f;lkja ;sdlfkj ;aslkdfja ;sdlkfj ;alsdkjfa ;sldkfja;lskdfj</p>
-
-  <p>lasdflaksjaldskf ;lkasjdf ;alksdjf ;laksdjf ;aslkdjf ;lkajds f;lkja ;sdlfkj ;aslkdfja ;sdlkfj ;alsdkjfa ;sldkfja;lskdfj</p>
-
-  <p>lasdflaksjaldskf ;lkasjdf ;alksdjf ;laksdjf ;aslkdjf ;lkajds f;lkja ;sdlfkj ;aslkdfja ;sdlkfj ;alsdkjfa ;sldkfja;lskdfj</p>
-
-  <p>lasdflaksjaldskf ;lkasjdf ;alksdjf ;laksdjf ;aslkdjf ;lkajds f;lkja ;sdlfkj ;aslkdfja ;sdlkfj ;alsdkjfa ;sldkfja;lskdfj</p>
-
-  <p>lasdflaksjaldskf ;lkasjdf ;alksdjf ;laksdjf ;aslkdjf ;lkajds f;lkja ;sdlfkj ;aslkdfja ;sdlkfj ;alsdkjfa ;sldkfja;lskdfj</p>
-
-  <p>lasdflaksjaldskf ;lkasjdf ;alksdjf ;laksdjf ;aslkdjf ;lkajds f;lkja ;sdlfkj ;aslkdfja ;sdlkfj ;alsdkjfa ;sldkfja;lskdfj</p>
-
-  <p>First line. lasdflaksjaldskf ;lkasjdf ;alksdjf ;laksdjf ;aslkdjf ;lkajds f;lkja ;sdlfkj ;aslkdfja ;sdlkfj ;alsdkjfa ;sldkfja;lskdfj</p>
-
-  <p>lasdflaksjaldskf ;lkasjdf ;alksdjf ;laksdjf ;aslkdjf ;lkajds f;lkja ;sdlfkj ;aslkdfja ;sdlkfj ;alsdkjfa ;sldkfja;lskdfj</p>
-
-  <p>lasdflaksjaldskf ;lkasjdf ;alksdjf ;laksdjf ;aslkdjf ;lkajds f;lkja ;sdlfkj ;aslkdfja ;sdlkfj ;alsdkjfa ;sldkfja;lskdfj</p>
-
-  <p>lasdflaksjaldskf ;lkasjdf ;alksdjf ;laksdjf ;aslkdjf ;lkajds f;lkja ;sdlfkj ;aslkdfja ;sdlkfj ;alsdkjfa ;sldkfja;lskdfj</p>
-
-  <p>lasdflaksjaldskf ;lkasjdf ;alksdjf ;laksdjf ;aslkdjf ;lkajds f;lkja ;sdlfkj ;aslkdfja ;sdlkfj ;alsdkjfa ;sldkfja;lskdfj</p>
-
-  <p>lasdflaksjaldskf ;lkasjdf ;alksdjf ;laksdjf ;aslkdjf ;lkajds f;lkja ;sdlfkj ;aslkdfja ;sdlkfj ;alsdkjfa ;sldkfja;lskdfj</p>
-  </div>
-</main>
 </div>
-
-<script>
-  // var hero = document.getElementById('js-national-hero');
-  // var pageWidth      = hero.offsetWidth;
-  // var viewportHeight = window.innerHeight;
-  // var fluidPadding   = (viewportHeight/pageWidth) * 100;
-
-  // hero.style.paddingTop = fluidPadding + "%";
-</script>
+<%# //National landing page wrapper %>

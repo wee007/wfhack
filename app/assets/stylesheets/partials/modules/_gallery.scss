@@ -1,5 +1,3 @@
-@include gallery($item-count: 2, $display-duration: 7, $transition-duration: 2);
-
 .gallery {
   position: relative;
 }
@@ -18,3 +16,5 @@
     /* IE8 will just ignore this rule */
     &:first-of-type {opacity: 1;}
   }
+
+@include gallery($item-count: 2, $display-duration: 8, $transition-duration: 2);

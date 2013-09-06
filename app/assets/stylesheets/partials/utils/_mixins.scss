@@ -994,16 +994,16 @@
   @include prefix(keyframes, gallery-animation-#{$item-count}) {
     0% {opacity: 0;}
     /* Works out the time in % that the fade in and out should happen, according to the animation's total duration, transition duration and display duration */
-    #{100% * $transition-duration / $total-duration},
-    #{100% * $display-duration / $total-duration} {opacity: 1;}
-    #{100% * ($display-duration + $transition-duration) / $total-duration},
+    #{round(100% * $transition-duration / $total-duration)},
+    #{round(100% * $display-duration / $total-duration)} {opacity: 1;}
+    #{round(100% * ($display-duration + $transition-duration) / $total-duration)},
     100% {opacity: 0;}
   }
 
   /* Creates unique gallery class name based on no. of items */
   .gallery--items-#{$item-count} {
     /* Runs the animation when the item is loaded. Bit specific to catering for lazy-loading at the moment... */
-    .gallery__item.is-loaded {@include prefix(animation, gallery-animation-#{$item-count} #{$total-duration}s infinite);}
+    .gallery__item.is-loaded {@include prefix(animation, gallery-animation-#{$item-count} #{$total-duration}s linear infinite);}
   }
 
   @for $j from 1 through $item-count {

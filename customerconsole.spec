@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.14
+Version:     0.1.15
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,11 @@ fi
 
 
 %changelog
+* Sat Sep 07 2013 ci <doperations@au.westfield.com> 0.1.15-1
+- Merge pull request #347 from btillman/api_doc_theme
+  (tfigueiro@au.westfield.com)
+- updates theme for api docs (ben.tillman@gmail.com)
+
 * Fri Sep 06 2013 ci <doperations@au.westfield.com> 0.1.14-1
 - Merge remote-tracking branch 'digital/master' (ben@germanforblack.com)
 - * Added esc key close * Added click-off close (ben@germanforblack.com)

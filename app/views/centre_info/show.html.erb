@@ -25,28 +25,28 @@
         <%# Remove "if false" conditional statement once other sections are ready %>
         <% if false %>
         <li>
-          <a href="#getting-here">Getting Here</a>
+          <%= link_to 'Getting Here', anchor: 'getting-here' %>
         </li><!--
       --><li>
-          <a href="#parking">Parking</a>
+          <%= link_to 'Parking', anchor: 'parking' %>
         </li><!--
       --><li>
-          <a href="#community">Community</a>
+          <%= link_to 'Community', anchor: 'community' %>
         </li><!--
       --><li>
-          <a href="#notices">Notices</a>
+          <%= link_to 'Notices', anchor: 'notices' %>
         </li><!--
       -->
         <% end %>
         <% if @centre.phone_number.present? or @centre.email_address.present? %>
           <li>
-            <a href="#contact-us">Contact Us</a>
+            <%= link_to 'Contact Us', anchor: 'contact-us' %>
           </li><!--
         -->
         <% end %>
         <% if social_media.present? %>
           <li>
-            <a href="#follow-us">Follow Us</a>
+            <%= link_to 'Follow Us', anchor: 'follow-us' %>
           </li>
         <% end %>
       </ul>
@@ -74,7 +74,7 @@
       <%# Static Google map %>
       <div class="map-google-static">
         <!-- <img src="http://maps.googleapis.com/maps/api/staticmap?center=<%= @centre.latitude %>,<%= @centre.longitude %>&zoom=11&size=640x280&sensor=false"> -->
-        <img src="http://placehold.it/980x280/666666/000000">
+        <%= image_tag 'http://placehold.it/980x280/666666/000000' %>
       </div>
       <%# //Static Google map %>
 
@@ -82,7 +82,7 @@
       <div class="centre-location__info box slats">
         <div class="slats__img slats__img--compact">
           <%# [BACKEND] Make `alt` attr dynamic where indicated %>
-          <img src="http://placehold.it/120x130&text=image" alt="Photo of [dynamic] shopping centre">
+          <%= image_tag 'http://placehold.it/120x130&text=image', alt: 'Photo of [dynamic] shopping centre' %>
         </div>
         <div class="slats__body islet">
           <p itemscope itemtype="http://schema.org/Organization">
@@ -125,7 +125,7 @@
       <div class="grid__item one-whole">
         <p>Complimentary parking available for all customers.</p>
 
-        <small class="fine-print">Parking <a href="#">terms &amp; conditions</a> apply</small>
+        <small class="fine-print">Parking <%= link_to 'terms &amp; conditions'.html_safe, '#' %> apply</small>
       </div>
     </div>
     <%# //Complimentary parking %>
@@ -172,7 +172,7 @@
             </tbody>
           </table>
         </div>
-        <small class="fine-print fine-print--center">*2.5% surcharge on all credit card payments, parking <a href="#">terms &amp; conditions apply</a>.</small>
+        <small class="fine-print fine-print--center">*2.5% surcharge on all credit card payments, parking <%= link_to 'terms &amp; conditions apply'.html_safe, '#' %>.</small>
       </div>
 
       <div class="grid__item non-palm-one-half">
@@ -189,7 +189,7 @@
     <%# Community %>
     <h2 id="community">Community</h2>
     <%# [BACKEND] Replace the `alt` attribute with dynamic data where indicated %>
-    <img src="http://placehold.it/980x280" class="mrg-base" alt="Photo of [name of the community where the photo came from]">
+    <%= image_tag 'http://placehold.it/980x280', class: 'mrg-base', alt: 'Photo of [name of the community where the photo came from]' %>
 
     <%# [BACKEND] To do the 2 columns, please set up two text fields in back office with character limit for each text field (that needs to be determined later). Each text field will correspond to one `grid__item` %>
     <div class="grid grid--gutter-dbl grid--mrg-dbl-non-palm">
@@ -210,7 +210,7 @@
       <div class="grid__item non-palm-one-half">
         <div class="box">
           <%# [BACKEND] Replace the `alt` attribute with dynamic data where indicated %>
-          <img src="http://placehold.it/600x436" alt="Logo of [the name of the community]">
+          <%= image_tag 'http://placehold.it/600x436', alt: 'Logo of [the name of the community]' %>
         </div>
       </div>
 
@@ -279,7 +279,7 @@
             <div class="box island txt-center txt-truncate">
               <span class="icon icon--email icon--kilo icon--spacing-lrg" aria-hidden="true"></span>
               <span class="hide-visually">Email</span>
-              <a href="mailto:<%= @centre.email_address %>"><%= @centre.email_address %></a>
+              <%= mail_to @centre.email_address, @centre.email_address %>
             </div>
           </div>
         <% end %>
@@ -412,7 +412,7 @@
   <div class="grid__item non-palm-one-half">
     <%# Shopping hours box %>
     <div class="promo-tile box">
-      <img src="<%= image_path "promo-tiles/promo-tile-01.jpg" %>" alt="">
+      <%= image_tag 'promo-tiles/promo-tile-01.jpg', alt: '' %>
       <span class="promo-tile__icon-main icon icon--hours icon--flush-top" aria-hidden="true"></span>
       <div class="islet island--non-palm">
         <h2 class="promo-tile__hdr">Opening Hours</h2>
@@ -428,13 +428,13 @@
   <div class="grid__item non-palm-one-half">
     <%# Centre services box %>
     <div class="promo-tile box">
-      <img src="<%= image_path "promo-tiles/promo-tile-02.jpg" %>" alt="">
+      <%= image_tag 'promo-tiles/promo-tile-02.jpg', alt: '' %>
       <span class="promo-tile__icon-main icon icon--service icon--flush-top" aria-hidden="true"></span>
       <div class="islet island--non-palm">
         <h2 class="promo-tile__hdr">Centre Services</h2>
         <div class="txt-formatted">
           <p>Find out the full selection of services available.</p>
-          <a href="#">Get Directions</a>
+          <%= link_to 'Get Directions', '#' %>
         </div>
       </div>
     </div>

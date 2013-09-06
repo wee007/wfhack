@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.10
+Version:     0.1.11
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,11 @@ fi
 
 
 %changelog
+* Fri Sep 06 2013 ci <doperations@au.westfield.com> 0.1.11-1
+- Merge pull request #348 from fchan/centre-info-footer (ewee@au.westfield.com)
+- Fix up link syntax (fiona@fionachan.net)
+- Added promo tile images and path to centre hours (fiona@fionachan.net)
+
 * Thu Sep 05 2013 ci <doperations@au.westfield.com> 0.1.10-1
 - Merge remote-tracking branch 'digital/master' into search-enhancements
   (ben@germanforblack.com)

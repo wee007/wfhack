@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.12
+Version:     0.1.13
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,10 @@ fi
 
 
 %changelog
+* Fri Sep 06 2013 ci <doperations@au.westfield.com> 0.1.13-1
+- When you hit enter on search with out selecting an item it will work
+  (ldewey@au.westfield.com)
+
 * Fri Sep 06 2013 ci <doperations@au.westfield.com> 0.1.12-1
 - Merge pull request #350 from bschwarz/master (ldewey@au.westfield.com)
 - * Added suggestionsVisible, rather than emptying the suggestions list * Added

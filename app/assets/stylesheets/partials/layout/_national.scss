@@ -2,7 +2,7 @@
    @LAYOUT -> NATIONAL HOMEPAGE
    ====================================================================================== */
 
-.national {background-color: $color-base-txt;}
+.national {background-color: $color-dark-txt;}
 
   /* Wrapper around the whole page. Need this for the (almost) full viewport background image */
   .national__inner {
@@ -20,7 +20,7 @@
     .icon:before {color: #fff;}
   }
 
-    /* -- Header -- */
+    /* --Header-- */
 
     .national__header {
       @include to-rem(height, 259);
@@ -48,13 +48,11 @@
           z-index: 2;
         }
 
-        /* Positioning the logo and nav to be at the same level for palm only */
-        .national__logo,
-        nav {@include to-rem(top, 13);}
-
         /* Logo */
-        @include respond-min($non-palm) {
-          .national__logo {
+        .national__logo {
+          @include to-rem(top, 13);
+
+          @include respond-min($non-palm) {
             @include to-rem(top, 35);
             /* Increase logo size at this breakpoint, same as dimension in `.is-header-hero .logo` */
             width: 126px;
@@ -65,11 +63,12 @@
         /* Nav */
         nav {
           right: 0;
+          @include to-rem(top, 20);
           @include font-size($font-size-milli);
 
           /* Shift the nav down a bit at this breakpoint */
           @include respond-min($non-palm) {
-            @include to-rem(top, 47);
+            @include to-rem(top, 43);
             @include font-size($font-size-sml);
           }
 
@@ -85,13 +84,19 @@
               opacity: 1;
             }
 
+            /* Icon */
+            .icon:before {@extend %transition-subtle;}
+
             /* Hover and focus state */
             &:hover,
             &:focus {
               opacity: 1;
 
               @include respond-min($non-palm) {
-                color: $color-grey-2;
+                &,
+                .icon:before {
+                  color: $color-grey-2;
+                }
               }
             }
           }
@@ -100,6 +105,7 @@
               /* Can't do it on `.icon:before` because mobile Safari doesn't like it for some reasons */
               display: block;
               line-height: 1;
+              @include font-size(18, 1);
             }
         }
 
@@ -171,15 +177,6 @@
       position: relative;
       @include to-rem(margin-top, -70);
 
-      /* --Shared styles-- */
-
-      /* Set common font-size and display property */
-      h2,
-      .tab__nav {
-        display: inline-block;
-        @include font-size(18);
-      }
-
       /* Heading next to`tab__nav` */
       h2 {
         @include to-rem(margin-right, 40);
@@ -199,6 +196,18 @@
 
         li:first-child a {padding-left: 0;}
       }
+
+      /* --Shared styles - needs to be placed here otherwise the `display: inline-block` will get overwritten -- */
+
+      /* Set common font-size and display property */
+      h2,
+      .tab__nav {
+        @include font-size(18);
+
+        @include respond-min($non-palm) {
+          display: inline-block;
+        }
+      }
     }
 
       /* Set on `a`. Tile that links to the relevant centre homepage */
@@ -207,6 +216,11 @@
         position: relative;
         background-size: cover;
         background-position: 0 0;
+
+        &:hover,
+        &:focus {
+          &:before {background-color: #000;}
+        }
 
         /* Gradient that sits on top of the centre background image */
         &:before {
@@ -219,11 +233,12 @@
           right: 0;
           top: 0;
           bottom: 0;
-          /* Gradient over the background image */
+          @extend %transition-subtle; 
           @include linear-gradient($from: rgba(#000, 0) 0%, $to: rgba(#000, .8) 100%, $dir: left, $dir-webkit: right);
         }
 
-        &:first-child {box-shadow: inset 0 4px 4px 0 rgba(0,0,0,.4)}
+        /* First `.national__centre-tile` gets `box-shadow` */
+        li:first-child & {box-shadow: inset 0 4px 4px 0 rgba(0,0,0,.4)}
 
         /* Wrapper around centre's name */
         .container {
@@ -237,19 +252,71 @@
           }
         }
 
-        /* Centre name */
-        h3 {
-          @include font-size(28);
-          text-transform: uppercase;
+          /* Centre name */
+          h3 {
+            @include font-size(28);
+            text-transform: uppercase;
 
+            @include respond-min($non-palm) {
+              @include font-size(50);
+            }
+          }
+
+          /* Right arrow icon */
+          .icon:before {
+            position: absolute;
+            right: 0;
+            /* Aligns text in the centre vertically */
+            top: 50%;
+            @include translate(0, -50%);
+            @include font-size(36, 1);
+
+            @include respond-min($non-palm) {
+              @include font-size(46, 1);
+            }
+          }
+      }
+
+    /* --Footer-- */
+
+    .national__footer {
+      text-align: center;
+      @include font-size(11);
+      @include to-rem(padding-top padding-bottom, 20);
+
+      /* Set footer to be fixed to bottom of page hence requires a higher `z-index` than other elements on the page */
+      @include respond-min($non-palm) {
+        z-index: 3;
+        @include to-rem(padding-top padding-bottom, 5);
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        background: #000;
+        opacity: .6;
+      }
+
+      /* --Shared rules-- */
+      &,
+      a {color: $color-grey-1;}
+
+      /* Hover/focus state */
+      a:hover,
+      a:focus {color: $color-light-txt;}
+
+      .container {@extend %clear-fix;}
+
+        ul{
           @include respond-min($non-palm) {
-            @include font-size(50);
+            float: right;
+          }
+
+          &:first-child {
+            @include to-rem(margin-bottom, $spacing-half);
+
+            @include respond-min($non-palm) {
+              float: left;
+              margin-bottom: 0;
+            }
           }
         }
-
-        .icon:before {
-          position: absolute;
-          right: 0;
-          @include font-size(18, 1);
-        }
-      }
+    }

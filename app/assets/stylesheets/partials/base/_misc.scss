@@ -16,7 +16,14 @@ hr {
 
 /* [ABBREVIATION]
 -------------------------------------------------------*/
-abbr[title] {cursor: help;}
+abbr[title] {
+  cursor: help;
+
+  a & {
+    cursor: pointer;
+    border-bottom: 0;
+  }
+}
 
 /* [INSERT]
 -------------------------------------------------------*/

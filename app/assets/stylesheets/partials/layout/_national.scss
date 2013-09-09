@@ -1,230 +1,255 @@
 /* ======================================================================================
    @LAYOUT -> NATIONAL HOMEPAGE
    ====================================================================================== */
-.national {
 
-  /* --Shared rules-- */
+.national {background-color: $color-base-txt;}
 
-  /* Set common colours */
-  &,
-  a,
-  .icon:before {color: #fff;}
-
-  @include respond-min($non-palm) {
-    /* Wrapper around the whole page. Need this for the (almost) full viewport background image */
-    position: absolute;
-    width: 100%;
-    height: 100%;
-  }
-}
-  
-  /* -- Shared styles -- */
-  .national__header,
-  .national__tabs .tab__content {
-    /* Setting a dark background colour so you can still see the white text even in case the images in the gallery don't get loaded/take a long time to load */
-    background-color: $color-base-txt;
-  }
-
-  /* -- Header -- */
-
-  .national__header {
-    @include to-rem(height, 259);
-    box-shadow: 0 0 8px 10px rgba(0,0,0,.5);
-
+  /* Wrapper around the whole page. Need this for the (almost) full viewport background image */
+  .national__inner {
     @include respond-min($non-palm) {
-      /* By making it shorter than 100%, we will have room to show the centres tiles in the viewport */
-      height: 60%;
+      position: absolute;
+      width: 100%;
+      height: 100%;
     }
 
-    @include respond-min($lap-lrg-start) {
-      /* Show more of the image at this breakpoint */
-      height: 80%;
-    }
+    /* --Shared rules-- */
 
-    /* `.container` wraps around the logo, nav and tagline. This sets its height to be the full height `.national-header` */
-    .container {height: 100%;}
-
-      /* --Shared rules-- */
-
-      .logo img,
-      h1,
-      nav {
-        position: absolute;
-        /* Setting it at a higher `z-index` than `gallery__item` */
-        z-index: 2;
-      }
-
-      /* Positioning the logo and nav to be at the same level for palm only */
-      .logo img,
-      nav {@include to-rem(top, 13);}
-
-      .logo img {
-        @include respond-min($non-palm) {
-          @include to-rem(top, 35);
-          /* Increase logo size at this breakpoint, same as dimension in `.is-header-hero .logo` */
-          width: 126px;
-          height: 41px;
-        }
-      }
-
-      h1 {
-        /* Aligns text centre vertically */
-        top: 50%;
-        @include translate(0, -50%);
-        /* Need the `width` so the text can align centre to the viewport */
-        width: 100%;
-        text-align: center;
-        /* Need a tigher `line-height` so the `span` will sit closer to the text under it */
-        line-height: 1;
-
-        @include respond-min($non-palm) {
-          left: 0;
-          text-align: left;
-          @include font-size(48);
-        }
-
-        span {
-          display: block;
-          @include font-size($font-size-sml);
-
-          @include respond-min($non-palm) {
-            @include font-size(18);
-          }
-        }
-      }
-
-      nav {
-        right: 0;
-        @include font-size($font-size-milli);
-
-        @include respond-min($non-palm) {
-          @include to-rem(top, 47);
-          @include font-size($font-size-sml);
-        }
-
-        a {
-          display: block;
-          text-align: center;
-          opacity: .5;
-
-          @include respond-min($non-palm) {
-            opacity: 1;
-          }
-        }
-
-          .icon {
-            /* Can't do it on `.icon:before` because mobile Safari doesn't like it for some reasons */
-            display: block;
-            line-height: 1;
-          }
-      }
-  }
-
-      /*-- Hero image paths. --*/ 
-
-      .national__hero__1 {
-        background-image: image-url("national/national-hero-01-sml.jpg");
-
-        @include respond-min($non-palm) {
-          background-image: image-url("national/national-hero-01.jpg");
-        }
-      }
-
-      .national__hero__2 {
-        background-image: image-url("national/national-hero-02-sml.jpg");
-
-        @include respond-min($non-palm) {
-          background-image: image-url("national/national-hero-02.jpg");
-        }
-      }
-
-  /* -- Main -- */
-
-  /* -- Tabs -- */
-  .national__tabs {
-    position: relative;
-    @include to-rem(margin-top, -70);
-
-    /* -- Shared styles -- */
-
-    /* Set common colour */
+    /* Set common colours */
     &,
-    a {
-      color: #fff;
-    }
-
-    /* Set common font-size and display property */
-    h2,
-    .tab__nav {
-      display: inline-block;
-      @include font-size(18);
-    }
-
-    /* Heading next to`tab__nav` */
-    h2 {
-      @include to-rem(margin-right, 40);
-      display: none;
-    }
-
-    /* Tab nav */
-    .tab__nav {
-      li:first-child a {padding-left: 0;}
-
-      a {
-        opacity: .6;
-        @include to-rem(padding, 25 12);
-
-        &:hover,
-        &:focus,
-        &.is-active {opacity: 1;}
-      }
-    }
+    a,
+    .icon:before {color: #fff;}
   }
 
-    /* Set on `a`. Tile that links to the relevant centre homepage */
-    .national__centre-tile {
-      display: block;
-      position: relative;
-      background-size: cover;
-      background-position: 0 0;
+    /* -- Header -- */
 
-      &:before {
-        /* Setting `z-index` so it will sit under `national__centre-tile__content` */
-        z-index: 1;
-        content: "";
-        display: block;
-        position: absolute;
-        left: 0;
-        right: 0;
-        top: 0;
-        bottom: 0;
-        /* Gradient over the background image */
-        @include linear-gradient($from: rgba(#000, 0) 0%, $to: rgba(#000, .8) 100%, $dir: left, $dir-webkit: right);
+    .national__header {
+      @include to-rem(height, 259);
+
+      /* By making it shorter than 100%, we will have room to show the centres tiles in the viewport */
+      @include respond-min($non-palm) {
+        height: 60%;
+      }
+
+      /* Show more of the image at this breakpoint */
+      @include respond-min($lap-lrg-start) {
+        height: 80%;
+      }
+
+      /* `.container` wraps around the logo, nav and tagline. This sets its height to be the full height of `.national-header` */
+      .container {height: 100%;}
+
+        /* --Shared rules-- */
+
+        .national__logo,
+        h1,
+        nav {
+          position: absolute;
+          /* Setting it at a higher `z-index` than `gallery__item` */
+          z-index: 2;
+        }
+
+        /* Positioning the logo and nav to be at the same level for palm only */
+        .national__logo,
+        nav {@include to-rem(top, 13);}
+
+        /* Logo */
+        @include respond-min($non-palm) {
+          .national__logo {
+            @include to-rem(top, 35);
+            /* Increase logo size at this breakpoint, same as dimension in `.is-header-hero .logo` */
+            width: 126px;
+            height: 41px;
+          }
+        }
+
+        /* Nav */
+        nav {
+          right: 0;
+          @include font-size($font-size-milli);
+
+          /* Shift the nav down a bit at this breakpoint */
+          @include respond-min($non-palm) {
+            @include to-rem(top, 47);
+            @include font-size($font-size-sml);
+          }
+
+          a {
+            display: block;
+            text-align: center;
+            opacity: .7;
+
+            &:hover,
+            &:focus {opacity: 1;}
+
+            @include respond-min($non-palm) {
+              opacity: 1;
+            }
+
+            /* Hover and focus state */
+            &:hover,
+            &:focus {
+              opacity: 1;
+
+              @include respond-min($non-palm) {
+                color: $color-grey-2;
+              }
+            }
+          }
+
+            .icon {
+              /* Can't do it on `.icon:before` because mobile Safari doesn't like it for some reasons */
+              display: block;
+              line-height: 1;
+            }
+        }
+
+        h1 {
+          /* Aligns text centre vertically */
+          top: 50%;
+          left: 0;
+          @include translate(0, -50%);
+          /* Need a tigher `line-height` so the `span` will sit closer to the text under it */
+          line-height: 1;
+          text-align: center;
+          width: 100%;
+
+          /* Increase `font-size` */
+          @include respond-min($non-palm) {
+            @include font-size(48);
+            text-align: left;
+          }
+
+            /* Subtext in the heading */
+            span {
+              display: block;
+              @include font-size($font-size-sml);
+
+              @include respond-min($non-palm) {
+                @include font-size(18);
+              }
+            }
+        }
+    }
+
+        /* --Hero image paths (see 'Gallery' module)-- */ 
+
+        .national__hero__1 {
+          @include respond-max($palm) {
+            background-image: image-url("heroes/national/national-hero-01-sml.jpg");
+          }
+
+          @include respond-range($lap-start, $lap-end) {
+            background-image: image-url("heroes/national/national-hero-01-med.jpg");
+          }
+
+          @include respond-min($desk-start) {
+            background-image: image-url("heroes/national/national-hero-01-lrg.jpg");
+          }
+        }
+
+        .national__hero__2 {
+          @include respond-max($palm) {
+            background-image: image-url("heroes/national/national-hero-02-sml.jpg");
+          }
+
+          @include respond-range($lap-start, $lap-end) {
+            background-image: image-url("heroes/national/national-hero-02-med.jpg");
+          }
+
+          @include respond-min($desk-start) {
+            background-image: image-url("heroes/national/national-hero-02-lrg.jpg");
+          }
+        }
+
+
+
+    /* --Main-- */
+
+    /* Tabs */
+    .national__tabs {
+      /* Need `position: relative` so that it'll appear on top of the hero image which has `position: absolute` */
+      position: relative;
+      @include to-rem(margin-top, -70);
+
+      /* --Shared styles-- */
+
+      /* Set common font-size and display property */
+      h2,
+      .tab__nav {
+        display: inline-block;
+        @include font-size(18);
+      }
+
+      /* Heading next to`tab__nav` */
+      h2 {
+        @include to-rem(margin-right, 40);
+        display: none;
+      }
+
+      /* Tab nav */
+      .tab__nav {
+        a {
+          opacity: .6;
+          @include to-rem(padding, 25 12);
+
+          &:hover,
+          &:focus,
+          &.is-active {opacity: 1;}
+        }
+
+        li:first-child a {padding-left: 0;}
       }
     }
 
-      /* Wrapper around */
-      .national__centre-tile__content {
+      /* Set on `a`. Tile that links to the relevant centre homepage */
+      .national__centre-tile {
+        display: block;
         position: relative;
-        z-index: 2;
-        @include to-rem(min-height, 150);
+        background-size: cover;
+        background-position: 0 0;
 
-        h3 {
-          /* Aligns text centre vertically */
+        /* Gradient that sits on top of the centre background image */
+        &:before {
+          /* Setting `z-index` so that the gradient will sit on top of `.national__centre-tile__content` */
+          z-index: 1;
+          content: "";
+          display: block;
           position: absolute;
-          top: 50%;
-          @include translate(0, -50%);
-          @include font-size(50);
-          /* Set it to use the same `font-family` and `font-weight` as `h1` */
-          @extend .h1;
+          left: 0;
+          right: 0;
+          top: 0;
+          bottom: 0;
+          /* Gradient over the background image */
+          @include linear-gradient($from: rgba(#000, 0) 0%, $to: rgba(#000, .8) 100%, $dir: left, $dir-webkit: right);
+        }
+
+        &:first-child {box-shadow: inset 0 4px 4px 0 rgba(0,0,0,.4)}
+
+        /* Wrapper around centre's name */
+        .container {
+          position: relative;
+          /* Setting `z-index` so it will sit above the dark gradient */
+          z-index: 2;
+          @include to-rem(padding, 30 20 30 0);
+
+          @include respond-min($non-palm) {
+            @include to-rem(padding, 40 0);
+          }
+        }
+
+        /* Centre name */
+        h3 {
+          @include font-size(28);
           text-transform: uppercase;
+
+          @include respond-min($non-palm) {
+            @include font-size(50);
+          }
+        }
+
+        .icon:before {
+          position: absolute;
+          right: 0;
+          @include font-size(18, 1);
         }
       }
-
-    .national__centre-tile--nsw {
-      background-image: url('http://res.cloudinary.com/wlabs/image/fetch/w_750,h_200,c_fill,e_blur:300/http://beta.westfield.com.au/assets/heroes/bondijunction-lrg-4ec924a641f26e4ae8822ec42d6bb7a3.jpg');
-
-      @include respond-min($non-palm) {
-        background-image: url('http://res.cloudinary.com/wlabs/image/fetch/w_1600,h_300,c_fill,e_blur:300/http://beta.westfield.com.au/assets/heroes/bondijunction-lrg-4ec924a641f26e4ae8822ec42d6bb7a3.jpg');
-      }
-    }

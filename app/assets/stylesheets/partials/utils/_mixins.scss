@@ -342,8 +342,7 @@
 		Keep an eye on browser support:
 		-	Transition: 	http://caniuse.com/#search=transition
     - Animation:    http://caniuse.com/#feat=css-animation
-    - Keyframes:    http://docs.webplatform.org/wiki/css/atrules/@keyframes
-		-	Animation delay: 		http://docs.webplatform.org/wiki/css/properties/animation-delay
+		-	Animation delay: 	  http://caniuse.com/#feat=css-animation
 		-	Multi-column: 	http://caniuse.com/#feat=multicolumn
 		-	Hyphens: 		http://caniuse.com/#feat=css-hyphens
 		-	Box sizing: 	http://caniuse.com/#feat=css3-boxsizing
@@ -384,19 +383,9 @@
 		#{$property}: $value;
   }
 
-  /* Keyframes */
-  @else if $property == keyframes {
-    @-webkit-keyframes $value {@content;}
-    @-moz-keyframes $value {@content;}
-    @-o-keyframes $value {@content;}
-    @keyframes $value {@content;}
-  }
-
   /* Animation delay */
   @else if $property == animation-delay {
     -webkit-animation-delay: $value;
-    -moz-animation-delay: $value;
-    -o-animation-delay: $value;
     animation-delay: $value;
   }
 
@@ -991,7 +980,7 @@
   $total-duration: $display-duration * $item-count;
 
   /* Creates the keyframe animation */
-  @include prefix(keyframes, gallery-animation-#{$item-count}) {
+  @include prefix-keyframe(gallery-animation-#{$item-count}) {
     0% {opacity: 0;}
     /* Works out the time in % that the fade in and out should happen, according to the animation's total duration, transition duration and display duration */
     #{round(100% * $transition-duration / $total-duration)},

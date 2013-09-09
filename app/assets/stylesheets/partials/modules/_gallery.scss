@@ -1,6 +1,19 @@
+/* ======================================================================================
+   @MODULES -> GALLERY
+   ====================================================================================== */
+
+/*
+  Usage:
+    Creates a gallery of rotating images
+
+  Demo:
+    Style Guide -> Modules -> Gallery
+*/
+
 .gallery {
   position: relative;
 }
+
   .gallery__item {
     position: absolute;
     top: 0;

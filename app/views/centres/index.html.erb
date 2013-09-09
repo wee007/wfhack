@@ -1,16 +1,50 @@
+<% content_for :class_for_body, "national" %>
+
+<%# Background images of the centre tiles at each breakpoint %>
+<% content_for :custom_styles do %>
+  <style>
+  <%# [BACKEND] We need to dynamically generate the class names for each centre and its relevant background image %>
+   @media (max-width: 25em) {
+    .national__centre-tile--bondijunction {
+      background-image: url('http://res.cloudinary.com/wlabs/image/fetch/w_400,h_107,c_fill,e_blur:300/http://beta.westfield.com.au/assets/heroes/bondijunction-lrg-4ec924a641f26e4ae8822ec42d6bb7a3.jpg');
+      }
+    }
+
+    @media (min-width: 25.0625em) and (max-width: 48em) {    
+      .national__centre-tile--bondijunction {
+        background-image: url('http://res.cloudinary.com/wlabs/image/fetch/w_768,h_205,c_fill,e_blur:300/http://beta.westfield.com.au/assets/heroes/bondijunction-lrg-4ec924a641f26e4ae8822ec42d6bb7a3.jpg');
+      }
+    }
+
+    @media (min-width: 48.0625em) {    
+      .national__centre-tile--bondijunction {
+        background-image: url('http://res.cloudinary.com/wlabs/image/fetch/w_1600,h_300,c_fill,e_blur:300/http://beta.westfield.com.au/assets/heroes/bondijunction-lrg-4ec924a641f26e4ae8822ec42d6bb7a3.jpg');
+      }
+    }
+  </style>
+<% end %>
+<%# //Background images of centre tiles %>
+
+
 <%# National landing page wrapper %>
-<div class="national">
+<div class="national__inner">
 
   <%# Header %>
-  <header role="banner" class="national__header national__gallery gallery gallery--items-2"> 
+  <header class="national__header gallery gallery--items-2"> 
+    <%# Preloader %>
+      <%# <span class="preloader preloader--middle preloader--light"><span class="preloader__spinner"></span><em class="hide-visually">Loading, please wait&#8230;</em></span> %>
+    <%# //Preloader %>
+
+    <%# Gallery images %>
+    <div class="national__hero__1 gallery__item gallery__item__1 is-loaded"></div>
+    <div class="national__hero__2 gallery__item gallery__item__2 is-loaded"></div>
+    <%# //Gallery images %>
 
     <%# Container %>
     <div class="container container--position">
-      <!-- Logo -->
-      <span class="logo">
-        <img src="<%= image_path "logo-white.svg" %>" alt="Westfield" data-svg-fallback="<%= image_path "logo-white.png" %>">
-      </span>
-      <!-- //Logo -->
+      <%# Logo %>
+      <img src="<%= image_path "logo-white.svg" %>" alt="Westfield" data-svg-fallback="<%= image_path "logo-white.png" %>" class="national__logo">
+      <%# //Logo %>
 
       <h1>
         <span>3,300 stores. 60,000 products</span>
@@ -28,21 +62,14 @@
         </ul>
       </nav>
       <%# //Nav %>
+
     </div>
     <%# //Container %>
-
-    <%# Gallery items that get rotated %>
-    <a href="#" rel="external">
-      <span class="hide-visually">Westfield Campaign video</span>
-      <div class="national__hero__1 gallery__item gallery__item__1 is-loaded"></div>
-      <div class="national__hero__2 gallery__item gallery__item__2 is-loaded"></div>
-    </a>
-    <%# //Gallery items that get rotated %>
   </header>
   <%# //Header %>
 
   <%# Tabs %>
-  <main class="national__tabs tabs main" id="main" role="main">
+  <main class="national__tabs tabs" id="main" role="main">
 
     <div class="container">
       <h2>Find your centre</h2>
@@ -59,29 +86,38 @@
     </div>
 
     <%# NSW %>
-    <div id="tab-nsw" class="tab__content is-active">
-      <a class="national__centre-tile--nsw national__centre-tile" href="#">
-        <div class="national__centre-tile__content container">
-          <h3>Bondi Junction</h3>
-        </div>
-      </a>
+    <ul id="tab-nsw" class="tab__content is-active">
+      <li>
+        <a class="national__centre-tile national__centre-tile--bondijunction" href="#">
+          <div class="container">
+            <h3 class="h1">Bondi Junction</h3>
+            <span class="icon icon--arrow-right icon--lrg" aria-hidden="true"></span>
+          </div>
+        </a>
+      </li>
 
-      <a class="national__centre-tile--nsw national__centre-tile" href="#">
-        <div class="national__centre-tile__content container">
-          <h3>Burwood</h3>
-        </div>
-      </a>
-    </div>
+      <li>
+        <a class="national__centre-tile national__centre-tile--bondijunction" href="#">
+          <div class="container">
+            <h3 class="h1">Burwood</h3>
+            <span class="icon icon--arrow-right icon--lrg" aria-hidden="true"></span>
+          </div>
+        </a>
+      </li>
+    </ul>
     <%# //NSW %>
 
     <%# ACT %>
-    <div id="tab-act" class="tab__content">
-      <a class="national__centre-tile--nsw national__centre-tile" href="#">
-        <div class="national__centre-tile__content container">
-          <h3>Burwood</h3>
-        </div>
-      </a>
-    </div>
+    <ul id="tab-act" class="tab__content">
+      <li>
+        <a class="national__centre-tile national__centre-tile--bondijunction" href="#">
+          <div class="container">
+            <h3 class="h1">Centre 1</h3>
+            <span class="icon icon--arrow-right icon--lrg" aria-hidden="true"></span>
+          </div>
+        </a>
+      </li>
+    </ul>
     <%# //ACT %>
   </main>
   <%# //Tabs %>

@@ -63,35 +63,6 @@
       border-bottom-width: 2px;
     }
 
-    /* Drop down pointer arrow (inc. for 'Filters' module) */
-    &:before,
-    .filters__target:before {
-      pointer-events: none;
-      display: block;
-      position: absolute;
-      z-index: $z-index-high+1;
-      left: 10px;
-      top: -9px;
-      font-size: 26px;
-      line-height: 11px;
-      height: 11px;
-      overflow: hidden;
-      color: #fff;
-      text-shadow: 0 -2px rgba(#e5e5e5, 0.9);
-
-      /* iOS */
-      .ios & {top: -10px;}
-
-      /* IE 10 */
-      @include ie-10-up {
-        top: -8px;
-      }
-
-      /* Hide for IE 9/8 */
-      .ie-9 &,
-      .old-ie & {display: none;}
-    }
-
     /* Header */
     .drop-down-menu__hdr {
       position: relative;
@@ -119,6 +90,37 @@
     /* Divider */
     .drop-down-menu__divider {border-bottom: 1px solid $color-grey-1;}
   }
+
+    /* Drop down pointer arrow (inc. for 'Filters' and 'Header menu' module) */
+    .drop-down-menu__target:before,
+    .drop-down-menu__target .filters__target:before,
+    .header-menu-toggle:before,
+    .nav-social-tertiary-container:before, {
+      pointer-events: none;
+      display: block;
+      position: absolute;
+      z-index: $z-index-high+1;
+      left: 10px;
+      top: -9px;
+      font-size: 26px;
+      line-height: 11px;
+      height: 11px;
+      overflow: hidden;
+      color: #fff;
+      text-shadow: 0 -2px rgba(#e5e5e5, 0.9);
+
+      /* iOS */
+      .ios & {top: -10px;}
+
+      /* IE 10 */
+      @include ie-10-up {
+        top: -8px;
+      }
+
+      /* Hide for IE 9/8 */
+      .ie-9 &,
+      .old-ie & {display: none;}
+    }
 
     /* List */
     .drop-down-menu__list {

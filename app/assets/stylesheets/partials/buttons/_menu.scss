@@ -1,50 +1,29 @@
 /* ======================================================================================
-   @BUTTONS -> MENU TOGGLE
+   @BUTTONS -> MENU
    ====================================================================================== */
 
 /*
 	Usage:
-		Toggles the header menu at small screen sizes.
+		Menu (hamburger) button.
 
 	Demo:
-		Style Guide -> Buttons -> Menu Toggle
+		Style Guide -> Buttons -> Menu
 */
 
-.btn--menu-toggle {
-	float: left;
+.btn--menu {
 	position: relative;
 	@include to-rem(width, 38);
 	@include to-rem(height, 32);
-	@include to-rem(margin, -1 0 0 -9);
-
-	/* Increase top outdent at this breakpoint */
-	@include respond-min($non-palm) {
-		@include to-rem(margin-top, -2);
-	}
-
-	/* Sub nav menu toggle */
-	.sub-nav-container & {
-		float: none;
-		display: none;
-
-		/* Always show at this breakpoint range */
-		@include respond-range($non-palm, $ipad-landscape - 1) {
-			display: block;
-
-			/* Centre home page hero banner */
-			.is-header-hero & {display: none;}
-		}
-	}
 }
 
 	/* Create the icon (three lines) */
-	.btn--menu-toggle__icon {
+	.btn--menu__icon {
 		left: 50%;
 		top: 50%;
 		@include to-rem(margin, -1.5 0 0 -10);
 		pointer-events: none;
 
-		/* Shared */
+		/* Shared rules */
 		&,
 		&:before,
 		&:after {

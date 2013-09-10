@@ -287,6 +287,15 @@
         background-size: cover;
         background-position: 0 0;
 
+        /*
+        .preloader {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          @include translate(-50%, -50%);
+        }
+        */
+
         /* Gradient that sits on top of the centre background image */
         &:before {
           /* Setting `z-index` so that the gradient will sit on top of `.national__centre-tile__content` */

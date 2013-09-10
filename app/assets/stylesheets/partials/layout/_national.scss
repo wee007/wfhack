@@ -285,7 +285,7 @@
       @include to-rem(padding-top padding-bottom, 20);
 
       /* Set footer to be fixed to bottom of page hence requires a higher `z-index` than other elements on the page */
-      @include respond-min($non-palm) {
+      @include respond-min($lap-lrg) {
         z-index: 3;
         @include to-rem(padding-top padding-bottom, 5);
         position: fixed;
@@ -306,14 +306,14 @@
       .container {@extend %clear-fix;}
 
         ul{
-          @include respond-min($non-palm) {
+          @include respond-min($lap-lrg) {
             float: right;
           }
 
           &:first-child {
             @include to-rem(margin-bottom, $spacing-half);
 
-            @include respond-min($non-palm) {
+            @include respond-min($lap-lrg) {
               float: left;
               margin-bottom: 0;
             }

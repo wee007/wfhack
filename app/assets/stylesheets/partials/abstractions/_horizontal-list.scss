@@ -92,3 +92,11 @@
 }
 
 .horiz-list--comma > li:after {content: ",";}
+
+/* Base spacing between `li` */
+.horiz-list--gutter-half > li {
+	@include to-rem(padding-left, $spacing-half);
+
+	/* Kill rules for the first item */
+	&:first-child {padding-left: 0;}
+}

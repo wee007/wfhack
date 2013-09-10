@@ -22,12 +22,26 @@
 
     /* --Header-- */
 
+    /* --Shared rules-- */
+
+    .national__logo,
+    .national__hero-header,
+    .national nav {
+      position: absolute;
+      /* Setting it at a higher `z-index` than `gallery__item` */
+      z-index: 2;
+    }
+
+    /* Header */
     .national__header {
-      @include to-rem(height, 259);
+      /* Need the height for vertical alignment of the text and video thumbnail to work */
+      @include to-rem(height, 310);
+      @include to-rem(min-height, 310);
 
       /* By making it shorter than 100%, we will have room to show the centres tiles in the viewport */
       @include respond-min($non-palm) {
         height: 60%;
+        @include to-rem(min-height, 400);
       }
 
       /* Show more of the image at this breakpoint */
@@ -38,32 +52,10 @@
       /* `.container` wraps around the logo, nav and tagline. This sets its height to be the full height of `.national-header` */
       .container {height: 100%;}
 
-        /* --Shared rules-- */
-
-        .national__logo,
-        h1,
-        nav {
-          position: absolute;
-          /* Setting it at a higher `z-index` than `gallery__item` */
-          z-index: 2;
-        }
-
-        /* Logo */
-        .national__logo {
-          @include to-rem(top, 13);
-
-          @include respond-min($non-palm) {
-            @include to-rem(top, 35);
-            /* Increase logo size at this breakpoint, same as dimension in `.is-header-hero .logo` */
-            width: 126px;
-            height: 41px;
-          }
-        }
-
         /* Nav */
         nav {
           right: 0;
-          @include to-rem(top, 20);
+          @include to-rem(top, 10);
           @include font-size($font-size-milli);
 
           /* Shift the nav down a bit at this breakpoint */
@@ -108,21 +100,41 @@
               @include font-size(18, 1);
             }
         }
+    }
 
+      /* Logo */
+      .national__logo {
+        @include to-rem(top, 13);
+        width: 90px;
+
+        @include respond-min($non-palm) {
+          @include to-rem(top, 35);
+          /* Increase logo size at this breakpoint, same as width in `.is-header-hero .logo` */
+          width: 126px;
+        }
+      }
+
+      /* Wrapper around the hero heading and video thumbnail */
+      .national__hero-header {
+        /* Aligns content centre vertically */
+        top: 50%;
+        left: 0;
+        @include translate(0, -50%);
+        width: 100%;
+        text-align: center;
+
+        @include respond-min($non-palm) {
+          text-align: left;
+        }
+        
         h1 {
-          /* Aligns text centre vertically */
-          top: 50%;
-          left: 0;
-          @include translate(0, -50%);
           /* Need a tigher `line-height` so the `span` will sit closer to the text under it */
           line-height: 1;
-          text-align: center;
-          width: 100%;
+          @extend %mrg-base;
 
           /* Increase `font-size` */
           @include respond-min($non-palm) {
             @include font-size(48);
-            text-align: left;
           }
 
             /* Subtext in the heading */
@@ -135,37 +147,90 @@
               }
             }
         }
+      }
+
+        /* Link that goes to YouTube page */
+        .national__video {
+          display: inline-block;
+          position: relative;
+          @include to-rem(padding, 5);
+
+          &:before {
+            content: "";
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0,0,0,.3);
+          }
+
+          &:hover,
+          &:focus {
+            &:before {
+              background-color: rgba(0,0,0,1);
+              z-index: 2;
+            }
+          }
+
+          /* Thumbnail of the video */
+          img {
+            position: relative;
+            /* Need this so it'll appear in front of the background overlay */
+            z-index: 1;
+            @include to-rem(width, 100);
+
+            @include respond-min($non-palm) {
+              @include to-rem(width, 150);
+            }
+          }
+
+          /* Play icon */
+          .icon:before {
+            position: absolute;
+            /* Need this so it'll appear in front of the img */
+            z-index: 2;
+            top: 50%;
+            left: 50%;
+            @include translate(-50%, -50%);
+            @include font-size(24);
+
+            @include respond-min($non-palm) {
+              @include font-size($font-size-kilo);
+            }
+          }
+        }
+
+    /* --Hero image paths (see 'Gallery' module)-- */ 
+
+    .national__hero__1 {
+      @include respond-max($palm) {
+        background-image: image-url("heroes/national/national-hero-01-sml.jpg");
+      }
+
+      @include respond-range($lap-start, $lap-end) {
+        background-image: image-url("heroes/national/national-hero-01-med.jpg");
+      }
+
+      @include respond-min($desk-start) {
+        background-image: image-url("heroes/national/national-hero-01-lrg.jpg");
+      }
     }
 
-        /* --Hero image paths (see 'Gallery' module)-- */ 
+    .national__hero__2 {
+      @include respond-max($palm) {
+        background-image: image-url("heroes/national/national-hero-02-sml.jpg");
+      }
 
-        .national__hero__1 {
-          @include respond-max($palm) {
-            background-image: image-url("heroes/national/national-hero-01-sml.jpg");
-          }
+      @include respond-range($lap-start, $lap-end) {
+        background-image: image-url("heroes/national/national-hero-02-med.jpg");
+      }
 
-          @include respond-range($lap-start, $lap-end) {
-            background-image: image-url("heroes/national/national-hero-01-med.jpg");
-          }
-
-          @include respond-min($desk-start) {
-            background-image: image-url("heroes/national/national-hero-01-lrg.jpg");
-          }
-        }
-
-        .national__hero__2 {
-          @include respond-max($palm) {
-            background-image: image-url("heroes/national/national-hero-02-sml.jpg");
-          }
-
-          @include respond-range($lap-start, $lap-end) {
-            background-image: image-url("heroes/national/national-hero-02-med.jpg");
-          }
-
-          @include respond-min($desk-start) {
-            background-image: image-url("heroes/national/national-hero-02-lrg.jpg");
-          }
-        }
+      @include respond-min($desk-start) {
+        background-image: image-url("heroes/national/national-hero-02-lrg.jpg");
+      }
+    }
 
 
 
@@ -187,11 +252,15 @@
       .tab__nav {
         a {
           opacity: .6;
-          @include to-rem(padding, 25 12);
+          @include to-rem(padding, 14 10);
 
           &:hover,
           &:focus,
           &.is-active {opacity: 1;}
+
+          @include respond-min($non-palm) {
+            @include to-rem(padding, 25 12);
+          }
         }
 
         li:first-child a {padding-left: 0;}
@@ -202,10 +271,11 @@
       /* Set common font-size and display property */
       h2,
       .tab__nav {
-        @include font-size(18);
+        @include font-size(14);
 
         @include respond-min($non-palm) {
           display: inline-block;
+          @include font-size(18);
         }
       }
     }
@@ -216,11 +286,6 @@
         position: relative;
         background-size: cover;
         background-position: 0 0;
-
-        &:hover,
-        &:focus {
-          &:before {background-color: #000;}
-        }
 
         /* Gradient that sits on top of the centre background image */
         &:before {
@@ -305,6 +370,7 @@
 
       .container {@extend %clear-fix;}
 
+        /* List of footer links */
         ul{
           @include respond-min($lap-lrg) {
             float: right;

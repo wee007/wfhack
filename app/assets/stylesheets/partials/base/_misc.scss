@@ -19,6 +19,7 @@ hr {
 abbr[title] {
   cursor: help;
 
+  /* Remove cursor and border on `abbr` when it's in an anchor */
   a & {
     cursor: pointer;
     border-bottom: 0;

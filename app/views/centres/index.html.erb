@@ -55,10 +55,19 @@
       <img src="<%= image_path "logo-white.svg" %>" alt="Westfield" data-svg-fallback="<%= image_path "logo-white.png" %>" class="national__logo">
       <%# //Logo %>
 
-      <h1>
-        <span>3,300 stores. 60,000 products</span>
-        You want. We find.
-      </h1>
+      <%# Hero header %>
+      <div class="national__hero-header">
+        <h1>
+          <span>3,300 stores. 60,000 products</span>
+          You want. We find.
+        </h1>
+
+        <a class="national__video" href="#">
+          <img src="<%= image_path "video-thumbnail.jpg" %>" alt="Westfield Campaign video">
+          <span class="icon icon--play" aria-hidden="true"></span>
+        </a>
+      </div>
+      <%# Hero header %>
 
       <%# Nav %>
       <nav role="navigation">

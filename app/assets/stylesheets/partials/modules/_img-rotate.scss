@@ -1,20 +1,24 @@
 /* ======================================================================================
-   @MODULES -> GALLERY
+   @MODULES -> IMAGE ROTATE
    ====================================================================================== */
 
 /*
   Usage:
-    Creates a gallery of rotating images
+    Creates a set of rotating images
+
+  Notes:
+    Need to `@include img-rotate` mixin to generate the specific image rotate classes that's based on the number of images it's rotating
+
+  Credit:
+    https://github.com/benschwarz/gallery-css
 
   Demo:
-    Style Guide -> Modules -> Gallery
+    Style Guide -> Modules -> IMAGE ROTATE
 */
 
-.gallery {
-  position: relative;
-}
+.img-rotate {position: relative;}
 
-  .gallery__item {
+  .img-rotate__item {
     position: absolute;
     top: 0;
     left: 0;
@@ -30,4 +34,4 @@
     &:first-of-type {opacity: 1;}
   }
 
-@include gallery($item-count: 2, $display-duration: 8, $transition-duration: 2);
+@include img-rotate($item-count: 2, $display-duration: 8, $transition-duration: 2);

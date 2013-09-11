@@ -2,7 +2,16 @@
    @LAYOUT -> NATIONAL HOMEPAGE
    ====================================================================================== */
 
-.national {background-color: $color-dark-txt;}
+/* Class added to `body` */
+.national {
+  background-color: $color-dark-txt;
+
+  /* Remove cursor and border on `abbr` when it's in an anchor */
+  a abbr {
+    cursor: pointer;
+    border-bottom: 0;
+  }
+}
 
   /* Wrapper around the whole page. Need this for the (almost) full viewport background image */
   .national__inner {
@@ -20,23 +29,21 @@
     .icon:before {color: #fff;}
   }
 
-    /* --Header-- */
+    /* Header */
 
     /* --Shared rules-- */
 
     .national__logo,
-    .national__hero-header,
+    .national__heading-wrap,
     .national nav {
       position: absolute;
-      /* Setting it at a higher `z-index` than `gallery__item` */
+      /* Setting it at a higher `z-index` than `img-rotate__item` */
       z-index: 2;
     }
 
-    /* Header */
     .national__header {
       /* Need the height for vertical alignment of the text and video thumbnail to work */
       @include to-rem(height, 310);
-      @include to-rem(min-height, 310);
 
       /* By making it shorter than 100%, we will have room to show the centres tiles in the viewport */
       @include respond-min($non-palm) {
@@ -45,7 +52,7 @@
       }
 
       /* Show more of the image at this breakpoint */
-      @include respond-min($lap-lrg-start) {
+      @include respond-min($lap-lrg) {
         height: 80%;
       }
 
@@ -69,15 +76,9 @@
             text-align: center;
             opacity: .7;
 
-            &:hover,
-            &:focus {opacity: 1;}
-
             @include respond-min($non-palm) {
               opacity: 1;
             }
-
-            /* Icon */
-            .icon:before {@extend %transition-subtle;}
 
             /* Hover and focus state */
             &:hover,
@@ -96,8 +97,9 @@
             .icon {
               /* Can't do it on `.icon:before` because mobile Safari doesn't like it for some reasons */
               display: block;
-              line-height: 1;
               @include font-size(18, 1);
+
+              &:before {@extend %transition-subtle;}
             }
         }
     }
@@ -115,13 +117,16 @@
       }
 
       /* Wrapper around the hero heading and video thumbnail */
-      .national__hero-header {
+      .national__heading-wrap {
         /* Aligns content centre vertically */
         top: 50%;
         left: 0;
         @include translate(0, -50%);
         width: 100%;
         text-align: center;
+
+        /* Old IE */
+        @include old-ie {top: 110px;}
 
         @include respond-min($non-palm) {
           text-align: left;
@@ -153,8 +158,9 @@
         .national__video {
           display: inline-block;
           position: relative;
-          @include to-rem(padding, 5);
+          @include to-rem(padding, $spacing-quarter);
 
+          /* Applies semi transparent background behind the video thumbnail image */
           &:before {
             content: "";
             display: block;
@@ -166,6 +172,7 @@
             background-color: rgba(0,0,0,.3);
           }
 
+          /* On hover/focus, the semi transparent background will become black and covers up the video thumbnail image */
           &:hover,
           &:focus {
             &:before {
@@ -194,26 +201,32 @@
             top: 50%;
             left: 50%;
             @include translate(-50%, -50%);
-            @include font-size(24);
+            @include font-size(24, 1);
+
+            /* Old IE */
+            @include old-ie {
+              margin-top: -30px;
+              margin-left: -20px;
+            }
 
             @include respond-min($non-palm) {
-              @include font-size($font-size-kilo);
+              @include font-size($font-size-kilo, 1);
             }
           }
         }
 
-    /* --Hero image paths (see 'Gallery' module)-- */ 
+    /* --Hero image paths (see 'Image rotate' module)-- */ 
 
     .national__hero__1 {
       @include respond-max($palm) {
         background-image: image-url("heroes/national/national-hero-01-sml.jpg");
       }
 
-      @include respond-range($lap-start, $lap-end) {
+      @include respond-range($lap, $lap-sml-end) {
         background-image: image-url("heroes/national/national-hero-01-med.jpg");
       }
 
-      @include respond-min($desk-start) {
+      @include respond-min($lap-lrg) {
         background-image: image-url("heroes/national/national-hero-01-lrg.jpg");
       }
     }
@@ -223,16 +236,14 @@
         background-image: image-url("heroes/national/national-hero-02-sml.jpg");
       }
 
-      @include respond-range($lap-start, $lap-end) {
+      @include respond-range($lap, $lap-sml-end) {
         background-image: image-url("heroes/national/national-hero-02-med.jpg");
       }
 
-      @include respond-min($desk-start) {
+      @include respond-min($lap-lrg) {
         background-image: image-url("heroes/national/national-hero-02-lrg.jpg");
       }
     }
-
-
 
     /* --Main-- */
 
@@ -242,41 +253,44 @@
       position: relative;
       @include to-rem(margin-top, -70);
 
+      /* --Shared styles-- */
+
+      /* Set common font-size and display property */
+        h2,
+        .tab__nav {
+          @include font-size($font-size);
+          font-family: $font-family-opensans;
+
+          @include respond-min($non-palm) {
+            display: inline-block;
+            @include font-size(18);
+          }
+        }
+
       /* Heading next to`tab__nav` */
       h2 {
         @include to-rem(margin-right, 40);
-        display: none;
+        @include respond-max($palm) {
+          display: none;
+        }
       }
 
       /* Tab nav */
       .tab__nav {
         a {
           opacity: .6;
-          @include to-rem(padding, 14 10);
+          @include to-rem(padding, $spacing-half);
 
           &:hover,
           &:focus,
           &.is-active {opacity: 1;}
 
           @include respond-min($non-palm) {
-            @include to-rem(padding, 25 12);
+            @include to-rem(padding, $spacing-base $spacing-half);
           }
         }
 
         li:first-child a {padding-left: 0;}
-      }
-
-      /* --Shared styles - needs to be placed here otherwise the `display: inline-block` will get overwritten -- */
-
-      /* Set common font-size and display property */
-      h2,
-      .tab__nav {
-        @include font-size(14);
-
-        @include respond-min($non-palm) {
-          display: inline-block;
-          @include font-size(18);
-        }
       }
     }
 
@@ -287,19 +301,8 @@
         background-size: cover;
         background-position: 0 0;
 
-        /*
-        .preloader {
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          @include translate(-50%, -50%);
-        }
-        */
-
         /* Gradient that sits on top of the centre background image */
         &:before {
-          /* Setting `z-index` so that the gradient will sit on top of `.national__centre-tile__content` */
-          z-index: 1;
           content: "";
           display: block;
           position: absolute;
@@ -316,13 +319,12 @@
 
         /* Wrapper around centre's name */
         .container {
+          /* Needs `position: relative` so it will sit above the dark gradient which has `position: absolute` */
           position: relative;
-          /* Setting `z-index` so it will sit above the dark gradient */
-          z-index: 2;
-          @include to-rem(padding, 30 20 30 0);
+          @include to-rem(padding, 30 $spacing-base 30 0);
 
           @include respond-min($non-palm) {
-            @include to-rem(padding, 40 0);
+            @include to-rem(padding, $spacing-dbl 0);
           }
         }
 
@@ -345,8 +347,11 @@
             @include translate(0, -50%);
             @include font-size(36, 1);
 
+            /* Old IE */
+            @include old-ie {margin-top: -25px;}
+
             @include respond-min($non-palm) {
-              @include font-size(46, 1);
+              @include font-size($font-size-kilo, 1);
             }
           }
       }
@@ -355,18 +360,17 @@
 
     .national__footer {
       text-align: center;
-      @include font-size(11);
-      @include to-rem(padding-top padding-bottom, 20);
+      @include font-size($font-size-milli);
+      @include to-rem(padding-top padding-bottom, $spacing-base);
 
       /* Set footer to be fixed to bottom of page hence requires a higher `z-index` than other elements on the page */
       @include respond-min($lap-lrg) {
-        z-index: 3;
-        @include to-rem(padding-top padding-bottom, 5);
         position: fixed;
+        z-index: 3;
+        @include to-rem(padding-top padding-bottom, $spacing-quarter);
         bottom: 0;
         width: 100%;
-        background: #000;
-        opacity: .6;
+        @include rgba-bg(#000, .6);
       }
 
       /* --Shared rules-- */

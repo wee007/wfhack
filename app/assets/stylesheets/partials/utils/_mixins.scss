@@ -950,11 +950,11 @@
 
 }
 
-/* [GALLERY]
+/* [IMAGE ROTATE]
 -------------------------------------------------------*/
 /*
   Usage:
-    Creates a CSS animated gallery
+    Creates a set of rotating images
 
   Credit:
     https://github.com/benschwarz/gallery-css
@@ -965,15 +965,15 @@
     $transition-duration    How long is the transition between each image going to be
 
   Examples:
-    @include gallery($item-count: 2, $display-duration: 7, $transition-duration: 2);
+    @include img-rotate($item-count: 2, $display-duration: 7, $transition-duration: 2);
 */
 
-@mixin gallery($item-count, $display-duration, $transition-duration) {
+@mixin img-rotate($item-count, $display-duration, $transition-duration) {
   /* Work out the total duration of the entire animation, based on how many items there are and how long they should each be displayed for */
   $total-duration: $display-duration * $item-count;
 
   /* Creates the keyframe animation */
-  @include prefix-keyframe(gallery-animation-#{$item-count}) {
+  @include prefix-keyframe(img-rotate-animation-#{$item-count}) {
     0% {opacity: 0;}
     /* Works out the time in % that the fade in and out should happen, according to the animation's total duration, transition duration and display duration */
     #{round(100% * $transition-duration / $total-duration)},
@@ -982,14 +982,14 @@
     100% {opacity: 0;}
   }
 
-  /* Creates unique gallery class name based on no. of items */
-  .gallery--items-#{$item-count} {
+  /* Creates unique class name based on no. of items */
+  .img-rotate--items-#{$item-count} {
     /* Runs the animation when the item is loaded. Bit specific to catering for lazy-loading at the moment... */
-    .gallery__item.is-loaded {@include prefix(animation, gallery-animation-#{$item-count} #{$total-duration}s linear infinite);}
+    .img-rotate__item.is-loaded {@include prefix(animation, img-rotate-animation-#{$item-count} #{$total-duration}s linear infinite);}
   }
 
   @for $j from 1 through $item-count {
-    .gallery__item.is-loaded:nth-of-type(#{$j}) {
+    .img-rotate__item.is-loaded:nth-of-type(#{$j}) {
       /* By setting negative value for `animation-delay` we'll achieve the effect of one image fading out while the other one fading in */
       $delay: #{($j - 1) * ($display-duration) - $transition-duration}s;
       @include prefix(animation-delay, #{$delay});

@@ -16,15 +16,7 @@ hr {
 
 /* [ABBREVIATION]
 -------------------------------------------------------*/
-abbr[title] {
-  cursor: help;
-
-  /* Remove cursor and border on `abbr` when it's in an anchor */
-  a & {
-    cursor: pointer;
-    border-bottom: 0;
-  }
-}
+abbr[title] {cursor: help;}
 
 /* [INSERT]
 -------------------------------------------------------*/

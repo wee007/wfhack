@@ -76,26 +76,22 @@
             text-align: center;
             opacity: .7;
 
-            @include respond-min($non-palm) {
-              opacity: 1;
-            }
-
             /* Hover and focus state */
             &:hover,
-            &:focus {
+            &:focus {opacity: 1;}
+
+            @include respond-min($non-palm) {
               opacity: 1;
 
-              @include respond-min($non-palm) {
-                &,
-                .icon:before {
-                  color: $color-grey-2;
-                }
+              &,
+              .icon:before {
+                color: $color-grey-2;
               }
             }
           }
 
             .icon {
-              /* Can't do it on `.icon:before` because mobile Safari doesn't like it for some reasons */
+              /* Can't do `display: block` on `.icon:before` because mobile Safari doesn't like it for some reasons */
               display: block;
               @include font-size(18, 1);
 
@@ -251,7 +247,11 @@
     .national__tabs {
       /* Need `position: relative` so that it'll appear on top of the hero image which has `position: absolute` */
       position: relative;
-      @include to-rem(margin-top, -70);
+      @include to-rem(margin-top, -42);
+
+      @include respond-min($non-palm) {
+        @include to-rem(margin-top, -64);
+      }
 
       /* --Shared styles-- */
 
@@ -301,6 +301,9 @@
         background-size: cover;
         background-position: 0 0;
 
+        /* First `.national__centre-tile` gets `box-shadow` */
+        li:first-child & {box-shadow: inset 0 4px 4px 0 rgba(0,0,0,.4)}
+
         /* Gradient that sits on top of the centre background image */
         &:before {
           content: "";
@@ -313,9 +316,6 @@
           @extend %transition-subtle; 
           @include linear-gradient($from: rgba(#000, 0) 0%, $to: rgba(#000, .8) 100%, $dir: left, $dir-webkit: right);
         }
-
-        /* First `.national__centre-tile` gets `box-shadow` */
-        li:first-child & {box-shadow: inset 0 4px 4px 0 rgba(0,0,0,.4)}
 
         /* Wrapper around centre's name */
         .container {

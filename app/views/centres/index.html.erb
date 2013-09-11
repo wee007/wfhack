@@ -6,18 +6,19 @@
   <%# [BACKEND] We need to dynamically generate the class names for each centre and its relevant background image. At the moment this is duplicated from  `_hero_custom_styles.html.erb`. Can we refactor it so we just use same custom styles? %>
 
   <%# Hero image at small breakpoint %>
-   @media (max-width: 25em) {
+  <%# @media (max-width: 25em) {
     .national__centre-tile--bondijunction {background-image: url('http://res.cloudinary.com/wlabs/image/fetch/w_400,h_107,c_fill,e_blur:300/http://beta.westfield.com.au/assets/heroes/bondijunction-lrg-4ec924a641f26e4ae8822ec42d6bb7a3.jpg');}
-    }
+    } %>
 
     <%# Hero image at medium breakpoint %>
+    <%# @media (min-width: 25.0625em) and (max-width: 48em) {
       .national__centre-tile--bondijunction {background-image: url('http://res.cloudinary.com/wlabs/image/fetch/w_768,h_205,c_fill,e_blur:300/http://beta.westfield.com.au/assets/heroes/bondijunction-lrg-4ec924a641f26e4ae8822ec42d6bb7a3.jpg');}
-    }
+    } %>
 
     <%# Hero image at large breakpoint %>
-    @media (min-width: 48.0625em) {    
+    <%# @media (min-width: 48.0625em) {    
       .national__centre-tile--bondijunction {background-image: url('http://res.cloudinary.com/wlabs/image/fetch/w_1600,h_300,c_fill,e_blur:300/http://beta.westfield.com.au/assets/heroes/bondijunction-lrg-4ec924a641f26e4ae8822ec42d6bb7a3.jpg');}
-    }
+    } %>
 
     <%# Old IE %>
     .old-ie .national__centre-tile--bondijunction {
@@ -33,10 +34,6 @@
 
   <%# Header %>
   <header class="national__header img-rotate img-rotate--items-2"> 
-    <%# Preloader %>
-      <%# <span class="preloader preloader--middle preloader--light"><span class="preloader__spinner"></span><em class="hide-visually">Loading, please wait&#8230;</em></span> %>
-    <%# //Preloader %>
-
     <%# Rotating images %>
     <div class="national__hero__1 img-rotate__item img-rotate__item__1 is-loaded"></div>
     <div class="national__hero__2 img-rotate__item img-rotate__item__2 is-loaded"></div>
@@ -51,7 +48,8 @@
       <%# Hero heading wrap %>
       <div class="national__heading-wrap">
         <h1>
-          <span>3,300 stores. 60,000 products</span>
+          <%# [BACKEND] Number of stores and products need to be dynamic. The number will also need to be rounded so it's presentable. We always round down to the hundred e.g. if it's 3995 stores, we'll present "3,990". %>
+          <span>Over [Number of stores] stores. Over [Number of products] products</span>
           You want. We find.
         </h1>
 
@@ -116,10 +114,7 @@
     <%# NSW %>
     <ul id="tab-nsw" class="tab__content is-active">
       <li>
-        <a class="national__centre-tile national__centre-tile--bondijunction" href="#">
-          <!-- <span class="preloader preloader--light">
-            <span class="preloader__spinner"></span>
-          </span> -->
+        <a class="national__centre-tile" href="#">
           <div class="container">
             <h3 class="h1">Tea Tree Plaza</h3>
             <span class="icon icon--arrow-right icon--lrg" aria-hidden="true"></span>
@@ -128,7 +123,7 @@
       </li>
 
       <li>
-        <a class="national__centre-tile national__centre-tile--bondijunction" href="#">
+        <a class="national__centre-tile " href="#">
           <div class="container">
             <h3 class="h1">Warringah Mall</h3>
             <span class="icon icon--arrow-right icon--lrg" aria-hidden="true"></span>
@@ -137,7 +132,7 @@
       </li>
 
       <li>
-        <a class="national__centre-tile national__centre-tile--bondijunction" href="#">
+        <a class="national__centre-tile" href="#">
           <div class="container">
             <h3 class="h1">Bondi Junction</h3>
             <span class="icon icon--arrow-right icon--lrg" aria-hidden="true"></span>
@@ -150,7 +145,7 @@
     <%# ACT %>
     <ul id="tab-act" class="tab__content">
       <li>
-        <a class="national__centre-tile national__centre-tile--bondijunction" href="#">
+        <a class="national__centre-tile" href="#">
           <div class="container">
             <h3 class="h1">Centre ACT</h3>
             <span class="icon icon--arrow-right icon--lrg" aria-hidden="true"></span>
@@ -163,7 +158,7 @@
     <%# QLD %>
     <ul id="tab-qld" class="tab__content">
       <li>
-        <a class="national__centre-tile national__centre-tile--bondijunction" href="#">
+        <a class="national__centre-tile" href="#">
           <div class="container">
             <h3 class="h1">Centre QLD</h3>
             <span class="icon icon--arrow-right icon--lrg" aria-hidden="true"></span>
@@ -176,7 +171,7 @@
     <%# VIC %>
     <ul id="tab-vic" class="tab__content">
       <li>
-        <a class="national__centre-tile national__centre-tile--bondijunction" href="#">
+        <a class="national__centre-tile" href="#">
           <div class="container">
             <h3 class="h1">Centre VIC</h3>
             <span class="icon icon--arrow-right icon--lrg" aria-hidden="true"></span>
@@ -189,7 +184,7 @@
     <%# SA %>
     <ul id="tab-sa" class="tab__content">
       <li>
-        <a class="national__centre-tile national__centre-tile--bondijunction" href="#">
+        <a class="national__centre-tile" href="#">
           <div class="container">
             <h3 class="h1">Centre SA</h3>
             <span class="icon icon--arrow-right icon--lrg" aria-hidden="true"></span>
@@ -202,7 +197,7 @@
     <%# WA %>
     <ul id="tab-wa" class="tab__content">
       <li>
-        <a class="national__centre-tile national__centre-tile--bondijunction" href="#">
+        <a class="national__centre-tile" href="#">
           <div class="container">
             <h3 class="h1">Centre WA</h3>
             <span class="icon icon--arrow-right icon--lrg" aria-hidden="true"></span>
@@ -246,9 +241,11 @@
           <small>&copy; Westfield <%= Time.now.year %></small>
         </li>
         <li>
+          <%# TODO: need to confirm the link %>
           <a href="#">Terms &amp; Conditions</a>
         </li>
         <li>
+        <%# TODO: need to confirm the link %>
           <a href="#">Privacy Policy</a>
         </li>
       </ul>

@@ -76,11 +76,13 @@
             text-align: center;
             opacity: .7;
 
+            @include respond-min($non-palm) {
+              opacity: 1;
+            }
+
             /* Hover and focus state */
             &:hover,
-            &:focus {opacity: 1;}
-
-            @include respond-min($non-palm) {
+            &:focus {
               opacity: 1;
 
               &,

@@ -31,8 +31,8 @@ describe Store do
 
   context '#logo' do
 
-    let(:ref) { '' }
-    let(:store_attrs) { Hashie::Mash.new _links: {logo: {ref: ref}} }
+    let(:logo_url) { '' }
+    let(:store_attrs) { Hashie::Mash.new _links: {logo: {href: logo_url}} }
 
     subject { Store.new store_attrs }
 
@@ -40,12 +40,12 @@ describe Store do
 
     describe 'with logo' do
 
-      let(:ref) { 'file_ref' }
+      let(:logo_url) { 'http://some.logo.com' }
 
       it { should have_logo }
 
       it 'returns the contents of _links.logo.ref' do
-        subject.logo.should =~ /#{ref}/
+        subject.logo.should =~ /#{logo_url}/
       end
 
     end

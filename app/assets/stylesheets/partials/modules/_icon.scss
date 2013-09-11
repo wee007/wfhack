@@ -14,6 +14,8 @@
 /* These pseudo elements are to render the 'drop down menu' / 'map popup' arrow pointers as they use an icon font (`@extend` isn't suitable for this) */
 .drop-down-menu__target:before,
 .filters__target:before,
+.header-menu-toggle:before,
+.nav-social-tertiary-container:before,
 .menuTip:after {
 	@extend %sprite-icon;
 	speak: none;
@@ -188,7 +190,9 @@
 .icon--arrow-up-full:before,
 /* These pseudo elements are to render the 'drop down menu' arrow pointer as they use an icon font (`@extend` isn't suitable for this) */
 .drop-down-menu__target:before,
-.filters__target:before {content: "\e00b";}
+.filters__target:before,
+.header-menu-toggle:before,
+.nav-social-tertiary-container:before {content: "\e00b";}
 
 /* Arrow full down */
 .icon--arrow-down-full:before,

@@ -15,7 +15,6 @@
 
 // Conditional support
 //= require ./support/svg
-//= require ./support/input-placeholder
 //= require ./support/string
 
 //= require isotope/jquery.isotope

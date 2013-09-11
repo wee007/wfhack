@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.17
+Version:     0.1.18
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,10 @@ fi
 
 
 %changelog
+* Thu Sep 12 2013 ci <doperations@au.westfield.com> 0.1.18-1
+- fixes broken store model specs (matt.wratt@trineo.co.nz)
+- Allows store logos to work with cloudinary (matt.wratt@trineo.co.nz)
+
 * Thu Sep 12 2013 ci <doperations@au.westfield.com> 0.1.17-1
 - Merge pull request #357 from cpearce/master (ldewey@au.westfield.com)
 - Merge pull request #355 from mwratt/fix/placeholder (ldewey@au.westfield.com)

@@ -9,19 +9,19 @@ class Store < Hashie::Mash
     end
   end
 
-  def logo_ref
-    _links.logo.ref
-  end
-
   def has_logo?
-    logo_ref.present?
+    logo.present?
   end
 
   def logo
-    "#{WestfieldUri::Service.uri_for("file", 'http')}#{logo_ref}"
+    _links.logo.href
   end
 
-  def store_front_image_url
+  def has_storefront?
+    storefront.present?
+  end
+
+  def storefront
     _links.store_front.href
   end
 

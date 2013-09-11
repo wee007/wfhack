@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.16
+Version:     0.1.17
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,17 @@ fi
 
 
 %changelog
+* Thu Sep 12 2013 ci <doperations@au.westfield.com> 0.1.17-1
+- Merge pull request #357 from cpearce/master (ldewey@au.westfield.com)
+- Merge pull request #355 from mwratt/fix/placeholder (ldewey@au.westfield.com)
+- Merge pull request #351 from ewee/master (ldewey@au.westfield.com)
+- Header updates - WSF-5134 (CPearce@au.westfield.com)
+- removes jquery placeholer polyfill (matt.wratt@trineo.co.nz)
+- UPdate google plus to google+ (ewee@au.westfield.com)
+- Open social media links in new window (ewee@au.westfield.com)
+- Convert certain HTML tags to Rails actionview helper methods
+  (ewee@au.westfield.com)
+
 * Sat Sep 07 2013 ci <doperations@au.westfield.com> 0.1.16-1
 - Merge pull request #354 from thiago/master (ldewey@au.westfield.com)
 - Add non-lorem-ipsum placeholder copy for API Documentation

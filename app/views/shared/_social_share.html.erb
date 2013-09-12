@@ -2,7 +2,7 @@
 
 <div class="social-share drop-down-container">
 
-  <button type="button" class="social-share__trigger controls__btn btn js-drop-down-trigger" aria-haspopup="true" aria-controls="share-options-<%= uuid %>">
+  <button type="button" class="social-share__trigger controls__btn btn" toggle-visibility="social-share-<%= uuid %>">
     <span class="icon icon--share icon--lrg icon--spacing-lrg drop-down-container__non-active" aria-hidden="true"></span><!--
     --><span class="drop-down-container__non-active social-share__trigger__txt">Share</span><!--
     --><span class="icon icon--close-lrg icon--lrg icon--spacing-lrg drop-down-container__active" aria-hidden="true"></span><!--
@@ -10,7 +10,7 @@
   </button>
 
   <!-- Social share -->
-  <ul class="drop-down js-drop-down horiz-list horiz-list--fit horiz-list--center" id="share-options-<%= uuid %>">
+  <ul class="drop-down horiz-list horiz-list--fit horiz-list--center" id="social-share-<%= uuid %>">
 
     <!-- Facebook -->
     <li class="social-share__facebook">

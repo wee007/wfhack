@@ -140,7 +140,7 @@
     }
 
     /* Remove the border radius when button is active */
-    .is-active .controls__btn {
+    .controls__btn.is-active {
       border-bottom-right-radius: 0;
       border-bottom-left-radius: 0;
     }

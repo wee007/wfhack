@@ -66,7 +66,7 @@ $share-pinterest: #ca2026 !default;
 	  }
 	}
 
-	/* -Drop down menu trigger- */
+	/* --Drop down menu trigger-- */
 
 	/* Hide button text for 'Tile' version */
 	.tile & .social-share__trigger__txt {@include hide-visually;}
@@ -75,27 +75,27 @@ $share-pinterest: #ca2026 !default;
 	  .drop-down-container__active {display: none;}
 
   /* Active state */
-  &.is-active {
+  .social-share__trigger.is-active {
+    background: $color-med-txt;
 
-    & > .drop-down.horiz-list--fit {
-    	display: table;
-
-    	/* 'Tile' version */
-    	.tile & {display: block;}
-    }
-
-    /* Trigger button */
-    .social-share__trigger {
-      background: $color-med-txt;
-      &,
-      .icon:before {color: #fff;}
-    }
+    &,
+    .icon:before {color: #fff;}
 
     /* Hide elements that need to be shown when the drop down is non-active */
     .drop-down-container__non-active {display: none;}
 
     /* Show elements that need to be shown when the drop down is active */
     .drop-down-container__active {display: inline-block;}
+  }
+
+  /* --Drop down menu target-- */
+
+  /* Active state */
+  & > .drop-down.horiz-list--fit.is-active {
+  	display: table;
+
+  	/* 'Tile' version */
+  	.tile & {display: block;}
   }
 }
 

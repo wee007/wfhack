@@ -29,9 +29,9 @@
     .icon:before {color: #fff;}
   }
 
-    /* Header */
+    /* --Header-- */
 
-    /* --Shared rules-- */
+    /* Shared rules */
 
     .national__logo,
     .national__heading-wrap,
@@ -123,12 +123,12 @@
         width: 100%;
         text-align: center;
 
-        /* Old IE */
-        @include old-ie {top: 110px;}
-
         @include respond-min($non-palm) {
           text-align: left;
         }
+
+        /* Old IE */
+        @include old-ie {top: 110px;}
         
         h1 {
           /* Need a tigher `line-height` so the `span` will sit closer to the text under it */
@@ -201,19 +201,19 @@
             @include translate(-50%, -50%);
             @include font-size(24, 1);
 
+            @include respond-min($non-palm) {
+              @include font-size($font-size-kilo, 1);
+            }
+
             /* Old IE */
             @include old-ie {
               margin-top: -30px;
               margin-left: -20px;
             }
-
-            @include respond-min($non-palm) {
-              @include font-size($font-size-kilo, 1);
-            }
           }
         }
 
-    /* --Hero image paths (see 'Image rotate' module)-- */ 
+    /* Hero image paths (see 'Image rotate' module) */ 
 
     .national__hero__1 {
       @include respond-max($palm) {
@@ -255,23 +255,26 @@
         @include to-rem(margin-top, -64);
       }
 
-      /* --Shared styles-- */
+      /* --Shared rules-- */
 
       /* Set common font-size and display property */
-        h2,
-        .tab__nav {
-          @include font-size($font-size);
-          font-family: $font-family-opensans;
+      h2,
+      .tab__nav {
+        @include font-size($font-size);
+        font-family: $font-family-opensans;
 
-          @include respond-min($non-palm) {
-            display: inline-block;
-            @include font-size(18);
-          }
+        @include respond-min($non-palm) {
+          display: inline-block;
+          @include font-size(18);
         }
+      }
+
+      /* --Global rules-- */
 
       /* Heading next to`tab__nav` */
       h2 {
         @include to-rem(margin-right, 40);
+
         @include respond-max($palm) {
           display: none;
         }
@@ -349,16 +352,17 @@
             @include translate(0, -50%);
             @include font-size(36, 1);
 
-            /* Old IE */
-            @include old-ie {margin-top: -25px;}
-
             @include respond-min($non-palm) {
               @include font-size($font-size-kilo, 1);
             }
+
+            /* Old IE */
+            @include old-ie {margin-top: -25px;}
+
           }
       }
 
-    /* --Footer-- */
+    /* Footer */
 
     .national__footer {
       text-align: center;
@@ -375,7 +379,7 @@
         @include rgba-bg(#000, .6);
       }
 
-      /* --Shared rules-- */
+      /* Shared rules */
       &,
       a {color: $color-grey-1;}
 

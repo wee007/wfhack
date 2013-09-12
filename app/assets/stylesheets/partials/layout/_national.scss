@@ -174,7 +174,7 @@
           &:hover,
           &:focus {
             &:before {
-              background-color: rgba(0,0,0,1);
+              background-color: rgba(0,0,0,.7);
               z-index: 2;
             }
           }
@@ -305,6 +305,7 @@
         position: relative;
         background-size: cover;
         background-position: 0 0;
+        border-bottom: 1px solid $color-base-txt;
 
         /* First `.national__centre-tile` gets `box-shadow` */
         li:first-child & {box-shadow: inset 0 4px 4px 0 rgba(0,0,0,.4)}
@@ -371,12 +372,7 @@
 
       /* Set footer to be fixed to bottom of page hence requires a higher `z-index` than other elements on the page */
       @include respond-min($lap-lrg) {
-        position: fixed;
-        z-index: 3;
         @include to-rem(padding-top padding-bottom, $spacing-quarter);
-        bottom: 0;
-        width: 100%;
-        @include rgba-bg(#000, .6);
       }
 
       /* Shared rules */

@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.19
+Version:     0.1.20
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,20 @@ fi
 
 
 %changelog
+* Fri Sep 13 2013 ci <doperations@au.westfield.com> 0.1.20-1
+- Merge pull request #360 from cpearce/master (ldewey@au.westfield.com)
+- UI Polish - WSF-5381 (CPearce@au.westfield.com)
+- UI Polish - WSF-5429 (CPearce@au.westfield.com)
+- Removing 'quality: 25' for store logos (CPearce@au.westfield.com)
+- UI Polish - WSF-5398 (CPearce@au.westfield.com)
+- UI Polish - WSF-5374 (CPearce@au.westfield.com)
+- UI Polish - WSF-5373 (CPearce@au.westfield.com)
+- UI Polish - WSF-5378 (CPearce@au.westfield.com)
+- UI Polish - WSF-5379 (CPearce@au.westfield.com)
+- UI Polish - WSF-5379 (CPearce@au.westfield.com)
+- UI Polish - WSF-5379 (CPearce@au.westfield.com)
+- UI Polish - WSF-5370 (CPearce@au.westfield.com)
+
 * Thu Sep 12 2013 ci <doperations@au.westfield.com> 0.1.19-1
 - 
 

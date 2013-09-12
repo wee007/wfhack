@@ -1,3 +1,5 @@
+// Note: we have to remove some ARIA attr's e.g. `aria-hidden` because some of the elements this directive is applied too only needs to be applied at certain viewports so until we have some way of applying this directive conditionally based on media queries we have to remove.
+
 ( function ( app ) {
   app.directive( 'toggleVisibility', ['$document', function ($document) {
     // Each trigger / target combination will have a corresponding id.
@@ -9,32 +11,35 @@
       return id;
     },
 
+    // Hide the target
     hide = function ( trigger, target ) {
-      // Hide the target
 
-      // Aria state for trigger
+      // ARIA for trigger
       trigger.attr( 'aria-expanded', false );
 
+      // ARIA for target
+      //target.attr( 'aria-hidden', true );
+
+      // Toggle the `is-active` class
       trigger.removeClass( 'is-active' );
       target.removeClass( 'is-active' );
-
-      // Aria state for target
-      target.attr( 'aria-hidden', true );
     },
 
+    // Show the target
     show = function ( trigger, target ) {
-      // Show the target
 
-      // Aria state for the trigger
+      // ARIA for trigger
       trigger.attr( 'aria-expanded', true );
 
+      // ARIA for target
+      //target.attr( 'aria-hidden', false );
+
+      // Toggle the `is-active` class
       trigger.addClass( 'is-active' );
       target.addClass( 'is-active' );
-
-      // Aria state for target
-      target.attr( 'aria-hidden', false );
     },
 
+    // Toggle visibility
     toggleVisibility = function ( trigger, target ) {
       if ( target.is( ':visible' ) ) {
         hide( trigger, target );
@@ -46,22 +51,22 @@
     return {
      restrict: 'A',
 
-     // The all important 'link' function.
-     // Angular invokes this function for every attribute instance of 'toggle-visibility="target"'
+     // The all important 'link' function
+     // Angular invokes this function for every attribute instance of `toggle-visibility="target"`
      link: function ( scope, trigger, attributes ) {
         var id = attributes['toggleVisibility'],
             target = $( '#' + id );
 
-        // The element that invokes the toggle should have an aria-haspopup
+        // ARIA for trigger
         trigger.attr( 'aria-haspopup', true );
 
-        // Aria state for target
-        target.attr( 'aria-hidden', true );
+        // ARIA for target
+        //target.attr( 'aria-hidden', true );
 
-        // Aria ID and labelledby
+        // ID attr and target ARIA `aria-labelledby`
         id = elementID();
         trigger.attr( 'id', id );
-        target.attr( 'aria-labelledby', id );
+        //target.attr( 'aria-labelledby', id );
 
         // Visibility will be toggled on click / tap
         trigger.bind( 'click', function ( e ) {
@@ -69,7 +74,7 @@
           e.stopPropagation();
         });
 
-        // Click outside
+        // Clicking outside will close it
         $document.bind( 'click', function ( event ) {
           hide( trigger, target );
         });
@@ -78,7 +83,7 @@
           e.stopPropagation();
         });
 
-        // Escape key
+        // Escape key will close it
         $document.bind( 'keydown', function ( event ) {
           if ( event.keyCode == 27 ) { hide( trigger, target ); }
         })

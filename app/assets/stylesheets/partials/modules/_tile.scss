@@ -140,7 +140,7 @@
     }
 
     /* Remove the border radius when button is active */
-    .is-active .controls__btn {
+    .controls__btn.is-active {
       border-bottom-right-radius: 0;
       border-bottom-left-radius: 0;
     }
@@ -152,21 +152,34 @@
 /* Deals */
 .tile--deals {
 
+  /* Meta */
   .tile__meta {
     @include to-rem(padding, 45 15);
 
     /* Increase the padding at this breakpoint to keep the proportions right */
     @include respond-min($non-palm) {
-      @include to-rem(padding, 65 25);
+      @include to-rem(padding, 84 25);
     }
   }
 
+    /* Logo */
+    .tile__meta__image {
+      display: block;
+      @include to-rem(width, 84);
+      @include to-rem(margin-bottom, $spacing-quarter);
+
+      /* Increase the bottom spacing at this breakpoint */
+      @include respond-min($non-palm) {
+        @include to-rem(margin-bottom, $spacing-half);
+      }
+    }
+
+    /* Description */
     .tile__meta__desc {
       font-family: $font-family-opensans;
       color: $color-dark-txt;
       text-transform: uppercase;
       @include font-size($font-size-sml, 1.5);
-      @include to-rem(margin-bottom, $spacing-quarter);
 
       /* Increase the font size at this breakpoint */
       @include respond-min($non-palm) {
@@ -174,6 +187,7 @@
       }
     }
 
+  /* Icon */
   .tile__meta__icon {
     top: auto;
     @include to-rem(bottom, 7.5);

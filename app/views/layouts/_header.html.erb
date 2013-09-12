@@ -33,7 +33,7 @@
 					<nav class="header-menu-toggle__nav" role="navigation" aria-label="Sub navigation">
 						<ul class="nav-sub">
 							<%# Centre opening hours (centre home page) %>
-							<li class="open-hours-link"><a href="<%= centre_hours_path( params[ :centre_id ] || params[ :id ] ) %>" target="_self"><span class="icon icon--hours" aria-hidden="true"></span> <strong>Open <%= twelve_hour_format(@centre.today_opening_time) %> - <%= twelve_hour_format(@centre.today_closing_time) %> today</strong><span class="icon icon--arrow-right" aria-hidden="true"></span></a></li>
+							<li class="open-hours-link"><a href="<%= centre_hours_path( params[ :centre_id ] || params[ :id ] ) %>" target="_self"><span class="icon icon--hours" aria-hidden="true"></span> <strong>Open <time datetime="<%= @centre.today_opening_time %>"><%= twelve_hour_format(@centre.today_opening_time) %></time> - <time datetime="<%= @centre.today_closing_time %>"><%= twelve_hour_format(@centre.today_closing_time) %></time> today</strong><span class="icon icon--arrow-right" aria-hidden="true"></span></a></li>
 							<%# //Centre opening hours (centre home page) %>
               <li class="open-hours-link-alt"><a href="<%= centre_hours_path( params[ :centre_id ] || params[ :id ] ) %>" target="_self"><span class="icon icon--hours icon--fixed-width icon--spacing" aria-hidden="true"></span><span class="nav-sub__txt"> Opening Hours</span></a></li>
 							<!-- <li><a href="#" target="_self"><span class="icon icon--dining icon--fixed-width icon--spacing" aria-hidden="true"></span><span class="nav-sub__txt"> Dining</span></a></li> -->

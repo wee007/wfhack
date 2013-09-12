@@ -172,27 +172,8 @@
         @include to-rem(padding-bottom, $spacing-half - $spacing-micro);
       }
 
-      @include respond-min($ipad-portrait) {
-        @include to-rem(margin-right, 394);
-      }
-
-      @include respond-min(860) {
-        @include to-rem(margin-right, 434);
-      }
-
       @include respond-min($ipad-landscape) {
-        @include to-rem(margin-right, 235);
-
-        /* When there is no store external link */
-        .is-no-external-link & {margin-right: 0;}
-      }
-
-      @include respond-min($desk) {
-        @include to-rem(margin-right, 265);
-      }
-
-      @include respond-min(1360) {
-        @include to-rem(margin-right, 305);
+        margin-right: 0;
       }
 
       dd {
@@ -219,28 +200,9 @@
       .storefront__details__meta__no-indent {padding-left: 0;}
     }
 
-    /* Store phone no and location */
-    .storefront__details__phone-map {
-
-      /* Increase right indents at these breakpoints */
-      @include respond-min($ipad-portrait) {
-        @include to-rem(right, 261);
-      }
-
-      @include respond-min(860) {
-        @include to-rem(right, 301);
-      }
-
-      /* Hide at this breakpoint */
-      @include respond-min($ipad-landscape) {
-        display: none;
-      }
-
-      /* When there is no store external link */
-      @include respond-min($non-palm) {
-        .is-no-external-link & {right: 0;}
-      }
-
+    /* Store phone no and location - hide at this breakpoint */
+    @include respond-min($ipad-landscape) {
+      .storefront__details__phone-map {display: none;}
     }
 
     /* Mods to location link at this breakpoint */
@@ -251,10 +213,6 @@
         /* Add right border and decrease width at this breakpoint */
         @include respond-min($ipad-portrait) {
           @include to-rem(width, 120);
-          border-right: 1px solid $color-grey-1;
-
-          /* When there is no store external link */
-          .is-no-external-link & {border-right: 0;}
         }
 
         /* Vertically align */
@@ -279,79 +237,6 @@
           &:hover .hide-visually,
           &:focus .hide-visually {color: $color-med-txt;}
       }
-    }
-
-    /* Store external link */
-    .storefront__details__storelink {
-      @include to-rem(padding-top padding-bottom, $spacing-base);
-      border-top: 1px solid $color-grey-1;
-
-      /* Position over to the far right at this breakpoint */
-      @include respond-min($ipad-portrait) {
-        border-top: 0;
-        padding-top: 0;
-        padding-bottom: 0;
-        @include to-rem(padding-left, $spacing-base);
-        @include to-rem(width, 261);
-        position: absolute;
-        right: 4%;
-        top: 0;
-
-        /* Increase width at this breakpoint */
-        @include respond-min(860) {
-          @include to-rem(width, 301);
-        }
-
-        /* Remove left padding and decrease width at this breakpoint */
-        @include respond-min($ipad-landscape) {
-          padding-left: 0;
-          @include to-rem(width, 220);
-        }
-
-        /* Increase widths at these breakpoints */
-        @include respond-min($desk) {
-          @include to-rem(width, 250);
-        }
-
-        @include respond-min(1360) {
-          @include to-rem(width, 290);
-        }
-
-        /* Shared rules */
-        &,
-        .container {height: 100%;}
-
-        /* Remove container rules */
-        .container {
-          width: auto;
-          max-width: none;
-          min-width: 0;
-        }
-      }
-
-        /* Decrease width of button at this breakpoint */
-        @include respond-min($non-palm) {
-          .btn.btn--full {
-            width: 70%;
-            margin-left: auto;
-            margin-right: auto;
-
-            /* Back to full width and vertically align at this breakpoint */
-            @include respond-min($ipad-portrait) {
-              width: 100%;
-              margin: 0;
-              position: absolute;
-              left: 0;
-              top: 50%;
-              @include translate(0, -50%);
-
-              /* Old IE */
-              @include old-ie {
-                top: 30%;
-              }
-            }
-          }
-        }
     }
 
   /* Featured items (tiles) */

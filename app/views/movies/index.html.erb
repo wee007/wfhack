@@ -1,17 +1,17 @@
 <div id='store_info'>
-  <!-- retailer banner -->
+  <%# retailer banner %>
   <%= image_tag @cinema.store_front_image_url, alt:@cinema.name %>
 
-  <!-- retailer logo -->
+  <%# retailer logo %>
   <img src="<%= @cinema.retailer_logo_url %>" alt="<%= @cinema.store_name %> logo">
 
-  <!-- phone number -->
+  <%# phone number %>
   <span class="phone_number"><%= @cinema.phone_number %></span>
 
-  <!-- email address -->
+  <%# email address %>
   <span class="email_address"><%= @cinema.email_address %></span>
 
-  <!-- Store map link? -->
+  <%# Store map link? %>
 </div>
 
 <h2>Session Times</h2>

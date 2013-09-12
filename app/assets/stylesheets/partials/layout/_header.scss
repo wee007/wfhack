@@ -1284,9 +1284,6 @@ $header-color-link-hover: $color-brand !default;
 			@include to-rem(padding, 4 10 4 26);
 			position: relative;
 
-			/* Focus pseudo class */
-			&:focus {outline: none;}
-
 			/* Decrease left padding at this breakpoint range */
 			@include respond-range($ipad-portrait, 839) {
 				@include to-rem(padding-left, 24);
@@ -1342,6 +1339,14 @@ $header-color-link-hover: $color-brand !default;
 				&::-ms-clear {display: none;}
 			}
 
+			/* Non JS submit button */
+			.search-mini__submit {
+				position: absolute;
+				@include to-rem(right, $spacing-third);
+				top: 50%;
+				@include translate(0, -50%);
+			}
+
 		/* Search results */
 		.search-results {
 			@include drop-down;
@@ -1353,6 +1358,9 @@ $header-color-link-hover: $color-brand !default;
 			@include respond-min($non-palm) {
 				@include font-size($font-size, 1.5);
 	  	}
+
+	  	/* Non JS users */
+	  	.no-js & {display: none;}
 		}
 
 			/* Inner container */

@@ -19,7 +19,6 @@
 
 //= require isotope/jquery.isotope
 //= require ./vendor/jquery.isotope.responsive
-//= require ./vendor/bootstrap-dropdown
 //= require ./vendor/jquery.tabs
 
 // If console is unimplemented in a browser, and someone accidently leaves a log, debug, error, etc the browser won't throw & die.

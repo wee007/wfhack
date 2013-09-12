@@ -1,27 +1,27 @@
-<!-- Large image -->
+<%# Large image %>
 <%= image_tag ImageService.transform(ref: @movie.image_url, width: 550, retina: true), alt: @movie.title %>
 
-<!-- movie title -->
+<%# movie title %>
 <h1 class="title"><%= @movie.title %></h1>
 
-<!-- Movie rating -->
+<%# Movie rating %>
 <p><%= @movie.classification %></p>
 
-<!-- movie synopsis -->
+<%# movie synopsis %>
 <p><%= @movie.synopsis %></p>
 
-<!-- session day list -->
+<%# session day list %>
 <ul id="day_filter">
 <% days(@movie_sessions.last['start_time'], @centre.code, params['date'], @movie.id).each do |day| %>
   <li><%= day %></li>
 <% end %>
 </ul>
 
-<!-- sessions for that day -->
+<%# sessions for that day %>
 <%= render partial: "session_list", locals: { time_of_day: 'am', sessions: @morning_sessions }%>
 <%= render partial: "session_list", locals: { time_of_day: 'pm', sessions: @afternoon_sessions }%>
 
-<!-- key -->
+<%# key %>
 <ul>
   <li class="gold_class">Gold Class</li>
   <li class="la_premiere">La Premiere</li>

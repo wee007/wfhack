@@ -119,7 +119,6 @@ class map.micello.Map extends map.micello.MapBase
   logoOptions:
     width: 168
     height: 62
-    quality: 25
     crop: 'pad'
     background: 'rgb:FFFFFF'
 

@@ -73,7 +73,7 @@
               <dd class="txt-truncate"><a href="mailto:">westfield@areallymassivelongemailaddress.com.au</a><span class="icon icon--email icon--xlrg" aria-hidden="true"></span></dd>
               <dt class="hide-visually">Westfield gift card</dt>
               <%# FIXME: [BACKEND] if store doesn't except gift cards then say "Not accepted" %>
-              <dd>Accepted<span class="icon icon-gift-card icon--xlrg" aria-hidden="true"></span></dd>
+              <dd>Gift card accepted<span class="icon icon-gift-card icon--xlrg" aria-hidden="true"></span></dd>
             </dl>
             <%# //Store meta %>
 
@@ -102,20 +102,6 @@
 
           </div>
           <%# //Inner container %>
-
-          <%# Store external link %>
-          <%# FIXME: [BACKEND] not all stores will have a website so do not render any of this HTML and append class `.is-no-external-link` to the main container above: `<div class="storefront__details">` when this is the case (server side) %>
-          <div class="storefront__details__storelink">
-            <div class="container">
-              <%# FIXME: [BACKEND] make URL dynamic, see 'Store link' in products show %>
-              <a href="#" class="btn btn--pointer btn--full btn--full-left btn--main btn--main-alt2 btn--main-lrg btn--main-flanked" rel="external nofollow">
-                <span class="txt-truncate">Buy from <%= @store.name %></span>
-                <span class="icon icon--arrow-right-big icon--lrg btn--pointer__icon" aria-hidden="true"></span>
-                <span class="icon icon--link icon--xlrg icon--flush-top btn--pointer__icon" aria-hidden="true"></span>
-              </a>
-            </div>
-          </div>
-          <%# //Store external link %>
 
         </div>
         <%# //Store details %>

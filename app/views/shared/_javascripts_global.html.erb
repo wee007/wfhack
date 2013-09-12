@@ -1,8 +1,8 @@
-<!-- JavaScript required application config -->
+<%# JavaScript required application config %>
 <%= include_gon(:namespace => :westfield) %>
-<!-- //JavaScript required application config -->
-<!-- Site wide JavaScript -->
+<%# //JavaScript required application config %>
+<%# Site wide JavaScript %>
 <%= javascript_include_tag 'application' %>
-<!-- //Site wide JavaScript -->
+<%# //Site wide JavaScript %>
 <%= yield :javascript %>
 <%=raw universal_tagging %>

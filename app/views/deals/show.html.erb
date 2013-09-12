@@ -1,6 +1,6 @@
 <div class="detail-view__divider detail-view__divider--col grid grid--gutterless grid--flush">
 
-  <!-- The Deal -->
+  <%# The Deal %>
   <div class="grid__item non-palm-one-half">
     <div class="island detail-view__divider--palm">
       <header class="deal-main box box--torn">
@@ -9,34 +9,34 @@
       </header>
     </div>
   </div>
-  <!-- //The Deal -->
+  <%# //The Deal %>
 
-  <!-- Store location & contact store -->
+  <%# Store location & contact store %>
   <div class="grid__item non-palm-one-half">
 
-    <!-- Store location -->
+    <%# Store location %>
     <div class="map-micello map-micello--static detail-view__divider">
       <%= render partial: 'shared/map', locals: {store_id: @store.id, interactive: false, load_immediately: true} %>
     </div>
-    <!-- //Store location -->
+    <%# //Store location %>
 
-    <!-- Contact store -->
+    <%# Contact store %>
     <div class="island island--fill island--center islet-tops">
       <span class="hide-fully--non-palm">
         <a href="tel:<%= (@store.phone_number || '').gsub(/\s+/,'') %>" class="btn btn--full btn--main btn--main-alt2 btn--main-lrg"><span class="icon icon--phone icon--xlrg icon--spacing-lrg icon--flush-top" aria-hidden="true"></span><strong>Call <%= @store.name %></strong></a>
       </span>
       <p class="detail-view__check-avble hide-fully--palm"><span class="detail-view__subtle-txt">Check store availability</span> <em><span class="icon icon--phone icon--lrg icon--spacing" aria-hidden="true"></span> <%= @store.phone_number %></em></p>
     </div>
-    <!-- //Contact store -->
+    <%# //Contact store %>
 
   </div>
-  <!-- //Store location & contact store -->
+  <%# //Store location & contact store %>
 
   <span class="detail-view__divider--col-line hide-fully--palm"></span>
 
 </div>
 
-<!-- Availability -->
+<%# Availability %>
 <% if @deal.stores and @deal.stores.size > 1 %>
   <div class="island detail-view__availability">
     <h3 class="detail-view__hdr-sub detail-view__mrg-off hn">Also available at</h3>
@@ -49,9 +49,9 @@
     </ul>
   </div>
 <% end %>
-<!-- //Availability -->
+<%# //Availability %>
 
-<!-- Fine print -->
+<%# Fine print %>
 <% if @deal.terms_and_conditions and !@deal.terms_and_conditions.empty? %>
   <div class="island toggle-content js-toggle-content js-hide-show">
     <h2 class="detail-view__hdr-sub hn">The fine print</h2>
@@ -62,7 +62,7 @@
     </div>
   </div>
 <% end %>
-<!-- //Fine print -->
+<%# //Fine print %>
 
 <%- content_for :javascript do -%>
   <script>

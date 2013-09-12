@@ -11,10 +11,13 @@
 */
 
 .pill {
-  @include to-rem(padding, $spacing-quarter);
+  @include to-rem(padding-left padding-right, $spacing-quarter);
+  display: inline-block;
+  vertical-align: middle;
   border-radius: $border-radius;
   background-color: #fff;
   box-shadow: $box-shadow;
+  @include font-size($font-size-milli);
 }
 
 /* Extend: apply spacing both sides */

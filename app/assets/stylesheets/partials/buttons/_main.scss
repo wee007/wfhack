@@ -164,6 +164,18 @@
     .btn--pointer__icon--flush {left: 0;}
 	}
 
+  /* --Firefox-- */
+  
+  /* To get around the problem of text in the button overlapping the padding when width is set to `max-width: 100%` */
+  @include target-mozilla {
+    .btn--pointer.btn--main .txt-truncate {
+      @include to-em(padding-left, $spacing-half);
+      @include to-em(padding-right, $spacing-base+$spacing-half+$spacing-micro);
+    }
+  }
+
+  /* --Global rules-- */
+
 	/* Add more right padding to 'pointer' */
 	.btn--pointer-padding-med.btn--main {@include to-em(padding-right, $spacing-dbl);}
 

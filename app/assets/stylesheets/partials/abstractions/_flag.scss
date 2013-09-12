@@ -46,3 +46,8 @@
       @include to-rem(padding-left, $spacing-base);
     }
   }
+
+/* --Extenders-- */
+
+/* Need this for when you have things truncated within the abstraction */
+.flag--fixed {table-layout: fixed;}

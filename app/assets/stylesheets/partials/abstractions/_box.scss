@@ -43,3 +43,6 @@
 
 /* Box with small margin bottom */
 .box--mrg-half {@include to-rem(margin-bottom, $spacing-half);}
+
+/* Box with `position: relative`. Used for positioing the preloader in the middle */
+.box--position {position: relative;}

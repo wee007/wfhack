@@ -55,13 +55,10 @@
         window.swaggerUi.load();
 
         /*
-         * Images
+         * Content
          */
         $(document).on('click', '.swagger-doc', function (e) {
             e.preventDefault();
-            if ($('#image-doc').hasClass('in')) {
-                $('#image-doc').collapse('hide');
-            }
             window.swaggerUi.headerView.trigger('update-swagger-ui', {
                 discoveryUrl: e.target.href + '/swagger-doc.json'
             });
@@ -122,13 +119,13 @@
                         <div id="collapseOne" class="accordion-body collapse">
                             <div class="accordion-inner">
                                 <ul>
-                                    <li><a href="/api/product" class="swagger-doc">Categories</a></li>
-                                    <li><a href="/api/centre" class="swagger-doc">Centres</a></li>
-                                    <li><a href="/api/deal" class="swagger-doc">Deals</a></li>
-                                    <li><a href="/api/event" class="swagger-doc">Events</a></li>
-                                    <li><a href="/api/movie" class="swagger-doc">Movies</a></li>
+                                    <li><a href="/api/product" class="swagger-doc" data-toggle="collapse" data-target="#product-doc" data-parent="#docs">Categories</a></li>
+                                    <li><a href="/api/centre" class="swagger-doc" data-toggle="collapse" data-target="#centre-doc" data-parent="#docs">Centres</a></li>
+                                    <li><a href="/api/deal" class="swagger-doc" data-toggle="collapse" data-target="#deal-doc" data-parent="#docs">Deals</a></li>
+                                    <li><a href="/api/event" class="swagger-doc" data-toggle="collapse" data-target="#event-doc" data-parent="#docs">Events</a></li>
+                                    <li><a href="/api/movie" class="swagger-doc" data-toggle="collapse" data-target="#movie-doc" data-parent="#docs">Movies</a></li>
                                     <li><a href="https://retailerintegration.atlassian.net/wiki/display/ret/Westfield+Retailer+Integration" target="_blank">Products</a></li>
-                                    <li><a href="/api/store" class="swagger-doc">Stores</a></li>
+                                    <li><a href="/api/store" class="swagger-doc" data-toggle="collapse" data-target="#store-doc" data-parent="#docs">Stores</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -143,7 +140,7 @@
                         <div id="collapseTwo" class="accordion-body collapse">
                             <div class="accordion-inner">
                                 <ul>
-                                    <li><a href="/api/aaa" class="swagger-doc">AAA</a></li>
+                                    <li><a href="/api/aaa" class="swagger-doc" data-toggle="collapse" data-target="#aaa-doc" data-parent="#docs">AAA</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -158,10 +155,10 @@
                         <div id="collapseThree" class="accordion-body collapse">
                             <div class="accordion-inner">
                                 <ul>
-                                    <li><a href="/api/file" class="swagger-doc">Files</a></li>
-                                    <li><a href="#image-doc" data-toggle="collapse">Images</a></li>
-                                    <li><a href="/api/search" class="swagger-doc">Search</a></li>
-                                    <li><a href="/api/stream" class="swagger-doc">Streams</a></li>
+                                    <li><a href="/api/file" class="swagger-doc" data-toggle="collapse" data-target="#file-doc" data-parent="#docs">Files</a></li>
+                                    <li><a href="#" data-toggle="collapse" data-target="#image-doc" data-parent="#docs">Images</a></li>
+                                    <li><a href="/api/search" class="swagger-doc" data-toggle="collapse" data-target="#search-doc" data-parent="#docs">Search</a></li>
+                                    <li><a href="/api/stream" class="swagger-doc" data-toggle="collapse" data-target="#stream-doc" data-parent="#docs">Streams</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -175,19 +172,83 @@
                             &nbsp;
                         </div>
 
-                        <div id="swagger-ui-container" class="swagger-ui-wrap collapse in"></div>
+                        <div id="docs">
+                            <div class="accordion-group">
+                                <div id="product-doc" class="collapse">
+                                    <h2>Categories</h2>
+                                </div>
+                            </div>
 
-                        <div id="image-doc" class="collapse">
-                            <h2>images</h2>
-                            <p>
-                                Westfield uses <a href="http://cloudinary.com" target="_blank">Cloudinary</a> for image transformation services.
-                            </p>
-                            <p>
-                                If the images you need to transform are hosted by Westfield, you can use the service by following
-                                the <a href="http://cloudinary.com/documentation" target="_blank">Cloudinary Documentation</a> and using
-                                Westfield's Cloud Name: <strong>wlabs</strong>.
-                            </p>
+                            <div class="accordion-group">
+                                <div id="centre-doc" class="collapse">
+                                    <h2>Centres</h2>
+                                </div>
+                            </div>
+
+                            <div class="accordion-group">
+                                <div id="deal-doc" class="collapse">
+                                    <h2>Deals</h2>
+                                </div>
+                            </div>
+
+                            <div class="accordion-group">
+                                <div id="event-doc" class="collapse">
+                                    <h2>Events</h2>
+                                </div>
+                            </div>
+
+                            <div class="accordion-group">
+                                <div id="movie-doc" class="collapse">
+                                    <h2>Movies</h2>
+                                </div>
+                            </div>
+
+                            <div class="accordion-group">
+                                <div id="store-doc" class="collapse">
+                                    <h2>Stores</h2>
+                                </div>
+                            </div>
+
+                            <div class="accordion-group">
+                                <div id="aaa-doc" class="collapse">
+                                    <h2>AAA</h2>
+                                </div>
+                            </div>
+
+                            <div class="accordion-group">
+                                <div id="file-doc" class="collapse">
+                                    <h2>Files</h2>
+                                </div>
+                            </div>
+
+                            <div class="accordion-group">
+                                <div id="image-doc" class="collapse">
+                                    <h2>Images</h2>
+                                    <p>
+                                        Westfield uses <a href="http://cloudinary.com" target="_blank">Cloudinary</a> for image transformation services.
+                                    </p>
+                                    <p>
+                                        If the images you need to transform are hosted by Westfield, you can use the service by following
+                                        the <a href="http://cloudinary.com/documentation" target="_blank">Cloudinary Documentation</a> and using
+                                        Westfield's Cloud Name: <strong>wlabs</strong>.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="accordion-group">
+                                <div id="search-doc" class="collapse">
+                                    <h2>Search</h2>
+                                </div>
+                            </div>
+
+                            <div class="accordion-group">
+                                <div id="stream-doc" class="collapse">
+                                    <h2>Streams</h2>
+                                </div>
+                            </div>
                         </div>
+
+                        <div id="swagger-ui-container" class="swagger-ui-wrap collapse in"></div>
                     </div>
                 </div>
             </div>

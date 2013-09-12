@@ -94,7 +94,7 @@ ul, ol {
 	height: 140px;
 }
 
-.accordion-group {
+.accordion .accordion-group {
 	padding: 10px 20px;
 	margin: 8px 25px;
 	border: 0;
@@ -102,40 +102,40 @@ ul, ol {
 	border-radius: 0;
 }
 
-.accordion-group a {
+.accordion .accordion-group a {
 	color: #BFBFBE;
 	font-size: 13px;
 }
 
-.accordion-inner {
+.accordion .accordion-inner {
 	border-top: 0;
 	padding: 9px 15px 0;
 }
 
-.accordion-inner li {
+.accordion .accordion-inner li {
 	padding: 5px 0;
 	font-weight: bold;
 }
 
-.accordion-heading a {
+.accordion .accordion-heading a {
 	color: #FFFFFF;
 	text-transform: uppercase;
 	font-size: 12px;
 }
 
-.accordion-heading .accordion-toggle {
+.accordion .accordion-heading .accordion-toggle {
 	padding: 8px 0;
 	width: 204px;
 }
 
-.accordion-toggle .caret {
+.accordion .accordion-toggle .caret {
 	margin-top: 3px;
 	border-left-width: 6px;
 	border-right-width: 6px;
 	border-top: 7px solid #FFFFFF;
 }
 
-.accordion-toggle.dropup .caret {
+.accordion .accordion-toggle.dropup .caret {
 	border-top: 0 !important;
 	border-bottom: 7px solid #7A7B7A;
 }
@@ -238,19 +238,24 @@ body ul#resources li.resource ul.endpoints li.endpoint ul.operations div.content
 	min-height: 26px;
 }
 
-#image-doc {
+#docs {
 	max-width: 960px;
 }
 
-#image-doc h2 {
+#docs h2 {
 	font-weight: bold;
 	font-size: 19px;
 	padding-bottom: 20px;
 }
 
-#image-doc h2,
-#image-doc p {
+#docs h2,
+#docs p {
 	color: #999999;
+}
+
+#docs .accordion-group {
+	margin: 0;
+	border: 0;
 }
 
 .footer {

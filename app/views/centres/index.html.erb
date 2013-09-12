@@ -238,19 +238,21 @@
         </li>
       </ul>
 
-      <ul class="horiz-list--slash">
-        <li>
-          <small>&copy; Westfield <%= Time.now.year %></small>
-        </li>
-        <li>
+      <nav role="navigation">
+        <ul class="horiz-list--slash">
+          <li>
+            <small>&copy; Westfield <%= Time.now.year %></small>
+          </li>
+          <li>
+            <%# TODO: need to confirm the link %>
+            <a href="#">Terms &amp; Conditions</a>
+          </li>
+          <li>
           <%# TODO: need to confirm the link %>
-          <a href="#">Terms &amp; Conditions</a>
-        </li>
-        <li>
-        <%# TODO: need to confirm the link %>
-          <a href="#">Privacy Policy</a>
-        </li>
-      </ul>
+            <a href="#">Privacy Policy</a>
+          </li>
+        </ul>
+      </nav>
     </div>
   </footer>
   <%# //Footer %>

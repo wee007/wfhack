@@ -9,6 +9,10 @@ class Store < Hashie::Mash
     end
   end
 
+  def accepts_giftcard?
+    false
+  end
+
   def has_logo?
     logo.present?
   end

@@ -19,39 +19,7 @@
       <article class="storefront" role="article">
 
         <%# Header (flexslider) %>
-        <header>
-          <h1 class="hide-visually"><%= @store.name %> storefront</h1>
-          <div class="flexslider flexslider--contain-controls" style="background-image: url(/assets/dummy/store-banner.jpg);">
-            <ul class="slides">
-              <li>
-                <img src="/assets/dummy/store-banner.jpg" alt="<%= @store.name %> banner">
-                <%#
-                    FIXME: [BACKEND] the storefront banner is optional so if no banner is provided then:
-                    - Render the below HTML.
-                    - Remove the above image.
-                    - Remove the `h1` element above: `<h1 class="hide-visually">`.
-                    - Remove the inline `style` attr on the Flexslider `div` container above.
-                    - Append class `.is-no-store-banner` to the Flexslider `div` container above: `<div class="flexslider flexslider--contain-controls">`.
-                    - If store name exceeds or equals 58 chars then append class `.is-long-store-name` to the `h1` element.
-                    All via server side not JS
-                %>
-                <!-- <div class="storefront__flexslider-storename vert-align">
-                  <div class="vert-align__inner">
-                    <h1><%= @store.name %></h1>
-                  </div>
-                </div> -->
-              </li>
-              <%# FIXME: [BACKEND] this blurb absolutely cannot exceed 300 characters in back office console or wherever it's coming from AND because this is optional do not render the `li` if no blurb is provided, see 'https://jira.mywestfield.com/browse/WSF-4899' for more info (via server side not JS) %>
-              <li class="storefront__flexslider-blurb">
-                <div class="vert-align">
-                  <div class="vert-align__inner">
-                    <p><%= @store.description %></p>
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </header>
+        <%= render @store.has_storefront? ? 'header_with_banner' : 'header_without_banner' %>
         <%# //Header (flexslider) %>
 
         <%# Store details %>
@@ -62,18 +30,35 @@
 
             <%# Store meta %>
             <dl class="storefront__details__meta">
-              <dt class="hide-visually">Opening hours</dt>
-              <%# FIXME: [BACKEND] make dynamic inc. the `datetime` attr %>
-              <dd class="storefront__details__meta__no-indent">Open till <time datetime="">6pm</time> tonight</dd>
-              <dt class="hide-visually hide-fully--palm">Store phone number</dt>
-              <%# FIXME: [BACKEND] make dynamic %>
-              <dd class="hide-fully--palm">02 9869 5263<span class="icon icon--phone2 icon--xlrg" aria-hidden="true"></span></dd>
-              <dt class="hide-visually">Store email</dt>
-              <%# FIXME: [BACKEND] make dynamic inc. the `mailto:` attr %>
-              <dd class="txt-truncate"><a href="mailto:">westfield@areallymassivelongemailaddress.com.au</a><span class="icon icon--email icon--xlrg" aria-hidden="true"></span></dd>
+
+              <%- if false %>
+                <%# BLOCKED: WSF-4841 %>
+                <dt class="hide-visually">Opening hours</dt>
+                <%# FIXME: [BACKEND] make dynamic inc. the `datetime` attr %>
+                <dd class="storefront__details__meta__no-indent">Open till <time datetime="">6pm</time> tonight</dd>
+              <%- end %>
+
+              <%- if @store.phone_number.present? %>
+                <dt class="hide-visually hide-fully--palm">Store phone number</dt>
+                <dd class="hide-fully--palm">
+                  <%= @store.phone_number %>
+                  <span class="icon icon--phone2 icon--xlrg" aria-hidden="true"></span>
+                </dd>
+              <%- end %>
+
+              <%- if @store.email_address.present? %>
+                <dt class="hide-visually">Store email</dt>
+                <dd class="txt-truncate">
+                  <%= link_to @store.email_address, "mailto:#{@store.email_address}" %>
+                  <span class="icon icon--email icon--xlrg" aria-hidden="true"></span>
+                </dd>
+              <%- end %>
+
               <dt class="hide-visually">Westfield gift card</dt>
-              <%# FIXME: [BACKEND] if store doesn't except gift cards then say "Not accepted" %>
-              <dd>Gift card accepted<span class="icon icon--gift-card icon--xlrg" aria-hidden="true"></span></dd>
+              <dd>
+                <%= @store.accepts_giftcard? ? 'Gift card accepted' : 'Not accepted' %>
+                <span class="icon icon-gift-card icon--xlrg" aria-hidden="true"></span>
+              </dd>
             </dl>
             <%# //Store meta %>
 

@@ -21,6 +21,7 @@ class StoresController < ApplicationController
     end
     @centre = CentreService.build centre
     @store = Store.new StoreService.build store
+    gon.push centre: @centre, stores: [@store]
     meta.push title: "#{@store.name} at #{@centre.short_name}"
   end
 

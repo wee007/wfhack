@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.20
+Version:     0.1.21
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,12 @@ fi
 
 
 %changelog
+* Fri Sep 13 2013 ci <doperations@au.westfield.com> 0.1.21-1
+- Merge pull request #359 from btillman/api_docs_update
+  (ldewey@au.westfield.com)
+- adds descriptive sections for API docs (ben.tillman@gmail.com)
+- updates links and copy for API docs (ben.tillman@gmail.com)
+
 * Fri Sep 13 2013 ci <doperations@au.westfield.com> 0.1.20-1
 - Merge pull request #360 from cpearce/master (ldewey@au.westfield.com)
 - UI Polish - WSF-5381 (CPearce@au.westfield.com)

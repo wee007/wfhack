@@ -19,7 +19,7 @@
   display: block !important;
   opacity: 0;
 
-  /* JS off */
+  /* Non JS users */
   .no-js & {opacity: 1;}
 
   /* --Conditional overrides-- */
@@ -27,4 +27,7 @@
   /* We don't want the pre-JS loaded UI state here as it loads in in an obtrusive way, also old IE doesn't support `opacity` (`filter` fallback does not work in this case) */
   .header__primary .header__overlay &,
   .old-ie & {display: none !important;}
+
+  /* Non JS users */
+  .no-js .header__primary .header__overlay & {display: block !important;}
 }

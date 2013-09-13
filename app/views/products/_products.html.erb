@@ -1,22 +1,22 @@
 <% if @search.products.blank? %>
 
-<%# No product search results message %>
-<div class="no-content-fallback-msg">
-  <span class="icon icon--products icon--flush-top" aria-hidden="true"></span>
-  <p role="status" aria-live="polite"><em class="h1">No products matching <span><%= params[:search_query] %></span></em> <span>See nearby centres</span></p>
-</div>
-<%# //No product search results message %>
+  <%# No product search results message %>
+  <div class="no-content-fallback-msg">
+    <span class="icon icon--products icon--flush-top" aria-hidden="true"></span>
+    <p role="status" aria-live="polite"><em class="h1">No products matching <span><%= params[:search_query] %></span></em> <span>See nearby centres</span></p>
+  </div>
+  <%# //No product search results message %>
 
 <%- else -%>
 
-<%# Pin board %>
-<div id="pin-board" class="pin-board">
-  <%- @search.products.each do |result| -%>
-    <%= render partial: "/shared/tiles/product",
-        layout: '/layouts/tile',
-        locals: { result: result, image: { href: result.default_image_url, title: result.lozenge_name } } %>
-  <%- end -%>
-</div>
-<%# //Pin board %>
+  <%# Pin board %>
+  <div id="pin-board" class="pin-board">
+    <%- @search.products.each do |result| -%>
+      <%= render partial: "/shared/tiles/product",
+          layout: '/layouts/tile',
+          locals: { result: result, image: { href: result.default_image_url, title: result.lozenge_name } } %>
+    <%- end -%>
+  </div>
+  <%# //Pin board %>
 
 <%- end -%>

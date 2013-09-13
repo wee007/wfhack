@@ -1,0 +1,57 @@
+/* ======================================================================================
+   @MODULES -> NO CONTENT FALLBACK MESSAGE
+   ====================================================================================== */
+
+/*
+  Usage:
+    Fallback message when there is no content or search results.
+
+  Demo:
+    Style Guide -> Modules -> No Content Fallback Message
+*/
+
+.no-content-fallback-msg {
+  text-align: center;
+  @include to-rem(padding-top, 62);
+
+  /* Increase top padding at this breakpoint */
+  @include respond-min($non-palm) {
+    @include to-rem(padding-top, 118);
+  }
+
+  /* --Shared rules-- */
+
+  /* Set common colour */
+  &,
+  .icon:before {color: $color-light-txt;}
+
+  /* Make `display: block` */
+  em,
+  span {display: block;}
+
+  /* --Global rules-- */
+
+  /* Remove base margin */
+  p {margin-bottom: 0;}
+
+  /* Icon */
+  .icon:before {
+    @include font-size(48, 1);
+
+    /* Increase font size at this breakpoint */
+    @include respond-min($non-palm) {
+      @include font-size(60, 1);
+    }
+  }
+
+    /* 'No content/search results' text */
+    em {
+      text-transform: uppercase;
+      @include font-size(22, 1.3);
+      @include to-rem(margin-bottom, $spacing-third);
+      @include to-rem(margin-top, $spacing-half);
+    }
+
+    /* 'See nearby centres' text */
+    p > span {color: $color-dark-txt;}
+}

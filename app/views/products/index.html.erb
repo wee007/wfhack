@@ -46,6 +46,7 @@
 </script>
 <%# //Back button %>
 
+<% if @search.products.present? %>
 <div ng-controller="ProductBrowseController" ng-init="bootstrap()" class="ng-cloak filters filters--pin-board js-disabled-hide">
 
   <div class="filters__filter-sort">
@@ -331,6 +332,7 @@
   <%# //Tags %>
 
 </div>
+<%- end -%>
 
 <%# Render results %>
 <div ng-cloak ng-controller="ProductsController">

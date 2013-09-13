@@ -35,7 +35,7 @@
 
     .national__logo,
     .national__heading-wrap,
-    .national nav {
+    .national__header nav {
       position: absolute;
       /* Setting it at a higher `z-index` than `img-rotate__item` */
       z-index: 2;
@@ -386,7 +386,7 @@
       .container {@extend %clear-fix;}
 
         /* List of footer links */
-        ul{
+        .national__footer__nav{
           @include respond-min($lap-lrg) {
             float: right;
           }

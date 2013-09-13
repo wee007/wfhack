@@ -16,7 +16,7 @@
     } %>
 
     <%# Hero image at large breakpoint %>
-    <%# @media (min-width: 48.0625em) {    
+    <%# @media (min-width: 48.0625em) {
       .national__centre-tile--bondijunction {background-image: url('http://res.cloudinary.com/wlabs/image/fetch/w_1600,h_300,c_fill,e_blur:300/http://beta.westfield.com.au/assets/heroes/bondijunction-lrg-4ec924a641f26e4ae8822ec42d6bb7a3.jpg');}
     } %>
 
@@ -33,7 +33,7 @@
 <div class="national__inner">
 
   <%# Header %>
-  <header class="national__header img-rotate img-rotate--items-2"> 
+  <header class="national__header img-rotate img-rotate--items-2">
     <%# Rotating images %>
     <div class="national__hero__1 img-rotate__item img-rotate__item__1 is-loaded"></div>
     <div class="national__hero__2 img-rotate__item img-rotate__item__2 is-loaded"></div>
@@ -42,14 +42,14 @@
     <%# Container %>
     <div class="container container--position">
       <%# Logo %>
-      <img src="<%= image_path "logo-white.svg" %>" alt="Westfield" data-svg-fallback="<%= image_path "logo-white.png" %>" class="national__logo">
+      <%= image_tag image_path('logo-white.svg'), alt: 'Westfield', "data-svg-fallback" => image_path('logo-white.png'), class: 'national__logo' %>
       <%# //Logo %>
 
       <%# Hero heading wrap %>
       <div class="national__heading-wrap">
         <h1>
           <%# [BACKEND] Number of stores and products need to be dynamic. The number will also need to be rounded so it's presentable. We always round down to the hundred e.g. if it's 3995 stores, we'll present "3,900". %>
-          <span>Over [#,###] stores. Over [##,###] products</span>
+          <span>Over <%= @stores_count %> stores. Over <%= @products_count %> products</span>
           You want. We find.
         </h1>
 
@@ -113,101 +113,20 @@
       <%# //Tab nav %>
     </div>
 
-    <%# NSW %>
-    <ul id="tab-nsw" class="tab__content is-active">
-      <li>
-        <a class="national__centre-tile" href="#">
-          <div class="container">
-            <h3 class="h1">Tea Tree Plaza</h3>
-            <span class="icon icon--arrow-right icon--lrg" aria-hidden="true"></span>
-          </div>
-        </a>
-      </li>
-
-      <li>
-        <a class="national__centre-tile " href="#">
-          <div class="container">
-            <h3 class="h1">Warringah Mall</h3>
-            <span class="icon icon--arrow-right icon--lrg" aria-hidden="true"></span>
-          </div>
-        </a>
-      </li>
-
-      <li>
-        <a class="national__centre-tile" href="#">
-          <div class="container">
-            <h3 class="h1">Bondi Junction</h3>
-            <span class="icon icon--arrow-right icon--lrg" aria-hidden="true"></span>
-          </div>
-        </a>
-      </li>
-    </ul>
-    <%# //NSW %>
-
-    <%# ACT %>
-    <ul id="tab-act" class="tab__content">
-      <li>
-        <a class="national__centre-tile" href="#">
-          <div class="container">
-            <h3 class="h1">Centre ACT</h3>
-            <span class="icon icon--arrow-right icon--lrg" aria-hidden="true"></span>
-          </div>
-        </a>
-      </li>
-    </ul>
-    <%# //ACT %>
-
-    <%# QLD %>
-    <ul id="tab-qld" class="tab__content">
-      <li>
-        <a class="national__centre-tile" href="#">
-          <div class="container">
-            <h3 class="h1">Centre QLD</h3>
-            <span class="icon icon--arrow-right icon--lrg" aria-hidden="true"></span>
-          </div>
-        </a>
-      </li>
-    </ul>
-    <%# //QLD %>
-
-    <%# VIC %>
-    <ul id="tab-vic" class="tab__content">
-      <li>
-        <a class="national__centre-tile" href="#">
-          <div class="container">
-            <h3 class="h1">Centre VIC</h3>
-            <span class="icon icon--arrow-right icon--lrg" aria-hidden="true"></span>
-          </div>
-        </a>
-      </li>
-    </ul>
-    <%# //VIC %>
-
-    <%# SA %>
-    <ul id="tab-sa" class="tab__content">
-      <li>
-        <a class="national__centre-tile" href="#">
-          <div class="container">
-            <h3 class="h1">Centre SA</h3>
-            <span class="icon icon--arrow-right icon--lrg" aria-hidden="true"></span>
-          </div>
-        </a>
-      </li>
-    </ul>
-    <%# //SA %>
-
-    <%# WA %>
-    <ul id="tab-wa" class="tab__content">
-      <li>
-        <a class="national__centre-tile" href="#">
-          <div class="container">
-            <h3 class="h1">Centre WA</h3>
-            <span class="icon icon--arrow-right icon--lrg" aria-hidden="true"></span>
-          </div>
-        </a>
-      </li>
-    </ul>
-    <%# //WA %>
+    <% %w(NSW ACT QLD VIC SA WA).each do |state| %>
+      <ul id="tab-<%= state.downcase %>" class="tab__content<%= ' is-active' if state == 'NSW' %>">
+        <% @centres[state].each do |centre| %>
+          <li>
+            <a class="national__centre-tile" href="<%= centre_path( centre ) %>">
+              <div class="container">
+                <h3 class="h1"><%= centre.short_name %></h3>
+                <span class="icon icon--arrow-right icon--lrg" aria-hidden="true"></span>
+              </div>
+            </a>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
   </main>
   <%# //Tabs %>
 
@@ -216,7 +135,7 @@
     <div class="container">
       <ul class="national__footer__nav horiz-list--slash">
         <li>
-          <a href="http://corporate.westfield.com/" rel="external">Westfild Group</a>
+          <%= link_to 'Westfild Group', 'http://corporate.westfield.com/', rel: 'external' %>
         </li>
         <li>
           <a href="<%= root_path %>"><abbr title="Australia">AU</abbr></a>
@@ -231,10 +150,10 @@
           <a href="http://www.westfield.com/" rel="external"><abbr title="United States of America">USA</abbr></a>
         </li>
         <li>
-          <a href="http://corporate.westfield.com/careers/" rel="external">Jobs</a>
+          <%= link_to 'Jobs', 'http://corporate.westfield.com/careers/', rel: 'external' %>
         </li>
         <li>
-          <a href="http://corporate.westfield.com/about/sustainability/" rel="external">Our Community</a>
+          <%= link_to 'Our Community', 'http://corporate.westfield.com/about/sustainability/', rel: 'external' %>
         </li>
       </ul>
 
@@ -243,14 +162,12 @@
           <li>
             <small>&copy; Westfield <%= Time.now.year %></small>
           </li>
-          <li>
-            <%# TODO: need to confirm the link %>
-            <a href="#">Terms &amp; Conditions</a>
-          </li>
-          <li>
-          <%# TODO: need to confirm the link %>
-            <a href="#">Privacy Policy</a>
-          </li>
+          <%# <li> %>
+            <%#= link_to 'Terms &amp; Conditions'.html_safe, '#' %>
+          <%# </li>
+          <li> %>
+            <%#= link_to 'Privacy Policy', '#' %>
+          <%# </li> %>
         </ul>
       </nav>
     </div>

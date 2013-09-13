@@ -15,4 +15,4 @@ do (window, $ = jQuery) ->
 
   window.initPlugin = window.initPlugin or {}
   window.initPlugin.isotope = init
-  $(window).on 'load', init
+  init()

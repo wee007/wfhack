@@ -1,10 +1,15 @@
-<div class="tile__image">
-  <%= fetch_image_tag result.primary_image,
-    alt: "Photo of product: #{result.title}",
-    width: 288,
-    crop: :limit
-  %>
-</div>
+<% if result.cloudinary_public_id %>
+  <div class="tile__image">
+    <%= cl_image_tag result.cloudinary_public_id,
+      format: 'jpg',
+      alt: "Photo of product: #{result.title}",
+      width: 288,
+      crop: :limit,
+      onerror: 'this.style.display="none"',
+      'data-height' => result.image_height
+    %>
+  </div>
+<% end %>
 
 <div class="tile__meta">
   <span class="tile__meta__icon">

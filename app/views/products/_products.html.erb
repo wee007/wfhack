@@ -19,4 +19,8 @@
   </div>
   <%# //Pin board %>
 
+  <% if request.xhr? %>
+  <script type="text/javascript">window.initPlugin.isotope();</script>
+  <% end %>
+
 <%- end -%>

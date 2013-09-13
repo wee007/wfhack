@@ -16,7 +16,15 @@ $.Isotope.prototype._responsive = ->
       @masonry.cols = cols
       @masonry.columnWidth = columnWidth
       @masonry.gutterWidth = @options.responsive.gutter
-      $(@options.itemSelector).width tileWidth
+
+      # Set the image height and width
+      $(@options.itemSelector).
+      css(width: tileWidth).
+      find('img').each ->
+        $tile = $(@)
+        if orgitnal_height = $tile.data('height')
+          height = orgitnal_height * (tileWidth / orgitnal_height)
+          $tile.css width: tileWidth, height: height
 
     calculateCols @options.responsive.maxNumberOfColumn
 

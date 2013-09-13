@@ -24,7 +24,11 @@ class ProductsController < ApplicationController
         if request.xhr?
           format.html { render partial: "products" }
         else
-          gon.products = @search
+          gon.products = {
+            display_options: @search.display_options,
+            facets: @search.facets,
+            applied_filters: @search.applied_filters
+          }
           format.html { render :index }
         end
       end

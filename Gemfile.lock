@@ -1,16 +1,4 @@
 GIT
-  remote: git@github.dbg.westfield.com:digital/aaa_client.git
-  revision: 21214d9dedb43b08995717826ff10fee54fbe766
-  specs:
-    aaa_client (0.0.27)
-      faraday
-      redis
-      request_store
-      rubycas-client (> 2.3.9)
-      service_helper
-      splunk_logger
-
-GIT
   remote: git@github.dbg.westfield.com:digital/service_api.git
   revision: cd3161db7330ec9db330bfaf76961056108b6586
   specs:
@@ -51,13 +39,6 @@ GIT
   revision: b88d2df249224d9e7f14e3f4550112a32370bb60
   specs:
     kss (0.4.0)
-
-GIT
-  remote: https://github.com/mmell/rubycas-client.git
-  revision: f88adf388fc2245c77cf300a6ee0c4d41ca228d8
-  specs:
-    rubycas-client (2.3.13)
-      activesupport
 
 GIT
   remote: https://github.com/westfield/splunk_logger.git
@@ -237,8 +218,6 @@ GEM
       ffi (>= 0.5.0)
     rb-kqueue (0.2.0)
       ffi (>= 0.5.0)
-    redis (3.0.4)
-    request_store (1.0.5)
     rest-client (1.6.7)
       mime-types (>= 1.16)
     rspec-core (2.14.5)
@@ -293,7 +272,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  aaa_client!
   capybara
   cloudinary
   coffee-rails (~> 4.0.0)
@@ -324,7 +302,6 @@ DEPENDENCIES
   rails (~> 4.0.0)
   rb-fsevent
   rspec-rails
-  rubycas-client!
   sass-rails (~> 4.0.0)
   service_api!
   service_helper!

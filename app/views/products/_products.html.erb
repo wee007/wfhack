@@ -14,7 +14,7 @@
     <%- @search.products.each do |result| -%>
       <%= render partial: "/shared/tiles/product",
           layout: '/layouts/tile',
-          locals: { result: result, image: { href: result.default_image_url, title: result.lozenge_name } } %>
+          locals: { result: result, image: { href: result.default_image_url, title: result.name } } %>
     <%- end -%>
   </div>
   <%# //Pin board %>

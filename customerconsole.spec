@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.21
+Version:     0.1.22
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,10 @@ fi
 
 
 %changelog
+* Mon Sep 16 2013 ci <doperations@au.westfield.com> 0.1.22-1
+- Merge pull request #362 from ldewey/master (ben.tillman@trineo.co.nz)
+- Remvoed AAA, as it required redis. (ldewey@au.westfield.com)
+
 * Fri Sep 13 2013 ci <doperations@au.westfield.com> 0.1.21-1
 - Merge pull request #359 from btillman/api_docs_update
   (ldewey@au.westfield.com)

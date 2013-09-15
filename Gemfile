@@ -25,8 +25,6 @@ gem 'cloudinary'
 gem 'kaminari'
 gem 'money'
 
-gem 'rubycas-client', git: 'https://github.com/mmell/rubycas-client.git' # force rubycas-client-rails to use latest
-gem 'aaa_client', git: 'git@github.dbg.westfield.com:digital/aaa_client.git'
 gem 'splunk_logger', git: 'https://github.com/westfield/splunk_logger.git'
 
 # CSS (cant live in development or css will not get minified)

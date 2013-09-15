@@ -15,4 +15,8 @@ do (window, $ = jQuery) ->
 
   window.initPlugin = window.initPlugin or {}
   window.initPlugin.isotope = init
-  init()
+
+  if $('body.products.index')
+    init()
+  else
+    $(window).on 'load', init

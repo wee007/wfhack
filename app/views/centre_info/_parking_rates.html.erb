@@ -31,7 +31,7 @@
         </tbody>
       </table>
     </div>
-    <small class="fine-print fine-print--center">*<%= @parking.credit_card_surcharge_amount %>% surcharge on all credit card payments</small> <!--, parking <%= link_to 'terms &amp; conditions apply'.html_safe, '#' %>.</small>-->
+    <small class="fine-print fine-print--center">*<%= @parking.credit_card_surcharge_amount %>% surcharge on all credit card payments parking <%= link_to 'terms &amp; conditions apply'.html_safe, @parking.terms_and_conditions_url, target: '_blank' %>.</small>
   </div>
 
   <div class="grid__item non-palm-one-half">

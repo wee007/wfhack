@@ -27,28 +27,28 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       ETag:
-      - '"81e84f5a9716c32095e664f4e09498f1"'
+      - '"3bae7c9f610dddf56113b8b820b827bf"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 44d0e37c-b9b3-4998-9858-700ed636251d
+      - 4c07e163-2dfa-4a98-8772-dcc3fbdf9160
       X-Runtime:
-      - '0.445785'
+      - '0.101428'
       Date:
-      - Sun, 15 Sep 2013 22:38:31 GMT
+      - Mon, 16 Sep 2013 09:53:08 GMT
       Connection:
       - close
     body:
       encoding: UTF-8
       string: '{"centre_id":"doncaster","additional_parking_information":"additional
         parking info","rates_apply":true,"credit_card_surcharge_amount":"3","type_of_rate":"hourly_rate","maximum_daily_rate_weekday":"8","maximum_daily_rate_weekend":"8","overnight_fee_weekday":"5","overnight_fee_weekend":"5","flat_rate":"","free_parking_instructions":"Lorem
-        ipsum dolor sit amet, consectetur adipiscing elit.\nVestibulum nec urna pharetra,
-        ultricies enim non, tempus est. Vivamus id pellentesque tortor, dapibus pharetra
-        nibh.","valet_parking_instructions":"Lorem ipsum dolor sit amet, consectetur
-        adipiscing elit.\nVestibulum nec urna pharetra, ultricies enim non, tempus
-        est. Vivamus id pellentesque tortor, dapibus pharetra nibh.","parking_rates":[{"hourly_rate_from":"0","hourly_rate_to":"3","hourly_rate_weekday":"0","hourly_rate_weekend":"0"},{"hourly_rate_from":"3","hourly_rate_to":"5","hourly_rate_weekday":"5","hourly_rate_weekend":"5"},{"hourly_rate_from":"5","hourly_rate_to":"7","hourly_rate_weekday":"10","hourly_rate_weekend":"10"}]}'
+        ipsum dolor sit amet, consectetur adipiscing elit.\r\nVestibulum nec urna
+        pharetra, ultricies enim non, tempus est. Vivamus id pellentesque tortor,
+        dapibus pharetra nibh.","valet_parking_instructions":"Lorem ipsum dolor sit
+        amet, consectetur adipiscing elit.\r\nVestibulum nec urna pharetra, ultricies
+        enim non, tempus est. Vivamus id pellentesque tortor, dapibus pharetra nibh.","pdf_ref":"df4zc8o8cxd4u8oxvqhb","parking_rates":[{"hourly_rate_from":"0","hourly_rate_to":"3","hourly_rate_weekday":"0","hourly_rate_weekend":"0"},{"hourly_rate_from":"3","hourly_rate_to":"5","hourly_rate_weekday":"5","hourly_rate_weekend":"5"},{"hourly_rate_from":"5","hourly_rate_to":"7","hourly_rate_weekday":"10","hourly_rate_weekend":"10"}]}'
     http_version: 
-  recorded_at: Sun, 15 Sep 2013 22:38:31 GMT
+  recorded_at: Mon, 16 Sep 2013 09:53:08 GMT
 - request:
     method: get
     uri: http://centre-service.test.dbg.westfield.com/api/centre/master/centres/doncaster.json
@@ -80,11 +80,11 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 10e3d728-d00f-456d-b90e-98ed0b7345d6
+      - 0b8f6dad-518e-4a6a-bf5e-5f01a0196153
       X-Runtime:
-      - '0.469153'
+      - '0.120596'
       Date:
-      - Sun, 15 Sep 2013 22:38:31 GMT
+      - Mon, 16 Sep 2013 09:53:08 GMT
       Connection:
       - close
     body:
@@ -93,5 +93,5 @@ http_interactions:
         Doncaster Rd (Cnr Williamsons Rd)","state":"VIC","postcode":"3108","country":"au","phone_number":"(03)
         9848 1699","email_address":"doncaster@au.westfield.com","latitude":"-37.785423","longitude":"145.12562","today_opening_time":null,"today_closing_time":null,"number_of_levels":12,"micello_community":20068,"facebook":null,"twitter":null,"google_plus":null,"instagram":null,"pinterest":null,"youtube":null,"retail":true,"enabled":true}'
     http_version: 
-  recorded_at: Sun, 15 Sep 2013 22:38:31 GMT
+  recorded_at: Mon, 16 Sep 2013 09:53:08 GMT
 recorded_with: VCR 2.5.0

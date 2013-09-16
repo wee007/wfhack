@@ -2,7 +2,7 @@ require 'spec_helper'
 require 'vcr_helper'
 
 describe "Parking" do
-  
+
   describe "a centre without parking" do
     before(:each) do
       VCR.use_cassette('knox_without_parking') do
@@ -13,7 +13,7 @@ describe "Parking" do
       assert_select "h2#parking", count: 0
     end
   end
-  
+
   describe "a centre with complimentary parking" do
     before(:each) do
       VCR.use_cassette('caseycentral_with_complimetary_parking') do
@@ -25,7 +25,7 @@ describe "Parking" do
       assert_select 'p', 'Complimentary parking available for all customers.'
     end
   end
-  
+
   describe "a centre with parking rates" do
     before(:each) do
       VCR.use_cassette('doncaster_parking_with_rates') do
@@ -48,8 +48,12 @@ describe "Parking" do
         assert_select 'td.weekend', "$10"
       end
     end
+
+    it "have a link to the terms and conditions" do
+      assert_select 'a.terms-link[href=?]', 'http://res.cloudinary.com/wlabs/image/upload/df4zc8o8cxd4u8oxvqhb.pdf'
+    end
   end
-  
+
   describe "a centre a fixed rate" do
     before(:each) do
       VCR.use_cassette('warringahmall_fixed_rate') do
@@ -61,5 +65,5 @@ describe "Parking" do
       assert_select 'p', "All parking is a fixed price of $5"
     end
   end
-  
+
 end

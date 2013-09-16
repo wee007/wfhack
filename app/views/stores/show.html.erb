@@ -31,11 +31,11 @@
             <%# Store meta %>
             <dl class="storefront__details__meta">
 
-              <%- if false %>
-                <%# BLOCKED: WSF-4841 %>
-                <dt class="hide-visually">Opening hours</dt>
-                <%# FIXME: [BACKEND] make dynamic inc. the `datetime` attr %>
-                <dd class="storefront__details__meta__no-indent">Open till <time datetime="">6pm</time> tonight</dd>
+              <dt class="hide-visually">Opening hours</dt>
+              <%- if @store.closing_time.present? %>
+                <dd class="storefront__details__meta__no-indent">Open till <%= twelve_hour_format @store.closing_time %> tonight</dd>
+              <%- else %>
+                <dd class="storefront__details__meta__no-indent">Closed today</dd>
               <%- end %>
 
               <%- if @store.phone_number.present? %>

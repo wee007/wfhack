@@ -33,6 +33,16 @@ class Store < Hashie::Mash
     @centre ||= get_centre
   end
 
+  def closing_time
+    if today_closing_time.present?
+      today_closing_time
+    elsif centre.present? && centre.today_closing_time.present?
+      centre.today_closing_time
+    else
+      nil
+    end
+  end
+
 private
 
   def get_centre

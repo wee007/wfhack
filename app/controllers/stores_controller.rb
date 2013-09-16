@@ -7,7 +7,11 @@ class StoresController < ApplicationController
       store = StoreService.fetch centre: params[:centre_id], per_page: 1000
     end
     @centre = CentreService.build centre
-    stores = StoreService.build(store).map {|store_attrs| Store.new(store_attrs) }
+    stores = StoreService.build(store).map do |store_attrs| 
+      store = Store.new(store_attrs)
+      store.centre = @centre
+      store
+    end
     @stores = stores.group_by(&:first_letter)
     gon.push centre: @centre, stores: stores
     meta.push title: "#{@centre.short_name} stores"
@@ -21,6 +25,7 @@ class StoresController < ApplicationController
     end
     @centre = CentreService.build centre
     @store = Store.new StoreService.build store
+    @store.centre = @centre
     gon.push centre: @centre, stores: [@store]
     meta.push title: "#{@store.name} at #{@centre.short_name}"
   end

@@ -16,10 +16,6 @@
       image: { href: result.default_image_url, title: result.name }
     %>
   <% end %>
-
-  <% if request.xhr? %>
-    <script>(new PinBoard).build()</script>
-  <% end %>
   <%# //Pin board %>
 
 <%- end -%>

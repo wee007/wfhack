@@ -1,8 +1,8 @@
 class @PinBoard
 
-  constructor: (items) ->
+  constructor: (@pinBoardSelector) ->
     # Clone the items are they get removed, and added between breakpoints
-    @items = $('#pin-board .tile').clone()
+    @items = $("#{pinBoardSelector} .js-tile").clone()
     # The palm is default, since we are mobile 1st.
     @currentNumberOfCols = 2
 
@@ -53,7 +53,7 @@ class @PinBoard
       $template.find('img').on 'error', -> $(@).remove()
 
       # Replace current pinboard with the new one
-      $("#pin-board").replaceWith($template)
+      $(@pinBoardSelector).replaceWith($template)
 
       # Remeber the number of the cols so we don't do the same
       # thing twice
@@ -85,5 +85,5 @@ class @PinBoard
     </div>
     """
 
-@pinBoard = new PinBoard $('.tile')
+@pinBoard = new PinBoard "#pin-board"
 @pinBoard.build()

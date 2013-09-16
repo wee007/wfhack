@@ -7,3 +7,7 @@
     </div>
   <%- end -%>
 </div>
+
+<% if request.xhr? %>
+  <script>(new PinBoard("#pin-board")).build()</script>
+<% end %>

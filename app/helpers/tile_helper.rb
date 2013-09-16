@@ -12,7 +12,7 @@ module TileHelper
   end
 
   def pin_board(rows, &block)
-    render layout: "/shared/tiles/pin_board", locals: { rows: rows }, &block
+    render layout: "/layouts/pin_board", locals: { rows: rows }, &block
   end
 
   def tile(kind, data)

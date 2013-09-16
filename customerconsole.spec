@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.23
+Version:     0.1.24
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,9 @@ fi
 
 
 %changelog
+* Mon Sep 16 2013 ci <doperations@au.westfield.com> 0.1.24-1
+- fixes WSF-5235 date format for event list (ben.tillman@gmail.com)
+
 * Mon Sep 16 2013 ci <doperations@au.westfield.com> 0.1.23-1
 - Merge pull request #361 from cpearce/master (ldewey@au.westfield.com)
 - Adding indentation to markup when inside if statement to improve readability

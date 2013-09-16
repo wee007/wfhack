@@ -42,11 +42,21 @@ class @PinBoard
     # Do not re-build if already in that state
     if @currentNumberOfCols != numberOfCols || force
 
+      # Get a template for this number of cols
       $template = $(@templates[numberOfCols])
+
+      # Put the items/tiles into the cols
       for item, index in @in_groups(@items, numberOfCols)
         $template.children(":eq(#{index})").append item
 
+      # Remove broken images, this should be a fall back
+      $template.find('img').on 'error', -> $(@).remove()
+
+      # Replace current pinboard with the new one
       $("#pin-board").replaceWith($template)
+
+      # Remeber the number of the cols so we don't do the same
+      # thing twice
       @currentNumberOfCols = numberOfCols
 
   templates:

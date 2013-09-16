@@ -16,8 +16,14 @@
 	/* We need this to accommodate for the bottom padding on `body` as each tile has a bottom margin */
 	@include to-rem(margin-bottom, -$spacing-base);
 
+
+  .no-js &,
+  &.is-active{display: block;}
+
+
 	/* Increase top/bottom margin at this breakpoint */
 	@include respond-min($non-palm) {
+    display: none;
 		@include to-rem(margin-top, $spacing-base);
 		@include to-rem(margin-bottom, -$spacing-half);
 	}

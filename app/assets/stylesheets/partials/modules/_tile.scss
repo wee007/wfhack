@@ -18,34 +18,13 @@
   position: relative;
   color: $color-base-txt;
   /* Show 2 tiles by default */
-  width: 42%;
+  width: 100%;
   @include font-size($font-size-sml, 1.5);
-  @include to-rem(margin-bottom margin-left, $spacing-half);
-
-  /* When Isotope plugin has kicked in */
-  &.isotope-item {
-    float: none;
-    margin-left: 0;
-
-    /* Show 2 tiles by default */
-    @include respond-max($palm) {
-      width: 48%;
-    }
-  }
+  @include to-rem(margin-bottom, $spacing-half);
 
   /* Needed so the social share controls can be seen */
   &:hover {z-index: 2;}
 
-  /* Show 3 tiles at this breakpoint */
-  @include respond-min($non-palm) {
-    width: 31%;
-  }
-
-  /* Show 5 tiles and increase gutter at this breakpoint */
-  @include respond-min($lap-lrg) {
-    width: 18%;
-    @include to-rem(margin-left, $spacing-base);
-  }
 
   /* Global styles */
   a {color: $color-light-txt;}

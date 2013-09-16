@@ -1,0 +1,97 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://centre-service.test.dbg.westfield.com/api/centre/master/parkings/doncaster.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.8
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-UA-Compatible:
+      - chrome=1
+      Content-Type:
+      - application/json; charset=utf-8
+      ETag:
+      - '"81e84f5a9716c32095e664f4e09498f1"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 44d0e37c-b9b3-4998-9858-700ed636251d
+      X-Runtime:
+      - '0.445785'
+      Date:
+      - Sun, 15 Sep 2013 22:38:31 GMT
+      Connection:
+      - close
+    body:
+      encoding: UTF-8
+      string: '{"centre_id":"doncaster","additional_parking_information":"additional
+        parking info","rates_apply":true,"credit_card_surcharge_amount":"3","type_of_rate":"hourly_rate","maximum_daily_rate_weekday":"8","maximum_daily_rate_weekend":"8","overnight_fee_weekday":"5","overnight_fee_weekend":"5","flat_rate":"","free_parking_instructions":"Lorem
+        ipsum dolor sit amet, consectetur adipiscing elit.\nVestibulum nec urna pharetra,
+        ultricies enim non, tempus est. Vivamus id pellentesque tortor, dapibus pharetra
+        nibh.","valet_parking_instructions":"Lorem ipsum dolor sit amet, consectetur
+        adipiscing elit.\nVestibulum nec urna pharetra, ultricies enim non, tempus
+        est. Vivamus id pellentesque tortor, dapibus pharetra nibh.","parking_rates":[{"hourly_rate_from":"0","hourly_rate_to":"3","hourly_rate_weekday":"0","hourly_rate_weekend":"0"},{"hourly_rate_from":"3","hourly_rate_to":"5","hourly_rate_weekday":"5","hourly_rate_weekend":"5"},{"hourly_rate_from":"5","hourly_rate_to":"7","hourly_rate_weekday":"10","hourly_rate_weekend":"10"}]}'
+    http_version: 
+  recorded_at: Sun, 15 Sep 2013 22:38:31 GMT
+- request:
+    method: get
+    uri: http://centre-service.test.dbg.westfield.com/api/centre/master/centres/doncaster.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.8
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-UA-Compatible:
+      - chrome=1
+      Content-Type:
+      - application/json; charset=utf-8
+      ETag:
+      - '"1285086991efdba55c5633b266005b3c"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 10e3d728-d00f-456d-b90e-98ed0b7345d6
+      X-Runtime:
+      - '0.469153'
+      Date:
+      - Sun, 15 Sep 2013 22:38:31 GMT
+      Connection:
+      - close
+    body:
+      encoding: UTF-8
+      string: '{"name":"Westfield Doncaster","short_name":"Doncaster","code":"doncaster","business_unit_code":"11021","type":"premium","street_address":"619
+        Doncaster Rd (Cnr Williamsons Rd)","state":"VIC","postcode":"3108","country":"au","phone_number":"(03)
+        9848 1699","email_address":"doncaster@au.westfield.com","latitude":"-37.785423","longitude":"145.12562","today_opening_time":null,"today_closing_time":null,"number_of_levels":12,"micello_community":20068,"facebook":null,"twitter":null,"google_plus":null,"instagram":null,"pinterest":null,"youtube":null,"retail":true,"enabled":true}'
+    http_version: 
+  recorded_at: Sun, 15 Sep 2013 22:38:31 GMT
+recorded_with: VCR 2.5.0

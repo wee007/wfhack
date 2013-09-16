@@ -1,0 +1,50 @@
+<div class="grid grid--gutter-dbl grid--mrg-dbl-non-palm">
+  <div class="grid__item non-palm-one-half">
+    <div class="box box--mrg-half islet island--non-palm">
+      <table cellspacing="0" class="table-striped" id="parking-rates">
+        <caption class="hide-visually">Parking rates</caption>
+        <thead>
+          <tr>
+              <th scope="col">Time</th>
+              <th scope="col" class="txt-right">Weekday</th>
+              <th scope="col" class="txt-right">Weekend</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @parking.rates.each do |rate| %>
+            <tr>
+              <td class='times'><%= rate.hourly_rate_from %> - <%= rate.hourly_rate_to %>hrs</td>
+              <td class="weekday txt-right <%= "txt-caps" if rate.free? %>"><%= display_parking_rate(rate.hourly_rate_weekday) %></td>
+              <td class="weekend txt-right <%= "txt-caps" if rate.free? %>"><%= display_parking_rate(rate.hourly_rate_weekend) %></td>
+            </tr>
+          <% end %>
+          <tr>
+            <td>Maximum Daily Rate</td>
+            <td class="txt-right"><%= display_parking_rate(@parking.maximum_daily_rate_weekday) %></td>
+            <td class="txt-right"><%= display_parking_rate(@parking.maximum_daily_rate_weekend) %></td>
+          </tr>
+          <tr>
+            <td>Overnight Fee</td>
+            <td class="txt-right"><%= display_parking_rate(@parking.overnight_fee_weekday) %></td>
+            <td class="txt-right"><%= display_parking_rate(@parking.overnight_fee_weekend) %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <small class="fine-print fine-print--center">*<%= @parking.credit_card_surcharge_amount %>% surcharge on all credit card payments</small> <!--, parking <%= link_to 'terms &amp; conditions apply'.html_safe, '#' %>.</small>-->
+  </div>
+
+  <div class="grid__item non-palm-one-half">
+    <% @parking.free_parking_instructions.split("\n").each do |paragraph| %>
+      <p><%= paragraph %></p>
+    <% end %>
+
+    <% unless @parking.valet_parking_instructions.empty? %>
+      <h3>Valet Parking</h3>
+      <% @parking.valet_parking_instructions.split("\n").each do |paragraph| %>
+        <p><%= paragraph %></p>
+      <% end %>
+    <% end %>
+    
+  </div>
+</div>

@@ -168,8 +168,7 @@
   <%# //Contain 'back to listing link' and 'store details' %>
 
   <%# Map %>
-  <%# FIXME: [BACKEND] map not rendering %>
-  <div class="stores-maps__map map-micello" id="stores-maps-toggle-map">
+  <div class="stores-maps__map map-micello js-stores-maps-toggle-map" id="stores-maps-toggle-map">
     <%= render partial: 'shared/map', locals: {store_id: nil, interactive: true, load_immediately: false} %>
   </div>
   <%# //Map %>
@@ -178,8 +177,22 @@
 
 <%- content_for :javascript do -%>
 
+  <%= javascript_include_tag 'map/responsive_map' %>
   <%= javascript_include_tag 'flexslider/jquery.flexslider' %>
-  <script>
+  <%= javascript_tag do %>
+
+    var map = new map.ResponsiveMap({
+      breakpoint: 'all and (min-width: 64em)',
+      palm: { offset: {x: 0.5, y: 0.5} },
+      nonPalm: { offset: {x: 0.75, y: 0.5} }
+    });
+
+    $('.js-stores-maps-toggle-btn').on('click', function() {
+      var visible = map.toggle();
+      $('.js-stores-maps-toggle-wrap').toggleClass('is-map-view', visible);  <%# store list container %>
+    });
+
+    map.store(<%= @store.id %>);
 
     // Run 'Flexslider' plugin
     $(window).load(function() {
@@ -214,56 +227,5 @@
 
     });
 
-    // Conditionally load Micello maps for palm view and toggle the detail/map views
-    /*
-      FIXME: [BACKEND] this is now being shared across 'index' and 'show' with the exception of `deferImages` and 'show' doesn't need this:
-        $('.js-stores-maps-toggle-btn').toggleClass('is-expanded', listView === false);
-        $('.js-stores-maps-toggle-btn__txt').html(listView ? 'map' : 'list');
-        So pull this into an external JS file
-    */
-    (function initialiseResponsiveMap() {
-
-      if(deferCall(window.enquire)) return;
-
-      var map = new window.map.Micello(),
-          viewingList = true;
-
-      function resetView(listView) {
-        viewingList = listView;
-
-        if(!listView) map.load();
-
-        $('.js-stores-maps-toggle-wrap').toggleClass('is-map-view', listView === false);  // storefront/maps container
-      }
-
-      function nonPalmView() {
-        resetView(null);
-        $('*', document).off('.map-palm')
-        $('[data-store-id]').on('click.map-non-palm', function() {
-          map.highlight($(this).data('store-id'));
-        });
-      }
-
-      function palmView() {
-        resetView(true);
-        $('*', document).off('.map-non-palm')
-        $('.js-stores-maps-toggle-btn').on('click.map-palm', function() {
-          resetView(!viewingList);
-        });
-        $('[data-store-id]').on('click.map-palm', 'a[href="#infoDiv"]', function(event) {
-          resetView(false);
-          map.highlight($(event.delegateTarget).data('store-id'));
-        });
-      }
-
-      $(function() {
-        enquire.register("all and (min-width: 64em)", {
-          match: nonPalmView,
-          unmatch: palmView,
-          setup: palmView
-        }, true);
-      });
-    }());
-
-  </script>
+  <%- end -%>
 <%- end -%>

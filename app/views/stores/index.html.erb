@@ -72,14 +72,13 @@
           </dt>
 
           <% stores.each do |store| %>
-          <dd data-store-id="<%= store.id %>">
+          <dd>
             <div class="stores-list__inner container">
 
               <%# Store name %>
               <div class="stores-list__store-name">
-                <%# [BACKEND] cannot use the link until storefront feature is complete %>
-                <!-- <strong><%= link_to store.name, (centre_store_url @centre.code , store.id) %></strong> -->
-                <strong><%= store.name %></strong>
+                <strong><%= link_to store.name, (centre_store_url @centre.code , store.id), data: {'store-id' => store.to_param} %></strong>
+                <%# <strong><%= store.name %1></strong> %>
                 <%# Phone no %>
                 <span class="hide-fully--palm"><%= store.phone_number %></span>
                 <%# //Phone no %>
@@ -114,7 +113,7 @@
                 <%# //Phone no %>
 
                 <%# Location %>
-                <a href="#infoDiv" class="storefront-storelist-phone-map-links__cell storefront-storelist-phone-map-links__cell--location">
+                <a href="#infoDiv" class="storefront-storelist-phone-map-links__cell storefront-storelist-phone-map-links__cell--location" data-store-id="<%= store.to_param %>">
                   <span class="hide-visually">View on map</span>
                   <span class="icon icon--pin icon--flush-top storefront-storelist-phone-map-links__cell__valign"></span>
                 </a>
@@ -141,63 +140,32 @@
   </div>
   <%# //Map %>
 
-</div>
-
-<%- content_for :javascript do -%>
-  <%= javascript_tag do %>
-    (function initialiseResponsiveMap() {
-
-      var map = new window.map.Micello(),
-          viewingList = true;
-
-      function resetView(listView) {
-        <%# listView = [true, false, null]
-              true = list view
-              false = map view
-              null = desktop view
-        %>
-        viewingList = listView;
-
-        $('.js-stores-maps-toggle-btn').toggleClass('is-expanded', listView === false);   <%# toggle button        %>
-        $('.js-stores-maps-toggle-btn__txt').html(listView ? 'map' : 'list');             <%# toggle button text   %>
-        $('.js-stores-maps-toggle-wrap').toggleClass('is-map-view', listView === false);  <%# store list container %>
-
-        if(!listView) map.load().centreOffset({x: listView === false ? 0.5 : 0.75, y: 0.5});
-      }
-
-      function showStoreDetail(storeId) {
-        map.setTarget(storeId).showLevel().centre().highlight().detail();
-      }
-
-      function nonPalmView() {
-        resetView(null);
-        $('*', document).off('.map-palm')
-        $('[data-store-id]').on('click.map-non-palm', function() {
-          showStoreDetail($(this).data('store-id'));
-        });
-      }
-
-      function palmView() {
-        resetView(true);
-        $('*', document).off('.map-non-palm')
-        $('.js-stores-maps-toggle-btn').on('click.map-palm', function() {
-          resetView(!viewingList);
-        });
-        $('[data-store-id]').on('click.map-palm', 'a[href="#infoDiv"]', function(event) {
-          resetView(false);
-          showStoreDetail($(event.delegateTarget).data('store-id'));
-        });
-      }
-
-      $(function() {
-        enquire.register("all and (min-width: 64em)", {
-          match: nonPalmView,
-          unmatch: palmView,
-          setup: palmView
-        }, true);
+  <%- content_for :javascript do -%>
+    <%= javascript_include_tag 'map/responsive_map' %>
+    <%= javascript_tag do %>
+      var map = new map.ResponsiveMap({
+        breakpoint: 'all and (min-width: 64em)',
+        palm: { offset: {x: 0.5, y: 0.5} },
+        nonPalm: { offset: {x: 0.75, y: 0.5} }
       });
-    }());
 
-    $('.js-defer-image-load-container').deferImages({matchMedia: 'all and (min-width: 40.0625em)'});
-  <% end %>
-<%- end -%>
+      function toggleMap() {
+        var visible = map.toggle();
+        $('.js-stores-maps-toggle-btn').toggleClass('is-expanded', visible);   <%# toggle button        %>
+        $('.js-stores-maps-toggle-btn__txt').html(visible ? 'list' : 'map');   <%# toggle button text   %>
+        $('.js-stores-maps-toggle-wrap').toggleClass('is-map-view', visible);  <%# store list container %>
+      }
+
+      $('.js-stores-maps-toggle-btn').on('click', toggleMap);
+
+      $('[data-store-id]').on('click', function() {
+        map.store($(this).data('store-id'))
+        toggleMap();
+      });
+
+      $('.js-defer-image-load-container').deferImages({matchMedia: 'all and (min-width: 40.0625em)'});
+    <% end %>
+  <%- end -%>
+
+
+</div>

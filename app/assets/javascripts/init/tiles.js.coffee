@@ -1,8 +1,8 @@
-class PinBoard
+class @PinBoard
 
   constructor: (items) ->
     # Clone the items are they get removed, and added between breakpoints
-    @items = items.clone()
+    @items = $('#pin-board .tile').clone()
     # The palm is default, since we are mobile 1st.
     @currentNumberOfCols = 2
 
@@ -37,12 +37,10 @@ class PinBoard
 
     groups
 
-  rebuild: (numberOfCols) ->
-
-    console.log numberOfCols, @items
+  rebuild: (numberOfCols, force = false) ->
 
     # Do not re-build if already in that state
-    if @currentNumberOfCols != numberOfCols
+    if @currentNumberOfCols != numberOfCols || force
 
       $template = $(@templates[numberOfCols])
       for item, index in @in_groups(@items, numberOfCols)

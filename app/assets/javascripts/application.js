@@ -26,7 +26,7 @@
 // do it in an init/initName file
 //= require_tree ./jquery-extensions
 //= require ./init/enquire
-//= require ./init/tiles
+//= require ./init/pin-board
 //= require ./init/tabs
 //= require ./init/deferred_images
 //= require ./init/table-horizontal-scroll

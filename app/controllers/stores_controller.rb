@@ -13,7 +13,7 @@ class StoresController < ApplicationController
       store
     end
     @stores = stores.group_by(&:first_letter)
-    gon.push centre: @centre, stores: stores
+    gon.push centre: @centre, stores: stores.map(&:to_gon)
     meta.push title: "#{@centre.short_name} stores"
   end
 
@@ -26,7 +26,7 @@ class StoresController < ApplicationController
     @centre = CentreService.build centre
     @store = Store.new StoreService.build store
     @store.centre = @centre
-    gon.push centre: @centre, stores: [@store]
+    gon.push centre: @centre, stores: [@store.to_gon]
     meta.push title: "#{@store.name} at #{@centre.short_name}"
   end
 

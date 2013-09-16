@@ -43,6 +43,25 @@ class Store < Hashie::Mash
     end
   end
 
+  def closing_time_12
+    DateTime.parse(closing_time)
+      .strftime('%l:%M%P')
+      .lstrip rescue nil
+  end
+
+  def to_gon
+    gon = {
+      id: id,
+      name: name,
+      url: url,
+      shop_number: shop_number,
+      closing_time_24: closing_time,
+      closing_time_12: closing_time_12
+    }
+    gon[:logo] = logo if has_logo?
+    gon
+  end
+
 private
 
   def get_centre

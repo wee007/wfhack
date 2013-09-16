@@ -8,7 +8,7 @@
     <div class="map-micello__overlay__retailer__body">
       <em class="map-micello__hdr txt-break-word">#{store.name}</em>
       <%# // Store Hours FIXME: replace with dynamic data when available %>
-      <%# <p>Open till <time datetime="">5:30pm</time> tonight</p> %>
+      <p>Open till <time datetime="#{store.closing_time_24}">#{store.closing_time_12}</time> tonight</p>
     </div>
   </div>
   <a href="#{store.url}" class="map-micello__overlay__cta btn btn--full btn--main"><span class="icon icon--store icon--lrg icon--spacing-lrg" aria-hidden="true"></span>Store details</a>

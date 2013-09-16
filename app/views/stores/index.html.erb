@@ -77,7 +77,7 @@
 
               <%# Store name %>
               <div class="stores-list__store-name">
-                <strong><%= link_to store.name, (centre_store_url @centre.code , store.id), data: {'store-id' => store.to_param} %></strong>
+                <strong><%= link_to store.name, (centre_store_url @centre.code , store.id), data: {'store-id' => store.id} %></strong>
                 <%# <strong><%= store.name %1></strong> %>
                 <%# Phone no %>
                 <span class="hide-fully--palm"><%= store.phone_number %></span>
@@ -113,7 +113,7 @@
                 <%# //Phone no %>
 
                 <%# Location %>
-                <a href="#infoDiv" class="storefront-storelist-phone-map-links__cell storefront-storelist-phone-map-links__cell--location" data-store-id="<%= store.to_param %>">
+                <a href="#infoDiv" class="storefront-storelist-phone-map-links__cell storefront-storelist-phone-map-links__cell--location" data-store-id="<%= store.id %>">
                   <span class="hide-visually">View on map</span>
                   <span class="icon icon--pin icon--flush-top storefront-storelist-phone-map-links__cell__valign"></span>
                 </a>

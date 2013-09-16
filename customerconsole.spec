@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.22
+Version:     0.1.23
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,13 @@ fi
 
 
 %changelog
+* Mon Sep 16 2013 ci <doperations@au.westfield.com> 0.1.23-1
+- Merge pull request #361 from cpearce/master (ldewey@au.westfield.com)
+- Adding indentation to markup when inside if statement to improve readability
+  (CPearce@au.westfield.com)
+- Adding fallback messages when there is no content/search results for
+  products, deals and events (CPearce@au.westfield.com)
+
 * Mon Sep 16 2013 ci <doperations@au.westfield.com> 0.1.22-1
 - Merge pull request #362 from ldewey/master (ben.tillman@trineo.co.nz)
 - Remvoed AAA, as it required redis. (ldewey@au.westfield.com)

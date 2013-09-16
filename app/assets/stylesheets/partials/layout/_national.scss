@@ -34,7 +34,7 @@
     /* Shared rules */
 
     .national__logo,
-    .national__heading-wrap,
+    .national__heading__intro,
     .national__header nav {
       position: absolute;
       /* Setting it at a higher `z-index` than `img-rotate__item` */
@@ -86,9 +86,7 @@
               opacity: 1;
 
               &,
-              .icon:before {
-                color: $color-grey-2;
-              }
+              .icon:before {color: $color-grey-2;}
             }
           }
 
@@ -115,7 +113,7 @@
       }
 
       /* Wrapper around the hero heading and video thumbnail */
-      .national__heading-wrap {
+      .national__heading__intro {
         /* Aligns content centre vertically */
         top: 50%;
         left: 0;
@@ -137,7 +135,7 @@
 
           /* Increase `font-size` */
           @include respond-min($non-palm) {
-            @include font-size(48);
+            @include font-size($font-size-kilo);
           }
 
             /* Subtext in the heading */
@@ -370,7 +368,6 @@
       @include font-size($font-size-milli);
       @include to-rem(padding-top padding-bottom, $spacing-base);
 
-      /* Set footer to be fixed to bottom of page hence requires a higher `z-index` than other elements on the page */
       @include respond-min($lap-lrg) {
         @include to-rem(padding-top padding-bottom, $spacing-quarter);
       }
@@ -386,7 +383,7 @@
       .container {@extend %clear-fix;}
 
         /* List of footer links */
-        .national__footer__nav{
+        .national__footer__nav {
           @include respond-min($lap-lrg) {
             float: right;
           }

@@ -1,11 +1,24 @@
 <h1 class="hide-visually">Events</h1>
 
-<div id="pin-board" class="pin-board">
+<% if @events.blank? %>
 
-	<%- @events.each do |event| -%>
-	  <%= render partial: "/shared/tiles/event", layout: '/layouts/tile', locals: {
-      result: event
-    } %>
-	<%- end -%>
+  <%# No events fallback message %>
+  <div class="no-content-fallback-msg">
+    <span class="icon icon--events icon--flush-top" aria-hidden="true"></span>
+    <p><em class="h1">No events at this centre</em> <span>See nearby centres</span></p>
+  </div>
+  <%# //No events fallback message %>
 
-</div>
+<%- else -%>
+
+  <%# Pin board %>
+  <div id="pin-board" class="pin-board">
+  	<%- @events.each do |event| -%>
+  	  <%= render partial: "/shared/tiles/event", layout: '/layouts/tile', locals: {
+        result: event
+      } %>
+  	<%- end -%>
+  </div>
+  <%# //Pin board %>
+
+<%- end -%>

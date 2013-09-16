@@ -87,46 +87,49 @@
   <%# Tabs %>
   <main class="national__tabs tabs" id="main" role="main">
 
-    <div class="container">
-      <h2>Find your centre</h2>
-      <%# Tab nav %>
-      <ul class="tab__nav horiz-list">
-        <li>
-          <a class="is-active" href="#tab-nsw"><abbr title="New South Wales">NSW</abbr></a>
-        </li>
-        <li>
-          <a href="#tab-act"><abbr title="Australian Capital Territoy">ACT</abbr></a>
-        </li>
-        <li>
-          <a href="#tab-qld"><abbr title="Queensland">QLD</abbr></a>
-        </li>
-        <li>
-          <a href="#tab-vic"><abbr title="Victoria">VIC</abbr></a>
-        </li>
-        <li>
-          <a href="#tab-sa"><abbr title="South Australia">SA</abbr></a>
-        </li>
-        <li>
-          <a href="#tab-wa"><abbr title="Western Australia">WA</abbr></a>
-        </li>
-      </ul>
-      <%# //Tab nav %>
-    </div>
+    <nav role="navigation">
+      <div class="container">
 
-    <% %w(NSW ACT QLD VIC SA WA).each do |state| %>
-      <ul id="tab-<%= state.downcase %>" class="tab__content<%= ' is-active' if state == 'NSW' %>">
-        <% @centres[state].each do |centre| %>
+        <h2>Find your centre</h2>
+        <%# Tab nav %>
+        <ul class="tab__nav horiz-list">
           <li>
-            <a class="national__centre-tile" href="<%= centre_path( centre ) %>">
-              <div class="container">
-                <h3 class="h1"><%= centre.short_name %></h3>
-                <span class="icon icon--arrow-right icon--lrg" aria-hidden="true"></span>
-              </div>
-            </a>
+            <a class="is-active" href="#tab-nsw"><abbr title="New South Wales">NSW</abbr></a>
           </li>
-        <% end %>
-      </ul>
-    <% end %>
+          <li>
+            <a href="#tab-act"><abbr title="Australian Capital Territory">ACT</abbr></a>
+          </li>
+          <li>
+            <a href="#tab-qld"><abbr title="Queensland">QLD</abbr></a>
+          </li>
+          <li>
+            <a href="#tab-vic"><abbr title="Victoria">VIC</abbr></a>
+          </li>
+          <li>
+            <a href="#tab-sa"><abbr title="South Australia">SA</abbr></a>
+          </li>
+          <li>
+            <a href="#tab-wa"><abbr title="Western Australia">WA</abbr></a>
+          </li>
+        </ul>
+        <%# //Tab nav %>
+      </div>
+
+      <% %w(NSW ACT QLD VIC SA WA).each do |state| %>
+        <ul id="tab-<%= state.downcase %>" class="tab__content<%= ' is-active' if state == 'NSW' %>">
+          <% @centres[state].each do |centre| %>
+            <li>
+              <a class="national__centre-tile" href="<%= centre_path( centre ) %>">
+                <div class="container">
+                  <h3 class="h1"><%= centre.short_name %></h3>
+                  <span class="icon icon--arrow-right icon--lrg" aria-hidden="true"></span>
+                </div>
+              </a>
+            </li>
+          <% end %>
+        </ul>
+      <% end %>
+    </nav>
   </main>
   <%# //Tabs %>
 

@@ -67,7 +67,7 @@ class @PinBoard
     for col in [1..numberOfCols]
       cols += """<div class="grid__item one-#{@colTypes[numberOfCols]}"></div>"""
     """
-    <div id="pin-board" class="grid grid--gutter-half pin-board is-pin-board-loaded">
+    <div id="pin-board" class="pin-board grid grid--gutter-half is-pin-board-loaded">
       #{cols}
     </div>
     """

@@ -43,7 +43,7 @@
 
     .national__header {
       /* Need the height for vertical alignment of the text and video thumbnail to work */
-      @include to-rem(height, 310);
+      @include to-rem(height, 250);
 
       /* By making it shorter than 100%, we will have room to show the centres tiles in the viewport */
       @include respond-min($non-palm) {

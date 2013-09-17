@@ -17,8 +17,6 @@
 //= require ./support/svg
 //= require ./support/string
 
-//= require isotope/jquery.isotope
-//= require ./vendor/jquery.isotope.responsive
 //= require ./vendor/jquery.tabs
 
 // If console is unimplemented in a browser, and someone accidently leaves a log, debug, error, etc the browser won't throw & die.
@@ -28,7 +26,7 @@
 // do it in an init/initName file
 //= require_tree ./jquery-extensions
 //= require ./init/enquire
-//= require ./init/tiles
+//= require ./init/pin-board
 //= require ./init/tabs
 //= require ./init/deferred_images
 //= require ./init/table-horizontal-scroll

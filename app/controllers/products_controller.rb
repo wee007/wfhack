@@ -9,7 +9,7 @@ class ProductsController < ApplicationController
     Service::API.in_parallel do
       centre = CentreService.fetch params[:centre_id]
       nearby_centres = CentreService.fetch nil, near_to: params[:centre_id]
-      products = ProductService.fetch params
+      products = ProductService.fetch params.merge({rows: 15})
     end
     @centre = CentreService.build centre
     @nearby_centres = CentreService.build nearby_centres
@@ -24,7 +24,11 @@ class ProductsController < ApplicationController
         if request.xhr?
           format.html { render partial: "products" }
         else
-          gon.products = @search
+          gon.products = {
+            display_options: @search.display_options,
+            facets: @search.facets,
+            applied_filters: @search.applied_filters
+          }
           format.html { render :index }
         end
       end

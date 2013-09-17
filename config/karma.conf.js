@@ -10,7 +10,7 @@ files = [
   'app/assets/javascripts/vendor/angular-head.js',
   'app/assets/javascripts/vendor/angular-mobile.js',
   'app/assets/javascripts/vendor/angular-sanitize.js',
-  'app/assets/javascripts/angular/app.js',
+  'app/assets/javascripts/angular/app.js.coffee',
   'app/assets/javascripts/angular/**/*.js',
   'app/assets/javascripts/angular/**/*.coffee',
   'app/assets/javascripts/global_search/**/*.coffee',

@@ -86,6 +86,16 @@
 	> .grid__item {@include to-rem(padding-left, $grid-gutter-dbl);}
 }
 
+/* Half the gutter */
+.grid--gutter-half {
+  /* Negative `margin-left` to negate the columns' gutters */
+  @include to-rem(margin-left, -$grid-gutter-half);
+
+  /* Grid item */
+  > .grid__item {@include to-rem(padding-left, $grid-gutter-half);}
+}
+
+
 /* Center align */
 .grid--center > .grid__item {
 	margin-left: auto;

@@ -3,22 +3,35 @@
    ====================================================================================== */
 
 /*
-	Usage:
-		Pin board container that holds all tiles.
+  Usage:
+    Pin board container that holds all tiles.
 
-	Demo:
-		Style Guide -> Modules -> Pin Board
+  Demo:
+    Style Guide -> Modules -> Pin Board
 */
 
 .pin-board {
-	@extend %clear-fix;
-	@include to-rem(margin-top, $spacing-half);
-	/* We need this to accommodate for the bottom padding on `body` as each tile has a bottom margin */
-	@include to-rem(margin-bottom, -$spacing-base);
+  @extend %clear-fix;
+  @include to-rem(margin-top, $spacing-half);
+  /* We need this to accommodate for the bottom padding on `body` as each tile has a bottom margin */
+  @include to-rem(margin-bottom, -$spacing-base);
 
-	/* Increase top/bottom margin at this breakpoint */
-	@include respond-min($non-palm) {
-		@include to-rem(margin-top, $spacing-base);
-		@include to-rem(margin-bottom, -$spacing-half);
-	}
+
+  /* Show the pin board if there browser has no JS or if it has loaded */
+  .no-js &,
+  &.is-pin-board-loaded{display: block;}
+
+
+  /* Increase top/bottom margin at this breakpoint */
+  @include respond-min($non-palm) {
+
+    /*
+      Don't show the pinboard initaly as it will be the wrong number of cols
+      unless you are on a plam device. The cols are set to the right number via
+      javascript.
+    */
+    display: none;
+    @include to-rem(margin-top, $spacing-base);
+    @include to-rem(margin-bottom, -$spacing-half);
+  }
 }

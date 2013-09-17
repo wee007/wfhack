@@ -12,13 +12,9 @@
 <%- else -%>
 
   <%# Pin board %>
-  <div id="pin-board" class="pin-board">
-  	<%- @events.each do |event| -%>
-  	  <%= render partial: "/shared/tiles/event", layout: '/layouts/tile', locals: {
-        result: event
-      } %>
-  	<%- end -%>
-  </div>
+  <%= pin_board(@events) do |event| %>
+    <%= tile "event", result: event %>
+  <% end %>
   <%# //Pin board %>
 
 <%- end -%>

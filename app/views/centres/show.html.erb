@@ -2,13 +2,9 @@
   render('/shared/hero_custom_styles', image: @centre.code, target: '.header__hero')
 %>
 
-<div id="pin-board" class="pin-board">
-
-  <%- @stream.each do |result| -%>
-    <%= render partial: "/shared/tiles/#{result.kind}",
-        layout: '/layouts/tile',
-        locals: { result: result, image: {href: result[:_links][:image][:href], title: result[:name]} }
-    %>
-  <%- end -%>
-
-</div>
+<%= pin_board(@stream) do |result| %>
+  <%= tile "product",
+    result: result,
+    image: { href: result.default_image_url, title: result.name }
+  %>
+<% end %>

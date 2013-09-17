@@ -1,9 +1,19 @@
 <div class="tile__image">
-  <%= fetch_image_tag result.primary_image,
-    alt: "Photo of product: #{result.title}",
-    width: 288,
-    crop: :limit
-  %>
+  <% if result.cloudinary_public_id %>
+    <%= cl_image_tag result.cloudinary_public_id,
+      'data-height' => result.image_height,
+      format: 'jpg',
+      alt: "Photo of product: #{result.title}",
+      width: 288,
+      crop: :limit
+    %>
+  <% else %>
+    <%= fetch_image_tag result.primary_image,
+      alt: "Photo of product: #{result.title}",
+      width: 288,
+      crop: :limit
+    %>
+  <% end -%>
 </div>
 
 <div class="tile__meta">

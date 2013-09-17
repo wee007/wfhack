@@ -11,4 +11,12 @@ module TileHelper
     end
   end
 
+  def pin_board(rows, &block)
+    render layout: "/layouts/pin_board", locals: { rows: rows }, &block
+  end
+
+  def tile(kind, data)
+    render partial: "/shared/tiles/#{kind}", layout: '/layouts/tile', locals: data
+  end
+
 end

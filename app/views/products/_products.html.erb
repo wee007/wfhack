@@ -10,13 +10,12 @@
 <%- else -%>
 
   <%# Pin board %>
-  <div id="pin-board" class="pin-board">
-    <%- @search.products.each do |result| -%>
-      <%= render partial: "/shared/tiles/product",
-          layout: '/layouts/tile',
-          locals: { result: result, image: { href: result.default_image_url, title: result.lozenge_name } } %>
-    <%- end -%>
-  </div>
+  <%= pin_board(@search.products) do |result| %>
+    <%= tile "product",
+      result: result,
+      image: { href: result.default_image_url, title: result.name }
+    %>
+  <% end %>
   <%# //Pin board %>
 
 <%- end -%>

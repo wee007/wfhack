@@ -6,8 +6,8 @@ class @PinBoard
     5: 'fifth'
 
   constructor: (@pinBoardSelector) ->
-    # Clone the items are they get removed, and added between breakpoints
-    @items = $("#{pinBoardSelector} .js-tile").clone()
+    # Clone the items as they are removed, and added between breakpoints
+    @items = $("#{@pinBoardSelector} .js-tile").clone()
     # The palm is default, since we are mobile 1st.
     @currentNumberOfCols = 2
 
@@ -29,12 +29,10 @@ class @PinBoard
     number = number - 1
     groups = []
 
-    for index in [0..number]
-      groups.push []
-
     i = 0
     for item in items
-      groups[i].push item
+      (groups[i] ||= []).push item
+
       if i >= number
         i = 0
       else

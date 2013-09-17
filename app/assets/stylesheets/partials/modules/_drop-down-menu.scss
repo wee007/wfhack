@@ -63,6 +63,10 @@
       border-bottom-width: 2px;
     }
 
+    /* Shared rules */
+    .drop-down-menu__hdr,
+    .drop-down-menu__hdr-sub {font-weight: normal;}
+
     /* Header */
     .drop-down-menu__hdr {
       position: relative;
@@ -85,6 +89,16 @@
 
       /* Forward indicator (arrow icon) */
       .icon.btn--pointer__icon {@include to-rem(right, $spacing-half);}
+    }
+
+    /* Sub header */
+    .drop-down-menu__hdr-sub {
+      color: $color-light-txt;
+      @include to-rem(padding-left padding-right, $spacing-sixth);
+      @include to-rem(padding-left padding-right, $spacing-half);
+
+      /* Abbreviation */
+      abbr {border-bottom: 0;}
     }
 
     /* Divider */
@@ -126,7 +140,7 @@
     .drop-down-menu__list {
       position: relative;
       z-index: $z-index-high+2;
-      max-height: 230px;
+      max-height: $drop-down-max-height;
       overflow-y: auto;
 
       /* iOS/Android */
@@ -137,13 +151,17 @@
       }
 
       /* List items */
-      > li {
+      > li,
+      > dd {
 
         /* Turn off border for last child */
         &:last-child {border-bottom: 0;}
 
-        /* Apply 'Islet' padding to buttons */
-        .btn--full {@include to-rem(padding, $spacing-half);}
+        /* Apply 'Islet' padding and default colour to buttons */
+        .btn--full {
+          color: $color-base-txt;
+          @include to-rem(padding, $spacing-half);
+        }
       }
 
       /* Truncate `label`s */

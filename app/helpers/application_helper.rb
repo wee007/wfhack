@@ -4,6 +4,10 @@ module ApplicationHelper
     params[:controller] == 'centres' && params[:action] == "show"
   end
 
+  def site_logo
+    image_tag('logo.svg', alt: 'Westfield', 'data-svg-fallback' => image_path("logo.png"))
+  end
+
   def in_lightbox?
     false #TODO Add logic here to check if we are in a lightbox.
   end

@@ -6,7 +6,7 @@
 		<div class="container">
 
 			<%# Logo %>
-			<%= render partial: 'shared/site_logo' %>
+			<%= link_to site_logo, centre_path(@centre), target: "_self", rel: "home", class: "logo" %>
 			<%# //Logo %>
 
 			<%# Menu toggle button for palm/small tablet devices %>

@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.24
+Version:     0.1.25
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,34 @@ fi
 
 
 %changelog
+* Tue Sep 17 2013 ci <doperations@au.westfield.com> 0.1.25-1
+- Merge pull request #364 from fchan/national-hp (ldewey@au.westfield.com)
+- Reduce height of header at palm size (fiona@fionachan.net)
+- More little fixes (fiona@fionachan.net)
+- Added nav around list of centre links (fiona@fionachan.net)
+- Use dynamic values on national landing page (ewee@au.westfield.com)
+- Comment out unused code and fix footer nav (fiona@fionachan.net)
+- Added nav element (fiona@fionachan.net)
+- Update some styles after feedback (fiona@fionachan.net)
+- More PR feedback fixes (fiona@fionachan.net)
+- Fixes after PR feedback (fiona@fionachan.net)
+- Few more fixes, comments and hidden centre background img
+  (fiona@fionachan.net)
+- Fixes after PR review (fiona@fionachan.net)
+- Hiding preloader for now and added footer links (fiona@fionachan.net)
+- Cleanup (fiona@fionachan.net)
+- Added video thumbnail and various fixes (fiona@fionachan.net)
+- Updated icon font and some tweaks (fiona@fionachan.net)
+- Nationl centre tiles and footer (fiona@fionachan.net)
+- Fixes after code review (fiona@fionachan.net)
+- Some updates to gallery and added centre tile (fiona@fionachan.net)
+- Cleaned up gallery css and various fixes (fiona@fionachan.net)
+- Added gallery mixin (fiona@fionachan.net)
+- Update fading animation (fiona@fionachan.net)
+- Some CSS animation stuff (fiona@fionachan.net)
+- National homepage header (fiona@fionachan.net)
+- First commit of national homepage (fiona@fionachan.net)
+
 * Mon Sep 16 2013 ci <doperations@au.westfield.com> 0.1.24-1
 - fixes WSF-5235 date format for event list (ben.tillman@gmail.com)
 

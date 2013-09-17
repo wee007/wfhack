@@ -14,15 +14,15 @@ class @PinBoard
   build: ->
 
     #Palm
-    enquire.register "screen and (max-width: 640px)", =>
+    enquire.register "all and (max-width: 40em)", =>
       @rebuild 2
 
     #Lap
-    enquire.register "screen and (min-width: 641px) and (max-width: 1199px)", =>
+    enquire.register "all and (min-width: 40.0625em) and (max-width: 74em)", =>
       @rebuild 3
 
     #Desktop
-    enquire.register "screen and (min-width: 1200px)", =>
+    enquire.register "all and (min-width: 75em)", =>
       @rebuild 5
 
   in_groups: (items, number) ->

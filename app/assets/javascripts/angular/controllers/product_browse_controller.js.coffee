@@ -68,7 +68,7 @@
       if $scope.activeFilter isnt filterName
         $scope.activeFilter = filterName
 
-        # The button must be hidden on palm breakpoint
+        # The button must be hidden on Lap large breakpoint
         $scope.hideFilterButtons()  unless angular.element("html").hasClass("lap-lrg")
       else
         $scope.closeFilters()

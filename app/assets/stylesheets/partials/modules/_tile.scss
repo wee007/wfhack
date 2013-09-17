@@ -175,7 +175,7 @@
   }
 }
 
-/* Non-pinboard (isotope) version */
+/* Non-pinboard version */
 .tiles-non-pinboard {
   @extend %clear-fix;
   @include to-rem(margin-left, - $spacing-half);
@@ -200,12 +200,5 @@
     /* Increase gutter at this breakpoint */
     @include respond-min($ipad-portrait) {
       @include to-rem(padding-left, $spacing-base);
-    }
-
-    /* Tile */
-    .tile {
-      margin: 0;
-      width: auto;
-      float: none;
     }
   }

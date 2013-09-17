@@ -31,18 +31,18 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 2edd5d3f-b780-4cb0-b840-bd1dd289a6c3
+      - 4376137a-1275-44ae-8316-783c322b7bb0
       X-Runtime:
-      - '0.015578'
+      - '0.005711'
       Date:
-      - Sun, 15 Sep 2013 22:42:47 GMT
+      - Tue, 17 Sep 2013 06:31:31 GMT
       Connection:
       - close
     body:
       encoding: UTF-8
       string: 'null'
     http_version: 
-  recorded_at: Sun, 15 Sep 2013 22:42:47 GMT
+  recorded_at: Tue, 17 Sep 2013 06:31:31 GMT
 - request:
     method: get
     uri: http://centre-service.test.dbg.westfield.com/api/centre/master/centres/knox.json
@@ -62,13 +62,13 @@ http_interactions:
       Content-Type:
       - text/html; charset=utf-8
       Content-Length:
-      - '17554'
+      - '17380'
       X-Request-Id:
-      - c864997a-eec8-4b48-a01e-ad119d6ed553
+      - 5e9a95bb-669f-4c99-8efe-2e43aa1b3f89
       X-Runtime:
-      - '0.051560'
+      - '0.041623'
       Date:
-      - Sun, 15 Sep 2013 22:42:47 GMT
+      - Tue, 17 Sep 2013 06:31:31 GMT
       Connection:
       - keep-alive
     body:
@@ -127,9 +127,8 @@ http_interactions:
         \   </div>\n    <div id=\"Framework-Trace\" style=\"display: none;\">\n      <pre><code>activerecord
         (4.0.0) lib/active_record/relation/finder_methods.rb:71:in `take!&#39;\nactiverecord
         (4.0.0) lib/active_record/relation/finder_methods.rb:54:in `find_by!&#39;\nactiverecord
-        (4.0.0) lib/active_record/dynamic_matchers.rb:76:in `find_by_centre_id!&#39;\nactiverecord
-        (4.0.0) lib/active_record/dynamic_matchers.rb:20:in `method_missing&#39;\nactivesupport
-        (4.0.0) lib/active_support/callbacks.rb:387:in `_run__1686450228024092665__process_action__callbacks&#39;\nactivesupport
+        (4.0.0) lib/active_record/dynamic_matchers.rb:76:in `find_by_centre_id!&#39;\nactivesupport
+        (4.0.0) lib/active_support/callbacks.rb:387:in `_run__229453686963487844__process_action__callbacks&#39;\nactivesupport
         (4.0.0) lib/active_support/callbacks.rb:80:in `run_callbacks&#39;\nactionpack
         (4.0.0) lib/abstract_controller/callbacks.rb:17:in `process_action&#39;\nactionpack
         (4.0.0) lib/action_controller/metal/rescue.rb:29:in `process_action&#39;\nactionpack
@@ -165,7 +164,7 @@ http_interactions:
         (4.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in
         `call&#39;\nactiverecord (4.0.0) lib/active_record/migration.rb:369:in `call&#39;\nactionpack
         (4.0.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call&#39;\nactivesupport
-        (4.0.0) lib/active_support/callbacks.rb:373:in `_run__3980822156756933557__call__callbacks&#39;\nactivesupport
+        (4.0.0) lib/active_support/callbacks.rb:373:in `_run__3128383650720086880__call__callbacks&#39;\nactivesupport
         (4.0.0) lib/active_support/callbacks.rb:80:in `run_callbacks&#39;\nactionpack
         (4.0.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call&#39;\nactionpack
         (4.0.0) lib/action_dispatch/middleware/reloader.rb:64:in `call&#39;\nactionpack
@@ -197,9 +196,8 @@ http_interactions:
         none;\">\n      <pre><code>activerecord (4.0.0) lib/active_record/relation/finder_methods.rb:71:in
         `take!&#39;\nactiverecord (4.0.0) lib/active_record/relation/finder_methods.rb:54:in
         `find_by!&#39;\nactiverecord (4.0.0) lib/active_record/dynamic_matchers.rb:76:in
-        `find_by_centre_id!&#39;\nactiverecord (4.0.0) lib/active_record/dynamic_matchers.rb:20:in
-        `method_missing&#39;\napp/controllers/centres_controller.rb:190:in `set_centre&#39;\nactivesupport
-        (4.0.0) lib/active_support/callbacks.rb:387:in `_run__1686450228024092665__process_action__callbacks&#39;\nactivesupport
+        `find_by_centre_id!&#39;\napp/controllers/centres_controller.rb:190:in `set_centre&#39;\nactivesupport
+        (4.0.0) lib/active_support/callbacks.rb:387:in `_run__229453686963487844__process_action__callbacks&#39;\nactivesupport
         (4.0.0) lib/active_support/callbacks.rb:80:in `run_callbacks&#39;\nactionpack
         (4.0.0) lib/abstract_controller/callbacks.rb:17:in `process_action&#39;\nactionpack
         (4.0.0) lib/action_controller/metal/rescue.rb:29:in `process_action&#39;\nactionpack
@@ -235,7 +233,7 @@ http_interactions:
         (4.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in
         `call&#39;\nactiverecord (4.0.0) lib/active_record/migration.rb:369:in `call&#39;\nactionpack
         (4.0.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call&#39;\nactivesupport
-        (4.0.0) lib/active_support/callbacks.rb:373:in `_run__3980822156756933557__call__callbacks&#39;\nactivesupport
+        (4.0.0) lib/active_support/callbacks.rb:373:in `_run__3128383650720086880__call__callbacks&#39;\nactivesupport
         (4.0.0) lib/active_support/callbacks.rb:80:in `run_callbacks&#39;\nactionpack
         (4.0.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call&#39;\nactionpack
         (4.0.0) lib/action_dispatch/middleware/reloader.rb:64:in `call&#39;\nactionpack
@@ -274,5 +272,5 @@ http_interactions:
         &quot;*/*&quot;\nREMOTE_ADDR: &quot;127.0.0.1&quot;\nSERVER_NAME: &quot;centre-service.test.dbg.westfield.com&quot;</pre></div>\n</div>\n\n<h2
         style=\"margin-top: 30px\">Response</h2>\n<p><b>Headers</b>:</p> <pre>None</pre>\n\n</div>\n\n\n</body>\n</html>\n"
     http_version: 
-  recorded_at: Sun, 15 Sep 2013 22:42:47 GMT
+  recorded_at: Tue, 17 Sep 2013 06:31:31 GMT
 recorded_with: VCR 2.5.0

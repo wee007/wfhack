@@ -62,7 +62,7 @@ describe "Parking" do
     end
     it "should say the parking is fixed rate" do
       assert_select 'h2', 'Parking'
-      assert_select 'p', "All parking is a fixed price of $5"
+      assert_select 'p', "Fixed Parking rate of $5 per day"
     end
   end
 

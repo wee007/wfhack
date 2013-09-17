@@ -27,24 +27,24 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       ETag:
-      - '"d973b8dc928a565b5f2403e3c86e4aee"'
+      - '"634bcacb65a4fb85a1d9197c935a8671"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 1e20a799-e789-4080-8e0f-df16631344dd
+      - d73e50a0-bd92-40e4-80be-c1fd871d7bb7
       X-Runtime:
-      - '0.007253'
+      - '0.006140'
       Date:
-      - Sun, 15 Sep 2013 22:42:47 GMT
+      - Tue, 17 Sep 2013 06:31:31 GMT
       Connection:
       - close
     body:
       encoding: UTF-8
       string: '{"centre_id":"caseycentral","additional_parking_information":"Some
-        additional info","rates_apply":false,"credit_card_surcharge_amount":"","type_of_rate":"fixed_rate","maximum_daily_rate_weekday":"","maximum_daily_rate_weekend":"","overnight_fee_weekday":"","overnight_fee_weekend":"","flat_rate":"","free_parking_instructions":"It''s
-        all free :)","valet_parking_instructions":"None of this","parking_rates":[]}'
+        additional info","rates_apply":false,"credit_card_surcharge_amount":"","type_of_rate":"fixed_rate","maximum_daily_rate_weekday":"","maximum_daily_rate_weekend":"","overnight_fee_weekday":"","overnight_fee_weekend":"","flat_rate":"","valet_parking_instructions":"None
+        of this","pdf_ref":null,"parking_rates":[]}'
     http_version: 
-  recorded_at: Sun, 15 Sep 2013 22:42:47 GMT
+  recorded_at: Tue, 17 Sep 2013 06:31:31 GMT
 - request:
     method: get
     uri: http://centre-service.test.dbg.westfield.com/api/centre/master/centres/caseycentral.json
@@ -64,13 +64,13 @@ http_interactions:
       Content-Type:
       - text/html; charset=utf-8
       Content-Length:
-      - '17390'
+      - '17388'
       X-Request-Id:
-      - 33b86f43-7725-4de6-9eba-197875226a58
+      - db610bac-2aad-407c-8751-f464a37bbfbb
       X-Runtime:
-      - '0.024761'
+      - '0.024089'
       Date:
-      - Sun, 15 Sep 2013 22:42:47 GMT
+      - Tue, 17 Sep 2013 06:31:31 GMT
       Connection:
       - keep-alive
     body:
@@ -130,7 +130,7 @@ http_interactions:
         (4.0.0) lib/active_record/relation/finder_methods.rb:71:in `take!&#39;\nactiverecord
         (4.0.0) lib/active_record/relation/finder_methods.rb:54:in `find_by!&#39;\nactiverecord
         (4.0.0) lib/active_record/dynamic_matchers.rb:76:in `find_by_centre_id!&#39;\nactivesupport
-        (4.0.0) lib/active_support/callbacks.rb:387:in `_run__1774033074018758284__process_action__callbacks&#39;\nactivesupport
+        (4.0.0) lib/active_support/callbacks.rb:387:in `_run__229453686963487844__process_action__callbacks&#39;\nactivesupport
         (4.0.0) lib/active_support/callbacks.rb:80:in `run_callbacks&#39;\nactionpack
         (4.0.0) lib/abstract_controller/callbacks.rb:17:in `process_action&#39;\nactionpack
         (4.0.0) lib/action_controller/metal/rescue.rb:29:in `process_action&#39;\nactionpack
@@ -166,7 +166,7 @@ http_interactions:
         (4.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in
         `call&#39;\nactiverecord (4.0.0) lib/active_record/migration.rb:369:in `call&#39;\nactionpack
         (4.0.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call&#39;\nactivesupport
-        (4.0.0) lib/active_support/callbacks.rb:373:in `_run__3520817239447117269__call__callbacks&#39;\nactivesupport
+        (4.0.0) lib/active_support/callbacks.rb:373:in `_run__3128383650720086880__call__callbacks&#39;\nactivesupport
         (4.0.0) lib/active_support/callbacks.rb:80:in `run_callbacks&#39;\nactionpack
         (4.0.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call&#39;\nactionpack
         (4.0.0) lib/action_dispatch/middleware/reloader.rb:64:in `call&#39;\nactionpack
@@ -199,7 +199,7 @@ http_interactions:
         `take!&#39;\nactiverecord (4.0.0) lib/active_record/relation/finder_methods.rb:54:in
         `find_by!&#39;\nactiverecord (4.0.0) lib/active_record/dynamic_matchers.rb:76:in
         `find_by_centre_id!&#39;\napp/controllers/centres_controller.rb:190:in `set_centre&#39;\nactivesupport
-        (4.0.0) lib/active_support/callbacks.rb:387:in `_run__1774033074018758284__process_action__callbacks&#39;\nactivesupport
+        (4.0.0) lib/active_support/callbacks.rb:387:in `_run__229453686963487844__process_action__callbacks&#39;\nactivesupport
         (4.0.0) lib/active_support/callbacks.rb:80:in `run_callbacks&#39;\nactionpack
         (4.0.0) lib/abstract_controller/callbacks.rb:17:in `process_action&#39;\nactionpack
         (4.0.0) lib/action_controller/metal/rescue.rb:29:in `process_action&#39;\nactionpack
@@ -235,7 +235,7 @@ http_interactions:
         (4.0.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in
         `call&#39;\nactiverecord (4.0.0) lib/active_record/migration.rb:369:in `call&#39;\nactionpack
         (4.0.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call&#39;\nactivesupport
-        (4.0.0) lib/active_support/callbacks.rb:373:in `_run__3520817239447117269__call__callbacks&#39;\nactivesupport
+        (4.0.0) lib/active_support/callbacks.rb:373:in `_run__3128383650720086880__call__callbacks&#39;\nactivesupport
         (4.0.0) lib/active_support/callbacks.rb:80:in `run_callbacks&#39;\nactionpack
         (4.0.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call&#39;\nactionpack
         (4.0.0) lib/action_dispatch/middleware/reloader.rb:64:in `call&#39;\nactionpack
@@ -274,5 +274,5 @@ http_interactions:
         &quot;*/*&quot;\nREMOTE_ADDR: &quot;127.0.0.1&quot;\nSERVER_NAME: &quot;centre-service.test.dbg.westfield.com&quot;</pre></div>\n</div>\n\n<h2
         style=\"margin-top: 30px\">Response</h2>\n<p><b>Headers</b>:</p> <pre>None</pre>\n\n</div>\n\n\n</body>\n</html>\n"
     http_version: 
-  recorded_at: Sun, 15 Sep 2013 22:42:47 GMT
+  recorded_at: Tue, 17 Sep 2013 06:31:31 GMT
 recorded_with: VCR 2.5.0

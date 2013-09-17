@@ -1,8 +1,8 @@
 <div class="grid grid--gutter-dbl grid--mrg-dbl-non-palm">
-  <div class="grid__item one-whole">
+  <div class="grid__item non-palm-one-half">
     <p>All parking is a fixed price of $<%= @parking.flat_rate %></p>
 
-    <%= render partial: 'parking_terms_and_conditions' %>
+    <%= render partial: 'parking_terms_and_conditions', locals: {align: 'left'} %>
   </div>
 
   <%= render partial: "parking_info" %>

@@ -14,11 +14,8 @@
 */
 
 .tile {
-  float: left;
   position: relative;
   color: $color-base-txt;
-  /* Show 2 tiles by default */
-  width: 100%;
   @include font-size($font-size-sml, 1.5);
   @include to-rem(margin-bottom, $spacing-half);
 

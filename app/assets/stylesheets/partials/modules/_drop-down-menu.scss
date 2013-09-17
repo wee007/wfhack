@@ -94,11 +94,8 @@
     /* Sub header */
     .drop-down-menu__hdr-sub {
       color: $color-light-txt;
-      @include to-rem(padding-left padding-right, $spacing-sixth);
+      @include to-rem(padding-top padding-bottom, $spacing-micro);
       @include to-rem(padding-left padding-right, $spacing-half);
-
-      /* Abbreviation */
-      abbr {border-bottom: 0;}
     }
 
     /* Divider */

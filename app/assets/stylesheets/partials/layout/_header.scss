@@ -1574,13 +1574,13 @@ $header-color-link-hover: $color-brand !default;
 
 			/* Bump down heading and label so they horizontally align with the drop down trigger */
 			h1,
-			> .header-centre-select-national__lbl {
+			.header-centre-select-national__lbl {
 				position: relative;
 				@include to-rem(top, $spacing-micro);
 			}
 
 			/* Label */
-			> .header-centre-select-national__lbl {
+			.header-centre-select-national__lbl {
 				display: none;
 
 				/* Show at this breakpoint */

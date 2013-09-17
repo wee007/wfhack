@@ -157,10 +157,16 @@
 .icon-pdf:before {content: "\e033";}
 
 /* Gift card */
-.icon-gift-card:before {
+.icon--gift-card:before {
   content: "\e034";
   color: $color-brand;
 }
+
+/* Shirt */
+.icon--shirt:before {content: "\e037";}
+
+/* Play */
+.icon--play:before {content: "\e038";}
 
 /* Arrow up */
 .icon--arrow-up:before {content: "\e018";}

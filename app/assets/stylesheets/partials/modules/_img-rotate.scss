@@ -1,0 +1,37 @@
+/* ======================================================================================
+   @MODULES -> IMAGE ROTATE
+   ====================================================================================== */
+
+/*
+  Usage:
+    Creates a set of rotating images
+
+  Notes:
+    Need to `@include img-rotate` mixin to generate the specific image rotate classes that's based on the number of images it's rotating
+
+  Credit:
+    https://github.com/benschwarz/gallery-css
+
+  Demo:
+    Style Guide -> Modules -> IMAGE ROTATE
+*/
+
+.img-rotate {position: relative;}
+
+  .img-rotate__item {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    /* IE8 will just ignore this rule so will always show the image */
+    opacity: 0;
+
+    /* IE8 will just ignore this rule */
+    &:first-of-type {opacity: 1;}
+  }
+
+@include img-rotate($item-count: 2, $display-duration: 8, $transition-duration: 2);

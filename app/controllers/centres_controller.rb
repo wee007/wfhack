@@ -2,9 +2,14 @@ class CentresController < ApplicationController
   layout 'national', :only => :index
 
   def index
-    @centres = CentreService.find( :all, country: 'au', retail: '1' )
-    @centres = @centres.group_by { |c| c.state } if @centres.present?
-    @centres
+    @stores = StoreService.find
+    @stores_count = ( @stores.count*100 ).ceil/100 if @stores.present?
+
+    @products = ProductService.find( {} )
+    @products_count = ( @products['count']*100 ).ceil/100 if @products.present?
+
+    @centres = CentreService.find( :all, country: 'au' )
+    @centres = @centres.group_by{ |c| c.state } if @centres.present?
   end
 
   def show

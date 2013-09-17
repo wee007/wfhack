@@ -1,1 +1,55 @@
-<%= yield %>
+<!doctype html>
+<!--[if (lt IE 9) & (!IEMobile)]> <html class="no-js old-ie ie" lang="en">  <![endif]-->
+<!--[if (IE 9) & (!IEMobile)]>    <html class="no-js ie-9 ie" lang="en">    <![endif]-->
+<!--[if gt IE 8]><!-->            <html class="no-js" lang="en">            <!--<![endif]-->
+<head>
+  <base href="<%= request.path %>">
+  <meta name="fragment" content="!">
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1.0, width=device-width">
+
+  <!-- Prefetch DNS for external assets -->
+  <link rel="dns-prefetch" href="//www.google-analytics.com">
+  <link rel="dns-prefetch" href="//ajax.googleapis.com">
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="dns-prefetch" href="//themes.googleusercontent.com">
+  <!-- //Prefetch DNS for external assets -->
+
+  <!-- Title -->
+  <title>Westfield Australia | Shopping Centres in NSW, QLD, VIC, SA & WA</title>
+
+  <%= render "shared/stylesheets_global" %>
+
+  <%= yield :custom_styles %>
+
+  <%= javascript_include_tag "vendor/modernizr.min" %>
+
+  <%= render 'shared/oldie' %>
+
+  <!-- IE 10 tile icon: http://blogs.msdn.com/b/ie/archive/2012/06/08/high-quality-visuals-for-pinned-sites-in-windows-8.aspx -->
+  <meta name="msapplication-TileColor" content="#da291c">
+  <meta name="msapplication-TileImage" content="/apple-touch-icon-144x144-precomposed.png">
+  <!-- //IE 10 tile icon -->
+
+  <!-- [BACK END] meta description should be unique for each page for SEO purposes -->
+  <meta name="description" content="Find the best in retail, dining, leisure and entertainment at one of our centres across Australia, shop online or buy a gift card today">
+  <!-- //Meta description -->
+
+</head>
+
+<body class="<%= params[:controller] %> <%= params[:action] %> <%= yield :class_for_body %>" ng-app="Westfield" ng-init="centre_id='<%= params[:centre_id] || params[:id] %>'">
+
+  <!-- Skip link -->
+  <a href="#main" class="hide-visually skip-link">Skip to main content</a>
+  <!-- //Skip link -->
+
+  <!-- Prompt old IE users to upgrade their browser or install 'Chrome Frame' -->
+  <!--[if lte IE 7]><p class="old-ie-notification">Apologies for the appearance of this page but you are viewing it in a very old browser that we no longer support. We highly recommend <a href="http://browsehappy.com/" rel="external">upgrading to a more modern browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true" rel="external">install Google Chrome Frame</a> to experience this site and to reap the many other benefits of using a modern browser.</p><![endif]-->
+
+  <%= yield %>
+
+  <%= render "/shared/javascripts_global" %>
+
+</body>
+
+</html>

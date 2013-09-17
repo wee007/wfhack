@@ -86,6 +86,7 @@ Global stylesheet
 @import "partials/layout/header";
 @import "partials/layout/main";
 @import "partials/layout/footer";
+@import "partials/layout/national";
 
   /* Layout -> Grid */
   @import "partials/layout/grid/grid";
@@ -148,6 +149,7 @@ Global stylesheet
 @import "partials/modules/fine-print";
 @import "partials/modules/promo-tile";
 @import "partials/modules/no-content-fallback-msg";
+@import "partials/modules/img-rotate";
 
   /* Modules -> Widgets */
   @import "partials/modules/widgets/accordion";

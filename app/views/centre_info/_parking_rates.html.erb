@@ -31,20 +31,8 @@
         </tbody>
       </table>
     </div>
-    <small class="fine-print fine-print--center">*<%= @parking.credit_card_surcharge_amount %>% surcharge on all credit card payments parking <%= link_to 'terms &amp; conditions apply'.html_safe, cl_image_path(@parking.pdf_ref, format:'pdf'), target: '_blank', class:"terms-link" %>.</small>
+    <%= render partial: 'parking_terms_and_conditions' %>
   </div>
 
-  <div class="grid__item non-palm-one-half">
-    <% @parking.free_parking_instructions.split("\n").each do |paragraph| %>
-      <p><%= paragraph %></p>
-    <% end %>
-
-    <% unless @parking.valet_parking_instructions.empty? %>
-      <h3>Valet Parking</h3>
-      <% @parking.valet_parking_instructions.split("\n").each do |paragraph| %>
-        <p><%= paragraph %></p>
-      <% end %>
-    <% end %>
-    
-  </div>
+  <%= render partial: "parking_info" %>
 </div>

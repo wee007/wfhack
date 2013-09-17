@@ -2,6 +2,8 @@
   <div class="grid__item one-whole">
     <p>All parking is a fixed price of $<%= @parking.flat_rate %></p>
 
-    <small class="fine-print">Parking <%= link_to 'terms &amp; conditions'.html_safe, cl_image_path(@parking.pdf_ref, format:'pdf'), target: '_blank' %> apply</small>
+    <%= render partial: 'parking_terms_and_conditions' %>
   </div>
+
+  <%= render partial: "parking_info" %>
 </div>

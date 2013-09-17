@@ -4,4 +4,6 @@
 
     <small class="fine-print">Parking <%= link_to 'terms &amp; conditions'.html_safe, cl_image_path(@parking.pdf_ref, format:'pdf'), target: "_blank" %> apply</small>
   </div>
+
+  <%= render partial: "parking_info" %>
 </div>

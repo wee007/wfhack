@@ -1,0 +1,17 @@
+<div class="grid__item non-palm-one-half">
+  <% @parking.additional_parking_information.split("\n").each do |paragraph| %>
+    <p><%= paragraph %></p>
+  <% end %>
+
+  <% @parking.free_parking_instructions.split("\n").each do |paragraph| %>
+    <p><%= paragraph %></p>
+  <% end %>
+
+  <% unless @parking.valet_parking_instructions.empty? %>
+    <h3>Valet Parking</h3>
+    <% @parking.valet_parking_instructions.split("\n").each do |paragraph| %>
+      <p><%= paragraph %></p>
+    <% end %>
+  <% end %>
+
+</div>

@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.25
+Version:     0.1.26
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,41 @@ fi
 
 
 %changelog
+* Wed Sep 18 2013 ci <doperations@au.westfield.com> 0.1.26-1
+- Merge pull request #367 from ldewey/WSF-4906 (cpearce@au.westfield.com)
+- Class ordering (ldewey@au.westfield.com)
+- Updated global_search VCR cassette to fix tests (ldewey@au.westfield.com)
+- Removed un-needed styles from non pinboard tiles (ldewey@au.westfield.com)
+- removed un-needed CSS/SCSS (ldewey@au.westfield.com)
+- Reorderd the css class names (ldewey@au.westfield.com)
+- Added comments and renamed "is-active" to "is-pin-board-loaded"
+  (ldewey@au.westfield.com)
+- Coverted px to em's (ldewey@au.westfield.com)
+- Change comment from palm to Lap large (ldewey@au.westfield.com)
+- Show 15 products per page by default (ldewey@au.westfield.com)
+- PR comment fixes (ldewey@au.westfield.com)
+- Templates are now build not hardcoded (ldewey@au.westfield.com)
+- Removed the guard reload info (ldewey@au.westfield.com)
+- Small fix to karma.conf.js to fix js tests (ldewey@au.westfield.com)
+- Events and Deals now uses the new pin board rendering
+  (ldewey@au.westfield.com)
+- Renamed tiles.js.coffee to pin-board.js.coffee (ldewey@au.westfield.com)
+- pin board selector clean up. Also moved xhr stuff to pinboard template
+  (ldewey@au.westfield.com)
+- Tile images will be removed if they 404 (ldewey@au.westfield.com)
+- Moved pin-board layout to layouts (ldewey@au.westfield.com)
+- Moved all product browse code to use coffee script (ldewey@au.westfield.com)
+- Removed isotope (ldewey@au.westfield.com)
+- Fixes for new pinboard (ldewey@au.westfield.com)
+- Removed livereload, any using it? (ldewey@au.westfield.com)
+- rebuilt the pinboard layout system (ldewey@au.westfield.com)
+- Added a half width gutter to the gird (ldewey@au.westfield.com)
+- Only products (index) can use the the new isotope rendering way
+  (ldewey@au.westfield.com)
+- Fixes as per PR comments. (ldewey@au.westfield.com)
+- Isotope now does not need to wait for image to load (ldewey@au.westfield.com)
+- Removed the un-need info from the gon data. (ldewey@au.westfield.com)
+
 * Tue Sep 17 2013 ci <doperations@au.westfield.com> 0.1.25-1
 - Merge pull request #364 from fchan/national-hp (ldewey@au.westfield.com)
 - Reduce height of header at palm size (fiona@fionachan.net)

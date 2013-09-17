@@ -11,7 +11,8 @@
     "html5shiv": "~3.6.2",
     "prism": "gh-pages",
     "angular-unstable": "~1.1.5",
-    "script.js": "*"
+    "script.js": "*",
+    "jquery-pjax": "~1.7.3"
   },
   "devDependencies": {
     "sinon": "~1.7.3",

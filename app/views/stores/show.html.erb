@@ -3,12 +3,12 @@
 <div class="stores-maps stores-maps--detail container js-stores-maps-toggle-wrap">
 
   <%# Contain 'back to listing link' and 'store details' %>
-  <div class="stores-maps__inner" id="stores-maps-toggle-listing-detail">
+  <div class="stores-maps__inner js-pjax-container" id="stores-maps-toggle-listing-detail">
 
     <%# Back to listing link %>
     <div class="stores-maps__filters-toggle">
       <div class="container">
-        <a href="<%= centre_stores_path(@centre) %>" class="stores-maps__filters-toggle__hdr txt-truncate"><span><span class="icon icon--arrow-left-big" aria-hidden="true"></span> Stores A-Z</span> / <%= @store.name %></a>
+        <a href="<%= centre_stores_path(@centre) %>" class="stores-maps__filters-toggle__hdr txt-truncate js-pjax-link"><span><span class="icon icon--arrow-left-big" aria-hidden="true"></span> Stores A-Z</span> / <%= @store.name %></a>
       </div>
     </div>
     <%# //Back to listing link %>
@@ -165,6 +165,12 @@
     </div>
     <%#//Store details %>
 
+    <%= javascript_tag do %>
+      function storeMapPageReady() {
+        storeMapPage.store(<%= @store.id %>);
+      }
+    <% end %>
+
   </div>
   <%# //Contain 'back to listing link' and 'store details' %>
 
@@ -178,22 +184,9 @@
 
 <%- content_for :javascript do -%>
 
-  <%= javascript_include_tag 'map/responsive_map' %>
+  <%= javascript_include_tag 'store_map_page' %>
   <%= javascript_include_tag 'flexslider/jquery.flexslider' %>
   <%= javascript_tag do %>
-
-    var map = new map.ResponsiveMap({
-      breakpoint: 'all and (min-width: 64em)',
-      palm: { offset: {x: 0.5, y: 0.5} },
-      nonPalm: { offset: {x: 0.75, y: 0.5} }
-    });
-
-    $('.js-stores-maps-toggle-btn').on('click', function() {
-      var visible = map.toggle();
-      $('.js-stores-maps-toggle-wrap').toggleClass('is-map-view', visible);  <%# store list container %>
-    });
-
-    map.store(<%= @store.id %>);
 
     // Run 'Flexslider' plugin
     $(window).load(function() {

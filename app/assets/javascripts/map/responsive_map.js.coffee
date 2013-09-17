@@ -28,6 +28,3 @@ class map.ResponsiveMap extends map.Micello
 
   show: (options) ->
     @load().centreOffset(options.offset)
-
-  store: (storeId) ->
-    @setTarget(storeId).showLevel().centre().highlight().detail()

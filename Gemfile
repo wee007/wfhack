@@ -9,6 +9,7 @@ gem 'settingslogic'
 
 # Javascript
 gem 'gon'
+gem 'rack-pjax'
 
 # For operations
 gem 'health_check'

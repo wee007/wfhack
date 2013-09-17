@@ -1,5 +1,10 @@
 class @PinBoard
 
+  colTypes:
+    2: 'half',
+    3: 'third',
+    5: 'fifth'
+
   constructor: (@pinBoardSelector) ->
     # Clone the items are they get removed, and added between breakpoints
     @items = $("#{pinBoardSelector} .js-tile").clone()
@@ -43,7 +48,7 @@ class @PinBoard
     if @currentNumberOfCols != numberOfCols || force
 
       # Get a template for this number of cols
-      $template = $(@templates[numberOfCols])
+      $template = $(@templates(numberOfCols))
 
       # Put the items/tiles into the cols
       for item, index in @in_groups(@items, numberOfCols)
@@ -59,29 +64,13 @@ class @PinBoard
       # thing twice
       @currentNumberOfCols = numberOfCols
 
-  templates:
-    2: """
-    <div id="pin-board" class="grid grid--gutter-half pin-board is-active">
-      <div class="grid__item one-half"></div>
-      <div class="grid__item one-half"></div>
-    </div>
+  templates: (numberOfCols) ->
+    cols = ""
+    for col in [1..numberOfCols]
+      cols += """<div class="grid__item one-#{@colTypes[numberOfCols]}"></div>"""
     """
-
-    3: """
     <div id="pin-board" class="grid grid--gutter-half pin-board is-active">
-      <div class="grid__item one-third"></div>
-      <div class="grid__item one-third"></div>
-      <div class="grid__item one-third"></div>
-    </div>
-    """
-
-    5: """
-    <div id="pin-board" class="grid grid--gutter-half pin-board is-active">
-      <div class="grid__item one-fifth"></div>
-      <div class="grid__item one-fifth"></div>
-      <div class="grid__item one-fifth"></div>
-      <div class="grid__item one-fifth"></div>
-      <div class="grid__item one-fifth"></div>
+      #{cols}
     </div>
     """
 

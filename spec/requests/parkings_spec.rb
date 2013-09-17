@@ -35,22 +35,22 @@ describe "Parking" do
 
     it "should show all the parking rates" do
       assert_select '#parking-rates' do
-        assert_select 'td.times', "0 - 3hrs"
-        assert_select 'td.weekday', "FREE"
-        assert_select 'td.weekend', "FREE"
+        assert_select 'td.test-times', "0 - 3hrs"
+        assert_select 'td.test-weekday', "FREE"
+        assert_select 'td.test-weekend', "FREE"
 
-        assert_select 'td.times', "3 - 5hrs"
-        assert_select 'td.weekday', "$5"
-        assert_select 'td.weekend', "$5"
+        assert_select 'td.test-times', "3 - 5hrs"
+        assert_select 'td.test-weekday', "$5"
+        assert_select 'td.test-weekend', "$5"
 
-        assert_select 'td.times', "5 - 7hrs"
-        assert_select 'td.weekday', "$10"
-        assert_select 'td.weekend', "$10"
+        assert_select 'td.test-times', "5 - 7hrs"
+        assert_select 'td.test-weekday', "$10"
+        assert_select 'td.test-weekend', "$10"
       end
     end
 
     it "have a link to the terms and conditions" do
-      assert_select 'a.terms-link[href=?]', 'http://res.cloudinary.com/wlabs/image/upload/df4zc8o8cxd4u8oxvqhb.pdf'
+      assert_select 'a.test-terms-link[href=?]', 'http://res.cloudinary.com/wlabs/image/upload/df4zc8o8cxd4u8oxvqhb.pdf'
     end
   end
 

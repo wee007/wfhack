@@ -66,15 +66,14 @@
             <div class="storefront__details__phone-map storefront-storelist-phone-map-links">
 
               <%# Phone no %>
-              <%# FIXME: [BACKEND] make dynamic inc. the `tel:` attr which needs all white space stripped out ala: `tel: (store.phone_number || "").gsub(/\s+/,'') ` %>
-              <a href="tel:" class="storefront-storelist-phone-map-links__cell storefront-storelist-phone-map-links__cell--phone hide-fully--non-palm">
-                <span class="hide-visually">Call store: 02 9236 6589</span>
+              <a href="tel:<%= (@store.phone_number || '').gsub(/\s+/, '') %>" class="storefront-storelist-phone-map-links__cell storefront-storelist-phone-map-links__cell--phone hide-fully--non-palm">
+                <span class="hide-visually">Call store: <%= @store.phone_number %></span>
                 <span class="icon icon--phone2 icon--flush-top storefront-storelist-phone-map-links__cell__valign"></span>
               </a>
               <%# //Phone no %>
 
               <%# Location %>
-              <a href="#infoDiv" class="storefront-storelist-phone-map-links__cell storefront-storelist-phone-map-links__cell--location js-stores-maps-toggle-btn">
+              <a href="#infoDiv" class="storefront-storelist-phone-map-links__cell storefront-storelist-phone-map-links__cell--location js-stores-maps-toggle-btn" data-store-id="<%= @store.id %>">
                 <span class="storefront-storelist-phone-map-links__cell__valign">
                   <span class="icon icon--pin icon--flush-top"></span>
                   <span class="hide-visually">Store location</span>
@@ -91,6 +90,7 @@
         </div>
         <%# //Store details %>
 
+        <%- if false %>
         <%# 'Product' and 'Deal' tiles %>
         <%# FIXME: [BACKEND] the following HTML won't be available for every store so do not render any of the HTML when this is the case or only render the applicable HTML e.g. either render 'Product' or 'Deal' tiles AND when they're tiles (any) append class `.is-featured-items` to `<div class="stores-maps__list-detail">` (server side) %>
         <footer class="storefront__featured">
@@ -158,6 +158,7 @@
 
         </footer>
         <%# Product and Deal tiles %>
+        <%- end %>
 
       </article>
 

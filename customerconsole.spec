@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.33
+Version:     0.1.34
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -77,6 +77,13 @@ fi
 
 
 %changelog
+* Thu Sep 19 2013 ci <doperations@au.westfield.com> 0.1.34-1
+- Change to_sign to a hash, as thats better than building a string up
+  (ldewey@au.westfield.com)
+- Added getting hear to links at the top of centre info
+  (ldewey@au.westfield.com)
+- Added google maps to centre info page (ldewey@au.westfield.com)
+
 * Wed Sep 18 2013 ci <doperations@au.westfield.com> 0.1.33-1
 - 
 

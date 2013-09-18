@@ -13,19 +13,18 @@ class StoreMapPage
   pjaxComplete: =>
     storeMapPageReady() if window.storeMapPageReady
     delete storeMapPageReady
-    $('.js-stores-maps-toggle-btn').off('click').on('click', @toggle)
-    self = @
-    $('[data-store-id]').off('click').on('click', ->
-      self.toggle()
-      self.store($(@).data('store-id'))
-      console.log('block?')
-      false
-    )
 
   setup: =>
     $.pjax.defaults.timeout = 5000
-    $(document).pjax('.js-pjax-container a.js-pjax-link', '.js-pjax-container')
+    $(document).pjax('a.js-pjax-link', '.js-pjax-container')
     $('.js-pjax-container').on('pjax:end', @pjaxComplete)
+    $('body').on('click.map-micello', '.js-stores-maps-toggle-btn', @toggle)
+    self = @
+    $('body').on('click.map-micello', '[data-store-id]', ->
+      self.toggle()
+      self.store($(@).data('store-id'))
+      false
+    )
     @pjaxComplete()
 
   toggle: =>

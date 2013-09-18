@@ -3,7 +3,9 @@ class @PinBoard
   colTypes:
     2: 'half',
     3: 'third',
-    5: 'fifth'
+    4: 'quarter',
+    5: 'fifth',
+    6: 'sixth'
 
   constructor: (@pinBoardSelector) ->
     # Clone the items as they are removed, and added between breakpoints
@@ -13,17 +15,28 @@ class @PinBoard
 
   build: ->
 
+    mediaQueries = {
+      palm: "all and (max-width: 40em)", # 0-640px
+      smallLap: "all and (min-width: 40.0625em) and (max-width: 56.25em)", # 641px - 900px
+      largeLap: "all and (min-width: 56.3125em) and (max-width: 74.9375em)", # 901px - 1199px
+      desktopSmall: "all and (min-width: 75em) and (max-width: 85.3125em)", # 1200px - 1365px
+      desktopLarge: "all and (min-width: 85.375em)" # 1366px +
+    }
+
     #Palm
-    enquire.register "all and (max-width: 40em)", =>
-      @rebuild 2
+    enquire.register mediaQueries.palm, => @rebuild 2
 
-    #Lap
-    enquire.register "all and (min-width: 40.0625em) and (max-width: 74em)", =>
-      @rebuild 3
+    #Small lap
+    enquire.register mediaQueries.smallLap, => @rebuild 3
 
-    #Desktop
-    enquire.register "all and (min-width: 75em)", =>
-      @rebuild 5
+    #Large lap
+    enquire.register mediaQueries.largeLap, => @rebuild 4
+
+    #Desktop small
+    enquire.register mediaQueries.desktopSmall, => @rebuild 5
+
+    #Desktop large
+    enquire.register mediaQueries.desktopLarge, => @rebuild 6
 
   in_groups: (items, number) ->
     number = number - 1

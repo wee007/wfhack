@@ -3,7 +3,7 @@
   <li class="storefront__flexslider-blurb">
     <div class="vert-align">
       <div class="vert-align__inner">
-        <p><%= @store.description.gsub(/^(.{300}).*$/, '\1') %></p>
+        <p><%= @store.description[0..300] %></p>
       </div>
     </div>
   </li>

@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.30
+Version:     0.1.31
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,14 @@ fi
 
 
 %changelog
+* Wed Sep 18 2013 ci <doperations@au.westfield.com> 0.1.31-1
+- Merge pull request #375 from fchan/national-bug (cpearce@au.westfield.com)
+- Remove redundant class (fiona@fionachan.net)
+- Added comment about national centre tile (fiona@fionachan.net)
+- Optimise large image a bit more (fiona@fionachan.net)
+- Remote unused images and rotation mixn, and fixed background issue on ios5
+  (fiona@fionachan.net)
+
 * Wed Sep 18 2013 ci <doperations@au.westfield.com> 0.1.30-1
 - Merge pull request #366 from csmith/feature/parking-hours
   (craigM.smith@au.westfield.com)

@@ -13,7 +13,7 @@
         <tbody>
           <% @parking.rates.each do |rate| %>
             <tr>
-              <td class='test-times'><%= rate.hourly_rate_from %> - <%= rate.hourly_rate_to %>hrs</td>
+              <td class="test-times"><%= rate.hourly_rate_from %> - <%= rate.hourly_rate_to %>hrs</td>
               <td class="test-weekday txt-right <%= "txt-caps" if rate.free? %>"><%= display_parking_rate(rate.hourly_rate_weekday) %></td>
               <td class="test-weekend txt-right <%= "txt-caps" if rate.free? %>"><%= display_parking_rate(rate.hourly_rate_weekend) %></td>
             </tr>

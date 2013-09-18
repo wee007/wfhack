@@ -6,7 +6,7 @@
 
   <%# Contain 'filters', 'map/list toggle', and 'listings' %>
   <%# [BACKEND] append `is-filter-applied` class to this container when a category filter has been applied %>
-  <div class="stores-maps__inner">
+  <div class="stores-maps__inner js-pjax-container">
 
     <%# Filters & list/map toggle button %>
     <div class="stores-maps__filters-toggle">
@@ -72,14 +72,13 @@
           </dt>
 
           <% stores.each do |store| %>
-          <dd data-store-id="<%= store.id %>">
+          <dd>
             <div class="stores-list__inner container">
 
               <%# Store name %>
               <div class="stores-list__store-name">
-                <%# [BACKEND] cannot use the link until storefront feature is complete %>
-                <!-- <strong><%= link_to store.name, (centre_store_url @centre.code , store.id) %></strong> -->
-                <strong><%= store.name %></strong>
+                <strong><%= link_to store.name, (centre_store_url @centre.code , store.id), class: 'js-pjax-link' %></strong>
+                <%# <strong><%= store.name %1></strong> %>
                 <%# Phone no %>
                 <span class="hide-fully--palm"><%= store.phone_number %></span>
                 <%# //Phone no %>
@@ -114,7 +113,7 @@
                 <%# //Phone no %>
 
                 <%# Location %>
-                <a href="#infoDiv" class="storefront-storelist-phone-map-links__cell storefront-storelist-phone-map-links__cell--location">
+                <a href="#infoDiv" class="storefront-storelist-phone-map-links__cell storefront-storelist-phone-map-links__cell--location" data-store-id="<%= store.id %>">
                   <span class="hide-visually">View on map</span>
                   <span class="icon icon--pin icon--flush-top storefront-storelist-phone-map-links__cell__valign"></span>
                 </a>
@@ -132,6 +131,12 @@
     </div>
     <%#//Stores list %>
 
+    <%= javascript_tag do %>
+      function storeMapPageReady() {
+        $('.js-defer-image-load-container').deferImages({matchMedia: 'all and (min-width: 40.0625em)'});
+      }
+    <% end %>
+
   </div>
   <%# //Contain 'filters', 'map/list toggle', and 'listings' %>
 
@@ -141,63 +146,8 @@
   </div>
   <%# //Map %>
 
+  <%- content_for :javascript do -%>
+    <%= javascript_include_tag 'store_map_page' %>
+  <%- end -%>
+
 </div>
-
-<%- content_for :javascript do -%>
-  <%= javascript_tag do %>
-    (function initialiseResponsiveMap() {
-
-      var map = new window.map.Micello(),
-          viewingList = true;
-
-      function resetView(listView) {
-        <%# listView = [true, false, null]
-              true = list view
-              false = map view
-              null = desktop view
-        %>
-        viewingList = listView;
-
-        $('.js-stores-maps-toggle-btn').toggleClass('is-expanded', listView === false);   <%# toggle button        %>
-        $('.js-stores-maps-toggle-btn__txt').html(listView ? 'map' : 'list');             <%# toggle button text   %>
-        $('.js-stores-maps-toggle-wrap').toggleClass('is-map-view', listView === false);  <%# store list container %>
-
-        if(!listView) map.load().centreOffset({x: listView === false ? 0.5 : 0.75, y: 0.5});
-      }
-
-      function showStoreDetail(storeId) {
-        map.setTarget(storeId).showLevel().centre().highlight().detail();
-      }
-
-      function nonPalmView() {
-        resetView(null);
-        $('*', document).off('.map-palm')
-        $('[data-store-id]').on('click.map-non-palm', function() {
-          showStoreDetail($(this).data('store-id'));
-        });
-      }
-
-      function palmView() {
-        resetView(true);
-        $('*', document).off('.map-non-palm')
-        $('.js-stores-maps-toggle-btn').on('click.map-palm', function() {
-          resetView(!viewingList);
-        });
-        $('[data-store-id]').on('click.map-palm', 'a[href="#infoDiv"]', function(event) {
-          resetView(false);
-          showStoreDetail($(event.delegateTarget).data('store-id'));
-        });
-      }
-
-      $(function() {
-        enquire.register("all and (min-width: 64em)", {
-          match: nonPalmView,
-          unmatch: palmView,
-          setup: palmView
-        }, true);
-      });
-    }());
-
-    $('.js-defer-image-load-container').deferImages({matchMedia: 'all and (min-width: 40.0625em)'});
-  <% end %>
-<%- end -%>

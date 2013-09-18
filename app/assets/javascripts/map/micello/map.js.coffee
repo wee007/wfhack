@@ -122,7 +122,7 @@ class map.micello.Map extends map.micello.MapBase
     crop: 'pad'
     background: 'rgb:FFFFFF'
 
-  popupHtml: (store) ->
+  popupHtml: (store) =>
     return 'Store not found' unless store.id
     popup = @popupContent ||= $('.map-micello__overlay-wrap').html()
     if !!store?._links?.logo?.href
@@ -130,6 +130,10 @@ class map.micello.Map extends map.micello.MapBase
     else
       store.logo = ''
       popup  = popup.replace(/(js-toggle-logo-image)/, '$1 is-no-store-logo')
+    if !!location.toString().match(////stores/#{store.id}///)
+      popup = popup.replace(/(js-toggle-logo-image)/, '$1 is-active-store')
+    else
+      popup = popup.replace(/(button.*js-stores-maps-toggle-btn)/, '$1 hide-visually')
     popup = popup.replace(new RegExp("\#{store.#{name}}", 'g'), value) for name, value of store
     popup
 

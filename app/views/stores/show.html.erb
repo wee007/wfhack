@@ -3,12 +3,12 @@
 <div class="stores-maps stores-maps--detail container js-stores-maps-toggle-wrap">
 
   <%# Contain 'back to listing link' and 'store details' %>
-  <div class="stores-maps__inner" id="stores-maps-toggle-listing-detail">
+  <div class="stores-maps__inner js-pjax-container" id="stores-maps-toggle-listing-detail">
 
     <%# Back to listing link %>
     <div class="stores-maps__filters-toggle">
       <div class="container">
-        <a href="<%= centre_stores_path(@centre) %>" class="stores-maps__filters-toggle__hdr txt-truncate"><span><span class="icon icon--arrow-left-big" aria-hidden="true"></span> Stores A-Z</span> / <%= @store.name %></a>
+        <a href="<%= centre_stores_path(@centre) %>" class="stores-maps__filters-toggle__hdr txt-truncate js-pjax-link"><span><span class="icon icon--arrow-left-big" aria-hidden="true"></span> Stores A-Z</span> / <%= @store.name %></a>
       </div>
     </div>
     <%# //Back to listing link %>
@@ -19,39 +19,7 @@
       <article class="storefront" role="article">
 
         <%# Header (flexslider) %>
-        <header>
-          <h1 class="hide-visually"><%= @store.name %> storefront</h1>
-          <div class="flexslider flexslider--contain-controls" style="background-image: url(/assets/dummy/store-banner.jpg);">
-            <ul class="slides">
-              <li>
-                <img src="/assets/dummy/store-banner.jpg" alt="<%= @store.name %> banner">
-                <%#
-                    FIXME: [BACKEND] the storefront banner is optional so if no banner is provided then:
-                    - Render the below HTML.
-                    - Remove the above image.
-                    - Remove the `h1` element above: `<h1 class="hide-visually">`.
-                    - Remove the inline `style` attr on the Flexslider `div` container above.
-                    - Append class `.is-no-store-banner` to the Flexslider `div` container above: `<div class="flexslider flexslider--contain-controls">`.
-                    - If store name exceeds or equals 58 chars then append class `.is-long-store-name` to the `h1` element.
-                    All via server side not JS
-                %>
-                <!-- <div class="storefront__flexslider-storename vert-align">
-                  <div class="vert-align__inner">
-                    <h1><%= @store.name %></h1>
-                  </div>
-                </div> -->
-              </li>
-              <%# FIXME: [BACKEND] this blurb absolutely cannot exceed 300 characters in back office console or wherever it's coming from AND because this is optional do not render the `li` if no blurb is provided, see 'https://jira.mywestfield.com/browse/WSF-4899' for more info (via server side not JS) %>
-              <li class="storefront__flexslider-blurb">
-                <div class="vert-align">
-                  <div class="vert-align__inner">
-                    <p><%= @store.description %></p>
-                  </div>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </header>
+        <%= render @store.has_storefront? ? 'header_with_banner' : 'header_without_banner' %>
         <%# //Header (flexslider) %>
 
         <%# Store details %>
@@ -62,18 +30,35 @@
 
             <%# Store meta %>
             <dl class="storefront__details__meta">
+
               <dt class="hide-visually">Opening hours</dt>
-              <%# FIXME: [BACKEND] make dynamic inc. the `datetime` attr %>
-              <dd class="storefront__details__meta__no-indent">Open till <time datetime="">6pm</time> tonight</dd>
-              <dt class="hide-visually hide-fully--palm">Store phone number</dt>
-              <%# FIXME: [BACKEND] make dynamic %>
-              <dd class="hide-fully--palm">02 9869 5263<span class="icon icon--phone2 icon--xlrg" aria-hidden="true"></span></dd>
-              <dt class="hide-visually">Store email</dt>
-              <%# FIXME: [BACKEND] make dynamic inc. the `mailto:` attr %>
-              <dd class="txt-truncate"><a href="mailto:">westfield@areallymassivelongemailaddress.com.au</a><span class="icon icon--email icon--xlrg" aria-hidden="true"></span></dd>
+              <%- if @store.closing_time.present? %>
+                <dd class="storefront__details__meta__no-indent">Open till <%= twelve_hour_format @store.closing_time %> tonight</dd>
+              <%- else %>
+                <dd class="storefront__details__meta__no-indent">Closed today</dd>
+              <%- end %>
+
+              <%- if @store.phone_number.present? %>
+                <dt class="hide-visually hide-fully--palm">Store phone number</dt>
+                <dd class="hide-fully--palm">
+                  <%= @store.phone_number %>
+                  <span class="icon icon--phone2 icon--xlrg" aria-hidden="true"></span>
+                </dd>
+              <%- end %>
+
+              <%- if @store.email_address.present? %>
+                <dt class="hide-visually">Store email</dt>
+                <dd class="txt-truncate">
+                  <%= link_to @store.email_address, "mailto:#{@store.email_address}" %>
+                  <span class="icon icon--email icon--xlrg" aria-hidden="true"></span>
+                </dd>
+              <%- end %>
+
               <dt class="hide-visually">Westfield gift card</dt>
-              <%# FIXME: [BACKEND] if store doesn't except gift cards then say "Not accepted" %>
-              <dd>Gift card accepted<span class="icon icon--gift-card icon--xlrg" aria-hidden="true"></span></dd>
+              <dd>
+                <%= @store.accepts_giftcard? ? 'Gift card accepted' : 'Not accepted' %>
+                <span class="icon icon-gift-card icon--xlrg" aria-hidden="true"></span>
+              </dd>
             </dl>
             <%# //Store meta %>
 
@@ -81,15 +66,14 @@
             <div class="storefront__details__phone-map storefront-storelist-phone-map-links">
 
               <%# Phone no %>
-              <%# FIXME: [BACKEND] make dynamic inc. the `tel:` attr which needs all white space stripped out ala: `tel: (store.phone_number || "").gsub(/\s+/,'') ` %>
-              <a href="tel:" class="storefront-storelist-phone-map-links__cell storefront-storelist-phone-map-links__cell--phone hide-fully--non-palm">
-                <span class="hide-visually">Call store: 02 9236 6589</span>
+              <a href="tel:<%= (@store.phone_number || '').gsub(/\s+/, '') %>" class="storefront-storelist-phone-map-links__cell storefront-storelist-phone-map-links__cell--phone hide-fully--non-palm">
+                <span class="hide-visually">Call store: <%= @store.phone_number %></span>
                 <span class="icon icon--phone2 icon--flush-top storefront-storelist-phone-map-links__cell__valign"></span>
               </a>
               <%# //Phone no %>
 
               <%# Location %>
-              <a href="#infoDiv" class="storefront-storelist-phone-map-links__cell storefront-storelist-phone-map-links__cell--location js-stores-maps-toggle-btn">
+              <a href="#infoDiv" class="storefront-storelist-phone-map-links__cell storefront-storelist-phone-map-links__cell--location" data-store-id="<%= @store.id %>">
                 <span class="storefront-storelist-phone-map-links__cell__valign">
                   <span class="icon icon--pin icon--flush-top"></span>
                   <span class="hide-visually">Store location</span>
@@ -106,6 +90,7 @@
         </div>
         <%# //Store details %>
 
+        <%- if false %>
         <%# 'Product' and 'Deal' tiles %>
         <%# FIXME: [BACKEND] the following HTML won't be available for every store so do not render any of the HTML when this is the case or only render the applicable HTML e.g. either render 'Product' or 'Deal' tiles AND when they're tiles (any) append class `.is-featured-items` to `<div class="stores-maps__list-detail">` (server side) %>
         <footer class="storefront__featured">
@@ -173,18 +158,24 @@
 
         </footer>
         <%# Product and Deal tiles %>
+        <%- end %>
 
       </article>
 
     </div>
     <%#//Store details %>
 
+    <%= javascript_tag do %>
+      function storeMapPageReady() {
+        storeMapPage.store(<%= @store.id %>);
+      }
+    <% end %>
+
   </div>
   <%# //Contain 'back to listing link' and 'store details' %>
 
   <%# Map %>
-  <%# FIXME: [BACKEND] map not rendering %>
-  <div class="stores-maps__map map-micello" id="stores-maps-toggle-map">
+  <div class="stores-maps__map map-micello js-stores-maps-toggle-map" id="stores-maps-toggle-map">
     <%= render partial: 'shared/map', locals: {store_id: nil, interactive: true, load_immediately: false} %>
   </div>
   <%# //Map %>
@@ -193,8 +184,9 @@
 
 <%- content_for :javascript do -%>
 
+  <%= javascript_include_tag 'store_map_page' %>
   <%= javascript_include_tag 'flexslider/jquery.flexslider' %>
-  <script>
+  <%= javascript_tag do %>
 
     // Run 'Flexslider' plugin
     $(window).load(function() {
@@ -229,56 +221,5 @@
 
     });
 
-    // Conditionally load Micello maps for palm view and toggle the detail/map views
-    /*
-      FIXME: [BACKEND] this is now being shared across 'index' and 'show' with the exception of `deferImages` and 'show' doesn't need this:
-        $('.js-stores-maps-toggle-btn').toggleClass('is-expanded', listView === false);
-        $('.js-stores-maps-toggle-btn__txt').html(listView ? 'map' : 'list');
-        So pull this into an external JS file
-    */
-    (function initialiseResponsiveMap() {
-
-      if(deferCall(window.enquire)) return;
-
-      var map = new window.map.Micello(),
-          viewingList = true;
-
-      function resetView(listView) {
-        viewingList = listView;
-
-        if(!listView) map.load();
-
-        $('.js-stores-maps-toggle-wrap').toggleClass('is-map-view', listView === false);  // storefront/maps container
-      }
-
-      function nonPalmView() {
-        resetView(null);
-        $('*', document).off('.map-palm')
-        $('[data-store-id]').on('click.map-non-palm', function() {
-          map.highlight($(this).data('store-id'));
-        });
-      }
-
-      function palmView() {
-        resetView(true);
-        $('*', document).off('.map-non-palm')
-        $('.js-stores-maps-toggle-btn').on('click.map-palm', function() {
-          resetView(!viewingList);
-        });
-        $('[data-store-id]').on('click.map-palm', 'a[href="#infoDiv"]', function(event) {
-          resetView(false);
-          map.highlight($(event.delegateTarget).data('store-id'));
-        });
-      }
-
-      $(function() {
-        enquire.register("all and (min-width: 64em)", {
-          match: nonPalmView,
-          unmatch: palmView,
-          setup: palmView
-        }, true);
-      });
-    }());
-
-  </script>
+  <%- end -%>
 <%- end -%>

@@ -313,6 +313,8 @@
           content: "";
           display: block;
           position: absolute;
+          /* To allow `.container` to stack on top of the gradient */
+          z-index: 1;
           left: 0;
           right: 0;
           top: 0;
@@ -325,6 +327,7 @@
         .container {
           /* Needs `position: relative` so it will sit above the dark gradient which has `position: absolute` */
           position: relative;
+          z-index: 2;
           @include to-rem(padding, 30 $spacing-base 30 0);
 
           @include respond-min($non-palm) {

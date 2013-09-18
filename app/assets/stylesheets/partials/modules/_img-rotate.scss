@@ -34,4 +34,4 @@
     &:first-of-type {opacity: 1;}
   }
 
-@include img-rotate($item-count: 2, $display-duration: 8, $transition-duration: 2);
+// @include img-rotate($item-count: 2, $display-duration: 8, $transition-duration: 2);

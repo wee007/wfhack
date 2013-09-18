@@ -12,6 +12,7 @@ html {
 	&,
 	body {overflow-x: hidden;}
 
+	/* Have to remove for 'Stores' as it screws up the `z-index` stacking order for header elements */
 	.stores {overflow-x: visible;}
 }
 

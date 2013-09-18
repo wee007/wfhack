@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.32
+Version:     0.1.33
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,9 @@ fi
 
 
 %changelog
+* Wed Sep 18 2013 ci <doperations@au.westfield.com> 0.1.33-1
+- 
+
 * Wed Sep 18 2013 ci <doperations@au.westfield.com> 0.1.32-1
 - Merge pull request #377 from fchan/iphone-height-fix
   (ldewey@au.westfield.com)

@@ -1,7 +1,3 @@
-require 'base64'
-require 'cgi'
-require 'openssl'
-
 module CentresHelper
 
   def social_media

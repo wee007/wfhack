@@ -3,33 +3,13 @@
   <div class="nav-contextual__clip">
     <div class="nav-contextual__clip__inner">
       <ul class="nav-contextual__list horiz-list js-nav-contextual-list">
+        <%= content_tag :li, link_to('Getting Here', anchor: 'getting-here') %><!--
+        --><%= content_tag :li, link_to('Parking', anchor: 'parking') if @parking.present? %><!--
         <%# Remove "if false" conditional statement once other sections are ready %>
-        <% if false %>
-        <li>
-          <%= link_to 'Getting Here', anchor: 'getting-here' %>
-        </li><!--
-      --><li>
-          <%= link_to 'Parking', anchor: 'parking' %>
-        </li><!--
-      --><li>
-          <%= link_to 'Community', anchor: 'community' %>
-        </li><!--
-      --><li>
-          <%= link_to 'Notices', anchor: 'notices' %>
-        </li><!--
-      -->
-        <% end %>
-        <% if @centre.phone_number.present? or @centre.email_address.present? %>
-          <li>
-            <%= link_to 'Contact Us', anchor: 'contact-us' %>
-          </li><!--
-        -->
-        <% end %>
-        <% if social_media.present? %>
-          <li>
-            <%= link_to 'Follow Us', anchor: 'follow-us' %>
-          </li>
-        <% end %>
+        --><%= content_tag :li, link_to('Community', anchor: 'community') if false %><!--
+        --><%= content_tag :li, link_to('Notices', anchor: 'notices') if false %><!--
+        --><%= content_tag :li, link_to('Contact Us', anchor: 'contact-us') if @centre.phone_number.present? or @centre.email_address.present? %><!--
+        --><%= content_tag :li, link_to('Follow Us', anchor: 'follow-us') if social_media.present? %>
       </ul>
     </div>
     <span class="nav-contextual__clip__overlay icon icon--arrow-right icon--mega icon--flush-top js-nav-contextual-clip-overlay" aria-hidden="true"></span>
@@ -48,7 +28,7 @@
   <div class="txt-formatted">
 
     <%= render 'getting_here' %>
-    <%= render :partial => 'parking' unless @parking.empty? %>
+    <%= render :partial => 'parking' if @parking.present? %>
     <%#= render 'community' %>
     <%#= render 'notices' %>
     <%= render 'contact_us' %>

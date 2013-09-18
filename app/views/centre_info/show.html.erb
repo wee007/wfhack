@@ -116,76 +116,13 @@
     </div>
 
     <%# //Getting here %>
+    <% end %>
 
-    <%# Parking %>
-    <h2 id="parking">Parking</h2>
+    <% unless @parking.empty? %>
+      <%= render :partial => 'parking' %>
+    <% end %>
 
-    <%# Complimentary parking %>
-    <div class="grid grid--gutter-dbl grid--mrg-dbl-non-palm">
-      <div class="grid__item one-whole">
-        <p>Complimentary parking available for all customers.</p>
-
-        <small class="fine-print">Parking <%= link_to 'terms &amp; conditions'.html_safe, '#' %> apply</small>
-      </div>
-    </div>
-    <%# //Complimentary parking %>
-
-    <%# Parking rates %>
-    <div class="grid grid--gutter-dbl grid--mrg-dbl-non-palm">
-      <div class="grid__item non-palm-one-half">
-        <div class="box box--mrg-half islet island--non-palm">
-          <table cellspacing="0" class="table-striped">
-            <caption class="hide-visually">Parking rates</caption>
-            <thead>
-              <tr>
-                  <th scope="col">Time</th>
-                  <th scope="col" class="txt-right">Weekday</th>
-                  <th scope="col" class="txt-right">Weekend</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>0 - 2hrs</td>
-                <td class="txt-right txt-caps">Free</td>
-                <td class="txt-right txt-caps">Free</td>
-              </tr>
-              <tr>
-                <td>2hrs - 2.5hrs</td>
-                <td class="txt-right">$8</td>
-                <td class="txt-right">$8</td>
-              </tr>
-              <tr>
-                <td>2.5hrs - 3hrs</td>
-                <td class="txt-right">$10</td>
-                <td class="txt-right">$10</td>
-              </tr>
-              <tr>
-                <td>3hrs - 3.5hrs</td>
-                <td class="txt-right">$15</td>
-                <td class="txt-right">$15</td>
-              </tr>
-              <tr>
-                <td>3.5hrs - 4hrs</td>
-                <td class="txt-right">$20</td>
-                <td class="txt-right">$20</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <small class="fine-print fine-print--center">*2.5% surcharge on all credit card payments, parking <%= link_to 'terms &amp; conditions apply'.html_safe, '#' %>.</small>
-      </div>
-
-      <div class="grid__item non-palm-one-half">
-        <%# [BACKEND] In backoffice console, if user hits `ENTER`, need to make sure a new `p` is generated %>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque convallis leo at ligula ultricies, ac mollis lectus bibendum. Ut nec.</p>
-
-        <h3>Valet Parking</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-      </div>
-    </div>
-    <%# //Parking rates %>
-    <%# //Parking %>
-
+    <% if false %>
     <%# Community %>
     <h2 id="community">Community</h2>
     <%# [BACKEND] Replace the `alt` attribute with dynamic data where indicated %>

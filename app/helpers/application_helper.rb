@@ -27,4 +27,8 @@ module ApplicationHelper
       .lstrip rescue nil
   end
 
+  def to_paragraphs(string)
+    string.split("\n").reject{|l| l.blank? }
+  end
+
 end

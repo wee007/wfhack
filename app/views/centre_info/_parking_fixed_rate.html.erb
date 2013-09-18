@@ -1,0 +1,9 @@
+<div class="grid grid--gutter-dbl grid--mrg-dbl-non-palm">
+  <div class="grid__item non-palm-one-half">
+    <p>Fixed Parking rate of $<%= @parking.flat_rate %> per day</p>
+
+    <%= render partial: 'parking_terms_and_conditions', locals: {align: 'left'} %>
+  </div>
+
+  <%= render partial: "parking_info" %>
+</div>

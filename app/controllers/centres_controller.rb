@@ -2,14 +2,17 @@ class CentresController < ApplicationController
   layout 'national', :only => :index
 
   def index
-    @stores = StoreService.find
-    @stores_count = ( @stores.count*100 ).ceil/100 if @stores.present?
+    centres, products = nil
+    Service::API.in_parallel do
+      centres = CentreService.fetch( :all, country: 'au' )
+      products = ProductService.fetch( rows: 1 )
+    end
 
-    @products = ProductService.find( {} )
-    @products_count = ( @products['count']*100 ).ceil/100 if @products.present?
-
-    @centres = CentreService.find( :all, country: 'au' )
+    @centres = CentreService.build centres
     @centres = @centres.group_by{ |c| c.state } if @centres.present?
+
+    @products = ProductService.build products
+    @products_count = @products['count'].round(-2) if @products.present?
   end
 
   def show

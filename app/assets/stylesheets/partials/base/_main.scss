@@ -7,8 +7,8 @@ html {
 	line-height: $line-height-ratio;
 }
 
-/* iOS orientation bug fix: https://github.com/twbs/bootstrap/issues/6643 */
-.ios {
+/* iOS orientation bug fix: https://github.com/twbs/bootstrap/issues/6643. Only happens on iPad on iOS  6.1.3 */
+.ipad {
 	&,
 	body {overflow-x: hidden;}
 

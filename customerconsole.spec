@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.29
+Version:     0.1.30
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,29 @@ fi
 
 
 %changelog
+* Wed Sep 18 2013 ci <doperations@au.westfield.com> 0.1.30-1
+- Merge pull request #366 from csmith/feature/parking-hours
+  (craigM.smith@au.westfield.com)
+- Fix to quoting (craigm.smith@au.westfield.com)
+- Don't display a paragraph for a blank line. (craigm.smith@au.westfield.com)
+- Don't show credit card %% if there isn't one. (craigm.smith@au.westfield.com)
+- When max daily rates are 0 or empty, don't say free. Say nothing or say -.
+  (craigm.smith@au.westfield.com)
+- Classes that are used in testing I've prefixed with test-, so they aren't
+  confused when styling. (craigm.smith@au.westfield.com)
+- Fixed dodgy formatting. (craigm.smith@au.westfield.com)
+- Removed free parking instructions (craigm.smith@au.westfield.com)
+- Updated flat rate parking copy. (craigm.smith@au.westfield.com)
+- Added all the text fields to each view of parking.
+  (craigm.smith@au.westfield.com)
+- Moved t&c and text parking info into partials.
+  (craigm.smith@au.westfield.com)
+- Added a trivial test for t&c on the rates page.
+  (craigm.smith@au.westfield.com)
+- Using proper cloudinary helper (craigm.smith@au.westfield.com)
+- Added link to Ts and Cs for parking. (craigm.smith@au.westfield.com)
+- Added parking to centre info page. (craigm.smith@au.westfield.com)
+
 * Wed Sep 18 2013 ci <doperations@au.westfield.com> 0.1.29-1
 - Merge pull request #371 from mwratt/feature/WSF-4655-storefront
   (ldewey@au.westfield.com)

@@ -3,8 +3,8 @@
 %>
 
 <%= pin_board(@stream) do |result| %>
-  <%= tile "product",
+  <%= tile result.kind,
     result: result,
-    image: { href: result.default_image_url, title: result.name }
+    image: {href: result[:_links][:image][:href], title: result[:name]}
   %>
 <% end %>

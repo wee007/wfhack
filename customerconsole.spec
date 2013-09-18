@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.28
+Version:     0.1.29
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,22 @@ fi
 
 
 %changelog
+* Wed Sep 18 2013 ci <doperations@au.westfield.com> 0.1.29-1
+- Merge pull request #371 from mwratt/feature/WSF-4655-storefront
+  (ldewey@au.westfield.com)
+- improves 300 character limit (matt.wratt@trineo.co.nz)
+- moves store model creation to service (matt.wratt@trineo.co.nz)
+- removes fixed comment (matt.wratt@trineo.co.nz)
+- fixes map popup links to work as expected (matt.wratt@trineo.co.nz)
+- adds pjax transition to stores index/show pages (matt.wratt@trineo.co.nz)
+- fixes mobile view, hides incomplete deals/products (matt.wratt@trineo.co.nz)
+- fixes broken bower.json file (matt.wratt@trineo.co.nz)
+- adds closing time to stores list page detail popup (matt.wratt@trineo.co.nz)
+- adds closing time to store front (matt.wratt@trineo.co.nz)
+- extracts responsive map js for show/index pages (matt.wratt@trineo.co.nz)
+- fixes header class name relating to banners (matt.wratt@trineo.co.nz)
+- adds dynamic storefront banner phone email etc. (matt.wratt@trineo.co.nz)
+
 * Wed Sep 18 2013 ci <doperations@au.westfield.com> 0.1.28-1
 - Merge pull request #373 from ldewey/master (matt.wratt@trineo.co.nz)
 - Addded more pin board breakpoints (ldewey@au.westfield.com)

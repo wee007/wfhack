@@ -4,16 +4,6 @@
     <ul class="slides">
       <li>
         <%= cl_image_tag @store.storefront, alt: "#{@store.name} banner" %>
-        <%#
-            FIXME: [BACKEND] the storefront banner is optional so if no banner is provided then:
-            - Render the below HTML.
-            - Remove the above image.
-            - Remove the `h1` element above: `<h1 class="hide-visually">`.
-            - Remove the inline `style` attr on the Flexslider `div` container above.
-            - Append class `.is-no-store-banner` to the Flexslider `div` container above: `<div class="flexslider flexslider--contain-controls">`.
-            - If store name exceeds or equals 58 chars then append class `.is-long-store-name` to the `h1` element.
-            All via server side not JS
-        %>
       </li>
       <%= render 'description' %>
     </ul>

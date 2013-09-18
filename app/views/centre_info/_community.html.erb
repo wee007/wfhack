@@ -1,0 +1,35 @@
+<%# Community %>
+<h2 id="community">Community</h2>
+<%# [BACKEND] Replace the `alt` attribute with dynamic data where indicated %>
+<%= image_tag 'http://placehold.it/980x280', class: 'mrg-base', alt: 'Photo of [name of the community where the photo came from]' %>
+
+<%# [BACKEND] To do the 2 columns, please set up two text fields in back office with character limit for each text field (that needs to be determined later). Each text field will correspond to one `grid__item` %>
+<div class="grid grid--gutter-dbl grid--mrg-dbl-non-palm">
+  <div class="grid__item non-palm-one-half">
+    <%# [BACKEND] In backoffice console, if user hits `ENTER`, need to make sure a new `p` is generated %>
+    <p>P1. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque convallis leo at ligula ultricies, ac mollis lectus bibendum. Ut nec. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque convallis leo at ligula ultricies, ac mollis lectus bibendum. Ut nec. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque convallis leo at ligula ultricies, ac mollis lectus bibendum.</p>
+  </div>
+
+  <div class="grid__item non-palm-one-half">
+    <p>P2. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque convallis leo at ligula ultricies, ac mollis lectus bibendum. Ut nec.</p>
+
+    <p>P3. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque convallis leo at ligula ultricies, ac mollis lectus bibendum. Ut nec. Lorem ipsum dolor sit amet, consectetur.</p>
+  </div>
+</div>
+
+<%# [BACKEND] Individual community - the number of community shown will be dynamic so need to replicate this block of code for each one %>
+<div class="grid grid--gutter-dbl grid--mrg-dbl-non-palm">
+  <div class="grid__item non-palm-one-half">
+    <div class="box">
+      <%# [BACKEND] Replace the `alt` attribute with dynamic data where indicated %>
+      <%= image_tag 'http://placehold.it/600x436', alt: 'Logo of [the name of the community]' %>
+    </div>
+  </div>
+
+  <div class="grid__item non-palm-one-half">
+    <h3>[Name of organisation]</h3>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque convallis leo at ligula ultricies, ac mollis lectus bibendum. Ut nec. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque convallis leo at ligula ultricies, ac mollis lectus bibendum. Ut nec.</p>
+  </div>
+</div>
+<%# //Individual community %>
+<%# //Community %>

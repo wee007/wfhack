@@ -1,15 +1,54 @@
+<%# Render high res Google static map of the centre  - http://webdesigntutsplus.s3.amazonaws.com/tuts/365_google_maps/demo/index.html %>
+<% content_for :custom_styles do %>
+  <style>
+    .map-google-static {
+      /*background: url("http://maps.googleapis.com/maps/api/staticmap?center=<%= @centre.latitude %>,<%= @centre.longitude %>&zoom=11&size=640x280&sensor=false") no-repeat 50% 50%;*/
+      background-image: url("http://placehold.it/980x280/666666/000000");
+    }
+    /* High res */
+    @media  (-o-min-device-pixel-ratio: 5/4),
+            (-webkit-min-device-pixel-ratio: 1.25),
+            (min-resolution: 120dpi) {
+              .map-google__static {
+                /*background-image: url("http://maps.googleapis.com/maps/api/staticmap?center=<%= @centre.latitude %>,<%= @centre.longitude %>&zoom=11&size=640x280&sensor=false&scale=2");*/
+                background-image: url("http://placehold.it/980x280/666666/000000");
+              }
+    }
+  </style>
+<% end %>
+
 <%# Nav contextual %>
 <div class="nav-contextual js-nav-contextual">
   <div class="nav-contextual__clip">
     <div class="nav-contextual__clip__inner">
       <ul class="nav-contextual__list horiz-list js-nav-contextual-list">
-        <%= content_tag :li, link_to('Getting Here', anchor: 'getting-here') %><!--
-        --><%= content_tag :li, link_to('Parking', anchor: 'parking') if @parking.present? %><!--
         <%# Remove "if false" conditional statement once other sections are ready %>
-        --><%= content_tag :li, link_to('Community', anchor: 'community') if false %><!--
-        --><%= content_tag :li, link_to('Notices', anchor: 'notices') if false %><!--
-        --><%= content_tag :li, link_to('Contact Us', anchor: 'contact-us') if @centre.phone_number.present? or @centre.email_address.present? %><!--
-        --><%= content_tag :li, link_to('Follow Us', anchor: 'follow-us') if social_media.present? %>
+        <% if false %>
+        <li>
+          <%= link_to 'Getting Here', anchor: 'getting-here' %>
+        </li><!--
+      --><li>
+          <%= link_to 'Parking', anchor: 'parking' %>
+        </li><!--
+      --><li>
+          <%= link_to 'Community', anchor: 'community' %>
+        </li><!--
+      --><li>
+          <%= link_to 'Notices', anchor: 'notices' %>
+        </li><!--
+      -->
+        <% end %>
+        <% if @centre.phone_number.present? or @centre.email_address.present? %>
+          <li>
+            <%= link_to 'Contact Us', anchor: 'contact-us' %>
+          </li><!--
+        -->
+        <% end %>
+        <% if social_media.present? %>
+          <li>
+            <%= link_to 'Follow Us', anchor: 'follow-us' %>
+          </li>
+        <% end %>
       </ul>
     </div>
     <span class="nav-contextual__clip__overlay icon icon--arrow-right icon--mega icon--flush-top js-nav-contextual-clip-overlay" aria-hidden="true"></span>
@@ -22,22 +61,321 @@
 <% end -%>
 <%# //Nav contextual %>
 
-<%# Divider %>
 <div class="divider">
   <%# Text formatted %>
   <div class="txt-formatted">
+    <%# Remove "if false" conditional statement once other sections are ready %>
+    <% if false %>
+    <%# Getting here %>
+    <h2 id="getting-here">Getting Here</h2>
 
-    <%= render 'getting_here' %>
-    <%= render :partial => 'parking' if @parking.present? %>
-    <%#= render 'community' %>
-    <%#= render 'notices' %>
-    <%= render 'contact_us' %>
+    <%# Shopping centre map %>
+    <div class="centre-location">
+      <%# Static Google map %>
+      <div class="map-google-static">
+        <!-- <img src="http://maps.googleapis.com/maps/api/staticmap?center=<%= @centre.latitude %>,<%= @centre.longitude %>&zoom=11&size=640x280&sensor=false"> -->
+        <%= image_tag 'http://placehold.it/980x280/666666/000000' %>
+      </div>
+      <%# //Static Google map %>
+
+      <%# Address box %>
+      <div class="centre-location__info box slats">
+        <div class="slats__img slats__img--compact">
+          <%# [BACKEND] Make `alt` attr dynamic where indicated %>
+          <%= image_tag 'http://placehold.it/120x130&text=image', alt: 'Photo of [dynamic] shopping centre' %>
+        </div>
+        <div class="slats__body islet">
+          <p itemscope itemtype="http://schema.org/Organization">
+            <span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+              <span itemprop="streetAddress">Cnr Narre Warren Cranbourne Rd &amp; Littlecroft Ave</span>
+              <br>
+              <span itemprop="addressLocality">Narre Warren</span>
+              <br>
+              <span itemprop="addressRegion"><%= @centre.state %> <%= @centre.postcode %></span>
+            </span>
+          </p>
+          <a href="#" rel="external">Open in Google Maps <span class="icon icon--arrow-right icon--lrg" aria-hidden="true"></span></a>
+        </div>
+      </div>
+      <%# //Address box %>
+    </div>
+    <%# //Shopping centre map %>
+
+    <%# Need spacing class `mrg-base--top` here as the map location will stack below the map image above %>
+    <div class="grid grid--gutter-dbl grid--mrg-dbl-non-palm mrg-base--top">
+      <div class="grid__item non-palm-one-half">
+        <h3>By Train</h3>
+        <%# [BACKEND] In backoffice console, if user hits `ENTER`, need to make sure a new `p` is generated %>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque convallis leo at ligula ultricies, ac mollis lectus bibendum. Ut nec. Lorem ipsum dolor sit amet</p>
+      </div>
+
+      <div class="grid__item non-palm-one-half">
+        <h3>By Bus</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque convallis.t</p>
+      </div>
+    </div>
+
+    <%# //Getting here %>
+    <% end %>
+
+    <% unless @parking.empty? %>
+      <%= render :partial => 'parking' %>
+    <% end %>
+
+    <% if false %>
+    <%# Community %>
+    <h2 id="community">Community</h2>
+    <%# [BACKEND] Replace the `alt` attribute with dynamic data where indicated %>
+    <%= image_tag 'http://placehold.it/980x280', class: 'mrg-base', alt: 'Photo of [name of the community where the photo came from]' %>
+
+    <%# [BACKEND] To do the 2 columns, please set up two text fields in back office with character limit for each text field (that needs to be determined later). Each text field will correspond to one `grid__item` %>
+    <div class="grid grid--gutter-dbl grid--mrg-dbl-non-palm">
+      <div class="grid__item non-palm-one-half">
+        <%# [BACKEND] In backoffice console, if user hits `ENTER`, need to make sure a new `p` is generated %>
+        <p>P1. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque convallis leo at ligula ultricies, ac mollis lectus bibendum. Ut nec. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque convallis leo at ligula ultricies, ac mollis lectus bibendum. Ut nec. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque convallis leo at ligula ultricies, ac mollis lectus bibendum.</p>
+      </div>
+
+      <div class="grid__item non-palm-one-half">
+        <p>P2. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque convallis leo at ligula ultricies, ac mollis lectus bibendum. Ut nec.</p>
+
+        <p>P3. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque convallis leo at ligula ultricies, ac mollis lectus bibendum. Ut nec. Lorem ipsum dolor sit amet, consectetur.</p>
+      </div>
+    </div>
+
+    <%# [BACKEND] Individual community - the number of community shown will be dynamic so need to replicate this block of code for each one %>
+    <div class="grid grid--gutter-dbl grid--mrg-dbl-non-palm">
+      <div class="grid__item non-palm-one-half">
+        <div class="box">
+          <%# [BACKEND] Replace the `alt` attribute with dynamic data where indicated %>
+          <%= image_tag 'http://placehold.it/600x436', alt: 'Logo of [the name of the community]' %>
+        </div>
+      </div>
+
+      <div class="grid__item non-palm-one-half">
+        <h3>[Name of organisation]</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque convallis leo at ligula ultricies, ac mollis lectus bibendum. Ut nec. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque convallis leo at ligula ultricies, ac mollis lectus bibendum. Ut nec.</p>
+      </div>
+    </div>
+    <%# //Individual community %>
+    <%# //Community %>
+
+    <%# Notices %>
+    <h2 id="notice">Notices</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+
+    <div class="grid grid--gutter-dbl grid--mrg-dbl-non-palm">
+      <div class="grid__item non-palm-one-whole">
+        <ul class="txt-formatted__list-unstyled">
+          <li>
+              <%# [BACKEND] The first link in the list needs to have class `list-divider--first` %>
+              <a href="#" class="list-divider list-divider--first txt-truncate">Lorem ipsum dolor sit amet, consectetur adipiscing elitLorem ipsumdolorsitametconsectetur adipiscinfelit
+              <span class="icon icon--arrow-right icon--lrg icon--base-color" aria-hidden="true"></span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="list-divider txt-truncate">
+              Quisque convallis leo at ligula ultricies
+              <span class="icon icon--arrow-right icon--lrg icon--base-color" aria-hidden="true"></span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <%# //Notices %>
+    <% end %>
+    <%# Contact Us %>
+    <% if @centre.phone_number.present? or @centre.email_address.present? %>
+      <h2 id="contact-us">Contact Us</h2>
+      <div class="grid grid--gutter-dbl grid--mrg-dbl-non-palm">
+
+        <%# Phone number %>
+        <% if @centre.phone_number.present? %>
+          <div class="grid__item non-palm-one-half">
+            <%# Show centre number if at non-palm size %>
+            <div class="box island txt-center hide-fully--palm" itemscope itemtype="http://schema.org/Organization">
+              <span class="icon icon--phone2 icon--kilo icon--spacing-lrg" aria-hidden="true"></span>
+              <span class="hide-visually">Phone number</span>
+              <span itemprop="telephone"><%= @centre.phone_number %></span>
+            </div>
+            <%# //Show centre number if at non-palm size %>
+
+            <%# Show CTA button for centre contact number for palm %>
+            <span class="hide-fully--non-palm">
+              <a href="tel:<%= (@centre.phone_number || "").gsub(/\s+/,'') %>" class="txt-center btn btn--full btn--main btn--main-alt2 btn--main-lrg">
+                <span class="icon icon--phone icon--xlrg icon--spacing-lrg icon--flush-top" aria-hidden="true"></span>
+                <strong>Call <%= @centre.short_name %> Centre</strong>
+              </a>
+            </span>
+            <%# //Show CTA button for centre contact number for palm %>
+          </div>
+        <% end %>
+        <%# //Phone number %>
+
+        <% if @centre.email_address.present? %>
+          <div class="grid__item non-palm-one-half">
+            <div class="box island txt-center txt-truncate">
+              <span class="icon icon--email icon--kilo icon--spacing-lrg" aria-hidden="true"></span>
+              <span class="hide-visually">Email</span>
+              <%= mail_to @centre.email_address, @centre.email_address %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+    <%# //Contact Us %>
+
+    <%# Follow Us - title %>
+      <%# Need mrg-base spacing class as the :last-child on txt-formatted removed the margin %>
+      <% if social_media.present? %>
+        <h2 id="follow-us" class="mrg-base">Follow Us</h2>
+      <% end %>
+    <%# //Follow Us - title %>
   </div>
   <%# //Text formatted %>
 
-  <%= render 'social_media' %>
+  <%# Follow Us - list of social media %>
+  <% if social_media.present? %>
+    <ul class="grid grid--mrg-base-non-palm">
+      <%# Facebook %>
+      <% if @centre.facebook.present? %>
+        <li class="grid__item one-half non-palm-one-quarter">
+          <a href="<%= @centre.facebook %>" class="flag social-follow" rel="external" target="_blank">
+            <div class="flag__image">
+              <div class="box islet">
+                <span class="icon icon--facebook icon--base-color" aria-hidden="true"></span>
+              </div>
+            </div>
+            <div class="flag__body">
+              Facebook
+            </div>
+          </a>
+        </li>
+      <% end %>
+      <%# //Facebook %>
+
+      <%# Twitter %>
+      <% if @centre.twitter.present? %>
+        <li class="grid__item one-half non-palm-one-quarter">
+          <a href="<%= @centre.twitter %>" class="flag social-follow" rel="external" target="_blank">
+            <div class="flag__image">
+              <div class="box islet">
+                <span class="icon icon--twitter icon--base-color" aria-hidden="true"></span>
+              </div>
+            </div>
+            <div class="flag__body">
+              Twitter
+            </div>
+          </a>
+        </li>
+      <% end %>
+      <%# //Twitter %>
+
+      <%# Instagram %>
+      <% if @centre.instagram.present? %>
+        <li class="grid__item one-half non-palm-one-quarter">
+          <a href="<%= @centre.instagram %>" class="flag social-follow" rel="external" target="_blank">
+            <div class="flag__image">
+              <div class="box islet">
+                <span class="icon icon--instagram icon--base-color" aria-hidden="true"></span>
+              </div>
+            </div>
+            <div class="flag__body">
+              Instagram
+            </div>
+          </a>
+        </li>
+      <% end %>
+      <%# //Instagram %>
+
+      <%# Pinterest %>
+      <% if @centre.pinterest.present? %>
+        <li class="grid__item one-half non-palm-one-quarter">
+          <a href="<%= @centre.pinterest %>" class="flag social-follow" rel="external" target="_blank">
+            <div class="flag__image">
+              <div class="box islet">
+                <span class="icon icon--pinterest icon--base-color" aria-hidden="true"></span>
+              </div>
+            </div>
+            <div class="flag__body">
+              Pinterest
+            </div>
+          </a>
+        </li>
+      <% end %>
+      <%# //Pinterest %>
+
+      <%# YouTube %>
+      <% if @centre.youtube.present? %>
+        <li class="grid__item one-half non-palm-one-quarter">
+          <a href="<%= @centre.youtube %>" class="flag social-follow" rel="external" target="_blank">
+            <div class="flag__image">
+              <div class="box islet">
+                <span class="icon icon--youtube icon--base-color" aria-hidden="true"></span>
+              </div>
+            </div>
+            <div class="flag__body">
+              YouTube
+            </div>
+          </a>
+        </li>
+      <% end %>
+      <%# //YouTube %>
+
+      <%# Google+ %>
+      <% if @centre.google_plus.present? %>
+        <li class="grid__item one-half non-palm-one-quarter">
+          <a href="<%= @centre.google_plus %>" class="flag social-follow" rel="external" target="_blank">
+            <div class="flag__image">
+              <div class="box islet">
+                <span class="icon icon--google-plus icon--base-color" aria-hidden="true"></span>
+              </div>
+            </div>
+            <div class="flag__body">
+              Google+
+            </div>
+          </a>
+        </li>
+      <% end %>
+      <%# //Google+ %>
+    </ul>
+  <% end %>
+  <%# //Follow Us - list of social media %>
 </div>
 <%# //Divider %>
 
+<%# Remove "if false" conditional statement once other sections are ready %>
+<% if false %>
+<footer class="grid grid--gutter-dbl"> 
+  <div class="grid__item non-palm-one-half">
+    <%# Shopping hours box %>
+    <div class="promo-tile box">
+      <%= image_tag 'promo-tiles/promo-tile-01.jpg', alt: '' %>
+      <span class="promo-tile__icon-main icon icon--hours icon--flush-top" aria-hidden="true"></span>
+      <div class="islet island--non-palm">
+        <h2 class="promo-tile__hdr">Opening Hours</h2>
+        <div class="txt-formatted">
+          <p>Find out specific hours for our department stores.</p>
+          <%= link_to "Check Shopping Hours", centre_hours_path(@centre) %>
+        </div>
+      </div>
+    </div>
+    <%# //Shopping hours box %>
+  </div>
 
-<%#= render 'footer' %>
+  <div class="grid__item non-palm-one-half">
+    <%# Centre services box %>
+    <div class="promo-tile box">
+      <%= image_tag 'promo-tiles/promo-tile-02.jpg', alt: '' %>
+      <span class="promo-tile__icon-main icon icon--service icon--flush-top" aria-hidden="true"></span>
+      <div class="islet island--non-palm">
+        <h2 class="promo-tile__hdr">Centre Services</h2>
+        <div class="txt-formatted">
+          <p>Find out the full selection of services available.</p>
+          <%= link_to 'Get Directions', '#' %>
+        </div>
+      </div>
+    </div>
+    <%# //Centre services box %>
+  </div>
+</footer>
+<% end %>

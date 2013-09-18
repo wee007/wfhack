@@ -3,8 +3,8 @@ defaults: &defaults
   cloud_name: wlabs
   api_key: '126264366716471'
   api_secret: hrsUPxt6OVXvX_06NMyYKsARjUA
-  enhance_image_tag: true
-  static_image_support: true
+  enhance_image_tag: false
+  static_image_support: false
 
 development:
   <<: *defaults

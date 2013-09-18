@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.27
+Version:     0.1.28
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,10 @@ fi
 
 
 %changelog
+* Wed Sep 18 2013 ci <doperations@au.westfield.com> 0.1.28-1
+- Merge pull request #373 from ldewey/master (matt.wratt@trineo.co.nz)
+- Addded more pin board breakpoints (ldewey@au.westfield.com)
+
 * Wed Sep 18 2013 ci <doperations@au.westfield.com> 0.1.27-1
 - Centre show pinboard has wrong data passing to the tiles
   (ldewey@au.westfield.com)

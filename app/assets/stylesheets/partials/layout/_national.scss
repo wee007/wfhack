@@ -313,6 +313,7 @@
           content: "";
           display: block;
           position: absolute;
+          /* To allow `.container` to stack on top of the gradient */
           z-index: 1;
           left: 0;
           right: 0;

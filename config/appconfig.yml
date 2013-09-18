@@ -1,5 +1,5 @@
 defaults: &defaults
-  google_maps_business_id: gme-westfieldltd
+  google_maps_business_client_id: gme-westfieldltd
   google_maps_business_key: bE5iXqPOtk4BQzkJKbtpsHxWhRY=
 
 development:

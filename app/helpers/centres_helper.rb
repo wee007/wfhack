@@ -19,7 +19,14 @@ module CentresHelper
     key = Base64.urlsafe_decode64 AppConfig.google_maps_business_key
 
     # Build up the url to sign
-    to_sign = "/maps/api/staticmap?center=#{options[:latitude]},#{options[:longitude]}&zoom=15&size=#{options[:width]}x#{options[:height]}&scale=#{options[:scale]}&sensor=false&client=#{AppConfig.google_maps_business_id}"
+    to_sign = '/maps/api/staticmap?' + {
+      center: "#{options[:latitude]},#{options[:longitude]}",
+      zoom: 15,
+      size: "#{options[:width]}x#{options[:height]}",
+      scale: options[:scale],
+      sensor: false,
+      client: AppConfig.google_maps_business_client_id
+    }.to_query
 
     # Build the signature
     signature = Base64.urlsafe_encode64 OpenSSL::HMAC.digest('sha1', key, to_sign)

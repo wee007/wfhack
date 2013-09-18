@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.31
+Version:     0.1.32
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,14 @@ fi
 
 
 %changelog
+* Wed Sep 18 2013 ci <doperations@au.westfield.com> 0.1.32-1
+- Merge pull request #377 from fchan/iphone-height-fix
+  (ldewey@au.westfield.com)
+- Merge pull request #376 from ewee/master (ldewey@au.westfield.com)
+- Changed ios white gap fix to be for ipad only (fiona@fionachan.net)
+- Changed ios white gap fix to be for ipad only (fiona@fionachan.net)
+- Fetch results for multiple services in parallel (ewee@au.westfield.com)
+
 * Wed Sep 18 2013 ci <doperations@au.westfield.com> 0.1.31-1
 - Merge pull request #375 from fchan/national-bug (cpearce@au.westfield.com)
 - Remove redundant class (fiona@fionachan.net)

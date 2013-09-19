@@ -47,7 +47,25 @@ class map.micello.Map extends map.micello.MapBase
     return unless data.cid == @community
     @index.addAddresses(data.g)
 
+  patchMicelloAPI: ->
+    limit = (value, options) ->
+      Math.min(Math.max(value, options.min), options.max)
+
+    micello.maps.MapView.prototype.translate = (x,y) ->
+      width = @viewport.offsetWidth
+      halfHeight = @viewport.offsetHeight / 2
+      @mapXInViewport = limit(@mapXInViewport + x, max: width, min: width / 2 - @baseWidth * @scale)
+      @mapYInViewport = limit(@mapYInViewport + y, max: halfHeight, min: halfHeight - @baseHeight * @scale)
+      @mapElement.style.left = @mapXInViewport + "px"
+      @mapElement.style.top = @mapYInViewport + "px"
+      @mapCanvas.onPan(-@mapXInViewport, -@mapYInViewport, -@mapXInViewport + @viewport.offsetWidth, -@mapYInViewport + @viewport.offsetHeight)
+      if @onViewChange
+        @event.pan = 1
+        @event.zoom = 0
+        @onViewChange(@event)
+
   ready: ->
+    @patchMicelloAPI()
     if @addressFetch.state() == 'resolved'
       super
     else

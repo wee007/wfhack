@@ -20,7 +20,7 @@ module CentresHelper
 
     # Build up the url to sign
     to_sign = '/maps/api/staticmap?' + {
-      center: "#{options[:latitude]},#{options[:longitude]}",
+      markers: "#{options[:latitude]},#{options[:longitude]}",
       zoom: 15,
       size: "#{options[:width]}x#{options[:height]}",
       scale: options[:scale],

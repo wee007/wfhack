@@ -18,9 +18,11 @@ module CentresHelper
     # Decode the key
     key = Base64.urlsafe_decode64 AppConfig.google_maps_business_key
 
+    image = options[:scale] == 1 ? 'icon_map_pointer.png' : 'icon_map_pointer@2x.png'
+
     # Build up the url to sign
     to_sign = '/maps/api/staticmap?' + {
-      markers: "#{options[:latitude]},#{options[:longitude]}",
+      markers: "scale:#{options[:scale]}|icon:#{image_path(image)}|#{options[:latitude]},#{options[:longitude]}",
       zoom: 15,
       size: "#{options[:width]}x#{options[:height]}",
       scale: options[:scale],

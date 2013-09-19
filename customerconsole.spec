@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.34
+Version:     0.1.35
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,10 @@ fi
 
 
 %changelog
+* Thu Sep 19 2013 ci <doperations@au.westfield.com> 0.1.35-1
+- Revert "Merge pull request #378 from ldewey/WSF-4687"
+  (ldewey@au.westfield.com)
+
 * Thu Sep 19 2013 ci <doperations@au.westfield.com> 0.1.34-1
 - Change to_sign to a hash, as thats better than building a string up
   (ldewey@au.westfield.com)

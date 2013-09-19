@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.35
+Version:     0.1.36
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,15 @@ fi
 
 
 %changelog
+* Thu Sep 19 2013 ci <doperations@au.westfield.com> 0.1.36-1
+- Merge pull request #379 from mwratt/feature/WSF-4655-storefront
+  (ldewey@au.westfield.com)
+- Merge pull request #372 from btillman/pretty_api_response
+  (ldewey@au.westfield.com)
+- fixes broken westfield gift card icon (matt.wratt@trineo.co.nz)
+- displays api doc responses in a simpler format (aka yaml) by default
+  (ben.tillman@gmail.com)
+
 * Thu Sep 19 2013 ci <doperations@au.westfield.com> 0.1.35-1
 - Revert "Merge pull request #378 from ldewey/WSF-4687"
   (ldewey@au.westfield.com)

@@ -32,7 +32,7 @@
       <div class="centre-location__info box slats">
         <div class="slats__img slats__img--compact">
           <%= image_tag "heroes/#{@centre.code}-lrg.jpg",
-            :crop => :limit,
+            :crop => :thumb,
             :width => 120,
             :height => 130,
             :html_width => 120,
@@ -46,14 +46,12 @@
             <span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
               <span itemprop="streetAddress"><%= @centre.street_address %></span>
               <br>
-              <% if @centre.suburb %>
-                <span itemprop="addressLocality"><%= @centre.suburb %></span>
-                <br>
-              <% end %>
+              <span itemprop="addressLocality"><%= @centre.suburb %></span>
+              <br>
               <span itemprop="addressRegion"><%= @centre.state %> <%= @centre.postcode %></span>
             </span>
           </p>
-          <a href="<%= "https://maps.google.com/maps?q=#{@centre.street_address}+(#{@centre.name})+@#{@centre.latitude},#{@centre.longitude}" %>" rel="external">Open in Google Maps <span class="icon icon--arrow-right icon--lrg" aria-hidden="true"></span></a>
+          <a href="<%= "https://maps.google.com/maps?q=#{@centre.latitude},#{@centre.longitude}" %>" rel="external">Open in Google Maps <span class="icon icon--arrow-right icon--lrg" aria-hidden="true"></span></a>
         </div>
       </div>
       <%# //Address box %>

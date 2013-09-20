@@ -13,8 +13,8 @@ class CentreHoursController < ApplicationController
 
     # TODO: Should this be a presenter?
     @hero = Hashie::Mash.new heading: 'Opening Hours',
-                             image: 'opening-hours'
-
+                             image: 'opening-hours',
+                             icon: 'hours'
     meta.push(
       page_title: "Opening Hours at #{@centre.name}",
       description: "Find #{@centre.name}'s opening and trading hours for today, this week and special shopping days"

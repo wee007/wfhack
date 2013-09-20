@@ -15,7 +15,7 @@ module MoviesHelper
       if movie_id
         days << link_to(text, centre_movie_path(centre_id, movie_id, date: i_day), class: selected_date == i_day ? "selected" : "")
       else
-        days << link_to(text, centre_movies_path(centre_id, date: i_day), class: selected_date == i_day ? "selected" : "")
+        days << link_to(text, centre_movies_path(centre_id, date: i_day), class: selected_date == i_day ? "is-active" : "")
       end
     end
     days

@@ -1,4 +1,90 @@
-<div id='store_info'>
+<h2 class="hide-visually">Session Times</h2>
+
+<%# Tabs %>
+<div class="tabs">
+
+  <%# Nav contextual %>
+  <div class="nav-contextual js-nav-contextual">
+    <div class="nav-contextual__clip">
+      <div class="nav-contextual__clip__inner">
+        <ul class="nav-contextual__list tab__nav horiz-list js-nav-contextual-list">
+          <%# TODO: add <!-- --> to remove white %>
+          <% days(@movie_sessions.last['start_time'], @centre.code, params['date']).each do |day| %>
+            <li><%= day %></li>
+          <% end %>
+        </ul>
+      </div>
+      <span class="nav-contextual__clip__overlay icon icon--arrow-right icon--mega icon--flush-top js-nav-contextual-clip-overlay" aria-hidden="true"></span>
+    </div>
+  </div>
+
+  <% content_for :javascript do %>
+    <script>
+      $('.js-nav-contextual').navContextual();
+    </script>
+  <% end -%>
+  <%# //Nav contextual %>
+
+  <%# Movies %>
+  <div id="tab-" class="tab__content is-active">
+
+    <%# Movies - row 1 %>
+    <ul class="grid grid--mrg-base-non-palm">
+      <li class="grid__item one-half non-palm-one-quarter">
+        <a href="#">
+          <div class="box">
+            <img src="http://placehold.it/285x345" alt="">
+            <div class="islet island--non-palm">
+              <h3>Skyfall</h3>
+              <p>Next session at 10.15am</p>
+            </div>
+          </div>
+        </a>
+      </li>
+       <li class="grid__item one-half non-palm-one-quarter">
+        <a href="#">
+          <div class="box">
+            <img src="http://placehold.it/285x345" alt="">
+            <div class="islet island--non-palm">
+              <h3>Skyfall</h3>
+              <p>Next session at 10.15am</p>
+            </div>
+          </div>
+        </a>
+      </li>
+       <li class="grid__item one-half non-palm-one-quarter">
+        <a href="#">
+          <div class="box">
+            <img src="http://placehold.it/285x345" alt="">
+            <div class="islet island--non-palm">
+              <h3>Skyfall</h3>
+              <p>Next session at 10.15am</p>
+            </div>
+          </div>
+        </a>
+      </li>
+       <li class="grid__item one-half non-palm-one-quarter">
+        <a href="#">
+          <div class="box">
+            <img src="http://placehold.it/285x345" alt="">
+            <div class="islet island--non-palm">
+              <h3>Skyfall</h3>
+              <p>Next session at 10.15am</p>
+            </div>
+          </div>
+        </a>
+      </li>
+    </ul>
+    <%# //Movies - row 1 %>
+
+  </div>
+  <%# //Movies %>
+
+</div>
+<%# //Tabs %>
+
+
+<div id='store_info' style="display: none">
   <%# retailer banner %>
   <%= image_tag @cinema.store_front_image_url, alt:@cinema.name %>
 
@@ -14,7 +100,6 @@
   <%# Store map link? %>
 </div>
 
-<h2>Session Times</h2>
 <ul id="sessions">
 <% days(@movie_sessions.last['start_time'], @centre.code, params['date']).each do |day| %>
   <li><%= day %></li>

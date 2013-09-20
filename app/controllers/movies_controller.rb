@@ -1,6 +1,6 @@
 class MoviesController < ApplicationController
 
-  layout 'detail_view', only: :show
+  layout 'sub_page', only: :index
 
   def index
     centre, movies, movie_sessions, cinema = nil
@@ -19,6 +19,7 @@ class MoviesController < ApplicationController
       page_title: "#{@cinema.name} at #{@centre.name}",
       description: "#{@cinema.name} at #{@centre.name}"
     )
+    @hero = Hashie::Mash.new heading: '[Cinema name]', image: 'movies', icon: 'video'
   end
 
   def show

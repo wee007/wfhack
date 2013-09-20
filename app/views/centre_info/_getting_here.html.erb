@@ -24,7 +24,7 @@
     <div class="centre-location">
       <%# Static Google map %>
       <div class="map-google-static">
-        <%= image_tag getting_here_map_url(@centre) %>
+        <%= image_tag getting_here_map_url(@centre), alt: '' %>
       </div>
       <%# //Static Google map %>
 
@@ -51,7 +51,9 @@
               <span itemprop="addressRegion"><%= @centre.state %> <%= @centre.postcode %></span>
             </span>
           </p>
-          <a href="<%= "https://maps.google.com/maps?q=#{@centre.latitude},#{@centre.longitude}" %>" rel="external">Open in Google Maps <span class="icon icon--arrow-right icon--lrg" aria-hidden="true"></span></a>
+          <%= link_to "https://maps.google.com/maps?q=#{@centre.latitude},#{@centre.longitude}", rel: 'external' do %>
+            Open in Google Maps <span class="icon icon--arrow-right icon--lrg" aria-hidden="true"></span>
+          <% end -%>
         </div>
       </div>
       <%# //Address box %>

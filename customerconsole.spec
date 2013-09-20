@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.37
+Version:     0.1.38
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -76,6 +76,14 @@ fi
 
 
 %changelog
+* Fri Sep 20 2013 ci <doperations@au.westfield.com> 0.1.38-1
+- Merge pull request #384 from fchan/national-bug (ldewey@au.westfield.com)
+- Merge pull request #381 from mwratt/feature/WSF-4655-storefront
+  (ldewey@au.westfield.com)
+- Re-saved hero image (fiona@fionachan.net)
+- Re-saved national hero images (fiona@fionachan.net)
+- improved pan for our given layout (matt.wratt@trineo.co.nz)
+
 * Thu Sep 19 2013 ci <doperations@au.westfield.com> 0.1.37-1
 - 
 

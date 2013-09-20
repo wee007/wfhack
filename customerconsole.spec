@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.39
+Version:     0.1.40
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -77,6 +77,9 @@ fi
 
 
 %changelog
+* Fri Sep 20 2013 ci <doperations@au.westfield.com> 0.1.40-1
+- cloudinary asset update (ldewey@au.westfield.com)
+
 * Fri Sep 20 2013 ci <doperations@au.westfield.com> 0.1.39-1
 - Merge pull request #383 from ldewey/WSF-4687 (fchan@au.westfield.com)
 - Fixed google map alt text. (ldewey@au.westfield.com)

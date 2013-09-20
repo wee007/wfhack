@@ -35,13 +35,9 @@ class ApplicationController < ActionController::Base
   helper_method :meta
 
   def all_centres
-    centres = nil
-    Service::API.in_parallel do
-      centres = CentreService.fetch( :all, country: 'au' )
-    end
-
-    @centres = CentreService.build centres
-    @centres = @centres.group_by{ |c| c.state } if @centres.present?
+    centres = CentreService.fetch( :all, country: 'au' )
+    centres = CentreService.build centres
+    centres.group_by{ |c| c.state } if centres.present?
   end
   helper_method :all_centres
 

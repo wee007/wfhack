@@ -22,7 +22,7 @@
     <%# //Product name, brand and price %>
 
     <%# Check if a product is available at a centre %>
-    <% if @centres.empty? %>
+    <% if @centres.present? && @centre.present? %>
 
       <%# When product is not available at a centre %>
       <div class="detail-view__product-not-avble detail-view__divider">
@@ -36,7 +36,7 @@
       </div>
       <%# //When product is not available at a centre %>
 
-    <%- else -%>
+    <%- elsif @centre.present? -%>
 
       <%# When product is available at a centre %>
 

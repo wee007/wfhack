@@ -9,6 +9,10 @@ class Deal < OpenStruct
     store.name
   end
 
+  def retailer_code
+    store.retailer_code
+  end
+
   def logo
     store.logo if store && store.has_logo?
   end

@@ -11,7 +11,8 @@ CustomerConsole::Application.routes.draw do
  # everything needs to go above centres
   resources :centres, :path => '' do
     resources :events, only: [:index, :show]
-    resources :deals, only: [:index, :show]
+    resources :deals, only: [:index]
+    get ':retailer_code/deals/:id' => 'deals#show', constraints: {id: /.+/}, as: 'deal'
     resources :movies, only: [:index, :show]
     resources :stores, only: [:index, :show]
     resources :products, only: [:index]

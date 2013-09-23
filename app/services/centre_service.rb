@@ -8,6 +8,11 @@ class CentreService
       Centre.build(body)
     end
 
+    def group_by_state(json)
+      centres = build json
+      centres.group_by{ |c| c.state } if centres.present?
+    end
+
     def request_uri(centre=nil,options={})
       if centre.nil? || centre == :all
         uri = URI("#{ServiceHelper.uri_for('centre')}/centres.json")

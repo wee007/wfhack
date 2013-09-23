@@ -39,7 +39,7 @@
       	<%# Tab panels %>
       	<% %w(NSW ACT QLD VIC SA WA).each do |state| %>
 		      <ul id="tab-<%= state.downcase %>" class="tab__content<%= ' is-active' if state == 'NSW' %>">
-		        <% all_centres[state].each do |centre| %>
+		        <% @centres[state].each do |centre| %>
 		          <li><a class="container h1" href="<%= centre_path( centre ) %>"><%= centre.short_name %><span class="icon icon--arrow-right-big icon--flush-top" aria-hidden="true"></span></a></li>
 		        <% end %>
 		      </ul>
@@ -58,7 +58,7 @@
           	<dl class="drop-down-menu__list">
       				<% %w(NSW ACT QLD VIC SA WA).each do |state| %>
 	          		<dt class="drop-down-menu__hdr-sub drop-down-menu__divider"><%= state %></dt>
-		        		<% all_centres[state].each do |centre| %>
+		        		<% @centres[state].each do |centre| %>
 	          			<dd class="drop-down-menu__divider"><%= link_to centre.short_name, centre_path( centre ), class: 'btn btn--full btn--full-left' %></dd>
 	          		<% end %>
 	          	<% end %>

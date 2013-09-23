@@ -36,7 +36,9 @@
 
       # If there is not centre supplied in the query string,
       # retrieve it from the route
-      urlParams.centre = getCentre()  unless urlParams.centre
+      unless urlParams.centre || getCentre() == 'products'
+        urlParams.centre = getCentre()
+
       params = ParamCleaner.deserialize(urlParams)
       angular.forEach params, (param, key) ->
 

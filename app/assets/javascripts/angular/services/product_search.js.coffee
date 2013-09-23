@@ -14,6 +14,7 @@
       centre: []
       last: ""
       rows: 15
+      page: 1
 
     callbacks = []
 
@@ -58,6 +59,7 @@
       category
 
     @formatSearchResults = (response) ->
+      @count = response.count
       @categories = @getCategoryFacet(response.facets)
       @retailers = SearchFacet.retrieve(response.facets, "retailer")
       @brands = SearchFacet.retrieve(response.facets, "brand")

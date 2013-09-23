@@ -363,5 +363,13 @@
     <div ng-if="!products.loaded"><%= render 'products' %></div>
   </div>
 
+
+  <div ng-if="!products.loading" ng-controller="ProductPaginationController">
+    <button ng-if="has_prev()" ng-click="prev()">Prev</button>
+    <button ng-if="has_next()" ng-click="next()">Next</button>
+  </div>
+
 </div>
 <%# //Render results %>
+
+

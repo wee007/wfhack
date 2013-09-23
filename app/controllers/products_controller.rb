@@ -28,6 +28,7 @@ class ProductsController < ApplicationController
         format.html { render partial: "products" }
       else
         gon.products = {
+          count: @search['count'],
           display_options: @search.display_options,
           facets: @search.facets,
           applied_filters: @search.applied_filters

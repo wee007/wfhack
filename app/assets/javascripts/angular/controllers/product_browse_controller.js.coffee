@@ -49,9 +49,7 @@
 
 
     updateProducts = ->
-      Products.get document.location.pathname, angular.extend(ProductSearch.params(),
-        page: 1
-      )
+      Products.get document.location.pathname, ProductSearch.params()
 
     $scope.bootstrap = ->
       ProductSearch.formatSearchResults $window.westfield.products
@@ -135,5 +133,6 @@
       max = $scope.search[paramName].values.range_end
       paramValue = min + "-" + max
       ProductSearch.setParam paramName, paramValue
+
   ]
 ) angular.module("Westfield")

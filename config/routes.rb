@@ -12,7 +12,7 @@ CustomerConsole::Application.routes.draw do
   resources :centres, :path => '' do
     resources :events, only: [:index, :show]
     resources :deals, only: [:index]
-    get ':retailer_code/deals/:id' => 'deals#show', constraints: {id: /.+/}, as: 'deal'
+    get 'deals/:retailer_code/:id' => 'deals#show', as: 'deal'
     resources :movies, only: [:index, :show]
     resources :stores, only: [:index, :show]
     resources :products, only: [:index]

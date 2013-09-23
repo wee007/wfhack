@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.43
+Version:     0.1.44
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -77,6 +77,13 @@ fi
 
 
 %changelog
+* Mon Sep 23 2013 ci <doperations@au.westfield.com> 0.1.44-1
+- Merge pull request #387 from csmith/master (craigM.smith@au.westfield.com)
+- Swapped deals url around to keep it consistent with product.
+  (craigm.smith@au.westfield.com)
+- Added retailer code in to deal show url for analytics.
+  (craigm.smith@au.westfield.com)
+
 * Mon Sep 23 2013 ci <doperations@au.westfield.com> 0.1.43-1
 - Merge pull request #382 from fchan/iphone-height-fix
   (cpearce@au.westfield.com)

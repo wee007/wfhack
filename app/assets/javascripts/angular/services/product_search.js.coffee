@@ -34,15 +34,14 @@
         callbacks.push callback
 
     @getSearch = (callback) ->
+
+      angular.forEach callbacks, (callback) -> callback()
+
       $http.get("/api/product/master/products/search.json",
         params: ParamCleaner.build(params)
         cache: true
       ).then (response) ->
         self.formatSearchResults response.data
-        angular.forEach callbacks, (callback) ->
-          callback()
-
-
 
 
     # The current category facet could be 'super_cat', 'category' or 'sub_category'

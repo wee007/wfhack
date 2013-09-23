@@ -15,8 +15,8 @@ describe TileHelper do
     end
 
     it "returns a deal url" do
-      deal = double(:deal, kind: 'deal', to_param: 'id' )
-      expect(helper.tile_url "centre_id", deal).to eq "http://test.host/centre_id/deals/id"
+      deal = double(:deal, kind: 'deal', to_param: 'id', retailer_code: 'wittner')
+      expect(helper.tile_url "centre_id", deal).to eq "http://test.host/centre_id/deals/wittner/id"
     end
 
   end

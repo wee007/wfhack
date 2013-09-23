@@ -7,7 +7,7 @@ module TileHelper
     when 'event'
       centre_event_url(centre, result)
     when 'deal'
-      centre_deal_url(centre, result)
+      centre_deal_url(centre, retailer_code: result.retailer_code, id: result)
     end
   end
 

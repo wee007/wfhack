@@ -21,10 +21,22 @@
     <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
 
     <script type="text/javascript">
+    var idcomments_acct = '5796fc20a26a018e2eb34029f9703e1f';
+    var idcomments_post_id;
+    var idcomments_post_url;
 	$(function () {
         var service = window.location.search.replace('?service=', ''),
             group,
-            discoveryUrl = service+'/swagger-doc.json';
+            discoveryUrl = service + '/swagger-doc.json';
+
+        function updateCommentsUrl(service) {
+            idcomments_post_id = idcomments_post_url = encodeURIComponent(location.href.split(/[#?]/)[0] + '?service=' + service);
+            commentScript = document.createElement("script");
+            commentScript.type = "text/javascript";
+            commentScript.src = "http://intensedebate.com/js/genericCommentWrapper2.php?acct="+idcomments_acct+"&postid="+idcomments_post_id+"&title="+idcomments_post_title+"&url="+idcomments_post_url;
+            document.getElementsByTagName("head")[0].appendChild(commentScript);
+        }
+        updateCommentsUrl(service);
 
         window.swaggerUi = new SwaggerUi({
             discoveryUrl: discoveryUrl,
@@ -63,10 +75,11 @@
             window.swaggerUi.headerView.trigger('update-swagger-ui', {
                 discoveryUrl: e.target.href + '/swagger-doc.json'
             });
+            updateCommentsUrl($(e.target).attr('href'));
         });
 
         $(document).on('show hide', '#image-doc', function (e) {
-          $('#swagger-ui-container').collapse('toggle');
+          $('#swagger-ui-container, #idc-container').collapse('toggle');
         });
 
         /*
@@ -250,6 +263,9 @@
                         </div>
 
                         <div id="swagger-ui-container" class="swagger-ui-wrap collapse in"></div>
+
+                        <span id="IDCommentsPostTitle" style="display:none"></span>
+                        <script type='text/javascript' src='//www.intensedebate.com/js/genericCommentWrapperV2.js'></script>
                     </div>
                 </div>
             </div>

@@ -46,6 +46,8 @@
         # but we'll map them anyway.
         $scope[key] = param
         ProductSearch.setParam key, param
+      # We have to set page last as we are removing it with when you set a diffrent param
+      ProductSearch.setParam 'page', params.page if params.page
 
 
     updateProducts = ->

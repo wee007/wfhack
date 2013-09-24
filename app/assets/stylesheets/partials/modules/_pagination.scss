@@ -96,3 +96,7 @@
 		color: $color-grey;
 		vertical-align: bottom;
 	}
+
+  /* */
+  .pagination__prev { float: left; }
+  .pagination__next { float: right; }

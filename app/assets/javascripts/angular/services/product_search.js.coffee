@@ -13,7 +13,7 @@
       size: []
       centre: []
       last: ""
-      rows: 15
+      rows: 50
       page: 1
 
     callbacks = []
@@ -59,6 +59,7 @@
       category
 
     @formatSearchResults = (response) ->
+      @page = response.page
       @count = response.count
       @categories = @getCategoryFacet(response.facets)
       @retailers = SearchFacet.retrieve(response.facets, "retailer")
@@ -78,6 +79,7 @@
       # param which will ensure that the full array list
       # is returned for a given facet
       @setParam "last", param  if angular.isArray(params[param])
+      params.page = defaultParams.page unless param == 'page'
       params[param] = value
 
     @removeParam = (paramName, value) ->

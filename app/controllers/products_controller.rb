@@ -8,7 +8,7 @@ class ProductsController < ApplicationController
       centre = CentreService.fetch params[:centre_id] if params[:centre_id]
       nearby_centres = CentreService.fetch nil, near_to: params[:centre_id] if params[:centre_id]
       centres = CentreService.fetch :all, country: 'au' unless params[:centre_id]
-      products = ProductService.fetch params.merge({rows: 15})
+      products = ProductService.fetch params.merge({rows: 50})
     end
 
     if params[:centre_id]
@@ -28,12 +28,14 @@ class ProductsController < ApplicationController
         format.html { render partial: "products" }
       else
         gon.products = {
+          page: (params[:page] || 1),
           count: @search['count'],
           display_options: @search.display_options,
           facets: @search.facets,
           applied_filters: @search.applied_filters
         }
         format.html { render :index }
+
       end
     end
   end

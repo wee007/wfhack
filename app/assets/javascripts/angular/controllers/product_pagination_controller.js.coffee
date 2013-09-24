@@ -1,30 +1,33 @@
 ((app) ->
   app.controller "ProductPaginationController", ["$scope", "Products", "ProductSearch", ($scope, Products, ProductSearch) ->
 
-    page = ->
-      parseInt ProductSearch.params().page
-
     total = ->
       parseInt ProductSearch.count
 
-    rows = ->
+    perPage = ->
       parseInt ProductSearch.params().rows
+
+    $scope.totalPages = ->
+      Math.ceil(total() / perPage())
+
+    $scope.page = ->
+      parseInt ProductSearch.params().page
+
+    $scope.has_prev = ->
+      $scope.page() > 1
+
+    $scope.has_next = ->
+      perPage() * $scope.page() < total()
 
     $scope.next = ->
       Products.loading = true
-      ProductSearch.setParam 'page', (page() + 1)
+      ProductSearch.setParam 'page', ($scope.page() + 1)
       ProductSearch.getSearch()
 
     $scope.prev = ->
       Products.loading = true
-      ProductSearch.setParam 'page', (page() - 1)
+      ProductSearch.setParam 'page', ($scope.page() - 1)
       ProductSearch.getSearch()
-
-    $scope.has_prev = ->
-      page() > 1
-
-    $scope.has_next = ->
-      rows() * page() < total()
 
   ]
 ) angular.module("Westfield")

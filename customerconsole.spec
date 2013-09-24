@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.44
+Version:     0.1.45
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -77,6 +77,10 @@ fi
 
 
 %changelog
+* Tue Sep 24 2013 ci <doperations@au.westfield.com> 0.1.45-1
+- Merge pull request #390 from ldewey/site-wide-cache (matt.wratt@trineo.co.nz)
+- Added blanket site wide cache of one hour. (ldewey@au.westfield.com)
+
 * Mon Sep 23 2013 ci <doperations@au.westfield.com> 0.1.44-1
 - Merge pull request #387 from csmith/master (craigM.smith@au.westfield.com)
 - Swapped deals url around to keep it consistent with product.

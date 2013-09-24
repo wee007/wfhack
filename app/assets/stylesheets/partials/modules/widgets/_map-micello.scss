@@ -28,11 +28,10 @@
 .map-micello--static {
   pointer-events: none;
 
-  /* Remove interactive controls (Zoom, Floor levels and GEO) */
+  /* Remove interactive controls (Zoom and Floor levels) */
   #micello-map #ui-all {
     #ui-zoom,
-    #ui-levels,
-    #ui-geo {display: none !important;}
+    #ui-levels {display: none !important;}
   }
 }
 
@@ -83,6 +82,9 @@
             position: absolute;
             left: 0;
             top: 0;
+
+            /* Remove the indent when there is no logo */
+            .is-no-store-logo & {display: none;}
 
             /* Make linear for static version at this breakpoint range */
             @include respond-range($non-palm, $ipad-portrait - 1) {
@@ -229,28 +231,27 @@
 
         /* --Shared rules-- */
 
+        /* Hide 'Map name' and 'GEO' */
+        #ui-name,
+        #ui-geo {display: none !important;}
+
         /* Always to the right and always in view rather only when hovered */
         #ui-zoom,
         #ui-levels,
-        #ui-geo {
+        #ui-attribution {
           left: auto !important;
           right: 4%;
           opacity: 1 !important;
           display: block !important;
         }
 
-        /* Always position 'Attribution' and 'GEO' to the bottom */
-        #ui-attribution,
-        #ui-geo {
-          top: auto !important;
-          bottom: $spacing-half+px;
-        }
-
-        /* Alter right positioning for 'Zoom' and 'Floor levels' at this breakpoint */
+        /* Alter right positioning for 'Zoom', 'Floor levels' and 'Attribution' at this breakpoint */
         @include respond-min($ipad-landscape) {
           #ui-zoom {right: 6px;}
 
           #ui-levels {right: 11px;}
+
+          #ui-attribution {right: 0;}
         }
 
         /* Common box shadow */
@@ -304,6 +305,12 @@
 
               &:hover {background-color: $color-grey-3 !important;}
             }
+        }
+
+        /* Attribution */
+        #ui-attribution {
+          top: auto !important;
+          bottom: $spacing-half+px;
         }
 
         /* Floor levels */
@@ -383,18 +390,6 @@
                 }
               }
         }
-
-        /* Map name */
-        #ui-name {display: none !important;}
-
-        /* GEO */
-        #ui-geo {
-          right: 0;
-          width: 100px !important;
-        }
-
-          /* Compass */
-          #ui-compass {bottom: 0 !important;}
       }
 
       /* Cosmetics */

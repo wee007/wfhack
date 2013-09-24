@@ -140,17 +140,16 @@
 
   /* --Store details-- */
   .storefront__details {
+    border-style: solid;
+    border-color: $color-grey-1;
+    border-width: 1px 0;
+
+    /* When there are featured items */
+    .is-featured-items & {border-bottom: 0;}
 
     /* Allow store link to be positioned over to the far right at this breakpoint */
     @include respond-min($ipad-portrait) {
       position: relative;
-    }
-
-    @include respond-range($ipad-portrait, $ipad-landscape - 1) {
-      border-bottom: 1px solid $color-grey-1;
-
-      /* When there are featured items */
-      .is-featured-items & {border-bottom: 0;}
     }
 
     /* Inner container */
@@ -160,41 +159,50 @@
     /* Store meta */
     .storefront__details__meta {
       @extend %clear-fix;
-      @include to-rem(padding-top, $spacing-third);
-      @include to-rem(padding-bottom, $spacing-third - $spacing-micro);
+      @include to-rem(padding-top padding-bottom, $spacing-half);
       @include to-rem(margin-right, 100);
       margin-bottom: 0;
 
-      /* Increase/decrease right spacing at these breakpoints */
+      /* Increase right spacing at this breakpoint */
       @include respond-min($non-palm) {
         @include to-rem(margin-right, 130);
-        @include to-rem(padding-top, $spacing-half);
-        @include to-rem(padding-bottom, $spacing-half - $spacing-micro);
       }
 
+      /* Remove right spacing at this breakpoint */
       @include respond-min($ipad-landscape) {
         margin-right: 0;
       }
 
+      /* Increase top/bottom spacing when there's only 'Opening hours' item */
+      &.is-storefront-details-meta-one {
+        @include to-rem(padding-top padding-bottom, $spacing-half+$spacing-quarter);
+
+        /* Increase top/bottom spacing at this breakpoint */
+        @include respond-min($non-palm) {
+          @include to-rem(padding-top padding-bottom, $spacing-base);
+        }
+
+        /* Restore top/bottom spacing at this breakpoint */
+        @include respond-min($ipad-landscape) {
+          @include to-rem(padding-top padding-bottom, $spacing-half);
+        }
+      }
+
       dd {
-        @include to-rem(margin-bottom, $spacing-micro);
+        @include to-rem(margin-top, $spacing-micro);
         @include to-rem(padding-left, $spacing-base + $spacing-micro);
         position: relative;
-
-        &:last-child {margin-bottom: 0;}
 
         /* Icons */
         .icon:before {
           position: absolute;
           left: 0;
-          top: 1px;
-
-          /* Webkit */
-          @include target-webkit {
-            top: 0;
-          }
+          top: 0;
         }
       }
+
+      /* Turn off top margin for first `dd` */
+      dt:first-child + dd {margin-top: 0;}
 
       /* No indent */
       .storefront__details__meta__no-indent {padding-left: 0;}
@@ -234,6 +242,7 @@
             display: block;
           }
 
+          /* Hover and focus states */
           &:hover .hide-visually,
           &:focus .hide-visually {color: $color-med-txt;}
       }
@@ -243,24 +252,18 @@
   .storefront__featured__item {
     border-top: 1px solid $color-grey-1;
 
-    /* Tiles */
-    .tiles-non-pinboard {
-      @extend %mrg-base;
+    /* Grid */
+    .grid {@extend %mrg-base;}
 
-      /* Decrease negative left outdent at this breakpoint range */
-      @include respond-range($ipad-landscape, 1400) {
-        @include to-rem(margin-left, - $spacing-half);
-      }
+      /* Hide 3rd tile at small viewports */
+      .grid__item + .grid__item + .grid__item {
+        display: none;
 
-      /* Tile containers */
-      .tiles-non-pinboard__tile {
-
-        /* Decrease gutter at this breakpoint range */
-        @include respond-range($ipad-landscape, 1400) {
-          @include to-rem(padding-left, $spacing-half);
+        /* Show 3rd tile at this breakpoint */
+        @include respond-min($non-palm) {
+          display: block;
         }
       }
-    }
 
       /* Mods for 'Deals' tile at this breakpoint range */
       @include respond-range($ipad-landscape, 1300) {
@@ -271,16 +274,6 @@
         }
       }
   }
-
-    /* Hide 3rd tile for palm */
-    .storefront__featured__item .tiles-non-pinboard__tile + .tiles-non-pinboard__tile + .tiles-non-pinboard__tile {
-      display: none;
-
-      /* Show 3rd tile at this breakpoint */
-      @include respond-min($iphone-landscape) {
-        display: block;
-      }
-    }
 
     /* Shared rules */
     .storefront__featured__hdr,

@@ -29,6 +29,10 @@ class Store < Hashie::Mash
     _links.store_front.href
   end
 
+  def centre=(centre)
+    @centre = centre
+  end
+
   def centre
     @centre ||= get_centre
   end

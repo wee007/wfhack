@@ -8,14 +8,14 @@ class StoreService
         json.map do |store|
           store = Store.new(store)
           attrs.each do |key, value|
-            store[key] = value
+            store.send("#{key}=", value)
           end if attrs.present?
           store
         end
       else
         store = Store.new(json)
         attrs.each do |key, value|
-          store[key] = value
+          store.send("#{key}=", value)
         end if attrs.present?
         store
       end

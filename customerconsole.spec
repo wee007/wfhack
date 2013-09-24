@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.48
+Version:     0.1.49
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -77,6 +77,11 @@ fi
 
 
 %changelog
+* Wed Sep 25 2013 ci <doperations@au.westfield.com> 0.1.49-1
+- Merge pull request #392 from mwratt/fix/slow_store_response
+  (ldewey@au.westfield.com)
+- allows centre to be set (fixes slow response) (matt.wratt@trineo.co.nz)
+
 * Tue Sep 24 2013 ci <doperations@au.westfield.com> 0.1.48-1
 - 
 

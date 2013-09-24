@@ -10,9 +10,10 @@
       <div class="vert-align__inner">
 
         <div class="hero__inner container container--narrow">
-          <span class="icon icon--<%= @hero.icon %> icon--spacing-lrg" aria-hidden="true"></span>
+          <span class="hero__icon icon icon--<%= @hero.icon %> icon--spacing-lrg" aria-hidden="true"></span>
           <h1><%= @hero.heading %></h1>
           <%= content_tag :p, @hero.text, class: 'hero__txt' if @hero.text %>
+          <%= yield :hero_intro %>
         </div>
 
       </div>

@@ -24,14 +24,14 @@
   }
 
   /* Shared styles */
-  .icon,
+  .hero__icon,
   h1 {
     display: inline-block;
     vertical-align: middle;
   }
 
   /* Hero icon next to the heading   */
-  .icon:before {
+  .hero__icon:before {
     @include font-size(30, 1);
 
     @include respond-min($non-palm) {
@@ -46,6 +46,15 @@
 
     @include respond-min($non-palm) {
       @include font-size(60);
+    }
+  }
+
+  /* Hero intro - wrapper around content that comes under the hero heading */
+  .hero__intro {
+    @include to-rem(margin-top, $spacing-half);
+
+    @include respond-min($non-palm) {
+      @include to-rem(margin-top, $spacing-base);
     }
   }
 }

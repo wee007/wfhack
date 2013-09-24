@@ -1,7 +1,5 @@
 class MoviesController < ApplicationController
 
-  layout 'sub_page', only: :index
-
   def index
     centre, movies, movie_sessions, cinema = nil
     Service::API.in_parallel do
@@ -20,6 +18,7 @@ class MoviesController < ApplicationController
       description: "#{@cinema.name} at #{@centre.name}"
     )
     @hero = Hashie::Mash.new heading: '[Cinema name]', image: 'movies', icon: 'video'
+    render layout: "sub_page"
   end
 
   def show
@@ -40,5 +39,6 @@ class MoviesController < ApplicationController
       page_title: @movie.title,
       description: @movie.title
     )
+    render layout: "detail_view"
   end
 end

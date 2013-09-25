@@ -5,8 +5,10 @@ CustomerConsole::Application.routes.draw do
   end
 
   get 'status' => 'health_check/health_check#index', 'checks' => 'cache_and_site'
-
   get 'api', to: redirect('/api/index.html') # This lets /api work, not just /api/
+
+  get 'products' => 'products#index'
+  get 'products/:retailer_code/:sku' => 'products#show', constraints: {id: /.+/}, as: 'product'
 
  # everything needs to go above centres
   resources :centres, :path => '' do

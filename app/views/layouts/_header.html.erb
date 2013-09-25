@@ -1,12 +1,12 @@
 <%# Header %>
-<header class="header<%= " is-header-hero" if header_hero? %>" role="banner">
+<header class="header<%= " header--hero" if header_hero? %>" role="banner">
 
 	<%# Header secondary %>
 	<div class="header__secondary drop-down-container">
 		<div class="container">
 
 			<%# Logo %>
-			<a href="<%= centre_path(params[:centre_id] || params[:id]) %>" target="_self" rel="home" class="logo"><img src="<%= image_path "logo.svg" %>" alt="Westfield" data-svg-fallback="<%= image_path "logo.png" %>"></a>
+			<%= link_to site_logo, centre_path(@centre), target: "_self", rel: "home", class: "logo" %>
 			<%# //Logo %>
 
 			<%# Menu toggle button for palm/small tablet devices %>
@@ -157,7 +157,7 @@
 			<%# //Centre selector %>
 
 			<%# Centre opening hours %>
-      <a href="<%= centre_hours_path( params[ :centre_id ] || params[ :id ] ) %>" target="_self" class="open-hours-link"><span class="icon icon--hours" aria-hidden="true"></span> <strong>Open <%= @centre.today_opening_time %> - <%= @centre.today_closing_time %> today</strong><span class="icon icon--arrow-right" aria-hidden="true"></span></a>
+      <a href="<%= centre_hours_path( params[ :centre_id ] || params[ :id ] ) %>" target="_self" class="open-hours-link"><span class="icon icon--hours" aria-hidden="true"></span> <strong>Open <time datetime="<%= @centre.today_opening_time %>"><%= twelve_hour_format(@centre.today_opening_time) %></time> - <time datetime="<%= @centre.today_closing_time %>"><%= twelve_hour_format(@centre.today_closing_time) %></time> today</strong><span class="icon icon--arrow-right" aria-hidden="true"></span></a>
 			<%# //Centre opening hours %>
 
 		</div>

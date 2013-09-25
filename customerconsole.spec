@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.50
+Version:     0.1.51
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -77,6 +77,11 @@ fi
 
 
 %changelog
+* Wed Sep 25 2013 ci <doperations@au.westfield.com> 0.1.51-1
+- Merge pull request #397 from ldewey/chirs-master (matt.wratt@trineo.co.nz)
+- Updated links as per feed back (ldewey@au.westfield.com)
+- Android roate crash fix (ldewey@au.westfield.com)
+
 * Wed Sep 25 2013 ci <doperations@au.westfield.com> 0.1.50-1
 - Merge pull request #388 from ldewey/chirs-master (ldewey@au.westfield.com)
 - Added some very basic specs to product (ldewey@au.westfield.com)

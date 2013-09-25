@@ -388,6 +388,9 @@
   /* Movie */
   .detail-view--movie {
 
+    /* Main image */
+    .detail-view__media {text-align: center;}
+
     /* Copy explaining to users how to purchase ticket */
     .detail-view__schedule p {@extend %mrg-base;}
   }

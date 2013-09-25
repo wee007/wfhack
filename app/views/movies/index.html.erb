@@ -1,7 +1,7 @@
 <% content_for :hero_intro do %>
   <div class="hero__intro">
     <%# [BACKEND] Add link to store details %>
-    <a href="#" class="btn btn--main"><span class="icon icon--store icon--xlrg icon--spacing" aria-hidden="true"></span> Store Details</a>
+    <a href="#" class="btn btn--main"><span class="icon icon--store icon--xlrg icon--spacing" aria-hidden="true"></span> Cinema Details</a>
   </div>
 <% end %>
 
@@ -36,8 +36,8 @@
         <article class="tile box" role="article">
           <a href="<%= centre_movie_path(centre_id: @centre.code, id: movie.id) %>">
             <div class="tile__image">
-              <%# [BACKEND] Use Cloudinary to limit the dimension of the image to be 290x350. Don't need to add `width` and `height` attribute in `img`  as it's responsive site %>
-              <img src="http://placehold.it/290x350" alt="Poster of movie: <%= movie.title %>">
+              <%# [BACKEND] Use Cloudinary to limit the dimension of the image to be 290x350. Don't need to add `width` and `height` attribute in `img`  as it's responsive site. %>
+              <img src="http://placehold.it/600x400" alt="Screenshot of <%= movie.title %>">
             </div>
             <div class="tile__meta">
               <h3 class="tile__meta__hdr txt-truncate"><%= movie.title %></h3>

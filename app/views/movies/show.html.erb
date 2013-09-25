@@ -12,13 +12,14 @@
 
       <%# Movie classification %>
       <div class="detail-view__meta islet islet--top-btm detail-view__divider detail-view__divider--top-btm">
-        <em></em>><%= @movie.classification %> rating</em>
+        <em><%= @movie.classification %> rating</em>
       </div>
       <%# //Movie classification %>
     </header>
 
     <%# Movie main image %>
     <div class="detail-view__media detail-view__mrg-base">
+      <%# [BACKEND] Replace image with image of the movie %>
       <img src="http://placehold.it/600x400" alt="Screenshot of <%= @movie.title %>" itemprop="photo">
     </div>
     <%# //Movie main image %>
@@ -51,13 +52,13 @@
         </em>
       </dt>
       <dd>
-        <%# [BACKEND] Add link to the actual cinema's movie session page, like existing implementation. Also output the time as ISO date format (the session time in the movie feed we get) %>
-        <time datetime="2013-09-23T09:00:00" itemprop="startDate"><a href="#" rel="external">09:00am</a></time>
+        <%# [BACKEND] Add link to the actual cinema's movie session page, like existing implementation. Also output the time as ISO date format (the session time in the movie feed we get) as indicated below %>
+        <time datetime="[session time]" itemprop="startDate"><a href="#" rel="external">[Session time]</a></time>
         <%# [BACKEND] Output special session within the square brackets [] if available for the time e.g. [Gold Class], [VMAX] %>
         [Special Session]
       </dd>
       <dd>
-        <time datetime="2013-09-23T09:00:00" itemprop="startDate"><a href="#" rel="external">09:00am</a></time>
+        <time datetime="[Session time]" itemprop="startDate"><a href="#" rel="external">[Session time]</a></time>
       </dd>
       <dt>
         Tuesday
@@ -66,7 +67,7 @@
         </em>
       </dt>
       <dd>
-        <time datetime="2013-09-24T09:00:00" itemprop="startDate"><a href="#" rel="external">09:00am</a></time>
+        <time datetime="[Session time]" itemprop="startDate"><a href="#" rel="external">[Session time]</a></time>
       </dd>
     </dl>
     <%# //Session times %>

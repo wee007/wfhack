@@ -67,6 +67,7 @@
     border-radius: 50%;
     text-transform: uppercase;
     @include to-rem(padding-top, 18);
+    /* `width` and `height` should be even number so it can be divided by 2 which is needed for positioning the line between `timeline__date` */
     @include to-rem(width, 76);
     @include to-rem(height, 76);
     @include font-size($font-size);

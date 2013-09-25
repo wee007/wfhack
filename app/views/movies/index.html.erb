@@ -1,3 +1,4 @@
+<%# Link in hero section %>
 <% content_for :hero_intro do %>
   <div class="hero__intro">
     <%# [BACKEND] Add link to store details %>
@@ -12,7 +13,13 @@
     <div class="nav-contextual__clip">
       <div class="nav-contextual__clip__inner">
         <ul class="nav-contextual__list tab__nav horiz-list js-nav-contextual-list">
-          <%# [BACKEND] Need to add <!-- --> between `li` to remove white space %>
+          <%# [BACKEND] Need to add <!-- --> between each `li` to remove white space e.g.
+              ```
+              <li>item 1</li><!--
+              --><li>item 2</li><!--
+              --><li>item 3</li>
+              ```
+          %>
           <% days(@movie_sessions.last['start_time'], @centre.code, params['date']).each do |day| %>
             <li><%= day %></li>
           <% end %>
@@ -33,19 +40,23 @@
   <ul class="grid grid--mrg-base-non-palm">
     <% @movies.each do |movie| %>
       <li class="grid__item one-half lap-sml-one-third non-palm-one-quarter">
+
+        <%# Movie tile %>
         <article class="tile box" role="article">
           <a href="<%= centre_movie_path(centre_id: @centre.code, id: movie.id) %>">
             <div class="tile__image">
-              <%# [BACKEND] Use Cloudinary to limit the dimension of the image to be 290x350. Don't need to add `width` and `height` attribute in `img`  as it's responsive site. %>
-              <img src="http://placehold.it/600x400" alt="Screenshot of <%= movie.title %>">
+              <%# [BACKEND] Use Cloudinary to limit the dimension of the image to be 300x200. Don't need to add `width` and `height` attribute in `img`  as it's responsive site. %>
+              <img src="http://placehold.it/300x200" alt="Screenshot of <%= movie.title %>">
             </div>
             <div class="tile__meta">
               <h3 class="tile__meta__hdr txt-truncate"><%= movie.title %></h3>
-              <%# [BACKEND] Add next session time and output 24 hour format in `datetime` attribute as indicated below %>
-              <p class="tile__meta__desc txt-truncate">Next session at <time datetime="[session time]">[SESSION TIME]</time></p>
+              <%# [BACKEND] Add next session time and output the time as ISO date format (the session time in the movie feed we get) in `datetime` attribute as indicated below %>
+              <p class="tile__meta__desc">Next session at <time datetime="[session time]">[SESSION TIME]</time></p>
             </div>
           </a>
         </article>
+        <%# //Movie tile %>
+
       </li>
     <% end %>
   </ul>

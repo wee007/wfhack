@@ -24,19 +24,19 @@ class @PinBoard
     }
 
     #Palm
-    enquire.register mediaQueries.palm, => @rebuild 2
+    enquire.register mediaQueries.palm, => setTimeout (=>@rebuild 2), 0
 
     #Small lap
-    enquire.register mediaQueries.smallLap, => @rebuild 3
+    enquire.register mediaQueries.smallLap, => setTimeout (=>@rebuild 3), 0
 
     #Large lap
-    enquire.register mediaQueries.largeLap, => @rebuild 4
+    enquire.register mediaQueries.largeLap, => setTimeout (=>@rebuild 4), 0
 
     #Desktop small
-    enquire.register mediaQueries.desktopSmall, => @rebuild 5
+    enquire.register mediaQueries.desktopSmall, => setTimeout (=>@rebuild 5), 0
 
     #Desktop large
-    enquire.register mediaQueries.desktopLarge, => @rebuild 6
+    enquire.register mediaQueries.desktopLarge, => setTimeout (=>@rebuild 6), 0
 
   in_groups: (items, number) ->
     number = number - 1

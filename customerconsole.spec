@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.54
+Version:     0.1.55
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -77,6 +77,13 @@ fi
 
 
 %changelog
+* Thu Sep 26 2013 ci <doperations@au.westfield.com> 0.1.55-1
+- Merge pull request #393 from ldewey/deal-state-update
+  (ldewey@au.westfield.com)
+- Merge pull request #399 from ldewey/master (ldewey@au.westfield.com)
+- A fix to bring the price facet back (ldewey@au.westfield.com)
+- Added state: 'live' to deals controller (ldewey@au.westfield.com)
+
 * Wed Sep 25 2013 ci <doperations@au.westfield.com> 0.1.54-1
 - 
 

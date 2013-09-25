@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.49
+Version:     0.1.50
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -77,6 +77,26 @@ fi
 
 
 %changelog
+* Wed Sep 25 2013 ci <doperations@au.westfield.com> 0.1.50-1
+- Merge pull request #388 from ldewey/chirs-master (ldewey@au.westfield.com)
+- Added some very basic specs to product (ldewey@au.westfield.com)
+- More work to nat product routes. (ldewey@au.westfield.com)
+- Adding national product routes. (ldewey@au.westfield.com)
+- Refactor all centres helper method for alternate site header for national
+  view - WSF-5066 (CPearce@au.westfield.com)
+- Using a helper for site logo to Rails helper for alternate site header for
+  national view - WSF-5066 (CPearce@au.westfield.com)
+- Updating controller for alternate site header for national view - WSF-5066
+  (CPearce@au.westfield.com)
+- Removing duplicate padding for alternate site header for national view -
+  WSF-5066 (CPearce@au.westfield.com)
+- Removing layout from application layout for alternate site header for
+  national view - WSF-5066 (CPearce@au.westfield.com)
+- Removing redundant selector from alternate site header for national view -
+  WSF-5066 (CPearce@au.westfield.com)
+- Creating the alternate site header for national view - WSF-5066
+  (CPearce@au.westfield.com)
+
 * Wed Sep 25 2013 ci <doperations@au.westfield.com> 0.1.49-1
 - Merge pull request #392 from mwratt/fix/slow_store_response
   (ldewey@au.westfield.com)

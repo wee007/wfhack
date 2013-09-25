@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.53
+Version:     0.1.54
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -77,6 +77,9 @@ fi
 
 
 %changelog
+* Wed Sep 25 2013 ci <doperations@au.westfield.com> 0.1.54-1
+- 
+
 * Wed Sep 25 2013 ci <doperations@au.westfield.com> 0.1.53-1
 - More Fixes for national page centre selection URL (ldewey@au.westfield.com)
 - Fixed national page centre selection URL (ldewey@au.westfield.com)

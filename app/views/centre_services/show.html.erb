@@ -1,0 +1,91 @@
+<%# Divider %>
+<div class="divider">
+  <%# Text formatted %>
+  <div class="txt-formatted">
+
+    <%# Concierge Services %>
+    <h2>Concierge Services</h2>
+
+    <%# Concierge Desk %>
+    <div class="grid grid--gutter-dbl grid--mrg-dbl-non-palm">
+      <div class="grid__item non-palm-one-half">
+        <h3>Concierge Desk</h3>
+
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut lectus libero, pellentesque at enim tempus, tempus tincidunt libero. Fusce vulputate.</p>
+
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut lectus libero, pellentesque at enim tempus, tempus tincidunt libero. Fusce vulputate.</p>
+
+        <h3 class="txt-formatted__unbold hide-fully--palm flush--btm">Contact Concierge Desk</h3>
+
+        <%# Show concierge number if at non-palm size %>
+        <div class="hide-fully--palm txt-xlrg">
+          <span class="icon icon--phone2 icon--mega icon--spacing-lrg" aria-hidden="true"></span>
+          <span class="hide-visually">Phone number</span>
+          1234 5678
+        </div>
+        <%# //Show centre number if at non-palm size %>
+
+        <%# Show CTA button for concierge contact number for palm %>
+        <span class="hide-fully--non-palm">
+          <a href="tel:1234 5678 || '').gsub(/\s+/,'') %>" class="txt-center btn btn--full btn--main btn--main-alt2 btn--main-lrg">
+            <span class="icon icon--phone icon--xlrg icon--spacing-lrg icon--flush-top" aria-hidden="true"></span>
+            <strong>Call Concierge Desk</strong>
+          </a>
+        </span>
+        <%# //Show CTA button for centre contact number for palm %>
+      </div>
+
+      <div class="grid__item non-palm-one-half">
+         <%# Image/map goes here %>
+      </div>
+   </div>
+   <%# //Concierge Desk %>
+
+   <%# Westfield gift cards %>
+    <div class="grid grid--gutter-dbl grid--mrg-dbl-non-palm">
+      <div class="grid__item non-palm-one-half">
+        <img src="<%= image_path "gift-cards.jpg" %>">
+      </div>
+
+      <div class="grid__item non-palm-one-half">
+        <h3>Westfield Gift Cards</h3>
+
+        <p>Westfield Gift Cards are accepted at over 8,000 participating retailers in Australian Westfield Centres. It’s the gift they’ve always wanted and suitable for any occasion.</p>
+
+        <p>Gift Cards can be purchased from Centre Concierge Desks or online.</p>
+
+        <div class="grid grid--table-non-palm grid--gutter-half">
+          <div class="grid__item one-whole non-palm-two-fifths">
+            <a href="http://www.westfieldgiftcards.com.au/" rel="external" class="btn btn--main btn--main-alt btn--full">Buy Now</a>
+          </div>
+          <div class="grid__item one-whole non-palm-three-fifths">
+            or <a href="#">redeem at these stores</a>
+          </div>
+        </div>
+      </div>
+   </div>
+   <%# //Westfield gift cards %>
+
+  </div>
+  <%# //Text formatted %>
+</div>
+<%# //Divider %>
+
+<%= render "shared/footer_promo_tiles", 
+  left: {
+    image_src: "promo-tiles/promo-tile-01.jpg",
+    icon: "icon--hours",
+    heading: "Shopping Hours",
+    desc: "Get shopping hours for your centre and department stores.",
+    link_text: "View Shopping Hours",
+    link_url: centre_hours_path(@centre)
+  },
+  right: {
+    image_src: "promo-tiles/promo-tile-02.jpg",
+    icon: "icon--info",
+    heading: "Centre Info",
+    desc: " Get information on parking, getting there and more.",
+    link_text: "View Centre Info",
+    link_url: centre_info_path(@centre)
+  }
+%>

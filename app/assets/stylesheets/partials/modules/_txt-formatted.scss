@@ -86,13 +86,17 @@ body .txt-formatted {
 
   /* Inline elements */
   u {text-decoration: none;}
-
+  
   /* Unstyle the list by removing the bullets. Can be for ul/ol */
   .txt-formatted__list-unstyled {
     list-style: none;
     margin-left: 0;
   }
+
+  /* Unbold text */
+  .txt-formatted__unbold {font-weight: normal;}
 }
+
 
 /* User generated rules */
 .txt-formatted--user-generated {

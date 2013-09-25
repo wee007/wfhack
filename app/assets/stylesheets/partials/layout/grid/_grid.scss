@@ -124,12 +124,24 @@
 }
 
 /* Table */
-.grid--table {
+.grid--table{
 	display: table;
 
 	> .grid__item {
 		display: table-cell;
 		float: none;
+	}
+}
+
+/* Table at non-palm */
+@include respond-min($non-palm) {
+	.grid--table-non-palm {
+		display: table;
+
+		> .grid__item {
+			display: table-cell;
+			float: none;
+		}
 	}
 }
 

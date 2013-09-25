@@ -26,6 +26,9 @@
           cleanedParams[paramName] = cleanedParams[param]
           delete cleanedParams[param]
 
+      #Do not use products as a centre.
+      delete cleanedParams.centre if cleanedParams.centre == 'products'
+
       cleanedParams
 
 

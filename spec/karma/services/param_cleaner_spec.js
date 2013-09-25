@@ -39,6 +39,11 @@ describe('Service: ParamCleaner', function () {
     expect(ParamCleaner.build({'a[]': [1, 2, 3]})).toEqual({'a[]': [1, 2, 3]});
   });
 
+  it('removes centre if it equals products', function () {
+    expect(ParamCleaner.build({'centre': 'products'})).toEqual({});
+    expect(ParamCleaner.build({'centre': 'not-products'})).toEqual({'centre': 'not-products'});
+  })
+
   it('removes the [] notation from a key', function () {
     expect(ParamCleaner.deserialize({'key[]': 'value'})).toEqual({'key': 'value'});
   });

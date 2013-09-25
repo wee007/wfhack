@@ -23,28 +23,36 @@
           <h2 class="stores-maps__filters-toggle__hdr">Stores A-Z</h2>
 
           <%# Filters %>
-          <%#<div class="drop-down-menu drop-down-container">
+          <%# [BACKEND] Markup for the 'Category' and 'Gift Card' filters %>
+          <%#<ul class="stores-maps__filters horiz-list horiz-list--gutter-half">
 
-            <button class="drop-down-menu__trigger btn btn--main btn--main-alt2 btn--pointer btn--pointer-padding-med" toggle-visibility="stores-filters">Category<span aria-hidden="true" class="icon icon--lrg icon--arrow-down-full btn--pointer__icon"></span></button>
+              <li class="drop-down-menu drop-down-container">
+                <button class="drop-down-menu__trigger btn btn--main btn--main-alt2 btn--pointer btn--pointer-padding-med" toggle-visibility="stores-filters">Category<span aria-hidden="true" class="icon icon--lrg icon--arrow-down-full btn--pointer__icon"></span></button>
+                <div class="drop-down-menu__target drop-down-menu__target--alt-width-palm drop-down box box--drop-down" id="stores-filters">
+                  <ul class="drop-down-menu__list">
+                    <li class="drop-down-menu__divider"><button class="btn btn--full btn--full-left">Women's Fashion</button></li>
+                    <li class="drop-down-menu__divider"><button class="btn btn--full btn--full-left">Shoes &amp; Footwear</button></li>
+                    <li class="drop-down-menu__divider"><button class="btn btn--full btn--full-left">Jewellery &amp; Watches</button></li>
+                    <li class="drop-down-menu__divider"><button class="btn btn--full btn--full-left">Bags &amp; Luggage</button></li>
+                    <li class="drop-down-menu__divider"><button class="btn btn--full btn--full-left">Computers &amp; Electronics</button></li>
+                    <li class="drop-down-menu__divider"><button class="btn btn--full btn--full-left">Movies &amp; Music</button></li>
+                    <li class="drop-down-menu__divider"><button class="btn btn--full btn--full-left">Women's Fashion</button></li>
+                    <li class="drop-down-menu__divider"><button class="btn btn--full btn--full-left">Shoes &amp; Footwear</button></li>
+                    <li class="drop-down-menu__divider"><button class="btn btn--full btn--full-left">Jewellery &amp; Watches</button></li>
+                    <li class="drop-down-menu__divider"><button class="btn btn--full btn--full-left">Bags &amp; Luggage</button></li>
+                    <li class="drop-down-menu__divider"><button class="btn btn--full btn--full-left">Computers &amp; Electronics</button></li>
+                    <li class="drop-down-menu__divider"><button class="btn btn--full btn--full-left">Movies &amp; Music</button></li>
+                  </ul>
+                </div>
+              </li><!--
 
-            <div class="drop-down-menu__target drop-down box box--drop-down" id="stores-filters">
-              <ul class="drop-down-menu__list">
-                <li class="drop-down-menu__divider"><button class="btn btn--full btn--full-left">Women's Fashion</button></li>
-                <li class="drop-down-menu__divider"><button class="btn btn--full btn--full-left">Shoes &amp; Footwear</button></li>
-                <li class="drop-down-menu__divider"><button class="btn btn--full btn--full-left">Jewellery &amp; Watches</button></li>
-                <li class="drop-down-menu__divider"><button class="btn btn--full btn--full-left">Bags &amp; Luggage</button></li>
-                <li class="drop-down-menu__divider"><button class="btn btn--full btn--full-left">Computers &amp; Electronics</button></li>
-                <li class="drop-down-menu__divider"><button class="btn btn--full btn--full-left">Movies &amp; Music</button></li>
-                <li class="drop-down-menu__divider"><button class="btn btn--full btn--full-left">Women's Fashion</button></li>
-                <li class="drop-down-menu__divider"><button class="btn btn--full btn--full-left">Shoes &amp; Footwear</button></li>
-                <li class="drop-down-menu__divider"><button class="btn btn--full btn--full-left">Jewellery &amp; Watches</button></li>
-                <li class="drop-down-menu__divider"><button class="btn btn--full btn--full-left">Bags &amp; Luggage</button></li>
-                <li class="drop-down-menu__divider"><button class="btn btn--full btn--full-left">Computers &amp; Electronics</button></li>
-                <li class="drop-down-menu__divider"><button class="btn btn--full btn--full-left">Movies &amp; Music</button></li>
-              </ul>
-            </div>
+              --><li>
+                <label for="gift-card-toggle" class="btn btn--main btn--main-alt2 btn--checkbox-toggle btn--checkbox-toggle-icon">
+                  <input id="gift-card-toggle" type="checkbox" class="btn--checkbox-toggle__input"><span class="btn--checkbox-toggle__lbl"><span class="hide-visually">Westfield </span>Gift Card<span class="hide-visually"> accepted</span><span aria-hidden="true" class="icon icon--gift-card icon--xlrg icon--flush-top-mozilla"></span></span>
+                </label>
+              </li>
 
-          </div>%>
+          </ul>%>
           <%# //Filters %>
 
           <%# List/map toggle %>

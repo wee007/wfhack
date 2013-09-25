@@ -28,8 +28,7 @@
 
   <ul class="drop-down-menu__list">
     <li ng-repeat="category in search.categories.values | orderBy: 'sort_order'" class="drop-down-menu__divider islet">
-      <input ng-model="category.selected" ng-checked="category.selected" value="{{ category.code }}" id="category_{{ category.code }}" type="checkbox">
-      <label for="category_{{ category.code }}">{{ category.name }}</label>
+      <input ng-model="category.selected" ng-checked="category.selected" value="{{ category.code }}" id="category_{{ category.code }}" type="checkbox"><label for="category_{{ category.code }}">{{ category.name }}</label>
     </li>
   </ul>
 
@@ -55,11 +54,11 @@
 
       <div class="drop-down-menu drop-down-container">
 
-        <%# Drop down trigger (palm) %>
+        <%# Drop down trigger (narrow view) %>
         <button ng-click="showFilterButtons" toggle-visibility="filters" class="filters__hide-wide drop-down-menu__trigger btn btn--main btn--main-alt4 btn--pointer btn--pointer-padding-med">Filter<span class="icon icon--lrg icon--arrow-down-full btn--pointer__icon" aria-hidden="true"></span></button>
-        <%# //Drop down trigger (palm) %>
+        <%# //Drop down trigger (narrow view) %>
 
-        <%# Drop down target (palm) %>
+        <%# Drop down target (narrow view) %>
         <div id="filters" class="drop-down-menu__target drop-down box box--drop-down">
 
           <ul class="filters__list">
@@ -67,19 +66,19 @@
             <%# Categories %>
             <li ng-if="filterIsAvailable(search.categories.values)">
 
-              <%# Palm trigger %>
+              <%# Narrow view trigger %>
               <button ng-click="toggleFilter('category')" class="filters__trigger filters__trigger--narrow drop-down-menu__hdr-btn drop-down-menu__divider btn btn--full btn--full-left btn--pointer">
                 {{ search.categories.title }}
                 <span class="icon icon--arrow-right-big icon--lrg btn--pointer__icon" aria-hidden="true"></span>
               </button>
-              <%# //Palm trigger %>
+              <%# //Narrow view trigger %>
 
-              <%# Non-palm trigger %>
+              <%# Wide view trigger %>
               <button ng-click="toggleFilter('category')" class="filters__trigger filters__trigger--wide drop-down-menu__trigger btn btn--main btn--main-alt4 btn--pointer">
                 {{ search.categories.title }}
                 <span class="icon icon--arrow-down-full btn--pointer__icon" aria-hidden="true"></span>
               </button>
-              <%# //Non-palm trigger %>
+              <%# //Wide view trigger %>
 
               <div ng-show="activeFilter === 'category'" class="filters__target">
                 <div ng-show="search.categories.field === 'super_cat'"><div ng-include src="'categoryItemTemplate'"></div></div>
@@ -93,19 +92,19 @@
             <%# Retailers %>
             <li ng-if="filterIsAvailable(search.retailers.values)">
 
-              <%# Palm trigger %>
+              <%# Narrow view trigger %>
               <button ng-click="toggleFilter('retailer')" class="filters__trigger filters__trigger--narrow drop-down-menu__hdr-btn drop-down-menu__divider btn btn--full btn--full-left btn--pointer">
                 {{ search.retailers.title }}
                 <span class="icon icon--arrow-right-big icon--lrg btn--pointer__icon" aria-hidden="true"></span>
               </button>
-              <%# //Palm trigger %>
+              <%# //Narrow view trigger %>
 
-              <%# Non-palm trigger %>
+              <%# Wide view trigger %>
               <button ng-click="toggleFilter('retailer')" class="filters__trigger filters__trigger--wide drop-down-menu__trigger btn btn--main btn--main-alt4 btn--pointer">
                 {{ search.retailers.title }}
                 <span class="icon icon--arrow-down-full btn--pointer__icon" aria-hidden="true"></span>
               </button>
-              <%# //Non-palm trigger %>
+              <%# //Wide view trigger %>
 
               <div ng-show="activeFilter === 'retailer'" class="filters__target">
 
@@ -121,8 +120,7 @@
 
                 <ul class="drop-down-menu__list">
                   <li ng-repeat="retailer in search.retailers.values | nameStartsWith: storeSearch | limitTo: 250" class="drop-down-menu__divider islet">
-                    <input ng-model="retailer.selected" ng-checked="retailer.selected" value="{{ retailer.code }}" id="retailer_{{ retailer.code }}" type="checkbox">
-                    <label for="retailer_{{ retailer.code }}" class="txt-truncate">{{ retailer.name }}</label>
+                    <input ng-model="retailer.selected" ng-checked="retailer.selected" value="{{ retailer.code }}" id="retailer_{{ retailer.code }}" type="checkbox"><label for="retailer_{{ retailer.code }}" class="txt-truncate">{{ retailer.name }}</label>
                   </li>
                 </ul>
 
@@ -136,19 +134,19 @@
             <%# Brands %>
             <li ng-if="filterIsAvailable(search.brands.values)">
 
-              <%# Palm trigger %>
+              <%# Narrow view trigger %>
               <button ng-click="toggleFilter('brand')" class="filters__trigger filters__trigger--narrow drop-down-menu__hdr-btn drop-down-menu__divider btn btn--full btn--full-left btn--pointer">
                 {{ search.brands.title }}
                 <span class="icon icon--arrow-right-big icon--lrg btn--pointer__icon" aria-hidden="true"></span>
               </button>
-              <%# //Palm trigger %>
+              <%# //Narrow view trigger %>
 
-              <%# Non-palm trigger %>
+              <%# Wide view trigger %>
               <button ng-click="toggleFilter('brand')" class="filters__trigger filters__trigger--wide drop-down-menu__trigger btn btn--main btn--main-alt4 btn--pointer">
                 {{ search.brands.title }}
                 <span class="icon icon--arrow-down-full btn--pointer__icon" aria-hidden="true"></span>
               </button>
-              <%# //Non-palm trigger %>
+              <%# //Wide view trigger %>
 
               <div ng-show="activeFilter === 'brand'" class="filters__target">
 
@@ -164,8 +162,7 @@
 
                 <ul class="drop-down-menu__list">
                   <li ng-repeat="brand in search.brands.values | nameStartsWith: brandSearch | limitTo: 250" class="drop-down-menu__divider islet">
-                    <input ng-model="brand.selected" ng-checked="brand.selected" value="{{ brand.code }}" id="brand_{{ brand.code }}" type="checkbox">
-                    <label for="brand_{{ brand.code }}" class="txt-truncate">{{ brand.name }}</label>
+                    <input ng-model="brand.selected" ng-checked="brand.selected" value="{{ brand.code }}" id="brand_{{ brand.code }}" type="checkbox"><label for="brand_{{ brand.code }}" class="txt-truncate">{{ brand.name }}</label>
                   </li>
                 </ul>
 
@@ -179,19 +176,19 @@
             <%# Colours %>
             <li ng-if="filterIsAvailable(search.colours.values)">
 
-              <%# Palm trigger %>
+              <%# Narrow view trigger %>
               <button ng-click="toggleFilter('colour')" class="filters__trigger filters__trigger--narrow drop-down-menu__hdr-btn drop-down-menu__divider btn btn--full btn--full-left btn--pointer">
                 {{ search.colours.title }}
                 <span class="icon icon--arrow-right-big icon--lrg btn--pointer__icon" aria-hidden="true"></span>
               </button>
-              <%# //Palm trigger %>
+              <%# //Narrow view trigger %>
 
-              <%# Non-palm trigger %>
+              <%# Wide view trigger %>
               <button ng-click="toggleFilter('colour')" class="filters__trigger filters__trigger--wide drop-down-menu__trigger btn btn--main btn--main-alt4 btn--pointer">
                 {{ search.colours.title }}
                 <span class="icon icon--arrow-down-full btn--pointer__icon" aria-hidden="true"></span>
               </button>
-              <%# //Non-palm trigger %>
+              <%# //Wide view trigger %>
 
               <div ng-show="activeFilter === 'colour'" class="filters__target">
 
@@ -202,8 +199,7 @@
 
                 <ul class="drop-down-menu__list">
                   <li ng-repeat="colour in search.colours.values" class="drop-down-menu__divider islet">
-                    <input ng-model="colour.selected" ng-checked="colour.selected" value="{{ colour.code }}" id="colour_{{ colour.code }}" type="checkbox">
-                    <label for="colour_{{ colour.code }}">{{ colour.name }}</label>
+                    <input ng-model="colour.selected" ng-checked="colour.selected" value="{{ colour.code }}" id="colour_{{ colour.code }}" type="checkbox"><label for="colour_{{ colour.code }}">{{ colour.name }}</label>
                   </li>
                 </ul>
 
@@ -217,19 +213,19 @@
             <%# Size %>
             <li ng-if="filterIsAvailable(search.sizes.values)">
 
-              <%# Palm trigger %>
+              <%# Narrow view trigger %>
               <button ng-click="toggleFilter('size')" class="filters__trigger filters__trigger--narrow drop-down-menu__hdr-btn drop-down-menu__divider btn btn--full btn--full-left btn--pointer">
                 {{ search.sizes.title }}
                 <span class="icon icon--arrow-right-big icon--lrg btn--pointer__icon" aria-hidden="true"></span>
               </button>
-              <%# //Palm trigger %>
+              <%# //Narrow view trigger %>
 
-              <%# Non-palm trigger %>
+              <%# Wide view trigger %>
               <button ng-click="toggleFilter('size')" class="filters__trigger filters__trigger--wide drop-down-menu__trigger btn btn--main btn--main-alt4 btn--pointer">
                 {{ search.sizes.title }}
                 <span class="icon icon--arrow-down-full btn--pointer__icon" aria-hidden="true"></span>
               </button>
-              <%# //Non-palm trigger %>
+              <%# //Wide view trigger %>
 
               <div ng-show="activeFilter === 'size'" class="filters__target">
                 <span class="arrow arrow--up"></span>
@@ -241,8 +237,7 @@
 
                 <ul class="drop-down-menu__list">
                   <li ng-repeat="size in search.sizes.values" class="drop-down-menu__divider islet">
-                    <label for="size_{{ size.code }}">{{ size.name }}</label>
-                    <input ng-model="size.selected" ng-checked="size.selected" value="{{ size.code }}" id="size_{{ size.code }}" type="checkbox">
+                    <label for="size_{{ size.code }}">{{ size.name }}</label><input ng-model="size.selected" ng-checked="size.selected" value="{{ size.code }}" id="size_{{ size.code }}" type="checkbox">
                   </li>
                 </ul>
 
@@ -256,19 +251,19 @@
             <%# Price %>
             <li ng-if="filterIsAvailable(search.price.values)">
 
-              <%# Palm trigger %>
+              <%# Narrow view trigger %>
               <button ng-click="toggleFilter('price')" class="filters__trigger filters__trigger--narrow drop-down-menu__hdr-btn drop-down-menu__divider btn btn--full btn--full-left btn--pointer">
                 {{ search.price.title }}
                 <span class="icon icon--arrow-right-big icon--lrg btn--pointer__icon" aria-hidden="true"></span>
               </button>
-              <%# //Palm trigger %>
+              <%# //Narrow view trigger %>
 
-              <%# Non-palm trigger %>
+              <%# Wide view trigger %>
               <button ng-click="toggleFilter('price')" class="filters__trigger filters__trigger--wide drop-down-menu__trigger btn btn--main btn--main-alt4 btn--pointer">
                 {{ search.price.title }}
                 <span class="icon icon--arrow-down-full btn--pointer__icon" aria-hidden="true"></span>
               </button>
-              <%# //Non-palm trigger %>
+              <%# //Wide view trigger %>
 
               <div ng-show="activeFilter === 'price'" class="filters__target">
 
@@ -294,16 +289,25 @@
 
             <%# On sale %>
             <li>
-              <div class="filters__trigger filters__sale btn--main btn--main-alt4">
-                <input ng-model="on_sale" ng-checked="search.params.on_sale" ng-change="filterSearch('on_sale')" id="sale-items" type="checkbox">
-                <label for="sale-items">On sale</label>
+
+              <%# Narrow view toggle %>
+              <div class="filters__trigger filters__trigger--narrow islet">
+                <input ng-model="on_sale" ng-checked="search.params.on_sale" ng-change="filterSearch('on_sale')" id="sale-items" type="checkbox"><label for="sale-items">On sale</label>
               </div>
+              <%# //Narrow view toggle %>
+
+              <%# Wide view toggle %>
+              <label for="sale-items-2" class="filters__trigger filters__trigger--wide btn btn--main btn--main-alt4 btn--checkbox-toggle">
+                <input ng-model="on_sale" ng-checked="search.params.on_sale" ng-change="filterSearch('on_sale')" id="sale-items-2" type="checkbox" class="btn--checkbox-toggle__input"><span class="btn--checkbox-toggle__lbl">On sale</span>
+              </label>
+              <%# //Wide view toggle %>
+
             </li>
             <%# //On sale %>
 
           </ul>
         </div>
-        <%# //Drop down target (palm) %>
+        <%# //Drop down target (narrow view) %>
 
       </div>
 

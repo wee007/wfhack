@@ -111,7 +111,7 @@
           pointer-events: none;
 
           /* Make nested elements clickable */
-          .drop-down-menu *,
+          .stores-maps__filters,
           .stores-maps__toggle {pointer-events: auto;}
         }
       }
@@ -129,8 +129,6 @@
 
       /* Inner container */
       .container {
-        /* Temp style so current feature can be released */
-        text-align: right;
         position: relative;
         @include to-rem(padding-top padding-bottom, $spacing-half);
         @extend %clear-fix;
@@ -139,26 +137,7 @@
         @include respond-min($non-palm) {
           @include to-rem(padding-top padding-bottom, $spacing-half+$spacing-quarter);
         }
-
-        /* Temp style so current feature can be released */
-        @include respond-min($ipad-landscape) {
-          text-align: left;
-        }
       }
-
-        /* Filter drop down */
-        .drop-down-menu {
-
-          /* Need to float left at this breakpoint range */
-          @include respond-range($non-palm, $ipad-landscape - 1) {
-            float: left;
-          }
-
-          /* Increase right padding for trigger at this breakpoint */
-          @include respond-min($non-palm) {
-            .drop-down-menu__trigger {@include to-em(padding-right, $spacing-dbl+$spacing-base);}
-          }
-        }
     }
 
       /* Header */
@@ -201,25 +180,43 @@
           a.stores-maps__filters-toggle__hdr:hover > span,
           a.stores-maps__filters-toggle__hdr:focus > span {color: $color-link-hover;}
 
+      /* Filters */
+      .stores-maps__filters {
+        float: left;
+
+        /* Unfloat at this breakpoint */
+        @include respond-min($ipad-landscape) {
+          float: none;
+        }
+
+          /* Increase right padding for drop down trigger at this breakpoint */
+          @include respond-min($non-palm) {
+            .drop-down-menu__trigger {@include to-em(padding-right, $spacing-dbl+$spacing-base);}
+          }
+
+          /* Gift card toggle */
+          .btn--checkbox-toggle {
+
+            /* Reveal text at this breakpoint */
+            @include respond-min($non-palm) {
+              .hide-visually {@include hide-visually-off;}
+            }
+
+            /* Icon */
+            .icon--gift-card:before {
+              color: #fff;
+              @include to-rem(margin-left, $spacing-quarter);
+            }
+          }
+      }
+
       /* Toggle button */
       .stores-maps__toggle {
-        /* Temp removal so current feature can be released */
-        /*@include respond-max($palm) {
-          position: absolute;
-          right: 0;
-          top: 50%;
-          @include translate(0, -50%);
-        }*/
+        float: right;
 
         /* Reveal button text, float right and fix a width at this breakpoint */
         @include respond-min($non-palm) {
-          float: right;
-          @include to-rem(min-width, 116);
-
-          /* Link version */
-          &.stores-maps__toggle--link {@include to-rem(min-width, 106);}
-
-          /* Reveal button text */
+          @include to-rem(min-width, 120);
           .hide-visually {@include hide-visually-off;}
         }
 

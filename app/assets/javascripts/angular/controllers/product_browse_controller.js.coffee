@@ -91,7 +91,7 @@
       !!ProductSearch.appliedFilters.length
 
     $scope.filterIsAvailable = (filterValues) ->
-      filterValues isnt `undefined` and filterValues.length > 0
+      filterValues isnt `undefined`
 
     $scope.removeSelectedFilter = (paramName, paramValue) ->
       Products.loading = true

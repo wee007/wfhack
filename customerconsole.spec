@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.59
+Version:     0.1.60
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -77,6 +77,13 @@ fi
 
 
 %changelog
+* Thu Sep 26 2013 ci <doperations@au.westfield.com> 0.1.60-1
+- Merge pull request #405 from mwratt/feature/storefront
+  (ldewey@au.westfield.com)
+- nolonger need to limit the translation (matt.wratt@trineo.co.nz)
+- adds spinner on pjax requests (matt.wratt@trineo.co.nz)
+- fixes map list toggle on storefront page (matt.wratt@trineo.co.nz)
+
 * Thu Sep 26 2013 ci <doperations@au.westfield.com> 0.1.59-1
 - Merge pull request #404 from mwratt/feature/storefront
   (ldewey@au.westfield.com)

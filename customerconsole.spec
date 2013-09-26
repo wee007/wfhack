@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.56
+Version:     0.1.57
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -77,6 +77,13 @@ fi
 
 
 %changelog
+* Thu Sep 26 2013 ci <doperations@au.westfield.com> 0.1.57-1
+- Merge pull request #395 from cpearce/map-control-styling-storefront-updates
+  (matt.wratt@trineo.co.nz)
+- Storefront various updates/fixes/improvements - WSF-4655
+  (CPearce@au.westfield.com)
+- Micello map control styling WSF-5488 (CPearce@au.westfield.com)
+
 * Thu Sep 26 2013 ci <doperations@au.westfield.com> 0.1.56-1
 - 
 

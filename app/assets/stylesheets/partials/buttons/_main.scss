@@ -9,8 +9,9 @@
   .btn--main-alt2             - Dark
   .btn--main-alt3             - Subtle
   .btn--main-alt4             - White
-  .btn--main-compact          - Decrease padding
+  .btn--main-compact          - Compact - decrease padding
   .btn--main-lrg              - Large - increase top/btm padding
+  .btn--checkbox-toggle       - Checkbox toggle
 
   Styleguide Button Main
 */
@@ -127,7 +128,7 @@
 	/* Compact - decrease padding */
 	.btn--main-compact {@include to-em(padding, $spacing-third $spacing-base);}
 
-	/* Compact - extra compact padding (use with icons) */
+	/* Compact icon - as above but decrease padding more (use with icons) */
 	.btn--main-compact-icon {@include to-em(padding, $spacing-half+1 $spacing-half+3.5);}
 
 	/* Large - increase top/btm padding */
@@ -169,3 +170,31 @@
 			right: auto;
 		}
 	}
+
+  /* --Checkbox toggle-- */
+  .btn--checkbox-toggle {
+    @include to-em(padding, $spacing-half+1.5 $spacing-half);
+
+    /* iOS and Android */
+    .ios &,
+    .android & {@include to-em(padding-top, $spacing-half+0.5);}
+  }
+
+  /* When an icon is used within the checkbox toggle */
+  .btn--checkbox-toggle-icon {
+    @include to-em(padding-top padding-bottom, $spacing-half);
+
+    /* iOS and Android */
+    .ios &,
+    .android & {@include to-em(padding-top, $spacing-half - 1);}
+  }
+
+    /* Shared rules */
+    .btn--checkbox-toggle__input,
+    .btn--checkbox-toggle__lbl {vertical-align: middle;}
+
+    /* Checkbox */
+    .btn--checkbox-toggle__input {
+      cursor: pointer;
+      @include to-rem(margin-right, $spacing-third);
+    }

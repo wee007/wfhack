@@ -48,9 +48,14 @@
     width: 100%;
     @include to-rem(margin-top, 10);
 
+    /* Override default width for palm at this breakpoint */
+    @include respond-max($palm) {
+      &.drop-down-menu__target--alt-width-palm {@include to-rem(width, $drop-down-width);}
+    }
+
     /* Reduce the width at this breakpoint */
     @include respond-min($iphone-landscape) {
-      @include to-rem(width, 285);
+      @include to-rem(width, $drop-down-width);
     }
 
     /* Reduce the top margin for IE 9/8 */

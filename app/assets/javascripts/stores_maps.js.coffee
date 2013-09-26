@@ -1,4 +1,5 @@
 #= require jquery-pjax
+#= require flexslider/jquery.flexslider
 #= require map/responsive_map
 
 class StoreMapPage

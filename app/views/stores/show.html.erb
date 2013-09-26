@@ -186,7 +186,44 @@
 
       <%= javascript_tag do %>
         function storeMapPageReady() {
+
+          // Target the store in the map
           storeMapPage.store(<%= @store.id %>);
+
+          // Add a hook if there is only 'Opening hours' item in `storefront__details__meta`
+          if ($('.storefront__details__meta dd').length === 2) {
+            $('.storefront__details__meta').addClass('is-storefront-details-meta-one');
+          }
+
+          // Run 'Flexslider' plugin
+
+          // Get the count of flexslider items
+          var flexsliderItemsCount = $('.flexslider .slides li').length;
+
+          // Only initialise flexslider if more than 1 item
+          if (flexsliderItemsCount > 1) {
+
+            $('.flexslider').flexslider({
+              animationSpeed: 50,
+              controlNav: true,
+              directionNav: false,
+              slideshow: false,
+              // Do stuff when the slider loads the first slide
+              start: function(slider) {
+                // Add some ARIA
+                slider.container.attr('role', 'listbox');
+                slider.slides.attr({'role': 'option', 'aria-selected': 'false'});
+                slider.slides.eq(slider.currentSlide).attr('aria-selected', 'true');
+                slider.controlNav.attr({'href' : '#', 'role' : 'button'});
+              },
+              // Do stuff after each slider animation completes
+              after: function(slider) {
+                slider.slides.attr('aria-selected', 'false');
+                slider.slides.eq(slider.currentSlide).attr('aria-selected', 'true');
+              }
+            });
+
+          }
         }
       <% end %>
 
@@ -203,48 +240,5 @@
 </div>
 
 <%- content_for :javascript do -%>
-
   <%= javascript_include_tag 'stores_maps' %>
-  <%= javascript_include_tag 'flexslider/jquery.flexslider' %>
-  <%= javascript_tag do %>
-
-    // Add a hook if there is only 'Opening hours' item in `storefront__details__meta`
-    if ($('.storefront__details__meta dd').length === 2) {
-      $('.storefront__details__meta').addClass('is-storefront-details-meta-one');
-    }
-
-    // Run 'Flexslider' plugin
-    $(window).load(function() {
-
-      // Get the count of flexslider items
-      var flexsliderItemsCount = $('.flexslider .slides li').length;
-
-      // Only initialise flexslider if more than 1 item
-      if (flexsliderItemsCount > 1) {
-
-        $('.flexslider').flexslider({
-          animationSpeed: 50,
-          controlNav: true,
-          directionNav: false,
-          slideshow: false,
-          // Do stuff when the slider loads the first slide
-          start: function(slider) {
-            // Add some ARIA
-            slider.container.attr('role', 'listbox');
-            slider.slides.attr({'role': 'option', 'aria-selected': 'false'});
-            slider.slides.eq(slider.currentSlide).attr('aria-selected', 'true');
-            slider.controlNav.attr({'href' : '#', 'role' : 'button'});
-          },
-          // Do stuff after each slider animation completes
-          after: function(slider) {
-            slider.slides.attr('aria-selected', 'false');
-            slider.slides.eq(slider.currentSlide).attr('aria-selected', 'true');
-          }
-        });
-
-      }
-
-    });
-
-  <%- end -%>
 <%- end -%>

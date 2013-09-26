@@ -217,6 +217,11 @@
         /* Reveal button text, float right and fix a width at this breakpoint */
         @include respond-min($non-palm) {
           @include to-rem(min-width, 120);
+
+          /* Link version */
+          &.stores-maps__toggle--link {@include to-rem(min-width, 106);}
+
+          /* Reveal button text */
           .hide-visually {@include hide-visually-off;}
         }
 

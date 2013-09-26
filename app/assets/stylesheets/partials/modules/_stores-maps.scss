@@ -72,7 +72,7 @@
 
     /* Turn off absolute positioning for 'detail view' at this breakpoint */
     @include respond-max($ipad-landscape - 1) {
-      .stores-maps--detail & {position: static;}
+      &.stores-maps__inner--detail {position: static;}
     }
 
     /* When map view is in view */
@@ -97,7 +97,11 @@
       z-index: 6;
 
       /* Hide for detail view */
-      .stores-maps--detail & {display: none;}
+      .stores-maps__inner--detail & {
+        display: none;
+
+        .is-map-view & {display: block;}
+      }
 
       /* When map view is in view */
       @include respond-max($palm) {
@@ -120,7 +124,7 @@
         @include to-rem(margin-bottom margin-top, $spacing-base);
 
         /* Show for detail view */
-        .stores-maps--detail & {display: block;}
+        .stores-maps__inner--detail & {display: block;}
       }
 
       /* Inner container */
@@ -168,7 +172,7 @@
         margin-bottom: 0;
 
         /* Detail view */
-        .stores-maps--detail & {
+        .stores-maps__inner--detail & {
           margin-bottom: 0;
 
           .icon:before {
@@ -210,7 +214,12 @@
         /* Reveal button text, float right and fix a width at this breakpoint */
         @include respond-min($non-palm) {
           float: right;
-          @include to-rem(min-width, 120);
+          @include to-rem(min-width, 116);
+
+          /* Link version */
+          &.stores-maps__toggle--link {@include to-rem(min-width, 106);}
+
+          /* Reveal button text */
           .hide-visually {@include hide-visually-off;}
         }
 
@@ -288,12 +297,12 @@
 
       /* Old IE - change the bg colour */
       @include old-ie {
-        .stores-maps.stores-maps--detail .stores-maps__inner & {background-color: lighten($color-grey-3, 5%);}
+        .stores-maps .stores-maps__inner.stores-maps__inner--detail & {background-color: lighten($color-grey-3, 5%);}
       }
 
       /* Turn off absolute positioning/overflow for 'detail view' at this breakpoint */
       @include respond-max($ipad-landscape - 1) {
-        .stores-maps--detail & {
+        .stores-maps__inner--detail & {
           position: static;
           overflow-y: visible;
         }
@@ -317,7 +326,7 @@
         @include box-heavy;
 
         /* Detail view */
-        .stores-maps--detail & {
+        .stores-maps__inner--detail & {
           bottom: auto;
 
           /* When they're 'Featured items' */

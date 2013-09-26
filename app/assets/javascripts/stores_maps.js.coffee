@@ -16,8 +16,8 @@ class StoreMapPage
 
   setup: =>
     $.pjax.defaults.timeout = 5000
-    $(document).pjax('a.js-pjax-link', '.js-pjax-container')
-    $('.js-pjax-container').on('pjax:end', @pjaxComplete)
+    $(document).pjax('a.js-pjax-link-stores', '.js-pjax-container-stores')
+    $('.js-pjax-container-stores').on('pjax:end', @pjaxComplete)
     $('body').on('click.map-micello', '.js-stores-maps-toggle-btn', @toggle)
     self = @
     $('body').on('click.map-micello', '[data-store-id]', ->

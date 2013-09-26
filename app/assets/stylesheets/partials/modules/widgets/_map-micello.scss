@@ -28,9 +28,11 @@
 .map-micello--static {
   pointer-events: none;
 
-  #ui-zoom,
-  #ui-levels,
-  #ui-geo {display: none !important;}
+  /* Remove interactive controls (Zoom and Floor levels) */
+  #micello-map #ui-all {
+    #ui-zoom,
+    #ui-levels {display: none !important;}
+  }
 }
 
   /* API container + overlay that disables all map interaction */
@@ -81,6 +83,9 @@
             left: 0;
             top: 0;
 
+            /* Remove the indent when there is no logo */
+            .is-no-store-logo & {display: none;}
+
             /* Make linear for static version at this breakpoint range */
             @include respond-range($non-palm, $ipad-portrait - 1) {
               .map-micello--static & {
@@ -124,9 +129,6 @@
       font-family: $font-family !important;
       line-height: 1.5 !important;
       background-image: none !important;
-
-      /* Map name */
-      #ui-name {display: none !important;}
 
       /* --Overlay-- */
 
@@ -200,7 +202,7 @@
             border: 1px solid $color-grey-2;
           }
 
-          /* [WIP] Close button */
+          /* Close button */
           .infoClose {
             display: block !important;
             @include opacity(0, !important);
@@ -208,15 +210,191 @@
             right: 0 !important;
           }
 
-      /* Floor levels */
-      #ui-levels {
-        #ui-levels-floors-container {background-color: transparent;}
+      /*
+        Zoom
+        - ui-zoom
+          - ui-zoom-in
+          - ui-zoom-out
+
+        Floor levels
+        - ui-levels
+          - ui-levels-floors-container
+          - ui-levels-floors-wrapper
+            - ui-levels-floors
+              - ui_levels_floor
+                - ui_levels_floor_name
+      */
+
+      /* All controls */
+      #ui-all {
+        position: static !important;
+
+        /* --Shared rules-- */
+
+        /* Hide 'Map name' and 'GEO' */
+        #ui-name,
+        #ui-geo {display: none !important;}
+
+        /* Always to the right and always in view rather only when hovered */
+        #ui-zoom,
+        #ui-levels,
+        #ui-attribution {
+          left: auto !important;
+          right: 4%;
+          opacity: 1 !important;
+          display: block !important;
+        }
+
+        /* Alter right positioning for 'Zoom', 'Floor levels' and 'Attribution' at this breakpoint */
+        @include respond-min($ipad-landscape) {
+          #ui-zoom {right: 6px;}
+
+          #ui-levels {right: 11px;}
+
+          #ui-attribution {right: 0;}
+        }
+
+        /* Common box shadow */
+        #ui-zoom,
+        #ui-levels-floors-wrapper {box-shadow: $box-shadow-heavy !important;}
+
+        /* Common width */
+        #ui-zoom,
+        #ui-levels-floors-wrapper,
+        #ui-levels-floors-container {width: 40px !important;}
+
+        /* Remove border */
+        #ui-zoom,
+        #ui-levels-floors-wrapper {border: 0 !important;}
+
+          /* Common width */
+          #ui-zoom-in,
+          #ui-zoom-out,
+          #ui-levels-floors,
+          .ui_levels_floor {width: 100% !important;}
+
+          /* Common border colour */
+          #ui-zoom-in,
+          .ui_levels_floor {border-color: $color-grey-2 !important;}
+
+          /* Common transistion */
+          #ui-zoom-in,
+          #ui-zoom-out,
+          .ui_levels_unselected {@extend %transition-subtle;}
+
+        /* Zoom */
+        #ui-zoom {
+          top: 58px !important;
+
+          /* Increase top positioning at this breakpoint */
+          @include respond-min($non-palm) {
+            top: 80px !important;
+          }
+
+          /* Decrease top positioning at this breakpoint */
+          @include respond-min($ipad-landscape) {
+            top: 21px !important;
+          }
+
+            /* '+' and '-' buttons */
+            #ui-zoom-in,
+            #ui-zoom-out {
+              font-weight: bold;
+              font-size: 32px;
+              color: $color-light-txt !important;
+
+              &:hover {background-color: $color-grey-3 !important;}
+            }
+        }
+
+        /* Attribution */
+        #ui-attribution {
+          top: auto !important;
+          bottom: $spacing-half+px;
+        }
+
+        /* Floor levels */
+        #ui-levels {
+          top: 154px !important;
+          margin-right: 5px;
+
+          /* Increase top positioning at this breakpoint */
+          @include respond-min($non-palm) {
+            top: 176px !important;
+          }
+
+          /* Decrease top positioning and turn off right margin at this breakpoint */
+          @include respond-min($ipad-landscape) {
+            top: 120px !important;
+            margin-right: 0;
+          }
+
+          #ui-levels-floors-container {background: none !important;}
+
+            #ui-levels-floors {cursor: default;}
+
+              /* Active state */
+              .ui_levels_floor {
+                background-color: $color-dark-txt !important;
+                color: #fff !important;
+                cursor: default;
+              }
+
+              /* Normal state */
+              .ui_levels_unselected {
+                background-color: #fff !important;
+                cursor: pointer;
+                color: $color-light-txt !important;
+
+                &:hover {background-color: $color-grey-3 !important;}
+              }
+
+                /* Floor numbers */
+                .ui_levels_floor_name {
+                  position: static !important;
+                  text-align: center;
+                  line-height: 35px;
+                  font-size: 16px !important;
+                }
+
+              /* Up/down arrows */
+              #ui-levels-arrow-up,
+              #ui-levels-arrow-down {
+                height: 32px !important;
+                width: 20px !important;
+                left: -5px !important;
+
+                /* Hide Micello's arrow images */
+                img {display: none;}
+
+                /* Replace Micello's arrow images with our own icon font arrows */
+                &:before {
+                  color: $color-dark-txt;
+                  @include font-size(18, 1);
+                  text-align: center;
+                  position: absolute;
+                  left: 0;
+                  top: 0;
+                  width: 100%;
+                }
+              }
+
+              /* Up arrow */
+              #ui-levels-arrow-down {
+                top: auto !important;
+                bottom: 0;
+
+                &:before {
+                  top: auto;
+                  bottom: 0;
+                }
+              }
+        }
       }
 
       /* Cosmetics */
       .micello-rounded {border-radius: 0;}
 
-      .ui-shadow,
       .micello-pop-shadow {box-shadow: none !important;}
     }
 

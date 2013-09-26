@@ -16,7 +16,9 @@
 .filters__target:before,
 .header-menu-toggle:before,
 .nav-social-tertiary-container:before,
-.menuTip:after {
+.menuTip:after,
+#ui-levels-arrow-up:before,
+#ui-levels-arrow-down:before {
 	@extend %sprite-icon;
 	speak: none;
 	font-family: "icons";
@@ -198,12 +200,14 @@
 .drop-down-menu__target:before,
 .filters__target:before,
 .header-menu-toggle:before,
-.nav-social-tertiary-container:before {content: "\e00b";}
+.nav-social-tertiary-container:before,
+#ui-levels-arrow-up:before {content: "\e00b";}
 
 /* Arrow full down */
 .icon--arrow-down-full:before,
 /* This pseudo element is to render the 'map popup' arrow pointer as they use an icon font (`@extend` isn't suitable for this) */
-.menuTip:after {content: "\e00a";}
+.menuTip:after,
+#ui-levels-arrow-down:before {content: "\e00a";}
 
 /* Arrow full left */
 .icon--arrow-left-full:before {content: "\e008";}

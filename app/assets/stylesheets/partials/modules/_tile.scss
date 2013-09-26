@@ -174,31 +174,3 @@
     }
   }
 }
-
-/* Non-pinboard version */
-.tiles-non-pinboard {
-  @extend %clear-fix;
-  @include to-rem(margin-left, - $spacing-half);
-
-  /* Increase negative left outdent at this breakpoint */
-  @include respond-min($ipad-portrait) {
-    @include to-rem(margin-left, - $spacing-base);
-  }
-}
-
-  /* Tile containers */
-  .tiles-non-pinboard__tile {
-    float: left;
-    width: 50%;
-    @include to-rem(padding-left, $spacing-half);
-
-    /* Decrease width at this breakpoint */
-    @include respond-min($iphone-landscape) {
-      width: 33.33333333333333%;
-    }
-
-    /* Increase gutter at this breakpoint */
-    @include respond-min($ipad-portrait) {
-      @include to-rem(padding-left, $spacing-base);
-    }
-  }

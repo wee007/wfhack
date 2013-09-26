@@ -16,6 +16,7 @@
 	border-radius: $border-radius;
 	padding: to-em($spacing-third);
 	text-align: center;
+  position: relative;
 
 	/* Shared */
 	li,
@@ -97,6 +98,16 @@
 		vertical-align: bottom;
 	}
 
-  /* */
-  .pagination__prev { float: left; }
-  .pagination__next { float: right; }
+  .pagination__prev,
+  .pagination__next {
+    position: absolute;
+    top: to-em($spacing-third);
+  }
+  .pagination__prev {
+    left: to-em($spacing-third);
+    text-align: left;
+  }
+  .pagination__next {
+    right: to-em($spacing-third);
+    text-align: right;
+  }

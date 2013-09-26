@@ -39,6 +39,9 @@ class StoreMapPage
     $('.js-stores-maps-toggle-btn__txt').html(if visible then 'list' else 'map')
     $('.js-stores-maps-toggle-wrap').toggleClass('is-map-view', visible)
 
+    # FIXME: Webkit doesn't redraw the page correctly unless we force it
+    $('.js-stores-maps-toggle-wrap').width()
+
   store: (storeId) ->
     @map.setTarget(storeId).showLevel().zoom().highlight().detail()
 

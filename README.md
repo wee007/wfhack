@@ -8,7 +8,8 @@ Formerly known as Playa, premium, presentationlayer, prince, so on.
 
 * How to start up the dev env
 
-`foreman start -e .env.development`
+      $ ln -s .env.development .env
+      $ foreman start
 
 * Deployment instructions
 

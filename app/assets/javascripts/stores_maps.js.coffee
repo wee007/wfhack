@@ -11,12 +11,17 @@ class StoreMapPage
       nonPalm: offset: x: 0.75, y: 0.5
     }
 
+  loading: (state) ->
+    $('.js-pjax-container-stores').toggleClass('is-stores-list-detail-loading', state)
+
   pjaxComplete: =>
     storeMapPageReady() if window.storeMapPageReady
     delete storeMapPageReady
 
   setup: =>
     $.pjax.defaults.timeout = 5000
+    $(document).on('pjax:send', => @loading true)
+    $(document).on('pjax:success', => @loading false)
     $(document).pjax('a.js-pjax-link-stores', '.js-pjax-container-stores')
     $('.js-pjax-container-stores').on('pjax:end', @pjaxComplete)
     $('body').on('click.map-micello', '.js-stores-maps-toggle-btn', @toggle)

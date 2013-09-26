@@ -56,6 +56,20 @@
   .stores-list__store-name .icon--pin:before,
   .stores-maps__filters-count .icon--pin:before {@include to-rem(margin-left, -4);}
 
+  /* Show a preloader whilst waiting for the list/detail view content to load via PJAX */
+  .js-pjax-container-stores {
+
+    /* Hide the preloader by default */
+    .preloader {display: none;}
+
+    /* Toggle the display of the preloader and content via the `.is-stores-list-detail-loading` class */
+    &.is-stores-list-detail-loading {
+      .preloader {display: block;}
+
+      .stores-maps__inner {display: none;}
+    }
+  }
+
   /* Listing and detail views container */
   .stores-maps__inner {
     position: absolute;

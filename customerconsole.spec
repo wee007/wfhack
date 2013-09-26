@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.58
+Version:     0.1.59
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -77,6 +77,12 @@ fi
 
 
 %changelog
+* Thu Sep 26 2013 ci <doperations@au.westfield.com> 0.1.59-1
+- Merge pull request #404 from mwratt/feature/storefront
+  (ldewey@au.westfield.com)
+- fixes precompiled asset name (matt.wratt@trineo.co.nz)
+- fixes flex slider when pjax navigation is used (matt.wratt@trineo.co.nz)
+
 * Thu Sep 26 2013 ci <doperations@au.westfield.com> 0.1.58-1
 - Fixing merge conflict from another feature (CPearce@au.westfield.com)
 - Adding HTML comments to keep elements on seperate lines for readability

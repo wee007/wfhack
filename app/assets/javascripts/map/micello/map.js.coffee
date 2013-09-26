@@ -176,14 +176,6 @@ class map.micello.Map extends map.micello.MapBase
     @recordSize()
     @
 
-  maxTranslate: (translate) ->
-    size = @getSize()
-    halfWidth = size.width / 2 - @view.mapXInViewport
-    halfHeight = size.height / 2 - @view.mapYInViewport
-    translate.x = Math.min(Math.max(translate.x, -halfWidth), halfWidth)
-    translate.y = Math.min(Math.max(translate.y, -halfHeight), halfHeight)
-    translate
-
   viewportCentre: (offset = @offset, size = @getSize()) ->
     x: size.width * offset.x
     y: size.height * offset.y
@@ -197,7 +189,7 @@ class map.micello.Map extends map.micello.MapBase
     y: offset.y - centre.y
 
   applyOffset: (@offset = @offset) ->
-    translate = @maxTranslate @viewportCentreOffsetDelta()
+    translate = @viewportCentreOffsetDelta()
     @view.translate(translate.x, translate.y)
 
   centreOffset: (offset) ->

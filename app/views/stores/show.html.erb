@@ -4,11 +4,10 @@
 
   <%# Contain 'back to listing link' and 'store details' %>
   <div class="js-pjax-container-stores">
-    <%# FIXME: [BACKEND] inject this preloader whilst waiting for index page to load via PJAX %>
-    <%#<span class="preloader preloader--middle preloader--light js-disabled-hide">
+    <span class="preloader preloader--middle preloader--light js-disabled-hide">
       <span class="preloader__spinner"></span>
       <em class="hide-visually">Loading, please wait&#8230;</em>
-    </span>%>
+    </span>
 
     <div class="stores-maps__inner stores-maps__inner--detail" id="stores-maps-toggle-listing-detail">
 
@@ -16,7 +15,7 @@
       <div class="stores-maps__filters-toggle">
         <div class="container">
           <%# Small view %>
-          <a href="<%= centre_stores_path(@centre) %>" class="stores-maps__toggle stores-maps__toggle--link btn btn--main btn--main-alt4 btn--main-compact-icon js-pjax-link-stores">
+          <a href="<%= centre_stores_path(@centre) %>" class="stores-maps__toggle stores-maps__toggle--link btn btn--main btn--main-alt4 btn--main-compact-icon js-pjax-link-stores js-stores-maps-toggle-btn">
             <span class="hide-visually">View list</span>
             <span class="icon icon--list icon--lrg" aria-hidden="true"></span>
           </a>

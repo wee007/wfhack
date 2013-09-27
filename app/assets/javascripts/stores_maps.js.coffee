@@ -36,7 +36,7 @@ class StoreMapPage
   toggle: =>
     visible = @map.toggle()
     $('.js-stores-maps-toggle-btn').toggleClass('is-expanded', visible)
-    $('.js-stores-maps-toggle-btn__txt').html(if visible then 'list' else 'map')
+    $('.js-stores-maps-toggle-btn-txt').html(if visible then 'list' else 'map')
     $('.js-stores-maps-toggle-wrap').toggleClass('is-map-view', visible)
 
     # FIXME: Webkit doesn't redraw the page correctly unless we force it

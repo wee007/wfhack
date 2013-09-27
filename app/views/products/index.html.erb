@@ -345,7 +345,7 @@
 <%- end -%>
 
 <%# Render results %>
-<div ng-cloak ng-controller="ProductsController">
+<div ng-cloak ng-controller="ProductsController" aria-live="polite" aria-atomic="true">
 
   <%# Preloader %>
   <div ng-if="products.loading">

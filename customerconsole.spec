@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.60
+Version:     0.1.61
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -77,6 +77,21 @@ fi
 
 
 %changelog
+* Fri Sep 27 2013 ci <doperations@au.westfield.com> 0.1.61-1
+- Merge pull request #409 from ldewey/events-image-fix
+  (matt.wratt@trineo.co.nz)
+- Fixed event image link (ldewey@au.westfield.com)
+- Build fix (ldewey@au.westfield.com)
+- Added style fixes for pagination. (ldewey@au.westfield.com)
+- Browser will now scroll to top when you paginate. (ldewey@au.westfield.com)
+- Added puma to dev (ldewey@au.westfield.com)
+- Small pagination fixes (ldewey@au.westfield.com)
+- Added new markup for pagination (ldewey@au.westfield.com)
+- Added btn to pagination (ldewey@au.westfield.com)
+- WIP (ldewey@au.westfield.com)
+- Move call back loop to out of the ajax requst for speed!
+  (ldewey@au.westfield.com)
+
 * Thu Sep 26 2013 ci <doperations@au.westfield.com> 0.1.60-1
 - Merge pull request #405 from mwratt/feature/storefront
   (ldewey@au.westfield.com)

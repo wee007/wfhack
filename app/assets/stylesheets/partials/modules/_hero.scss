@@ -21,14 +21,15 @@
   @include respond-min($non-palm) {
     @include to-rem(height, 300);
     @include to-rem(margin-bottom, $spacing-dbl);
+
+    /* Shared styles */
+    .hero__icon,
+    h1 {
+      display: inline-block;
+      vertical-align: middle;
+    }
   }
 
-  /* Shared styles */
-  .hero__icon,
-  h1 {
-    display: inline-block;
-    vertical-align: middle;
-  }
 
   /* Hero icon next to the heading   */
   .hero__icon:before {
@@ -48,15 +49,6 @@
       @include font-size(60);
     }
   }
-
-  /* Hero intro - wrapper around content that comes under the hero heading */
-  .hero__intro {
-    @include to-rem(margin-top, $spacing-half);
-
-    @include respond-min($non-palm) {
-      @include to-rem(margin-top, $spacing-base);
-    }
-  }
 }
 
   @include respond-min($lap-lrg) {
@@ -64,3 +56,12 @@
       text-align: left;
     }
   }
+
+    /* Hero intro - wrapper around content that comes under the hero heading */
+    .hero__intro {
+      @include to-rem(margin-top, $spacing-half);
+
+      @include respond-min($non-palm) {
+        @include to-rem(margin-top, $spacing-base);
+      }
+    }

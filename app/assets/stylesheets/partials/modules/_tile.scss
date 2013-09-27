@@ -38,7 +38,7 @@
 
     /* Inner container */
     .tile__meta__inner {
-      /* Needed to create spacing for `tile__meta__icon` */
+      /* Needed to create spacing for `.tile__meta__icon`. Spacing = `.tile__meta` left padding + width of `.tile__meta__icon` + spacing between `.tile__meta__icon` and the text  */
       @include to-rem(margin-left, 25);
 
       /* Increase the left margin at this breakpoint */
@@ -95,7 +95,6 @@
     .tile__meta__price {
       color: $color-dark-txt;
       font-weight: bold;
-      @include font-size($font-size - 4, 1);
 
       /* Make the font larger at this breakpoint, as we have the space */
       @include respond-min($desk) {

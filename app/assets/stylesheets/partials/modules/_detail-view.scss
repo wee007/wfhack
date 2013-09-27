@@ -87,19 +87,6 @@
         @include to-rem(min-height, 313);
       }
     }
-
-  /* Descriptions (user generated content) */
-  .detail-view__desc p {@extend %mrg-base;}
-
-    /* Fine print */
-    .detail-view__desc--fine-print {@include font-size($font-size-milli, 1.5);}
-
-  /* Schedule */
-  .detail-view__schedule {
-    @include to-rem(padding-bottom, 40);
-
-    abbr {border-bottom: 0;}
-  }
 }
 
   /* --Global-- */
@@ -171,6 +158,22 @@
         /* Product */
         .detail-view--product & {left: 60%;}
       }
+  }
+
+  /* Main image */
+  .detail-view__media {text-align: center;}
+
+  /* Descriptions (user generated content) */
+  .detail-view__desc p {@extend %mrg-base;}
+
+    /* Fine print */
+    .detail-view__desc--fine-print {@include font-size($font-size-milli, 1.5);}
+
+  /* Schedule */
+  .detail-view__schedule {
+    @include to-rem(padding-bottom, 32);
+
+    abbr {border-bottom: 0;}
   }
 
   /* Spacing */
@@ -369,9 +372,6 @@
   /* Event */
   .detail-view--event {
 
-    /* Main image */
-    .detail-view__media {text-align: center;}
-
     /* Meta */
     .detail-view__meta li {
       width: 50%;
@@ -387,9 +387,6 @@
 
   /* Movie */
   .detail-view--movie {
-
-    /* Main image */
-    .detail-view__media {text-align: center;}
 
     /* Copy explaining to users how to purchase ticket */
     .detail-view__schedule p {@extend %mrg-base;}

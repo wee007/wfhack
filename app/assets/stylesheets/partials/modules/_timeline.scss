@@ -18,12 +18,12 @@
     /* Gives it a bit of spacing between each sets of date */
     @include to-rem(margin-top, $spacing-base);
 
-    &:first-child {@include to-rem(margin-top, 0);}
-
     /* More spacing between each sets of date at this breakpoint */
     @include respond-min($non-palm) {
       @include to-rem(margin-top, $spacing-dbl);
     }
+
+    &:first-child {margin-top: 0;}
 
     /* Line connecting `.timeline__date` */
     &:before {
@@ -35,13 +35,21 @@
       position: absolute;
       top: 0;
       bottom: 0;
-      /* left = `.timeline__date` left position + (`.timeline__date` width / 2) + (width of line / 2) */
-      @include to-rem(left, 51);
+      /* left = `.timeline__date` left position + (`.timeline__date` width / 2) - (width of line / 2) */
+      @include to-rem(left, 50);
       background-color: $color-off-white;
+
+      /* Old IE*/
+      @include old-ie {
+        display: none;
+      }
     }
 
     /* Hide the line if there's only 1 instance of the date */
-    &:only-of-type:before {display: none;}
+    &:only-of-type:before {
+      display: none;
+    }
+
   }
 
   /* Start & finish times */
@@ -60,16 +68,16 @@
     /* Allows the date to sit on top of the line */
     z-index: 2;
     position: absolute;
-    @include to-rem(left, 15);
-    background-color: #000;
+    /* Should be even number so it can be divided by 2 which is needed for positioning the line between `timeline__date` */
+    @include to-rem(left, 14);
+    background-color: $color-dark-txt;
     color: #fff;
     text-align: center;
     border-radius: 50%;
     text-transform: uppercase;
     @include to-rem(padding-top, 18);
     /* `width` and `height` should be even number so it can be divided by 2 which is needed for positioning the line between `timeline__date` */
-    @include to-rem(width, 76);
-    @include to-rem(height, 76);
+    @include to-rem(width height, 76);
     @include font-size($font-size);
     font-weight: normal;
 

@@ -46,12 +46,12 @@
         # but we'll map them anyway.
         $scope[key] = param
         ProductSearch.setParam key, param
+      # We have to set page last as we are removing it with when you set a diffrent param
+      ProductSearch.setParam 'page', params.page if params.page
 
 
     updateProducts = ->
-      Products.get document.location.pathname, angular.extend(ProductSearch.params(),
-        page: 1
-      )
+      Products.get document.location.pathname, ProductSearch.params()
 
     $scope.bootstrap = ->
       ProductSearch.formatSearchResults $window.westfield.products
@@ -135,5 +135,6 @@
       max = $scope.search[paramName].values.range_end
       paramValue = min + "-" + max
       ProductSearch.setParam paramName, paramValue
+
   ]
 ) angular.module("Westfield")

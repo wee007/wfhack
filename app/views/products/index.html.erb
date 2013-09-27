@@ -363,5 +363,19 @@
     <div ng-if="!products.loaded"><%= render 'products' %></div>
   </div>
 
+  <nav role="navigation" aria-label="Pagination" ng-if="!products.loading" ng-controller="ProductPaginationController">
+    <ul class="pagination mrg-dbl--top">
+      <li class="pagination__prev">
+        <button ng-if="has_prev()" ng-click="prev()" class="pagination__btn btn" rel="prev">Prev<span class="hide-visually">ious page</span></button>
+      </li><!--
+      --><li>
+        <span class="hide-visually">page </span>{{page()}} of {{totalPages()}}
+      </li><!--
+      --><li class="pagination__next">
+        <button ng-if="has_next()" ng-click="next()" class="pagination__btn btn" rel="next">Next<span class="hide-visually"> page</span></button>
+      </li>
+    </ul>
+  </nav>
+
 </div>
 <%# //Render results %>

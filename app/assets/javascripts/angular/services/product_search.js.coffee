@@ -13,7 +13,8 @@
       size: []
       centre: []
       last: ""
-      rows: 15
+      rows: 50
+      page: 1
 
     callbacks = []
 
@@ -34,15 +35,14 @@
         callbacks.push callback
 
     @getSearch = (callback) ->
+
+      angular.forEach callbacks, (callback) -> callback()
+
       $http.get("/api/product/master/products/search.json",
         params: ParamCleaner.build(params)
         cache: true
       ).then (response) ->
         self.formatSearchResults response.data
-        angular.forEach callbacks, (callback) ->
-          callback()
-
-
 
 
     # The current category facet could be 'super_cat', 'category' or 'sub_category'
@@ -59,6 +59,8 @@
       category
 
     @formatSearchResults = (response) ->
+      @page = response.page
+      @count = response.count
       @categories = @getCategoryFacet(response.facets)
       @retailers = SearchFacet.retrieve(response.facets, "retailer")
       @brands = SearchFacet.retrieve(response.facets, "brand")
@@ -77,6 +79,7 @@
       # param which will ensure that the full array list
       # is returned for a given facet
       @setParam "last", param  if angular.isArray(params[param])
+      params.page = defaultParams.page unless param == 'page'
       params[param] = value
 
     @removeParam = (paramName, value) ->

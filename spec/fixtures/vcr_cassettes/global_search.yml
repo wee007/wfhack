@@ -185,7 +185,7 @@ http_interactions:
   recorded_at: Thu, 15 Aug 2013 06:38:15 GMT
 - request:
     method: get
-    uri: http://product-service.test.dbg.westfield.com/api/product/master/products/search.json?centre=bondijunction&page=1&rows=15&search_query=red&utf8=%E2%9C%93
+    uri: http://product-service.test.dbg.westfield.com/api/product/master/products/search.json?centre=bondijunction&page=1&rows=50&search_query=red&utf8=%E2%9C%93
     body:
       encoding: US-ASCII
       string: ''

@@ -6,11 +6,14 @@
 
   <%# Contain 'filters', 'map/list toggle', and 'listings' %>
   <%# [BACKEND] append `is-filter-applied` class to this container when a category filter has been applied %>
-  <div class="js-pjax-container-stores">
+  <div class="js-pjax-container-stores" aria-live="polite" aria-atomic="true">
+
+    <%# PJAX preloader %>
     <span class="preloader preloader--middle preloader--light js-disabled-hide">
       <span class="preloader__spinner"></span>
       <em class="hide-visually">Loading, please wait&#8230;</em>
     </span>
+    <%# //PJAX preloader %>
 
     <div class="stores-maps__inner stores-maps__inner--listing">
 

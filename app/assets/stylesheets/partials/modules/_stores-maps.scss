@@ -84,9 +84,19 @@
       width: 50%;
     }
 
+    /* --Detail view-- */
+
     /* Turn off absolute positioning for 'detail view' at this breakpoint */
     @include respond-max($ipad-landscape - 1) {
       &.stores-maps__inner--detail {position: static;}
+    }
+
+    /* Make height shrink to fit content */
+    @include respond-min($ipad-landscape) {
+      &.stores-maps__inner--detail {bottom: auto;}
+
+      /* Featured items */
+      &.stores-maps__inner--detail.is-featured-items {bottom: 0;}
     }
 
     /* When map view is in view */
@@ -342,14 +352,12 @@
         @include box-heavy;
 
         /* Detail view */
-        .stores-maps__inner--detail & {
-          bottom: auto;
+        .stores-maps__inner--detail & {bottom: auto;}
 
-          /* When they're 'Featured items' */
-          &.is-featured-items {
-            background-color: $color-grey-3;
-            @include to-rem(bottom, $spacing-base);
-          }
+        /* Detail view - when they're 'Featured items' */
+        .stores-maps__inner--detail.is-featured-items & {
+          background-color: $color-grey-3;
+          @include to-rem(bottom, $spacing-base);
         }
 
         /* Post filter count */

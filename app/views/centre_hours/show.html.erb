@@ -15,7 +15,7 @@
             <div class="nav-contextual__clip__inner">
               <ul class="nav-contextual__list tab__nav horiz-list js-nav-contextual-list">
                 <% @weeks.each_with_index do |week, week_number| %>
-                  <%# [BACKEND] Need to add `-->` and `<!--` to end and start of `li` respsectively EXCEPT the first `li` doesn't need `-->` %>
+                  <%# [BACKEND] Need to output all the `li` onto one line. This is for removing whitespace %>
                   <li>
                     <a class="<%= 'is-active' if week_number == 0 %>" href="#tab-<%= week_number %>">
                       <%=
@@ -25,7 +25,7 @@
                     </a>
                   </li>
                 <% end %>
-                <%# [BACKEND] For the first item of the special dates, need to add class `nav-contextual__divider` to the `a` %>
+                <%# [BACKEND] For the first item of the dates with special opening hours (Christmas, ANAZC etc), need to add class `nav-contextual__divider` to the `a` %>
                 <li>
                   <a href="#" class="nav-contextual__divider">2-9 December</a>
                 </li>
@@ -90,7 +90,7 @@
                         %>
                         <td><em class="txt-bold">Mon<span class="hide-fully--palm">day</span></em></td>
                         <td>
-                          <%# [BACKEND] Make sure the special day description is outputting. If it exceeds 18 characters, add the `title` attribute with the value being the name of the holiday. %>
+                          <%# [BACKEND] For the holiday, if it exceeds 18 characters, add the `title` attribute with the value being the name of the holiday. %>
                           <em class="pill txt-truncate hide-fully--palm" title="Family &amp; Community Day">Family &amp; Community Day</em>
                           <em class="pill hide-fully--non-palm">Holiday</em>
                         </td>
@@ -106,54 +106,42 @@
                         <td>Tues<span class="hide-fully--palm">day</span></td>
                         <td>&nbsp;</td>
                         <td class="txt-right">
-                          <em>
-                            <time datetime="09:30">09:30am</time> - <time datetime="18:00">6:00pm</time>
-                          </em>
+                          <time datetime="09:30">09:30am</time> - <time datetime="18:00">6:00pm</time>
                         </td>
                       </tr>
                       <tr>
                         <td>Wed<span class="hide-fully--palm">nesday</span></td>
                         <td>&nbsp;</td>
                         <td class="txt-right">
-                          <em>
-                            <time datetime="09:30">09:30am</time> - <time datetime="18:00">6:00pm</time>
-                          </em>
+                          <time datetime="09:30">09:30am</time> - <time datetime="18:00">6:00pm</time>
                         </td>
                       </tr>
                       <tr>
                         <td>Thu<span class="hide-fully--palm">rsday</span></td>
                         <td>&nbsp;</td>
                         <td class="txt-right">
-                          <em>
-                            <time datetime="09:30">09:30am</time> - <time datetime="18:00">6:00pm</time>
-                          </em>
+                          <time datetime="09:30">09:30am</time> - <time datetime="18:00">6:00pm</time>
                         </td>
                       </tr>
                       <tr>
                         <td>Fri<span class="hide-fully--palm">day</span></td>
                         <td>&nbsp;</td>
                         <td class="txt-right">
-                          <em>
-                            <time datetime="09:30">09:30am</time> - <time datetime="18:00">6:00pm</time>
-                          </em>
+                          <time datetime="09:30">09:30am</time> - <time datetime="18:00">6:00pm</time>
                         </td>
                       </tr>
                       <tr>
                         <td>Sat<span class="hide-fully--palm">urday</span></td>
                         <td>&nbsp;</td>
                         <td class="txt-right">
-                          <em>
-                            <time datetime="09:30">09:30am</time> - <time datetime="18:00">6:00pm</time>
-                          </em>
+                          <time datetime="09:30">09:30am</time> - <time datetime="18:00">6:00pm</time>
                         </td>
                       </tr>
                       <tr>
                         <td>Sun<span class="hide-fully--palm">day</span></td>
                         <td>&nbsp;</td>
                         <td class="txt-right">
-                          <em>
-                            <time datetime="09:30">09:30am</time> - <time datetime="18:00">6:00pm</time>
-                          </em>
+                          <time datetime="09:30">09:30am</time> - <time datetime="18:00">6:00pm</time>
                         </td>
                       </tr>
                     </tbody>
@@ -167,42 +155,36 @@
               <%# Store hours %>
               <div class="grid__item non-palm-one-half lap-sml-one-whole js-disabled-hide">
                 <%# Store hours box %>
-                <div class="islet island--non-palm box--position box">
+                <div class="islet island--non-palm box--position box" aria-live="polite" aria-atomic="true">
 
                   <%# Filters %>
                   <div class="flag--fixed flag mrg-base">
-                    <div class="flag__image two-sixths non-palm-one-sixth">
-                      <h3 class="txt-reset txt-bold">Stores</h3>
+                    <div class="flag__image three-fifths lap-sml-two-sixths">
+                      <label for="store-hours" class="txt-bold">Store Hours</label>
                     </div>
-                    <div class="flag__body">
+                    <div class="flag__body two-fifths">
                       <%# Store filter %>
-                      <div class="drop-down-menu--full drop-down-menu drop-down-container">
-                        <button class="drop-down-menu__trigger btn btn--main btn--main-alt2 btn--pointer btn--pointer-padding-med btn--full btn--full-left" toggle-visibility="stores-filters"><span class="txt-truncate">David Jones</span><span aria-hidden="true" class="icon icon--lrg icon--arrow-down-full btn--pointer__icon"></span></button>
-
-                        <div class="drop-down-menu__target drop-down box box--drop-down" id="stores-filters">
-                          <ul class="drop-down-menu__list">
-                            <li class="drop-down-menu__divider"><button class="btn btn--full btn--full-left">David Jones</button></li>
-                            <li class="drop-down-menu__divider"><button class="btn btn--full btn--full-left">Myer</button></li>
-                            <li class="drop-down-menu__divider"><button class="btn btn--full btn--full-left">Another store</button></li>
-                          </ul>
-                        </div>
-                      </div>
+                      <select id="store-hours" class="one-whole">
+                        <option value="1">Store 1</option>
+                        <option value="2">Store 2</option>
+                        <option value="3">Store 3</option>
+                        <option value="4">Long name is long</option>
+                      </select>
                       <%# //Store filter %>
                     </div>
                   </div>
 
                   <%# Store hours table %>
 
-                  <%# [BACKEND] Once the user has selected the store from the dropdown, we'll need to show the preloader (commented out below) and the table will need to be updated via AJAX %>
+                  <%# [BACKEND] Speak to Fiona when you need to AJAX/PJAX in the hours for the stores. Need to discuss how to display the preloader whilst waiting for table with new store hours to load %>
 
-                  <%# Preloader %>
-                  <%# <span class="preloader preloader--middle preloader--light js-disabled-hide">
+                  <%#<span class="preloader preloader--middle preloader--light">
                     <span class="preloader__spinner"></span>
                     <em class="hide-visually">Loading, please wait&#8230;</em>
-                  </span> %>
-                  <%# //Preloader %>
+                  </span>%>
 
                   <table cellspacing="0" class="table-striped table-fixed">
+                    <%# [BACKEND] Output name of the centre as indicated below %>
                     <caption class="flush--btm"><span class="hide-visually">[Name of centre] opening hours</span></caption>
 
                     <colgroup>
@@ -228,6 +210,7 @@
                         </td>
                         <td class="txt-right">
                           <em class="txt-bold">
+                            <%# [BACKEND] Need to output opening and closing time as value in the `time` element. It needs to be in 24 hour format %>
                             <time datetime="09:30">09:30am</time> - <time datetime="18:00">6:00pm</time>
                           </em>
                         </td>
@@ -236,54 +219,42 @@
                         <td>Tues<span class="hide-fully--palm">day</span></td>
                         <td>&nbsp;</td>
                         <td class="txt-right">
-                          <em>
-                            <time datetime="09:30">09:30am</time> - <time datetime="18:00">6:00pm</time>
-                          </em>
+                          <time datetime="09:30">09:30am</time> - <time datetime="18:00">6:00pm</time>
                         </td>
                       </tr>
                       <tr>
                         <td>Wed<span class="hide-fully--palm">nesday</span></td>
                         <td>&nbsp;</td>
                         <td class="txt-right">
-                          <em>
-                            <time datetime="09:30">09:30am</time> - <time datetime="18:00">6:00pm</time>
-                          </em>
+                          <time datetime="09:30">09:30am</time> - <time datetime="18:00">6:00pm</time>
                         </td>
                       </tr>
                       <tr>
                         <td>Thu<span class="hide-fully--palm">rsday</span></td>
                         <td>&nbsp;</td>
                         <td class="txt-right">
-                          <em>
-                            <time datetime="09:30">09:30am</time> - <time datetime="18:00">6:00pm</time>
-                          </em>
+                          <time datetime="09:30">09:30am</time> - <time datetime="18:00">6:00pm</time>
                         </td>
                       </tr>
                       <tr>
                         <td>Fri<span class="hide-fully--palm">day</span></td>
                         <td>&nbsp;</td>
                         <td class="txt-right">
-                          <em>
-                            <time datetime="09:30">09:30am</time> - <time datetime="18:00">6:00pm</time>
-                          </em>
+                          <time datetime="09:30">09:30am</time> - <time datetime="18:00">6:00pm</time>
                         </td>
                       </tr>
                       <tr>
                         <td>Sat<span class="hide-fully--palm">urday</span></td>
                         <td>&nbsp;</td>
                         <td class="txt-right">
-                          <em>
-                            <time datetime="09:30">09:30am</time> - <time datetime="18:00">6:00pm</time>
-                          </em>
+                          <time datetime="09:30">09:30am</time> - <time datetime="18:00">6:00pm</time>
                         </td>
                       </tr>
                       <tr>
                         <td>Sun<span class="hide-fully--palm">day</span></td>
                         <td>&nbsp;</td>
                         <td class="txt-right">
-                          <em>
                             <time datetime="09:30">09:30am</time> - <time datetime="18:00">6:00pm</time>
-                          </em>
                         </td>
                       </tr>
                     </tbody>

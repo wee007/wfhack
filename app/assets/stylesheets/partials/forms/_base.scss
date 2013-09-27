@@ -5,12 +5,12 @@
 /* Indicate that `label` will shift focus to the associated `input` element */
 label {cursor: pointer;}
 
+/* --Shared styles-- */
+
 /* Text inputs via the `.txt-input` class, `textarea` and `select` */
 .txt-input,
 textarea,
 .no-touch select {
-	width: 100%;
-  @include to-rem(padding, $spacing-third $spacing-half);
   color: $color-base-txt;
   border-radius: $border-radius;
   border: 1px solid $color-grey-1;
@@ -23,6 +23,14 @@ textarea,
 		border-color: darken($color-grey-1, 12%);
 	}
 }
+
+.txt-input,
+textarea {
+  width: 100%;
+  @include to-rem(padding, $spacing-third $spacing-half);
+}
+
+/* --Global styles-- */
 
 /* Textarea */
 textarea {
@@ -37,10 +45,7 @@ input[type="search"] {
 }
 
 /* Select list */
-.no-touch select {
-	width: auto;
-	@include to-rem(padding, $spacing-third);
-}
+.no-touch select {@include to-rem(padding, $spacing-third);}
 
 /* Alternate sizes */
 .txt-input--sml {@include to-rem(width, 80);}

@@ -320,9 +320,8 @@
 
       <%# Sort %>
       <div class="filters__sort">
-          <label for="filters-sort" class="hide-visually">Sort product results by</label>
-          <select ng-model="sort" ng-change="filterSearch('sort')" ng-options="option.code as option.description for option in search.sortOptions | filter:{display: true}" id="filters-sort"></select>
-        </label>
+        <label for="filters-sort" class="hide-visually">Sort product results by</label>
+        <select ng-model="sort" ng-change="filterSearch('sort')" ng-options="option.code as option.description for option in search.sortOptions | filter:{display: true}" id="filters-sort"></select>
       </div>
       <%# //Sort %>
 

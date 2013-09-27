@@ -6,7 +6,7 @@ describe Event do
     {
       start: '2013-07-01T19:59:37Z',
       finish: '2013-07-09T19:59:37Z',
-      image_ref: '12345678',
+      "_links" => {image: {href: 'image_link'}},
       body: "one
       two
       three"
@@ -29,9 +29,7 @@ describe Event do
   end
 
   context '#image' do
-    it {
-      subject.image.should =~ /#{event_data[:image_ref]}/
-    }
+    it { subject.image.should =~ /#{event_data[:image_ref]}/ }
   end
 
 end

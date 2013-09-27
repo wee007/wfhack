@@ -5,7 +5,7 @@ describe EventsController do
   before :each do
     CentreService.stub(:fetch).and_return double :response, body: {short_name: "Centre name"}
     EventService.stub(:fetch).with centre: 'bondijunction', rows: 50, published: true
-    EventService.stub(:fetch).with('1').and_return double :response, body: {name: "Event name", image_ref: "Image_ref"}
+    EventService.stub(:fetch).with('1').and_return double :response, body: {name: "Event name", "_links" => {image: {href: 'image_link'}}}
   end
 
   describe "GET #index" do

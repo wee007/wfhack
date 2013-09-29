@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.62
+Version:     0.1.63
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -77,6 +77,11 @@ fi
 
 
 %changelog
+* Mon Sep 30 2013 ci <doperations@au.westfield.com> 0.1.63-1
+- Merge pull request #411 from ldewey/product-browse-price-fix
+  (chorn@au.westfield.com)
+- Product browse price facet fix. (ldewey@au.westfield.com)
+
 * Fri Sep 27 2013 ci <doperations@au.westfield.com> 0.1.62-1
 - Remove pagination when no results (ldewey@au.westfield.com)
 

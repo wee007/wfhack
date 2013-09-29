@@ -5,7 +5,7 @@
   app.factory 'AppliedFilters', ->
     # Centres, 'on sale' and price filters should not be shown
     # in active filter / tag list
-    filterBlacklistR = /(centre|on_sale|price)/
+    filterBlacklistR = /(centre|on_sale)/
 
     collectValues = ( values, type ) ->
       collectedValues = []

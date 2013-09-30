@@ -5,7 +5,7 @@
 
     <header class="detail-view__mrg-base">
       <%# Movie title %>
-      <h1 class="detail-view__hdr hn" itemprop="summary">
+      <h1 class="detail-view__hdr hn test-title" itemprop="summary">
         <%= @movie.title %>
       </h1>
       <%# //Movie title %>
@@ -19,8 +19,7 @@
 
     <%# Movie main image %>
     <div class="detail-view__media detail-view__mrg-base">
-      <%# [BACKEND] Replace image with image of the movie %>
-      <img src="http://placehold.it/600x400" alt="Screenshot of <%= @movie.title %>" itemprop="photo">
+      <%= cl_image_tag(@movie.image_url, alt:"Screenshot of #{@movie.title}", width: 600, height: 400, itemprop:"photo" ) %>
     </div>
     <%# //Movie main image %>
 
@@ -38,37 +37,25 @@
   <div class="detail-view__schedule island">
     <h2 class="detail-view__hdr-sub hn">Session Times</h2>
 
-    <%# [BACKEND] Output the name of the cinema as indicated below %>
-    <p>Select a session to purchase tickets at [NAME OF CINEMA]</p>
+    <p>Select a session to purchase tickets at <%= @cinema.name %></p>
 
     <%# Session times %>
+
     <dl class="timeline">
-      <dt>
-        <%# [BACKEND] Output the day of the week %>
-        Monday
-        <em class="timeline__date">
-          <%# [BACKEND] Output date, as well as the un-abbreviated version of the month as the value in the `title` attribute %>
-          <span>23</span> <abbr title="September">Sep</abbr>
-        </em>
-      </dt>
-      <dd>
-        <%# [BACKEND] Add link to the actual cinema's movie session page, like existing implementation. Also output the time as ISO date format (the session time in the movie feed we get) as indicated below %>
-        <time datetime="[session time]" itemprop="startDate"><a href="#" rel="external">[Session time]</a></time>
-        <%# [BACKEND] Output special session within the square brackets [] if available for the time e.g. [Gold Class], [VMAX] %>
-        [Special Session]
-      </dd>
-      <dd>
-        <time datetime="[Session time]" itemprop="startDate"><a href="#" rel="external">[Session time]</a></time>
-      </dd>
-      <dt>
-        Tuesday
-        <em class="timeline__date">
-          <span>24</span> <abbr title="September">Sep</abbr>
-        </em>
-      </dt>
-      <dd>
-        <time datetime="[Session time]" itemprop="startDate"><a href="#" rel="external">[Session time]</a></time>
-      </dd>
+      <% @movies_sessions_by_date.each do |date, sessions| %>
+        <dt>
+          <%= date.strftime("%A") %>
+          <em class="timeline__date">
+            <span><%= date.strftime("%e") %></span> <abbr title="<%= date.strftime("%B") %>"><%= date.strftime("%b") %></abbr>
+          </em>
+        </dt>
+        <% sessions.each do |session| %>
+          <dd>
+            <time datetime="<%= Time.parse(session.start_time).strftime("%l:%M %P") %>" itemprop="startDate"><a href="<%= session.booking_url %>" rel="external"><%= Time.parse(session.start_time).strftime("%l:%M %P") %></a></time>
+            <%= "[#{session.session_type}]" if session.session_type %>
+          </dd>
+        <% end %>
+      <% end %>
     </dl>
     <%# //Session times %>
 

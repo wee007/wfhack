@@ -7,7 +7,7 @@ module MoviesHelper
 
     days = []
     ((last_date - today)/60/60/24).ceil.times do |i|
-      text = i.days.from_now.localtime.strftime("%A %-d")
+      text = i.days.from_now.localtime.strftime("%a %-d %b")
       text = "Today" if i == 0
       text = "Tomorrow" if i == 1
 

@@ -1,9 +1,11 @@
 class MovieService
   class << self
     include ApiClientRequests
-    def build(json)
-      body = json.respond_to?(:body) ? json.body : json
-      body
+    def build(movie_json)
+      body = movie_json.respond_to?(:body) ? movie_json.body : movie_json
+
+      return body.map{|movie_json| Movie.new(movie_json)} if body.is_a? Array
+      Movie.new body
     end
 
     def request_uri(options={})

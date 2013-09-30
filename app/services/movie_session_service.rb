@@ -2,7 +2,7 @@ class MovieSessionService
   class << self
     include ApiClientRequests
     def build(json_response)
-      super(json_response.body['movie_sessions']).map do |session_json|
+      super(json_response.body).map do |session_json|
         MovieSession.new(session_json)
       end
     end

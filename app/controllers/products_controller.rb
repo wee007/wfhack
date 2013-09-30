@@ -14,12 +14,15 @@ class ProductsController < ApplicationController
     if params[:centre_id]
       @centre = CentreService.build centre
       @nearby_centres = CentreService.build nearby_centres
+
+      meta.push(
+        page_title: "Shopping at #{@centre.name}",
+        description: "Find the latest fashion, clothes, shoes, jewellery, accessories and much more at #{@centre.name}"
+      )
     else
       @centres = CentreService.group_by_state centres
     end
     @search = ProductService.build products
-
-    meta.push title: [@centre.try(:short_name), "Products"].flatten.join(" ")
 
     handle_error(@search) if @search.is_a? NullObject
     respond_to do |format|
@@ -59,6 +62,10 @@ class ProductsController < ApplicationController
       @product_centres = centre_ids.present? ? CentreService.find(:all, centre_id: centre_ids, near_to: params[:centre_id]) : []
       @centre = CentreService.build centre
       gon.push centre: @centre, stores: @centre_stores
+      meta.push(
+        page_title: "#{@product.name} | #{@centre.name}",
+        description: "Shop for #{@product.name} from #{stores.first.try(:name)} at #{@centre.name}"
+      )
     else
       @centres = CentreService.group_by_state centres
     end

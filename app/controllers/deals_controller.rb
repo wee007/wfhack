@@ -10,7 +10,11 @@ class DealsController < ApplicationController
     end
     @centre = CentreService.build centre
     @deals = DealService.build deal
-    meta.push title: "#{@centre.short_name} deals"
+
+    meta.push(
+      page_title: "Deals, Sales & Special Offers available at #{@centre.name}",
+      description: "Find the best deals, sales and great offers on a variety of products and brands at #{@centre.name}"
+    )
   end
 
   def show
@@ -26,7 +30,10 @@ class DealsController < ApplicationController
     @store = StoreService.build store
 
     gon.push centre: @centre, stores: [@store]
-    meta.push title: @deal.title
+    meta.push(
+      page_title: "#{@deal.title} from #{@store.name} at #{@centre.name}",
+      description: "At #{@centre.name}, find #{@deal.title} - ends #{@deal.available_to.strftime("%Y-%m-%d")}"
+    )
   end
 
 end

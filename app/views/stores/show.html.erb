@@ -3,11 +3,14 @@
 <div class="stores-maps stores-maps--detail container js-stores-maps-toggle-wrap">
 
   <%# Contain 'back to listing link' and 'store details' %>
-  <div class="js-pjax-container-stores">
-    <span class="preloader preloader--middle preloader--light js-disabled-hide">
+  <div class="js-pjax-container-stores" aria-live="polite" aria-atomic="true">
+
+    <%# PJAX preloader %>
+    <span class="preloader preloader--middle preloader--light">
       <span class="preloader__spinner"></span>
       <em class="hide-visually">Loading, please wait&#8230;</em>
     </span>
+    <%# //PJAX preloader %>
 
     <div class="stores-maps__inner stores-maps__inner--detail" id="stores-maps-toggle-listing-detail">
 
@@ -56,7 +59,7 @@
                   <dt class="hide-visually hide-fully--palm">Store phone number</dt>
                   <dd class="hide-fully--palm">
                     <%= @store.phone_number %>
-                    <span class="icon icon--phone2 icon--xlrg" aria-hidden="true"></span>
+                    <span class="icon icon--phone2 icon--xlrg icon--fixed-width" aria-hidden="true"></span>
                   </dd>
                 <%- end %>
 
@@ -64,7 +67,7 @@
                   <dt class="hide-visually">Store email</dt>
                   <dd class="txt-truncate">
                     <%= link_to @store.email_address, "mailto:#{@store.email_address}" %>
-                    <span class="icon icon--email icon--xlrg" aria-hidden="true"></span>
+                    <span class="icon icon--email icon--xlrg icon--fixed-width" aria-hidden="true"></span>
                   </dd>
                 <%- end %>
 
@@ -72,7 +75,7 @@
                   <dt class="hide-visually">Westfield gift card</dt>
                   <dd>
                     Gift card accepted
-                    <span class="icon icon--gift-card icon--xlrg" aria-hidden="true"></span>
+                    <span class="icon icon--gift-card icon--xlrg icon--fixed-width" aria-hidden="true"></span>
                   </dd>
                 <%- end %>
               </dl>
@@ -110,7 +113,7 @@
 
           <%- if false %>
           <%# 'Product' and 'Deal' tiles %>
-          <%# FIXME: [BACKEND] the following HTML won't be available for every store so do not render any of the HTML when this is the case or only render the applicable HTML e.g. either render 'Product' or 'Deal' tiles AND when they're tiles (any) append class `.is-featured-items` to `<div class="stores-maps__list-detail">` (server side) %>
+          <%# FIXME: [BACKEND] the following HTML won't be available for every store so do not render any of the HTML when this is the case or only render the applicable HTML e.g. either render 'Product' or 'Deal' tiles AND when they're tiles (any) append class `.is-featured-items` to `<div class="stores-maps__inner stores-maps__inner--detail">` (server side) %>
           <footer class="storefront__featured">
 
               <%# 'Product' tiles %>

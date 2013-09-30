@@ -6,11 +6,14 @@
 
   <%# Contain 'filters', 'map/list toggle', and 'listings' %>
   <%# [BACKEND] append `is-filter-applied` class to this container when a category filter has been applied %>
-  <div class="js-pjax-container-stores">
-    <span class="preloader preloader--middle preloader--light js-disabled-hide">
+  <div class="js-pjax-container-stores" aria-live="polite" aria-atomic="true">
+
+    <%# PJAX preloader %>
+    <span class="preloader preloader--middle preloader--light">
       <span class="preloader__spinner"></span>
       <em class="hide-visually">Loading, please wait&#8230;</em>
     </span>
+    <%# //PJAX preloader %>
 
     <div class="stores-maps__inner stores-maps__inner--listing">
 
@@ -93,7 +96,7 @@
                 <div class="stores-list__store-name">
                   <strong><%= link_to store.name, (centre_store_url @centre.code , store.id), class: 'js-pjax-link-stores' %></strong>
                   <%# Phone no %>
-                  <span class="hide-fully--palm"><%= store.phone_number %></span>
+                  <span class="hide-fully--palm"><span class="hide-visually">Phone number: </span><%= store.phone_number %></span>
                   <%# //Phone no %>
                   <%# [BACKEND] inject this `span` when a category filter has been applied %>
                   <%# <span class="icon icon--pin icon--flush-top"></span> %>

@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.64
+Version:     0.1.65
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -77,6 +77,9 @@ fi
 
 
 %changelog
+* Mon Sep 30 2013 ci <doperations@au.westfield.com> 0.1.65-1
+- Small date fix for events (ldewey@au.westfield.com)
+
 * Mon Sep 30 2013 ci <doperations@au.westfield.com> 0.1.64-1
 - Merge pull request #412 from cpearce/stores-updates (ldewey@au.westfield.com)
 - Removing the dulled out affect for when content is ajaxed in due to

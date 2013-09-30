@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.63
+Version:     0.1.64
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -77,6 +77,23 @@ fi
 
 
 %changelog
+* Mon Sep 30 2013 ci <doperations@au.westfield.com> 0.1.64-1
+- Merge pull request #412 from cpearce/stores-updates (ldewey@au.westfield.com)
+- Removing the dulled out affect for when content is ajaxed in due to
+  performance issues (CPearce@au.westfield.com)
+- Adding phone number text to make page easier to understand for screen readers
+  (CPearce@au.westfield.com)
+- Dulling out the ajaxed content rather than hiding it
+  (CPearce@au.westfield.com)
+- Removing js-disabled-hide from stores index/show preloader
+  (CPearce@au.westfield.com)
+- Adding ARIA to products pin board (CPearce@au.westfield.com)
+- Removing uneeded label element from products sort (CPearce@au.westfield.com)
+- Fixing placement of h3 in applied filters area of products filters
+  (CPearce@au.westfield.com)
+- Fixing issue where container was blocking interacting with the map and adding
+  ARIA attrs (CPearce@au.westfield.com)
+
 * Mon Sep 30 2013 ci <doperations@au.westfield.com> 0.1.63-1
 - Merge pull request #411 from ldewey/product-browse-price-fix
   (chorn@au.westfield.com)

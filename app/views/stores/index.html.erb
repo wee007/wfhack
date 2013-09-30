@@ -96,7 +96,7 @@
                 <div class="stores-list__store-name">
                   <strong><%= link_to store.name, (centre_store_url @centre.code , store.id), class: 'js-pjax-link-stores' %></strong>
                   <%# Phone no %>
-                  <span class="hide-fully--palm"><span class="hide-visually">Phone number: </span><%= store.phone_number %></span>
+                  <span class="hide-fully--palm"><span class="hide-visually">Phone number: </span><%= phone_format store.phone_number %></span>
                   <%# //Phone no %>
                   <%# [BACKEND] inject this `span` when a category filter has been applied %>
                   <%# <span class="icon icon--pin icon--flush-top"></span> %>
@@ -124,7 +124,7 @@
 
                   <%# Phone no %>
                   <a href="tel:<%= (store.phone_number || "").gsub(/\s+/,'') %>" class="storefront-storelist-phone-map-links__cell storefront-storelist-phone-map-links__cell--phone hide-fully--non-palm">
-                    <span class="hide-visually">Call store: <%= store.phone_number %></span>
+                    <span class="hide-visually">Call store: <%= phone_format store.phone_number %></span>
                     <span class="icon icon--phone2 icon--flush-top storefront-storelist-phone-map-links__cell__valign"></span>
                   </a>
                   <%# //Phone no %>

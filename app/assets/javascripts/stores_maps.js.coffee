@@ -19,8 +19,8 @@ class StoreMapPage
     delete storeMapPageReady
 
   setup: =>
-    if $('html').hasClass('ios')
-      # FIXME: iOS doesn't capture the click event on the button
+    if $('html').hasClass('touch')
+      # FIXME: iOS/Android doesn't capture the click event on the button
       $('body').on('touchstart', 'button.js-stores-maps-toggle-btn', -> $(@).trigger('click'); false)
     $.pjax.defaults.timeout = 5000
     $(document).on('pjax:send', => @loading true)

@@ -16,7 +16,8 @@ CustomerConsole::Application.routes.draw do
     resources :deals, only: [:index]
     get 'deals/:retailer_code/:id' => 'deals#show', as: 'deal'
     resources :movies, only: [:index, :show]
-    resources :stores, only: [:index, :show]
+    resources :stores, only: [:index]
+    get 'stores/:retailer_code/:id' => 'stores#show', as: 'store'
     resources :products, only: [:index]
     get 'hours', to: 'centre_hours#show'
     get 'info', to: 'centre_info#show'

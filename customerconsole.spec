@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.65
+Version:     0.1.66
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -77,6 +77,10 @@ fi
 
 
 %changelog
+* Mon Sep 30 2013 ci <doperations@au.westfield.com> 0.1.66-1
+- Merge pull request #414 from thiago/master (tfigueiro@au.westfield.com)
+- Cache fingerprinted assets for 1 year (tfigueiro@us.westfield.com)
+
 * Mon Sep 30 2013 ci <doperations@au.westfield.com> 0.1.65-1
 - Small date fix for events (ldewey@au.westfield.com)
 

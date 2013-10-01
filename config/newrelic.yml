@@ -27,21 +27,24 @@ development:
   <<: *default_settings
   monitor_mode: false
   developer_mode: true
+  app_name: Customer Console (development)
 test:
   <<: *default_settings
   monitor_mode: false
+  app_name: Customer Console (test)
 systest:
   <<: *default_settings
   monitor_mode: true
-  app_name: Customer Console (Systest)
+  app_name: Customer Console (systest)
 uat:
   <<: *default_settings
   monitor_mode: true
-  app_name: Customer Console (UAT)
+  app_name: Customer Console (uat)
 production:
   <<: *default_settings
   monitor_mode: true
 staging:
   <<: *default_settings
   monitor_mode: true
+  app_name: Customer Console (staging)
 

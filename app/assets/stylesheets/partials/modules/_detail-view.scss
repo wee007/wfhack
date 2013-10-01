@@ -24,18 +24,23 @@
   /* Adjustments at this breakpoint */
   @include respond-min($non-palm) {
     @include font-size($font-size);
-    width: 92%;
+    width: $page-container-width;
     margin-left: auto;
     margin-right: auto;
     @include to-rem(margin-top, $spacing-base);
   }
 
+  /* Set fixed width at this breakpoint */
+  @include respond-min($ipad-portrait) {
+    @include to-rem(width, 680);
+  }
+
   /* --Set fixed widths for each detail view at these breakpoints-- */
 
-  /* Event and Movie */
+  /* Override the default `.detail-view` width at iPad portrait */
   @include respond-min($ipad-portrait) {
-    &.detail-view--event,
-    &.detail-view--movie {@include to-rem(width, 680);}
+    &.detail-view--deal,
+    &.detail-view--product {width: $page-container-width;}
   }
 
   /* Deal */

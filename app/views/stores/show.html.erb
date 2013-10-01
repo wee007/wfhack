@@ -86,10 +86,10 @@
 
                 <%# Phone no %>
                 <%- if @store.phone_number.present? %>
-                  <a href="tel:<%= (@store.phone_number || '').gsub(/\s+/, '') %>" class="storefront-storelist-phone-map-links__cell storefront-storelist-phone-map-links__cell--phone hide-fully--non-palm">
-                    <span class="hide-visually">Call store: <%= phone_format @store.phone_number %></span>
+                  <%= phone_link @store.phone_number, class: 'storefront-storelist-phone-map-links__cell storefront-storelist-phone-map-links__cell--phone hide-fully--non-palm' do |phone_number| %>
+                    <span class="hide-visually">Call store: <%= phone_number %></span>
                     <span class="icon icon--phone2 icon--flush-top storefront-storelist-phone-map-links__cell__valign"></span>
-                  </a>
+                    <% end %>
                 <%- end %>
                 <%# //Phone no %>
 

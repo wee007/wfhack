@@ -40,6 +40,14 @@ module ApplicationHelper
     end
   end
 
+  def phone_link(phone_number, options = {})
+    tel = phone_number.gsub(/\D+/, '')
+    options.merge! href: "tel:#{tel}"
+    content_tag :a, options do
+      yield phone_format(tel)
+    end
+  end
+
   def twelve_hour_format(time)
     DateTime.parse(time)
       .strftime('%l:%M%P')

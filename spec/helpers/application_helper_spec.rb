@@ -22,4 +22,37 @@ describe ApplicationHelper do
     end
   end
 
+  describe "#phone_format" do
+
+    tests = [
+      '02 1234 123456',
+      '03 1234 123456',
+      '06 1234 123456',
+      '07 1234 123456',
+      '08 1234 123456',
+      '1234 123 123',
+      '123 123',
+      '0412 123 123456',
+      '(02)1234-123456'
+    ]
+
+    tests.each do |format|
+      number = format.gsub(/\s+/, '')
+      
+      it "formats '#{number}' as '#{format}'" do
+        expect(helper.phone_format(number)).to eql format
+      end
+    end
+
+  end
+
+  describe "#phone_link" do
+
+    it "creates a phone number link for mobile" do
+      expect(
+        helper.phone_link('02 1234 123456') {|phone| "Number: #{phone}"}
+      ).to match(/href="tel:021234123456".*Number: 02 1234 123456/)
+    end
+  end
+
 end

@@ -1,7 +1,7 @@
 <div class="section-nav container container--wide container--dark">
 
   <%# Section nav %>
-  <div class="container">
+  <div class="container container--position">
     <div class="nav-contextual nav-contextual--dark js-nav-contextual">
       <div class="nav-contextual__clip">
         <nav class="nav-contextual__clip__inner" role="navigation" aria-label="Contextual navigation">
@@ -28,19 +28,26 @@
         $('.js-nav-contextual').navContextual();
       </script>
     <% end -%>
+    <%# Show products/deals/events centre selector toggle button %>
+    <button class="btn btn--main btn--main-alt4 btn--main-compact-icon-sml" toggle-visibility="show-products-deals-events-toggle">
+      <span class="icon icon-ellipsis-horizontal icon--xlrg icon--flush-top" aria-hidden="true"></span>
+      <span class="hide-visually">Toggle [dynamic] centre selector</span>
+    </button>
+    <%# //Show products/deals/events centre selector toggle button %>
   </div>
   <%# //Section nav %>
 
-  <%# Centre selector %>
+  <%# Show products/deals/events centre selector %>
   <% if @centre.present? %>
-    <div class="section-nav__divider container--wide">
-      <div class="container">
+    <div class="section-nav__centre-selector container--wide toggle-visibility" id="show-products-deals-events-toggle">
+      <div class="container container--position">
         <div class="flag flag--shrink-wrap">
           <div class="flag__image hide-visually">
-            <label for="choose-nearby-centre">Show products at</label>
+            <%# [BACKEND] the word 'dynamic' part of the label needs to either say 'products', 'deals', 'events' depending on what page you're on %>
+            <label for="show-products-deals-events">Show [dynamic] at</label>
           </div>
           <div class="flag__body">
-            <select class="one-whole" ng-controller="CentreSelectorController" ng-model="selectedCentre" ng-change="selectCentre()" ng-init="selectedCentre='<%= @centre.code %>'" id="choose-nearby-centre">
+            <select class="one-whole" ng-controller="CentreSelectorController" ng-model="selectedCentre" ng-change="selectCentre()" ng-init="selectedCentre='<%= @centre.code %>'" id="show-products-deals-events">
               <option value="<%= @centre.code %>"><%= @centre.short_name %></option>
               <option value="<%= ([@centre] + @nearby_centres).map{|c| c.code}.join(',') %>"><%= @centre.short_name %> &amp; nearby centres</option>
               <option value="all">All Centres</option>
@@ -50,6 +57,6 @@
       </div>
     </div>
   <%- end -%>
-  <%# //Centre selector %>
+  <%# //Show products/deals/events centre selector %>
 
 </div>

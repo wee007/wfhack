@@ -4,7 +4,7 @@
 
 /*
   Usage:
-    Part of the main template (sits directly under the main site header but only for certain pages) that holds the 'Section nav' and 'Show products/deals/events nearby centre selector' UI.
+    Part of the main template (sits directly under the main site header but only for certain pages) that holds the 'Section nav' and 'Show products/deals/events centre selector' UI.
 
   Demo:
     Style Guide -> Modules -> Section Nav
@@ -18,13 +18,38 @@
     @include font-size($font-size, 1.5);
   }
 
-	/* Section Nav */
-	.nav-contextual--dark {
+	/* Section nav */
+	.nav-contextual {
+		@include to-rem(margin-right, 41);
 	  margin-bottom: 0;
 	  border-bottom: 0;
 	}
 
-	/* Show products/deals/events nearby centre selector */
+		/* Increase gutter between list items at this breakpoint */
+		@include respond-min($non-palm) {
+	    .nav-contextual__list > li {
+	    	@include to-rem(margin-left, 32);
+
+        &:first-child {margin-left: 0;}
+	    }
+	  }
+
+	/* --Show products/deals/events centre selector-- */
+
+	/* Toggle button */
+	.btn--main-compact-icon-sml {
+		position: absolute;
+		right: 0;
+		top: 50%;
+		@include translate(0, -50%);
+
+		/* Hide at this breakpoint */
+		@include respond-min($desk) {
+	    display: none;
+	  }
+	}
+
+	/* Centre selector */
 	.flag {
 
 		/* Make full width at this breakpoint */
@@ -32,19 +57,23 @@
 	    width: 100%;
 	  }
 
-		/*@include respond-min($non-palm) {
+	  /* Hide at this breakpoint */
+		@include respond-min($desk) {
+			@include to-rem(padding-top padding-bottom, $spacing-half+$spacing-quarter);
 	    position: absolute;
 			right: 0;
-			top: 50%;
-			@include translate(0, -50%);
-	  }*/
+			//background: red;
+			@include to-rem(top, -65);
+	  }
 
+	  // [FIXME] REMOVE THIS WHEN MOVIES HOURS GOES IN
 		select {width: 100% !important;}
 	}
 
 		/* Label */
 		.flag__image {
 			color: $color-light-txt;
+			@include font-size($font-size-sml, 1.5);
 
 			/* Bring label text into view at this breakpoint */
 			@include respond-min(421) {
@@ -56,8 +85,16 @@
 		.flag__body {}
 }
 
-	/* Divider between 'Section nav' and 'Show products/deals/events nearby centre selector' */
-	.section-nav__divider {
+	/* 'Show products/deals/events nearby centre selector' container */
+	.section-nav__centre-selector {
 		border-top: 1px solid $color-light-txt;
 		@include to-rem(padding-top padding-bottom, $spacing-quarter);
+
+		/* Hide at this breakpoint */
+		@include respond-min($desk) {
+	    .js & {display: block;}
+
+	    border-top: 0;
+	    padding: 0;
+	  }
 	}

@@ -5,9 +5,9 @@ class map.micello.Map extends map.micello.MapBase
   customTheme:
     s:
       'Selected':
-        m: '#d7ccbd'
+        m: '#695648'
         o: '#695648'
-        t: '#333333'
+        t: '#ffffff'
         w: 1
       'Unit':
         m: '#f7f2df'
@@ -20,6 +20,35 @@ class map.micello.Map extends map.micello.MapBase
         w: 10
       'Inaccessible Space':
         m: '#dbd9d7'
+      'Open Obstruction':
+        m: '#f7f5f2'
+      'Level Change':
+        m: '#ffebc2'
+        o: '#ffb870'
+        w: 1
+      'Room':
+        m: '#ffebc2'
+        o: '#ffb870'
+        w: 1
+      'Building':
+        m: '#f7f2df'
+        o: '#d8bca9'
+        t: '#695648'
+        w: 1
+      'Water':
+        m: '#e1f0ff'
+      'Parking Lot':
+        m: '#bfbebd'
+      'Parking Structure':
+        m: '#bfbebd'
+      'Grass':
+        w: 0
+      'Traffic Marker':
+        w: 0
+      'Parking Spot':
+        w: 0
+      'Entrance':
+        m: '#695648'
 
   # Error events from images don't buddle so we need to explicitly call onerror
   @removeLogo: (img) ->

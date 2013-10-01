@@ -41,7 +41,7 @@ module ApplicationHelper
   end
 
   def phone_link(phone_number, options = {})
-    tel = phone_number.gsub(/\D+/, '')
+    tel = (phone_number || '').gsub(/\D+/, '')
     options.merge! href: "tel:#{tel}"
     content_tag :a, options do
       yield phone_format(tel)

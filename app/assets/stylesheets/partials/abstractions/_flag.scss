@@ -17,6 +17,12 @@
   display: table;
   width: 100%;
 }
+
+/* --Extenders-- */
+
+/* Shrink wrap */
+.flag--shrink-wrap {width: auto;}
+
   .flag__image,
   .flag__body {
     display: table-cell;
@@ -25,7 +31,7 @@
     /* Extends: different alignment */
     .flag--top & {vertical-align: top;}
 
-    .flag--bottom & {vertical-align: bottom;}
+    .flag--btm & {vertical-align: bottom;}
   }
 
   /* Image container */
@@ -38,5 +44,3 @@
       @include to-rem(padding-left, $spacing-base);
     }
   }
-
-  .flag__body {width: 100%;}

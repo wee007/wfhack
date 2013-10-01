@@ -1,0 +1,63 @@
+/* ======================================================================================
+   @MODULES -> SECTION NAV
+   ====================================================================================== */
+
+/*
+  Usage:
+    Part of the main template (sits directly under the main site header but only for certain pages) that holds the 'Section nav' and 'Show products/deals/events nearby centre selector' UI.
+
+  Demo:
+    Style Guide -> Modules -> Section Nav
+*/
+
+.section-nav {
+	@include font-size($font-size-sml, 1.5);
+
+	/* Increase text size at this breakpoint */
+	@include respond-min($non-palm) {
+    @include font-size($font-size, 1.5);
+  }
+
+	/* Section Nav */
+	.nav-contextual--dark {
+	  margin-bottom: 0;
+	  border-bottom: 0;
+	}
+
+	/* Show products/deals/events nearby centre selector */
+	.flag {
+
+		/* Make full width at this breakpoint */
+		@include respond-max(420) {
+	    width: 100%;
+	  }
+
+		/*@include respond-min($non-palm) {
+	    position: absolute;
+			right: 0;
+			top: 50%;
+			@include translate(0, -50%);
+	  }*/
+
+		select {width: 100% !important;}
+	}
+
+		/* Label */
+		.flag__image {
+			color: $color-light-txt;
+
+			/* Bring label text into view at this breakpoint */
+			@include respond-min(421) {
+		    @include hide-visually-off;
+		  }
+		}
+
+		/* Select list */
+		.flag__body {}
+}
+
+	/* Divider between 'Section nav' and 'Show products/deals/events nearby centre selector' */
+	.section-nav__divider {
+		border-top: 1px solid $color-light-txt;
+		@include to-rem(padding-top padding-bottom, $spacing-quarter);
+	}

@@ -41,10 +41,8 @@
       @include to-rem(left, 50);
       background-color: $color-off-white;
 
-      /* Old IE*/
-      @include old-ie {
-        display: none;
-      }
+      /* Old IE */
+      @include old-ie {display: none;}
     }
 
     /* Hide the line if there's only 1 instance of the date */

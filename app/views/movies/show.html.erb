@@ -27,7 +27,7 @@
     <h2 class="detail-view__hdr-sub hn">Synopsis</h2>
 
     <%# Movie synopsis %>
-    <div class="detail-view__desc txt-formatted">
+    <div class="detail-view__desc">
       <p itemprop="description"><%= @movie.synopsis %></p>
     </div>
     <%# //Movie synopsis %>
@@ -41,7 +41,6 @@
     <p>Select a session to purchase tickets at <%= @cinema.name %></p>
 
     <%# Session times %>
-
     <dl class="timeline">
       <% @movies_sessions_by_date.each do |date, sessions| %>
         <dt>

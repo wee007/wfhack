@@ -171,6 +171,7 @@
 
   /* Schedule */
   .detail-view__schedule {
+    /* Need it for creating a bigger spacing between the content and box that wraps around `detail-view` */
     @include to-rem(padding-bottom, 32);
 
     abbr {border-bottom: 0;}

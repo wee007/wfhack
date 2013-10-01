@@ -30,7 +30,6 @@
     }
   }
 
-
   /* Hero icon next to the heading   */
   .hero__icon:before {
     @include font-size(30, 1);
@@ -50,11 +49,10 @@
     }
   }
 }
-
+  
+  /* Hero inner */
   @include respond-min($lap-lrg) {
-    .hero__inner {
-      text-align: left;
-    }
+    .hero__inner {text-align: left;}
   }
 
     /* Hero intro - wrapper around content that comes under the hero heading */

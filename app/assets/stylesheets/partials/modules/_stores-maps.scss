@@ -93,7 +93,14 @@
 
     /* Make height shrink to fit content */
     @include respond-min($ipad-landscape) {
-      &.stores-maps__inner--detail {bottom: auto;}
+      &.stores-maps__inner--detail {
+        pointer-events: none;
+
+        /* IE 8/9/10 fallbacks for not supporting `pointer-events` */
+        @include old-ie {bottom: auto;}
+        .ie-9 & {bottom: auto;}
+        @include ie-10-up {bottom: auto;}
+      }
 
       /* Featured items */
       &.stores-maps__inner--detail.is-featured-items {bottom: 0;}
@@ -147,8 +154,11 @@
         @include box-heavy;
         @include to-rem(margin-bottom margin-top, $spacing-base);
 
-        /* Show for detail view */
-        .stores-maps__inner--detail & {display: block;}
+        /* Show for detail view and restore `pointer-events` */
+        .stores-maps__inner--detail & {
+          display: block;
+          pointer-events: auto;
+        }
       }
 
       /* Inner container */
@@ -352,7 +362,10 @@
         @include box-heavy;
 
         /* Detail view */
-        .stores-maps__inner--detail & {bottom: auto;}
+        .stores-maps__inner--detail & {
+          bottom: auto;
+          pointer-events: auto;
+        }
 
         /* Detail view - when they're 'Featured items' */
         .stores-maps__inner--detail.is-featured-items & {

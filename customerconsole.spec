@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.68
+Version:     0.1.69
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -86,6 +86,19 @@ fi
 
 
 %changelog
+* Tue Oct 01 2013 ci <doperations@au.westfield.com> 0.1.69-1
+- Merge pull request #418 from ldewey/auth (matt.wratt@trineo.co.nz)
+- Merge pull request #419 from cpearce/stores-updates (matt.wratt@trineo.co.nz)
+- Added back in simple auth to help with cut over (ldewey@au.westfield.com)
+- Commented out JS auth to help with cut over (ldewey@au.westfield.com)
+- Removing blue colour from store map/list toggle button
+  (CPearce@au.westfield.com)
+- Fixing issue with Chrome when 2nd slide is in view for storefront carousel
+  (CPearce@au.westfield.com)
+- Changed it from a password popup to a auth me page! (ldewey@au.westfield.com)
+- Removed http simple auth and replaced it with some JS auth!
+  (ldewey@au.westfield.com)
+
 * Tue Oct 01 2013 ci <doperations@au.westfield.com> 0.1.68-1
 - 
 

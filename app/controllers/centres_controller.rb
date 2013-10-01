@@ -1,5 +1,5 @@
 class CentresController < ApplicationController
-  layout 'national', :only => :index
+  layout 'base', :only => :index
 
   def index
     centres, products = nil

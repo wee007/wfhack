@@ -60,7 +60,7 @@
   .js-pjax-container-stores {
 
     /* Hide the preloader by default */
-    .preloader {display: none;}
+    & > .preloader {display: none;}
 
     /* Toggle the display of the preloader/content via the `.is-stores-list-detail-loading` class */
     &.is-stores-list-detail-loading {

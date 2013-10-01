@@ -1,12 +1,5 @@
 <%= javascript_tag do %>
 
-  function setCookie(c_name,value,exdays) {
-    var exdate=new Date();
-    exdate.setDate(exdate.getDate() + exdays);
-    var c_value=escape(value) + ((exdays==null) ? "" : "; expires="+exdate.toUTCString());
-    document.cookie=c_name + "=" + c_value;
-  }
-
   function getCookie(c_name) {
     var c_value = document.cookie;
     var c_start = c_value.indexOf(" " + c_name + "=");
@@ -22,14 +15,6 @@
     return c_value;
   }
 
-  if(!getCookie('authorised')) {
-    var password=prompt("Password");
-    if (password!="searchablemall") {
-      window.location = "/404.html";
-    } else {
-      setCookie("authorised", true, 365);
-      location.reload();
-    }
-  }
+  if(!getCookie('authorised')) { window.location = "/404.html"; }
 
 <% end %>

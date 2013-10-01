@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.69
+Version:     0.1.70
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -86,6 +86,17 @@ fi
 
 
 %changelog
+* Tue Oct 01 2013 ci <doperations@au.westfield.com> 0.1.70-1
+- adds phone link helper (matt.wratt@trineo.co.nz)
+- also apply to map toggle fix to android (matt.wratt@trineo.co.nz)
+- fixes store path to include retailer_code (matt.wratt@trineo.co.nz)
+- fixes iOS map toggle button (matt.wratt@trineo.co.nz)
+- WSF-4916 Formats phone number as per comments (matt.wratt@trineo.co.nz)
+- we do not use BEM for js hooks (matt.wratt@trineo.co.nz)
+- fixes broken page when toggling back from maps (matt.wratt@trineo.co.nz)
+- Merge pull request #420 from ldewey/auth (matt.wratt@trineo.co.nz)
+- Added Redirect on auth-me page (ldewey@au.westfield.com)
+
 * Tue Oct 01 2013 ci <doperations@au.westfield.com> 0.1.69-1
 - Merge pull request #418 from ldewey/auth (matt.wratt@trineo.co.nz)
 - Merge pull request #419 from cpearce/stores-updates (matt.wratt@trineo.co.nz)

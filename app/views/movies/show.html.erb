@@ -16,12 +16,11 @@
     </header>
 
     <%# Movie main image %>
-    <div class="detail-view__media detail-view__mrg-base">
-      <% if @movie.cloudinary_public_id %>
-        <%= cl_image_tag(@movie.cloudinary_public_id, alt:"#{@movie.title} picture", width: 600, height: 400, crop: 'limit', format: 'jpg') %>
-      <% else %>
-      <% end %>
-    </div>
+    <% if @movie.cloudinary_public_id %>
+      <div class="detail-view__media detail-view__mrg-base">
+          <%= cl_image_tag(@movie.cloudinary_public_id, alt:"#{@movie.title} picture", width: 600, height: 400, crop: 'limit', format: 'jpg') %>
+      </div>
+    <% end %>
     <%# //Movie main image %>
 
     <h2 class="detail-view__hdr-sub hn">Synopsis</h2>

@@ -40,6 +40,7 @@
                 <% if movie.cloudinary_public_id %>
                   <%= cl_image_tag(movie.cloudinary_public_id, alt:"#{movie.title} picture", width: 568, crop: 'limit', quality: 25, format: 'jpg') %>
                 <% else %>
+                  <%= image_tag 'placeholder-movie.jpg', alt: '', quality: 50 %>
                 <% end %>
               </div>
               <div class="tile__meta">

@@ -1,10 +1,179 @@
-<%- @centres.each do |state, centres| -%>
-  <div>
-    <%= state %>
-    <ul>
-      <%- centres.each do |centre| -%>
-        <li><%= link_to centre.short_name, centre_path(centre.code) %></li>
-      <%- end -%>
-    </ul>
-  </div>
-<%- end -%>
+<% content_for :class_for_body, "national" %>
+
+<%# Background images of the centre tiles at each breakpoint %>
+<%# content_for :custom_styles do %>
+  <%# <style> %>
+  <%# [BACKEND] We need to dynamically generate the class names for each centre and its relevant background image. At the moment this is duplicated from  `_hero_custom_styles.html.erb`. Can we refactor it so we just use same custom styles? %>
+
+  <%# Hero image at small breakpoint %>
+  <%# @media (max-width: 25em) {
+    .national__centre-tile--bondijunction {background-image: url('http://res.cloudinary.com/wlabs/image/fetch/w_400,h_107,c_fill,e_blur:300/http://beta.westfield.com.au/assets/heroes/bondijunction-lrg-4ec924a641f26e4ae8822ec42d6bb7a3.jpg');}
+    } %>
+
+    <%# Hero image at medium breakpoint %>
+    <%# @media (min-width: 25.0625em) and (max-width: 48em) {
+      .national__centre-tile--bondijunction {background-image: url('http://res.cloudinary.com/wlabs/image/fetch/w_768,h_205,c_fill,e_blur:300/http://beta.westfield.com.au/assets/heroes/bondijunction-lrg-4ec924a641f26e4ae8822ec42d6bb7a3.jpg');}
+    } %>
+
+    <%# Hero image at large breakpoint %>
+    <%# @media (min-width: 48.0625em) {
+      .national__centre-tile--bondijunction {background-image: url('http://res.cloudinary.com/wlabs/image/fetch/w_1600,h_300,c_fill,e_blur:300/http://beta.westfield.com.au/assets/heroes/bondijunction-lrg-4ec924a641f26e4ae8822ec42d6bb7a3.jpg');}
+    } %>
+
+    <%# Old IE %>
+    <%# .old-ie .national__centre-tile--bondijunction {
+      background-image: url('http://res.cloudinary.com/wlabs/image/fetch/w_1600,h_300,c_fill,e_blur:300/http://beta.westfield.com.au/assets/heroes/bondijunction-lrg-4ec924a641f26e4ae8822ec42d6bb7a3.jpg');
+    }%>
+  <%# </style> %>
+<%# end %>
+<%# //Background images of centre tiles %>
+
+
+<%# National landing page wrapper %>
+<div class="national__inner">
+
+  <%# Header %>
+  <header class="national__header img-rotate">
+    <%# Rotating images %>
+    <div class="national__hero__1 img-rotate__item"></div>
+    <%# //Rotating images %>
+
+    <%# Container %>
+    <div class="container container--position">
+      <%# Logo %>
+      <%= image_tag image_path('logo-white.svg'), alt: 'Westfield', "data-svg-fallback" => image_path('logo-white.png'), class: 'national__logo' %>
+      <%# //Logo %>
+
+      <%# Hero heading wrap %>
+      <div class="national__heading__intro">
+        <h1>
+          <span>Over 10300 stores. Over <%= @products_count %> products</span>
+          You want. We find.
+        </h1>
+
+        <%# TODO: Add link to YouTube video when it's ready %>
+        <!-- <a class="national__video" href="#" rel="external" target="_blank">
+          <img src="<%= image_path "video-thumbnail.jpg" %>" alt="Westfield Campaign video">
+          <span class="icon icon--play" aria-hidden="true"></span>
+        </a> -->
+      </div>
+      <%# //Hero heading wrap %>
+
+      <%# Nav %>
+      <nav role="navigation">
+        <ul class="horiz-list horiz-list--gutter-half">
+          <%# TODO: Add link to National product browse page when it's ready %>
+          <%# <li>
+            <a href="#">
+              <span class="icon icon--shirt" aria-hidden="true"></span>Shop products
+            </a>
+          </li> %>
+          <li>
+            <a href="http://www.westfieldgiftcards.com.au" rel="external">
+              <span class="icon icon--gift-card" aria-hidden="true"></span>Buy Gift Cards
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <%# //Nav %>
+
+    </div>
+    <%# //Container %>
+  </header>
+  <%# //Header %>
+
+  <%# Tabs %>
+  <main class="national__tabs tabs" id="main" role="main">
+
+    <nav role="navigation">
+      <div class="container">
+
+        <h2>Find your centre</h2>
+        <%# Tab nav %>
+        <ul class="tab__nav horiz-list">
+          <li>
+            <a class="is-active" href="#tab-nsw"><abbr title="New South Wales">NSW</abbr></a>
+          </li>
+          <li>
+            <a href="#tab-act"><abbr title="Australian Capital Territory">ACT</abbr></a>
+          </li>
+          <li>
+            <a href="#tab-qld"><abbr title="Queensland">QLD</abbr></a>
+          </li>
+          <li>
+            <a href="#tab-vic"><abbr title="Victoria">VIC</abbr></a>
+          </li>
+          <li>
+            <a href="#tab-sa"><abbr title="South Australia">SA</abbr></a>
+          </li>
+          <li>
+            <a href="#tab-wa"><abbr title="Western Australia">WA</abbr></a>
+          </li>
+        </ul>
+        <%# //Tab nav %>
+      </div>
+
+      <% %w(NSW ACT QLD VIC SA WA).each do |state| %>
+        <ul id="tab-<%= state.downcase %>" class="tab__content<%= ' is-active' if state == 'NSW' %>">
+          <% @centres[state].each do |centre| %>
+            <li>
+              <a class="national__centre-tile" href="<%= centre_path( centre ) %>">
+                <div class="container">
+                  <h3 class="h1"><%= centre.short_name %></h3>
+                  <span class="icon icon--arrow-right icon--lrg" aria-hidden="true"></span>
+                </div>
+              </a>
+            </li>
+          <% end %>
+        </ul>
+      <% end %>
+    </nav>
+  </main>
+  <%# //Tabs %>
+
+  <%# Footer %>
+  <footer class="national__footer" role="contentinfo">
+    <div class="container">
+      <ul class="national__footer__nav horiz-list--slash">
+        <li>
+          <%= link_to 'Westfild Group', 'http://corporate.westfield.com/', rel: 'external' %>
+        </li>
+        <li>
+          <a href="<%= root_path %>"><abbr title="Australia">AU</abbr></a>
+        </li>
+        <li>
+          <a href="http://www.westfield.co.nz/" rel="external"><abbr title="New Zealand">NZ</abbr></a>
+        </li>
+        <li>
+          <a href="http://uk.westfield.com/" rel="external"><abbr title="United Kingdom">UK</abbr></a>
+        </li>
+        <li>
+          <a href="http://www.westfield.com/" rel="external"><abbr title="United States of America">USA</abbr></a>
+        </li>
+        <li>
+          <%= link_to 'Jobs', 'http://corporate.westfield.com/careers/', rel: 'external' %>
+        </li>
+        <li>
+          <%= link_to 'Our Community', 'http://corporate.westfield.com/about/sustainability/', rel: 'external' %>
+        </li>
+      </ul>
+
+      <nav role="navigation" class="national__footer__nav">
+        <ul class="horiz-list--slash">
+          <li>
+            <small>&copy; Westfield <%= Time.now.year %></small>
+          </li>
+          <%# <li> %>
+            <%#= link_to 'Terms &amp; Conditions'.html_safe, '#' %>
+          <%# </li>
+          <li> %>
+            <%#= link_to 'Privacy Policy', '#' %>
+          <%# </li> %>
+        </ul>
+      </nav>
+    </div>
+  </footer>
+  <%# //Footer %>
+
+</div>
+<%# //National landing page wrapper %>

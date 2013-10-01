@@ -181,7 +181,7 @@ http_interactions:
       encoding: UTF-8
       string: '{"code":"bondijunction","name":"Westfield Bondi Junction","short_name":"Bondi
         Junction","street_address":"500 Oxford St.","state":"NSW","postcode":"2022","country":"au","latitude":"-33.891289","longitude":"151.250815","email_address":"bondijunction@au.westfield.com","retail":true,"enabled":true,"today_opening_time":"09:00","today_closing_time":"17:00","number_of_levels":7,"micello_community":7295}'
-    http_version: 
+    http_version:
   recorded_at: Thu, 15 Aug 2013 06:38:15 GMT
 - request:
     method: get

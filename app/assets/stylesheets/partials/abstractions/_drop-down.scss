@@ -4,19 +4,14 @@
 
 /*
 	Usage:
-		A generic drop down powered by the 'Twitter Bootstrap Drop down' plugin.
+		A generic drop down powered by 'Angular Toggle Visibility Directive'.
 
 	Demo:
 		Style Guide -> Abstractions -> Drop Down
 */
 
 /* Container for the drop down and drop down trigger */
-.drop-down-container {
-  position: relative;
-
-  /* Show the drop down - this to be sunsetted once the 'Twitter Bootstrap Drop down' plugin has been replaced with 'Angular toggle visibility' directive */
-  &.is-active > .drop-down {display: block;}
-}
+.drop-down-container {position: relative;}
 
   /* The drop down (JS users only) */
   .js .drop-down {

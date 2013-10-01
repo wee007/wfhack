@@ -2,33 +2,53 @@
 <html>
 <head>
     <title>Westfield Labs API</title>
+    <link href='//fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet'>
     <link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" rel="stylesheet">
     <link href="/api/css/styles.css" rel="stylesheet">
 </head>
 
-<body class="home">
-    <div class="container-fluid">
-        <div class="row-fluid header">
-            <div class="span12">
-                <a href="/api/index.html"><img src="/api/i/westfieldLabs_logo_240x60.png" class="logo"></a>
+<body class="swagger">
+    <div class="navbar navbar-inverse">
+        <div class="navbar-inner">
+            <div class="container-fluid">
+                <div class="row-fluid">
+                    <div class="span12">
+                        <a href="/api/index.html"><img src="/api/i/logo.png" class="logo"></a>
+                    </div>
+                </div>
             </div>
         </div>
-
+    </div>
+    <div class="container-fluid">
         <div class="row-fluid">
-            <div class="span3 left_col">
-                <h1>Welcome!</h1>
-                <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+            <div class="span12 text-center">
+                <h1>WELCOME!</h1>
+                <p>The Westfield API allows a developer to interact with Westfield's data and services.<br>
+The Directory Services section contains APIs that allows you to work with centre information,<br>such as 
+opening hours, location, stores, contact details.  It also enables access to centre-related information: 
+events, deals and offers, movies.<br>
+User Authentication APIs are not ready for general use just yet.<br>
+Platform Services can be used to complement the Westfield API assets.</p>
             </div>
-            <div class="span8">
-                <div class="row-fluid">
-                    <div class="span12 text-center">
-                        <span class="swagger-link">
-                            <a class="centre" href="/api/swagger/index.html?service=/api/centre"></a>
-                            <a class="aaa" href="/api/swagger/index.html?service=/api/aaa"></a>
-                            <a class="file" href="/api/swagger/index.html?service=/api/file"></a>
-                            <img src="/api/i/landing_sections.png">
-                        </span>
-                    </div>
+            <div class="row-fluid">
+                <div class="span12 text-center">
+                    <span class="swagger-link">
+                        <a class="directory" href="/api/swagger/index.html?service=/api/centre">
+                            <img src="/api/i/directory.png"><br>
+                            Directory<br>
+                            Services
+                        </a>
+                        <a class="authenticate" href="/api/swagger/index.html?service=/api/aaa">
+                            <img src="/api/i/authenticate.png"><br>
+                            User<br>
+                            Authentication
+                        </a>
+                        <a class="platform" href="/api/swagger/index.html?service=/api/file">
+                            <img src="/api/i/platform.png"><br>
+                            Platform<br>
+                            Services
+                        </a>
+                    </span>
                 </div>
             </div>
         </div>

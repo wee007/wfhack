@@ -48,9 +48,14 @@
     width: 100%;
     @include to-rem(margin-top, 10);
 
+    /* Override default width for palm at this breakpoint */
+    @include respond-max($palm) {
+      &.drop-down-menu__target--alt-width-palm {@include to-rem(width, $drop-down-width);}
+    }
+
     /* Reduce the width at this breakpoint */
     @include respond-min($iphone-landscape) {
-      @include to-rem(width, 285);
+      @include to-rem(width, $drop-down-width);
     }
 
     /* Reduce the top margin for IE 9/8 */
@@ -63,9 +68,50 @@
       border-bottom-width: 2px;
     }
 
-    /* Drop down pointer arrow (inc. for 'Filters' module) */
-    &:before,
-    .filters__target:before {
+    /* Shared rules */
+    .drop-down-menu__hdr,
+    .drop-down-menu__hdr-sub {font-weight: normal;}
+
+    /* Header */
+    .drop-down-menu__hdr {
+      position: relative;
+      text-align: center;
+      color: $color-light-txt;
+
+      /* Back button */
+      .btn {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        @include translate(0, -50%);
+        @include to-rem(padding, $spacing-half);
+      }
+    }
+
+    /* Header button */
+    .drop-down-menu__hdr-btn.btn {
+      @include to-rem(padding, $spacing-half);
+
+      /* Forward indicator (arrow icon) */
+      .icon.btn--pointer__icon {@include to-rem(right, $spacing-half);}
+    }
+
+    /* Sub header */
+    .drop-down-menu__hdr-sub {
+      color: $color-light-txt;
+      @include to-rem(padding-top padding-bottom, $spacing-micro);
+      @include to-rem(padding-left padding-right, $spacing-half);
+    }
+
+    /* Divider */
+    .drop-down-menu__divider {border-bottom: 1px solid $color-grey-1;}
+  }
+
+    /* Drop down pointer arrow (inc. for 'Filters' and 'Header menu' module) */
+    .drop-down-menu__target:before,
+    .drop-down-menu__target .filters__target:before,
+    .header-menu-toggle:before,
+    .nav-social-tertiary-container:before, {
       pointer-events: none;
       display: block;
       position: absolute;
@@ -92,39 +138,11 @@
       .old-ie & {display: none;}
     }
 
-    /* Header */
-    .drop-down-menu__hdr {
-      position: relative;
-      text-align: center;
-      color: $color-light-txt;
-
-      /* Back button */
-      .btn {
-        position: absolute;
-        top: 50%;
-        left: 0;
-        @include translate(0, -50%);
-        @include to-rem(padding, $spacing-half);
-      }
-    }
-
-    /* Header button */
-    .drop-down-menu__hdr-btn.btn {
-      @include to-rem(padding, $spacing-half);
-
-      /* Forward indicator (arrow icon) */
-      .icon.btn--pointer__icon {@include to-rem(right, $spacing-half);}
-    }
-
-    /* Divider */
-    .drop-down-menu__divider {border-bottom: 1px solid $color-grey-1;}
-  }
-
     /* List */
     .drop-down-menu__list {
       position: relative;
       z-index: $z-index-high+2;
-      max-height: 230px;
+      max-height: $drop-down-max-height;
       overflow-y: auto;
 
       /* iOS/Android */
@@ -135,13 +153,17 @@
       }
 
       /* List items */
-      > li {
+      > li,
+      > dd {
 
         /* Turn off border for last child */
         &:last-child {border-bottom: 0;}
 
-        /* Apply 'Islet' padding to buttons */
-        .btn--full {@include to-rem(padding, $spacing-half);}
+        /* Apply 'Islet' padding and default colour to buttons */
+        .btn--full {
+          color: $color-base-txt;
+          @include to-rem(padding, $spacing-half);
+        }
       }
 
       /* Truncate `label`s */

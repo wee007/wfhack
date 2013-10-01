@@ -1,0 +1,7 @@
+<small class="fine-print fine-print--<%= align %>">
+  *
+  <% if @parking.credit_card_surcharge_amount.to_i > 0 %>
+    <%= @parking.credit_card_surcharge_amount %>% surcharge on all credit card payments
+  <% end %>
+  parking <%= link_to 'terms &amp; conditions apply'.html_safe, cl_image_path(@parking.pdf_ref, format:'pdf'), target: '_blank', class:"test-terms-link" %>.
+</small>

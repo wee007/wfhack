@@ -22,7 +22,7 @@ class Event < Hashie::Mash
   end
 
   def image
-    WestfieldUri::Service.uri_for("file", 'http').to_s + image_ref
+    _links['image']['href']
   end
 
   def to_param

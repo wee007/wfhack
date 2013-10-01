@@ -14,7 +14,11 @@
 /* These pseudo elements are to render the 'drop down menu' / 'map popup' arrow pointers as they use an icon font (`@extend` isn't suitable for this) */
 .drop-down-menu__target:before,
 .filters__target:before,
-.menuTip:after {
+.header-menu-toggle:before,
+.nav-social-tertiary-container:before,
+.menuTip:after,
+#ui-levels-arrow-up:before,
+#ui-levels-arrow-down:before {
 	@extend %sprite-icon;
 	speak: none;
 	font-family: "icons";
@@ -155,10 +159,16 @@
 .icon-pdf:before {content: "\e033";}
 
 /* Gift card */
-.icon-gift-card:before {
+.icon--gift-card:before {
   content: "\e034";
   color: $color-brand;
 }
+
+/* Shirt */
+.icon--shirt:before {content: "\e037";}
+
+/* Play */
+.icon--play:before {content: "\e038";}
 
 /* Arrow up */
 .icon--arrow-up:before {content: "\e018";}
@@ -188,12 +198,16 @@
 .icon--arrow-up-full:before,
 /* These pseudo elements are to render the 'drop down menu' arrow pointer as they use an icon font (`@extend` isn't suitable for this) */
 .drop-down-menu__target:before,
-.filters__target:before {content: "\e00b";}
+.filters__target:before,
+.header-menu-toggle:before,
+.nav-social-tertiary-container:before,
+#ui-levels-arrow-up:before {content: "\e00b";}
 
 /* Arrow full down */
 .icon--arrow-down-full:before,
 /* This pseudo element is to render the 'map popup' arrow pointer as they use an icon font (`@extend` isn't suitable for this) */
-.menuTip:after {content: "\e00a";}
+.menuTip:after,
+#ui-levels-arrow-down:before {content: "\e00a";}
 
 /* Arrow full left */
 .icon--arrow-left-full:before {content: "\e008";}

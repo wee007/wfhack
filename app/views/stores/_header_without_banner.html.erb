@@ -1,0 +1,14 @@
+<header>
+  <div class="flexslider flexslider--contain-controls is-no-store-banner">
+    <ul class="slides">
+      <li>
+        <div class="storefront__flexslider-storename vert-align">
+          <div class="vert-align__inner">
+            <h1<% if @store.name.length > 58 %> class="is-long-store-name"<% end %>><%= @store.name %></h1>
+          </div>
+        </div>
+      </li>
+      <%= render 'description' %>
+    </ul>
+  </div>
+</header>

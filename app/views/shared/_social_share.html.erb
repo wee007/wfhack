@@ -2,49 +2,49 @@
 
 <div class="social-share drop-down-container">
 
-  <button type="button" class="social-share__trigger controls__btn btn js-drop-down-trigger" aria-haspopup="true" aria-controls="share-options-<%= uuid %>">
+  <button type="button" class="social-share__trigger controls__btn btn" toggle-visibility="social-share-<%= uuid %>">
     <span class="icon icon--share icon--lrg icon--spacing-lrg drop-down-container__non-active" aria-hidden="true"></span><!--
     --><span class="drop-down-container__non-active social-share__trigger__txt">Share</span><!--
     --><span class="icon icon--close-lrg icon--lrg icon--spacing-lrg drop-down-container__active" aria-hidden="true"></span><!--
     --><span class="drop-down-container__active social-share__trigger__txt">Close</span>
   </button>
 
-  <!-- Social share -->
-  <ul class="drop-down js-drop-down horiz-list horiz-list--fit horiz-list--center" id="share-options-<%= uuid %>">
+  <%# Social share %>
+  <ul class="drop-down horiz-list horiz-list--fit horiz-list--center" id="social-share-<%= uuid %>">
 
-    <!-- Facebook -->
+    <%# Facebook %>
     <li class="social-share__facebook">
       <a href="http://www.facebook.com/sharer/sharer.php?u=<%=URI::encode url %>&t=<%=URI::encode title %>" rel="external" target="_blank"><span class="icon icon--facebook icon--xlrg icon--flush-top" aria-hidden="true"></span><span class="hide-visually"> Facebook</span></a>
     </li>
-    <!-- //Facebook -->
+    <%# //Facebook %>
 
-    <!-- Twitter -->
+    <%# Twitter %>
     <li class="social-share__twitter">
       <a href="http://twitter.com/intent/tweet?url=<%=URI::encode url %>&text=<%=URI::encode title %>" rel="external" target="_blank"><span class="icon icon--twitter icon--xlrg icon--flush-top" aria-hidden="true"></span><span class="hide-visually"> Twitter</span></a>
     </li>
-    <!-- //Twitter -->
+    <%# //Twitter %>
 
-    <!-- Google+ -->
+    <%# Google+ %>
     <li class="social-share__google">
       <a href="https://plus.google.com/share?url=<%=URI::encode url %>" rel="external" target="_blank"><span class="icon icon--google-plus icon--xlrg icon--flush-top" aria-hidden="true"></span><span class="hide-visually"> Google+</span></a>
     </li>
-    <!-- //Google+ -->
+    <%# //Google+ %>
 
     <% if defined?(image) && !image.blank? %>
-      <!-- Pinterest -->
+      <%# Pinterest %>
       <li class="social-share__pinterest">
         <a href="http://pinterest.com/pin/create/button/?url=<%=URI::encode url %>&media=<%=URI::encode image %>&description=<%=URI::encode title %>" rel="external" target="_blank"><span class="icon icon--pinterest icon--xlrg icon--flush-top" aria-hidden="true"></span><span class="hide-visually"> Pinterest</span></a>
       </li>
-      <!-- //Pinterest -->
+      <%# //Pinterest %>
     <% end -%>
 
-    <!-- Email -->
+    <%# Email %>
     <li class="social-share__email">
       <a href="mailto:?subject=<%=URI::encode title %>&amp;body=Please%20enter%20a%20personal%20message%20to%20yourself%20or%20a%20friend%20%0A%20%0A<%=URI::encode url %>%20%0A%20%0APlease%20notify%20the%20sender%20of%20this%20message%20if%20you%20do%20not%20want%20to%20receive%20further%20emails%20of%20this%20nature%20in%20future."><span class="icon icon--email icon--xlrg icon--flush-top" aria-hidden="true"></span><span class="hide-visually"> Email</span></a>
     </li>
-    <!-- //Email -->
+    <%# //Email %>
 
   </ul>
-  <!-- //Social share -->
+  <%# //Social share %>
 
 </div>

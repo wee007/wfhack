@@ -9,6 +9,7 @@ gem 'settingslogic'
 
 # Javascript
 gem 'gon'
+gem 'rack-pjax'
 
 # For operations
 gem 'health_check'
@@ -25,8 +26,6 @@ gem 'cloudinary'
 gem 'kaminari'
 gem 'money'
 
-gem 'rubycas-client', git: 'https://github.com/mmell/rubycas-client.git' # force rubycas-client-rails to use latest
-gem 'aaa_client', git: 'git@github.dbg.westfield.com:digital/aaa_client.git'
 gem 'splunk_logger', git: 'https://github.com/westfield/splunk_logger.git'
 
 # CSS (cant live in development or css will not get minified)
@@ -47,8 +46,6 @@ group :development, :test do
   gem 'uglifier', '>= 1.3.0'
   gem 'coffee-rails', '~> 4.0.0'
   gem 'guard', '~> 1.8.0'
-  gem 'guard-livereload', '~> 1.4.0'
-  gem 'rack-livereload', '~> 0.3.15'
   gem 'kss', git: 'https://github.com/kneath/kss.git' # Gem release pending
   gem "jasminerice", git: 'https://github.com/bradphelan/jasminerice.git'
   gem 'json'
@@ -56,6 +53,7 @@ group :development, :test do
   gem 'guard-jasmine', git: 'https://github.com/cwalsh/guard-jasmine.git' # Fix coverage issue
   gem 'rack-proxy', '0.4.0' # Updating it broke our proxying (/api/<service>/...)
   gem 'launchy'
+  gem 'puma'
 end
 
 group :test do

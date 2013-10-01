@@ -10,6 +10,7 @@
   .horiz-list--fit               - Force the items to occupy 100% of the available width of its parent.
   .horiz-list--comma             - Comma separated.
   .horiz-list--slash             - Slash separated.
+  .horiz-list--half              - Half spacing between list items.
 
   Styleguide Horizontal List
 */
@@ -92,3 +93,11 @@
 }
 
 .horiz-list--comma > li:after {content: ",";}
+
+/* Half spacing between `li` */
+.horiz-list--gutter-half > li {
+	@include to-rem(padding-left, $spacing-half);
+
+	/* Kill rules for the first item */
+	&:first-child {padding-left: 0;}
+}

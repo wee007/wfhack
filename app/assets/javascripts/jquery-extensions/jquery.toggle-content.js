@@ -3,7 +3,7 @@
 * @desc         used to toggle content via expanding and collapsing
 * @initialise   single instance: $('.js-toggle-content').toggleContent();
                 multiple instance: $('.js-toggle-content').each(function() {$(this).toggleContent();});
-* @css          don't forget to hide the toggle content panel via CSS to avoid FOUC
+* @css          needs to use the 'Toggle Content' abstraction
 */
 $.fn.toggleContent = function(options, toggleBtnWrap, toggleBtnTrigger, btnTxtOpen, btnTxtClose) {
 

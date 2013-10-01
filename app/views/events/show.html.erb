@@ -11,7 +11,7 @@
 
     <div class="detail-view__media detail-view__mrg-base">
       <%= fetch_image_tag @event.image,
-        alt: @event.name,
+        alt: "Photo of event: #{@event.name}",
         width: 638,
         crop: :limit
       %>
@@ -32,10 +32,10 @@
     <h2 class="detail-view__hdr-sub hn">Event Schedule</h2>
     <dl class="timeline">
       <dt>
-        <%= @event.start '%A' %>
+        <%= @event.date '%A' %>
         <em class="timeline__date">
-          <span><%= @event.start '%-d' %></span>
-          <%= @event.start '%b' %>
+          <span><%= @event.date '%-d' %></span>
+          <%= @event.date '%b' %>
         </em>
       </dt>
       <dd>

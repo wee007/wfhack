@@ -22,7 +22,7 @@
     <%# //Product name, brand and price %>
 
     <%# Check if a product is available at a centre %>
-    <% if @centres.empty? %>
+    <% if @centres.present? && @centre.present? %>
 
       <%# When product is not available at a centre %>
       <div class="detail-view__product-not-avble detail-view__divider">
@@ -36,7 +36,7 @@
       </div>
       <%# //When product is not available at a centre %>
 
-    <%- else -%>
+    <%- elsif @centre.present? -%>
 
       <%# When product is available at a centre %>
 
@@ -148,11 +148,11 @@
 </div>
 
 <%# Availability %>
-<%- if @centres.present? -%>
+<%- if @product_centres.present? -%>
 <div class="island detail-view__divider--top-btm detail-view__divider--top">
   <h2 class="detail-view__hdr-sub detail-view__mrg-off hn">Available at</h2>
   <ul class="detail-view__centres">
-    <%- @centres.each do |centre| -%>
+    <%- @product_centres.each do |centre| -%>
       <li>
         <%= link_to centre_product_path(centre_id: centre.code, retailer_code: @product.retailer_code, sku: @product.sku),
           class: "list-divider" do %>

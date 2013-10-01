@@ -3,6 +3,9 @@ require 'spec_helper'
 describe CentreInfoController do
 
   context "GET" do
+    before(:each) do
+      ParkingService.stub(:fetch)
+    end
     describe :show do
 
       it "renders show view" do

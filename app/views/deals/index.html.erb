@@ -1,11 +1,20 @@
 <h1 class="hide-visually">Deals</h1>
 
-<div id="pin-board" class="pin-board">
+<% if @deals.blank? %>
 
-  <%- @deals.each do |deal| -%>
-    <%= render partial: "/shared/tiles/deal", layout: '/layouts/tile', locals: {
-      result: deal
-  } %>
-  <%- end -%>
+  <%# No deals fallback message %>
+  <div class="no-content-fallback-msg">
+    <span class="icon icon--deals icon--flush-top" aria-hidden="true"></span>
+    <p><em class="h1">No deals at this centre</em> <span>See nearby centres</span></p>
+  </div>
+  <%# //No deals fallback message %>
 
-</div>
+<%- else -%>
+
+  <%# Pin board %>
+  <%= pin_board(@deals) do |deal| %>
+    <%= tile "deal", result: deal %>
+  <% end %>
+  <%# //Pin board %>
+
+<%- end -%>

@@ -6,132 +6,155 @@
 
   <%# Contain 'filters', 'map/list toggle', and 'listings' %>
   <%# [BACKEND] append `is-filter-applied` class to this container when a category filter has been applied %>
-  <div class="stores-maps__inner">
+  <div class="js-pjax-container-stores" aria-live="polite" aria-atomic="true">
 
-    <%# Filters & list/map toggle button %>
-    <div class="stores-maps__filters-toggle">
+    <%# PJAX preloader %>
+    <span class="preloader preloader--middle preloader--light">
+      <span class="preloader__spinner"></span>
+      <em class="hide-visually">Loading, please wait&#8230;</em>
+    </span>
+    <%# //PJAX preloader %>
 
-      <div class="container">
+    <div class="stores-maps__inner stores-maps__inner--listing">
 
-        <h2 class="stores-maps__filters-toggle__hdr">Stores A-Z</h2>
+      <%# Filters & list/map toggle button %>
+      <div class="stores-maps__filters-toggle">
 
-        <%# Filters %>
-        <%#<div class="drop-down-menu drop-down-container">
+        <div class="container">
 
-          <button class="drop-down-menu__trigger btn btn--main btn--main-alt2 btn--pointer btn--pointer-padding-med" toggle-visibility="stores-filters">Category<span aria-hidden="true" class="icon icon--lrg icon--arrow-down-full btn--pointer__icon"></span></button>
+          <h2 class="stores-maps__filters-toggle__hdr">Stores A-Z</h2>
 
-          <div class="drop-down-menu__target drop-down box box--drop-down" id="stores-filters">
-            <ul class="drop-down-menu__list">
-              <li class="drop-down-menu__divider"><button class="btn btn--full btn--full-left">Women's Fashion</button></li>
-              <li class="drop-down-menu__divider"><button class="btn btn--full btn--full-left">Shoes &amp; Footwear</button></li>
-              <li class="drop-down-menu__divider"><button class="btn btn--full btn--full-left">Jewellery &amp; Watches</button></li>
-              <li class="drop-down-menu__divider"><button class="btn btn--full btn--full-left">Bags &amp; Luggage</button></li>
-              <li class="drop-down-menu__divider"><button class="btn btn--full btn--full-left">Computers &amp; Electronics</button></li>
-              <li class="drop-down-menu__divider"><button class="btn btn--full btn--full-left">Movies &amp; Music</button></li>
-              <li class="drop-down-menu__divider"><button class="btn btn--full btn--full-left">Women's Fashion</button></li>
-              <li class="drop-down-menu__divider"><button class="btn btn--full btn--full-left">Shoes &amp; Footwear</button></li>
-              <li class="drop-down-menu__divider"><button class="btn btn--full btn--full-left">Jewellery &amp; Watches</button></li>
-              <li class="drop-down-menu__divider"><button class="btn btn--full btn--full-left">Bags &amp; Luggage</button></li>
-              <li class="drop-down-menu__divider"><button class="btn btn--full btn--full-left">Computers &amp; Electronics</button></li>
-              <li class="drop-down-menu__divider"><button class="btn btn--full btn--full-left">Movies &amp; Music</button></li>
-            </ul>
+          <%# Filters %>
+          <%# [BACKEND] Markup for the 'Category' and 'Gift Card' filters %>
+          <%#<ul class="stores-maps__filters horiz-list horiz-list--gutter-half">
+
+              <li class="drop-down-menu drop-down-container">
+                <button class="drop-down-menu__trigger btn btn--main btn--main-alt2 btn--pointer btn--pointer-padding-med" toggle-visibility="stores-filters">Category<span aria-hidden="true" class="icon icon--lrg icon--arrow-down-full btn--pointer__icon"></span></button>
+                <div class="drop-down-menu__target drop-down-menu__target--alt-width-palm drop-down box box--drop-down" id="stores-filters">
+                  <ul class="drop-down-menu__list">
+                    <li class="drop-down-menu__divider"><button class="btn btn--full btn--full-left">Women's Fashion</button></li>
+                    <li class="drop-down-menu__divider"><button class="btn btn--full btn--full-left">Shoes &amp; Footwear</button></li>
+                    <li class="drop-down-menu__divider"><button class="btn btn--full btn--full-left">Jewellery &amp; Watches</button></li>
+                    <li class="drop-down-menu__divider"><button class="btn btn--full btn--full-left">Bags &amp; Luggage</button></li>
+                    <li class="drop-down-menu__divider"><button class="btn btn--full btn--full-left">Computers &amp; Electronics</button></li>
+                    <li class="drop-down-menu__divider"><button class="btn btn--full btn--full-left">Movies &amp; Music</button></li>
+                    <li class="drop-down-menu__divider"><button class="btn btn--full btn--full-left">Women's Fashion</button></li>
+                    <li class="drop-down-menu__divider"><button class="btn btn--full btn--full-left">Shoes &amp; Footwear</button></li>
+                    <li class="drop-down-menu__divider"><button class="btn btn--full btn--full-left">Jewellery &amp; Watches</button></li>
+                    <li class="drop-down-menu__divider"><button class="btn btn--full btn--full-left">Bags &amp; Luggage</button></li>
+                    <li class="drop-down-menu__divider"><button class="btn btn--full btn--full-left">Computers &amp; Electronics</button></li>
+                    <li class="drop-down-menu__divider"><button class="btn btn--full btn--full-left">Movies &amp; Music</button></li>
+                  </ul>
+                </div>
+              </li><!--
+
+              --><li>
+                <label for="gift-card-toggle" class="btn btn--main btn--main-alt2 btn--checkbox-toggle btn--checkbox-toggle-icon">
+                  <input id="gift-card-toggle" type="checkbox" class="btn--checkbox-toggle__input"><span class="btn--checkbox-toggle__lbl"><span class="hide-visually">Westfield </span>Gift Card<span class="hide-visually"> accepted</span><span aria-hidden="true" class="icon icon--gift-card icon--xlrg icon--flush-top-mozilla"></span></span>
+                </label>
+              </li>
+
+          </ul>%>
+          <%# //Filters %>
+
+          <%# List/map toggle %>
+          <button class="stores-maps__toggle btn btn--main btn--main-alt4 btn--main-compact-icon js-stores-maps-toggle-btn" aria-owns="stores-maps-toggle-listing-detail, stores-maps-toggle-map">
+            <span class="hide-visually">View <span class="js-stores-maps-toggle-btn-txt">map</span></span>
+            <span class="icon icon--map2 icon--lrg" aria-hidden="true"></span>
+            <span class="icon icon--list icon--lrg" aria-hidden="true"></span>
+          </button>
+          <%# //List/map toggle %>
+
+        </div>
+
+        <%# Post filter count %>
+        <%# [BACKEND] inject this when a category filter has been applied, see the store name in the list below for further instructions %>
+        <%# <div class="stores-maps__filters-count">
+          <div class="container">
+            <p aria-live="polite"><span class="icon icon--pin"></span> 44 Results found</p>
           </div>
-
-        </div>%>
-        <%# //Filters %>
-
-        <%# List/map toggle %>
-        <button class="stores-maps__toggle btn btn--main btn--main-alt4 btn--main-compact-icon js-stores-maps-toggle-btn" aria-owns="stores-maps-toggle-listing-detail, stores-maps-toggle-map">
-          <span class="hide-visually">View <span class="js-stores-maps-toggle-btn__txt">map</span></span>
-          <span class="icon icon--map2 icon--lrg" aria-hidden="true"></span>
-          <span class="icon icon--list icon--lrg" aria-hidden="true"></span>
-        </button>
-        <%# //List/map toggle %>
+        </div> %>
+        <%# //Post filter count %>
 
       </div>
+      <%# //Filters & list/map toggle button %>
 
-      <%# Post filter count %>
-      <%# [BACKEND] inject this when a category filter has been applied, see the store name in the list below for further instructions %>
-      <%# <div class="stores-maps__filters-count">
-        <div class="container">
-          <p aria-live="polite"><span class="icon icon--pin"></span> 44 Results found</p>
-        </div>
-      </div> %>
-      <%# //Post filter count %>
+      <%# Stores list %>
+      <div class="stores-maps__list-detail js-defer-image-load-container" id="stores-maps-toggle-listing-detail">
+        <dl class="stores-list">
+          <% @stores.each do |letter, stores| %>
 
-    </div>
-    <%# //Filters & list/map toggle button %>
+            <dt>
+              <div class="stores-list__inner container"><%= letter %></div>
+            </dt>
 
-    <%# Stores list %>
-    <div class="stores-maps__list-detail js-defer-image-load-container" id="stores-maps-toggle-listing-detail">
-      <dl class="stores-list">
-        <% @stores.each do |letter, stores| %>
+            <% stores.each do |store| %>
+            <dd>
+              <div class="stores-list__inner container">
 
-          <dt>
-            <div class="stores-list__inner container"><%= letter %></div>
-          </dt>
+                <%# Store name %>
+                <div class="stores-list__store-name">
+                  <strong><%= link_to store.name, (centre_store_url @centre.code, store.retailer_code, store.id), class: 'js-pjax-link-stores' %></strong>
+                  <%# Phone no %>
+                  <span class="hide-fully--palm"><span class="hide-visually">Phone number: </span><%= phone_format store.phone_number %></span>
+                  <%# //Phone no %>
+                  <%# [BACKEND] inject this `span` when a category filter has been applied %>
+                  <%# <span class="icon icon--pin icon--flush-top"></span> %>
+                </div>
+                <%# //Store name %>
 
-          <% stores.each do |store| %>
-          <dd data-store-id="<%= store.id %>">
-            <div class="stores-list__inner container">
-
-              <%# Store name %>
-              <div class="stores-list__store-name">
-                <%# [BACKEND] cannot use the link until storefront feature is complete %>
-                <!-- <strong><%= link_to store.name, (centre_store_url @centre.code , store.id) %></strong> -->
-                <strong><%= store.name %></strong>
-                <%# Phone no %>
-                <span class="hide-fully--palm"><%= store.phone_number %></span>
-                <%# //Phone no %>
-                <%# [BACKEND] inject this `span` when a category filter has been applied %>
-                <%# <span class="icon icon--pin icon--flush-top"></span> %>
-              </div>
-              <%# //Store name %>
-
-              <%# Logo %>
-              <% if store.has_logo? %>
-                <div class="stores-list__logo hide-fully--palm js-disabled-hide">
-                  <div class="vert-align">
-                    <div class="vert-align__inner">
-                      <span class="preloader preloader--light" data-image-src="<%= cl_image_path(store.logo, type: "fetch", width: 168, height: 62, quality: 25, crop: :pad, background: 'rgb:FFFFFF') %>" data-image-alt="<%= "#{store.name} logo" %>" data-image-itemprop="photo">
-                        <span class="preloader__spinner"></span>
-                        <em class="hide-visually">Loading, please wait&#8230;</em>
-                      </span>
+                <%# Logo %>
+                <% if store.has_logo? %>
+                  <div class="stores-list__logo hide-fully--palm">
+                    <div class="vert-align">
+                      <div class="vert-align__inner">
+                        <span class="preloader preloader--light js-disabled-hide" data-image-src="<%= cl_image_path(store.logo, type: "fetch", width: 168, height: 62, crop: :pad, background: 'rgb:FFFFFF') %>" data-image-alt="<%= "#{store.name} logo" %>" data-image-itemprop="photo">
+                          <span class="preloader__spinner"></span>
+                          <em class="hide-visually">Loading, please wait&#8230;</em>
+                        </span>
+                        <noscript><img src="<%= cl_image_path(store.logo, type: "fetch", width: 168, height: 62, crop: :pad, background: 'rgb:FFFFFF') %>" alt="<%= "#{store.name} logo" %>"></noscript>
+                      </div>
                     </div>
                   </div>
+                <% end %>
+                <%# //Logo %>
+
+                <%# Icon links %>
+                <div class="stores-list__phone-map storefront-storelist-phone-map-links">
+
+                  <%# Phone no %>
+                  <%= phone_link store.phone_number, class: 'storefront-storelist-phone-map-links__cell storefront-storelist-phone-map-links__cell--phone hide-fully--non-palm' do |phone_number| %>
+                    <span class="hide-visually">Call store: <%= phone_number %></span>
+                    <span class="icon icon--phone2 icon--flush-top storefront-storelist-phone-map-links__cell__valign"></span>
+                  <% end %>
+                  <%# //Phone no %>
+
+                  <%# Location %>
+                  <a href="#infoDiv" class="storefront-storelist-phone-map-links__cell storefront-storelist-phone-map-links__cell--location" data-store-id="<%= store.id %>">
+                    <span class="hide-visually">View on map</span>
+                    <span class="icon icon--pin icon--flush-top storefront-storelist-phone-map-links__cell__valign"></span>
+                  </a>
+                  <%# //Location %>
+
                 </div>
-              <% end %>
-              <%# //Logo %>
-
-              <%# Icon links %>
-              <div class="stores-list__phone-map storefront-storelist-phone-map-links">
-
-                <%# Phone no %>
-                <a href="tel:<%= (store.phone_number || "").gsub(/\s+/,'') %>" class="storefront-storelist-phone-map-links__cell storefront-storelist-phone-map-links__cell--phone hide-fully--non-palm">
-                  <span class="hide-visually">Call store: <%= store.phone_number %></span>
-                  <span class="icon icon--phone2 icon--flush-top storefront-storelist-phone-map-links__cell__valign"></span>
-                </a>
-                <%# //Phone no %>
-
-                <%# Location %>
-                <a href="#infoDiv" class="storefront-storelist-phone-map-links__cell storefront-storelist-phone-map-links__cell--location">
-                  <span class="hide-visually">View on map</span>
-                  <span class="icon icon--pin icon--flush-top storefront-storelist-phone-map-links__cell__valign"></span>
-                </a>
-                <%# //Location %>
+                <%# //Icon links %>
 
               </div>
-              <%# //Icon links %>
+            </dd>
+            <% end %>
 
-            </div>
-          </dd>
           <% end %>
+        </dl>
+      </div>
+      <%#//Stores list %>
 
-        <% end %>
-      </dl>
+      <%= javascript_tag do %>
+        function storeMapPageReady() {
+          $('.js-defer-image-load-container').deferImages({matchMedia: 'all and (min-width: 40.0625em)'});
+        }
+      <% end %>
+
     </div>
-    <%#//Stores list %>
-
   </div>
   <%# //Contain 'filters', 'map/list toggle', and 'listings' %>
 
@@ -144,60 +167,5 @@
 </div>
 
 <%- content_for :javascript do -%>
-  <%= javascript_tag do %>
-    (function initialiseResponsiveMap() {
-
-      var map = new window.map.Micello(),
-          viewingList = true;
-
-      function resetView(listView) {
-        <%# listView = [true, false, null]
-              true = list view
-              false = map view
-              null = desktop view
-        %>
-        viewingList = listView;
-
-        $('.js-stores-maps-toggle-btn').toggleClass('is-expanded', listView === false);   <%# toggle button        %>
-        $('.js-stores-maps-toggle-btn__txt').html(listView ? 'map' : 'list');             <%# toggle button text   %>
-        $('.js-stores-maps-toggle-wrap').toggleClass('is-map-view', listView === false);  <%# store list container %>
-
-        if(!listView) map.load().centreOffset({x: listView === false ? 0.5 : 0.75, y: 0.5});
-      }
-
-      function showStoreDetail(storeId) {
-        map.setTarget(storeId).showLevel().centre().highlight().detail();
-      }
-
-      function nonPalmView() {
-        resetView(null);
-        $('*', document).off('.map-palm')
-        $('[data-store-id]').on('click.map-non-palm', function() {
-          showStoreDetail($(this).data('store-id'));
-        });
-      }
-
-      function palmView() {
-        resetView(true);
-        $('*', document).off('.map-non-palm')
-        $('.js-stores-maps-toggle-btn').on('click.map-palm', function() {
-          resetView(!viewingList);
-        });
-        $('[data-store-id]').on('click.map-palm', 'a[href="#infoDiv"]', function(event) {
-          resetView(false);
-          showStoreDetail($(event.delegateTarget).data('store-id'));
-        });
-      }
-
-      $(function() {
-        enquire.register("all and (min-width: 64em)", {
-          match: nonPalmView,
-          unmatch: palmView,
-          setup: palmView
-        }, true);
-      });
-    }());
-
-    $('.js-defer-image-load-container').deferImages({matchMedia: 'all and (min-width: 40.0625em)'});
-  <% end %>
+  <%= javascript_include_tag 'stores_maps' %>
 <%- end -%>

@@ -1,11 +1,15 @@
 <div class="tile__meta">
-
-  <p class="tile__meta__desc"><%= result.title %></p>
   <% if result.logo %>
     <span class="tile__meta__image">
-      <%= fetch_image_tag(result.logo, width: 168, height: 62, quality: 25, crop: :pad, background: 'rgb:FFFFFF') %>
+      <%= fetch_image_tag result.logo,
+        alt: "#{result.name} logo",
+        width: 168,
+        height: 62,
+        crop: :pad
+      %>
     </span>
   <% end %>
+  <p class="tile__meta__desc"><%= result.title %></p>
 </div>
 
 <span class="tile__meta__icon">

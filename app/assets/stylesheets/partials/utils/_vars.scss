@@ -176,6 +176,7 @@ $page-container-max-width-narrow: 980 !default;
 /* Gutter */
 $grid-gutter: $spacing-base !default;
 $grid-gutter-dbl: $spacing-dbl !default;
+$grid-gutter-half: $spacing-half !default;
 
 /*
 	Note: be sure to set the vars below to 'false' if they're not needed as they generate a lot of CSS.
@@ -362,3 +363,8 @@ $box-shadow: 0 1px 2px rgba(#000, 0.25) !default;
 $box-shadow-heavy: 0 0 7px rgba(#000, 0.3) !default;
 
 $box-shadow-drop-down: 0 1px 3px rgba(#000, 0.5) !default;
+
+/* Drop down menu */
+$drop-down-width: 285 !default;
+
+$drop-down-max-height: 230px !default;

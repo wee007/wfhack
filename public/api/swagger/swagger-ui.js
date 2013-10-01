@@ -315,7 +315,7 @@ function program9(depth0,data) {
 function program11(depth0,data) {
   
   
-  return "\n                    <div class='sandbox_header'>\n                        <input class='submit' name='commit' type='button' value='Try it out!' />\n                        <a href='#' class='response_hider' style='display:none'>Hide Response</a>\n                        <img alt='Throbber' class='response_throbber' src='images/throbber.gif' style='display:none' />\n                    </div>\n                    ";}
+  return "\n                    <div class='sandbox_header'>\n                        <input class='submit' name='commit' type='button' value='Try it out!' />\n                        <a href='#' class='response_hider' style='display:none'>Hide Response</a>\n                        <a href='#' class='response_as_json' style='display:none'>Show as JSON</a>\n                        <img alt='Throbber' class='response_throbber' src='images/throbber.gif' style='display:none' />\n                    </div>\n                    ";}
 
   buffer += "\n    <ul class='operations' >\n      <li class='";
   foundHelper = helpers.httpMethod;
@@ -1494,6 +1494,7 @@ templates['status_code'] = template(function (Handlebars,depth0,helpers,partials
       'submit .sandbox': 'submitOperation',
       'click .submit': 'submitOperation',
       'click .response_hider': 'hideResponse',
+      'click .response_as_json': 'showResponseAsJSON',
       'click .toggleOperation': 'toggleOperationContent'
     };
 
@@ -1695,7 +1696,13 @@ templates['status_code'] = template(function (Handlebars,depth0,helpers,partials
         e.preventDefault();
       }
       $(".response", $(this.el)).slideUp();
-      return $(".response_hider", $(this.el)).fadeOut();
+      return $(".response_hider, .response_as_json", $(this.el)).fadeOut();
+    };
+
+    OperationView.prototype.showResponseAsJSON = function(e) {
+      var response_body_code = $('.response_body code', $(this.el));
+      response_body_code.html(JSON.stringify(YAML.parse(response_body_code[0].innerHTML), null, 2));
+      return hljs.highlightBlock($('.response_body', $(this.el))[0]);
     };
 
     OperationView.prototype.showResponse = function(response) {
@@ -1788,7 +1795,7 @@ templates['status_code'] = template(function (Handlebars,depth0,helpers,partials
     OperationView.prototype.showStatus = function(data) {
       var code, pre, response_body;
       try {
-        code = $('<code />').text(JSON.stringify(JSON.parse(data.responseText), null, 2));
+        code = $('<code />').text(YAML.stringify(JSON.parse(data.responseText), 4));
         pre = $('<pre class="json" />').append(code);
       } catch (error) {
         code = $('<code />').text(this.formatXml(data.responseText));
@@ -1799,7 +1806,7 @@ templates['status_code'] = template(function (Handlebars,depth0,helpers,partials
       $(".response_body", $(this.el)).html(response_body);
       $(".response_headers", $(this.el)).html("<pre>" + data.getAllResponseHeaders() + "</pre>");
       $(".response", $(this.el)).slideDown();
-      $(".response_hider", $(this.el)).show();
+      $(".response_hider, .response_as_json", $(this.el)).show();
       $(".response_throbber", $(this.el)).hide();
       return hljs.highlightBlock($('.response_body', $(this.el))[0]);
     };

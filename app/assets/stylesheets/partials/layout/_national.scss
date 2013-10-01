@@ -1,0 +1,403 @@
+/* ======================================================================================
+   @LAYOUT -> NATIONAL HOMEPAGE
+   ====================================================================================== */
+
+/* Class added to `body` */
+.national {
+  background-color: $color-dark-txt;
+
+  /* Remove cursor and border on `abbr` when it's in an anchor */
+  a abbr {
+    cursor: pointer;
+    border-bottom: 0;
+  }
+}
+
+  /* Wrapper around the whole page. Need this for the (almost) full viewport background image */
+  .national__inner {
+    @include respond-min($non-palm) {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+
+    /* --Shared rules-- */
+
+    /* Set common colours */
+    &,
+    a,
+    .icon:before {color: #fff;}
+  }
+
+    /* --Header-- */
+
+    /* Shared rules */
+
+    .national__logo,
+    .national__heading__intro,
+    .national__header nav {
+      position: absolute;
+      /* Setting it at a higher `z-index` than `img-rotate__item` */
+      z-index: 2;
+    }
+
+    .national__header {
+      /* Need the height for vertical alignment of the text and video thumbnail to work */
+      @include to-rem(height, 250);
+
+      /* By making it shorter than 100%, we will have room to show the centres tiles in the viewport */
+      @include respond-min($non-palm) {
+        height: 60%;
+        @include to-rem(min-height, 400);
+      }
+
+      /* Show more of the image at this breakpoint */
+      @include respond-min($lap-lrg) {
+        height: 80%;
+      }
+
+      /* `.container` wraps around the logo, nav and tagline. This sets its height to be the full height of `.national-header` */
+      .container {height: 100%;}
+
+        /* Nav */
+        nav {
+          right: 0;
+          @include to-rem(top, 10);
+          @include font-size($font-size-milli);
+
+          /* Shift the nav down a bit at this breakpoint */
+          @include respond-min($non-palm) {
+            @include to-rem(top, 43);
+            @include font-size($font-size-sml);
+          }
+
+          a {
+            display: block;
+            text-align: center;
+            opacity: .7;
+
+            @include respond-min($non-palm) {
+              opacity: 1;
+            }
+
+            /* Hover and focus state */
+            &:hover,
+            &:focus {
+              opacity: 1;
+
+              &,
+              .icon:before {color: $color-grey-2;}
+            }
+          }
+
+            .icon {
+              /* Can't do `display: block` on `.icon:before` because mobile Safari doesn't like it for some reasons */
+              display: block;
+              @include font-size(18, 1);
+
+              &:before {@extend %transition-subtle;}
+            }
+        }
+    }
+
+      /* Logo */
+      .national__logo {
+        @include to-rem(top, 13);
+        width: 90px;
+
+        @include respond-min($non-palm) {
+          @include to-rem(top, 35);
+          /* Increase logo size at this breakpoint, same as width in `.is-header-hero .logo` */
+          width: 126px;
+        }
+      }
+
+      /* Wrapper around the hero heading and video thumbnail */
+      .national__heading__intro {
+        /* Aligns content centre vertically */
+        top: 50%;
+        left: 0;
+        @include translate(0, -50%);
+        width: 100%;
+        text-align: center;
+
+        @include respond-min($non-palm) {
+          text-align: left;
+        }
+
+        /* Old IE */
+        @include old-ie {top: 110px;}
+        
+        h1 {
+          /* Need a tigher `line-height` so the `span` will sit closer to the text under it */
+          line-height: 1;
+          @extend %mrg-base;
+
+          /* Increase `font-size` */
+          @include respond-min($non-palm) {
+            @include font-size($font-size-kilo);
+          }
+
+            /* Subtext in the heading */
+            span {
+              display: block;
+              @include font-size($font-size-sml);
+
+              @include respond-min($non-palm) {
+                @include font-size(18);
+              }
+            }
+        }
+      }
+
+        /* Link that goes to YouTube page */
+        .national__video {
+          display: inline-block;
+          position: relative;
+          @include to-rem(padding, $spacing-quarter);
+
+          /* Applies semi transparent background behind the video thumbnail image */
+          &:before {
+            content: "";
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0,0,0,.3);
+          }
+
+          /* On hover/focus, the semi transparent background will become black and covers up the video thumbnail image */
+          &:hover,
+          &:focus {
+            &:before {
+              background-color: rgba(0,0,0,.7);
+              z-index: 2;
+            }
+          }
+
+          /* Thumbnail of the video */
+          img {
+            position: relative;
+            /* Need this so it'll appear in front of the background overlay */
+            z-index: 1;
+            @include to-rem(width, 100);
+
+            @include respond-min($non-palm) {
+              @include to-rem(width, 150);
+            }
+          }
+
+          /* Play icon */
+          .icon:before {
+            position: absolute;
+            /* Need this so it'll appear in front of the img */
+            z-index: 2;
+            top: 50%;
+            left: 50%;
+            @include translate(-50%, -50%);
+            @include font-size(24, 1);
+
+            @include respond-min($non-palm) {
+              @include font-size($font-size-kilo, 1);
+            }
+
+            /* Old IE */
+            @include old-ie {
+              margin-top: -30px;
+              margin-left: -20px;
+            }
+          }
+        }
+
+    /* Hero image paths (see 'Image rotate' module) */ 
+
+    .national__hero__1 {
+      @include respond-max($palm) {
+        background-image: image-url("heroes/national/national-hero-01-sml.jpg");
+      }
+
+      @include respond-range($lap, $lap-sml-end) {
+        background-image: image-url("heroes/national/national-hero-01-med.jpg");
+      }
+
+      @include respond-min($lap-lrg) {
+        background-image: image-url("heroes/national/national-hero-01-lrg.jpg");
+      }
+    }
+
+    .national__hero__2 {
+      @include respond-max($palm) {
+        background-image: image-url("heroes/national/national-hero-02-sml.jpg");
+      }
+
+      @include respond-range($lap, $lap-sml-end) {
+        background-image: image-url("heroes/national/national-hero-02-med.jpg");
+      }
+
+      @include respond-min($lap-lrg) {
+        background-image: image-url("heroes/national/national-hero-02-lrg.jpg");
+      }
+    }
+
+    /* --Main-- */
+
+    /* Tabs */
+    .national__tabs {
+      /* Need `position: relative` so that it'll appear on top of the hero image which has `position: absolute` */
+      position: relative;
+      @include to-rem(margin-top, -42);
+
+      @include respond-min($non-palm) {
+        @include to-rem(margin-top, -64);
+      }
+
+      /* --Shared rules-- */
+
+      /* Set common font-size and display property */
+      h2,
+      .tab__nav {
+        @include font-size($font-size);
+        font-family: $font-family-opensans;
+
+        @include respond-min($non-palm) {
+          display: inline-block;
+          @include font-size(18);
+        }
+      }
+
+      /* --Global rules-- */
+
+      /* Heading next to`tab__nav` */
+      h2 {
+        @include to-rem(margin-right, 40);
+
+        @include respond-max($palm) {
+          display: none;
+        }
+      }
+
+      /* Tab nav */
+      .tab__nav {
+        a {
+          opacity: .6;
+          @include to-rem(padding, $spacing-half);
+
+          &:hover,
+          &:focus,
+          &.is-active {opacity: 1;}
+
+          @include respond-min($non-palm) {
+            @include to-rem(padding, $spacing-base $spacing-half);
+          }
+        }
+
+        li:first-child a {padding-left: 0;}
+      }
+    }
+
+      /* Set on `a`. Tile that links to the relevant centre homepage */
+      .national__centre-tile {
+        display: block;
+        position: relative;
+        background-size: cover;
+        background-position: 0 0;
+        border-bottom: 1px solid $color-base-txt;
+
+        /* First `.national__centre-tile` gets `box-shadow` */
+        li:first-child & {box-shadow: inset 0 4px 4px 0 rgba(0,0,0,.4)}
+
+        /* Gradient that sits on top of the centre background image */
+        &:before {
+          content: "";
+          display: block;
+          position: absolute;
+          /* To allow `.container` to stack on top of the gradient */
+          z-index: 1;
+          left: 0;
+          right: 0;
+          top: 0;
+          bottom: 0;
+          @extend %transition-subtle; 
+          @include linear-gradient($from: rgba(#000, 0) 0%, $to: rgba(#000, .8) 100%, $dir: left, $dir-webkit: right);
+        }
+
+        /* Wrapper around centre's name */
+        .container {
+          /* Needs `position: relative` so it will sit above the dark gradient which has `position: absolute` */
+          position: relative;
+          z-index: 2;
+          @include to-rem(padding, 30 $spacing-base 30 0);
+
+          @include respond-min($non-palm) {
+            @include to-rem(padding, $spacing-dbl 0);
+          }
+        }
+
+          /* Centre name */
+          h3 {
+            @include font-size(28);
+            text-transform: uppercase;
+
+            @include respond-min($non-palm) {
+              @include font-size(50);
+            }
+          }
+
+          /* Right arrow icon */
+          .icon:before {
+            position: absolute;
+            right: 0;
+            /* Aligns text in the centre vertically */
+            top: 50%;
+            @include translate(0, -50%);
+            @include font-size(36, 1);
+
+            @include respond-min($non-palm) {
+              @include font-size($font-size-kilo, 1);
+            }
+
+            /* Old IE */
+            @include old-ie {margin-top: -25px;}
+
+          }
+      }
+
+    /* Footer */
+
+    .national__footer {
+      text-align: center;
+      @include font-size($font-size-milli);
+      @include to-rem(padding-top padding-bottom, $spacing-base);
+
+      @include respond-min($lap-lrg) {
+        @include to-rem(padding-top padding-bottom, $spacing-quarter);
+      }
+
+      /* Shared rules */
+      &,
+      a {color: $color-grey-1;}
+
+      /* Hover/focus state */
+      a:hover,
+      a:focus {color: $color-light-txt;}
+
+      .container {@extend %clear-fix;}
+
+        /* List of footer links */
+        .national__footer__nav {
+          @include respond-min($lap-lrg) {
+            float: right;
+          }
+
+          &:first-child {
+            @include to-rem(margin-bottom, $spacing-half);
+
+            @include respond-min($lap-lrg) {
+              float: left;
+              margin-bottom: 0;
+            }
+          }
+        }
+    }

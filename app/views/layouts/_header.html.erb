@@ -1,137 +1,201 @@
-<!-- Header -->
-<header class="header<%= " is-header-hero" if header_hero? %>" role="banner">
+<%# Header %>
+<header class="header<%= " header--hero" if header_hero? %>" role="banner">
 
-	<!-- Header secondary -->
-	<div class="header__secondary">
+	<%# Header secondary %>
+	<div class="header__secondary drop-down-container">
 		<div class="container">
 
-			<!-- Logo -->
-			<a href="<%= centre_path(params[:centre_id] || params[:id]) %>" target="_self" rel="home" class="logo"><img src="<%= image_path "logo.svg" %>" alt="Westfield" data-svg-fallback="<%= image_path "logo.png" %>"></a>
-			<!-- //Logo -->
+			<%# Logo %>
+			<%= link_to site_logo, centre_path(@centre), target: "_self", rel: "home", class: "logo" %>
+			<%# //Logo %>
 
-			<!-- Menu toggle button for palm devices -->
-			<button type="button" class="btn btn--menu-toggle hide-fully--non-palm js-disabled-hide js-menu-toggle-btn" aria-haspopup="true" aria-controls="header-menu-toggle">
-				<span class="btn--menu-toggle__txt hide-visually">Open menu</span>
-				<span class="btn--menu-toggle__icon"></span>
+			<%# Menu toggle button for palm/small tablet devices %>
+			<button type="button" class="btn btn--menu js-disabled-hide" toggle-visibility="header-menu-toggle">
+				<span class="hide-visually">Sub menu, change Westfield centre, social follow &amp; legal links</span>
+				<span class="btn--menu__icon"></span>
 			</button>
-			<!-- //Menu toggle button for palm devices -->
+			<%# //Menu toggle button for palm/small tablet devices %>
 
-			<!-- Shopping centre select, sub/tertiary navigation, my account & favourites -->
-			<div class="header-menu-toggle js-menu-toggle" id="header-menu-toggle">
+			<%# Centre select and sub/tertiary/social navigation %>
+			<div class="header-menu-toggle drop-down" id="header-menu-toggle">
 
-				<!-- Shopping centre select -->
-				<div class="shopping-centre-select container">
-					<h1><a href="/" target="_self" rel="home" title="Change shopping centre"><%= @centre.short_name %> <span class="icon icon--arrow-right-full hide-fully--palm" aria-hidden="true"></span></a></h1>
-					<a href="/" target="_self" class="btn hide-fully--non-palm" rel="home">Change <span class="icon icon--arrow-right icon--flush-top" aria-hidden="true"></span></a>
+				<%# Centre selector %>
+				<div class="header-centre-select container">
+					<h1 class="header-centre-select__centre-name"><%= @centre.short_name %></h1>
+					<button type="button" class="header-centre-select__centre-name btn h1" toggle-visibility="nav-social-tertiary-container" aria-owns="nav-social-tertiary-container"><%= @centre.short_name %><span class="hide-visually"> (change Westfield centre)</span> <span class="icon icon--arrow-down-full" aria-hidden="true"></span></button>
+					<a href="/" target="_self" class="header-centre-select__link" rel="home">Change<span class="hide-visually"> centre</span><span class="icon icon--arrow-right icon--xlrg icon--flush-top" aria-hidden="true"></span></a>
 				</div>
-				<!-- //Shopping centre select -->
+				<%# //Centre selector %>
 
-				<!-- Sub navigation -->
-				<div class="sub-nav-container drop-down-container">
+				<%# Sub navigation %>
+				<div class="nav-sub-container">
 
-					<!-- Menu toggle button for lap small devices -->
-					<button type="button" class="btn btn--menu-toggle js-disabled-hide js-drop-down-trigger" aria-haspopup="true" aria-controls="nav-sub">
-						<span class="btn--menu-toggle__txt hide-visually">Open sub menu</span>
-						<span class="btn--menu-toggle__icon"></span>
-					</button>
-					<!-- //Menu toggle button for lap small devices -->
-
-					<nav class="header-menu-toggle__nav drop-down js-drop-down" role="navigation" aria-label="Sub navigation" id="nav-sub">
+					<nav class="header-menu-toggle__nav" role="navigation" aria-label="Sub navigation">
 						<ul class="nav-sub">
-							<!-- Shopping centre opening hours -->
-							<li class="open-hours-link"><a href="<%= centre_hours_path( params[ :centre_id ] || params[ :id ] ) %>" target="_self"><span class="icon icon--hours" aria-hidden="true"></span> <strong>Open <%= twelve_hour_format(@centre.today_opening_time) %> - <%= twelve_hour_format(@centre.today_closing_time) %> today</strong> <span class="icon icon--arrow-right" aria-hidden="true"></span></a></li>
-							<!-- //Shopping centre opening hours -->
-              <li class="shopping-hrs-link"><a href="<%= centre_hours_path( params[ :centre_id ] || params[ :id ] ) %>" target="_self"><span class="icon icon--hours icon--fixed-width icon--spacing" aria-hidden="true"></span><span class="nav-sub__txt"> Shopping Hours</span></a></li>
-							<!-- <li><a href="#" target="_self"><span class="icon icon--dining icon--fixed-width icon--spacing" aria-hidden="true"></span><span class="nav-sub__txt"> Dining</span></a></li>
-							<li><a href="<%= centre_movies_path(params[ :centre_id ] || params[ :id ]) %>" target="_self"><span class="icon icon--video icon--fixed-width icon--spacing" aria-hidden="true"></span><span class="nav-sub__txt"> Cinemas</span></a></li>
-							<li><a href="#" target="_self"><span class="icon icon--info icon--fixed-width icon--spacing" aria-hidden="true"></span><span class="nav-sub__txt"> Concierge</span></a></li>
-							<li><a href="#" target="_self"><span class="icon icon--map icon--fixed-width icon--spacing" aria-hidden="true"></span><span class="nav-sub__txt"> Getting There</span></a></li> -->
+							<%# Centre opening hours (centre home page) %>
+							<li class="open-hours-link"><a href="<%= centre_hours_path( params[ :centre_id ] || params[ :id ] ) %>" target="_self"><span class="icon icon--hours" aria-hidden="true"></span> <strong>Open <time datetime="<%= @centre.today_opening_time %>"><%= twelve_hour_format(@centre.today_opening_time) %></time> - <time datetime="<%= @centre.today_closing_time %>"><%= twelve_hour_format(@centre.today_closing_time) %></time> today</strong><span class="icon icon--arrow-right" aria-hidden="true"></span></a></li>
+							<%# //Centre opening hours (centre home page) %>
+              <li class="open-hours-link-alt"><a href="<%= centre_hours_path( params[ :centre_id ] || params[ :id ] ) %>" target="_self"><span class="icon icon--hours icon--fixed-width icon--spacing" aria-hidden="true"></span><span class="nav-sub__txt"> Opening Hours</span></a></li>
+							<!-- <li><a href="#" target="_self"><span class="icon icon--dining icon--fixed-width icon--spacing" aria-hidden="true"></span><span class="nav-sub__txt"> Dining</span></a></li> -->
+							<!-- <li><a href="<%= centre_movies_path(params[ :centre_id ] || params[ :id ]) %>" target="_self"><span class="icon icon--video icon--fixed-width icon--spacing" aria-hidden="true"></span><span class="nav-sub__txt"> Cinemas</span></a></li> -->
+							<li><a href="<%= centre_info_path( params[ :centre_id ] || params[ :id ] ) %>" target="_self"><span class="icon icon--info icon--fixed-width icon--spacing" aria-hidden="true"></span><span class="nav-sub__txt"> Centre Information</span></a></li>
+							<!-- <li><a href="#" target="_self"><span class="icon icon--service icon--fixed-width icon--spacing" aria-hidden="true"></span><span class="nav-sub__txt"> Centre Services</span></a></li> -->
 						</ul>
 					</nav>
 
-				</div>
-				<!-- //Sub navigation -->
-
-				<!-- Tertiary navigation -->
-				<!-- <nav class="header-menu-toggle__nav hide-fully--non-palm" role="navigation" aria-label="Tertiary navigation">
-					<ul class="nav-tertiary">
-						<li><a href="#" target="_self">Terms &amp; Conditions</a></li>
-						<li><a href="#" target="_self">Privacy Policy</a></li>
+					<%# Social follow navigation %>
+					<% if social_media.present? && header_hero? %>
+					<ul class="nav-social-follow horiz-list">
+						<% if @centre.facebook.present? %>
+						<li><a href="<%= @centre.facebook %>" target="_blank" rel="external"><span class="hide-visually">Facebook</span><span class="icon icon--facebook icon--flush-top" aria-hidden="true"></span></a></li>
+						<% end %>
+						<% if @centre.twitter.present? %>
+						<li><a href="<%= @centre.twitter %>" target="_blank" rel="external"><span class="hide-visually">Twitter</span><span class="icon icon--twitter icon--flush-top" aria-hidden="true"></span></a></li>
+						<% end %>
+						<% if @centre.instagram.present? %>
+						<li><a href="<%= @centre.instagram %>" target="_blank" rel="external"><span class="hide-visually">Instagram</span><span class="icon icon--instagram icon--flush-top" aria-hidden="true"></span></a></li>
+						<% end %>
+						<% if @centre.pinterest.present? %>
+						<li><a href="<%= @centre.pinterest %>" target="_blank" rel="external"><span class="hide-visually">Pinterest</span><span class="icon icon--pinterest icon--flush-top" aria-hidden="true"></span></a></li>
+						<% end %>
+						<% if @centre.youtube.present? %>
+						<li><a href="<%= @centre.youtube %>" target="_blank" rel="external"><span class="hide-visually">YouTube</span><span class="icon icon--youtube icon--flush-top" aria-hidden="true"></span></a></li>
+						<% end %>
+						<% if @centre.google_plus.present? %>
+						<li><a href="<%= @centre.google_plus %>" target="_blank" rel="external"><span class="hide-visually">Google Plus</span><span class="icon icon--google-plus icon--flush-top" aria-hidden="true"></span></a></li>
+						<% end %>
 					</ul>
-				</nav> -->
-				<!-- //Tertiary navigation -->
+					<% end %>
+					<%# //Social follow navigation %>
+
+				</div>
+				<%# //Sub navigation %>
+
+				<%# Social follow and Tertiary navigation %>
+				<div class="nav-social-tertiary-container container drop-down" id="nav-social-tertiary-container">
+
+					<%# Centre selector (large tablet/desk) %>
+					<a href="/" target="_self" class="header-centre-select__link header-centre-select__link--alt" rel="home">Change centre<span class="icon icon--arrow-right icon--xlrg icon--flush-top" aria-hidden="true"></span></a>
+					<%# Centre selector (large tablet/desk) %>
+
+					<%# Social follow navigation - for 'Centre home page banner' only at large desktop size %>
+					<% if social_media.present? %>
+					<ul class="nav-social-follow horiz-list">
+						<% if @centre.facebook.present? %>
+						<li><a href="<%= @centre.facebook %>" target="_blank" rel="external"><span class="hide-visually">Facebook</span><span class="icon icon--facebook icon--xlrg icon--flush-top" aria-hidden="true"></span></a></li>
+						<% end %>
+						<% if @centre.twitter.present? %>
+						<li><a href="<%= @centre.twitter %>" target="_blank" rel="external"><span class="hide-visually">Twitter</span><span class="icon icon--twitter icon--xlrg icon--flush-top" aria-hidden="true"></span></a></li>
+						<% end %>
+						<% if @centre.instagram.present? %>
+						<li><a href="<%= @centre.instagram %>" target="_blank" rel="external"><span class="hide-visually">Instagram</span><span class="icon icon--instagram icon--xlrg icon--flush-top" aria-hidden="true"></span></a></li>
+						<% end %>
+						<% if @centre.pinterest.present? %>
+						<li><a href="<%= @centre.pinterest %>" target="_blank" rel="external"><span class="hide-visually">Pinterest</span><span class="icon icon--pinterest icon--xlrg icon--flush-top" aria-hidden="true"></span></a></li>
+						<% end %>
+						<% if @centre.youtube.present? %>
+						<li><a href="<%= @centre.youtube %>" target="_blank" rel="external"><span class="hide-visually">YouTube</span><span class="icon icon--youtube icon--xlrg icon--flush-top" aria-hidden="true"></span></a></li>
+						<% end %>
+						<% if @centre.google_plus.present? %>
+						<li><a href="<%= @centre.google_plus %>" target="_blank" rel="external"><span class="hide-visually">Google Plus</span><span class="icon icon--google-plus icon--xlrg icon--flush-top" aria-hidden="true"></span></a></li>
+						<% end %>
+					</ul>
+					<% end %>
+					<%# //Social follow navigation - for 'Centre home page banner' only at large desktop size %>
+
+					<%# Tertiary navigation %>
+					<%# [BACK END] `href`s for these links need to be added %>
+					<!-- <nav class="nav-tertiary" role="navigation" aria-label="Tertiary navigation">
+						<ul>
+							<li><a href="#" target="_self">Westfield Group</a></li>
+							<li><a href="#" target="_self">Terms &amp; Conditions</a></li>
+							<li><a href="#" target="_self">Privacy Policy</a></li>
+						</ul>
+					</nav> -->
+					<%# //Tertiary navigation %>
+
+				</div>
+				<%# //Social follow and Tertiary navigation %>
 
 			</div>
-			<!-- //Shopping centre select, sub/tertiary navigation, my account & favourites -->
+			<%# //Centre select and sub/tertiary/social navigation %>
 
-			<!-- Search toggle / favourites (palm devices) -->
+			<%# Centre selector (tablet small) %>
+			<div class="header-centre-select header-centre-select-alt">
+				<h1 class="header-centre-select__centre-name"><%= @centre.short_name %></h1>
+			</div>
+			<%# //Centre selector (tablet small) %>
+
+			<%# Search toggle / favourites (palm) %>
 			<div class="search-toggle-favs hide-fully--non-palm">
 
-				<!-- Search toggle btn -->
-				<button class="btn js-search-btn-toggle js-disabled-hide" type="button" aria-haspopup="true" aria-owns="search-mini">
+				<%# Search toggle btn %>
+				<button class="btn js-disabled-hide" type="button" toggle-visibility="site-search" aria-owns="site-search">
+					<span class="hide-visually">Site search</span>
 					<span class="icon icon--search icon--spacing icon--flush-top icon--kilo" aria-hidden="true"></span>
-					<span class="hide-visually">Open site search</span>
 				</button>
-				<!-- //Search toggle btn -->
+				<span class="search-toggle-favs__stores-search icon icon--search icon--spacing icon--flush-top icon--kilo" aria-hidden="true"></span>
+				<%# //Search toggle btn %>
 
 			</div>
-			<!-- //Search toggle / favourites (palm devices) -->
+			<%# //Search toggle / favourites (palm) %>
 
 		</div>
 	</div>
-	<!-- //Header secondary -->
+	<%# //Header secondary %>
 
-	<!-- Centre home page hero banner -->
-	<!-- [BACK END] this HTML should only be rendered for the centre home page -->
+	<%# Centre home page hero banner %>
+	<% if header_hero? %>
 	<div class="header__hero">
 
 		<div class="header__hero__inner hide-fully--non-palm">
 
-			<!-- Shopping centre select -->
-			<div class="shopping-centre-select">
-				<h1><a href="/" rel="home" target="_self" title="Change shopping centre"><%= @centre.short_name %> <span class="icon icon--arrow-right-full" aria-hidden="true"></span></a></h1>
+			<%# Centre selector %>
+			<div class="header-centre-select">
+				<h1 class="header-centre-select__centre-name"><%= @centre.short_name %></h1>
 			</div>
-			<!-- //Shopping centre select -->
+			<%# //Centre selector %>
 
-			<!-- Shopping centre opening hours -->
-      <a href="<%= centre_hours_path( params[ :centre_id ] || params[ :id ] ) %>" target="_self" class="open-hours-link"><span class="icon icon--hours" aria-hidden="true"></span> <strong>Open <%= @centre.today_opening_time %> - <%= @centre.today_closing_time %> today</strong> <span class="icon icon--arrow-right" aria-hidden="true"></span></a>
-			<!-- //Shopping centre opening hours -->
+			<%# Centre opening hours %>
+      <a href="<%= centre_hours_path( params[ :centre_id ] || params[ :id ] ) %>" target="_self" class="open-hours-link"><span class="icon icon--hours" aria-hidden="true"></span> <strong>Open <time datetime="<%= @centre.today_opening_time %>"><%= twelve_hour_format(@centre.today_opening_time) %></time> - <time datetime="<%= @centre.today_closing_time %>"><%= twelve_hour_format(@centre.today_closing_time) %></time> today</strong><span class="icon icon--arrow-right" aria-hidden="true"></span></a>
+			<%# //Centre opening hours %>
 
 		</div>
 
-		<!-- Gradient overlay -->
+		<%# Gradient overlay %>
 		<span class="header__hero__gradient"></span>
-		<!-- //Gradient overlay -->
+		<%# //Gradient overlay %>
 
 	</div>
-	<!-- //Centre home page hero banner -->
+	<%- end -%>
+	<%# //Centre home page hero banner %>
 
-	<!-- Header primary -->
-	<div class="header__primary">
+	<%# Header primary %>
+	<div class="header__primary drop-down-container">
 		<div class="container">
 
-			<!-- Main navigation -->
+			<%# Main navigation %>
 			<nav role="navigation" aria-label="Main navigation">
 				<ul class="nav-main horiz-list horiz-list--fit horiz-list--center horiz-list--dividers">
 				  <li><%= link_to centre_stores_path(params[:centre_id] || params[:id]),
 				    :class => (page?(:stores) ? 'is-active' : nil), target: '_self' do %><span class="icon icon--store" aria-hidden="true"></span><span class="hide-visually"> Stores</span><% end %></li>
 				  <li><%= link_to centre_products_path(params[:centre_id] || params[:id]),
-				    :class => (page?(:products) ? 'is-active' : nil), target: '_self' do %><span class="icon icon--products icon--flush-top" aria-hidden="true"></span><span class="hide-visually"> Products</span><% end %></li>
+				    :class => (page?(:products) ? 'is-active' : nil), target: '_self' do %><span class="icon icon--products" aria-hidden="true"></span><span class="hide-visually"> Products</span><% end %></li>
 				  <li><%= link_to centre_deals_path(params[:centre_id] || params[:id]),
-				    :class => (page?(:deals) ? 'is-active' : nil), target: '_self' do %><span class="icon icon--deals icon--flush-top" aria-hidden="true"></span><span class="hide-visually"> Deals</span><% end %></li>
+				    :class => (page?(:deals) ? 'is-active' : nil), target: '_self' do %><span class="icon icon--deals" aria-hidden="true"></span><span class="hide-visually"> Deals</span><% end %></li>
 				  <li><%= link_to centre_events_path(params[:centre_id] || params[:id]),
 				    :class => (page?(:events) ? 'is-active' : nil), target: '_self' do %><span class="icon icon--events" aria-hidden="true"></span><span class="hide-visually"> Events</span><% end %></li>
 				</ul>
 			</nav>
-			<!-- //Main navigation -->
+			<%# //Main navigation %>
 
-			<!-- Global search -->
+			<%# Global search %>
       <%= render partial: 'layouts/global_search' %>
-			<!-- //Global search -->
+			<%# //Global search %>
 
 		</div>
 	</div>
-	<!-- //Header primary -->
+	<%# //Header primary %>
 
 </header>
-<!-- //Header -->
+<%# //Header %>

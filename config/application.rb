@@ -21,13 +21,16 @@ module CustomerConsole
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
+    
+    config.middleware.use Rack::Pjax
 
     config.assets.precompile += %w(old-ie.css vendor/modernizr.min.js
                                    map/micello_ie.js map/micello.js
                                    init/enquire.js enquire/dist/enquire.js
                                    flexslider/jquery.flexslider.js
                                    flexslider/flexslider.css
-                                   html5shiv/src/html5shiv-printshiv.js) 
+                                   html5shiv/src/html5shiv-printshiv.js
+                                   stores_maps.js) 
     if Rails.env.development?
       require File.expand_path('../../lib/service_proxy', __FILE__)
       config.middleware.use "ServiceProxy"

@@ -13,9 +13,6 @@
     Style Guide -> Modules -> Filters
 */
 
-/* Set variables */
-$filter-drop-down-width: 285;
-
 .filters {
 
   /* Hide elements at 'wide' layout at this breakpoint */
@@ -28,7 +25,7 @@ $filter-drop-down-width: 285;
 
     /* Reduce the width at this breakpoint range */
     @include respond-range($non-palm, $lap-lrg - 1) {
-      @include to-rem(width, $filter-drop-down-width);
+      @include to-rem(width, $drop-down-width);
     }
 
     /* Bring into view and remove 'box' styles at this breakpoint */
@@ -42,29 +39,6 @@ $filter-drop-down-width: 285;
       /* Hide drop down pointer arrow */
       &:before {display: none;}
     }
-  }
-
-  /* 'On sale' toggle */
-  .filters__sale {
-    @include to-rem(padding, $spacing-half);
-    @extend %transition-subtle;
-
-    /* Turn off styles at this breakpoint */
-    @include respond-max($lap-lrg - 1) {
-      box-shadow: none;
-      border-radius: 0;
-
-      /* Hover state */
-      &:hover {background: none;}
-    }
-
-    /* Change top/bottom padding at this breakpoint */
-    @include respond-min($lap-lrg) {
-      @include to-em(padding-top padding-bottom, $spacing-half+1.5);
-    }
-
-      /* Less right margin for checkbox */
-      input[type="checkbox"] {@include to-rem(margin-right, $spacing-sixth);}
   }
 }
 
@@ -126,7 +100,7 @@ $filter-drop-down-width: 285;
           @include drop-down;
           @include box;
           @include box-drop-down;
-          @include to-rem(width, $filter-drop-down-width);
+          @include to-rem(width, $drop-down-width);
           @include to-rem(margin-top, 10);
 
           /* Reduce the top margin for IE 9/8 */

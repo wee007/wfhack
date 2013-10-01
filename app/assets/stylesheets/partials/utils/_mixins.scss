@@ -341,7 +341,8 @@
 	Note:
 		Keep an eye on browser support:
 		-	Transition: 	http://caniuse.com/#search=transition
-		-	Animation: 		http://caniuse.com/#feat=css-animation
+    - Animation:    http://caniuse.com/#feat=css-animation
+		-	Animation delay: 	  http://caniuse.com/#feat=css-animation
 		-	Multi-column: 	http://caniuse.com/#feat=multicolumn
 		-	Hyphens: 		http://caniuse.com/#feat=css-hyphens
 		-	Box sizing: 	http://caniuse.com/#feat=css3-boxsizing
@@ -373,6 +374,12 @@
   @else if $property == animation {
     -webkit-#{$property}: $value;
 		#{$property}: $value;
+  }
+
+  /* Animation delay */
+  @else if $property == animation-delay {
+    -webkit-animation-delay: $value;
+    animation-delay: $value;
   }
 
 	/* Multi-column */
@@ -941,6 +948,53 @@
 
     }
 
+}
+
+/* [IMAGE ROTATE]
+-------------------------------------------------------*/
+/*
+  Usage:
+    Creates a set of rotating images
+
+  Credit:
+    https://github.com/benschwarz/gallery-css
+  
+  Variables:
+    $item-count             How many items there are to animate
+    $display-duration       How long should each item be displayed for
+    $transition-duration    How long is the transition between each image going to be
+
+  Examples:
+    @include img-rotate($item-count: 2, $display-duration: 7, $transition-duration: 2);
+*/
+
+@mixin img-rotate($item-count, $display-duration, $transition-duration) {
+  /* Work out the total duration of the entire animation, based on how many items there are and how long they should each be displayed for */
+  $total-duration: $display-duration * $item-count;
+
+  /* Creates the keyframe animation */
+  @include prefix-keyframe(img-rotate-animation-#{$item-count}) {
+    0% {opacity: 0;}
+    /* Works out the time in % that the fade in and out should happen, according to the animation's total duration, transition duration and display duration */
+    #{round(100% * $transition-duration / $total-duration)},
+    #{round(100% * $display-duration / $total-duration)} {opacity: 1;}
+    #{round(100% * ($display-duration + $transition-duration) / $total-duration)},
+    100% {opacity: 0;}
+  }
+
+  /* Creates unique class name based on no. of items */
+  .img-rotate--items-#{$item-count} {
+    /* Runs the animation when the item is loaded. Bit specific to catering for lazy-loading at the moment... */
+    .img-rotate__item.is-loaded {@include prefix(animation, img-rotate-animation-#{$item-count} #{$total-duration}s linear infinite);}
+  }
+
+  @for $j from 1 through $item-count {
+    .img-rotate__item.is-loaded:nth-of-type(#{$j}) {
+      /* By setting negative value for `animation-delay` we'll achieve the effect of one image fading out while the other one fading in */
+      $delay: #{($j - 1) * ($display-duration) - $transition-duration}s;
+      @include prefix(animation-delay, #{$delay});
+    }
+  }
 }
 
 /* [PLACEHOLDER SELECTOR MEDIA QUERY FIX]

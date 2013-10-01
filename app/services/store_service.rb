@@ -2,12 +2,22 @@ class StoreService
   class << self
     include ApiClientRequests
 
-    def build(resp)
+    def build(resp, attrs = {})
       json = resp.respond_to?(:body) ? resp.body : resp
       if json.is_a? Array
-        json.map{|store| Store.new(store) }
+        json.map do |store|
+          store = Store.new(store)
+          attrs.each do |key, value|
+            store.send("#{key}=", value)
+          end if attrs.present?
+          store
+        end
       else
-        Store.new(json)
+        store = Store.new(json)
+        attrs.each do |key, value|
+          store.send("#{key}=", value)
+        end if attrs.present?
+        store
       end
     end
 

@@ -1,0 +1,33 @@
+<footer class="grid grid--gutter-dbl">
+  <div class="grid__item non-palm-one-half">
+    <%# Shopping hours box %>
+    <div class="promo-tile box">
+      <%= image_tag 'promo-tiles/promo-tile-01.jpg', alt: '' %>
+      <span class="promo-tile__icon-main icon icon--hours icon--flush-top" aria-hidden="true"></span>
+      <div class="islet island--non-palm">
+        <h2 class="promo-tile__hdr">Opening Hours</h2>
+        <div class="txt-formatted">
+          <p>Find out specific hours for our department stores.</p>
+          <%= link_to "Check Shopping Hours", centre_hours_path(@centre) %>
+        </div>
+      </div>
+    </div>
+    <%# //Shopping hours box %>
+  </div>
+
+  <div class="grid__item non-palm-one-half">
+    <%# Centre services box %>
+    <div class="promo-tile box">
+      <%= image_tag 'promo-tiles/promo-tile-02.jpg', alt: '' %>
+      <span class="promo-tile__icon-main icon icon--service icon--flush-top" aria-hidden="true"></span>
+      <div class="islet island--non-palm">
+        <h2 class="promo-tile__hdr">Centre Services</h2>
+        <div class="txt-formatted">
+          <p>Find out the full selection of services available.</p>
+          <%= link_to 'Get Directions', '#' %>
+        </div>
+      </div>
+    </div>
+    <%# //Centre services box %>
+  </div>
+</footer>

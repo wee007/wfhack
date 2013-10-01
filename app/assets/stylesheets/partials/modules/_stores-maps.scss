@@ -56,6 +56,20 @@
   .stores-list__store-name .icon--pin:before,
   .stores-maps__filters-count .icon--pin:before {@include to-rem(margin-left, -4);}
 
+  /* Show a preloader whilst waiting for the list/detail view content to load via PJAX */
+  .js-pjax-container-stores {
+
+    /* Hide the preloader by default */
+    & > .preloader {display: none;}
+
+    /* Toggle the display of the preloader/content via the `.is-stores-list-detail-loading` class */
+    &.is-stores-list-detail-loading {
+      .preloader {display: block;}
+
+      .stores-maps__inner {display: none;}
+    }
+  }
+
   /* Listing and detail views container */
   .stores-maps__inner {
     position: absolute;
@@ -70,9 +84,26 @@
       width: 50%;
     }
 
+    /* --Detail view-- */
+
     /* Turn off absolute positioning for 'detail view' at this breakpoint */
     @include respond-max($ipad-landscape - 1) {
-      .stores-maps--detail & {position: static;}
+      &.stores-maps__inner--detail {position: static;}
+    }
+
+    /* Make height shrink to fit content */
+    @include respond-min($ipad-landscape) {
+      &.stores-maps__inner--detail {
+        pointer-events: none;
+
+        /* IE 8/9/10 fallbacks for not supporting `pointer-events` */
+        @include old-ie {bottom: auto;}
+        .ie-9 & {bottom: auto;}
+        @include ie-10-up {bottom: auto;}
+      }
+
+      /* Featured items */
+      &.stores-maps__inner--detail.is-featured-items {bottom: 0;}
     }
 
     /* When map view is in view */
@@ -97,7 +128,11 @@
       z-index: 6;
 
       /* Hide for detail view */
-      .stores-maps--detail & {display: none;}
+      .stores-maps__inner--detail & {
+        display: none;
+
+        .is-map-view & {display: block;}
+      }
 
       /* When map view is in view */
       @include respond-max($palm) {
@@ -107,7 +142,7 @@
           pointer-events: none;
 
           /* Make nested elements clickable */
-          .drop-down-menu *,
+          .stores-maps__filters,
           .stores-maps__toggle {pointer-events: auto;}
         }
       }
@@ -119,14 +154,15 @@
         @include box-heavy;
         @include to-rem(margin-bottom margin-top, $spacing-base);
 
-        /* Show for detail view */
-        .stores-maps--detail & {display: block;}
+        /* Show for detail view and restore `pointer-events` */
+        .stores-maps__inner--detail & {
+          display: block;
+          pointer-events: auto;
+        }
       }
 
       /* Inner container */
       .container {
-        /* Temp style so current feature can be released */
-        text-align: right;
         position: relative;
         @include to-rem(padding-top padding-bottom, $spacing-half);
         @extend %clear-fix;
@@ -135,26 +171,7 @@
         @include respond-min($non-palm) {
           @include to-rem(padding-top padding-bottom, $spacing-half+$spacing-quarter);
         }
-
-        /* Temp style so current feature can be released */
-        @include respond-min($ipad-landscape) {
-          text-align: left;
-        }
       }
-
-        /* Filter drop down */
-        .drop-down-menu {
-
-          /* Need to float left at this breakpoint range */
-          @include respond-range($non-palm, $ipad-landscape - 1) {
-            float: left;
-          }
-
-          /* Increase right padding for trigger at this breakpoint */
-          @include respond-min($non-palm) {
-            .drop-down-menu__trigger {@include to-em(padding-right, $spacing-dbl+$spacing-base);}
-          }
-        }
     }
 
       /* Header */
@@ -168,7 +185,7 @@
         margin-bottom: 0;
 
         /* Detail view */
-        .stores-maps--detail & {
+        .stores-maps__inner--detail & {
           margin-bottom: 0;
 
           .icon:before {
@@ -197,20 +214,48 @@
           a.stores-maps__filters-toggle__hdr:hover > span,
           a.stores-maps__filters-toggle__hdr:focus > span {color: $color-link-hover;}
 
+      /* Filters */
+      .stores-maps__filters {
+        float: left;
+
+        /* Unfloat at this breakpoint */
+        @include respond-min($ipad-landscape) {
+          float: none;
+        }
+
+          /* Increase right padding for drop down trigger at this breakpoint */
+          @include respond-min($non-palm) {
+            .drop-down-menu__trigger {@include to-em(padding-right, $spacing-dbl+$spacing-base);}
+          }
+
+          /* Gift card toggle */
+          .btn--checkbox-toggle {
+
+            /* Reveal text at this breakpoint */
+            @include respond-min($non-palm) {
+              .hide-visually {@include hide-visually-off;}
+            }
+
+            /* Icon */
+            .icon--gift-card:before {
+              color: #fff;
+              @include to-rem(margin-left, $spacing-quarter);
+            }
+          }
+      }
+
       /* Toggle button */
       .stores-maps__toggle {
-        /* Temp removal so current feature can be released */
-        /*@include respond-max($palm) {
-          position: absolute;
-          right: 0;
-          top: 50%;
-          @include translate(0, -50%);
-        }*/
+        float: right;
 
         /* Reveal button text, float right and fix a width at this breakpoint */
         @include respond-min($non-palm) {
-          float: right;
           @include to-rem(min-width, 120);
+
+          /* Link version */
+          &.stores-maps__toggle--link {@include to-rem(min-width, 106);}
+
+          /* Reveal button text */
           .hide-visually {@include hide-visually-off;}
         }
 
@@ -288,12 +333,12 @@
 
       /* Old IE - change the bg colour */
       @include old-ie {
-        .stores-maps.stores-maps--detail .stores-maps__inner & {background-color: lighten($color-grey-3, 5%);}
+        .stores-maps .stores-maps__inner.stores-maps__inner--detail & {background-color: lighten($color-grey-3, 5%);}
       }
 
       /* Turn off absolute positioning/overflow for 'detail view' at this breakpoint */
       @include respond-max($ipad-landscape - 1) {
-        .stores-maps--detail & {
+        .stores-maps__inner--detail & {
           position: static;
           overflow-y: visible;
         }
@@ -317,14 +362,15 @@
         @include box-heavy;
 
         /* Detail view */
-        .stores-maps--detail & {
+        .stores-maps__inner--detail & {
           bottom: auto;
+          pointer-events: auto;
+        }
 
-          /* When they're 'Featured items' */
-          &.is-featured-items {
-            background-color: $color-grey-3;
-            @include to-rem(bottom, $spacing-base);
-          }
+        /* Detail view - when they're 'Featured items' */
+        .stores-maps__inner--detail.is-featured-items & {
+          background-color: $color-grey-3;
+          @include to-rem(bottom, $spacing-base);
         }
 
         /* Post filter count */

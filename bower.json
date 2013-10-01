@@ -1,7 +1,7 @@
 {
   "name": "customer_console",
   "version": "0.0.0",
-  "devDependencies": {
+  "dependencies": {
     "jquery": "1.10.1",
     "enquire": "~2.0.2",
     "isotope": "~1.5.25",
@@ -10,12 +10,13 @@
     "flexslider": "latest",
     "html5shiv": "~3.6.2",
     "prism": "gh-pages",
-    "script.js": "*"
+    "angular-unstable": "~1.1.5",
+    "script.js": "*",
+    "jquery-pjax": "~1.7.3"
   },
   "devDependencies": {
     "sinon": "~1.7.3",
     "jasmine-sinon": "~0.1.0",
-    "angular-unstable": "~1.1.5",
     "angular-mocks-unstable": "~1.1.5"
   }
 }

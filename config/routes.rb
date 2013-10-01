@@ -4,20 +4,20 @@ CustomerConsole::Application.routes.draw do
     get 'styleguide', to: redirect('/styleguides')
   end
 
-  get 'status' => 'health_check/health_check#index', 'checks' => 'cache_and_site_and_custom'
-
+  get 'status' => 'health_check/health_check#index', 'checks' => 'cache_and_site'
   get 'api', to: redirect('/api/index.html') # This lets /api work, not just /api/
 
-  resource :visitor, only: :show
-
-  mount AaaClient::Engine => "/aaa", as: 'aaa_client'
+  get 'products' => 'products#index'
+  get 'products/:retailer_code/:sku' => 'products#show', constraints: {id: /.+/}, as: 'product'
 
  # everything needs to go above centres
   resources :centres, :path => '' do
     resources :events, only: [:index, :show]
-    resources :deals, only: [:index, :show]
+    resources :deals, only: [:index]
+    get 'deals/:retailer_code/:id' => 'deals#show', as: 'deal'
     resources :movies, only: [:index, :show]
-    resources :stores, only: [:index, :show]
+    resources :stores, only: [:index]
+    get 'stores/:retailer_code/:id' => 'stores#show', as: 'store'
     resources :products, only: [:index]
     get 'hours', to: 'centre_hours#show'
     get 'info', to: 'centre_info#show'

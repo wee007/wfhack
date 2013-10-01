@@ -13,9 +13,6 @@ $header-color-link-hover: $color-brand !default;
 	position: relative;
 	z-index: 99;
 
-	/* Centre home page hero banner */
-	&.is-header-hero {border-bottom: 1px solid $header-color-grey;}
-
 	/* --Global rules-- */
 
 	/* Icons */
@@ -31,24 +28,46 @@ $header-color-link-hover: $color-brand !default;
 	.icon--arrow-down-full:before {color: $color-dark-txt;}
 }
 
+/* --Extenders-- */
+
+/* 'Centre home page hero banner' and 'National' */
+.header--hero,
+.header--national {border-bottom: 1px solid $header-color-grey;}
+
 	/* --Header secondary-- */
 	.header__secondary {
 		background-color: #fff;
-		box-shadow: 0 0 3px rgba(#000, 0.4);
 		position: relative;
 		z-index: 2;
 		@extend %clear-fix;
 		@include to-rem(min-height, 44);
 
-		/* Centre home page hero banner */
-		.is-header-hero & {box-shadow: none;}
+		/* Menu (hamburger) toggle button */
+		.btn--menu {
+			float: left;
+			@include to-rem(margin, -1 0 0 -9);
+
+			/* Remove top outdent and add right spacing at this breakpoint */
+			@include respond-min($non-palm) {
+				margin-top: 0;
+				@include to-rem(margin-right, 6);
+
+				/* Centre home page hero banner */
+				.header--hero & {display: none;}
+			}
+
+			/* Hide at this breakpoint */
+			@include respond-min($ipad-landscape) {
+				display: none;
+			}
+		}
 
 		/* Increase min height at this breakpoint */
 		@include respond-min($non-palm) {
 			@include to-rem(min-height, 50);
 
-			/* Overlay the centre home page hero banner at this breakpoint */
-			.is-header-hero & {
+			/* Overlay the 'Centre home page hero banner' at this breakpoint */
+			.header--hero & {
 				position: absolute;
 				top: 0;
 				left: 0;
@@ -70,15 +89,15 @@ $header-color-link-hover: $color-brand !default;
 
 		/* Inner container */
 		> .container {
-			@include to-rem(padding-top, 7);
+			@include to-rem(padding-top padding-bottom, 7);
 
 			/* Change positioning context and increase top padding at this breakpoint */
 			@include respond-min($non-palm) {
 				position: relative;
 				@include to-rem(padding-top, 10);
 
-				/* Apply min height and top padding for centre home page hero banner */
-				.is-header-hero & {
+				/* Apply min height and top padding for 'Centre home page hero banner' */
+				.header--hero & {
 					@include to-rem(padding-top, $spacing-base);
 					@include to-rem(min-height, $hero-banner-height-sml);
 
@@ -89,18 +108,6 @@ $header-color-link-hover: $color-brand !default;
 					}
 				}
 			}
-
-			/* Make room for the sub nav menu toggle btn at this breakpoint range */
-			@include respond-range($non-palm, $ipad-landscape - 1) {
-				@include to-rem(padding-left, 32);
-
-				/* Remove left padding for 'Centre home page hero banner' and 'non JS users' */
-				.no-js &,
-				.is-header-hero & {padding-left: 0;}
-			}
-
-			/* Non JS users */
-			.no-js & {@include to-rem(padding-bottom, 6);}
 		}
 	}
 
@@ -109,7 +116,7 @@ $header-color-link-hover: $color-brand !default;
 
 			/* Increase logo size and swap out for white version for 'Centre home page hero banner' at this breakpoint */
 			@include respond-min($non-palm) {
-				.is-header-hero & {
+				.header--hero & {
 					background: image-url("logo-white.svg") no-repeat 0 0;
 					display: inline-block;
 					width: 126px;
@@ -132,57 +139,73 @@ $header-color-link-hover: $color-brand !default;
 					@include to-rem(top, 1);
 
 					/* Hide for 'Centre home page hero banner' at this breakpoint */
-					.is-header-hero & {@include hide-visually;}
+					.header--hero & {@include hide-visually;}
 				}
 			}
 
 		}
 
-		/* --Toggle menu/search via jQuery-- */
-		.js .js-menu-toggle,
-		.js .js-search-toggle {
+		/* --Toggle menu/search via Angular toggle visibility directive-- */
+		.js .header {
+			.header-menu-toggle,
+			.header-search-toggle {width: 100%;}
 
-			/* Hide */
-			display: none;
-			width: 100%;
+			/* --Search-- */
+			.header-search-toggle {top: 0;}
 
-			/* Show */
-			&.is-expanded {
-				display: block;
-				position: absolute;
-				z-index: $z-index-high;
-				top: 100%;
-				left: 0;
+			/* Centre home page hero banner */
+			@include respond-max($palm) {
+				&.header--hero .header-search-toggle {@include to-rem(top, 38);}
+			}
+
+			/* Always show search at this breakpoint */
+			@include respond-min($non-palm) {
+				& .header-search-toggle {
+					display: inline-block;
+					width: auto;
+					position: absolute;
+					left: auto;
+				}
+			}
+
+			/* Menu */
+			.header-menu-toggle {
+
+				/* Alter positioning and width of menu at this breakpoint range */
+				@include respond-range($non-palm, $ipad-landscape - 1) {
+					@include to-rem(margin-top, -5);
+					@include to-rem(left, -7);
+					@include to-rem(width, 230);
+				}
+
+				/* Always show menu at this breakpoint */
+				@include respond-min($ipad-landscape) {
+					&.drop-down {
+						display: inline-block;
+						width: auto;
+						position: static;
+					}
+				}
+			}
+
+			/* Always show menu for 'Centre home page hero banner' at this breakpoint */
+			@include respond-min($non-palm) {
+				&.header--hero .header-menu-toggle {
+					display: inline-block;
+					width: auto;
+					position: static;
+				}
 			}
 		}
 
-		/* Search expanded */
-		.js .js-search-toggle.is-expanded {top: 0;}
-
-		/* Always show at this breakpoint */
-		@include respond-min($non-palm) {
-			.js .header .js-menu-toggle,
-			.js .header .js-search-toggle {
-				display: inline-block;
-				width: auto;
-			}
-
-			.js .header .js-menu-toggle {position: static;}
-
-			.js .header .js-search-toggle {
-				position: absolute;
-				left: auto;
-			}
-		}
-
-		/* Always show when in 'Stores' */
-		.stores .js-search-toggle {display: block;}
+		/* Always show search for 'Stores' */
+		.stores .header .header-search-toggle {display: block;}
 
 		/* Toggle menu */
 		.header-menu-toggle {
 
-			/* Apply colours at this breakpoint */
-			@include respond-max($palm) {
+			/* Apply styles at this breakpoint */
+			@include respond-max($ipad-landscape - 1) {
 				background-color: $color-dark-txt;
 				color: #fff;
 
@@ -190,15 +213,47 @@ $header-color-link-hover: $color-brand !default;
 				.header-menu-toggle__mrg-btm {@include to-rem(margin-bottom, $spacing-half);}
 			}
 
+			/* Add border at this breakpoint range */
+			@include respond-range($non-palm, $ipad-landscape - 1) {
+				border: 1px solid $color-med-txt;
+			}
+
 			/* Non JS users */
 			.no-js & {
-				@include to-rem(margin-top, $spacing-half);
+				@include to-rem(margin-top, $spacing-quarter);
 
 				/* Bring inline at this breakpoint */
 				@include respond-min($ipad-landscape) {
 					display: inline-block;
 					margin-top: 0;
 				}
+			}
+
+			/* Drop down pointer arrow (most of the styles are brought over from the 'Drop down menu' module) */
+			.header &:before {
+				left: 4%;
+				margin-left: 3px;
+				color: $color-dark-txt;
+				text-shadow: none;
+
+				/* Change positioning at this breakpoint range */
+				@include respond-range($non-palm, $ipad-landscape - 1) {
+					left: 10px;
+					margin-left: -1px;
+				}
+
+				/* Hide at this breakpoint */
+				@include respond-min($ipad-landscape) {
+					display: none;
+				}
+
+				/* Non JS users */
+				.no-js & {display: none;}
+			}
+
+			/* Centre home page hero banner */
+			@include respond-min($non-palm) {
+				.header--hero &:before {display: none;}
 			}
 		}
 
@@ -208,14 +263,14 @@ $header-color-link-hover: $color-brand !default;
 
 					/* Turn off bg colour for sub nav at this breakpoint */
 					@include respond-min($ipad-landscape) {
-						.sub-nav-container & {background: none;}
+						.nav-sub-container & {background: none;}
 					}
 
 					/* As above but for 'Centre home page hero banner' at this breakpoint */
 					@include respond-min($non-palm) {
-						.is-header-hero .sub-nav-container & {background: none;}
+						.header--hero .nav-sub-container & {background: none;}
 
-						.is-header-hero .my-account-signedin & {background: #fff;}
+						.header--hero .my-account-signedin & {background: #fff;}
 					}
 
 					/* Items */
@@ -224,7 +279,7 @@ $header-color-link-hover: $color-brand !default;
 
 						/* Turn off borders and throw into horizontal mode for sub nav at this breakpoint */
 						@include respond-min($ipad-landscape) {
-							.sub-nav-container & {
+							.nav-sub-container & {
 								border: 0;
 								display: inline-block;
 							}
@@ -234,22 +289,28 @@ $header-color-link-hover: $color-brand !default;
 						@include respond-min($non-palm) {
 
 							/* Sub nav */
-							.is-header-hero .sub-nav-container & {
+							.header--hero .nav-sub-container & {
 								border: 0;
 								display: inline-block;
 								@include to-rem(margin-left, $spacing-base);
+								vertical-align: middle;
 
 								/* Turn left margin off for first child */
 								&:first-child {margin-left: 0;}
 
 								/* Increase left margin at this breakpoint */
 								@include respond-min($desk) {
-									@include to-rem(margin-left, $spacing-base+$spacing-half);
+									@include to-rem(margin-left, $spacing-base+$spacing-quarter);
+								}
+
+								/* Bold font at this breakpoint */
+								@include respond-min($desk-lrg) {
+									font-weight: bold;
 								}
 							}
 
 							/* My account nav drop down */
-							.is-header-hero .my-account-signedin & {border-color: $header-color-grey;}
+							.header--hero .my-account-signedin & {border-color: $header-color-grey;}
 						}
 
 						/* Increase right spacing at this breakpoint */
@@ -267,7 +328,7 @@ $header-color-link-hover: $color-brand !default;
 						/* Links */
 						a {
 							display: block;
-							width: 90%;
+							width: 91.5%;
 							margin: 0 auto;
 							color: #fff;
 							@include to-rem(padding, $spacing-third 0);
@@ -275,22 +336,18 @@ $header-color-link-hover: $color-brand !default;
 							/* Full width and side padding at this breakpoint */
 							@include respond-min($non-palm) {
 								width: auto;
-								@include to-rem(padding-left, $spacing-half);
-								@include to-rem(padding-right, $spacing-half);
+								@include to-rem(padding-left padding-right, $spacing-half + $spacing-quarter);
 
 								/* Remove padding for 'Centre home page hero banner' sub nav */
-								.is-header-hero .sub-nav-container & {padding: 0;}
+								.header--hero .nav-sub-container & {padding: 0;}
 
 								/* Change colour for 'Centre home page hero banner' my account nav drop down */
-								.is-header-hero .my-account-signedin & {color: $color-dark-txt;}
+								.header--hero .my-account-signedin & {color: $color-dark-txt;}
 							}
 
 							/* Reduce left/right padding at this breakpoint */
 							@include respond-min($ipad-landscape) {
-								.sub-nav-container & {
-									@include to-rem(padding-left, 6);
-									@include to-rem(padding-right, 6);
-								}
+								.nav-sub-container & {@include to-rem(padding-left padding-right, 6);}
 							}
 
 							/* Hover, focus & active states */
@@ -301,7 +358,7 @@ $header-color-link-hover: $color-brand !default;
 								.icon:before {
 									color: $color-light-txt;
 
-									/* Change state styles at this breakpoint */
+									/* Change state color at this breakpoint */
 									@include respond-min($ipad-landscape) {
 										color: $header-color-link-hover;
 									}
@@ -310,9 +367,9 @@ $header-color-link-hover: $color-brand !default;
 
 							/* Hover, focus & active states for 'Centre home page hero banner' */
 							@include respond-min($non-palm) {
-								.is-header-hero &:hover,
-								.is-header-hero &:focus,
-								.is-header-hero &.is-active {
+								.header--hero &:hover,
+								.header--hero &:focus,
+								.header--hero &.is-active {
 									&,
 									.icon:before {color: $header-color-link-hover;}
 								}
@@ -320,19 +377,17 @@ $header-color-link-hover: $color-brand !default;
 
 								/* Hide link text for sub nav at this breakpoint */
 								@include respond-min($ipad-landscape) {
-									.sub-nav-container & .nav-sub__txt {
+									.nav-sub-container & .nav-sub__txt {
 										@include hide-visually;
 
 										/* Bring link text into view for centre home page hero banner */
-										.is-header-hero & {@include hide-visually-off;}
+										.header--hero & {@include hide-visually-off;}
 									}
 								}
 
 								/* As above but for 'Centre home page hero banner' at this breakpoint range */
-								@include respond-range($non-palm, $ipad-portrait - 1) {
-									.is-header-hero .sub-nav-container & .nav-sub__txt {
-										@include hide-visually;
-									}
+								@include respond-range($non-palm, 900) {
+									.header--hero .nav-sub-container & .nav-sub__txt {@include hide-visually;}
 								}
 						}
 
@@ -346,7 +401,7 @@ $header-color-link-hover: $color-brand !default;
 
 								/* Change colour at this breakpoint */
 								@include respond-min($ipad-landscape) {
-									.sub-nav-container & {
+									.nav-sub-container & {
 										color: $color-light-txt;
 										@include font-size(17, 1);
 
@@ -355,7 +410,7 @@ $header-color-link-hover: $color-brand !default;
 										.android & {top: -3px;}
 
 										/* Change colour for 'Centre home page hero banner' */
-										.is-header-hero & {
+										.header--hero & {
 											color: #fff;
 											@include font-size(14, 1);
 
@@ -368,41 +423,13 @@ $header-color-link-hover: $color-brand !default;
 
 								/* Change colour for 'Centre home page hero banner' my account nav drop down at this breakpoint */
 								@include respond-min($non-palm) {
-									.is-header-hero .my-account-signedin & {color: $color-light-txt;}
+									.header--hero .my-account-signedin & {color: $color-light-txt;}
 								}
 							}
-
-					/* Remove styles at this breakpoint */
-					@include respond-min($non-palm) {
-						&.header-menu-toggle__nav--plain {
-							background: none;
-
-							/* Items */
-							li {border: 0;}
-
-								/* Links */
-								a {
-									display: inline;
-									padding: 0;
-									color: $color-light-txt;
-
-									/* Centre home page hero banner */
-									.is-header-hero & {color: #fff;}
-								}
-
-									/* Icon */
-									.icon:before {
-										color: $color-light-txt;
-
-										/* Centre home page hero banner */
-										.is-header-hero & {color: #fff;}
-									}
-						}
-					}
 				}
 
 		/* Sub navigation */
-		.sub-nav-container {
+		.nav-sub-container {
 
 			/* Display inline and create some left spacing at this breakpoint */
 			@include respond-min($ipad-landscape) {
@@ -416,93 +443,42 @@ $header-color-link-hover: $color-brand !default;
 				@include to-rem(margin-left, 28);
 			}
 
-			/* Always show drop down at these breakpoints */
-			/*
-				Note: it is okay to use `!important` here as we're doing it pre-emptively i.e. you know you will always want the rule it's applied too to take precedence.
-			*/
-			@include respond-max($palm) {
-				.drop-down {
-					display: block !important;
-					position: static !important;
-				}
-			}
-			@include respond-min($ipad-landscape) {
-				.drop-down {
-					display: block !important;
-					position: static !important;
-				}
-			}
-
-			/* Drop down styles at this breakpoint range */
-			@include respond-range($non-palm, $ipad-landscape - 1) {
-				.header & {
-					position: absolute;
-					z-index: $z-index-high;
-					@include to-rem(top, 10);
-					left: 0;
-				}
-
-					/* Drop down */
-					.drop-down {
-						@include to-rem(width, 180);
-
-						/* Non JS users */
-						.no-js & {width: auto;}
-					}
-			}
-
 			/* 'Centre home page hero banner' styles at this breakpoint */
 			@include respond-min($non-palm) {
-				.header.is-header-hero & {
+				.header.header--hero & {
 					position: absolute;
 					top: auto;
 					@include to-rem(bottom, 61);
 					left: 0;
-					width: 100%;
 					margin-left: 0;
 
-					/* Add left/right indent at this breakpoint */
+					/* Add left indent at this breakpoint */
 					@include respond-min($desk) {
 						@include to-rem(left, $spacing-dbl);
 						@include to-rem(right, $spacing-dbl);
 					}
-
-						/* Drop down */
-						.drop-down {
-							width: auto;
-							display: block !important;
-							position: static !important;
-						}
 				}
 			}
 
 					/* Hide 'Shopping hours' link for 'Centre home page hero banner' at this breakpoint */
 					@include respond-min($non-palm) {
-						.header.is-header-hero & .shopping-hrs-link {display: none;}
+						.header.header--hero & .open-hours-link-alt {display: none;}
 					}
 
 			/* Non JS users */
 			@include respond-min($non-palm) {
-				.no-js & {
-					position: static;
-					@include to-rem(margin, $spacing-third 0);
-
-					/* Remove top/bottom margin at this breakpoint */
-					@include respond-min($ipad-landscape) {
-						@include to-rem(margin, 0 0 0 $spacing-half);
-					}
-				}
+				.no-js & {position: static;}
 			}
 		}
 
-		/* Shopping centre select */
-		.shopping-centre-select {
-			@include to-rem(padding, 6 0);
+		/* Centre select */
+		.header-centre-select {
+			@include to-rem(padding, $spacing-third 0 $spacing-third+$spacing-micro);
 			position: relative;
 
 			/* Adjustments for 'Centre home page hero banner' at this breakpoint */
 			@include respond-max($palm) {
-				.is-header-hero .header__hero & {
+				.header--hero .header__hero & {
 					padding: 0;
 					@include to-rem(margin-bottom, $spacing-half);
 				}
@@ -512,15 +488,11 @@ $header-color-link-hover: $color-brand !default;
 			@include respond-min($non-palm) {
 				display: inline-block;
 				padding: 0;
-				@include to-rem(top, 3);
+				@include to-rem(margin-top, 5);
 				@include to-rem(margin-left, 5);
 
-				/* iOS/Android */
-				.ios &,
-				.android & {@include to-rem(top, 2);}
-
 				/* Centre home page hero banner */
-				.is-header-hero & {
+				.header--hero & {
 					position: absolute;
 					left: 0;
 					top: 50%;
@@ -552,35 +524,59 @@ $header-color-link-hover: $color-brand !default;
 				vertical-align: top;
 			}
 
-			/* Shopping centre name */
-			h1 {
+			/* Tablet small version */
+			&.header-centre-select-alt {
+				display: none;
+
+				@include respond-range($non-palm, $ipad-landscape - 1) {
+					display: inline-block;
+
+					/* Centre home page hero banner */
+					.header--hero & {display: none;}
+				}
+			}
+
+			/* Centre name */
+			.header-centre-select__centre-name {
 				@include font-size(22, 1.2);
 				text-transform: uppercase;
 				@include to-rem(margin-right, 60);
+				color: #fff;
 
-				/* Remove right margin at this breakpoint */
+				/* Remove right margin and change text colour at this breakpoint */
 				@include respond-min($non-palm) {
 					margin-right: 0;
+					color: $color-dark-txt;
 
 					/* Centre home page hero banner */
-					.is-header-hero & {
+					.header--hero & {
 						text-shadow: 0 0 8px rgba(#000, 0.6);
 						@include font-size(40, 1.2);
+						color: #fff;
 
-						/* Increase text size at this breakpoint */
+						/* Increase text size at these breakpoints */
 						@include respond-min($ipad-portrait) {
 							@include font-size(56, 1.2);
 						}
 
-						/* Increase text size at this breakpoint */
 						@include respond-min($desk) {
 							@include font-size(70, 1.2);
 						}
 					}
 				}
 
-				/* Palm version */
-				.is-header-hero .header__hero & {
+				/* Hide for tablet small at this breakpoint range */
+				@include respond-range($non-palm, $ipad-landscape - 1) {
+					.header-menu-toggle & {display: none;}
+				}
+
+				/* Hide for tablet small at this breakpoint */
+				@include respond-min($ipad-landscape) {
+					display: none;
+				}
+
+				/* 'Centre home page hero banner' palm version */
+				.header--hero .header__hero & {
 					@include font-size(27, 1.2);
 					margin-right: 0;
 					text-shadow: 0 0 8px rgba(#000, 0.6);
@@ -591,39 +587,77 @@ $header-color-link-hover: $color-brand !default;
 					}
 				}
 
-					/* Link */
-					a {
-						color: #fff;
+				/* Button version */
+				&.btn {
+					display: none;
 
-						/* Change colour at this breakpoint */
-						@include respond-min($non-palm) {
-							color: $color-dark-txt;
-						}
+					/* Show at these breakpoints */
+					@include respond-min($ipad-landscape) {
+						display: inline-block;
 					}
 
-						/* Icon */
-						.icon:before {
-							@include font-size(18, 1);
-							color: $color-dark-txt;
-							top: -2px;
+					/* Centre home page hero banner */
+					@include respond-min($non-palm) {
+						.header--hero & {display: inline-block;}
+					}
+				}
 
-							/* Webkit */
-							@include target-webkit {top: -3px;}
+					/* Down arrow icon (drop down indicator) */
+					.icon:before {
+						@include font-size(18, 1);
+						color: $color-dark-txt;
+						top: -2px;
 
-							/* Centre home page hero banner */
-							.is-header-hero & {color: #fff;}
+						/* Webkit */
+						@include target-webkit {
+							top: -3px;
+							@include to-rem(left, $spacing-quarter);
 						}
+
+						/* Centre home page hero banner */
+						.header--hero & {color: #fff;}
+					}
 			}
 
-				/* 'Change' button */
-				.btn {
-					font-family: $font-family-opensans;
-					@include font-size(11, 1);
+				/* 'Change centre' link */
+				.header-centre-select__link {
 					color: #fff;
-					position: absolute;
-					right: 0;
-					top: 50%;
-					@include translate(0, -50%);
+
+					/* Position over to the right at this breakpoint */
+					@include respond-max($palm) {
+						@include font-size($font-size-milli, 1);
+						position: absolute;
+						right: 0;
+						top: 50%;
+						@include translate(0, -45%);
+					}
+
+					/* Make block level and fix alignment at this breakpoint */
+					@include respond-min($non-palm) {
+						display: block;
+						@include to-rem(width, 230);
+						@include to-rem(padding-top padding-bottom, 6.5);
+						@include to-rem(padding-left padding-right, $spacing-half + $spacing-quarter);
+						@include to-rem(margin-top margin-left, -5);
+
+						/* Display 'centre' text */
+						.hide-visually {@include hide-visually-off;}
+
+						/* Hide for 'Centre home page hero banner' */
+						.header--hero & {display: none;}
+					}
+
+					/* Hide at this breakpoint */
+					@include respond-min($ipad-landscape) {
+						display: none;
+					}
+
+					/* Hover and focus states */
+					&:hover,
+					&:focus {
+						&,
+						.icon:before {color: $color-light-txt;}
+					}
 
 					/* Icon */
 					.icon:before {
@@ -635,11 +669,227 @@ $header-color-link-hover: $color-brand !default;
 				}
 		}
 
-		/* Tertiary nav */
-		.nav-tertiary a {
-			@include font-size($font-size-sml);
-			color: $color-light-txt;
+		/* --Social Follow and Tertiary nav-- */
+		.nav-social-tertiary-container {
+			@include to-rem(padding-top padding-bottom, $spacing-half+$spacing-quarter);
+			background-color: $color-dark-txt;
+
+			/* Remove `.drop-down` rules at this breakpoint */
+			@include respond-max($ipad-landscape - 1) {
+				.js &.drop-down {
+					display: block;
+					position: static;
+				}
+			}
+
+			/* Remove `.container` rules and apply side padding at this breakpoint */
+			@include respond-min($non-palm) {
+				width: auto;
+				max-width: none;
+				min-width: 0;
+				@include to-rem(padding-left padding-right, $spacing-half + $spacing-quarter);
+			}
+
+			/* Alter padding and add width at this breakpoint */
+			@include respond-min($ipad-landscape) {
+				@include to-rem(padding, 16);
+				@include to-rem(width, 214);
+				border: 1px solid $color-med-txt;
+
+				/* Adjust top/left positioning (Note: need to increase the specificity) */
+				.js &.drop-down {
+					@include to-rem(margin-top, -5);
+					@include to-rem(left, 92);
+				}
+			}
+
+			/* 'Centre home page hero banner' drop down */
+			@include respond-min($non-palm) {
+				.js .header--hero &.drop-down {
+					display: none;
+					@include drop-down;
+					top: 50%;
+					@include to-rem(margin-top, 24 + 5);
+					@include to-rem(padding, 16);
+					@include to-rem(width, 214);
+					border: 1px solid $color-med-txt;
+
+					/* Show the drop down */
+    			&.is-active {display: block;}
+
+    			/* Increase top margin at this breakpoint */
+					@include respond-min($ipad-portrait) {
+						@include to-rem(margin-top, 33.5 + 5);
+					}
+
+					/* Increase top margin and left indent at this breakpoint */
+					@include respond-min($desk) {
+						@include to-rem(left, $spacing-dbl);
+						@include to-rem(margin-top, 42 + 5);
+					}
+				}
+			}
+
+			/* Non JS users */
+			.no-js & {
+				width: 100%;
+				@include to-rem(padding, 16);
+			}
+
+			/* Hide for 'Centre home page hero banner' at this breakpoint */
+			@include respond-min($non-palm) {
+				.no-js .header--hero & {display: none;}
+			}
+
+			/* Drop down arrow pointer */
+			.header &:before {
+				display: none;
+				color: $color-dark-txt;
+				text-shadow: none;
+
+				/* Show at this breakpoints */
+				@include respond-min($ipad-landscape) {
+					display: block;
+				}
+
+				/* Non JS users */
+				.no-js & {display: none;}
+			}
+
+				/* Centre home page hero banner */
+				@include respond-min($non-palm) {
+					.header.header--hero &:before {display: block;}
+				}
+
+				/* 'Change centre' link */
+				.header-centre-select__link--alt {
+					display: none;
+					border-bottom: 1px solid $color-med-txt;
+					@include to-rem(padding, 16);
+					@include to-rem(padding-top padding-bottom, 8);
+					@include to-rem(margin, -16);
+					@include to-rem(margin-bottom, $spacing-half);
+
+					/* Link and icon colour */
+					&,
+					.icon:before {color: #fff;}
+
+					/* Hover and focus states */
+					&:hover,
+					&:focus {
+						&,
+						.icon:before {color: $color-light-txt;}
+					}
+
+					/* Show at these breakpoints */
+					@include respond-min($ipad-landscape) {
+						display: block;
+					}
+
+					/* Centre home page hero banner */
+					@include respond-min($non-palm) {
+						.header--hero & {display: block;}
+					}
+
+					/* Icon - IE fixes */
+					.icon:before {
+						/* IE10 */
+						@include ie-10-up {
+							position: relative;
+							top: 1px;
+						}
+						/* IE9 */
+						.ie-9 & {
+							position: relative;
+							top: 1px;
+						}
+						/* Old IE */
+						@include old-ie {
+							position: relative;
+						}
+					}
+				}
 		}
+
+			/* Social Follow nav */
+			.nav-social-follow {
+				@include to-rem(margin-bottom, $spacing-half);
+
+				/* Duplicated 'Centre home page hero banner' version only at large desk size */
+				.nav-sub-container & {display: none;}
+
+				@include respond-min($desk-lrg) {
+					/* Hide when in drop down */
+					.header--hero .nav-social-tertiary-container & {
+						display: none;
+
+						/* Old IE */
+						@include old-ie {
+							display: block;
+						}
+					}
+
+					.nav-sub-container & {
+						display: block;
+						position: absolute;
+						top: 50%;
+						right: 0;
+						@include translate(0, -50%);
+						margin-bottom: 0;
+
+						/* Old IE */
+						@include old-ie {
+							display: none;
+						}
+
+						/* Hover/focus states */
+						a:hover,
+						a:focus {
+							.icon:before {color: $header-color-link-hover;}
+						}
+
+							/* Icon */
+							.icon:before {@include font-size(20, 1);}
+					}
+				}
+
+				/* Items */
+				li {
+					@include to-rem(margin-left, $spacing-half);
+
+					&:first-child {margin-left: 0;}
+				}
+
+					/* Icons */
+					.icon:before {color: #fff;}
+
+					/* Hover/focus states */
+					a:hover,
+					a:focus {
+						.icon:before {color: $color-light-txt;}
+					}
+			}
+
+			/* Tertiary nav */
+			.nav-tertiary {
+
+				li {
+					@include to-rem(margin-top, $spacing-micro);
+
+					&:first-child {margin-top: 0;}
+				}
+
+				/* Links */
+				.header & a {
+					display: block;
+					@include font-size($font-size-milli);
+					color: $color-grey-1;
+
+					/* Hover and focus states */
+					&:hover,
+					&:focus {color: $color-light-txt;}
+				}
+			}
 
 		/* --Search toggle button & favourites-- */
 
@@ -656,8 +906,13 @@ $header-color-link-hover: $color-brand !default;
 			}
 
 			/* Hover & focus states */
-			a:hover .icon:before,
-			a:focus .icon:before {color: $header-color-link-hover;}
+			a:hover,
+			a:focus {
+				.icon:before {color: $header-color-link-hover;}
+			}
+
+			/* Hide for 'Stores' */
+			.stores & .btn {display: none;}
 
 			/* Search icon */
 			.icon--search:before {
@@ -671,7 +926,14 @@ $header-color-link-hover: $color-brand !default;
 					position: relative;
 					top: 1px;
 				}
+			}
 
+			/* 'Stores' version (non-button) */
+			.search-toggle-favs__stores-search:before {
+				display: none;
+
+				/* Show for 'Stores' */
+				.stores & {display: inline-block;}
 			}
 		}
 
@@ -687,14 +949,13 @@ $header-color-link-hover: $color-brand !default;
 		z-index: 1;
 		display: none;
 
-		.is-header-hero & {display: block;}
+		.header--hero & {display: block;}
 
-		/* Increase min height at this breakpoint */
+		/* Increase min height at these breakpoints */
 		@include respond-min($non-palm) {
 			@include to-rem(min-height, $hero-banner-height-sml);
 		}
 
-		/* Increase min height at this breakpoint */
 		@include respond-min($ipad-portrait) {
 			@include to-rem(min-height, $hero-banner-height-lrg);
 		}
@@ -714,23 +975,35 @@ $header-color-link-hover: $color-brand !default;
 				&,
 				a,
 				.icon:before {color: #fff;}
-			}
 
-			/* Hover & focus states */
-			.header .open-hours-link:hover,
-			.header .open-hours-link:focus {
-				&,
-				.icon:before {color: $header-color-link-hover;}
+				/* Hover & focus states */
+				&:hover,
+				&:focus {
+					&,
+					.icon:before {color: $header-color-link-hover;}
+				}
 			}
 
 			/* Hide when not 'Centre home page hero banner' */
-			.header .nav-sub .open-hours-link {
-				display: none;
+			.header .nav-sub .open-hours-link {display: none;}
 
-				/* Show for 'Centre home page hero banner' */
-				@include respond-min($non-palm) {
-					.is-header-hero & {display: inline-block;}
+			/* Increase font size for 'Centre home page hero banner' */
+			.header--hero .nav-sub .open-hours-link {
+				@include font-size($font-size-lrg, 1.5);
+
+				@include respond-min($ipad-portrait) {
+					@include font-size(18, 1.5);
 				}
+
+				@include respond-min($desk) {
+					@include font-size(22, 1.5);
+
+					/* Icon */
+					.icon--hours:before {top: -3px;}
+				}
+
+				/* Icon */
+				.icon:before {font-size: 100%;}
 			}
 
 		/* Gradient overlay */
@@ -758,18 +1031,20 @@ $header-color-link-hover: $color-brand !default;
 		position: relative;
 		z-index: 1;
 
-		/* Min height for 'Stores' page */
-		.stores & {@include to-rem(min-height, 44);}
-
 		/* Centre home page hero banner */
-		.is-header-hero & {
+		.header--hero & {
 			background-color: #fff;
 			position: static;
 		}
 
 		/* Turn off container at this breakpoint */
 		@include respond-max($palm) {
-			> .container {width: 100%;}
+			> .container {
+				width: 100%;
+
+				/* Min height for 'Stores' */
+				.stores & {@include to-rem(min-height, 45);}
+			}
 		}
 
 		/* Contain float and change positioning context at this breakpoint */
@@ -783,50 +1058,42 @@ $header-color-link-hover: $color-brand !default;
 
 		/* --Generic overlay (search/stores)-- */
 		.header__overlay {
+			height: 100%;
 
-			/* Sticky version (stores) */
-			&.header__overlay--stick {
-				display: none;
-
-				/* Show for 'Stores' section */
-				.stores & {display: block;}
+			/* Inner container */
+			.container {
+				position: relative;
+				text-align: left;
 			}
 
 			/* Styles at this breakpoint */
 			@include respond-max($palm) {
 				background-color: $color-dark-txt;
-				height: 100%;
-				@include to-rem(padding-top, 6);
-
-				/* Sticky version (stores) */
-				&.header__overlay--stick {
-					width: 100%;
-					position: absolute;
-					z-index: $z-index-high - 1;
-					top: 0;
-					left: 0;
-				}
 
 				/* Centre home page hero banner */
-				.js .is-header-hero & {
+				.header--hero & {
 					background-color: #fff;
-					height: auto;
-					@include to-rem(top, 38);
-					@include to-rem(min-height, 44);
+					@include to-rem(height, 45);
 				}
-
-				/* Inner container */
-				> .container {position: relative;}
 
 					/* Close button */
 					.header__overlay__close-btn {
 						position: absolute;
-						@include to-rem(top, 2);
-						@include to-rem(right, -3);
+						right: 0;
+						top: 50%;
+						@include translate(0, -50%);
 						@include to-rem(padding, 6 $spacing-third);
+
+						/* Old IE */
+						@include old-ie {
+							@include to-rem(top, 2);
+						}
 
 						/* Icon */
 						.icon {color: lighten($color-light-txt, 6%);}
+
+						/* Hide for 'Stores' */
+						.stores & {display: none;}
 					}
 			}
 
@@ -834,10 +1101,9 @@ $header-color-link-hover: $color-brand !default;
 			@include respond-min($non-palm) {
 				position: absolute;
 				right: 0;
-				@include to-rem(top, 9, !important);
 
 				/* Inner container */
-				> .container {
+				.container {
 					@include to-rem(width, 226);
 					max-width: none;
 					min-width: 0;
@@ -874,7 +1140,7 @@ $header-color-link-hover: $color-brand !default;
 		/* Main navigation */
 		.header__primary .nav-main {
 
-			/* Hide the main nav for the 'Stores' page at this breakpoint */
+			/* Hide for 'Stores' */
 			@include respond-max($palm) {
 				.stores & {display: none;}
 			}
@@ -890,7 +1156,7 @@ $header-color-link-hover: $color-brand !default;
 				border-left-color: $color-med-txt;
 
 				/* Centre home page hero banner */
-				.is-header-hero & {border-left-color: #dbdbdb;}
+				.header--hero & {border-left-color: $color-grey-2;}
 
 				/* Make dividers appear for first/last list items at this breakpoint */
 				@include respond-min($non-palm) {
@@ -898,14 +1164,14 @@ $header-color-link-hover: $color-brand !default;
 						border-left: 1px solid $color-med-txt;
 
 						/* Centre home page hero banner */
-						.is-header-hero & {border-left-color: #dbdbdb;}
+						.header--hero & {border-left-color: $color-grey-2;}
 					}
 
 					&:last-child {
 						border-right: 1px solid $color-med-txt;
 
 						/* Centre home page hero banner */
-						.is-header-hero & {border-right-color: #dbdbdb;}
+						.header--hero & {border-right-color: $color-grey-2;}
 					}
 				}
 			}
@@ -922,7 +1188,7 @@ $header-color-link-hover: $color-brand !default;
 					}
 
 					/* Centre home page hero banner */
-					.is-header-hero & {color: $color-dark-txt;}
+					.header--hero & {color: $color-dark-txt;}
 
 					/* Hover & focus states */
 					&:hover,
@@ -932,20 +1198,19 @@ $header-color-link-hover: $color-brand !default;
 							color: #fff;
 
 							/* Centre home page hero banner */
-							.is-header-hero & {color: $header-color-link-hover;}
+							.header--hero & {color: $header-color-link-hover;}
 						}
 					}
 
 					/* Active state */
 					&.is-active {
 						border-bottom-color: $color-brand;
-						color: #fff;
+
+						&,
+						.icon:before {color: #fff;}
 
 						/* Centre home page hero banner */
-						.is-header-hero & {background-color: $color-dark-txt;}
-
-						/* Icon */
-						.icon:before {color: #fff;}
+						.header--hero & {background-color: $color-dark-txt;}
 					}
 
 						/* Reveal link text at this breakpoint */
@@ -1015,28 +1280,18 @@ $header-color-link-hover: $color-brand !default;
 			@include to-rem(padding, 4 10 4 26);
 			position: relative;
 
-			/* Focus pseudo class */
-			&:focus {outline: none;}
-
 			/* Decrease left padding at this breakpoint range */
 			@include respond-range($ipad-portrait, 839) {
 				@include to-rem(padding-left, 24);
 			}
 
-			/* Increase padding and toggle display when in 'Stores' section at this breakpoint */
+			/* Increase top/bottom padding at this breakpoint */
 			@include respond-min($non-palm) {
-				@include to-rem(padding-top, 9);
-				@include to-rem(padding-bottom, 9);
-			}
-
-			/* Increase padding at this breakpoint */
-			@include respond-min($lap-lrg) {
-				@include to-rem(padding-top, 8);
-				@include to-rem(padding-bottom, 8);
+				@include to-rem(padding-top padding-bottom, 9);
 			}
 
 			/* Centre home page hero banner */
-			.is-header-hero & {border-color: $header-color-grey;}
+			.header--hero & {border-color: $header-color-grey;}
 
 				/* Icon */
 				.icon:before {
@@ -1076,12 +1331,17 @@ $header-color-link-hover: $color-brand !default;
 				/* Focus */
 				&:focus {outline: none;}
 
-				/* Hide the 'close' button for IE10 */
+				/* Hide the 'close' button generated by `input[type="search"]` for IE10 */
 				&::-ms-clear {display: none;}
 			}
 
-		/* Hide the search toggle buttons for 'Stores' */
-		.stores .js-search-btn-toggle {display: none;}
+			/* Non JS submit button */
+			.search-mini__submit {
+				position: absolute;
+				@include to-rem(right, $spacing-third);
+				top: 50%;
+				@include translate(0, -50%);
+			}
 
 		/* Search results */
 		.search-results {
@@ -1094,6 +1354,9 @@ $header-color-link-hover: $color-brand !default;
 			@include respond-min($non-palm) {
 				@include font-size($font-size, 1.5);
 	  	}
+
+	  	/* Non JS users */
+	  	.no-js & {display: none;}
 		}
 
 			/* Inner container */
@@ -1112,7 +1375,7 @@ $header-color-link-hover: $color-brand !default;
 	      }
 
 	      /* Centre home page hero banner */
-				.is-header-hero & {
+				.header--hero & {
 					box-shadow: none;
 					border: 1px solid $header-color-grey;
 					border-top: 0;
@@ -1146,7 +1409,7 @@ $header-color-link-hover: $color-brand !default;
 							display: block;
 							color: $color-link;
 
-							/* Active / focus */
+							/* Pseudo focus */
 							&.is-active {outline: 1px dotted $color-link;}
 
 							/* Hover/Focus */
@@ -1161,3 +1424,176 @@ $header-color-link-hover: $color-brand !default;
 							}
 					}
 				}
+
+	/* --National view-- */
+
+	/*
+		Note: these styles are for when a user arrives at a site without any centre context i.e. 'National view'
+	*/
+
+	/* Increase bottom padding for `.container` at this breakpoint */
+	@include respond-min($desk) {
+		.header--national .header__secondary > .container {@include to-rem(padding-bottom, 11);}
+	}
+
+		/* Tabs (palm) */
+		.header__tabs {
+
+			/* Hide at this breakpoint */
+			@include respond-min($non-palm) {
+				.js .header--national &.drop-down {display: none;}
+	  	}
+
+			/* --Shared rules-- */
+
+			/* Common font family and size */
+			.header__tabs__hdr h1,
+			.tab__nav {
+				font-family: $font-family-opensans;
+				@include font-size($font-size);
+			}
+
+			/* Common spacing */
+			.header__tabs__hdr h1,
+			.tab__nav a {@include to-rem(padding-top padding-bottom, $spacing-third);}
+
+			/* --Heading-- */
+			.header__tabs__hdr {
+				border-bottom: 1px solid $color-med-txt;
+
+				h1 {font-weight: normal;}
+			}
+
+			/* --Tab nav-- */
+			.tab__nav {
+
+				/* Links */
+				a {
+					@include to-rem(padding-left padding-right, $spacing-half);
+
+					/* Hover, focus and active states */
+					&:hover,
+					&:focus,
+					&.is-active {color: #fff;}
+
+						/* Abbreviation */
+						abbr {
+							border-bottom: 0;
+							cursor: pointer;
+						}
+				}
+
+				li:first-child a {padding-left: 0;}
+			}
+
+			/* --Tab panels-- */
+			.tab__content {
+				background-color: $color-med-txt;
+				max-height: $drop-down-max-height;
+		    overflow-y: auto;
+
+		    /* iOS and Android */
+			  .ios &,
+			  .android & {
+			  	overflow-y: scroll;
+			  	-webkit-overflow-scrolling: touch;
+			  }
+
+			  /* Non JS users */
+			  .no-js & {
+			  	max-height: none;
+			  	overflow: visible;
+			  }
+
+				/* Shared rules */
+				a,
+				.icon:before {color: #fff;}
+
+				/* Global rules */
+				li {border-bottom: 1px solid $color-dark-txt;}
+
+				/* Links */
+				a {
+					display: block;
+					text-transform: uppercase;
+					@include font-size(19);
+					@include to-rem(padding-top, $spacing-third+$spacing-micro);
+					@include to-rem(padding-bottom, $spacing-half+$spacing-micro);
+					/* Stop the link text colliding with the icon */
+					@include to-rem(padding-right, $spacing-base);
+					position: relative;
+
+					/* Hover and focus states */
+					&:hover,
+					&:focus {
+						&,
+						.icon:before {color: $color-light-txt;}
+					}
+				}
+
+					/* Icon */
+					.icon:before {
+						position: absolute;
+						right: 0;
+						top: 50%;
+						@include translate(0, -50%);
+					}
+			}
+		}
+
+		/* Centre select */
+		.header-centre-select-national {
+			@include to-rem(margin-left, $spacing-sixth);
+
+			/* Non JS users */
+			.no-js & {display: none;}
+
+			/* --Shared rules-- */
+
+			/* Make `inline-block` */
+			&,
+			h1,
+			.drop-down-menu {display: inline-block;}
+
+			/* Common font family */
+			h1,
+			.header-centre-select-national__lbl,
+			.drop-down-menu__trigger {font-family: $font-family-opensans;}
+
+			/* Common font size */
+			h1,
+			.header-centre-select-national__lbl {
+				@include font-size($font-size-lrg, 1.5);
+
+				/* Increase font size and change font family at this breakpoint */
+				@include respond-min($desk) {
+					@include font-size(22, 1.5);
+					font-family: $font-family-lato;
+		  	}
+			}
+
+			/* Bump down heading and label so they horizontally align with the drop down trigger */
+			h1,
+			.header-centre-select-national__lbl {
+				position: relative;
+				@include to-rem(top, $spacing-micro);
+			}
+
+			/* Label */
+			.header-centre-select-national__lbl {
+				display: none;
+
+				/* Show at this breakpoint */
+				@include respond-min(730) {
+					display: inline-block;
+		  	}
+			}
+
+			/* Drop down */
+			.drop-down-menu {
+				@include to-rem(margin-left margin-right, $spacing-quarter);
+			}
+
+				/* Trigger icon */
+				.drop-down-menu__trigger .icon--arrow-down-full:before {color: #fff;}
+		}

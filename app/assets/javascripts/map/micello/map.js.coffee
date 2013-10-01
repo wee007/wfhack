@@ -24,7 +24,7 @@ class map.micello.Map extends map.micello.MapBase
   # Error events from images don't buddle so we need to explicitly call onerror
   @removeLogo: (img) ->
     $el = $(img)
-    $el.parents('.js-toggle-logo-image').addClass('is-no-store-logo')
+    $el.parents('.js-toggle-store-logo').addClass('is-no-store-logo')
     $el.remove()
 
   constructor: (@options) ->
@@ -47,7 +47,25 @@ class map.micello.Map extends map.micello.MapBase
     return unless data.cid == @community
     @index.addAddresses(data.g)
 
+  patchMicelloAPI: ->
+    limit = (value, options) ->
+      Math.min(Math.max(value, options.min), options.max)
+
+    micello.maps.MapView.prototype.translate = (x,y) ->
+      width = @viewport.offsetWidth
+      halfHeight = @viewport.offsetHeight / 2
+      @mapXInViewport = limit(@mapXInViewport + x, max: width, min: width / 2 - @baseWidth * @scale)
+      @mapYInViewport = limit(@mapYInViewport + y, max: halfHeight, min: halfHeight - @baseHeight * @scale)
+      @mapElement.style.left = @mapXInViewport + "px"
+      @mapElement.style.top = @mapYInViewport + "px"
+      @mapCanvas.onPan(-@mapXInViewport, -@mapYInViewport, -@mapXInViewport + @viewport.offsetWidth, -@mapYInViewport + @viewport.offsetHeight)
+      if @onViewChange
+        @event.pan = 1
+        @event.zoom = 0
+        @onViewChange(@event)
+
   ready: ->
+    @patchMicelloAPI()
     if @addressFetch.state() == 'resolved'
       super
     else
@@ -119,18 +137,21 @@ class map.micello.Map extends map.micello.MapBase
   logoOptions:
     width: 168
     height: 62
-    quality: 25
     crop: 'pad'
     background: 'rgb:FFFFFF'
 
-  popupHtml: (store) ->
+  popupHtml: (store) =>
     return 'Store not found' unless store.id
     popup = @popupContent ||= $('.map-micello__overlay-wrap').html()
     if !!store?._links?.logo?.href
       store.logo = $.cloudinary.fetch_image(store._links.logo.href, @logoOptions).attr('alt', "#{store.name} logo").attr('onerror', 'map.micello.Map.removeLogo(this)')[0].outerHTML
     else
       store.logo = ''
-      popup  = popup.replace(/(js-toggle-logo-image)/, '$1 is-no-store-logo')
+      popup  = popup.replace(/(js-toggle-store-logo)/, '$1 is-no-store-logo')
+    if !!location.toString().match(///#{store.storefront_path}///)
+      popup = popup.replace(/(js-toggle-store-logo)/, '$1 is-active-store')
+    else
+      popup = popup.replace(/(button.*js-stores-maps-toggle-btn)/, '$1 hide-visually')
     popup = popup.replace(new RegExp("\#{store.#{name}}", 'g'), value) for name, value of store
     popup
 
@@ -155,14 +176,6 @@ class map.micello.Map extends map.micello.MapBase
     @recordSize()
     @
 
-  maxTranslate: (translate) ->
-    size = @getSize()
-    halfWidth = size.width / 2 - @view.mapXInViewport
-    halfHeight = size.height / 2 - @view.mapYInViewport
-    translate.x = Math.min(Math.max(translate.x, -halfWidth), halfWidth)
-    translate.y = Math.min(Math.max(translate.y, -halfHeight), halfHeight)
-    translate
-
   viewportCentre: (offset = @offset, size = @getSize()) ->
     x: size.width * offset.x
     y: size.height * offset.y
@@ -176,7 +189,7 @@ class map.micello.Map extends map.micello.MapBase
     y: offset.y - centre.y
 
   applyOffset: (@offset = @offset) ->
-    translate = @maxTranslate @viewportCentreOffsetDelta()
+    translate = @viewportCentreOffsetDelta()
     @view.translate(translate.x, translate.y)
 
   centreOffset: (offset) ->

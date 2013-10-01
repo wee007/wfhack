@@ -1,18 +1,15 @@
 <%# FIXME: This really needs to be moved to something that can handle templating in JS better %>
-<%# FIXME: [BACKEND] when on 'stores show' the relevant store popup needs a hook on the container: `<div class="map-micello__overlay islet">` so that we can hide the 'Store details' button when in large view (i.e. storefront and map are both showing), and show it for all the other stores, the class is `.is-active-store` %>
-<div class="map-micello__overlay islet js-toggle-logo-image">
+<div class="map-micello__overlay islet js-toggle-store-logo">
   <div class="map-micello__overlay__retailer map-micello__mrg-base">
     <div class="map-micello__overlay__retailer__img">
       #{store.logo}
     </div>
     <div class="map-micello__overlay__retailer__body">
       <em class="map-micello__hdr txt-break-word">#{store.name}</em>
-      <%# // Store Hours FIXME: replace with dynamic data when available %>
-      <%# <p>Open till <time datetime="">5:30pm</time> tonight</p> %>
+      <p>Open till <time datetime="#{store.closing_time_24}">#{store.closing_time_12}</time> tonight</p>
     </div>
   </div>
-  <a href="#{store.url}" class="map-micello__overlay__cta btn btn--full btn--main"><span class="icon icon--store icon--lrg icon--spacing-lrg" aria-hidden="true"></span>Store details</a>
-  <%# FIXME: [BACKEND] need to use this button version when we're on 'stores show' for the relevant store, all other store popup's will use the link above %>
-  <!-- <button class="map-micello__overlay__cta btn btn--full btn--main btn--main-alt" aria-owns="stores-maps-toggle-listing-detail, stores-maps-toggle-map"><span class="icon icon--store icon--lrg icon--spacing-lrg" aria-hidden="true"></span>Store details</button> -->
+  <a href="#{store.storefront_path}" class="map-micello__overlay__cta btn btn--full btn--main js-pjax-link-stores js-stores-maps-toggle-btn"><span class="icon icon--store icon--lrg icon--spacing-lrg" aria-hidden="true"></span>Store details</a>
+  <button class="map-micello__overlay__cta btn btn--full btn--main js-stores-maps-toggle-btn" aria-owns="stores-maps-toggle-listing-detail, stores-maps-toggle-map"><span class="icon icon--store icon--lrg icon--spacing-lrg" aria-hidden="true"></span>Store details</button>
 </div>
 <span class="map-micello__overlay__close icon icon--close-sml icon--xlrg icon--flush-top" aria-hidden="true"></span>

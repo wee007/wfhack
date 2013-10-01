@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.13
+Version:     0.1.73
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -30,6 +30,7 @@ Customer Console
 %build
  cd ${RPM_BUILD_DIR}/*
  bundle exec rake assets:precompile RAILS_ENV=production
+ bundle exec rake cloudinary:sync_static RAILS_ENV=production
  bundle install --path=vendor/bundler_gems --without development test
 
 %install
@@ -45,7 +46,7 @@ Customer Console
 
  cd ${RPM_BUILD_DIR}/*
  cp -va app config config.ru lib public vendor Rakefile Gemfile \
-       Gemfile.lock .bundle ${RPM_BUILD_ROOT}%{appdir}/current/
+       Gemfile.lock .bundle .cloudinary.static .cloudinary.static.trash ${RPM_BUILD_ROOT}%{appdir}/current/
 
 %clean
 rm -rf ${RPM_BUILD_ROOT}
@@ -55,6 +56,15 @@ ln -sfT %{appdir}/shared/log %{appdir}/current/log
 ln -sfT %{appdir}/shared/pids %{appdir}/current/tmp/pids
 service httpd reload
 touch %{appdir}/current/tmp/restart.txt
+
+railsenv=`grep RailsEnv /etc/httpd/conf.d/0passenger.conf | head -1 | awk '{print $2}'`
+if [[ "production" == $railsenv ]]; then
+  app_name="Customer Console"
+else
+  app_name="Customer Console ($railsenv)"
+fi
+
+https_proxy=http://proxy.dbg.westfield.com:8080 curl -H "x-api-key:fcb397795639d33ca285aff6ce91844bcd9ed68dcca2a7f" -d "deployment[app_name]=$app_name" -d "deployment[description]=RPM deployment" -d "deployment[revision]=%{version}" -d "deployment[user]=`hostname -s`"  https://rpm.newrelic.com/deployments.xml
 
 %preun
 if [ $1 = 0 ] ; then
@@ -76,6 +86,451 @@ fi
 
 
 %changelog
+* Tue Oct 01 2013 ci <doperations@au.westfield.com> 0.1.73-1
+- 
+
+* Tue Oct 01 2013 ci <doperations@au.westfield.com> 0.1.72-1
+- Merge pull request #423 from mwratt/feature/WSF-4655-tweaks-and-fixes
+  (matt.wratt@trineo.co.nz)
+- fixes performance failures when scrolling stores (matt.wratt@trineo.co.nz)
+- Merge pull request #421 from thiago/master (tfigueiro@au.westfield.com)
+- Add missing apache module (tfigueiro@au.westfield.com)
+
+* Tue Oct 01 2013 ci <doperations@au.westfield.com> 0.1.71-1
+- Merge pull request #422 from mwratt/feature/WSF-4655-tweaks-and-fixes
+  (matt.wratt@trineo.co.nz)
+- fixes undef method error on nil (matt.wratt@trineo.co.nz)
+
+* Tue Oct 01 2013 ci <doperations@au.westfield.com> 0.1.70-1
+- adds phone link helper (matt.wratt@trineo.co.nz)
+- also apply to map toggle fix to android (matt.wratt@trineo.co.nz)
+- fixes store path to include retailer_code (matt.wratt@trineo.co.nz)
+- fixes iOS map toggle button (matt.wratt@trineo.co.nz)
+- WSF-4916 Formats phone number as per comments (matt.wratt@trineo.co.nz)
+- we do not use BEM for js hooks (matt.wratt@trineo.co.nz)
+- fixes broken page when toggling back from maps (matt.wratt@trineo.co.nz)
+- Merge pull request #420 from ldewey/auth (matt.wratt@trineo.co.nz)
+- Added Redirect on auth-me page (ldewey@au.westfield.com)
+
+* Tue Oct 01 2013 ci <doperations@au.westfield.com> 0.1.69-1
+- Merge pull request #418 from ldewey/auth (matt.wratt@trineo.co.nz)
+- Merge pull request #419 from cpearce/stores-updates (matt.wratt@trineo.co.nz)
+- Added back in simple auth to help with cut over (ldewey@au.westfield.com)
+- Commented out JS auth to help with cut over (ldewey@au.westfield.com)
+- Removing blue colour from store map/list toggle button
+  (CPearce@au.westfield.com)
+- Fixing issue with Chrome when 2nd slide is in view for storefront carousel
+  (CPearce@au.westfield.com)
+- Changed it from a password popup to a auth me page! (ldewey@au.westfield.com)
+- Removed http simple auth and replaced it with some JS auth!
+  (ldewey@au.westfield.com)
+
+* Tue Oct 01 2013 ci <doperations@au.westfield.com> 0.1.68-1
+- 
+
+* Tue Oct 01 2013 ci <doperations@au.westfield.com> 0.1.67-1
+- Merge pull request #416 from fchan/refactor-application
+  (ldewey@au.westfield.com)
+- Remove extra space (fiona@fionachan.net)
+- New Relic release tracking (tfigueiro@au.westfield.com)
+- Refactored application and national (fiona@fionachan.net)
+
+* Mon Sep 30 2013 ci <doperations@au.westfield.com> 0.1.66-1
+- Merge pull request #414 from thiago/master (tfigueiro@au.westfield.com)
+- Cache fingerprinted assets for 1 year (tfigueiro@us.westfield.com)
+
+* Mon Sep 30 2013 ci <doperations@au.westfield.com> 0.1.65-1
+- Small date fix for events (ldewey@au.westfield.com)
+
+* Mon Sep 30 2013 ci <doperations@au.westfield.com> 0.1.64-1
+- Merge pull request #412 from cpearce/stores-updates (ldewey@au.westfield.com)
+- Removing the dulled out affect for when content is ajaxed in due to
+  performance issues (CPearce@au.westfield.com)
+- Adding phone number text to make page easier to understand for screen readers
+  (CPearce@au.westfield.com)
+- Dulling out the ajaxed content rather than hiding it
+  (CPearce@au.westfield.com)
+- Removing js-disabled-hide from stores index/show preloader
+  (CPearce@au.westfield.com)
+- Adding ARIA to products pin board (CPearce@au.westfield.com)
+- Removing uneeded label element from products sort (CPearce@au.westfield.com)
+- Fixing placement of h3 in applied filters area of products filters
+  (CPearce@au.westfield.com)
+- Fixing issue where container was blocking interacting with the map and adding
+  ARIA attrs (CPearce@au.westfield.com)
+
+* Mon Sep 30 2013 ci <doperations@au.westfield.com> 0.1.63-1
+- Merge pull request #411 from ldewey/product-browse-price-fix
+  (chorn@au.westfield.com)
+- Product browse price facet fix. (ldewey@au.westfield.com)
+
+* Fri Sep 27 2013 ci <doperations@au.westfield.com> 0.1.62-1
+- Remove pagination when no results (ldewey@au.westfield.com)
+
+* Fri Sep 27 2013 ci <doperations@au.westfield.com> 0.1.61-1
+- Merge pull request #409 from ldewey/events-image-fix
+  (matt.wratt@trineo.co.nz)
+- Fixed event image link (ldewey@au.westfield.com)
+- Build fix (ldewey@au.westfield.com)
+- Added style fixes for pagination. (ldewey@au.westfield.com)
+- Browser will now scroll to top when you paginate. (ldewey@au.westfield.com)
+- Added puma to dev (ldewey@au.westfield.com)
+- Small pagination fixes (ldewey@au.westfield.com)
+- Added new markup for pagination (ldewey@au.westfield.com)
+- Added btn to pagination (ldewey@au.westfield.com)
+- WIP (ldewey@au.westfield.com)
+- Move call back loop to out of the ajax requst for speed!
+  (ldewey@au.westfield.com)
+
+* Thu Sep 26 2013 ci <doperations@au.westfield.com> 0.1.60-1
+- Merge pull request #405 from mwratt/feature/storefront
+  (ldewey@au.westfield.com)
+- nolonger need to limit the translation (matt.wratt@trineo.co.nz)
+- adds spinner on pjax requests (matt.wratt@trineo.co.nz)
+- fixes map list toggle on storefront page (matt.wratt@trineo.co.nz)
+
+* Thu Sep 26 2013 ci <doperations@au.westfield.com> 0.1.59-1
+- Merge pull request #404 from mwratt/feature/storefront
+  (ldewey@au.westfield.com)
+- fixes precompiled asset name (matt.wratt@trineo.co.nz)
+- fixes flex slider when pjax navigation is used (matt.wratt@trineo.co.nz)
+
+* Thu Sep 26 2013 ci <doperations@au.westfield.com> 0.1.58-1
+- Fixing merge conflict from another feature (CPearce@au.westfield.com)
+- Adding HTML comments to keep elements on seperate lines for readability
+  (CPearce@au.westfield.com)
+- Adding gift card toggle to stores filters - WSF-5489
+  (CPearce@au.westfield.com)
+
+* Thu Sep 26 2013 ci <doperations@au.westfield.com> 0.1.57-1
+- Merge pull request #395 from cpearce/map-control-styling-storefront-updates
+  (matt.wratt@trineo.co.nz)
+- Storefront various updates/fixes/improvements - WSF-4655
+  (CPearce@au.westfield.com)
+- Micello map control styling WSF-5488 (CPearce@au.westfield.com)
+
+* Thu Sep 26 2013 ci <doperations@au.westfield.com> 0.1.56-1
+- 
+
+* Thu Sep 26 2013 ci <doperations@au.westfield.com> 0.1.55-1
+- Merge pull request #393 from ldewey/deal-state-update
+  (ldewey@au.westfield.com)
+- Merge pull request #399 from ldewey/master (ldewey@au.westfield.com)
+- A fix to bring the price facet back (ldewey@au.westfield.com)
+- Added state: 'live' to deals controller (ldewey@au.westfield.com)
+
+* Wed Sep 25 2013 ci <doperations@au.westfield.com> 0.1.54-1
+- 
+
+* Wed Sep 25 2013 ci <doperations@au.westfield.com> 0.1.53-1
+- More Fixes for national page centre selection URL (ldewey@au.westfield.com)
+- Fixed national page centre selection URL (ldewey@au.westfield.com)
+
+* Wed Sep 25 2013 ci <doperations@au.westfield.com> 0.1.52-1
+- 
+
+* Wed Sep 25 2013 ci <doperations@au.westfield.com> 0.1.51-1
+- Merge pull request #397 from ldewey/chirs-master (matt.wratt@trineo.co.nz)
+- Updated links as per feed back (ldewey@au.westfield.com)
+- Android roate crash fix (ldewey@au.westfield.com)
+
+* Wed Sep 25 2013 ci <doperations@au.westfield.com> 0.1.50-1
+- Merge pull request #388 from ldewey/chirs-master (ldewey@au.westfield.com)
+- Added some very basic specs to product (ldewey@au.westfield.com)
+- More work to nat product routes. (ldewey@au.westfield.com)
+- Adding national product routes. (ldewey@au.westfield.com)
+- Refactor all centres helper method for alternate site header for national
+  view - WSF-5066 (CPearce@au.westfield.com)
+- Using a helper for site logo to Rails helper for alternate site header for
+  national view - WSF-5066 (CPearce@au.westfield.com)
+- Updating controller for alternate site header for national view - WSF-5066
+  (CPearce@au.westfield.com)
+- Removing duplicate padding for alternate site header for national view -
+  WSF-5066 (CPearce@au.westfield.com)
+- Removing layout from application layout for alternate site header for
+  national view - WSF-5066 (CPearce@au.westfield.com)
+- Removing redundant selector from alternate site header for national view -
+  WSF-5066 (CPearce@au.westfield.com)
+- Creating the alternate site header for national view - WSF-5066
+  (CPearce@au.westfield.com)
+
+* Wed Sep 25 2013 ci <doperations@au.westfield.com> 0.1.49-1
+- Merge pull request #392 from mwratt/fix/slow_store_response
+  (ldewey@au.westfield.com)
+- allows centre to be set (fixes slow response) (matt.wratt@trineo.co.nz)
+
+* Tue Sep 24 2013 ci <doperations@au.westfield.com> 0.1.48-1
+- 
+
+* Tue Sep 24 2013 ci <doperations@au.westfield.com> 0.1.47-1
+- Merge pull request #391 from btillman/api_comments
+  (tfigueiro@au.westfield.com)
+- adds intense debate comments to API docs (ben.tillman@gmail.com)
+
+* Tue Sep 24 2013 ci <doperations@au.westfield.com> 0.1.46-1
+- 
+
+* Tue Sep 24 2013 ci <doperations@au.westfield.com> 0.1.45-1
+- Merge pull request #390 from ldewey/site-wide-cache (matt.wratt@trineo.co.nz)
+- Added blanket site wide cache of one hour. (ldewey@au.westfield.com)
+
+* Mon Sep 23 2013 ci <doperations@au.westfield.com> 0.1.44-1
+- Merge pull request #387 from csmith/master (craigM.smith@au.westfield.com)
+- Swapped deals url around to keep it consistent with product.
+  (craigm.smith@au.westfield.com)
+- Added retailer code in to deal show url for analytics.
+  (craigm.smith@au.westfield.com)
+
+* Mon Sep 23 2013 ci <doperations@au.westfield.com> 0.1.43-1
+- Merge pull request #382 from fchan/iphone-height-fix
+  (cpearce@au.westfield.com)
+- Fixing the ipad height (fiona@fionachan.net)
+
+* Fri Sep 20 2013 ci <doperations@au.westfield.com> 0.1.42-1
+- Fixed typo (ldewey@au.westfield.com)
+
+* Fri Sep 20 2013 ci <doperations@au.westfield.com> 0.1.41-1
+- 
+
+* Fri Sep 20 2013 ci <doperations@au.westfield.com> 0.1.40-1
+- cloudinary asset update (ldewey@au.westfield.com)
+
+* Fri Sep 20 2013 ci <doperations@au.westfield.com> 0.1.39-1
+- Merge pull request #383 from ldewey/WSF-4687 (fchan@au.westfield.com)
+- Fixed google map alt text. (ldewey@au.westfield.com)
+- Added image of bondijunction (ldewey@au.westfield.com)
+- Added Customer pin to static google maps (ldewey@au.westfield.com)
+- More cleanup to centre info map (ldewey@au.westfield.com)
+- Added marker to static map (ldewey@au.westfield.com)
+- Revert "Merge pull request #380 from ldewey/WSF-4687"
+  (ldewey@au.westfield.com)
+
+* Fri Sep 20 2013 ci <doperations@au.westfield.com> 0.1.38-1
+- Merge pull request #384 from fchan/national-bug (ldewey@au.westfield.com)
+- Merge pull request #381 from mwratt/feature/WSF-4655-storefront
+  (ldewey@au.westfield.com)
+- Re-saved hero image (fiona@fionachan.net)
+- Re-saved national hero images (fiona@fionachan.net)
+- improved pan for our given layout (matt.wratt@trineo.co.nz)
+
+* Thu Sep 19 2013 ci <doperations@au.westfield.com> 0.1.37-1
+- 
+
+* Thu Sep 19 2013 ci <doperations@au.westfield.com> 0.1.36-1
+- Merge pull request #379 from mwratt/feature/WSF-4655-storefront
+  (ldewey@au.westfield.com)
+- Merge pull request #372 from btillman/pretty_api_response
+  (ldewey@au.westfield.com)
+- fixes broken westfield gift card icon (matt.wratt@trineo.co.nz)
+- displays api doc responses in a simpler format (aka yaml) by default
+  (ben.tillman@gmail.com)
+
+* Thu Sep 19 2013 ci <doperations@au.westfield.com> 0.1.35-1
+- Revert "Merge pull request #378 from ldewey/WSF-4687"
+  (ldewey@au.westfield.com)
+
+* Thu Sep 19 2013 ci <doperations@au.westfield.com> 0.1.34-1
+- Change to_sign to a hash, as thats better than building a string up
+  (ldewey@au.westfield.com)
+- Added getting hear to links at the top of centre info
+  (ldewey@au.westfield.com)
+- Added google maps to centre info page (ldewey@au.westfield.com)
+
+* Wed Sep 18 2013 ci <doperations@au.westfield.com> 0.1.33-1
+- 
+
+* Wed Sep 18 2013 ci <doperations@au.westfield.com> 0.1.32-1
+- Merge pull request #377 from fchan/iphone-height-fix
+  (ldewey@au.westfield.com)
+- Merge pull request #376 from ewee/master (ldewey@au.westfield.com)
+- Changed ios white gap fix to be for ipad only (fiona@fionachan.net)
+- Changed ios white gap fix to be for ipad only (fiona@fionachan.net)
+- Fetch results for multiple services in parallel (ewee@au.westfield.com)
+
+* Wed Sep 18 2013 ci <doperations@au.westfield.com> 0.1.31-1
+- Merge pull request #375 from fchan/national-bug (cpearce@au.westfield.com)
+- Remove redundant class (fiona@fionachan.net)
+- Added comment about national centre tile (fiona@fionachan.net)
+- Optimise large image a bit more (fiona@fionachan.net)
+- Remote unused images and rotation mixn, and fixed background issue on ios5
+  (fiona@fionachan.net)
+
+* Wed Sep 18 2013 ci <doperations@au.westfield.com> 0.1.30-1
+- Merge pull request #366 from csmith/feature/parking-hours
+  (craigM.smith@au.westfield.com)
+- Fix to quoting (craigm.smith@au.westfield.com)
+- Don't display a paragraph for a blank line. (craigm.smith@au.westfield.com)
+- Don't show credit card %% if there isn't one. (craigm.smith@au.westfield.com)
+- When max daily rates are 0 or empty, don't say free. Say nothing or say -.
+  (craigm.smith@au.westfield.com)
+- Classes that are used in testing I've prefixed with test-, so they aren't
+  confused when styling. (craigm.smith@au.westfield.com)
+- Fixed dodgy formatting. (craigm.smith@au.westfield.com)
+- Removed free parking instructions (craigm.smith@au.westfield.com)
+- Updated flat rate parking copy. (craigm.smith@au.westfield.com)
+- Added all the text fields to each view of parking.
+  (craigm.smith@au.westfield.com)
+- Moved t&c and text parking info into partials.
+  (craigm.smith@au.westfield.com)
+- Added a trivial test for t&c on the rates page.
+  (craigm.smith@au.westfield.com)
+- Using proper cloudinary helper (craigm.smith@au.westfield.com)
+- Added link to Ts and Cs for parking. (craigm.smith@au.westfield.com)
+- Added parking to centre info page. (craigm.smith@au.westfield.com)
+
+* Wed Sep 18 2013 ci <doperations@au.westfield.com> 0.1.29-1
+- Merge pull request #371 from mwratt/feature/WSF-4655-storefront
+  (ldewey@au.westfield.com)
+- improves 300 character limit (matt.wratt@trineo.co.nz)
+- moves store model creation to service (matt.wratt@trineo.co.nz)
+- removes fixed comment (matt.wratt@trineo.co.nz)
+- fixes map popup links to work as expected (matt.wratt@trineo.co.nz)
+- adds pjax transition to stores index/show pages (matt.wratt@trineo.co.nz)
+- fixes mobile view, hides incomplete deals/products (matt.wratt@trineo.co.nz)
+- fixes broken bower.json file (matt.wratt@trineo.co.nz)
+- adds closing time to stores list page detail popup (matt.wratt@trineo.co.nz)
+- adds closing time to store front (matt.wratt@trineo.co.nz)
+- extracts responsive map js for show/index pages (matt.wratt@trineo.co.nz)
+- fixes header class name relating to banners (matt.wratt@trineo.co.nz)
+- adds dynamic storefront banner phone email etc. (matt.wratt@trineo.co.nz)
+
+* Wed Sep 18 2013 ci <doperations@au.westfield.com> 0.1.28-1
+- Merge pull request #373 from ldewey/master (matt.wratt@trineo.co.nz)
+- Addded more pin board breakpoints (ldewey@au.westfield.com)
+
+* Wed Sep 18 2013 ci <doperations@au.westfield.com> 0.1.27-1
+- Centre show pinboard has wrong data passing to the tiles
+  (ldewey@au.westfield.com)
+
+* Wed Sep 18 2013 ci <doperations@au.westfield.com> 0.1.26-1
+- Merge pull request #367 from ldewey/WSF-4906 (cpearce@au.westfield.com)
+- Class ordering (ldewey@au.westfield.com)
+- Updated global_search VCR cassette to fix tests (ldewey@au.westfield.com)
+- Removed un-needed styles from non pinboard tiles (ldewey@au.westfield.com)
+- removed un-needed CSS/SCSS (ldewey@au.westfield.com)
+- Reorderd the css class names (ldewey@au.westfield.com)
+- Added comments and renamed "is-active" to "is-pin-board-loaded"
+  (ldewey@au.westfield.com)
+- Coverted px to em's (ldewey@au.westfield.com)
+- Change comment from palm to Lap large (ldewey@au.westfield.com)
+- Show 15 products per page by default (ldewey@au.westfield.com)
+- PR comment fixes (ldewey@au.westfield.com)
+- Templates are now build not hardcoded (ldewey@au.westfield.com)
+- Removed the guard reload info (ldewey@au.westfield.com)
+- Small fix to karma.conf.js to fix js tests (ldewey@au.westfield.com)
+- Events and Deals now uses the new pin board rendering
+  (ldewey@au.westfield.com)
+- Renamed tiles.js.coffee to pin-board.js.coffee (ldewey@au.westfield.com)
+- pin board selector clean up. Also moved xhr stuff to pinboard template
+  (ldewey@au.westfield.com)
+- Tile images will be removed if they 404 (ldewey@au.westfield.com)
+- Moved pin-board layout to layouts (ldewey@au.westfield.com)
+- Moved all product browse code to use coffee script (ldewey@au.westfield.com)
+- Removed isotope (ldewey@au.westfield.com)
+- Fixes for new pinboard (ldewey@au.westfield.com)
+- Removed livereload, any using it? (ldewey@au.westfield.com)
+- rebuilt the pinboard layout system (ldewey@au.westfield.com)
+- Added a half width gutter to the gird (ldewey@au.westfield.com)
+- Only products (index) can use the the new isotope rendering way
+  (ldewey@au.westfield.com)
+- Fixes as per PR comments. (ldewey@au.westfield.com)
+- Isotope now does not need to wait for image to load (ldewey@au.westfield.com)
+- Removed the un-need info from the gon data. (ldewey@au.westfield.com)
+
+* Tue Sep 17 2013 ci <doperations@au.westfield.com> 0.1.25-1
+- Merge pull request #364 from fchan/national-hp (ldewey@au.westfield.com)
+- Reduce height of header at palm size (fiona@fionachan.net)
+- More little fixes (fiona@fionachan.net)
+- Added nav around list of centre links (fiona@fionachan.net)
+- Use dynamic values on national landing page (ewee@au.westfield.com)
+- Comment out unused code and fix footer nav (fiona@fionachan.net)
+- Added nav element (fiona@fionachan.net)
+- Update some styles after feedback (fiona@fionachan.net)
+- More PR feedback fixes (fiona@fionachan.net)
+- Fixes after PR feedback (fiona@fionachan.net)
+- Few more fixes, comments and hidden centre background img
+  (fiona@fionachan.net)
+- Fixes after PR review (fiona@fionachan.net)
+- Hiding preloader for now and added footer links (fiona@fionachan.net)
+- Cleanup (fiona@fionachan.net)
+- Added video thumbnail and various fixes (fiona@fionachan.net)
+- Updated icon font and some tweaks (fiona@fionachan.net)
+- Nationl centre tiles and footer (fiona@fionachan.net)
+- Fixes after code review (fiona@fionachan.net)
+- Some updates to gallery and added centre tile (fiona@fionachan.net)
+- Cleaned up gallery css and various fixes (fiona@fionachan.net)
+- Added gallery mixin (fiona@fionachan.net)
+- Update fading animation (fiona@fionachan.net)
+- Some CSS animation stuff (fiona@fionachan.net)
+- National homepage header (fiona@fionachan.net)
+- First commit of national homepage (fiona@fionachan.net)
+
+* Mon Sep 16 2013 ci <doperations@au.westfield.com> 0.1.24-1
+- fixes WSF-5235 date format for event list (ben.tillman@gmail.com)
+
+* Mon Sep 16 2013 ci <doperations@au.westfield.com> 0.1.23-1
+- Merge pull request #361 from cpearce/master (ldewey@au.westfield.com)
+- Adding indentation to markup when inside if statement to improve readability
+  (CPearce@au.westfield.com)
+- Adding fallback messages when there is no content/search results for
+  products, deals and events (CPearce@au.westfield.com)
+
+* Mon Sep 16 2013 ci <doperations@au.westfield.com> 0.1.22-1
+- Merge pull request #362 from ldewey/master (ben.tillman@trineo.co.nz)
+- Remvoed AAA, as it required redis. (ldewey@au.westfield.com)
+
+* Fri Sep 13 2013 ci <doperations@au.westfield.com> 0.1.21-1
+- Merge pull request #359 from btillman/api_docs_update
+  (ldewey@au.westfield.com)
+- adds descriptive sections for API docs (ben.tillman@gmail.com)
+- updates links and copy for API docs (ben.tillman@gmail.com)
+
+* Fri Sep 13 2013 ci <doperations@au.westfield.com> 0.1.20-1
+- Merge pull request #360 from cpearce/master (ldewey@au.westfield.com)
+- UI Polish - WSF-5381 (CPearce@au.westfield.com)
+- UI Polish - WSF-5429 (CPearce@au.westfield.com)
+- Removing 'quality: 25' for store logos (CPearce@au.westfield.com)
+- UI Polish - WSF-5398 (CPearce@au.westfield.com)
+- UI Polish - WSF-5374 (CPearce@au.westfield.com)
+- UI Polish - WSF-5373 (CPearce@au.westfield.com)
+- UI Polish - WSF-5378 (CPearce@au.westfield.com)
+- UI Polish - WSF-5379 (CPearce@au.westfield.com)
+- UI Polish - WSF-5379 (CPearce@au.westfield.com)
+- UI Polish - WSF-5379 (CPearce@au.westfield.com)
+- UI Polish - WSF-5370 (CPearce@au.westfield.com)
+
+* Thu Sep 12 2013 ci <doperations@au.westfield.com> 0.1.19-1
+- 
+
+* Thu Sep 12 2013 ci <doperations@au.westfield.com> 0.1.18-1
+- fixes broken store model specs (matt.wratt@trineo.co.nz)
+- Allows store logos to work with cloudinary (matt.wratt@trineo.co.nz)
+
+* Thu Sep 12 2013 ci <doperations@au.westfield.com> 0.1.17-1
+- Merge pull request #357 from cpearce/master (ldewey@au.westfield.com)
+- Merge pull request #355 from mwratt/fix/placeholder (ldewey@au.westfield.com)
+- Merge pull request #351 from ewee/master (ldewey@au.westfield.com)
+- Header updates - WSF-5134 (CPearce@au.westfield.com)
+- removes jquery placeholer polyfill (matt.wratt@trineo.co.nz)
+- UPdate google plus to google+ (ewee@au.westfield.com)
+- Open social media links in new window (ewee@au.westfield.com)
+- Convert certain HTML tags to Rails actionview helper methods
+  (ewee@au.westfield.com)
+
+* Sat Sep 07 2013 ci <doperations@au.westfield.com> 0.1.16-1
+- Merge pull request #354 from thiago/master (ldewey@au.westfield.com)
+- Add non-lorem-ipsum placeholder copy for API Documentation
+  (tfigueiro@au.westfield.com)
+
+* Sat Sep 07 2013 ci <doperations@au.westfield.com> 0.1.15-1
+- Merge pull request #347 from btillman/api_doc_theme
+  (tfigueiro@au.westfield.com)
+- updates theme for api docs (ben.tillman@gmail.com)
+
+* Fri Sep 06 2013 ci <doperations@au.westfield.com> 0.1.14-1
+- Merge remote-tracking branch 'digital/master' (ben@germanforblack.com)
+- * Added esc key close * Added click-off close (ben@germanforblack.com)
+
 * Fri Sep 06 2013 ci <doperations@au.westfield.com> 0.1.13-1
 - When you hit enter on search with out selecting an item it will work
   (ldewey@au.westfield.com)

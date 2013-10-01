@@ -71,7 +71,10 @@
       }
     }
 
-      a {color: $color-dark-txt;}
+      a {
+        color: $color-dark-txt;
+        display: block;
+      }
 
     /* Phone no at non-palm */
     span {

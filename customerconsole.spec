@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.70
+Version:     0.1.71
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -86,6 +86,11 @@ fi
 
 
 %changelog
+* Tue Oct 01 2013 ci <doperations@au.westfield.com> 0.1.71-1
+- Merge pull request #422 from mwratt/feature/WSF-4655-tweaks-and-fixes
+  (matt.wratt@trineo.co.nz)
+- fixes undef method error on nil (matt.wratt@trineo.co.nz)
+
 * Tue Oct 01 2013 ci <doperations@au.westfield.com> 0.1.70-1
 - adds phone link helper (matt.wratt@trineo.co.nz)
 - also apply to map toggle fix to android (matt.wratt@trineo.co.nz)

@@ -148,7 +148,7 @@ class map.micello.Map extends map.micello.MapBase
     else
       store.logo = ''
       popup  = popup.replace(/(js-toggle-store-logo)/, '$1 is-no-store-logo')
-    if !!location.toString().match(////stores/#{store.id}///)
+    if !!location.toString().match(///#{store.storefront_path}///)
       popup = popup.replace(/(js-toggle-store-logo)/, '$1 is-active-store')
     else
       popup = popup.replace(/(button.*js-stores-maps-toggle-btn)/, '$1 hide-visually')

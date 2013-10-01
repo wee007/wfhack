@@ -19,6 +19,9 @@ class StoreMapPage
     delete storeMapPageReady
 
   setup: =>
+    if $('html').hasClass('touch')
+      # FIXME: iOS/Android doesn't capture the click event on the button
+      $('body').on('touchstart', 'button.js-stores-maps-toggle-btn', -> $(@).trigger('click'); false)
     $.pjax.defaults.timeout = 5000
     $(document).on('pjax:send', => @loading true)
     $(document).on('pjax:success', => @loading false)
@@ -36,8 +39,11 @@ class StoreMapPage
   toggle: =>
     visible = @map.toggle()
     $('.js-stores-maps-toggle-btn').toggleClass('is-expanded', visible)
-    $('.js-stores-maps-toggle-btn__txt').html(if visible then 'list' else 'map')
+    $('.js-stores-maps-toggle-btn-txt').html(if visible then 'list' else 'map')
     $('.js-stores-maps-toggle-wrap').toggleClass('is-map-view', visible)
+
+    # FIXME: Webkit doesn't redraw the page correctly unless we force it
+    $('.js-stores-maps-toggle-wrap').width()
 
   store: (storeId) ->
     @map.setTarget(storeId).showLevel().zoom().highlight().detail()

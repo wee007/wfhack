@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.66
+Version:     0.1.67
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -86,6 +86,13 @@ fi
 
 
 %changelog
+* Tue Oct 01 2013 ci <doperations@au.westfield.com> 0.1.67-1
+- Merge pull request #416 from fchan/refactor-application
+  (ldewey@au.westfield.com)
+- Remove extra space (fiona@fionachan.net)
+- New Relic release tracking (tfigueiro@au.westfield.com)
+- Refactored application and national (fiona@fionachan.net)
+
 * Mon Sep 30 2013 ci <doperations@au.westfield.com> 0.1.66-1
 - Merge pull request #414 from thiago/master (tfigueiro@au.westfield.com)
 - Cache fingerprinted assets for 1 year (tfigueiro@us.westfield.com)

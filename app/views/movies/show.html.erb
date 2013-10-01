@@ -5,9 +5,7 @@
 
     <header class="detail-view__mrg-base">
       <%# Movie title %>
-      <h1 class="detail-view__hdr hn test-title" itemprop="summary">
-        <%= @movie.title %>
-      </h1>
+      <h1 class="detail-view__hdr hn test-title" itemprop="summary"><%= @movie.title %></h1>
       <%# //Movie title %>
 
       <%# Movie classification %>
@@ -19,7 +17,10 @@
 
     <%# Movie main image %>
     <div class="detail-view__media detail-view__mrg-base">
-      <%= cl_image_tag(@movie.image_url, alt:"Screenshot of #{@movie.title}", width: 600, height: 400, itemprop:"photo" ) %>
+      <% if @movie.cloudinary_public_id %>
+        <%= cl_image_tag(@movie.cloudinary_public_id, alt:"#{@movie.title} picture", width: 600, height: 400, crop: 'limit', format: 'jpg') %>
+      <% else %>
+      <% end %>
     </div>
     <%# //Movie main image %>
 
@@ -51,7 +52,7 @@
         </dt>
         <% sessions.each do |session| %>
           <dd>
-            <time datetime="<%= Time.parse(session.start_time).strftime("%l:%M %P") %>" itemprop="startDate"><a href="<%= session.booking_url %>" rel="external"><%= Time.parse(session.start_time).strftime("%l:%M %P") %></a></time>
+            <a href="<%= session.booking_url %>" rel="external"><time datetime="<%= Time.parse(session.start_time).strftime("%l:%M %P") %>" itemprop="startDate"><%= Time.parse(session.start_time).strftime("%l:%M %P") %></time></a>
             <%= "[#{session.session_type}]" if session.session_type %>
           </dd>
         <% end %>

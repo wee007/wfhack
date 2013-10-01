@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.71
+Version:     0.1.72
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -86,6 +86,13 @@ fi
 
 
 %changelog
+* Tue Oct 01 2013 ci <doperations@au.westfield.com> 0.1.72-1
+- Merge pull request #423 from mwratt/feature/WSF-4655-tweaks-and-fixes
+  (matt.wratt@trineo.co.nz)
+- fixes performance failures when scrolling stores (matt.wratt@trineo.co.nz)
+- Merge pull request #421 from thiago/master (tfigueiro@au.westfield.com)
+- Add missing apache module (tfigueiro@au.westfield.com)
+
 * Tue Oct 01 2013 ci <doperations@au.westfield.com> 0.1.71-1
 - Merge pull request #422 from mwratt/feature/WSF-4655-tweaks-and-fixes
   (matt.wratt@trineo.co.nz)

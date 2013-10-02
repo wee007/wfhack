@@ -13,11 +13,23 @@
 /* Container for the drop down and drop down trigger */
 .drop-down-container {position: relative;}
 
-  /* The drop down (JS users only) */
-  .js .drop-down {
-    display: none;
-    @include drop-down;
+  /* The drop down */
+  .js,
+  .drop-down-container--hover {
+    .drop-down {
+      display: none;
+      @include drop-down;
 
+      /* Show the drop down for 'Angular Toggle Visibility Directive' */
+      &.is-active {display: block;}
+    }
+  }
+
+  /* Hover version */
+  .drop-down-container--hover {
     /* Show the drop down */
-    &.is-active {display: block;}
+    &:hover .drop-down {display: block;}
+
+    /* Hide for touch devices as they don't have hover support */
+    .touch & .drop-down {display: none;}
   }

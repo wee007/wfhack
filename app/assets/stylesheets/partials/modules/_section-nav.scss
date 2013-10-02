@@ -4,7 +4,7 @@
 
 /*
   Usage:
-    Part of the main template (sits directly under the main site header but only for certain pages) that holds the 'Section nav' and 'Show products/deals/events centre selector' UI.
+    Part of the main template that sits directly under the main site header but only for certain pages, that holds the 'Section nav' and 'Show products/deals/events centre selector' UI.
 
   Demo:
     Style Guide -> Modules -> Section Nav
@@ -20,19 +20,59 @@
 
 	/* Section nav */
 	.nav-contextual {
+		/* Need to make room for the centre selector toggle button */
 		@include to-rem(margin-right, 41);
 	  margin-bottom: 0;
 	  border-bottom: 0;
-	}
 
-		/* Increase gutter between list items at this breakpoint */
-		@include respond-min($non-palm) {
-	    .nav-contextual__list > li {
-	    	@include to-rem(margin-left, 32);
+	  /* Remove right margin at this breakpoint */
+		@include respond-min(868) {
+	    margin-right: 0;
+	  }
 
-        &:first-child {margin-left: 0;}
+	  /* Hide all drop downs at this breakpoint */
+		@include respond-max(867) {
+	    .drop-down {display: none;}
+	  }
+
+	  /* Change positioning of drop down pointer */
+	  .drop-down-menu__target:before {
+	  	/* Webkit */
+		  @include target-webkit {
+				 top: -8px;
+			}
+			/* IE 10 */
+	    @include ie-10-up {
+	      top: -7px;
 	    }
 	  }
+	}
+
+		/* Turn off `overflow: hidden` so we can see the drop down's at this breakpoint */
+		@include respond-min(868) {
+			.nav-contextual__clip__inner {
+				&,
+				.no-js & {overflow: visible;}
+			}
+		}
+
+			/* Section nav list */
+			.nav-contextual__list {
+
+				/* Increase gutter between list items at this breakpoint */
+				@include respond-min($non-palm) {
+			    > li {
+			    	@include to-rem(margin-left, 32);
+
+		        &:first-child {margin-left: 0;}
+			    }
+			  }
+
+			  /* Turn off oversize width as we don't need the scrolling JS behaviour */
+				@include respond-min(868) {
+					width: auto;
+				}
+			}
 
 	/* --Show products/deals/events centre selector-- */
 
@@ -44,9 +84,12 @@
 		@include translate(0, -50%);
 
 		/* Hide at this breakpoint */
-		@include respond-min($desk) {
+		@include respond-min(868) {
 	    display: none;
 	  }
+
+	  /* Non JS users */
+	  .no-js & {display: none;}
 	}
 
 	/* Centre selector */
@@ -57,20 +100,26 @@
 	    width: 100%;
 	  }
 
-	  /* Hide at this breakpoint */
-		@include respond-min($desk) {
-			@include to-rem(padding-top padding-bottom, $spacing-half+$spacing-quarter);
-	    position: absolute;
-			right: 0;
-			//background: red;
-			@include to-rem(top, -65);
+	  /* Sit over to the right edge at this breakpoint */
+		@include respond-min(421) {
+	    float: right;
 	  }
 
-	  // [FIXME] REMOVE THIS WHEN MOVIES HOURS GOES IN
+	  /* Make the nav and centre selector sit side by side at this breakpoint */
+		@include respond-min(868) {
+			float: none;
+	    position: absolute;
+			right: 0;
+			/* '65' is the height of the section nav, this is a bit fragile but should be stable enough + I'd rather not bring JS into it */
+			@include to-rem(top, -65);
+			@include to-rem(height, 65);
+	  }
+
+	  /* [FIXME] REMOVE THIS WHEN MOVIES HOURS GOES IN */
 		select {width: 100% !important;}
 	}
 
-		/* Label */
+		/* Select list label */
 		.flag__image {
 			color: $color-light-txt;
 			@include font-size($font-size-sml, 1.5);
@@ -79,19 +128,24 @@
 			@include respond-min(421) {
 		    @include hide-visually-off;
 		  }
-		}
 
-		/* Select list */
-		.flag__body {}
+		  /* Reduce the gutter at this breakpoint */
+			@include respond-max(867) {
+		    @include to-rem(padding-right, $spacing-half);
+		  }
+		}
 }
 
 	/* 'Show products/deals/events nearby centre selector' container */
 	.section-nav__centre-selector {
+		@extend %clear-fix;
 		border-top: 1px solid $color-light-txt;
 		@include to-rem(padding-top padding-bottom, $spacing-quarter);
 
-		/* Hide at this breakpoint */
-		@include respond-min($desk) {
+		/* Always show at this breakpoint */
+		@include respond-min(868) {
+
+			/* JS users */
 	    .js & {display: block;}
 
 	    border-top: 0;

@@ -26,7 +26,7 @@
   /* Clip scrollable content */
   .nav-contextual__clip {
     /* Make space for the arrow on the right, the spacing needs to be smaller than `.nav-contextual__clip__overlay` */
-    .is-clipped & {@include to-rem(margin-right, $spacing-base);}
+    .is-clipped & {@include to-rem(margin-right, $spacing-base+$spacing-half);}
   }
 
     .nav-contextual__clip__inner {
@@ -67,7 +67,7 @@
       /* Arrow icon - scrolling indicator */
       &:before {
         top: 50%;
-        @include translate(50%, -50%);
+        @include translate(38%, -50%);
       }
     }
 
@@ -109,13 +109,14 @@
 /* Dark color */
 .nav-contextual--dark {
 
-  /* Link hover/focus/active states */
-  .nav-contextual__list > li a  {
-    &:hover,
-    &:focus,
-    &.is-active {color: #fff;}
+  /* Highlight parent item (`li`) for when hover drop downs are in view and apply link hover/focus/active states */
+  .nav-contextual__list > li  {
+    &:hover > a,
+    a:hover,
+    a:focus,
+    .is-active {color: #fff;}
   }
 
   /* Gradient that fades out the right side of the links and the scrolling indicator */
-  .nav-contextual__clip__overlay {@include linear-gradient($from: rgba($color-med-txt, 0) 0%, $to: rgba($color-med-txt, 1) 50%, $dir: right)}
+  .nav-contextual__clip__overlay {@include linear-gradient($from: rgba($color-med-txt, 0) 0%, $to: rgba($color-med-txt, 1) 75%, $dir: right)}
 }

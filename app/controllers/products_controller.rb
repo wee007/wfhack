@@ -73,6 +73,11 @@ class ProductsController < ApplicationController
       )
     else
       @centres = CentreService.group_by_state centres
+
+      meta.push(
+        page_title: @product.name,
+        description: @product.name
+      )
     end
 
     meta.push @product.meta

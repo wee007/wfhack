@@ -223,6 +223,7 @@ class map.micello.Map extends map.micello.MapBase
 
   centreOffset: (offset) ->
     @reset()
+    @view.setZoom(offset.zoom || 1)
     @applyOffset(offset)
     @
 

@@ -1,0 +1,180 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://store-service.test.dbg.westfield.com/api/store/master/stores/22739.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.8
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-UA-Compatible:
+      - chrome=1
+      Content-Type:
+      - application/json; charset=utf-8
+      ETag:
+      - '"c05eff0f8ed4899891bbdb52bb2c6549"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - f21ef30a-7cf9-4241-99d1-51147175f7db
+      X-Runtime:
+      - '0.010696'
+      Date:
+      - Fri, 27 Sep 2013 01:01:09 GMT
+      Connection:
+      - close
+    body:
+      encoding: UTF-8
+      string: '{"id":22739,"retailer_id":473,"retailer_code":"greater-union-birch-carroll-and-coyle","centre_id":"bondijunction","description":null,"errors":{},"level":null,"level_span":null,"name":"Event
+        Cinemas","phone_number":"9300 1555","shop_number":"MGU","store_front_image_ref":"265ce72f98455edec61d6e27ab20eac07c46cc23f489a8f306adfeff94d46cd7.jpeg","url":"http://www.eventcinemas.com.au","email_address":"bondi@eventscinemas.com.au","_links":{"self":{"href":"/api/store/master/stores/22739.json"},"logo":{},"store_front":{}}}'
+    http_version: 
+  recorded_at: Fri, 27 Sep 2013 01:01:09 GMT
+- request:
+    method: get
+    uri: http://movie-service.test.dbg.westfield.com/api/movie/master/movie_sessions.json?centre=bondijunction&movie_id=182
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.8
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-UA-Compatible:
+      - chrome=1
+      Content-Type:
+      - application/json; charset=utf-8
+      ETag:
+      - '"fde8fefafcdcceecbf457817712bdd68"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 811abecc-8856-4a02-a542-08d526650689
+      X-Runtime:
+      - '0.011972'
+      Date:
+      - Fri, 27 Sep 2013 01:01:09 GMT
+      Connection:
+      - close
+    body:
+      encoding: UTF-8
+      string: '[{"id":44485,"movie_id":182,"start_time":"2013-09-26T16:00:00.000Z","session_type":null,"booking_url":""},{"id":44486,"movie_id":182,"start_time":"2013-09-26T18:45:00.000Z","session_type":null,"booking_url":""},{"id":44487,"movie_id":182,"start_time":"2013-09-26T21:30:00.000Z","session_type":null,"booking_url":""},{"id":44488,"movie_id":182,"start_time":"2013-09-27T16:00:00.000Z","session_type":null,"booking_url":""},{"id":44489,"movie_id":182,"start_time":"2013-09-27T18:45:00.000Z","session_type":null,"booking_url":""},{"id":44490,"movie_id":182,"start_time":"2013-09-27T21:30:00.000Z","session_type":null,"booking_url":""},{"id":44491,"movie_id":182,"start_time":"2013-09-28T16:00:00.000Z","session_type":null,"booking_url":""},{"id":44492,"movie_id":182,"start_time":"2013-09-28T18:45:00.000Z","session_type":null,"booking_url":""},{"id":44493,"movie_id":182,"start_time":"2013-09-28T21:30:00.000Z","session_type":null,"booking_url":""},{"id":44494,"movie_id":182,"start_time":"2013-09-29T16:00:00.000Z","session_type":null,"booking_url":""},{"id":44495,"movie_id":182,"start_time":"2013-09-29T18:45:00.000Z","session_type":null,"booking_url":""},{"id":44496,"movie_id":182,"start_time":"2013-09-29T21:30:00.000Z","session_type":null,"booking_url":""},{"id":44497,"movie_id":182,"start_time":"2013-09-30T16:00:00.000Z","session_type":null,"booking_url":""},{"id":44498,"movie_id":182,"start_time":"2013-09-30T18:45:00.000Z","session_type":null,"booking_url":""},{"id":44499,"movie_id":182,"start_time":"2013-09-30T21:30:00.000Z","session_type":null,"booking_url":""},{"id":44500,"movie_id":182,"start_time":"2013-10-01T16:00:00.000Z","session_type":null,"booking_url":""},{"id":44501,"movie_id":182,"start_time":"2013-10-01T18:45:00.000Z","session_type":null,"booking_url":""},{"id":44502,"movie_id":182,"start_time":"2013-10-01T21:30:00.000Z","session_type":null,"booking_url":""},{"id":44503,"movie_id":182,"start_time":"2013-10-02T16:00:00.000Z","session_type":null,"booking_url":""},{"id":44504,"movie_id":182,"start_time":"2013-10-02T21:00:00.000Z","session_type":null,"booking_url":""}]'
+    http_version: 
+  recorded_at: Fri, 27 Sep 2013 01:01:09 GMT
+- request:
+    method: get
+    uri: http://centre-service.test.dbg.westfield.com/api/centre/master/centres/bondijunction.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.8
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-UA-Compatible:
+      - chrome=1
+      Content-Type:
+      - application/json; charset=utf-8
+      ETag:
+      - '"3b29ef91b35185d13d596c1ebdf1df39"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - da390246-23b2-4e82-8dfa-d204984cac9f
+      X-Runtime:
+      - '0.014256'
+      Date:
+      - Fri, 27 Sep 2013 01:01:09 GMT
+      Connection:
+      - close
+    body:
+      encoding: UTF-8
+      string: '{"name":"Westfield Bondi Junction","short_name":"Bondi Junction","code":"bondijunction","business_unit_code":"21021","type":"premium","street_address":"500
+        Oxford St .kfndsklfjsd","suburb":"Bondi Junction","state":"NSW","postcode":"2022","country":"au","phone_number":"(02)
+        9947 8000","email_address":"bondijunction@au.westfield.com","latitude":"-33.891289","longitude":"151.250815","today_opening_time":null,"today_closing_time":null,"number_of_levels":7,"micello_community":7295,"facebook":null,"twitter":null,"google_plus":null,"instagram":null,"pinterest":null,"youtube":null,"retail":false,"enabled":false}'
+    http_version: 
+  recorded_at: Fri, 27 Sep 2013 01:01:09 GMT
+- request:
+    method: get
+    uri: http://movie-service.test.dbg.westfield.com/api/movie/master/movies/182.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.8
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-UA-Compatible:
+      - chrome=1
+      Content-Type:
+      - application/json; charset=utf-8
+      ETag:
+      - '"4291066bdbaa85dd11500fafa8c13088"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - e5ef692e-6ccd-4e7b-9a14-de7379d430d5
+      X-Runtime:
+      - '0.014350'
+      Date:
+      - Fri, 27 Sep 2013 01:01:09 GMT
+      Connection:
+      - close
+    body:
+      encoding: UTF-8
+      string: '{"id":182,"title":"White House Down","image_url":"http://res.cloudinary.com/wlabs/image/upload/v1380156437/mp3ytwmrqsqydrbvm6w8.jpg","synopsis":"A
+        Secret Service agent is tasked with saving the life of the U.S. President
+        after the White House is overtaken by a paramilitary group.","classification":"M"}'
+    http_version: 
+  recorded_at: Fri, 27 Sep 2013 01:01:09 GMT
+recorded_with: VCR 2.5.0

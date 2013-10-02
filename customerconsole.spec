@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.79
+Version:     0.1.80
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -86,6 +86,9 @@ fi
 
 
 %changelog
+* Wed Oct 02 2013 ci <doperations@au.westfield.com> 0.1.80-1
+- 
+
 * Wed Oct 02 2013 ci <doperations@au.westfield.com> 0.1.79-1
 - Tidied up the movies helper a little. (craigm.smith@au.westfield.com)
 - Keeping code in line with the rest of CC. (craigm.smith@au.westfield.com)

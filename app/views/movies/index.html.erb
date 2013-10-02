@@ -1,8 +1,7 @@
 <%# Link in hero section %>
 <% content_for :hero_intro do %>
   <div class="hero__intro">
-    <%# [BACKEND] Add link to store details %>
-    <a href="<%= centre_store_path(id: @cinema.id) %>" class="btn btn--main"><span class="icon icon--store icon--xlrg icon--spacing" aria-hidden="true"></span> Cinema Details</a>
+    <a href="<%= centre_store_path(retailer_code: @cinema.retailer_code, id: @cinema.id) %>" class="btn btn--main"><span class="icon icon--store icon--xlrg icon--spacing" aria-hidden="true"></span> Cinema Details</a>
   </div>
 <% end %>
 

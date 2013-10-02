@@ -21,7 +21,7 @@ class MoviesController < ApplicationController
       page_title: "#{@cinema.name} at #{@centre.short_name}",
       description: "#{@cinema.name} at #{@centre.short_name}"
     )
-    @hero = Hashie::Mash.new heading: @cinema.name, image: 'movies', icon: 'video'
+    @hero = Hashie::Mash.new heading: @cinema.name, image: 'movies', icon: 'icon--video'
     render layout: "sub_page"
   end
 

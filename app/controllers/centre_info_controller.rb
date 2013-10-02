@@ -10,7 +10,7 @@ class CentreInfoController < ApplicationController
     end
     @centre = CentreService.build centre
     @parking = ParkingService.build parking
-    @hero = Hashie::Mash.new heading: 'Centre information', image: 'centre-info', icon: 'info'
+    @hero = Hashie::Mash.new heading: 'Centre information', image: 'centre-info', icon: 'icon--info'
     meta.push(
       page_title: "#{@centre.name} Directions and Parking Information",
       description: "Get directions to #{@centre.name} as well as parking information and contact details"

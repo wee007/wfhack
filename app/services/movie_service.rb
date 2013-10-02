@@ -4,8 +4,11 @@ class MovieService
     def build(movie_json)
       body = movie_json.respond_to?(:body) ? movie_json.body : movie_json
 
-      return body.map{|movie_json| Movie.new(movie_json)} if body.is_a? Array
-      Movie.new body
+      if body.is_a? Array
+        body.map{|movie_json| Movie.new(movie_json)}
+      else
+        Movie.new body
+      end
     end
 
     def request_uri(options={})

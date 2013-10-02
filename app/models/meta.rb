@@ -4,12 +4,8 @@ class Meta < Hashie::Mash
     self.merge! to_add
   end
 
-  def page_title
-    [title, "Westfield"].join " | "
-  end
-
   def to_hash
-    super.merge(page_title: page_title)
+    super.merge({page_title: page_title, description: description})
   end
 
 end

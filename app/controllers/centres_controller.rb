@@ -13,12 +13,21 @@ class CentresController < ApplicationController
 
     @products = ProductService.build products
     @products_count = @products['count'].round(-2) if @products.present?
+
+    meta.push(
+      page_title: "Westfield Australia | Shopping Centres in NSW, QLD, VIC, SA & WA",
+      description: "Find the best in retail, dining, leisure and entertainment at one of our centres across Australia, shop online or buy a gift card today"
+    )
   end
 
   def show
     stream
     handle_error(@centre) if @centre.is_a?(NullCentre)
-    meta.push title: @centre.short_name
+
+    meta.push(
+      page_title: @centre.name,
+      description: @centre.description
+    )
   end
 
   def product_stream

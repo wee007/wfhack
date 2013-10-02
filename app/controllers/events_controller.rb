@@ -10,7 +10,11 @@ class EventsController < ApplicationController
     end
     @centre = CentreService.build centre
     @events = EventService.build event
-    meta.push title: "#{@centre.short_name} events"
+
+    meta.push(
+      page_title: "Events and Activities at #{@centre.name}",
+      description: "Find the latest events and activities for children and adults taking place at #{@centre.name}"
+    )
   end
 
   def show
@@ -21,7 +25,12 @@ class EventsController < ApplicationController
     end
     @centre = CentreService.build centre
     @event = EventService.build event
+
     meta.push @event.meta
+    meta.push(
+      page_title: "#{@event.name} at #{@centre.name}",
+      description: "At #{@centre.name}, #{@event.description}"
+    )
   end
 
 end

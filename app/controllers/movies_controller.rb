@@ -15,7 +15,10 @@ class MoviesController < ApplicationController
     @movie_sessions = MovieSessionService.build movie_sessions
     @cinema = StoreService.build cinema
     render_404 unless cinema
-    meta.push title: "#{@cinema.name} at #{@centre.short_name}"
+    meta.push(
+      page_title: "#{@cinema.name} at #{@centre.name}",
+      description: "#{@cinema.name} at #{@centre.name}"
+    )
   end
 
   def show
@@ -32,6 +35,9 @@ class MoviesController < ApplicationController
     selected_days_sessions = MovieSessionService.build selected_days_sessions
     @morning_sessions = selected_days_sessions.find_all{ |session| session.morning? }
     @afternoon_sessions = selected_days_sessions.find_all{ |session| session.afternoon? }
-    meta.push title: @movie.title
+    meta.push(
+      page_title: @movie.title,
+      description: @movie.title
+    )
   end
 end

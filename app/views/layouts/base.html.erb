@@ -17,7 +17,7 @@
   <%# //Prefetch DNS for external assets %>
 
   <%# Title %>
-  <title><%= meta.page_title %></title>
+  <title><%= meta.page_title.html_safe %></title>
   <%# //Title %>
 
   <%= render "shared/stylesheets_global" %>
@@ -33,10 +33,9 @@
   <meta name="msapplication-TileImage" content="/apple-touch-icon-144x144-precomposed.png">
   <%# //IE 10 tile icon %>
 
-  <%# [BACK END] meta description should be unique for each page for SEO purposes %>
-  <meta name="description" content="">
-  <%# //Meta description %>
-
+  <% if meta.description.present? %>
+    <meta name="description" content="<%= meta.description.html_safe %>">
+  <% end %>
 </head>
 
 <body class="<%= params[:controller] %> <%= params[:action] %> <%= yield :class_for_body %>" ng-app="Westfield" ng-init="centre_id='<%= params[:centre_id] || params[:id] %>'">

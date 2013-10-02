@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.78
+Version:     0.1.79
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -86,6 +86,26 @@ fi
 
 
 %changelog
+* Wed Oct 02 2013 ci <doperations@au.westfield.com> 0.1.79-1
+- Tidied up the movies helper a little. (craigm.smith@au.westfield.com)
+- Keeping code in line with the rest of CC. (craigm.smith@au.westfield.com)
+- A little clean up. (craigm.smith@au.westfield.com)
+- Fixed request spec. (craigm.smith@au.westfield.com)
+- Updated hero.icon, code clean up and updated retailer code
+  (fiona@fionachan.net)
+- Set detail-view fixed width as default at iPad portrait (fiona@fionachan.net)
+- Added new static assets to Cloudinary and check for images that don't load
+  (fiona@fionachan.net)
+- More fixes after code review (fiona@fionachan.net)
+- Fixed timeline, enabled cinema link and fix mark up (fiona@fionachan.net)
+- Worked movies show and index code in designed layouts.
+  (craigm.smith@au.westfield.com)
+- Fix up CSS for movies after code review (fiona@fionachan.net)
+- Some cleanup of movies page (fiona@fionachan.net)
+- Add and update image size (fiona@fionachan.net)
+- Updated movie index and show page (fiona@fionachan.net)
+- First commit of movies page (fiona@fionachan.net)
+
 * Wed Oct 02 2013 ci <doperations@au.westfield.com> 0.1.78-1
 - 
 

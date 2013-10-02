@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.74
+Version:     0.1.75
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -86,6 +86,11 @@ fi
 
 
 %changelog
+* Wed Oct 02 2013 ci <doperations@au.westfield.com> 0.1.75-1
+- Merge pull request #426 from ewee/master (matt.wratt@trineo.co.nz)
+- Add page title and meta description to products index page
+  (ewee@au.westfield.com)
+
 * Wed Oct 02 2013 ci <doperations@au.westfield.com> 0.1.74-1
 - Merge pull request #424 from mwratt/feature/WSF-4655-tweaks-and-fixes
   (ldewey@au.westfield.com)

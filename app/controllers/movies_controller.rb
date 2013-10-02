@@ -13,9 +13,7 @@ class MoviesController < ApplicationController
     @movies = MovieService.build movies
     @cinema = StoreService.build cinema
 
-    unless cinema
-      render_404; return
-    end
+    return render_404 unless cinema
 
     meta.push(
       page_title: "#{@cinema.name} at #{@centre.short_name}",

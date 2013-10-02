@@ -12,6 +12,9 @@ class StoreMapPage
     }
 
   loading: (state) ->
+    # after pjax load has completed the user needs to see the detail
+    @toggle() if state && @viewingMap
+
     $('.js-pjax-container-stores').toggleClass('is-stores-list-detail-loading', state)
 
   pjaxComplete: =>
@@ -19,28 +22,27 @@ class StoreMapPage
     delete storeMapPageReady
 
   setup: =>
-    if $('html').hasClass('touch')
-      # FIXME: iOS/Android doesn't capture the click event on the button
-      $('body').on('touchstart', 'button.js-stores-maps-toggle-btn', -> $(@).trigger('click'); false)
     $.pjax.defaults.timeout = 5000
     $(document).on('pjax:send', => @loading true)
     $(document).on('pjax:success', => @loading false)
     $(document).pjax('a.js-pjax-link-stores', '.js-pjax-container-stores')
     $('.js-pjax-container-stores').on('pjax:end', @pjaxComplete)
-    $('body').on('click.map-micello', '.js-stores-maps-toggle-btn', @toggle)
+    $('body').on('click touchstart', '.js-stores-maps-toggle-btn', @toggle)
     self = @
-    $('body').on('click.map-micello', '[data-store-id]', ->
+    $('body').on('click touchstart', '[data-store-id]', (e) ->
+      e.preventDefault() if e
       self.toggle()
       self.store($(@).data('store-id'))
       false
     )
     @pjaxComplete()
 
-  toggle: =>
-    visible = @map.toggle()
-    $('.js-stores-maps-toggle-btn').toggleClass('is-expanded', visible)
-    $('.js-stores-maps-toggle-btn-txt').html(if visible then 'list' else 'map')
-    $('.js-stores-maps-toggle-wrap').toggleClass('is-map-view', visible)
+  toggle: (e) =>
+    e.preventDefault() if e
+    @viewingMap = @map.toggle()
+    $('.js-stores-maps-toggle-btn').toggleClass('is-expanded', @viewingMap)
+    $('.js-stores-maps-toggle-btn-txt').html(if @viewingMap then 'list' else 'map')
+    $('.js-stores-maps-toggle-wrap').toggleClass('is-map-view', @viewingMap)
 
     # FIXME: Webkit doesn't redraw the page correctly unless we force it
     $('.js-stores-maps-toggle-wrap').width()

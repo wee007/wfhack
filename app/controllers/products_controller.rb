@@ -21,6 +21,11 @@ class ProductsController < ApplicationController
       )
     else
       @centres = CentreService.group_by_state centres
+
+      meta.push(
+        page_title: "Shopping at Westfield",
+        description: "Find the latest fashion, clothes, shoes, jewellery, accessories and much more at Westfield"
+      )
     end
     @search = ProductService.build products
 

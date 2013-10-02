@@ -124,7 +124,14 @@
                         <div class="grid__item one-half non-palm-one-third">
                           <%= render partial: '/shared/tiles/product',
                               layout: '/layouts/tile',
-                              locals: {result: product}
+                              locals: {
+                                result: product,
+                                options: {
+                                  width: 288,
+                                  height: 288,
+                                  crop: :pad
+                                }
+                              }
                             %>
                         </div>
                       <% end %>

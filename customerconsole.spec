@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.73
+Version:     0.1.74
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -86,6 +86,15 @@ fi
 
 
 %changelog
+* Wed Oct 02 2013 ci <doperations@au.westfield.com> 0.1.74-1
+- Merge pull request #424 from mwratt/feature/WSF-4655-tweaks-and-fixes
+  (ldewey@au.westfield.com)
+- Merge pull request #415 from ewee/master (ldewey@au.westfield.com)
+- improves click handling on touch devices (matt.wratt@trineo.co.nz)
+- Add separator to store and product counts (ewee@au.westfield.com)
+- Add page title and meta description (ewee@au.westfield.com)
+- updates storefront maps visual style (matt.wratt@trineo.co.nz)
+
 * Tue Oct 01 2013 ci <doperations@au.westfield.com> 0.1.73-1
 - 
 

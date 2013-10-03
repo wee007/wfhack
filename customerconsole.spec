@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.86
+Version:     0.1.87
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -86,6 +86,24 @@ fi
 
 
 %changelog
+* Thu Oct 03 2013 ci <doperations@au.westfield.com> 0.1.87-1
+- Merge pull request #432 from digital/svg-png-fallback
+  (ldewey@au.westfield.com)
+- Merge pull request #431 from mwratt/feature/WSF-4655-tweaks-and-fixes
+  (ldewey@au.westfield.com)
+- Merge pull request #430 from digital/gemfile (ldewey@au.westfield.com)
+- Merge remote-tracking branch 'origin/master' into svg-png-fallback
+  (ben@germanforblack.com)
+- default font size on maps (matt.wratt@trineo.co.nz)
+- Use the data-* attribute for SVG replacement (ben@germanforblack.com)
+- Added SVG—png fallback helper method (ben@germanforblack.com)
+- unselects store when returning to store list (matt.wratt@trineo.co.nz)
+- adds default zoom to maps (matt.wratt@trineo.co.nz)
+- Re-cut the gem file lock so that service_api is updated
+  (ben@germanforblack.com)
+- Merge remote-tracking branch 'origin/master' (ben@germanforblack.com)
+- Missing semi (ben@germanforblack.com)
+
 * Thu Oct 03 2013 ci <doperations@au.westfield.com> 0.1.86-1
 - 
 

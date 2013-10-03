@@ -5,7 +5,9 @@ class ProductService
     def build(json)
       return null_product(json) if json.respond_to?(:status) && !json.status.between?(200,299)
       results = json.respond_to?(:body) ? json.body : json
-      if results.has_key? :facets
+      if results.kind_of?(Array)
+        results.collect { |result| Product.new result }
+      elsif results.has_key? :facets
         products = results.delete(:results).collect { |result| Product.new result }
         Hashie::Mash.new results.merge products: products
       else
@@ -25,6 +27,8 @@ class ProductService
       options.reject! {|k,v|v.blank? || v.is_a?(Array) && v.all?(&:blank?) }
       if action == 'show'
         show_uri(options)
+      elsif action == 'lite'
+        lite_uri(options)
       else
         search_uri(options)
       end
@@ -34,6 +38,15 @@ class ProductService
       retailer_code = options.delete :retailer_code
       sku = options.delete :sku
       URI("#{ServiceHelper.uri_for('product')}/retail-chains/#{retailer_code}/products/#{sku}.json")
+    end
+
+    def lite_uri(options)
+      search_opts = ({page:1, rows: 50}.merge options).with_indifferent_access
+      centre = search_opts.delete :centre_id
+      search_opts[:centre] ||= centre
+      uri = URI("#{ServiceHelper.uri_for('product')}/products.json")
+      uri.query = search_opts.to_query
+      uri
     end
 
     def search_uri(options)

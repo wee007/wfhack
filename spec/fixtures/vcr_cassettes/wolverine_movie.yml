@@ -1,0 +1,180 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://movie-service.test.dbg.westfield.com/api/movie/master/movie_sessions.json?centre=bondijunction&date=28-08-2013&movie_id=54
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.8
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-UA-Compatible:
+      - chrome=1
+      Content-Type:
+      - application/json; charset=utf-8
+      ETag:
+      - '"22bd52d42dc465bf35116890d30bc056"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - ba113f75-7043-46a0-8849-d8334098ffef
+      X-Runtime:
+      - '0.296038'
+      Date:
+      - Tue, 27 Aug 2013 06:42:29 GMT
+      Connection:
+      - close
+    body:
+      encoding: UTF-8
+      string: '{"movie_sessions":[{"id":10452,"movie_id":54,"store_id":22739,"start_time":"2013-08-28T10:00:00.000Z","session_type":null,"booking_url":"","centre":"bondijunction"},{"id":10448,"movie_id":54,"store_id":22739,"start_time":"2013-08-28T12:45:00.000Z","session_type":null,"booking_url":"","centre":"bondijunction"}]}'
+    http_version: 
+  recorded_at: Tue, 27 Aug 2013 06:42:29 GMT
+- request:
+    method: get
+    uri: http://movie-service.test.dbg.westfield.com/api/movie/master/movie_sessions.json?centre=bondijunction&movie_id=54
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.8
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-UA-Compatible:
+      - chrome=1
+      Content-Type:
+      - application/json; charset=utf-8
+      ETag:
+      - '"e2199baa771683bb0c6decbb2ea65b69"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 39ad2721-a3e8-494d-95f6-7d8e7e5414b6
+      X-Runtime:
+      - '0.307581'
+      Date:
+      - Tue, 27 Aug 2013 06:42:29 GMT
+      Connection:
+      - close
+    body:
+      encoding: UTF-8
+      string: '{"movie_sessions":[{"id":10444,"movie_id":54,"store_id":22739,"start_time":"2013-08-26T18:30:00.000Z","session_type":null,"booking_url":"","centre":"bondijunction"},{"id":10443,"movie_id":54,"store_id":22739,"start_time":"2013-08-27T10:00:00.000Z","session_type":null,"booking_url":"","centre":"bondijunction"},{"id":10445,"movie_id":54,"store_id":22739,"start_time":"2013-08-27T12:45:00.000Z","session_type":null,"booking_url":"","centre":"bondijunction"},{"id":10453,"movie_id":54,"store_id":22739,"start_time":"2013-08-27T18:30:00.000Z","session_type":null,"booking_url":"","centre":"bondijunction"},{"id":10452,"movie_id":54,"store_id":22739,"start_time":"2013-08-28T10:00:00.000Z","session_type":null,"booking_url":"","centre":"bondijunction"},{"id":10448,"movie_id":54,"store_id":22739,"start_time":"2013-08-28T12:45:00.000Z","session_type":null,"booking_url":"","centre":"bondijunction"},{"id":10451,"movie_id":54,"store_id":22739,"start_time":"2013-08-29T10:10:00.000Z","session_type":null,"booking_url":"","centre":"bondijunction"},{"id":10454,"movie_id":54,"store_id":22739,"start_time":"2013-08-30T13:00:00.000Z","session_type":null,"booking_url":"","centre":"bondijunction"},{"id":10449,"movie_id":54,"store_id":22739,"start_time":"2013-08-31T10:10:00.000Z","session_type":null,"booking_url":"","centre":"bondijunction"},{"id":10450,"movie_id":54,"store_id":22739,"start_time":"2013-09-01T21:40:00.000Z","session_type":null,"booking_url":"","centre":"bondijunction"},{"id":10447,"movie_id":54,"store_id":22739,"start_time":"2013-09-02T13:00:00.000Z","session_type":null,"booking_url":"","centre":"bondijunction"},{"id":10446,"movie_id":54,"store_id":22739,"start_time":"2013-09-03T10:10:00.000Z","session_type":null,"booking_url":"","centre":"bondijunction"}]}'
+    http_version: 
+  recorded_at: Tue, 27 Aug 2013 06:42:29 GMT
+- request:
+    method: get
+    uri: http://movie-service.test.dbg.westfield.com/api/movie/master/movies/54.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.8
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-UA-Compatible:
+      - chrome=1
+      Content-Type:
+      - application/json; charset=utf-8
+      ETag:
+      - '"b9c19967a6e66ecf805808954eee7567"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 8fe160e5-bde4-4dd6-b967-e3282193d330
+      X-Runtime:
+      - '0.315997'
+      Date:
+      - Tue, 27 Aug 2013 06:42:29 GMT
+      Connection:
+      - close
+    body:
+      encoding: UTF-8
+      string: '{"id":54,"title":"The Wolverine","image_url":"22b67028b630a7b93f9bbf93675146077327800b229f6e43e12da645f420c4f0.jpeg","synopsis":"Logan
+        begins a forbidden romance with a Japanese woman whose hand in marriage is,
+        unfortunately, promised to another man. This puts him into battle with her
+        father and her samurai-sword-wielding brothers and Silver Samurai.","classification":"M"}'
+    http_version: 
+  recorded_at: Tue, 27 Aug 2013 06:42:29 GMT
+- request:
+    method: get
+    uri: http://centre-service.test.dbg.westfield.com/api/centre/master/centres/bondijunction.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.8
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-UA-Compatible:
+      - chrome=1
+      Content-Type:
+      - application/json; charset=utf-8
+      ETag:
+      - '"50df756e46434baaf6e396159270652e"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - cc2e1c5c-a14d-4abd-a169-3887d702a928
+      X-Runtime:
+      - '0.455624'
+      Date:
+      - Tue, 27 Aug 2013 06:42:30 GMT
+      Connection:
+      - close
+    body:
+      encoding: UTF-8
+      string: '{"name":"Westfield Bondi Junction","short_name":"Bondi Junction","code":"bondijunction","business_unit_code":"21021","type":"premium","street_address":"500
+        Oxford St .kfndsklfjsd","state":"NSW","postcode":"2022","country":"au","phone_number":"(02)
+        9947 8000","email_address":"bondijunction@au.westfield.com","latitude":"-33.891289","longitude":"151.250815","today_opening_time":null,"today_closing_time":null,"number_of_levels":7,"micello_community":null,"facebook":null,"twitter":null,"google_plus":null,"instagram":null,"youtube":null,"retail":false,"enabled":false}'
+    http_version: 
+  recorded_at: Tue, 27 Aug 2013 06:42:30 GMT
+recorded_with: VCR 2.5.0

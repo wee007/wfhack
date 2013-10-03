@@ -1,64 +1,28 @@
-<div itemscope itemtype="http://data-vocabulary.org/Event">
+<%# Large image %>
+<%= image_tag ImageService.transform(ref: @movie.image_url, width: 550, retina: true), alt: @movie.title %>
 
-  <%# Movie details %>
-  <div class="island detail-view__divider">
+<%# movie title %>
+<h1 class="title"><%= @movie.title %></h1>
 
-    <header class="detail-view__mrg-base">
-      <%# Movie title %>
-      <h1 class="detail-view__hdr hn test-title" itemprop="summary"><%= @movie.title %></h1>
-      <%# //Movie title %>
+<%# Movie rating %>
+<p><%= @movie.classification %></p>
 
-      <%# Movie classification %>
-      <div class="detail-view__meta islet islet--top-btm detail-view__divider detail-view__divider--top-btm">
-        <em><%= @movie.classification %> rating</em>
-      </div>
-      <%# //Movie classification %>
-    </header>
+<%# movie synopsis %>
+<p><%= @movie.synopsis %></p>
 
-    <%# Movie main image %>
-    <% if @movie.cloudinary_public_id %>
-      <div class="detail-view__media detail-view__mrg-base">
-          <%= cl_image_tag(@movie.cloudinary_public_id, alt:"#{@movie.title} picture", width: 600, height: 400, crop: 'limit', format: 'jpg') %>
-      </div>
-    <% end %>
-    <%# //Movie main image %>
+<%# session day list %>
+<ul id="day_filter">
+<% days(@movie_sessions.last['start_time'], @centre.code, params['date'], @movie.id).each do |day| %>
+  <li><%= day %></li>
+<% end %>
+</ul>
 
-    <h2 class="detail-view__hdr-sub hn">Synopsis</h2>
+<%# sessions for that day %>
+<%= render partial: "session_list", locals: { time_of_day: 'am', sessions: @morning_sessions }%>
+<%= render partial: "session_list", locals: { time_of_day: 'pm', sessions: @afternoon_sessions }%>
 
-    <%# Movie synopsis %>
-    <div class="detail-view__desc">
-      <p itemprop="description"><%= @movie.synopsis %></p>
-    </div>
-    <%# //Movie synopsis %>
-
-  </div>
-  <%# //Movie details wrapper %>
-
-  <div class="detail-view__schedule island">
-    <h2 class="detail-view__hdr-sub hn">Session Times</h2>
-
-    <p>Select a session to purchase tickets at <%= @cinema.name %></p>
-
-    <%# Session times %>
-    <dl class="timeline">
-      <% @movies_sessions_by_date.each do |date, sessions| %>
-        <dt>
-          <%= date.strftime("%A") %>
-          <em class="timeline__date">
-            <span><%= date.strftime("%e") %></span> <abbr title="<%= date.strftime("%B") %>"><%= date.strftime("%b") %></abbr>
-          </em>
-        </dt>
-        <% sessions.each do |session| %>
-          <dd>
-            <a href="<%= session.booking_url %>" rel="external"><time datetime="<%= Time.parse(session.start_time).strftime("%l:%M %P") %>" itemprop="startDate"><%= Time.parse(session.start_time).strftime("%l:%M %P") %></time></a>
-            <%= "[#{session.session_type}]" if session.session_type %>
-          </dd>
-        <% end %>
-      <% end %>
-    </dl>
-    <%# //Session times %>
-
-  </div>
-  <%# //Movie details %>
-
-</div>
+<%# key %>
+<ul>
+  <li class="gold_class">Gold Class</li>
+  <li class="la_premiere">La Premiere</li>
+</ul>

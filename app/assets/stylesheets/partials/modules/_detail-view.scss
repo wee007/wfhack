@@ -24,23 +24,17 @@
   /* Adjustments at this breakpoint */
   @include respond-min($non-palm) {
     @include font-size($font-size);
-    width: $page-container-width;
+    width: 92%;
     margin-left: auto;
     margin-right: auto;
     @include to-rem(margin-top, $spacing-base);
   }
 
-  /* Set fixed width at this breakpoint */
-  @include respond-min($ipad-portrait) {
-    @include to-rem(width, 680);
-  }
-
   /* --Set fixed widths for each detail view at these breakpoints-- */
 
-  /* Override the default `.detail-view` width at iPad portrait */
+  /* Event */
   @include respond-min($ipad-portrait) {
-    &.detail-view--deal,
-    &.detail-view--product {width: $page-container-width;}
+    &.detail-view--event {@include to-rem(width, 680);}
   }
 
   /* Deal */
@@ -92,6 +86,12 @@
         @include to-rem(min-height, 313);
       }
     }
+
+  /* Descriptions (user generated content) */
+  .detail-view__desc p {@extend %mrg-base;}
+
+    /* Fine print */
+    .detail-view__desc--fine-print {@include font-size($font-size-milli, 1.5);}
 }
 
   /* --Global-- */
@@ -163,23 +163,6 @@
         /* Product */
         .detail-view--product & {left: 60%;}
       }
-  }
-
-  /* Main image */
-  .detail-view__media {text-align: center;}
-
-  /* Descriptions (user generated content) */
-  .detail-view__desc p {@extend %mrg-base;}
-
-    /* Fine print */
-    .detail-view__desc--fine-print {@include font-size($font-size-milli, 1.5);}
-
-  /* Schedule */
-  .detail-view__schedule {
-    /* Need it for creating a bigger spacing between the content and box that wraps around `detail-view` */
-    @include to-rem(padding-bottom, 32);
-
-    abbr {border-bottom: 0;}
   }
 
   /* Spacing */
@@ -378,6 +361,14 @@
   /* Event */
   .detail-view--event {
 
+    /* Main image */
+    .detail-view__media {text-align: center;}
+
+    /* Schedule */
+    .detail-view__schedule {
+      @include to-rem(padding-bottom, 40);
+    }
+
     /* Meta */
     .detail-view__meta li {
       width: 50%;
@@ -389,11 +380,4 @@
         text-align: right;
       }
     }
-  }
-
-  /* Movie */
-  .detail-view--movie {
-
-    /* Copy explaining to users how to purchase ticket */
-    .detail-view__schedule p {@extend %mrg-base;}
   }

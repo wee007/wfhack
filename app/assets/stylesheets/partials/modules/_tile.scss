@@ -33,17 +33,16 @@
   .tile__meta {
     position: relative;
     @include to-rem(min-height, $spacing-base*2);
-    @include to-rem(padding, 8 10);
+    @include to-rem(padding, 8 0);
   }
 
     /* Inner container */
     .tile__meta__inner {
-      /* Needed to create spacing for `.tile__meta__icon`. Spacing = `.tile__meta` left padding + width of `.tile__meta__icon` + spacing between `.tile__meta__icon` and the text  */
-      @include to-rem(margin-left, 25);
+      @include to-rem(margin, 0 10 0 35);
 
       /* Increase the left margin at this breakpoint */
       @include respond-min($non-palm) {
-        @include to-rem(margin-left, 30);
+        @include to-rem(margin-left, 40);
       }
     }
 
@@ -69,7 +68,6 @@
 
   /* Header */
   .tile__meta__hdr {
-    color: $color-dark-txt;
     font-weight: bold;
     @include font-size($font-size-milli, 1.5);
 
@@ -91,16 +89,17 @@
 
   }
 
-    /* Price */
-    .tile__meta__price {
-      color: $color-dark-txt;
-      font-weight: bold;
+  /* Price */
+  .tile__meta__price {
+    color: $color-dark-txt;
+    font-weight: bold;
+    @include font-size($font-size - 4, 1);
 
-      /* Make the font larger at this breakpoint, as we have the space */
-      @include respond-min($desk) {
-        @include font-size($font-size-milli, 1);
-      }
+    /* Make the font larger at this breakpoint, as we have the space */
+    @include respond-min($desk) {
+      @include font-size($font-size-milli, 1);
     }
+  }
 
   /* Controls - share/favourites */
   .tile__controls {

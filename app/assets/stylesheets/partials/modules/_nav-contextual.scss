@@ -95,7 +95,10 @@
             @include to-rem(padding-top padding-bottom, $spacing-base);
           }
 
-          /* Active state */
+          &:hover,
+          &:focus {color: $color-link-hover;}
+
+          /* When the nav item is the selected section */
           &.is-active {border-bottom-color: $color-brand;}
         }
 

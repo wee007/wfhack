@@ -1,33 +1,59 @@
-<div id='store_info'>
-  <%# retailer banner %>
-  <%= image_tag @cinema.store_front_image_url, alt:@cinema.name %>
-
-  <%# retailer logo %>
-  <img src="<%= @cinema.retailer_logo_url %>" alt="<%= @cinema.store_name %> logo">
-
-  <%# phone number %>
-  <span class="phone_number"><%= @cinema.phone_number %></span>
-
-  <%# email address %>
-  <span class="email_address"><%= @cinema.email_address %></span>
-
-  <%# Store map link? %>
-</div>
-
-<h2>Session Times</h2>
-<ul id="sessions">
-<% days(@movie_sessions.last['start_time'], @centre.code, params['date']).each do |day| %>
-  <li><%= day %></li>
+<%# Link in hero section %>
+<% content_for :hero_intro do %>
+  <div class="hero__intro">
+    <a href="<%= centre_store_path(retailer_code: @cinema.retailer_code, id: @cinema.id) %>" class="btn btn--main"><span class="icon icon--store icon--xlrg icon--spacing" aria-hidden="true"></span> Cinema Details</a>
+  </div>
 <% end %>
-</ul>
 
-<ul id="movies">
-<% @movies.each do |movie| %>
-  <li class="title">
-    <a href="<%= centre_movie_path(centre_id: @centre.code, id: movie.id) %>">
-      <%= image_tag ImageService.transform(ref: movie.image_url, width: 400, retina: true), alt: movie.title %>
-      <%= movie.title %>
-    </a>
-  </li>
-<% end %>
-</ul>
+<h2 class="hide-visually">Session Times</h2>
+
+  <%# Nav contextual %>
+  <div class="nav-contextual js-nav-contextual">
+    <div class="nav-contextual__clip">
+      <div class="nav-contextual__clip__inner">
+        <ul class="nav-contextual__list tab__nav horiz-list js-nav-contextual-list">
+          <% days(@movie_sessions.last['start_time'], @centre.code, params['date']).each do |day| %><li><%= day %></li><% end %>
+        </ul>
+      </div>
+      <span class="nav-contextual__clip__overlay icon icon--arrow-right icon--mega icon--flush-top js-nav-contextual-clip-overlay" aria-hidden="true"></span>
+    </div>
+  </div>
+
+  <% content_for :javascript do %>
+    <script>
+      $('.js-nav-contextual').navContextual();
+    </script>
+  <% end -%>
+  <%# //Nav contextual %>
+
+  <%# List of movies %>
+  <%# @movies.in_groups_of(4, false) do |movies|%>
+    <ul class="grid test-movies">
+      <% @movies.each do |movie| %>
+        <li class="grid__item one-half lap-sml-one-third non-palm-one-quarter">
+
+          <%# Movie tile %>
+          <article class="tile box" role="article">
+            <a href="<%= centre_movie_path(centre_id: @centre.code, id: movie.id) %>">
+              <div class="tile__image">
+                <% if movie.cloudinary_public_id %>
+                  <%= cl_image_tag(movie.cloudinary_public_id, alt:"#{movie.title} picture", width: 568, crop: 'limit', quality: 25, format: 'jpg') %>
+                <% else %>
+                  <%= image_tag 'placeholder-movie.jpg', alt: '', quality: 50 %>
+                <% end %>
+              </div>
+              <div class="tile__meta">
+                <h3 class="tile__meta__hdr txt-truncate test-title"><%= movie.title %></h3>
+                <%# Not implementing next session time at the moment %>
+                <%# [BACKEND] Add next session time and output the time as ISO date format (the session time in the movie feed we get) in `datetime` attribute as indicated below %>
+                <%#<p class="tile__meta__desc">Next session at <time datetime="[session time]"> Time.parse(movie.next_session.start_time).strftime("%l:%M %P (%e)") </time></p> %>
+                <p class="tile__meta__desc">View Sessions</p>
+              </div>
+            </a>
+          </article>
+          <%# //Movie tile %>
+        </li>
+      <% end %>
+    </ul>
+  <%# end %>
+  <%# //List of movies %>

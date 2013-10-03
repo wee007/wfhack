@@ -10,6 +10,25 @@
     Style Guide -> Modules -> Section Nav
 */
 
+/* --Temp styles whilst waiting for back end-- */
+.section-nav > .container--position {
+	@include to-rem(padding-top padding-bottom, $spacing-half);
+	@extend %clear-fix;
+
+	.btn--main-compact-icon-sml {
+		position: static;
+		@include translate(0, 0);
+		float: right;
+	}
+
+	@include respond-min(868) {
+		padding: 0;
+    @include to-rem(height, 65);
+  }
+}
+
+
+
 .section-nav {
 	@include font-size($font-size-sml, 1.5);
 

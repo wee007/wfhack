@@ -26,7 +26,7 @@
   /* Clip scrollable content */
   .nav-contextual__clip {
     /* Make space for the arrow on the right, the spacing needs to be smaller than `.nav-contextual__clip__overlay` */
-    .is-clipped & {@include to-rem(margin-right, $spacing-base+$spacing-half);}
+    .is-clipped & {@include to-rem(margin-right, $spacing-base);}
   }
 
     .nav-contextual__clip__inner {
@@ -53,6 +53,7 @@
         right: 0;
       }
 
+      pointer-events: none;
       top: 0;
       height: 100%;
       @include to-rem(padding-left, $spacing-dbl);
@@ -67,7 +68,7 @@
       /* Arrow icon - scrolling indicator */
       &:before {
         top: 50%;
-        @include translate(38%, -50%);
+        @include translate(28%, -50%);
       }
     }
 
@@ -118,5 +119,5 @@
   }
 
   /* Gradient that fades out the right side of the links and the scrolling indicator */
-  .nav-contextual__clip__overlay {@include linear-gradient($from: rgba($color-med-txt, 0) 0%, $to: rgba($color-med-txt, 1) 75%, $dir: right)}
+  .nav-contextual__clip__overlay {@include linear-gradient($from: rgba($color-med-txt, 0) 0%, $to: rgba($color-med-txt, 1) 50%, $dir: right, $dir-webkit: left)}
 }

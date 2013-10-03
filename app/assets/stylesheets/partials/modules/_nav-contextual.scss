@@ -95,13 +95,14 @@
             @include to-rem(padding-top padding-bottom, $spacing-base);
           }
 
-          /* Hover and focus states */
-          &:hover,
-          &:focus {color: $color-link-hover;}
-
           /* Active state */
           &.is-active {border-bottom-color: $color-brand;}
         }
+
+        /* Highlight parent item (`li`) for when hover drop downs are in view and apply link hover/focus/active states */
+        &:hover > a,
+        a:hover,
+        a:focus {color: $color-link-hover;}
       }
     }
 

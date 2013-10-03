@@ -1,8 +1,8 @@
 GIT
   remote: git@github.dbg.westfield.com:digital/service_api.git
-  revision: cd3161db7330ec9db330bfaf76961056108b6586
+  revision: 06d9ae4bbbfb664add1cd94869a52dfef99c8134
   specs:
-    service_api (0.0.4)
+    service_api (0.0.5)
       faraday
       faraday-http-cache (~> 0.2)
       faraday_middleware
@@ -75,7 +75,7 @@ GEM
       tzinfo (~> 0.3.37)
     addressable (2.3.5)
     arel (4.0.0)
-    atomic (1.1.13)
+    atomic (1.1.14)
     aws_cf_signer (0.1.2)
     builder (3.1.4)
     capybara (2.1.0)
@@ -162,12 +162,12 @@ GEM
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
     method_source (0.8.2)
-    mime-types (1.24)
+    mime-types (1.25)
     mini_portile (0.5.1)
     minitest (4.7.5)
     money (5.1.1)
       i18n (~> 0.6.0)
-    multi_json (1.7.9)
+    multi_json (1.8.0)
     multipart-post (1.2.0)
     newrelic_rpm (3.6.6.147)
     nokogiri (1.6.0)
@@ -248,7 +248,7 @@ GEM
       activesupport (>= 3.0)
       sprockets (~> 2.8)
     thor (0.18.1)
-    thread_safe (0.1.2)
+    thread_safe (0.1.3)
       atomic
     tilt (1.4.1)
     treetop (1.4.15)

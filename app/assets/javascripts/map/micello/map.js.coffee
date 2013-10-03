@@ -126,6 +126,8 @@ class map.micello.Map extends map.micello.MapBase
     gui.LEVELS_POSITION = 'right top'
     canvas.setThemeFamily(@themeFamily)
     canvas.setOverrideTheme(@customTheme)
+    canvas.MAP_FONT_MIN = "14px"
+    canvas.MAP_FONT_MAX = "14px"
 
   setTarget: ->
     @data.removeInlay("slct", true)

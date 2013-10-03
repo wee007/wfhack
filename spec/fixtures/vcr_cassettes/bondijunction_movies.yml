@@ -2,50 +2,6 @@
 http_interactions:
 - request:
     method: get
-    uri: http://store-service.test.dbg.westfield.com/api/store/master/stores/22739.json
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Faraday v0.8.8
-      Content-Type:
-      - application/json
-  response:
-    status:
-      code: 200
-      message: 
-    headers:
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-XSS-Protection:
-      - 1; mode=block
-      X-Content-Type-Options:
-      - nosniff
-      X-UA-Compatible:
-      - chrome=1
-      Content-Type:
-      - application/json; charset=utf-8
-      ETag:
-      - '"c05eff0f8ed4899891bbdb52bb2c6549"'
-      Cache-Control:
-      - max-age=0, private, must-revalidate
-      X-Request-Id:
-      - a4313878-f76b-4e64-be31-a2ebf1048f00
-      X-Runtime:
-      - '0.011937'
-      Date:
-      - Wed, 02 Oct 2013 01:37:56 GMT
-      Connection:
-      - close
-    body:
-      encoding: UTF-8
-      string: '{"id":22739,"retailer_id":473,"retailer_code":"greater-union-birch-carroll-and-coyle","centre_id":"bondijunction","description":null,"errors":{},"level":null,"level_span":null,"name":"Event
-        Cinemas","phone_number":"9300 1555","shop_number":"MGU","store_front_image_ref":"265ce72f98455edec61d6e27ab20eac07c46cc23f489a8f306adfeff94d46cd7.jpeg","url":"http://www.eventcinemas.com.au","email_address":"bondi@eventscinemas.com.au","_links":{"self":{"href":"/api/store/master/stores/22739.json"},"logo":{},"store_front":{}}}'
-    http_version: 
-  recorded_at: Wed, 02 Oct 2013 01:37:56 GMT
-- request:
-    method: get
     uri: http://centre-service.test.dbg.westfield.com/api/centre/master/centres/bondijunction.json
     body:
       encoding: US-ASCII
@@ -75,11 +31,11 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - fdca93c3-4f11-4b1a-a4ac-c4d8de7ab94f
+      - 14037220-cd4e-482b-9ff7-1ae867116305
       X-Runtime:
-      - '0.015614'
+      - '0.022952'
       Date:
-      - Wed, 02 Oct 2013 01:37:56 GMT
+      - Thu, 03 Oct 2013 02:07:37 GMT
       Connection:
       - close
     body:
@@ -88,7 +44,63 @@ http_interactions:
         Oxford St .kfndsklfjsd","suburb":"Bondi Junction","state":"NSW","postcode":"2022","country":"au","phone_number":"(02)
         9947 8000","email_address":"bondijunction@au.westfield.com","latitude":"-33.891289","longitude":"151.250815","today_opening_time":null,"today_closing_time":null,"number_of_levels":7,"micello_community":7295,"facebook":null,"twitter":null,"google_plus":null,"instagram":null,"pinterest":null,"youtube":null,"retail":false,"enabled":false}'
     http_version: 
-  recorded_at: Wed, 02 Oct 2013 01:37:56 GMT
+  recorded_at: Thu, 03 Oct 2013 02:07:37 GMT
+- request:
+    method: get
+    uri: http://movie-service.test.dbg.westfield.com/api/movie/master/movies.json?centre=bondijunction&date=03-10-2013
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.8
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-UA-Compatible:
+      - chrome=1
+      Content-Type:
+      - application/json; charset=utf-8
+      ETag:
+      - '"88d26ff8e1f8e78416b24c436a7a4951"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - f028068a-400e-4ae4-8234-a8f3cb83787a
+      X-Runtime:
+      - '0.058212'
+      Date:
+      - Thu, 03 Oct 2013 02:07:37 GMT
+      Connection:
+      - close
+    body:
+      encoding: UTF-8
+      string: '[{"id":346,"title":"Gravity","cloudinary_public_id":"v2p7ja0wafy2wdo9cuub","synopsis":"Astronauts
+        attempt to return to Earth after debris crashes into their space shuttle,
+        leaving them drifting alone in orbit.","classification":"M"},{"id":349,"title":"Rush","cloudinary_public_id":"diczdlga2hbuuf2tpllm","synopsis":"A
+        biography of Formula 1 champion driver Niki Lauda and the 1976 crash that
+        almost claimed his life. Mere weeks after the accident, he got behind the
+        wheel to challenge his rival, James Hunt.","classification":"MA"},{"id":364,"title":"Runner,
+        Runner","cloudinary_public_id":"c7e0rgfhgluluueuoiba","synopsis":"A businessman
+        who owns an offshore gambling operation finds his relationship with his protege
+        reaching a boiling point.","classification":"MA"},{"id":367,"title":"Blue
+        Jasmine","cloudinary_public_id":"h5rmrovonssfsdyo0uql","synopsis":"A New York
+        socialite, deeply troubled and in denial, arrives in San Francisco to impose
+        upon her sister.","classification":"M"},{"id":373,"title":"Gravity 3D","cloudinary_public_id":"xdvjg1cdyxymkl9pq5xc","synopsis":"Astronauts
+        attempt to return to Earth after debris crashes into their space shuttle,
+        leaving them drifting alone in orbit.","classification":"M"}]'
+    http_version: 
+  recorded_at: Thu, 03 Oct 2013 02:07:37 GMT
 - request:
     method: get
     uri: http://movie-service.test.dbg.westfield.com/api/movie/master/movie_sessions.json?centre=bondijunction
@@ -116,60 +128,36 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       ETag:
-      - '"5f11cda9d2bee05383df69622189719a"'
+      - '"377ac9caad8080b9b2da4ceb468b10f4"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - f725a5b2-1d0d-4231-aa03-7bd41948ac0a
+      - eec873cb-5429-4f2f-ae8e-248ab1a4b9b1
       X-Runtime:
-      - '0.068037'
+      - '0.075278'
       Date:
-      - Wed, 02 Oct 2013 01:37:56 GMT
+      - Thu, 03 Oct 2013 02:07:37 GMT
       Connection:
       - close
     body:
       encoding: UTF-8
-      string: '[{"id":82595,"movie_id":363,"start_time":"2013-10-02T09:30:00.000Z","session_type":"Gold
-        Class","booking_url":""},{"id":77556,"movie_id":361,"start_time":"2013-10-02T09:30:00.000Z","session_type":null,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4047090\u0026source=HWW"},{"id":83471,"movie_id":358,"start_time":"2013-10-02T09:30:00.000Z","session_type":null,"booking_url":""},{"id":83451,"movie_id":355,"start_time":"2013-10-02T09:30:00.000Z","session_type":null,"booking_url":""},{"id":83479,"movie_id":361,"start_time":"2013-10-02T09:30:00.000Z","session_type":null,"booking_url":""},{"id":77548,"movie_id":358,"start_time":"2013-10-02T09:30:00.000Z","session_type":null,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4047138\u0026source=HWW"},{"id":76614,"movie_id":363,"start_time":"2013-10-02T09:30:00.000Z","session_type":"Gold
-        Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4047074\u0026source=HWW"},{"id":77518,"movie_id":355,"start_time":"2013-10-02T09:30:00.000Z","session_type":null,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4046945\u0026source=HWW"},{"id":77528,"movie_id":357,"start_time":"2013-10-02T09:40:00.000Z","session_type":null,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4047180\u0026source=HWW"},{"id":83460,"movie_id":357,"start_time":"2013-10-02T09:40:00.000Z","session_type":null,"booking_url":""},{"id":77612,"movie_id":366,"start_time":"2013-10-02T09:45:00.000Z","session_type":null,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4046915\u0026source=HWW"},{"id":83528,"movie_id":366,"start_time":"2013-10-02T09:45:00.000Z","session_type":null,"booking_url":""},{"id":82629,"movie_id":367,"start_time":"2013-10-02T10:00:00.000Z","session_type":"Gold
-        Class","booking_url":""},{"id":77571,"movie_id":363,"start_time":"2013-10-02T10:00:00.000Z","session_type":null,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4047052\u0026source=HWW"},{"id":83539,"movie_id":367,"start_time":"2013-10-02T10:00:00.000Z","session_type":null,"booking_url":""},{"id":83500,"movie_id":363,"start_time":"2013-10-02T10:00:00.000Z","session_type":null,"booking_url":""},{"id":77627,"movie_id":367,"start_time":"2013-10-02T10:00:00.000Z","session_type":null,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4047259\u0026source=HWW"},{"id":76652,"movie_id":367,"start_time":"2013-10-02T10:00:00.000Z","session_type":"Gold
-        Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4047297\u0026source=HWW"},{"id":77540,"movie_id":358,"start_time":"2013-10-02T10:10:00.000Z","session_type":null,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4047115\u0026source=HWW"},{"id":83472,"movie_id":358,"start_time":"2013-10-02T10:10:00.000Z","session_type":null,"booking_url":""},{"id":83547,"movie_id":381,"start_time":"2013-10-02T10:30:00.000Z","session_type":null,"booking_url":""},{"id":77637,"movie_id":381,"start_time":"2013-10-02T10:30:00.000Z","session_type":null,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4046944\u0026source=HWW"},{"id":77638,"movie_id":369,"start_time":"2013-10-02T11:40:00.000Z","session_type":null,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4046990\u0026source=HWW"},{"id":83553,"movie_id":369,"start_time":"2013-10-02T11:40:00.000Z","session_type":null,"booking_url":""},{"id":77595,"movie_id":364,"start_time":"2013-10-02T11:50:00.000Z","session_type":null,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4047193\u0026source=HWW"},{"id":83515,"movie_id":364,"start_time":"2013-10-02T11:50:00.000Z","session_type":null,"booking_url":""},{"id":83452,"movie_id":355,"start_time":"2013-10-02T11:50:00.000Z","session_type":null,"booking_url":""},{"id":77524,"movie_id":355,"start_time":"2013-10-02T11:50:00.000Z","session_type":null,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4046946\u0026source=HWW"},{"id":77607,"movie_id":366,"start_time":"2013-10-02T12:00:00.000Z","session_type":null,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4046916\u0026source=HWW"},{"id":82596,"movie_id":363,"start_time":"2013-10-02T12:00:00.000Z","session_type":"Gold
-        Class","booking_url":""},{"id":76615,"movie_id":363,"start_time":"2013-10-02T12:00:00.000Z","session_type":"Gold
-        Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4047075\u0026source=HWW"},{"id":83529,"movie_id":366,"start_time":"2013-10-02T12:00:00.000Z","session_type":null,"booking_url":""},{"id":83540,"movie_id":367,"start_time":"2013-10-02T12:15:00.000Z","session_type":null,"booking_url":""},{"id":77587,"movie_id":363,"start_time":"2013-10-02T12:15:00.000Z","session_type":null,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4047053\u0026source=HWW"},{"id":83501,"movie_id":363,"start_time":"2013-10-02T12:15:00.000Z","session_type":null,"booking_url":""},{"id":77626,"movie_id":367,"start_time":"2013-10-02T12:15:00.000Z","session_type":null,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4047252\u0026source=HWW"},{"id":77531,"movie_id":357,"start_time":"2013-10-02T12:20:00.000Z","session_type":null,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4047181\u0026source=HWW"},{"id":83461,"movie_id":357,"start_time":"2013-10-02T12:20:00.000Z","session_type":null,"booking_url":""},{"id":77549,"movie_id":358,"start_time":"2013-10-02T12:30:00.000Z","session_type":null,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4047104\u0026source=HWW"},{"id":82604,"movie_id":364,"start_time":"2013-10-02T12:30:00.000Z","session_type":"Gold
-        Class","booking_url":""},{"id":76627,"movie_id":364,"start_time":"2013-10-02T12:30:00.000Z","session_type":"Gold
-        Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4047227\u0026source=HWW"},{"id":83473,"movie_id":358,"start_time":"2013-10-02T12:30:00.000Z","session_type":null,"booking_url":""},{"id":83453,"movie_id":355,"start_time":"2013-10-02T13:00:00.000Z","session_type":null,"booking_url":""},{"id":77513,"movie_id":355,"start_time":"2013-10-02T13:00:00.000Z","session_type":null,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4046963\u0026source=HWW"},{"id":83480,"movie_id":361,"start_time":"2013-10-02T13:45:00.000Z","session_type":null,"booking_url":""},{"id":77555,"movie_id":361,"start_time":"2013-10-02T13:45:00.000Z","session_type":null,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4047091\u0026source=HWW"},{"id":77519,"movie_id":355,"start_time":"2013-10-02T14:00:00.000Z","session_type":null,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4046973\u0026source=HWW"},{"id":83454,"movie_id":355,"start_time":"2013-10-02T14:00:00.000Z","session_type":null,"booking_url":""},{"id":77613,"movie_id":366,"start_time":"2013-10-02T14:20:00.000Z","session_type":null,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4046917\u0026source=HWW"},{"id":83530,"movie_id":366,"start_time":"2013-10-02T14:20:00.000Z","session_type":null,"booking_url":""},{"id":77647,"movie_id":382,"start_time":"2013-10-02T14:20:00.000Z","session_type":null,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4047003\u0026source=HWW"},{"id":83561,"movie_id":382,"start_time":"2013-10-02T14:20:00.000Z","session_type":null,"booking_url":""},{"id":76641,"movie_id":367,"start_time":"2013-10-02T14:30:00.000Z","session_type":"Gold
-        Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4047285\u0026source=HWW"},{"id":77582,"movie_id":363,"start_time":"2013-10-02T14:30:00.000Z","session_type":null,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4047054\u0026source=HWW"},{"id":77624,"movie_id":367,"start_time":"2013-10-02T14:30:00.000Z","session_type":null,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4047253\u0026source=HWW"},{"id":83502,"movie_id":363,"start_time":"2013-10-02T14:30:00.000Z","session_type":null,"booking_url":""},{"id":82630,"movie_id":367,"start_time":"2013-10-02T14:30:00.000Z","session_type":"Gold
-        Class","booking_url":""},{"id":83541,"movie_id":367,"start_time":"2013-10-02T14:30:00.000Z","session_type":null,"booking_url":""},{"id":83474,"movie_id":358,"start_time":"2013-10-02T14:40:00.000Z","session_type":null,"booking_url":""},{"id":77550,"movie_id":358,"start_time":"2013-10-02T14:40:00.000Z","session_type":null,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4047105\u0026source=HWW"},{"id":83516,"movie_id":364,"start_time":"2013-10-02T14:50:00.000Z","session_type":null,"booking_url":""},{"id":76620,"movie_id":364,"start_time":"2013-10-02T14:50:00.000Z","session_type":"Gold
-        Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4047228\u0026source=HWW"},{"id":77592,"movie_id":364,"start_time":"2013-10-02T14:50:00.000Z","session_type":null,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4047194\u0026source=HWW"},{"id":82605,"movie_id":364,"start_time":"2013-10-02T14:50:00.000Z","session_type":"Gold
-        Class","booking_url":""},{"id":77521,"movie_id":355,"start_time":"2013-10-02T15:30:00.000Z","session_type":null,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4046964\u0026source=HWW"},{"id":83455,"movie_id":355,"start_time":"2013-10-02T15:30:00.000Z","session_type":null,"booking_url":""},{"id":77507,"movie_id":354,"start_time":"2013-10-02T16:00:00.000Z","session_type":null,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4047151\u0026source=HWW"},{"id":83443,"movie_id":354,"start_time":"2013-10-02T16:00:00.000Z","session_type":null,"booking_url":""},{"id":83487,"movie_id":362,"start_time":"2013-10-02T16:30:00.000Z","session_type":null,"booking_url":""},{"id":77610,"movie_id":366,"start_time":"2013-10-02T16:30:00.000Z","session_type":null,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4046911\u0026source=HWW"},{"id":83531,"movie_id":366,"start_time":"2013-10-02T16:30:00.000Z","session_type":null,"booking_url":""},{"id":77565,"movie_id":362,"start_time":"2013-10-02T16:30:00.000Z","session_type":null,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4046895\u0026source=HWW"},{"id":83562,"movie_id":382,"start_time":"2013-10-02T16:40:00.000Z","session_type":null,"booking_url":""},{"id":77655,"movie_id":382,"start_time":"2013-10-02T16:40:00.000Z","session_type":null,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4047004\u0026source=HWW"},{"id":83503,"movie_id":363,"start_time":"2013-10-02T16:45:00.000Z","session_type":null,"booking_url":""},{"id":83554,"movie_id":369,"start_time":"2013-10-02T16:45:00.000Z","session_type":null,"booking_url":""},{"id":77579,"movie_id":363,"start_time":"2013-10-02T16:45:00.000Z","session_type":null,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4047055\u0026source=HWW"},{"id":77645,"movie_id":369,"start_time":"2013-10-02T16:45:00.000Z","session_type":null,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4046982\u0026source=HWW"},{"id":76631,"movie_id":364,"start_time":"2013-10-02T16:50:00.000Z","session_type":"Gold
-        Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4034298\u0026source=HWW"},{"id":77536,"movie_id":358,"start_time":"2013-10-02T16:50:00.000Z","session_type":null,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4047106\u0026source=HWW"},{"id":83475,"movie_id":358,"start_time":"2013-10-02T16:50:00.000Z","session_type":null,"booking_url":""},{"id":82606,"movie_id":364,"start_time":"2013-10-02T16:50:00.000Z","session_type":"Gold
-        Class","booking_url":""},{"id":76637,"movie_id":367,"start_time":"2013-10-02T17:00:00.000Z","session_type":"Gold
-        Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4034311\u0026source=HWW"},{"id":82631,"movie_id":367,"start_time":"2013-10-02T17:00:00.000Z","session_type":"Gold
-        Class","booking_url":""},{"id":77594,"movie_id":364,"start_time":"2013-10-02T17:00:00.000Z","session_type":null,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4047195\u0026source=HWW"},{"id":83517,"movie_id":364,"start_time":"2013-10-02T17:00:00.000Z","session_type":null,"booking_url":""},{"id":77633,"movie_id":380,"start_time":"2013-10-02T18:00:00.000Z","session_type":null,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4047310\u0026source=HWW"},{"id":83546,"movie_id":380,"start_time":"2013-10-02T18:00:00.000Z","session_type":null,"booking_url":""},{"id":77578,"movie_id":363,"start_time":"2013-10-02T18:45:00.000Z","session_type":null,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4047044\u0026source=HWW"},{"id":83504,"movie_id":363,"start_time":"2013-10-02T18:45:00.000Z","session_type":null,"booking_url":""},{"id":77648,"movie_id":382,"start_time":"2013-10-02T19:00:00.000Z","session_type":null,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4047002\u0026source=HWW"},{"id":83563,"movie_id":382,"start_time":"2013-10-02T19:00:00.000Z","session_type":null,"booking_url":""},{"id":77537,"movie_id":358,"start_time":"2013-10-02T19:00:00.000Z","session_type":null,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4047103\u0026source=HWW"},{"id":83555,"movie_id":369,"start_time":"2013-10-02T19:00:00.000Z","session_type":null,"booking_url":""},{"id":77640,"movie_id":369,"start_time":"2013-10-02T19:00:00.000Z","session_type":null,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4046983\u0026source=HWW"},{"id":76651,"movie_id":367,"start_time":"2013-10-02T19:00:00.000Z","session_type":"Gold
-        Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4034309\u0026source=HWW"},{"id":77491,"movie_id":349,"start_time":"2013-10-02T19:00:00.000Z","session_type":null,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4011770\u0026source=HWW"},{"id":83542,"movie_id":367,"start_time":"2013-10-02T19:00:00.000Z","session_type":null,"booking_url":""},{"id":83425,"movie_id":349,"start_time":"2013-10-02T19:00:00.000Z","session_type":null,"booking_url":""},{"id":82632,"movie_id":367,"start_time":"2013-10-02T19:00:00.000Z","session_type":"Gold
-        Class","booking_url":""},{"id":77629,"movie_id":367,"start_time":"2013-10-02T19:00:00.000Z","session_type":null,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4047276\u0026source=HWW"},{"id":83476,"movie_id":358,"start_time":"2013-10-02T19:00:00.000Z","session_type":null,"booking_url":""},{"id":77597,"movie_id":364,"start_time":"2013-10-02T19:15:00.000Z","session_type":null,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4047196\u0026source=HWW"},{"id":83518,"movie_id":364,"start_time":"2013-10-02T19:15:00.000Z","session_type":null,"booking_url":""},{"id":76622,"movie_id":364,"start_time":"2013-10-02T19:30:00.000Z","session_type":"Gold
-        Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4034301\u0026source=HWW"},{"id":82607,"movie_id":364,"start_time":"2013-10-02T19:30:00.000Z","session_type":"Gold
-        Class","booking_url":""},{"id":77573,"movie_id":363,"start_time":"2013-10-02T20:45:00.000Z","session_type":null,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4047035\u0026source=HWW"},{"id":83505,"movie_id":363,"start_time":"2013-10-02T20:45:00.000Z","session_type":null,"booking_url":""},{"id":83444,"movie_id":354,"start_time":"2013-10-02T21:00:00.000Z","session_type":null,"booking_url":""},{"id":77505,"movie_id":354,"start_time":"2013-10-02T21:00:00.000Z","session_type":null,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4047152\u0026source=HWW"},{"id":77501,"movie_id":375,"start_time":"2013-10-02T21:15:00.000Z","session_type":null,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4047248\u0026source=HWW"},{"id":77605,"movie_id":365,"start_time":"2013-10-02T21:15:00.000Z","session_type":null,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4047142\u0026source=HWW"},{"id":77630,"movie_id":367,"start_time":"2013-10-02T21:15:00.000Z","session_type":null,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4047277\u0026source=HWW"},{"id":83436,"movie_id":375,"start_time":"2013-10-02T21:15:00.000Z","session_type":null,"booking_url":""},{"id":76648,"movie_id":367,"start_time":"2013-10-02T21:15:00.000Z","session_type":"Gold
-        Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4047286\u0026source=HWW"},{"id":83522,"movie_id":365,"start_time":"2013-10-02T21:15:00.000Z","session_type":null,"booking_url":""},{"id":83543,"movie_id":367,"start_time":"2013-10-02T21:15:00.000Z","session_type":null,"booking_url":""},{"id":82633,"movie_id":367,"start_time":"2013-10-02T21:15:00.000Z","session_type":"Gold
-        Class","booking_url":""},{"id":83462,"movie_id":357,"start_time":"2013-10-02T21:20:00.000Z","session_type":null,"booking_url":""},{"id":77530,"movie_id":357,"start_time":"2013-10-02T21:20:00.000Z","session_type":null,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4047171\u0026source=HWW"},{"id":77563,"movie_id":362,"start_time":"2013-10-02T21:30:00.000Z","session_type":null,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4046896\u0026source=HWW"},{"id":83488,"movie_id":362,"start_time":"2013-10-02T21:30:00.000Z","session_type":null,"booking_url":""},{"id":83519,"movie_id":364,"start_time":"2013-10-02T21:40:00.000Z","session_type":null,"booking_url":""},{"id":77600,"movie_id":364,"start_time":"2013-10-02T21:40:00.000Z","session_type":null,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4047197\u0026source=HWW"},{"id":83506,"movie_id":363,"start_time":"2013-10-02T21:40:00.000Z","session_type":null,"booking_url":""},{"id":77568,"movie_id":363,"start_time":"2013-10-02T21:40:00.000Z","session_type":null,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4047045\u0026source=HWW"},{"id":76623,"movie_id":364,"start_time":"2013-10-02T21:40:00.000Z","session_type":"Gold
-        Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4047224\u0026source=HWW"},{"id":82608,"movie_id":364,"start_time":"2013-10-02T21:40:00.000Z","session_type":"Gold
-        Class","booking_url":""},{"id":82609,"movie_id":364,"start_time":"2013-10-03T10:00:00.000Z","session_type":"Gold
+      string: '[{"id":82609,"movie_id":364,"start_time":"2013-10-03T10:00:00.000Z","session_type":"Gold
         Class","booking_url":""},{"id":82634,"movie_id":367,"start_time":"2013-10-03T10:30:00.000Z","session_type":"Gold
+        Class","booking_url":""},{"id":82581,"movie_id":349,"start_time":"2013-10-03T12:00:00.000Z","session_type":"Gold
         Class","booking_url":""},{"id":76604,"movie_id":349,"start_time":"2013-10-03T12:00:00.000Z","session_type":"Gold
-        Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4056108\u0026source=HWW"},{"id":82581,"movie_id":349,"start_time":"2013-10-03T12:00:00.000Z","session_type":"Gold
-        Class","booking_url":""},{"id":82569,"movie_id":346,"start_time":"2013-10-03T12:45:00.000Z","session_type":"Gold
-        Class","booking_url":""},{"id":82652,"movie_id":373,"start_time":"2013-10-03T14:40:00.000Z","session_type":"Gold
+        Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4056108\u0026source=HWW"},{"id":82569,"movie_id":346,"start_time":"2013-10-03T12:45:00.000Z","session_type":"Gold
         Class","booking_url":""},{"id":76664,"movie_id":373,"start_time":"2013-10-03T14:40:00.000Z","session_type":"Gold
-        Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4056111\u0026source=HWW"},{"id":82635,"movie_id":367,"start_time":"2013-10-03T15:00:00.000Z","session_type":"Gold
-        Class","booking_url":""},{"id":83426,"movie_id":349,"start_time":"2013-10-03T16:00:00.000Z","session_type":null,"booking_url":""},{"id":77495,"movie_id":349,"start_time":"2013-10-03T16:00:00.000Z","session_type":null,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4014002\u0026source=HWW"},{"id":77488,"movie_id":346,"start_time":"2013-10-03T16:45:00.000Z","session_type":null,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4014011\u0026source=HWW"},{"id":83421,"movie_id":346,"start_time":"2013-10-03T16:45:00.000Z","session_type":null,"booking_url":""},{"id":82653,"movie_id":373,"start_time":"2013-10-03T16:50:00.000Z","session_type":"Gold
+        Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4056111\u0026source=HWW"},{"id":82652,"movie_id":373,"start_time":"2013-10-03T14:40:00.000Z","session_type":"Gold
+        Class","booking_url":""},{"id":82635,"movie_id":367,"start_time":"2013-10-03T15:00:00.000Z","session_type":"Gold
+        Class","booking_url":""},{"id":77495,"movie_id":349,"start_time":"2013-10-03T16:00:00.000Z","session_type":null,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4014002\u0026source=HWW"},{"id":83426,"movie_id":349,"start_time":"2013-10-03T16:00:00.000Z","session_type":null,"booking_url":""},{"id":77488,"movie_id":346,"start_time":"2013-10-03T16:45:00.000Z","session_type":null,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4014011\u0026source=HWW"},{"id":83421,"movie_id":346,"start_time":"2013-10-03T16:45:00.000Z","session_type":null,"booking_url":""},{"id":82653,"movie_id":373,"start_time":"2013-10-03T16:50:00.000Z","session_type":"Gold
         Class","booking_url":""},{"id":82610,"movie_id":364,"start_time":"2013-10-03T17:20:00.000Z","session_type":"Gold
-        Class","booking_url":""},{"id":83427,"movie_id":349,"start_time":"2013-10-03T18:45:00.000Z","session_type":null,"booking_url":""},{"id":77494,"movie_id":349,"start_time":"2013-10-03T18:45:00.000Z","session_type":null,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4014003\u0026source=HWW"},{"id":82636,"movie_id":367,"start_time":"2013-10-03T19:00:00.000Z","session_type":"Gold
-        Class","booking_url":""},{"id":77659,"movie_id":373,"start_time":"2013-10-03T19:00:00.000Z","session_type":null,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4014015\u0026source=HWW"},{"id":76649,"movie_id":367,"start_time":"2013-10-03T19:00:00.000Z","session_type":"Gold
-        Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4056095\u0026source=HWW"},{"id":83564,"movie_id":373,"start_time":"2013-10-03T19:00:00.000Z","session_type":null,"booking_url":""},{"id":82654,"movie_id":373,"start_time":"2013-10-03T19:30:00.000Z","session_type":"Gold
+        Class","booking_url":""},{"id":77494,"movie_id":349,"start_time":"2013-10-03T18:45:00.000Z","session_type":null,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4014003\u0026source=HWW"},{"id":83427,"movie_id":349,"start_time":"2013-10-03T18:45:00.000Z","session_type":null,"booking_url":""},{"id":82636,"movie_id":367,"start_time":"2013-10-03T19:00:00.000Z","session_type":"Gold
+        Class","booking_url":""},{"id":76649,"movie_id":367,"start_time":"2013-10-03T19:00:00.000Z","session_type":"Gold
+        Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4056095\u0026source=HWW"},{"id":83564,"movie_id":373,"start_time":"2013-10-03T19:00:00.000Z","session_type":null,"booking_url":""},{"id":77659,"movie_id":373,"start_time":"2013-10-03T19:00:00.000Z","session_type":null,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4014015\u0026source=HWW"},{"id":82654,"movie_id":373,"start_time":"2013-10-03T19:30:00.000Z","session_type":"Gold
         Class","booking_url":""},{"id":76657,"movie_id":373,"start_time":"2013-10-03T19:30:00.000Z","session_type":"Gold
-        Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4056112\u0026source=HWW"},{"id":82582,"movie_id":349,"start_time":"2013-10-03T21:20:00.000Z","session_type":"Gold
-        Class","booking_url":""},{"id":76609,"movie_id":349,"start_time":"2013-10-03T21:20:00.000Z","session_type":"Gold
-        Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4056109\u0026source=HWW"},{"id":82570,"movie_id":346,"start_time":"2013-10-03T21:40:00.000Z","session_type":"Gold
+        Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4056112\u0026source=HWW"},{"id":76609,"movie_id":349,"start_time":"2013-10-03T21:20:00.000Z","session_type":"Gold
+        Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4056109\u0026source=HWW"},{"id":82582,"movie_id":349,"start_time":"2013-10-03T21:20:00.000Z","session_type":"Gold
+        Class","booking_url":""},{"id":82570,"movie_id":346,"start_time":"2013-10-03T21:40:00.000Z","session_type":"Gold
         Class","booking_url":""},{"id":82611,"movie_id":364,"start_time":"2013-10-04T10:00:00.000Z","session_type":"Gold
         Class","booking_url":""},{"id":82637,"movie_id":367,"start_time":"2013-10-04T10:30:00.000Z","session_type":"Gold
         Class","booking_url":""},{"id":82583,"movie_id":349,"start_time":"2013-10-04T12:00:00.000Z","session_type":"Gold
@@ -178,74 +166,74 @@ http_interactions:
         Class","booking_url":""},{"id":82655,"movie_id":373,"start_time":"2013-10-04T14:40:00.000Z","session_type":"Gold
         Class","booking_url":""},{"id":76663,"movie_id":373,"start_time":"2013-10-04T14:40:00.000Z","session_type":"Gold
         Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4056116\u0026source=HWW"},{"id":82638,"movie_id":367,"start_time":"2013-10-04T15:00:00.000Z","session_type":"Gold
-        Class","booking_url":""},{"id":77492,"movie_id":349,"start_time":"2013-10-04T16:00:00.000Z","session_type":null,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4014004\u0026source=HWW"},{"id":83428,"movie_id":349,"start_time":"2013-10-04T16:00:00.000Z","session_type":null,"booking_url":""},{"id":77487,"movie_id":346,"start_time":"2013-10-04T16:45:00.000Z","session_type":null,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4014012\u0026source=HWW"},{"id":83422,"movie_id":346,"start_time":"2013-10-04T16:45:00.000Z","session_type":null,"booking_url":""},{"id":82656,"movie_id":373,"start_time":"2013-10-04T16:50:00.000Z","session_type":"Gold
+        Class","booking_url":""},{"id":83428,"movie_id":349,"start_time":"2013-10-04T16:00:00.000Z","session_type":null,"booking_url":""},{"id":77492,"movie_id":349,"start_time":"2013-10-04T16:00:00.000Z","session_type":null,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4014004\u0026source=HWW"},{"id":77487,"movie_id":346,"start_time":"2013-10-04T16:45:00.000Z","session_type":null,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4014012\u0026source=HWW"},{"id":83422,"movie_id":346,"start_time":"2013-10-04T16:45:00.000Z","session_type":null,"booking_url":""},{"id":82656,"movie_id":373,"start_time":"2013-10-04T16:50:00.000Z","session_type":"Gold
         Class","booking_url":""},{"id":82612,"movie_id":364,"start_time":"2013-10-04T17:20:00.000Z","session_type":"Gold
-        Class","booking_url":""},{"id":83429,"movie_id":349,"start_time":"2013-10-04T18:45:00.000Z","session_type":null,"booking_url":""},{"id":77498,"movie_id":349,"start_time":"2013-10-04T18:45:00.000Z","session_type":null,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4014005\u0026source=HWW"},{"id":82639,"movie_id":367,"start_time":"2013-10-04T19:00:00.000Z","session_type":"Gold
+        Class","booking_url":""},{"id":77498,"movie_id":349,"start_time":"2013-10-04T18:45:00.000Z","session_type":null,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4014005\u0026source=HWW"},{"id":83429,"movie_id":349,"start_time":"2013-10-04T18:45:00.000Z","session_type":null,"booking_url":""},{"id":82639,"movie_id":367,"start_time":"2013-10-04T19:00:00.000Z","session_type":"Gold
         Class","booking_url":""},{"id":83565,"movie_id":373,"start_time":"2013-10-04T19:00:00.000Z","session_type":null,"booking_url":""},{"id":77658,"movie_id":373,"start_time":"2013-10-04T19:00:00.000Z","session_type":null,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4014016\u0026source=HWW"},{"id":76650,"movie_id":367,"start_time":"2013-10-04T19:00:00.000Z","session_type":"Gold
-        Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4056096\u0026source=HWW"},{"id":76654,"movie_id":373,"start_time":"2013-10-04T19:30:00.000Z","session_type":"Gold
-        Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4056120\u0026source=HWW"},{"id":82657,"movie_id":373,"start_time":"2013-10-04T19:30:00.000Z","session_type":"Gold
+        Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4056096\u0026source=HWW"},{"id":82657,"movie_id":373,"start_time":"2013-10-04T19:30:00.000Z","session_type":"Gold
+        Class","booking_url":""},{"id":76654,"movie_id":373,"start_time":"2013-10-04T19:30:00.000Z","session_type":"Gold
+        Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4056120\u0026source=HWW"},{"id":82584,"movie_id":349,"start_time":"2013-10-04T21:20:00.000Z","session_type":"Gold
         Class","booking_url":""},{"id":76608,"movie_id":349,"start_time":"2013-10-04T21:20:00.000Z","session_type":"Gold
-        Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4056102\u0026source=HWW"},{"id":82584,"movie_id":349,"start_time":"2013-10-04T21:20:00.000Z","session_type":"Gold
-        Class","booking_url":""},{"id":82572,"movie_id":346,"start_time":"2013-10-04T21:40:00.000Z","session_type":"Gold
+        Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4056102\u0026source=HWW"},{"id":82572,"movie_id":346,"start_time":"2013-10-04T21:40:00.000Z","session_type":"Gold
         Class","booking_url":""},{"id":82613,"movie_id":364,"start_time":"2013-10-05T10:00:00.000Z","session_type":"Gold
         Class","booking_url":""},{"id":82640,"movie_id":367,"start_time":"2013-10-05T10:30:00.000Z","session_type":"Gold
-        Class","booking_url":""},{"id":82585,"movie_id":349,"start_time":"2013-10-05T12:00:00.000Z","session_type":"Gold
         Class","booking_url":""},{"id":76612,"movie_id":349,"start_time":"2013-10-05T12:00:00.000Z","session_type":"Gold
-        Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4056103\u0026source=HWW"},{"id":82573,"movie_id":346,"start_time":"2013-10-05T12:45:00.000Z","session_type":"Gold
-        Class","booking_url":""},{"id":82658,"movie_id":373,"start_time":"2013-10-05T14:40:00.000Z","session_type":"Gold
+        Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4056103\u0026source=HWW"},{"id":82585,"movie_id":349,"start_time":"2013-10-05T12:00:00.000Z","session_type":"Gold
+        Class","booking_url":""},{"id":82573,"movie_id":346,"start_time":"2013-10-05T12:45:00.000Z","session_type":"Gold
         Class","booking_url":""},{"id":76661,"movie_id":373,"start_time":"2013-10-05T14:40:00.000Z","session_type":"Gold
-        Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4056117\u0026source=HWW"},{"id":82641,"movie_id":367,"start_time":"2013-10-05T15:00:00.000Z","session_type":"Gold
+        Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4056117\u0026source=HWW"},{"id":82658,"movie_id":373,"start_time":"2013-10-05T14:40:00.000Z","session_type":"Gold
+        Class","booking_url":""},{"id":82641,"movie_id":367,"start_time":"2013-10-05T15:00:00.000Z","session_type":"Gold
         Class","booking_url":""},{"id":83430,"movie_id":349,"start_time":"2013-10-05T16:00:00.000Z","session_type":null,"booking_url":""},{"id":77490,"movie_id":349,"start_time":"2013-10-05T16:00:00.000Z","session_type":null,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4014006\u0026source=HWW"},{"id":83423,"movie_id":346,"start_time":"2013-10-05T16:45:00.000Z","session_type":null,"booking_url":""},{"id":77489,"movie_id":346,"start_time":"2013-10-05T16:45:00.000Z","session_type":null,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4014013\u0026source=HWW"},{"id":82659,"movie_id":373,"start_time":"2013-10-05T16:50:00.000Z","session_type":"Gold
         Class","booking_url":""},{"id":82614,"movie_id":364,"start_time":"2013-10-05T17:20:00.000Z","session_type":"Gold
         Class","booking_url":""},{"id":77497,"movie_id":349,"start_time":"2013-10-05T18:45:00.000Z","session_type":null,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4014007\u0026source=HWW"},{"id":83431,"movie_id":349,"start_time":"2013-10-05T18:45:00.000Z","session_type":null,"booking_url":""},{"id":76635,"movie_id":367,"start_time":"2013-10-05T19:00:00.000Z","session_type":"Gold
-        Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4056097\u0026source=HWW"},{"id":82642,"movie_id":367,"start_time":"2013-10-05T19:00:00.000Z","session_type":"Gold
-        Class","booking_url":""},{"id":77656,"movie_id":373,"start_time":"2013-10-05T19:00:00.000Z","session_type":null,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4014017\u0026source=HWW"},{"id":83566,"movie_id":373,"start_time":"2013-10-05T19:00:00.000Z","session_type":null,"booking_url":""},{"id":76655,"movie_id":373,"start_time":"2013-10-05T19:30:00.000Z","session_type":"Gold
-        Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4056121\u0026source=HWW"},{"id":82660,"movie_id":373,"start_time":"2013-10-05T19:30:00.000Z","session_type":"Gold
-        Class","booking_url":""},{"id":76605,"movie_id":349,"start_time":"2013-10-05T21:20:00.000Z","session_type":"Gold
+        Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4056097\u0026source=HWW"},{"id":77656,"movie_id":373,"start_time":"2013-10-05T19:00:00.000Z","session_type":null,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4014017\u0026source=HWW"},{"id":83566,"movie_id":373,"start_time":"2013-10-05T19:00:00.000Z","session_type":null,"booking_url":""},{"id":82642,"movie_id":367,"start_time":"2013-10-05T19:00:00.000Z","session_type":"Gold
+        Class","booking_url":""},{"id":82660,"movie_id":373,"start_time":"2013-10-05T19:30:00.000Z","session_type":"Gold
+        Class","booking_url":""},{"id":76655,"movie_id":373,"start_time":"2013-10-05T19:30:00.000Z","session_type":"Gold
+        Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4056121\u0026source=HWW"},{"id":76605,"movie_id":349,"start_time":"2013-10-05T21:20:00.000Z","session_type":"Gold
         Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4056104\u0026source=HWW"},{"id":82586,"movie_id":349,"start_time":"2013-10-05T21:20:00.000Z","session_type":"Gold
         Class","booking_url":""},{"id":82574,"movie_id":346,"start_time":"2013-10-05T21:40:00.000Z","session_type":"Gold
         Class","booking_url":""},{"id":82615,"movie_id":364,"start_time":"2013-10-06T10:00:00.000Z","session_type":"Gold
         Class","booking_url":""},{"id":82643,"movie_id":367,"start_time":"2013-10-06T10:30:00.000Z","session_type":"Gold
+        Class","booking_url":""},{"id":82587,"movie_id":349,"start_time":"2013-10-06T12:00:00.000Z","session_type":"Gold
         Class","booking_url":""},{"id":76610,"movie_id":349,"start_time":"2013-10-06T12:00:00.000Z","session_type":"Gold
-        Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4056105\u0026source=HWW"},{"id":82587,"movie_id":349,"start_time":"2013-10-06T12:00:00.000Z","session_type":"Gold
-        Class","booking_url":""},{"id":82575,"movie_id":346,"start_time":"2013-10-06T12:45:00.000Z","session_type":"Gold
-        Class","booking_url":""},{"id":82661,"movie_id":373,"start_time":"2013-10-06T14:40:00.000Z","session_type":"Gold
+        Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4056105\u0026source=HWW"},{"id":82575,"movie_id":346,"start_time":"2013-10-06T12:45:00.000Z","session_type":"Gold
         Class","booking_url":""},{"id":76660,"movie_id":373,"start_time":"2013-10-06T14:40:00.000Z","session_type":"Gold
-        Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4056118\u0026source=HWW"},{"id":82644,"movie_id":367,"start_time":"2013-10-06T15:00:00.000Z","session_type":"Gold
+        Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4056118\u0026source=HWW"},{"id":82661,"movie_id":373,"start_time":"2013-10-06T14:40:00.000Z","session_type":"Gold
+        Class","booking_url":""},{"id":82644,"movie_id":367,"start_time":"2013-10-06T15:00:00.000Z","session_type":"Gold
         Class","booking_url":""},{"id":77493,"movie_id":349,"start_time":"2013-10-06T16:00:00.000Z","session_type":null,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4014008\u0026source=HWW"},{"id":83432,"movie_id":349,"start_time":"2013-10-06T16:00:00.000Z","session_type":null,"booking_url":""},{"id":83424,"movie_id":346,"start_time":"2013-10-06T16:45:00.000Z","session_type":null,"booking_url":""},{"id":77486,"movie_id":346,"start_time":"2013-10-06T16:45:00.000Z","session_type":null,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4014010\u0026source=HWW"},{"id":82662,"movie_id":373,"start_time":"2013-10-06T16:50:00.000Z","session_type":"Gold
         Class","booking_url":""},{"id":82616,"movie_id":364,"start_time":"2013-10-06T17:20:00.000Z","session_type":"Gold
-        Class","booking_url":""},{"id":77496,"movie_id":349,"start_time":"2013-10-06T18:45:00.000Z","session_type":null,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4014009\u0026source=HWW"},{"id":83433,"movie_id":349,"start_time":"2013-10-06T18:45:00.000Z","session_type":null,"booking_url":""},{"id":82645,"movie_id":367,"start_time":"2013-10-06T19:00:00.000Z","session_type":"Gold
-        Class","booking_url":""},{"id":76633,"movie_id":367,"start_time":"2013-10-06T19:00:00.000Z","session_type":"Gold
-        Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4056098\u0026source=HWW"},{"id":83567,"movie_id":373,"start_time":"2013-10-06T19:00:00.000Z","session_type":null,"booking_url":""},{"id":77657,"movie_id":373,"start_time":"2013-10-06T19:00:00.000Z","session_type":null,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4014014\u0026source=HWW"},{"id":82663,"movie_id":373,"start_time":"2013-10-06T19:30:00.000Z","session_type":"Gold
+        Class","booking_url":""},{"id":77496,"movie_id":349,"start_time":"2013-10-06T18:45:00.000Z","session_type":null,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4014009\u0026source=HWW"},{"id":83433,"movie_id":349,"start_time":"2013-10-06T18:45:00.000Z","session_type":null,"booking_url":""},{"id":77657,"movie_id":373,"start_time":"2013-10-06T19:00:00.000Z","session_type":null,"booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4014014\u0026source=HWW"},{"id":83567,"movie_id":373,"start_time":"2013-10-06T19:00:00.000Z","session_type":null,"booking_url":""},{"id":76633,"movie_id":367,"start_time":"2013-10-06T19:00:00.000Z","session_type":"Gold
+        Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4056098\u0026source=HWW"},{"id":82645,"movie_id":367,"start_time":"2013-10-06T19:00:00.000Z","session_type":"Gold
+        Class","booking_url":""},{"id":82663,"movie_id":373,"start_time":"2013-10-06T19:30:00.000Z","session_type":"Gold
         Class","booking_url":""},{"id":76665,"movie_id":373,"start_time":"2013-10-06T19:30:00.000Z","session_type":"Gold
         Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4056113\u0026source=HWW"},{"id":82588,"movie_id":349,"start_time":"2013-10-06T21:20:00.000Z","session_type":"Gold
         Class","booking_url":""},{"id":76602,"movie_id":349,"start_time":"2013-10-06T21:20:00.000Z","session_type":"Gold
         Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4056106\u0026source=HWW"},{"id":82576,"movie_id":346,"start_time":"2013-10-06T21:40:00.000Z","session_type":"Gold
         Class","booking_url":""},{"id":82617,"movie_id":364,"start_time":"2013-10-07T10:00:00.000Z","session_type":"Gold
         Class","booking_url":""},{"id":82646,"movie_id":367,"start_time":"2013-10-07T10:30:00.000Z","session_type":"Gold
+        Class","booking_url":""},{"id":82589,"movie_id":349,"start_time":"2013-10-07T12:00:00.000Z","session_type":"Gold
         Class","booking_url":""},{"id":76607,"movie_id":349,"start_time":"2013-10-07T12:00:00.000Z","session_type":"Gold
-        Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4056107\u0026source=HWW"},{"id":82589,"movie_id":349,"start_time":"2013-10-07T12:00:00.000Z","session_type":"Gold
-        Class","booking_url":""},{"id":82577,"movie_id":346,"start_time":"2013-10-07T12:45:00.000Z","session_type":"Gold
+        Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4056107\u0026source=HWW"},{"id":82577,"movie_id":346,"start_time":"2013-10-07T12:45:00.000Z","session_type":"Gold
         Class","booking_url":""},{"id":76659,"movie_id":373,"start_time":"2013-10-07T14:40:00.000Z","session_type":"Gold
         Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4056119\u0026source=HWW"},{"id":82664,"movie_id":373,"start_time":"2013-10-07T14:40:00.000Z","session_type":"Gold
         Class","booking_url":""},{"id":82647,"movie_id":367,"start_time":"2013-10-07T15:00:00.000Z","session_type":"Gold
         Class","booking_url":""},{"id":82665,"movie_id":373,"start_time":"2013-10-07T16:50:00.000Z","session_type":"Gold
         Class","booking_url":""},{"id":82618,"movie_id":364,"start_time":"2013-10-07T17:20:00.000Z","session_type":"Gold
-        Class","booking_url":""},{"id":82648,"movie_id":367,"start_time":"2013-10-07T19:00:00.000Z","session_type":"Gold
         Class","booking_url":""},{"id":76645,"movie_id":367,"start_time":"2013-10-07T19:00:00.000Z","session_type":"Gold
-        Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4056099\u0026source=HWW"},{"id":76662,"movie_id":373,"start_time":"2013-10-07T19:30:00.000Z","session_type":"Gold
+        Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4056099\u0026source=HWW"},{"id":82648,"movie_id":367,"start_time":"2013-10-07T19:00:00.000Z","session_type":"Gold
+        Class","booking_url":""},{"id":76662,"movie_id":373,"start_time":"2013-10-07T19:30:00.000Z","session_type":"Gold
         Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4056114\u0026source=HWW"},{"id":82666,"movie_id":373,"start_time":"2013-10-07T19:30:00.000Z","session_type":"Gold
-        Class","booking_url":""},{"id":82590,"movie_id":349,"start_time":"2013-10-07T21:20:00.000Z","session_type":"Gold
         Class","booking_url":""},{"id":76601,"movie_id":349,"start_time":"2013-10-07T21:20:00.000Z","session_type":"Gold
-        Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4056100\u0026source=HWW"},{"id":82578,"movie_id":346,"start_time":"2013-10-07T21:40:00.000Z","session_type":"Gold
+        Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4056100\u0026source=HWW"},{"id":82590,"movie_id":349,"start_time":"2013-10-07T21:20:00.000Z","session_type":"Gold
+        Class","booking_url":""},{"id":82578,"movie_id":346,"start_time":"2013-10-07T21:40:00.000Z","session_type":"Gold
         Class","booking_url":""},{"id":82619,"movie_id":364,"start_time":"2013-10-08T10:00:00.000Z","session_type":"Gold
         Class","booking_url":""},{"id":82649,"movie_id":367,"start_time":"2013-10-08T10:30:00.000Z","session_type":"Gold
         Class","booking_url":""},{"id":82591,"movie_id":349,"start_time":"2013-10-08T12:00:00.000Z","session_type":"Gold
         Class","booking_url":""},{"id":76606,"movie_id":349,"start_time":"2013-10-08T12:00:00.000Z","session_type":"Gold
         Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4056124\u0026source=HWW"},{"id":82579,"movie_id":346,"start_time":"2013-10-08T12:45:00.000Z","session_type":"Gold
-        Class","booking_url":""},{"id":82667,"movie_id":373,"start_time":"2013-10-08T14:40:00.000Z","session_type":"Gold
         Class","booking_url":""},{"id":76656,"movie_id":373,"start_time":"2013-10-08T14:40:00.000Z","session_type":"Gold
-        Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4056127\u0026source=HWW"},{"id":82650,"movie_id":367,"start_time":"2013-10-08T15:00:00.000Z","session_type":"Gold
+        Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4056127\u0026source=HWW"},{"id":82667,"movie_id":373,"start_time":"2013-10-08T14:40:00.000Z","session_type":"Gold
+        Class","booking_url":""},{"id":82650,"movie_id":367,"start_time":"2013-10-08T15:00:00.000Z","session_type":"Gold
         Class","booking_url":""},{"id":82668,"movie_id":373,"start_time":"2013-10-08T16:50:00.000Z","session_type":"Gold
         Class","booking_url":""},{"id":82620,"movie_id":364,"start_time":"2013-10-08T17:20:00.000Z","session_type":"Gold
         Class","booking_url":""},{"id":76642,"movie_id":367,"start_time":"2013-10-08T19:00:00.000Z","session_type":"Gold
@@ -257,10 +245,10 @@ http_interactions:
         Class","booking_url":"http://www.eventcinemas.com.au/ticket/Create?sessionId=4056125\u0026source=HWW"},{"id":82580,"movie_id":346,"start_time":"2013-10-08T21:40:00.000Z","session_type":"Gold
         Class","booking_url":""}]'
     http_version: 
-  recorded_at: Wed, 02 Oct 2013 01:37:56 GMT
+  recorded_at: Thu, 03 Oct 2013 02:07:37 GMT
 - request:
     method: get
-    uri: http://movie-service.test.dbg.westfield.com/api/movie/master/movies.json?centre=bondijunction&date=02-10-2013
+    uri: http://store-service.test.dbg.westfield.com/api/store/master/stores/22739.json
     body:
       encoding: US-ASCII
       string: ''
@@ -285,77 +273,21 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       ETag:
-      - '"d30d74f1f43d16df543d65a538dbe858"'
+      - '"c05eff0f8ed4899891bbdb52bb2c6549"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 9c83fa4e-4879-4982-9282-e2b01c235638
+      - 79a51d93-fc99-4a43-8868-9ab9ed264e55
       X-Runtime:
-      - '0.089054'
+      - '0.514775'
       Date:
-      - Wed, 02 Oct 2013 01:37:56 GMT
+      - Thu, 03 Oct 2013 02:07:39 GMT
       Connection:
       - close
     body:
       encoding: UTF-8
-      string: '[{"id":349,"title":"Rush","cloudinary_public_id":"diczdlga2hbuuf2tpllm","synopsis":"A
-        biography of Formula 1 champion driver Niki Lauda and the 1976 crash that
-        almost claimed his life. Mere weeks after the accident, he got behind the
-        wheel to challenge his rival, James Hunt.","classification":"MA"},{"id":354,"title":"White
-        House Down","cloudinary_public_id":"pb4q5cf5xzjvnfbvh346","synopsis":"A Secret
-        Service agent is tasked with saving the life of the U.S. President after the
-        White House is overtaken by a paramilitary group.","classification":"M"},{"id":355,"title":"The
-        Smurfs 2","cloudinary_public_id":"djmrp9ugx4e6ejvefx7a","synopsis":"The Smurfs
-        team up with their human friends to rescue Smurfette, who has been kidnapped
-        by Gargamel since she knows a secret spell that can turn the evil sorcerer''s
-        newest creation - creatures called the Naughties - into real Smurfs.","classification":"G"},{"id":357,"title":"Percy
-        Jackson: Sea Of Monsters","cloudinary_public_id":"v8fwirmqdv7ustomjeyc","synopsis":"The
-        son of Poseidon and his friends head into the Sea of Monsters to find the
-        mythical Golden Fleece.","classification":"PG"},{"id":358,"title":"Turbo","cloudinary_public_id":"dvfzfq51gzw9xlera7xo","synopsis":"A
-        garden snail with dreams of becoming the fastest snail in the world experiences
-        a freak accident that might just allow him to realize his goal.","classification":"G"},{"id":361,"title":"One
-        Direction: This Is Us","cloudinary_public_id":"pbsvze4migomyswda7qy","synopsis":"An
-        \"all-access\" pass to British pop sensation One Direction on tour and live
-        in concert at London''s O2 Arena, helmed by Morgan Spurlock (Super Size Me).
-        Also shows Niall, Zayn, Liam, Harry and Louis'' meteoric rise to fame, from
-        their humble beginnings and competing on X-Factor, to pop-world domination.","classification":"PG"},{"id":362,"title":"Now
-        You See Me","cloudinary_public_id":"qrvpvrn3bhabogf6mtgd","synopsis":"Pits
-        an elite FBI squad in a game of cat and mouse against ''The Four Horsemen'',
-        a magic super-team of the world''s greatest illusionists. The Four Horsemen
-        pull off a series of daring heists against corrupt business leaders during
-        their performances, and then funnel the millions of stolen profits into their
-        audiences bank accounts, while staying one step ahead of the law.","classification":"M"},{"id":363,"title":"Grown
-        Ups 2","cloudinary_public_id":"fnvpq2nelelfcsynn5kl","synopsis":"After Lenny
-        Feder moves his family back to his home town, he and his friends learn some
-        lessons from their kids on the last day of school.","classification":"PG"},{"id":364,"title":"Runner,
-        Runner","cloudinary_public_id":"c7e0rgfhgluluueuoiba","synopsis":"A businessman
-        who owns an offshore gambling operation finds his relationship with his protege
-        reaching a boiling point.","classification":"MA"},{"id":365,"title":"Riddick","cloudinary_public_id":"ve9cktf3cdzujnwptpvl","synopsis":"Left
-        for dead on a sun-scorched planet, Riddick finds himself up against an alien
-        race of predators. Activating an emergency beacon alerts two ships: one carrying
-        a new breed of mercenary, the other captained by a man from Riddick''s past.","classification":"MA"},{"id":366,"title":"Planes","cloudinary_public_id":"qef4d4ie0ralowqcra7w","synopsis":"Dusty
-        is a cropdusting plane who dreams of competing in a famous aerial race. The
-        problem? He is hopelessly afraid of heights. With the support of his mentor
-        Skipper and a host of new friends, Dusty sets off to make his dreams come
-        true.","classification":"G"},{"id":367,"title":"Blue Jasmine","cloudinary_public_id":"h5rmrovonssfsdyo0uql","synopsis":"A
-        New York socialite, deeply troubled and in denial, arrives in San Francisco
-        to impose upon her sister.","classification":"M"},{"id":369,"title":"One Direction:
-        This Is Us 3D","cloudinary_public_id":"e2rbxtsli630h6m30io4","synopsis":"An
-        \"all-access\" pass to British pop sensation One Direction on tour and live
-        in concert at London''s O2 Arena, helmed by Morgan Spurlock (Super Size Me).
-        Also shows Niall, Zayn, Liam, Harry and Louis'' meteoric rise to fame, from
-        their humble beginnings and competing on X-Factor, to pop-world domination.","classification":"PG"},{"id":375,"title":"jOBS","cloudinary_public_id":"be0snxxiud3mnwmamrsb","synopsis":"The
-        story of Steve Jobs'' ascension from college dropout into one of the most
-        revered creative entrepreneurs of the 20th century.","classification":"M"},{"id":380,"title":"The
-        Best Offer","cloudinary_public_id":"lgeuqhdjcoa51xhkpkkt","synopsis":"A story
-        centered on an eccentric art auctioneer and his obsession with an heiress/collector.","classification":"M"},{"id":381,"title":"The
-        Smurfs 2 3D","cloudinary_public_id":null,"synopsis":"The Smurfs team up with
-        their human friends to rescue Smurfette, who has been kidnapped by Gargamel
-        since she knows a secret spell that can turn the evil sorcerer''s newest creation
-        - creatures called the Naughties - into real Smurfs.","classification":"G"},{"id":382,"title":"Percy
-        Jackson: Sea Of Monsters 3D","cloudinary_public_id":"biptvntwiykncvpqxdke","synopsis":"The
-        son of Poseidon and his friends head into the Sea of Monsters to find the
-        mythical Golden Fleece.","classification":"PG"}]'
+      string: '{"id":22739,"retailer_id":473,"retailer_code":"greater-union-birch-carroll-and-coyle","centre_id":"bondijunction","description":null,"errors":{},"level":null,"level_span":null,"name":"Event
+        Cinemas","phone_number":"9300 1555","shop_number":"MGU","store_front_image_ref":"265ce72f98455edec61d6e27ab20eac07c46cc23f489a8f306adfeff94d46cd7.jpeg","url":"http://www.eventcinemas.com.au","email_address":"bondi@eventscinemas.com.au","_links":{"self":{"href":"/api/store/master/stores/22739.json"},"logo":{},"store_front":{}}}'
     http_version: 
-  recorded_at: Wed, 02 Oct 2013 01:37:56 GMT
+  recorded_at: Thu, 03 Oct 2013 02:07:39 GMT
 recorded_with: VCR 2.5.0

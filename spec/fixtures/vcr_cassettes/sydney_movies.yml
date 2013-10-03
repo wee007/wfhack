@@ -31,21 +31,21 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 84d371aa-433d-4cb0-af00-0c2b4d4be2b7
+      - cc8ba231-589b-4374-b379-c07665aa0e53
       X-Runtime:
-      - '0.247463'
+      - '0.245295'
       Date:
-      - Wed, 02 Oct 2013 01:37:55 GMT
+      - Thu, 03 Oct 2013 02:07:36 GMT
       Connection:
       - close
     body:
       encoding: UTF-8
       string: '[]'
     http_version: 
-  recorded_at: Wed, 02 Oct 2013 01:37:55 GMT
+  recorded_at: Thu, 03 Oct 2013 02:07:36 GMT
 - request:
     method: get
-    uri: http://movie-service.test.dbg.westfield.com/api/movie/master/movies.json?centre=sydney&date=02-10-2013
+    uri: http://movie-service.test.dbg.westfield.com/api/movie/master/movies.json?centre=sydney&date=03-10-2013
     body:
       encoding: US-ASCII
       string: ''
@@ -74,18 +74,18 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 6b3813ac-ebd1-4869-9720-7dbf747bcbde
+      - 38b45271-ff8e-463e-b600-0a03cde39ab8
       X-Runtime:
-      - '0.282936'
+      - '0.279582'
       Date:
-      - Wed, 02 Oct 2013 01:37:55 GMT
+      - Thu, 03 Oct 2013 02:07:36 GMT
       Connection:
       - close
     body:
       encoding: UTF-8
       string: '[]'
     http_version: 
-  recorded_at: Wed, 02 Oct 2013 01:37:55 GMT
+  recorded_at: Thu, 03 Oct 2013 02:07:36 GMT
 - request:
     method: get
     uri: http://centre-service.test.dbg.westfield.com/api/centre/master/centres/sydney.json
@@ -113,22 +113,22 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       ETag:
-      - '"6e04496f25726d766b55e200df4a5904"'
+      - '"e08ab419ae42e1a70c4f457b7a8f64eb"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - a6446a01-c1fa-4655-8418-05303d4b7c79
+      - 69b25832-2a7e-484f-9b5c-a637d9f0da3d
       X-Runtime:
-      - '0.572769'
+      - '0.548918'
       Date:
-      - Wed, 02 Oct 2013 01:37:56 GMT
+      - Thu, 03 Oct 2013 02:07:37 GMT
       Connection:
       - close
     body:
       encoding: UTF-8
       string: '{"name":"Westfield Sydney","short_name":"Sydney","code":"sydney","business_unit_code":"16621","type":"premium","street_address":"Cnr
         Pitt St Mall and Market St","suburb":"Sydney","state":"NSW","postcode":"2000","country":"au","phone_number":"(02)
-        8236 9200","email_address":"","latitude":"-33.870371","longitude":"151.207735","today_opening_time":"09:00","today_closing_time":"17:00","number_of_levels":0,"micello_community":null,"facebook":null,"twitter":null,"google_plus":null,"instagram":null,"pinterest":null,"youtube":null,"retail":true,"enabled":true}'
+        8236 9200","email_address":"","latitude":"-33.870371","longitude":"151.207735","today_opening_time":"09:00","today_closing_time":"21:00","number_of_levels":0,"micello_community":null,"facebook":null,"twitter":null,"google_plus":null,"instagram":null,"pinterest":null,"youtube":null,"retail":true,"enabled":true}'
     http_version: 
-  recorded_at: Wed, 02 Oct 2013 01:37:56 GMT
+  recorded_at: Thu, 03 Oct 2013 02:07:37 GMT
 recorded_with: VCR 2.5.0

@@ -20,8 +20,8 @@ describe "Movies" do
       end
       it "should display the movie titles for Bondi Junction" do
         assert_select "ul.test-movies" do
-          assert_select ".test-title", "White House Down"
-          assert_select ".test-title", "The Smurfs 2"
+          assert_select ".test-title", "Gravity"
+          assert_select ".test-title", "Rush"
         end
       end
     end

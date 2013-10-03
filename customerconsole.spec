@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.83
+Version:     0.1.85
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -86,6 +86,13 @@ fi
 
 
 %changelog
+* Thu Oct 03 2013 ci <doperations@au.westfield.com> 0.1.85-1
+- 
+
+* Thu Oct 03 2013 ci <doperations@au.westfield.com> 0.1.84-1
+- Revert "Merge pull request #429 from csmith/feature/movies_polish"
+  (craigm.smith@au.westfield.com)
+
 * Wed Oct 02 2013 ci <doperations@au.westfield.com> 0.1.83-1
 - 
 

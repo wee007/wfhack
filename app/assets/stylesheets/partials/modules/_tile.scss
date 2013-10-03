@@ -22,7 +22,6 @@
   /* Needed so the social share controls can be seen */
   &:hover {z-index: 2;}
 
-
   /* Global styles */
   a {color: $color-light-txt;}
 
@@ -152,14 +151,13 @@
 
     /* Description */
     .tile__meta__desc {
-      font-family: $font-family-opensans;
+      font-family: $font-family-lato;
       color: $color-dark-txt;
-      text-transform: uppercase;
-      @include font-size($font-size-sml, 1.5);
+      @include font-size($font-size, 1.5);
 
       /* Increase the font size at this breakpoint */
       @include respond-min($non-palm) {
-        @include font-size($font-size-lrg, 1.5);
+        @include font-size(22, 1.3);
       }
     }
 

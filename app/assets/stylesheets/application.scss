@@ -139,7 +139,6 @@ Global stylesheet
 @import "partials/modules/stores-maps";
 @import "partials/modules/filters";
 @import "partials/modules/pill";
-@import "partials/modules/txt-formatted";
 @import "partials/modules/section-nav";
 @import "partials/modules/nav-contextual";
 @import "partials/modules/hero";
@@ -160,6 +159,9 @@ Global stylesheet
   @import "partials/modules/widgets/social-media-share";
   @import "partials/modules/widgets/tabs";
   @import "partials/modules/widgets/tooltip";
+
+/* This must come after all the modules and widgets so the txt-formatted styles will always be applied */
+@import "partials/modules/txt-formatted";
 
 /* Forms */
 @import "partials/forms/base";

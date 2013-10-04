@@ -10,6 +10,11 @@ describe ProductsController do
   end
 
   describe "GET #index" do
+    before :each do
+      object = Hashie::Mash.new(facets: [{'values' => [], 'field' => 'super_cat'}])
+      ProductService.stub(:build).and_return object
+    end
+
     it "assigns the centre instance variable" do
       get :index, centre_id: 'bondijunction'
       response.should render_template :index

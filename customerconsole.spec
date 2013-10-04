@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.88
+Version:     0.1.89
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -86,6 +86,9 @@ fi
 
 
 %changelog
+* Fri Oct 04 2013 ci <doperations@au.westfield.com> 0.1.89-1
+- 
+
 * Fri Oct 04 2013 ci <doperations@au.westfield.com> 0.1.88-1
 - Merge pull request #433 from cpearce/category-nav (ldewey@au.westfield.com)
 - adds all stores to storefront for pjax navigation (matt.wratt@trineo.co.nz)

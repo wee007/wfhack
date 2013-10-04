@@ -46,7 +46,7 @@
 </script>
 <%# //Back button %>
 
-<xnoscript>
+<noscript>
   <nav role="navigation" class="island box mrg-base--top">
     <h2>Product categories</h2>
     <ul>
@@ -55,7 +55,7 @@
       <% end %>
     </ul>
   </nav>
-</xnoscript>
+</noscript>
 
 <% if @search.products.present? %>
   <div ng-controller="ProductBrowseController" ng-init="bootstrap()" class="ng-cloak filters filters--pin-board js-disabled-hide">

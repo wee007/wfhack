@@ -68,6 +68,9 @@
       border-bottom-width: 2px;
     }
 
+    /* Hover version */
+    .drop-down-container--hover & {@include to-rem(margin-top, -4);}
+
     /* Shared rules */
     .drop-down-menu__hdr,
     .drop-down-menu__hdr-sub {font-weight: normal;}
@@ -163,6 +166,10 @@
         .btn--full {
           color: $color-base-txt;
           @include to-rem(padding, $spacing-half);
+
+          /* Hover and focus states, need to increase the specificity so as to override hover/focus styles from any outer modules */
+          .drop-down-menu &:hover,
+          .drop-down-menu &:focus {color: lighten($color-base-txt, 10%);}
         }
       }
 

@@ -5,7 +5,17 @@ module ApplicationHelper
   end
 
   def site_logo
-    image_tag('logo.svg', alt: 'Westfield', 'data-svg-fallback' => image_path("logo.png"))
+    svg_with_fallback('logo.svg', alt: 'Westfield')
+  end
+
+  def svg_with_fallback(image_src, options = {})
+    fallback = File.basename(image_src,'.*') + ".png"
+
+    options.merge({
+      'data-svg-fallback' => image_path(fallback)
+    })
+
+    image_tag(image_src, options)
   end
 
   def in_lightbox?

@@ -7,8 +7,8 @@ class StoreMapPage
   constructor: ->
     @map = new map.ResponsiveMap {
       breakpoint: 'all and (min-width: 64em)'
-      palm: offset: x: 0.5, y: 0.5
-      nonPalm: offset: x: 0.75, y: 0.5
+      palm: offset: x: 0.5, y: 0.5, zoom: 2
+      nonPalm: offset: x: 0.75, y: 0.5, zoom: 2
     }
 
   loading: (state) ->
@@ -18,8 +18,9 @@ class StoreMapPage
     $('.js-pjax-container-stores').toggleClass('is-stores-list-detail-loading', state)
 
   pjaxComplete: =>
-    storeMapPageReady() if window.storeMapPageReady
-    delete storeMapPageReady
+    $ ->
+      storeMapPageReady() if window.storeMapPageReady
+      delete storeMapPageReady
 
   setup: =>
     $.pjax.defaults.timeout = 5000

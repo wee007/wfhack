@@ -67,7 +67,7 @@ class ProductsController < ApplicationController
       @centre_stores = stores.select {|store| store['centre_id'] == params[:centre_id]}
       @product_centres = centre_ids.present? ? CentreService.find(:all, centre_id: centre_ids, near_to: params[:centre_id]) : []
       @centre = CentreService.build centre
-      gon.push centre: @centre, stores: @centre_stores
+      gon.push centre: @centre, stores: @centre_stores.map(&:to_gon)
       meta.push(
         page_title: "#{@product.name} | #{@centre.name}",
         description: "Shop for #{@product.name} from #{stores.first.try(:name)} at #{@centre.name}"

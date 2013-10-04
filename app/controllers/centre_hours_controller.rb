@@ -12,7 +12,9 @@ class CentreHoursController < ApplicationController
     @weeks = CentreTradingHourService.build trading_hours
 
     # TODO: Should this be a presenter?
-    @hero = Hashie::Mash.new heading: 'Opening Hours', image: 'opening-hours', icon: 'icon--hours'
+    @hero = Hashie::Mash.new heading: 'Opening Hours',
+                             image: 'opening-hours'
+
     meta.push(
       page_title: "Opening Hours at #{@centre.name}",
       description: "Find #{@centre.name}'s opening and trading hours for today, this week and special shopping days"

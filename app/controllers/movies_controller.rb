@@ -1,5 +1,7 @@
 class MoviesController < ApplicationController
 
+  layout 'detail_view', only: :show
+
   def index
     centre, movies, movie_sessions, cinema = nil
     Service::API.in_parallel do
@@ -9,43 +11,33 @@ class MoviesController < ApplicationController
       cinema = StoreService.fetch_cinema_for_centre params[:centre_id]
     end
     @centre = CentreService.build centre
-    @movie_sessions = MovieSessionService.build movie_sessions
     @movies = MovieService.build movies
+    @movie_sessions = MovieSessionService.build movie_sessions
     @cinema = StoreService.build cinema
-
-    return render_404 unless cinema
-
+    render_404 unless cinema
     meta.push(
-      page_title: "#{@cinema.name} at #{@centre.short_name}",
-      description: "#{@cinema.name} at #{@centre.short_name}"
+      page_title: "#{@cinema.name} at #{@centre.name}",
+      description: "#{@cinema.name} at #{@centre.name}"
     )
-    @hero = Hashie::Mash.new heading: @cinema.name, image: 'movies', icon: 'icon--video'
-    render layout: "sub_page"
   end
 
   def show
-    centre, movie, movie_sessions, selected_days_sessions, cinema = nil
+    centre, movie, movie_sessions, selected_days_sessions = nil
     Service::API.in_parallel do
-      cinema = StoreService.fetch_cinema_for_centre params[:centre_id]
       centre = CentreService.fetch params[:centre_id]
       movie = MovieService.fetch params[:id]
       movie_sessions = MovieSessionService.fetch movie_id: params[:id], centre: params[:centre_id]
+      selected_days_sessions = MovieSessionService.fetch movie_id: params[:id], centre: params[:centre_id], date: params[:date] || Time.now.strftime("%d-%m-%Y")
     end
-    @cinema = StoreService.build cinema
     @centre = CentreService.build centre
     @movie = MovieService.build movie
-    movie_sessions = MovieSessionService.build movie_sessions
-    @movies_sessions_by_date = movie_sessions.inject({}) do |acc, session|
-      start_date = Date.parse(session.start_time)
-      acc[start_date] = [] unless acc.has_key? start_date
-      acc[start_date] << session
-      acc
-    end
-
+    @movie_sessions = MovieSessionService.build movie_sessions
+    selected_days_sessions = MovieSessionService.build selected_days_sessions
+    @morning_sessions = selected_days_sessions.find_all{ |session| session.morning? }
+    @afternoon_sessions = selected_days_sessions.find_all{ |session| session.afternoon? }
     meta.push(
       page_title: @movie.title,
       description: @movie.title
     )
-    render layout: "detail_view"
   end
 end

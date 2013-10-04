@@ -29,7 +29,7 @@ class DealsController < ApplicationController
     store = StoreService.fetch @deal.deal_stores.find{|store| store.centre_id == params[:centre_id]}.store_service_id
     @store = StoreService.build store
 
-    gon.push centre: @centre, stores: [@store]
+    gon.push centre: @centre, stores: [@store.to_gon]
     meta.push(
       page_title: "#{@deal.title} from #{@store.name} at #{@centre.name}",
       description: "At #{@centre.name}, find #{@deal.title} - ends #{@deal.available_to.strftime("%Y-%m-%d")}"

@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.96
+Version:     0.1.97
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -86,6 +86,9 @@ fi
 
 
 %changelog
+* Fri Oct 04 2013 ci <doperations@au.westfield.com> 0.1.97-1
+- 
+
 * Fri Oct 04 2013 ci <doperations@au.westfield.com> 0.1.96-1
 - Merge pull request #441 from ldewey/auth (ldewey@au.westfield.com)
 - Adding JS auth (ldewey@au.westfield.com)

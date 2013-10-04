@@ -5,7 +5,7 @@
     format: (options) ->
       options.unshift({
         code: '',
-        description: 'Sort by...',
+        description: 'Sort by…',
         active: true,
         display: true
       })

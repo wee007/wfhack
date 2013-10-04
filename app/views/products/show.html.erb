@@ -49,7 +49,9 @@
         <%# Contact store %>
         <div class="island island--fill island--center islet-tops detail-view__divider">
           <span class="hide-fully--non-palm">
-            <a href="tel:<%= (@product.retail_chain.phone_no || "").gsub(/\s+/,'') %>" class="btn btn--full btn--main btn--main-alt2 btn--main-lrg"><span class="icon icon--phone icon--xlrg icon--spacing-lrg icon--flush-top" aria-hidden="true"></span><strong>Call <%= @product.retail_chain_name %></strong></a>
+            <%= phone_link @product.retail_chain.phone_no, class: 'btn btn--full btn--main btn--main-alt2 btn--main-lrg' do |phone_number| %>
+              <span class="icon icon--phone icon--xlrg icon--spacing-lrg icon--flush-top" aria-hidden="true"></span><strong>Call <%= @product.retail_chain_name %></strong>
+            <% end %>
           </span>
           <p class="detail-view__check-avble hide-fully--palm"><span class="detail-view__subtle-txt">Check store availability</span> <em><span class="icon icon--phone icon--lrg icon--spacing" aria-hidden="true"></span> <%= @product.retail_chain.phone_no %></em></p>
         </div>

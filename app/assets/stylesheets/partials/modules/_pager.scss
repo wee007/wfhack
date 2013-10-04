@@ -1,0 +1,54 @@
+/* ======================================================================================
+   @MODULES -> PAGER
+   ====================================================================================== */
+
+/*
+	Usage:
+		For paging between sets of pages via 'Prev' and 'Next' links, also includes a page count.
+
+	Demo:
+    Style Guide -> Modules -> Pager
+*/
+
+.pager {
+	border-top: 1px solid $color-grey-1;
+  @include to-rem(padding-top, $spacing-half);
+  @include to-rem(margin-top, $spacing-base);
+  color: $color-light-txt;
+
+  /* Prev/next */
+  .btn.btn--main {
+    position: absolute;
+    top: 0;
+
+    /* Old IE */
+    @include old-ie {
+      .btn--pointer__icon {top: 18%;}
+    }
+  }
+
+    /* Arrow icons */
+    .icon:before {@include font-size(22, 1);}
+}
+
+  /* Inner container */
+  .pager__inner {
+    position: relative;
+    text-align: center;
+  }
+
+    /* Count */
+    .pager__count {
+      @include font-size($font-size-sml, normal);
+      @include to-em(padding-top padding-bottom, $spacing-half);
+      display: inline-block;
+
+      /* Turn off bottom padding when they're no prev/next links */
+      &:only-child {padding-bottom: 0;}
+    }
+
+    /* Prev */
+    .pager__prev {left: 0;}
+
+    /* Next */
+    .pager__next {right: 0;}

@@ -144,6 +144,9 @@
 
 		/* Icon */
 		.btn--pointer__icon {@include to-em(right, $spacing-half);}
+
+    /* Icon - remove the right indent */
+    .btn--pointer__icon--flush {right: 0;}
 	}
 
 	/* As above but position icon over to the far left */
@@ -156,6 +159,9 @@
 			right: auto;
 			@include to-em(left, $spacing-half);
 		}
+
+    /* Icon - remove the left indent */
+    .btn--pointer__icon--flush {left: 0;}
 	}
 
 	/* Add more right padding to 'pointer' */

@@ -27,6 +27,13 @@
     <%#= render 'community' %>
     <%#= render 'notices' %>
     <%= render 'contact_us' %>
+
+    <%# Follow Us - title %>
+    <%# Must have this outside of the partial otherwise the spacing will collapse. Need mrg-base spacing class as the :last-child on txt-formatted removed the margin %>
+    <% if social_media.present? %>
+      <h2 id="follow-us" class="mrg-base">Follow Us</h2>
+    <% end %>
+    <%# //Follow Us - title %>
   </div>
   <%# //Text formatted %>
 

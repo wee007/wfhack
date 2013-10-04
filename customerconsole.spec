@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.87
+Version:     0.1.88
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -86,6 +86,17 @@ fi
 
 
 %changelog
+* Fri Oct 04 2013 ci <doperations@au.westfield.com> 0.1.88-1
+- Merge pull request #433 from cpearce/category-nav (ldewey@au.westfield.com)
+- adds all stores to storefront for pjax navigation (matt.wratt@trineo.co.nz)
+- fixes broken link and shopping hours (matt.wratt@trineo.co.nz)
+- Fixing merge conflict and making nav contextual script initialisation global
+  (CPearce@au.westfield.com)
+- Finalising category nav (CPearce@au.westfield.com)
+- WIP category nav (CPearce@au.westfield.com)
+- WIP category nav (CPearce@au.westfield.com)
+- WIP for category nav (CPearce@au.westfield.com)
+
 * Thu Oct 03 2013 ci <doperations@au.westfield.com> 0.1.87-1
 - Merge pull request #432 from digital/svg-png-fallback
   (ldewey@au.westfield.com)

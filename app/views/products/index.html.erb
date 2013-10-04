@@ -46,6 +46,7 @@
 </script>
 <%# //Back button %>
 
+<%# Expose Product categories for non JS users %>
 <noscript>
   <nav role="navigation" class="island box mrg-base--top">
     <h2>Product categories</h2>
@@ -56,9 +57,12 @@
     </ul>
   </nav>
 </noscript>
+<%# //Expose Product categories for non JS users %>
 
 <% if @search.products.present? %>
-  <div ng-controller="ProductBrowseController" ng-init="bootstrap()" class="ng-cloak filters filters--pin-board js-disabled-hide">
+  <div ng-controller="ProductBrowseController" ng-init="bootstrap()" class="ng-cloak filters filters--pin-board">
+
+    <p class="feedback feedback--warning js-enabled-hide">You need JavaScript enabled to use these product filters, as a fallback you can filter via the <strong>Product categories</strong> above. <a href="http://enable-javascript.com/" rel="external">Visit here</a> for instructions on how to enable JavaScript.</p>
 
     <div class="filters__filter-sort">
 

@@ -1,36 +1,50 @@
 class StoresController < ApplicationController
 
   def index
-    centre, store = nil
-    Service::API.in_parallel do
-      centre = CentreService.fetch params[:centre_id]
-      store = StoreService.fetch centre: params[:centre_id], per_page: 1000
-    end
-    @centre = CentreService.build centre
-    stores = StoreService.build(store, centre: @centre)
+    push_store_info_to_gon
     @stores = stores.group_by(&:first_letter)
-
-    gon.push centre: @centre, stores: stores.map(&:to_gon)
     meta.push(
-      page_title: "Stores at #{@centre.name}",
-      description: "Find your favourite store at #{@centre.name} along with a map to help you easily find its location"
+      page_title: "Stores at #{centre.name}",
+      description: "Find your favourite store at #{centre.name} along with a map to help you easily find its location"
     )
   end
 
   def show
-    centre, store = nil
+    push_store_info_to_gon
+    meta.push(
+      page_title: "#{store.name} at #{centre.name}",
+      description: store.description
+    )
+  end
+
+protected
+
+  def store
+    @store ||= stores.find {|store| store.id.to_s == params[:id] }
+  end
+
+  def centre
+    fetch_centre_and_stores unless @centre.present?
+    @centre
+  end
+
+  def stores
+    fetch_centre_and_stores unless @stores.present?
+    @stores
+  end
+
+  def fetch_centre_and_stores
+    centre, stores = nil
     Service::API.in_parallel do
       centre = CentreService.fetch params[:centre_id]
-      store = StoreService.fetch params[:id]
+      stores = StoreService.fetch centre: params[:centre_id], per_page: 1000
     end
     @centre = CentreService.build centre
-    @store = StoreService.build(store, centre: @centre)
+    @stores = StoreService.build(stores, centre: @centre)
+  end
 
-    gon.push centre: @centre, stores: [@store.to_gon]
-    meta.push(
-      page_title: "#{@store.name} at #{@centre.name}",
-      description: @store.description
-    )
+  def push_store_info_to_gon
+    gon.push centre: centre, stores: stores.map(&:to_gon)
   end
 
 end

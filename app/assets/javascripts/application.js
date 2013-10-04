@@ -30,7 +30,6 @@
 //= require ./init/tabs
 //= require ./init/deferred_images
 //= require ./init/table-horizontal-scroll
-//= require ./init/close-site-search
 //= require ./init/nav-contextual
 
 //= require ./vendor/angular-head

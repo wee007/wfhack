@@ -46,6 +46,17 @@
 </script>
 <%# //Back button %>
 
+<xnoscript>
+  <nav role="navigation" class="island box mrg-base--top">
+    <h2>Product categories</h2>
+    <ul>
+      <% @categories.each do |category| %>
+        <li><%= link_to category.name, url_for(:controller => params[:controller], :action => params[:action], :params => {category.url_args.keys.first => category.url_args.values.first}) %></li>
+      <% end %>
+    </ul>
+  </nav>
+</xnoscript>
+
 <% if @search.products.present? %>
   <div ng-controller="ProductBrowseController" ng-init="bootstrap()" class="ng-cloak filters filters--pin-board js-disabled-hide">
 

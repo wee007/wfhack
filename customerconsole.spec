@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.92
+Version:     0.1.93
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -86,6 +86,15 @@ fi
 
 
 %changelog
+* Fri Oct 04 2013 ci <doperations@au.westfield.com> 0.1.93-1
+- Merge pull request #439 from digital/seo-category-nav
+  (ldewey@au.westfield.com)
+- Create a magic object to stub the controller (ben@germanforblack.com)
+- Merge remote-tracking branch 'origin/master' into seo-category-nav
+  (ben@germanforblack.com)
+- Render a category navigation for noscript/web spiders
+  (ben@germanforblack.com)
+
 * Fri Oct 04 2013 ci <doperations@au.westfield.com> 0.1.92-1
 - 
 

@@ -28,7 +28,9 @@ class ProductsController < ApplicationController
       )
     end
     @search = ProductService.build products
-    @categories = @search.facets.detect{|f| ["super_cat", "category", "sub_category"].include? f.field }['values']
+
+    categories = @search.facets.detect{|f| ["super_cat", "category", "sub_category"].include? f.field }
+    @categories = categories ? categories['values'] : []
 
     handle_error(@search) if @search.is_a? NullObject
     respond_to do |format|

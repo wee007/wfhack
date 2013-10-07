@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.98
+Version:     0.1.99
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -86,6 +86,13 @@ fi
 
 
 %changelog
+* Mon Oct 07 2013 ci <doperations@au.westfield.com> 0.1.99-1
+- Merge pull request #446 from ldewey/pin-board-ie-fix
+  (ldewey@au.westfield.com)
+- A pin board fix for IE8 (ldewey@au.westfield.com)
+- Removed all of the search stuff so i can update search with out breaking
+  things. (ldewey@au.westfield.com)
+
 * Fri Oct 04 2013 ci <doperations@au.westfield.com> 0.1.98-1
 - 
 

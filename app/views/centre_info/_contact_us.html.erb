@@ -16,7 +16,7 @@
 
         <%# Show CTA button for centre contact number for palm %>
         <span class="hide-fully--non-palm">
-          <%= phone_link @centre.phone_number, class: 'txt-center btn btn--full btn--main btn--main-alt2 btn--main-lrg' do |phone_number| %>
+          <%= phone_link @centre.phone_number, class: 'btn btn--full btn--main btn--main-alt2 btn--main-lrg' do |phone_number| %>
             <span class="icon icon--phone icon--xlrg icon--spacing-lrg icon--flush-top" aria-hidden="true"></span>
             <strong>Call <%= @centre.short_name %> Centre</strong>
           <% end %> 

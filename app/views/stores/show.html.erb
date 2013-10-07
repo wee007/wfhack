@@ -12,7 +12,7 @@
     </span>
     <%# //PJAX preloader %>
 
-    <div class="stores-maps__inner stores-maps__inner--detail" id="stores-maps-toggle-listing-detail">
+    <div class="stores-maps__inner stores-maps__inner--detail <%= 'is-featured-items' if !@products.empty? %>" id="stores-maps-toggle-listing-detail">
 
       <%# Back to listing link %>
       <div class="stores-maps__filters-toggle">
@@ -111,75 +111,74 @@
           </div>
           <%# //Store details %>
 
-          <%- if false %>
           <%# 'Product' and 'Deal' tiles %>
-          <%# FIXME: [BACKEND] the following HTML won't be available for every store so do not render any of the HTML when this is the case or only render the applicable HTML e.g. either render 'Product' or 'Deal' tiles AND when they're tiles (any) append class `.is-featured-items` to `<div class="stores-maps__inner stores-maps__inner--detail">` (server side) %>
-          <footer class="storefront__featured">
+          <%- if !@products.empty? %>
+            <footer class="storefront__featured">
 
-              <%# 'Product' tiles %>
-              <div class="storefront__featured__item storefront__featured__item--products island island--top-btm">
-                <div class="container">
-                  <h2 class="storefront__featured__hdr">Featured from <%= @store.name %></h2>
-                  <%# FIXME: [BACKEND] hacked this together so needs to be done properly and we only show 3 tiles or less %>
-                  <div class="grid grid--gutter-half grid--flush">
-                    <% 3.times do |n| %>
-                      <div class="grid__item one-half non-palm-one-third">
-                        <%= render partial: '/shared/tiles/product',
-                            layout: '/layouts/tile',
-                            locals: {result: Hashie::Mash.new(
-                              title: '',
-                              sku: '',
-                              retailer_code: '',
-                              primary_image: 'http://cs1.wol.io/img_resized/sheike-shimmer-ring/5736ff15e337203d4d7b9b960fb4e8eec30a06e7_182x182.jpg',
-                              kind: 'product',
-                              meta: Hashie::Mash.new(
-                                title: '',
-                                image: ''
-                              )
-                            )
-                        } %>
-                      </div>
+                <%# 'Product' tiles %>
+                <div class="storefront__featured__item storefront__featured__item--products island island--top-btm">
+                  <div class="container">
+                    <h2 class="storefront__featured__hdr">Featured from <%= @store.name %></h2>
+                    <div class="grid grid--gutter-half grid--flush">
+                      <% @products.each do |product| %>
+                        <div class="grid__item one-half non-palm-one-third">
+                          <%= render partial: '/shared/tiles/product',
+                              layout: '/layouts/tile',
+                              locals: {
+                                result: product,
+                                options: {
+                                  width: 288,
+                                  height: 288,
+                                  crop: :pad
+                                }
+                              }
+                            %>
+                        </div>
+                      <% end %>
+                    </div>
+                    <%= link_to centre_products_path(retailer: [params[:retailer_code]]), class: 'storefront__featured__view-more' do %>
+                      View more
+                      <span class="icon icon--arrow-right icon--lrg" aria-hidden="true"></span>
                     <% end %>
                   </div>
-                  <%# FIXME: [BACKEND] make URL dynamic %>
-                  <a href="#" class="storefront__featured__view-more">View more<span class="icon icon--arrow-right icon--lrg" aria-hidden="true"></span></a>
                 </div>
-              </div>
-              <%# //Product tiles %>
+                <%# //Product tiles %>
 
-              <%# Deal tiles %>
-              <div class="storefront__featured__item storefront__featured__item--deals island island--top-btm">
-                <div class="container">
-                  <h2 class="storefront__featured__hdr">Deals from <%= @store.name %></h2>
-                  <div class="grid grid--gutter-half grid--flush">
-                    <%# FIXME: [BACKEND] hacked this together so needs to be done properly and we only show 3 tiles or less %>
-                    <% 3.times do |n| %>
-                      <div class="grid__item one-half non-palm-one-third">
-                        <%= render partial: '/shared/tiles/deal',
-                            layout: '/layouts/tile',
-                            locals: {result: Hashie::Mash.new(
-                              title: 'deal super #{n}',
-                              retailer_logo_url: 'http://image-service.systest.dbg.westfield.com/transform?ref=fcc997784861edcc4a1bd8abd93cb5930c75dacca267636afa4a5ff47d4c3693.gif',
-                              store_name: '',
-                              kind: 'deal',
-                              meta: Hashie::Mash.new(
-                                title: '',
-                                image: ''
+                <%- if false %>
+                <%# Deal tiles %>
+                <div class="storefront__featured__item storefront__featured__item--deals island island--top-btm">
+                  <div class="container">
+                    <h2 class="storefront__featured__hdr">Deals from <%= @store.name %></h2>
+                    <div class="grid grid--gutter-half grid--flush">
+                      <%# FIXME: [BACKEND] hacked this together so needs to be done properly and we only show 3 tiles or less %>
+                      <% 3.times do |n| %>
+                        <div class="grid__item one-half non-palm-one-third">
+                          <%= render partial: '/shared/tiles/deal',
+                              layout: '/layouts/tile',
+                              locals: {result: Hashie::Mash.new(
+                                title: 'deal super #{n}',
+                                retailer_logo_url: 'http://image-service.systest.dbg.westfield.com/transform?ref=fcc997784861edcc4a1bd8abd93cb5930c75dacca267636afa4a5ff47d4c3693.gif',
+                                store_name: '',
+                                kind: 'deal',
+                                meta: Hashie::Mash.new(
+                                  title: '',
+                                  image: ''
+                                )
                               )
-                            )
-                        } %>
-                      </div>
-                    <% end %>
+                          } %>
+                        </div>
+                      <% end %>
+                    </div>
+                    <%# FIXME: [BACKEND] make URL dynamic %>
+                    <a href="#" class="storefront__featured__view-more">View more<span class="icon icon--arrow-right icon--lrg" aria-hidden="true"></span></a>
                   </div>
-                  <%# FIXME: [BACKEND] make URL dynamic %>
-                  <a href="#" class="storefront__featured__view-more">View more<span class="icon icon--arrow-right icon--lrg" aria-hidden="true"></span></a>
                 </div>
-              </div>
-              <%# //Deal tiles %>
+                <%# //Deal tiles %>
+                <%- end %>
 
-          </footer>
+            </footer>
+          <% end %>
           <%# Product and Deal tiles %>
-          <%- end %>
 
         </article>
 

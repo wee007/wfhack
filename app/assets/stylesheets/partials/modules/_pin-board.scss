@@ -19,6 +19,7 @@
 
   /* Show the pin board if there browser has no JS or if it has loaded */
   .no-js &,
+  .old-ie &,
   &.is-pin-board-loaded{display: block;}
 
 

@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.99
+Version:     0.1.100
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -86,6 +86,31 @@ fi
 
 
 %changelog
+* Tue Oct 08 2013 ci <doperations@au.westfield.com> 0.1.100-1
+- Merge pull request #425 from mwratt/feature/WSF-4655-featured-products
+  (ldewey@au.westfield.com)
+- Merge pull request #443 from ewee/master (ldewey@au.westfield.com)
+- Merge pull request #447 from cpearce/master (ldewey@au.westfield.com)
+- Merge pull request #444 from cpearce/UI-polish (ldewey@au.westfield.com)
+- Changing puma gem to thin (CPearce@au.westfield.com)
+- Changing puma gem to thin (CPearce@au.westfield.com)
+- Replace meta description content as store description is too long
+  (ewee@au.westfield.com)
+- Reposition Micello logo for detail view map and hide controls for IE8 -
+  WSF-5600 (CPearce@au.westfield.com)
+- Removing 'js-disabled-hide' class from product filters so search engines can
+  crawl it and adding a msg for non JS users (CPearce@au.westfield.com)
+- Removing JS to close site search as Angular Toggle Visibility directive can
+  handle that (CPearce@au.westfield.com)
+- Style product pagination - WSF-5634 (CPearce@au.westfield.com)
+- Event detail view checks - WSF-5368 (CPearce@au.westfield.com)
+- Update Deal tile and detail view typography - WSF-5444
+  (CPearce@au.westfield.com)
+- Restore search toggle for stores - WSF-5548 (CPearce@au.westfield.com)
+- excludes product facets from request (matt.wratt@trineo.co.nz)
+- pads featured product images to be the same height (matt.wratt@trineo.co.nz)
+- adds featured products to store page (matt.wratt@trineo.co.nz)
+
 * Mon Oct 07 2013 ci <doperations@au.westfield.com> 0.1.99-1
 - Merge pull request #446 from ldewey/pin-board-ie-fix
   (ldewey@au.westfield.com)

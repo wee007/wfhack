@@ -19,9 +19,17 @@
           <div class="search-results__inner island island--flush-btm">
             <h2 class="search-results__hdr">Search results</h2>
             <ul class="search-results__list">
-              <li ng-repeat="suggestion in suggestions" role="presentation">
-                <a href="<%= centre_products_path(params[:centre_id] || params[:id]) %>{{suggestion['queryString']}}" target="_self" tabindex="-1">{{suggestion['description']}}</a>
+
+              <li>Products</li>
+              <li ng-repeat="suggestion in suggestions.products" role="presentation">
+                 <a href="/{{centre_id}}{{suggestion.url}}" target="_self" tabindex="-1">{{suggestion.description}}</a>
               </li>
+
+              <li>Stores</li>
+              <li ng-repeat="suggestion in suggestions.stores" role="presentation">
+                <a href="/{{centre_id}}{{suggestion.url}}" target="_self" tabindex="-1">{{suggestion.description}}</a>
+              </li>
+
             </ul>
           </div>
         </div>

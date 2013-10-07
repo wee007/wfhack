@@ -46,6 +46,7 @@
 </script>
 <%# //Back button %>
 
+<%# Expose Product categories for non JS users %>
 <noscript>
   <nav role="navigation" class="island box mrg-base--top">
     <h2>Product categories</h2>
@@ -56,9 +57,12 @@
     </ul>
   </nav>
 </noscript>
+<%# //Expose Product categories for non JS users %>
 
 <% if @search.products.present? %>
-  <div ng-controller="ProductBrowseController" ng-init="bootstrap()" class="ng-cloak filters filters--pin-board js-disabled-hide">
+  <div ng-controller="ProductBrowseController" ng-init="bootstrap()" class="ng-cloak filters filters--pin-board">
+
+    <p class="feedback feedback--warning js-enabled-hide">You need JavaScript enabled to use these product filters, as a fallback you can filter via the <strong>Product categories</strong> above. <a href="http://enable-javascript.com/" rel="external">Visit here</a> for instructions on how to enable JavaScript.</p>
 
     <div class="filters__filter-sort">
 
@@ -367,28 +371,31 @@
   </div>
   <%# //Preloader %>
 
+  <%# Pinboard %>
   <div ng-if="!products.loading">
     <div ng-if="products.loaded" ng-bind-html="products.list"></div>
     <%# Using a !products.loaded on ng-hide so that the loader will be shown immediately %>
     <div ng-if="!products.loaded"><%= render 'products' %></div>
   </div>
+  <%# //Pinboard %>
 
+  <%# Pager %>
   <% if @search.products.present? %>
-    <nav role="navigation" aria-label="Pagination" ng-if="!products.loading" ng-controller="ProductPaginationController">
-      <ul class="pagination mrg-dbl--top">
-        <li class="pagination__prev">
-          <button ng-if="has_prev()" ng-click="prev()" class="pagination__btn btn" rel="prev">Prev<span class="hide-visually">ious page</span></button>
-        </li><!--
-        --><li>
-          <span class="hide-visually">page </span>{{page()}} of {{totalPages()}}
-        </li><!--
-        --><li class="pagination__next">
-          <button ng-if="has_next()" ng-click="next()" class="pagination__btn btn" rel="next">Next<span class="hide-visually"> page</span></button>
-        </li>
-      </ul>
+    <nav class="pager" role="navigation" aria-label="Product pagination" ng-if="!products.loading" ng-controller="ProductPaginationController">
+      <div class="pager__inner">
+        <em class="pager__count"><span class="hide-visually">Page </span>{{page()}} of {{totalPages()}}</em>
+        <button ng-if="has_prev()" ng-click="prev()" class="pager__prev btn btn--main btn--main-alt4 btn--pointer btn--pointer-alt">
+          <span class="icon icon--arrow-left btn--pointer__icon btn--pointer__icon--flush" aria-hidden="true"></span>
+          Prev
+        </button>
+        <button ng-if="has_next()" ng-click="next()" class="pager__next btn btn--main btn--main-alt4 btn--pointer">
+          Next
+          <span class="icon icon--arrow-right btn--pointer__icon btn--pointer__icon--flush" aria-hidden="true"></span>
+        </button>
+      </div>
     </nav>
   <% end %>
+  <%# //Pager %>
 
 </div>
 <%# //Render results %>
-

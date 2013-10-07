@@ -26,9 +26,8 @@
 
 	/* Title */
 	.deal-main__hdr {
-		font-family: $font-family-opensans;
+		font-family: $font-family-lato;
 		@include font-size(36);
-		text-transform: uppercase;
 		@include to-rem(margin-bottom, $spacing-third);
 	}
 

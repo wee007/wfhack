@@ -198,9 +198,6 @@ $header-color-link-hover: $color-brand !default;
 			}
 		}
 
-		/* Always show search for 'Stores' */
-		.stores .header .header-search-toggle {display: block;}
-
 		/* Toggle menu */
 		.header-menu-toggle {
 
@@ -911,9 +908,6 @@ $header-color-link-hover: $color-brand !default;
 				.icon:before {color: $header-color-link-hover;}
 			}
 
-			/* Hide for 'Stores' */
-			.stores & .btn {display: none;}
-
 			/* Search icon */
 			.icon--search:before {
 
@@ -926,14 +920,6 @@ $header-color-link-hover: $color-brand !default;
 					position: relative;
 					top: 1px;
 				}
-			}
-
-			/* 'Stores' version (non-button) */
-			.search-toggle-favs__stores-search:before {
-				display: none;
-
-				/* Show for 'Stores' */
-				.stores & {display: inline-block;}
 			}
 		}
 
@@ -1039,12 +1025,7 @@ $header-color-link-hover: $color-brand !default;
 
 		/* Turn off container at this breakpoint */
 		@include respond-max($palm) {
-			> .container {
-				width: 100%;
-
-				/* Min height for 'Stores' */
-				.stores & {@include to-rem(min-height, 45);}
-			}
+			> .container {width: 100%;}
 		}
 
 		/* Contain float and change positioning context at this breakpoint */
@@ -1091,9 +1072,6 @@ $header-color-link-hover: $color-brand !default;
 
 						/* Icon */
 						.icon {color: lighten($color-light-txt, 6%);}
-
-						/* Hide for 'Stores' */
-						.stores & {display: none;}
 					}
 			}
 
@@ -1139,11 +1117,6 @@ $header-color-link-hover: $color-brand !default;
 
 		/* Main navigation */
 		.header__primary .nav-main {
-
-			/* Hide for 'Stores' */
-			@include respond-max($palm) {
-				.stores & {display: none;}
-			}
 
 			/* Change layout at this breakpoint */
 			@include respond-min($non-palm) {
@@ -1264,12 +1237,7 @@ $header-color-link-hover: $color-brand !default;
 		/* Right margin for search form/results to make room for the 'close' button at this breakpoint */
 		@include respond-max($palm) {
 			.search-mini,
-			.search-results__inner {
-				@include to-rem(margin-right, 30);
-
-				/* Turn off for 'Stores' */
-				.stores & {margin-right: 0;}
-			}
+			.search-results__inner {@include to-rem(margin-right, 30);}
 		}
 
 		/* -Search form- */

@@ -11,7 +11,7 @@ describe ProductsController do
 
   describe "GET #index" do
     before :each do
-      object = Hashie::Mash.new(facets: [{'values' => [], 'field' => 'super_cat'}])
+      object = Hashie::Mash.new(count: 50, rows: 50, facets: [{'values' => [], 'field' => 'super_cat'}])
       ProductService.stub(:build).and_return object
     end
 

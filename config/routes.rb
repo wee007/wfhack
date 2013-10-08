@@ -10,6 +10,9 @@ CustomerConsole::Application.routes.draw do
   get 'products' => 'products#index'
   get 'products/:retailer_code/:sku' => 'products#show', constraints: {id: /.+/}, as: 'product'
 
+  get 'terms-conditions' => 'pages#terms_conditions'
+  get 'privacy-policy' => 'pages#privacy_policy'
+
  # everything needs to go above centres
   resources :centres, :path => '' do
     resources :events, only: [:index, :show]

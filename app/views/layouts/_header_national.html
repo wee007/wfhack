@@ -41,7 +41,7 @@
 		      <ul id="tab-<%= state.downcase %>" class="tab__content<%= ' is-active' if state == 'NSW' %>">
 		        <% @centres[state].each do |centre| %>
 		          <li>
-                <%= link_to url_for(centre_id: centre.code), class: 'container h1' do %>
+                <%= link_to context_aware_link(centre), class: 'container h1' do %>
                   <%= centre.short_name %>
                   <span class="icon icon--arrow-right-big icon--flush-top" aria-hidden="true"></span>
                 <% end %>
@@ -64,7 +64,7 @@
       				<% %w(NSW ACT QLD VIC SA WA).each do |state| %>
 	          		<dt class="drop-down-menu__hdr-sub drop-down-menu__divider"><%= state %></dt>
 		        		<% @centres[state].each do |centre| %>
-	          			<dd class="drop-down-menu__divider"><%= link_to centre.short_name, url_for(centre_id: centre.code), class: 'btn btn--full btn--full-left' %></dd>
+	          			<dd class="drop-down-menu__divider"><%= link_to centre.short_name, context_aware_link(centre), class: 'btn btn--full btn--full-left' %></dd>
 	          		<% end %>
 	          	<% end %>
           	</dl>

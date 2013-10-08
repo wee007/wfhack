@@ -39,11 +39,17 @@
 
 /* --Extenders-- */
 
-/* Top and bottom padding only */
+/* Turn off left and right padding */
 .island--top-btm,
-.islet--top-btm {
+.islet--top-btm,
+.islet--top {
 	padding-left: 0;
   padding-right: 0;
+}
+
+/* Top padding only */
+.islet--top {
+  padding-bottom: 0;
 }
 
 /* Island at non-palm */

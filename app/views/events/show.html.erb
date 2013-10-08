@@ -2,7 +2,7 @@
 
   <div class="island detail-view__divider">
     <header class="detail-view__mrg-base">
-      <h1 class="detail-view__hdr hn" id="detail-view__hdr" itemprop="summary"><%= @event.name %></h1>
+      <h1 class="detail-view__hdr hn" itemprop="summary"><%= @event.name %></h1>
       <ul class="detail-view__meta islet islet--top-btm detail-view__divider detail-view__divider--top-btm horiz-list horiz-list--fit">
         <li class="detail-view__subtle-txt"><%= @event.date '%-d %b %Y' %></li><!--
       --><li><span class="icon icon--pin icon--lrg icon--spacing" aria-hidden="true"></span><span itemprop="location"><%= @event.location %></span></li>

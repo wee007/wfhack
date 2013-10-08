@@ -7,13 +7,16 @@
 <% else %>
   <article role="article" class="detail-view detail-view--<%= params[:controller].singularize %> box">
 <% end %>
+  
+  <% unless meta.hide_social_share %>
+    <div class="detail-view__controls detail-view__divider">
+      <%= render "/shared/social_share", url: current_url, title: meta.title.to_s, image: meta.image %>
 
-  <div class="detail-view__controls detail-view__divider">
-    <%= render "/shared/social_share", url: current_url, title: meta.title.to_s, image: meta.image %>
-    <% if in_lightbox? %>
-      <button type="button" class="btn btn--close"><span class="icon icon--close-sml icon--flush-top" aria-hidden="true"></span><span class="hide-visually"> Close</span></button>
-    <% end %>
-  </div>
+      <% if in_lightbox? %>
+        <button type="button" class="btn btn--close"><span class="icon icon--close-sml icon--flush-top" aria-hidden="true"></span><span class="hide-visually"> Close</span></button>
+      <% end %>
+    </div>
+  <% end %>
 
   <%= yield %>
 </article>

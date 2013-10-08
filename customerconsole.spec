@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.101
+Version:     0.1.102
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -86,6 +86,23 @@ fi
 
 
 %changelog
+* Tue Oct 08 2013 ci <doperations@au.westfield.com> 0.1.102-1
+- Merge pull request #442 from fchan/little-fixes (ldewey@au.westfield.com)
+- Fixed national nav links (ldewey@au.westfield.com)
+- Update datetime (fiona@fionachan.net)
+- Fix up T&C and privacy policy (fiona@fionachan.net)
+- Remove id from detail view header (fiona@fionachan.net)
+- Enable links in national landing page footer and header dropdown
+  (fiona@fionachan.net)
+- Fix styles and reworked controller and routes for t&c and privacy policy
+  (fiona@fionachan.net)
+- Added Privacy Policy and updated T&C (fiona@fionachan.net)
+- Added terms and conditions (fiona@fionachan.net)
+- Fix PR after feedback (fiona@fionachan.net)
+- Convert all tel: links to use new helper (fiona@fionachan.net)
+- Fix spacing collapsing between contact us and follow us sections, and social
+  links spacing (fiona@fionachan.net)
+
 * Tue Oct 08 2013 ci <doperations@au.westfield.com> 0.1.101-1
 - Merge pull request #436 from csmith/master (craigM.smith@au.westfield.com)
 - New movie vcd details. (craigm.smith@au.westfield.com)

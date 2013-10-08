@@ -2,95 +2,7 @@
 http_interactions:
 - request:
     method: get
-    uri: http://centre-service.test.dbg.westfield.com/api/centre/master/centres/sydney.json
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Faraday v0.8.8
-      Content-Type:
-      - application/json
-  response:
-    status:
-      code: 200
-      message: 
-    headers:
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-XSS-Protection:
-      - 1; mode=block
-      X-Content-Type-Options:
-      - nosniff
-      X-UA-Compatible:
-      - chrome=1
-      Content-Type:
-      - application/json; charset=utf-8
-      ETag:
-      - '"eb1177989a99f479392f34dec53b25dd"'
-      Cache-Control:
-      - max-age=0, private, must-revalidate
-      X-Request-Id:
-      - d20a4ed7-f640-422b-a88d-efddf5f485d9
-      X-Runtime:
-      - '0.012290'
-      Date:
-      - Tue, 27 Aug 2013 05:50:16 GMT
-      Connection:
-      - close
-    body:
-      encoding: UTF-8
-      string: '{"name":"Westfield Sydney","short_name":"Sydney","code":"sydney","business_unit_code":"16621","type":"premium","street_address":"Cnr
-        Pitt St Mall and Market St","state":"NSW","postcode":"2000","country":"au","phone_number":"(02)
-        8236 9200","email_address":"","latitude":"-33.870371","longitude":"151.207735","today_opening_time":null,"today_closing_time":null,"number_of_levels":0,"micello_community":null,"facebook":null,"twitter":null,"google_plus":null,"instagram":null,"youtube":null,"retail":true,"enabled":true}'
-    http_version: 
-  recorded_at: Tue, 27 Aug 2013 05:50:16 GMT
-- request:
-    method: get
-    uri: http://movie-service.test.dbg.westfield.com/api/movie/master/movie_sessions.json?centre=sydney
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Faraday v0.8.8
-      Content-Type:
-      - application/json
-  response:
-    status:
-      code: 200
-      message: 
-    headers:
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-XSS-Protection:
-      - 1; mode=block
-      X-Content-Type-Options:
-      - nosniff
-      X-UA-Compatible:
-      - chrome=1
-      Content-Type:
-      - application/json; charset=utf-8
-      ETag:
-      - '"251b7b1864fb701057bf9e6f91655370"'
-      Cache-Control:
-      - max-age=0, private, must-revalidate
-      X-Request-Id:
-      - b188a735-f79f-4744-96a0-feb7bff68060
-      X-Runtime:
-      - '0.009721'
-      Date:
-      - Tue, 27 Aug 2013 05:50:16 GMT
-      Connection:
-      - close
-    body:
-      encoding: UTF-8
-      string: '{"movie_sessions":[]}'
-    http_version: 
-  recorded_at: Tue, 27 Aug 2013 05:50:16 GMT
-- request:
-    method: get
-    uri: http://movie-service.test.dbg.westfield.com/api/movie/master/movies.json?centre=sydney&date=29-08-2013
+    uri: http://movie-service.test.dbg.westfield.com/api/movie/master/movies.json?centre=sydney&date=08-10-2013
     body:
       encoding: US-ASCII
       string: ''
@@ -119,16 +31,104 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - c7ef20ac-1502-4b64-bb26-9e4554b72d93
+      - 18d2249f-58d5-4584-bc79-5886e6555808
       X-Runtime:
-      - '0.015137'
+      - '0.007204'
       Date:
-      - Tue, 27 Aug 2013 05:50:16 GMT
+      - Tue, 08 Oct 2013 00:25:25 GMT
       Connection:
       - close
     body:
       encoding: UTF-8
       string: '[]'
     http_version: 
-  recorded_at: Tue, 27 Aug 2013 05:50:16 GMT
+  recorded_at: Tue, 08 Oct 2013 00:25:25 GMT
+- request:
+    method: get
+    uri: http://movie-service.test.dbg.westfield.com/api/movie/master/movie_sessions.json?centre=sydney
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.8
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-UA-Compatible:
+      - chrome=1
+      Content-Type:
+      - application/json; charset=utf-8
+      ETag:
+      - '"d751713988987e9331980363e24189ce"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 83b24d78-a001-47f2-ad96-b3615b1f3b9e
+      X-Runtime:
+      - '0.007831'
+      Date:
+      - Tue, 08 Oct 2013 00:25:25 GMT
+      Connection:
+      - close
+    body:
+      encoding: UTF-8
+      string: '[]'
+    http_version: 
+  recorded_at: Tue, 08 Oct 2013 00:25:25 GMT
+- request:
+    method: get
+    uri: http://centre-service.test.dbg.westfield.com/api/centre/master/centres/sydney.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.8
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-UA-Compatible:
+      - chrome=1
+      Content-Type:
+      - application/json; charset=utf-8
+      ETag:
+      - '"6e04496f25726d766b55e200df4a5904"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 73a61665-ffec-4da6-991f-c4df65790008
+      X-Runtime:
+      - '0.025023'
+      Date:
+      - Tue, 08 Oct 2013 00:25:25 GMT
+      Connection:
+      - close
+    body:
+      encoding: UTF-8
+      string: '{"name":"Westfield Sydney","short_name":"Sydney","code":"sydney","business_unit_code":"16621","type":"premium","street_address":"Cnr
+        Pitt St Mall and Market St","suburb":"Sydney","state":"NSW","postcode":"2000","country":"au","phone_number":"(02)
+        8236 9200","email_address":"","latitude":"-33.870371","longitude":"151.207735","today_opening_time":"09:00","today_closing_time":"17:00","number_of_levels":0,"micello_community":null,"facebook":null,"twitter":null,"google_plus":null,"instagram":null,"pinterest":null,"youtube":null,"retail":true,"enabled":true}'
+    http_version: 
+  recorded_at: Tue, 08 Oct 2013 00:25:25 GMT
 recorded_with: VCR 2.5.0

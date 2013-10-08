@@ -12,9 +12,9 @@ describe MoviesHelper do
         it "returns the days" do
           assert_select(@days_as_document[0], 'a', text: "Today")
           assert_select(@days_as_document[1], 'a', text: "Tomorrow")
-          assert_select(@days_as_document[2], 'a', text: 2.days.from_now.localtime.strftime("%A %-d"))
-          assert_select(@days_as_document[3], 'a', text: 3.days.from_now.localtime.strftime("%A %-d"))
-          assert_select(@days_as_document[4], 'a', text: 4.days.from_now.localtime.strftime("%A %-d"))
+          assert_select(@days_as_document[2], 'a', text: 2.days.from_now.localtime.strftime("%a %-d %b"))
+          assert_select(@days_as_document[3], 'a', text: 3.days.from_now.localtime.strftime("%a %-d %b"))
+          assert_select(@days_as_document[4], 'a', text: 4.days.from_now.localtime.strftime("%a %-d %b"))
         end
         it "should link to the movies index page" do
           5.times do |i|

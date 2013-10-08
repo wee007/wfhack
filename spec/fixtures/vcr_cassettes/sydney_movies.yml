@@ -2,6 +2,49 @@
 http_interactions:
 - request:
     method: get
+    uri: http://movie-service.test.dbg.westfield.com/api/movie/master/movies.json?centre=sydney&date=08-10-2013
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.8
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-UA-Compatible:
+      - chrome=1
+      Content-Type:
+      - application/json; charset=utf-8
+      ETag:
+      - '"d751713988987e9331980363e24189ce"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 18d2249f-58d5-4584-bc79-5886e6555808
+      X-Runtime:
+      - '0.007204'
+      Date:
+      - Tue, 08 Oct 2013 00:25:25 GMT
+      Connection:
+      - close
+    body:
+      encoding: UTF-8
+      string: '[]'
+    http_version: 
+  recorded_at: Tue, 08 Oct 2013 00:25:25 GMT
+- request:
+    method: get
     uri: http://movie-service.test.dbg.westfield.com/api/movie/master/movie_sessions.json?centre=sydney
     body:
       encoding: US-ASCII
@@ -31,61 +74,18 @@ http_interactions:
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - cc8ba231-589b-4374-b379-c07665aa0e53
+      - 83b24d78-a001-47f2-ad96-b3615b1f3b9e
       X-Runtime:
-      - '0.245295'
+      - '0.007831'
       Date:
-      - Thu, 03 Oct 2013 02:07:36 GMT
+      - Tue, 08 Oct 2013 00:25:25 GMT
       Connection:
       - close
     body:
       encoding: UTF-8
       string: '[]'
     http_version: 
-  recorded_at: Thu, 03 Oct 2013 02:07:36 GMT
-- request:
-    method: get
-    uri: http://movie-service.test.dbg.westfield.com/api/movie/master/movies.json?centre=sydney&date=03-10-2013
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Faraday v0.8.8
-      Content-Type:
-      - application/json
-  response:
-    status:
-      code: 200
-      message: 
-    headers:
-      X-Frame-Options:
-      - SAMEORIGIN
-      X-XSS-Protection:
-      - 1; mode=block
-      X-Content-Type-Options:
-      - nosniff
-      X-UA-Compatible:
-      - chrome=1
-      Content-Type:
-      - application/json; charset=utf-8
-      ETag:
-      - '"d751713988987e9331980363e24189ce"'
-      Cache-Control:
-      - max-age=0, private, must-revalidate
-      X-Request-Id:
-      - 38b45271-ff8e-463e-b600-0a03cde39ab8
-      X-Runtime:
-      - '0.279582'
-      Date:
-      - Thu, 03 Oct 2013 02:07:36 GMT
-      Connection:
-      - close
-    body:
-      encoding: UTF-8
-      string: '[]'
-    http_version: 
-  recorded_at: Thu, 03 Oct 2013 02:07:36 GMT
+  recorded_at: Tue, 08 Oct 2013 00:25:25 GMT
 - request:
     method: get
     uri: http://centre-service.test.dbg.westfield.com/api/centre/master/centres/sydney.json
@@ -113,22 +113,22 @@ http_interactions:
       Content-Type:
       - application/json; charset=utf-8
       ETag:
-      - '"e08ab419ae42e1a70c4f457b7a8f64eb"'
+      - '"6e04496f25726d766b55e200df4a5904"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 69b25832-2a7e-484f-9b5c-a637d9f0da3d
+      - 73a61665-ffec-4da6-991f-c4df65790008
       X-Runtime:
-      - '0.548918'
+      - '0.025023'
       Date:
-      - Thu, 03 Oct 2013 02:07:37 GMT
+      - Tue, 08 Oct 2013 00:25:25 GMT
       Connection:
       - close
     body:
       encoding: UTF-8
       string: '{"name":"Westfield Sydney","short_name":"Sydney","code":"sydney","business_unit_code":"16621","type":"premium","street_address":"Cnr
         Pitt St Mall and Market St","suburb":"Sydney","state":"NSW","postcode":"2000","country":"au","phone_number":"(02)
-        8236 9200","email_address":"","latitude":"-33.870371","longitude":"151.207735","today_opening_time":"09:00","today_closing_time":"21:00","number_of_levels":0,"micello_community":null,"facebook":null,"twitter":null,"google_plus":null,"instagram":null,"pinterest":null,"youtube":null,"retail":true,"enabled":true}'
+        8236 9200","email_address":"","latitude":"-33.870371","longitude":"151.207735","today_opening_time":"09:00","today_closing_time":"17:00","number_of_levels":0,"micello_community":null,"facebook":null,"twitter":null,"google_plus":null,"instagram":null,"pinterest":null,"youtube":null,"retail":true,"enabled":true}'
     http_version: 
-  recorded_at: Thu, 03 Oct 2013 02:07:37 GMT
+  recorded_at: Tue, 08 Oct 2013 00:25:25 GMT
 recorded_with: VCR 2.5.0

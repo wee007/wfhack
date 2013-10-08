@@ -1,17 +1,10 @@
-<%# Follow Us - title %>
-  <%# Need mrg-base spacing class as the :last-child on txt-formatted removed the margin %>
-  <% if social_media.present? %>
-    <h2 id="follow-us" class="mrg-base">Follow Us</h2>
-  <% end %>
-<%# //Follow Us - title %>
-
 <%# Follow Us - list of social media %>
 <% if social_media.present? %>
   <ul class="grid grid--mrg-base-non-palm">
     <%# Facebook %>
     <% if @centre.facebook.present? %>
       <li class="grid__item one-half non-palm-one-quarter">
-        <a href="<%= @centre.facebook %>" class="flag social-follow" rel="external" target="_blank">
+        <a href="<%= @centre.facebook %>" class="flag flag--shrink-wrap social-follow" rel="external" target="_blank">
           <div class="flag__image">
             <div class="box islet">
               <span class="icon icon--facebook icon--base-color" aria-hidden="true"></span>
@@ -28,7 +21,7 @@
     <%# Twitter %>
     <% if @centre.twitter.present? %>
       <li class="grid__item one-half non-palm-one-quarter">
-        <a href="<%= @centre.twitter %>" class="flag social-follow" rel="external" target="_blank">
+        <a href="<%= @centre.twitter %>" class="flag flag--shrink-wrap social-follow" rel="external" target="_blank">
           <div class="flag__image">
             <div class="box islet">
               <span class="icon icon--twitter icon--base-color" aria-hidden="true"></span>
@@ -45,7 +38,7 @@
     <%# Instagram %>
     <% if @centre.instagram.present? %>
       <li class="grid__item one-half non-palm-one-quarter">
-        <a href="<%= @centre.instagram %>" class="flag social-follow" rel="external" target="_blank">
+        <a href="<%= @centre.instagram %>" class="flag flag--shrink-wrap social-follow" rel="external" target="_blank">
           <div class="flag__image">
             <div class="box islet">
               <span class="icon icon--instagram icon--base-color" aria-hidden="true"></span>
@@ -62,7 +55,7 @@
     <%# Pinterest %>
     <% if @centre.pinterest.present? %>
       <li class="grid__item one-half non-palm-one-quarter">
-        <a href="<%= @centre.pinterest %>" class="flag social-follow" rel="external" target="_blank">
+        <a href="<%= @centre.pinterest %>" class="flag flag--shrink-wrap social-follow" rel="external" target="_blank">
           <div class="flag__image">
             <div class="box islet">
               <span class="icon icon--pinterest icon--base-color" aria-hidden="true"></span>
@@ -79,7 +72,7 @@
     <%# YouTube %>
     <% if @centre.youtube.present? %>
       <li class="grid__item one-half non-palm-one-quarter">
-        <a href="<%= @centre.youtube %>" class="flag social-follow" rel="external" target="_blank">
+        <a href="<%= @centre.youtube %>" class="flag flag--shrink-wrap social-follow" rel="external" target="_blank">
           <div class="flag__image">
             <div class="box islet">
               <span class="icon icon--youtube icon--base-color" aria-hidden="true"></span>
@@ -96,7 +89,7 @@
     <%# Google+ %>
     <% if @centre.google_plus.present? %>
       <li class="grid__item one-half non-palm-one-quarter">
-        <a href="<%= @centre.google_plus %>" class="flag social-follow" rel="external" target="_blank">
+        <a href="<%= @centre.google_plus %>" class="flag flag--shrink-wrap social-follow" rel="external" target="_blank">
           <div class="flag__image">
             <div class="box islet">
               <span class="icon icon--google-plus icon--base-color" aria-hidden="true"></span>

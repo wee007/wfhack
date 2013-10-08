@@ -16,10 +16,10 @@
 
         <%# Show CTA button for centre contact number for palm %>
         <span class="hide-fully--non-palm">
-          <a href="tel:<%= (@centre.phone_number || "").gsub(/\s+/,'') %>" class="txt-center btn btn--full btn--main btn--main-alt2 btn--main-lrg">
+          <%= phone_link @centre.phone_number, class: 'btn btn--full btn--main btn--main-alt2 btn--main-lrg' do |phone_number| %>
             <span class="icon icon--phone icon--xlrg icon--spacing-lrg icon--flush-top" aria-hidden="true"></span>
             <strong>Call <%= @centre.short_name %> Centre</strong>
-          </a>
+          <% end %> 
         </span>
         <%# //Show CTA button for centre contact number for palm %>
       </div>

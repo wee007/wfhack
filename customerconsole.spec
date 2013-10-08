@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.100
+Version:     0.1.101
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -86,6 +86,14 @@ fi
 
 
 %changelog
+* Tue Oct 08 2013 ci <doperations@au.westfield.com> 0.1.101-1
+- Merge pull request #436 from csmith/master (craigM.smith@au.westfield.com)
+- New movie vcd details. (craigm.smith@au.westfield.com)
+- Added a fallback for when there are not movies to display.
+  (craigm.smith@au.westfield.com)
+- Fixing specs (craigm.smith@au.westfield.com)
+- Putting movies back in (craigm.smith@au.westfield.com)
+
 * Tue Oct 08 2013 ci <doperations@au.westfield.com> 0.1.100-1
 - Merge pull request #425 from mwratt/feature/WSF-4655-featured-products
   (ldewey@au.westfield.com)

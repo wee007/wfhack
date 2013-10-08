@@ -1,0 +1,18 @@
+<div class="tile__image">
+  <%= fetch_image_tag result.image,
+    alt: result.name,
+    width: 288,
+    crop: :limit
+  %>
+</div>
+<div class="tile__meta">
+  <span class="tile__meta__icon">
+    <span class="icon icon--<%= result.icon %>" aria-hidden="true"></span>
+  </span>
+  <div class="tile__meta__inner">
+    <h3 class="tile__meta__hdr txt-truncate"><%= result.name %></h3>
+    <p class="tile__meta__desc txt-truncate">
+      <%= result.start_date "%-d %b %Y" %>
+    </p>
+  </div>
+</div>

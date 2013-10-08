@@ -9,6 +9,8 @@ module TileHelper
       centre_event_url(centre, result)
     when 'deal'
       centre_deal_url(centre, retailer_code: result.retailer_code, id: result)
+    when 'canned_search'
+      root_url(:only_path => false) + result.url.gsub(/^\//, '')
     end
   end
 

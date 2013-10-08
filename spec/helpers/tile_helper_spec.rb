@@ -19,6 +19,11 @@ describe TileHelper do
       expect(helper.tile_url "centre_id", deal).to eq "http://test.host/centre_id/deals/wittner/id"
     end
 
+    it "returns a canned search url" do
+      cs = double(:canned_search, kind: 'canned_search', to_param: 'id', url: '/something/cool')
+      helper.tile_url("centre_id", cs).should eq("http://test.host/something/cool")
+    end
+
   end
 
 end

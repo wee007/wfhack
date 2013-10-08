@@ -87,7 +87,6 @@
     @include respond-min($desk) {
       @include font-size($font-size-milli, 1.5);
     }
-
   }
 
     /* Price */
@@ -147,6 +146,14 @@
       /* Increase the bottom spacing at this breakpoint */
       @include respond-min($non-palm) {
         @include to-rem(margin-bottom, $spacing-half);
+      }
+
+      /* Old IE */
+      @include old-ie {
+        img {
+          /* Prevent the image from getting distorted */
+          width: 100%;
+        }
       }
     }
 

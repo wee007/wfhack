@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.106
+Version:     0.1.107
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -86,6 +86,11 @@ fi
 
 
 %changelog
+* Wed Oct 09 2013 ci <doperations@au.westfield.com> 0.1.107-1
+- Merge pull request #452 from mwratt/feature/WSF-4655-featured-products
+  (ldewey@au.westfield.com)
+- adds old school fileservice image support back (matt.wratt@trineo.co.nz)
+
 * Wed Oct 09 2013 ci <doperations@au.westfield.com> 0.1.106-1
 - Merge pull request #451 from digital/search-events (ldewey@au.westfield.com)
 - Don't search when key up or down is pressed (ben@germanforblack.com)

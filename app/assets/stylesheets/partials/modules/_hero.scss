@@ -4,7 +4,7 @@
 
 /*
   Usage:
-    This is used to create a full width hero image with text on top.
+    This is used to create a full width hero image with text on top, typically used for sub pages.
 
   Demo:
     Style Guide -> Modules -> Hero
@@ -12,17 +12,20 @@
 
 .hero {
   @include to-rem(height, 220);
-  @extend %mrg-base;
+  @include to-rem(margin-bottom, $spacing-half);
   color: #fff;
   background-repeat: no-repeat;
   background-position: 100% 0;
   background-size: cover;
 
+  /* Increase height and bottom margin at this breakpoint */
   @include respond-min($non-palm) {
     @include to-rem(height, 300);
-    @include to-rem(margin-bottom, $spacing-dbl);
+    @include to-rem(margin-bottom, $spacing-base+$spacing-half);
+  }
 
-    /* Shared styles */
+  /* Shared styles at this breakpoint */
+  @include respond-min($non-palm) {
     .hero__icon,
     h1 {
       display: inline-block;
@@ -30,7 +33,7 @@
     }
   }
 
-  /* Hero icon next to the heading   */
+  /* Hero icon next to the heading */
   .hero__icon:before {
     @include font-size(30, 1);
 
@@ -49,7 +52,7 @@
     }
   }
 }
-  
+
   /* Hero inner */
   @include respond-min($lap-lrg) {
     .hero__inner {text-align: left;}

@@ -17,10 +17,17 @@
   position: relative;
   color: $color-base-txt;
   @include font-size($font-size-sml, 1.5);
-  @include to-rem(margin-bottom, $spacing-half);
 
   /* Needed so the social share controls can be seen */
   &:hover {z-index: 2;}
+
+  /* Apply bottom spacing when inside the 'Pin board' module */
+  .pin-board & {
+    @include to-rem(margin-bottom, $grid-gutter-half);
+
+    /* Turf off for the last tile */
+    &:last-child {margin-bottom: 0;}
+  }
 
   /* Global styles */
   a {color: $color-light-txt;}

@@ -6,33 +6,32 @@
   Usage:
     Pin board container that holds all tiles.
 
+  Notes:
+    The pin board's layout (no of columns) is controlled via JS except at palm size where it's always 2 columns.
+
   Demo:
     Style Guide -> Modules -> Pin Board
 */
 
 .pin-board {
-  @extend %clear-fix;
-  @include to-rem(margin-top, $spacing-half);
-  /* We need this to accommodate for the bottom padding on `body` as each tile has a bottom margin */
-  @include to-rem(margin-bottom, -$spacing-base);
 
-
-  /* Show the pin board if there browser has no JS or if it has loaded */
+  /* Show by default for non JS users, old IE users and when the JS that constructs the pin board's layout has loaded */
   .no-js &,
   .old-ie &,
-  &.is-pin-board-loaded{display: block;}
+  &.is-pin-board-loaded {display: block;}
 
+  /* Apply top spacing */
+  @include to-rem(margin-top, $spacing-half);
+  /* Need a negative bottom margin to offset the bottom padding on the `body` to keep the spacing consistent with the top spacing, need to increase specificity to override grid's `:last-child` rule */
+  &.grid {@include to-rem(margin-bottom, -$spacing-half);}
 
-  /* Increase top/bottom margin at this breakpoint */
+  /* Hide and change top/bottom spacing at this breakpoint */
   @include respond-min($non-palm) {
-
-    /*
-      Don't show the pinboard initaly as it will be the wrong number of cols
-      unless you are on a plam device. The cols are set to the right number via
-      javascript.
-    */
+    /* Don't show the pin board initially as it will be the wrong number of cols unless you are on a palm device. The cols are set to the right number via JS */
     display: none;
+    /* Increase top spacing */
     @include to-rem(margin-top, $spacing-base);
-    @include to-rem(margin-bottom, -$spacing-half);
+    /* Turn off negative bottom spacing */
+    &.grid {margin-bottom: 0;}
   }
 }

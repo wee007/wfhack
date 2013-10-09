@@ -6,7 +6,7 @@ describe MoviesHelper do
     describe "When we want to show 5 days in to the future for movies" do
       describe "When no date has been chosen" do
         before(:each) do
-          @days = days(5.days.from_now.to_s, 'bondijunction')
+          @days = days(5.days.from_now.localtime.to_s, 'bondijunction')
           @days_as_document = @days.map{|day| HTML::Document.new(day).root}
         end
         it "returns the days" do
@@ -40,7 +40,7 @@ describe MoviesHelper do
     
     describe "When we want to show 5 days in to the future for movies" do
       before(:each) do
-        @days = days(5.days.from_now.to_s, 'bondijunction', nil, '557')
+        @days = days(5.days.from_now.localtime.to_s, 'bondijunction', nil, '557')
         @days_as_document = @days.map{|day| HTML::Document.new(day).root}
       end
       it "should link to the movie show page" do

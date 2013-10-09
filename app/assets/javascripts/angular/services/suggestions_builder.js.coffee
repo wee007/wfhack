@@ -8,12 +8,11 @@
         angular.forEach results, (result) ->
 
           # Skip category for now till we can sort it out.
-          next if result.result_type == 'category'
-
-          suggestions[type].push {
-            description: result.display,
-            url: buildUrl(result.result_type, result.attributes)
-          }
+          unless result.result_type == 'category'
+            suggestions[type].push {
+              description: result.display,
+              url: buildUrl(result.result_type, result.attributes)
+            }
 
       # Add the default product search.
       (suggestions.products ||=[]).push dummyResult(searchString)

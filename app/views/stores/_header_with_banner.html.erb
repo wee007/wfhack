@@ -1,9 +1,9 @@
 <header>
   <h1 class="hide-visually"><%= @store.name %> storefront</h1>
-  <div class="flexslider flexslider--contain-controls" style="background-image: url(<%= cl_image_path(@store.storefront) %>);">
+  <div class="flexslider flexslider--contain-controls" style="background-image: url(<%= cl_image_path(@store.storefront, width: 1600, crop: :limit, quality: 25, format: :jpg, type: :fetch) %>);">
     <ul class="slides">
       <li>
-        <%= cl_image_tag @store.storefront, alt: "#{@store.name} banner", width: 568, crop: 'limit', quality: 25, format: 'jpg' %>
+        <%= fetch_image_tag @store.storefront, alt: "#{@store.name} banner", width: 1600, crop: :limit, quality: 25, format: :jpg %>
       </li>
       <%= render 'description' %>
     </ul>

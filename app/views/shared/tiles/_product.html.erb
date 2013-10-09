@@ -1,12 +1,21 @@
 <div class="tile__image">
-  <%= cl_image_tag result.cloudinary_public_id, {
-      'data-height' => result.image_height,
-      format: 'jpg',
-      alt: "Photo of product: #{result.title}",
-      width: 288,
-      crop: :limit
-    }.merge((options if defined? options) || {})
-  %>
+  <% if result.cloudinary_public_id %>
+    <%= cl_image_tag result.cloudinary_public_id, {
+        'data-height' => result.image_height,
+        format: 'jpg',
+        alt: "Photo of product: #{result.title}",
+        width: 288,
+        crop: :limit
+      }.merge((options if defined? options) || {})
+    %>
+  <% else %>
+    <%= fetch_image_tag result.primary_image, {
+        alt: "Photo of product: #{result.title}",
+        width: 288,
+        crop: :limit
+      }.merge((options if defined? options) || {})
+    %>
+  <% end -%>
 </div>
 
 <div class="tile__meta">

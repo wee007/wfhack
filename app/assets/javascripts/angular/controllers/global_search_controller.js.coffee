@@ -43,8 +43,12 @@
       ), 500
 
     $scope.makeSuggestions = (event) ->
-      # Hide suggestions when escape is pressed
-      $scope.hideSuggestions() if event and event.keyCode == 27
+      if event
+        # Arrow keys should not invoke a ajax request
+        return if event.keyCode == 38 || event.keyCode == 40
+
+        # Hide suggestions when escape is pressed
+        $scope.hideSuggestions() if event and event.keyCode == 27
 
       if $scope.searchQuery && $scope.searchQuery != ""
         GlobalSearch.get {term: $scope.searchQuery}

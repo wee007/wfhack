@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.107
+Version:     0.1.108
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -86,6 +86,9 @@ fi
 
 
 %changelog
+* Wed Oct 09 2013 ci <doperations@au.westfield.com> 0.1.108-1
+- WSF-5663: Added no-content-fallback-msg extender (fiona@fionachan.net)
+
 * Wed Oct 09 2013 ci <doperations@au.westfield.com> 0.1.107-1
 - Merge pull request #452 from mwratt/feature/WSF-4655-featured-products
   (ldewey@au.westfield.com)

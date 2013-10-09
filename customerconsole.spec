@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.103
+Version:     0.1.104
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -86,6 +86,14 @@ fi
 
 
 %changelog
+* Wed Oct 09 2013 ci <doperations@au.westfield.com> 0.1.104-1
+- Fixed timing issue in movies helper spec. (craigm.smith@au.westfield.com)
+- recreated movie VCR (craigm.smith@au.westfield.com)
+- Refactored choosing whether we should show T&C's or not.
+  (craigm.smith@au.westfield.com)
+- Don't show terms and conditions when there aren't any.
+  (craigm.smith@au.westfield.com)
+
 * Tue Oct 08 2013 ci <doperations@au.westfield.com> 0.1.103-1
 - 
 

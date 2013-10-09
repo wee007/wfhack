@@ -6,7 +6,13 @@ describe ProductsController do
     StoreService.stub(:fetch)
     CentreService.stub(:fetch).and_return double :response, body: {}
     CentreService.stub(:group_by_state)
-    ProductService.stub(:fetch).and_return double :response, body: {details: []}
+    ProductService.stub(:fetch).and_return double( :response,
+      body: {
+        details: [],
+        retail_chain: {cam_ref: ""},
+        categories: [{super_category: {code: ""}}]
+      }
+    )
   end
 
   describe "GET #index" do

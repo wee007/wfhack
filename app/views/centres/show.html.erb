@@ -1,5 +1,5 @@
 <% content_for :custom_styles,
-  render('/shared/hero_custom_styles', image: @centre.code, target: '.header__hero')
+  render('/shared/centre_hero_custom_styles', centre_id: @centre.code, target: '.header__hero')
 %>
 
 <%= pin_board(@stream) do |result| %>

@@ -45,4 +45,24 @@ module CentresHelper
                            scale: scale
   end
 
+  def hero_image(centre_id, height, width)
+    image_path(
+      "heroes/#{centre_id}.jpg",
+      transformation: [
+        {
+          width: width,
+          height: height,
+          crop: 'fill',
+        },
+        {
+          width: width,
+          height: height,
+          effect: 'multiply',
+          overlay: 'asset:black-overlay-1805e3ae919b74a1ed2cff673434e6f9',
+          opacity: '50'
+        }
+      ]
+    )
+  end
+
 end

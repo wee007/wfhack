@@ -1,287 +1,294 @@
 <%# Divider %>
-<div class="divider">
+<div class="divider divider--lrg">
 
-  <%# Wrapper around the tabs %>
-  <div class="grid grid--mrg-base-non-palm">
-    <%# Grid item %>
-    <div class="grid__item one-whole">
+  <%# Tabs %>
+  <div class="tabs">
 
-      <%# Tabs %>
-      <div class="tabs">
-
-        <%# Nav contextual %>
-        <div class="nav-contextual js-nav-contextual">
-          <div class="nav-contextual__clip">
-            <div class="nav-contextual__clip__inner">
-              <ul class="nav-contextual__list tab__nav horiz-list js-nav-contextual-list">
-                <% @weeks.each_with_index do |week, week_number| %>
-                  <%# [BACKEND] Need to output all the `li` onto one line. This is for removing whitespace %>
-                  <li>
-                    <a class="<%= 'is-active' if week_number == 0 %>" href="#tab-<%= week_number %>">
-                      <%=
-                        ["This week", "Next week"][week_number] ||
-                        "#{week.first.date '%-d %b'} - #{week.last.date '%-d %b'}"
-                      %>
-                    </a>
-                  </li>
-                <% end %>
-                <%# [BACKEND] For the first item of the dates with special opening hours (Christmas, ANAZC etc), need to add class `nav-contextual__divider` to the `a` %>
-                <li>
-                  <a href="#" class="nav-contextual__divider">2-9 December</a>
-                </li>
-              </ul>
-            </div>
-            <span class="nav-contextual__clip__overlay icon icon--arrow-right icon--mega icon--flush-top js-nav-contextual-clip-overlay" aria-hidden="true"></span>
-          </div>
+    <%# Nav contextual %>
+    <div class="nav-contextual js-nav-contextual">
+      <div class="nav-contextual__clip">
+        <div class="nav-contextual__clip__inner">
+          <ul class="tab__nav nav-contextual__list js-nav-contextual-list horiz-list">
+            <% @weeks.each_with_index do |week, week_number| %>
+              <%# [BACKEND] Need to output all the `li` onto one line. This is for removing whitespace %>
+              <li>
+                <a class="<%= 'is-active' if week_number == 0 %>" href="#tab-<%= week_number %>">
+                  <%=
+                    ["This week", "Next week"][week_number] ||
+                    "#{week.first.date '%-d %b'} - #{week.last.date '%-d %b'}"
+                  %>
+                </a>
+              </li>
+            <% end %>
+            <%# [BACKEND]
+                - For the first item of the dates with special opening hours (Christmas, ANAZC etc), need to add class `nav-contextual__divider` to the `a`
+                - Need to add a `href` that matches the `id` of the `tab__content` that contains the content for the the special opening hours. E.g. `#tab-[the date of special opening hours]`.
+            %>
+            <li>
+              <%# [BACKEND] `href` needs to match the `id` of the `tab__content` it's referencing %>
+              <a href="#" class="nav-contextual__divider">2-9 December</a>
+            </li>
+          </ul>
         </div>
-        <% content_for :javascript do %>
-          <script>
-            $('.js-nav-contextual').navContextual();
-          </script>
-        <% end -%>
-        <%# //Nav contextual %>
+        <span class="nav-contextual__clip__overlay icon icon--arrow-right icon--mega icon--flush-top js-nav-contextual-clip-overlay" aria-hidden="true"></span>
+      </div>
+    </div>
+    <% content_for :javascript do %>
+      <script>
+        $('.js-nav-contextual').navContextual();
+      </script>
+    <% end -%>
+    <%# //Nav contextual %>
 
-        <%# Hours %>
-        <% @weeks.each_with_index do |week, week_number| %>
-          <%# Tab content %>
-          <div id="tab-<%= week_number %>" class="tab__content <%= 'is-active' if week_number == 0 %>">
+    <%# Hours %>
+    <% @weeks.each_with_index do |week, week_number| %>
+      <%# Tab content %>
+      <div id="tab-<%= week_number %>" class="tab__content <%= 'is-active' if week_number == 0 %>">
 
-            <h2 class="tab__content__hdr">
-               <%=
-                  ["This week", "Next week"][week_number] ||
-                  "#{week.first.date '%-d %b'} - #{week.last.date '%-d %b'}"
-                %>
-            </h2>
+        <h2 class="tab__content__hdr"><%= ["This week", "Next week"][week_number] || "#{week.first.date '%-d %b'} - #{week.last.date '%-d %b'}"%></h2>
 
-            <%# Grid %>
-            <div class="grid grid--gutter-dbl grid--mrg-base-non-palm">
+        <%# Grid %>
+        <div class="grid grid--gutter-dbl grid--mrg-base-non-palm grid--non-linear-non-palm">
 
-              <%# Centre hours %>
-              <div class="grid__item non-palm-one-half lap-sml-one-whole">
+          <%# Centre hours %>
+          <div class="grid__item non-palm-one-half lap-sml-one-whole">
 
-                <%# Centre hours box %>
-                <div class="islet island--non-palm box">
+            <%# Centre hours box %>
+            <div class="islet island--non-palm box">
 
-                  <%# Centre hours table %>
-                  <table cellspacing="0" class="table-striped table-fixed">
-                    <caption>
-                      <%= week.find { |hour| hour.christmas? } ? "Christmas Centre Hours" : "Westfield Centre Hours" %>
-                    </caption>
+              <%# Centre hours table %>
+              <table cellspacing="0" class="table-striped table-fixed">
+                <caption><%= week.find { |hour| hour.christmas? } ? "Christmas Centre Hours" : "Westfield Centre Hours" %></caption>
 
-                    <colgroup>
-                      <col class="one-sixth lap-lrg-one-fifth desk-one-fifth"></col>
-                      <col></col>
-                      <col class="three-sixths lap-lrg-two-fifths desk-two-fifths"></col>
-                    </colgroup>
+                <colgroup>
+                  <col class="one-sixth lap-lrg-one-fifth desk-one-fifth"></col>
+                  <col></col>
+                  <col class="three-sixths lap-lrg-two-fifths desk-two-fifths"></col>
+                </colgroup>
 
-                    <thead class="hide-visually">
-                      <tr>
-                        <th scope="col">Day</th>
-                        <th scope="col">Public holiday</th>
-                        <th scope="col">Time</th>
-                      </tr>
-                    </thead>
+                <thead class="hide-visually">
+                  <tr>
+                    <th scope="col">Day</th>
+                    <th scope="col">Public holiday</th>
+                    <th scope="col">Time</th>
+                  </tr>
+                </thead>
 
-                    <tbody>
-                      <tr>
-                        <%# [BACKEND]:
-                          - We want to show the abbreviated day at small viewport so we need to split the string so that after the first three characters, we put them in a `<span cass="hide-fully--palm>`
-                          - If the day is today, add `<em class="txt-bold">` around the day like shown below
-                        %>
-                        <td><em class="txt-bold">Mon<span class="hide-fully--palm">day</span></em></td>
-                        <td>
-                          <%# [BACKEND] For the holiday, if it exceeds 18 characters, add the `title` attribute with the value being the name of the holiday. %>
-                          <em class="pill txt-truncate hide-fully--palm" title="Family &amp; Community Day">Family &amp; Community Day</em>
-                          <em class="pill hide-fully--non-palm">Holiday</em>
-                        </td>
-                        <td class="txt-right">
-                          <%# [BACKEND] If the time is for today, add `<em class="txt-bold">` around the time like shown below %>
-                          <em class="txt-bold">
-                            <%# [BACKEND] Need to output opening and closing time as value in the `time` element. It needs to be in 24 hour format %>
-                            <time datetime="09:30">09:30am</time> - <time datetime="18:00">6:00pm</time>
-                          </em>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Tues<span class="hide-fully--palm">day</span></td>
-                        <td>&nbsp;</td>
-                        <td class="txt-right">
-                          <time datetime="09:30">09:30am</time> - <time datetime="18:00">6:00pm</time>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Wed<span class="hide-fully--palm">nesday</span></td>
-                        <td>&nbsp;</td>
-                        <td class="txt-right">
-                          <time datetime="09:30">09:30am</time> - <time datetime="18:00">6:00pm</time>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Thu<span class="hide-fully--palm">rsday</span></td>
-                        <td>&nbsp;</td>
-                        <td class="txt-right">
-                          <time datetime="09:30">09:30am</time> - <time datetime="18:00">6:00pm</time>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Fri<span class="hide-fully--palm">day</span></td>
-                        <td>&nbsp;</td>
-                        <td class="txt-right">
-                          <time datetime="09:30">09:30am</time> - <time datetime="18:00">6:00pm</time>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Sat<span class="hide-fully--palm">urday</span></td>
-                        <td>&nbsp;</td>
-                        <td class="txt-right">
-                          <time datetime="09:30">09:30am</time> - <time datetime="18:00">6:00pm</time>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Sun<span class="hide-fully--palm">day</span></td>
-                        <td>&nbsp;</td>
-                        <td class="txt-right">
-                          <time datetime="09:30">09:30am</time> - <time datetime="18:00">6:00pm</time>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                  <%# //Centre hours table %>
-                </div>
-                <%# // Centre hours box %>
-              </div>
-              <%# // Centre hours %>
-
-              <%# Store hours %>
-              <div class="grid__item non-palm-one-half lap-sml-one-whole js-disabled-hide">
-                <%# Store hours box %>
-                <div class="islet island--non-palm box--position box" aria-live="polite" aria-atomic="true">
-
-                  <%# Filters %>
-                  <div class="flag--fixed flag mrg-base">
-                    <div class="flag__image three-fifths lap-sml-two-sixths">
-                      <label for="store-hours" class="txt-bold">Store Hours</label>
-                    </div>
-                    <div class="flag__body two-fifths">
-                      <%# Store filter %>
-                      <select id="store-hours" class="one-whole">
-                        <option value="1">Store 1</option>
-                        <option value="2">Store 2</option>
-                        <option value="3">Store 3</option>
-                        <option value="4">Long name is long</option>
-                      </select>
-                      <%# //Store filter %>
-                    </div>
-                  </div>
-
-                  <%# Store hours table %>
-
-                  <%# [BACKEND] Speak to Fiona when you need to AJAX/PJAX in the hours for the stores. Need to discuss how to display the preloader whilst waiting for table with new store hours to load %>
-
-                  <%#<span class="preloader preloader--middle preloader--light">
-                    <span class="preloader__spinner"></span>
-                    <em class="hide-visually">Loading, please wait&#8230;</em>
-                  </span>%>
-
-                  <table cellspacing="0" class="table-striped table-fixed">
-                    <%# [BACKEND] Output name of the centre as indicated below %>
-                    <caption class="flush--btm"><span class="hide-visually">[Name of centre] opening hours</span></caption>
-
-                    <colgroup>
-                      <col class="one-sixth lap-lrg-one-fifth desk-one-fifth"></col>
-                      <col></col>
-                      <col class="three-sixths lap-lrg-two-fifths desk-two-fifths"></col>
-                    </colgroup>
-
-                    <thead class="hide-visually">
-                      <tr>
-                        <th scope="col">Day</th>
-                        <th scope="col">Public holiday</th>
-                        <th scope="col">Time</th>
-                      </tr>
-                    </thead>
-
-                    <tbody>
-                      <tr>
-                        <td><em class="txt-bold">Mon<span class="hide-fully--palm">day</span></em></td>
-                        <td>
-                          <em class="pill txt-truncate hide-fully--palm" title="Family &amp; Community Day">Family &amp; Community Day</em>
-                          <em class="pill hide-fully--non-palm">Holiday</em>
-                        </td>
-                        <td class="txt-right">
-                          <em class="txt-bold">
-                            <%# [BACKEND] Need to output opening and closing time as value in the `time` element. It needs to be in 24 hour format %>
-                            <time datetime="09:30">09:30am</time> - <time datetime="18:00">6:00pm</time>
-                          </em>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Tues<span class="hide-fully--palm">day</span></td>
-                        <td>&nbsp;</td>
-                        <td class="txt-right">
-                          <time datetime="09:30">09:30am</time> - <time datetime="18:00">6:00pm</time>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Wed<span class="hide-fully--palm">nesday</span></td>
-                        <td>&nbsp;</td>
-                        <td class="txt-right">
-                          <time datetime="09:30">09:30am</time> - <time datetime="18:00">6:00pm</time>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Thu<span class="hide-fully--palm">rsday</span></td>
-                        <td>&nbsp;</td>
-                        <td class="txt-right">
-                          <time datetime="09:30">09:30am</time> - <time datetime="18:00">6:00pm</time>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Fri<span class="hide-fully--palm">day</span></td>
-                        <td>&nbsp;</td>
-                        <td class="txt-right">
-                          <time datetime="09:30">09:30am</time> - <time datetime="18:00">6:00pm</time>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Sat<span class="hide-fully--palm">urday</span></td>
-                        <td>&nbsp;</td>
-                        <td class="txt-right">
-                          <time datetime="09:30">09:30am</time> - <time datetime="18:00">6:00pm</time>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Sun<span class="hide-fully--palm">day</span></td>
-                        <td>&nbsp;</td>
-                        <td class="txt-right">
-                            <time datetime="09:30">09:30am</time> - <time datetime="18:00">6:00pm</time>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                  <%# //Store hours table %>
-                </div>
-                <%# //Store hours box %>
-              </div>
-              <%# // Store hours %>
+                <tbody>
+                  <tr>
+                    <%# [BACKEND]:
+                      - We want to show the abbreviated day at small viewport so we need to split the string so that after the first three characters, we put them in a `<span cass="hide-fully--palm>`
+                      - If the day is today, add `<em class="txt-bold">` around the day like shown below
+                    %>
+                    <td><em class="txt-bold">Mon<span class="hide-fully--palm">day</span></em></td>
+                    <td>
+                      <%# [BACKEND] For the holiday, if it exceeds 18 characters, add the `title` attribute with the value being the name of the holiday. %>
+                      <em class="pill txt-truncate hide-fully--palm" title="Family &amp; Community Day">Family &amp; Community Day</em>
+                      <em class="pill hide-fully--non-palm">Holiday</em>
+                    </td>
+                    <td class="txt-right">
+                      <%# [BACKEND] If the time is for today, add `<em class="txt-bold">` around the time like shown below %>
+                      <em class="txt-bold">
+                        <%# [BACKEND] Need to output opening and closing time as value in the `time` element. It needs to be in 24 hour format %>
+                        <time datetime="09:30">09:30am</time> &#8212; <time datetime="18:00">6:00pm</time>
+                      </em>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Tues<span class="hide-fully--palm">day</span></td>
+                    <td>&nbsp;</td>
+                    <td class="txt-right">
+                      <time datetime="09:30">09:30am</time> &#8212; <time datetime="18:00">6:00pm</time>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Wed<span class="hide-fully--palm">nesday</span></td>
+                    <td>&nbsp;</td>
+                    <td class="txt-right">
+                      <time datetime="09:30">09:30am</time> &#8212; <time datetime="18:00">6:00pm</time>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Thu<span class="hide-fully--palm">rsday</span></td>
+                    <td>&nbsp;</td>
+                    <td class="txt-right">
+                      <time datetime="09:30">09:30am</time> &#8212; <time datetime="18:00">6:00pm</time>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Fri<span class="hide-fully--palm">day</span></td>
+                    <td>&nbsp;</td>
+                    <td class="txt-right">
+                      <time datetime="09:30">09:30am</time> &#8212; <time datetime="18:00">6:00pm</time>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Sat<span class="hide-fully--palm">urday</span></td>
+                    <td>&nbsp;</td>
+                    <td class="txt-right">
+                      <time datetime="09:30">09:30am</time> &#8212; <time datetime="18:00">6:00pm</time>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Sun<span class="hide-fully--palm">day</span></td>
+                    <td>&nbsp;</td>
+                    <td class="txt-right">
+                      <time datetime="09:30">09:30am</time> &#8212; <time datetime="18:00">6:00pm</time>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <%# //Centre hours table %>
             </div>
-            <%# // Grid %>
-
+            <%# // Centre hours box %>
           </div>
-          <%# // Tab content %>
-        <% end %>
-        <%# // Hours %>
+          <%# // Centre hours %>
+
+          <%# Store hours %>
+          <div class="grid__item non-palm-one-half lap-sml-one-whole">
+            <%# Store hours box %>
+            <div class="islet island--non-palm box box--position" aria-live="polite" aria-atomic="true">
+              <p class="feedback feedback--warning js-enabled-hide">You need JavaScript enabled to select another store. <a href="http://enable-javascript.com/" rel="external">Visit here</a> for instructions on how to enable JavaScript.</p>
+
+              <%# Filters %>
+              <div class="flag mrg-base">
+                <div class="flag__image two-fifths lap-sml-two-sixths">
+                  <label for="store-hours" class="txt-bold">Store Hours</label>
+                </div>
+                <div class="flag__body three-fifths lap-sml-four-sixths">
+                  <%# Store filter %>
+                  <select id="store-hours" class="one-whole">
+                    <option value="1">Store 1</option>
+                    <option value="2">Store 2</option>
+                    <option value="3">Store 3</option>
+                    <option value="4">Long name is long</option>
+                  </select>
+                  <%# //Store filter %>
+                </div>
+              </div>
+
+              <%# Preloader %>
+              <%# [BACKEND] Speak to Fiona when you need to AJAX/PJAX in the hours for the stores. Need to discuss how to display the preloader whilst waiting for table with new store hours to load %>
+
+              <%#<span class="preloader preloader--middle preloader--light">
+                <span class="preloader__spinner"></span>
+                <em class="hide-visually">Loading, please wait&#8230;</em>
+              </span>%>
+              <%# //Preloader %>
+
+              <%# Store hours table %>
+              <table cellspacing="0" class="table-striped table-fixed">
+                <%# [BACKEND] Output name of the store as indicated below and update it when the store hours get updated %>
+                <caption class="flush--btm"><span class="hide-visually">[Name of store] opening hours</span></caption>
+
+                <colgroup>
+                  <col class="one-sixth lap-lrg-one-fifth desk-one-fifth"></col>
+                  <col></col>
+                  <col class="three-sixths lap-lrg-two-fifths desk-two-fifths"></col>
+                </colgroup>
+
+                <thead class="hide-visually">
+                  <tr>
+                    <th scope="col">Day</th>
+                    <th scope="col">Public holiday</th>
+                    <th scope="col">Time</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <tr>
+                    <td><em class="txt-bold">Mon<span class="hide-fully--palm">day</span></em></td>
+                    <td>
+                      <em class="pill txt-truncate hide-fully--palm" title="Family &amp; Community Day">Family &amp; Community Day</em>
+                      <em class="pill hide-fully--non-palm">Holiday</em>
+                    </td>
+                    <td class="txt-right">
+                      <em class="txt-bold">
+                        <%# [BACKEND] Need to output opening and closing time as value in the `time` element. It needs to be in 24 hour format %>
+                        <time datetime="09:30">09:30am</time> &#8212; <time datetime="18:00">6:00pm</time>
+                      </em>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Tues<span class="hide-fully--palm">day</span></td>
+                    <td>&nbsp;</td>
+                    <td class="txt-right">
+                      <time datetime="09:30">09:30am</time> &#8212; <time datetime="18:00">6:00pm</time>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Wed<span class="hide-fully--palm">nesday</span></td>
+                    <td>&nbsp;</td>
+                    <td class="txt-right">
+                      <time datetime="09:30">09:30am</time> &#8212; <time datetime="18:00">6:00pm</time>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Thu<span class="hide-fully--palm">rsday</span></td>
+                    <td>&nbsp;</td>
+                    <td class="txt-right">
+                      <time datetime="09:30">09:30am</time> &#8212; <time datetime="18:00">6:00pm</time>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Fri<span class="hide-fully--palm">day</span></td>
+                    <td>&nbsp;</td>
+                    <td class="txt-right">
+                      <time datetime="09:30">09:30am</time> &#8212; <time datetime="18:00">6:00pm</time>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Sat<span class="hide-fully--palm">urday</span></td>
+                    <td>&nbsp;</td>
+                    <td class="txt-right">
+                      <time datetime="09:30">09:30am</time> &#8212; <time datetime="18:00">6:00pm</time>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Sun<span class="hide-fully--palm">day</span></td>
+                    <td>&nbsp;</td>
+                    <td class="txt-right">
+                        <time datetime="09:30">09:30am</time> &#8212; <time datetime="18:00">6:00pm</time>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <%# //Store hours table %>
+            </div>
+            <%# //Store hours box %>
+          </div>
+          <%# // Store hours %>
+        </div>
+        <%# // Grid %>
 
       </div>
-      <%# // Tabs %>
+      <%# // Tab content %>
+    <% end %>
+    <%# // Hours %>
 
-    </div>
-    <%# // Grid item %>
   </div>
-  <%# //Wrapper around the tabs %>
-
+  <%# // Tabs %>
 </div>
-<%# // Tabs %>
+<%# //Divider %>
+
+<%= render "shared/footer_promo_tiles",
+  promo_tile_1: {
+    image_src: "promo-tiles/promo-tile-03.jpg",
+    icon: "icon--info",
+    heading: "Centre Info",
+    desc: "Get information on parking, getting there and more.",
+    link_text: "View Centre Info",
+    link_url: centre_info_path(@centre)
+  },
+  promo_tile_2: {
+    image_src: "promo-tiles/promo-tile-02.jpg",
+    icon: "icon--service",
+    heading: "Centre Services",
+    desc: "Centre Concierge, Giftcards and a list of services available.",
+    link_text: "View Centre Services",
+    link_url: centre_services_path(@centre)
+  }
+%>
 
 <%- content_for :javascript do -%>
   <%# Run 'Tabs' plugin %>
@@ -293,41 +300,3 @@
   });
   </script>
 <%- end -%>
-<%# //Divider %>
-
-<%# Remove "if false" conditional statement once Centre Services section is ready %>
-<% if false %>
-<footer class="grid grid--gutter-dbl">
-  <div class="grid__item non-palm-one-half">
-    <%# Centre info box %>
-    <div class="promo-tile box">
-      <img src="<%= image_path "promo-tiles/promo-tile-03.jpg" %>" alt="">
-      <span class="promo-tile__icon-main icon icon--info icon--flush-top" aria-hidden="true"></span>
-      <div class="islet island--non-palm">
-        <h2 class="promo-tile__hdr">Centre Information</h2>
-        <div class="txt-formatted">
-          <p>Get Information on parking, transport and more.</p>
-          <%= link_to "Find a Store", centre_info_path(@centre) %>
-        </div>
-      </div>
-    </div>
-    <%# //Centre info box %>
-  </div>
-
-  <div class="grid__item non-palm-one-half">
-    <%# Centre services box %>
-    <div class="promo-tile box">
-      <img src="<%= image_path "promo-tiles/promo-tile-02.jpg" %>" alt="">
-      <span class="promo-tile__icon-main icon icon--service icon--flush-top" aria-hidden="true"></span>
-      <div class="islet island--non-palm">
-        <h2 class="promo-tile__hdr">Centre Services</h2>
-        <div class="txt-formatted">
-          <p>Find out the full selection of services available.</p>
-          <a href="#">Get Directions</a>
-        </div>
-      </div>
-    </div>
-    <%# //Centre services box %>
-  </div>
-</footer>
-<% end %>

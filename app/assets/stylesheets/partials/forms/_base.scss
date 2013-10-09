@@ -5,8 +5,6 @@
 /* Indicate that `label` will shift focus to the associated `input` element */
 label {cursor: pointer;}
 
-/* --Shared styles-- */
-
 /* Text inputs via the `.txt-input` class, `textarea` and `select` */
 .txt-input,
 textarea,
@@ -29,8 +27,6 @@ textarea {
   width: 100%;
   @include to-rem(padding, $spacing-third $spacing-half);
 }
-
-/* --Global styles-- */
 
 /* Textarea */
 textarea {

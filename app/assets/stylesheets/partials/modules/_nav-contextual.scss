@@ -109,20 +109,21 @@
       }
     }
 
-    /* Creates a divider on the left of the nav item. Class should be added on `a` */
-    .nav-contextual__divider {
-      /* To compensate for the negative `margin-left` on `.nav-contextual__divider:before` */
-      @include to-rem(margin-left, $spacing-base);
+      /* Creates a divider on the left of the nav item. Class should be added on `a` */
+      .nav-contextual__divider {
+        /* To compensate for the negative `margin-left` on `.nav-contextual__divider:before` */
+        @include to-rem(margin-left, $spacing-base);
 
-      &:before {
-        content: "";
-        /* Same border color as `.nav-contextual` */
-        border-left: 1px solid $color-grey-1;
-        /* Negative margin is needed to compensate for the `padding-left` so you won't get this gap on the anchor when it's highlighted */
-        @include to-rem(margin-left, -$spacing-base);
-        @include to-rem(padding-left, $spacing-base);
+        /* The dividing line */
+        &:before {
+          content: "";
+          /* Same border color as `.nav-contextual` */
+          border-left: 1px solid $color-grey-1;
+          /* Negative margin is needed to compensate for the `padding-left` so you won't get this gap on the anchor when it's highlighted */
+          @include to-rem(margin-left, -$spacing-base);
+          @include to-rem(padding-left, $spacing-base);
+        }
       }
-    }
 
 /* Extend: dark color */
 .nav-contextual--dark {

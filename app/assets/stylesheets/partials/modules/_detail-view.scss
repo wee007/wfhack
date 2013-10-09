@@ -39,7 +39,8 @@
 
   /* Override the default `.detail-view` width at iPad portrait */
   @include respond-min($ipad-portrait) {
-    @include to-rem(width, 680);
+    &.detail-view--deal,
+    &.detail-view--product {width: $page-container-width;}
   }
 
   /* Deal */

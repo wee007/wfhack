@@ -260,7 +260,7 @@
 
 .icon--mega:before {@include font-size(30, 1);}
 
-.icon--kilo:before {@include font-size(24, 1);}
+.icon--kilo:before {@include font-size($font-size-xlrg, 1);}
 
 /* -Restore base rules- */
 

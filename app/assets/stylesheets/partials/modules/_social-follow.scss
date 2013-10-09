@@ -14,7 +14,7 @@
 */
 
 .social-follow .icon:before {
-  @include font-size(24, 1);
+  @include font-size($font-size-xlrg, 1);
 
   @include respond-min($ipad-portrait) {
     @include font-size(48, 1);

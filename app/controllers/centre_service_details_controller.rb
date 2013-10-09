@@ -11,7 +11,7 @@ class CentreServiceDetailsController < ApplicationController
     @centre = CentreService.build centre
     @centre_service_details = CentreServiceDetailService.build centre_service_details
     @concierge = @centre_service_details.service_type_details('concierge') if @centre_service_details.present?
-    @hero = Hashie::Mash.new heading: 'Centre information', image: 'centre-info'
+    @hero = Hashie::Mash.new heading: 'Centre services', image: 'centre-services', icon: 'icon--service'
 
     meta.push(
       page_title: "#{@centre.name} Centre Services",

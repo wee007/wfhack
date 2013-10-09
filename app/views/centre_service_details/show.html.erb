@@ -15,7 +15,7 @@
             <p><%= text %></p>
           <% end %>
 
-          <h3 class="txt-formatted__unbold hide-fully--palm flush--btm">Contact Concierge Desk</h3>
+          <h4 class="txt-formatted__unbold hide-fully--palm flush--btm">Contact Concierge Desk</h4>
 
           <%# Show concierge number if at non-palm size %>
           <div class="hide-fully--palm txt-xlrg">
@@ -45,7 +45,7 @@
    <%# Westfield gift cards %>
     <div class="grid grid--gutter-dbl grid--mrg-dbl-non-palm">
       <div class="grid__item non-palm-one-half">
-        <img src="<%= image_path "gift-cards.jpg" %>">
+        <img src="<%= image_path "gift-cards.jpg" %>" alt="">
       </div>
 
       <div class="grid__item non-palm-one-half">
@@ -55,28 +55,28 @@
 
         <p>Gift Cards can be purchased from Centre Concierge Desks or online.</p>
 
-        <div class="grid grid--gutter-half">
-          <%# [BACKEND] When gift card filter is done:
-            - Remove the section marked "Temp fix"
-            - uncomment the section marked as "Uncomment when gift card filter is done" and add the link to store index page filtered by gift card. 
-          %>
-
-          <%# Temp fix %>
+        <%# [BACKEND] When gift card filter is done:
+          - Remove the section marked "Temp fix"
+          - uncomment the section marked as "Uncomment when gift card filter is done" and add the link to store index page filtered by gift card. 
+        %>
+        <%# Temp fix %>
+        <div class="grid">
           <div class="grid__item one-whole non-palm-two-fifths">
             <a href="http://www.westfieldgiftcards.com.au/" rel="external" class="btn btn--main btn--main-alt btn--full">Buy Now</a>
           </div>
-          <%# //Temp fix >
-          
-          <%# Uncomment when gift card filter is done %>
-          <%#
+        </div>
+        <%# //Temp fix %>
+        
+        <%# Uncomment when gift card filter is done %>
+        <%#<div class="grid grid--gutter-half grid--table-non-palm">
           <div class="grid__item one-whole non-palm-two-fifths">
             <a href="http://www.westfieldgiftcards.com.au/" rel="external" class="btn btn--main btn--main-alt btn--full">Buy Now</a>
           </div>%>
           <%#<div class="grid__item one-whole non-palm-three-fifths">%>
             <%#or%> <%#= link_to 'redeem at these stores', '#' %>
           <%#</div>%>
-          <%# //Uncomment when gift card filter is done %>
-        </div>
+        <%#</div>%>
+        <%# //Uncomment when gift card filter is done %>
       </div>
    </div>
    <%# //Westfield gift cards %>
@@ -87,7 +87,7 @@
 <%# //Divider %>
 
 <%= render "shared/footer_promo_tiles", 
-  left: {
+  col_left: {
     image_src: "promo-tiles/promo-tile-01.jpg",
     icon: "icon--hours",
     heading: "Shopping Hours",
@@ -95,8 +95,8 @@
     link_text: "View Shopping Hours",
     link_url: centre_hours_path(@centre)
   },
-  right: {
-    image_src: "promo-tiles/promo-tile-02.jpg",
+  col_right: {
+    image_src: "promo-tiles/promo-tile-03.jpg",
     icon: "icon--info",
     heading: "Centre Info",
     desc: " Get information on parking, getting there and more.",

@@ -115,7 +115,7 @@
 
     /* Increase text size at this breakpoint */
     @include respond-min($non-palm) {
-      @include font-size(24, 1.5);
+      @include font-size($font-size-xlrg, 1.5);
     }
   }
 

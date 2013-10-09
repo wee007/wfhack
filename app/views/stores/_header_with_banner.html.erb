@@ -3,7 +3,7 @@
   <div class="flexslider flexslider--contain-controls" style="background-image: url(<%= cl_image_path(@store.storefront) %>);">
     <ul class="slides">
       <li>
-        <%= cl_image_tag @store.storefront, alt: "#{@store.name} banner" %>
+        <%= cl_image_tag @store.storefront, alt: "#{@store.name} banner", width: 568, crop: 'limit', quality: 25, format: 'jpg' %>
       </li>
       <%= render 'description' %>
     </ul>

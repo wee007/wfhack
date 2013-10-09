@@ -4,13 +4,11 @@
       <%# Promo tile %>
       <div class="promo-tile box">
         <%= image_tag promo[:image_src], alt: '' %>
-        <span class="promo-tile__icon-main icon <%= promo[:icon] %> icon--flush-top" aria-hidden="true"></span>
+        <span class="promo-tile__icon icon <%= promo[:icon] %> icon--flush-top" aria-hidden="true"></span>
         <div class="islet island--non-palm">
           <h2 class="promo-tile__hdr"><%= promo[:heading] %></h2>
-          <div class="txt-formatted">
-            <p><%= promo[:desc] %></p>
-            <%= link_to promo[:link_text], promo[:link_url] %>
-          </div>
+          <p><%= promo[:desc] %></p>
+          <%= link_to promo[:link_text], promo[:link_url] %>
         </div>
       </div>
       <%# //Promo tile %>

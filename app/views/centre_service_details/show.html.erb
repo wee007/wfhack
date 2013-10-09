@@ -27,10 +27,10 @@
 
           <%# Show CTA button for concierge contact number for palm %>
           <span class="hide-fully--non-palm">
-            <a href="tel:1234 5678 || '').gsub(/\s+/,'') %>" class="txt-center btn btn--full btn--main btn--main-alt2 btn--main-lrg">
+            <%= phone_link @concierge.phone_no, class: 'btn btn--full btn--main btn--main-alt2 btn--main-lrg' do |phone_number| %>
               <span class="icon icon--phone icon--xlrg icon--spacing-lrg icon--flush-top" aria-hidden="true"></span>
               <strong>Call Concierge Desk</strong>
-            </a>
+            <% end %> 
           </span>
           <%# //Show CTA button for centre contact number for palm %>
         </div>
@@ -55,14 +55,27 @@
 
         <p>Gift Cards can be purchased from Centre Concierge Desks or online.</p>
 
-        <div class="grid grid--table-non-palm grid--gutter-half">
+        <div class="grid grid--gutter-half">
+          <%# [BACKEND] When gift card filter is done:
+            - Remove the section marked "Temp fix"
+            - uncomment the section marked as "Uncomment when gift card filter is done" and add the link to store index page filtered by gift card. 
+          %>
+
+          <%# Temp fix %>
           <div class="grid__item one-whole non-palm-two-fifths">
             <a href="http://www.westfieldgiftcards.com.au/" rel="external" class="btn btn--main btn--main-alt btn--full">Buy Now</a>
           </div>
-          <%# TODO: Enable when link provided %>
+          <%# //Temp fix >
+          
+          <%# Uncomment when gift card filter is done %>
+          <%#
+          <div class="grid__item one-whole non-palm-two-fifths">
+            <a href="http://www.westfieldgiftcards.com.au/" rel="external" class="btn btn--main btn--main-alt btn--full">Buy Now</a>
+          </div>%>
           <%#<div class="grid__item one-whole non-palm-three-fifths">%>
             <%#or%> <%#= link_to 'redeem at these stores', '#' %>
           <%#</div>%>
+          <%# //Uncomment when gift card filter is done %>
         </div>
       </div>
    </div>

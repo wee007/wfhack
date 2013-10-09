@@ -29,7 +29,7 @@
   }
 
   /* The main icon of the tile that sits above the text */
-  .promo-tile__icon-main:before {
+  .promo-tile__icon:before {
     @include to-rem(padding, $spacing-third);
     @include font-size(24, 1);
     @include to-rem(margin-top, -20);

@@ -32,6 +32,9 @@ class ProductsController < ApplicationController
     categories = @search.facets.detect{|f| ["super_cat", "category", "sub_category"].include? f.field }
     @categories = categories ? categories['values'] : []
 
+    brands = @search.facets.detect{|f| f.field == "brand" }
+    @brands = brands ? brands['values'] : []
+
     handle_error(@search) if @search.is_a? NullObject
 
     @pagination = {

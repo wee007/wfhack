@@ -50,9 +50,16 @@
 <noscript>
   <nav role="navigation" class="island box mrg-base--top">
     <h2>Product categories</h2>
-    <ul>
+    <ul class="mrg-base">
       <% @categories.each do |category| %>
         <li><%= link_to category.name, url_for(:controller => params[:controller], :action => params[:action], :params => {category.url_args.keys.first => category.url_args.values.first}) %></li>
+      <% end %>
+    </ul>
+
+    <h2>Brands at Westfield</h2>
+    <ul>
+      <% @brands.each do |brand| %>
+        <li><%= link_to brand.name, url_for(:controller => params[:controller], :action => params[:action], :params => {brand: brand.code}) %></li>
       <% end %>
     </ul>
   </nav>

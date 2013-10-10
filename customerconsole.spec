@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.110
+Version:     0.1.111
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -86,6 +86,19 @@ fi
 
 
 %changelog
+* Thu Oct 10 2013 ci <doperations@au.westfield.com> 0.1.111-1
+- Merge pull request #454 from mwratt/feature/WSF-5609-storefront-banner-resize
+  (matt.wratt@trineo.co.nz)
+- Merge pull request #448 from digital/static-pagination
+  (matt.wratt@trineo.co.nz)
+- fixed banner size as per spec (matt.wratt@trineo.co.nz)
+- resizes storefront banner making it a jpg (matt.wratt@trineo.co.nz)
+- resizes storefront banner images reducing size (matt.wratt@trineo.co.nz)
+- Added stubs (ben@germanforblack.com)
+- Added link rels (ben@germanforblack.com)
+- Static, regular old HTML pagination for product browse
+  (ben@germanforblack.com)
+
 * Thu Oct 10 2013 ci <doperations@au.westfield.com> 0.1.110-1
 - increases hero image resolution (matt.wratt@trineo.co.nz)
 

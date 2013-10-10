@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.109
+Version:     0.1.110
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -86,6 +86,9 @@ fi
 
 
 %changelog
+* Thu Oct 10 2013 ci <doperations@au.westfield.com> 0.1.110-1
+- increases hero image resolution (matt.wratt@trineo.co.nz)
+
 * Thu Oct 10 2013 ci <doperations@au.westfield.com> 0.1.109-1
 - Removed, will look at this later. (craigm.smith@au.westfield.com)
 - Merge pull request #453 from ldewey/images (matt.wratt@trineo.co.nz)

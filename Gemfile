@@ -25,6 +25,7 @@ gem 'cloudinary'
 # Presentation, pagination etc.
 gem 'kaminari'
 gem 'money'
+gem 'truncate'
 
 gem 'splunk_logger', git: 'https://github.com/westfield/splunk_logger.git'
 

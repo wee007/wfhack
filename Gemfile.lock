@@ -271,6 +271,7 @@ GEM
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
+    truncate (0.1.0)
     typhoeus (0.6.5)
       ethon (~> 0.6.1)
     tzinfo (0.3.37)
@@ -323,5 +324,6 @@ DEPENDENCIES
   simplecov
   splunk_logger!
   thin
+  truncate
   uglifier (>= 1.3.0)
   vcr

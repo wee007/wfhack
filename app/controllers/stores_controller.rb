@@ -13,7 +13,7 @@ class StoresController < ApplicationController
     push_store_info_to_gon
     meta.push(
       page_title: "#{store.name} at #{centre.name}",
-      description: "#{store.name} at #{centre.name}"
+      description: store.description.try(:truncate, 156)
     )
   end
 

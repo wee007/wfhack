@@ -16,8 +16,8 @@ class ProductsController < ApplicationController
       @nearby_centres = CentreService.build nearby_centres
 
       meta.push(
-        page_title: "Shopping at #{@centre.name}",
-        description: "Find the latest fashion, clothes, shoes, jewellery, accessories and much more at #{@centre.name}"
+        page_title: page_title(@centre),
+        description: description(@centre)
       )
     else
       @centres = CentreService.group_by_state centres
@@ -105,4 +105,23 @@ class ProductsController < ApplicationController
     end
   end
 
+private
+
+  def page_title(centre)
+    if params[:sub_category].present? || params[:category].present?
+      filter_param = params[:sub_category] || [params[:category]]
+      "Buy #{filter_param.map{|param| param.titleize}.join(' and ')} online at #{centre.name}"
+    else
+      "Shopping at #{centre.name}"
+    end
+  end
+
+  def description(centre)
+    if params[:sub_category].present? || params[:category].present?
+      filter_param = params[:sub_category] || [params[ :category]]
+      "Browse the latest #{filter_param.map{|param| param.titleize}.join(' and ')} online at #{centre.name}"
+    else
+      "Find the latest fashion, clothes, shoes, jewellery, accessories and much more at #{centre.name}"
+    end
+  end
 end

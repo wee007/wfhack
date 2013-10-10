@@ -49,6 +49,8 @@ class map.micello.Map extends map.micello.MapBase
         w: 0
       'Entrance':
         m: '#695648'
+      'Road':
+        w: 0
 
   # Error events from images don't buddle so we need to explicitly call onerror
   @removeLogo: (img) ->

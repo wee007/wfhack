@@ -148,10 +148,9 @@
         @include to-rem(margin-bottom, $spacing-half);
       }
 
-      /* Old IE */
+      /* Old IE - prevent the image from getting distorted*/
       @include old-ie {
         img {
-          /* Prevent the image from getting distorted */
           width: 100%;
         }
       }

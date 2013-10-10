@@ -56,10 +56,9 @@
         height: 80%;
       }
 
-      /* Old IE */
+      /* Old IE - centre align the hero image*/
       @include old-ie {
         .img-rotate__item {
-          /* Centre align the hero image */
           background-position: 50% 0;
         }
       }

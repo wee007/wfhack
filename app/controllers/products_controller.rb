@@ -87,6 +87,19 @@ class ProductsController < ApplicationController
     end
 
     meta.push @product.meta
+
+    cam_ref = @product.retail_chain.cam_ref
+    ad_ref = @product.categories[0].super_category.code
+
+    if cam_ref
+      @product_tracking_url =
+        "http://prf.hn/click/camref:#{cam_ref}/adref:#{ad_ref}/destination:" \
+        "#{@product.primary_retailer_product_url}"
+    else  # missing cam_ref should be rare
+      @product_tracking_url = @product.primary_retailer_product_url
+      logger.warn("CAMREF_MISSING product_sku=#{@product.sku} " \
+        "retailer_code=#{@product.retailer_code}")
+    end
   end
 
 end

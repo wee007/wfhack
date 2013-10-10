@@ -36,7 +36,7 @@
         </div>
 
         <div class="grid__item non-palm-one-half">
-           <%# Image/map goes here %>
+           <%#= image_tag 'concierge-bell.jpg', alt: '' %>
         </div>
      </div>
    <% end %>
@@ -45,7 +45,7 @@
    <%# Westfield gift cards %>
     <div class="grid grid--gutter-dbl grid--mrg-dbl-non-palm">
       <div class="grid__item non-palm-one-half">
-        <img src="<%= image_path "gift-cards.jpg" %>" alt="">
+        <%= image_tag 'gift-cards.jpg', alt: '' %>
       </div>
 
       <div class="grid__item non-palm-one-half">
@@ -87,7 +87,7 @@
 <%# //Divider %>
 
 <%= render "shared/footer_promo_tiles", 
-  col_left: {
+  promo_tile_1: {
     image_src: "promo-tiles/promo-tile-01.jpg",
     icon: "icon--hours",
     heading: "Shopping Hours",
@@ -95,7 +95,7 @@
     link_text: "View Shopping Hours",
     link_url: centre_hours_path(@centre)
   },
-  col_right: {
+  promo_tile_2: {
     image_src: "promo-tiles/promo-tile-03.jpg",
     icon: "icon--info",
     heading: "Centre Info",

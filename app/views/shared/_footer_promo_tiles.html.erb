@@ -1,9 +1,9 @@
 <footer class="grid grid--gutter-dbl">
-  <% [col_left, col_right].each do |promo| %>
+  <% [promo_tile_1, promo_tile_2].each do |promo| %>
     <div class="grid__item non-palm-one-half">
       <%# Promo tile %>
       <div class="promo-tile box">
-        <%= image_tag promo[:image_src], alt: '' %>
+        <%= image_tag promo[:image_src], alt: '', width: 589, crop: 'limit' %>
         <span class="promo-tile__icon icon <%= promo[:icon] %> icon--flush-top" aria-hidden="true"></span>
         <div class="islet island--non-palm">
           <h2 class="promo-tile__hdr"><%= promo[:heading] %></h2>

@@ -60,7 +60,7 @@
       @include old-ie {
         .img-rotate__item {
           /* Centre align the hero image */
-          background-size: 50% 0;
+          background-position: 50% 0;
         }
       }
 

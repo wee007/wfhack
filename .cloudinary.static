@@ -1,3 +1,4 @@
+images/concierge.jpg	concierge-d28800c3afb3ab0212385245f51b3b2e	1381382208	1381382208	960	810
 images/dummy/avatar.jpg	avatar-3b88c8e754915b26f5819ccfc5494166	1379458868	1379458865	64	64
 images/dummy/map-tile.png	map-tile-53af6ee34a53a70814aad38ccea74dd6	1379458871	1379458869	380	301
 images/dummy/product.jpg	product-b45131d67d77e905a116ba404e3d2696	1379458874	1379458871	469	474
@@ -6,6 +7,7 @@ images/dummy/product3.jpg	product3-a3796299b7db8bcdd5edcd058183d7b6	1379458879	1
 images/dummy/retailer-logo.png	retailer-logo-a58e398f7287a08904553a8e728f08c3	1379458881	1379458878	91	29
 images/dummy/store-banner.jpg	store-banner-37042a2c69cf04d48851cbcccac2b0a6	1379458884	1379458881	1024	380
 images/dummy/store.jpg	store-6610c2f3d9cc70dbbe43a1396cc77828	1379458886	1379458884	100	100
+images/gift-cards.jpg	gift-cards-51e867401445e052956699a52e33eb63	1381382859	1381382859	960	494
 images/heroes/airportwest.jpg	airportwest-aadb9967826e1bbc24c6f08b5c33e8f1	1381282061	1381282060	1600	420
 images/heroes/belconnen.jpg	belconnen-d4cb38cf97d592d57e87a44b5ba4074c	1381282072	1381282071	1600	420
 images/heroes/black-overlay.png	black-overlay-1805e3ae919b74a1ed2cff673434e6f9	1381283984	1381283984	1	1
@@ -17,9 +19,9 @@ images/heroes/caseycentral.jpg	caseycentral-67c0c3b76e6614b93da50111ea533a48	138
 images/heroes/centre-info-lrg.jpg	centre-info-lrg-47e2e7bf23f4dd7940985dbb798711e8	1379458909	1379458906	1600	300
 images/heroes/centre-info-med.jpg	centre-info-med-e52c3e6cba5b8dd59b674570643f014e	1379458912	1379458910	768	380
 images/heroes/centre-info-sml.jpg	centre-info-sml-76eb8e9640a10d10f46d11e47dc82c8d	1379458915	1379458913	400	380
-images/heroes/centre-services-lrg.jpg centre-services-lrg-c2b54366b88679cb7df827fde6c27eb4  1381358219  1381358219  1600  300
-images/heroes/centre-services-med.jpg centre-services-med-74dd5afddb9fde9996359ad41c1452ab  1381358222  1381358222  768 380
-images/heroes/centre-services-sml.jpg centre-services-sml-47676dfcf3993c5015db708704e54af4  1381358224  1381358224  400 380
+images/heroes/centre-services-lrg.jpg	centre-services-lrg-c2b54366b88679cb7df827fde6c27eb4	1381382213	1381382213	1600	300
+images/heroes/centre-services-med.jpg	centre-services-med-74dd5afddb9fde9996359ad41c1452ab	1381382215	1381382216	768	380
+images/heroes/centre-services-sml.jpg	centre-services-sml-47676dfcf3993c5015db708704e54af4	1381382217	1381382217	400	380
 images/heroes/chatswood.jpg	chatswood-c43b558372d255bfcea07421bac2a2d9	1381282121	1381282121	1600	420
 images/heroes/chermside.jpg	chermside-388aea2669600af05a83a6c50172e326	1381282129	1381282128	1600	420
 images/heroes/doncaster.jpg	doncaster-de70d98bda16e9874006f88a17372489	1381282136	1381282136	1600	420
@@ -76,12 +78,11 @@ images/ie8-maps/7297_5.jpg	7297_5-9f6cc9ac5d50b60b41209c9b48821cc5	1379459008	13
 images/ie8-maps/7297_5.png	7297_5-a1242ea1d573de506cf1a2bf9bb2a8b5	1379459012	1379459010	2000	1600
 images/ie8-maps/7297_6.jpg	7297_6-5b6493a4bb0fac8cef1905e03ba1d25c	1379459016	1379459013	1002	802
 images/ie8-maps/7297_6.png	7297_6-ff298fedc51e5c2f4a4c4de15de83b5b	1379459019	1379459016	2000	1600
-images/gift-cards.jpg gift-cards-5064eef7915118560eea395610834b2e 1381358215  1381358215  960 494
-images/logo-tile.png  logo-tile-4ddbde85f1c892c7d552e3cdfbb977ee  1379459021  1379459018  50  50
-images/logo-white.png logo-white-eaf78b8f615e7e48d076d82475f819fc 1379459023  1379459020  126 41
-images/logo.png logo-d33182b4935cdb999b44635569e823e1 1379459025  1379459022  126 41
-images/placeholder-movie.jpg  placeholder-movie-afa8bd16146dbb00b8279ea33e7c08c1  1380604082  1380604079  568 379
-images/promo-tiles/promo-tile-01.jpg  promo-tile-01-97276baaf5e48f5173388238c02aba26  1381358227  1381358226  600 130
-images/promo-tiles/promo-tile-02.jpg  promo-tile-02-e81289502220131b6c6e1ff14149f740  1381358230  1381358229  600 130
-images/promo-tiles/promo-tile-03.jpg  promo-tile-03-1d98a4a3e0314e7944c9859e5e69604a  1381358232  1381358232  600 130
+images/logo-tile.png	logo-tile-4ddbde85f1c892c7d552e3cdfbb977ee	1381382219	1381382220	50	50
+images/logo-white.png	logo-white-eaf78b8f615e7e48d076d82475f819fc	1381382221	1381382221	126	41
+images/logo.png	logo-d33182b4935cdb999b44635569e823e1	1381382222	1381382223	126	41
+images/placeholder-movie.jpg	placeholder-movie-afa8bd16146dbb00b8279ea33e7c08c1	1381382225	1381382225	568	379
+images/promo-tiles/promo-tile-01.jpg	promo-tile-01-0f71466ce3ca7793a015e0f3cea41678	1381382227	1381382227	600	130
+images/promo-tiles/promo-tile-02.jpg	promo-tile-02-5d944a0d6c8e6ec39a04d239766a3c70	1381382228	1381382229	600	130
+images/promo-tiles/promo-tile-03.jpg	promo-tile-03-f7ae2062a7df79dcb4578cb7b470f355	1381382230	1381382230	600	130
 images/video-thumbnail.jpg	video-thumbnail-89b1cf3eafa6359bf7cd5abca4f1cfdc	1379459030	1379459028	150	91

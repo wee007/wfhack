@@ -19,44 +19,46 @@
 <h2 id="getting-here">Getting Here</h2>
 
 <%# Shopping centre map %>
-<div class="grid grid--gutter-dbl grid--mrg-dbl-non-palm">
-   <div class="grid__item one-whole">
-    <div class="centre-location">
-      <%# Static Google map %>
-      <div class="map-google-static">
-        <%= image_tag getting_here_map_url(@centre), alt: '' %>
-      </div>
-      <%# //Static Google map %>
+<div class="spacing spacing--mrg-dbl">
+  <div class="grid grid--gutter-dbl">
+     <div class="grid__item one-whole">
+      <div class="centre-location">
+        <%# Static Google map %>
+        <div class="map-google-static">
+          <%= image_tag getting_here_map_url(@centre), alt: '' %>
+        </div>
+        <%# //Static Google map %>
 
-      <%# Address box %>
-      <div class="centre-location__info box slats">
-        <div class="slats__img slats__img--compact">
-          <%= image_tag "heroes/#{@centre.code}.jpg",
-            :crop => :thumb,
-            :width => 120,
-            :height => 130,
-            :html_width => 120,
-            :html_height => 130,
-            :alt => "Photo of #{@centre.short_name} shopping centre",
-            :onerror => "this.remove();"
-          %>
+        <%# Address box %>
+        <div class="centre-location__info box slats">
+          <div class="slats__img slats__img--compact">
+            <%= image_tag "heroes/#{@centre.code}.jpg",
+              :crop => :thumb,
+              :width => 120,
+              :height => 130,
+              :html_width => 120,
+              :html_height => 130,
+              :alt => "Photo of #{@centre.short_name} shopping centre",
+              :onerror => "this.remove();"
+            %>
+          </div>
+          <div class="slats__body islet">
+            <p itemscope itemtype="http://schema.org/Organization">
+              <span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+                <span itemprop="streetAddress"><%= @centre.street_address %></span>
+                <br>
+                <span itemprop="addressLocality"><%= @centre.suburb %></span>
+                <br>
+                <span itemprop="addressRegion"><%= @centre.state %> <%= @centre.postcode %></span>
+              </span>
+            </p>
+            <%= link_to "https://maps.google.com/maps?q=#{@centre.latitude},#{@centre.longitude}", rel: 'external' do %>
+              Open in Google Maps <span class="icon icon--arrow-right icon--lrg" aria-hidden="true"></span>
+            <% end -%>
+          </div>
         </div>
-        <div class="slats__body islet">
-          <p itemscope itemtype="http://schema.org/Organization">
-            <span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
-              <span itemprop="streetAddress"><%= @centre.street_address %></span>
-              <br>
-              <span itemprop="addressLocality"><%= @centre.suburb %></span>
-              <br>
-              <span itemprop="addressRegion"><%= @centre.state %> <%= @centre.postcode %></span>
-            </span>
-          </p>
-          <%= link_to "https://maps.google.com/maps?q=#{@centre.latitude},#{@centre.longitude}", rel: 'external' do %>
-            Open in Google Maps <span class="icon icon--arrow-right icon--lrg" aria-hidden="true"></span>
-          <% end -%>
-        </div>
+        <%# //Address box %>
       </div>
-      <%# //Address box %>
     </div>
   </div>
 </div>
@@ -65,7 +67,7 @@
 
 <% if false %>
   <%# Need spacing class `mrg-base--top` here as the map location will stack below the map image above %>
-  <div class="grid grid--gutter-dbl grid--mrg-dbl-non-palm mrg-base--top">
+  <div class="grid grid--gutter-dbl mrg-base--top">
     <div class="grid__item non-palm-one-half">
       <h3>By Train</h3>
       <%# [BACKEND] In backoffice console, if user hits `ENTER`, need to make sure a new `p` is generated %>

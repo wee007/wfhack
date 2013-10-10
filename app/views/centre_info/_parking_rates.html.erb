@@ -1,42 +1,44 @@
-<div class="grid grid--gutter-dbl grid--mrg-dbl-non-palm">
-  <div class="grid__item non-palm-one-half">
-    <div class="box box--mrg-half islet island--non-palm">
-      <table cellspacing="0" class="table-striped" id="parking-rates">
-        <caption class="hide-visually">Parking rates</caption>
-        <thead>
-          <tr>
-              <th scope="col">Time</th>
-              <th scope="col" class="txt-right">Weekday</th>
-              <th scope="col" class="txt-right">Weekend</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @parking.rates.each do |rate| %>
+<div class="spacing spacing--mrg-dbl">
+  <div class="grid grid--gutter-dbl">
+    <div class="grid__item non-palm-one-half">
+      <div class="box box--mrg-half islet island--non-palm">
+        <table cellspacing="0" class="table-striped" id="parking-rates">
+          <caption class="hide-visually">Parking rates</caption>
+          <thead>
             <tr>
-              <td class="test-times"><%= rate.hourly_rate_from %> - <%= rate.hourly_rate_to %>hrs</td>
-              <td class="test-weekday txt-right <%= "txt-caps" if rate.free? %>"><%= display_parking_rate(rate.hourly_rate_weekday) %></td>
-              <td class="test-weekend txt-right <%= "txt-caps" if rate.free? %>"><%= display_parking_rate(rate.hourly_rate_weekend) %></td>
+                <th scope="col">Time</th>
+                <th scope="col" class="txt-right">Weekday</th>
+                <th scope="col" class="txt-right">Weekend</th>
             </tr>
-          <% end %>
-          <% if @parking.overnight_fee_weekday.to_i > 0 or @parking.overnight_fee_weekend.to_i > 0 %>
-            <tr>
-              <td>Maximum Daily Rate</td>
-              <td class="txt-right"><%= display_parking_rate(@parking.maximum_daily_rate_weekday, '-') %></td>
-              <td class="txt-right"><%= display_parking_rate(@parking.maximum_daily_rate_weekend, '-') %></td>
-            </tr>
-          <% end %>
-          <% if @parking.overnight_fee_weekday.to_i > 0 or @parking.overnight_fee_weekend.to_i > 0 %>
-            <tr>
-              <td>Overnight Fee</td>
-              <td class="txt-right"><%= display_parking_rate(@parking.overnight_fee_weekday, '-') %></td>
-              <td class="txt-right"><%= display_parking_rate(@parking.overnight_fee_weekend, '-') %></td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            <% @parking.rates.each do |rate| %>
+              <tr>
+                <td class="test-times"><%= rate.hourly_rate_from %> - <%= rate.hourly_rate_to %>hrs</td>
+                <td class="test-weekday txt-right <%= "txt-caps" if rate.free? %>"><%= display_parking_rate(rate.hourly_rate_weekday) %></td>
+                <td class="test-weekend txt-right <%= "txt-caps" if rate.free? %>"><%= display_parking_rate(rate.hourly_rate_weekend) %></td>
+              </tr>
+            <% end %>
+            <% if @parking.overnight_fee_weekday.to_i > 0 or @parking.overnight_fee_weekend.to_i > 0 %>
+              <tr>
+                <td>Maximum Daily Rate</td>
+                <td class="txt-right"><%= display_parking_rate(@parking.maximum_daily_rate_weekday, '-') %></td>
+                <td class="txt-right"><%= display_parking_rate(@parking.maximum_daily_rate_weekend, '-') %></td>
+              </tr>
+            <% end %>
+            <% if @parking.overnight_fee_weekday.to_i > 0 or @parking.overnight_fee_weekend.to_i > 0 %>
+              <tr>
+                <td>Overnight Fee</td>
+                <td class="txt-right"><%= display_parking_rate(@parking.overnight_fee_weekday, '-') %></td>
+                <td class="txt-right"><%= display_parking_rate(@parking.overnight_fee_weekend, '-') %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+      <%= render partial: 'parking_terms_and_conditions', locals: {align: 'center'} %>
     </div>
-    <%= render partial: 'parking_terms_and_conditions', locals: {align: 'center'} %>
-  </div>
 
-  <%= render partial: "parking_info" %>
+    <%= render partial: "parking_info" %>
+  </div>
 </div>

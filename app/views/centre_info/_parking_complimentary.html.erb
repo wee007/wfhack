@@ -1,10 +1,12 @@
-<div class="grid grid--gutter-dbl grid--mrg-dbl-non-palm">
-  <div class="grid__item non-palm-one-half">
-    <p>Complimentary parking available for all customers.</p>
-    <% if @parking.pdf_ref.present? %>
-      <small class="fine-print">Parking <%= link_to 'terms &amp; conditions'.html_safe, cl_image_path(@parking.pdf_ref, format:'pdf'), target: "_blank" %> apply</small>
-    <% end %>
-  </div>
+<div class="spacing spacing--mrg-dbl">
+  <div class="grid grid--gutter-dbl">
+    <div class="grid__item non-palm-one-half">
+      <p>Complimentary parking available for all customers.</p>
+      <% if @parking.pdf_ref.present? %>
+        <small class="fine-print">Parking <%= link_to 'terms &amp; conditions'.html_safe, cl_image_path(@parking.pdf_ref, format:'pdf'), target: "_blank" %> apply</small>
+      <% end %>
+    </div>
 
-  <%= render partial: "parking_info" %>
+    <%= render partial: "parking_info" %>
+  </div>
 </div>

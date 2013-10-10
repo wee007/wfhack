@@ -1,5 +1,6 @@
 <%# Divider %>
-<div class="divider">
+<div class="divider divider--lrg">
+
   <%# Text formatted %>
   <div class="txt-formatted">
 
@@ -8,79 +9,82 @@
 
     <%# Concierge Desk %>
     <% if @concierge.present? %>
-      <div class="grid grid--gutter-dbl grid--mrg-dbl-non-palm">
-        <div class="grid__item non-palm-one-half">
-          <h3>Concierge Desk</h3>
-          <% to_paragraphs(@concierge.description).each do |text| %>
-            <p><%= text %></p>
-          <% end %>
+      <div class="spacing spacing--mrg-dbl">
+        <div class="grid grid--gutter-dbl">
+          <div class="grid__item non-palm-one-half">
+            <h3>Concierge Desk</h3>
+            <% to_paragraphs(@concierge.description).each do |text| %>
+              <p><%= text %></p>
+            <% end %>
 
-          <h4 class="txt-formatted__unbold hide-fully--palm flush--btm">Contact Concierge Desk</h4>
+            <h4 class="txt-formatted__unbold hide-fully--palm flush--btm">Contact Concierge Desk</h4>
 
-          <%# Show concierge number if at non-palm size %>
-          <div class="hide-fully--palm txt-xlrg">
-            <span class="icon icon--phone2 icon--mega icon--spacing-lrg" aria-hidden="true"></span>
-            <span class="hide-visually">Phone number</span>
-            <%= @concierge.phone_no %>
+            <%# Show concierge number if at non-palm size %>
+            <div class="hide-fully--palm txt-xlrg">
+              <span class="icon icon--phone2 icon--mega icon--spacing-lrg" aria-hidden="true"></span>
+              <span class="hide-visually">Phone number</span>
+              <%= @concierge.phone_no %>
+            </div>
+            <%# //Show centre number if at non-palm size %>
+
+            <%# Show CTA button for concierge contact number for palm %>
+            <span class="hide-fully--non-palm">
+              <%= phone_link @concierge.phone_no, class: 'btn btn--full btn--main btn--main-alt2 btn--main-lrg' do |phone_number| %>
+                <span class="icon icon--phone icon--xlrg icon--spacing-lrg icon--flush-top" aria-hidden="true"></span>
+                <strong>Call Concierge Desk</strong>
+              <% end %> 
+            </span>
+            <%# //Show CTA button for centre contact number for palm %>
           </div>
-          <%# //Show centre number if at non-palm size %>
 
-          <%# Show CTA button for concierge contact number for palm %>
-          <span class="hide-fully--non-palm">
-            <%= phone_link @concierge.phone_no, class: 'btn btn--full btn--main btn--main-alt2 btn--main-lrg' do |phone_number| %>
-              <span class="icon icon--phone icon--xlrg icon--spacing-lrg icon--flush-top" aria-hidden="true"></span>
-              <strong>Call Concierge Desk</strong>
-            <% end %> 
-          </span>
-          <%# //Show CTA button for centre contact number for palm %>
-        </div>
-
-        <div class="grid__item non-palm-one-half">
-           <%#= image_tag 'concierge-bell.jpg', alt: '' %>
-        </div>
-     </div>
+          <div class="grid__item non-palm-one-half">
+             <%= image_tag 'concierge.jpg', alt: '', quality: 25 %>
+          </div>
+       </div>
+      </div>
    <% end %>
    <%# //Concierge Desk %>
 
    <%# Westfield gift cards %>
-    <div class="grid grid--gutter-dbl grid--mrg-dbl-non-palm">
-      <div class="grid__item non-palm-one-half">
-        <%= image_tag 'gift-cards.jpg', alt: '' %>
-      </div>
-
-      <div class="grid__item non-palm-one-half">
-        <h3>Westfield Gift Cards</h3>
-
-        <p>Westfield Gift Cards are accepted at over 8,000 participating retailers in Australian Westfield Centres. It’s the gift they’ve always wanted and suitable for any occasion.</p>
-
-        <p>Gift Cards can be purchased from Centre Concierge Desks or online.</p>
-
-        <%# [BACKEND] When gift card filter is done:
-          - Remove the section marked "Temp fix"
-          - uncomment the section marked as "Uncomment when gift card filter is done" and add the link to store index page filtered by gift card. 
-        %>
-        <%# Temp fix %>
-        <div class="grid">
-          <div class="grid__item one-whole non-palm-two-fifths">
-            <a href="http://www.westfieldgiftcards.com.au/" rel="external" class="btn btn--main btn--main-alt btn--full">Buy Now</a>
-          </div>
+   <div class="spacing spacing--mrg-dbl">
+      <div class="grid grid--gutter-dbl">
+        <div class="grid__item non-palm-one-half">
+          <%= image_tag 'gift-cards.jpg', alt: '', quality: 25 %>
         </div>
-        <%# //Temp fix %>
-        
-        <%# Uncomment when gift card filter is done %>
-        <%#<div class="grid grid--gutter-half grid--table-non-palm">
-          <div class="grid__item one-whole non-palm-two-fifths">
-            <a href="http://www.westfieldgiftcards.com.au/" rel="external" class="btn btn--main btn--main-alt btn--full">Buy Now</a>
-          </div>%>
-          <%#<div class="grid__item one-whole non-palm-three-fifths">%>
-            <%#or%> <%#= link_to 'redeem at these stores', '#' %>
-          <%#</div>%>
-        <%#</div>%>
-        <%# //Uncomment when gift card filter is done %>
-      </div>
-   </div>
-   <%# //Westfield gift cards %>
 
+        <div class="grid__item non-palm-one-half">
+          <h3>Westfield Gift Cards</h3>
+
+          <p>Westfield Gift Cards are accepted at over 8,000 participating retailers in Australian Westfield Centres. It’s the gift they’ve always wanted and suitable for any occasion.</p>
+
+          <p>Gift Cards can be purchased from Centre Concierge Desks or online.</p>
+
+          <%# [BACKEND] When gift card filter is done:
+            - Remove the section marked "Temp fix"
+            - uncomment the section marked as "Uncomment when gift card filter is done" and add the link to store index page filtered by gift card. 
+          %>
+          <%# Temp fix %>
+          <div class="grid">
+            <div class="grid__item one-whole non-palm-two-fifths">
+              <a href="http://www.westfieldgiftcards.com.au/" rel="external" class="btn btn--main btn--main-alt btn--full">Buy Now</a>
+            </div>
+          </div>
+          <%# //Temp fix %>
+          
+          <%# Uncomment when gift card filter is done %>
+          <%#<div class="grid grid--gutter-half grid--table-non-palm">
+            <div class="grid__item one-whole non-palm-two-fifths">
+              <a href="http://www.westfieldgiftcards.com.au/" rel="external" class="btn btn--main btn--main-alt btn--full">Buy Now</a>
+            </div>%>
+            <%#<div class="grid__item one-whole non-palm-three-fifths">%>
+              <%#or%> <%#= link_to 'redeem at these stores', '#' %>
+            <%#</div>%>
+          <%#</div>%>
+          <%# //Uncomment when gift card filter is done %>
+        </div>
+     </div>
+    </div>
+    <%# //Westfield gift cards %>
   </div>
   <%# //Text formatted %>
 </div>

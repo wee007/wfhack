@@ -55,3 +55,8 @@
     /* 'See nearby centres' text */
     p > span {color: $color-dark-txt;}
 }
+
+/* --Extenders-- */
+
+/* Remove top padding */
+.no-content-fallback-msg--flush {padding-top: 0;}

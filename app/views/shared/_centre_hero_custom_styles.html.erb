@@ -1,0 +1,18 @@
+<% content_for :custom_styles do %>
+  <style>
+    <%# Hero image at this breakpoint (small) %>
+    @media (max-width: 25em) {
+      <%= target %> {background-image: url(<%= hero_image(centre_id, 292, 400) %>);}
+    }
+    <%# Hero image at this breakpoint (medium) %>
+    @media (min-width: 25.0625em) and (max-width: 48em) {
+        <%= target %> {background-image: url(<%= hero_image(centre_id, 560, 768) %>);}
+    }
+    <%# Hero image at this breakpoint (large) %>
+    @media (min-width: 48.0625em) {
+        <%= target %> {background-image: url(<%= hero_image(centre_id, 420, 1600) %>);}
+    }
+    <%# Old IE %>
+    .old-ie <%= target %> {background-image: url(<%= hero_image(centre_id, 420, 1600) %>);}
+  </style>
+<% end %>

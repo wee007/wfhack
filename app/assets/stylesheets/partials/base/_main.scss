@@ -34,8 +34,9 @@ body {
 		}
 	}
 
-	/* Turn off bottom padding for 'Stores' */
-	&.stores {padding-bottom: 0;}
+	/* Turn off bottom padding for 'Stores' and 'National homepage' */
+	&.stores,
+	&.national {padding-bottom: 0;}
 }
 
 /* Set `font-family` and `color` */

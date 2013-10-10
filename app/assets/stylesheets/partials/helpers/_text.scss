@@ -54,7 +54,7 @@
 
 /* Firefox */
 @include target-mozilla {
-  /* Need to set `word-wrap` and `word-break` in order to have hyphens working */
+  /* Need to reset `word-wrap` and `word-break` in order to have hyphens working */
   .txt-break-word {
     word-wrap: normal !important;
     word-break: normal !important;

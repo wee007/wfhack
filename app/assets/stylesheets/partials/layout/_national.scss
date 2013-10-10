@@ -56,6 +56,13 @@
         height: 80%;
       }
 
+      /* Old IE - centre align the hero image*/
+      @include old-ie {
+        .img-rotate__item {
+          background-position: 50% 0;
+        }
+      }
+
       /* `.container` wraps around the logo, nav and tagline. This sets its height to be the full height of `.national-header` */
       .container {height: 100%;}
 

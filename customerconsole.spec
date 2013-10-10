@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.111
+Version:     0.1.112
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -86,6 +86,32 @@ fi
 
 
 %changelog
+* Thu Oct 10 2013 ci <doperations@au.westfield.com> 0.1.112-1
+- Merge tag 'wf-customerconsole-0.1.111-1' of
+  github.dbg.westfield.com:digital/customer_console (matt.wratt@trineo.co.nz)
+- Merge pull request #458 from fchan/more-fixes (matt.wratt@trineo.co.nz)
+- Merge pull request #457 from ewee/master (matt.wratt@trineo.co.nz)
+- Fix comment (fiona@fionachan.net)
+- Fix typo in comment (fiona@fionachan.net)
+- Add page title and meta description of product faceted page
+  (ewee@au.westfield.com)
+- Merge pull request #463 from digital/seo-brands (matt.wratt@trineo.co.nz)
+- Merge pull request #462 from digital/svg (matt.wratt@trineo.co.nz)
+- Merge pull request #460 from gwshaw/feature/WSF-
+  5481_phg_for_product_details_page (matt.wratt@trineo.co.nz)
+- Added mrg-base class to the category ul (ben@germanforblack.com)
+- Merge remote-tracking branch 'origin/master' into seo-brands
+  (ben@germanforblack.com)
+- Render the brands underneath categories (ben@germanforblack.com)
+- Pull brands through controller (ben@germanforblack.com)
+- Space for brevity (ben@germanforblack.com)
+- Merge the hash! (ben@germanforblack.com)
+- Fix background-position (fiona@fionachan.net)
+- WSF-5481 phg for product details page (g.w.shaw@comcast.net)
+- WSF-5687: Fix national hero image alignment in IE8 (fiona@fionachan.net)
+- WSF-5382: Fix up ".txt-break-word" for Firefox (fiona@fionachan.net)
+- WSF-5454: Fix logo distorted on deals tile on IE8 (fiona@fionachan.net)
+
 * Thu Oct 10 2013 ci <doperations@au.westfield.com> 0.1.111-1
 - Merge pull request #454 from mwratt/feature/WSF-5609-storefront-banner-resize
   (matt.wratt@trineo.co.nz)

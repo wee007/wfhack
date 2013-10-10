@@ -4,7 +4,7 @@
 
 /*
   Usage:
-    Creates spacing between contianers
+    Creates spacing
 
   Demo:
     Style Guide -> Abstractions -> Spacing
@@ -15,4 +15,4 @@
 /* --Extenders-- */
 
 /* Double spacing */
-.spacing--mrg-dbl {@include to-rem(margin-bottom, $spacing-dbl);}
+.spacing--dbl {@include to-rem(margin-bottom, $spacing-dbl);}

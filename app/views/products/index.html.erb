@@ -379,23 +379,5 @@
   </div>
   <%# //Pinboard %>
 
-  <%# Pager %>
-  <% if @search.products.present? %>
-    <nav class="pager" role="navigation" aria-label="Product pagination" ng-if="!products.loading" ng-controller="ProductPaginationController">
-      <div class="pager__inner">
-        <em class="pager__count"><span class="hide-visually">Page </span>{{page()}} of {{totalPages()}}</em>
-        <button ng-if="has_prev()" ng-click="prev()" class="pager__prev btn btn--main btn--main-alt4 btn--pointer btn--pointer-alt">
-          <span class="icon icon--arrow-left btn--pointer__icon btn--pointer__icon--flush" aria-hidden="true"></span>
-          Prev
-        </button>
-        <button ng-if="has_next()" ng-click="next()" class="pager__next btn btn--main btn--main-alt4 btn--pointer">
-          Next
-          <span class="icon icon--arrow-right btn--pointer__icon btn--pointer__icon--flush" aria-hidden="true"></span>
-        </button>
-      </div>
-    </nav>
-  <% end %>
-  <%# //Pager %>
-
 </div>
 <%# //Render results %>

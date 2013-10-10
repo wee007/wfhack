@@ -33,20 +33,23 @@ class ProductsController < ApplicationController
     @categories = categories ? categories['values'] : []
 
     handle_error(@search) if @search.is_a? NullObject
+
+    @pagination = {
+      page: (params[:page] || 1).to_i,
+      page_count: (@search['count'].to_f / @search['rows'].to_f).ceil
+    }
+
     respond_to do |format|
       if request.xhr?
         # This should be its own route? There is alot of stuff above it does not need.
         format.html { render partial: "products" }
       else
         gon.products = {
-          page: (params[:page] || 1),
-          count: @search['count'],
           display_options: @search.display_options,
           facets: @search.facets,
           applied_filters: @search.applied_filters
         }
         format.html { render :index }
-
       end
     end
   end

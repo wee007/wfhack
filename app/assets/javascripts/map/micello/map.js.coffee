@@ -78,6 +78,14 @@ class map.micello.Map extends map.micello.MapBase
     return unless data.cid == @community
     @index.addAddresses(data.g)
 
+  toggleKeyEvents: (enabled) ->
+    @keyEventHandler ||= micello.maps.MapGUI.prototype.onKeyDown
+    if enabled
+      micello.maps.MapGUI.prototype.onKeyDown = @keyEventHandler
+    else
+      micello.maps.MapGUI.prototype.onKeyDown = null
+    @
+
   patchMicelloAPI: ->
     limit = (value, options) ->
       Math.min(Math.max(value, options.min), options.max)

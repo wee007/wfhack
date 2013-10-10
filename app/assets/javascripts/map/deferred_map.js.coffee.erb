@@ -1,4 +1,4 @@
-window.map = Micello: class Micello
+@map = Micello: class Micello
 
   @loadTriggered: false
 
@@ -29,7 +29,19 @@ window.map = Micello: class Micello
       @map = new map.micello.Map(@options)
     @
 
-do (proto = map.Micello.prototype, toProxy = ['setTarget', 'showLevel', 'zoom', 'detail', 'highlight', 'centre', 'centreOffset', 'reset']) ->
+proxiedFunctions = [
+  'setTarget'
+  'showLevel'
+  'zoom'
+  'detail'
+  'highlight'
+  'centre'
+  'centreOffset'
+  'reset'
+  'toggleKeyEvents'
+]
+
+do (proto = map.Micello.prototype, toProxy = proxiedFunctions) ->
   for name in toProxy
     proto[name] = do (name) -> (args...) ->
       func = -> @[name].apply(@, args)

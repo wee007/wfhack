@@ -27,4 +27,5 @@ class map.ResponsiveMap extends map.Micello
     @show(@options.palm) if @visible
 
   show: (options) ->
-    @load().centreOffset(options.offset)
+    map = @load()
+    setTimeout((-> map.centreOffset(options.offset)), 0)

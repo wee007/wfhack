@@ -175,7 +175,7 @@ class map.micello.Map extends map.micello.MapBase
       @applyOffset()
     @
 
-  logoOptions:
+  @logoOptions:
     width: 168
     height: 62
     crop: 'pad'
@@ -183,18 +183,18 @@ class map.micello.Map extends map.micello.MapBase
 
   popupHtml: (store) =>
     return 'Store not found' unless store.id
-    popup = @popupContent ||= $('.map-micello__overlay-wrap').html()
-    if !!store?._links?.logo?.href
-      store.logo = $.cloudinary.fetch_image(store._links.logo.href, @logoOptions).attr('alt', "#{store.name} logo").attr('onerror', 'map.micello.Map.removeLogo(this)')[0].outerHTML
-    else
-      store.logo = ''
-      popup  = popup.replace(/(js-toggle-store-logo)/, '$1 is-no-store-logo')
-    if !!location.toString().match(///#{store.storefront_path}///)
-      popup = popup.replace(/(js-toggle-store-logo)/, '$1 is-active-store')
-    else
-      popup = popup.replace(/(button.*js-stores-maps-toggle-btn)/, '$1 hide-visually')
-    popup = popup.replace(new RegExp("\#{store.#{name}}", 'g'), value) for name, value of store
-    popup
+    @popupContent ||= _.template($('script.map-micello__overlay-wrap[type="text/html-template"]').html())
+
+    locationMatch = !!location.toString().match(///#{store.storefront_path}///)
+    classname = "#{'is-no-store-logo' unless store.logo} #{'is-active-store' if locationMatch}"
+    storefront_path = "#{store.storefront_path unless locationMatch}"
+
+    data = _.extend({}, store,
+      classname: classname
+      storefront_path: storefront_path
+    )
+
+    @popupContent(data)
 
   onMapChanged: (event) =>
     return unless event.comLoad

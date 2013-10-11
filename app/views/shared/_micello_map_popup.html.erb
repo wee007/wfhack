@@ -1,15 +1,25 @@
-<%# FIXME: This really needs to be moved to something that can handle templating in JS better %>
-<div class="map-micello__overlay islet js-toggle-store-logo">
+<div class="map-micello__overlay islet js-toggle-store-logo <%%- classname %>">
   <div class="map-micello__overlay__retailer map-micello__mrg-base">
-    <div class="map-micello__overlay__retailer__img">
-      #{store.logo}
-    </div>
+    <%% if(obj.logo) { %>
+      <div class="map-micello__overlay__retailer__img">
+        <%%= $.cloudinary.fetch_image(logo, map.micello.Map.logoOptions)[0].outerHTML %>
+      </div>
+    <%% } %>
     <div class="map-micello__overlay__retailer__body">
-      <em class="map-micello__hdr txt-break-word">#{store.name}</em>
-      <p>Open till <time datetime="#{store.closing_time_24}">#{store.closing_time_12}</time> tonight</p>
+      <em class="map-micello__hdr txt-break-word"><%%- name %></em>
+      <p>Open till <time datetime="<%%- closing_time_24 %>"><%%- closing_time_12 %></time> tonight</p>
     </div>
   </div>
-  <a href="#{store.storefront_path}" class="map-micello__overlay__cta btn btn--full btn--main js-pjax-link-stores"><span class="icon icon--store icon--lrg icon--spacing-lrg" aria-hidden="true"></span>Store details</a>
-  <button class="map-micello__overlay__cta btn btn--full btn--main js-stores-maps-toggle-btn" aria-owns="stores-maps-toggle-listing-detail, stores-maps-toggle-map"><span class="icon icon--store icon--lrg icon--spacing-lrg" aria-hidden="true"></span>Store details</button>
+  <%%  if(storefront_path) {  %>
+  <a href="<%%- storefront_path %>" class="map-micello__overlay__cta btn btn--full btn--main js-pjax-link-stores">
+    <span class="icon icon--store icon--lrg icon--spacing-lrg" aria-hidden="true"></span>
+    Store details
+  </a>
+  <%%  } else {  %>
+  <button class="map-micello__overlay__cta btn btn--full btn--main js-stores-maps-toggle-btn" aria-owns="stores-maps-toggle-listing-detail, stores-maps-toggle-map">
+    <span class="icon icon--store icon--lrg icon--spacing-lrg" aria-hidden="true"></span>
+    Store details
+  </button>
+  <%%  }  %>
 </div>
 <span class="map-micello__overlay__close icon icon--close-sml icon--xlrg icon--flush-top" aria-hidden="true"></span>

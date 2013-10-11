@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.113
+Version:     0.1.114
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -86,6 +86,21 @@ fi
 
 
 %changelog
+* Fri Oct 11 2013 ci <doperations@au.westfield.com> 0.1.114-1
+- Merge pull request #456 from fchan/centre-services (matt.wratt@trineo.co.nz)
+- Update spacing class and clean up getting here section on centre info
+  (fiona@fionachan.net)
+- Fix comment (fiona@fionachan.net)
+- Enable centre services link in header (fiona@fionachan.net)
+- Fix spacing on centre services and info (fiona@fionachan.net)
+- Added static images to cloudinary (fiona@fionachan.net)
+- Fix images and promo tiles (fiona@fionachan.net)
+- Fix centre services after PR feedback (fiona@fionachan.net)
+- Fix merge problem on detail-view and minor fix on grid (fiona@fionachan.net)
+- Fix promo tile and added temp mark up (fiona@fionachan.net)
+- Get centre service data dynamically (ewee@au.westfield.com)
+- Create centre services page (fiona@fionachan.net)
+
 * Fri Oct 11 2013 ci <doperations@au.westfield.com> 0.1.113-1
 - Merge pull request #467 from mwratt/feature/map_tweaks
   (matt.wratt@trineo.co.nz)

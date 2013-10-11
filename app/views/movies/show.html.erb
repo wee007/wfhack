@@ -50,7 +50,7 @@
         </dt>
         <% sessions.each do |session| %>
           <dd>
-            <a href="<%= session.booking_url %>" rel="external"><time datetime="<%= Time.parse(session.start_time).strftime("%l:%M %P") %>" itemprop="startDate"><%= Time.parse(session.start_time).strftime("%l:%M %P") %></time></a>
+            <a href="<%= session.booking_url %>" rel="external"><time datetime="<%= Time.parse(session.start_time).strftime("%l:%M%P") %>" itemprop="startDate"><%= Time.parse(session.start_time).strftime("%l:%M%P") %></time></a>
             <%= "[#{session.session_type}]" if session.session_type %>
           </dd>
         <% end %>

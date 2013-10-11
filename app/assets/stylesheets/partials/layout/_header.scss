@@ -488,6 +488,9 @@ $header-color-link-hover: $color-brand !default;
 				@include to-rem(margin-top, 5);
 				@include to-rem(margin-left, 5);
 
+				/* Android */
+				.android & {@include to-rem(margin-top, 4);}
+
 				/* Centre home page hero banner */
 				.header--hero & {
 					position: absolute;
@@ -887,6 +890,76 @@ $header-color-link-hover: $color-brand !default;
 					&:focus {color: $color-light-txt;}
 				}
 			}
+
+		/* --Buy Gift Cards link-- */
+
+		/*
+			Note: this is just temporary until 'My Account' and 'Favourites' come back.
+		*/
+
+		/* Hide when in 'Tertiary nav' at this breakpoint */
+		@include respond-min($lap-lrg) {
+			.nav-buy-gift-cards {display: none;}
+		}
+
+		/* Non 'Tertiary nav' version */
+		.nav-buy-gift-cards--alt {
+			display: none;
+
+			/* Always show and style it up at this breakpoint */
+			@include respond-min($lap-lrg) {
+				display: block;
+				position: absolute;
+				right: 0;
+				top: 50%;
+				@include translate(0, -50%);
+
+				/* Hover and focus states */
+				.header &:hover,
+				.header &:focus {
+					&,
+					.icon:before {color: $header-color-link-hover;}
+				}
+
+				/* Bold at this breakpoint */
+				@include respond-min($desk) {
+	        font-weight: bold;
+        }
+
+        /* Alter top positioning and turn off `translate` for 'Centre home page hero banner' */
+				.header--hero & {
+					@include to-rem(top, 54);
+					@include translate(0, 0);
+				}
+
+				/* Old IE - fix for not supporting `translate` */
+				@include old-ie {
+					@include to-rem(top, 16);
+				}
+
+				/* Icon */
+				.icon:before {
+					@include font-size(20, 1);
+					color: $color-brand;
+
+					/* Increase font size at this breakpoint */
+					@include respond-min($desk) {
+		         @include font-size(22, 1);
+	        }
+
+	        /* Bump up more for iOS/Android */
+					.ios &,
+					.android & {top: -2px;}
+
+					/* IE10 */
+					@include ie-10-up {
+						position: static;
+					}
+					/* IE9 */
+					.ie-9 & {position: static;}
+				}
+			}
+		}
 
 		/* --Search toggle button & favourites-- */
 

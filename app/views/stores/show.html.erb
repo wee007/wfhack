@@ -119,9 +119,9 @@
                 <div class="storefront__featured__item storefront__featured__item--products island island--top-btm">
                   <div class="container">
                     <h2 class="storefront__featured__hdr">Featured from <%= @store.name %></h2>
-                    <div class="grid grid--gutter-half grid--flush">
+                    <ul class="grid grid--gutter-half grid--mrg-half">
                       <% @products.each do |product| %>
-                        <div class="grid__item one-half non-palm-one-third">
+                        <li class="grid__item one-half non-palm-one-third">
                           <%= render partial: '/shared/tiles/product',
                               layout: '/layouts/tile',
                               locals: {
@@ -133,9 +133,9 @@
                                 }
                               }
                             %>
-                        </div>
+                        </li>
                       <% end %>
-                    </div>
+                    </ul>
                     <%= link_to centre_products_path(retailer: [params[:retailer_code]]), class: 'storefront__featured__view-more' do %>
                       View more
                       <span class="icon icon--arrow-right icon--lrg" aria-hidden="true"></span>
@@ -149,10 +149,10 @@
                 <div class="storefront__featured__item storefront__featured__item--deals island island--top-btm">
                   <div class="container">
                     <h2 class="storefront__featured__hdr">Deals from <%= @store.name %></h2>
-                    <div class="grid grid--gutter-half grid--flush">
+                    <ul class="grid grid--gutter-half grid--mrg-half">
                       <%# FIXME: [BACKEND] hacked this together so needs to be done properly and we only show 3 tiles or less %>
                       <% 3.times do |n| %>
-                        <div class="grid__item one-half non-palm-one-third">
+                        <li class="grid__item one-half non-palm-one-third">
                           <%= render partial: '/shared/tiles/deal',
                               layout: '/layouts/tile',
                               locals: {result: Hashie::Mash.new(
@@ -166,9 +166,9 @@
                                 )
                               )
                           } %>
-                        </div>
+                        </li>
                       <% end %>
-                    </div>
+                    </ul>
                     <%# FIXME: [BACKEND] make URL dynamic %>
                     <a href="#" class="storefront__featured__view-more">View more<span class="icon icon--arrow-right icon--lrg" aria-hidden="true"></span></a>
                   </div>

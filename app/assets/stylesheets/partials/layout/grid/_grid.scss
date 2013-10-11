@@ -67,17 +67,6 @@
 /* Gutterless */
 .grid--gutterless > .grid__item {padding-left: 0;}
 
-/* Remove bottom margin */
-.grid--flush {
-	&,
-	> .grid__item {margin-bottom: 0;}
-}
-
-/* Base margin of `grid__item` at non-palm */
-@include respond-min($non-palm) {
-	.grid--mrg-base-non-palm > .grid__item {@include to-rem(margin-bottom, $spacing-base);}
-}
-
 /* Double the gutter */
 .grid--gutter-dbl {
 	/* Negative `margin-left` to negate the columns' gutters */
@@ -96,6 +85,41 @@
   > .grid__item {@include to-rem(padding-left, $grid-gutter-half);}
 }
 
+/* Remove bottom margin */
+.grid--flush {
+	&,
+	> .grid__item {
+		margin-bottom: 0;
+
+		/* Turn off for last child */
+		&:last-child {margin-bottom: 0;}
+	}
+}
+
+/* Apply half bottom margin */
+.grid--mrg-half {
+	&,
+	> .grid__item {
+		@include to-rem(margin-bottom, $grid-gutter-half);
+
+		/* Turn off for last child */
+		&:last-child {margin-bottom: 0;}
+	}
+
+	/* Non-linear (always cols) version */
+	&.grid--non-linear {
+		/* Need to offset bottom margin to keep spacing consistent */
+		@include to-rem(margin-bottom, -$grid-gutter-half);
+		/* Need to renable bottom margin for `:last-child` */
+		> .grid__item:last-child {@include to-rem(margin-bottom, $grid-gutter-half);}
+	}
+}
+
+/* Apply bottom margins at non-palm */
+@include respond-min($non-palm) {
+	/* Base bottom margin */
+	.grid--mrg-base-non-palm > .grid__item {@include to-rem(margin-bottom, $grid-gutter);}
+}
 
 /* Center align */
 .grid--center > .grid__item {

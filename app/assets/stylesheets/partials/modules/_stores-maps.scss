@@ -223,6 +223,11 @@
           float: none;
         }
 
+        /* Hide when in map view at this breakpoint */
+        @include respond-max($ipad-landscape - 1) {
+          .is-map-view & {display: none;}
+        }
+
           /* Increase right padding for drop down trigger at this breakpoint */
           @include respond-min($non-palm) {
             .drop-down-menu__trigger {@include to-em(padding-right, $spacing-dbl+$spacing-base);}
@@ -286,6 +291,11 @@
       .stores-maps__filters-count {
         @include font-size($font-size-sml, 1.5);
         border-top: 1px solid $color-grey-1;
+
+        /* Hide when in map view at this breakpoint */
+        @include respond-max($ipad-landscape - 1) {
+          .is-map-view & {display: none;}
+        }
 
         /* Inner container */
         .container {

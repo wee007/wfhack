@@ -20,10 +20,9 @@
 
   <%# Pager %>
   <% if @search.products.present? %>
-    <nav class="pager" role="navigation" aria-label="Product pagination">
+    <nav class="pager pager--pin-board" role="navigation" aria-label="Product pagination">
       <div class="pager__inner">
         <em class="pager__count"><span class="hide-visually">Page </span><%= @pagination[:page] %> of <%= @pagination[:page_count] %></em>
-
         <%# Previous page %>
         <% if @pagination[:page] > 1 %>
           <%= link_to prev_page_url, { rel: 'prev', target: '_self', class: 'pager__prev btn btn--main btn--main-alt4 btn--pointer btn--pointer-alt'} do %>
@@ -31,15 +30,18 @@
             Prev
           <% end %>
         <% end %>
- <%# Next page %>
+        <%# //Previous page %>
+        <%# Next page %>
         <% if @pagination[:page] < @pagination[:page_count] %>
           <%= link_to next_page_url, { rel: 'next', target: '_self', class: 'pager__next btn btn--main btn--main-alt4 btn--pointer'} do %>
             Next
             <span class="icon icon--arrow-right btn--pointer__icon btn--pointer__icon--flush" aria-hidden="true"></span>
           <% end %>
         <% end %>
+        <%# //Next page %>
       </div>
     </nav>
   <% end %>
   <%# //Pager %>
+
 <%- end -%>

@@ -13,7 +13,6 @@
 .pager {
 	border-top: 1px solid $color-grey-1;
   @include to-rem(padding-top, $spacing-half);
-  @include to-rem(margin-top, $spacing-base);
   color: $color-light-txt;
 
   /* Prev/next */
@@ -29,6 +28,18 @@
 
     /* Arrow icons */
     .icon:before {@include font-size(22, 1);}
+}
+
+/* Pin board extender */
+.pager--pin-board {
+  @include to-rem(margin-top, $spacing-base);
+  /* Need a negative bottom margin to offset the bottom padding on the `body` to keep the spacing consistent with the top spacing */
+  @include to-rem(margin-bottom, -$spacing-half);
+
+  /* Remove the negative bottom margin at this breakpoint */
+  @include respond-min($non-palm) {
+    margin-bottom: 0;
+  }
 }
 
   /* Inner container */

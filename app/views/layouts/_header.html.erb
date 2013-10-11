@@ -35,11 +35,11 @@
 							<%# Centre opening hours (centre home page) %>
 							<li class="open-hours-link"><a href="<%= centre_hours_path( params[ :centre_id ] || params[ :id ] ) %>" target="_self"><span class="icon icon--hours" aria-hidden="true"></span> <strong>Open <time datetime="<%= @centre.today_opening_time %>"><%= twelve_hour_format(@centre.today_opening_time) %></time> - <time datetime="<%= @centre.today_closing_time %>"><%= twelve_hour_format(@centre.today_closing_time) %></time> today</strong><span class="icon icon--arrow-right" aria-hidden="true"></span></a></li>
 							<%# //Centre opening hours (centre home page) %>
-              <li class="open-hours-link-alt"><a href="<%= centre_hours_path( params[ :centre_id ] || params[ :id ] ) %>" target="_self"><span class="icon icon--hours icon--fixed-width icon--spacing" aria-hidden="true"></span><span class="nav-sub__txt"> Opening Hours</span></a></li>
-							<!-- <li><a href="#" target="_self"><span class="icon icon--dining icon--fixed-width icon--spacing" aria-hidden="true"></span><span class="nav-sub__txt"> Dining</span></a></li> -->
-							<li><a href="<%= centre_movies_path(params[ :centre_id ] || params[ :id ]) %>" target="_self"><span class="icon icon--video icon--fixed-width icon--spacing" aria-hidden="true"></span><span class="nav-sub__txt"> Cinemas</span></a></li>
-							<li><a href="<%= centre_info_path( params[ :centre_id ] || params[ :id ] ) %>" target="_self"><span class="icon icon--info icon--fixed-width icon--spacing" aria-hidden="true"></span><span class="nav-sub__txt"> Centre Information</span></a></li>
-							<li><a href="<%= centre_services_path(params[ :centre_id ] || params[ :id ]) %>" target="_self"><span class="icon icon--service icon--fixed-width icon--spacing" aria-hidden="true"></span><span class="nav-sub__txt"> Centre Services</span></a></li>
+              <li class="open-hours-link-alt"><%= link_to centre_hours_path(params[:centre_id] || params[:id]), :class => (page?(:centre_hours) ? 'is-active' : nil), target: '_self' do %><span class="icon icon--hours icon--fixed-width icon--spacing" aria-hidden="true"></span><span class="nav-sub__txt"> Opening Hours</span><% end %></li>
+							<!-- <li><%#= link_to centre_dining_path(params[:centre_id] || params[:id]), :class => (page?(:dining) ? 'is-active' : nil), target: '_self' do %><span class="icon icon--dining icon--fixed-width icon--spacing" aria-hidden="true"></span><span class="nav-sub__txt"> Dining</span><%# end %></li> -->
+							<li><%= link_to centre_movies_path(params[:centre_id] || params[:id]), :class => (page?(:movies) ? 'is-active' : nil), target: '_self' do %><span class="icon icon--video icon--fixed-width icon--spacing" aria-hidden="true"></span><span class="nav-sub__txt"> Cinemas</span><% end %></li>
+							<li><%= link_to centre_info_path(params[:centre_id] || params[:id]), :class => (page?(:centre_info) ? 'is-active' : nil), target: '_self' do %><span class="icon icon--info icon--fixed-width icon--spacing" aria-hidden="true"></span><span class="nav-sub__txt"> Centre Information</span><% end %></li>
+							<li><%= link_to centre_services_path(params[:centre_id] || params[:id]), :class => (page?(:centre_service_details) ? 'is-active' : nil), target: '_self' do %><span class="icon icon--service icon--fixed-width icon--spacing" aria-hidden="true"></span><span class="nav-sub__txt"> Centre Services</span><% end %></li>
 						</ul>
 					</nav>
 
@@ -106,7 +106,9 @@
 					<%# Tertiary navigation %>
 					<nav class="nav-tertiary" role="navigation" aria-label="Tertiary navigation">
 						<ul>
+							<li class="nav-buy-gift-cards"><%= link_to 'Buy Gift Cards', 'http://www.westfieldgiftcards.com.au', rel: 'external' %></li>
 							<li><%= link_to 'Westfield Group', 'http://corporate.westfield.com/', rel: 'external' %></li>
+							<!-- <li><%= link_to 'Media', 'http://media.westfield.com.au', rel: 'external' %></li> -->
 							<li><%= link_to 'Terms &amp; Conditions'.html_safe, '/terms-conditions' %></li>
 							<li><%= link_to 'Privacy Policy', '/privacy-policy' %></li>
 						</ul>
@@ -124,6 +126,10 @@
 				<h1 class="header-centre-select__centre-name"><%= @centre.short_name %></h1>
 			</div>
 			<%# //Centre selector (tablet small) %>
+
+			<%# Gift Card link %>
+			<a href="http://www.westfieldgiftcards.com.au" rel="external" class="nav-buy-gift-cards--alt"><span class="icon icon--gift-card icon--spacing" aria-hidden="true"></span>Buy Gift Cards</a>
+			<%# //Gift Card link %>
 
 			<%# Search toggle / favourites (palm) %>
 			<div class="search-toggle-favs hide-fully--non-palm">
@@ -175,14 +181,10 @@
 			<%# Main navigation %>
 			<nav role="navigation" aria-label="Main navigation">
 				<ul class="nav-main horiz-list horiz-list--fit horiz-list--center horiz-list--dividers">
-				  <li><%= link_to centre_stores_path(params[:centre_id] || params[:id]),
-				    :class => (page?(:stores) ? 'is-active' : nil), target: '_self' do %><span class="icon icon--store" aria-hidden="true"></span><span class="hide-visually"> Stores</span><% end %></li>
-				  <li><%= link_to centre_products_path(params[:centre_id] || params[:id]),
-				    :class => (page?(:products) ? 'is-active' : nil), target: '_self' do %><span class="icon icon--products" aria-hidden="true"></span><span class="hide-visually"> Products</span><% end %></li>
-				  <li><%= link_to centre_deals_path(params[:centre_id] || params[:id]),
-				    :class => (page?(:deals) ? 'is-active' : nil), target: '_self' do %><span class="icon icon--deals" aria-hidden="true"></span><span class="hide-visually"> Deals</span><% end %></li>
-				  <li><%= link_to centre_events_path(params[:centre_id] || params[:id]),
-				    :class => (page?(:events) ? 'is-active' : nil), target: '_self' do %><span class="icon icon--events" aria-hidden="true"></span><span class="hide-visually"> Events</span><% end %></li>
+				  <li><%= link_to centre_stores_path(params[:centre_id] || params[:id]), :class => (page?(:stores) ? 'is-active' : nil), target: '_self' do %><span class="icon icon--store" aria-hidden="true"></span><span class="hide-visually"> Stores</span><% end %></li>
+				  <li><%= link_to centre_products_path(params[:centre_id] || params[:id]), :class => (page?(:products) ? 'is-active' : nil), target: '_self' do %><span class="icon icon--products" aria-hidden="true"></span><span class="hide-visually"> Products</span><% end %></li>
+				  <li><%= link_to centre_deals_path(params[:centre_id] || params[:id]), :class => (page?(:deals) ? 'is-active' : nil), target: '_self' do %><span class="icon icon--deals" aria-hidden="true"></span><span class="hide-visually"> Deals</span><% end %></li>
+				  <li><%= link_to centre_events_path(params[:centre_id] || params[:id]), :class => (page?(:events) ? 'is-active' : nil), target: '_self' do %><span class="icon icon--events" aria-hidden="true"></span><span class="hide-visually"> Events</span><% end %></li>
 				</ul>
 			</nav>
 			<%# //Main navigation %>

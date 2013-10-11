@@ -51,7 +51,7 @@
         $scope.hideSuggestions() if event and event.keyCode == 27
 
       if $scope.searchQuery && $scope.searchQuery != ""
-        GlobalSearch.get {term: $scope.searchQuery}
+        GlobalSearch.get term: $scope.searchQuery, centre: $scope.centre_id
 
     $scope.navigateSuggestions = (event) ->
       switch event.keyCode

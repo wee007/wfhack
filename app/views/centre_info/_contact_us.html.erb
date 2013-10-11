@@ -1,40 +1,42 @@
 <%# Contact Us %>
 <% if @centre.phone_number.present? or @centre.email_address.present? %>
   <h2 id="contact-us">Contact Us</h2>
-  <div class="grid grid--gutter-dbl grid--mrg-dbl-non-palm">
+  <div class="spacing spacing--dbl">
+    <div class="grid grid--gutter-dbl">
 
-    <%# Phone number %>
-    <% if @centre.phone_number.present? %>
-      <div class="grid__item non-palm-one-half">
-        <%# Show centre number if at non-palm size %>
-        <div class="box island txt-center hide-fully--palm" itemscope itemtype="http://schema.org/Organization">
-          <span class="icon icon--phone2 icon--kilo icon--spacing-lrg" aria-hidden="true"></span>
-          <span class="hide-visually">Phone number</span>
-          <span itemprop="telephone"><%= @centre.phone_number %></span>
+      <%# Phone number %>
+      <% if @centre.phone_number.present? %>
+        <div class="grid__item non-palm-one-half">
+          <%# Show centre number if at non-palm size %>
+          <div class="box island txt-center hide-fully--palm" itemscope itemtype="http://schema.org/Organization">
+            <span class="icon icon--phone2 icon--kilo icon--spacing-lrg" aria-hidden="true"></span>
+            <span class="hide-visually">Phone number</span>
+            <span itemprop="telephone"><%= @centre.phone_number %></span>
+          </div>
+          <%# //Show centre number if at non-palm size %>
+
+          <%# Show CTA button for centre contact number for palm %>
+          <span class="hide-fully--non-palm">
+            <%= phone_link @centre.phone_number, class: 'btn btn--full btn--main btn--main-alt2 btn--main-lrg' do |phone_number| %>
+              <span class="icon icon--phone icon--xlrg icon--spacing-lrg icon--flush-top" aria-hidden="true"></span>
+              <strong>Call <%= @centre.short_name %> Centre</strong>
+            <% end %> 
+          </span>
+          <%# //Show CTA button for centre contact number for palm %>
         </div>
-        <%# //Show centre number if at non-palm size %>
+      <% end %>
+      <%# //Phone number %>
 
-        <%# Show CTA button for centre contact number for palm %>
-        <span class="hide-fully--non-palm">
-          <%= phone_link @centre.phone_number, class: 'btn btn--full btn--main btn--main-alt2 btn--main-lrg' do |phone_number| %>
-            <span class="icon icon--phone icon--xlrg icon--spacing-lrg icon--flush-top" aria-hidden="true"></span>
-            <strong>Call <%= @centre.short_name %> Centre</strong>
-          <% end %> 
-        </span>
-        <%# //Show CTA button for centre contact number for palm %>
-      </div>
-    <% end %>
-    <%# //Phone number %>
-
-    <% if @centre.email_address.present? %>
-      <div class="grid__item non-palm-one-half">
-        <div class="box island txt-center txt-truncate">
-          <span class="icon icon--email icon--kilo icon--spacing-lrg" aria-hidden="true"></span>
-          <span class="hide-visually">Email</span>
-          <%= mail_to @centre.email_address, @centre.email_address %>
+      <% if @centre.email_address.present? %>
+        <div class="grid__item non-palm-one-half">
+          <div class="box island txt-center txt-truncate">
+            <span class="icon icon--email icon--kilo icon--spacing-lrg" aria-hidden="true"></span>
+            <span class="hide-visually">Email</span>
+            <%= mail_to @centre.email_address, @centre.email_address %>
+          </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
 <% end %>
 <%# //Contact Us %>

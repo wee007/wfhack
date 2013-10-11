@@ -1,0 +1,18 @@
+/* ======================================================================================
+   @ABSTRACTIONS -> SPACING
+   ====================================================================================== */
+
+/*
+  Usage:
+    Creates spacing
+
+  Demo:
+    Style Guide -> Abstractions -> Spacing
+*/
+
+.spacing {@extend %mrg-base;}
+
+/* --Extenders-- */
+
+/* Double spacing */
+.spacing--dbl {@include to-rem(margin-bottom, $spacing-dbl);}

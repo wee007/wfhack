@@ -178,7 +178,7 @@
       .stores-maps__filters-toggle__hdr {
         display: block;
         font-family: $font-family-opensans;
-        @include font-size(24, 1.5);
+        @include font-size($font-size-xlrg, 1.5);
         color: $color-dark-txt;
         @include to-em(margin-bottom, $spacing-third);
         /* Temp style so current feature can be released */

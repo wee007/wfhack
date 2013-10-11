@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.112
+Version:     0.1.113
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -86,6 +86,14 @@ fi
 
 
 %changelog
+* Fri Oct 11 2013 ci <doperations@au.westfield.com> 0.1.113-1
+- Merge pull request #467 from mwratt/feature/map_tweaks
+  (matt.wratt@trineo.co.nz)
+- disables arrow keys in map on product and deals (matt.wratt@trineo.co.nz)
+- removes roads from maps (matt.wratt@trineo.co.nz)
+- need to use the primary_image as it's a full url (matt.wratt@trineo.co.nz)
+- WSF-5698 Fixes product images in beta (matt.wratt@trineo.co.nz)
+
 * Thu Oct 10 2013 ci <doperations@au.westfield.com> 0.1.112-1
 - Merge tag 'wf-customerconsole-0.1.111-1' of
   github.dbg.westfield.com:digital/customer_console (matt.wratt@trineo.co.nz)

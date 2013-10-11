@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.115
+Version:     0.1.116
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -86,6 +86,29 @@ fi
 
 
 %changelog
+* Fri Oct 11 2013 ci <doperations@au.westfield.com> 0.1.116-1
+- Merge pull request #466 from cpearce/UI-polish (matt.wratt@trineo.co.nz)
+- Fixing conflicts in site header and grid css (CPearce@au.westfield.com)
+- Restoring the filters to be hidden (CPearce@au.westfield.com)
+- Remove store filters for store list when in map view at mobile/tablet size
+  and add ARIA attr to applied filter count - WSF-5692
+  (CPearce@au.westfield.com)
+- Adding selectivizr as the path to the JS file was broke in all env's
+  (CPearce@au.westfield.com)
+- Fixing 2 links to use correct routes - WSF-5397 (CPearce@au.westfield.com)
+- Make all relevant links in the site header have 'is-active' classes -
+  WSF-5397 (CPearce@au.westfield.com)
+- Fixing up a merge conflict and adding some missing comments to products index
+  (CPearce@au.westfield.com)
+- Adding 2 new links to site header and 1 link to national home page - WSF-5664
+  (CPearce@au.westfield.com)
+- Replacing link icon with shopping bag icon for product store click out link -
+  WSF-5570 (CPearce@au.westfield.com)
+- Fix the pin board bottom margin and general spacing for grids - WSF-5490
+  (CPearce@au.westfield.com)
+- Removing nav contextual inline initialisation as it is now global
+  (CPearce@au.westfield.com)
+
 * Fri Oct 11 2013 ci <doperations@au.westfield.com> 0.1.115-1
 - Merge pull request #455 from ldewey/search (matt.wratt@trineo.co.nz)
 - Fixups for search (ldewey@au.westfield.com)

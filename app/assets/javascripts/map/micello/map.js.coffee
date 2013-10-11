@@ -49,6 +49,8 @@ class map.micello.Map extends map.micello.MapBase
         w: 0
       'Entrance':
         m: '#695648'
+      'Road':
+        w: 0
 
   # Error events from images don't buddle so we need to explicitly call onerror
   @removeLogo: (img) ->
@@ -75,6 +77,14 @@ class map.micello.Map extends map.micello.MapBase
   parseAddresses: (data) =>
     return unless data.cid == @community
     @index.addAddresses(data.g)
+
+  toggleKeyEvents: (enabled) ->
+    @keyEventHandler ||= micello.maps.MapGUI.prototype.onKeyDown
+    if enabled
+      micello.maps.MapGUI.prototype.onKeyDown = @keyEventHandler
+    else
+      micello.maps.MapGUI.prototype.onKeyDown = null
+    @
 
   patchMicelloAPI: ->
     limit = (value, options) ->

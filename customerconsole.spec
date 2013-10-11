@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.116
+Version:     0.1.117
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -86,6 +86,9 @@ fi
 
 
 %changelog
+* Sat Oct 12 2013 ci <doperations@au.westfield.com> 0.1.117-1
+- Fixes missing logos in map popups (matt.wratt@trineo.co.nz)
+
 * Fri Oct 11 2013 ci <doperations@au.westfield.com> 0.1.116-1
 - Merge pull request #466 from cpearce/UI-polish (matt.wratt@trineo.co.nz)
 - Fixing conflicts in site header and grid css (CPearce@au.westfield.com)

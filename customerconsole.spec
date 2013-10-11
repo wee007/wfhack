@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.114
+Version:     0.1.115
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -86,6 +86,14 @@ fi
 
 
 %changelog
+* Fri Oct 11 2013 ci <doperations@au.westfield.com> 0.1.115-1
+- Merge pull request #455 from ldewey/search (matt.wratt@trineo.co.nz)
+- Fixups for search (ldewey@au.westfield.com)
+- Ignore category in search, will bring it back later.
+  (ldewey@au.westfield.com)
+- Updates to search, so it works with the new search api data
+  (ldewey@au.westfield.com)
+
 * Fri Oct 11 2013 ci <doperations@au.westfield.com> 0.1.114-1
 - Merge pull request #456 from fchan/centre-services (matt.wratt@trineo.co.nz)
 - Update spacing class and clean up getting here section on centre info

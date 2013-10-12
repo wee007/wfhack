@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.117
+Version:     0.1.118
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -86,6 +86,13 @@ fi
 
 
 %changelog
+* Sat Oct 12 2013 ci <doperations@au.westfield.com> 0.1.118-1
+- fixes pjax navigation on android (matt.wratt@trineo.co.nz)
+- stabilizes map toggle across devices (matt.wratt@trineo.co.nz)
+- fixes missing toggle button on storefront map (matt.wratt@trineo.co.nz)
+- WSF-5665 fixes disappearing map on toggle issue (matt.wratt@trineo.co.nz)
+- move map partials to micello_maps folder (matt.wratt@trineo.co.nz)
+
 * Sat Oct 12 2013 ci <doperations@au.westfield.com> 0.1.117-1
 - Fixes missing logos in map popups (matt.wratt@trineo.co.nz)
 

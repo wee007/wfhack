@@ -13,19 +13,24 @@ class map.ResponsiveMap extends map.Micello
       setup: @palmView
     }, true)
 
-  toggle: ->
-    @visible = !@visible
+  show: ->
+    @toggle on
+
+  hide: ->
+    @toggle off
+
+  toggle: (@visible = !@visible) ->
     @palmView() if @state == 'palm'
     @visible
 
   nonPalmView: =>
     @state = 'nonpalm'
-    @show(@options.nonPalm)
+    @load(@options.nonPalm)
 
   palmView: =>
     @state = 'palm'
-    @show(@options.palm) if @visible
+    @load(@options.palm) if @visible
 
-  show: (options) ->
-    map = @load()
+  load: (options) ->
+    map = super
     setTimeout((-> map.centreOffset(options.offset)), 0)

@@ -13,7 +13,7 @@ class StoreMapPage
 
   loading: (state) ->
     # after pjax load has completed the user needs to see the detail
-    @toggle() if state && @viewingMap
+    @hide()
 
     $('.js-pjax-container-stores').toggleClass('is-stores-list-detail-loading', state)
 
@@ -23,27 +23,36 @@ class StoreMapPage
       delete storeMapPageReady
 
   setup: =>
-    $.pjax.defaults.timeout = 5000
+    $.pjax.defaults?.timeout = 5000
     $(document).on('pjax:send', => @loading true)
     $(document).on('pjax:success', => @loading false)
     $(document).pjax('a.js-pjax-link-stores', '.js-pjax-container-stores')
     $('.js-pjax-container-stores').on('pjax:end', @pjaxComplete)
-    $('body').on('click touchstart', '.js-stores-maps-toggle-btn', @toggle)
+    $('body').on('click', '.is-list-view .js-stores-maps-toggle-btn', @show)
+    $('body').on('click', '.is-map-view .js-stores-maps-toggle-btn', @hide)
+    $('body').on('touchstart', '.js-stores-maps-toggle-btn.js-map-show', @show)
+    $('body').on('touchstart', '.js-stores-maps-toggle-btn.js-map-hide', @hide)
     self = @
-    $('body').on('click touchstart', '[data-store-id]', (e) ->
-      e.preventDefault() if e
-      self.toggle()
+    $('body').on('click touchstart', '[data-store-id]', ->
+      self.show()
       self.store($(@).data('store-id'))
       false
     )
     @pjaxComplete()
 
-  toggle: (e) =>
-    e.preventDefault() if e
-    @viewingMap = @map.toggle()
-    $('.js-stores-maps-toggle-btn').toggleClass('is-expanded', @viewingMap)
-    $('.js-stores-maps-toggle-btn-txt').html(if @viewingMap then 'list' else 'map')
-    $('.js-stores-maps-toggle-wrap').toggleClass('is-map-view', @viewingMap)
+  show: =>
+    @updateGUI @map.show()
+    false
+
+  hide: =>
+    @updateGUI @map.hide()
+    false
+
+  updateGUI: (viewingMap) ->
+    $('.js-stores-maps-toggle-btn').toggleClass('is-expanded', viewingMap)
+    $('.js-stores-maps-toggle-btn-txt').html(if viewingMap then 'list' else 'map')
+    $('.js-stores-maps-toggle-wrap').toggleClass('is-map-view', viewingMap)
+    $('.js-stores-maps-toggle-wrap').toggleClass('is-list-view', !viewingMap)
 
     # FIXME: Webkit doesn't redraw the page correctly unless we force it
     $('.js-stores-maps-toggle-wrap').width()

@@ -11,6 +11,12 @@ class StoreMapPage
       nonPalm: offset: x: 0.75, y: 0.5, zoom: 2
     }
 
+  startLoading: =>
+    @loading true
+
+  stopLoading: =>
+    @loading false
+
   loading: (state) ->
     # after pjax load has completed the user needs to see the detail
     @hide()
@@ -22,18 +28,25 @@ class StoreMapPage
       storeMapPageReady() if window.storeMapPageReady
       delete storeMapPageReady
 
+  pjaxNavigate: (event) =>
+    @startLoading()
+    $.pjax.click(event, container: $('.js-pjax-container-stores'))
+
   setup: =>
-    $.pjax.defaults?.timeout = 5000
-    $(document).on('pjax:send', => @loading true)
-    $(document).on('pjax:success', => @loading false)
-    $(document).pjax('a.js-pjax-link-stores', '.js-pjax-container-stores')
-    $('.js-pjax-container-stores').on('pjax:end', @pjaxComplete)
-    $('body').on('click', '.is-list-view .js-stores-maps-toggle-btn', @show)
-    $('body').on('click', '.is-map-view .js-stores-maps-toggle-btn', @hide)
-    $('body').on('touchstart', '.js-stores-maps-toggle-btn.js-map-show', @show)
-    $('body').on('touchstart', '.js-stores-maps-toggle-btn.js-map-hide', @hide)
+    body = $('body')
+    if $.support.pjax
+      $.pjax.defaults?.timeout = 5000
+      $(document).on('pjax:send', @startLoading)
+      $(document).on('pjax:success', @stopLoading)
+      body.on('pjax:end', '.js-pjax-container-stores', @pjaxComplete)
+      body.on('click', 'a.js-pjax-link-stores', @pjaxNavigate)
+      body.on('touchstart', '.is-map-view a.js-pjax-link-stores', @pjaxNavigate)
+    body.on('click', '.is-list-view .js-stores-maps-toggle-btn', @show)
+    body.on('click', '.is-map-view .js-stores-maps-toggle-btn', @hide)
+    body.on('touchstart', '.js-stores-maps-toggle-btn.js-map-show', @show)
+    body.on('touchstart', '.js-stores-maps-toggle-btn.js-map-hide', @hide)
     self = @
-    $('body').on('click touchstart', '[data-store-id]', ->
+    body.on('click touchstart', '[data-store-id]', ->
       self.show()
       self.store($(@).data('store-id'))
       false

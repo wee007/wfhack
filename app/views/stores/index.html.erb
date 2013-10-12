@@ -1,6 +1,6 @@
 <% content_for :class_for_main, "container--wide" %>
 
-<div class="stores-maps stores-maps--listing container js-stores-maps-toggle-wrap">
+<div class="stores-maps stores-maps--listing container js-stores-maps-toggle-wrap is-list-view">
 
   <h1 class="hide-visually">Stores</h1>
 
@@ -161,7 +161,7 @@
 
   <%# Map %>
   <div class="stores-maps__map map-micello js-stores-maps-toggle-map" id="stores-maps-toggle-map">
-    <%= render partial: 'shared/map', locals: {store_id: nil, interactive: true, load_immediately: false} %>
+    <%= render partial: 'shared/micello_maps/map', locals: {store_id: nil, interactive: true, load_immediately: false} %>
   </div>
   <%# //Map %>
 

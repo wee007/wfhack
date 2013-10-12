@@ -186,8 +186,8 @@ class map.micello.Map extends map.micello.MapBase
     @popupContent ||= _.template($('script.map-micello__overlay-wrap[type="text/html-template"]').html())
 
     locationMatch = !!location.toString().match(///#{store.storefront_path}///)
-    classname = "#{'is-no-store-logo' unless store.logo} #{'is-active-store' if locationMatch}"
-    storefront_path = "#{store.storefront_path unless locationMatch}"
+    classname = "#{unless store.logo then 'is-no-store-logo' else ''} #{if locationMatch then 'is-active-store' else ''}"
+    storefront_path = "#{unless locationMatch then store.storefront_path else ''}"
 
     data = _.extend({}, store,
       classname: classname

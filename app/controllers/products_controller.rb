@@ -35,7 +35,10 @@ class ProductsController < ApplicationController
     brands = @search.facets.detect{|f| f.field == "brand" }
     @brands = brands ? brands['values'] : []
 
-    handle_error(@search) if @search.is_a? NullObject
+    # FIXME - Raise an Exception?
+    if @search.is_a? NullObject
+      handle_error(@search) and return
+    end
 
     @pagination = {
       page: (params[:page] || 1).to_i,

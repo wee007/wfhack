@@ -6,7 +6,7 @@
           <a href="#" ng-class="{'is-active': isActiveT1Category(super_category)}" ng-click="filterCategory( 'super_cat', super_category.code )">{{ super_category.short_name }}</a>
           <div class="drop-down-menu__target drop-down box box--drop-down">
             <ul class="drop-down-menu__list">
-              <li ng-repeat="category in super_category.children" class="drop-down-menu__divider "><a href="#" class="btn btn--full btn--full-left" ng-click="filterCategory( 'super_cat', category.code )">{{ category.name }}</a></li>
+              <li ng-repeat="category in super_category.children" class="drop-down-menu__divider "><a href="#" class="btn btn--full btn--full-left" ng-click="filterCategory( 'category', category.code )">{{ category.name }}</a></li>
             </ul>
           </div>
         </li>

@@ -21,6 +21,7 @@ gem 'faraday_middleware'
 gem 'service_helper', git: 'git@github.dbg.westfield.com:digital/service_helper.git'
 gem 'hashie'
 gem 'cloudinary'
+gem 'sitemap_generator'
 
 # Presentation, pagination etc.
 gem 'kaminari'

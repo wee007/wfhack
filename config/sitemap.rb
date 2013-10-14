@@ -1,8 +1,3 @@
-require 'rubygems'
-require 'sitemap_generator'
-require 'service_helper'
-require 'service_api'
-
 host = 'http://westfield.com.au'
 SitemapGenerator::Sitemap.default_host = host
 Rails.application.routes.default_url_options[:host] = host

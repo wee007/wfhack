@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.119
+Version:     0.1.120
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -86,6 +86,13 @@ fi
 
 
 %changelog
+* Tue Oct 15 2013 ci <doperations@au.westfield.com> 0.1.120-1
+- bumped the version to try and fix CI. (ldewey@au.westfield.com)
+- Merge pull request #473 from ldewey/master (ldewey@au.westfield.com)
+- Added my name to the rpm release message (ldewey@au.westfield.com)
+- Proper UI and styling for server error pages - WSF-5471
+  (CPearce@au.westfield.com)
+
 * Sat Oct 12 2013 ci <doperations@au.westfield.com> 0.1.118-1
 - fixes pjax navigation on android (matt.wratt@trineo.co.nz)
 - stabilizes map toggle across devices (matt.wratt@trineo.co.nz)

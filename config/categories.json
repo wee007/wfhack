@@ -3073,7 +3073,20 @@
       "short_name" : "Shoes",
       "sort_order" : 100,
       "name" : "Shoes",
-      "children" : [],
+      "children" : [
+        {
+          "name": "Women's Shoes",
+          "code": "womens-shoes-footwear"
+        },
+        {
+          "name": "Men's Shoes",
+          "code": "mens-shoes-footwear"
+        },
+        {
+          "name": "Kid's Shoes",
+          "code": "kids-shoes"
+        }
+      ],
       "display_name" : "Shoes",
       "description" : null,
       "online" : true,

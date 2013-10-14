@@ -29,7 +29,9 @@ class ProductsController < ApplicationController
       )
     end
     @search = ProductService.build products
+
     @super_categories = CategoryService.build super_categories
+    gon.super_categories = @super_categories
 
     categories = @search.facets.detect{|f| ["super_cat", "category", "sub_category"].include? f.field }
     @categories = categories ? categories['values'] : []

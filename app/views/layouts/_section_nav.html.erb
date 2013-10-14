@@ -1,4 +1,21 @@
-<div class="section-nav container container--wide container--dark">
+<script type="text/ng-template" id="categorySectionNavItemTemplate">
+  <div class="nav-contextual__clip">
+    <nav class="nav-contextual__clip__inner" role="navigation" aria-label="Categories navigation">
+      <ul class="nav-contextual__list horiz-list js-nav-contextual-list" ng-controller="ProductBrowseController">
+        <li ng-repeat="super_category in super_categories" class="drop-down-menu drop-down-container drop-down-container--hover">
+        <a href="#" ng-click="filterCategory( 'super_cat', super_category.code )">{{ super_category.short_name }}</a>
+          <div class="drop-down-menu__target drop-down box box--drop-down">
+            <ul class="drop-down-menu__list">
+              <li ng-repeat="category in super_category.children" class="drop-down-menu__divider "><a href="#" class="btn btn--full btn--full-left" ng-click="filterCategory( 'super_cat', category.code )">{{ category.name }}</a></li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </nav>
+    <span class="nav-contextual__clip__overlay icon icon--arrow-right icon--mega icon--flush-top js-nav-contextual-clip-overlay" aria-hidden="true"></span>
+  </div>
+</script>
+<div ng-controller="ProductBrowseController" ng-init="bootstrap()" class="section-nav container container--wide container--dark">
 
   <%# Section nav %>
   <%# [BACKEND]: this 'if' can be removed when everything is dynamic %>
@@ -8,20 +25,7 @@
         - We have to keep the HTML comments between each top level `li`s or output them all on 1 line, this is to get around the browser creating unneeded white space.
         - Class `is-active` needs to be appended to the active top level `a`s i.e. the page the user is on which includes any sub categories but do not append the class onto the sub category `a`s (only top level).
     %>
-    <div class="nav-contextual nav-contextual--dark js-nav-contextual">
-      <div class="nav-contextual__clip">
-        <nav class="nav-contextual__clip__inner" role="navigation" aria-label="Categories navigation">
-          <ul class="nav-contextual__list horiz-list js-nav-contextual-list" ng-controller="ProductBrowseController"><%=
-              render(
-                :collection => @super_categories,
-                :partial => 'categories/super_cat_nav',
-                :as => :category
-              )
-            -%></ul>
-        </nav>
-        <span class="nav-contextual__clip__overlay icon icon--arrow-right icon--mega icon--flush-top js-nav-contextual-clip-overlay" aria-hidden="true"></span>
-      </div>
-    </div>
+    <div ng-include src="'categorySectionNavItemTemplate'" class="nav-contextual nav-contextual--dark js-nav-contextual"></div>
     <%# Show products/deals/events centre selector toggle button %>
     <%# if @centre.present? %>
       <button class="btn btn--main btn--main-alt4 btn--main-compact-icon-sml" toggle-visibility="show-products-deals-events-toggle">

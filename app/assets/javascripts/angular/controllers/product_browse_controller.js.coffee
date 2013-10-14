@@ -57,6 +57,7 @@
       ProductSearch.formatSearchResults $window.westfield.products
       useUrlParams()
       $scope.sort = ""  unless $scope.sort
+      $scope.super_categories = $window.westfield.super_categories
 
     $scope.updateSearch = ->
       ProductSearch.getSearch()

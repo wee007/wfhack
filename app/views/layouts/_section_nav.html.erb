@@ -3,7 +3,7 @@
     <nav class="nav-contextual__clip__inner" role="navigation" aria-label="Categories navigation">
       <ul class="nav-contextual__list horiz-list js-nav-contextual-list" ng-controller="ProductBrowseController">
         <li ng-repeat="super_category in super_categories" class="drop-down-menu drop-down-container drop-down-container--hover">
-        <a href="#" ng-click="filterCategory( 'super_cat', super_category.code )">{{ super_category.short_name }}</a>
+          <a href="#" ng-class="{'is-active': isActiveT1Category(super_category)}" ng-click="filterCategory( 'super_cat', super_category.code )">{{ super_category.short_name }}</a>
           <div class="drop-down-menu__target drop-down box box--drop-down">
             <ul class="drop-down-menu__list">
               <li ng-repeat="category in super_category.children" class="drop-down-menu__divider "><a href="#" class="btn btn--full btn--full-left" ng-click="filterCategory( 'super_cat', category.code )">{{ category.name }}</a></li>

@@ -1,5 +1,9 @@
+require Rails.root.join('lib/sitemap_generator/adapters/cloudinary')
+
 host = 'http://westfield.com.au'
 SitemapGenerator::Sitemap.default_host = host
+SitemapGenerator::Sitemap.public_path = 'tmp/'
+SitemapGenerator::Sitemap.adapter = SitemapGenerator::CloudinaryAdapter.new
 Rails.application.routes.default_url_options[:host] = host
 
 SitemapGenerator::Sitemap.create do

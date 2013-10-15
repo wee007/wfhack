@@ -36,7 +36,6 @@ gem 'newrelic_rpm'
 
 group :development do
   gem "foreman"
-  gem "unicorn"
 end
 
 

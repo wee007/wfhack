@@ -1,0 +1,25 @@
+{
+  "stream":
+  [
+    {
+      "id":269,
+      "name":"Dora the Explorer",
+      "description":"Adipiscing eros placerat ultricies? Etiam augue porta dapibus, aliquam, enim, pulvinar eu, integer nunc quis phasellus.\r\nghghgff",
+      "image_ref":"omgjktx7nu0pzrqxbcjy",
+      "date":"2013-12-01",
+      "start":"11:20",
+      "finish":"11:30",
+      "type":"event",
+      "_links":{
+        "self":{"href":"http://event-service.systest.dbg.westfield.com/api/event/master/events/269.json"},
+        "centre":{"href":"http://centre-service.systest.dbg.westfield.com/api/centre/master/centres/bondijunction.json"},
+        "image":{"href":"http://res.cloudinary.com/wlabs/image/upload/omgjktx7nu0pzrqxbcjy.jpg"}
+      }
+    },
+    {
+      "id":1,
+      "name":"A non identified tile thing",
+      "type":"i_aint_never_seen_nuttin_like_dis_b4"
+    }
+  ]
+}

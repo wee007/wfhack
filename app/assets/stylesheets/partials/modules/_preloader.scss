@@ -43,7 +43,7 @@
 		height: 40px;
 		overflow: hidden;
 		border-radius: $border-radius;
-		background: $color-off-white image-url("css/preloader.gif") no-repeat 50% 50%;
+		background: $color-off-white cloudinary-url("css/preloader.gif") no-repeat 50% 50%;
 		@include img-2x("css/preloader@2x.gif", 24px, 24px);
 	}
 

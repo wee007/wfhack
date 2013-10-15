@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.124
+Version:     0.1.125
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -86,6 +86,17 @@ fi
 
 
 %changelog
+* Tue Oct 15 2013 ci <doperations@au.westfield.com> 0.1.125-1
+- Merge pull request #481 from digital/canonical-links
+  (ldewey@au.westfield.com)
+- Merge pull request #480 from mwratt/feature/fix-selectivizr-js
+  (ldewey@au.westfield.com)
+- Use url rather than path (ben@germanforblack.com)
+- Yield canonical links to national level products from centre pages' product
+  pages (ben@germanforblack.com)
+- removes bower install of selectivizr (public dir) (matt.wratt@trineo.co.nz)
+- puts selectivizr in public avoiding minification (matt.wratt@trineo.co.nz)
+
 * Tue Oct 15 2013 ci <doperations@au.westfield.com> 0.1.124-1
 - Revert "Merge pull request #476 from mlocke/feature/wsf-4998"
   (malc.locke@trineo.co.nz)

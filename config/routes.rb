@@ -4,6 +4,9 @@ CustomerConsole::Application.routes.draw do
     get 'styleguide', to: redirect('/styleguides')
   end
 
+  get 'robots.txt' => 'robots#index'
+  get 'sitemap.xml.gz' => 'robots#sitemap'
+
   get 'status' => 'health_check/health_check#index', 'checks' => 'cache_and_site'
   get 'api', to: redirect('/api/index.html') # This lets /api work, not just /api/
 

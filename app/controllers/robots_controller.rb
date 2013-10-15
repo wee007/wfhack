@@ -1,16 +1,14 @@
 class RobotsController < ApplicationController
-  # /robots.txt
-  def index
-    @sitemap_url = sitemap_url
-    render :index, layout: false, content_type: Mime::TEXT
-  end
 
+  # Stream the sitemap.xml.gz index file through rails
   def sitemap
-    redirect_to sitemap_url
+    require 'open-uri'
+    io = open(sitemap_index_url)
+    send_data io.read, content_type: io.meta['content-type'], disposition:'inline'
   end
 
   private
-  def sitemap_url
+  def sitemap_index_url
     URI.parse("#{request.scheme}://#{Cloudinary::SHARED_CDN}/#{Cloudinary.config.cloud_name}/raw/upload/sitemap.xml.gz").to_s
   end
 end

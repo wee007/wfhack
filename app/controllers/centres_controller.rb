@@ -12,7 +12,9 @@ class CentresController < ApplicationController
     @centres = @centres.group_by{ |c| c.state } if @centres.present?
 
     @products = ProductService.build products
-    @products_count = @products['count'].round(-2) if @products.present?
+    if @products.present? && @products['count'].respond_to?(:round)
+      @products_count = @products['count'].round(-2)
+    end
 
     meta.push(
       page_title: "Westfield Australia | Shopping Centres in NSW, QLD, VIC, SA & WA",

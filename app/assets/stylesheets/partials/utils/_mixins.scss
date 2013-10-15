@@ -830,7 +830,7 @@
 
 	Example:
 		.logo {
-			background: image-url("logo.png") no-repeat;
+			background: cloudinary-url("logo.png") no-repeat;
 			@include img-2x("logo@2x.png", 100px, 25px);
 		}
 */
@@ -839,7 +839,7 @@
 	@media 	(-o-min-device-pixel-ratio: 5/4),
 					(-webkit-min-device-pixel-ratio: 1.25),
 					(min-resolution: 120dpi) {
-						background-image: image-url($image)#{$sledgehammer};
+						background-image: cloudinary-url($image)#{$sledgehammer};
 						background-size: $width $height#{$sledgehammer};
 	}
 }
@@ -958,7 +958,7 @@
 
   Credit:
     https://github.com/benschwarz/gallery-css
-  
+
   Variables:
     $item-count             How many items there are to animate
     $display-duration       How long should each item be displayed for

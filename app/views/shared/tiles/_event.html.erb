@@ -2,7 +2,8 @@
   <%= fetch_image_tag result.image,
     alt: "Photo of event: #{result.name}",
     width: 288,
-    crop: :limit
+    crop: :limit,
+    format: :auto
   %>
 </div>
 <div class="tile__meta">

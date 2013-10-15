@@ -43,8 +43,8 @@
 		height: 40px;
 		overflow: hidden;
 		border-radius: $border-radius;
-		background: $color-off-white image-url("images/preloader.gif") no-repeat 50% 50%;
-		@include img-2x("images/preloader@2x.gif", 24px, 24px);
+		background: $color-off-white cloudinary-url("css/preloader.gif") no-repeat 50% 50%;
+		@include img-2x("css/preloader@2x.gif", 24px, 24px);
 	}
 
 	/* Create some space between the spinner and the message */

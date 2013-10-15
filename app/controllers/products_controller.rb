@@ -3,13 +3,12 @@ class ProductsController < ApplicationController
   layout 'detail_view', only: :show
 
   def index
-    centre, centres, nearby_centres, products, super_categories = nil
+    centre, centres, nearby_centres, products = nil
     Service::API.in_parallel do
       centre = CentreService.fetch params[:centre_id] if params[:centre_id]
       nearby_centres = CentreService.fetch nil, near_to: params[:centre_id] if params[:centre_id]
       centres = CentreService.fetch :all, country: 'au' unless params[:centre_id]
       products = ProductService.fetch params.merge({rows: 50})
-      super_categories = CategoryService.fetch centre_id: params[:centre_id], product_mapable: true if params[:centre_id]
     end
 
     if params[:centre_id]
@@ -30,19 +29,13 @@ class ProductsController < ApplicationController
     end
     @search = ProductService.build products
 
-    @super_categories = CategoryService.build super_categories
-    gon.super_categories = @super_categories
-
     categories = @search.facets.detect{|f| ["super_cat", "category", "sub_category"].include? f.field }
     @categories = categories ? categories['values'] : []
 
     brands = @search.facets.detect{|f| f.field == "brand" }
     @brands = brands ? brands['values'] : []
 
-    # FIXME - Raise an Exception?
-    if @search.is_a? NullObject
-      handle_error(@search) and return
-    end
+    handle_error(@search) if @search.is_a? NullObject
 
     @pagination = {
       page: (params[:page] || 1).to_i,

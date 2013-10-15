@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.125
+Version:     0.1.126
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -86,6 +86,10 @@ fi
 
 
 %changelog
+* Tue Oct 15 2013 ci <doperations@au.westfield.com> 0.1.126-1
+- Merge pull request #475 from ewee/master (ldewey@au.westfield.com)
+- Add check for cinema (ewee@au.westfield.com)
+
 * Tue Oct 15 2013 ci <doperations@au.westfield.com> 0.1.125-1
 - Merge pull request #481 from digital/canonical-links
   (ldewey@au.westfield.com)

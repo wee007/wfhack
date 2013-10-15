@@ -1,9 +1,14 @@
 <li class="drop-down-menu drop-down-container drop-down-container--hover">
   <%=
+    active_code = params[:super_cat] || params[:category]
+    attrs = {:target => '_self'}
+    if category.self_or_child_has_code?(active_code)
+      attrs[:class] = 'is-active'
+    end
     link_to(
       category.short_name,
       centre_products_path(:super_cat => category.code),
-      :target => '_self'
+      attrs
     )
   %>
   <div class="drop-down-menu__target drop-down box box--drop-down">

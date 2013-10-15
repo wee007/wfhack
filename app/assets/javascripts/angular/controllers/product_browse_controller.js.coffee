@@ -57,6 +57,7 @@
       ProductSearch.formatSearchResults $window.westfield.products
       useUrlParams()
       $scope.sort = ""  unless $scope.sort
+      $scope.super_categories = $window.westfield.super_categories
 
     $scope.updateSearch = ->
       ProductSearch.getSearch()
@@ -129,6 +130,15 @@
       $scope.closeFilters()
       ProductSearch.setParam categoryType, categoryCode
       $scope.updateSearch()
+
+    $scope.isActiveT1Category = (superCategory) ->
+      active = ProductSearch.params().super_cat
+      if (superCategory.code == active)
+        return true
+      for child in superCategory.children
+        if child.code == active
+          return true
+      return false
 
     $scope.rangeFilter = (paramName) ->
       min = $scope.search[paramName].values.range_start

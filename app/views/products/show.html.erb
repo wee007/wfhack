@@ -1,6 +1,6 @@
 <% if params[:centre_id] %>
   <% content_for :link_rels do %>
-    <link rel="canonical" href="<%= product_path(params[:retailer_code], params[:sku]) %>">
+    <link rel="canonical" href="<%= product_url(params[:retailer_code], params[:sku]) %>">
   <% end %>
 <% end %>
 

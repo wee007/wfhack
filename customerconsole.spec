@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.126
+Version:     0.1.127
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -86,6 +86,15 @@ fi
 
 
 %changelog
+* Tue Oct 15 2013 ci <doperations@au.westfield.com> 0.1.127-1
+- Changing css images to use 'cloudinary-url' (CPearce@au.westfield.com)
+- Moving all CSS images to Cloudinary (CPearce@au.westfield.com)
+- Set all cloudinary images to use WebP format - WSF-5729
+  (CPearce@au.westfield.com)
+- Update 'Prefetch DNS for external assets' list - WSF-5735
+  (CPearce@au.westfield.com)
+- Compressing all SVG images - WSF-5135 (CPearce@au.westfield.com)
+
 * Tue Oct 15 2013 ci <doperations@au.westfield.com> 0.1.126-1
 - Merge pull request #475 from ewee/master (ldewey@au.westfield.com)
 - Add check for cinema (ewee@au.westfield.com)

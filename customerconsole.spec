@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.118
+Version:     0.1.121
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -64,7 +64,7 @@ else
   app_name="Customer Console ($railsenv)"
 fi
 
-https_proxy=http://proxy.dbg.westfield.com:8080 curl -H "x-api-key:fcb397795639d33ca285aff6ce91844bcd9ed68dcca2a7f" -d "deployment[app_name]=$app_name" -d "deployment[description]=RPM deployment" -d "deployment[revision]=%{version}" -d "deployment[user]=`hostname -s`"  https://rpm.newrelic.com/deployments.xml
+https_proxy=http://proxy.dbg.westfield.com:8080 curl -H "x-api-key:fcb397795639d33ca285aff6ce91844bcd9ed68dcca2a7f" -d "deployment[app_name]=$app_name" -d "deployment[description]=RPM deployment (@Leon)" -d "deployment[revision]=%{version}" -d "deployment[user]=`hostname -s`"  https://rpm.newrelic.com/deployments.xml
 
 %preun
 if [ $1 = 0 ] ; then
@@ -86,6 +86,18 @@ fi
 
 
 %changelog
+* Tue Oct 15 2013 ci <doperations@au.westfield.com> 0.1.121-1
+- Merge pull request #477 from cpearce/server-error-page-redesign
+  (cpearce@au.westfield.com)
+- Fixing broken path to stylesheet (CPearce@au.westfield.com)
+
+* Tue Oct 15 2013 ci <doperations@au.westfield.com> 0.1.120-1
+- bumped the version to try and fix CI. (ldewey@au.westfield.com)
+- Merge pull request #473 from ldewey/master (ldewey@au.westfield.com)
+- Added my name to the rpm release message (ldewey@au.westfield.com)
+- Proper UI and styling for server error pages - WSF-5471
+  (CPearce@au.westfield.com)
+
 * Sat Oct 12 2013 ci <doperations@au.westfield.com> 0.1.118-1
 - fixes pjax navigation on android (matt.wratt@trineo.co.nz)
 - stabilizes map toggle across devices (matt.wratt@trineo.co.nz)

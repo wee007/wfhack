@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.121
+Version:     0.1.122
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -86,6 +86,21 @@ fi
 
 
 %changelog
+* Tue Oct 15 2013 ci <doperations@au.westfield.com> 0.1.122-1
+- Merge pull request #476 from mlocke/feature/wsf-4998
+  (ldewey@au.westfield.com)
+- Remove unicorn (malc.locke@trineo.co.nz)
+- change l to L, in my name for New Relic message (ldewey@au.westfield.com)
+- Set category instead of super_cat for filter type (malc.locke@trineo.co.nz)
+- Add child categories to Shoes. (malc.locke@trineo.co.nz)
+- Add is-active class to selected T1 category (malc.locke@trineo.co.nz)
+- Convert to use Angular (malc.locke@trineo.co.nz)
+- Add T2 level categories to product browse nav (malc.locke@trineo.co.nz)
+- Render hard coded list of super categories (malc.locke@trineo.co.nz)
+- Return after handle_error (malc.locke@trineo.co.nz)
+- Minimal instructions to run locally with foreman (malc.locke@trineo.co.nz)
+- Add unicorn to development env in Gemfile (malc.locke@trineo.co.nz)
+
 * Tue Oct 15 2013 ci <doperations@au.westfield.com> 0.1.121-1
 - Merge pull request #477 from cpearce/server-error-page-redesign
   (cpearce@au.westfield.com)

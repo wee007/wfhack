@@ -1,31 +1,28 @@
 <% content_for :class_for_body, "national" %>
 
 <%# Background images of the centre tiles at each breakpoint %>
-<%# content_for :custom_styles do %>
-  <%# <style> %>
-  <%# [BACKEND] We need to dynamically generate the class names for each centre and its relevant background image. At the moment this is duplicated from  `_hero_custom_styles.html.erb`. Can we refactor it so we just use same custom styles? %>
-
-  <%# Hero image at small breakpoint %>
-  <%# @media (max-width: 25em) {
-    .national__centre-tile--bondijunction {background-image: url('http://res.cloudinary.com/wlabs/image/fetch/w_400,h_107,c_fill,e_blur:300/http://beta.westfield.com.au/assets/heroes/bondijunction-lrg-4ec924a641f26e4ae8822ec42d6bb7a3.jpg');}
-    } %>
-
-    <%# Hero image at medium breakpoint %>
-    <%# @media (min-width: 25.0625em) and (max-width: 48em) {
-      .national__centre-tile--bondijunction {background-image: url('http://res.cloudinary.com/wlabs/image/fetch/w_768,h_205,c_fill,e_blur:300/http://beta.westfield.com.au/assets/heroes/bondijunction-lrg-4ec924a641f26e4ae8822ec42d6bb7a3.jpg');}
-    } %>
-
-    <%# Hero image at large breakpoint %>
-    <%# @media (min-width: 48.0625em) {
-      .national__centre-tile--bondijunction {background-image: url('http://res.cloudinary.com/wlabs/image/fetch/w_1600,h_300,c_fill,e_blur:300/http://beta.westfield.com.au/assets/heroes/bondijunction-lrg-4ec924a641f26e4ae8822ec42d6bb7a3.jpg');}
-    } %>
-
-    <%# Old IE %>
-    <%# .old-ie .national__centre-tile--bondijunction {
-      background-image: url('http://res.cloudinary.com/wlabs/image/fetch/w_1600,h_300,c_fill,e_blur:300/http://beta.westfield.com.au/assets/heroes/bondijunction-lrg-4ec924a641f26e4ae8822ec42d6bb7a3.jpg');
-    }%>
-  <%# </style> %>
-<%# end %>
+<% content_for :custom_styles do %>
+  <style>
+    <% @centres.each do |centre| %>
+      <%# Hero image at small breakpoint %>
+      @media (max-width: 25em) {
+        .js-in-viewport .national__centre-tile--<%= centre.code %> {background-image: url(<%= centre_tile_image(centre.code, 400, 107) %>);}
+      }
+      <%# Hero image at medium breakpoint %>
+      @media (min-width: 25.0625em) and (max-width: 48em) {
+        .js-in-viewport .national__centre-tile--<%= centre.code %> {background-image: url(<%= centre_tile_image(centre.code, 768, 205) %>);}
+      }
+      <%# Hero image at large breakpoint %>
+      @media (min-width: 48.0625em) {
+        .js-in-viewport .national__centre-tile--<%= centre.code %> {background-image: url(<%= centre_tile_image(centre.code, 1600, 300) %>);}
+      }
+      <%# Old IE %>
+      .old-ie .js-in-viewport .national__centre-tile--<%= centre.code %> {
+        background-image: url(<%= centre_tile_image(centre.code, 1600, 300) %>);
+      }
+    <% end %>
+  </style>
+<% end %>
 <%# //Background images of centre tiles %>
 
 
@@ -118,9 +115,9 @@
 
       <% %w(NSW ACT QLD VIC SA WA).each do |state| %>
         <ul id="tab-<%= state.downcase %>" class="tab__content<%= ' is-active' if state == 'NSW' %>">
-          <% @centres[state].each do |centre| %>
-            <li>
-              <a class="national__centre-tile" href="<%= centre_path( centre ) %>">
+          <% @centres_by_state[state].each do |centre| %>
+            <li class="js-centre-list-item">
+              <a class="national__centre-tile national__centre-tile--<%= centre.code %>" href="<%= centre_path( centre ) %>">
                 <div class="container">
                   <h3 class="h1"><%= centre.short_name %></h3>
                   <span class="icon icon--arrow-right icon--lrg" aria-hidden="true"></span>
@@ -133,6 +130,19 @@
     </nav>
   </main>
   <%# //Tabs %>
+
+  <% content_for :javascript do %>
+    <script>
+      var viewportCheck = function() {
+        setTimeout(function(){
+          $('.js-centre-list-item:in-viewport').addClass('js-in-viewport');
+        }, 0);
+      }
+      viewportCheck();
+      $(window).scroll(viewportCheck);
+      $('.tab__nav a').click(viewportCheck);
+    </script>
+  <% end %>
 
   <%# Footer %>
   <footer class="national__footer" role="contentinfo">

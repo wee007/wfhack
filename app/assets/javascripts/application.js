@@ -35,6 +35,7 @@
 //= require ./vendor/angular-head
 //= require ./vendor/angular-mobile
 //= require ./vendor/angular-sanitize
+//= require ./vendor/jquery.viewport
 //= require ./angular/app
 //= require_tree ./angular/factories
 //= require_tree ./angular/services

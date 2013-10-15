@@ -8,4 +8,19 @@ module NationalHelper
     end
   end
 
+  def centre_tile_image(centre_id, width, height)
+    image_path(
+      "heroes/#{centre_id}.jpg",
+      transformation: [
+        {
+          width: width,
+          height: height,
+          crop: 'fill',
+          effect: 'blur:300',
+          format: 'auto'
+        }
+      ]
+    )
+  end
+
 end

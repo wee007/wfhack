@@ -34,8 +34,8 @@
   /* Pseudo element - contain the torn paper image */
   &:after {
     content: "";
-    background: #fff image-url("images/paper-tear.png") repeat-x 0 0;
-    @include img-2x("images/paper-tear@2x.png", 10px, 6px);
+    background: #fff image-url("css/paper-tear.png") repeat-x 0 0;
+    @include img-2x("css/paper-tear@2x.png", 10px, 6px);
     position: absolute;
     bottom: -5px;
     left: -1px;

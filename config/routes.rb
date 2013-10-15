@@ -13,6 +13,9 @@ CustomerConsole::Application.routes.draw do
   get 'terms-conditions' => 'pages#terms_conditions'
   get 'privacy-policy' => 'pages#privacy_policy'
 
+  get '/au/shopping/*request_path' => 'redirector#shopping'
+
+
  # everything needs to go above centres
   resources :centres, :path => '' do
     resources :events, only: [:index, :show]
@@ -32,5 +35,4 @@ CustomerConsole::Application.routes.draw do
   end
 
   root 'centres#index'
-
 end

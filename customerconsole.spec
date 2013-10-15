@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.122
+Version:     0.1.123
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -86,6 +86,13 @@ fi
 
 
 %changelog
+* Tue Oct 15 2013 ci <doperations@au.westfield.com> 0.1.123-1
+- Merge pull request #478 from jfantham/feature/WSF-4816
+  (ldewey@au.westfield.com)
+- WSF-4816 made the stream service parser handle unknown types
+  (j.fantham@gmail.com)
+- WSF-4816 added the canned search model (j.fantham@gmail.com)
+
 * Tue Oct 15 2013 ci <doperations@au.westfield.com> 0.1.122-1
 - Merge pull request #476 from mlocke/feature/wsf-4998
   (ldewey@au.westfield.com)

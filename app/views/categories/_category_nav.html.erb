@@ -1,7 +1,9 @@
 <li class="drop-down-menu__divider "><%=
   link_to(
     category.name,
-    centre_products_path(:category => category.code),
+    centre_products_path(
+      :category => category.code, :super_cat => super_cat.code
+    ),
     :class => "btn btn--full btn--full-left",
     :target => '_self'
   )

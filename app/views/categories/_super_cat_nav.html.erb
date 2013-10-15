@@ -1,8 +1,7 @@
 <li class="drop-down-menu drop-down-container drop-down-container--hover">
   <%=
-    active_code = params[:super_cat] || params[:category]
     attrs = {:target => '_self'}
-    if category.self_or_child_has_code?(active_code)
+    if category.has_code?(params[:super_cat])
       attrs[:class] = 'is-active'
     end
     link_to(
@@ -17,7 +16,8 @@
         render(
           :collection => category.children,
           :partial => 'categories/category_nav',
-          :as => :category
+          :as => :category,
+          :locals => {:super_cat => category}
         )
       %>
     </ul>

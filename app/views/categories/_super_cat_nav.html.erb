@@ -1,5 +1,11 @@
 <li class="drop-down-menu drop-down-container drop-down-container--hover">
-<a href="#" ng-click="filterCategory( 'super_cat', '<%= category.code %>' )"><%= category.short_name %></a>
+  <%=
+    link_to(
+      category.short_name,
+      centre_products_path(:super_cat => category.code),
+      :target => '_self'
+    )
+  %>
   <div class="drop-down-menu__target drop-down box box--drop-down">
     <ul class="drop-down-menu__list">
       <%=

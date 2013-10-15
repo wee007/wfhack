@@ -1,1 +1,8 @@
-<li class="drop-down-menu__divider "><a href="#" class="btn btn--full btn--full-left" ng-click="filterCategory( 'super_cat', '<%= category.code %>' )"><%= category.name %></a></li>
+<li class="drop-down-menu__divider "><%=
+  link_to(
+    category.name,
+    centre_products_path(:category => category.code),
+    :class => "btn btn--full btn--full-left",
+    :target => '_self'
+  )
+%></li>

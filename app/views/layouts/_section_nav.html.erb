@@ -1,13 +1,7 @@
 <div class="section-nav container container--wide container--dark">
 
   <%# Section nav %>
-  <%# [BACKEND]: this 'if' can be removed when everything is dynamic %>
-  <% if @centre.present? %>
   <div class="container container--position">
-    <%# [BACKEND]:
-        - We have to keep the HTML comments between each top level `li`s or output them all on 1 line, this is to get around the browser creating unneeded white space.
-        - Class `is-active` needs to be appended to the active top level `a`s i.e. the page the user is on which includes any sub categories but do not append the class onto the sub category `a`s (only top level).
-    %>
     <div class="nav-contextual nav-contextual--dark js-nav-contextual">
       <div class="nav-contextual__clip">
         <nav class="nav-contextual__clip__inner" role="navigation" aria-label="Categories navigation">
@@ -23,15 +17,14 @@
       </div>
     </div>
     <%# Show products/deals/events centre selector toggle button %>
-    <%# if @centre.present? %>
+    <% if @centre.present? %>
       <button class="btn btn--main btn--main-alt4 btn--main-compact-icon-sml" toggle-visibility="show-products-deals-events-toggle">
         <span class="icon icon-ellipsis-horizontal icon--xlrg icon--flush-top" aria-hidden="true"></span>
         <span class="hide-visually">Toggle <%= params[:controller] %> centre selector</span>
       </button>
-    <%#- end -%>
+    <%- end -%>
     <%# //Show products/deals/events centre selector toggle button %>
   </div>
-  <%- end -%>
   <%# //Section nav %>
 
   <%# Show products/deals/events centre selector %>

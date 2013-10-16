@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.144
+Version:     0.1.145
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -86,6 +86,16 @@ fi
 
 
 %changelog
+* Wed Oct 16 2013 ci <doperations@au.westfield.com> 0.1.145-1
+- Merge pull request #482 from fchan/more-fixes (ldewey@au.westfield.com)
+- WSF-5520: Increased size of apple touch icon and removed old ones
+  (fiona@fionachan.net)
+- WSF-5758: Fix alignment of icon in hero banner (fiona@fionachan.net)
+- WSF-5658: Remove space between 'am' and 'pm' and movie session time
+  (fiona@fionachan.net)
+- WSF-5675: Add icon--fixed-width to social icons on info page
+  (fiona@fionachan.net)
+
 * Wed Oct 16 2013 ci <doperations@au.westfield.com> 0.1.144-1
 - Merge pull request #490 from acohen/feature/WSF-4921
   (ldewey@au.westfield.com)

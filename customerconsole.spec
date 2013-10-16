@@ -83,6 +83,8 @@ fi
 %attr(755,nobody,nobody)%{appdir}/current/tmp
 %dir %{appdir}/shared/log
 %config %{_sysconfdir}/httpd/conf.d/customer_console.conf
+%config %{_sysconfdir}/
+%attr(755,root,root) %{_sysconfdir}/
 
 
 %changelog

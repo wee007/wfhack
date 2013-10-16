@@ -12,17 +12,17 @@
 
 .preloader {
 
+	/* Shared rules */
 	&,
 	& * {display: inline-block;}
 
+	/* Global rules */
 	& * {vertical-align: middle;}
 
 	em {font-style: italic;}
 }
 
-/* --Extenders-- */
-
-/* Position the loader in the centre of it's parent */
+/* Extend: position the loader in the centre of it's parent */
 .preloader--middle {
 	position: absolute;
 	z-index: 99;

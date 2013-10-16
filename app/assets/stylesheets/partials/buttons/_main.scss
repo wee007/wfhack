@@ -40,7 +40,7 @@
   &:hover,
   &:focus {color: #fff;}
 
-  /* Hover/focus states */
+  /* Hover and focus states */
   &:hover,
   &:focus {background-color: lighten($color-cta-green, 10%);}
 
@@ -60,7 +60,7 @@
 		&[disabled],
 		&.is-disabled {background-color: $color-cta-blue;}
 
-		/* Hover/focus states */
+		/* Hover and focus states */
 		&:hover,
 		&:focus {background-color: lighten($color-cta-blue, 10%);}
 	}
@@ -72,7 +72,7 @@
 		&[disabled],
 		&.is-disabled {background-color: $color-med-txt;}
 
-		/* Hover/focus states */
+		/* Hover and focus states */
 		&:hover,
 		&:focus {background-color: lighten($color-med-txt, 10%);}
 	}
@@ -92,7 +92,7 @@
 		&:hover,
 		&:focus {color: $color-dark-txt;}
 
-		/* Hover/focus states */
+		/* Hover and focus states */
 		&:hover,
 		&:focus {background-color: lighten($color-grey-3, 3%);}
 
@@ -116,7 +116,7 @@
 		&:hover,
 		&:focus {color: $color-dark-txt;}
 
-		/* Hover/focus states */
+		/* Hover and focus states */
 		&:hover,
 		&:focus {background-color: lighten($color-off-white, 2%);}
 

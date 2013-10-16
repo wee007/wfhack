@@ -35,9 +35,7 @@
 		ul {
 			list-style: circle;
 
-				ul {
-					list-style: square;
-				}
+				ul {list-style: square;}
 		}
 	}
 
@@ -49,9 +47,7 @@
 		ol {
 			list-style: lower-alpha;
 
-				ol {
-					list-style: lower-roman;
-				}
+				ol {list-style: lower-roman;}
 		}
 	}
 

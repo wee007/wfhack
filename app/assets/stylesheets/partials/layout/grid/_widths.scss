@@ -97,9 +97,9 @@
 }
 
 /* Lap */
-@include respond-range-fixed(lap) {
+/*@include respond-range-fixed(lap) {
   @include width-classes("lap-");
-}
+}*/
 
 /* Lap small */
 @include respond-range-fixed(lap-sml) {
@@ -107,26 +107,26 @@
 }
 
 /* Lap large */
-@include respond-range-fixed(lap-lrg) {
+/*@include respond-range-fixed(lap-lrg) {
   @include width-classes("lap-lrg-");
-}
+}*/
 
 /* Portable */
-@include respond-max($lap-end) {
+/*@include respond-max($lap-end) {
   @include width-classes("portable-");
-}
+}*/
 
 /* Desk */
-@include respond-min($desk) {
+/*@include respond-min($desk) {
   @include width-classes("desk-");
-}
+}*/
 
 /* Desk small */
-@include respond-range-fixed(desk-sml) {
+/*@include respond-range-fixed(desk-sml) {
   @include width-classes("desk-sml-");
-}
+}*/
 
 /* Desk large */
-@include respond-min($desk-lrg) {
+/*@include respond-min($desk-lrg) {
   @include width-classes("desk-lrg-");
-}
+}*/

@@ -7,10 +7,10 @@ a {
 	color: $color-link;
 	text-decoration: none;
 
-	/* Visited */
+	/* Visited state */
 	//&:visited {color: $color-link-visited;}
 
-	/* Hover/Focus */
+	/* Hover and focus states */
 	&:hover,
 	&:focus {color: $color-link-hover;}
 
@@ -30,7 +30,7 @@ a {
 	a[href]:after,
 	abbr[title]:after {
 		font-size: 80%;
-		color: $color-grey !important;
+		color: $color-link !important;
 	}
 
 	a[href]:after {content: " (" attr(href) ")";}
@@ -39,7 +39,6 @@ a {
 
 	/* Don't show the `href` attr value for the following */
 	.header a[href]:after,
-	.url[href]:after,
 	a[href^="tel:"]:after,
 	a[href^="javascript:"]:after,
 	a[href^="#"]:after {content: "";}

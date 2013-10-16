@@ -4,7 +4,7 @@
 
 /*
 	Make the `dt` and `dd` elements of a definition list render side-by-side.
-	
+
 	Styleguide Definition List
 */
 
@@ -14,12 +14,12 @@
 	clear: left;
 	margin-right: to-em($spacing-quarter);
 
-	/* Left indent at this breakpoint */
+	/* Remove spacing at this breakpoint */
 	@include respond-min($ipad-portrait) {
 		margin-right: 0;
 	}
 
-	/* Pseudo element - colon */
+	/* Add a colon */
 	&:after {content: ":";}
 }
 

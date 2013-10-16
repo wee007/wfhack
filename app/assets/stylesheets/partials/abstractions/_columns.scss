@@ -4,7 +4,7 @@
 
 /*
 	Easily create columns of text using CSS3.
-	
+
   .txt-cols--2        - 2 columns
   .txt-cols--3        - 3 columns
   .txt-cols--4        - 4 columns
@@ -15,33 +15,32 @@
 */
 
 /*
-	Credit: 
+	Credit:
 		https://github.com/csswizardry/inuit.css/blob/master/inuit.css/objects/_columns.scss
 */
 
 @mixin col-classes($namespace: "") {
+  /* 2 cols */
+  .#{$namespace}txt-cols--2 {@include prefix(column-count, 2);}
 
-    /* 2 cols */
-    .#{$namespace}txt-cols--2 {@include prefix(column-count, 2);}
+  /* 3 cols */
+  .#{$namespace}txt-cols--3 {@include prefix(column-count, 3);}
 
-    /* 3 cols */
-    .#{$namespace}txt-cols--3 {@include prefix(column-count, 3);}
+  /* 4 cols */
+  .#{$namespace}txt-cols--4 {@include prefix(column-count, 4);}
 
-    /* 4 cols */
-    .#{$namespace}txt-cols--4 {@include prefix(column-count, 4);}
+  /* 5 cols */
+  .#{$namespace}txt-cols--5 {@include prefix(column-count, 5);}
 
-    /* 5 cols */
-    .#{$namespace}txt-cols--5 {@include prefix(column-count, 5);}
-
-    /* 6 cols */
-    .#{$namespace}txt-cols--6 {@include prefix(column-count, 6);}
+  /* 6 cols */
+  .#{$namespace}txt-cols--6 {@include prefix(column-count, 6);}
 }
 
 /* Cols only kick in at this breakpoint */
 @include respond-min($non-palm, $screen-only: true) {
 	/* Output all the col classes */
 	@include col-classes();
-	
+
 	/* Base rules */
 	.txt-cols {
 		@include prefix(column-gap, to-rem($spacing-base));
@@ -52,7 +51,7 @@
 
 /* --Output all the col classes under specific breakpoints applied via specific classes (namespaced) e.g. `.lap-txt-cols--2` (all pre-defined breakpoints)-- */
 
-/* 
+/*
 	Note: be sure to comment out what you don't use as a lot of CSS is generated from all of this.
 */
 

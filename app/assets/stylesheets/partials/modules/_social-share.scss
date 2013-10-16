@@ -4,10 +4,7 @@
 
 /*
 	Usage:
-		List of social media share links.
-
-	Note:
-		This module is used in the detail views and on the tiles, the default styles are set for the detail views.
+		List of social media share links used in the detail views and on the pin board tiles, the default styles are set for the detail views.
 
 	Demo:
 		Style Guide -> Modules -> Social Share
@@ -23,6 +20,7 @@ $share-pinterest: #ca2026 !default;
 /* Start module */
 .social-share {
 
+  /* Horizontal mode at this breakpoint */
   @include respond-min($non-palm) {
     display: inline-block;
 
@@ -78,6 +76,7 @@ $share-pinterest: #ca2026 !default;
   .social-share__trigger.is-active {
     background: $color-med-txt;
 
+    /* Shared rules */
     &,
     .icon:before {color: #fff;}
 
@@ -105,7 +104,7 @@ $share-pinterest: #ca2026 !default;
 	.social-share__facebook a {
 		background-color: $share-facebook;
 
-		/* Hover/focus states */
+		/* Hover and focus states */
 		&:hover,
 		&:focus {background-color: darken($share-facebook, 5%);}
 	}
@@ -114,7 +113,7 @@ $share-pinterest: #ca2026 !default;
 	.social-share__twitter a {
 		background-color: $share-twitter;
 
-		/* Hover/focus states */
+		/* Hover and focus states */
 		&:hover,
 		&:focus {background-color: darken($share-twitter, 5%);}
 	}
@@ -123,7 +122,7 @@ $share-pinterest: #ca2026 !default;
 	.social-share__email a {
 		background-color: $share-email;
 
-		/* Hover/focus states */
+		/* Hover and focus states */
 		&:hover,
 		&:focus {background-color: darken($share-email, 5%);}
 	}
@@ -132,7 +131,7 @@ $share-pinterest: #ca2026 !default;
 	.social-share__google a {
 		background-color: $share-google;
 
-		/* Hover/focus states */
+		/* Hover and focus states */
 		&:hover,
 		&:focus {background-color: darken($share-google, 5%);}
 	}
@@ -141,7 +140,7 @@ $share-pinterest: #ca2026 !default;
 	.social-share__pinterest a {
 		background-color: $share-pinterest;
 
-		/* Hover/focus states */
+		/* Hover and focus states */
 		&:hover,
 		&:focus {background-color: darken($share-pinterest, 5%);}
 	}

@@ -1,10 +1,10 @@
 /* ======================================================================================
-   @MODULES -> CENTRES LIST
+   @MODULES -> LIST DIVIDER
    ====================================================================================== */
 
 /*
 	Usage:
-		List of content with divider inbetween
+		List of content with a divider in-between
 
 	Note:
 		For most cases this module will be a list but they're cases when there can be a single item hence no styling is set on the list HTML (`ul/li`).
@@ -19,17 +19,16 @@
 	font-weight: bold;
 	display: block;
 	border-bottom: 1px solid $color-grey-2;
-  /* The padding-right is to make space for the arrow icon*/
+  /* The padding-right is to make space for the arrow icon */
 	@include to-rem(padding, $spacing-half $spacing-base $spacing-quarter 0);
 
 	/* Increase padding at this breakpoint */
 	@include respond-min($non-palm) {
     @include to-rem(padding-top, $spacing-base);
 		@include to-rem(padding-bottom, $spacing-half);
-
   }
 
-  /* --Icon-- */
+  /* --Icons-- */
 
   /* Left hand side icon */
 	.icon--spacing-lrg:before {
@@ -52,8 +51,5 @@
   }
 }
 
-/* --Extenders-- */
-
-/* Turn off top padding for the first item */
+/* Extend: turn off top padding for the first item */
 .list-divider--first {padding-top: 0;}
-

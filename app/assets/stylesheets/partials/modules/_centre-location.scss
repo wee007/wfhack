@@ -13,10 +13,11 @@
 .centre-location {
   position: relative;
 
-  /* `map-google-static` module which contains the static Google Map image */
+  /* Custom rules for the 'Map Google Static' module */
   .map-google-static {
     @include to-rem(margin-bottom, $spacing-sixth);
 
+    /* Remove bottom spacing at this breakpoint */
     @include respond-min($lap-lrg) {
       margin-bottom: 0;
     }
@@ -28,6 +29,7 @@
     /* Needs a tighter line-height than the default */
     line-height: 1.4;
 
+    /* Position it over the map at this breakpoint */
     @include respond-min($lap-lrg) {
       position: absolute;
       @include to-rem(left top, $spacing-half);
@@ -38,4 +40,3 @@
     /* The address of the centre */
     p {@include to-rem(margin-bottom, $spacing-sixth);}
   }
-  

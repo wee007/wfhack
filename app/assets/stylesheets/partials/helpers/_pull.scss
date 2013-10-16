@@ -3,9 +3,9 @@
    ====================================================================================== */
 
 /*
-	Usage: 
+	Usage:
 		Pull elements to the left, right or center of their parent container. Elements pulled to the left or right are floated with any surrounding element(s) flowing around it. Typical usage is for aligning images to either the left or right of it's accompanying content.
-	
+
 	Demo:
 		Style Guide -> Helpers -> Pull
 */
@@ -14,7 +14,7 @@
 .pull-right,
 .pull-center {
 	@extend %mrg-base;
-	
+
 	img {display: block;}
 }
 
@@ -29,7 +29,7 @@
 }
 
 .pull-center {
-    display: block;
-    margin-right: auto;
-    margin-left: auto;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
 }

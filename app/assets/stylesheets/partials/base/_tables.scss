@@ -67,7 +67,7 @@ table {
 /* Striped */
 .table-striped tbody tr:nth-of-type(odd) {background-color: $color-grey-3;}
 
-/* Enable horizontal scroll bar */
+/* Enable horizontal scroll bar, works with the JS `tableHorizontalScroll()` function */
 .table-horiz-scroll {
   overflow-x: auto;
   @extend %mrg-base;
@@ -84,6 +84,7 @@ table {
 .table-bordered,
 .txt-formatted--user-generated table {
 
+  /* Cells */
   th,
   td {
     border: 1px solid $color-grey-2;

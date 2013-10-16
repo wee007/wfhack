@@ -54,9 +54,8 @@
 	/* Note: `table-layout: fixed;` is needen when this is used within tables, the rule needs to go on the `table` element. */
 }
 
-/* Firefox */
+/* Firefox - need to reset `word-wrap` and `word-break` in order to have hyphens working */
 @include target-mozilla {
-  /* Need to reset `word-wrap` and `word-break` in order to have hyphens working */
   .txt-break-word {
     word-wrap: normal !important;
     word-break: normal !important;

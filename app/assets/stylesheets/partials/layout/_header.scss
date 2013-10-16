@@ -842,7 +842,7 @@ $header-color-link-hover: $color-brand !default;
 							display: none;
 						}
 
-						/* Hover/focus states */
+						/* Hover and focus states */
 						a:hover,
 						a:focus {
 							.icon:before {color: $header-color-link-hover;}
@@ -863,7 +863,7 @@ $header-color-link-hover: $color-brand !default;
 					/* Icons */
 					.icon:before {color: #fff;}
 
-					/* Hover/focus states */
+					/* Hover and focus states */
 					a:hover,
 					a:focus {
 						.icon:before {color: $color-light-txt;}
@@ -1453,7 +1453,7 @@ $header-color-link-hover: $color-brand !default;
 							/* Pseudo focus */
 							&.is-active {outline: 1px dotted $color-link;}
 
-							/* Hover/Focus */
+							/* Hover and focus states */
 							&:hover,
 							&:focus {color: $color-link-hover;}
 						}

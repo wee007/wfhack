@@ -17,7 +17,7 @@
 body .txt-formatted {
   @include font-size($font-size-sml);
 
-  /* Increase text size at this breakpoint */
+  /* Increase font size at this breakpoint */
   @include respond-min($non-palm) {
     @include font-size($font-size);
   }
@@ -39,7 +39,7 @@ body .txt-formatted {
   h6 {
     @include font-size($font-size-sml, 1.5);
 
-    /* Increase text size at this breakpoint */
+    /* Increase font size at this breakpoint */
     @include respond-min($non-palm) {
       @include font-size($font-size, 1.5);
     }
@@ -57,7 +57,7 @@ body .txt-formatted {
     @include font-size(18, 1.5);
     color: $color-light-txt;
 
-    /* Increase text size at this breakpoint */
+    /* Increase font size at this breakpoint */
     @include respond-min($non-palm) {
       @include font-size($font-size-xlrg, 1.5);
     }
@@ -67,7 +67,7 @@ body .txt-formatted {
   h3 {
     @include font-size(13, 1.5);
 
-    /* Increase text size at this breakpoint */
+    /* Increase font size at this breakpoint */
     @include respond-min($non-palm) {
       @include font-size(15, 1.5);
     }
@@ -78,7 +78,7 @@ body .txt-formatted {
     @include font-size($font-size-milli, 1.5);
     text-transform: uppercase;
 
-    /* Increase text size at this breakpoint */
+    /* Increase font size at this breakpoint */
     @include respond-min($non-palm) {
       @include font-size(13, 1.5);
     }
@@ -86,8 +86,8 @@ body .txt-formatted {
 
   /* Inline elements */
   u {text-decoration: none;}
-  
-  /* Unstyle the list by removing the bullets. Can be for ul/ol */
+
+  /* Reset the list by removing all styles */
   .txt-formatted__list-unstyled {
     list-style: none;
     margin-left: 0;

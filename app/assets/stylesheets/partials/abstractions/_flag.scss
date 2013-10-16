@@ -4,7 +4,10 @@
 
 /*
   Usage:
-    Similar to the slat abstraction with image on the left and text on the right. But this allows vertical alignment
+    Place any image- and text-like content side-by-side with vertical alignment.
+
+  Note:
+    Same as the 'Slat' abstraction but we get vertical alignment.
 
   Demo:
     Style Guide -> Abstractions -> Flag
@@ -18,17 +21,16 @@
   width: 100%;
 }
 
-/* --Extenders-- */
-
-/* Shrink wrap */
+/* Extend: shrink wrap */
 .flag--shrink-wrap {width: auto;}
 
+  /* Image and body container */
   .flag__image,
   .flag__body {
     display: table-cell;
     vertical-align: middle;
 
-    /* Extends: different alignment */
+    /* Extend: different alignments */
     .flag--top & {vertical-align: top;}
 
     .flag--btm & {vertical-align: bottom;}
@@ -38,7 +40,7 @@
   .flag__image {
     @include to-rem(padding-right, $spacing-base);
 
-    /* Extend: Switch the padding around for when the image is on the right of `flag__body` */
+    /* Extend: switch the padding around for when the image is on the right of `flag__body` */
     .flag--rev & {
       padding-right: 0;
       @include to-rem(padding-left, $spacing-base);

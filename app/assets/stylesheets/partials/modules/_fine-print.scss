@@ -4,7 +4,7 @@
 
 /*
   Usage:
-    For fine print text such as terms and conditions
+    For fine print text such as terms and conditions.
 
   Demo:
     Style Guide -> Modules -> Fine Print
@@ -15,11 +15,9 @@
   font-style: italic;
 }
 
-/* --Extenders-- */
-
-/* Centre aligns the text */
+/* Extend: centre aligns the text */
 .fine-print--center {
-  /* Need this as it's most likely we'll apply the classes to a `small` element */
+  /* Need this as it's most likely we'll apply to a `small` element */
   display: block;
   text-align: center;
 }

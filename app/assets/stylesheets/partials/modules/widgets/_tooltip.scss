@@ -3,12 +3,12 @@
    ====================================================================================== */
 
 /*
-	Usage: 
+	Usage:
 		A small overlay that is displayed when the mouse hovers over an element that requires it. Typically the tooltip's job is to describe the element it's being used on e.g. a menu only uses icons, when a mouse hovers over an icon the overlay will appear describing what the icon is.
-	
+
 	Demo:
 		Style Guide -> Modules -> Widgets -> Tooltip
-	
+
 	Credit:
 		http://stevenbenner.github.com/jquery-powertip/
 */
@@ -39,71 +39,71 @@ $tooltip-arrow-margin: -5px !default;
 	position: absolute;
 	white-space: nowrap;
 	z-index: $z-index-max;
-	
-	/* Pseudo element - arrows */
+
+	/* Arrows */
 	&:before {
 		content: "";
 		position: absolute;
 	}
-	
+
 	/* --Positioning-- */
 
 	/* North / South */
-	&.n:before, 
+	&.n:before,
 	&.s:before {
 		border-right: $tooltip-arrow-border-values-2;
 		border-left: $tooltip-arrow-border-values-2;
 		margin-left: $tooltip-arrow-margin;
 		left: $tooltip-arrow-positioning-1;
 	}
-	
+
 	/* East / West */
-	&.e:before, 
+	&.e:before,
 	&.w:before {
 		border-bottom: $tooltip-arrow-border-values-2;
 		border-top: $tooltip-arrow-border-values-2;
 		margin-top: $tooltip-arrow-margin;
 		top: $tooltip-arrow-positioning-1;
 	}
-	
+
 	/* North / North East / North West */
 	&.n:before,
-	&.ne:before, 
+	&.ne:before,
 	&.nw:before {
 		border-top: $tooltip-arrow-border-values-1;
 		bottom: $tooltip-arrow-positioning-2;
 	}
-	
+
 	/* East */
 	&.e:before {
 		border-right: $tooltip-arrow-border-values-1;
 		left: $tooltip-arrow-positioning-2;
 	}
-	
+
 	/* South / South East / South West */
 	&.s:before,
-	&.se:before, 
+	&.se:before,
 	&.sw:before {
 		border-bottom: $tooltip-arrow-border-values-1;
 		top: $tooltip-arrow-positioning-2;
 	}
-	
+
 	/* West */
 	&.w:before {
 		border-left: $tooltip-arrow-border-values-1;
 		right: $tooltip-arrow-positioning-2;
 	}
-	
+
 	/* North East / South East */
-	&.ne:before, 
+	&.ne:before,
 	&.se:before {
 		border-right: $tooltip-arrow-border-values-3;
 		border-left: 0;
 		left: $tooltip-arrow-positioning-3;
 	}
-	
+
 	/* North West / South West */
-	&.nw:before, 
+	&.nw:before,
 	&.sw:before {
 		border-left: $tooltip-arrow-border-values-3;
 		border-right: 0;

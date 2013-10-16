@@ -27,7 +27,7 @@
 		http://csswizardry.com/2011/10/the-island-object
 */
 
-/* Shared */
+/* Shared rules */
 .island,
 .islet {@extend %clear-fix;}
 
@@ -37,9 +37,14 @@
 /* Islet - half the padding */
 .islet {@include to-rem(padding, $spacing-half);}
 
+/* Top and bottom padding only */
+.island-ends {@include to-rem(padding-top padding-bottom, $spacing-base);}
+
+.islet-ends {@include to-rem(padding-top padding-bottom, $spacing-half);}
+
 /* --Extenders-- */
 
-/* Turn off left and right padding */
+/* Top and bottom padding only */
 .island--top-btm,
 .islet--top-btm,
 .islet--top {
@@ -48,29 +53,15 @@
 }
 
 /* Top padding only */
-.islet--top {
-  padding-bottom: 0;
-}
+.islet--top {padding-bottom: 0;}
 
-/* Island at non-palm */
-@include respond-min($non-palm) {
-  .island--non-palm {@include to-rem(padding, $spacing-base);}
-}
-
-/* --Turn off padding-- */
-
-/* Bottom */
+/* Turn off bottom padding */
 .island--flush-btm {padding-bottom: 0;}
 
 /* Palm only */
 @include respond-max($palm) {
 	.island--flush-btm-palm {padding-bottom: 0;}
 }
-
-/* Mix em up */
-.island-tops {@include to-rem(padding-top padding-bottom, $spacing-base);}
-
-.islet-tops {@include to-rem(padding-top padding-bottom, $spacing-half);}
 
 /* Center align */
 .island--center,
@@ -79,3 +70,8 @@
 /* Solid bg */
 .island--fill,
 .islet--fill {background-color: $color-off-white;}
+
+/* Island at non-palm */
+@include respond-min($non-palm) {
+  .island--non-palm {@include to-rem(padding, $spacing-base);}
+}

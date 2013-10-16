@@ -86,7 +86,7 @@
 				cursor: pointer;
 				border: 1px solid #dfdfdf;
 
-				/* Pseudo classes */
+				/* Hover and active states */
 				&:hover,
 				&.flex-active-slide {border-color: $color-brand;}
 
@@ -141,7 +141,7 @@
 			overflow: hidden;
 			position: relative;
 
-			/* Pseudo element - dots */
+			/* Dots */
 			&:before {
 				content: "";
 				@include to-rem(width height, 8);
@@ -158,7 +158,7 @@
 			}
 		}
 
-		/* Pseudo classes + active state */
+		/* Hover, focus and active states */
 		a:hover:before,
 		a:focus:before,
 		.flex-active:before {
@@ -208,7 +208,7 @@
 			@include to-rem(margin-top, -15);
 		}
 
-		/* Pseudo element - arrows */
+		/* Arrows */
 		&:before {
 			display: block;
 			@extend %transition-subtle;

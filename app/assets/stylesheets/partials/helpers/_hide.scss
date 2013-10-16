@@ -22,41 +22,6 @@
 		.hide-fully--non-palm {display: none;}
 	}
 
-	/* Lap */
-	@include respond-range-fixed(lap) {
-		.hide-fully--lap {display: none;}
-	}
-
-	/* Lap small */
-	@include respond-range-fixed(lap-sml) {
-		.hide-fully--lap-sml {display: none;}
-	}
-
-	/* Lap large */
-	@include respond-range-fixed(lap-lrg) {
-		.hide-fully--lap-lrg {display: none;}
-	}
-
-	/* Portable */
-	@include respond-max($lap-end) {
-		.hide-fully--portable {display: none;}
-	}
-
-	/* Desk */
-	@include respond-min($desk) {
-		.hide-fully--desk {display: none;}
-	}
-
-	/* Desk small */
-	@include respond-range-fixed(desk-sml) {
-		.hide-fully--desk-sml {display: none;}
-	}
-
-	/* Desk large */
-	@include respond-min($desk-lrg) {
-		.hide-fully--desk-lrg {display: none;}
-	}
-
 /* Hide only visually but have it available for screen readers */
 .hide-visually {@extend %hide-visually;}
 

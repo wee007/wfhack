@@ -1,17 +1,17 @@
 /* ======================================================================================
    @LAYOUT -> GRID -> PULL
-   ====================================================================================== */ 
+   ====================================================================================== */
 
 /*
-	Usage: 
+	Usage:
 		Pull classes, to move grid items over to the right by certain amounts.
-		
-	Credit: 
+
+	Credit:
 		https://github.com/csswizardry/csswizardry-grids/blob/master/csswizardry-grids.scss
 */
-	
+
 @mixin pull-classes($namespace: "") {
-	
+
 	/* Whole */
 	.pull-#{$namespace}one-whole {right: $one-whole;}
 
@@ -75,59 +75,59 @@
 }
 
 @if $grid-pull == true {
-	
+
 	/* Not a particularly great selector, but the DRYest way to do things */
 	[class*="pull-"] {position: relative;}
 
 	/* Output all the pull classes */
-	
-	/* 
+
+	/*
 		Note: these may not be required esp. if the width classes are only being used for the grid.
 	*/
-	
+
 	@include pull-classes();
-	
+
 	/* --Output all the pull classes under specific breakpoints applied via specific classes (namespaced) e.g. `.pull-lap-one-half` (all pre-defined breakpoints)-- */
-	
-	/* 
+
+	/*
 		Note: be sure to comment out what you don't use as a lot of CSS is generated from all of this.
 	*/
-	
+
 	/* Non-palm */
 	@include respond-min($non-palm) {
 		@include pull-classes("non-palm-");
 	}
-	
+
 	/* Lap */
 	@include respond-range-fixed(lap) {
 		@include pull-classes("lap-");
 	}
-	
+
 	/* Lap small */
 	@include respond-range-fixed(lap-sml) {
 		@include pull-classes("lap-sml-");
 	}
-	
+
 	/* Lap large */
 	@include respond-range-fixed(lap-lrg) {
 		@include pull-classes("lap-lrg-");
 	}
-	
+
 	/* Portable */
 	@include respond-max($lap-end) {
 		@include pull-classes("portable-");
 	}
-	
+
 	/* Desk */
 	@include respond-min($desk) {
 		@include pull-classes("desk-");
 	}
-	
+
 	/* Desk small */
 	@include respond-range-fixed(desk-sml) {
 		@include pull-classes("desk-sml-");
 	}
-	
+
 	/* Desk large */
 	@include respond-min($desk-lrg) {
 		@include pull-classes("desk-lrg-");

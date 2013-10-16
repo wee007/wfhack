@@ -4,10 +4,7 @@
 
 /*
   Usage:
-    List of social media follow links.
-
-  Note:
-    This module is used in the centre info view for the "Follow Us" section
+    List of social media follow links, currently only being used in the 'Follow Us' section of the 'Centre info' page.
 
   Demo:
     Style Guide -> Modules -> Social Follow
@@ -17,6 +14,6 @@
   @include font-size($font-size-xlrg, 1);
 
   @include respond-min($ipad-portrait) {
-    @include font-size(48, 1);
+    @include font-size($font-size-kilo, 1);
   }
 }

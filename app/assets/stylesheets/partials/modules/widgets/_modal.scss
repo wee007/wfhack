@@ -3,16 +3,16 @@
    ====================================================================================== */
 
 /*
-	Usage: 
+	Usage:
 		Typically for dialog prompts e.g. warning/error messages in the form of an overlay (child window). Depending on the jQuery plugin configuration the parent window (page the dialog is overlaying) can either be interacted with again i.e. closing the dialog by clicking anywhere outside the dialog or by only clicking the 'Close' button within the dialog (the latter is true modal behaviour).
-	
-	Note: 
+
+	Note:
 		`.is-modal-active` class gets appended to the `body` element when the modal is open.
-	
+
 	Demo:
 		Style Guide -> Modules -> Widgets -> Modal
-		
-	Credit: 
+
+	Credit:
 		http://twitter.github.com/bootstrap/javascript.html#modals
 */
 
@@ -32,7 +32,7 @@
 	left: 0;
 	z-index: $z-index-max - 1;
 	background-color: #000;
-	
+
 	&,
 	&.is-fade.is-active {@include opacity(0.8);}
 }
@@ -43,26 +43,26 @@
 	position: fixed;
 	top: 50%;
 	left: 50%;
-	z-index: $z-index-max; 
+	z-index: $z-index-max;
 	width: 90%;
 	margin: -60px 0 0 -45%;
 	background-color: #fff;
 	border-radius: 6px;
 	outline: none;
 	box-shadow: 0 3px 7px rgba(#000, 0.3);
-	
+
 	/* Fix the width and adjust offsets at this breakpoint */
 	@include respond-min($ipad-portrait) {
 		width: to-em(560);
 		margin-top: -250px;
 		margin-left: -280px;
 	}
-	
+
 	/* Fade state */
 	&.is-fade {
 		top: -25%;
 		@include prefix(transition, opacity 0.3s linear, top 0.3s ease-out);
-		
+
 		/* Active state */
 		&.is-active {
 			top: 50%;
@@ -73,13 +73,13 @@
 
 	/* Modal header */
 	.modal__header {
-		@include to-em(padding, $spacing-quarter $font-size); 
-		border-bottom: 1px solid $color-grey-lighter;
+		@include to-em(padding, $spacing-quarter $font-size);
+		border-bottom: 1px solid $color-grey-2;
 		position: relative;
-		
+
 			/* Modal title */
 			.hn {margin: 0;}
-			
+
 			/* Close button */
 			.btn--close {
 				position: absolute;
@@ -94,19 +94,19 @@
 		max-height: to-em(200);
 		padding: to-em($font-size);
 		overflow-y: auto;
-		
+
 		/* Increase the max height at this breakpoint */
 		@include respond-min($ipad-portrait) {
 			max-height: to-em(400);
 		}
 	}
-	
+
 	/* Modal footer */
 	.modal__footer {
 		padding: to-em($font-size);
 		text-align: right;
 		background-color: $color-off-white;
-		border-top: 1px solid $color-grey-lighter;
+		border-top: 1px solid $color-grey-2;
 		border-radius: 0 0 6px 6px;
 		box-shadow: inset 0 1px 0 #fff;
 		@extend %clear-fix;

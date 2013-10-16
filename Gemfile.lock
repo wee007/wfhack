@@ -235,6 +235,8 @@ GEM
       multi_json (~> 1.0)
       simplecov-html (~> 0.7.1)
     simplecov-html (0.7.1)
+    sitemap_generator (4.2.0)
+      builder
     slop (3.4.6)
     sprockets (2.10.0)
       hike (~> 1.2)
@@ -305,6 +307,7 @@ DEPENDENCIES
   service_helper!
   settingslogic
   simplecov
+  sitemap_generator
   splunk_logger!
   thin
   truncate

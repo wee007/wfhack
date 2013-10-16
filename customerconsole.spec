@@ -48,6 +48,8 @@ Customer Console
  cp -va app config config.ru lib public vendor Rakefile Gemfile \
        Gemfile.lock .bundle .cloudinary.static .cloudinary.static.trash ${RPM_BUILD_ROOT}%{appdir}/current/
 
+cp -va system/* ${RPM_BUILD_ROOT}/
+
 %clean
 rm -rf ${RPM_BUILD_ROOT}
 
@@ -83,6 +85,8 @@ fi
 %attr(755,nobody,nobody)%{appdir}/current/tmp
 %dir %{appdir}/shared/log
 %config %{_sysconfdir}/httpd/conf.d/customer_console.conf
+%config %{_sysconfdir}/
+%attr(755,root,root) %{_sysconfdir}/
 
 
 %changelog

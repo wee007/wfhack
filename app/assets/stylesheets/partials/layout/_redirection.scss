@@ -1,0 +1,17 @@
+/* ======================================================================================
+   @LAYOUT -> REDIRECTION
+   ====================================================================================== */
+
+/* Class on `body` */
+.redirection {
+  text-align: center;
+
+  /* Logo */
+  img {
+    width: 145px;
+    height: 52px;
+    @include to-rem(margin-bottom, $spacing-base);
+  }
+
+  p {color: $color-light-txt;}
+}

@@ -57,6 +57,7 @@ class ProductsController < ApplicationController
     end
   end
 
+
   def show
     centre, centres, product, stores = nil
     Service::API.in_parallel do
@@ -80,6 +81,7 @@ class ProductsController < ApplicationController
         page_title: "#{@product.name} | #{@centre.name}",
         description: "Shop for #{@product.name} from #{stores.first.try(:name)} at #{@centre.name}"
       )
+      @product_redirection_url = url_for centre_product_redirection_url
     else
       @centres = CentreService.group_by_state centres
 
@@ -87,9 +89,16 @@ class ProductsController < ApplicationController
         page_title: @product.name,
         description: @product.name
       )
+      @product_redirection_url = url_for product_redirection_url
     end
 
     meta.push @product.meta
+  end
+
+
+  def redirection
+    @product = ProductService.build(ProductService.fetch params.dup.merge({action: 'show'}))
+    handle_error(@product) if @product.is_a? NullObject
 
     cam_ref = @product.retail_chain.cam_ref
     ad_ref = @product.categories[0].super_category.code
@@ -103,7 +112,11 @@ class ProductsController < ApplicationController
       logger.warn("CAMREF_MISSING product_sku=#{@product.sku} " \
         "retailer_code=#{@product.retailer_code}")
     end
+
+    meta.push(page_title: "#{@product.retail_chain_name} - #{@product.name}")
+    render layout: 'base'
   end
+
 
 private
 

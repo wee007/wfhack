@@ -24,10 +24,12 @@
     @include to-rem(margin-bottom, $spacing-base+$spacing-half);
   }
 
-  /* Shared styles at this breakpoint */
-  @include respond-min($non-palm) {
-    .hero__icon,
-    h1 {
+  .hero__icon,
+  h1 {
+    display: block;
+
+    /* Set them as `inline-block` at this breakpoint */
+    @include respond-min($non-palm) {
       display: inline-block;
       vertical-align: middle;
     }
@@ -39,6 +41,8 @@
 
     @include respond-min($non-palm) {
       @include font-size(50, 1);
+      /* Add `margin-right` as the icon is aligned next to the `h1` at this breakpoint */
+      @include to-em(margin-right, $spacing-third);
     }
   }
 

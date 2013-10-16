@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.146
+Version:     0.1.147
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,41 @@ fi
 
 
 %changelog
+* Wed Oct 16 2013 ci <doperations@au.westfield.com> 0.1.147-1
+- Merge pull request #472 from digital/sitemaps (ldewey@au.westfield.com)
+- Add sitemap generation to cron daily (ben@germanforblack.com)
+- Copy the system directory to the build root (ben@germanforblack.com)
+- Point RPM to system directory and chmod (ben@germanforblack.com)
+- Added cron placeholder directories (ben@germanforblack.com)
+- Merge remote-tracking branch 'origin/master' into sitemaps
+  (ben@germanforblack.com)
+- Stream the sitemap / sitemap_index through rails (ben@germanforblack.com)
+- Environments other than production will have the environment name prepended
+  to the sitemap filename. (ben@germanforblack.com)
+- Render dynamic robots.txt that has the final url for the sitemap * Remove
+  public/robots.txt * Redirect any non-robots.txt respecting spider that tries
+  to hit /sitemap.xml.gz to the cloudinary path (ben@germanforblack.com)
+- Use the service helper configured url (ben@germanforblack.com)
+- Changed link priorities based on feedback from Rohit (ben@germanforblack.com)
+- Write exceptions to the rails log using SITEMAP (ben@germanforblack.com)
+- Merge remote-tracking branch 'origin/master' into sitemaps
+  (ben@germanforblack.com)
+- No longer required now that there is a custom uploader
+  (ben@germanforblack.com)
+- Correct upload filename (as cloudinary does content negotiation
+  automagically) Report the non-versioned url path of the final product
+  (ben@germanforblack.com)
+- Added custom adapter to automatically upload the file to cloudinary
+  (ben@germanforblack.com)
+- Environment is already loaded (ben@germanforblack.com)
+- Don't run requests in parallel because it'll end up tripping over itself when
+  it makes 70 requests at once. (ben@germanforblack.com)
+- Added task to upload sitemap to cloudinary (ben@germanforblack.com)
+- Added sitemap configuration * Builds centre urls for root, events, deals,
+  movies, stores, hours, info, stores * Products at a national level
+  (ben@germanforblack.com)
+- Added sitemap generator gem (ben@germanforblack.com)
+
 * Wed Oct 16 2013 ci <doperations@au.westfield.com> 0.1.146-1
 - Merge pull request #489 from ldewey/master (ldewey@au.westfield.com)
 - Updated the wait time of redirect page (ldewey@au.westfield.com)

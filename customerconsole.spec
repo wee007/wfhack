@@ -48,6 +48,8 @@ Customer Console
  cp -va app config config.ru lib public vendor Rakefile Gemfile \
        Gemfile.lock .bundle .cloudinary.static .cloudinary.static.trash ${RPM_BUILD_ROOT}%{appdir}/current/
 
+cp -va system/* ${RPM_BUILD_ROOT}/
+
 %clean
 rm -rf ${RPM_BUILD_ROOT}
 

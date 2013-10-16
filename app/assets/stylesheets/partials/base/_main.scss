@@ -37,6 +37,15 @@ body {
 	/* Turn off bottom padding for 'Stores' and 'National homepage' */
 	&.stores,
 	&.national {padding-bottom: 0;}
+
+	/* Change background color for 'National landing page' */
+	&.national {background-color: $color-dark-txt;}
+
+	/* Change background color to white and increase top padding for 'Redirection' */
+	&.redirection {
+		@include to-rem(padding-top, 80);
+	  background-color: #fff;
+	}
 }
 
 /* Set `font-family` and `color` */

@@ -8,6 +8,7 @@ CustomerConsole::Application.routes.draw do
   get 'api', to: redirect('/api/index.html') # This lets /api work, not just /api/
 
   get 'products' => 'products#index'
+  get 'products/:retailer_code/:sku/redirection' => 'products#redirection', constraints: {id: /.+/}, as: 'product_redirection'
   get 'products/:retailer_code/:sku' => 'products#show', constraints: {id: /.+/}, as: 'product'
 
   get 'terms-conditions' => 'pages#terms_conditions'
@@ -25,6 +26,7 @@ CustomerConsole::Application.routes.draw do
     get 'hours', to: 'centre_hours#show'
     get 'info', to: 'centre_info#show'
     get 'services', to: 'centre_service_details#show'
+    get 'products/:retailer_code/:sku/redirection' => 'products#redirection', constraints: {id: /.+/}, as: 'product_redirection'
     get 'products/:retailer_code/:sku' => 'products#show', constraints: {id: /.+/}, as: 'product'
     member do
       get 'product_stream'

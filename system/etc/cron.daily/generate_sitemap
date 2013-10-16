@@ -1,0 +1,10 @@
+# This task re-generates the sitemap, pushes it to cloudinary and pings google & bing
+#!/bin/bash
+
+if [ -f /etc/westfield/customerconsole/master ]
+  then
+    cd /var/www/customerconsole/current
+    # Stupid RVM. This is very important - otherwise the rvm use wont work and we're all screwed.
+    source /usr/local/rvm/scripts/rvm
+    sudo -Eu nobody RAILS_ENV=$(grep RailsEnv /etc/httpd/conf.d/0passenger.conf | awk '{ print $2 }') RACK_ENV=${RAILS_ENV} bundle exec rake sitemap:refresh > /var/www/customerconsole/shared/log/generate_sitemap.cron 2>&1
+fi

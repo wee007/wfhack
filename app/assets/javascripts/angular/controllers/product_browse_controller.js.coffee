@@ -6,7 +6,6 @@
       $location.search cleanParams
       updateProducts()
 
-
     # Multi-facet search fields
     $scope.categories = []
     $scope.retailers = []
@@ -24,7 +23,6 @@
       sizes: "size"
 
     getCentre = ->
-
       # $location.path() returns the wrong path
       # due to inconsistant issues in the angular router code
       # using document.location because is consistant across browsers

@@ -1065,8 +1065,8 @@ $header-color-link-hover: $color-brand !default;
 				.icon:before {font-size: 100%;}
 			}
 
-		/* Gradient overlay */
-		.header__hero__gradient {
+		/* Gradient overlay - used on national landing page as well */
+		.hero-gradient {
 			display: block;
 			position: absolute;
 			z-index: 1;

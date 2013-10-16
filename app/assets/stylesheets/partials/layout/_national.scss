@@ -132,7 +132,7 @@
 
         /* Old IE */
         @include old-ie {top: 110px;}
-        
+
         h1 {
           /* Need a tigher `line-height` so the `span` will sit closer to the text under it */
           line-height: 1;
@@ -216,33 +216,19 @@
           }
         }
 
-    /* Hero image paths (see 'Image rotate' module) */ 
+    /* Hero image paths (see 'Image rotate' module) */
 
     .national__hero__1 {
       @include respond-max($palm) {
-        background-image: image-url("heroes/national/national-hero-01-sml.jpg");
+        background-image: cloudinary-url("heroes/national/national-hero-01-sml.jpg");
       }
 
       @include respond-range($lap, $lap-sml-end) {
-        background-image: image-url("heroes/national/national-hero-01-med.jpg");
+        background-image: cloudinary-url("heroes/national/national-hero-01-med.jpg");
       }
 
       @include respond-min($lap-lrg) {
-        background-image: image-url("heroes/national/national-hero-01-lrg.jpg");
-      }
-    }
-
-    .national__hero__2 {
-      @include respond-max($palm) {
-        background-image: image-url("heroes/national/national-hero-02-sml.jpg");
-      }
-
-      @include respond-range($lap, $lap-sml-end) {
-        background-image: image-url("heroes/national/national-hero-02-med.jpg");
-      }
-
-      @include respond-min($lap-lrg) {
-        background-image: image-url("heroes/national/national-hero-02-lrg.jpg");
+        background-image: cloudinary-url("heroes/national/national-hero-01-lrg.jpg");
       }
     }
 
@@ -250,6 +236,8 @@
 
     /* Tabs */
     .national__tabs {
+      /* Needs the tab to sit on top of `.hero-gradient`, which the `z-index` is set in `_header.scss` */
+      z-index: 2;
       /* Need `position: relative` so that it'll appear on top of the hero image which has `position: absolute` */
       position: relative;
       @include to-rem(margin-top, -42);
@@ -324,7 +312,7 @@
           right: 0;
           top: 0;
           bottom: 0;
-          @extend %transition-subtle; 
+          @extend %transition-subtle;
           @include linear-gradient($from: rgba(#000, 0) 0%, $to: rgba(#000, .8) 100%, $dir: left, $dir-webkit: right);
         }
 

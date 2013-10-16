@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.147
+Version:     0.1.148
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,10 @@ fi
 
 
 %changelog
+* Wed Oct 16 2013 ci <doperations@au.westfield.com> 0.1.148-1
+- Added no proxy for dev (ldewey@au.westfield.com)
+- Added proxy suport to sitemap.xml.gz request (ldewey@au.westfield.com)
+
 * Wed Oct 16 2013 ci <doperations@au.westfield.com> 0.1.147-1
 - Merge pull request #472 from digital/sitemaps (ldewey@au.westfield.com)
 - Add sitemap generation to cron daily (ben@germanforblack.com)

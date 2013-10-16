@@ -252,6 +252,8 @@
 
     /* Tabs */
     .national__tabs {
+      /* Needs the tab to sit on top of `.hero-gradient`, which the `z-index` is set in `_header.scss` */
+      z-index: 2;
       /* Need `position: relative` so that it'll appear on top of the hero image which has `position: absolute` */
       position: relative;
       @include to-rem(margin-top, -42);

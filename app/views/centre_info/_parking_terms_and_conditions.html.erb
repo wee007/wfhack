@@ -4,6 +4,6 @@
     <%= @parking.credit_card_surcharge_amount %>% surcharge on all credit card payments.
   <% end %>
   <% if @parking.pdf_ref.present? %>
-    <span class="icon icon--pdf"></span> <%= link_to 'Parking terms &amp; conditions'.html_safe, cl_image_path(@parking.pdf_ref, format:'pdf'), target: '_blank', class:"test-terms-link" %> apply.
+    <span class="icon icon--pdf" aria-hidden="true"></span> <%= link_to 'Parking terms &amp; conditions'.html_safe, cl_image_path(@parking.pdf_ref, format:'pdf'), target: '_blank', class:"test-terms-link" %> apply.
   <% end %>
 </small>

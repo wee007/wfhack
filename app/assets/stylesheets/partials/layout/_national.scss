@@ -234,20 +234,6 @@
       }
     }
 
-    .national__hero__2 {
-      @include respond-max($palm) {
-        background-image: cloudinary-url("heroes/national/national-hero-02-sml.jpg");
-      }
-
-      @include respond-range($lap, $lap-sml-end) {
-        background-image: cloudinary-url("heroes/national/national-hero-02-med.jpg");
-      }
-
-      @include respond-min($lap-lrg) {
-        background-image: cloudinary-url("heroes/national/national-hero-02-lrg.jpg");
-      }
-    }
-
     /* --Main-- */
 
     /* Tabs */

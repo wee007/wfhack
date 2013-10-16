@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.142
+Version:     0.1.143
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -86,6 +86,11 @@ fi
 
 
 %changelog
+* Wed Oct 16 2013 ci <doperations@au.westfield.com> 0.1.143-1
+- Merge pull request #484 from gwshaw/feature/WSF-
+  5071_click_thru_intermediate_page_using_javascript (ldewey@au.westfield.com)
+- WSF-5071 click-thru intermediate page using javascript (g.w.shaw@comcast.net)
+
 * Wed Oct 16 2013 ci <doperations@au.westfield.com> 0.1.142-1
 - 
 

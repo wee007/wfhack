@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.145
+Version:     0.1.146
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -86,6 +86,13 @@ fi
 
 
 %changelog
+* Wed Oct 16 2013 ci <doperations@au.westfield.com> 0.1.146-1
+- Merge pull request #489 from ldewey/master (ldewey@au.westfield.com)
+- Updated the wait time of redirect page (ldewey@au.westfield.com)
+- Cleaned up some of my sloppy code (ldewey@au.westfield.com)
+- Fixes as per PR's. Made viewport check generic. (ldewey@au.westfield.com)
+- Added national homepage centre images (ldewey@au.westfield.com)
+
 * Wed Oct 16 2013 ci <doperations@au.westfield.com> 0.1.145-1
 - Merge pull request #482 from fchan/more-fixes (ldewey@au.westfield.com)
 - WSF-5520: Increased size of apple touch icon and removed old ones

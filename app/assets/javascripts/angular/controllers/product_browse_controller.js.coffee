@@ -63,6 +63,7 @@
       $scope.sort = ""  unless $scope.sort
 
     $scope.updateSearch = ->
+      Products.loading = true
       ProductSearch.getSearch()
       $scope.closeFilters()
 
@@ -98,19 +99,16 @@
       filterValues isnt `undefined`
 
     $scope.removeSelectedFilter = (paramName, paramValue) ->
-      Products.loading = true
       ProductSearch.removeParam paramName, paramValue
       $scope.updateSearch()
 
     $scope.filterSearch = (modelName) ->
-      Products.loading = true
       ProductSearch.setParam modelName, $scope[modelName]
       $scope.updateSearch()
 
 
     # multi-facet filter search
     $scope.mvFilterSearch = (attributeName) ->
-      Products.loading = true
       selectedValues = $filter("filter")($scope.search[attributeName].values,
         selected: true
       )
@@ -124,12 +122,10 @@
       $scope.closeFilters()
 
     $scope.clearFilters = ->
-      Products.loading = true
       ProductSearch.resetParams centre: getCentre()
       $scope.updateSearch()
 
     $scope.filterCategory = (categoryType, categoryCode) ->
-      Products.loading = true
       $scope.closeFilters()
       ProductSearch.setParam categoryType, categoryCode
       $scope.updateSearch()

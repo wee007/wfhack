@@ -43,9 +43,6 @@ describe "map.micello.Map", ->
 
   describe "#constructor", ->
 
-    it 'loads addresses', ->
-      expect($.ajax).toHaveBeenCalled()
-
     it 'inits the micello map', ->
       expect(micello.maps.init).toHaveBeenCalled()
 

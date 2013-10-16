@@ -12,21 +12,7 @@ class map.micello.Map extends map.micello.MapBase
     super
     @offset = x: 0.5, y: 0.5
     @targetStore = null
-    @getAddresses()
     micello.maps.init(@key, @init)
-
-  micelloAddressApiUrl: ->
-    "http://maps.micello.com/v3_java/meta/geo_address/cid/#{@community}?api_key=#{@key}"
-
-  getAddresses: ->
-    @addressFetch = $.ajax(
-      url: @micelloAddressApiUrl()
-      dataType: 'json'
-    ).success(@parseAddresses)
-
-  parseAddresses: (data) =>
-    return unless data.cid == @community
-    @index.addAddresses(data.g)
 
   toggleKeyEvents: (enabled) ->
     @keyEventHandler ||= micello.maps.MapGUI.prototype.onKeyDown
@@ -55,10 +41,7 @@ class map.micello.Map extends map.micello.MapBase
 
   ready: ->
     @patchMicelloAPI()
-    if @addressFetch.state() == 'resolved'
-      super
-    else
-      @addressFetch.then => super
+    super
 
   init: =>
     @initMap()

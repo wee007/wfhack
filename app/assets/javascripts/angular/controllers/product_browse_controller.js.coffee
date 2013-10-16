@@ -39,6 +39,10 @@
       urlParams.centre = getCentre() unless urlParams.centre
 
       params = ParamCleaner.deserialize(urlParams)
+
+      # Remove any params that won't be overwritten
+      ProductSearch.resetParams()
+
       angular.forEach params, (param, key) ->
 
         # Add params to the controller

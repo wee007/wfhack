@@ -60,7 +60,7 @@
     $scope.bootstrap = ->
       ProductSearch.formatSearchResults $window.westfield.products
       useUrlParams()
-      $scope.sort = ""  unless $scope.sort
+      $scope.sort = "" unless $scope.sort
 
     $scope.updateSearch = ->
       Products.loading = true

@@ -1,6 +1,6 @@
 <li class="drop-down-menu drop-down-container drop-down-container--hover">
   <%=
-    attrs = {}
+    attrs = {'ng-class' => "{'is-active': (activeNavigationItem == '#{category.code}')}"}
     if category.has_code?(params[:super_cat])
       attrs[:class] = 'is-active'
     end

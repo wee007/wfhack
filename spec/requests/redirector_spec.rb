@@ -66,7 +66,6 @@ describe RedirectorController do
        [
         "/au/shopping/mens-fashion-accessories/mens-accessories/mens-ties?type=m-ties-bowties",
         "http://www.example.com/products?category=mens-accessories"],
-
        [
         "au/shopping/mens-fashion-accessories/mens-accessories/mens-ties?type=m-ties-business-ties",
         "http://www.example.com/products?category=mens-accessories"],

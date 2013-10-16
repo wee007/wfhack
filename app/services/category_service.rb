@@ -1,5 +1,4 @@
 class CategoryService
-
   class << self
     include ApiClientRequests
 
@@ -20,6 +19,23 @@ class CategoryService
         end
       else
         Category.new(body)
+      end
+    end
+
+    def category_mappings
+      categories = self.find(hierarchy_level: 3)
+
+      categories.inject({}) do |category_hash, super_category|
+        category_hash[super_category.code] = "super_cat"
+
+        super_category.children.each do |category|
+          category_hash[category.code] = "category"
+
+          category.children.each do |sub_category|
+            category_hash[sub_category.code] = "sub_category"
+          end
+        end
+        category_hash
       end
     end
 
@@ -59,5 +75,4 @@ class CategoryService
     end
 
   end
-
 end

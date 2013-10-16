@@ -11,5 +11,3 @@
   end
 
 REDIRECTOR_DELETED_CATEGORIES = redirector_read_csv("lib/assets/deleted_categories.csv")
-
-REDIRECTOR_CATEGORY_MAPPINGS = redirector_read_csv("lib/assets/categories.csv")

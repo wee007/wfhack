@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.148
+Version:     0.1.149
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,9 @@ fi
 
 
 %changelog
+* Thu Oct 17 2013 ci <doperations@au.westfield.com> 0.1.149-1
+- Updated search box placeholder text (ldewey@au.westfield.com)
+
 * Wed Oct 16 2013 ci <doperations@au.westfield.com> 0.1.148-1
 - Added no proxy for dev (ldewey@au.westfield.com)
 - Added proxy suport to sitemap.xml.gz request (ldewey@au.westfield.com)

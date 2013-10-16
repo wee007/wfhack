@@ -4,6 +4,7 @@ defaults: &defaults
   proxy: http://proxy.dbg.westfield.com:8080
 
 development:
+  proxy:
   <<: *defaults
 
 test:

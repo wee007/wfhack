@@ -5,6 +5,10 @@ describe RedirectorController do
   context "GET" do
 
     it 'follows redirects' do
+      category_mappings = redirector_read_csv("spec/fixtures/categories.csv")
+
+      CategoryService.stub(:category_mappings).and_return(category_mappings)
+
       [
        [
         "/au/shopping/womens-fashion-accessories/womens-clothing/womens-dresses",

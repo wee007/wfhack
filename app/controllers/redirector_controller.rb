@@ -20,7 +20,7 @@ class RedirectorController < ApplicationController
     category_mappings = CategoryService.category_mappings
 
     if category_mappings[category]
-      redirect_url = "#{redirect_base_url}?#{REDIRECTOR_CATEGORY_MAPPINGS[category]}=#{category}"
+      redirect_url = "#{redirect_base_url}?#{category_mappings[category]}=#{category}"
       # if we don't have a category mapping for this url, we redirect to
       # generic products url
     else

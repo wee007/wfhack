@@ -1,6 +1,15 @@
 ((app) ->
   app.controller "ProductBrowseController", ["$scope", "$window", "$filter", "$location", "$element", "ParamCleaner", "ProductSearch", "Products", ($scope, $window, $filter, $location, $element, ParamCleaner, ProductSearch, Products) ->
     $scope.search = ProductSearch
+
+    $scope.$on '$locationChangeStart', (scope, current, next) ->
+      useUrlParams() if current != next
+
+    $scope.$on '$locationChangeSuccess', (scope, current, next) ->
+      # Comparing current & next will tell us whether its an initial page load
+      # or if its an in-page locationChange event.
+      $scope.updateSearch() if current != next
+
     ProductSearch.onChange ->
       cleanParams = ParamCleaner.build(ProductSearch.params())
       $location.search cleanParams

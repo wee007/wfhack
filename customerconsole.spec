@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.143
+Version:     0.1.144
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -86,6 +86,24 @@ fi
 
 
 %changelog
+* Wed Oct 16 2013 ci <doperations@au.westfield.com> 0.1.144-1
+- Merge pull request #490 from acohen/feature/WSF-4921
+  (ldewey@au.westfield.com)
+- Merge pull request #491 from fchan/polish (ldewey@au.westfield.com)
+- Fix PR after feedback. And change to .hero-gradient in header
+  (fiona@fionachan.net)
+- WSF-4921 add initializer to instanciate global redirection vars
+  (acohen@au.westfield.com)
+- WSF-4921 replace unused memoization with initializer
+  (acohen@au.westfield.com)
+- WSF-4921 add redirects for au/shopping (acohen@au.westfield.com)
+- WSF-5779: Added no. of centres to national landing page (fiona@fionachan.net)
+- Added gradient to national landing page (fiona@fionachan.net)
+- Change to use cloudinary-url in national sass (fiona@fionachan.net)
+- WSF-5772: Added time element to event tile (fiona@fionachan.net)
+- WSF-5534: Added PDF icon (fiona@fionachan.net)
+- WSF-5687: Increase national image to 1600px wide (fiona@fionachan.net)
+
 * Wed Oct 16 2013 ci <doperations@au.westfield.com> 0.1.143-1
 - Merge pull request #484 from gwshaw/feature/WSF-
   5071_click_thru_intermediate_page_using_javascript (ldewey@au.westfield.com)

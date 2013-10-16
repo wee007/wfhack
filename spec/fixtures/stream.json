@@ -1,0 +1,76 @@
+{
+  "stream":[
+    {
+      "id":574,
+      "name":"Whatever. Friday.",
+      "_links":
+      { 
+        "self":
+        {
+          "href":"http://deal-service.development.dbg.westfield.com/deal/master/deals/574.json"
+        },
+        "image":
+        { 
+          "href":"http://stream-service.development.dbg.westfield.com/images/tiles/desktop_deal1-9a2238d5.jpg"
+        }
+      },
+      "type":"deal",
+      "deal_stores":
+      [
+        {
+          "store_service_id":46306,
+          "centre_id":"bondijunction"
+        }
+      ]
+    },
+    {
+      "id":269,
+      "name":"Dora the Explorer",
+      "description":"Adipiscing eros placerat ultricies? Etiam augue porta dapibus, aliquam, enim, pulvinar eu, integer nunc quis phasellus.\r\nghghgff",
+      "image_ref":"omgjktx7nu0pzrqxbcjy",
+      "date":"2013-12-01",
+      "start":"11:20",
+      "finish":"11:30",
+      "type":"event",
+      "_links":{
+        "self":{"href":"http://event-service.systest.dbg.westfield.com/api/event/master/events/269.json"},
+        "centre":{"href":"http://centre-service.systest.dbg.westfield.com/api/centre/master/centres/bondijunction.json"},
+        "image":{"href":"http://res.cloudinary.com/wlabs/image/upload/omgjktx7nu0pzrqxbcjy.jpg"}
+      }
+    },
+    {
+      "id":1,
+      "name":"A canned search",
+      "centre_id":"bondijunction",
+      "url":"/a/dummy/url/and/an/edit",
+      "image_ref":"tplfezzit1ybkp10tddp",
+      "start_date":"2013-09-29",
+      "end_date":"2013-09-30",
+      "type":"canned_search"
+    },
+    {
+      "name":"Elegant Diamante Iphone 4",
+      "id":"23048",
+      "sku":"525478",
+      "retailer_code":"colette-accessories",
+      "price":9.95,
+      "sale_price":9.95,
+      "is_discounted":false,
+      "path":"/au/retailers/colette-accessories/products/elegant-diamante-iphone-4~525478",
+      "description":"Elegant Diamante Iphone 4",
+      "lozenge_name":"Elegant Diamante Iphone 4",
+      "retail_chain_name":"Colette by Colette Hayman",
+      "brand":"colette by colette hayman",
+      "category":"bl-mobile",
+      "_links":
+      {
+        "image":
+        {
+          "href":"http://res.cloudinary.com/wlabs/image/upload/v1379019810/jzomkrebdqrvrzdsknvz.jpg"
+        }
+      },
+      "type":"product",
+      "retailer_name":"Colette by Colette Hayman"
+    }
+  ]
+}

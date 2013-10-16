@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.121
+Version:     0.1.140
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -86,6 +86,97 @@ fi
 
 
 %changelog
+* Wed Oct 16 2013 ci <doperations@au.westfield.com> 0.1.140-1
+- 
+
+* Wed Oct 16 2013 ci <doperations@au.westfield.com> 0.1.139-1
+- 
+
+* Wed Oct 16 2013 ci <doperations@au.westfield.com> 0.1.138-1
+- 
+
+* Wed Oct 16 2013 ci <doperations@au.westfield.com> 0.1.137-1
+- Handle case where products hash is incomplete. (malc.locke@trineo.co.nz)
+
+* Wed Oct 16 2013 ci <doperations@au.westfield.com> 0.1.136-1
+- 
+
+* Wed Oct 16 2013 ci <doperations@au.westfield.com> 0.1.135-1
+- 
+
+* Wed Oct 16 2013 ci <doperations@au.westfield.com> 0.1.134-1
+- 
+
+* Wed Oct 16 2013 ci <doperations@au.westfield.com> 0.1.133-1
+- 
+
+* Wed Oct 16 2013 ci <doperations@au.westfield.com> 0.1.132-1
+- 
+
+* Tue Oct 15 2013 ci <doperations@au.westfield.com> 0.1.131-1
+- 
+
+* Tue Oct 15 2013 ci <doperations@au.westfield.com> 0.1.130-1
+- 
+
+* Tue Oct 15 2013 ci <doperations@au.westfield.com> 0.1.129-1
+- Merge pull request #487 from ldewey/master (ldewey@au.westfield.com)
+- New hero image updates (ldewey@au.westfield.com)
+
+* Tue Oct 15 2013 ci <doperations@au.westfield.com> 0.1.128-1
+- Merge pull request #486 from ldewey/master (ldewey@au.westfield.com)
+- A fix/hack for rebinding angular directives. (ldewey@au.westfield.com)
+
+* Tue Oct 15 2013 ci <doperations@au.westfield.com> 0.1.127-1
+- Changing css images to use 'cloudinary-url' (CPearce@au.westfield.com)
+- Moving all CSS images to Cloudinary (CPearce@au.westfield.com)
+- Set all cloudinary images to use WebP format - WSF-5729
+  (CPearce@au.westfield.com)
+- Update 'Prefetch DNS for external assets' list - WSF-5735
+  (CPearce@au.westfield.com)
+- Compressing all SVG images - WSF-5135 (CPearce@au.westfield.com)
+
+* Tue Oct 15 2013 ci <doperations@au.westfield.com> 0.1.126-1
+- Merge pull request #475 from ewee/master (ldewey@au.westfield.com)
+- Add check for cinema (ewee@au.westfield.com)
+
+* Tue Oct 15 2013 ci <doperations@au.westfield.com> 0.1.125-1
+- Merge pull request #481 from digital/canonical-links
+  (ldewey@au.westfield.com)
+- Merge pull request #480 from mwratt/feature/fix-selectivizr-js
+  (ldewey@au.westfield.com)
+- Use url rather than path (ben@germanforblack.com)
+- Yield canonical links to national level products from centre pages' product
+  pages (ben@germanforblack.com)
+- removes bower install of selectivizr (public dir) (matt.wratt@trineo.co.nz)
+- puts selectivizr in public avoiding minification (matt.wratt@trineo.co.nz)
+
+* Tue Oct 15 2013 ci <doperations@au.westfield.com> 0.1.124-1
+- Revert "Merge pull request #476 from mlocke/feature/wsf-4998"
+  (malc.locke@trineo.co.nz)
+
+* Tue Oct 15 2013 ci <doperations@au.westfield.com> 0.1.123-1
+- Merge pull request #478 from jfantham/feature/WSF-4816
+  (ldewey@au.westfield.com)
+- WSF-4816 made the stream service parser handle unknown types
+  (j.fantham@gmail.com)
+- WSF-4816 added the canned search model (j.fantham@gmail.com)
+
+* Tue Oct 15 2013 ci <doperations@au.westfield.com> 0.1.122-1
+- Merge pull request #476 from mlocke/feature/wsf-4998
+  (ldewey@au.westfield.com)
+- Remove unicorn (malc.locke@trineo.co.nz)
+- change l to L, in my name for New Relic message (ldewey@au.westfield.com)
+- Set category instead of super_cat for filter type (malc.locke@trineo.co.nz)
+- Add child categories to Shoes. (malc.locke@trineo.co.nz)
+- Add is-active class to selected T1 category (malc.locke@trineo.co.nz)
+- Convert to use Angular (malc.locke@trineo.co.nz)
+- Add T2 level categories to product browse nav (malc.locke@trineo.co.nz)
+- Render hard coded list of super categories (malc.locke@trineo.co.nz)
+- Return after handle_error (malc.locke@trineo.co.nz)
+- Minimal instructions to run locally with foreman (malc.locke@trineo.co.nz)
+- Add unicorn to development env in Gemfile (malc.locke@trineo.co.nz)
+
 * Tue Oct 15 2013 ci <doperations@au.westfield.com> 0.1.121-1
 - Merge pull request #477 from cpearce/server-error-page-redesign
   (cpearce@au.westfield.com)

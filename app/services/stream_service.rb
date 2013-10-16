@@ -1,14 +1,23 @@
 class StreamService
+
+  TYPE_CLASSES = {
+    "product" => Product,
+    "event" => Event,
+    "deal" => Deal
+  }
+
   class << self
+    
     include ApiClientRequests
+
     def build(response)
       body = response.is_a?(Faraday::Response) ? response.body : response
       stream = body.is_a?(Hash) ? body['stream'] : []
       stream.map do |result|
-        if defined?(result[:type].titleize.constantize)
-          result[:type].titleize.constantize.new result
+        if TYPE_CLASSES.keys.include? result["type"]
+          TYPE_CLASSES[result["type"]].new result
         end
-      end.flatten
+      end.flatten.compact
     end
 
     def request_uri(options={})

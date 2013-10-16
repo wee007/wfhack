@@ -1,3 +1,9 @@
+<% if params[:centre_id] %>
+  <% content_for :link_rels do %>
+    <link rel="canonical" href="<%= product_url(params[:retailer_code], params[:sku]) %>">
+  <% end %>
+<% end %>
+
 <div class="detail-view__divider--col grid grid--gutterless grid--rev-stack grid--rev grid--flush">
 
   <%# Product name, brand, price, location and contact %>
@@ -88,7 +94,8 @@
               alt: "Photo of #{@product.name}",
               width: 469,
               height: 474,
-              crop: :lpad
+              crop: :lpad,
+              format: :auto
             ) %></li>
           <%- end -%>
         </ul>
@@ -100,7 +107,8 @@
               alt: "Photo of #{@product.name}",
               width: 469,
               height: 474,
-              crop: :lpad
+              crop: :lpad,
+              format: :auto
             ) %></li>
           <%- end -%>
         </ul>

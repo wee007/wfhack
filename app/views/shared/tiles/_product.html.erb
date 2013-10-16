@@ -2,10 +2,10 @@
   <%# FIXME There is something causing some images in beta not to load if the cl_image_tag is used here %>
   <%= fetch_image_tag result.primary_image, {
       'data-height' => result.image_height,
-      format: 'jpg',
       alt: "Photo of product: #{result.title}",
       width: 288,
-      crop: :limit
+      crop: :limit,
+      format: :auto
     }.merge((options if defined? options) || {})
   %>
 </div>

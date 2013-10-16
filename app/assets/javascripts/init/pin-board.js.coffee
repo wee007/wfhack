@@ -68,6 +68,14 @@ class @PinBoard
       # Remove broken images, this should be a fall back
       $template.find('img').on 'error', -> $(@).remove()
 
+      # Update angualr hack!
+      $template.find('.js-tile button').click ->
+        $template.find('.js-tile button').unbind('click')
+        scope = angular.element("#pin-board").scope()
+        compile = angular.element("#pin-board").injector().get('$compile')
+        compile($("#pin-board").contents())(scope)
+        scope.$apply()
+
       # Replace current pinboard with the new one
       $(@pinBoardSelector).replaceWith($template)
 

@@ -30,7 +30,6 @@ module CustomerConsole
                                    flexslider/jquery.flexslider.js
                                    flexslider/flexslider.css
                                    html5shiv/src/html5shiv-printshiv.js
-                                   selectivizr/selectivizr.js
                                    stores_maps.js)
     if Rails.env.development?
       require File.expand_path('../../lib/service_proxy', __FILE__)

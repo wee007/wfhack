@@ -9,7 +9,7 @@ class CentresController < ApplicationController
     end
 
     @centres = CentreService.build centres
-    @centres = @centres.group_by{ |c| c.state } if @centres.present?
+    @centres_by_state = @centres.group_by{ |c| c.state } if @centres.present?
 
     @products = ProductService.build products
     if @products.present? && @products['count'].respond_to?(:round)

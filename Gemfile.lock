@@ -1,6 +1,6 @@
 GIT
   remote: git@github.dbg.westfield.com:digital/service_api.git
-  revision: 06d9ae4bbbfb664add1cd94869a52dfef99c8134
+  revision: 3c3db85cc661011975e9ce44dd443613651092f1
   specs:
     service_api (0.0.5)
       faraday
@@ -12,9 +12,9 @@ GIT
 
 GIT
   remote: git@github.dbg.westfield.com:digital/service_helper.git
-  revision: 44aea24571d9582cb9aa2cd3d29ba2dedee6584f
+  revision: 4c5662559f5318e26c1021cd34be4520871f62f2
   specs:
-    service_helper (0.0.18)
+    service_helper (0.0.22)
 
 GIT
   remote: https://github.com/bradphelan/jasminerice.git
@@ -36,15 +36,15 @@ GIT
 
 GIT
   remote: https://github.com/kneath/kss.git
-  revision: b88d2df249224d9e7f14e3f4550112a32370bb60
+  revision: ac1c8e297d8e07e2e27678be976020d4951c96b7
   specs:
-    kss (0.4.0)
+    kss (0.5.0)
 
 GIT
   remote: https://github.com/westfield/splunk_logger.git
-  revision: ea1b4fb97c12ad0a41e643d349397a30e22288ff
+  revision: 5f0bec915e2325d2c7ba1ce764e1a009928cc365
   specs:
-    splunk_logger (0.0.1)
+    splunk_logger (1.0.0)
 
 GEM
   remote: https://rubygems.org/
@@ -86,6 +86,7 @@ GEM
       xpath (~> 2.0)
     childprocess (0.3.9)
       ffi (~> 1.0, >= 1.0.11)
+    cliver (0.2.2)
     cloudinary (1.0.63)
       aws_cf_signer
       rest-client
@@ -99,26 +100,25 @@ GEM
     coffee-script-source (1.6.3)
     columnize (0.3.6)
     daemons (1.1.9)
-    debugger (1.6.1)
+    debugger (1.6.2)
       columnize (>= 0.3.1)
       debugger-linecache (~> 1.2.0)
       debugger-ruby_core_source (~> 1.2.3)
     debugger-linecache (1.2.0)
     debugger-ruby_core_source (1.2.3)
     diff-lcs (1.2.4)
-    dotenv (0.8.0)
-    dotenv-rails (0.8.0)
-      dotenv (= 0.8.0)
+    dotenv (0.9.0)
+    dotenv-rails (0.9.0)
+      dotenv (= 0.9.0)
     erubis (2.7.0)
     ethon (0.6.1)
       ffi (>= 1.3.0)
       mime-types (~> 1.18)
     eventmachine (1.0.3)
-    eventmachine (1.0.3-x86-mingw32)
-    execjs (2.0.0)
+    execjs (2.0.2)
     faraday (0.8.8)
       multipart-post (~> 1.2.0)
-    faraday-http-cache (0.2.1)
+    faraday-http-cache (0.3.0)
       activesupport (>= 3.0)
       faraday (~> 0.8)
       multi_json (~> 1.3)
@@ -127,33 +127,24 @@ GEM
     faraday_middleware-parse_oj (0.2.1)
       faraday_middleware (~> 0.8)
       oj (~> 2.0)
-    faye-websocket (0.4.7)
-      eventmachine (>= 0.12.0)
     ffi (1.9.0)
-    ffi (1.9.0-x86-mingw32)
     foreman (0.63.0)
       dotenv (>= 0.7)
       thor (>= 0.13.6)
-    foreman (0.63.0-x86-mingw32)
-      dotenv (>= 0.7)
-      thor (>= 0.13.6)
-      win32console (~> 1.3.0)
     formatador (0.2.4)
     gon (4.1.1)
       actionpack (>= 2.3.0)
       json
-    guard (1.8.2)
+    guard (1.8.3)
       formatador (>= 0.2.4)
-      listen (>= 1.0.0)
+      listen (~> 1.3)
       lumberjack (>= 1.0.2)
       pry (>= 0.9.10)
       thor (>= 0.14.6)
     hashie (2.0.5)
-    health_check (1.2.0)
+    health_check (1.3.1)
       rails (>= 2.3.0)
     hike (1.2.3)
-    http_parser.rb (0.5.3)
-    http_parser.rb (0.5.3-x86-mingw32)
     i18n (0.6.5)
     json (1.8.0)
     kaminari (0.14.1)
@@ -161,7 +152,7 @@ GEM
       activesupport (>= 3.0.0)
     launchy (2.3.0)
       addressable (~> 2.3)
-    listen (1.3.0)
+    listen (1.3.1)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
       rb-kqueue (>= 0.2)
@@ -175,28 +166,22 @@ GEM
     minitest (4.7.5)
     money (5.1.1)
       i18n (~> 0.6.0)
-    multi_json (1.8.0)
+    multi_json (1.8.2)
     multipart-post (1.2.0)
-    newrelic_rpm (3.6.6.147)
+    newrelic_rpm (3.6.8.164)
     nokogiri (1.6.0)
       mini_portile (~> 0.5.0)
-    nokogiri (1.6.0-x86-mingw32)
-      mini_portile (~> 0.5.0)
-    oj (2.1.4)
-    poltergeist (1.3.0)
+    oj (2.1.6)
+    poltergeist (1.4.1)
       capybara (~> 2.1.0)
-      faye-websocket (>= 0.4.4, < 0.5.0)
-      http_parser.rb (~> 0.5.3)
+      cliver (~> 0.2.1)
+      multi_json (~> 1.0)
+      websocket-driver (>= 0.2.0)
     polyglot (0.3.3)
     pry (0.9.12.2)
       coderay (~> 1.0.5)
       method_source (~> 0.8)
       slop (~> 3.4)
-    pry (0.9.12.2-x86-mingw32)
-      coderay (~> 1.0.5)
-      method_source (~> 0.8)
-      slop (~> 3.4)
-      win32console (~> 1.3)
     pry-remote (0.1.7)
       pry (~> 0.9)
       slop (~> 3.0)
@@ -223,14 +208,14 @@ GEM
       thor (>= 0.18.1, < 2.0)
     rake (10.1.0)
     rb-fsevent (0.9.3)
-    rb-inotify (0.9.1)
+    rb-inotify (0.9.2)
       ffi (>= 0.5.0)
     rb-kqueue (0.2.0)
       ffi (>= 0.5.0)
     rest-client (1.6.7)
       mime-types (>= 1.16)
     rspec-core (2.14.5)
-    rspec-expectations (2.14.2)
+    rspec-expectations (2.14.3)
       diff-lcs (>= 1.1.3, < 2.0)
     rspec-mocks (2.14.3)
     rspec-rails (2.14.0)
@@ -240,9 +225,9 @@ GEM
       rspec-core (~> 2.14.0)
       rspec-expectations (~> 2.14.0)
       rspec-mocks (~> 2.14.0)
-    sass (3.2.10)
-    sass-rails (4.0.0)
-      railties (>= 4.0.0.beta, < 5.0)
+    sass (3.2.12)
+    sass-rails (4.0.1)
+      railties (>= 4.0.0, < 5.0)
       sass (>= 3.1.10)
       sprockets-rails (~> 2.0.0)
     settingslogic (2.0.9)
@@ -274,18 +259,17 @@ GEM
     truncate (0.1.0)
     typhoeus (0.6.5)
       ethon (~> 0.6.1)
-    tzinfo (0.3.37)
-    uglifier (2.1.2)
+    tzinfo (0.3.38)
+    uglifier (2.2.1)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
-    vcr (2.5.0)
-    win32console (1.3.2-x86-mingw32)
+    vcr (2.6.0)
+    websocket-driver (0.3.0)
     xpath (2.0.0)
       nokogiri (~> 1.3)
 
 PLATFORMS
   ruby
-  x86-mingw32
 
 DEPENDENCIES
   capybara
@@ -315,7 +299,6 @@ DEPENDENCIES
   rack-pjax
   rack-proxy (= 0.4.0)
   rails (~> 4.0.0)
-  rb-fsevent
   rspec-rails
   sass-rails (~> 4.0.0)
   service_api!

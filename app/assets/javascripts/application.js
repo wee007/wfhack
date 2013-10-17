@@ -17,8 +17,6 @@
 //= require ./support/svg
 //= require ./support/string
 
-//= require ./vendor/jquery.tabs
-
 // If console is unimplemented in a browser, and someone accidently leaves a log, debug, error, etc the browser won't throw & die.
 //= require ./support/console-log
 
@@ -27,7 +25,6 @@
 //= require_tree ./jquery-extensions
 //= require ./init/enquire
 //= require ./init/pin-board
-//= require ./init/tabs
 //= require ./init/deferred_images
 //= require ./init/table-horizontal-scroll
 //= require ./init/nav-contextual

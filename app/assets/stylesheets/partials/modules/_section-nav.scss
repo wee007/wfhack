@@ -47,6 +47,9 @@
 	    margin-right: 0;
 	  }
 
+	  /* Increase the `z-index` of the drop down to always ensure it overlaps the 'Product filters' that usually sit underneath */
+	  .drop-down-container--hover .drop-down {z-index: $z-index-high+1;}
+
 	  /* Hide all drop downs at this breakpoint */
 		@include respond-max(867) {
 	    .drop-down {display: none;}

@@ -43,8 +43,8 @@ class CategoryService
         'mens-fashion-accessories',
         'kids-babies',
         'shoes-footwear',
-        'beauty-health',
-        'bags-luggage'
+        'bags-luggage',
+        'beauty-health'
       ]
       cat_list = JSON.parse(
         File.read(Rails.root.join('config', 'categories.json'))

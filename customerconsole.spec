@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.149
+Version:     0.1.150
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,13 @@ fi
 
 
 %changelog
+* Thu Oct 17 2013 ci <doperations@au.westfield.com> 0.1.150-1
+- Just generate and upload the sitemap, don't ping google and bing
+  (ben@germanforblack.com)
+- Rails logger, not pp (ben@germanforblack.com)
+- Added proxy (ben@germanforblack.com)
+- Replace calls to pp with Rails.logger (ben@germanforblack.com)
+
 * Thu Oct 17 2013 ci <doperations@au.westfield.com> 0.1.149-1
 - Updated search box placeholder text (ldewey@au.westfield.com)
 

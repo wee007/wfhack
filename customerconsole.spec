@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.155
+Version:     0.1.156
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,14 @@ fi
 
 
 %changelog
+* Fri Oct 18 2013 ci <doperations@au.westfield.com> 0.1.156-1
+- Merge pull request #507 from ldewey/master (ldewey@au.westfield.com)
+- Removing nav contextual in production only. (ldewey@au.westfield.com)
+- Fixed product detail map/no map/not in center thing.
+  (ldewey@au.westfield.com)
+- Added "Westfield <centre_name>" to the available at list.
+  (ldewey@au.westfield.com)
+
 * Thu Oct 17 2013 ci <doperations@au.westfield.com> 0.1.155-1
 - Merge pull request #506 from bschwarz/sitemaps (ldewey@au.westfield.com)
 - Ensure that all environments are routed to the correct sitemap file

@@ -44,12 +44,14 @@ begin
 
       # Stores
       Service::API.get(stores_uri, centre_id: centre.code).each do |store|
+        next unless centre.code and store.retailer_code and store.id
         add centre_store_path(centre.code, store.retailer_code, store.id), priority: 0.6, lastmod: store.updated_at
       end
     end
 
     product_responses.each do |pr|
       pr.results.each do |product|
+        next unless product.retailer_code and product.sku
         add product_path(product.retailer_code, product.sku), priority: 0.8, lastmod: product.updated_at
       end
     end

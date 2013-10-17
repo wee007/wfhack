@@ -23,15 +23,15 @@ begin
     rows = 500
     pages = (product_count.to_f / rows.to_f).ceil
 
-    pp "There are #{product_count} products, which will be collected #{rows} at a time"
+    Rails.logger.info "[SITEMAP] There are #{product_count} products, which will be collected #{rows} at a time"
 
     product_responses = []
     (1..pages).to_a.each do |index|
-      pp "Getting product page #{index}"
-        product_responses << Service::API.get(product_search_url, page: index, rows: rows)
+      Rails.logger.info "[SITEMAP] Getting product page #{index}"
+      product_responses << Service::API.get(product_search_url, page: index, rows: rows)
     end
 
-    pp "#{centres.count} centres"
+    Rails.logger.info "[SITEMAP] #{centres.count} centres"
 
     centres.each do |centre|
       add centre_path(centre.code), priority: 0.8, lastmod: centre.updated_at

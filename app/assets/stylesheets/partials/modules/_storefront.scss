@@ -18,17 +18,12 @@
 
   /* Flexslider */
   .flexslider {
-    background-position: 50% 50%;
+    background-position: 0 50%;
     background-repeat: no-repeat;
     background-size: cover;
 
     /* When there is no store banner */
     &.is-no-store-banner {@include linear-gradient($color-med-txt, $color-dark-txt);}
-
-    /* Old IE */
-    @include old-ie {
-      background-position: 30% 50%;
-    }
 
     /* Slides */
     .slides > li {

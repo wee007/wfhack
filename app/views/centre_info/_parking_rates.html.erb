@@ -36,9 +36,9 @@
           </tbody>
         </table>
       </div>
-      <%= render partial: 'parking_terms_and_conditions', locals: {align: 'center'} %>
+      <%= render partial: 'parking_terms_and_conditions', locals: {align: 'center'} if @parking.terms_conditions? %>
     </div>
 
-    <%= render partial: "parking_info" %>
+    <%= render partial: "parking_info" if @parking.info? %>
   </div>
 </div>

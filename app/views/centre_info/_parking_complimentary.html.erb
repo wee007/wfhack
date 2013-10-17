@@ -7,6 +7,6 @@
       <% end %>
     </div>
 
-    <%= render partial: "parking_info" %>
+    <%= render partial: "parking_info" if @parking.info? %>
   </div>
 </div>

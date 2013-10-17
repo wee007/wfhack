@@ -18,7 +18,7 @@
     <%# Movie main image %>
     <% if @movie.cloudinary_public_id %>
       <div class="detail-view__media detail-view__mrg-base">
-          <%= cl_image_tag(@movie.cloudinary_public_id, alt:"#{@movie.title} picture", width: 600, height: 400, crop: 'limit', format: 'jpg') %>
+          <%= cl_image_tag(@movie.cloudinary_public_id, alt:"#{@movie.title} movie picture", width: 600, height: 400, crop: 'limit', format: 'jpg', fetch_format: 'auto') %>
       </div>
     <% end %>
     <%# //Movie main image %>

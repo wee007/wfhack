@@ -12,7 +12,7 @@ module SitemapGenerator
       # Construct the non-versioned url
       public_path = file["url"].split("upload").first + "upload/" + file["public_id"]
 
-      pp "Uploaded sitemap to #{public_path}"
+      Rails.logger.info "[SITEMAP] Uploaded sitemap to #{public_path}"
     rescue => e
       Rails.logger.info "SITEMAP error=#{e.message} phase=upload"
       raise e

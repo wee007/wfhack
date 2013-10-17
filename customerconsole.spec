@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.154
+Version:     0.1.155
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,11 @@ fi
 
 
 %changelog
+* Thu Oct 17 2013 ci <doperations@au.westfield.com> 0.1.155-1
+- Merge pull request #506 from bschwarz/sitemaps (ldewey@au.westfield.com)
+- Ensure that all environments are routed to the correct sitemap file
+  (ben@germanforblack.com)
+
 * Thu Oct 17 2013 ci <doperations@au.westfield.com> 0.1.154-1
 - Merge pull request #504 from bschwarz/sitemaps (ben@germanforblack.com)
 - Make upload success logging for spunk exactly the same

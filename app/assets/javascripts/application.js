@@ -22,7 +22,8 @@
 
 // When you need to initialize any jquery plugins or general global stuff,
 // do it in an init/initName file
-//= require_tree ./jquery-extensions
+//= require ./jquery-extensions/jquery.nav-contextual
+//= require ./jquery-extensions/jquery.table-horizontal-scroll
 //= require ./init/enquire
 //= require ./init/pin-board
 //= require ./init/deferred_images

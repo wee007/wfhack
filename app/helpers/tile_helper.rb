@@ -10,7 +10,13 @@ module TileHelper
     when 'deal'
       centre_deal_url(centre, retailer_code: result.retailer_code, id: result)
     when 'canned_search'
-      root_url(:only_path => false) + result.url.gsub(/^\//, '')
+      begin    
+        u = URI(result.url)
+        u = URI.join(root_url(:only_path => false), result.url) unless u.host
+        u.to_s
+      rescue
+        result.url
+      end
     end
   end
 

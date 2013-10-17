@@ -24,6 +24,15 @@ describe TileHelper do
       helper.tile_url("centre_id", cs).should eq("http://test.host/something/cool")
     end
 
+    it "returns the full canned search url if it's passed in full" do
+      cs = double(:canned_search, kind: 'canned_search', to_param: 'id', url: 'http://example.com/something/cool')
+      helper.tile_url("centre_id", cs).should eq("http://example.com/something/cool")
+    end
+
+    it "should handle error conditions by returning the url by itself" do
+      cs = double(:canned_search, kind: 'canned_search', to_param: 'id', url: 'example.com/something/bad and $')
+      helper.tile_url("centre_id", cs).should eq("example.com/something/bad and $")
+    end
   end
 
 end

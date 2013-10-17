@@ -169,7 +169,7 @@
         <%= link_to centre_product_path(centre_id: centre.code, retailer_code: @product.retailer_code, sku: @product.sku),
           class: "list-divider" do %>
           <span class="icon icon--pin icon--lrg icon--spacing-lrg icon--base-color" aria-hidden="true"></span>
-          <%= centre.short_name %>
+          <%= centre.name %>
           <span class="icon icon--arrow-right icon--lrg icon--base-color" aria-hidden="true"></span>
         <%- end -%>
       </li>

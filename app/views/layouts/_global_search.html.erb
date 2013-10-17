@@ -16,21 +16,17 @@
 
         <%# Search results %>
         <div class="search-results" ng-show="suggestionsVisible">
-          <div class="search-results__inner island island--flush-btm">
-            <h2 class="search-results__hdr">Search results</h2>
-            <ul class="search-results__list">
-
-              <li ng-if="suggestions.products">Products</li>
-              <li ng-repeat="suggestion in suggestions.products" role="presentation">
-                 <a href="/{{centre_id}}{{suggestion.url}}" target="_self" tabindex="-1">{{suggestion.description}}</a>
-              </li>
-
-              <li ng-if="suggestions.stores">Stores</li>
-              <li ng-repeat="suggestion in suggestions.stores" role="presentation">
+          <div class="search-results__inner">
+            <dl class="search-results__list">
+              <dt class="search-results__list__spacing" ng-if="suggestions.stores"><span aria-hidden="true" class="icon icon--store icon--xlrg"></span> Stores</dt>
+              <dd ng-repeat="suggestion in suggestions.stores" role="presentation">
                 <a href="/{{centre_id}}{{suggestion.url}}" target="_self" tabindex="-1">{{suggestion.description}}</a>
-              </li>
-
-            </ul>
+              </dd>
+              <dt ng-if="suggestions.products"><span aria-hidden="true" class="icon icon--products icon--xlrg"></span> Products</dt>
+              <dd ng-repeat="suggestion in suggestions.products" role="presentation">
+                 <a href="/{{centre_id}}{{suggestion.url}}" target="_self" tabindex="-1">{{suggestion.description}}</a>
+              </dd>
+            </dl>
           </div>
         </div>
         <%# //Search results %>

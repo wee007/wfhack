@@ -49,8 +49,25 @@ class map.micello.Map extends map.micello.MapBase
         w: 0
       'Entrance':
         m: '#695648'
-      'Road':
-        w: 0
+      'Wall':
+        o: '#d8bca9'
+        w: 1
+      'Section':
+        m: '#f7f2df'
+        o: '#d8bca9'
+        t: '#695648'
+        w: 1
+      'Service':
+        m: '#f7f2df'
+        o: '#d8bca9'
+        t: '#695648'
+        w: 1
+      'Ramp':
+        m: '#dbd9d7'
+      'Area':
+        m: '#ffebc2'
+        o: '#ffb870'
+        w: 1
 
   # Error events from images don't buddle so we need to explicitly call onerror
   @removeLogo: (img) ->
@@ -83,7 +100,7 @@ class map.micello.Map extends map.micello.MapBase
     if enabled
       micello.maps.MapGUI.prototype.onKeyDown = @keyEventHandler
     else
-      micello.maps.MapGUI.prototype.onKeyDown = null
+      micello.maps.MapGUI.prototype.onKeyDown = $.noop
     @
 
   patchMicelloAPI: ->

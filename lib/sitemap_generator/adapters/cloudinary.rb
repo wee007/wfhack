@@ -7,7 +7,7 @@ module SitemapGenerator
       # Construct the path for cloudinary (it requires a rails root relative path)
       path = Pathname.new(location[:public_path] + location[:filename]).relative_path_from(Rails.root).to_s
 
-      file = Cloudinary::Uploader.upload(path, public_id: target_filename, resource_type: :raw)
+      file = Cloudinary::Uploader.upload(path, public_id: target_filename, resource_type: :raw, proxy: AppConfig.proxy)
 
       # Construct the non-versioned url
       public_path = file["url"].split("upload").first + "upload/" + file["public_id"]

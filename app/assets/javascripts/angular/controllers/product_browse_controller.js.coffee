@@ -1,11 +1,19 @@
 ((app) ->
   app.controller "ProductBrowseController", ["$scope", "$window", "$filter", "$location", "$element", "ParamCleaner", "ProductSearch", "Products", ($scope, $window, $filter, $location, $element, ParamCleaner, ProductSearch, Products) ->
     $scope.search = ProductSearch
+
+    $scope.$on '$locationChangeStart', (scope, current, next) ->
+      useUrlParams() if current != next
+
+    $scope.$on '$locationChangeSuccess', (scope, current, next) ->
+      # Comparing current & next will tell us whether its an initial page load
+      # or if its an in-page locationChange event.
+      $scope.updateSearch() if current != next
+
     ProductSearch.onChange ->
       cleanParams = ParamCleaner.build(ProductSearch.params())
       $location.search cleanParams
       updateProducts()
-
 
     # Multi-facet search fields
     $scope.categories = []
@@ -24,7 +32,6 @@
       sizes: "size"
 
     getCentre = ->
-
       # $location.path() returns the wrong path
       # due to inconsistant issues in the angular router code
       # using document.location because is consistant across browsers
@@ -39,6 +46,10 @@
       urlParams.centre = getCentre() unless urlParams.centre
 
       params = ParamCleaner.deserialize(urlParams)
+
+      # Remove any params that won't be overwritten
+      ProductSearch.resetParams()
+
       angular.forEach params, (param, key) ->
 
         # Add params to the controller
@@ -56,9 +67,10 @@
     $scope.bootstrap = ->
       ProductSearch.formatSearchResults $window.westfield.products
       useUrlParams()
-      $scope.sort = ""  unless $scope.sort
+      $scope.sort = "" unless $scope.sort
 
     $scope.updateSearch = ->
+      Products.loading = true
       ProductSearch.getSearch()
       $scope.closeFilters()
 
@@ -94,19 +106,16 @@
       filterValues isnt `undefined`
 
     $scope.removeSelectedFilter = (paramName, paramValue) ->
-      Products.loading = true
       ProductSearch.removeParam paramName, paramValue
       $scope.updateSearch()
 
     $scope.filterSearch = (modelName) ->
-      Products.loading = true
       ProductSearch.setParam modelName, $scope[modelName]
       $scope.updateSearch()
 
 
     # multi-facet filter search
     $scope.mvFilterSearch = (attributeName) ->
-      Products.loading = true
       selectedValues = $filter("filter")($scope.search[attributeName].values,
         selected: true
       )
@@ -120,12 +129,10 @@
       $scope.closeFilters()
 
     $scope.clearFilters = ->
-      Products.loading = true
       ProductSearch.resetParams centre: getCentre()
       $scope.updateSearch()
 
     $scope.filterCategory = (categoryType, categoryCode) ->
-      Products.loading = true
       $scope.closeFilters()
       ProductSearch.setParam categoryType, categoryCode
       $scope.updateSearch()

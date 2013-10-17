@@ -1,21 +1,27 @@
 <div ng-controller="ActiveCategoryNavController" class="section-nav container container--wide container--dark">
 
+
   <%# Section nav %>
-  <div class="container container--position">
-    <div class="nav-contextual nav-contextual--dark js-nav-contextual">
-      <div class="nav-contextual__clip">
-        <nav class="nav-contextual__clip__inner" role="navigation" aria-label="Categories navigation">
-          <ul class="nav-contextual__list horiz-list js-nav-contextual-list"><%=
-              render(
-                :collection => @super_categories,
-                :partial => 'categories/super_cat_nav',
-                :as => :category
-              )
-            -%></ul>
-        </nav>
-        <span class="nav-contextual__clip__overlay icon icon--arrow-right icon--mega icon--flush-top js-nav-contextual-clip-overlay" aria-hidden="true"></span>
+  <%# Do not show the nav-contextual in production for now %>
+  <div class="container container--position<%= ' container--position-temp' if Rails.env.production? %>" >
+
+    <% unless Rails.env.production? %>
+      <div class="nav-contextual nav-contextual--dark js-nav-contextual">
+        <div class="nav-contextual__clip">
+          <nav class="nav-contextual__clip__inner" role="navigation" aria-label="Categories navigation">
+            <ul class="nav-contextual__list horiz-list js-nav-contextual-list"><%=
+                render(
+                  :collection => @super_categories,
+                  :partial => 'categories/super_cat_nav',
+                  :as => :category
+                )
+              -%></ul>
+          </nav>
+          <span class="nav-contextual__clip__overlay icon icon--arrow-right icon--mega icon--flush-top js-nav-contextual-clip-overlay" aria-hidden="true"></span>
+        </div>
       </div>
-    </div>
+    <% end %>
+
     <%# Show products/deals/events centre selector toggle button %>
     <% if @centre.present? %>
       <button class="btn btn--main btn--main-alt4 btn--main-compact-icon-sml" toggle-visibility="show-products-deals-events-toggle">

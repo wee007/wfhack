@@ -10,6 +10,23 @@
     Style Guide -> Modules -> Section Nav
 */
 
+/* This is a hack so we can hide the nav contextual in production. */
+.section-nav > .container--position-temp {
+   @include to-rem(padding-top padding-bottom, $spacing-half);
+   @extend %clear-fix;
+
+   .btn--main-compact-icon-sml {
+     position: static;
+     @include translate(0, 0);
+     float: right;
+   }
+
+   @include respond-min(868) {
+     padding: 0;
+     @include to-rem(height, 65);
+   }
+ }
+
 .section-nav {
 	@include font-size($font-size-sml, 1.5);
 

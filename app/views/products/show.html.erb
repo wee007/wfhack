@@ -28,7 +28,7 @@
     <%# //Product name, brand and price %>
 
     <%# Check if a product is available at a centre %>
-    <% if @centres.present? && @centre.present? %>
+    <% if @centre.present? && @centre_stores.empty? %>
 
       <%# When product is not available at a centre %>
       <div class="detail-view__product-not-avble detail-view__divider">
@@ -169,7 +169,7 @@
         <%= link_to centre_product_path(centre_id: centre.code, retailer_code: @product.retailer_code, sku: @product.sku),
           class: "list-divider" do %>
           <span class="icon icon--pin icon--lrg icon--spacing-lrg icon--base-color" aria-hidden="true"></span>
-          <%= centre.short_name %>
+          <%= centre.name %>
           <span class="icon icon--arrow-right icon--lrg icon--base-color" aria-hidden="true"></span>
         <%- end -%>
       </li>

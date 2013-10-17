@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.151
+Version:     0.1.152
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,9 @@ fi
 
 
 %changelog
+* Thu Oct 17 2013 ci <doperations@au.westfield.com> 0.1.152-1
+- Swap display order of Bags and Beauty categories (malc.locke@trineo.co.nz)
+
 * Thu Oct 17 2013 ci <doperations@au.westfield.com> 0.1.151-1
 - Merge pull request #483 from mlocke/feature/wsf-4998
   (ldewey@au.westfield.com)

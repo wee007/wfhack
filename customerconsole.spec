@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.149
+Version:     0.1.156
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,62 @@ fi
 
 
 %changelog
+* Fri Oct 18 2013 ci <doperations@au.westfield.com> 0.1.156-1
+- Merge pull request #507 from ldewey/master (ldewey@au.westfield.com)
+- Removing nav contextual in production only. (ldewey@au.westfield.com)
+- Fixed product detail map/no map/not in center thing.
+  (ldewey@au.westfield.com)
+- Added "Westfield <centre_name>" to the available at list.
+  (ldewey@au.westfield.com)
+
+* Thu Oct 17 2013 ci <doperations@au.westfield.com> 0.1.155-1
+- Merge pull request #506 from bschwarz/sitemaps (ldewey@au.westfield.com)
+- Ensure that all environments are routed to the correct sitemap file
+  (ben@germanforblack.com)
+
+* Thu Oct 17 2013 ci <doperations@au.westfield.com> 0.1.154-1
+- Merge pull request #504 from bschwarz/sitemaps (ben@germanforblack.com)
+- Make upload success logging for spunk exactly the same
+  (ben@germanforblack.com)
+- Add global proxy (ben@germanforblack.com)
+- Remove proxy (ben@germanforblack.com)
+
+* Thu Oct 17 2013 ci <doperations@au.westfield.com> 0.1.153-1
+- Merge pull request #503 from bschwarz/sitemaps (ldewey@au.westfield.com)
+- Skip the link if we don't have the appropriate data (ben@germanforblack.com)
+
+* Thu Oct 17 2013 ci <doperations@au.westfield.com> 0.1.152-1
+- Swap display order of Bags and Beauty categories (malc.locke@trineo.co.nz)
+
+* Thu Oct 17 2013 ci <doperations@au.westfield.com> 0.1.151-1
+- Merge pull request #483 from mlocke/feature/wsf-4998
+  (ldewey@au.westfield.com)
+- Added ActiveCategoryNavController (ben@germanforblack.com)
+- on locationChangeStart/Success update search results (ben@germanforblack.com)
+- Remove additional newlines (ben@germanforblack.com)
+- Remove additional space (ben@germanforblack.com)
+- Move Products.loading to updateSearch() (ben@germanforblack.com)
+- Fully reset search params when receiving them from document.location
+  (ben@germanforblack.com)
+- Remove conditional block and comments (malc.locke@trineo.co.nz)
+- Add super_cat parameter to T2 category links (malc.locke@trineo.co.nz)
+- Check children of super_cat for active category (malc.locke@trineo.co.nz)
+- Make category section links into regular anchors (malc.locke@trineo.co.nz)
+- Remove temporary styles (malc.locke@trineo.co.nz)
+- Remove unicorn (malc.locke@trineo.co.nz)
+- Add child categories to Shoes. (malc.locke@trineo.co.nz)
+- Add T2 level categories to product browse nav (malc.locke@trineo.co.nz)
+- Render hard coded list of super categories (malc.locke@trineo.co.nz)
+- Return after handle_error (malc.locke@trineo.co.nz)
+- Minimal instructions to run locally with foreman (malc.locke@trineo.co.nz)
+
+* Thu Oct 17 2013 ci <doperations@au.westfield.com> 0.1.150-1
+- Just generate and upload the sitemap, don't ping google and bing
+  (ben@germanforblack.com)
+- Rails logger, not pp (ben@germanforblack.com)
+- Added proxy (ben@germanforblack.com)
+- Replace calls to pp with Rails.logger (ben@germanforblack.com)
+
 * Thu Oct 17 2013 ci <doperations@au.westfield.com> 0.1.149-1
 - Updated search box placeholder text (ldewey@au.westfield.com)
 

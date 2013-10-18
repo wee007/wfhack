@@ -1,0 +1,25 @@
+<li class="drop-down-menu drop-down-container drop-down-container--hover">
+  <%=
+    attrs = {'ng-class' => "{'is-active': (activeNavigationItem == '#{category.code}')}"}
+    if category.has_code?(params[:super_cat])
+      attrs[:class] = 'is-active'
+    end
+    link_to(
+      category.short_name,
+      centre_products_path(:super_cat => category.code),
+      attrs
+    )
+  %>
+  <div class="drop-down-menu__target drop-down box box--drop-down">
+    <ul class="drop-down-menu__list">
+      <%=
+        render(
+          :collection => category.children,
+          :partial => 'categories/category_nav',
+          :as => :category,
+          :locals => {:super_cat => category}
+        )
+      %>
+    </ul>
+  </div>
+</li>

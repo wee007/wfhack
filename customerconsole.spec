@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.157
+Version:     0.1.158
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,29 @@ fi
 
 
 %changelog
+* Fri Oct 18 2013 ci <doperations@au.westfield.com> 0.1.158-1
+- Merge pull request #501 from mwratt/feature/WSF-4966-map-icons
+  (ldewey@au.westfield.com)
+- Merge pull request #497 from acohen/feature/WSF-4921
+  (ldewey@au.westfield.com)
+- Merge pull request #494 from fchan/polish (ldewey@au.westfield.com)
+- Merge pull request #498 from fchan/external (ldewey@au.westfield.com)
+- Merge pull request #499 from fchan/inline-scripts (ldewey@au.westfield.com)
+- adds custom icons to maps (matt.wratt@trineo.co.nz)
+- WSF-4921 add apache rewrite rules (acohen@au.westfield.com)
+- WSF-4921 fix broken specs (acohen@au.westfield.com)
+- WSF-4921 read categories from product service api (acohen@au.westfield.com)
+- map style tweaks and bug fixes (matt.wratt@trineo.co.nz)
+- Remove tabs init file (fiona@fionachan.net)
+- WSF-5651: Move toggle content to be inline (fiona@fionachan.net)
+- WSF-5651: Move tabs to be inline script (fiona@fionachan.net)
+- WSF-5691: Make all external links open in new window/tab
+  (fiona@fionachan.net)
+- Added comment (fiona@fionachan.net)
+- Remove selectivizr completely (fiona@fionachan.net)
+- WSF-5571: Fix price product filter UI breaking (fiona@fionachan.net)
+- WSF-5642 WSF-5687: Remove selectivizr (fiona@fionachan.net)
+
 * Fri Oct 18 2013 ci <doperations@au.westfield.com> 0.1.157-1
 - Merge pull request #509 from bschwarz/disable-sitemap-access
   (ben@germanforblack.com)

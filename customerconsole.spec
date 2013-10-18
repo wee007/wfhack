@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.159
+Version:     0.1.160
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,9 @@ fi
 
 
 %changelog
+* Fri Oct 18 2013 ci <doperations@au.westfield.com> 0.1.160-1
+- WSF-4921 make trailing slashes in urls optional (acohen@au.westfield.com)
+
 * Fri Oct 18 2013 ci <doperations@au.westfield.com> 0.1.159-1
 - 
 

@@ -5,6 +5,7 @@ class map.ResponsiveMap extends map.Micello
     @visible = false
     @state = 'palm'
     $(@initEnquire)
+    @toggleKeyEvents(false)
 
   initEnquire: =>
     enquire.register(@options.breakpoint, {

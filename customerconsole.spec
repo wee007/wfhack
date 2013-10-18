@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.156
+Version:     0.1.157
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,11 @@ fi
 
 
 %changelog
+* Fri Oct 18 2013 ci <doperations@au.westfield.com> 0.1.157-1
+- Merge pull request #509 from bschwarz/disable-sitemap-access
+  (ben@germanforblack.com)
+- Disable sitemap route (ben@germanforblack.com)
+
 * Fri Oct 18 2013 ci <doperations@au.westfield.com> 0.1.156-1
 - Merge pull request #507 from ldewey/master (ldewey@au.westfield.com)
 - Removing nav contextual in production only. (ldewey@au.westfield.com)

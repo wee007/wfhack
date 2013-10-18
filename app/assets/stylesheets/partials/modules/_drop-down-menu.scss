@@ -191,12 +191,7 @@
       }
 
       /* Range text inputs - position them side by side */
-      .txt-input {
-        width: 40%;
-
-        /* Right most text input */
-        &:last-child {float: right;}
-      }
+      .txt-input {width: 40%;}
 
       /* 'To' label (sits in the middle of the text inputs) */
       span {
@@ -212,3 +207,6 @@
         }
       }
     }
+
+      /* `.txt-input` for inputting the end of range value */
+      .drop-down-menu__range__end {float: right;}

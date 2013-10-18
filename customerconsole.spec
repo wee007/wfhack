@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.158
+Version:     0.1.159
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,9 @@ fi
 
 
 %changelog
+* Fri Oct 18 2013 ci <doperations@au.westfield.com> 0.1.159-1
+- 
+
 * Fri Oct 18 2013 ci <doperations@au.westfield.com> 0.1.158-1
 - Merge pull request #501 from mwratt/feature/WSF-4966-map-icons
   (ldewey@au.westfield.com)

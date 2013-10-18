@@ -107,8 +107,7 @@
           <%- @product.images[0...4].each do |img| -%>
             <li><%= fetch_image_tag(img,
               alt: "Photo of #{@product.name}",
-              width: 469,
-              height: 474,
+              width: 74,
               crop: :lpad,
               format: :auto
             ) %></li>

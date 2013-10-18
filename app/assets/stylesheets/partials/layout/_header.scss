@@ -117,13 +117,13 @@ $header-color-link-hover: $color-brand !default;
 			/* Increase logo size and swap out for white version for 'Centre home page hero banner' at this breakpoint */
 			@include respond-min($non-palm) {
 				.header--hero & {
-					background: image-url("logo-white.svg") no-repeat 0 0;
+					background: cloudinary-url("logo-white-beta.svg") no-repeat 0 0;
 					display: inline-block;
 					width: 126px;
 					height: 41px;
 
 					/* No SVG fallback */
-					.no-svg & {background-image: image-url("logo-white.png");}
+					.no-svg & {background-image: cloudinary-url("logo-white-beta.png");}
 				}
 			}
 

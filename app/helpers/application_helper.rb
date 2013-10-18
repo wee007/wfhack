@@ -5,7 +5,7 @@ module ApplicationHelper
   end
 
   def site_logo
-    svg_with_fallback('logo.svg', alt: 'Westfield')
+    svg_with_fallback('logo-beta.svg', alt: 'Westfield')
   end
 
   def svg_with_fallback(image_src, options = {})

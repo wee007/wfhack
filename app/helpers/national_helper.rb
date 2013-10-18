@@ -18,6 +18,13 @@ module NationalHelper
           crop: 'fill',
           effect: 'blur:300',
           format: 'auto'
+        },
+        {
+          width: width,
+          height: height,
+          effect: 'multiply',
+          overlay: 'asset:black-overlay-1805e3ae919b74a1ed2cff673434e6f9',
+          opacity: '60'
         }
       ]
     )

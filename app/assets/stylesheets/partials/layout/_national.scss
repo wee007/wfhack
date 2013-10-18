@@ -301,26 +301,8 @@
         /* First `.national__centre-tile` gets `box-shadow` */
         li:first-child & {box-shadow: inset 0 4px 4px 0 rgba(0,0,0,.4)}
 
-        /* Gradient that sits on top of the centre background image */
-        &:before {
-          content: "";
-          display: block;
-          position: absolute;
-          /* To allow `.container` to stack on top of the gradient */
-          z-index: 1;
-          left: 0;
-          right: 0;
-          top: 0;
-          bottom: 0;
-          @extend %transition-subtle;
-          @include linear-gradient($from: rgba(#000, 0) 0%, $to: rgba(#000, .8) 100%, $dir: left, $dir-webkit: right);
-        }
-
         /* Wrapper around centre's name */
         .container {
-          /* Needs `position: relative` so it will sit above the dark gradient which has `position: absolute` */
-          position: relative;
-          z-index: 2;
           @include to-rem(padding, 30 $spacing-base 30 0);
 
           @include respond-min($non-palm) {

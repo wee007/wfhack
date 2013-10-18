@@ -5,6 +5,10 @@ describe RedirectorController do
   context "GET" do
 
     it 'follows redirects' do
+      category_mappings = redirector_read_csv("spec/fixtures/categories.csv")
+
+      CategoryService.stub(:category_mappings).and_return(category_mappings)
+
       [
        [
         "/au/shopping/womens-fashion-accessories/womens-clothing/womens-dresses",
@@ -66,7 +70,6 @@ describe RedirectorController do
        [
         "/au/shopping/mens-fashion-accessories/mens-accessories/mens-ties?type=m-ties-bowties",
         "http://www.example.com/products?category=mens-accessories"],
-
        [
         "au/shopping/mens-fashion-accessories/mens-accessories/mens-ties?type=m-ties-business-ties",
         "http://www.example.com/products?category=mens-accessories"],

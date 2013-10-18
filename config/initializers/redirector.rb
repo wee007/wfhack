@@ -1,15 +1,13 @@
-  require 'csv'
+require 'csv'
 
-  def redirector_read_csv(filename)
-    categories = {}
+def redirector_read_csv(filename)
+  categories = {}
 
-    CSV.foreach(filename) do |row|
-      categories[row[0].strip] = row[1].strip
-    end
-
-    categories
+  CSV.foreach(filename) do |row|
+    categories[row[0].strip] = row[1].strip
   end
 
-REDIRECTOR_DELETED_CATEGORIES = redirector_read_csv("lib/assets/deleted_categories.csv")
+  categories
+end
 
-REDIRECTOR_CATEGORY_MAPPINGS = redirector_read_csv("lib/assets/categories.csv")
+REDIRECTOR_DELETED_CATEGORIES = redirector_read_csv("lib/assets/deleted_categories.csv")

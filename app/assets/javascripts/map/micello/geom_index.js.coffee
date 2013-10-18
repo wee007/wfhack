@@ -4,6 +4,7 @@ class map.micello.GeomIndex
     @gid = {}
     @address = {}
     @store = {}
+    @icons = []
 
   findById: (id) ->
     @store[id]
@@ -14,10 +15,14 @@ class map.micello.GeomIndex
   findByNumber: (number) ->
     @address[number]
 
+  allIcons: ->
+    @icons
+
   index: (index) ->
     @gid[index.gid] = index if index.gid
     @address[index.number] = index if index.number
     @store[index.id] = index if index.id
+    @icons.push index if index.icon
 
   addStore: (store) ->
     index = @findById(store.id) || @findByNumber(store.shop_number) || {}
@@ -29,6 +34,7 @@ class map.micello.GeomIndex
   addGeom: (geom) ->
     index = @findByGid(geom.id) || {}
     index.gid = geom.id
+    index.icon = geom.lt == 2
     index.geom = geom
     @index(index)
 

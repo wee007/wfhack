@@ -1,73 +1,6 @@
 class map.micello.Map extends map.micello.MapBase
 
   key: '357b70ed-2c4b-418b-ad09-cf83f9bfc7b4'
-  themeFamily: 'Standard'
-  customTheme:
-    s:
-      'Selected':
-        m: '#695648'
-        o: '#695648'
-        t: '#ffffff'
-        w: 1
-      'Unit':
-        m: '#f7f2df'
-        o: '#d8bca9'
-        t: '#695648'
-        w: 1
-      'Background':
-        m: '#ffffff'
-        o: '#dbd9d7'
-        w: 10
-      'Inaccessible Space':
-        m: '#dbd9d7'
-      'Open Obstruction':
-        m: '#f7f5f2'
-      'Level Change':
-        m: '#ffebc2'
-        o: '#ffb870'
-        w: 1
-      'Room':
-        m: '#ffebc2'
-        o: '#ffb870'
-        w: 1
-      'Building':
-        m: '#f7f2df'
-        o: '#d8bca9'
-        t: '#695648'
-        w: 1
-      'Water':
-        m: '#e1f0ff'
-      'Parking Lot':
-        m: '#bfbebd'
-      'Parking Structure':
-        m: '#bfbebd'
-      'Grass':
-        w: 0
-      'Traffic Marker':
-        w: 0
-      'Parking Spot':
-        w: 0
-      'Entrance':
-        m: '#695648'
-      'Wall':
-        o: '#d8bca9'
-        w: 1
-      'Section':
-        m: '#f7f2df'
-        o: '#d8bca9'
-        t: '#695648'
-        w: 1
-      'Service':
-        m: '#f7f2df'
-        o: '#d8bca9'
-        t: '#695648'
-        w: 1
-      'Ramp':
-        m: '#dbd9d7'
-      'Area':
-        m: '#ffebc2'
-        o: '#ffb870'
-        w: 1
 
   # Error events from images don't buddle so we need to explicitly call onerror
   @removeLogo: (img) ->
@@ -151,8 +84,8 @@ class map.micello.Map extends map.micello.MapBase
     gui.ZOOM_POSITION = 'right top'
     gui.ZOOM_DISPLAY = 'v'
     gui.LEVELS_POSITION = 'right top'
-    canvas.setThemeFamily(@themeFamily)
-    canvas.setOverrideTheme(@customTheme)
+    canvas.setThemeFamily(map.micello.customTheme.themeFamily)
+    canvas.setOverrideTheme(map.micello.customTheme.theme)
     canvas.MAP_FONT_MIN = "14px"
     canvas.MAP_FONT_MAX = "14px"
 
@@ -213,11 +146,18 @@ class map.micello.Map extends map.micello.MapBase
 
     @popupContent(data)
 
+  applyCustomIcons: ->
+    for icon in @index.allIcons()
+      geom = icon.geom
+      img = map.micello.customTheme.icons?[geom.lr]
+      @data.addInlay(id: geom.id, lt: 3, lr: img) if img
+
   onMapChanged: (event) =>
     return unless event.comLoad
     @geom = {}
     for level in @data.community.d[0].l
       @index.addGeoms(level.g)
+    @applyCustomIcons()
     @ready()
 
   onClick: (mx, my, event) =>

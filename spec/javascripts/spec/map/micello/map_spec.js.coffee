@@ -57,17 +57,18 @@ describe "map.micello.Map", ->
 
     it 'applies theme overrides', ->
       @subject.applyCustomTheme(@gui, @canvas)
-      expect(@canvas.setOverrideTheme).toHaveBeenCalledWith(@subject.customTheme)
+      expect(@canvas.setOverrideTheme).toHaveBeenCalledWith(map.micello.customTheme.theme)
 
     it 'sets the theme family', ->
       @subject.applyCustomTheme(@gui, @canvas)
-      expect(@canvas.setThemeFamily).toHaveBeenCalledWith('Standard')
+      expect(@canvas.setThemeFamily).toHaveBeenCalledWith(map.micello.customTheme.themeFamily)
 
   describe "#onMapChanged", ->
 
     beforeEach ->
       @subject.data = community: d: 0: l: []
       @subject.ready = sinon.stub()
+      @subject.applyCustomIcons = sinon.stub()
 
     it 'calls ready', ->
       @subject.onMapChanged(comLoad: 1)

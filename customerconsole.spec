@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.160
+Version:     0.1.161
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,10 @@ fi
 
 
 %changelog
+* Fri Oct 18 2013 ci <doperations@au.westfield.com> 0.1.161-1
+- Remove CSS gradient from centre image tile and use cloudinary instead
+  (fiona@fionachan.net)
+
 * Fri Oct 18 2013 ci <doperations@au.westfield.com> 0.1.160-1
 - WSF-4921 make trailing slashes in urls optional (acohen@au.westfield.com)
 

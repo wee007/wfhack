@@ -11,7 +11,7 @@
 */
 
 .hide-visually.skip-link {
-	/* Pseudo classes */
+	/* Active and focus states */
 	&:active,
 	&:focus {
 		position: absolute;

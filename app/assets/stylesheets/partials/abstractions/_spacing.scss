@@ -12,7 +12,5 @@
 
 .spacing {@extend %mrg-base;}
 
-/* --Extenders-- */
-
-/* Double spacing */
+/* Extend: double spacing */
 .spacing--dbl {@include to-rem(margin-bottom, $spacing-dbl);}

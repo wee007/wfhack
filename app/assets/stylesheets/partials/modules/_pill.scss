@@ -4,7 +4,7 @@
 
 /*
   Usage:
-    This is used to create a pill
+    Create a pill like button but not limited to buttons.
 
   Demo:
     Style Guide -> Modules -> Pill
@@ -17,5 +17,5 @@
   box-shadow: $box-shadow;
 }
 
-/* Apply spacing both sides */
+/* Extend: apply spacing both sides */
 .pill--spacing {@include to-rem(margin-left margin-right, $spacing-base);}

@@ -71,7 +71,7 @@
 				top: 28%;
 			}
 
-				/* Pseudo element - remove negative top position */
+				/* Remove negative top position */
 				&:before {position: static;}
 		}
 

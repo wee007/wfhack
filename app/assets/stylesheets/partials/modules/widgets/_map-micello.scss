@@ -43,6 +43,9 @@
       .map-micello__overlay {
         @include to-rem(padding-top, $spacing-half+$spacing-third);
 
+        /* Increase top padding for active store */
+        &.is-active-store {@include to-rem(padding-top, $spacing-half+$spacing-third+$spacing-half);}
+
         /* Make button clickable for static view */
         .map-micello--static & .btn--main {pointer-events: auto;}
       }

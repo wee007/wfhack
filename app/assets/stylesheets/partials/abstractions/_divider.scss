@@ -4,7 +4,7 @@
 
 /*
   Apply a dividing line between two elements.
-	
+
   .divider--lrg         - Larger spacing
   .divider--sml         - Smaller spacing
 
@@ -20,13 +20,7 @@
 /* --Extenders-- */
 
 /* Larger spacing */
-.divider--lrg {
-	@include to-rem(padding-bottom, $spacing-dbl);
-	@include to-rem(margin-bottom, $spacing-dbl);
-}
+.divider--lrg {@include to-rem(padding-bottom margin-bottom, $spacing-dbl);}
 
 /* Smaller spacing */
-.divider--sml {
-	@include to-rem(padding-bottom, $spacing-half);
-	@include to-rem(margin-bottom, $spacing-half);
-}
+.divider--sml {@include to-rem(padding-bottom margin-bottom, $spacing-half);}

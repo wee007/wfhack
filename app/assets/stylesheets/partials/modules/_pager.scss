@@ -15,7 +15,7 @@
   @include to-rem(padding-top, $spacing-half);
   color: $color-light-txt;
 
-  /* Prev/next */
+  /* Prev and next */
   .btn.btn--main {
     position: absolute;
     top: 0;
@@ -30,7 +30,7 @@
     .icon:before {@include font-size(22, 1);}
 }
 
-/* Pin board extender */
+/* Extend: pin board version */
 .pager--pin-board {
   @include to-rem(margin-top, $spacing-base);
   /* Need a negative bottom margin to offset the bottom padding on the `body` to keep the spacing consistent with the top spacing */

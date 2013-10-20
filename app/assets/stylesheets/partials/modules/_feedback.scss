@@ -14,15 +14,15 @@
 	@include to-em(padding, $spacing-quarter $spacing-half);
 	border: 1px solid;
 	box-shadow: inset 0 1px 0 rgba(#fff, 0.25),
-				0 1px 2px rgba(#000, 0.3);
+							0 1px 2px rgba(#000, 0.3);
 
 	/* Links */
 	a {
-		text-decoration: underline; /* Note: this may be redundant? */
+		text-decoration: underline;
 
-		/* Pseudo classes */
+		/* Hover and focus states */
 		&:hover,
-		&:focus {text-decoration: none;} /* Note: this may be redundant? */
+		&:focus {text-decoration: none;}
 	}
 }
 
@@ -31,7 +31,7 @@
 	@extend %mrg-base;
 	@include to-em(padding-top padding-bottom, $spacing-half);
 
-	/* Shared */
+	/* Shared rules */
 	.hn,
 	p,
 	.list {margin-bottom: 0;}

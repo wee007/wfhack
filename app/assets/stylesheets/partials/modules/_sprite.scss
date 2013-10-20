@@ -2,10 +2,10 @@
    @MODULES -> SPRITE
    ====================================================================================== */
 
-/* 
-	Usage: 
-		Applies a background image and nothing else, usually from a sprite. 
-		
+/*
+	Usage:
+		Applies a background image and nothing else, usually from a sprite.
+
 	Demo:
 		Style Guide -> Modules -> Sprite
 */
@@ -16,8 +16,8 @@
 	@extend %sprite-icon;
 	/* Typical size of a background image */
 	width: 16px;
-    height: 16px;
-	
+  height: 16px;
+
 	/* Print */
 	@media print {
 		display: none;

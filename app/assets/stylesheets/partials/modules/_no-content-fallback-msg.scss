@@ -56,7 +56,5 @@
     p > span {color: $color-dark-txt;}
 }
 
-/* --Extenders-- */
-
-/* Remove top padding */
+/* Extend: remove top padding */
 .no-content-fallback-msg--flush {padding-top: 0;}

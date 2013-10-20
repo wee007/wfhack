@@ -15,7 +15,6 @@
   Styleguide Horizontal List
 */
 
-
 .horiz-list {
 
 	/* List items */
@@ -31,7 +30,7 @@
 
 /* With dividers */
 .horiz-list--dividers > li {
-	border-left: 1px solid $color-grey-light;
+	border-left: 1px solid $color-grey-3;
 	padding-left: to-em($spacing-half);
 	margin-left: to-em($spacing-half);
 
@@ -46,7 +45,7 @@
 /* Center align */
 .horiz-list--center {text-align: center;}
 
-/* Fit (force the items to occupy 100% of the available width of its parent) */
+/* Fit - force the items to occupy 100% of the available width of its parent */
 .horiz-list--fit {
 	display: table;
 	width: 100%;
@@ -59,13 +58,12 @@
 		> a {display: block;}
 	}
 
-	/* When combined with the `.horiz-list--dividers` extender */
+	/* When combined with the `.horiz-list--dividers` and `.horiz-list--center` extenders */
 	&.horiz-list--dividers > li {
 		margin-left: 0;
 		padding-right: to-em($spacing-half);
 	}
 
-	/* Center align */
 	&.horiz-list--center > li {padding: 0;}
 }
 
@@ -73,16 +71,13 @@
 .horiz-list--comma,
 .horiz-list--slash {
 
+	/* List items */
 	> li {
 
-		/* List items + links */
-		&,
-		> a {display: inline-block;} /* Note: if the breakpoint above isn't used then this can be removed. */
-
-		/* Pseudo element */
+		/* Add spacing */
 		&:after {margin-right: to-em($spacing-quarter);}
 
-		/* Remove pseudo element on last child */
+		/* Remove for last child */
 		&:last-child:after {display: none;}
 	}
 }

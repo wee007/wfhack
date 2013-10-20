@@ -1,17 +1,17 @@
 /* ======================================================================================
    @LAYOUT -> GRID -> PUSH
-   ====================================================================================== */ 
+   ====================================================================================== */
 
 /*
-	Usage: 
+	Usage:
 		Push classes, to move grid items over to the left by certain amounts.
-		
-	Credit: 
+
+	Credit:
 		https://github.com/csswizardry/csswizardry-grids/blob/master/csswizardry-grids.scss
 */
-	
+
 @mixin push-classes($namespace: "") {
-	
+
 	/* Whole */
 	.push-#{$namespace}one-whole {left: $one-whole;}
 
@@ -75,59 +75,59 @@
 }
 
 @if $grid-push == true {
-	
+
 	/* Not a particularly great selector, but the DRYest way to do things */
 	[class*="push-"] {position: relative;}
 
 	/* Output all the pull classes */
-	
-	/* 
+
+	/*
 		Note: these may not be required esp. if the width classes are only being used for the grid.
 	*/
-	
+
 	@include push-classes();
-	
+
 	/* --Output all the pull classes under specific breakpoints applied via specific classes (namespaced) e.g. `.push-lap-one-half` (all pre-defined breakpoints)-- */
-	
-	/* 
+
+	/*
 		Note: be sure to comment out what you don't use as a lot of CSS is generated from all of this.
 	*/
-	
+
 	/* Non-palm */
 	@include respond-min($non-palm) {
 		@include push-classes("non-palm-");
 	}
-	
+
 	/* Lap */
 	@include respond-range-fixed(lap) {
 		@include push-classes("lap-");
 	}
-	
+
 	/* Lap small */
 	@include respond-range-fixed(lap-sml) {
 		@include push-classes("lap-sml-");
 	}
-	
+
 	/* Lap large */
 	@include respond-range-fixed(lap-lrg) {
 		@include push-classes("lap-lrg-");
 	}
-	
+
 	/* Portable */
 	@include respond-max($lap-end) {
 		@include push-classes("portable-");
 	}
-	
+
 	/* Desk */
 	@include respond-min($desk) {
 		@include push-classes("desk-");
 	}
-	
+
 	/* Desk small */
 	@include respond-range-fixed(desk-sml) {
 		@include push-classes("desk-sml-");
 	}
-	
+
 	/* Desk large */
 	@include respond-min($desk-lrg) {
 		@include push-classes("desk-lrg-");

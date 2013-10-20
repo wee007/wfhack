@@ -4,11 +4,7 @@
 
 /*
 	Usage:
-		Fluid and nestable grid system.
-
-	Note:
-		-	Grid is built 'mobile first'.
-		-	Grid does not work in IE 7 as it does not support: `box-sizing: border-box;`, if you need to support IE 7 then use `margin` instead of `padding` for the grid gutters and use `:first-child` to remove the `margin` from the first grid cell child instead of the negative left margin on `.grid`.
+		Fluid and nestable mobile first grid system.
 
 	Demo:
 		Style Guide -> Grid
@@ -168,16 +164,4 @@
 			float: none;
 		}
 	}
-}
-
-/* Lists */
-.grid--list {
-	/* This is for applying bottom spacing which you may or may not need? */
-	@include to-rem(margin-bottom, -$grid-gutter);
-
-	/* This is for applying bottom spacing between the `li`s which you may or may not need? */
-	.grid__item {@include to-rem(margin-bottom, $grid-gutter);}
-
-	/* If all the `li`s aren't the same height when the grid is used on lists then we have to clear the 1st `li` in the row by using this class, not the most attractive way to handle it but it will have to do for now */
-	.grid__item--clear {clear: left;}
 }

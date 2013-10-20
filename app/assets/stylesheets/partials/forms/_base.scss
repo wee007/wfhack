@@ -17,7 +17,7 @@ textarea,
 	background: #fff;
 	@include prefix(transition, border 0.2s linear);
 
-	/* Focus pseudo class */
+	/* Focus state */
 	&:focus {
 		outline: none;
 		border-color: darken($color-grey-1, 12%);

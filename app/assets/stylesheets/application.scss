@@ -84,8 +84,6 @@ Global stylesheet
 /* Layout */
 @import "partials/layout/containers";
 @import "partials/layout/header";
-@import "partials/layout/main";
-@import "partials/layout/footer";
 @import "partials/layout/national";
 @import "partials/layout/redirection";
 
@@ -97,18 +95,10 @@ Global stylesheet
 
 /* Abstractions */
 @import "partials/abstractions/horizontal-list";
-@import "partials/abstractions/definition-list";
-@import "partials/abstractions/block-list";
-@import "partials/abstractions/complex-link";
-@import "partials/abstractions/split";
-@import "partials/abstractions/frame";
 @import "partials/abstractions/island";
 @import "partials/abstractions/slats";
-@import "partials/abstractions/columns";
-@import "partials/abstractions/arrows";
 @import "partials/abstractions/divider";
 @import "partials/abstractions/vertical-alignment";
-@import "partials/abstractions/preserve-aspect-ratio";
 @import "partials/abstractions/drop-down";
 @import "partials/abstractions/toggle-visibility";
 @import "partials/abstractions/box";
@@ -116,15 +106,20 @@ Global stylesheet
 @import "partials/abstractions/angular-cloak";
 @import "partials/abstractions/flag";
 @import "partials/abstractions/spacing";
+//@import "partials/abstractions/definition-list";
+//@import "partials/abstractions/block-list";
+//@import "partials/abstractions/complex-link";
+//@import "partials/abstractions/split";
+//@import "partials/abstractions/frame";
+//@import "partials/abstractions/preserve-aspect-ratio";
+//@import "partials/abstractions/columns";
+//@import "partials/abstractions/arrows";
 
 /* Modules */
 @import "partials/modules/feedback";
-@import "partials/modules/microformat(hCard)";
-@import "partials/modules/sprite";
 @import "partials/modules/icon";
 @import "partials/modules/preloader";
 @import "partials/modules/pager";
-@import "partials/modules/thumbnail-grid";
 @import "partials/modules/tile";
 @import "partials/modules/detail-view";
 @import "partials/modules/social-share";
@@ -151,30 +146,30 @@ Global stylesheet
 @import "partials/modules/promo-tile";
 @import "partials/modules/no-content-fallback-msg";
 @import "partials/modules/img-rotate";
+//@import "partials/modules/sprite";
 
   /* Modules -> Widgets */
-  @import "partials/modules/widgets/accordion";
   @import "partials/modules/widgets/flexslider";
-  @import "partials/modules/widgets/adaptive-google-map";
   @import "partials/modules/widgets/map-micello";
-  @import "partials/modules/widgets/modal";
-  @import "partials/modules/widgets/social-media-share";
   @import "partials/modules/widgets/tabs";
-  @import "partials/modules/widgets/tooltip";
+  //@import "partials/modules/widgets/accordion";
+  //@import "partials/modules/widgets/adaptive-google-map";
+  //@import "partials/modules/widgets/modal";
+  //@import "partials/modules/widgets/social-media-share";
+  //@import "partials/modules/widgets/tooltip";
 
 /* This must come after all the modules and widgets so the txt-formatted styles will always be applied */
 @import "partials/modules/txt-formatted";
 
 /* Forms */
 @import "partials/forms/base";
-@import "partials/forms/layout";
-@import "partials/forms/validation";
+//@import "partials/forms/layout";
+//@import "partials/forms/validation";
 
 /* Buttons */
 @import "partials/buttons/base";
 @import "partials/buttons/main";
 @import "partials/buttons/menu";
-@import "partials/buttons/close";
 @import "partials/buttons/faux-link";
 @import "partials/buttons/expand-collapse";
 
@@ -183,9 +178,9 @@ Global stylesheet
 @import "partials/helpers/spacing";
 @import "partials/helpers/display";
 @import "partials/helpers/text";
-@import "partials/helpers/float";
-@import "partials/helpers/pull";
-@import "partials/helpers/vertical-alignments";
+//@import "partials/helpers/float";
+//@import "partials/helpers/pull";
+//@import "partials/helpers/vertical-alignments";
 
 /* Print */
 @import "partials/print/print";

@@ -3,15 +3,9 @@
    ====================================================================================== */
 
 /*
-	Usage: 
-		Embedding all or whatever is required of the Social Media share buttons.
-	
-	Note: 
-		Eventually they'll be 3 versions of this widget: 
-		-	'Full API' (done).
-		-	'Medium' (http://filamentgroup.com/lab/socialcount/).
-		-	'Light'.
-	
+	Usage:
+		Embedding all or whatever is required of the 3rd party social media share buttons.
+
 	Demo:
 		Style Guide -> Modules -> Widgets -> Social Media Share
 */
@@ -31,12 +25,12 @@
 /* Break the buttons onto 2 lines */
 .social-share-full__spacer--middle {
 	display: block;
-	
+
 	/* Bring buttons back onto 1 line at this breakpoint */
 	@include respond-min(420) {
 		display: inline-block;
 	}
 }
-	
+
 /* Facebook */
 .fb-like {vertical-align: top;}

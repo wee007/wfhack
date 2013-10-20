@@ -12,7 +12,7 @@
 
 .hero {
   @include to-rem(height, 220);
-  @include to-rem(margin-bottom, $spacing-half);
+  @include to-rem(margin-bottom, $spacing-base);
   color: #fff;
   background-repeat: no-repeat;
   background-position: 100% 0;

@@ -34,7 +34,7 @@
 			background-color: $color-med-txt;
 		}
 
-		/* Pseudo elements - top/bottom lines */
+		/* Top and bottom lines */
 		&:before,
 		&:after {
 			content: "";

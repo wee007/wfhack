@@ -17,7 +17,7 @@
 .btn--faux-link {
 	color: $color-link;
 
-	/* Pseudo classes */
+	/* Hover and focus states */
 	&:hover,
 	&:focus {color: $color-link-hover;}
 }

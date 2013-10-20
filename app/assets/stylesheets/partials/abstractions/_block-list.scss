@@ -4,26 +4,26 @@
 
 /*
   Create big blocky lists of content.
-  
+
   Styleguide Block List
 */
 
 /* Shared */
 .block-list {
   &,
-  > li {border: 0 solid $color-grey-lighter;}
+  > li {border: 0 solid $color-grey-1;}
 }
 
 .block-list {
   border-top-width: 1px;
-  
+
   /* List items */
   > li {
     border-bottom-width: 1px;
     padding: to-em($spacing-half);
   }
 }
-  
+
   /* Links */
   .block-list__link {
     display: block;

@@ -13,7 +13,7 @@
 /* Tab nav */
 .tab__nav {
 
-	/* JS off */
+	/* Non JS users */
 	.no-js & {display: none;}
 
 	/* Print */
@@ -29,7 +29,7 @@
 	/* Active tab */
 	&.is-active {display: block;}
 
-	/* JS off */
+	/* Non JS users */
 	.no-js & {
 		display: block;
 		@extend %mrg-base;
@@ -46,7 +46,7 @@
 	.tab__content__hdr {
 		display: none;
 
-		/* JS off */
+		/* Non JS users */
 		.no-js & {display: block;}
 
 		/* Print */

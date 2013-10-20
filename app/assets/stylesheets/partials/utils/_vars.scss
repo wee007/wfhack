@@ -222,7 +222,7 @@ $color-link-hover: #52a7e0 !default;
 
 $color-link-visited: lighten($color-link-hover, 15%) !default;
 
-/* Greys */
+/* --Greys-- */
 /*
 	Note: not the best names but best we can do for now.
 */
@@ -231,30 +231,6 @@ $color-grey-1: #cdcdcd !default;
 $color-grey-2: #dfdfdf !default;
 
 $color-grey-3: #e8e8e8 !default;
-
-/* --Greyscale-- */
-/*
-	Note: need to sunset these vars but cannot do until we remove all modules/abstractions that use them.
-*/
-$color-grey: lighten(#000, 50%) !default;
-
-	/* Light */
-	$color-grey-light: lighten(#000, 75%) !default;
-
-	/* Lighter */
-	$color-grey-lighter: lighten(#000, 83%) !default;
-
-	/* Lightest */
-	$color-grey-lightest: lighten(#000, 89%) !default;
-
-	/* Off white */
-	//$color-off-white: lighten(#000, 95%) !default;
-
-	/* Dark */
-	$color-grey-dark: lighten(#000, 30%) !default;
-
-	/* Darker */
-	$color-grey-darker: lighten(#000, 15%) !default;
 
 /* --Feedback-- */
 

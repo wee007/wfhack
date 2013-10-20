@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.161
+Version:     0.1.162
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,12 @@ fi
 
 
 %changelog
+* Mon Oct 21 2013 ci <doperations@au.westfield.com> 0.1.162-1
+- Bringing back CSS that is needed for Opening Hours page
+  (CPearce@au.westfield.com)
+- Framework audit and CSS authoring clean ups - WSF-5797
+  (CPearce@au.westfield.com)
+
 * Fri Oct 18 2013 ci <doperations@au.westfield.com> 0.1.161-1
 - Remove CSS gradient from centre image tile and use cloudinary instead
   (fiona@fionachan.net)

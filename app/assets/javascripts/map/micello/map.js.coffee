@@ -145,12 +145,17 @@ class map.micello.Map extends map.micello.MapBase
         )
       @data.addInlay(id: geom.id, lt: 3, lr: '')
 
+  applyWestfieldStoreNames: ->
+    for store in _(@index.store).toArray()
+      store.geom.nm = store.geom.lr = store.store.name
+
   onMapChanged: (event) =>
     return unless event.comLoad
     @geom = {}
     for level in @data.community.d[0].l
       @index.addGeoms(level.g)
     @applyCustomIcons()
+    @applyWestfieldStoreNames()
     @ready()
 
   onClick: (mx, my, event) =>

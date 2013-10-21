@@ -106,8 +106,9 @@
         <ul class="slides">
           <%- @product.images[0...4].each do |img| -%>
             <li><%= fetch_image_tag(img,
-              alt: "Photo of #{@product.name}",
+              alt: "Thumbnail photo of #{@product.name}",
               width: 74,
+              height: 75,
               crop: :lpad,
               format: :auto
             ) %></li>

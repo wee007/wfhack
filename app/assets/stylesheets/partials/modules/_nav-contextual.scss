@@ -21,7 +21,7 @@
 
 /* Shared rules */
 .nav-contextual__clip__overlay:before,
-.nav-contextual__list a {color: $color-light-txt;}
+.nav-contextual__list > li > a {color: $color-light-txt;}
 
   /* Clip scrollable content */
   .nav-contextual__clip {
@@ -86,7 +86,7 @@
         &:first-child {margin-left: 0;}
 
         /* Links */
-        a {
+        > a {
           @include to-rem(padding-top padding-bottom, $spacing-half);
           border-bottom: 2px solid transparent;
 
@@ -95,6 +95,7 @@
             @include to-rem(padding-top padding-bottom, $spacing-base);
           }
 
+          /* Hover and focus states */
           &:hover,
           &:focus {color: $color-link-hover;}
 
@@ -104,8 +105,8 @@
 
         /* Highlight parent item (`li`) for when hover drop downs are in view and apply link hover/focus/active states */
         &:hover > a,
-        a:hover,
-        a:focus {color: $color-link-hover;}
+        > a:hover,
+        > a:focus {color: $color-link-hover;}
       }
     }
 
@@ -115,9 +116,9 @@
   /* Highlight parent item (`li`) for when hover drop downs are in view and apply link hover/focus/active states */
   .nav-contextual__list > li  {
     &:hover > a,
-    a:hover,
-    a:focus,
-    .is-active {color: #fff;}
+    > a:hover,
+    > a:focus,
+    > .is-active {color: #fff;}
   }
 
   /* Gradient that fades out the right side of the links and the scrolling indicator */

@@ -14,6 +14,8 @@
 */
 
 .tile {
+  /* Avoid `article` (which the class is applied to) getting `display: inline` on browsers that don't understand HTML5 */
+  display: block;
   position: relative;
   color: $color-base-txt;
   @include font-size($font-size-sml, 1.5);

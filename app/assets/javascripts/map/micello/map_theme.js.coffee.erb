@@ -4,6 +4,7 @@ map.micello.customTheme =
     # png fallback without svg support
     do ->
       if Modernizr.svg
+        offset: ox: 25, oy: 25
         'ATM': '<%= asset_path('micello-map-icons/atm.svg') %>'
         'Bathroom': '<%= image_path 'micello-map-icons/restroom.svg' %>'
         'Bathroom M': '<%= image_path 'micello-map-icons/restroom.svg' %>'
@@ -11,12 +12,14 @@ map.micello.customTheme =
         'Bus': '<%= image_path 'micello-map-icons/bus.svg' %>'
         'Disabled Access': '<%= image_path 'micello-map-icons/accessible.svg' %>'
         'Elevator': '<%= image_path 'micello-map-icons/lifts.svg' %>'
+        'Entrance': '<%= image_path 'micello-map-icons/entrance_exit.svg' %>'
         'Escalator': '<%= image_path 'micello-map-icons/escalator.svg' %>'
         'Information': '<%= image_path 'micello-map-icons/concierge_desk.svg' %>'
         'Stairs': '<%= image_path 'micello-map-icons/stairs.svg' %>'
         'Taxi': '<%= image_path 'micello-map-icons/taxi.svg' %>'
         'Telephone': '<%= image_path 'micello-map-icons/telephones.svg' %>'
       else
+        offset: ox: 15, oy: 15
         'ATM': '<%= asset_path('micello-map-icons/png/atm.png') %>'
         'Bathroom': '<%= image_path 'micello-map-icons/png/restroom.png' %>'
         'Bathroom M': '<%= image_path 'micello-map-icons/png/restroom.png' %>'
@@ -24,6 +27,7 @@ map.micello.customTheme =
         'Bus': '<%= image_path 'micello-map-icons/png/bus.png' %>'
         'Disabled Access': '<%= image_path 'micello-map-icons/png/accessible.png' %>'
         'Elevator': '<%= image_path 'micello-map-icons/png/lifts.png' %>'
+        'Entrance': '<%= image_path 'micello-map-icons/png/entrance_exit.png' %>'
         'Escalator': '<%= image_path 'micello-map-icons/png/escalator.png' %>'
         'Information': '<%= image_path 'micello-map-icons/png/concierge_desk.png' %>'
         'Stairs': '<%= image_path 'micello-map-icons/png/stairs.png' %>'
@@ -77,8 +81,7 @@ map.micello.customTheme =
     'Parking Spot':
       w: 0
     'Entrance':
-      m: '#695648'
-      t: '#fefefe'
+      w: 0
     'Wall':
       o: '#d8bca9'
       w: 1

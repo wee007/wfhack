@@ -14,8 +14,6 @@
 */
 
 .tile {
-  /* Avoid `article` (which the class is applied to) getting `display: inline` on browsers that don't understand HTML5 */
-  display: block;
   position: relative;
   color: $color-base-txt;
   @include font-size($font-size-sml, 1.5);
@@ -27,8 +25,13 @@
   .pin-board & {
     @include to-rem(margin-bottom, $grid-gutter-half);
 
-    /* Turf off for the last tile */
+    /* Turn off for the last tile */
     &:last-child {margin-bottom: 0;}
+
+    /* Old IE - avoid `article` getting `display: inline` when the pin board is constructed with JS as the HTML5 shiv doesn't work in this case */
+    @include old-ie {
+     display: block;
+    }
   }
 
   /* Global styles */

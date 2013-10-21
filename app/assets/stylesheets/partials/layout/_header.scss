@@ -744,12 +744,18 @@ $header-color-link-hover: $color-brand !default;
 			/* Drop down arrow pointer */
 			.header &:before {
 				display: none;
+				top: -10px;
 				color: $color-dark-txt;
-				text-shadow: none;
+				text-shadow: 0 -1px $color-med-txt;
 
 				/* Show at this breakpoints */
 				@include respond-min($ipad-landscape) {
 					display: block;
+				}
+
+				/* IE 10 */
+				@include ie-10-up {
+					top: -9px;
 				}
 
 				/* Non JS users */

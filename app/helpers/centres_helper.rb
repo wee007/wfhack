@@ -59,7 +59,8 @@ module CentresHelper
           height: height,
           effect: 'multiply',
           overlay: 'asset:black-overlay-1805e3ae919b74a1ed2cff673434e6f9',
-          opacity: '50'
+          opacity: '50',
+          fetch_format: 'auto'
         }
       ]
     )

@@ -117,13 +117,13 @@ $header-color-link-hover: $color-brand !default;
 			/* Increase logo size and swap out for white version for 'Centre home page hero banner' at this breakpoint */
 			@include respond-min($non-palm) {
 				.header--hero & {
-					background: image-url("logo-white.svg") no-repeat 0 0;
+					background: cloudinary-url("logo-white-beta.svg") no-repeat 0 0;
 					display: inline-block;
 					width: 126px;
 					height: 41px;
 
 					/* No SVG fallback */
-					.no-svg & {background-image: image-url("logo-white.png");}
+					.no-svg & {background-image: cloudinary-url("logo-white-beta.png");}
 				}
 			}
 
@@ -1321,14 +1321,10 @@ $header-color-link-hover: $color-brand !default;
 			@include to-rem(padding, 4 10 4 26);
 			position: relative;
 
-			/* Decrease left padding at this breakpoint range */
-			@include respond-range($ipad-portrait, 839) {
-				@include to-rem(padding-left, 24);
-			}
-
-			/* Increase top/bottom padding at this breakpoint */
+			/* Change padding at this breakpoint */
 			@include respond-min($non-palm) {
 				@include to-rem(padding-top padding-bottom, 9);
+				@include to-rem(padding-left, 38);
 			}
 
 			/* Centre home page hero banner */
@@ -1341,9 +1337,10 @@ $header-color-link-hover: $color-brand !default;
 					@include to-rem(top, 6);
 					@include font-size(18, 1);
 
-					/* Increase top positioning at this breakpoint */
+					/* Change positioning at this breakpoint */
 					@include respond-min($non-palm) {
 						@include to-rem(top, 11);
+						@include to-rem(left, $spacing-half+$spacing-quarter);
 
 						/* IE 10 fixes */
 						@include ie-10-up {
@@ -1407,6 +1404,7 @@ $header-color-link-hover: $color-brand !default;
 										0 1px 3px rgba(#000, 0.5);
 				max-height: 300px;
 		    overflow-y: auto;
+		    border-radius: 0 0 $border-radius $border-radius;
 
 		    /* iOS/Android */
 	      .ios &,
@@ -1417,33 +1415,59 @@ $header-color-link-hover: $color-brand !default;
 
 	      /* Centre home page hero banner */
 				.header--hero & {
-					box-shadow: none;
+					box-shadow: 0 2px 2px rgba(#000, 0.3);
 					border: 1px solid $header-color-grey;
 					border-top: 0;
 				}
 			}
 
-				/* Header */
-				.search-results__hdr {
-					@include to-rem(margin-bottom, $spacing-half);
-					font-family: $font-family-opensans;
-    			color: $color-light-txt;
-    			@include font-size(13, 1.5);
-
-					/* Increase font size at this breakpoint */
-					@include respond-min($non-palm) {
-						@include font-size(15, 1.5);
-			  	}
-				}
-
 				/* List */
 				.search-results__list {
-					@include to-rem(padding-bottom, $spacing-base);
+					@include to-rem(padding-bottom, $spacing-half);
 
-					li {
-						@include to-rem(margin-bottom, $spacing-quarter);
+					/* List headers */
+					dt {
+						font-weight: normal;
+						border-top: 1px solid $color-grey-2;
+						@include to-rem(padding-left padding-right, 8.5);
+						@include to-rem(padding-top margin-top, $spacing-half);
 
-						&:last-child {margin-bottom: 0;}
+						/* Turn off top spacing for first header */
+						&:first-child {margin-top: 0;}
+
+						/* Increase left/right padding at this breakpoint */
+						@include respond-min($non-palm) {
+							@include to-rem(padding-left padding-right, 16.5);
+						}
+
+						/* Icon */
+						.icon:before {
+							@include to-rem(margin-right, 3);
+
+							/* Increase right spacing at this breakpoint */
+							@include respond-min($non-palm) {
+								@include to-rem(margin-right, 4.5);
+							}
+						}
+					}
+
+					/* List items */
+					dd {
+						@include to-rem(margin-top, 3);
+						@include to-rem(padding-left padding-right, 32);
+
+						/* Android at this breakpoint */
+						@include respond-max($palm) {
+							.android & {@include to-rem(padding-left padding-right, 33);}
+						}
+
+						/* Increase left/right padding at this breakpoint */
+						@include respond-min($non-palm) {
+							@include to-rem(padding-left padding-right, 43);
+
+							/* iOS */
+							.ios & {@include to-rem(padding-left padding-right, 41);}
+						}
 
 						/* Links */
 						a {
@@ -1451,18 +1475,12 @@ $header-color-link-hover: $color-brand !default;
 							color: $color-link;
 
 							/* Pseudo focus */
-							&.is-active {outline: 1px dotted $color-link;}
+							&.is-focused {outline: 1px dotted $color-link;}
 
 							/* Hover and focus states */
 							&:hover,
 							&:focus {color: $color-link-hover;}
 						}
-
-							/* Highlight keyword */
-							mark {
-								background-color: $color-link;
-								color: #fff;
-							}
 					}
 				}
 

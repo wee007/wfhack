@@ -17,7 +17,7 @@ module NationalHelper
           height: height,
           crop: 'fill',
           effect: 'blur:300',
-          format: 'auto'
+          fetch_format: 'auto'
         },
         {
           width: width,

@@ -5,7 +5,7 @@
     $scope.suggestionsVisible = false
 
     highlightedItem = -1
-    highlightedClass = 'is-active'
+    highlightedClass = 'is-focused'
     $suggestionsList = angular.element('.search-results__list')
 
     # When there are search results, collect them as suggestions & display

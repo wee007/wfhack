@@ -2,7 +2,7 @@
   <li class="storefront__flexslider-blurb">
     <div class="vert-align">
       <div class="vert-align__inner">
-        <p><%= @store.description[0..300] %></p>
+        <p><%=raw @store.description.truncate(300, '&#8230;') %></p>
       </div>
     </div>
   </li>

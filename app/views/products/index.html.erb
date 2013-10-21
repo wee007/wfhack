@@ -300,11 +300,17 @@
                 </div>
 
                 <div class="drop-down-menu__range islet">
-                  <label class="hide-visually" for="price-range-start">Price range start</label>
-                  <input ng-model="search.price.values.range_start" ng-change="rangeFilter('price')" id="price-range-start" class="txt-input">
-                  <span>to</span>
-                  <label class="hide-visually" for="price-range-end">Price range end</label>
-                  <input ng-model="search.price.values.range_end" ng-change="rangeFilter('price')" id="price-range-end" class="txt-input drop-down-menu__range__end">
+                  <div class="drop-down-menu__range__input">
+                    <label class="hide-visually" for="price-range-start">Price range start</label>
+                    <span>$</span>
+                    <input ng-model="search.price.values.range_start" ng-change="rangeFilter('price')" id="price-range-start" class="txt-input" type="number">
+                  </div>
+                  <em class="drop-down-menu__range__lbl">to</em>
+                  <div class="drop-down-menu__range__input drop-down-menu__range__input--last">
+                    <label class="hide-visually" for="price-range-end">Price range end</label>
+                    <span>$</span>
+                    <input ng-model="search.price.values.range_end" ng-change="rangeFilter('price')" id="price-range-end" class="txt-input" type="number">
+                  </div>
                 </div>
 
                 <button toggle-visibility="filters" ng-click="updateSearch()" class="btn btn--main drop-down-menu__apply">Apply</button>
@@ -354,7 +360,7 @@
       <h3 class="hide-visually">Applied Filters</h3>
       <ul class="horiz-list">
         <li ng-repeat="filter in search.appliedFilters">
-          <button ng-click="removeSelectedFilter( filter.type, filter.value )" class="btn"><span class="txt-truncate">"{{ filter.title }}"</span><span class="icon icon--close-sml icon--lrg icon--flush-top" aria-hidden="true"></span></button>
+          <button ng-click="removeSelectedFilter( filter.type, filter.value )" class="btn"><span class="txt-truncate">{{ filter.title }}</span><span class="icon icon--close-sml icon--lrg icon--flush-top" aria-hidden="true"></span></button>
         </li>
         <li>
           <button ng-click="clearFilters()" class="btn btn--faux-link">Clear all</button>

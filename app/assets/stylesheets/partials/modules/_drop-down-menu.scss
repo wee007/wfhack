@@ -189,12 +189,32 @@
       @include old-ie {
         width: 100%;
       }
+    }
 
-      /* Range text inputs - position them side by side */
-      .txt-input {width: 40%;}
+      /* Range inputs - position them side by side */
+      .drop-down-menu__range__input {
+        width: 40%;
+        float: left;
+        position: relative;
 
-      /* 'To' label (sits in the middle of the text inputs) */
-      span {
+        /* '$' sign */
+        span {
+          position: absolute;
+          /* These rules are matching some of the rules of base text inputs mainly `padding` to keep spacing consistent */
+          @include to-rem(left, $spacing-half);
+          @include to-rem(top, $spacing-third + 1);
+          line-height: normal;
+        }
+
+        /* Text input */
+        .txt-input {@include to-rem(padding-left, $spacing-half+$spacing-third);}
+      }
+
+      /* Last range input */
+      .drop-down-menu__range__input--last {float: right;}
+
+      /* 'To' label - sits in the middle of the range inputs */
+      .drop-down-menu__range__lbl {
         position: absolute;
         top: 50%;
         left: 50%;
@@ -206,7 +226,3 @@
           @include to-rem(margin-left, -5);
         }
       }
-    }
-
-      /* `.txt-input` for inputting the end of range value */
-      .drop-down-menu__range__end {float: right;}

@@ -147,10 +147,20 @@ class map.micello.Map extends map.micello.MapBase
     @popupContent(data)
 
   applyCustomIcons: ->
-    for icon in @index.allIcons()
-      geom = icon.geom
+    for geom in  _.pluck(@index.allByType('Entrance').concat(@index.allIcons()), 'geom')
+      geom.lr ||= 'Entrance' if geom.t == 'Entrance'
       img = map.micello.customTheme.icons?[geom.lr]
-      @data.addInlay(id: geom.id, lt: 3, lr: img) if img
+      if img
+        @data.addMarkerOverlay(
+          id: geom.id
+          anm: 'entrance'
+          mr:
+            src: img
+            ox: map.micello.customTheme.icons?.offset.ox
+            oy: map.micello.customTheme.icons?.offset.oy
+          mt: micello.maps.markertype.IMAGE
+        )
+      @data.addInlay(id: geom.id, lt: 3, lr: '')
 
   onMapChanged: (event) =>
     return unless event.comLoad

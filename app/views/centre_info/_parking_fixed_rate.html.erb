@@ -1,9 +1,11 @@
-<div class="grid grid--gutter-dbl">
-  <div class="grid__item non-palm-one-half">
-    <p>Fixed Parking rate of $<%= @parking.flat_rate %> per day</p>
+<div class="spacing spacing--dbl">
+  <div class="grid grid--gutter-dbl">
+    <div class="grid__item non-palm-one-half">
+      <p>Fixed Parking rate of $<%= @parking.flat_rate %> per day</p>
 
-    <%= render partial: 'parking_terms_and_conditions', locals: {align: 'left'} %>
+      <%= render partial: 'parking_terms_and_conditions', locals: {align: 'left'} if @parking.terms_conditions? %>
+    </div>
+
+    <%= render partial: "parking_info" if @parking.info? %>
   </div>
-
-  <%= render partial: "parking_info" %>
 </div>

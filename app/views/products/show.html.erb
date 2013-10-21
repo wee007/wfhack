@@ -4,7 +4,7 @@
   <% end %>
 <% end %>
 
-<div class="detail-view__divider--col grid grid--gutterless grid--rev-stack grid--rev grid--flush">
+<div class="detail-view__divider--non-palm detail-view__divider--col grid grid--gutterless grid--rev-stack grid--rev grid--flush">
 
   <%# Product name, brand, price, location and contact %>
   <div class="grid__item non-palm-two-fifths">
@@ -129,7 +129,7 @@
 
   <%# Available Colours %>
   <%- if @product.available_colours.present? -%>
-  <div class="detail-view__divider--top-non-palm grid__item non-palm-two-fifths">
+  <div class="grid__item non-palm-two-fifths">
     <div class="island island--flush-btm-palm">
       <h2 class="detail-view__hdr-sub hn">Available Colours</h2>
       <ul class="horiz-list horiz-list--comma"><!--
@@ -144,16 +144,18 @@
 
   <%# Description %>
   <%- if @product.available_colours.present? -%>
-  <div class="detail-view__desc detail-view__divider--top-non-palm grid__item non-palm-three-fifths">
+  <div class="detail-view__desc grid__item non-palm-three-fifths">
   <% else %>
-  <div class="detail-view__desc detail-view__divider--top-non-palm grid__item non-palm-one-whole">
+  <div class="detail-view__desc grid__item non-palm-one-whole">
   <%- end -%>
-    <div class="island">
-      <h2 class="detail-view__hdr-sub hn">Description</h2>
-      <div class="txt-formatted txt-formatted--user-generated">
-        <%= raw(@product.detailed_description || @product.short_description) %>
+    <%- if @product.detailed_description.present? || @product.short_description.present? %>
+      <div class="island">
+        <h2 class="detail-view__hdr-sub hn">Description</h2>
+        <div class="txt-formatted txt-formatted--user-generated">
+          <%= raw(@product.detailed_description || @product.short_description) %>
+        </div>
       </div>
-    </div>
+    <%- end -%>
   </div>
   <%# //Description %>
 

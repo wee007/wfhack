@@ -17,24 +17,26 @@
               <p><%= text %></p>
             <% end %>
 
-            <h4 class="txt-formatted__unbold hide-fully--palm flush--btm">Contact Concierge Desk</h4>
+            <% if @concierge.phone_no.present? %>
+              <h4 class="txt-formatted__unbold hide-fully--palm flush--btm">Contact Concierge Desk</h4>
 
-            <%# Show concierge number if at non-palm size %>
-            <div class="hide-fully--palm txt-xlrg">
-              <span class="icon icon--phone2 icon--mega icon--spacing-lrg" aria-hidden="true"></span>
-              <span class="hide-visually">Phone number</span>
-              <%= @concierge.phone_no %>
-            </div>
-            <%# //Show centre number if at non-palm size %>
+              <%# Show concierge number if at non-palm size %>
+              <div class="hide-fully--palm txt-xlrg">
+                <span class="icon icon--phone2 icon--mega icon--spacing-lrg" aria-hidden="true"></span>
+                <span class="hide-visually">Phone number</span>
+                <%= @concierge.phone_no %>
+              </div>
+              <%# //Show centre number if at non-palm size %>
 
-            <%# Show CTA button for concierge contact number for palm %>
-            <span class="hide-fully--non-palm">
-              <%= phone_link @concierge.phone_no, class: 'btn btn--full btn--main btn--main-alt2 btn--main-lrg' do |phone_number| %>
-                <span class="icon icon--phone icon--xlrg icon--spacing-lrg icon--flush-top" aria-hidden="true"></span>
-                <strong>Call Concierge Desk</strong>
-              <% end %>
-            </span>
-            <%# //Show CTA button for centre contact number for palm %>
+              <%# Show CTA button for concierge contact number for palm %>
+              <span class="hide-fully--non-palm">
+                <%= phone_link @concierge.phone_no, class: 'btn btn--full btn--main btn--main-alt2 btn--main-lrg' do |phone_number| %>
+                  <span class="icon icon--phone icon--xlrg icon--spacing-lrg icon--flush-top" aria-hidden="true"></span>
+                  <strong>Call Concierge Desk</strong>
+                <% end %>
+              </span>
+              <%# //Show CTA button for centre contact number for palm %>
+            <% end %>
           </div>
 
           <div class="grid__item non-palm-one-half">

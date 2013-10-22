@@ -20,6 +20,9 @@
   /* Apply bottom spacing */
   .map-micello__mrg-base {@include to-rem(margin-bottom, $spacing-half);}
 
+  /* Alternative bottom spacing for active store */
+  .is-active-store .map-micello__mrg-base {@include to-rem(margin-bottom, $spacing-half - 5);}
+
   /* Turn off text selection styles */
   * {@include prefix(user-select, none);}
 }
@@ -42,9 +45,6 @@
 
       .map-micello__overlay {
         @include to-rem(padding-top, $spacing-half+$spacing-third);
-
-        /* Increase top padding for active store */
-        &.is-active-store {@include to-rem(padding-top, $spacing-half+$spacing-third+$spacing-half);}
 
         /* Make button clickable for static view */
         .map-micello--static & .btn--main {pointer-events: auto;}

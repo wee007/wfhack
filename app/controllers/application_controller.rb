@@ -1,5 +1,12 @@
 class ApplicationController < ActionController::Base
 
+  unless Rails.env.development?
+    rescue_from Service::API::Errors::Error do |e|
+      SplunkLogger::Logger.error "ServiceError", "service", e.service, "code", e.code, "method", e.method, "url", e.url
+      respond_to_error code
+    end
+  end
+
   # Blanket site wide cache of one hour.
   before_action do
     expires_in 1.hour, public: true unless Rails.env.development? || Rails.env.test?
@@ -15,13 +22,17 @@ class ApplicationController < ActionController::Base
 
   def handle_error(null_object=nil)
     null_object ||= NullObject.new
-    file_name = "#{Rails.root}/public/#{null_object.status}.html"
+    respond_to_error null_object.status
+  end
+
+  def respond_to_error(status)
+    file_name = "#{Rails.root}/public/#{status}.html"
     error_file = File.exist?(file_name) ? file_name : "#{Rails.root}/public/503.html"
     respond_to do |format|
-      format.html { render :file => error_file, :layout => false, :status => null_object.status }
-      format.xml  { head null_object.status }
-      format.json { head null_object.status }
-      format.any  { head null_object.status }
+      format.html { render :file => error_file, :layout => false, :status => status }
+      format.xml  { head status }
+      format.json { head status }
+      format.any  { head status }
     end
   end
 

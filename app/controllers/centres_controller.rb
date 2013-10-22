@@ -24,7 +24,6 @@ class CentresController < ApplicationController
 
   def show
     stream
-    handle_error(@centre) if @centre.is_a?(NullCentre)
 
     meta.push(
       page_title: @centre.name,

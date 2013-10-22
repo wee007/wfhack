@@ -44,7 +44,7 @@
           <div class="flag__body">
             <select class="one-whole" ng-controller="CentreSelectorController" ng-model="selectedCentre" ng-change="selectCentre()" ng-init="selectedCentre='<%= @centre.code %>'" id="show-products-deals-events">
               <option value="<%= @centre.code %>"><%= @centre.short_name %></option>
-              <option value="<%= ([@centre] + @nearby_centres).map{|c| c.code}.join(',') %>"><%= @centre.short_name %> &amp; nearby centres</option>
+              <option value="<%= ([@centre] + [@nearby_centres].flatten).map{|c| c.code}.join(',') %>"><%= @centre.short_name %> &amp; nearby centres</option>
               <option value="all">All Centres</option>
             </select>
           </div>

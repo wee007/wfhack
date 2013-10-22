@@ -2,7 +2,7 @@ class map.micello.Map extends map.micello.MapBase
 
   key: '357b70ed-2c4b-418b-ad09-cf83f9bfc7b4'
 
-  # Error events from images don't buddle so we need to explicitly call onerror
+  # Error events from images don't bubble so we need to explicitly call onerror
   @removeLogo: (img) ->
     $el = $(img)
     $el.parents('.js-toggle-store-logo').addClass('is-no-store-logo')
@@ -150,8 +150,8 @@ class map.micello.Map extends map.micello.MapBase
       store.geom.nm = store.geom.lr = store.store.name
 
   onMapChanged: (event) =>
-    return unless event.comLoad
-    @geom = {}
+    return if !event.comLoad || @geomsLoaded
+    @geomsLoaded = true
     for level in @data.community.d[0].l
       @index.addGeoms(level.g)
     @applyCustomIcons()

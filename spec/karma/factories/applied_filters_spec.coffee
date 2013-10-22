@@ -45,7 +45,7 @@ describe 'Factory format filters: AppliedFilters',  ->
     expect(AppliedFilters.format(testObject)).toEqual([
       {
         type: 'search_query'
-        title: 'hard drive'
+        title: '"hard drive"'
         value: 'hard drive'
       },
       {

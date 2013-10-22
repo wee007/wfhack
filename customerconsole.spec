@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.170
+Version:     0.1.171
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,12 @@ fi
 
 
 %changelog
+* Tue Oct 22 2013 ci <doperations@au.westfield.com> 0.1.171-1
+- Merge pull request #523 from ldewey/better_errors (ewee@au.westfield.com)
+- Fixed tests (ldewey@au.westfield.com)
+- Removed all null object stuff (ldewey@au.westfield.com)
+- Added better errors (ldewey@au.westfield.com)
+
 * Tue Oct 22 2013 ci <doperations@au.westfield.com> 0.1.170-1
 - Merge pull request #513 from jfantham/feature/WSF-4816
   (ldewey@au.westfield.com)

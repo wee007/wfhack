@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.165
+Version:     0.1.164
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,40 @@ fi
 
 
 %changelog
+* Tue Oct 22 2013 Peter McInerney <pmcinerney@au.westfield.com> 0.1.164-1
+- bump version as jenkins is being silly right now
+  (pmcinerney@au.westfield.com)
+- Merge pull request #519 from fchan/polish (ldewey@au.westfield.com)
+- Add tabs and toggle js to application.rb (fiona@fionachan.net)
+- Merge pull request #508 from fchan/boc-audit (ldewey@au.westfield.com)
+- Merge pull request #514 from mwratt/feature/WSF-4966-map-icons
+  (ldewey@au.westfield.com)
+- Merge pull request #515 from fchan/polish-2 (ldewey@au.westfield.com)
+- Merge pull request #505 from cpearce/UI-polish (ldewey@au.westfield.com)
+- Fixes after PR feedback (fiona@fionachan.net)
+- WSF-5693: Add height to carousel thumbnail (fiona@fionachan.net)
+- WSF-5684: Fix pinboard background colour disappearing (fiona@fionachan.net)
+- adds map icon pngs to cloudinary (matt.wratt@trineo.co.nz)
+- adds entrance icons and fixes icon offsets (matt.wratt@trineo.co.nz)
+- WSF-5721: Added check for product description (fiona@fionachan.net)
+- WSF-5632: Added checks for whether data is present (fiona@fionachan.net)
+- Compressing SVGs - WSF-5637 (CPearce@au.westfield.com)
+- Swap out Westfield logo with new beta logo - WSF-5637
+  (CPearce@au.westfield.com)
+- Converting all applicable image to WebP - WSF-5729 (CPearce@au.westfield.com)
+- Add 'alt' attr to map popup logos - WSF-5782 (CPearce@au.westfield.com)
+- Fix for category nav to always overlap filters drop downs - WSF-5806
+  (CPearce@au.westfield.com)
+- Bug fix for section nav wrapping onto 2 lines - WSF-5809
+  (CPearce@au.westfield.com)
+- Change 'background-position' for storefront banner - WSF-5786
+  (CPearce@au.westfield.com)
+- Update html 'lang' attr to be 'en-au' - WSF-5711 (CPearce@au.westfield.com)
+- Improve search results UI - WSF-5740 (CPearce@au.westfield.com)
+- WSF-5693: Fix product detail carousel thumbnails dimension
+  (fiona@fionachan.net)
+- WSF-5374: Fix up alt attr for deal and product tiles (fiona@fionachan.net)
+
 * Mon Oct 21 2013 ci <doperations@au.westfield.com> 0.1.163-1
 - WSF-4921 use x-forwarded-host for redirection (acohen@au.westfield.com)
 

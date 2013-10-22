@@ -97,7 +97,6 @@ class ProductsController < ApplicationController
 
   def redirection
     @product = ProductService.build(ProductService.fetch params.dup.merge({action: 'show'}))
-    handle_error(@product) if @product.is_a? NullObject
 
     cam_ref = @product.retail_chain.cam_ref
     ad_ref = @product.categories[0].super_category.code

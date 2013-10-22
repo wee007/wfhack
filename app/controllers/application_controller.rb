@@ -16,15 +16,6 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  def render_404
-    handle_error(NullObject.new :status => 404)
-  end
-
-  def handle_error(null_object=nil)
-    null_object ||= NullObject.new
-    respond_to_error null_object.status
-  end
-
   def respond_to_error(status)
     file_name = "#{Rails.root}/public/#{status}.html"
     error_file = File.exist?(file_name) ? file_name : "#{Rails.root}/public/503.html"

@@ -16,10 +16,6 @@ class ProductService
 
   private
 
-    def null_product(json)
-      NullProduct.new(status: json.status, body: json.body, url: json.env[:url])
-    end
-
     def request_uri(options)
       options.delete :controller
       action = options.delete :action

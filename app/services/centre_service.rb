@@ -3,7 +3,6 @@ class CentreService
     include ApiClientRequests
 
     def build(json)
-      return null_centre(json) if json.respond_to?(:status) && !json.status.between?(200,299)
       body = json.respond_to?(:body) ? json.body : json
       Centre.build(body)
     end
@@ -23,10 +22,5 @@ class CentreService
       uri
     end
 
-  private
-
-    def null_centre(json)
-      NullCentre.new(status: json.status, body: json.body, url: json.env[:url])
-    end
   end
 end

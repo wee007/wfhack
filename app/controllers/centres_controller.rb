@@ -33,11 +33,7 @@ class CentresController < ApplicationController
 
   def product_stream
     stream 'product'
-    if @centre.is_a?(NullCentre)
-      handle_error(@centre)
-    else
-      render :show
-    end
+    render :show
   end
 
 private

@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.169
+Version:     0.1.170
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,14 @@ fi
 
 
 %changelog
+* Tue Oct 22 2013 ci <doperations@au.westfield.com> 0.1.170-1
+- Merge pull request #513 from jfantham/feature/WSF-4816
+  (ldewey@au.westfield.com)
+- WSF-4816 adjustments after review (j.fantham@gmail.com)
+- WSF-4816 made the url handling better for canned searches
+  (j.fantham@gmail.com)
+- WSF-4816 Added canned search (j.fantham@gmail.com)
+
 * Tue Oct 22 2013 ci <doperations@au.westfield.com> 0.1.169-1
 - 
 

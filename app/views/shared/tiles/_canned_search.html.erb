@@ -1,9 +1,11 @@
 <div class="tile__image">
-  <%= fetch_image_tag result.image,
-    alt: result.name,
+  <%= cl_image_tag(result.image_ref, 
+    alt: "Photo of #{result.name}",
     width: 288,
-    crop: :limit
-  %>
+    crop: 'limit', 
+    quality: 25, 
+    format: 'jpg', 
+    fetch_format: 'auto') %>
 </div>
 <div class="tile__meta">
   <span class="tile__meta__icon">
@@ -11,8 +13,8 @@
   </span>
   <div class="tile__meta__inner">
     <h3 class="tile__meta__hdr txt-truncate"><%= result.name %></h3>
-    <p class="tile__meta__desc txt-truncate">
+    <time datetime="<%= result.start_date '%F' %>">
       <%= result.start_date "%-d %b %Y" %>
-    </p>
+    </time>
   </div>
 </div>

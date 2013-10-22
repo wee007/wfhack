@@ -16,9 +16,8 @@ class CentreHoursController < ApplicationController
     @stores_with_hours, @store, @store_trading_hours = nil
     if stores
       @stores_with_hours = stores.select { |store| store.has_opening_hours }
-
       store_id = params[:store_id].present? ? params[:store_id].to_i : @stores_with_hours.first.try(:id)
-      @store = @stores_with_hours.select { |store| store.retailer_id.eql?(store_id) }.first
+      @store = StoreService.find(store_id)
       @store_trading_hours = StoreTradingHourService.find(store_id).try(:in_groups_of, 7)
     end
 

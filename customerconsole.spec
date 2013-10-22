@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.168
+Version:     0.1.169
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,9 @@ fi
 
 
 %changelog
+* Tue Oct 22 2013 ci <doperations@au.westfield.com> 0.1.169-1
+- 
+
 * Tue Oct 22 2013 ci <doperations@au.westfield.com> 0.1.168-1
 - Merge pull request #517 from mwratt/feature/geom_id_maps
   (ldewey@au.westfield.com)

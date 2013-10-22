@@ -1,8 +1,8 @@
 GIT
   remote: git@github.dbg.westfield.com:digital/service_api.git
-  revision: 3c3db85cc661011975e9ce44dd443613651092f1
+  revision: f93a758bebbfb4bed41d679b7dec04d8dd2ec5a9
   specs:
-    service_api (0.0.5)
+    service_api (0.0.6)
       faraday
       faraday-http-cache (~> 0.2)
       faraday_middleware
@@ -171,7 +171,7 @@ GEM
     newrelic_rpm (3.6.8.164)
     nokogiri (1.6.0)
       mini_portile (~> 0.5.0)
-    oj (2.1.6)
+    oj (2.1.7)
     poltergeist (1.4.1)
       capybara (~> 2.1.0)
       cliver (~> 0.2.1)

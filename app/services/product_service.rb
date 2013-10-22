@@ -3,7 +3,6 @@ class ProductService
   class << self
     include ApiClientRequests
     def build(json)
-      return null_product(json) if json.respond_to?(:status) && !json.status.between?(200,299)
       results = json.respond_to?(:body) ? json.body : json
       if results.kind_of?(Array)
         results.collect { |result| Product.new result }
@@ -16,10 +15,6 @@ class ProductService
     end
 
   private
-
-    def null_product(json)
-      NullProduct.new(status: json.status, body: json.body, url: json.env[:url])
-    end
 
     def request_uri(options)
       options.delete :controller

@@ -25,27 +25,6 @@ html {
 body {
 	background-color: $color-grey-3;
 	@include to-rem(padding-bottom, $spacing-base);
-
-	/* Change bg color to white and turn off bottom padding for detail views at this breakpoint */
-	@include respond-max($palm) {
-		&.page-detail-view {
-			background-color: #fff;
-			padding-bottom: 0;
-		}
-	}
-
-	/* Turn off bottom padding for 'Stores' and 'National homepage' */
-	&.stores,
-	&.national {padding-bottom: 0;}
-
-	/* Change background color for 'National landing page' */
-	&.national {background-color: $color-dark-txt;}
-
-	/* Change background color to white and increase top padding for 'Redirection' */
-	&.redirection {
-		@include to-rem(padding-top, 80);
-	  background-color: #fff;
-	}
 }
 
 /* Set `font-family` and `color` */

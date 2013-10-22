@@ -10,6 +10,15 @@
     Style Guide -> Modules -> Detail View
 */
 
+/* Styles for `body` element at this breakpoint */
+@include respond-max($palm) {
+  .page-detail-view {
+    background-color: #fff;
+    padding-bottom: 0;
+  }
+}
+
+/* Start module */
 .detail-view {
   @include font-size($font-size-sml);
 

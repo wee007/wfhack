@@ -2,8 +2,11 @@
    @LAYOUT -> NATIONAL HOMEPAGE
    ====================================================================================== */
 
-/* Class added to `body` */
+/* Styles for `body` element */
 .national {
+  padding-bottom: 0;
+  background-color: $color-dark-txt;
+
   /* Remove cursor and border on `abbr` when it's in an anchor */
   a abbr {
     cursor: pointer;

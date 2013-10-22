@@ -91,7 +91,7 @@
       &.stores-maps__inner--detail {position: static;}
     }
 
-    /* Make height shrink to fit content */
+    /* Enable click events on map canvas that sits behind this */
     @include respond-min($ipad-landscape) {
       &.stores-maps__inner--detail {
         pointer-events: none;
@@ -117,7 +117,10 @@
     }
 
     /* Non JS users */
-    .no-js & {position: static;}
+    .no-js & {
+      position: static;
+      width: auto;
+    }
   }
 
     /* Filters / toggle */

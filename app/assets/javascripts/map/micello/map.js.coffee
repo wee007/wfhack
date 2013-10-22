@@ -147,7 +147,7 @@ class map.micello.Map extends map.micello.MapBase
 
   applyWestfieldStoreNames: ->
     for store in _(@index.store).toArray()
-      store.geom.nm = store.geom.lr = store.store.name
+      store.geom.nm = store.geom.lr = store.store.name if store.geom
 
   onMapChanged: (event) =>
     return if !event.comLoad || @geomsLoaded

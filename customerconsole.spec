@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.172
+Version:     0.1.173
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,11 @@ fi
 
 
 %changelog
+* Wed Oct 23 2013 ci <doperations@au.westfield.com> 0.1.173-1
+- Merge pull request #528 from mwratt/feature/geom_id_maps
+  (ldewey@au.westfield.com)
+- stops bug caused by stores without a location (matt.wratt@trineo.co.nz)
+
 * Wed Oct 23 2013 ci <doperations@au.westfield.com> 0.1.172-1
 - fixes issue where duplicate geoms are added (matt.wratt@trineo.co.nz)
 

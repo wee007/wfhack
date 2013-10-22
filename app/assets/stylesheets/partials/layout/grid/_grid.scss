@@ -114,17 +114,10 @@
 /* Apply bottom margins at non-palm */
 @include respond-min($non-palm) {
 	/* Base bottom margin */
-	.grid--mrg-base-non-palm {
-		> .grid__item {
-			@include to-rem(margin-bottom, $grid-gutter);
-
-			/* Turn off for last child */
-			&:last-child {@include to-rem(margin-bottom, 0);}
-		}
-	}
+	.grid--mrg-base-non-palm > .grid__item {@include to-rem(margin-bottom, $grid-gutter);}
 }
 
-/* Apply bottom margins at lap-sml */
+/* Apply bottom margins at lap-sml between the grid elements for linearised version */
 @include respond-range-fixed(lap-sml) {
   /* Base bottom margin */
   .grid--mrg-base-lap-sml {

@@ -43,6 +43,3 @@
 
 /* Small margin bottom */
 .box--mrg-half {@include to-rem(margin-bottom, $spacing-half);}
-
-/* Position relative  */
-.box--position {position: relative;}

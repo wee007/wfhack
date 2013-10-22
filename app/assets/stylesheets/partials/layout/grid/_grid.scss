@@ -29,14 +29,6 @@
 		/* Need to offset bottom margin to keep spacing consistent */
 		@include to-rem(margin-bottom, -$grid-gutter);
 	}
-
-	/* Non-linear (always cols) version at this breakpoint*/
-	@include respond-min($non-palm) {
-		&.grid--non-linear-non-palm {
-			/* Need to offset bottom margin to keep spacing consistent */
-			@include to-rem(margin-bottom, -$grid-gutter);
-		}
-	}
 }
 
 	/* Grid item */
@@ -130,6 +122,19 @@
 			&:last-child {@include to-rem(margin-bottom, 0);}
 		}
 	}
+}
+
+/* Apply bottom margins at lap-sml */
+@include respond-range-fixed(lap-sml) {
+  /* Base bottom margin */
+  .grid--mrg-base-lap-sml {
+    > .grid__item {
+      @include to-rem(margin-bottom, $grid-gutter);
+
+      /* Turn off for last child */
+      &:last-child {margin-bottom: 0;}
+    }
+  }
 }
 
 /* Center align */

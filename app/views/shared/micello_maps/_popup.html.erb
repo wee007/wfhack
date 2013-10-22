@@ -2,8 +2,10 @@
   <div class="map-micello__overlay__retailer map-micello__mrg-base">
     <%% if(obj.logo) { %>
       <div class="map-micello__overlay__retailer__img">
-        <%% map.micello.Map.logoOptions.alt = name + ' logo' %>
-        <%%= $.cloudinary.fetch_image(logo, map.micello.Map.logoOptions)[0].outerHTML %>
+        <%%=
+          map.micello.Map.logoOptions.alt = name + ' logo',
+          $.cloudinary.fetch_image(logo, map.micello.Map.logoOptions).attr('onerror', 'map.micello.Map.removeLogo(this)')[0].outerHTML
+        %>
       </div>
     <%% } %>
     <div class="map-micello__overlay__retailer__body">

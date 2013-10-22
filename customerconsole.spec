@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.171
+Version:     0.1.172
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,9 @@ fi
 
 
 %changelog
+* Wed Oct 23 2013 ci <doperations@au.westfield.com> 0.1.172-1
+- fixes issue where duplicate geoms are added (matt.wratt@trineo.co.nz)
+
 * Tue Oct 22 2013 ci <doperations@au.westfield.com> 0.1.171-1
 - Merge pull request #523 from ldewey/better_errors (ewee@au.westfield.com)
 - Fixed tests (ldewey@au.westfield.com)

@@ -59,7 +59,7 @@ class Store < Hashie::Mash
       name: name,
       url: url,
       storefront_path: Rails.application.routes.url_helpers.centre_store_path(centre_id, retailer_code, id),
-      shop_number: shop_number,
+      micello_geom_id: micello_geom_id,
       closing_time_24: closing_time,
       closing_time_12: closing_time_12
     }

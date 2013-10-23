@@ -1,12 +1,11 @@
 module EventsHelper
   def display_event_date(event)
-    content_tag(:time, :datetime => "#{event.date('%F')}T#{event.start('%H:%M')}") do
-      if event.occurrences.present?
-        "Multiple dates"
+    content_tag(:time, :datetime => event.date(:raw)) do
+      if event.occurrences.length > 1
+        "#{event.date(:short_date)} - #{event.end_date(:short_date)}"
       else
-        "#{event.date('%-d %b %Y')}, #{event.start("%I:%M %p")}"
+        event.date(:full_date)
       end
     end
   end
-
 end

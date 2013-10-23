@@ -37,8 +37,7 @@ class MoviesController < ApplicationController
     movie_sessions = MovieSessionService.build movie_sessions
     @movies_sessions_by_date = movie_sessions.inject({}) do |acc, session|
       start_date = Date.parse(session.start_time)
-      acc[start_date] = [] unless acc.has_key? start_date
-      acc[start_date] << session
+      (acc[start_date] ||= []) << session
       acc
     end
 

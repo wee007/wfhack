@@ -41,5 +41,5 @@
   }
 }
 
-/* Box with small margin bottom */
+/* Small margin bottom */
 .box--mrg-half {@include to-rem(margin-bottom, $spacing-half);}

@@ -72,4 +72,12 @@ module ApplicationHelper
     string.split("\n").reject{|l| l.blank? }
   end
 
+  def format_day(date, index=0, length=0)
+    date.to_date.strftime("%A")[index,length]
+  end
+
+  def today?(date)
+    date == Time.now.strftime("%Y-%m-%d")
+  end
+
 end

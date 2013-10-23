@@ -43,10 +43,15 @@
       "name":"A canned search",
       "centre_id":"bondijunction",
       "url":"/a/dummy/url/and/an/edit",
-      "image_ref":"tplfezzit1ybkp10tddp",
+      "image_ref":"s1fs0bzaoe0a5esbf8am",
       "start_date":"2013-09-29",
       "end_date":"2013-09-30",
-      "type":"canned_search"
+      "type":"canned_search",
+      "_links": {
+        "self": {"href":"/a/dummy/url/and/an/edit"},
+        "centre":{"href":"http://centre-service.development.dbg.westfield.com/api/centre/master/centres/bondijunction.json"},
+        "image":{"href":"http://res.cloudinary.com/wlabs/image/upload/s1fs0bzaoe0a5esbf8am.jpg"}
+      }
     },
     {
       "name":"Elegant Diamante Iphone 4",

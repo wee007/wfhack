@@ -18,7 +18,7 @@ describe StreamService do
   end
 
   it "should be able to load an example feed" do
-    built.length.should == 3 # exclude canned search for now
+    built.length.should == 4
   end
 
   it "should exclude unregognised tiles" do
@@ -39,7 +39,6 @@ describe StreamService do
   end
 
   it "should be able to load a canned search" do
-    pending "Canned Search not ready for deployment just yet"
     built.select{|c| c.is_a?(CannedSearch) }.length.should == 1
   end
 

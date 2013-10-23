@@ -3,7 +3,8 @@ class StreamService
   TYPE_CLASSES = {
     "product" => Product,
     "event" => Event,
-    "deal" => Deal
+    "deal" => Deal,
+    "canned_search" => CannedSearch
   }
 
   class << self
@@ -14,9 +15,7 @@ class StreamService
       body = response.is_a?(Faraday::Response) ? response.body : response
       stream = body.is_a?(Hash) ? body['stream'] : []
       stream.map do |result|
-        if TYPE_CLASSES.keys.include? result["type"]
-          TYPE_CLASSES[result["type"]].new result
-        end
+        TYPE_CLASSES[result["type"]].new(result) if TYPE_CLASSES.keys.include?(result["type"])
       end.flatten.compact
     end
 

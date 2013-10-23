@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.167
+Version:     0.1.174
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,50 @@ fi
 
 
 %changelog
+* Wed Oct 23 2013 ci <doperations@au.westfield.com> 0.1.174-1
+- Merge pull request #521 from ewee/hours (ldewey@au.westfield.com)
+- Fix up the front end of hours and move JS to inline (fiona@fionachan.net)
+- Refactor find a store with given store id (ewee@au.westfield.com)
+- Integrated hours with dynamic values (ewee@au.westfield.com)
+- Fix cloudinary and remove redundant css (fiona@fionachan.net)
+- Refactor hours page layout after updates from other pages
+  (fiona@fionachan.net)
+- Fix PR after feedback (fiona@fionachan.net)
+- Update dropdown to use native dropdown (fiona@fionachan.net)
+- Updates to opening hours page (fiona@fionachan.net)
+
+* Wed Oct 23 2013 ci <doperations@au.westfield.com> 0.1.173-1
+- Merge pull request #528 from mwratt/feature/geom_id_maps
+  (ldewey@au.westfield.com)
+- stops bug caused by stores without a location (matt.wratt@trineo.co.nz)
+
+* Wed Oct 23 2013 ci <doperations@au.westfield.com> 0.1.172-1
+- fixes issue where duplicate geoms are added (matt.wratt@trineo.co.nz)
+
+* Tue Oct 22 2013 ci <doperations@au.westfield.com> 0.1.171-1
+- Merge pull request #523 from ldewey/better_errors (ewee@au.westfield.com)
+- Fixed tests (ldewey@au.westfield.com)
+- Removed all null object stuff (ldewey@au.westfield.com)
+- Added better errors (ldewey@au.westfield.com)
+
+* Tue Oct 22 2013 ci <doperations@au.westfield.com> 0.1.170-1
+- Merge pull request #513 from jfantham/feature/WSF-4816
+  (ldewey@au.westfield.com)
+- WSF-4816 adjustments after review (j.fantham@gmail.com)
+- WSF-4816 made the url handling better for canned searches
+  (j.fantham@gmail.com)
+- WSF-4816 Added canned search (j.fantham@gmail.com)
+
+* Tue Oct 22 2013 ci <doperations@au.westfield.com> 0.1.169-1
+- 
+
+* Tue Oct 22 2013 ci <doperations@au.westfield.com> 0.1.168-1
+- Merge pull request #517 from mwratt/feature/geom_id_maps
+  (ldewey@au.westfield.com)
+- Updated concierge image (fiona@fionachan.net)
+- sets store names based on westfield data (matt.wratt@trineo.co.nz)
+- use geom id for location stores not shop number (matt.wratt@trineo.co.nz)
+
 * Tue Oct 22 2013 ci <doperations@au.westfield.com> 0.1.167-1
 - Fixing broken path for centre home page beta logo (CPearce@au.westfield.com)
 

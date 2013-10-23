@@ -9,19 +9,23 @@ label {cursor: pointer;}
 .txt-input,
 textarea,
 .no-touch select {
-	width: 100%;
-  @include to-rem(padding, $spacing-third $spacing-half);
   color: $color-base-txt;
   border-radius: $border-radius;
   border: 1px solid $color-grey-1;
-	background: #fff;
-	@include prefix(transition, border 0.2s linear);
+  background: #fff;
+  @include prefix(transition, border 0.2s linear);
 
-	/* Focus state */
-	&:focus {
-		outline: none;
-		border-color: darken($color-grey-1, 12%);
-	}
+  /* Focus state */
+  &:focus {
+    outline: none;
+    border-color: darken($color-grey-1, 12%);
+  }
+}
+
+.txt-input,
+textarea {
+  width: 100%;
+  @include to-rem(padding, $spacing-third $spacing-half);
 }
 
 /* Textarea */
@@ -37,10 +41,7 @@ input[type="search"] {
 }
 
 /* Select list */
-.no-touch select {
-	width: auto;
-	@include to-rem(padding, $spacing-third);
-}
+.no-touch select {@include to-rem(padding, $spacing-third);}
 
 /* Alternate sizes */
 .txt-input--sml {@include to-rem(width, 80);}

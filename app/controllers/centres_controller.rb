@@ -24,7 +24,6 @@ class CentresController < ApplicationController
 
   def show
     stream
-    handle_error(@centre) if @centre.is_a?(NullCentre)
 
     meta.push(
       page_title: @centre.name,
@@ -34,11 +33,7 @@ class CentresController < ApplicationController
 
   def product_stream
     stream 'product'
-    if @centre.is_a?(NullCentre)
-      handle_error(@centre)
-    else
-      render :show
-    end
+    render :show
   end
 
 private

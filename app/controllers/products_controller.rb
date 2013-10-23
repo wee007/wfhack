@@ -38,11 +38,6 @@ class ProductsController < ApplicationController
     brands = @search.facets.detect{|f| f.field == "brand" }
     @brands = brands ? brands['values'] : []
 
-    # FIXME - Raise an Exception?
-    if @search.is_a? NullObject
-      handle_error(@search) and return
-    end
-
     @pagination = {
       page: (params[:page] || 1).to_i,
       page_count: (@search['count'].to_f / @search['rows'].to_f).ceil
@@ -74,7 +69,6 @@ class ProductsController < ApplicationController
     end
 
     @product = ProductService.build product
-    handle_error(@product) if @product.is_a? NullObject
 
     if params[:centre_id]
       stores = StoreService.build(stores)
@@ -104,7 +98,6 @@ class ProductsController < ApplicationController
 
   def redirection
     @product = ProductService.build(ProductService.fetch params.dup.merge({action: 'show'}))
-    handle_error(@product) if @product.is_a? NullObject
 
     cam_ref = @product.retail_chain.cam_ref
     ad_ref = @product.categories[0].super_category.code

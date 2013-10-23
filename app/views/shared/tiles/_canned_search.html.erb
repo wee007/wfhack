@@ -1,0 +1,20 @@
+<div class="tile__image">
+  <%= cl_image_tag(result.image_ref, 
+    alt: "Photo of #{result.name}",
+    width: 288,
+    crop: 'limit', 
+    quality: 25, 
+    format: 'jpg', 
+    fetch_format: 'auto') %>
+</div>
+<div class="tile__meta">
+  <span class="tile__meta__icon">
+    <span class="icon icon--<%= result.icon %>" aria-hidden="true"></span>
+  </span>
+  <div class="tile__meta__inner">
+    <h3 class="tile__meta__hdr txt-truncate"><%= result.name %></h3>
+    <time datetime="<%= result.start_date '%F' %>">
+      <%= result.start_date "%-d %b %Y" %>
+    </time>
+  </div>
+</div>

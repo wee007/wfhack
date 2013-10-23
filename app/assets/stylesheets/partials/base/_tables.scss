@@ -34,14 +34,8 @@ table {
 
 	/* Caption */
 	caption {
-    @include font-size(13, 1.5);
     font-weight: bold;
     @extend %mrg-base;
-
-    /* Increase text size at this breakpoint */
-    @include respond-min($non-palm) {
-      @include font-size(15, 1.5);
-    }
   }
 
 	/* Cell header */
@@ -96,3 +90,6 @@ table {
 	/* Thicker border for the last row in the `thead` */
   thead tr:last-child th {border-bottom-width: 2px;}
 }
+
+/* Add `table-layout: fixed` */
+.table-fixed {table-layout: fixed;}

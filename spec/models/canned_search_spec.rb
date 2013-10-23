@@ -5,35 +5,74 @@ describe CannedSearch do
   let :canned_search_data do
     {
       "id" => 1,
-      "centre_id" => "bondijunction",
       "name" => "A canned search",
+      "centre_id" => "bondijunction",
       "url" => "/a/dummy/url/and/an/edit",
       "image_ref" => "image_ref",
-      "image_uri" => "http://res.cloudinary.com/wlabs/image/upload/image_ref.jpg",
       "start_date" => "2013-09-29",
       "end_date" => "2013-09-30",
-      "updated_at" => "2013-09-29T21 => 59 => 55Z"
+      "type" => "canned_search",
+      "_links" => {
+        "self" => {"href" => "/a/dummy/url/and/an/edit"},
+        "centre" => {"href" => "http://centre-service.development.dbg.westfield.com/api/centre/master/centres/bondijunction.json"},
+        "image" => {"href" => "http://res.cloudinary.com/wlabs/image/upload/image_ref.jpg"}
+      }
     }
   end
 
-  subject { CannedSearch.new canned_search_data }
+  let(:canned_search) { CannedSearch.new canned_search_data }
 
-  context '#name' do
-    it { subject.name.should eq "A canned search" }
+  it "should have a name" do 
+    canned_search.name.should eq "A canned search"
   end
 
-  context '#image' do
-    it { subject.image.should include("image_ref") }
+  it "should have an image" do 
+    canned_search.image.should include("image_ref")
   end
 
-  context '#start_date' do
-    it { subject.start_date.should eql("2013-09-29") }
-    it { subject.start_date("%c").should eql("Sun Sep 29 00:00:00 2013") }
+  it "should have a start date" do
+    canned_search.start_date.should eql("2013-09-29")
   end
 
-  context '#end_date' do
-    it { subject.end_date.should eql("2013-09-30") }
-    it { subject.end_date("%c").should eql("Mon Sep 30 00:00:00 2013") }
+  it "should be able to have it's start date formatted" do 
+    canned_search.start_date("%c").should eql("Sun Sep 29 00:00:00 2013")
+  end
+
+  it "should have an end date" do 
+    canned_search.end_date.should eql("2013-09-30")
+  end
+
+  it "should be able to have it's end date set" do
+    canned_search.end_date("%c").should eql("Mon Sep 30 00:00:00 2013")
+  end
+
+  it "should return canned_search as it's kind" do
+    canned_search.kind.should == "canned_search"
+  end
+
+  it "should be able to recognize the various routes to apply the correct icon" do
+    routes_and_icons = {
+      "/bondijunction/products" => "products",
+      "/bondijunction/stores/1001-optical/21256" => "store",
+      "/bondijunction/hours" => "hours",
+      "/bondijunction/info" => "info"
+    }
+
+    routes_and_icons.each do |url,icon|
+      # in case the routes change
+      lambda { 
+        Rails.application.routes.recognize_path(url)
+      }.should_not raise_exception
+
+      # make sure the urls are recognised
+      canned_search.url = url
+      canned_search.icon.should == icon
+    end
+  end
+
+  it "should have a default icon" do
+    canned_search.url = "/anything"
+    canned_search.icon.should == "search"
   end
 
 end

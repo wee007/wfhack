@@ -13,8 +13,8 @@ http_interactions:
       - application/json
   response:
     status:
-      code: 404
-      message: 
+      code: 200
+      message:
     headers:
       Content-Type:
       - text/html
@@ -24,9 +24,11 @@ http_interactions:
       - chunked
     body:
       encoding: UTF-8
-      string: <!doctype html><html><body><h1>404 Not Found</h1>
-    http_version: 
+      string: "[]"
+    http_version:
   recorded_at: Thu, 15 Aug 2013 06:38:12 GMT
+
+
 - request:
     method: get
     uri: http://centre-service.test.dbg.westfield.com/api/centre/master/centres/bondijunction.json
@@ -41,7 +43,7 @@ http_interactions:
   response:
     status:
       code: 200
-      message: 
+      message:
     headers:
       Date:
       - Thu, 15 Aug 2013 06:38:09 GMT
@@ -77,8 +79,10 @@ http_interactions:
       encoding: UTF-8
       string: '{"code":"bondijunction","name":"Westfield Bondi Junction","short_name":"Bondi
         Junction","street_address":"500 Oxford St.","state":"NSW","postcode":"2022","country":"au","latitude":"-33.891289","longitude":"151.250815","email_address":"bondijunction@au.westfield.com","retail":true,"enabled":true,"today_opening_time":"09:00","today_closing_time":"17:00","number_of_levels":7,"micello_community":7295}'
-    http_version: 
+    http_version:
   recorded_at: Thu, 15 Aug 2013 06:38:13 GMT
+
+
 - request:
     method: get
     uri: http://centre-service.test.dbg.westfield.com/api/centre/master/centres.json?near_to=bondijunction
@@ -93,7 +97,7 @@ http_interactions:
   response:
     status:
       code: 200
-      message: 
+      message:
     headers:
       Date:
       - Thu, 15 Aug 2013 06:38:10 GMT
@@ -129,8 +133,10 @@ http_interactions:
       encoding: UTF-8
       string: '[{"code":"australiaheadoffice","short_name":"Australia Head Office","state":"NSW","country":"au","latitude":"-33.86315","longitude":"151.216807","retail":false,"enabled":true},{"code":"sydneycentralplaza","short_name":"Sydney
         Central Plaza","state":"NSW","country":"au","latitude":"-33.870371","longitude":"151.207735","retail":false,"enabled":false},{"code":"burwood","short_name":"Burwood","state":"NSW","country":"au","latitude":"-33.874545","longitude":"151.105889","retail":true,"enabled":true}]'
-    http_version: 
+    http_version:
   recorded_at: Thu, 15 Aug 2013 06:38:14 GMT
+
+
 - request:
     method: get
     uri: http://centre-service.test.dbg.westfield.com/api/centre/master/centres/bondijunction.json
@@ -145,7 +151,7 @@ http_interactions:
   response:
     status:
       code: 200
-      message: 
+      message:
     headers:
       Date:
       - Thu, 15 Aug 2013 06:38:10 GMT
@@ -183,6 +189,8 @@ http_interactions:
         Junction","street_address":"500 Oxford St.","state":"NSW","postcode":"2022","country":"au","latitude":"-33.891289","longitude":"151.250815","email_address":"bondijunction@au.westfield.com","retail":true,"enabled":true,"today_opening_time":"09:00","today_closing_time":"17:00","number_of_levels":7,"micello_community":7295}'
     http_version:
   recorded_at: Thu, 15 Aug 2013 06:38:15 GMT
+
+
 - request:
     method: get
     uri: http://product-service.test.dbg.westfield.com/api/product/master/products/search.json?centre=bondijunction&page=1&rows=50&search_query=red&utf8=%E2%9C%93
@@ -197,7 +205,7 @@ http_interactions:
   response:
     status:
       code: 200
-      message: 
+      message:
     headers:
       Date:
       - Thu, 15 Aug 2013 06:38:11 GMT
@@ -1358,6 +1366,8 @@ http_interactions:
         bGVjdGVkX3ZhbHVlcyI6eyJ2YWx1ZSI6InJlZCJ9fX0sImNhdGVnb3JpZXMi
         OltdfSwicGFyYW1zIjp7ImNlbnRyZSI6WyJib25kaWp1bmN0aW9uIl0sInNl
         YXJjaF9xdWVyeSI6InJlZCJ9LCJzZW9fa2V5d29yZCI6bnVsbH0=
-    http_version: 
+    http_version:
   recorded_at: Thu, 15 Aug 2013 06:38:15 GMT
+
+
 recorded_with: VCR 2.5.0

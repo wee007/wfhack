@@ -21,9 +21,9 @@ class CentreHoursController < ApplicationController
       @store_trading_hours = StoreTradingHourService.find(store_id).try(:in_groups_of, 7)
     end
 
-    @hero = Hashie::Mash.new heading: 'Opening Hours', image: 'opening-hours', icon: 'icon--hours'
+    @hero = Hashie::Mash.new heading: 'Shopping Hours', image: 'shopping-hours', icon: 'icon--hours'
     meta.push(
-      page_title: "Opening Hours at #{@centre.name}",
+      page_title: "Shopping Hours at #{@centre.name}",
       description: "Find #{@centre.name}'s opening and trading hours for today, this week and special shopping days"
     )
   end

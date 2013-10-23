@@ -46,7 +46,7 @@ describe 'Factory format filters: AppliedFilters',  ->
       {
         type: 'search_query'
         title: '"hard drive"'
-        value: 'hard drive'
+        value: '"hard drive"'
       },
       {
         type: 'retailer'

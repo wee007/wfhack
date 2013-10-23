@@ -10,7 +10,7 @@ describe CentreHoursController do
         CentreService.should_receive( :fetch ).with('chatswood').and_return double :response, body: {}
         CentreTradingHourService.should_receive( :fetch ).with('chatswood').and_return double :response, body: {}
         CentreTradingHourService.should_receive( :build )
-        StoreService.should_receive( :fetch ).with({centre: 'chatswood', per_page: 'all'}).and_return double :response, body: {}
+        StoreService.should_receive( :fetch ).with({centre: 'chatswood', per_page: 'all', has_opening_hours: true}).and_return double :response, body: {}
         StoreService.should_receive( :build )
 
         get :show, centre_id: 'chatswood'

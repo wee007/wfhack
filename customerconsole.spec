@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.176
+Version:     0.1.177
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,13 @@ fi
 
 
 %changelog
+* Wed Oct 23 2013 ci <doperations@au.westfield.com> 0.1.177-1
+- Merge pull request #530 from ldewey/products_by_id (ldewey@au.westfield.com)
+- Added timeouts and retrys to sitemap builder to harden it.
+  (ldewey@au.westfield.com)
+- Product route is now /products/:id or /:centre/products/:id
+  (ldewey@au.westfield.com)
+
 * Wed Oct 23 2013 ci <doperations@au.westfield.com> 0.1.176-1
 - Merge pull request #518 from cpearce/UI-polish (cpearce@au.westfield.com)
 - Fix JS specs (CPearce@au.westfield.com)

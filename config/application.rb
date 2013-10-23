@@ -32,8 +32,7 @@ module CustomerConsole
                                    html5shiv/src/html5shiv-printshiv.js
                                    stores_maps.js
                                    vendor/jquery.tabs.js
-                                   jquery-extensions/jquery.toggle-content.js,
-                                   jquery-extensions/jquery.store_trading_hours.js)
+                                   jquery-extensions/jquery.toggle-content.js)
     if Rails.env.development?
       require File.expand_path('../../lib/service_proxy', __FILE__)
       config.middleware.use "ServiceProxy"

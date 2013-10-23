@@ -121,12 +121,13 @@
 @include respond-range-fixed(lap-sml) {
   /* Base bottom margin */
   .grid--mrg-base-lap-sml {
-    > .grid__item {
-      @include to-rem(margin-bottom, $grid-gutter);
+  	&,
+	  > .grid__item {
+	    @include to-rem(margin-bottom, $grid-gutter);
 
-      /* Turn off for last child */
-      &:last-child {margin-bottom: 0;}
-    }
+	    /* Turn off for last child */
+	    &:last-child {margin-bottom: 0;}
+	  }
   }
 }
 

@@ -9,8 +9,6 @@ label {cursor: pointer;}
 .txt-input,
 textarea,
 .no-touch select {
-  width: 100%;
-  @include to-rem(padding, $spacing-third $spacing-half);
   color: $color-base-txt;
   border-radius: $border-radius;
   border: 1px solid $color-grey-1;

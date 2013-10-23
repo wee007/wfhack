@@ -19,7 +19,7 @@ begin
 
     # Hit the product_search_url once to discover the amount of products / pages,
     # then loop over those.
-    product_count = Service::API.get(product_search_url, rows: 1)['count']
+    product_count = Service::API.get(product_search_url, {rows: 1}, timeout: 5.minutes, retry: 5)['count']
     rows = 500
     pages = (product_count.to_f / rows.to_f).ceil
 
@@ -28,7 +28,7 @@ begin
     product_responses = []
     (1..pages).to_a.each do |index|
       Rails.logger.info "[SITEMAP] Getting product page #{index}"
-      product_responses << Service::API.get(product_search_url, page: index, rows: rows)
+      product_responses << Service::API.get(product_search_url, {page: index, rows: rows}, timeout: 5.minutes, retry: 5)
     end
 
     Rails.logger.info "[SITEMAP] #{centres.count} centres"
@@ -43,7 +43,7 @@ begin
       add centre_info_path(centre.code), priority: 0.6
 
       # Stores
-      Service::API.get(stores_uri, centre_id: centre.code).each do |store|
+      Service::API.get(stores_uri, {centre_id: centre.code}, timeout: 5.minutes, retry: 5).each do |store|
         next unless centre.code and store.retailer_code and store.id
         add centre_store_path(centre.code, store.retailer_code, store.id), priority: 0.6, lastmod: store.updated_at
       end

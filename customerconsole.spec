@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.179
+Version:     0.1.180
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,25 @@ fi
 
 
 %changelog
+* Wed Oct 23 2013 ci <doperations@au.westfield.com> 0.1.180-1
+- Merge pull request #529 from bschwarz/product-service-categories
+  (ldewey@au.westfield.com)
+- Add new requests to vcr (ben@germanforblack.com)
+- Revert "Removing nav contextual in production only." (ben@germanforblack.com)
+- Stub the facets returned by the Service::API request (ben@germanforblack.com)
+- Merge remote-tracking branch 'origin/master' into product-service-categories
+  (ben@germanforblack.com)
+- Re-added category_mappings method (ben@germanforblack.com)
+- Merge remote-tracking branch 'origin/master' into product-service-categories
+  (ben@germanforblack.com)
+- Use the values key and reject any empty values (ben@germanforblack.com)
+- API isn't returning short_name (ben@germanforblack.com)
+- Make 1 request to product service to get super category details, then
+  subsequent requests to each of the predefined super categories. Munge and
+  return. (ben@germanforblack.com)
+- Don't make request in parallel, because we're looping internally, its not
+  playing nice. (ben@germanforblack.com)
+
 * Wed Oct 23 2013 ci <doperations@au.westfield.com> 0.1.179-1
 - On sale will be checked when the url search query contains on_sale=true
   (ben@germanforblack.com)

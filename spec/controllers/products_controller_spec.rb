@@ -11,7 +11,11 @@ describe ProductsController do
         details: [],
         retail_chain: {cam_ref: ""},
         categories: [{super_category: {code: ""}}]
-      }
+      },
+
+      facets: [
+        Hashie::Mash.new({ field: 'super_cat', values: [] })
+      ]
     )
   end
 

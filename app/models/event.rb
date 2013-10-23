@@ -5,16 +5,12 @@ class Event < Hashie::Mash
     super || name
   end
 
-  def date(strftime = nil)
-    strftime ? Time.parse(super).strftime(strftime) : super
+  def date(format_string = :raw)
+    (format_string == :raw) ? super : Time.parse(super).to_s(format_string)
   end
 
-  def start(strftime = nil)
-    strftime ? Time.parse(super).strftime(strftime) : super
-  end
-
-  def finish(strftime = nil)
-    strftime ? Time.parse(super).strftime(strftime) : super
+  def end_date(format_string = :raw)
+    (format_string == :raw) ? super : Time.parse(super).to_s(format_string)
   end
 
   def body
@@ -29,6 +25,14 @@ class Event < Hashie::Mash
     id
   end
 
+  def event_times_grouped_by_date
+    occurrences.inject({}) do |acc, occurrence|
+      start_date = Date.parse(occurrence[:start])
+      (acc[start_date] ||= []) << Occurrence.new(occurrence)
+      acc
+    end
+  end
+
   def kind
     self.class.name.downcase
   end
@@ -36,6 +40,16 @@ class Event < Hashie::Mash
   def meta
     Meta.new title: title,
              image: image
+  end
+
+  class Occurrence < Hashie::Mash
+    def start(format_string = :raw)
+      (format_string == :raw) ? super : Time.parse(super).to_s(format_string)
+    end
+
+    def finish(format_string = :raw)
+      (format_string == :raw) ? super : Time.parse(super).to_s(format_string)
+    end    
   end
 
 end

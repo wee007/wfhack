@@ -4,8 +4,11 @@
     <header class="detail-view__mrg-base">
       <h1 class="detail-view__hdr hn" itemprop="summary"><%= @event.name %></h1>
       <ul class="detail-view__meta islet islet--top-btm detail-view__divider detail-view__divider--top-btm horiz-list horiz-list--fit">
-        <li class="detail-view__subtle-txt"><%= @event.date '%-d %b %Y' %></li><!--
-      --><li><span class="icon icon--pin icon--lrg icon--spacing" aria-hidden="true"></span><span itemprop="location"><%= @event.location %></span></li>
+        <li class="detail-view__subtle-txt"><%= @event.date(:short_date_with_year) %></li>
+        <li>
+          <span class="icon icon--pin icon--lrg icon--spacing" aria-hidden="true"></span>
+          <span itemprop="location"><%= @event.location %></span>
+        </li>
       </ul>
     </header>
 
@@ -31,19 +34,27 @@
 
   <div class="detail-view__schedule island">
     <h2 class="detail-view__hdr-sub hn">Event Schedule</h2>
+
+    <%# Event schedule %>
     <dl class="timeline">
-      <dt>
-        <%= @event.date '%A' %>
-        <em class="timeline__date">
-          <span><%= @event.date '%-d' %></span>
-          <%= @event.date '%b' %>
-        </em>
-      </dt>
-      <dd>
-        <time itemprop="startDate" datetime="<%= DateTime.parse(@event.start + " " + @event.date).iso8601 %>"><%= @event.start '%l:%M%P' %></time> -
-        <time itemprop="endDate" datetime="<%= DateTime.parse(@event.finish + " " + @event.date).iso8601 %>"><%= @event.finish '%l:%M%P' %></time>
-      </dd>
+      <% @event.event_times_grouped_by_date.each do |date, occurrences| %>
+        <dt>
+          <%= date.strftime("%A") %>
+          <em class="timeline__date">
+            <span><%= date.strftime("%e") %></span> <abbr title="<%= date.strftime("%B") %>"><%= date.strftime("%b") %></abbr>
+          </em>
+        </dt>
+        <% occurrences.each do |occurrence| %>
+          <dd>
+            <time datetime="<%= occurrence.start(:raw) %>" itemprop="startDate"><%= occurrence.start(:hour_minute_period) %></time> 
+            - <time datetime="<%= occurrence.finish(:raw) %>" itemprop="endDate"><%= occurrence.finish(:hour_minute_period) %></time>
+          </dd>
+        <% end %>
+      <% end %>
     </dl>
+    <%# //Event schedule %>
+
   </div>
+  <%# //Event details %>
 
 </div>

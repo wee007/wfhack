@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.173
+Version:     0.1.174
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,18 @@ fi
 
 
 %changelog
+* Wed Oct 23 2013 ci <doperations@au.westfield.com> 0.1.174-1
+- Merge pull request #521 from ewee/hours (ldewey@au.westfield.com)
+- Fix up the front end of hours and move JS to inline (fiona@fionachan.net)
+- Refactor find a store with given store id (ewee@au.westfield.com)
+- Integrated hours with dynamic values (ewee@au.westfield.com)
+- Fix cloudinary and remove redundant css (fiona@fionachan.net)
+- Refactor hours page layout after updates from other pages
+  (fiona@fionachan.net)
+- Fix PR after feedback (fiona@fionachan.net)
+- Update dropdown to use native dropdown (fiona@fionachan.net)
+- Updates to opening hours page (fiona@fionachan.net)
+
 * Wed Oct 23 2013 ci <doperations@au.westfield.com> 0.1.173-1
 - Merge pull request #528 from mwratt/feature/geom_id_maps
   (ldewey@au.westfield.com)

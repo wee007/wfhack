@@ -7,7 +7,6 @@ module EventsHelper
         "#{event.date('%-d %b %Y')}, #{event.start("%I:%M %p")}"
       end
     end
-    # <time datetime="<%= result.date '%F' %>T<%= result.start "%H:%M" %>"><%= result.date "%-d %b %Y" %>, <%= result.start "%I:%M %p" %></time>
   end
 
 end

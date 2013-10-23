@@ -27,6 +27,10 @@ class Product < Hashie::Mash
     self.class.name.downcase
   end
 
+  def to_param
+    id
+  end
+
   def meta
     product_category_code = categories ? categories.collect { |cat| cat['code'] } : []
 

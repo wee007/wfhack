@@ -51,8 +51,8 @@ begin
 
     product_responses.each do |pr|
       pr.results.each do |product|
-        next unless product.retailer_code and product.sku
-        add product_path(product.retailer_code, product.sku), priority: 0.8, lastmod: product.updated_at
+        next unless product.id
+        add product_path(product), priority: 0.8, lastmod: product.updated_at
       end
     end
   end

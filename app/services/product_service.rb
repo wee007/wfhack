@@ -30,9 +30,8 @@ class ProductService
     end
 
     def show_uri(options)
-      retailer_code = options.delete :retailer_code
-      sku = options.delete :sku
-      URI("#{ServiceHelper.uri_for('product')}/retail-chains/#{retailer_code}/products/#{sku}.json")
+      id = options.delete :id
+      URI("#{ServiceHelper.uri_for('product')}/products/#{id}.json")
     end
 
     def lite_uri(options)

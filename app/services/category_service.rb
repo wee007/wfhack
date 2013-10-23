@@ -46,11 +46,11 @@ class CategoryService
         children = ProductService.fetch(@search_params.merge({rows: 0, super_cat: super_cat}))
 
         # Tack on the children of said super category
-        category[:children] = facet_from_fetch('category', children)
+        category[:children] = facet_from_fetch('category', children)['values']
 
         # Implicit return
         category
-      end
+      end.reject{|c| c.nil? }
     end
 
     def facet_from_fetch(facetName, results)

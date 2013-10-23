@@ -85,8 +85,7 @@ class map.micello.Map extends map.micello.MapBase
 
   zoom: ->
     if @hasTarget()
-      @control.centerOnGeom(@target.geom, 100)
-      @applyOffset()
+      @control.centerOnGeom(@target.geom, 0)
     @
 
   detail: ->
@@ -103,9 +102,7 @@ class map.micello.Map extends map.micello.MapBase
     if @hasTarget()
       zoom = @view.getZoom()
       @control.centerOnGeom(@target.geom)
-      offset = @viewportCentre()
       @view.setZoom(zoom)
-      @applyOffset()
     @
 
   @logoOptions:
@@ -176,22 +173,13 @@ class map.micello.Map extends map.micello.MapBase
     x: size.width * offset.x
     y: size.height * offset.y
 
-  viewportCentreOffsetDelta: ->
-    size = @getSize()
-    centre = @viewportCentre({x: 0.5, y: 0.5}, size)
-    offset = @viewportCentre(@offset, size)
-
-    x: offset.x - centre.x - @map_centre.x
-    y: offset.y - centre.y + @map_centre.y
-
-  applyOffset: (@offset = @offset) ->
-    translate = @viewportCentreOffsetDelta()
-    @view.translate(translate.x, translate.y)
-
-  centreOffset: (offset) ->
-    @reset()
+  centreOffset: (@offset = @offset) ->
+    @view.offsetXFraction = offset.x
+    @view.offsetYFraction = offset.y
+    @view.defaultMapX = @map_centre.x if @map_centre.x
+    @view.defaultMapY = @map_centre.y if @map_centre.y
+    @view.home()
     @view.setZoom(offset.zoom || 1)
-    @applyOffset(offset)
     @
 
   getSize: ->

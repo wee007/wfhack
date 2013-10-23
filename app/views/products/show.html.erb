@@ -1,6 +1,6 @@
 <% if params[:centre_id] %>
   <% content_for :link_rels do %>
-    <link rel="canonical" href="<%= product_url(params[:retailer_code], params[:sku]) %>">
+    <link rel="canonical" href="<%= product_url @product %>">
   <% end %>
 <% end %>
 
@@ -168,7 +168,7 @@
   <ul class="detail-view__centres">
     <%- @product_centres.each do |centre| -%>
       <li>
-        <%= link_to centre_product_path(centre_id: centre.code, retailer_code: @product.retailer_code, sku: @product.sku),
+        <%= link_to centre_product_path(centre, @product),
           class: "list-divider" do %>
           <span class="icon icon--pin icon--lrg icon--spacing-lrg icon--base-color" aria-hidden="true"></span>
           <%= centre.name %>

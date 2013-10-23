@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.174
+Version:     0.1.176
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,41 @@ fi
 
 
 %changelog
+* Wed Oct 23 2013 ci <doperations@au.westfield.com> 0.1.176-1
+- Merge pull request #518 from cpearce/UI-polish (cpearce@au.westfield.com)
+- Fix JS specs (CPearce@au.westfield.com)
+- Merge pull request #526 from mwratt/fix/popup_logo (cpearce@au.westfield.com)
+- Merge pull request #525 from mwratt/feature/WSF-4966-map-icons
+  (cpearce@au.westfield.com)
+- Move styles to be more in context - WSF-5840 (CPearce@au.westfield.com)
+- Check the usage of  as it can hinder SEO - WSF-5745
+  (CPearce@au.westfield.com)
+- removes map popup logos when image 404s (matt.wratt@trineo.co.nz)
+- resizes svg map icons to 30x30 (matt.wratt@trineo.co.nz)
+- Fix JS specs (CPearce@au.westfield.com)
+- Various touch ups to CSS partials (CPearce@au.westfield.com)
+- Active store pop up spacing issues - WSF-5836 (CPearce@au.westfield.com)
+- Converting all stores images to WebP and mods to featured product tile images
+  (CPearce@au.westfield.com)
+- Add Microdata to Stores detail - WSF-5447 (CPearce@au.westfield.com)
+- Apply outline to drop down arrow pointer in site header - WSF-5699
+  (CPearce@au.westfield.com)
+- Apply new design for 'Section nav' - WSF-5812 (CPearce@au.westfield.com)
+- Removing uneeded span element from products tile - WSF-5824
+  (CPearce@au.westfield.com)
+- Add an ellipses to storefront description - WSF-5650
+  (CPearce@au.westfield.com)
+- Adding '$' sign to price filters and fixing up quote marks around search
+  queries (CPearce@au.westfield.com)
+- Adding double quotation marks to the applied filters and no search result
+  query (CPearce@au.westfield.com)
+- Adding 'See nearby centres' text to the no content fallback message
+  (CPearce@au.westfield.com)
+
+* Wed Oct 23 2013 ci <doperations@au.westfield.com> 0.1.175-1
+- Stop escaping javascript output for retailer_product_url
+  (DOCallaghan@au.westfield.com)
+
 * Wed Oct 23 2013 ci <doperations@au.westfield.com> 0.1.174-1
 - Merge pull request #521 from ewee/hours (ldewey@au.westfield.com)
 - Fix up the front end of hours and move JS to inline (fiona@fionachan.net)

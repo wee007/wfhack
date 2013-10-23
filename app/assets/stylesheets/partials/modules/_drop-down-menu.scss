@@ -53,9 +53,13 @@
       &.drop-down-menu__target--alt-width-palm {@include to-rem(width, $drop-down-width);}
     }
 
-    /* Reduce the width at this breakpoint */
+    /* Reduce widths at this breakpoint */
     @include respond-min($iphone-landscape) {
+      /* Default version */
       @include to-rem(width, $drop-down-width);
+
+      /* Alternative version */
+      .drop-down-menu--alt & {@include to-rem(width, 170);}
     }
 
     /* Reduce the top margin for IE 9/8 */
@@ -104,6 +108,15 @@
       color: $color-light-txt;
       @include to-rem(padding-top padding-bottom, $spacing-micro);
       @include to-rem(padding-left padding-right, $spacing-half);
+    }
+
+    /* Alternative header */
+    .drop-down-menu__hdr-alt {
+      display: block;
+      @include font-size($font-size);
+      border-bottom: 1px solid $color-grey-1;
+      @include to-rem(padding-bottom, $spacing-third);
+      @include to-rem(margin-bottom, $spacing-third+$spacing-quarter);
     }
 
     /* Divider */
@@ -169,7 +182,7 @@
 
           /* Hover and focus states, need to increase the specificity so as to override hover/focus styles from any outer modules */
           .drop-down-menu &:hover,
-          .drop-down-menu &:focus {color: lighten($color-base-txt, 10%);}
+          .drop-down-menu &:focus {color: $color-link-hover;}
         }
       }
 
@@ -181,6 +194,23 @@
       }
     }
 
+    /* Alternative list */
+    .drop-down-menu__list-alt > li {
+      @include to-rem(margin-top, $spacing-third);
+
+      &:first-child {margin-top: 0;}
+
+      /* Links */
+      a {
+        display: block;
+        color: $color-light-txt;
+
+        /* Hover and focus states */
+        &:hover,
+        &:focus {color: $color-link-hover;}
+      }
+    }
+
     /* Range */
     .drop-down-menu__range {
       position: relative;
@@ -189,12 +219,32 @@
       @include old-ie {
         width: 100%;
       }
+    }
 
-      /* Range text inputs - position them side by side */
-      .txt-input {width: 40%;}
+      /* Range inputs - position them side by side */
+      .drop-down-menu__range__input {
+        width: 40%;
+        float: left;
+        position: relative;
 
-      /* 'To' label (sits in the middle of the text inputs) */
-      span {
+        /* '$' sign */
+        span {
+          position: absolute;
+          /* These rules are matching some of the rules of base text inputs mainly `padding` to keep spacing consistent */
+          @include to-rem(left, $spacing-half);
+          @include to-rem(top, $spacing-third + 1);
+          line-height: normal;
+        }
+
+        /* Text input */
+        .txt-input {@include to-rem(padding-left, $spacing-half+$spacing-third);}
+      }
+
+      /* Last range input */
+      .drop-down-menu__range__input--last {float: right;}
+
+      /* 'To' label - sits in the middle of the range inputs */
+      .drop-down-menu__range__lbl {
         position: absolute;
         top: 50%;
         left: 50%;
@@ -206,7 +256,3 @@
           @include to-rem(margin-left, -5);
         }
       }
-    }
-
-      /* `.txt-input` for inputting the end of range value */
-      .drop-down-menu__range__end {float: right;}

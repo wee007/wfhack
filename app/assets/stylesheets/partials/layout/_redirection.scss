@@ -2,9 +2,11 @@
    @LAYOUT -> REDIRECTION
    ====================================================================================== */
 
-/* Class on `body` */
+/* Styles for `body` element */
 .redirection {
   text-align: center;
+  @include to-rem(padding-top, 80);
+  background-color: #fff;
 
   /* Logo */
   img {

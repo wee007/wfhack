@@ -8,7 +8,7 @@
 
   Notes:
     Modules that live here:
-    -  Store listings
+    -  Stores list
     -  Storefront
     -  Micello maps
 
@@ -16,6 +16,10 @@
 		Style Guide -> Modules -> Stores / Maps
 */
 
+/* Styles for `body` element */
+.stores {padding-bottom: 0;}
+
+/* Start module */
 .stores-maps {
   position: absolute;
   z-index: 2;
@@ -91,7 +95,7 @@
       &.stores-maps__inner--detail {position: static;}
     }
 
-    /* Make height shrink to fit content */
+    /* Enable click events on map canvas that sits behind this */
     @include respond-min($ipad-landscape) {
       &.stores-maps__inner--detail {
         pointer-events: none;
@@ -117,7 +121,10 @@
     }
 
     /* Non JS users */
-    .no-js & {position: static;}
+    .no-js & {
+      position: static;
+      width: auto;
+    }
   }
 
     /* Filters / toggle */

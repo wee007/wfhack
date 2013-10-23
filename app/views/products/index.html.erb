@@ -48,7 +48,7 @@
 
 <%# Expose Product categories for non JS users %>
 <noscript>
-  <nav role="navigation" class="island box mrg-base--top">
+  <nav role="navigation" class="island box mrg-base mrg-base--top">
     <h2>Product categories</h2>
     <ul class="mrg-base">
       <% @categories.each do |category| %>
@@ -66,10 +66,10 @@
 </noscript>
 <%# //Expose Product categories for non JS users %>
 
-<% if @search.products.present? %>
-  <div ng-controller="ProductBrowseController" ng-init="bootstrap()" class="ng-cloak filters filters--pin-board">
+<p class="feedback feedback--warning js-enabled-hide">You need JavaScript enabled to use the product filters, as a fallback you can filter via the <strong>Product categories</strong> above. <a href="http://enable-javascript.com/" rel="external" target="_blank">Visit here</a> for instructions on how to enable JavaScript.</p>
 
-    <p class="feedback feedback--warning js-enabled-hide">You need JavaScript enabled to use these product filters, as a fallback you can filter via the <strong>Product categories</strong> above. <a href="http://enable-javascript.com/" rel="external" target="_blank">Visit here</a> for instructions on how to enable JavaScript.</p>
+<% if @search.products.present? %>
+  <div ng-controller="ProductBrowseController" ng-init="bootstrap()" class="ng-cloak filters filters--pin-board js-disabled-hide">
 
     <div class="filters__filter-sort">
 
@@ -300,11 +300,17 @@
                 </div>
 
                 <div class="drop-down-menu__range islet">
-                  <label class="hide-visually" for="price-range-start">Price range start</label>
-                  <input ng-model="search.price.values.range_start" ng-change="rangeFilter('price')" id="price-range-start" class="txt-input">
-                  <span>to</span>
-                  <label class="hide-visually" for="price-range-end">Price range end</label>
-                  <input ng-model="search.price.values.range_end" ng-change="rangeFilter('price')" id="price-range-end" class="txt-input drop-down-menu__range__end">
+                  <div class="drop-down-menu__range__input">
+                    <label class="hide-visually" for="price-range-start">Price range start</label>
+                    <span>$</span>
+                    <input ng-model="search.price.values.range_start" ng-change="rangeFilter('price')" id="price-range-start" class="txt-input" type="number">
+                  </div>
+                  <em class="drop-down-menu__range__lbl">to</em>
+                  <div class="drop-down-menu__range__input drop-down-menu__range__input--last">
+                    <label class="hide-visually" for="price-range-end">Price range end</label>
+                    <span>$</span>
+                    <input ng-model="search.price.values.range_end" ng-change="rangeFilter('price')" id="price-range-end" class="txt-input" type="number">
+                  </div>
                 </div>
 
                 <button toggle-visibility="filters" ng-click="updateSearch()" class="btn btn--main drop-down-menu__apply">Apply</button>

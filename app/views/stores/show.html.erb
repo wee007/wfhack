@@ -33,7 +33,7 @@
       <%# Store details %>
       <div class="stores-maps__list-detail">
 
-        <article class="storefront" role="article">
+        <article class="storefront" role="article" itemscope itemtype="http://schema.org/Organization">
 
           <%# Header (flexslider) %>
           <%= render @store.has_storefront? ? 'header_with_banner' : 'header_without_banner' %>
@@ -57,7 +57,7 @@
 
                 <%- if @store.phone_number.present? %>
                   <dt class="hide-visually hide-fully--palm">Store phone number</dt>
-                  <dd class="hide-fully--palm">
+                  <dd class="hide-fully--palm" itemprop="telephone">
                     <%= phone_format @store.phone_number %>
                     <span class="icon icon--phone2 icon--xlrg icon--fixed-width" aria-hidden="true"></span>
                   </dd>
@@ -66,7 +66,7 @@
                 <%- if @store.email_address.present? %>
                   <dt class="hide-visually">Store email</dt>
                   <dd class="txt-truncate">
-                    <%= link_to @store.email_address, "mailto:#{@store.email_address}" %>
+                    <%= mail_to @store.email_address, @store.email_address, itemprop: 'email' %>
                     <span class="icon icon--email icon--xlrg icon--fixed-width" aria-hidden="true"></span>
                   </dd>
                 <%- end %>
@@ -87,7 +87,7 @@
                 <%# Phone no %>
                 <%- if @store.phone_number.present? %>
                   <%= phone_link @store.phone_number, class: 'storefront-storelist-phone-map-links__cell storefront-storelist-phone-map-links__cell--phone hide-fully--non-palm' do |phone_number| %>
-                    <span class="hide-visually">Call store: <%= phone_number %></span>
+                    <span class="hide-visually">Call store: <span itemprop="telephone"><%= phone_number %></span></span>
                     <span class="icon icon--phone2 icon--flush-top storefront-storelist-phone-map-links__cell__valign"></span>
                     <% end %>
                 <%- end %>
@@ -127,9 +127,7 @@
                               locals: {
                                 result: product,
                                 options: {
-                                  width: 288,
-                                  height: 288,
-                                  crop: :pad
+                                  height: 288
                                 }
                               }
                             %>

@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.177
+Version:     0.1.178
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,9 @@ fi
 
 
 %changelog
+* Wed Oct 23 2013 ci <doperations@au.westfield.com> 0.1.178-1
+- Updated gems (ldewey@au.westfield.com)
+
 * Wed Oct 23 2013 ci <doperations@au.westfield.com> 0.1.177-1
 - Merge pull request #530 from ldewey/products_by_id (ldewey@au.westfield.com)
 - Added timeouts and retrys to sitemap builder to harden it.

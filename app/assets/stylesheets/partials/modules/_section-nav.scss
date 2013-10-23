@@ -117,9 +117,6 @@
 			@include to-rem(top, -65);
 			@include to-rem(height, 65);
 	  }
-
-	  /* [FIXME] REMOVE THIS WHEN MOVIES HOURS GOES IN */
-		select {width: 100% !important;}
 	}
 
 		/* Select list label */

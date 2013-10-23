@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.178
+Version:     0.1.179
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,10 @@ fi
 
 
 %changelog
+* Wed Oct 23 2013 ci <doperations@au.westfield.com> 0.1.179-1
+- On sale will be checked when the url search query contains on_sale=true
+  (ben@germanforblack.com)
+
 * Wed Oct 23 2013 ci <doperations@au.westfield.com> 0.1.178-1
 - Updated gems (ldewey@au.westfield.com)
 

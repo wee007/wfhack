@@ -4,15 +4,21 @@
 
 /*
   Usage:
-    Detail views for 'Products', 'Events' and 'Deals'.
-
-  Note:
-    At desktop size the detail views go into a dialog.
+    Detail views mainly for 'Products', 'Events' and 'Deals'.
 
   Demo:
     Style Guide -> Modules -> Detail View
 */
 
+/* Styles for `body` element at this breakpoint */
+@include respond-max($palm) {
+  .page-detail-view {
+    background-color: #fff;
+    padding-bottom: 0;
+  }
+}
+
+/* Start module */
 .detail-view {
   @include font-size($font-size-sml);
 

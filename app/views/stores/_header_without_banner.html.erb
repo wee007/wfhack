@@ -4,7 +4,7 @@
       <li>
         <div class="storefront__flexslider-storename vert-align">
           <div class="vert-align__inner">
-            <h1<% if @store.name.length > 58 %> class="is-long-store-name"<% end %>><%= @store.name %></h1>
+            <h1<% if @store.name.length > 58 %> class="is-long-store-name"<% end %>><span itemprop="name"><%= @store.name %></span></h1>
           </div>
         </div>
       </li>

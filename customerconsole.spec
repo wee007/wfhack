@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.174
+Version:     0.1.175
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,10 @@ fi
 
 
 %changelog
+* Wed Oct 23 2013 ci <doperations@au.westfield.com> 0.1.175-1
+- Stop escaping javascript output for retailer_product_url
+  (DOCallaghan@au.westfield.com)
+
 * Wed Oct 23 2013 ci <doperations@au.westfield.com> 0.1.174-1
 - Merge pull request #521 from ewee/hours (ldewey@au.westfield.com)
 - Fix up the front end of hours and move JS to inline (fiona@fionachan.net)

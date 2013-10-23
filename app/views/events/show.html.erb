@@ -31,19 +31,27 @@
 
   <div class="detail-view__schedule island">
     <h2 class="detail-view__hdr-sub hn">Event Schedule</h2>
+
+    <%# Event schedule %>
     <dl class="timeline">
-      <dt>
-        <%= @event.date '%A' %>
-        <em class="timeline__date">
-          <span><%= @event.date '%-d' %></span>
-          <%= @event.date '%b' %>
-        </em>
-      </dt>
-      <dd>
-        <time itemprop="startDate" datetime="<%= DateTime.parse(@event.start + " " + @event.date).iso8601 %>"><%= @event.start '%l:%M%P' %></time> -
-        <time itemprop="endDate" datetime="<%= DateTime.parse(@event.finish + " " + @event.date).iso8601 %>"><%= @event.finish '%l:%M%P' %></time>
-      </dd>
+      <% @event.event_times_grouped_by_date.each do |date, sessions| %>
+        <dt>
+          <%= date.strftime("%A") %>
+          <em class="timeline__date">
+            <span><%= date.strftime("%e") %></span> <abbr title="<%= date.strftime("%B") %>"><%= date.strftime("%b") %></abbr>
+          </em>
+        </dt>
+        <% sessions.each do |session| %>
+          <dd>
+            <time datetime="<%= Time.parse(session[:start]).strftime("%l:%M%P") %>" itemprop="startDate"><%= Time.parse(session[:start]).strftime("%l:%M%P") %></time> 
+            - <time datetime="<%= Time.parse(session[:finish]).strftime("%l:%M%P") %>" itemprop="startDate"><%= Time.parse(session[:finish]).strftime("%l:%M%P") %></time>
+          </dd>
+        <% end %>
+      <% end %>
     </dl>
+    <%# //Event schedule %>
+
   </div>
+  <%# //Event details %>
 
 </div>

@@ -13,7 +13,7 @@
   <div class="tile__meta__inner">
     <h3 class="tile__meta__hdr txt-truncate"><%= result.name %></h3>
     <p class="tile__meta__desc txt-truncate">
-      <time datetime="<%= result.date '%F' %>T<%= result.start "%H:%M" %>"><%= result.date "%-d %b %Y" %>, <%= result.start "%I:%M %p" %></time>
+      <%= display_event_date(result)  %> 
     </p>
   </div>
 </div>

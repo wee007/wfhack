@@ -164,7 +164,7 @@
 <%# Availability %>
 <%- if @product_centres.present? -%>
 <div class="island detail-view__divider--top-btm detail-view__divider--top">
-  <h2 class="detail-view__hdr-sub detail-view__mrg-off hn">Available at</h2>
+  <h2 class="detail-view__hdr-sub detail-view__mrg-off hn"><%= @product.retail_chain_name %> also available at</h2>
   <ul class="detail-view__centres">
     <%- @product_centres.each do |centre| -%>
       <li>

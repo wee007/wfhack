@@ -5,11 +5,11 @@ class Event < Hashie::Mash
     super || name
   end
 
-  def date(format_string)
+  def date(format_string = :raw)
     (format_string == :raw) ? super : Time.parse(super).to_s(format_string)
   end
 
-  def end_date(format_string)
+  def end_date(format_string = :raw)
     (format_string == :raw) ? super : Time.parse(super).to_s(format_string)
   end
 
@@ -43,11 +43,11 @@ class Event < Hashie::Mash
   end
 
   class Occurrence < Hashie::Mash
-    def start(format_string)
+    def start(format_string = :raw)
       (format_string == :raw) ? super : Time.parse(super).to_s(format_string)
     end
 
-    def finish(format_string)
+    def finish(format_string = :raw)
       (format_string == :raw) ? super : Time.parse(super).to_s(format_string)
     end    
   end

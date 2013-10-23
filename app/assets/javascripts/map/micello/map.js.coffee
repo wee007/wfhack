@@ -181,8 +181,8 @@ class map.micello.Map extends map.micello.MapBase
     centre = @viewportCentre({x: 0.5, y: 0.5}, size)
     offset = @viewportCentre(@offset, size)
 
-    x: offset.x - centre.x
-    y: offset.y - centre.y
+    x: offset.x - centre.x - @map_centre.x
+    y: offset.y - centre.y + @map_centre.y
 
   applyOffset: (@offset = @offset) ->
     translate = @viewportCentreOffsetDelta()

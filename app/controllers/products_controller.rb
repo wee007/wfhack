@@ -9,8 +9,9 @@ class ProductsController < ApplicationController
       nearby_centres = CentreService.fetch nil, near_to: params[:centre_id] if params[:centre_id]
       centres = CentreService.fetch :all, country: 'au' unless params[:centre_id]
       products = ProductService.fetch params.merge({rows: 50})
-      super_categories = CategoryService.fetch centre_id: params[:centre_id], product_mapable: true if params[:centre_id]
     end
+
+    super_categories = CategoryService.fetch centre_id: params[:centre_id], product_mapable: true if params[:centre_id]
 
     if params[:centre_id]
       @centre = CentreService.build centre

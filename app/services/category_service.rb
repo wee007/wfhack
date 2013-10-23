@@ -2,9 +2,18 @@ class CategoryService
   class << self
     include ApiClientRequests
 
-    # FIXME - Overriding the API fetch to return a canned response for now.
+    STATIC_SUPER_CATS = [
+      'womens-fashion-accessories',
+      'mens-fashion-accessories',
+      'kids-babies',
+      'shoes-footwear',
+      'bags-luggage',
+      'beauty-health'
+    ]
+
     def fetch(params = {})
-      static_category_list
+      @search_params = params
+      get_categories
     end
 
     def build(json_response)
@@ -41,38 +50,28 @@ class CategoryService
 
     private
 
-    def request_uri(options)
-      WestfieldUri::Service.uri_for_api('product').tap do |uri|
-        uri.path << '/categories.json'
-        uri.query = options.to_query
-      end
+    def get_categories
+      # Get super category data from product service
+      super_cats = facet_from_fetch('super_cat', ProductService.fetch(@search_params.merge({rows: 0})))
+
+      STATIC_SUPER_CATS.map do |super_cat|
+        # Get each super category
+        category = super_cats['values'].find{|sc| sc.code == super_cat }
+        next if category.nil?
+
+        # Get children categories
+        children = ProductService.fetch(@search_params.merge({rows: 0, super_cat: super_cat}))
+
+        # Tack on the children of said super category
+        category[:children] = facet_from_fetch('category', children)['values']
+
+        # Implicit return
+        category
+      end.reject{|c| c.nil? }
     end
 
-    def static_category_list
-      @static_category_list ||= get_static_category_list
+    def facet_from_fetch(facetName, results)
+      results.facets.find{ |f| f.field == facetName }
     end
-
-    def get_static_category_list
-      # Only return these top level categories from the full list
-      super_cat_order = [
-        'womens-fashion-accessories',
-        'mens-fashion-accessories',
-        'kids-babies',
-        'shoes-footwear',
-        'bags-luggage',
-        'beauty-health'
-      ]
-      cat_list = JSON.parse(
-        File.read(Rails.root.join('config', 'categories.json'))
-      )
-
-      # Filter out the full category list to only contain those specified
-      # above, and in the order they were specified above, i.e. the intrinsic
-      # sort_order is ignored here.
-      super_cat_order.map do |super_cat_code|
-        cat_list.find { |c| c['code'] == super_cat_code }
-      end
-    end
-
   end
 end

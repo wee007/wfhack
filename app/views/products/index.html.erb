@@ -325,14 +325,14 @@
 
               <%# Narrow view toggle %>
               <div class="filters__trigger filters__trigger--narrow islet">
-                <input ng-model="on_sale" ng-checked="search.params.on_sale" ng-change="filterSearch('on_sale')" id="sale-items" type="checkbox"><!--
+                <input ng-model="on_sale" ng-checked="search.params().on_sale" ng-change="filterSearch('on_sale')" id="sale-items" type="checkbox"><!--
                 --><label for="sale-items">On sale</label>
               </div>
               <%# //Narrow view toggle %>
 
               <%# Wide view toggle %>
               <label for="sale-items-2" class="filters__trigger filters__trigger--wide btn btn--main btn--main-alt4 btn--checkbox-toggle">
-                <input ng-model="on_sale" ng-checked="search.params.on_sale" ng-change="filterSearch('on_sale')" id="sale-items-2" type="checkbox" class="btn--checkbox-toggle__input"><!--
+                <input ng-model="on_sale" ng-checked="search.params().on_sale" ng-change="filterSearch('on_sale')" id="sale-items-2" type="checkbox" class="btn--checkbox-toggle__input"><!--
                 --><span class="btn--checkbox-toggle__lbl">On sale</span>
               </label>
               <%# //Wide view toggle %>

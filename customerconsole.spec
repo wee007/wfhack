@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.181
+Version:     0.1.182
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,10 @@ fi
 
 
 %changelog
+* Wed Oct 23 2013 ci <doperations@au.westfield.com> 0.1.182-1
+- Automatic commit of package [wf-customerconsole] release [0.1.181-1].
+  (acohen@au.westfield.com)
+
 * Wed Oct 23 2013 Adam Cohen <acohen@au.westfield.com> 0.1.181-1
 - WSF-5811 fix broken specs (acohen@au.westfield.com)
 - WSF-5811 fix broken specs (acohen@au.westfield.com)

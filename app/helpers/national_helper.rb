@@ -16,15 +16,17 @@ module NationalHelper
           width: width,
           height: height,
           crop: 'fill',
+          gravity: 'center',
           effect: 'blur:300',
-          fetch_format: 'auto'
+          fetch_format: 'auto',
+          opacity: 65,
+          background: 'rgb:000'
         },
         {
           width: width,
           height: height,
           effect: 'multiply',
-          overlay: 'asset:black-overlay-1805e3ae919b74a1ed2cff673434e6f9',
-          opacity: '60'
+          overlay: 'asset:black-gradient-overlay-1def4660b3215cc2137cd8288cd90fb5'
         }
       ]
     )

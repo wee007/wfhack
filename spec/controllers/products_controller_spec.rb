@@ -85,13 +85,13 @@ describe ProductsController do
 
   describe "GET #show" do
     it "does not assign the centre instance variable" do
-      get :show, retailer_code: 'colette-accessories', centre_id: 'bondijunction', sku: 1
+      get :show, id: 1, centre_id: 'bondijunction'
       response.should render_template :show
       assigns(:centre).should_not be_nil
     end
 
     it "assigns the centre instance variable" do
-      get :show, retailer_code: 'colette-accessories', sku: 1
+      get :show, id: 1
       response.should render_template :show
       assigns(:centre).should be_nil
     end

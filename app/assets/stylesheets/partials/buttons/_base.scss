@@ -91,3 +91,8 @@
 		}
 	}
 }
+
+/* Apply focus for Firefox */
+@include target-mozilla {
+	button.btn:focus {outline: 1px dotted #212121;}
+}

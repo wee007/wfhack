@@ -51,8 +51,11 @@ begin
 
     product_responses.each do |pr|
       pr.results.each do |product|
-        next unless product.id
-        add product_path(product), priority: 0.8, lastmod: product.updated_at
+        next unless product.retailer_code.present? &&
+                    product.name.present? &&
+                    product.id.present?
+
+        add product_path(product.retailer_code, product.name.to_slug, product.id), priority: 0.8, lastmod: product.updated_at
       end
     end
   end

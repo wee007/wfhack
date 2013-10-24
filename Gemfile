@@ -22,6 +22,7 @@ gem 'service_helper', git: 'git@github.dbg.westfield.com:digital/service_helper.
 gem 'hashie'
 gem 'cloudinary'
 gem 'sitemap_generator'
+gem 'sterile'
 
 # Presentation, pagination etc.
 gem 'kaminari'

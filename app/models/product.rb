@@ -28,7 +28,11 @@ class Product < Hashie::Mash
   end
 
   def to_param
-    id
+    {
+      retailer_code: retailer_code,
+      product_name: name.to_slug,
+      id: id
+    }
   end
 
   def meta

@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.189
+Version:     0.1.190
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,13 @@ fi
 
 
 %changelog
+* Thu Oct 24 2013 ci <doperations@au.westfield.com> 0.1.190-1
+- Merge pull request #524 from gwshaw/feature/WSF-5785_update_phg_tag
+  (ldewey@au.westfield.com)
+- Merge pull request #536 from fchan/pre-launch (ldewey@au.westfield.com)
+- WSF-5785 Update PHG Tag on Product Details (g.w.shaw@comcast.net)
+- Change text from Opening hours to Shopping hours (fiona@fionachan.net)
+
 * Thu Oct 24 2013 ci <doperations@au.westfield.com> 0.1.189-1
 - Merge pull request #542 from ldewey/deals-also-available-at-refactor
   (ldewey@au.westfield.com)

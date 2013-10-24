@@ -1,0 +1,33 @@
+<div class="island detail-view__divider">
+  <header class="detail-view__mrg-base">
+    <%# [BACKEND] Character limit - 65. We need to generate ellipses at the end of the truncation like so:
+        <%=raw @notice.description.truncate(65, '&#8230;') %>
+    <h1 class="detail-view__hdr hn" id="detail-view__hdr"><%= @notice.name.truncate(65, '&#8230;') %></h1>
+
+    <%# Notice meta %>
+    <div class="detail-view__meta islet islet--top-btm detail-view__divider detail-view__divider--top-btm">
+      <time datetime="<%= @notice.date('%Y-%m-%d') %>" pubdate><%= @notice.date.day %><abbr title="<%= @notice.date('%B') -%>"> <%= @notice.date('%b') -%></abbr> <%= @notice.date.year  %></time>
+    </div>
+    <%# //Notice meta %>
+  </header>
+
+  <%# Notice image %>
+  <div class="detail-view__media detail-view__mrg-base" itemprop="photo">
+    <%= cl_image_tag @notice.image_ref,
+        alt: "Photo of notice: #{@notice.name}",
+        width: 638,
+        crop: :limit,
+        format: :jpg,
+        fetch_format: :auto
+        %>
+  </div>
+  <%# //Notice image %>
+
+  <%# Notice description %>
+  <div class="detail-view__desc txt-formatted">
+    <% to_paragraphs(@notice.detail).each do |text| %>
+      <p><%= text %></p>
+    <%- end %>
+  </div>
+  <%# //Notice description %>
+</div>

@@ -10,6 +10,7 @@ class StoresController < ApplicationController
   end
 
   def show
+    return respond_to_error(404) unless store.present?
     push_store_info_to_gon
     meta.push(
       page_title: "#{store.name} at #{centre.name}",

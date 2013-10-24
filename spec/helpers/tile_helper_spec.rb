@@ -5,8 +5,12 @@ describe TileHelper do
   describe :tile_url do
 
     it "returns a product url" do
-      product = double(:product, kind: 'product', to_param: 1)
-      expect(helper.tile_url "centre_id", product).to eq "http://test.host/centre_id/products/1"
+      product = double(:product, kind: 'product', to_param: {
+        retailer_code: 'retailer_code',
+        product_name: 'name',
+        id: 1
+      })
+      expect(helper.tile_url "centre_id", product).to eq "http://test.host/centre_id/products/retailer_code/name/1"
     end
 
     it "returns a event url" do

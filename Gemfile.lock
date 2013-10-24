@@ -247,6 +247,7 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (~> 2.8)
+    sterile (1.0.3)
     thin (1.6.0)
       daemons (>= 1.0.9)
       eventmachine (>= 1.0.0)
@@ -301,6 +302,7 @@ DEPENDENCIES
   rack-pjax
   rack-proxy (= 0.4.0)
   rails (~> 4.0.0)
+  rb-fsevent
   rspec-rails
   sass-rails (~> 4.0.0)
   service_api!
@@ -309,6 +311,7 @@ DEPENDENCIES
   simplecov
   sitemap_generator
   splunk_logger!
+  sterile
   thin
   truncate
   uglifier (>= 1.3.0)

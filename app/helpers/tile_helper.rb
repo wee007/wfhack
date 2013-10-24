@@ -3,7 +3,7 @@ module TileHelper
   def tile_url(centre, result)
     case result.kind.to_s
     when 'product'
-      centre ? centre_product_url(centre, result) : product_url(result)
+      centre ? centre_product_url(centre, result.to_param) : product_url(result.to_param)
     when 'event'
       centre_event_url(centre, result)
     when 'deal'

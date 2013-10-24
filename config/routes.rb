@@ -8,11 +8,10 @@ CustomerConsole::Application.routes.draw do
 
   get 'status' => 'health_check/health_check#index', 'checks' => 'cache_and_site'
   get 'api', to: redirect('/api/index.html') # This lets /api work, not just /api/
-
   get 'products' => 'products#index'
-  get 'products/:id' => 'products#show', as: 'product'
+  get 'products/:id' => 'products#show', as: 'product_old'
   get 'products/:id/redirection' => 'products#redirection', as: 'product_redirection'
-
+  get 'products/:retailer_code/:product_name/:id' => 'products#show', as: 'product'
   get 'terms-conditions' => 'pages#terms_conditions'
   get 'privacy-policy' => 'pages#privacy_policy'
 
@@ -27,12 +26,13 @@ CustomerConsole::Application.routes.draw do
     resources :movies, only: [:index, :show]
     resources :stores, only: [:index]
     get 'stores/:retailer_code/:id' => 'stores#show', as: 'store'
-    resources :products, only: [:index]
     get 'hours', to: 'centre_hours#show'
     get 'info', to: 'centre_info#show'
     get 'services', to: 'centre_service_details#show'
-    get 'products/:id' => 'products#show', as: 'product'
+    get 'products' => 'products#index'
+    get 'products/:id' => 'products#show', as: 'product_old'
     get 'products/:id/redirection' => 'products#redirection', as: 'product_redirection'
+    get 'products/:retailer_code/:product_name/:id' => 'products#show', as: 'product'
 
     member do
       get 'product_stream'

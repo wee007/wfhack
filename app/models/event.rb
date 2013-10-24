@@ -5,12 +5,12 @@ class Event < Hashie::Mash
     super || name
   end
 
-  def date(format_string = :raw)
-    (format_string == :raw) ? super : Time.parse(super).to_s(format_string)
+  def start_date(format_string = :raw)
+    occurrences.first.start(format_string)
   end
 
   def end_date(format_string = :raw)
-    (format_string == :raw) ? super : Time.parse(super).to_s(format_string)
+    occurrences.last.finish(format_string)
   end
 
   def body
@@ -31,10 +31,14 @@ class Event < Hashie::Mash
 
   def event_times_grouped_by_date
     occurrences.inject({}) do |acc, occurrence|
-      start_date = Date.parse(occurrence[:start])
-      (acc[start_date] ||= []) << Occurrence.new(occurrence)
+      start_date = Date.parse(occurrence.start)
+      (acc[start_date] ||= []) << occurrence
       acc
     end
+  end
+
+  def occurrences
+    @occurrences ||= super.collect {|occurrence| Occurrence.new(occurrence)}
   end
 
   def kind

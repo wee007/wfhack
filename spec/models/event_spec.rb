@@ -4,8 +4,9 @@ describe Event do
 
   let :event_data do
     {
-      date: '2013-07-01T19:59:37Z',
-      end_date: '2013-07-09T19:59:37Z',
+      occurrences: [{start: '2013-07-01T19:59:37Z', finish: '2013-07-09T19:59:37Z'}],
+      # date: '2013-07-01T19:59:37Z',
+      # end_date: '2013-07-09T19:59:37Z',
       "_links" => {image: {href: 'image_link'}},
       body: "one
       two
@@ -14,14 +15,15 @@ describe Event do
   end
   subject { Event.new event_data }
 
-  context '#start' do
-    it { subject.date.should eql("2013-07-01T19:59:37Z") }
-    it { subject.date(:raw).should eql("2013-07-01T19:59:37Z") }
-    it { subject.date(:hour_minute_period).should eql(" 7:59PM") }
-    it { subject.date(:short_date).should eql("1 Jul") }
+  context '#start_date' do
+    it { subject.start_date.should eql("2013-07-01T19:59:37Z") }
+    it { subject.start_date(:raw).should eql("2013-07-01T19:59:37Z") }
+    it { subject.start_date(:hour_minute_period).should eql(" 7:59PM") }
+    it { subject.start_date(:short_date).should eql("1 Jul") }
+    it { subject.start_date(:full_date).should eql("1 Jul 2013,  7:59PM") }
   end
 
-  context '#end' do
+  context '#end_date' do
     it { subject.end_date.should eql("2013-07-09T19:59:37Z") }
   end
 

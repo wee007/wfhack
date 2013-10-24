@@ -25,8 +25,11 @@ class StoreMapPage
 
   pjaxComplete: =>
     $ ->
-      storeMapPageReady() if window.storeMapPageReady
-      delete storeMapPageReady
+      if window.storeMapPageReady
+        setTimeout((->
+          storeMapPageReady()
+          delete storeMapPageReady
+        ), 0)
 
   pjaxNavigate: (event) =>
     @startLoading()
@@ -48,7 +51,8 @@ class StoreMapPage
     self = @
     body.on('click touchstart', '[data-store-id]', ->
       self.show()
-      self.store($(@).data('store-id'))
+      el = $(@)
+      setTimeout((-> self.store(el.data('store-id'))), 0)
       false
     )
     @pjaxComplete()

@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   unless Rails.env.development? || Rails.env.test?
     rescue_from Service::API::Errors::Error do |e|
       SplunkLogger::Logger.error "ServiceError", "service", e.service, "code", e.code, "method", e.method, "url", e.url
-      respond_to_error code
+      respond_to_error e.code
     end
   end
 

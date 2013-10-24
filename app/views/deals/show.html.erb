@@ -41,11 +41,11 @@
 <%# Availability %>
 <% if @deal.stores and @deal.stores.size > 1 %>
   <div class="island detail-view__availability">
-    <h3 class="detail-view__hdr-sub detail-view__mrg-off hn">Also available at</h3>
+    <h3 class="detail-view__hdr-sub detail-view__mrg-off hn"><%= @store.name %> also available at</h3>
     <ul class="detail-view__mrg-base">
-      <% @deal.stores.each do |store| %>
+      <% @deal.stores[0..2].each do |store| %>
         <% unless store.id == @store.id %>
-          <li><a href="<%= centre_deal_path(store.centre.code, @deal.retailer_code, @deal.id)%>" class="list-divider"><span class="icon icon--pin icon--lrg icon--spacing-lrg icon--base-color" aria-hidden="true"></span><%= store.centre.short_name %><span class="icon icon--arrow-right icon--lrg icon--base-color" aria-hidden="true"></span></a></li>
+          <li><a href="<%= centre_deal_path(store.centre.code, @deal.retailer_code, @deal.id)%>" class="list-divider"><span class="icon icon--pin icon--lrg icon--spacing-lrg icon--base-color" aria-hidden="true"></span><%= store.centre.name %><span class="icon icon--arrow-right icon--lrg icon--base-color" aria-hidden="true"></span></a></li>
         <% end %>
       <% end %>
     </ul>

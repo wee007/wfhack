@@ -109,28 +109,33 @@
       }
     }
 
-  /* Controls - share/favourites */
+  /* Controls - 'Share' and 'Favourites' */
   .tile__controls {
     display: none;
     position: absolute;
     @include to-rem(top right, $spacing-quarter);
 
+    /* Only show on non-touch devices as they have hover */
+    .no-touch .tile:hover & {display: block;}
+
+    /* Buttons */
     .controls__btn {
       @include to-rem(width, $spacing-base* 2);
       @include to-rem(height, $spacing-base* 2);
-      border: 1px solid rgba(#000, 0.15);
+      border: 1px solid $color-grey-2;
       border-radius: $border-radius;
       background-color: #fff;
-    }
 
-    /* Remove the border radius when button is active */
-    .controls__btn.is-active {
-      border-bottom-right-radius: 0;
-      border-bottom-left-radius: 0;
-    }
+      /* Remove the border radius when button is active */
+      &.is-active {
+        border-color: $color-med-txt;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+      }
 
-    /* Only show on non-touch devices as they dont have hover */
-    .no-touch .tile:hover & {display: block;}
+        /* Icon */
+        .icon:before {position: static;}
+    }
   }
 
 /* Deals */

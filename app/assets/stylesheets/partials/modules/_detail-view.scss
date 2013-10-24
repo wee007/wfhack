@@ -125,7 +125,7 @@
     }
   }
 
-  .detail-view__meta abbr {border-bottom: 0;} 
+  .detail-view__meta abbr {border-bottom: 0;}
 
   /* --Dividing lines-- */
   .detail-view__divider,
@@ -222,7 +222,7 @@
     .detail-view__centres {@include to-rem(margin-top, $spacing-sixth);}
   }
 
-  /* --Controls-- */
+  /* Controls - 'Share' and 'Favourites' */
   .detail-view__controls {
 
     /* Buttons */
@@ -238,22 +238,6 @@
         display: inline-block;
         width: auto;
       }
-
-      /* Hover and focus states */
-      &:hover,
-      &:focus {
-        &,
-        .icon:before {color: $color-light-txt;}
-      }
-
-      /* Saved state for 'Save' button */
-      &.is-saved {
-        &,
-        .icon:before {color: $color-brand;}
-      }
-
-        /* Icon */
-        .icon:before {@extend %transition-subtle;}
 
         /* Webkit */
         @include target-webkit {

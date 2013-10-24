@@ -5,7 +5,7 @@
 /* Indicate that `label` will shift focus to the associated `input` element */
 label {cursor: pointer;}
 
-/* Text inputs via the `.txt-input` class, `textarea` and `select` */
+/* Text inputs via the `.txt-input` class, `textarea` and `select` (only for non-touch) */
 .txt-input,
 textarea,
 .no-touch select {
@@ -22,6 +22,7 @@ textarea,
   }
 }
 
+/* Text inputs via the `.txt-input` class and `textarea` */
 .txt-input,
 textarea {
   width: 100%;
@@ -34,14 +35,14 @@ textarea {
 	resize: vertical;
 }
 
+/* Select list (only for non-touch) */
+.no-touch select {@include to-rem(padding, $spacing-third);}
+
 /* Search inputs */
 input[type="search"] {
   @include prefix(appearance, none);
   @include prefix(box-sizing, border-box);
 }
-
-/* Select list */
-.no-touch select {@include to-rem(padding, $spacing-third);}
 
 /* Alternate sizes */
 .txt-input--sml {@include to-rem(width, 80);}

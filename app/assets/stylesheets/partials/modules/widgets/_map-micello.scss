@@ -311,10 +311,18 @@
         /* Attribution */
         #ui-attribution {
           top: auto !important;
-          bottom: $spacing-half+px;
+          bottom: $spacing-micro+px;
+
+          /* Increase bottom positioning at this breakpoint */
+          @include respond-min($ipad-landscape) {
+            bottom: $spacing-half+px;
+          }
 
           /* Static version */
-          .map-micello--static & {bottom: 0 !important;}
+          .map-micello--static & {
+            bottom: -1px;
+            right: $spacing-half+px !important;
+          }
         }
 
         /* Floor levels */

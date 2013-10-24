@@ -25,7 +25,7 @@
 .flag--shrink-wrap {width: auto;}
 
   /* Image and body container */
-  .flag__image,
+  .flag__img,
   .flag__body {
     display: table-cell;
     vertical-align: middle;
@@ -37,7 +37,7 @@
   }
 
   /* Image container */
-  .flag__image {
+  .flag__img {
     @include to-rem(padding-right, $spacing-base);
 
     /* Extend: switch the padding around for when the image is on the right of `flag__body` */

@@ -83,6 +83,9 @@ class map.micello.Map extends map.micello.MapBase
       @data.setLevel(level) if level.id != @data.getCurrentLevel().cid
     @
 
+  lock: ->
+    @locked = true
+
   zoom: ->
     if @hasTarget()
       @control.centerOnGeom(@target.geom, 0)
@@ -91,6 +94,7 @@ class map.micello.Map extends map.micello.MapBase
   detail: ->
     if @hasTarget()
       @control.showInfoWindow(@target.geom, @popupHtml(@target.store))
+      @view.translate(0, @view.canvasToMapY(0, $('#infoDiv').height()) - @view.canvasToMapY(0, 0))
     @
 
   highlight: ->
@@ -127,7 +131,7 @@ class map.micello.Map extends map.micello.MapBase
     @popupContent(data)
 
   applyCustomIcons: ->
-    for geom in  _.pluck(@index.allByType('Entrance').concat(@index.allIcons()), 'geom')
+    for geom in  _.pluck((@index.allByType('Entrance') || []).concat(@index.allIcons()), 'geom')
       geom.lr ||= 'Entrance' if geom.t == 'Entrance'
       img = map.micello.customTheme.icons?[geom.lr]
       if img
@@ -191,6 +195,10 @@ class map.micello.Map extends map.micello.MapBase
 
   moveMapForResize: =>
     @timeout = null
+    if @locked
+      @zoom()
+      @detail()
+      return
     size = @getSize()
     return if size.width == 0 || size.height == 0
     dX = (size.width - @size.width) / 2

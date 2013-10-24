@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.186
+Version:     0.1.187
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,13 @@ fi
 
 
 %changelog
+* Thu Oct 24 2013 ci <doperations@au.westfield.com> 0.1.187-1
+- Merge pull request #547 from acohen/feature/WSF-5811
+  (ldewey@au.westfield.com)
+- WSF-5811 fix broken specs (acohen@au.westfield.com)
+- WSF-5811 use occurrences for multi date presentation, remove old date code
+  (acohen@au.westfield.com)
+
 * Thu Oct 24 2013 ci <doperations@au.westfield.com> 0.1.186-1
 - 
 

@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.187
+Version:     0.1.188
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,11 @@ fi
 
 
 %changelog
+* Thu Oct 24 2013 ci <doperations@au.westfield.com> 0.1.188-1
+- Merge pull request #548 from ldewey/master (ldewey@au.westfield.com)
+- Fixed "Service::API::Errors::Error" rescue bug/error
+  (ldewey@au.westfield.com)
+
 * Thu Oct 24 2013 ci <doperations@au.westfield.com> 0.1.187-1
 - Merge pull request #547 from acohen/feature/WSF-5811
   (ldewey@au.westfield.com)

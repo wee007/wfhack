@@ -98,12 +98,12 @@
 
             <%# Store hours %>
             <% if @stores_with_hours.present? %>
-              <div class="grid__item non-palm-one-half lap-sml-one-whole">
+              <div id="shopping-hours" class="grid__item non-palm-one-half lap-sml-one-whole">
                 <%# Store hours box %>
                 <div class="islet island--non-palm box box--position">
 
                   <%# Store filter %>
-                  <form action="<%= current_url %>", method="get", class="js-store-trading-hours mrg-base", id="store-<%= week_number %>">
+                  <form action="<%= current_url %>#shopping-hours", method="get", class="js-store-trading-hours mrg-base", id="store-<%= week_number %>">
                     <div class="flag">
                       <div class="flag__img two-fifths lap-sml-two-sixths">
                         <label for="store-id-<%= week_number %>" class="txt-bold">Store Hours</label>

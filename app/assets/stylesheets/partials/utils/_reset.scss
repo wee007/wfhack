@@ -94,3 +94,12 @@ main {
 /* Lists */
 ol,
 ul {list-style: none;}
+
+/* Set consistent focus styles (adding to 'Normalize -> Links' rules) */
+a,
+button,
+input,
+textarea,
+select {
+  &:focus {outline: thin dotted;}
+}

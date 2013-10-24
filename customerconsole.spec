@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.184
+Version:     0.1.185
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,34 @@ fi
 
 
 %changelog
+* Thu Oct 24 2013 ci <doperations@au.westfield.com> 0.1.185-1
+- Merge pull request #546 from
+  mwratt/feature/map_popup_improvements_on_product_page
+  (ldewey@au.westfield.com)
+- Merge pull request #534 from ewee/hours (ldewey@au.westfield.com)
+- Merge pull request #544 from ldewey/WSF-5863 (ldewey@au.westfield.com)
+- Merge pull request #541 from ldewey/homepage-title-images
+  (ldewey@au.westfield.com)
+- Merge pull request #545 from ldewey/master (ldewey@au.westfield.com)
+- Merge pull request #535 from cpearce/UI-polish (ldewey@au.westfield.com)
+- centres map popup and tacks it better on resize (matt.wratt@trineo.co.nz)
+- Product routes now include retailer code and slugged retailer name
+  (ldewey@au.westfield.com)
+- 404 when the store can not be found. (ldewey@au.westfield.com)
+- Fixing positioning of Micello map logo (CPearce@au.westfield.com)
+- Adding new icon font (CPearce@au.westfield.com)
+- Add a fragment id to hours form (ewee@au.westfield.com)
+- Change store list links to use default link colour - WSF-5867
+  (CPearce@au.westfield.com)
+- Adding :focus rule for Firefox buttons (CPearce@au.westfield.com)
+- Flag abstraction selector name change - WSF-5577 and adding icon extender to
+  'Follow Us' social media icons (CPearce@au.westfield.com)
+- Section nav update - WSF-5789 and fixing up some CSS comments
+  (CPearce@au.westfield.com)
+- Updated title images gradient overlay. (ldewey@au.westfield.com)
+- Refactor store with hours to now filter by has_opening_hours param defined on
+  Store Service (ewee@au.westfield.com)
+
 * Thu Oct 24 2013 ci <doperations@au.westfield.com> 0.1.184-1
 - Merge pull request #538 from mwratt/feature/WSF-5856-custom-map-centre
   (ldewey@au.westfield.com)

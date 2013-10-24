@@ -1,16 +1,12 @@
 <div class="container">
   <%= site_logo %>
 
-  <p>Forwarding to <%= @product.retail_chain_name %> website<br> or go to the <a href="<%= @product_tracking_url %>" rel="external">retailer's site</a> directly.</p>
+  <p>Forwarding to <%= meta.retail_chain_name %> website<br> or go to the
+    <a href="<%= meta.product_tracking_url %>" rel="external">retailer's site</a>
+  directly.</p>
 
   <span class="preloader preloader--light">
     <span class="preloader__spinner"></span>
     <em class="hide-visually">Loading, please wait&#8230;</em>
   </span>
 </div>
-
-<script>
-  setTimeout(function(){
-    window.location.replace("<%= @product_tracking_url.html_safe %>")
-  }, 500)
-</script>

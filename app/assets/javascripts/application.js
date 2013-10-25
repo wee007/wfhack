@@ -12,6 +12,7 @@
 //= require matchMedia/matchMedia
 //= require matchMedia/matchMedia.addListener
 //= require enquire
+//= require fastclick
 
 // Conditional support
 //= require ./support/svg
@@ -29,6 +30,7 @@
 //= require ./init/deferred_images
 //= require ./init/table-horizontal-scroll
 //= require ./init/nav-contextual
+//= require init/fastclick
 
 //= require ./vendor/jquery.viewport
 //= require ./init/viewport_check
@@ -48,9 +50,3 @@
 // Map deferred loader
 //= require ./map/deferred_map
 
-
-//= require fastclick
-//
-$(function() {
-  FastClick.attach(document.body);
-});

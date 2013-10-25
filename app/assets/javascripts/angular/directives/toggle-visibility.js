@@ -4,6 +4,7 @@
   app.directive( 'toggleVisibility', ['$document', function ($document) {
     // Each trigger / target combination will have a corresponding id.
     var triggerCounter = 0,
+    activeClass = 'is-active';
 
     elementID = function () {
       id = 'toggle-visibility-' + triggerCounter;
@@ -17,12 +18,9 @@
       // ARIA for trigger
       trigger.attr( 'aria-expanded', false );
 
-      // ARIA for target
-      //target.attr( 'aria-hidden', true );
-
-      // Toggle the `is-active` class
-      trigger.removeClass( 'is-active' );
-      target.removeClass( 'is-active' );
+      // Toggle the active class
+      trigger.removeClass( activeClass );
+      target.removeClass( activeClass );
     },
 
     // Show the target
@@ -31,12 +29,9 @@
       // ARIA for trigger
       trigger.attr( 'aria-expanded', true );
 
-      // ARIA for target
-      //target.attr( 'aria-hidden', false );
-
-      // Toggle the `is-active` class
-      trigger.addClass( 'is-active' );
-      target.addClass( 'is-active' );
+      // Toggle the active class
+      trigger.addClass( activeClass );
+      target.addClass( activeClass );
     },
 
     // Toggle visibility
@@ -60,13 +55,9 @@
         // ARIA for trigger
         trigger.attr( 'aria-haspopup', true );
 
-        // ARIA for target
-        //target.attr( 'aria-hidden', true );
-
         // ID attr and target ARIA `aria-labelledby`
         id = elementID();
         trigger.attr( 'id', id );
-        //target.attr( 'aria-labelledby', id );
 
         // Visibility will be toggled on click / tap
         trigger.bind( 'click', function ( e ) {

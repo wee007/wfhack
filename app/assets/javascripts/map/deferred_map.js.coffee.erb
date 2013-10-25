@@ -45,6 +45,6 @@ proxiedFunctions = [
 do (proto = map.Micello.prototype, toProxy = proxiedFunctions) ->
   for name in toProxy
     proto[name] = do (name) -> (args...) ->
-      func = -> @[name].apply(@, args)
+      func = -> @[name]?.apply(@, args)
       if @map then func.apply(@map) else @deferred.then(func)
       @

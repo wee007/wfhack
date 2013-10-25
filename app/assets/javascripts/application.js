@@ -47,3 +47,10 @@
 
 // Map deferred loader
 //= require ./map/deferred_map
+
+
+//= require fastclick
+//
+$(function() {
+  FastClick.attach(document.body);
+});

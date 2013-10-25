@@ -1,7 +1,6 @@
 #= require jquery-pjax
 #= require flexslider/jquery.flexslider
 #= require map/responsive_map
-#= require fastclick
 
 class StoreMapPage
 
@@ -75,6 +74,5 @@ class StoreMapPage
   store: (storeId) ->
     @map.setTarget(storeId).showLevel().zoom().highlight().detail()
 
-FastClick.attach(document.body)
 @storeMapPage = new StoreMapPage
 $(@storeMapPage.setup)

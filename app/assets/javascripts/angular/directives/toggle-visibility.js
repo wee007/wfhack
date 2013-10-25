@@ -54,6 +54,7 @@
 
         // ARIA for trigger
         trigger.attr( 'aria-haspopup', true );
+        trigger.attr( 'aria-controls', id );
 
         // ID attr and target ARIA `aria-labelledby`
         id = elementID();

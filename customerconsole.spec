@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.196
+Version:     0.1.197
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,21 @@ fi
 
 
 %changelog
+* Mon Oct 28 2013 ci <doperations@au.westfield.com> 0.1.197-1
+- Merge pull request #552 from cpearce/UI-polish (ldewey@au.westfield.com)
+- Changing full date to lowercase pm in time formats (CPearce@au.westfield.com)
+- Fixing broken tests for events and parking (CPearce@au.westfield.com)
+- Making am/pm formatting consistent and adding en dash for time ranges instead
+  of hyphens (CPearce@au.westfield.com)
+- Adding hover effect to a tile (CPearce@au.westfield.com)
+- Truncate the store name in the map popup - WSF-5882
+  (CPearce@au.westfield.com)
+- Simplfying the selectors for the normalisation of :focus styles
+  (CPearce@au.westfield.com)
+- Normalising :focus styles (CPearce@au.westfield.com)
+- Adding hover and focus states to social share button and cleaning up CSS
+  (CPearce@au.westfield.com)
+
 * Mon Oct 28 2013 ci <doperations@au.westfield.com> 0.1.196-1
 - Merge pull request #550 from mwratt/feature/WSF-5858-fix-mobile-scroll-bug
   (ldewey@au.westfield.com)

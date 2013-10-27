@@ -35,15 +35,15 @@ describe "Parking" do
 
     it "should show all the parking rates" do
       assert_select '#parking-rates' do
-        assert_select 'td.test-times', "0 - 3hrs"
+        assert_select 'td.test-times', "0 &#8211; 3hrs"
         assert_select 'td.test-weekday', "FREE"
         assert_select 'td.test-weekend', "FREE"
 
-        assert_select 'td.test-times', "3 - 5hrs"
+        assert_select 'td.test-times', "3 &#8211; 5hrs"
         assert_select 'td.test-weekday', "$5"
         assert_select 'td.test-weekend', "$5"
 
-        assert_select 'td.test-times', "5 - 7hrs"
+        assert_select 'td.test-times', "5 &#8211; 7hrs"
         assert_select 'td.test-weekday', "$10"
         assert_select 'td.test-weekend', "$10"
       end

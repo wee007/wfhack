@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.192
+Version:     0.1.193
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,9 @@ fi
 
 
 %changelog
+* Mon Oct 28 2013 ci <doperations@au.westfield.com> 0.1.193-1
+- WFAPI-89 Home page copy (tfigueiro@au.westfield.com)
+
 * Fri Oct 25 2013 ci <doperations@au.westfield.com> 0.1.192-1
 - Revert "Merge pull request #524 from gwshaw/feature/WSF-5785_update_phg_tag"
   (ldewey@au.westfield.com)

@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.193
+Version:     0.1.194
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,15 @@ fi
 
 
 %changelog
+* Mon Oct 28 2013 ci <doperations@au.westfield.com> 0.1.194-1
+- Merge pull request #549 from mwratt/feature/map_multi_level_stores
+  (ldewey@au.westfield.com)
+- Merge pull request #551 from mwratt/feature/ie-8-bugs
+  (ldewey@au.westfield.com)
+- fixes undfined error in IE8 (matt.wratt@trineo.co.nz)
+- adds support for multi level stores in map (matt.wratt@trineo.co.nz)
+- fixes map sliding off page bug (matt.wratt@trineo.co.nz)
+
 * Mon Oct 28 2013 ci <doperations@au.westfield.com> 0.1.193-1
 - WFAPI-89 Home page copy (tfigueiro@au.westfield.com)
 

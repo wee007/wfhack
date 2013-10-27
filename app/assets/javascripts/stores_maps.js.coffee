@@ -43,13 +43,10 @@ class StoreMapPage
       $(document).on('pjax:success', @stopLoading)
       body.on('pjax:end', '.js-pjax-container-stores', @pjaxComplete)
       body.on('click', 'a.js-pjax-link-stores', @pjaxNavigate)
-      body.on('touchstart', '.is-map-view a.js-pjax-link-stores', @pjaxNavigate)
     body.on('click', '.is-list-view .js-stores-maps-toggle-btn', @show)
     body.on('click', '.is-map-view .js-stores-maps-toggle-btn', @hide)
-    body.on('touchstart', '.js-stores-maps-toggle-btn.js-map-show', @show)
-    body.on('touchstart', '.js-stores-maps-toggle-btn.js-map-hide', @hide)
     self = @
-    body.on('click touchstart', '[data-store-id]', ->
+    body.on('click', '[data-store-id]', ->
       self.show()
       el = $(@)
       setTimeout((-> self.store(el.data('store-id'))), 0)

@@ -55,6 +55,22 @@ input[type="search"] {
 	font-style: italic;
 }
 
+/* Disable zooming of inputs and selects for iOS/iPhone and Androids when focused by setting to 16px */
+.iphone,
+.android {
+  .search-mini__input,
+  .txt-input,
+  textarea,
+  select {
+    &:focus {font-size: 16px;}
+  }
+
+  /* 2px top and bottom padding for these inputs so the UI doesn't jump */
+  .search-mini__input:focus {
+    @include to-rem(padding-top padding-bottom, 2);
+  }
+}
+
 /* Disabled and Read-only */
 
 /*

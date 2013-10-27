@@ -53,7 +53,6 @@ class map.micello.Map extends map.micello.MapBase
     @data = @control.getMapData()
     canvas = @control.getMapCanvas()
     @applyCustomTheme(@control.getMapGUI(), canvas)
-    @popup = canvas.createPopup()
     @control.onMapClick = @onClick
     @data.mapChanged = @onMapChanged
     @data.loadCommunity(@community)
@@ -88,13 +87,18 @@ class map.micello.Map extends map.micello.MapBase
 
   zoom: ->
     if @hasTarget()
-      @control.centerOnGeom(@target.geom, 0)
+      @control.centerOnGeom(@target.geom, 100)
     @
 
   detail: ->
     if @hasTarget()
-      @control.showInfoWindow(@target.geom, @popupHtml(@target.store))
-      @view.translate(0, @view.canvasToMapY(0, $('#infoDiv').height()) - @view.canvasToMapY(0, 0))
+      level = @data.getCurrentLevel()
+      geoms = @data.groupMap[@target.geom?.gid] || [@target.geom]
+      for geom in geoms
+        if @data.getGeometryLevel(geom.id).id == level.id
+          @control.showInfoWindow(geom, @popupHtml(@target.store))
+      if @locked # we only bring the popup into the centre if it's the main content
+        @view.translate(0, @view.canvasToMapY(0, $('#infoDiv').height()) - @view.canvasToMapY(0, 0))
     @
 
   highlight: ->
@@ -151,6 +155,7 @@ class map.micello.Map extends map.micello.MapBase
       store.geom.nm = store.geom.lr = store.store.name if store.geom
 
   onMapChanged: (event) =>
+    @detail() # show the detail popup on the right level if it changed
     return if !event.comLoad || @geomsLoaded
     @geomsLoaded = true
     for level in @data.community.d[0].l
@@ -162,9 +167,12 @@ class map.micello.Map extends map.micello.MapBase
   onClick: (mx, my, event) =>
     @setTarget()
     return if !event || !event.id
-    index = @index.findByGid(event.id)
-    return if !index || !index.gid || !index.id
-    @setTarget(index.id).highlight().detail()
+    geoms = _(@data.getGeometryGroupList(event.id) || [event]).pluck('id')
+    store = _(westfield.stores).chain()
+      .filter((store) -> _(geoms).contains(parseInt(store.micello_geom_id, 10)))
+      .first().value()
+    return if !store
+    @setTarget(store.id).highlight().detail()
 
   reset: ->
     @control.getMapView().resetView()

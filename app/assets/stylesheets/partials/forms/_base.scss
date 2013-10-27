@@ -16,10 +16,7 @@ textarea,
   @include prefix(transition, border 0.2s linear);
 
   /* Focus state */
-  &:focus {
-    outline: none;
-    border-color: darken($color-grey-1, 12%);
-  }
+  &:focus {border-color: darken($color-grey-1, 12%);}
 }
 
 /* Text inputs via the `.txt-input` class and `textarea` */
@@ -27,6 +24,9 @@ textarea,
 textarea {
   width: 100%;
   @include to-rem(padding, $spacing-third $spacing-half);
+
+  /* Focus state */
+  &:focus {outline: none;}
 }
 
 /* Textarea */

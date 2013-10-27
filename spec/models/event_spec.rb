@@ -18,9 +18,9 @@ describe Event do
   context '#start_date' do
     it { subject.start_date.should eql("2013-07-01T19:59:37Z") }
     it { subject.start_date(:raw).should eql("2013-07-01T19:59:37Z") }
-    it { subject.start_date(:hour_minute_period).should eql(" 7:59PM") }
+    it { subject.start_date(:hour_minute_period).should eql(" 7:59pm") }
     it { subject.start_date(:short_date).should eql("1 Jul") }
-    it { subject.start_date(:full_date).should eql("1 Jul 2013,  7:59PM") }
+    it { subject.start_date(:full_date).should eql("1 Jul 2013,  7:59pm") }
   end
 
   context '#end_date' do

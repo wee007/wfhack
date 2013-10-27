@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.195
+Version:     0.1.196
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,14 @@ fi
 
 
 %changelog
+* Mon Oct 28 2013 ci <doperations@au.westfield.com> 0.1.196-1
+- Merge pull request #550 from mwratt/feature/WSF-5858-fix-mobile-scroll-bug
+  (ldewey@au.westfield.com)
+- fixes filename typo (matt.wratt@trineo.co.nz)
+- standard approach applied to fastclick (matt.wratt@trineo.co.nz)
+- make fastclick global (matt.wratt@trineo.co.nz)
+- adds fastclick and remove touchstart events (matt.wratt@trineo.co.nz)
+
 * Mon Oct 28 2013 ci <doperations@au.westfield.com> 0.1.195-1
 - 
 

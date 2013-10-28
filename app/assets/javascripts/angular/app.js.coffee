@@ -1,4 +1,4 @@
-app = angular.module("Westfield", ["ngMobile", "ngSanitize"])
+app = angular.module("Westfield", ["ngTouch", "ngSanitize", "ngAnimate"])
 app.config ["$httpProvider", "$locationProvider", ($httpProvider, $locationProvider) ->
 
   # Tell rails that we're using XMLHttpRequests

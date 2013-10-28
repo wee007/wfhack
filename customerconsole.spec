@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.197
+Version:     0.1.198
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,13 @@ fi
 
 
 %changelog
+* Tue Oct 29 2013 ci <doperations@au.westfield.com> 0.1.198-1
+- Merge pull request #555 from cpearce/UI-polish (ldewey@au.westfield.com)
+- Merge remote-tracking branch 'origin/master' (ben@germanforblack.com)
+- Use suggestions hash keys {stores,products} (ben@germanforblack.com)
+- Removing zoom of viewport when tapping into form elements
+  (CPearce@au.westfield.com)
+
 * Mon Oct 28 2013 ci <doperations@au.westfield.com> 0.1.197-1
 - Merge pull request #552 from cpearce/UI-polish (ldewey@au.westfield.com)
 - Changing full date to lowercase pm in time formats (CPearce@au.westfield.com)

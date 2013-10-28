@@ -91,10 +91,12 @@ table {
   thead tr:last-child th {border-bottom-width: 2px;}
 }
 
-/* Allows the overflow property to be used to handle content that exceeds the width of a `td` */
+/* Allows the overflow property to be used to handle content that exceeds the width of a table cell` */
 .table-fixed {table-layout: fixed;}
 
 /* Turn off padding on cells */
-.table-cell-padding-off,
-.table-cell-padding-off th,
-.table-cell-padding-off td {padding: 0;}
+.table-cell-padding-off {
+  &,
+  th,
+  td {padding: 0;}
+}

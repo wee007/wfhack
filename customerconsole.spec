@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.198
+Version:     0.1.199
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,15 @@ fi
 
 
 %changelog
+* Tue Oct 29 2013 ci <doperations@au.westfield.com> 0.1.199-1
+- Merge pull request #556 from fchan/polish (ldewey@au.westfield.com)
+- Fix PR after feedback (fiona@fionachan.net)
+- WSF-5645: Add JS to detect if nav-contextual is in viewport
+  (fiona@fionachan.net)
+- WSF-5895: Fixed centre hours time wrapping (fiona@fionachan.net)
+- WSF-5897 WSF-5850: Move tabs JS to global and move it out of vendor
+  (fiona@fionachan.net)
+
 * Tue Oct 29 2013 ci <doperations@au.westfield.com> 0.1.198-1
 - Merge pull request #555 from cpearce/UI-polish (ldewey@au.westfield.com)
 - Merge remote-tracking branch 'origin/master' (ben@germanforblack.com)

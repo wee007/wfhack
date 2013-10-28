@@ -175,14 +175,3 @@
 
 </div>
 <%# //National landing page wrapper %>
-
-<%- content_for :javascript do -%>
-  <%# Run 'Tabs' plugin %>
-  <%= javascript_include_tag 'vendor/jquery.tabs' %>
-
-  <script>
-  $(function() {
-    $('.tabs').tabs();
-  });
-  </script>
-<%- end -%>

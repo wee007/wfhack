@@ -37,6 +37,9 @@
 //= require ./vendor/jquery.viewport
 //= require ./init/viewport_check
 
+// Site wide feedback via JIRA Issue Collector
+//= require ./vendor/jira-issue-tracker
+
 //= require ./vendor/angular-head
 //= require ./vendor/angular-mobile
 //= require ./vendor/angular-sanitize
@@ -51,4 +54,3 @@
 
 // Map deferred loader
 //= require ./map/deferred_map
-

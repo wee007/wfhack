@@ -886,7 +886,8 @@ $header-color-link-hover: $color-brand !default;
 				}
 
 				/* Links */
-				.header & a {
+				.header & a,
+				.nav-site-feedback button {
 					display: block;
 					@include font-size($font-size-milli);
 					color: $color-grey-1;
@@ -894,6 +895,28 @@ $header-color-link-hover: $color-brand !default;
 					/* Hover and focus states */
 					&:hover,
 					&:focus {color: $color-light-txt;}
+				}
+
+				/* Site feedback button */
+				.nav-site-feedback {
+					display: none;
+
+					/* Toggle display at these breakpoints */
+					@include respond-min(860) {
+						display: block;
+					}
+					@include respond-min($desk-lrg) {
+						display: none;
+					}
+
+					/* --Hide for IE-- */
+
+					/* IE10 */
+					@include ie-10-up {
+						display: none;
+					}
+					/* IE 8/9 */
+					.ie & {display: none;}
 				}
 			}
 

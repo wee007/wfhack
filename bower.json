@@ -9,14 +9,17 @@
     "flexslider": "latest",
     "html5shiv": "~3.6.2",
     "prism": "gh-pages",
-    "angular-unstable": "~1.1.5",
     "script.js": "*",
     "jquery-pjax": "~1.7.3",
-    "underscore": "~1.5.2"
+    "underscore": "~1.5.2",
+    "angular": "1.2.0-rc.3",
+    "angular-animate": "1.2.0-rc.3",
+    "angular-sanitize": "1.2.0-rc.3",
+    "angular-touch": "1.2.0-rc.3"
   },
   "devDependencies": {
     "sinon": "~1.7.3",
     "jasmine-sinon": "~0.1.0",
-    "angular-mocks-unstable": "~1.1.5"
+    "angular-mocks": "1.2.0-rc.3"
   }
 }

@@ -31,7 +31,6 @@ module CustomerConsole
                                    flexslider/flexslider.css
                                    html5shiv/src/html5shiv-printshiv.js
                                    stores_maps.js
-                                   vendor/jquery.tabs.js
                                    jquery-extensions/jquery.toggle-content.js)
     if Rails.env.development?
       require File.expand_path('../../lib/service_proxy', __FILE__)

@@ -34,10 +34,10 @@
       overflow: hidden;
 
       /* Allows scrolling of the list of links when JS detects that the width of `.nav-contextual__list` is wider than `.nav-contextual__clip__inner` */
-      .is-clipped & {
-        overflow-x: scroll;
-        -webkit-overflow-scrolling: touch;
-      }
+      .is-clipped & {overflow-x: scroll;}
+
+      /* Add native scrolling effect in webkit when `.nav-contextual` is in viewport. This is to fix the problem of `-webkit-overflow-scrolling` disabling the "tap on status bar to scroll to top" function in iOS. */
+      .is-in-viewport & {-webkit-overflow-scrolling: touch;}
 
       /* Non JS users */
       .no-js & {overflow-x: auto;}

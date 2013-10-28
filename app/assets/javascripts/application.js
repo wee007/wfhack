@@ -25,12 +25,14 @@
 // do it in an init/initName file
 //= require ./jquery-extensions/jquery.nav-contextual
 //= require ./jquery-extensions/jquery.table-horizontal-scroll
+//= require ./jquery-extensions/jquery.tabs
 //= require ./init/enquire
 //= require ./init/pin-board
 //= require ./init/deferred_images
 //= require ./init/table-horizontal-scroll
 //= require ./init/nav-contextual
 //= require init/fastclick
+//= require ./init/tabs
 
 //= require ./vendor/jquery.viewport
 //= require ./init/viewport_check

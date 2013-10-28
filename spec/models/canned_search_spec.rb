@@ -9,6 +9,7 @@ describe CannedSearch do
       "centre_id" => "bondijunction",
       "url" => "/a/dummy/url/and/an/edit",
       "image_ref" => "image_ref",
+      "image_alt" => "An alt tag",
       "start_date" => "2013-09-29",
       "end_date" => "2013-09-30",
       "type" => "canned_search",
@@ -28,6 +29,10 @@ describe CannedSearch do
 
   it "should have an image" do 
     canned_search.image.should include("image_ref")
+  end
+
+  it "should have an alt tag" do
+    canned_search.image_alt.should == "An alt tag"
   end
 
   it "should have a start date" do

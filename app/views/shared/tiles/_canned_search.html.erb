@@ -1,6 +1,6 @@
 <div class="tile__image">
   <%= cl_image_tag(result.image_ref, 
-    alt: "Photo of #{result.name}",
+    alt: result.image_alt,
     width: 288,
     crop: 'limit', 
     quality: 25, 

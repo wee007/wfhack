@@ -1,7 +1,12 @@
-// Note: we have to remove some ARIA attr's e.g. `aria-hidden` because some of the elements this directive is applied too only needs to be applied at certain viewports so until we have some way of applying this directive conditionally based on media queries we have to remove.
+// tab index support:
+// all focusable elements get tab-index: -1.
+// add up down keyboard events for when the object is shown only
+//  that cycle through the focusable elements in the shown target
+
+//aria-controls="id-of-target"
 
 ( function ( app ) {
-  app.directive( 'toggleVisibility', ['$document', function ($document) {
+  app.directive( 'toggleVisibility', ['$rootScope', '$document', '$animate', function ($rootScope, $document, $animate) {
     // Each trigger / target combination will have a corresponding id.
     var triggerCounter = 0,
     activeClass = 'is-active';
@@ -20,7 +25,14 @@
 
       // Toggle the active class
       trigger.removeClass( activeClass );
-      target.removeClass( activeClass );
+
+      $animate.addClass( target, 'is-active-animate-leave', function () {
+        $animate.removeClass( target, 'is-active-animate', function () {
+          setTimeout( function () {
+            $animate.removeClass( target, 'is-active-animate-leave is-active' );
+          }, 250)
+        });
+      });
     },
 
     // Show the target
@@ -31,7 +43,10 @@
 
       // Toggle the active class
       trigger.addClass( activeClass );
-      target.addClass( activeClass );
+
+      $animate.addClass( target, 'is-active', function () {
+        $animate.addClass( target, 'is-active-animate' );
+      });
     },
 
     // Toggle visibility

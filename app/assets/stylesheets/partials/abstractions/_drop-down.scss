@@ -18,10 +18,25 @@
   .drop-down-container--hover {
     .drop-down {
       display: none;
+      @include prefix(transition, all .25s ease-in-out);
+
       @include drop-down;
 
       /* Show the drop down for 'Angular Toggle Visibility Directive' */
-      &.is-active {display: block;}
+      &.is-active {
+        display: block;
+      }
+
+      &.is-active,
+      &.is-active-animate-leave {
+        opacity: 0;
+        -webkit-transform: scale(.99);
+      }
+
+      &.is-active-animate {
+        opacity: 1;
+        -webkit-transform: scale(1);
+      }
     }
   }
 

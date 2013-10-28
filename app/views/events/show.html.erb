@@ -46,8 +46,7 @@
         </dt>
         <% occurrences.each do |occurrence| %>
           <dd>
-            <time datetime="<%= occurrence.start(:raw) %>" itemprop="startDate"><%= occurrence.start(:hour_minute_period) %></time> 
-            - <time datetime="<%= occurrence.finish(:raw) %>" itemprop="endDate"><%= occurrence.finish(:hour_minute_period) %></time>
+            <time datetime="<%= occurrence.start(:raw) %>" itemprop="startDate"><%= occurrence.start(:hour_minute_period) %></time> &#8211; <time datetime="<%= occurrence.finish(:raw) %>" itemprop="endDate"><%= occurrence.finish(:hour_minute_period) %></time>
           </dd>
         <% end %>
       <% end %>

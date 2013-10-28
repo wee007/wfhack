@@ -17,6 +17,9 @@
   position: relative;
   @extend %mrg-base;
   border-bottom: 1px solid $color-grey-1;
+
+  /* Add native scrolling effect in webkit when `.nav-contextual` is in viewport and is clipped i.e. when it's scrollable. This is to fix the problem of `-webkit-overflow-scrolling` disabling the "tap on status bar to scroll to top" function in iOS. */
+  &.is-in-viewport.is-clipped .nav-contextual__clip__inner {-webkit-overflow-scrolling: touch;}
 }
 
 /* Shared rules */
@@ -34,10 +37,7 @@
       overflow: hidden;
 
       /* Allows scrolling of the list of links when JS detects that the width of `.nav-contextual__list` is wider than `.nav-contextual__clip__inner` */
-      .is-clipped & {
-        overflow-x: scroll;
-        -webkit-overflow-scrolling: touch;
-      }
+      .is-clipped & {overflow-x: scroll;}
 
       /* Non JS users */
       .no-js & {overflow-x: auto;}

@@ -114,13 +114,13 @@
     <style>
       <% @centres.each do |centre| %>
         <%# Hero image at small breakpoint %>
-        @media (max-width: 25em) {.is-in-viewport .national__centre-tile--<%= centre.code %> {background-image: url(<%= centre_tile_image(centre.code, 400, 107) %>);}}
+        @media (max-width: 25em) {.is-in-viewport-history .national__centre-tile--<%= centre.code %> {background-image: url(<%= centre_tile_image(centre.code, 400, 107) %>);}}
         <%# Hero image at medium breakpoint %>
-        @media (min-width: 25.0625em) and (max-width: 48em) { .is-in-viewport .national__centre-tile--<%= centre.code %> {background-image: url(<%= centre_tile_image(centre.code, 768, 205) %>);}}
+        @media (min-width: 25.0625em) and (max-width: 48em) {.is-in-viewport-history .national__centre-tile--<%= centre.code %> {background-image: url(<%= centre_tile_image(centre.code, 768, 205) %>);}}
         <%# Hero image at large breakpoint %>
-        @media (min-width: 48.0625em) {.is-in-viewport .national__centre-tile--<%= centre.code %> {background-image: url(<%= centre_tile_image(centre.code, 1600, 300) %>);}}
+        @media (min-width: 48.0625em) {.is-in-viewport-history .national__centre-tile--<%= centre.code %> {background-image: url(<%= centre_tile_image(centre.code, 1600, 300) %>);}}
         <%# Old IE %>
-        .old-ie .is-in-viewport .national__centre-tile--<%= centre.code %> {background-image: url(<%= centre_tile_image(centre.code, 1600, 300) %>);}
+        .old-ie .is-in-viewport-history .national__centre-tile--<%= centre.code %> {background-image: url(<%= centre_tile_image(centre.code, 1600, 300) %>);}
       <% end %>
     </style>
     <%# //Background images of centre tiles %>

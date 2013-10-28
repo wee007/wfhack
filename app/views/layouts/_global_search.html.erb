@@ -10,7 +10,7 @@
           <input type="hidden" ng-model="centre" value="<%= params[:centre_id] || params[:id] %>">
           <input ng-model="searchQuery" ng-blur="hideSuggestions()" ng-focus="makeSuggestions()" ng-keyup="makeSuggestions($event)" ng-keydown="navigateSuggestions($event)" type="search" class="search-mini__input" id="global-search" name="search_query" autocomplete="off" placeholder="Search stores &amp; products&#8230;">
           <input type="submit" value="Search" ng-hide="true" class="search-mini__submit">
-          <em ng-if="suggestions" ng-pluralize count="suggestions.length" when="searchResultText()" role="status" aria-live="polite" class="hide-visually"></em>
+          <em ng-if="suggestions" ng-pluralize count="{{suggestions.stores.length + suggestions.products.length}}" when="searchResultText()" role="status" aria-live="polite" class="hide-visually"></em>
         <% end %>
         <%# //Search form %>
 

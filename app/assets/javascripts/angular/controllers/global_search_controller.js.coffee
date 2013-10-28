@@ -33,8 +33,10 @@
 
     # Search result text for screen readers
     $scope.searchResultText = ->
+      resultLength = ($scope.suggestions.stores.length + $scope.suggestions.products.length)
+
       'one': "Press enter to search for products."
-      'other': $scope.suggestions.length + " results are available, use up and down arrow keys to navigate."
+      'other':  "#{resultLength} results are available, use up and down arrow keys to navigate."
 
     $scope.showSuggestions = -> $scope.suggestionsVisible = true
     $scope.hideSuggestions = ->

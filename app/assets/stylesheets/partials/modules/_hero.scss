@@ -18,6 +18,11 @@
   background-position: 100% 0;
   background-size: cover;
 
+  /* Old IE */
+  @include old-ie {
+    background-position: 50% 50%;
+  }
+
   /* Increase height and bottom margin at this breakpoint */
   @include respond-min($non-palm) {
     @include to-rem(height, 300);

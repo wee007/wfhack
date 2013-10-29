@@ -3,6 +3,11 @@ require 'vcr_helper'
 
 describe "Parking" do
 
+  before(:each) do
+    CentreServiceNoticesService.stub(:fetch)
+  end
+  
+
   describe "a centre without parking" do
     before(:each) do
       VCR.use_cassette('knox_without_parking') do

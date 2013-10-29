@@ -7,8 +7,8 @@ class StoreMapPage
   constructor: ->
     @map = new map.ResponsiveMap {
       breakpoint: 'all and (min-width: 64em)'
-      palm: offset: x: 0.5, y: 0.5, zoom: 2
-      nonPalm: offset: x: 0.75, y: 0.5, zoom: 2
+      palm: offset: x: 0.5, y: 0.5, zoom: 0.1
+      nonPalm: offset: x: 0.75, y: 0.5, zoom: 0.1
     }
 
   startLoading: =>

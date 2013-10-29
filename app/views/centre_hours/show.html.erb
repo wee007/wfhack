@@ -71,7 +71,7 @@
                         </td>
                         <td>
                           <% if day.description %>
-                            <em class="pill <%= "txt-truncate" if day.description.length > 18 %> hide-fully--palm" <%= "title='#{day.description}'" if day.description.length > 18 %>><%= day.description %></em>
+                            <em class="pill <%= "txt-truncate" if day.description.length > 18 %> hide-fully--palm" <%= "title=\"#{day.description}\"".html_safe if day.description.length > 18 %>><%= day.description %></em>
                             <em class="pill hide-fully--non-palm">Holiday</em>
                           <% else %>
                             &nbsp;

@@ -3,7 +3,6 @@
 <!--[if (IE 9) & (!IEMobile)]>    <html class="no-js ie-9 ie" lang="en-au">    <![endif]-->
 <!--[if gt IE 8]><!-->            <html class="no-js" lang="en-au">            <!--<![endif]-->
 <head>
-  <%= render 'shared/auth' if Rails.env.production? || Rails.env.uat? %>
   <base href="<%= request.path %>">
   <meta name="fragment" content="!">
   <meta charset="utf-8">

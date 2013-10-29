@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.200
+Version:     0.1.201
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,14 @@ fi
 
 
 %changelog
+* Tue Oct 29 2013 ci <doperations@au.westfield.com> 0.1.201-1
+- Merge pull request #560 from ldewey/remove-auth (ldewey@au.westfield.com)
+- Merge pull request #558 from ldewey/hero-images-update
+  (ldewey@au.westfield.com)
+- Removed auth (ldewey@au.westfield.com)
+- Updated gardencity hero image, info, hours and services.
+  (ldewey@au.westfield.com)
+
 * Tue Oct 29 2013 ci <doperations@au.westfield.com> 0.1.200-1
 - Maps will now be fully zoomed out. (ldewey@au.westfield.com)
 

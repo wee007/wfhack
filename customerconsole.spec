@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.199
+Version:     0.1.200
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,9 @@ fi
 
 
 %changelog
+* Tue Oct 29 2013 ci <doperations@au.westfield.com> 0.1.200-1
+- Maps will now be fully zoomed out. (ldewey@au.westfield.com)
+
 * Tue Oct 29 2013 ci <doperations@au.westfield.com> 0.1.199-1
 - Merge pull request #556 from fchan/polish (ldewey@au.westfield.com)
 - Fix PR after feedback (fiona@fionachan.net)

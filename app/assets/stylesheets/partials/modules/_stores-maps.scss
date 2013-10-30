@@ -19,6 +19,11 @@
 /* Styles for `body` element */
 .stores {padding-bottom: 0;}
 
+/* Change bg color for 'Listing' at this breakpoint */
+@include respond-max($ipad-landscape - 1) {
+  .stores.index {background-color: #fff;}
+}
+
 /* Start module */
 .stores-maps {
   position: absolute;
@@ -179,9 +184,9 @@
           @include to-rem(padding-top padding-bottom, $spacing-half+$spacing-quarter);
         }
 
-        /* Remove bottom padding at this breakpoint */
+        /* Remove bottom padding for 'Listing' view at this breakpoint */
         @include respond-min($ipad-landscape) {
-          padding-bottom: 0;
+          .stores-maps__inner--listing & {padding-bottom: 0;}
         }
       }
     }
@@ -276,13 +281,8 @@
           @include to-rem(top, 12);
         }
 
-
+        /* Hide when in map view at this breakpoint */
         @include respond-max($ipad-landscape - 1) {
-          .containers {
-            width: auto;
-            max-width: none;
-          }
-          /* Hide when in map view at this breakpoint */
           .is-map-view & {display: none;}
         }
 
@@ -296,19 +296,27 @@
           /* Nav contextual */
           .nav-contextual {border-bottom: 0;}
 
-            /* Links */
-            .nav-contextual__list a {
+            /* Links and disabled state */
+            .nav-contextual__list {
 
-              /* Decrease top and bottom padding for links at this breakpoint */
-              @include respond-min($non-palm) {
-                @include to-rem(padding-top padding-bottom, $spacing-half);
+              /* Disabled state */
+              .is-disabled {
+                @include to-rem(padding, $spacing-half);
+                color: lighten($color-light-txt, 20%);
               }
 
-              /* Decrease left and right padding at this breakpoint */
-              @include respond-min(1280) {
-                @include to-rem(padding-left padding-right, $spacing-quarter);
-              }
+              a,
+              .is-disabled {
+                /* Decrease top and bottom padding for links at this breakpoint */
+                @include respond-min($non-palm) {
+                  @include to-rem(padding-top padding-bottom, $spacing-half);
+                }
 
+                /* Decrease left and right padding at this breakpoint */
+                @include respond-min(1280) {
+                  @include to-rem(padding-left padding-right, $spacing-quarter);
+                }
+              }
             }
 
             /* Gradient that fades out the right side of the links and the scrolling indicator, change the colour at this breakpoint */
@@ -424,7 +432,7 @@
 
       /* Alter top positioning at this breakpoint */
       @include respond-min($non-palm) {
-        @include to-rem(top, 66);
+        @include to-rem(top, 65);
 
         /* Post filter count */
         .is-filter-applied & {@include to-rem(top, 102);}
@@ -441,6 +449,7 @@
         .stores-maps__inner--detail & {
           bottom: auto;
           pointer-events: auto;
+          @include to-rem(top, 110);
         }
 
         /* Detail view - when they're 'Featured items' */
@@ -496,6 +505,7 @@
     top: 0;
     bottom: 0;
     display: none;
+    background-color: $color-grey-3;
 
     /* When map view is in view */
     .is-map-view & {display: block;}

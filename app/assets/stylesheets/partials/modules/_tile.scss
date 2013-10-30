@@ -175,6 +175,9 @@
     }
   }
 
+    /* Header */
+    .tile__meta__hdr {@include to-rem(margin-bottom, $spacing-quarter);}
+
     /* Logo */
     .tile__meta__image {
       display: block;

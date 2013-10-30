@@ -10,14 +10,13 @@ $.fn.navContextual = (options) ->
     clipOverlaySelector: '.js-nav-contextual-clip-overlay'
   }, options
 
-  list = @find settings.listSelector
-
-  # Add the clip width by default.
-  listWidth = (@find(settings.clipOverlaySelector).outerWidth(true) / 2) / 2
-  list.children().each (n, child) ->
-    listWidth = listWidth + $(child).outerWidth(true)
-
   resize = =>
+    list = @find settings.listSelector
+    # Add the clip width by default.
+    listWidth = (@find(settings.clipOverlaySelector).outerWidth(true) / 2) / 2
+    list.children().each (n, child) ->
+      listWidth = listWidth + $(child).outerWidth(true)
+
     if @width() < listWidth
       @addClass settings.isClippedClass
       list.css width: listWidth

@@ -3,7 +3,7 @@ class StoresController < ApplicationController
   def index
     push_store_info_to_gon
 
-    @grouped_stores = @stores.group_by &:first_letter
+    @grouped_stores = @stores.group_by { |store| store.first_letter }
     @letter = letter @grouped_stores
     @letters = letters @grouped_stores
 

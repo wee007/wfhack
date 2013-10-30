@@ -9,7 +9,7 @@
         <%- else -%>
           <%- params.merge facet.url_key_name => (selected + [value.code]).sort -%>
         <%- end.delete_if {|k,v| v.blank? }.merge(last: facet.url_key_name) -%>
-        <%= link_to value.name, centre_products_path(url_params) %>
+        <%= link_to value.name, centre_browse_path(url_params) %>
       </li>
     <%- end -%>
   </ul>

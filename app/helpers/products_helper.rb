@@ -1,9 +1,9 @@
 module ProductsHelper
 
   def products_sort_tag(sort_options)
-    default = ["","", {'data-sort-link' => centre_products_path(params.reject{|k,v|k=='sort'})}]
+    default = ["","", {'data-sort-link' => centre_browse_path(params.reject{|k,v|k=='sort'})}]
     values = sort_options.select{|s| s[:display]}.map do |s|
-      [s.description, s.code, {'data-sort-link' => centre_products_path(params.merge sort: s.code)}]
+      [s.description, s.code, {'data-sort-link' => centre_browse_path(params.merge sort: s.code)}]
     end
     selected = params[:sort]
     select_tag(:sort, options_for_select([default]+values, selected), include_blank: false)
@@ -35,7 +35,7 @@ module ProductsHelper
     end
     url_params.delete 'category' if filter == 'super_cat'
     url_params.delete_if {|k,v| v.blank? || v.is_a?(Array) && v.all?(&:blank?)}
-    centre_products_path(url_params)
+    centre_browse_path(url_params)
   end
 
 end

@@ -1,8 +1,6 @@
 <li><%=
   link_to(
     category.name,
-    centre_products_path(
-      :category => category.code, :super_cat => super_cat.code
-    )
+    centre_browse_category_path(@centre, super_cat.code, category.code),
   )
 %></li>

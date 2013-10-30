@@ -15,10 +15,6 @@ class Notice < Hashie::Mash
              image: image
   end
 
-  # def image
-  #   _links['image']['href']
-  # end
-
   def date(strftime = nil)
     parsed_time = Time.parse(publish_date_time)
 

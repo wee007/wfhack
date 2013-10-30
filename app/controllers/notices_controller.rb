@@ -3,7 +3,7 @@ class NoticesController < ApplicationController
   layout 'detail_view', only: :show
 
   def index
-    centre, notice = nil
+    centre, notices = nil
     Service::API.in_parallel do
       centre = CentreService.fetch params[:centre_id]
       notices = CentreServiceNoticesService.fetch centre: params[:centre_id], active: true

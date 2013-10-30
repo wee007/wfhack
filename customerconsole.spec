@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.202
+Version:     0.1.203
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,17 @@ fi
 
 
 %changelog
+* Thu Oct 31 2013 ci <doperations@au.westfield.com> 0.1.203-1
+- Merge pull request #566 from fchan/polish-2 (ldewey@au.westfield.com)
+- Fix PR after feedback (fiona@fionachan.net)
+- WSF-5877: Centre align hero banners for IE8 (fiona@fionachan.net)
+- Fix title attribute for special day in hours (fiona@fionachan.net)
+- WSF-5889: Fixed datetime in movie sessions (fiona@fionachan.net)
+- WSF-5878: Fix keyboard not being able to tab into tabs nav
+  (fiona@fionachan.net)
+- Determine if today opening hour is closed shown on the centre landing page
+  (ewee@au.westfield.com)
+
 * Tue Oct 29 2013 ci <doperations@au.westfield.com> 0.1.202-1
 - 
 

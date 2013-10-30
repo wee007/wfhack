@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.203
+Version:     0.1.204
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,13 @@ fi
 
 
 %changelog
+* Thu Oct 31 2013 ci <doperations@au.westfield.com> 0.1.204-1
+- Merge pull request #559 from csmith/master (ldewey@au.westfield.com)
+- Merge pull request #568 from ldewey/maps-zoom-fix (ldewey@au.westfield.com)
+- Zoom level updates (ldewey@au.westfield.com)
+- Display the retailer name is there's no logo. (craigm.smith@au.westfield.com)
+- Added the deal start date to CC (craigm.smith@au.westfield.com)
+
 * Thu Oct 31 2013 ci <doperations@au.westfield.com> 0.1.203-1
 - Merge pull request #566 from fchan/polish-2 (ldewey@au.westfield.com)
 - Fix PR after feedback (fiona@fionachan.net)

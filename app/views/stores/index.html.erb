@@ -4,7 +4,7 @@
 
   <%# Contain 'filters', 'map/list toggle', and 'listings' %>
   <%# [BACKEND] append `is-filter-applied` class to this container when a category filter has been applied %>
-  <div class="js-pjax-container-stores" aria-live="polite" aria-atomic="true">
+  <div class="js-pjax-container-stores">
 
     <h1 class="hide-visually">Stores</h1>
 
@@ -74,10 +74,7 @@
             <div class="nav-contextual nav-contextual--no-viewport-check js-nav-contextual">
               <div class="nav-contextual__clip">
                 <nav class="nav-contextual__clip__inner" role="navigation" aria-label="Stores pagination">
-                  <ul class="nav-contextual__list horiz-list js-nav-contextual-list">
-                    <%# [BACKEND] needs to be on 1 line to avoid browser white space, and class `is-active` for the active link %>
-                    <% @stores.each do |letter, stores| %><li><a href="#"><%= letter %></a></li><% end %>
-                  </ul>
+                  <ul class="nav-contextual__list horiz-list js-nav-contextual-list"><%=raw letters @letters, @letter, @centre %></ul>
                 </nav>
                 <span class="nav-contextual__clip__overlay icon icon--arrow-right icon--mega icon--flush-top js-nav-contextual-clip-overlay" aria-hidden="true"></span>
               </div>
@@ -101,10 +98,16 @@
       <%# Stores list %>
       <div class="stores-maps__list-detail js-defer-image-load-container" id="stores-maps-toggle-listing-detail">
         <dl class="stores-list">
-          <% { 'A' => @stores['A']}.each do |letter, stores| %>
+          <% @grouped_stores.each do |letter, stores| %>
 
             <dt>
-              <div class="stores-list__inner container">Stores starting with "<%= letter %>"</div>
+              <div class="stores-list__inner container">
+                <% if @letter == 'All' %>
+                  <%= letter %>
+                <% else %>
+                  Stores starting with "<%= letter %>"
+                <% end %>
+              </div>
             </dt>
 
             <% stores.each do |store| %>

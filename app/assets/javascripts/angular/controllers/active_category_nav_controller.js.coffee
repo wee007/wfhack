@@ -1,6 +1,6 @@
 ((app) ->
   app.controller 'ActiveCategoryNavController', ['$scope', 'ProductSearch', ( $scope, ProductSearch ) ->
-    $scope.$on '$locationChangeSuccess', (scope, current, next) ->
-      $scope.activeNavigationItem = ProductSearch.params().super_cat
+    $scope.$on '$stateChangeSuccess', (event, toState, toParams, fromState, fromParams) ->
+      $scope.activeNavigationItem = toParams.super_cat
   ]
 ) angular.module("Westfield")

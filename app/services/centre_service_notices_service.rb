@@ -11,14 +11,11 @@ class CentreServiceNoticesService
       # if options is numeric, then we search by the given id value
       if (options.to_s =~ /\A[+-]?\d+\Z/)
         uri = URI("#{ServiceHelper.uri_for('centre')}/notices/#{options}.json")
-      elsif options.present?
+      else
         # options was not numeric
         uri = URI("#{ServiceHelper.uri_for('centre')}/notices.json")
-        uri.query = options.to_query 
-      else
-        uri = URI("#{ServiceHelper.uri_for('centre')}/notices.json")
+        uri.query = options.to_query if options.present?
       end
-
       uri
     end
 

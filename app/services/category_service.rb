@@ -54,6 +54,8 @@ class CategoryService
       # Get super category data from product service
       super_cats = facet_from_fetch('super_cat', ProductService.fetch(@search_params.merge({rows: 0})))
 
+      return [] if super_cats.blank?
+
       STATIC_SUPER_CATS.map do |super_cat|
         # Get each super category
         category = super_cats.find{|sc| sc.code == super_cat }
@@ -72,7 +74,7 @@ class CategoryService
 
     def facet_from_fetch(facetName, results)
       results.facets.find{ |f| f.field == facetName }.try '[]', 'values'
-
     end
+
   end
 end

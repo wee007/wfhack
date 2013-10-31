@@ -16,12 +16,13 @@ class EventService
 
     end
 
-    def build(json_response)
+    def build(json_response, options = {})
+      
       response = super(json_response)
       if response.is_a? Array
-        response.map { |event| Event.new event }
+        response.map { |event| Event.new event.merge(options) }
       else
-        Event.new response
+        Event.new response.merge(options)
       end
     end
 

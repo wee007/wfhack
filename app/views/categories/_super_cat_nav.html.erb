@@ -5,7 +5,7 @@
       attrs[:class] = 'is-active'
     end
     link_to(
-      category.name,
+      category.short_name,
       centre_products_path(:super_cat => category.code),
       attrs
     )

@@ -12,7 +12,10 @@ class CategoryService
     ]
 
     def fetch(params = {})
-      @search_params = params
+      @search_params = params.dup
+      # Currently this class talks to the products API rather than the
+      # categories API so does not need this flag.
+      @search_params.delete(:product_mapable)
       get_categories
     end
 

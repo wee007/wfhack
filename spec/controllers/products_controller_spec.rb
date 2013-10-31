@@ -2,11 +2,12 @@ require 'spec_helper'
 
 describe ProductsController do
 
+  let(:facets)  { [] }
   before :each do
     StoreService.stub(:fetch)
     CentreService.stub(:fetch).and_return double :response, body: {}
     CentreService.stub(:group_by_state)
-    ProductService.stub(:fetch).and_return double( :response,
+    ProductService.stub(:fetch).and_return double( :product_service_response,
       body: {
         details: [],
         retail_chain: {cam_ref: ""},

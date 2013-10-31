@@ -109,7 +109,7 @@
             <footer class="storefront__featured">
 
                 <%# 'Product' tiles %>
-                <div class="storefront__featured__item storefront__featured__item--products island island--top-btm">
+                <div class="storefront__featured__item storefront__featured__item--products island-ends">
                   <div class="container">
                     <h2 class="storefront__featured__hdr">Featured from <%= @store.name %></h2>
                     <ul class="grid grid--gutter-half grid--mrg-half">
@@ -128,8 +128,7 @@
                       <% end %>
                     </ul>
                     <%= link_to centre_products_path(retailer: [params[:retailer_code]]), class: 'storefront__featured__view-more' do %>
-                      View more
-                      <span class="icon icon--arrow-right icon--lrg" aria-hidden="true"></span>
+                      View more<span class="icon icon--arrow-right icon--lrg" aria-hidden="true"></span>
                     <% end %>
                   </div>
                 </div>
@@ -137,7 +136,7 @@
 
                 <%- if false %>
                 <%# Deal tiles %>
-                <div class="storefront__featured__item storefront__featured__item--deals island island--top-btm">
+                <div class="storefront__featured__item storefront__featured__item--deals island-ends">
                   <div class="container">
                     <h2 class="storefront__featured__hdr">Deals from <%= @store.name %></h2>
                     <ul class="grid grid--gutter-half grid--mrg-half">

@@ -269,13 +269,11 @@
 
     /* Shared rules */
     .storefront__featured__hdr,
-    .storefront__featured__view-more {
-      font-family: $font-family-opensans;
-      color: $color-light-txt;
-    }
+    .storefront__featured__view-more {font-family: $font-family-opensans;}
 
     /* Headings */
     .storefront__featured__hdr {
+      color: $color-light-txt;
       @include font-size(18, 1.5);
       @include to-rem(margin-bottom, $spacing-half);
 
@@ -284,7 +282,3 @@
         @include font-size(22, 1.5);
       }
     }
-
-    /* View more links */
-    .storefront__featured__view-more:hover,
-    .storefront__featured__view-more:focus {color: $color-med-txt;}

@@ -56,14 +56,14 @@ class CategoryService
 
       STATIC_SUPER_CATS.map do |super_cat|
         # Get each super category
-        category = super_cats['values'].find{|sc| sc.code == super_cat }
+        category = super_cats.find{|sc| sc.code == super_cat }
         next if category.nil?
 
         # Get children categories
         children = ProductService.fetch(@search_params.merge({rows: 0, super_cat: super_cat}))
 
         # Tack on the children of said super category
-        category[:children] = facet_from_fetch('category', children)['values']
+        category[:children] = facet_from_fetch('category', children)
 
         # Implicit return
         category
@@ -71,7 +71,8 @@ class CategoryService
     end
 
     def facet_from_fetch(facetName, results)
-      results.facets.find{ |f| f.field == facetName }
+      results.facets.find{ |f| f.field == facetName }.try '[]', 'values'
+
     end
   end
 end

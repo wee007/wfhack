@@ -6,7 +6,7 @@ class DealsController < ApplicationController
     centre, deal = nil
     Service::API.in_parallel do
       centre = CentreService.fetch params[:centre_id]
-      deal = DealService.fetch centre: params[:centre_id], state: 'live', rows: 50
+      deal = DealService.fetch centre: params[:centre_id], state: 'published', rows: 50
     end
     @centre = CentreService.build centre
     @deals = DealService.build deal

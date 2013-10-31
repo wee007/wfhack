@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.205
+Version:     0.1.206
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,21 @@ fi
 
 
 %changelog
+* Thu Oct 31 2013 ci <doperations@au.westfield.com> 0.1.206-1
+- Merge pull request #567 from cpearce/feedback-button
+  (ldewey@au.westfield.com)
+- Merge pull request #571 from csmith/master (ldewey@au.westfield.com)
+- Merge pull request #569 from ldewey/chris/store-pagination
+  (ldewey@au.westfield.com)
+- We want to show all the published deals, not just the live ones.
+  (craigm.smith@au.westfield.com)
+- Removing & syntax as its slow (ldewey@au.westfield.com)
+- making A-Z pagination dynamic (ldewey@au.westfield.com)
+- Implementing site wide feedback button using JIRA issue collector
+  (CPearce@au.westfield.com)
+- Final style updates to pagination (CPearce@au.westfield.com)
+- Adding A-Z pagination to stores list (CPearce@au.westfield.com)
+
 * Thu Oct 31 2013 ci <doperations@au.westfield.com> 0.1.205-1
 - Product browse category harding (ldewey@au.westfield.com)
 

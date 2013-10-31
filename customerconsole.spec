@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.208
+Version:     0.1.209
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,15 @@ fi
 
 
 %changelog
+* Thu Oct 31 2013 ci <doperations@au.westfield.com> 0.1.209-1
+- Merge pull request #578 from acohen/feature/WSF-5012
+  (ldewey@au.westfield.com)
+- WSF-5012 changes as per Leon's code review (acohen@au.westfield.com)
+- WSF-5012 add img_alt_text display. Clean up html as per Fiona's instructions
+  (acohen@au.westfield.com)
+- WSF-5012 use active: true to filter list of notices (acohen@au.westfield.com)
+- WSF-5012 add notices to customer console (acohen@au.westfield.com)
+
 * Thu Oct 31 2013 ci <doperations@au.westfield.com> 0.1.208-1
 - WSF-5890 respect centre timezone when displaying dates
   (acohen@au.westfield.com)

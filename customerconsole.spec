@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.204
+Version:     0.1.205
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,9 @@ fi
 
 
 %changelog
+* Thu Oct 31 2013 ci <doperations@au.westfield.com> 0.1.205-1
+- Product browse category harding (ldewey@au.westfield.com)
+
 * Thu Oct 31 2013 ci <doperations@au.westfield.com> 0.1.204-1
 - Merge pull request #559 from csmith/master (ldewey@au.westfield.com)
 - Merge pull request #568 from ldewey/maps-zoom-fix (ldewey@au.westfield.com)

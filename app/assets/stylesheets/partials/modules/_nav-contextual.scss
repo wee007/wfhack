@@ -17,6 +17,9 @@
   position: relative;
   @extend %mrg-base;
   border-bottom: 1px solid $color-grey-1;
+
+  /* Indent any hovered drop downs so it aligns flush to the left edge of the anchor text */
+  .drop-down-container--hover .drop-down {@include to-rem(left, $spacing-half);}
 }
 
 /* Shared rules */
@@ -26,7 +29,7 @@
   /* Clip scrollable content */
   .nav-contextual__clip {
     /* Make space for the arrow on the right, the spacing needs to be smaller than `.nav-contextual__clip__overlay` */
-    .is-clipped & {@include to-rem(margin-right, $spacing-base);}
+    .is-clipped & {@include to-rem(margin-right, $spacing-half);}
   }
 
     .nav-contextual__clip__inner {
@@ -36,8 +39,10 @@
       /* Allows scrolling of the list of links when JS detects that the width of `.nav-contextual__list` is wider than `.nav-contextual__clip__inner` */
       .is-clipped & {overflow-x: scroll;}
 
-      /* Add native scrolling effect in webkit when `.nav-contextual` is in viewport. This is to fix the problem of `-webkit-overflow-scrolling` disabling the "tap on status bar to scroll to top" function in iOS. */
-      .is-in-viewport & {-webkit-overflow-scrolling: touch;}
+      /* Add native scrolling effect in Webkit when `.nav-contextual` is in viewport. This is to fix the problem of `-webkit-overflow-scrolling` disabling the "tap on status bar to scroll to top" function in iOS. */
+      .is-in-viewport &,
+      /* We need this for navs that don't require the 'is in viewport' check */
+      .nav-contextual--no-viewport-check & {-webkit-overflow-scrolling: touch;}
 
       /* Non JS users */
       .no-js & {overflow-x: auto;}
@@ -68,7 +73,7 @@
       /* Arrow icon - scrolling indicator */
       &:before {
         top: 50%;
-        @include translate(28%, -50%);
+        @include translate(28%, -52%);
       }
     }
 
@@ -80,14 +85,12 @@
       /* Non JS users */
       .no-js & {width: auto;}
 
+      /* Items */
       > li {
-        @include to-rem(margin-left, $spacing-base);
-
-        &:first-child {margin-left: 0;}
 
         /* Links */
         > a {
-          @include to-rem(padding-top padding-bottom, $spacing-half);
+          @include to-rem(padding, $spacing-half);
           border-bottom: 2px solid transparent;
 
           /* Increase the top/bottom padding at this breakpoint */
@@ -95,9 +98,10 @@
             @include to-rem(padding-top padding-bottom, $spacing-base);
           }
 
-          /* Hover and focus states */
+          /* Hover, focus and active states */
           &:hover,
-          &:focus {color: $color-link-hover;}
+          &:focus,
+          &.is-active {color: $color-link-hover;}
 
           /* When the nav item is the selected section */
           &.is-active {border-bottom-color: $color-brand;}

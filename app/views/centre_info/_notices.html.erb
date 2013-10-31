@@ -6,18 +6,15 @@
   <div class="grid grid--gutter-dbl">
     <div class="grid__item non-palm-one-whole">
       <ul class="txt-formatted__list-unstyled">
+        <% @notices.each_with_index do |notice, idx| -%>
         <li>
             <%# [BACKEND] The first link in the list needs to have class `list-divider--first` %>
-            <a href="#" class="list-divider list-divider--first txt-truncate">Lorem ipsum dolor sit amet, consectetur adipiscing elitLorem ipsumdolorsitametconsectetur adipiscinfelit
+            <a href="<%= centre_notice_path(@centre, notice.id) -%>" class="list-divider txt-truncate<%= ' list-divider--first' if idx == 0 -%>">
+              <%= notice.name  %> 
             <span class="icon icon--arrow-right icon--lrg icon--base-color" aria-hidden="true"></span>
           </a>
         </li>
-        <li>
-          <a href="#" class="list-divider txt-truncate">
-            Quisque convallis leo at ligula ultricies
-            <span class="icon icon--arrow-right icon--lrg icon--base-color" aria-hidden="true"></span>
-          </a>
-        </li>
+        <% end -%>
       </ul>
     </div>
   </div>

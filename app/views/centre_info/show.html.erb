@@ -25,7 +25,7 @@
     <%= render 'getting_here' %>
     <%= render :partial => 'parking' if @parking.present? %>
     <%#= render 'community' %>
-    <%#= render 'notices' %>
+    <%= render 'notices' if @notices.present? %>
     <%= render 'contact_us' %>
 
     <%# Follow Us - title %>

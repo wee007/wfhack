@@ -1,0 +1,63 @@
+/* ======================================================================================
+   @BUTTONS -> SITE FEEDBACK
+   ====================================================================================== */
+
+/*
+	Usage:
+		Global site feedback button that sits fixed at the bottom right of the viewport for large desktop and in the hamburger header drop down menu for large tablet.
+
+	Demo:
+		Style Guide -> Buttons -> Site Feedback
+*/
+
+.btn--site-feedback {
+	display: none;
+	background-color: $color-cta-blue;
+	color: #fff;
+	@include to-rem(padding, $spacing-half);
+	position: fixed;
+	z-index: $z-index-high - 1;
+	right: 0;
+	@include to-rem(bottom, $spacing-base);
+
+	/* Only show for large desktop */
+	@include respond-min($desk-lrg) {
+		display: block;
+
+		/* Hide for Android 2 and below as they don't support `position: fixed` */
+		.androidv2 & {display: none;}
+	}
+
+	/* --Hide for IE-- */
+
+	/* IE10 */
+	@include ie-10-up {
+		display: none;
+	}
+	/* IE 8/9 */
+	.ie & {display: none;}
+}
+
+	/* 'Give feedback' label */
+	.btn--site-feedback__lbl {
+		display: inline-block;
+		vertical-align: middle;
+		@include font-size($font-size-sml, 1);
+
+		/* Slide the label out on hover/focus of the button for non touch only */
+		.no-touch & {
+			opacity: 0;
+			width: 1px;
+			@extend %transition-subtle;
+		}
+
+		.no-touch .btn--site-feedback:hover &,
+		.no-touch .btn--site-feedback:focus & {
+			opacity: 1;
+			@include to-rem(width, 80);
+			@include to-rem(margin-left, $spacing-half);
+		}
+
+		/* Hide for touch devices */
+		.touch & {display: none;}
+	}

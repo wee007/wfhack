@@ -1,6 +1,5 @@
 <%# Notices %>
 <h2 id="notice">Notices</h2>
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 
 <div class="spacing spacing--dbl">
   <div class="grid grid--gutter-dbl">
@@ -8,9 +7,8 @@
       <ul class="txt-formatted__list-unstyled">
         <% @notices.each_with_index do |notice, idx| -%>
         <li>
-            <%# [BACKEND] The first link in the list needs to have class `list-divider--first` %>
             <a href="<%= centre_notice_path(@centre, notice.id) -%>" class="list-divider txt-truncate<%= ' list-divider--first' if idx == 0 -%>">
-              <%= notice.name  %> 
+              <%= notice.name  %>
             <span class="icon icon--arrow-right icon--lrg icon--base-color" aria-hidden="true"></span>
           </a>
         </li>

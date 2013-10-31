@@ -10,15 +10,17 @@
   </header>
 
   <%# Notice image %>
-  <div class="detail-view__media detail-view__mrg-base">
-    <%= cl_image_tag @notice.image_ref,
-        alt: @notice.img_alt_text ? @notice.img_alt_text : "",
-        width: 638,
-        crop: :limit,
-        format: :jpg,
-        fetch_format: :auto
-        %>
-  </div>
+  <% if @notice.image_ref.present? -%>
+    <div class="detail-view__media detail-view__mrg-base">
+      <%= cl_image_tag @notice.image_ref,
+          alt: @notice.img_alt_text ? @notice.img_alt_text : "",
+          width: 638,
+          crop: :limit,
+          format: :jpg,
+          fetch_format: :auto
+          %>
+    </div>
+  <%- end %>
   <%# //Notice image %>
 
   <%# Notice description %>

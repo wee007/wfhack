@@ -8,8 +8,9 @@ class EventsController < ApplicationController
       centre = CentreService.fetch params[:centre_id]
       event = EventService.fetch centre: params[:centre_id], published: true, rows: 50
     end
+
     @centre = CentreService.build centre
-    @events = EventService.build event
+    @events = EventService.build event, timezone: @centre.timezone
 
     meta.push(
       page_title: "Events and Activities at #{@centre.name}",
@@ -23,8 +24,9 @@ class EventsController < ApplicationController
       centre = CentreService.fetch params[:centre_id]
       event = EventService.fetch params[:id]
     end
+
     @centre = CentreService.build centre
-    @event = EventService.build event
+    @event = EventService.build event, timezone: @centre.timezone
 
     meta.push @event.meta
     meta.push(

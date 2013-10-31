@@ -5,8 +5,6 @@ describe Event do
   let :event_data do
     {
       occurrences: [{start: '2013-07-01T19:59:37Z', finish: '2013-07-09T19:59:37Z'}],
-      # date: '2013-07-01T19:59:37Z',
-      # end_date: '2013-07-09T19:59:37Z',
       "_links" => {image: {href: 'image_link'}},
       body: "one
       two
@@ -33,6 +31,16 @@ describe Event do
 
   context '#image' do
     it { subject.image.should =~ /#{event_data[:image_ref]}/ }
+  end
+
+  context '#occurrences' do
+    it 'should adjust the displayed date based on the centre timezone' do
+      subject.timezone = "Australia/Queensland"
+      # Queensland time is UTC + 10 hours
+      subject.start_date(:hour_minute_period).should eql(" 5:59am") 
+      subject.start_date(:full_date).should eql("2 Jul 2013,  5:59am") 
+    end
+   
   end
 
 end

@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.212
+Version:     0.1.213
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,11 @@ fi
 
 
 %changelog
+* Fri Nov 01 2013 ci <doperations@au.westfield.com> 0.1.213-1
+- Merge pull request #573 from fchan/zoom (ldewey@au.westfield.com)
+- Revert "Merge pull request #550 from mwratt/feature/WSF-5858-fix-mobile-
+  scroll-bug" (fiona@fionachan.net)
+
 * Fri Nov 01 2013 ci <doperations@au.westfield.com> 0.1.212-1
 - Fixing use of islet abstraction for notices show (CPearce@au.westfield.com)
 - Fixing z-index of site feedback button so it sits behind the feedback modal

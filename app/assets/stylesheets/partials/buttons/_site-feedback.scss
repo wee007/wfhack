@@ -22,6 +22,9 @@
 	right: 0;
 	@include to-rem(bottom, $spacing-base);
 
+	/* Hide for 'National home page' */
+	.national & {display: none;}
+
 	/* Only show for large desktop */
 	@include respond-min($desk-lrg) {
 		display: block;

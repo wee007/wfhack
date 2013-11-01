@@ -6,7 +6,6 @@
 //= require matchMedia/matchMedia
 //= require matchMedia/matchMedia.addListener
 //= require enquire
-//= require fastclick
 
 // Support
 //= require ./support/custom-modernizr-tests
@@ -17,7 +16,6 @@
 //= require ./init/enquire
 //= require ./init/pin-board
 //= require ./init/deferred_images
-//= require ./init/fastclick
 
 // jQuery plugins and their initialisers
 //= require ./jquery-extensions/jquery.nav-contextual

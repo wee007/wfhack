@@ -29,7 +29,7 @@
   /* Clip scrollable content */
   .nav-contextual__clip {
     /* Make space for the arrow on the right, the spacing needs to be smaller than `.nav-contextual__clip__overlay` */
-    .is-clipped & {@include to-rem(margin-right, $spacing-half);}
+    .is-clipped & {@include to-rem(margin-right, $spacing-base);}
   }
 
     .nav-contextual__clip__inner {

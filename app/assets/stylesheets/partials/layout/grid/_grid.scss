@@ -117,13 +117,11 @@
 
 /* Apply bottom margin only for 'Non-palm' */
 @include respond-min($non-palm) {
-	/* Base bottom margin */
 	.grid--mrg-base-non-palm > .grid__item {@include to-rem(margin-bottom, $grid-gutter);}
 }
 
 /* Apply bottom margin only for 'Lap small' when linearised */
 @include respond-range-fixed(lap-sml) {
-  /* Base bottom margin */
   .grid--mrg-base-lap-sml {
   	&,
 	  > .grid__item {

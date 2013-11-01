@@ -1,25 +1,33 @@
-Modernizr.addTest('ipad', function () {
-  return !!navigator.userAgent.match(/iPad/i);
-});
+/*
+ * User-agent sniffing to detect devices
+ */
 
-Modernizr.addTest('iphone', function () {
-  return !!navigator.userAgent.match(/iPhone/i);
-});
-
-Modernizr.addTest('ipod', function () {
-  return !!navigator.userAgent.match(/iPod/i);
-});
-
+// iOS
 Modernizr.addTest('ios', function () {
   return (Modernizr.ipad || Modernizr.ipod || Modernizr.iphone);
 });
 
-// basic android test based on user agent string
+// iPAD
+Modernizr.addTest('ipad', function () {
+  return !!navigator.userAgent.match(/iPad/i);
+});
+
+// iPhone
+Modernizr.addTest('iphone', function () {
+  return !!navigator.userAgent.match(/iPhone/i);
+});
+
+// iPod
+Modernizr.addTest('ipod', function () {
+  return !!navigator.userAgent.match(/iPod/i);
+});
+
+// Android
 Modernizr.addTest('android', function () {
   return !!navigator.userAgent.match(/android/i);
 });
 
-// android v2 test
+// Android V2
 Modernizr.addTest('androidv2', function () {
   androidV2 = false;
   androidStart = navigator.userAgent.indexOf('Android ');

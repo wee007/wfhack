@@ -53,7 +53,7 @@
         <%# //Store location %>
 
         <%# Contact store %>
-        <div class="island island--fill island--center islet-ends detail-view__divider">
+        <div class="detail-view__divider island-sides islet-ends island--fill island--center">
           <span class="hide-fully--non-palm">
             <%= phone_link @product.retail_chain.phone_no, class: 'btn btn--full btn--main btn--main-alt2 btn--main-lrg' do |phone_number| %>
               <span class="icon icon--phone icon--xlrg icon--spacing-lrg icon--flush-top" aria-hidden="true"></span><strong>Call <%= @product.retail_chain_name %></strong>
@@ -87,7 +87,7 @@
   <%# Product images %>
   <div class="grid__item non-palm-three-fifths">
 
-    <div class="island island--top-btm detail-view__divider--palm">
+    <div class="detail-view__divider--palm island-ends">
       <%# Flexslider %>
       <div class="flexslider flexslider--lrg-img flexslider--gallery">
         <ul class="slides">

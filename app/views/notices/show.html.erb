@@ -3,7 +3,7 @@
     <h1 class="detail-view__hdr hn"><%= @notice.name.truncate(65, '&#8230;') %></h1>
 
     <%# Notice meta %>
-    <div class="detail-view__meta islet islet--top-btm detail-view__divider detail-view__divider--top-btm">
+    <div class="detail-view__meta detail-view__divider detail-view__divider--top-btm islet-ends">
       <time datetime="<%= @notice.date('%Y-%m-%d') %>" pubdate><%= @notice.date.day %><abbr title="<%= @notice.date('%B') -%>"> <%= @notice.date('%b') -%></abbr> <%= @notice.date.year  %></time>
     </div>
     <%# //Notice meta %>

@@ -46,6 +46,11 @@
   <% if meta.description.present? %>
     <meta name="description" content="<%= meta.description.html_safe %>">
   <% end %>
+
+  <% if meta.product_tracking_url.present? %>
+    <meta http-equiv="refresh" content="3; url=<%= meta.product_tracking_url %>">
+  <% end %>
+
 </head>
 
 <body class="<%= params[:controller] %> <%= params[:action] %> <%= yield :class_for_body %>" ng-app="Westfield" ng-init="centre_id='<%= params[:centre_id] || params[:id] %>'">

@@ -97,22 +97,46 @@ class ProductsController < ApplicationController
 
 
   def redirection
+    expires_now
     @product = ProductService.build(ProductService.fetch params.dup.merge({action: 'show'}))
 
     cam_ref = @product.retail_chain.cam_ref
-    ad_ref = @product.categories[0].super_category.code
 
     if cam_ref
-      @product_tracking_url =
-        "http://prf.hn/click/camref:#{cam_ref}/adref:#{ad_ref}/destination:" \
-        "#{@product.primary_retailer_product_url}"
+      ad_ref = @product.categories[0].super_category.code
+
+      # FIXME: Needed once authentication installed
+      # customer_id = cas_session.user_id
+      customer_id = ""
+
+      utm_source = /utm_source=([^&]*)/.match(request.query_string)
+      utm_medium = /utm_medium=([^&]*)/.match(request.query_string)
+      utm_keyword = /utm_keyword=([^&]*)/.match(request.query_string)
+      request_url = request.url.split("/redirection")[0]
+
+      pub_ref = [
+        request_url,
+        request.remote_ip,
+        customer_id,
+        utm_source.try(:[], 1 ),
+        utm_medium.try(:[], 1),
+        utm_keyword.try(:[], 1)
+      ].compact.join("%7C")
+
+      product_tracking_url =
+        "http://prf.hn/click/camref:#{cam_ref}/pubref:#{pub_ref}/adref:#{ad_ref}/" \
+        "destination:#{@product.primary_retailer_product_url}"
     else  # missing cam_ref should be rare
-      @product_tracking_url = @product.primary_retailer_product_url
+      product_tracking_url = @product.primary_retailer_product_url
       logger.warn("CAMREF_MISSING product_sku=#{@product.sku} " \
         "retailer_code=#{@product.retailer_code}")
     end
 
-    meta.push(page_title: "#{@product.retail_chain_name} - #{@product.name}")
+    meta.push(
+      retail_chain_name: @product.retail_chain_name,
+      page_title: "#{@product.retail_chain_name} - #{@product.name}",
+      product_tracking_url: product_tracking_url
+    )
     render layout: 'base'
   end
 

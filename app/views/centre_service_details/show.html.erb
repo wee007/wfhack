@@ -9,7 +9,7 @@
 
     <%# Concierge Desk %>
     <% if @concierge.present? %>
-      <div class="spacing spacing--dbl">
+      <div class="mrg-dbl-alt">
         <div class="grid grid--gutter-dbl">
           <div class="grid__item non-palm-one-half">
             <h3>Concierge Desk</h3>
@@ -18,7 +18,7 @@
             <% end %>
 
             <% if @concierge.phone_no.present? %>
-              <h4 class="txt-formatted__unbold hide-fully--palm flush--btm">Contact Concierge Desk</h4>
+              <h4 class="txt-formatted__unbold hide-fully--palm flush-btm">Contact Concierge Desk</h4>
 
               <%# Show concierge number if at non-palm size %>
               <div class="hide-fully--palm txt-xlrg">
@@ -48,7 +48,7 @@
    <%# //Concierge Desk %>
 
    <%# Westfield gift cards %>
-   <div class="spacing spacing--dbl">
+   <div class="mrg-dbl-alt">
       <div class="grid grid--gutter-dbl">
         <div class="grid__item non-palm-one-half">
           <%= image_tag 'gift-cards.jpg', alt: '', quality: 25, fetch_format: 'auto' %>

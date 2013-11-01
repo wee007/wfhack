@@ -19,46 +19,44 @@
 <h2 id="getting-here">Getting Here</h2>
 
 <%# Shopping centre map %>
-<div class="spacing spacing--dbl">
-  <div class="spacing">
-    <div class="centre-location">
-      <%# Static Google map %>
-      <div class="map-google-static">
-        <%= image_tag getting_here_map_url(@centre), alt: '' %>
-      </div>
-      <%# //Static Google map %>
-
-      <%# Address box %>
-      <div class="centre-location__info box slats">
-        <div class="slats__img slats__img--compact">
-          <%= image_tag "heroes/#{@centre.code}.jpg",
-            :crop => :thumb,
-            :width => 120,
-            :height => 130,
-            :html_width => 120,
-            :html_height => 130,
-            :alt => "Photo of #{@centre.short_name} shopping centre",
-            :onerror => "this.remove();",
-            :fetch_format => 'auto'
-          %>
-        </div>
-        <div class="slats__body islet">
-          <p itemscope itemtype="http://schema.org/Organization">
-            <span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
-              <span itemprop="streetAddress"><%= @centre.street_address %></span>
-              <br>
-              <span itemprop="addressLocality"><%= @centre.suburb %></span>
-              <br>
-              <span itemprop="addressRegion"><%= @centre.state %> <%= @centre.postcode %></span>
-            </span>
-          </p>
-          <%= link_to "https://maps.google.com/maps?q=#{@centre.latitude},#{@centre.longitude}", rel: 'external', target: '_blank' do %>
-            Open in Google Maps<span class="icon icon--arrow-right icon--lrg" aria-hidden="true"></span>
-          <% end -%>
-        </div>
-      </div>
-      <%# //Address box %>
+<div class="mrg-dbl-alt">
+  <div class="centre-location">
+    <%# Static Google map %>
+    <div class="map-google-static">
+      <%= image_tag getting_here_map_url(@centre), alt: '' %>
     </div>
+    <%# //Static Google map %>
+
+    <%# Address box %>
+    <div class="centre-location__info box slats">
+      <div class="slats__img slats__img--compact">
+        <%= image_tag "heroes/#{@centre.code}.jpg",
+          :crop => :thumb,
+          :width => 120,
+          :height => 130,
+          :html_width => 120,
+          :html_height => 130,
+          :alt => "Photo of #{@centre.short_name} shopping centre",
+          :onerror => "this.remove();",
+          :fetch_format => 'auto'
+        %>
+      </div>
+      <div class="slats__body islet">
+        <p itemscope itemtype="http://schema.org/Organization">
+          <span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+            <span itemprop="streetAddress"><%= @centre.street_address %></span>
+            <br>
+            <span itemprop="addressLocality"><%= @centre.suburb %></span>
+            <br>
+            <span itemprop="addressRegion"><%= @centre.state %> <%= @centre.postcode %></span>
+          </span>
+        </p>
+        <%= link_to "https://maps.google.com/maps?q=#{@centre.latitude},#{@centre.longitude}", rel: 'external', target: '_blank' do %>
+          Open in Google Maps<span class="icon icon--arrow-right icon--lrg" aria-hidden="true"></span>
+        <% end -%>
+      </div>
+    </div>
+    <%# //Address box %>
   </div>
 
   <% if false %>

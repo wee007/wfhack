@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.213
+Version:     0.1.214
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,9 @@ fi
 
 
 %changelog
+* Fri Nov 01 2013 ci <doperations@au.westfield.com> 0.1.214-1
+- WSF-5785 update phg tag js (g.w.shaw@comcast.net)
+
 * Fri Nov 01 2013 ci <doperations@au.westfield.com> 0.1.213-1
 - Merge pull request #573 from fchan/zoom (ldewey@au.westfield.com)
 - Revert "Merge pull request #550 from mwratt/feature/WSF-5858-fix-mobile-

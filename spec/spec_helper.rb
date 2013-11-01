@@ -17,6 +17,14 @@ Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
 
 RSpec.configure do |config|
+  # Assume symbol without a value is assigned true
+  config.treat_symbols_as_metadata_keys_with_true_values = true
+  # If no example or groups contains the filter symbol below, then run all
+  config.run_all_when_everything_filtered = true
+  # If supplied, run only those examples and groups with the symbol below
+  # i.e. it "some text", :focus do
+  config.filter_run_including :focus
+
   # ## Mock Framework
   #
   # If you prefer to use mocha, flexmock or RR, uncomment the appropriate line:

@@ -72,7 +72,7 @@
     <%- if @product.primary_retailer_product_url -%>
       <div class="island island--center detail-view__divider--palm">
         <%= link_to @product_redirection_url, target: "_blank",
-          class: "btn btn--pointer btn--full btn--full-left btn--main btn--main-alt2 btn--main-lrg btn--main-flanked", rel: "external nofollow" do %>
+          class: "btn btn--pointer btn--full btn--full-left btn--main btn--main-alt2 btn--main-lrg btn--main-flanked js-redirect", rel: "external nofollow" do %>
           <span class="txt-truncate">Buy from <%= @product.retail_chain_name %></span>
           <span class="icon icon--arrow-right-big icon--lrg btn--pointer__icon" aria-hidden="true"></span>
           <span class="icon icon--bag icon--xlrg icon--flush-top btn--pointer__icon" aria-hidden="true"></span>
@@ -252,5 +252,33 @@
       }
 
     });
+
+    $(document).ready(function() {
+      $('.js-redirect').on("click", function(e){
+        var utmSource, utmKeyword, utmMedium, queryString;
+        var utmData = "";
+        var s = "&";
+        var pru = "<%= @product_redirection_url %>";
+
+        e.preventDefault();
+
+        <%# Only need to get pubref data if there is camref %>
+        <%- if @product.retail_chain.cam_ref %>
+          queryString = window.location.search
+
+          utmSource = queryString.match(/(utm_source=[^&]*)/)
+          utmMedium = queryString.match(/(utm_medium=[^&]*)/)
+          utmKeyword = queryString.match(/(utm_keyword=[^&]*)/)
+
+          pru += "?"
+          pru += utmSource ? utmSource[1] + s : "";
+          pru += utmMedium ? utmMedium[1] + s : "";
+          pru += utmKeyword ? utmKeyword[1] + s : "";
+
+        <%- end %>
+        window.open(pru, "_blank");
+      });
+    });
   </script>
+
 <%- end -%>

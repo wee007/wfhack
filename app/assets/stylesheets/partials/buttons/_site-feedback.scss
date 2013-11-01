@@ -22,15 +22,13 @@
 	right: 0;
 	@include to-rem(bottom, $spacing-base);
 
-	/* Hide for 'National home page' */
-	.national & {display: none;}
+	/* Hide for 'National home page' and all Androids users */
+	.national &,
+	.android & {display: none;}
 
 	/* Only show for large desktop */
 	@include respond-min($desk-lrg) {
 		display: block;
-
-		/* Hide for Android 2 and below as they don't support `position: fixed` */
-		.androidv2 & {display: none;}
 	}
 
 	/* --Hide for IE-- */

@@ -182,16 +182,19 @@
     .tile__meta__image {
       display: block;
       @include to-rem(width, 84);
-      @include to-rem(margin-bottom, $spacing-quarter);
-
-      /* Increase the bottom spacing at this breakpoint */
-      @include respond-min($non-palm) {
-        @include to-rem(margin-bottom, $spacing-half);
-      }
 
       /* Old IE - prevent the image from getting distorted */
       @include old-ie {
         img {width: 100%;}
+      }
+
+      img {
+         @include to-rem(margin-bottom, $spacing-quarter);
+
+        /* Increase the bottom spacing at this breakpoint */
+        @include respond-min($non-palm) {
+          @include to-rem(margin-bottom, $spacing-half);
+        }
       }
     }
 

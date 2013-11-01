@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.211
+Version:     0.1.212
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,19 @@ fi
 
 
 %changelog
+* Fri Nov 01 2013 ci <doperations@au.westfield.com> 0.1.212-1
+- Fixing use of islet abstraction for notices show (CPearce@au.westfield.com)
+- Fixing z-index of site feedback button so it sits behind the feedback modal
+  (CPearce@au.westfield.com)
+- Adding ARIA live attrs back to Stores index container
+  (CPearce@au.westfield.com)
+- Clean up 'application.js' and other JS files - WSF-5928
+  (CPearce@au.westfield.com)
+- Removing redundant comments in grid (CPearce@au.westfield.com)
+- Tidy up island abstraction - WSF-5933 (CPearce@au.westfield.com)
+- Remove global :focus rule and target elements specifically - WSF-5901
+  (CPearce@au.westfield.com)
+
 * Fri Nov 01 2013 ci <doperations@au.westfield.com> 0.1.211-1
 - Merge pull request #575 from fchan/polish-2 (ldewey@au.westfield.com)
 - Merge pull request #581 from ldewey/master (ldewey@au.westfield.com)

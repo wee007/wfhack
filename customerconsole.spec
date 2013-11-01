@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.210
+Version:     0.1.211
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,15 @@ fi
 
 
 %changelog
+* Fri Nov 01 2013 ci <doperations@au.westfield.com> 0.1.211-1
+- Merge pull request #575 from fchan/polish-2 (ldewey@au.westfield.com)
+- Merge pull request #581 from ldewey/master (ldewey@au.westfield.com)
+- Fix for notices (fiona@fionachan.net)
+- Return if super categories are blank. When building category nav.
+  (ldewey@au.westfield.com)
+- WSF-5825: Compress SVG icons and remove redundant pay station one
+  (fiona@fionachan.net)
+
 * Thu Oct 31 2013 ci <doperations@au.westfield.com> 0.1.210-1
 - Merge pull request #579 from acohen/feature/WSF-5012
   (acohen@au.westfield.com)

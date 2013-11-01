@@ -302,6 +302,11 @@
 		@include transform(translate($x, $y));
 	}
 
+  /* 2D Z */
+  @mixin translateZ($z: 0) {
+    @include transform(translateZ($z));
+  }
+
 	/* 3D */
 	@mixin translate3d($x, $y: 0, $z: 0) {
 		@include transform(translate($x, $y, $z));

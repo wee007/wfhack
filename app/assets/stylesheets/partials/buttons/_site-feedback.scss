@@ -16,6 +16,7 @@
 	color: #fff;
 	@include to-rem(padding, $spacing-half);
 	position: fixed;
+	@extend %hardware-accelerate-2d;
 	/* Has to be less than '1000000' as that is the `z-index` value of the JIRA issue tracker modal */
 	z-index: 999999;
 	right: 0;

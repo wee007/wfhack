@@ -312,9 +312,37 @@
                   @include to-rem(padding-top padding-bottom, $spacing-half);
                 }
 
+                /* Tighten up for non touch devices to avoid the horizontal scroll */
+                @include respond-min($ipad-landscape) {
+                  .no-touch & {
+                    @include to-rem(padding-left padding-right, $spacing-sixth);
+                    @include font-size(12, 1.5);
+
+                    /* Pad out more at these breakpoints */
+                    @include respond-min(1200) {
+                      @include to-rem(padding-left padding-right, $spacing-sixth+0.5);
+                      @include font-size(13, 1.5);
+                    }
+
+                    @include respond-min(1300) {
+                      @include to-rem(padding-left padding-right, $spacing-quarter - 1);
+                      @include font-size(14, 1.5);
+                    }
+
+                    @include respond-min(1400) {
+                      @include to-rem(padding-left padding-right, $spacing-quarter+0.25);
+                    }
+                  }
+
+                }
+
                 /* Decrease left and right padding at this breakpoint */
+                @include respond-min($ipad-landscape) {
+                  //@include to-rem(padding-left padding-right, $spacing-quarter);
+                }
+
                 @include respond-min(1280) {
-                  @include to-rem(padding-left padding-right, $spacing-quarter);
+                  //@include to-rem(padding-left padding-right, $spacing-quarter);
                 }
               }
             }

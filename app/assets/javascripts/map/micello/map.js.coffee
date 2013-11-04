@@ -98,7 +98,8 @@ class map.micello.Map extends map.micello.MapBase
         if @data.getGeometryLevel(geom.id).id == level.id
           @control.showInfoWindow(geom, @popupHtml(@target.store))
       if @locked # we only bring the popup into the centre if it's the main content
-        @view.translate(0, @view.canvasToMapY(0, $('#infoDiv').height()) - @view.canvasToMapY(0, 0))
+        @zoom()
+        @view.translate(0, $('#infoDiv').height() / 2)
     @
 
   highlight: ->

@@ -47,6 +47,7 @@
 <%# //Back button %>
 
 <%# Expose Product categories for non JS users %>
+<% unless @search.products.blank? %>
 <noscript>
   <nav role="navigation" class="island box mrg-base mrg-base--top">
     <h2>Product categories</h2>
@@ -64,6 +65,7 @@
     </ul>
   </nav>
 </noscript>
+<% end %>
 <%# //Expose Product categories for non JS users %>
 
 <p class="feedback feedback--warning js-enabled-hide">You need JavaScript enabled to use the product filters, as a fallback you can filter via the <strong>Product categories</strong> above. <a href="http://enable-javascript.com/" rel="external" target="_blank">Visit here</a> for instructions on how to enable JavaScript.</p>

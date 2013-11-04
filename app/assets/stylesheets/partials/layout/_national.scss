@@ -180,7 +180,7 @@
           &:hover,
           &:focus {
             &:before {
-              background-color: rgba(0,0,0,.7);
+              background-color: rgba(0,0,0,.3);
               z-index: 2;
             }
           }
@@ -223,15 +223,15 @@
 
     .national__hero__1 {
       @include respond-max($palm) {
-        background-image: cloudinary-url("heroes/national/national-hero-01-sml.jpg");
+        background-image: cloudinary-url("heroes/national/national-hero-01-sml.jpg", $quality: 50, $fetch_format: 'auto');
       }
 
       @include respond-range($lap, $lap-sml-end) {
-        background-image: cloudinary-url("heroes/national/national-hero-01-med.jpg");
+        background-image: cloudinary-url("heroes/national/national-hero-01-med.jpg", $quality: 73, $fetch_format: 'auto');
       }
 
       @include respond-min($lap-lrg) {
-        background-image: cloudinary-url("heroes/national/national-hero-01-lrg.jpg");
+        background-image: cloudinary-url("heroes/national/national-hero-01-lrg.jpg", $quality: 75, $fetch_format: 'auto');
       }
     }
 

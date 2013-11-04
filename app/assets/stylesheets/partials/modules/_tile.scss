@@ -198,8 +198,9 @@
     /* Description */
     .tile__meta__desc {
       font-family: $font-family-lato;
-      color: $color-dark-txt;
       @include font-size($font-size, 1.5);
+      font-weight: 300;
+      color: $color-dark-txt;
 
       /* Increase the font size at this breakpoint */
       @include respond-min($non-palm) {

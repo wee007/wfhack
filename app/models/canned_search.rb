@@ -22,9 +22,7 @@ class CannedSearch < Hashie::Mash
   end
 
   def icon
-    tile_type = detect_tile
-    return "search" unless tile_type
-    tile_type
+    detect_tile || "search"
   end
 
   def tag_line

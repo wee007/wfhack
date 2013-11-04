@@ -5,10 +5,9 @@
       <h1 class="detail-view__hdr hn" itemprop="summary"><%= @event.name %></h1>
       <ul class="detail-view__meta detail-view__divider detail-view__divider--top-btm islet-ends horiz-list horiz-list--fit">
         <li class="detail-view__subtle-txt"><%= @event.start_date(:short_date_with_year) %></li>
-        <li>
-          <span class="icon icon--pin icon--lrg icon--spacing" aria-hidden="true"></span>
-          <span itemprop="location"><%= @event.location %></span>
-        </li>
+        <%- if @event.location.present? -%>
+          <li><span class="icon icon--pin icon--lrg icon--spacing" aria-hidden="true"></span><span itemprop="location"><%= @event.location %></span></li>
+        <% end %>
       </ul>
     </header>
 

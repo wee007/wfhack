@@ -152,8 +152,8 @@ class map.micello.Map extends map.micello.MapBase
       @data.addInlay(id: geom.id, lt: 3, lr: '')
 
   applyWestfieldStoreNames: ->
-    for geom in (@index.allByType('Unit') || []).concat(@index.allByType('Building'))
-      geom.geom.nm = geom.geom.lr = 'New Store Opening Soon' unless !!geom.store
+    for item in (@index.allByType('Unit') || []).concat(@index.allByType('Building'))
+      item.geom.nm = item.geom.lr = 'New Store Opening Soon' unless !!item.store
     for store in _(@index.store).toArray()
       store.geom.nm = store.geom.lr = store.store.name if store.geom
 

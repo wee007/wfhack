@@ -22,6 +22,29 @@ class CannedSearch < Hashie::Mash
   end
 
   def icon
+    tile_type = detect_tile
+    return "search" unless tile_type
+    tile_type
+  end
+
+  def tag_line
+    case detect_tile
+    when "products"
+      "View collection"
+    when "store"
+      "View store details"
+    when "hours"
+      "View shopping hours"
+    when "info"
+      "View details"
+    when "service"
+      "View details"
+    end
+  end
+
+  private
+
+  def detect_tile
     case url
     when /[a-z]+\/products/
       "products"
@@ -33,8 +56,6 @@ class CannedSearch < Hashie::Mash
       "info"
     when /[a-z]+\/services/
       "service"
-    else
-      "search"
     end
   end
   

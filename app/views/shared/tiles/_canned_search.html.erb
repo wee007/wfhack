@@ -13,8 +13,6 @@
   </span>
   <div class="tile__meta__inner">
     <h3 class="tile__meta__hdr txt-truncate"><%= result.name %></h3>
-    <time datetime="<%= result.start_date '%F' %>">
-      <%= result.start_date "%-d %b %Y" %>
-    </time>
+    <p><%= result.tag_line %></p>
   </div>
 </div>

@@ -2,11 +2,6 @@
  * User-agent sniffing to detect devices
  */
 
-// iOS
-Modernizr.addTest('ios', function () {
-  return (Modernizr.ipad || Modernizr.ipod || Modernizr.iphone);
-});
-
 // iPAD
 Modernizr.addTest('ipad', function () {
   return !!navigator.userAgent.match(/iPad/i);
@@ -20,6 +15,11 @@ Modernizr.addTest('iphone', function () {
 // iPod
 Modernizr.addTest('ipod', function () {
   return !!navigator.userAgent.match(/iPod/i);
+});
+
+// iOS
+Modernizr.addTest('ios', function () {
+  return (Modernizr.ipad || Modernizr.ipod || Modernizr.iphone);
 });
 
 // Android

@@ -176,7 +176,7 @@
   .detail-view__media {text-align: center;}
 
   /* Descriptions (user generated content) */
-  .detail-view__desc p {@extend %mrg-base;}
+  .detail-view .detail-view__desc p {@extend %mrg-base;}
 
     /* Fine print */
     .detail-view__desc--fine-print {@include font-size($font-size-milli, 1.5);}
@@ -262,10 +262,7 @@
       margin-right: -1px;
     }
 
-    /* Toggle content plugin adjustments */
-    .toggle-content,
-    .toggle-content--btn {@include to-rem(margin-top, $spacing-base);}
-
+    /* Toggle content plugin button styles */
     .btn--expand-collapse {
       @include to-em(padding-top, $spacing-half);
       border-top: 0;

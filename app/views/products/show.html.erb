@@ -144,9 +144,9 @@
 
   <%# Description %>
   <%- if @product.available_colours.present? -%>
-  <div class="detail-view__desc grid__item non-palm-three-fifths">
+  <div class="grid__item non-palm-three-fifths">
   <% else %>
-  <div class="detail-view__desc grid__item non-palm-one-whole">
+  <div class="grid__item non-palm-one-whole">
   <%- end -%>
     <%- if @product.detailed_description.present? || @product.short_description.present? %>
       <div class="island">

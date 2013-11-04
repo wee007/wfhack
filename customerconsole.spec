@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.216
+Version:     0.1.217
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,9 @@ fi
 
 
 %changelog
+* Tue Nov 05 2013 ci <doperations@au.westfield.com> 0.1.217-1
+- fixes map popup position (matt.wratt@trineo.co.nz)
+
 * Mon Nov 04 2013 ci <doperations@au.westfield.com> 0.1.216-1
 - fix event dates displaying with incorrect timezone in stream view
   (acohen@au.westfield.com)

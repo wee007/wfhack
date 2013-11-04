@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.214
+Version:     0.1.215
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,10 @@ fi
 
 
 %changelog
+* Mon Nov 04 2013 ci <doperations@au.westfield.com> 0.1.215-1
+- [BUG] Let store hours fail gracefully till Christmas hour is implemented
+  (ewee@au.westfield.com)
+
 * Fri Nov 01 2013 ci <doperations@au.westfield.com> 0.1.214-1
 - WSF-5785 update phg tag js (g.w.shaw@comcast.net)
 

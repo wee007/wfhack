@@ -11,11 +11,11 @@ class StreamService
     
     include ApiClientRequests
 
-    def build(response)
+    def build(response, options ={})
       body = response.is_a?(Faraday::Response) ? response.body : response
       stream = body.is_a?(Hash) ? body['stream'] : []
       stream.map do |result|
-        TYPE_CLASSES[result["type"]].new(result) if TYPE_CLASSES.keys.include?(result["type"])
+        TYPE_CLASSES[result["type"]].new(result.merge(options)) if TYPE_CLASSES.keys.include?(result["type"])
       end.flatten.compact
     end
 

@@ -175,19 +175,19 @@
     }
   }
 
-    /* Header */
-    .tile__meta__hdr {@include to-rem(margin-bottom, $spacing-quarter);}
-
-    /* Logo */
+    /* Header and logo spacing */
+    .tile__meta__hdr,
     img {
-      @include to-rem(width, 84);
-       @include to-rem(margin-bottom, $spacing-quarter);
+      @include to-rem(margin-bottom, $spacing-quarter);
 
       /* Increase the bottom spacing at this breakpoint */
       @include respond-min($non-palm) {
         @include to-rem(margin-bottom, $spacing-half);
       }
     }
+
+    /* Logo */
+    img {@include to-rem(width, 84);}
 
     /* Description */
     .tile__meta__desc {

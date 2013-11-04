@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.217
+Version:     0.1.218
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,26 @@ fi
 
 
 %changelog
+* Tue Nov 05 2013 ci <doperations@au.westfield.com> 0.1.218-1
+- Merge pull request #589 from jfantham/feature/WSF-5896
+  (ldewey@au.westfield.com)
+- Merge pull request #586 from cpearce/UI-polish (ldewey@au.westfield.com)
+- Conditionally load JIRA issue tracker - WSF-5957 (CPearce@au.westfield.com)
+- Updating 'aria-label' attr for category navigation (CPearce@au.westfield.com)
+- Fixing up spacing and other things for detail views - WSF-5368
+  (CPearce@au.westfield.com)
+- Increasing font size of 'Filter' drop down trigger at non-palm - WSF-5368
+  (CPearce@au.westfield.com)
+- Updates and fixes to 'Stores' (CPearce@au.westfield.com)
+- Hide feedback button for National home page and ALL Android users
+  (CPearce@au.westfield.com)
+- Hide feedback button for National home page (CPearce@au.westfield.com)
+- Tighten up the 'Stores' A-Z pagination links for non-touch - WSF-5948
+  (CPearce@au.westfield.com)
+- Hardware accelerate the JIRA feedback button as it uses position: fixed
+  (CPearce@au.westfield.com)
+- WSF-5896 added alt tags to canned searches (j.fantham@gmail.com)
+
 * Tue Nov 05 2013 ci <doperations@au.westfield.com> 0.1.217-1
 - fixes map popup position (matt.wratt@trineo.co.nz)
 

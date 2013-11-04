@@ -19,11 +19,6 @@
 /* Styles for `body` element */
 .stores {padding-bottom: 0;}
 
-/* Change bg color for 'Listing' at this breakpoint */
-@include respond-max($ipad-landscape - 1) {
-  .stores.index {background-color: #fff;}
-}
-
 /* Start module */
 .stores-maps {
   position: absolute;
@@ -271,13 +266,13 @@
         position: absolute;
         left: 0;
         /* This right position equals the width of the map view toggle button + 10px */
-        @include to-rem(right, 50);
+        @include to-rem(right, 55);
         @include to-rem(top, 6);
 
         /* Increase top and right positioning at this breakpoint */
         @include respond-min($non-palm) {
           /* This right position equals the width of the map view toggle button + 10px */
-          @include to-rem(right, 134);
+          @include to-rem(right, 139);
           @include to-rem(top, 12);
         }
 
@@ -312,9 +307,27 @@
                   @include to-rem(padding-top padding-bottom, $spacing-half);
                 }
 
-                /* Decrease left and right padding at this breakpoint */
-                @include respond-min(1280) {
-                  @include to-rem(padding-left padding-right, $spacing-quarter);
+                /* Tighten up for non touch devices to avoid the horizontal scroll */
+                @include respond-min($ipad-landscape) {
+                  .no-touch & {
+                    @include to-rem(padding-left padding-right, $spacing-sixth);
+                    @include font-size(12, 1.5);
+
+                    /* Pad out more at these breakpoints */
+                    @include respond-min(1200) {
+                      @include to-rem(padding-left padding-right, $spacing-sixth+0.5);
+                      @include font-size(13, 1.5);
+                    }
+
+                    @include respond-min(1300) {
+                      @include to-rem(padding-left padding-right, $spacing-quarter - 1);
+                      @include font-size(14, 1.5);
+                    }
+
+                    @include respond-min(1400) {
+                      @include to-rem(padding-left padding-right, $spacing-quarter+0.25);
+                    }
+                  }
                 }
               }
             }
@@ -394,6 +407,17 @@
       right: 0;
       overflow-y: auto;
 
+      /* Make white bg for 'listing view' */
+      .stores-maps__inner--listing & {background-color: #fff;}
+
+      /* Turn off absolute positioning/overflow for 'detail view' at this breakpoint */
+      @include respond-max($ipad-landscape - 1) {
+        .stores-maps__inner--detail & {
+          position: static;
+          overflow-y: visible;
+        }
+      }
+
       /* Post filter count */
       .is-filter-applied & {@include to-rem(top, 88);}
 
@@ -420,14 +444,6 @@
       /* Old IE - change the bg colour */
       @include old-ie {
         .stores-maps .stores-maps__inner.stores-maps__inner--detail & {background-color: lighten($color-grey-3, 5%);}
-      }
-
-      /* Turn off absolute positioning/overflow for 'detail view' at this breakpoint */
-      @include respond-max($ipad-landscape - 1) {
-        .stores-maps__inner--detail & {
-          position: static;
-          overflow-y: visible;
-        }
       }
 
       /* Alter top positioning at this breakpoint */

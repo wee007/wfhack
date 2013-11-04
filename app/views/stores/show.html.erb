@@ -1,9 +1,16 @@
 <% content_for :class_for_main, "container--wide" %>
 
-<div class="stores-maps stores-maps--detail container js-stores-maps-toggle-wrap">
+<div class="stores-maps container js-stores-maps-toggle-wrap">
 
   <%# Contain 'back to listing link' and 'store details' %>
   <div class="js-pjax-container-stores" aria-live="polite" aria-atomic="true">
+
+    <%# PJAX preloader %>
+    <span class="preloader preloader--middle preloader--light">
+      <span class="preloader__spinner"></span>
+      <em class="hide-visually">Loading, please wait&#8230;</em>
+    </span>
+    <%# //PJAX preloader %>
 
     <div class="stores-maps__inner stores-maps__inner--detail <%= 'is-featured-items' if !@products.empty? %>" id="stores-maps-toggle-listing-detail">
 

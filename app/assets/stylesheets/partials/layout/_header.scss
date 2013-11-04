@@ -899,7 +899,10 @@ $header-color-link-hover: $color-brand !default;
 
 				/* Site feedback button */
 				.nav-site-feedback {
-					display: none;
+
+					/* Hide by default and for all Androids users */
+					&,
+					.android & {display: none;}
 
 					/* Toggle display at these breakpoints */
 					@include respond-min(860) {

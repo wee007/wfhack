@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.226
+Version:     0.1.227
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,19 @@ fi
 
 
 %changelog
+* Wed Nov 06 2013 ci <doperations@au.westfield.com> 0.1.227-1
+- Merge pull request #596 from jfantham/feature/WSF-5963
+  (ldewey@au.westfield.com)
+- Merge pull request #605 from ldewey/ie8-maps (ldewey@au.westfield.com)
+- WSF-5963 fixed build (j.fantham@gmail.com)
+- WSF-5963 refactored the icon detection (j.fantham@gmail.com)
+- WSF-5963 added classes to the canned search tag line (j.fantham@gmail.com)
+- WSF-5963 removed the quality of 25 from canned search images
+  (j.fantham@gmail.com)
+- WSF-5963 changed canned search dates to explanatory tag lines
+  (j.fantham@gmail.com)
+- Added IE8 map images (ldewey@au.westfield.com)
+
 * Tue Nov 05 2013 ci <doperations@au.westfield.com> 0.1.226-1
 - Change national landing page images back to fashion ones
   (fiona@fionachan.net)

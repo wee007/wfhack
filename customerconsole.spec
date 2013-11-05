@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.223
+Version:     0.1.224
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,16 @@ fi
 
 
 %changelog
+* Tue Nov 05 2013 ci <doperations@au.westfield.com> 0.1.224-1
+- Fix national landing page styles (fiona@fionachan.net)
+- Fix hours nav wrapping (fiona@fionachan.net)
+- Fix video image not appearing in old IE (fiona@fionachan.net)
+- Update Christmas images for promo tiles (fiona@fionachan.net)
+- Update Christmas images for centre services (fiona@fionachan.net)
+- Update Christmas images for shopping hours (fiona@fionachan.net)
+- Update Christimas images for centre info (fiona@fionachan.net)
+- Update Christmas images for national landing page (fiona@fionachan.net)
+
 * Tue Nov 05 2013 ci <doperations@au.westfield.com> 0.1.223-1
 - Merge pull request #585 from fchan/polish-2 (ldewey@au.westfield.com)
 - Move the iOS test in Modernizr to be after the Apple devices tests

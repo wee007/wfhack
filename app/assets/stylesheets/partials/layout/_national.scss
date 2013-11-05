@@ -163,6 +163,11 @@
           display: inline-block;
           position: relative;
           @include to-rem(padding, $spacing-quarter);
+          width: 100px;
+
+          @include respond-min($non-palm) {
+            width: 150px;
+          }
 
           /* Applies semi transparent background behind the video thumbnail image */
           &:before {
@@ -173,27 +178,24 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: rgba(0,0,0,.3);
+            background-color: rgba(0, 0, 0, 0.3);
           }
 
-          /* On hover/focus, the semi transparent background will become black and covers up the video thumbnail image */
+          /* On hover/focus, the semi transparent background will cover up the video thumbnail image */
           &:hover,
           &:focus {
-            &:before {
-              background-color: rgba(0,0,0,.7);
-              z-index: 2;
-            }
+            &:before {z-index: 2;}
           }
 
           /* Thumbnail of the video */
           img {
             position: relative;
-            /* Need this so it'll appear in front of the background overlay */
+            /* Need this so it'll appear behind the background overlay */
             z-index: 1;
-            @include to-rem(width, 100);
 
-            @include respond-min($non-palm) {
-              @include to-rem(width, 150);
+             /* Old IE - makes the play icon can appear in front of the image */
+            @include old-ie {
+              position: static;
             }
           }
 
@@ -213,7 +215,7 @@
 
             /* Old IE */
             @include old-ie {
-              margin-top: -30px;
+              margin-top: -25px;
               margin-left: -20px;
             }
           }
@@ -223,15 +225,15 @@
 
     .national__hero__1 {
       @include respond-max($palm) {
-        background-image: cloudinary-url("heroes/national/national-hero-01-sml.jpg");
+        background-image: cloudinary-url("heroes/national/national-hero-01-sml.jpg", $quality: 50, $fetch_format: 'auto');
       }
 
       @include respond-range($lap, $lap-sml-end) {
-        background-image: cloudinary-url("heroes/national/national-hero-01-med.jpg");
+        background-image: cloudinary-url("heroes/national/national-hero-01-med.jpg", $quality: 73, $fetch_format: 'auto');
       }
 
       @include respond-min($lap-lrg) {
-        background-image: cloudinary-url("heroes/national/national-hero-01-lrg.jpg");
+        background-image: cloudinary-url("heroes/national/national-hero-01-lrg.jpg", $quality: 75, $fetch_format: 'auto');
       }
     }
 

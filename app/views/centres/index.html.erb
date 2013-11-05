@@ -22,14 +22,9 @@
       <%# Hero heading wrap %>
       <div class="national__heading__intro">
         <h1>
-          <span>Santa's coming. Discover his story.</span>
-          #happygiving
+          <span>40 centres. Over 10,300 stores. Over <%= number_with_delimiter(@products_count, separator: ',') %> products</span>
+          You want. We find.
         </h1>
-
-        <a class="national__video" href="http://www.youtube.com/watch_popup?v=-RvwLHO1NPA" rel="external" target="_blank">
-          <img src="<%= image_path "video-thumbnail.jpg", quality: 25, fetch_format: 'auto' %>" alt="Westfield Campaign video">
-          <span class="icon icon--play" aria-hidden="true"></span>
-        </a>
       </div>
       <%# //Hero heading wrap %>
 

@@ -163,6 +163,11 @@
           display: inline-block;
           position: relative;
           @include to-rem(padding, $spacing-quarter);
+          @include to-rem(width, 100);
+
+          @include respond-min($non-palm) {
+            @include to-rem(width, 150);
+          }
 
           /* Applies semi transparent background behind the video thumbnail image */
           &:before {
@@ -188,12 +193,13 @@
           /* Thumbnail of the video */
           img {
             position: relative;
-            /* Need this so it'll appear in front of the background overlay */
+            /* Need this so it'll appear in behind of the background overlay */
             z-index: 1;
-            @include to-rem(width, 100);
 
-            @include respond-min($non-palm) {
-              @include to-rem(width, 150);
+             /* Old IE */
+            @include old-ie {
+              /* Need this so the play icon can appear in front of the image */
+              position: static;
             }
           }
 
@@ -213,7 +219,7 @@
 
             /* Old IE */
             @include old-ie {
-              margin-top: -30px;
+              margin-top: -25px;
               margin-left: -20px;
             }
           }

@@ -75,6 +75,6 @@ class StoreMapPage
   store: (storeId) ->
     @map.setTarget(storeId).showLevel().zoom().highlight().detail()
 
-FastClick.attach(document.body)
+FastClick.attach($('#main')[0])
 @storeMapPage = new StoreMapPage
 $(@storeMapPage.setup)

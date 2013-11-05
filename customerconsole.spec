@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.222
+Version:     0.1.223
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,19 @@ fi
 
 
 %changelog
+* Tue Nov 05 2013 ci <doperations@au.westfield.com> 0.1.223-1
+- Merge pull request #585 from fchan/polish-2 (ldewey@au.westfield.com)
+- Move the iOS test in Modernizr to be after the Apple devices tests
+  (fiona@fionachan.net)
+- Group together common spacing in tile (fiona@fionachan.net)
+- Fix PR based on feedback (fiona@fionachan.net)
+- Move deals logo spacing to the img (fiona@fionachan.net)
+- WSF-5935: Add mrg-base-alt to getting here section in centre info and
+  removing spacing file (fiona@fionachan.net)
+- WSF-5805: Fix Firefox placeholder text colour (fiona@fionachan.net)
+- WSF-5935: Remove spacing abstraction and use helper classes
+  (fiona@fionachan.net)
+
 * Tue Nov 05 2013 ci <doperations@au.westfield.com> 0.1.222-1
 - Merge pull request #583 from mlocke/feature/WSF-4998_category_short_names
   (ldewey@au.westfield.com)

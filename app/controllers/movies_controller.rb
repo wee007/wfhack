@@ -42,6 +42,7 @@ class MoviesController < ApplicationController
     end
 
     meta.push(
+      title: @movie.title,
       page_title: @movie.title,
       description: @movie.title
     )

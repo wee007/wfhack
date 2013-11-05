@@ -153,6 +153,8 @@ class map.micello.Map extends map.micello.MapBase
 
   applyWestfieldStoreNames: ->
     for item in (@index.allByType('Unit') || []).concat(@index.allByType('Building') || [])
+      # filter for gid in case the geom belongs to a group where the store could have another geoms id
+      item = _(@index.gid).chain().filter((obj) -> obj.geom.gid == (item.geom.gid || item.geom.id) && !!obj.store).first().value() || item
       item.geom.nm = item.geom.lr = 'New Store Opening Soon' unless !!item.store
     for store in _(@index.store).toArray()
       store.geom.nm = store.geom.lr = store.store.name if store.geom

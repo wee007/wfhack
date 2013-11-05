@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.218
+Version:     0.1.219
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,15 @@ fi
 
 
 %changelog
+* Tue Nov 05 2013 ci <doperations@au.westfield.com> 0.1.219-1
+- Merge pull request #598 from mwratt/feature/disabled-store-map-names
+  (ldewey@au.westfield.com)
+- [BUG] Fix missing subject line for Deals and Movies detail page
+  (ewee@au.westfield.com)
+- fixes broken js specs (matt.wratt@trineo.co.nz)
+- removes unwanted .zip file (matt.wratt@trineo.co.nz)
+- names all buildings and units as empty when empty (matt.wratt@trineo.co.nz)
+
 * Tue Nov 05 2013 ci <doperations@au.westfield.com> 0.1.218-1
 - Merge pull request #589 from jfantham/feature/WSF-5896
   (ldewey@au.westfield.com)

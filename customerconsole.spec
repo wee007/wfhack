@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.224
+Version:     0.1.225
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,10 @@ fi
 
 
 %changelog
+* Tue Nov 05 2013 ci <doperations@au.westfield.com> 0.1.225-1
+- fix mail sharing button to include subject for notices
+  (acohen@au.westfield.com)
+
 * Tue Nov 05 2013 ci <doperations@au.westfield.com> 0.1.224-1
 - Fix national landing page styles (fiona@fionachan.net)
 - Fix hours nav wrapping (fiona@fionachan.net)

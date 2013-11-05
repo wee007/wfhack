@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.227
+Version:     0.1.228
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,11 @@ fi
 
 
 %changelog
+* Wed Nov 06 2013 ci <doperations@au.westfield.com> 0.1.228-1
+- Merge pull request #608 from mwratt/feature/disabled-store-map-names
+  (ldewey@au.westfield.com)
+- handles multi level stores edge case (matt.wratt@trineo.co.nz)
+
 * Wed Nov 06 2013 ci <doperations@au.westfield.com> 0.1.227-1
 - Merge pull request #596 from jfantham/feature/WSF-5963
   (ldewey@au.westfield.com)

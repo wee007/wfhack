@@ -55,6 +55,9 @@ input[type="search"] {
 	font-style: italic;
 }
 
+/* Firefox 19+ sets an opacity on placeholder text by default so we need to reset it */
+::-moz-placeholder {opacity: 1;}
+
 /* Disable zooming of inputs and selects for iOS/iPhone and Androids when focused by setting to 16px */
 .iphone,
 .android {

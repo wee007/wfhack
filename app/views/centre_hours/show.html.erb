@@ -34,23 +34,91 @@
 
         <h2 class="tab__content__hdr"><%= ["This week", "Next week"][week_number] || "#{week.first.date '%-d %b'} - #{week.last.date '%-d %b'}"%></h2>
 
-        <%# Spacing %>
-        <div class="spacing spacing--dbl">
-          <%# Grid %>
-          <div class="grid grid--gutter-dbl grid--mrg-base-lap-sml">
+        <%# Grid %>
+        <div class="grid grid--gutter-dbl grid--mrg-base-lap-sml">
 
-            <%# Centre hours %>
-            <div class="grid__item non-palm-one-half lap-sml-one-whole">
+          <%# Centre hours %>
+          <div class="grid__item non-palm-one-half lap-sml-one-whole">
 
-              <%# Centre hours box %>
-              <div class="islet island-non-palm box">
+            <%# Centre hours box %>
+            <div class="islet island-non-palm box">
 
-                <%# Centre hours table %>
+              <%# Centre hours table %>
+              <table cellspacing="0" class="table-striped table-fixed">
+                <caption><%= week.find { |hour| hour.christmas? } ? "Christmas Centre Hours" : "Westfield Centre Hours" %></caption>
+
+                <colgroup>
+                  <col class="one-sixth lap-lrg-one-fifth desk-one-fifth"></col>
+                  <col></col>
+                  <col class="three-sixths lap-lrg-two-fifths desk-two-fifths"></col>
+                </colgroup>
+
+                <thead>
+                  <tr>
+                    <th scope="col" class="table-cell-padding-off"><span class="hide-visually">Day</span></th>
+                    <th scope="col" class="table-cell-padding-off"><span class="hide-visually">Public holiday</span></th>
+                    <th scope="col" class="table-cell-padding-off"><span class="hide-visually">Time</span></th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <% week.each do |day| %>
+                    <tr>
+                      <td>
+                        <% if today?(day.date) %><em class="txt-bold"><% end %><%= format_day(day.date,0,3) %><span class="hide-fully--palm"><%= format_day(day.date,3,6) %></span><% if today?(day.date) %></em><% end %>
+                      </td>
+                      <td>
+                        <% if day.description %>
+                          <em class="pill <%= "txt-truncate" if day.description.length > 18 %> hide-fully--palm" <%= "title=\"#{day.description}\"".html_safe if day.description.length > 18 %>><%= day.description %></em>
+                          <em class="pill hide-fully--non-palm">Holiday</em>
+                        <% else %>
+                          &nbsp;
+                        <% end %>
+                      </td>
+                      <td class="txt-right">
+                        <% if today?(day.date) %><em class="txt-bold"><% end %>
+                        <% if day.closed %>
+                          Closed
+                        <% else %>
+                          <time datetime="<%= day.date %>T<%= day.opening_time %>"><%= twelve_hour_format(day.opening_time) %></time> &#8211; <time datetime="<%= day.date %>T<%= day.closing_time %>"><%= twelve_hour_format(day.closing_time) %></time>
+                          <% end %>
+                        <% if today?(day.date) %></em><% end %>
+                      </td>
+                    </tr>
+                  <% end %>
+                </tbody>
+              </table>
+              <%# //Centre hours table %>
+            </div>
+            <%# // Centre hours box %>
+          </div>
+          <%# // Centre hours %>
+
+          <%# Store hours %>
+          <% if @stores_with_hours.present? %>
+            <div id="shopping-hours" class="grid__item non-palm-one-half lap-sml-one-whole">
+              <%# Store hours box %>
+              <div class="islet island-non-palm box box--position">
+
+                <%# Store filter %>
+                <form action="<%= current_url %>#shopping-hours", method="get", class="js-store-trading-hours mrg-base", id="store-<%= week_number %>">
+                  <div class="flag">
+                    <div class="flag__img two-fifths lap-sml-two-sixths">
+                      <label for="store-id-<%= week_number %>" class="txt-bold">Store Hours</label>
+                    </div>
+                    <div class="flag__body three-fifths lap-sml-four-sixths">
+                      <%= select_tag :store_id, options_from_collection_for_select(@stores_with_hours, :id, :name, params[:store_id]), class: 'one-whole', id: "store-id-#{week_number}" %>
+                      <%= submit_tag 'Search', class: 'js-enabled-hide' %>
+                    </div>
+                  </div>
+                </form>
+                <%# //Store filter %>
+
+                <%# Store hours table %>
                 <table cellspacing="0" class="table-striped table-fixed">
-                  <caption><%= week.find { |hour| hour.christmas? } ? "Christmas Centre Hours" : "Westfield Centre Hours" %></caption>
+                  <caption class="flush-btm"><span class="hide-visually"><%= @store.name %> shopping hours</span></caption>
 
                   <colgroup>
-                    <col class="one-sixth lap-lrg-one-fifth desk-one-fifth"></col>
                     <col></col>
                     <col class="three-sixths lap-lrg-two-fifths desk-two-fifths"></col>
                   </colgroup>
@@ -58,24 +126,15 @@
                   <thead>
                     <tr>
                       <th scope="col" class="table-cell-padding-off"><span class="hide-visually">Day</span></th>
-                      <th scope="col" class="table-cell-padding-off"><span class="hide-visually">Public holiday</span></th>
                       <th scope="col" class="table-cell-padding-off"><span class="hide-visually">Time</span></th>
                     </tr>
                   </thead>
 
                   <tbody>
-                    <% week.each do |day| %>
+                    <% @store_trading_hours[week_number].try(:each) do |day| %>
                       <tr>
                         <td>
                           <% if today?(day.date) %><em class="txt-bold"><% end %><%= format_day(day.date,0,3) %><span class="hide-fully--palm"><%= format_day(day.date,3,6) %></span><% if today?(day.date) %></em><% end %>
-                        </td>
-                        <td>
-                          <% if day.description %>
-                            <em class="pill <%= "txt-truncate" if day.description.length > 18 %> hide-fully--palm" <%= "title=\"#{day.description}\"".html_safe if day.description.length > 18 %>><%= day.description %></em>
-                            <em class="pill hide-fully--non-palm">Holiday</em>
-                          <% else %>
-                            &nbsp;
-                          <% end %>
                         </td>
                         <td class="txt-right">
                           <% if today?(day.date) %><em class="txt-bold"><% end %>
@@ -90,77 +149,14 @@
                     <% end %>
                   </tbody>
                 </table>
-                <%# //Centre hours table %>
+                <%# //Store hours table %>
               </div>
-              <%# // Centre hours box %>
+              <%# //Store hours box %>
             </div>
-            <%# // Centre hours %>
-
-            <%# Store hours %>
-            <% if @stores_with_hours.present? %>
-              <div id="shopping-hours" class="grid__item non-palm-one-half lap-sml-one-whole">
-                <%# Store hours box %>
-                <div class="islet island-non-palm box box--position">
-
-                  <%# Store filter %>
-                  <form action="<%= current_url %>#shopping-hours", method="get", class="js-store-trading-hours mrg-base", id="store-<%= week_number %>">
-                    <div class="flag">
-                      <div class="flag__img two-fifths lap-sml-two-sixths">
-                        <label for="store-id-<%= week_number %>" class="txt-bold">Store Hours</label>
-                      </div>
-                      <div class="flag__body three-fifths lap-sml-four-sixths">
-                        <%= select_tag :store_id, options_from_collection_for_select(@stores_with_hours, :id, :name, params[:store_id]), class: 'one-whole', id: "store-id-#{week_number}" %>
-                        <%= submit_tag 'Search', class: 'js-enabled-hide' %>
-                      </div>
-                    </div>
-                  </form>
-                  <%# //Store filter %>
-
-                  <%# Store hours table %>
-                  <table cellspacing="0" class="table-striped table-fixed">
-                    <caption class="flush--btm"><span class="hide-visually"><%= @store.name %> opening hours</span></caption>
-
-                    <colgroup>
-                      <col></col>
-                      <col class="three-sixths lap-lrg-two-fifths desk-two-fifths"></col>
-                    </colgroup>
-
-                    <thead class="hide-visually">
-                      <tr>
-                        <th scope="col">Day</th>
-                        <th scope="col">Time</th>
-                      </tr>
-                    </thead>
-
-                    <tbody>
-                      <% @store_trading_hours[week_number].try(:each) do |day| %>
-                        <tr>
-                          <td>
-                            <% if today?(day.date) %><em class="txt-bold"><% end %><%= format_day(day.date,0,3) %><span class="hide-fully--palm"><%= format_day(day.date,3,6) %></span><% if today?(day.date) %></em><% end %>
-                          </td>
-                          <td class="txt-right">
-                            <% if today?(day.date) %><em class="txt-bold"><% end %>
-                            <% if day.closed %>
-                              Closed
-                            <% else %>
-                              <time datetime="<%= day.date %>T<%= day.opening_time %>"><%= twelve_hour_format(day.opening_time) %></time> &#8211; <time datetime="<%= day.date %>T<%= day.closing_time %>"><%= twelve_hour_format(day.closing_time) %></time>
-                              <% end %>
-                            <% if today?(day.date) %></em><% end %>
-                          </td>
-                        </tr>
-                      <% end %>
-                    </tbody>
-                  </table>
-                  <%# //Store hours table %>
-                </div>
-                <%# //Store hours box %>
-              </div>
-            <% end %>
-            <%# // Store hours %>
-          </div>
-          <%# // Grid %>
+          <% end %>
+          <%# // Store hours %>
         </div>
-        <%# // Spacing %>
+        <%# // Grid %>
       </div>
       <%# // Tab content %>
     <% end %>

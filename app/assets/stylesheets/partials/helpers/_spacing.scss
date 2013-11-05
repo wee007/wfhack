@@ -11,37 +11,47 @@
 */
 
 /* Base */
-.mrg-base {@include to-rem(margin-bottom, $spacing-base, !important);}
+.mrg-base,
+.mrg-base-alt {@include to-rem(margin-bottom, $spacing-base, !important);}
 
-.mrg-base--top {@include to-rem(margin-top, $spacing-base, !important);}
+.mrg-base-top {@include to-rem(margin-top, $spacing-base, !important);}
 
 /* Half */
-.mrg-half {@include to-rem(margin-bottom, $spacing-half, !important);}
+.mrg-half,
+.mrg-half-alt {@include to-rem(margin-bottom, $spacing-half, !important);}
 
-.mrg-half--top {@include to-rem(margin-top, $spacing-half, !important);}
+.mrg-half-top {@include to-rem(margin-top, $spacing-half, !important);}
 
 /* Double */
-.mrg-dbl {@include to-rem(margin-bottom, $spacing-dbl, !important);}
+.mrg-dbl,
+.mrg-dbl-alt {@include to-rem(margin-bottom, $spacing-dbl, !important);}
 
-.mrg-dbl--top {@include to-rem(margin-top, $spacing-dbl, !important);}
+.mrg-dbl-top {@include to-rem(margin-top, $spacing-dbl, !important);}
+
+/* Remove spacing for `:last-child` */
+.mrg-base-alt,
+.mrg-half-alt,
+.mrg-dbl-alt {
+	&:last-child {margin-bottom: 0 !important;}
+}
 
 /* Flush */
 .flush {margin: 0 !important;}
 
-.flush--top {margin-top: 0 !important;}
+.flush-top {margin-top: 0 !important;}
 
-.flush--right {margin-right: 0 !important;}
+.flush-right {margin-right: 0 !important;}
 
-.flush--btm {margin-bottom: 0 !important;}
+.flush-btm {margin-bottom: 0 !important;}
 
-.flush--left {margin-left: 0 !important;}
+.flush-left {margin-left: 0 !important;}
 
-.flush--ends {
+.flush-ends {
 	margin-top: 0 !important;
 	margin-bottom: 0 !important;
 }
 
-.flush--sides {
+.flush-sides {
 	margin-right: 0 !important;
 	margin-left: 0 !important;
 }

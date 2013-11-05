@@ -1,14 +1,12 @@
 <div class="tile__meta">
   <% if result.logo %>
-    <span class="tile__meta__image">
-      <%= fetch_image_tag result.logo,
-        alt: "#{result.store_name} logo",
-        width: 168,
-        height: 62,
-        crop: :pad,
-        format: :auto
-      %>
-    </span>
+    <%= fetch_image_tag result.logo,
+      alt: "#{result.store_name} logo",
+      width: 168,
+      height: 62,
+      crop: :pad,
+      format: :auto
+    %>
   <% else %>
     <h3 class="tile__meta__hdr txt-break-word"><%= result.store_name %></h3>
   <% end %>

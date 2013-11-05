@@ -31,6 +31,7 @@ class DealsController < ApplicationController
 
     gon.push centre: @centre, stores: [@store.to_gon]
     meta.push(
+      title: @deal.title,
       page_title: "#{@deal.title} from #{@store.name} at #{@centre.name}",
       description: "At #{@centre.name}, find #{@deal.title} - ends #{@deal.available_to.strftime("%Y-%m-%d")}"
     )

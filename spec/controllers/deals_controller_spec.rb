@@ -58,6 +58,7 @@ describe DealsController do
     it "adds title to meta" do
       meta_double = double :meta
       meta_double.should_receive(:push).with({
+        title: @stub_deal.title,
         page_title: "#{@stub_deal.title} from #{@stub_store.name} at ",
         description: "At , find #{ @stub_deal.title } - ends #{ @stub_deal.available_to.strftime("%Y-%m-%d") }"
       })

@@ -9,9 +9,7 @@
       <div class="nav-contextual__clip">
         <div class="nav-contextual__clip__inner">
           <ul class="tab__nav nav-contextual__list js-nav-contextual-list horiz-list">
-            <% @weeks.each_with_index do |week, week_number| %>
-              <li><a class="<%= 'is-active' if week_number == 0 %>" href="#tab-<%= week_number %>"><%= ["This week", "Next week"][week_number] || "#{week.first.date '%-d %b'} - #{week.last.date '%-d %b'}" %></a></li>
-            <% end %>
+            <% @weeks.each_with_index do |week, week_number| %><li><a class="<%= 'is-active' if week_number == 0 %>" href="#tab-<%= week_number %>"><%= ["This week", "Next week"][week_number] || "#{week.first.date '%-d %b'} - #{week.last.date '%-d %b'}" %></a></li><% end %>
             <%# [BACKEND]
                 - For the first item of the dates with special opening hours (Christmas, ANAZC etc), need to add class `nav-contextual__divider` to the `a`
                 - Need to add a `href` that matches the `id` of the `tab__content` that contains the content for the the special opening hours. E.g. `#tab-[the date of special opening hours]`.

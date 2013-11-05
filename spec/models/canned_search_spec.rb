@@ -55,6 +55,20 @@ describe CannedSearch do
     canned_search.kind.should == "canned_search"
   end
 
+  it "should recognize the routes for the various types of tiles" do
+    tile_routes = [
+      "/bondijunction/products",
+      "/bondijunction/stores/1001-optical/21256",
+      "/bondijunction/hours",
+      "/bondijunction/info"
+    ]
+    tile_routes.each do |r|
+      lambda { 
+        Rails.application.routes.recognize_path(r)
+      }.should_not raise_exception
+    end
+  end
+
   it "should be able to recognize the various routes to apply the correct icon" do
     routes_and_icons = {
       "/bondijunction/products" => "products",
@@ -64,14 +78,22 @@ describe CannedSearch do
     }
 
     routes_and_icons.each do |url,icon|
-      # in case the routes change
-      lambda { 
-        Rails.application.routes.recognize_path(url)
-      }.should_not raise_exception
-
-      # make sure the urls are recognised
       canned_search.url = url
       canned_search.icon.should == icon
+    end
+  end
+
+  it "should be able to recognize the routes to generate a tag line" do
+    routes_and_tag_lines = {
+      "/bondijunction/products" => "View collection",
+      "/bondijunction/stores/1001-optical/21256" => "View store details",
+      "/bondijunction/hours" => "View shopping hours",
+      "/bondijunction/info" => "View details"
+    }
+
+    routes_and_tag_lines.each do |url,tag_line|
+      canned_search.url = url
+      canned_search.tag_line.should == tag_line
     end
   end
 

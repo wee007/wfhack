@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.221
+Version:     0.1.222
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,23 @@ fi
 
 
 %changelog
+* Tue Nov 05 2013 ci <doperations@au.westfield.com> 0.1.222-1
+- Merge pull request #583 from mlocke/feature/WSF-4998_category_short_names
+  (ldewey@au.westfield.com)
+- Merge pull request #599 from cpearce/UI-polish (ldewey@au.westfield.com)
+- Making event location conditional as it's not mandatory - WSF-5966
+  (CPearce@au.westfield.com)
+- Applying correct font-weight style to instances of Lato font
+  (CPearce@au.westfield.com)
+- Removing compression on canned search image (CPearce@au.westfield.com)
+- Updating the movie placeholder image (CPearce@au.westfield.com)
+- Fixing section nav so it doesn't render if they're no products and for
+  national view - WSF-5958 (CPearce@au.westfield.com)
+- Remove unused let and rename response double (malc.locke@trineo.co.nz)
+- Update global_search VCR cassette (malc.locke@trineo.co.nz)
+- Add extra nil value protection and fix specs (malc.locke@trineo.co.nz)
+- Add centre and stream service to foreman config (malc.locke@trineo.co.nz)
+
 * Tue Nov 05 2013 ci <doperations@au.westfield.com> 0.1.221-1
 - Merge pull request #603 from mwratt/feature/disabled-store-map-names
   (ldewey@au.westfield.com)

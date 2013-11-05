@@ -4,7 +4,7 @@
   <div class="grid__item non-palm-one-half">
     <div class="island detail-view__divider--palm">
       <header class="deal-main box box--torn">
-        <h1 class="deal-main__hdr"><%= @deal.title %></h1>
+        <h1 class="deal-main__hdr h1"><%= @deal.title %></h1>
         <p class="deal-main__meta">from <%= @store.name %> <span>Deal from  <time datetime="<%= @deal.available_from.strftime("%Y-%m-%d") %>"><%= @deal.available_from.strftime("%A %e %B") %></time> to <time datetime="<%= @deal.available_to.strftime("%Y-%m-%d") %>"><%= @deal.available_to.strftime("%A %e %B") %></time></span></p>
       </header>
     </div>

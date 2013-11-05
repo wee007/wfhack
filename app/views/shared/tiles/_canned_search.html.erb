@@ -1,11 +1,11 @@
 <div class="tile__image">
-  <%= cl_image_tag(result.image_ref, 
+  <%= cl_image_tag(result.image_ref,
     alt: result.image_alt,
     width: 288,
-    crop: 'limit', 
-    quality: 25, 
-    format: 'jpg', 
-    fetch_format: 'auto') %>
+    crop: 'limit',
+    format: 'jpg',
+    fetch_format: 'auto')
+  %>
 </div>
 <div class="tile__meta">
   <span class="tile__meta__icon">

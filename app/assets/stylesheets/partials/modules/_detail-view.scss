@@ -376,6 +376,9 @@
         padding-right: 0;
         text-align: right;
       }
+
+      /* When there is only 1 item - when a event location isn't provided */
+      &:only-child {text-align: left;}
     }
   }
 

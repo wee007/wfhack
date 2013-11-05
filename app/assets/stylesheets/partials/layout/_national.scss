@@ -163,10 +163,10 @@
           display: inline-block;
           position: relative;
           @include to-rem(padding, $spacing-quarter);
-          @include to-rem(width, 100);
+          width: 100px;
 
           @include respond-min($non-palm) {
-            @include to-rem(width, 150);
+            width: 150px;
           }
 
           /* Applies semi transparent background behind the video thumbnail image */
@@ -178,27 +178,23 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: rgba(0,0,0,.3);
+            background-color: rgba(0, 0, 0, 0.3);
           }
 
-          /* On hover/focus, the semi transparent background will become black and covers up the video thumbnail image */
+          /* On hover/focus, the semi transparent background will cover up the video thumbnail image */
           &:hover,
           &:focus {
-            &:before {
-              background-color: rgba(0,0,0,.3);
-              z-index: 2;
-            }
+            &:before {z-index: 2;}
           }
 
           /* Thumbnail of the video */
           img {
             position: relative;
-            /* Need this so it'll appear in behind of the background overlay */
+            /* Need this so it'll appear behind the background overlay */
             z-index: 1;
 
-             /* Old IE */
+             /* Old IE - makes the play icon can appear in front of the image */
             @include old-ie {
-              /* Need this so the play icon can appear in front of the image */
               position: static;
             }
           }

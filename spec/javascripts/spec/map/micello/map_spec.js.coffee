@@ -65,6 +65,7 @@ describe "map.micello.Map", ->
     beforeEach ->
       @subject.data = community: d: 0: l: []
       @subject.ready = sinon.stub()
+      @subject.applyWestfieldStoreNames = sinon.stub()
       @subject.applyCustomIcons = sinon.stub()
 
     it 'calls ready', ->

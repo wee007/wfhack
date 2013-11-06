@@ -255,27 +255,8 @@
 
     $(document).ready(function() {
       $('.js-redirect').on("click", function(e){
-        var utmSource, utmKeyword, utmMedium, queryString;
-        var utmData = "";
-        var s = "&";
-        var pru = "<%= @product_redirection_url %>";
-
+        var pru = "<%= @product_redirection_url %>" +  window.location.search;
         e.preventDefault();
-
-        <%# Only need to get pubref data if there is camref %>
-        <%- if @product.retail_chain.cam_ref %>
-          queryString = window.location.search
-
-          utmSource = queryString.match(/(utm_source=[^&]*)/)
-          utmMedium = queryString.match(/(utm_medium=[^&]*)/)
-          utmKeyword = queryString.match(/(utm_keyword=[^&]*)/)
-
-          pru += "?"
-          pru += utmSource ? utmSource[1] + s : "";
-          pru += utmMedium ? utmMedium[1] + s : "";
-          pru += utmKeyword ? utmKeyword[1] + s : "";
-
-        <%- end %>
         window.open(pru, "_blank");
       });
     });

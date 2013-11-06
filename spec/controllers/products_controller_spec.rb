@@ -103,8 +103,7 @@ describe ProductsController do
     context "when cam_ref is missing" do
       it "assigns retailer url" do
         get :show, id: 1
-        assigns(:product_redirection_url).should ==
-          product_redirection_url
+        assigns(:product_redirection_url).should == product_redirection_url
       end
     end
 
@@ -126,7 +125,6 @@ describe ProductsController do
           utm_medium: "affiliate", utm_keyword: "dresses", utm_campaign: "xyz"
 
         assigns(:product_redirection_url).should == centre_product_redirection_url
-        # with javascript running--utm_source, utm_keyword and utm_keyword are included
       end
     end
   end
@@ -182,8 +180,8 @@ describe ProductsController do
           retail_chain_name: "product_rcn",
           page_title: "product_rcn - test_product",
           product_tracking_url: "http://prf.hn/click/camref:1234/" \
-            "pubref:http://test.host/products/1%7C1.2.3.4%7C%7Cgoogleshopping" \
-            "%7Caffiliate%7Cdresses/adref:spec_test/destination:http://www.prp_url.com"
+            "pubref:http://test.host/products/1%7C1.2.3.4%7C/" \
+            "adref:spec_test/destination:http://www.prp_url.com"
         })
         controller.stub(:meta).and_return(meta_double)
 

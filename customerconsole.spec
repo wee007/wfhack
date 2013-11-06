@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.228
+Version:     0.1.229
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,14 @@ fi
 
 
 %changelog
+* Wed Nov 06 2013 ci <doperations@au.westfield.com> 0.1.229-1
+- Using to_slug rather than url encode (craigm.smith@au.westfield.com)
+- Upgraded rspec (craigm.smith@au.westfield.com)
+- Added movie name in to the url (craigm.smith@au.westfield.com)
+- We no longer need to show the days for a given movie.
+  (craigm.smith@au.westfield.com)
+- Updated movie meta data (craigm.smith@au.westfield.com)
+
 * Wed Nov 06 2013 ci <doperations@au.westfield.com> 0.1.228-1
 - Merge pull request #608 from mwratt/feature/disabled-store-map-names
   (ldewey@au.westfield.com)

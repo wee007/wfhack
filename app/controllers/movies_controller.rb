@@ -17,7 +17,7 @@ class MoviesController < ApplicationController
 
     meta.push(
       page_title: "#{@cinema.name} at #{@centre.short_name}",
-      description: "#{@cinema.name} at #{@centre.short_name}"
+      description: "Find the latest movies and session times at #{@cinema.name} at Westfield #{@centre.short_name}"
     )
     @hero = Hashie::Mash.new heading: @cinema.name, image: 'movies', icon: 'icon--video'
     render layout: "sub_page"
@@ -42,9 +42,9 @@ class MoviesController < ApplicationController
     end
 
     meta.push(
-      title: @movie.title,
-      page_title: @movie.title,
-      description: @movie.title
+      title: "#{@movie.title} | #{@cinema.name} | #{@centre.short_name}",
+      page_title: "#{@movie.title} | #{@cinema.name} | #{@centre.short_name}",
+      description: @movie.synopsis
     )
     render layout: "detail_view"
   end

@@ -32,11 +32,11 @@ describe DealsController do
     before :each do
       CentreService.stub(:fetch).with('bondijunction').and_return double :response, body: {}
       DealService.stub(:fetch).with("1").and_return("DEAL JSON")
-      stub_deal_store = double(:deal_store, :store_service_id => 12).as_null_object
+      @stub_deal_store = double(:deal_store, :store_service_id => 12).as_null_object
       StoreService.stub(:fetch).with(12).and_return("STORE JSON")
       @stub_store = double(:store).as_null_object
       StoreService.stub(:build).with("STORE JSON").and_return(@stub_store)
-      @stub_deal = double(:deal, title: 'Deal title', description: 'Some description', available_to: DateTime.new(2013,01,01), :deal_stores => stub_deal_store).as_null_object
+      @stub_deal = double(:deal, title: 'Deal title', description: 'Some description', available_to: DateTime.new(2013,01,01), :deal_stores => @stub_deal_store).as_null_object
       DealService.stub(:build).with("DEAL JSON").and_return(@stub_deal)
       get :show, id: 1, centre_id: 'bondijunction', retailer_code: 'for-tracking'
     end
@@ -56,9 +56,11 @@ describe DealsController do
       get :show, id: 1, centre_id: 'bondijunction', retailer_code: 'for-tracking'
     end
     it "adds title to meta" do
+      stub_deal = double(:deal, meta: 'deal meta', title: 'Deal title', description: 'Some description', available_to: DateTime.new(2013,01,01), :deal_stores => @stub_deal_store).as_null_object
+      DealService.stub(:build).with("DEAL JSON").and_return(stub_deal)
       meta_double = double :meta
+      meta_double.should_receive(:push).with 'deal meta'
       meta_double.should_receive(:push).with({
-        title: @stub_deal.title,
         page_title: "#{@stub_deal.title} from #{@stub_store.name} at ",
         description: "At , find #{ @stub_deal.title } - ends #{ @stub_deal.available_to.strftime("%Y-%m-%d") }"
       })

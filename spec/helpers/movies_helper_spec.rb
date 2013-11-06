@@ -37,18 +37,6 @@ describe MoviesHelper do
         end
       end
     end
-    
-    describe "When we want to show 5 days in to the future for movies" do
-      before(:each) do
-        @days = days(5.days.from_now.localtime.to_s, 'bondijunction', nil, '557')
-        @days_as_document = @days.map{|day| HTML::Document.new(day).root}
-      end
-      it "should link to the movie show page" do
-        5.times do |i|
-          assert_select(@days_as_document[i], 'a', attributes: {href: centre_movie_path('bondijunction', '557', date: i.days.from_now.localtime.strftime('%d-%m-%Y'))})
-        end
-      end
-    end
   end
 
 end

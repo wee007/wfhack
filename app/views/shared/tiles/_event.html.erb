@@ -1,7 +1,7 @@
 <div class="tile__image">
   <%= fetch_image_tag result.image,
     alt: "Photo of event: #{result.name}",
-    width: 288,
+    width: 289,
     crop: :limit,
     format: :auto
   %>
@@ -13,7 +13,7 @@
   <div class="tile__meta__inner">
     <h3 class="tile__meta__hdr txt-truncate"><%= result.name %></h3>
     <p class="tile__meta__desc txt-truncate">
-      <%= display_event_date(result)  %> 
+      <%= display_event_date(result)  %>
     </p>
   </div>
 </div>

@@ -3,7 +3,7 @@
   <%= fetch_image_tag result.primary_image, {
       'data-height' => result.image_height,
       alt: "Photo of product: #{result.name}",
-      width: 288,
+      width: 289,
       crop: :limit,
       format: :auto
     }.merge((options if defined? options) || {})

@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.233
+Version:     0.1.234
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,17 @@ fi
 
 
 %changelog
+* Fri Nov 08 2013 ci <doperations@au.westfield.com> 0.1.234-1
+- Merge pull request #637 from ewee/master (matt.wratt@trineo.co.nz)
+- Merge pull request #632 from cpearce/UI-polish (matt.wratt@trineo.co.nz)
+- Fix store description check and remove call to try (ewee@au.westfield.com)
+- Fixing invalid CSS (CPearce@au.westfield.com)
+- Updates to the sub page hero module e.g. making the icon properly align with
+  the heading (CPearce@au.westfield.com)
+- Removing number input type from Price product filter
+  (CPearce@au.westfield.com)
+- Add 'Media' link - WSF-5982 (CPearce@au.westfield.com)
+
 * Thu Nov 07 2013 ci <doperations@au.westfield.com> 0.1.233-1
 - Revert "Merge pull request #609 from ewee/master" (ewee@au.westfield.com)
 

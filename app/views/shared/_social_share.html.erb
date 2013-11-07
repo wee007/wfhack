@@ -20,7 +20,7 @@
 
     <%# Twitter %>
     <li class="social-share__twitter">
-      <a href="http://twitter.com/intent/tweet?url=<%=URI::encode url %>&text=<%=URI::encode title %>" rel="external" target="_blank"><span class="icon icon--twitter icon--xlrg icon--flush-top" aria-hidden="true"></span><span class="hide-visually"> Twitter</span></a>
+      <a href="http://twitter.com/intent/tweet?url=<%=URI::encode url %>&text=<%= URI::encode twitter_title || title %> via @WestfieldAU" rel="external" target="_blank"><span class="icon icon--twitter icon--xlrg icon--flush-top" aria-hidden="true"></span><span class="hide-visually"> Twitter</span></a>
     </li>
     <%# //Twitter %>
 
@@ -33,7 +33,7 @@
     <% if defined?(image) && !image.blank? %>
       <%# Pinterest %>
       <li class="social-share__pinterest">
-        <a href="http://pinterest.com/pin/create/button/?url=<%=URI::encode url %>&media=<%=URI::encode image %>&description=<%=URI::encode title %>" rel="external" target="_blank"><span class="icon icon--pinterest icon--xlrg icon--flush-top" aria-hidden="true"></span><span class="hide-visually"> Pinterest</span></a>
+        <a href="http://pinterest.com/pin/create/button/?url=<%=URI::encode url %>&media=<%=URI::encode image %>&description=<%=URI::encode title %> at <%= @centre.name %>" rel="external" target="_blank"><span class="icon icon--pinterest icon--xlrg icon--flush-top" aria-hidden="true"></span><span class="hide-visually"> Pinterest</span></a>
       </li>
       <%# //Pinterest %>
     <% end -%>

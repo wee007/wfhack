@@ -79,7 +79,7 @@ class map.micello.Map extends map.micello.MapBase
   showLevel: ->
     if @hasTarget()
       level = @data.getGeometryLevel(@target.gid)
-      @data.setLevel(level) if level.id != @data.getCurrentLevel().cid
+      @data.setLevel(level) if level && level.id != @data.getCurrentLevel().cid
     @
 
   lock: ->
@@ -91,9 +91,9 @@ class map.micello.Map extends map.micello.MapBase
     @
 
   detail: ->
-    if @hasTarget()
+    if @hasTarget() && @target.geom
       level = @data.getCurrentLevel()
-      geoms = @data.groupMap[@target.geom?.gid] || [@target.geom]
+      geoms = @data.groupMap[@target.geom.gid] || [@target.geom]
       for geom in geoms
         if @data.getGeometryLevel(geom.id).id == level.id
           @control.showInfoWindow(geom, @popupHtml(@target.store))
@@ -154,7 +154,7 @@ class map.micello.Map extends map.micello.MapBase
   applyWestfieldStoreNames: ->
     for item in (@index.allByType('Unit') || []).concat(@index.allByType('Building') || [])
       # filter for gid in case the geom belongs to a group where the store could have another geoms id
-      item = _(@index.gid).chain().filter((obj) -> obj.geom.gid == (item.geom.gid || item.geom.id) && !!obj.store).first().value() || item
+      item = _(@index.gid).chain().filter((obj) -> obj.geom?.gid == (item.geom.gid || item.geom.id) && !!obj.store).first().value() || item
       item.geom.nm = item.geom.lr = 'New Store Opening Soon' unless !!item.store
     for store in _(@index.store).toArray()
       store.geom.nm = store.geom.lr = store.store.name if store.geom

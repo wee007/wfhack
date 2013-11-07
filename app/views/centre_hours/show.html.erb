@@ -66,7 +66,7 @@
                         <% if today?(day.date) %><em class="txt-bold"><% end %><%= format_day(day.date,0,3) %><span class="hide-fully--palm"><%= format_day(day.date,3,6) %></span><% if today?(day.date) %></em><% end %>
                       </td>
                       <td>
-                        <% if day.description.present? %>
+                        <% if day.description %>
                           <em class="pill <%= "txt-truncate" if day.description.length > 18 %> hide-fully--palm" <%= "title=\"#{day.description}\"".html_safe if day.description.length > 18 %>><%= day.description %></em>
                           <em class="pill hide-fully--non-palm">Holiday</em>
                         <% else %>
@@ -129,7 +129,7 @@
                   </thead>
 
                   <tbody>
-                    <% @store_trading_hours[week_number].each do |day| %>
+                    <% @store_trading_hours[week_number].try(:each) do |day| %>
                       <tr>
                         <td>
                           <% if today?(day.date) %><em class="txt-bold"><% end %><%= format_day(day.date,0,3) %><span class="hide-fully--palm"><%= format_day(day.date,3,6) %></span><% if today?(day.date) %></em><% end %>

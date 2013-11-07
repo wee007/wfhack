@@ -41,8 +41,8 @@ class MoviesController < ApplicationController
       acc
     end
 
-    meta.push @movie.meta
     meta.push(
+      title: "#{@movie.title} | #{@cinema.name} | #{@centre.short_name}",
       page_title: "#{@movie.title} | #{@cinema.name} | #{@centre.short_name}",
       description: @movie.synopsis
     )

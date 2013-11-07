@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.234
+Version:     0.1.235
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,11 @@ fi
 
 
 %changelog
+* Fri Nov 08 2013 ci <doperations@au.westfield.com> 0.1.235-1
+- Merge pull request #638 from mwratt/feature/map-tweaks-and-fixes
+  (matt.wratt@trineo.co.nz)
+- fixes giftcards and stores with unmatch geom id (matt.wratt@trineo.co.nz)
+
 * Fri Nov 08 2013 ci <doperations@au.westfield.com> 0.1.234-1
 - Merge pull request #637 from ewee/master (matt.wratt@trineo.co.nz)
 - Merge pull request #632 from cpearce/UI-polish (matt.wratt@trineo.co.nz)

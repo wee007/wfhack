@@ -1003,7 +1003,7 @@ $header-color-link-hover: $color-brand !default;
 			/* Non JS users */
 			.no-js & {
 				float: none;
-				text-align: centre;
+				text-align: center;
 				@include to-rem(margin-bottom, 4);
 			}
 

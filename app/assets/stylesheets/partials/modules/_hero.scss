@@ -29,25 +29,34 @@
     background-position: 50% 50%;
   }
 
+  /* Shared rules */
   .hero__icon,
   h1 {
     display: block;
 
-    /* Set them as `inline-block` at this breakpoint */
+    /* Horizontally align them at this breakpoint */
     @include respond-min($non-palm) {
       display: inline-block;
       vertical-align: middle;
     }
   }
 
-  /* Hero icon next to the heading */
+  /* Hero icon */
   .hero__icon:before {
     @include font-size(30, 1);
+    @include to-rem(margin-bottom, $spacing-sixth);
 
+    /* Increase font size at this breakpoint */
+    @include respond-min($iphone-landscape) {
+      @include font-size(40, 1);
+    }
+
+    /* Increase font size, create right spacing and align it with heading via `top` at this breakpoint */
     @include respond-min($non-palm) {
       @include font-size(50, 1);
-      /* Add `margin-right` as the icon is aligned next to the `h1` at this breakpoint */
-      @include to-em(margin-right, $spacing-third);
+      @include to-rem(margin-right, $spacing-base);
+      margin-bottom: 0;
+      @include to-rem(top, 2);
     }
   }
 
@@ -55,6 +64,11 @@
   h1 {
     text-transform: uppercase;
     @include font-size(30);
+
+    /* Increase font size at this breakpoints */
+    @include respond-min($iphone-landscape) {
+      @include font-size(40);
+    }
 
     @include respond-min($non-palm) {
       @include font-size(60);
@@ -71,6 +85,7 @@
     .hero__intro {
       @include to-rem(margin-top, $spacing-half);
 
+      /* Increase top spacing at this breakpoint */
       @include respond-min($non-palm) {
         @include to-rem(margin-top, $spacing-base);
       }

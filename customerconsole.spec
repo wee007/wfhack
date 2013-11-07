@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.230
+Version:     0.1.231
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,15 @@ fi
 
 
 %changelog
+* Thu Nov 07 2013 ci <doperations@au.westfield.com> 0.1.231-1
+- Merge pull request #613 from fchan/fastclick (matt.wratt@trineo.co.nz)
+- Merge pull request #609 from ewee/master (matt.wratt@trineo.co.nz)
+- Use JS hook for fastclick (fiona@fionachan.net)
+- Update social media copy (ewee@au.westfield.com)
+- Fix description check for centre hours and remove try (ewee@au.westfield.com)
+- Add fastclick only to content area on stores page (fiona@fionachan.net)
+- adds fastclick and remove touchstart events (matt.wratt@trineo.co.nz)
+
 * Thu Nov 07 2013 ci <doperations@au.westfield.com> 0.1.230-1
 - Merge pull request #614 from gwshaw/feature/WSF-5785_update_phg_details_tag
   (ldewey@au.westfield.com)

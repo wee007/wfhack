@@ -11,8 +11,7 @@ class Notice < Hashie::Mash
   end
 
   def meta
-    Meta.new title: name,
-             twitter_title: "Check out this #{name}",
+    Meta.new title: title,
              image: image
   end
 

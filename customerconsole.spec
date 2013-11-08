@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.235
+Version:     0.1.236
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,10 @@ fi
 
 
 %changelog
+* Fri Nov 08 2013 ci <doperations@au.westfield.com> 0.1.236-1
+- Prevent html escaping when outputting product_tracking_url
+  (DOCallaghan@au.westfield.com)
+
 * Fri Nov 08 2013 ci <doperations@au.westfield.com> 0.1.235-1
 - Merge pull request #638 from mwratt/feature/map-tweaks-and-fixes
   (matt.wratt@trineo.co.nz)

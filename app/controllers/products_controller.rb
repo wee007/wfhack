@@ -101,7 +101,7 @@ class ProductsController < ApplicationController
 
     @cam_ref = @product.retail_chain.cam_ref
 
-    if @cam_ref
+    if @cam_ref.present?
       ad_ref = @product.categories[0].super_category.code
 
       # FIXME: Needed once authentication installed
@@ -113,7 +113,9 @@ class ProductsController < ApplicationController
         request_url,
         request.remote_ip,
         customer_id,
-      ].compact.join("%7C")
+      ].join("%7C")
+
+      pub_ref += "%7C%7C%7C"  # placeholders for utm data
 
       product_tracking_url =
         "http://prf.hn/click/camref:#{@cam_ref}/pubref:#{pub_ref}/adref:#{ad_ref}/" \

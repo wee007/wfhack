@@ -88,44 +88,18 @@ describe ProductsController do
   end
 
   describe "GET #show" do
-    it "does not assign the centre instance variable" do
+    it "assigns the centre instance variable and redirection url" do
       get :show, id: 1, centre_id: 'bondijunction'
       response.should render_template :show
       assigns(:centre).should_not be_nil
+      assigns(:product_redirection_url).should == centre_product_redirection_url
     end
 
-    it "assigns the centre instance variable" do
+    it "does not assign the centre instance variable and does assigns centre redirection url" do
       get :show, id: 1
       response.should render_template :show
       assigns(:centre).should be_nil
-    end
-
-    context "when cam_ref is missing" do
-      it "assigns retailer url" do
-        get :show, id: 1
-        assigns(:product_redirection_url).should == product_redirection_url
-      end
-    end
-
-    context "when cam_ref exists" do
-      before :each do
-        ProductService.stub(:fetch).and_return double( :response,
-          body: {
-            details: [],
-            name: "test_product",
-            retail_chain: {cam_ref: "1234", name: "product_rcn"},
-            categories: [{super_category: {code: "spec_test"}}]
-          }
-        )
-      end
-
-      it "collects tracking data" do
-        @request.env['REMOTE_ADDR'] = '1.2.3.4'
-        get :show, id: 1, centre_id: 'bondijunction', utm_source: "googleshopping",
-          utm_medium: "affiliate", utm_keyword: "dresses", utm_campaign: "xyz"
-
-        assigns(:product_redirection_url).should == centre_product_redirection_url
-      end
+      assigns(:product_redirection_url).should == product_redirection_url
     end
   end
 
@@ -139,7 +113,7 @@ describe ProductsController do
             name: "test_product",
             retail_chain_name: "product_rcn",
             primary_retailer_product_url: "http://www.prp_url.com",
-            retail_chain: {cam_ref: nil, name: "product_rcn"},
+            retail_chain: {cam_ref: "", name: "product_rcn"},
             categories: [{super_category: {code: "spec_test"}}]
           }
         )
@@ -180,13 +154,14 @@ describe ProductsController do
           retail_chain_name: "product_rcn",
           page_title: "product_rcn - test_product",
           product_tracking_url: "http://prf.hn/click/camref:1234/" \
-            "pubref:http://test.host/products/1%7C1.2.3.4%7C/" \
+            "pubref:http://test.host/products/1%7C1.2.3.4%7C%7C%7C%7C/" \
             "adref:spec_test/destination:http://www.prp_url.com"
         })
         controller.stub(:meta).and_return(meta_double)
 
         get :redirection, id: 1,
           utm_keyword: "dresses", utm_medium: "affiliate", utm_source: "googleshopping"
+        # In integration, js in browser will fill in utm data in between %7C above
       end
     end
 

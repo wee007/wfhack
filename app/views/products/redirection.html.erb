@@ -32,20 +32,21 @@
       var s = "%7C";
       var ptu = "<%= meta.product_tracking_url.html_safe %>";
 
-      <%# Only need to get pubref data if there is camref %>
-      <%- if @cam_ref %>
+      <%# Only need to get pubref data if there is cam_ref %>
+      <%- if @cam_ref.present? %>
         queryString = window.location.search;
 
-        utmSource = queryString.match(/(utm_source=[^&]*)/)
-        utmMedium = queryString.match(/(utm_medium=[^&]*)/)
-        utmKeyword = queryString.match(/(utm_keyword=[^&]*)/)
+        utmSource = queryString.match(/utm_source=([^&]*)/)
+        utmMedium = queryString.match(/utm_medium=([^&]*)/)
+        utmKeyword = queryString.match(/utm_keyword=([^&]*)/)
 
-        utmData += utmSource ? s + utmSource[1] : "";
-        utmData += utmMedium ? s + utmMedium[1] : "";
-        utmData += utmKeyword ? s + utmKeyword[1] : "";
+        utmData += utmSource ? utmSource[1] : "";
+        utmData += s;
+        utmData += utmMedium ? utmMedium[1] : "";
+        utmData += s;
+        utmData += utmKeyword ? utmKeyword[1] : "";
 
-        n = ptu.indexOf('/adref:');
-        ptu = ptu.substr(0,n) + utmData + ptu.substr(n);
+        ptu = ptu.replace(s + s + "/adref:", utmData + "/adref:");
       <%- end %>
 
       return ptu;

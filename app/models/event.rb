@@ -29,6 +29,10 @@ class Event < Hashie::Mash
     occurrences.present? && occurrences.length > 1
   end
 
+  def multiple_occurrences_on_same_day?
+    event_times_grouped_by_date.length == 1
+  end
+
   def event_times_grouped_by_date
     occurrences.inject({}) do |acc, occurrence|
       start_date = Date.parse(occurrence.start)

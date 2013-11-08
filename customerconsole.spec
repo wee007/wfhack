@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.238
+Version:     0.1.239
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,11 @@ fi
 
 
 %changelog
+* Fri Nov 08 2013 ci <doperations@au.westfield.com> 0.1.239-1
+- Merge pull request #642 from cpearce/old-ie-banner
+  (craigM.smith@au.westfield.com)
+- Updating Old IE banner (CPearce@au.westfield.com)
+
 * Fri Nov 08 2013 ci <doperations@au.westfield.com> 0.1.238-1
 - Merge pull request #641 from acohen/master (matt.wratt@trineo.co.nz)
 - Putting closing bracket on seperate line (CPearce@au.westfield.com)

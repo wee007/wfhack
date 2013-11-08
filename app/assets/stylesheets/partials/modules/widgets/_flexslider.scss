@@ -220,7 +220,7 @@
 		&:before {
 			@extend %transition-subtle;
 			color: $color-txt-dark;
-			@include font-size(18, 1);
+			@include font-size($font-size-lrg-2, 1);
 
 			/* Contain controls version */
 			.flexslider--contain-controls & {color: #fff;}

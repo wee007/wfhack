@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.237
+Version:     0.1.238
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,12 @@ fi
 
 
 %changelog
+* Fri Nov 08 2013 ci <doperations@au.westfield.com> 0.1.238-1
+- Merge pull request #641 from acohen/master (matt.wratt@trineo.co.nz)
+- Putting closing bracket on seperate line (CPearce@au.westfield.com)
+- Cleaning up all alt attrs (CPearce@au.westfield.com)
+- fix date formatting in event tile and detail pages (acohen@au.westfield.com)
+
 * Fri Nov 08 2013 ci <doperations@au.westfield.com> 0.1.237-1
 - Merge pull request #636 from fchan/images (matt.wratt@trineo.co.nz)
 - Bump up movie image on movie index page (fiona@fionachan.net)

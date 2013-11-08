@@ -31,13 +31,42 @@ $fix-mqs: 1600;
 @import "application";
 
 /* ======================================================================================
-   @OLD IE NOTIFICATION
+   @OLD IE BANNER - Inform old IE users they should upgrade their browser
    ====================================================================================== */
 
-/* Inform IE 7 users and under that they should upgrade their browser */
-.old-ie-notification {
-	background-color: lighten(gold, 20%);
-	color: #202020;
-	padding: to-em(9) 0;
-	text-align: center;
+.old-ie-banner {
+	background-color: #fff;
+  border-bottom: 1px solid $color-grey-1;
+  padding-top: $spacing-half+$spacing-third+px;
+  line-height: 1.3;
+
+  /* Inner container */
+  .old-ie-banner__inner {
+    width: 1050px;
+    margin: 0 auto;
+  }
+
+    /* Shared rules */
+    .h1,
+    li img,
+    li a {display: block;}
+
+    /* Heading */
+    .h1 {
+      font-size: 40px;
+      line-height: 1.1;
+      margin-bottom: $spacing-half+px;
+    }
+
+    /* Byline */
+    p {color: $color-light-txt;}
+
+    /* Browser list */
+    li {
+      float: left;
+      width: 25%;
+      text-align: center;
+
+      img {margin: 0 auto $spacing-third+px;}
+    }
 }

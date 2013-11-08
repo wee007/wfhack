@@ -54,8 +54,10 @@
   <a href="#main" class="hide-visually skip-link">Skip to main content</a>
   <%# //Skip link %>
 
-  <%# Prompt old IE users to upgrade their browser or install 'Chrome Frame' %>
-  <!--[if lte IE 7]><p class="old-ie-notification">Apologies for the appearance of this page but you are viewing it in a very old browser that we no longer support. We highly recommend <a href="http://browsehappy.com/" rel="external" target="_blank">upgrading to a more modern browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true" rel="external" target="_blank">install Google Chrome Frame</a> to experience this site and to reap the many other benefits of using a modern browser.</p><![endif]-->
+  <%# Prompt old IE users to upgrade their browser %>
+  <!--[if lte IE 8]>
+  <div class="old-ie-banner"><div class="old-ie-banner__inner"><div class="grid"><div class="grid__item non-palm-two-fifths"><em class="h1">Your current browser is not supported</em><p>To get the best Westfield has to offer, you'll need to upgrade to a modern browser.</p><ul><li><a href="http://windows.microsoft.com/en-gb/internet-explorer/download-ie" target="_blank" rel="external"><%= image_tag 'old-ie-banner/ie.png', alt: '', width: 40, height: 40 %>Internet<br>Explorer 9+</a></li><li><a href="https://www.google.com/intl/en/chrome/browser/" target="_blank" rel="external"><%= image_tag 'old-ie-banner/chrome.png', alt: '', width: 38, height: 40 %>Chrome</a></li><li><a href="https://www.mozilla.org/en-US/firefox/new/?utm_source=firefox-com&amp;utm_medium=referral" target="_blank" rel="external"><%= image_tag 'old-ie-banner/firefox.png', alt: '', width: 38, height: 40 %>Firefox</a></li><li><a href="http://support.apple.com/kb/DL1531" target="_blank" rel="external"><%= image_tag 'old-ie-banner/safari.png', alt: '', width: 36, height: 40 %>Safari</a></li></ul></div><div class="grid__item non-palm-three-fifths txt-right"><%= image_tag 'old-ie-banner/screengrab.jpg', alt: '', width: 600, height: 254 %></div></div></div></div>
+  <![endif]-->
 
   <%= yield %>
 

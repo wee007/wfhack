@@ -39,6 +39,7 @@ class Product < Hashie::Mash
     product_category_code = categories ? categories.collect { |cat| cat['code'] } : []
 
     Meta.new title: name,
+             twitter_title: "What do you think of #{name}?",
              image: primary_image,
              # For universal tagging
              product_sku: [sku],

@@ -41,7 +41,7 @@
               <a href="<%= centre_movie_path(centre_id: @centre.code, id: movie.id, movie_name: movie.title.to_slug) %>">
                 <div class="tile__image">
                   <% if movie.cloudinary_public_id %>
-                    <%= cl_image_tag(movie.cloudinary_public_id, alt:"#{movie.title} movie picture", quality: 35, width: 578, crop: 'limit', format: 'jpg', fetch_format: 'auto') %>
+                    <%= cl_image_tag(movie.cloudinary_public_id, alt: '', quality: 35, width: 578, crop: 'limit', format: 'jpg', fetch_format: 'auto') %>
                   <% else %>
                     <%= image_tag 'placeholder-movie.png', alt: '', fetch_format: 'auto' %>
                   <% end %>

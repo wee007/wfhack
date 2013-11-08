@@ -24,7 +24,7 @@
     <div class="centre-location">
       <%# Static Google map %>
       <div class="map-google-static">
-        <%= image_tag getting_here_map_url(@centre), alt: '' %>
+        <%= image_tag getting_here_map_url(@centre), alt: "Google map showing location of #{@centre.short_name} shopping centre" %>
       </div>
       <%# //Static Google map %>
 
@@ -37,7 +37,7 @@
             :height => 130,
             :html_width => 120,
             :html_height => 130,
-            :alt => "Photo of #{@centre.short_name} shopping centre",
+            :alt => "",
             :onerror => "this.remove();",
             :fetch_format => 'auto'
           %>

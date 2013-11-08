@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.236
+Version:     0.1.237
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,15 @@ fi
 
 
 %changelog
+* Fri Nov 08 2013 ci <doperations@au.westfield.com> 0.1.237-1
+- Merge pull request #636 from fchan/images (matt.wratt@trineo.co.nz)
+- Bump up movie image on movie index page (fiona@fionachan.net)
+- WSF-5595: Fixed global search dropdown not getting announced to screen reader
+  (fiona@fionachan.net)
+- WSF-5955: Updated movie image param and tile image width
+  (fiona@fionachan.net)
+- Enable notices link in centre info nav (fiona@fionachan.net)
+
 * Fri Nov 08 2013 ci <doperations@au.westfield.com> 0.1.236-1
 - Prevent html escaping when outputting product_tracking_url
   (DOCallaghan@au.westfield.com)

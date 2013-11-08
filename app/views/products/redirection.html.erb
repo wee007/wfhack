@@ -2,7 +2,7 @@
   <%= site_logo %>
 
   <p>Forwarding to <%= meta.retail_chain_name %> website<br> or go to the
-  <%= link_to "retailer's site", meta.product_tracking_url, target: "_blank",
+  <%= link_to "retailer's site", meta.product_tracking_url.html_safe, target: "_blank",
     class: "js-redirect", rel: "external" %>
   directly.</p>
 
@@ -30,7 +30,7 @@
       var utmSource, utmKeyword, utmMedium, queryString;
       var utmData = "";
       var s = "%7C";
-      var ptu = "<%= meta.product_tracking_url %>";
+      var ptu = "<%= meta.product_tracking_url.html_safe %>";
 
       <%# Only need to get pubref data if there is camref %>
       <%- if @cam_ref %>

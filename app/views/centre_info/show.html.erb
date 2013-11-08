@@ -7,7 +7,7 @@
         --><%= content_tag :li, link_to('Parking', anchor: 'parking') if @parking.present? %><!--
         <%# Remove "if false" conditional statement once other sections are ready %>
         --><%= content_tag :li, link_to('Community', anchor: 'community') if false %><!--
-        --><%= content_tag :li, link_to('Notices', anchor: 'notices') if false %><!--
+        --><%= content_tag :li, link_to('Notices', anchor: 'notices') if @notices.present? %><!--
         --><%= content_tag :li, link_to('Contact Us', anchor: 'contact-us') if @centre.phone_number.present? or @centre.email_address.present? %><!--
         --><%= content_tag :li, link_to('Follow Us', anchor: 'follow-us') if social_media.present? %>
       </ul>

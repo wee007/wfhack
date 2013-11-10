@@ -31,7 +31,6 @@
 //= require angular
 //= require angular-touch
 //= require angular-sanitize
-//= require angular-animate
 //= require angular-route
 
 //= require ./angular/app

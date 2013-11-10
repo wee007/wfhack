@@ -7,15 +7,16 @@ basePath = '../';
 files = [
   JASMINE,
   JASMINE_ADAPTER,
-  'app/assets/javascripts/vendor/angular-head.js',
-  'app/assets/javascripts/vendor/angular-mobile.js',
-  'app/assets/javascripts/vendor/angular-sanitize.js',
+  'vendor/assets/components/angular/angular.js',
+  'vendor/assets/components/angular-touch/angular-touch.js',
+  'vendor/assets/components/angular-sanitize/angular-sanitize.js',
+  'vendor/assets/components/angular-route/angular-route.js',
   'app/assets/javascripts/angular/app.js.coffee',
   'app/assets/javascripts/angular/**/*.js',
   'app/assets/javascripts/angular/**/*.coffee',
   'app/assets/javascripts/global_search/**/*.coffee',
   'app/assets/javascripts/global_search/**/*.js',
-  'vendor/assets/components/angular-mocks-unstable/angular-mocks.js',
+  'vendor/assets/components/angular-mocks/angular-mocks.js',
 
   'spec/mock/**/*.js',
   'spec/karma/**/*_spec.{js,coffee}'

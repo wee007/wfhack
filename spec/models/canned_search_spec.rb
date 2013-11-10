@@ -23,11 +23,11 @@ describe CannedSearch do
 
   let(:canned_search) { CannedSearch.new canned_search_data }
 
-  it "should have a name" do 
+  it "should have a name" do
     canned_search.name.should eq "A canned search"
   end
 
-  it "should have an image" do 
+  it "should have an image" do
     canned_search.image.should include("image_ref")
   end
 
@@ -39,11 +39,11 @@ describe CannedSearch do
     canned_search.start_date.should eql("2013-09-29")
   end
 
-  it "should be able to have it's start date formatted" do 
+  it "should be able to have it's start date formatted" do
     canned_search.start_date("%c").should eql("Sun Sep 29 00:00:00 2013")
   end
 
-  it "should have an end date" do 
+  it "should have an end date" do
     canned_search.end_date.should eql("2013-09-30")
   end
 
@@ -57,13 +57,13 @@ describe CannedSearch do
 
   it "should recognize the routes for the various types of tiles" do
     tile_routes = [
-      "/bondijunction/products",
+      "/bondijunction/browse",
       "/bondijunction/stores/1001-optical/21256",
       "/bondijunction/hours",
       "/bondijunction/info"
     ]
     tile_routes.each do |r|
-      lambda { 
+      lambda {
         Rails.application.routes.recognize_path(r)
       }.should_not raise_exception
     end
@@ -71,7 +71,7 @@ describe CannedSearch do
 
   it "should be able to recognize the various routes to apply the correct icon" do
     routes_and_icons = {
-      "/bondijunction/products" => "products",
+      "/bondijunction/browse" => "browse",
       "/bondijunction/stores/1001-optical/21256" => "store",
       "/bondijunction/hours" => "hours",
       "/bondijunction/info" => "info"
@@ -85,7 +85,7 @@ describe CannedSearch do
 
   it "should be able to recognize the routes to generate a tag line" do
     routes_and_tag_lines = {
-      "/bondijunction/products" => "View collection",
+      "/bondijunction/browse" => "View collection",
       "/bondijunction/stores/1001-optical/21256" => "View store details",
       "/bondijunction/hours" => "View shopping hours",
       "/bondijunction/info" => "View details"

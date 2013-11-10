@@ -27,7 +27,7 @@ class CannedSearch < Hashie::Mash
 
   def tag_line
     case detect_tile
-    when "products"
+    when "browse"
       "View collection"
     when "store"
       "View store details"
@@ -44,8 +44,8 @@ class CannedSearch < Hashie::Mash
 
   def detect_tile
     case url
-    when /[a-z]+\/products/
-      "products"
+    when /[a-z]+\/browse/
+      "browse"
     when /[a-z]+\/stores/
       "store"
     when /[a-z]+\/hours/
@@ -56,5 +56,5 @@ class CannedSearch < Hashie::Mash
       "service"
     end
   end
-  
+
 end

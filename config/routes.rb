@@ -36,7 +36,6 @@ CustomerConsole::Application.routes.draw do
 
     get 'browse/:super_cat' => 'products#index', as: 'browse_super_cat'
     get 'browse/:super_cat/:category' => 'products#index', as: 'browse_category'
-    get 'browse/:super_cat/:category/:sub_category' => 'products#index', as: 'browse_sub_category'
 
     get 'products/:id' => 'products#show', as: 'product_old'
     get 'products/:id/redirection' => 'products#redirection', as: 'product_redirection'

@@ -8,7 +8,7 @@ CustomerConsole::Application.routes.draw do
 
   get 'status' => 'health_check/health_check#index', 'checks' => 'cache_and_site'
   get 'api', to: redirect('/api/index.html') # This lets /api work, not just /api/
-  get 'products' => 'products#index'
+  get 'browse' => 'products#index'
   get 'products/:id' => 'products#show', as: 'product_old'
   get 'products/:id/redirection' => 'products#redirection', as: 'product_redirection'
   get 'products/:retailer_code/:product_name/:id' => 'products#show', as: 'product'

@@ -5,7 +5,7 @@
       attrs[:class] = 'is-active'
     end
     link_to(
-      category.name,
+      category.short_name,
       centre_browse_super_cat_path(@centre, category.code),
       attrs
     )

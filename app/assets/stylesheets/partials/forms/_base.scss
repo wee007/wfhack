@@ -16,10 +16,7 @@ textarea,
   @include prefix(transition, border 0.2s linear);
 
   /* Focus state */
-  &:focus {
-    outline: none;
-    border-color: darken($color-grey-1, 12%);
-  }
+  &:focus {border-color: darken($color-grey-1, 12%);}
 }
 
 /* Text inputs via the `.txt-input` class and `textarea` */
@@ -27,6 +24,9 @@ textarea,
 textarea {
   width: 100%;
   @include to-rem(padding, $spacing-third $spacing-half);
+
+  /* Focus state */
+  &:focus {outline: none;}
 }
 
 /* Textarea */
@@ -53,6 +53,25 @@ input[type="search"] {
 @include input-placeholder {
 	color: $color-light-txt;
 	font-style: italic;
+}
+
+/* Firefox 19+ sets an opacity on placeholder text by default so we need to reset it */
+::-moz-placeholder {opacity: 1;}
+
+/* Disable zooming of inputs and selects for iOS/iPhone and Androids when focused by setting to 16px */
+.iphone,
+.android {
+  .search-mini__input,
+  .txt-input,
+  textarea,
+  select {
+    &:focus {font-size: 16px;}
+  }
+
+  /* 2px top and bottom padding for these inputs so the UI doesn't jump */
+  .search-mini__input:focus {
+    @include to-rem(padding-top padding-bottom, 2);
+  }
 }
 
 /* Disabled and Read-only */

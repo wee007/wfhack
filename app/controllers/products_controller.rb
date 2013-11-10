@@ -92,29 +92,31 @@ class ProductsController < ApplicationController
       @product_redirection_url = url_for product_redirection_url
     end
 
-    cam_ref = @product.retail_chain.cam_ref
+    meta.push @product.meta
+  end
 
-    if cam_ref
+
+  def redirection
+    @product = ProductService.build(ProductService.fetch params.dup.merge({action: 'show'}))
+
+    @cam_ref = @product.retail_chain.cam_ref
+
+    if @cam_ref
       ad_ref = @product.categories[0].super_category.code
 
-      # FIXME: Eliminate conditional once authentication installed
-      customer_id = defined? cas_session ? cas_session.user_id : nil
-
-      utm_source = /utm_source=([^&]*)/.match(request.query_string)
-      utm_medium = /utm_medium=([^&]*)/.match(request.query_string)
-      utm_keyword = /utm_keyword=([^&]*)/.match(request.query_string)
+      # FIXME: Needed once authentication installed
+      # customer_id = cas_session.user_id
+      customer_id = ""
+      request_url = request.url.split("/redirection")[0]
 
       pub_ref = [
-        request.url,
+        request_url,
         request.remote_ip,
         customer_id,
-        utm_source.try(:[], 1 ),
-        utm_medium.try(:[], 1),
-        utm_keyword.try(:[], 1)
       ].compact.join("%7C")
 
       product_tracking_url =
-        "http://prf.hn/click/camref:#{cam_ref}/pubref:#{pub_ref}/adref:#{ad_ref}/" \
+        "http://prf.hn/click/camref:#{@cam_ref}/pubref:#{pub_ref}/adref:#{ad_ref}/" \
         "destination:#{@product.primary_retailer_product_url}"
     else  # missing cam_ref should be rare
       product_tracking_url = @product.primary_retailer_product_url
@@ -122,19 +124,10 @@ class ProductsController < ApplicationController
         "retailer_code=#{@product.retailer_code}")
     end
 
-    redirect_data =
-      {ptu: product_tracking_url, rcn: @product.retail_chain_name, pn: @product.name}
-    @product_redirection_url += "?" + redirect_data.to_query
-
-    meta.push @product.meta
-  end
-
-
-  def redirection
     meta.push(
-      retail_chain_name: params[:rcn],
-      page_title: "#{params[:rcn]} - #{params[:pn]}",
-      product_tracking_url: params[:ptu]
+      retail_chain_name: @product.retail_chain_name,
+      page_title: "#{@product.retail_chain_name} - #{@product.name}",
+      product_tracking_url: product_tracking_url
     )
     render layout: 'base'
   end

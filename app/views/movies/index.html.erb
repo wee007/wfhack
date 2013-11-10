@@ -18,7 +18,7 @@
   <h2 class="hide-visually">Session Times</h2>
 
     <%# Nav contextual %>
-    <div class="nav-contextual js-nav-contextual">
+    <div class="nav-contextual js-nav-contextual js-viewport-check">
       <div class="nav-contextual__clip">
         <div class="nav-contextual__clip__inner">
           <ul class="nav-contextual__list tab__nav horiz-list js-nav-contextual-list">
@@ -38,12 +38,12 @@
 
             <%# Movie tile %>
             <article class="tile box" role="article">
-              <a href="<%= centre_movie_path(centre_id: @centre.code, id: movie.id) %>">
+              <a href="<%= centre_movie_path(centre_id: @centre.code, id: movie.id, movie_name: movie.title.to_slug) %>">
                 <div class="tile__image">
                   <% if movie.cloudinary_public_id %>
-                    <%= cl_image_tag(movie.cloudinary_public_id, alt:"#{movie.title} movie picture", width: 578, crop: 'limit', quality: 25, format: 'jpg', fetch_format: 'auto') %>
+                    <%= cl_image_tag(movie.cloudinary_public_id, alt: '', quality: 35, width: 578, crop: 'limit', format: 'jpg', fetch_format: 'auto') %>
                   <% else %>
-                    <%= image_tag 'placeholder-movie.jpg', alt: '', quality: 70, fetch_format: 'auto' %>
+                    <%= image_tag 'placeholder-movie.png', alt: '', fetch_format: 'auto' %>
                   <% end %>
                 </div>
                 <div class="tile__meta">

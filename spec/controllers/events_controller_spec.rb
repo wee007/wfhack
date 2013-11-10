@@ -3,8 +3,9 @@ require 'spec_helper'
 describe EventsController do
 
   before :each do
-    CentreService.stub(:fetch).and_return double :response, body: {name: "Centre name"}
-    EventService.stub(:fetch).with centre: 'bondijunction', rows: 50, published: true
+    CentreService.stub(:fetch).and_return double :response, body: {name: "Centre name", timezone: "Australia/Sydney"}
+
+    EventService.stub(:fetch).with(centre: 'bondijunction', rows: 50, published: true).and_return({})
     EventService.stub(:fetch).with('1').and_return double :response, body: {name: "Event name", "_links" => {image: {href: 'image_link'}}}
   end
 

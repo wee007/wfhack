@@ -152,7 +152,7 @@
         .infoBack {
           background-color: #fff !important;
           @include to-rem(width, 252, !important);
-          min-width: none !important;
+          min-width: 0 !important;
           overflow: visible !important;
           margin-bottom: -14px !important;
 

@@ -15,7 +15,7 @@
   color: $color-base-txt;
   @include font-size($font-size-sml, 1.5);
 
-  /* Needed so the social share controls can be seen */
+  /* So the social share controls can be seen when they overlap another tile */
   &:hover {z-index: 2;}
 
   /* Apply bottom spacing when inside the 'Pin board' module */
@@ -27,12 +27,18 @@
 
     /* Old IE - avoid `article` getting `display: inline` when the pin board is constructed with JS as the HTML5 shiv doesn't work in this case */
     @include old-ie {
-     display: block;
+      display: block;
     }
   }
 
   /* Global styles */
-  a {color: $color-light-txt;}
+  a {
+    color: $color-light-txt;
+    display: block;
+
+    /* Focus state for keyboard users */
+    &:focus {box-shadow: $box-shadow;}
+  }
 
   p {margin-bottom: 0;}
 }
@@ -56,7 +62,25 @@
     }
 
   /* Image */
-  .tile__image {text-align: center;}
+  .tile__image {
+    text-align: center;
+    position: relative;
+
+    /* Red transparent image overlay shown on hover/focus of the tile */
+    &:before {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      top: 0;
+      background-color: transparent;
+      @extend %transition-subtle;
+      cursor: pointer;
+
+      .tile:hover & {background-color: rgba($color-brand, 0.15);}
+    }
+  }
 
   /* Icon */
   .tile__meta__icon {
@@ -109,28 +133,33 @@
       }
     }
 
-  /* Controls - share/favourites */
+  /* Controls - 'Share' and 'Favourites' */
   .tile__controls {
     display: none;
     position: absolute;
     @include to-rem(top right, $spacing-quarter);
 
+    /* Only show on non-touch devices as they have hover */
+    .no-touch .tile:hover & {display: block;}
+
+    /* Buttons */
     .controls__btn {
       @include to-rem(width, $spacing-base* 2);
       @include to-rem(height, $spacing-base* 2);
-      border: 1px solid rgba(#000, 0.15);
+      border: 1px solid $color-grey-2;
       border-radius: $border-radius;
       background-color: #fff;
-    }
 
-    /* Remove the border radius when button is active */
-    .controls__btn.is-active {
-      border-bottom-right-radius: 0;
-      border-bottom-left-radius: 0;
-    }
+      /* Remove the border radius when button is active */
+      &.is-active {
+        border-color: $color-med-txt;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+      }
 
-    /* Only show on non-touch devices as they dont have hover */
-    .no-touch .tile:hover & {display: block;}
+        /* Icon */
+        .icon:before {position: static;}
+    }
   }
 
 /* Deals */
@@ -146,30 +175,26 @@
     }
   }
 
-    /* Logo */
-    .tile__meta__image {
-      display: block;
-      @include to-rem(width, 84);
+    /* Header and logo spacing */
+    .tile__meta__hdr,
+    img {
       @include to-rem(margin-bottom, $spacing-quarter);
 
       /* Increase the bottom spacing at this breakpoint */
       @include respond-min($non-palm) {
         @include to-rem(margin-bottom, $spacing-half);
       }
-
-      /* Old IE - prevent the image from getting distorted*/
-      @include old-ie {
-        img {
-          width: 100%;
-        }
-      }
     }
+
+    /* Logo */
+    img {@include to-rem(width, 84);}
 
     /* Description */
     .tile__meta__desc {
       font-family: $font-family-lato;
-      color: $color-dark-txt;
       @include font-size($font-size, 1.5);
+      font-weight: 300;
+      color: $color-dark-txt;
 
       /* Increase the font size at this breakpoint */
       @include respond-min($non-palm) {

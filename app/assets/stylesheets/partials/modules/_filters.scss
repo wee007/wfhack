@@ -20,6 +20,11 @@
     .filters__hide-wide {display: none;}
   }
 
+  /* Overrides for 'Drop down menu trigger' at this breakpoint range */
+  @include respond-range($non-palm, $lap-lrg - 1) {
+    .drop-down-menu__trigger {@include font-size($font-size, normal)}
+  }
+
   /* Overrides for 'Drop down menu target' */
   .drop-down-menu__target {
 

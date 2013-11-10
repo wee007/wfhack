@@ -287,11 +287,19 @@
                   <span>$</span>
                   <input ng-model="search.price.values.range_start" ng-change="rangeFilter('price')" id="price-range-start" class="txt-input" type="number">
                 </div>
-                <em class="drop-down-menu__range__lbl">to</em>
-                <div class="drop-down-menu__range__input drop-down-menu__range__input--last">
-                  <label class="hide-visually" for="price-range-end">Price range end</label>
-                  <span>$</span>
-                  <input ng-model="search.price.values.range_end" ng-change="rangeFilter('price')" id="price-range-end" class="txt-input" type="number">
+
+                <div class="drop-down-menu__range islet">
+                  <div class="drop-down-menu__range__input">
+                    <label class="hide-visually" for="price-range-start">Price range start</label>
+                    <span>$</span>
+                    <input ng-model="search.price.values.range_start" ng-change="rangeFilter('price')" id="price-range-start" class="txt-input">
+                  </div>
+                  <em class="drop-down-menu__range__lbl">to</em>
+                  <div class="drop-down-menu__range__input drop-down-menu__range__input--last">
+                    <label class="hide-visually" for="price-range-end">Price range end</label>
+                    <span>$</span>
+                    <input ng-model="search.price.values.range_end" ng-change="rangeFilter('price')" id="price-range-end" class="txt-input">
+                  </div>
                 </div>
               </div>
 

@@ -18,11 +18,3 @@ window.map.micello = MapBase: class MapBase
 
   hasTarget: ->
     !!@target
-
-  showLevel: ->
-  zoom: ->
-  detail: ->
-  highlight: ->
-  centre: ->
-  centreOffset: (offset) ->
-  reset: ->

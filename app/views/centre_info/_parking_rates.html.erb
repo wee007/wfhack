@@ -1,7 +1,7 @@
-<div class="spacing spacing--dbl">
+<div class="mrg-dbl-alt">
   <div class="grid grid--gutter-dbl">
     <div class="grid__item non-palm-one-half">
-      <div class="box box--mrg-half islet island--non-palm">
+      <div class="box box--mrg-half islet island-non-palm">
         <table cellspacing="0" class="table-striped" id="parking-rates">
           <caption class="hide-visually">Parking rates</caption>
           <thead>
@@ -14,7 +14,7 @@
           <tbody>
             <% @parking.rates.each do |rate| %>
               <tr>
-                <td class="test-times"><%= rate.hourly_rate_from %> - <%= rate.hourly_rate_to %>hrs</td>
+                <td class="test-times"><%= rate.hourly_rate_from %> &#8211; <%= rate.hourly_rate_to %>hrs</td>
                 <td class="test-weekday txt-right <%= "txt-caps" if rate.free? %>"><%= display_parking_rate(rate.hourly_rate_weekday) %></td>
                 <td class="test-weekend txt-right <%= "txt-caps" if rate.free? %>"><%= display_parking_rate(rate.hourly_rate_weekend) %></td>
               </tr>
@@ -22,15 +22,15 @@
             <% if @parking.overnight_fee_weekday.to_i > 0 or @parking.overnight_fee_weekend.to_i > 0 %>
               <tr>
                 <td>Maximum Daily Rate</td>
-                <td class="txt-right"><%= display_parking_rate(@parking.maximum_daily_rate_weekday, '-') %></td>
-                <td class="txt-right"><%= display_parking_rate(@parking.maximum_daily_rate_weekend, '-') %></td>
+                <td class="txt-right"><%= display_parking_rate(@parking.maximum_daily_rate_weekday, '&#8211;') %></td>
+                <td class="txt-right"><%= display_parking_rate(@parking.maximum_daily_rate_weekend, '&#8211;') %></td>
               </tr>
             <% end %>
             <% if @parking.overnight_fee_weekday.to_i > 0 or @parking.overnight_fee_weekend.to_i > 0 %>
               <tr>
                 <td>Overnight Fee</td>
-                <td class="txt-right"><%= display_parking_rate(@parking.overnight_fee_weekday, '-') %></td>
-                <td class="txt-right"><%= display_parking_rate(@parking.overnight_fee_weekend, '-') %></td>
+                <td class="txt-right"><%= display_parking_rate(@parking.overnight_fee_weekday, '&#8211;') %></td>
+                <td class="txt-right"><%= display_parking_rate(@parking.overnight_fee_weekend, '&#8211;') %></td>
               </tr>
             <% end %>
           </tbody>

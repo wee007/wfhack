@@ -25,12 +25,6 @@
           <span>40 centres. Over 10,300 stores. Over <%= number_with_delimiter(@products_count, separator: ',') %> products</span>
           You want. We find.
         </h1>
-
-        <%# TODO: Add link to YouTube video when it's ready %>
-        <!-- <a class="national__video" href="#" rel="external" target="_blank">
-          <img src="<%= image_path "video-thumbnail.jpg" %>" alt="Westfield Campaign video">
-          <span class="icon icon--play" aria-hidden="true"></span>
-        </a> -->
       </div>
       <%# //Hero heading wrap %>
 
@@ -114,13 +108,13 @@
     <style>
       <% @centres.each do |centre| %>
         <%# Hero image at small breakpoint %>
-        @media (max-width: 25em) {.is-in-viewport .national__centre-tile--<%= centre.code %> {background-image: url(<%= centre_tile_image(centre.code, 400, 107) %>);}}
+        @media (max-width: 25em) {.is-in-viewport-history .national__centre-tile--<%= centre.code %> {background-image: url(<%= centre_tile_image(centre.code, 400, 107) %>);}}
         <%# Hero image at medium breakpoint %>
-        @media (min-width: 25.0625em) and (max-width: 48em) { .is-in-viewport .national__centre-tile--<%= centre.code %> {background-image: url(<%= centre_tile_image(centre.code, 768, 205) %>);}}
+        @media (min-width: 25.0625em) and (max-width: 48em) {.is-in-viewport-history .national__centre-tile--<%= centre.code %> {background-image: url(<%= centre_tile_image(centre.code, 768, 205) %>);}}
         <%# Hero image at large breakpoint %>
-        @media (min-width: 48.0625em) {.is-in-viewport .national__centre-tile--<%= centre.code %> {background-image: url(<%= centre_tile_image(centre.code, 1600, 300) %>);}}
+        @media (min-width: 48.0625em) {.is-in-viewport-history .national__centre-tile--<%= centre.code %> {background-image: url(<%= centre_tile_image(centre.code, 1600, 300) %>);}}
         <%# Old IE %>
-        .old-ie .is-in-viewport .national__centre-tile--<%= centre.code %> {background-image: url(<%= centre_tile_image(centre.code, 1600, 300) %>);}
+        .old-ie .is-in-viewport-history .national__centre-tile--<%= centre.code %> {background-image: url(<%= centre_tile_image(centre.code, 1600, 300) %>);}
       <% end %>
     </style>
     <%# //Background images of centre tiles %>
@@ -151,9 +145,9 @@
         <li>
           <%= link_to 'Our Community', 'http://corporate.westfield.com/about/sustainability/', rel: 'external', target: '_blank' %>
         </li>
-        <%#<li>%>
-          <%#= link_to 'Media', 'http://media.westfield.com.au', rel: 'external', target: '_blank' %>
-        <%#</li>%>
+        <li>
+          <%= link_to 'Media', 'http://media.westfield.com.au', rel: 'external', target: '_blank' %>
+        </li>
       </ul>
 
       <nav role="navigation" class="national__footer__nav">
@@ -175,14 +169,3 @@
 
 </div>
 <%# //National landing page wrapper %>
-
-<%- content_for :javascript do -%>
-  <%# Run 'Tabs' plugin %>
-  <%= javascript_include_tag 'vendor/jquery.tabs' %>
-
-  <script>
-  $(function() {
-    $('.tabs').tabs();
-  });
-  </script>
-<%- end -%>

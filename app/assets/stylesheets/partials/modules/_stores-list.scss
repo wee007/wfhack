@@ -23,9 +23,8 @@
   dt {
     background-color: $color-off-white;
     font-weight: normal;
-    text-transform: uppercase;
     border-top: 1px solid $color-grey-1;
-    @include to-rem(padding-top padding-bottom, $spacing-micro);
+    @include to-rem(padding-top padding-bottom, $spacing-sixth);
 
     /* Border off for first child */
     &:first-child {border-top: 0;}

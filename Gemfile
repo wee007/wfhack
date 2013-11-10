@@ -42,6 +42,9 @@ end
 
 
 group :development, :test do
+  # needed for using have_selector matcher, since rspec-2 removes
+  # have_tag matcher
+  gem 'webrat'
   gem 'pry'
   gem 'pry-remote'
   gem "debugger"

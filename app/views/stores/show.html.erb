@@ -1,6 +1,6 @@
 <% content_for :class_for_main, "container--wide" %>
 
-<div class="stores-maps stores-maps--detail container js-stores-maps-toggle-wrap">
+<div class="stores-maps container js-stores-maps-toggle-wrap">
 
   <%# Contain 'back to listing link' and 'store details' %>
   <div class="js-pjax-container-stores" aria-live="polite" aria-atomic="true">
@@ -18,13 +18,13 @@
       <div class="stores-maps__filters-toggle">
         <div class="container">
           <%# Small view %>
-          <a href="<%= centre_stores_path(@centre) %>" class="stores-maps__toggle stores-maps__toggle--link btn btn--main btn--main-alt4 btn--main-compact-icon js-pjax-link-stores">
+          <a href="<%= centre_stores_path(@centre) %>" class="stores-maps__toggle stores-maps__toggle--link btn btn--main btn--main-alt4 btn--main-compact-icon">
             <span class="hide-visually">View list</span>
             <span class="icon icon--list icon--lrg" aria-hidden="true"></span>
           </a>
           <%# //Small view %>
           <%# Large view %>
-          <a href="<%= centre_stores_path(@centre) %>" class="stores-maps__filters-toggle__hdr txt-truncate js-pjax-link-stores"><span><span class="icon icon--arrow-left-big" aria-hidden="true"></span> Stores A-Z</span> / <%= @store.name %></a>
+          <a href="<%= centre_stores_path(@centre) %>" class="stores-maps__filters-toggle__hdr txt-truncate"><span><span class="icon icon--arrow-left-big" aria-hidden="true"></span> Stores A-Z</span> / <%= @store.name %></a>
           <%# //Large view %>
         </div>
       </div>
@@ -71,7 +71,7 @@
                   </dd>
                 <%- end %>
 
-                <%- if @store.accepts_giftcard.present? %>
+                <%- if @store.accepts_giftcards.present? %>
                   <dt class="hide-visually">Westfield gift card</dt>
                   <dd>
                     Gift card accepted
@@ -116,7 +116,7 @@
             <footer class="storefront__featured">
 
                 <%# 'Product' tiles %>
-                <div class="storefront__featured__item storefront__featured__item--products island island--top-btm">
+                <div class="storefront__featured__item storefront__featured__item--products island-ends">
                   <div class="container">
                     <h2 class="storefront__featured__hdr">Featured from <%= @store.name %></h2>
                     <ul class="grid grid--gutter-half grid--mrg-half">
@@ -135,8 +135,7 @@
                       <% end %>
                     </ul>
                     <%= link_to centre_browse_path(retailer: [params[:retailer_code]]), class: 'storefront__featured__view-more' do %>
-                      View more
-                      <span class="icon icon--arrow-right icon--lrg" aria-hidden="true"></span>
+                      View more<span class="icon icon--arrow-right icon--lrg" aria-hidden="true"></span>
                     <% end %>
                   </div>
                 </div>
@@ -144,7 +143,7 @@
 
                 <%- if false %>
                 <%# Deal tiles %>
-                <div class="storefront__featured__item storefront__featured__item--deals island island--top-btm">
+                <div class="storefront__featured__item storefront__featured__item--deals island-ends">
                   <div class="container">
                     <h2 class="storefront__featured__hdr">Deals from <%= @store.name %></h2>
                     <ul class="grid grid--gutter-half grid--mrg-half">

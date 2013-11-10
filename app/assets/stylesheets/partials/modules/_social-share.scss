@@ -59,33 +59,40 @@ $share-pinterest: #ca2026 !default;
 	  		display: block;
 
 	  		/* Round off bottom left/right corners */
-	  		&:last-child a {border-radius: 0 0 3px 3px;}
+	  		&:last-child a {border-radius: 0 0 $border-radius $border-radius;}
 	  	}
 	  }
 	}
 
 	/* --Drop down menu trigger-- */
+  .social-share__trigger {
+    color: $color-med-txt;
 
-	/* Hide button text for 'Tile' version */
-	.tile & .social-share__trigger__txt {@include hide-visually;}
+    /* Hide elements that need to be shown when the drop down is active */
+    .drop-down-container__active {display: none;}
 
-	  /* Hide elements that need to be shown when the drop down is active */
-	  .drop-down-container__active {display: none;}
+    /* Hover and focus states */
+    &:hover,
+    &:focus {color: $color-light-txt;}
 
-  /* Active state */
-  .social-share__trigger.is-active {
-    background: $color-med-txt;
+    /* Active state */
+    &.is-active {
+      background-color: $color-med-txt;
+      color: #fff;
 
-    /* Shared rules */
-    &,
-    .icon:before {color: #fff;}
+      /* Hide elements that need to be shown when the drop down is non-active */
+      .drop-down-container__non-active {display: none;}
 
-    /* Hide elements that need to be shown when the drop down is non-active */
-    .drop-down-container__non-active {display: none;}
+      /* Show elements that need to be shown when the drop down is active */
+      .drop-down-container__active {display: inline-block;}
+    }
 
-    /* Show elements that need to be shown when the drop down is active */
-    .drop-down-container__active {display: inline-block;}
+    /* Saved state for 'Favourites' button */
+    &.is-saved {color: $color-brand;}
   }
+
+    /* Hide button text for 'Tile' version */
+    .tile & .social-share__trigger__txt {@include hide-visually;}
 
   /* --Drop down menu target-- */
 

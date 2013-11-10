@@ -65,6 +65,7 @@ Global stylesheet
   @import "partials/utils/placeholders/box-shadows";
   @import "partials/utils/placeholders/hide";
   @import "partials/utils/placeholders/new-block-formatting-context";
+  @import "partials/utils/placeholders/hardware-accelerated-css";
 
 /* Base */
 @import "partials/base/fonts";
@@ -105,7 +106,6 @@ Global stylesheet
 @import "partials/abstractions/toggle-content";
 @import "partials/abstractions/angular-cloak";
 @import "partials/abstractions/flag";
-@import "partials/abstractions/spacing";
 //@import "partials/abstractions/definition-list";
 //@import "partials/abstractions/block-list";
 //@import "partials/abstractions/complex-link";
@@ -172,6 +172,7 @@ Global stylesheet
 @import "partials/buttons/menu";
 @import "partials/buttons/faux-link";
 @import "partials/buttons/expand-collapse";
+@import "partials/buttons/site-feedback";
 
 /* Helpers */
 @import "partials/helpers/hide";

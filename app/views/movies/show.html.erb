@@ -9,7 +9,7 @@
       <%# //Movie title %>
 
       <%# Movie classification %>
-      <div class="detail-view__meta islet islet--top-btm detail-view__divider detail-view__divider--top-btm">
+      <div class="detail-view__meta detail-view__divider detail-view__divider--top-btm islet-ends">
         <em><%= @movie.classification %> rating</em>
       </div>
       <%# //Movie classification %>
@@ -18,17 +18,14 @@
     <%# Movie main image %>
     <% if @movie.cloudinary_public_id %>
       <div class="detail-view__media detail-view__mrg-base">
-          <%= cl_image_tag(@movie.cloudinary_public_id, alt:"#{@movie.title} movie picture", width: 600, height: 400, crop: 'limit', format: 'jpg', fetch_format: 'auto') %>
+        <%= cl_image_tag(@movie.cloudinary_public_id, alt: '', width: 600, height: 400, crop: 'limit', format: 'jpg', fetch_format: 'auto') %>
       </div>
     <% end %>
     <%# //Movie main image %>
 
-    <h2 class="detail-view__hdr-sub hn">Synopsis</h2>
-
     <%# Movie synopsis %>
-    <div class="detail-view__desc">
-      <p itemprop="description"><%= @movie.synopsis %></p>
-    </div>
+    <h2 class="detail-view__hdr-sub hn">Synopsis</h2>
+    <p itemprop="description"><%= @movie.synopsis %></p>
     <%# //Movie synopsis %>
 
   </div>
@@ -50,7 +47,7 @@
         </dt>
         <% sessions.each do |session| %>
           <dd>
-            <a href="<%= session.booking_url %>" rel="external" target="_blank"><time datetime="<%= Time.parse(session.start_time).strftime("%l:%M%P") %>" itemprop="startDate"><%= Time.parse(session.start_time).strftime("%l:%M%P") %></time></a>
+            <a href="<%= session.booking_url %>" rel="external" target="_blank"><time datetime="<%= Time.parse(session.start_time).strftime("%Y-%m-%dT%H:%M") %>" itemprop="startDate"><%= Time.parse(session.start_time).to_s(:hour_minute_period) %></time></a>
             <%= "[#{session.session_type}]" if session.session_type %>
           </dd>
         <% end %>

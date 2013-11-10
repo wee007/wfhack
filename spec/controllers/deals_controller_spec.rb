@@ -7,7 +7,7 @@ describe DealsController do
   describe "GET #index" do
     before :each do
       CentreService.stub(:fetch).with('bondijunction').and_return double :response, body: {name: 'Centre name'}
-      DealService.stub(:fetch).with(centre: 'bondijunction', state: "live", rows: 50).and_return("DEAL JSON")
+      DealService.stub(:fetch).with(centre: 'bondijunction', state: "published", rows: 50).and_return("DEAL JSON")
       DealService.stub(:build).with("DEAL JSON").and_return(['Deal', 'Deal1'])
       get :index, centre_id: 'bondijunction'
     end
@@ -58,6 +58,7 @@ describe DealsController do
     it "adds title to meta" do
       meta_double = double :meta
       meta_double.should_receive(:push).with({
+        title: @stub_deal.title,
         page_title: "#{@stub_deal.title} from #{@stub_store.name} at ",
         description: "At , find #{ @stub_deal.title } - ends #{ @stub_deal.available_to.strftime("%Y-%m-%d") }"
       })

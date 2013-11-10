@@ -62,10 +62,10 @@
 			/* Section nav list */
 			.nav-contextual__list {
 
-				/* Increase gutter between list items at this breakpoint */
+				/* Increase spacing between list items at this breakpoint */
 				@include respond-min($non-palm) {
 			    > li {
-			    	@include to-rem(margin-left, 32);
+			    	@include to-rem(margin-left, $spacing-half);
 
 		        &:first-child {margin-left: 0;}
 			    }

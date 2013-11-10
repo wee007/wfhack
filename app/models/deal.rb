@@ -31,6 +31,10 @@ class Deal < OpenStruct
     DateTime.parse(super)
   end
 
+  def available_from
+    DateTime.parse(super)
+  end
+
   def to_param
     id
   end

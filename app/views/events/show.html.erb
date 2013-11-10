@@ -3,18 +3,17 @@
   <div class="island detail-view__divider">
     <header class="detail-view__mrg-base">
       <h1 class="detail-view__hdr hn" itemprop="summary"><%= @event.name %></h1>
-      <ul class="detail-view__meta islet islet--top-btm detail-view__divider detail-view__divider--top-btm horiz-list horiz-list--fit">
-        <li class="detail-view__subtle-txt"><%= @event.start_date(:short_date_with_year) %></li>
-        <li>
-          <span class="icon icon--pin icon--lrg icon--spacing" aria-hidden="true"></span>
-          <span itemprop="location"><%= @event.location %></span>
-        </li>
+      <ul class="detail-view__meta detail-view__divider detail-view__divider--top-btm islet-ends horiz-list horiz-list--fit">
+        <li class="detail-view__subtle-txt"><%= display_event_date(@event) %></li>
+        <%- if @event.location.present? -%>
+          <li><span class="icon icon--pin icon--lrg icon--spacing" aria-hidden="true"></span><span itemprop="location"><%= @event.location %></span></li>
+        <% end %>
       </ul>
     </header>
 
     <div class="detail-view__media detail-view__mrg-base" itemprop="photo">
       <%= fetch_image_tag @event.image,
-        alt: "Photo of event: #{@event.name}",
+        alt: "",
         width: 638,
         crop: :limit,
         format: :auto
@@ -46,8 +45,7 @@
         </dt>
         <% occurrences.each do |occurrence| %>
           <dd>
-            <time datetime="<%= occurrence.start(:raw) %>" itemprop="startDate"><%= occurrence.start(:hour_minute_period) %></time> 
-            - <time datetime="<%= occurrence.finish(:raw) %>" itemprop="endDate"><%= occurrence.finish(:hour_minute_period) %></time>
+            <time datetime="<%= occurrence.start(:raw) %>" itemprop="startDate"><%= occurrence.start(:hour_minute_period) %></time> &#8211; <time datetime="<%= occurrence.finish(:raw) %>" itemprop="endDate"><%= occurrence.finish(:hour_minute_period) %></time>
           </dd>
         <% end %>
       <% end %>

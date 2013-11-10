@@ -31,37 +31,82 @@
 .island,
 .islet {@extend %clear-fix;}
 
-/* Island - full padding */
+
+/* --Island-- */
+
+/* Full padding */
 .island {@include to-rem(padding, $spacing-base);}
 
-/* Islet - half the padding */
-.islet {@include to-rem(padding, $spacing-half);}
-
-/* Top and bottom padding only */
+/* Ends - top/bottom padding */
 .island-ends {@include to-rem(padding-top padding-bottom, $spacing-base);}
 
+/* Sides - left/right padding */
+.island-sides {@include to-rem(padding-left padding-right, $spacing-base);}
+
+/* -One edge only- */
+
+/* Top */
+.island-top {@include to-rem(padding-top, $spacing-base);}
+
+/* Bottom */
+.island-btm {@include to-rem(padding-bottom, $spacing-base);}
+
+/* Left */
+.island-left {@include to-rem(padding-left, $spacing-base);}
+
+/* Right */
+.island-right {@include to-rem(padding-right, $spacing-base);}
+
+
+/* --Islet-- */
+
+/* Half padding */
+.islet {@include to-rem(padding, $spacing-half);}
+
+/* Ends - top/bottom padding */
 .islet-ends {@include to-rem(padding-top padding-bottom, $spacing-half);}
+
+/* Sides - left/right padding */
+.islet-sides {@include to-rem(padding-left padding-right, $spacing-half);}
+
+/* -One edge only- */
+
+/* Top */
+.islet-top {@include to-rem(padding-top, $spacing-half);}
+
+/* Bottom */
+.islet-btm {@include to-rem(padding-bottom, $spacing-half);}
+
+/* Left */
+.islet-left {@include to-rem(padding-left, $spacing-half);}
+
+/* Right */
+.islet-right {@include to-rem(padding-right, $spacing-half);}
+
+
+/* --Only apply to specific viewports-- */
+
+/*
+  Note: cannot group these rules in context above because they need to override everything above.
+*/
+
+/* Island */
+@include respond-min($non-palm) {
+  .island-non-palm {@include to-rem(padding, $spacing-base);}
+}
+
 
 /* --Extenders-- */
 
-/* Top and bottom padding only */
-.island--top-btm,
-.islet--top-btm,
-.islet--top {
-	padding-left: 0;
-  padding-right: 0;
-}
+/* -Island flush (remove padding from edges)- */
 
-/* Top padding only */
-.islet--top {padding-bottom: 0;}
-
-/* Turn off bottom padding */
+/* Bottom */
 .island--flush-btm {padding-bottom: 0;}
 
-/* Palm only */
-@include respond-max($palm) {
-	.island--flush-btm-palm {padding-bottom: 0;}
-}
+  /* Palm only */
+  @include respond-max($palm) {
+    .island--flush-btm-palm {padding-bottom: 0;}
+  }
 
 /* Center align */
 .island--center,
@@ -70,8 +115,3 @@
 /* Solid bg */
 .island--fill,
 .islet--fill {background-color: $color-off-white;}
-
-/* Island at non-palm */
-@include respond-min($non-palm) {
-  .island--non-palm {@include to-rem(padding, $spacing-base);}
-}

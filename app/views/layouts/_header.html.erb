@@ -33,7 +33,7 @@
 					<nav class="header-menu-toggle__nav" role="navigation" aria-label="Sub navigation">
 						<ul class="nav-sub">
 							<%# Centre opening hours (centre home page) %>
-							<li class="open-hours-link"><a href="<%= centre_hours_path( params[ :centre_id ] || params[ :id ] ) %>" target="_self"><span class="icon icon--hours" aria-hidden="true"></span> <strong>Open <time datetime="<%= @centre.today_opening_time %>"><%= twelve_hour_format(@centre.today_opening_time) %></time> - <time datetime="<%= @centre.today_closing_time %>"><%= twelve_hour_format(@centre.today_closing_time) %></time> today</strong><span class="icon icon--arrow-right" aria-hidden="true"></span></a></li>
+							<li class="open-hours-link"><a href="<%= centre_hours_path( params[ :centre_id ] || params[ :id ] ) %>" target="_self"><span class="icon icon--hours" aria-hidden="true"></span> <strong><% if @centre.today_closed %>Closed today<% else %>Open <time datetime="<%= @centre.today_opening_time %>"><%= twelve_hour_format(@centre.today_opening_time) %></time> - <time datetime="<%= @centre.today_closing_time %>"><%= twelve_hour_format(@centre.today_closing_time) %></time> today<% end %></strong><span class="icon icon--arrow-right" aria-hidden="true"></span></a></li>
 							<%# //Centre opening hours (centre home page) %>
               <li class="open-hours-link-alt"><%= link_to centre_hours_path(params[:centre_id] || params[:id]), :class => (page?(:centre_hours) ? 'is-active' : nil), target: '_self' do %><span class="icon icon--hours icon--fixed-width icon--spacing" aria-hidden="true"></span><span class="nav-sub__txt"> Shopping Hours</span><% end %></li>
 							<!-- <li><%#= link_to centre_dining_path(params[:centre_id] || params[:id]), :class => (page?(:dining) ? 'is-active' : nil), target: '_self' do %><span class="icon icon--dining icon--fixed-width icon--spacing" aria-hidden="true"></span><span class="nav-sub__txt"> Dining</span><%# end %></li> -->
@@ -110,9 +110,10 @@
 						<ul>
 							<li class="nav-buy-gift-cards"><%= link_to 'Buy Gift Cards', 'http://www.westfieldgiftcards.com.au', rel: 'external', target: '_blank' %></li>
 							<li><%= link_to 'Westfield Group', 'http://corporate.westfield.com/', rel: 'external', target: '_blank' %></li>
-							<%#<li>%><%#= link_to 'Media', 'http://media.westfield.com.au', rel: 'external', target: '_blank' %><%#</li>%>
+							<li><%= link_to 'Media', 'http://media.westfield.com.au', rel: 'external', target: '_blank' %></li>
 							<li><%= link_to 'Terms &amp; Conditions'.html_safe, '/terms-conditions' %></li>
 							<li><%= link_to 'Privacy Policy', '/privacy-policy' %></li>
+							<li class="nav-site-feedback"><button type="button" class="btn js-btn-site-feedback">Give feedback</button></li>
 						</ul>
 					</nav>
 					<%# //Tertiary navigation %>

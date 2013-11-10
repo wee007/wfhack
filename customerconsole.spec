@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.191
+Version:     0.1.239
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,347 @@ fi
 
 
 %changelog
+* Fri Nov 08 2013 ci <doperations@au.westfield.com> 0.1.239-1
+- Merge pull request #642 from cpearce/old-ie-banner
+  (craigM.smith@au.westfield.com)
+- Updating Old IE banner (CPearce@au.westfield.com)
+
+* Fri Nov 08 2013 ci <doperations@au.westfield.com> 0.1.238-1
+- Merge pull request #641 from acohen/master (matt.wratt@trineo.co.nz)
+- Putting closing bracket on seperate line (CPearce@au.westfield.com)
+- Cleaning up all alt attrs (CPearce@au.westfield.com)
+- fix date formatting in event tile and detail pages (acohen@au.westfield.com)
+
+* Fri Nov 08 2013 ci <doperations@au.westfield.com> 0.1.237-1
+- Merge pull request #636 from fchan/images (matt.wratt@trineo.co.nz)
+- Bump up movie image on movie index page (fiona@fionachan.net)
+- WSF-5595: Fixed global search dropdown not getting announced to screen reader
+  (fiona@fionachan.net)
+- WSF-5955: Updated movie image param and tile image width
+  (fiona@fionachan.net)
+- Enable notices link in centre info nav (fiona@fionachan.net)
+
+* Fri Nov 08 2013 ci <doperations@au.westfield.com> 0.1.236-1
+- Prevent html escaping when outputting product_tracking_url
+  (DOCallaghan@au.westfield.com)
+
+* Fri Nov 08 2013 ci <doperations@au.westfield.com> 0.1.235-1
+- Merge pull request #638 from mwratt/feature/map-tweaks-and-fixes
+  (matt.wratt@trineo.co.nz)
+- fixes giftcards and stores with unmatch geom id (matt.wratt@trineo.co.nz)
+
+* Fri Nov 08 2013 ci <doperations@au.westfield.com> 0.1.234-1
+- Merge pull request #637 from ewee/master (matt.wratt@trineo.co.nz)
+- Merge pull request #632 from cpearce/UI-polish (matt.wratt@trineo.co.nz)
+- Fix store description check and remove call to try (ewee@au.westfield.com)
+- Fixing invalid CSS (CPearce@au.westfield.com)
+- Updates to the sub page hero module e.g. making the icon properly align with
+  the heading (CPearce@au.westfield.com)
+- Removing number input type from Price product filter
+  (CPearce@au.westfield.com)
+- Add 'Media' link - WSF-5982 (CPearce@au.westfield.com)
+
+* Thu Nov 07 2013 ci <doperations@au.westfield.com> 0.1.233-1
+- Revert "Merge pull request #609 from ewee/master" (ewee@au.westfield.com)
+
+* Thu Nov 07 2013 ci <doperations@au.westfield.com> 0.1.232-1
+- 
+
+* Thu Nov 07 2013 ci <doperations@au.westfield.com> 0.1.231-1
+- Merge pull request #613 from fchan/fastclick (matt.wratt@trineo.co.nz)
+- Merge pull request #609 from ewee/master (matt.wratt@trineo.co.nz)
+- Use JS hook for fastclick (fiona@fionachan.net)
+- Update social media copy (ewee@au.westfield.com)
+- Fix description check for centre hours and remove try (ewee@au.westfield.com)
+- Add fastclick only to content area on stores page (fiona@fionachan.net)
+- adds fastclick and remove touchstart events (matt.wratt@trineo.co.nz)
+
+* Thu Nov 07 2013 ci <doperations@au.westfield.com> 0.1.230-1
+- Merge pull request #614 from gwshaw/feature/WSF-5785_update_phg_details_tag
+  (ldewey@au.westfield.com)
+- WSF-5785 update phg tag js (g.w.shaw@comcast.net)
+
+* Wed Nov 06 2013 ci <doperations@au.westfield.com> 0.1.229-1
+- Using to_slug rather than url encode (craigm.smith@au.westfield.com)
+- Upgraded rspec (craigm.smith@au.westfield.com)
+- Added movie name in to the url (craigm.smith@au.westfield.com)
+- We no longer need to show the days for a given movie.
+  (craigm.smith@au.westfield.com)
+- Updated movie meta data (craigm.smith@au.westfield.com)
+
+* Wed Nov 06 2013 ci <doperations@au.westfield.com> 0.1.228-1
+- Merge pull request #608 from mwratt/feature/disabled-store-map-names
+  (ldewey@au.westfield.com)
+- handles multi level stores edge case (matt.wratt@trineo.co.nz)
+
+* Wed Nov 06 2013 ci <doperations@au.westfield.com> 0.1.227-1
+- Merge pull request #596 from jfantham/feature/WSF-5963
+  (ldewey@au.westfield.com)
+- Merge pull request #605 from ldewey/ie8-maps (ldewey@au.westfield.com)
+- WSF-5963 fixed build (j.fantham@gmail.com)
+- WSF-5963 refactored the icon detection (j.fantham@gmail.com)
+- WSF-5963 added classes to the canned search tag line (j.fantham@gmail.com)
+- WSF-5963 removed the quality of 25 from canned search images
+  (j.fantham@gmail.com)
+- WSF-5963 changed canned search dates to explanatory tag lines
+  (j.fantham@gmail.com)
+- Added IE8 map images (ldewey@au.westfield.com)
+
+* Tue Nov 05 2013 ci <doperations@au.westfield.com> 0.1.226-1
+- Change national landing page images back to fashion ones
+  (fiona@fionachan.net)
+
+* Tue Nov 05 2013 ci <doperations@au.westfield.com> 0.1.225-1
+- fix mail sharing button to include subject for notices
+  (acohen@au.westfield.com)
+
+* Tue Nov 05 2013 ci <doperations@au.westfield.com> 0.1.224-1
+- Fix national landing page styles (fiona@fionachan.net)
+- Fix hours nav wrapping (fiona@fionachan.net)
+- Fix video image not appearing in old IE (fiona@fionachan.net)
+- Update Christmas images for promo tiles (fiona@fionachan.net)
+- Update Christmas images for centre services (fiona@fionachan.net)
+- Update Christmas images for shopping hours (fiona@fionachan.net)
+- Update Christimas images for centre info (fiona@fionachan.net)
+- Update Christmas images for national landing page (fiona@fionachan.net)
+
+* Tue Nov 05 2013 ci <doperations@au.westfield.com> 0.1.223-1
+- Merge pull request #585 from fchan/polish-2 (ldewey@au.westfield.com)
+- Move the iOS test in Modernizr to be after the Apple devices tests
+  (fiona@fionachan.net)
+- Group together common spacing in tile (fiona@fionachan.net)
+- Fix PR based on feedback (fiona@fionachan.net)
+- Move deals logo spacing to the img (fiona@fionachan.net)
+- WSF-5935: Add mrg-base-alt to getting here section in centre info and
+  removing spacing file (fiona@fionachan.net)
+- WSF-5805: Fix Firefox placeholder text colour (fiona@fionachan.net)
+- WSF-5935: Remove spacing abstraction and use helper classes
+  (fiona@fionachan.net)
+
+* Tue Nov 05 2013 ci <doperations@au.westfield.com> 0.1.222-1
+- Merge pull request #583 from mlocke/feature/WSF-4998_category_short_names
+  (ldewey@au.westfield.com)
+- Merge pull request #599 from cpearce/UI-polish (ldewey@au.westfield.com)
+- Making event location conditional as it's not mandatory - WSF-5966
+  (CPearce@au.westfield.com)
+- Applying correct font-weight style to instances of Lato font
+  (CPearce@au.westfield.com)
+- Removing compression on canned search image (CPearce@au.westfield.com)
+- Updating the movie placeholder image (CPearce@au.westfield.com)
+- Fixing section nav so it doesn't render if they're no products and for
+  national view - WSF-5958 (CPearce@au.westfield.com)
+- Remove unused let and rename response double (malc.locke@trineo.co.nz)
+- Update global_search VCR cassette (malc.locke@trineo.co.nz)
+- Add extra nil value protection and fix specs (malc.locke@trineo.co.nz)
+- Add centre and stream service to foreman config (malc.locke@trineo.co.nz)
+
+* Tue Nov 05 2013 ci <doperations@au.westfield.com> 0.1.221-1
+- Merge pull request #603 from mwratt/feature/disabled-store-map-names
+  (ldewey@au.westfield.com)
+- fixes maps broken on products and deals pages (matt.wratt@trineo.co.nz)
+
+* Tue Nov 05 2013 ci <doperations@au.westfield.com> 0.1.220-1
+- 
+
+* Tue Nov 05 2013 ci <doperations@au.westfield.com> 0.1.219-1
+- Merge pull request #598 from mwratt/feature/disabled-store-map-names
+  (ldewey@au.westfield.com)
+- [BUG] Fix missing subject line for Deals and Movies detail page
+  (ewee@au.westfield.com)
+- fixes broken js specs (matt.wratt@trineo.co.nz)
+- removes unwanted .zip file (matt.wratt@trineo.co.nz)
+- names all buildings and units as empty when empty (matt.wratt@trineo.co.nz)
+
+* Tue Nov 05 2013 ci <doperations@au.westfield.com> 0.1.218-1
+- Merge pull request #589 from jfantham/feature/WSF-5896
+  (ldewey@au.westfield.com)
+- Merge pull request #586 from cpearce/UI-polish (ldewey@au.westfield.com)
+- Conditionally load JIRA issue tracker - WSF-5957 (CPearce@au.westfield.com)
+- Updating 'aria-label' attr for category navigation (CPearce@au.westfield.com)
+- Fixing up spacing and other things for detail views - WSF-5368
+  (CPearce@au.westfield.com)
+- Increasing font size of 'Filter' drop down trigger at non-palm - WSF-5368
+  (CPearce@au.westfield.com)
+- Updates and fixes to 'Stores' (CPearce@au.westfield.com)
+- Hide feedback button for National home page and ALL Android users
+  (CPearce@au.westfield.com)
+- Hide feedback button for National home page (CPearce@au.westfield.com)
+- Tighten up the 'Stores' A-Z pagination links for non-touch - WSF-5948
+  (CPearce@au.westfield.com)
+- Hardware accelerate the JIRA feedback button as it uses position: fixed
+  (CPearce@au.westfield.com)
+- WSF-5896 added alt tags to canned searches (j.fantham@gmail.com)
+
+* Tue Nov 05 2013 ci <doperations@au.westfield.com> 0.1.217-1
+- fixes map popup position (matt.wratt@trineo.co.nz)
+
+* Mon Nov 04 2013 ci <doperations@au.westfield.com> 0.1.216-1
+- fix event dates displaying with incorrect timezone in stream view
+  (acohen@au.westfield.com)
+
+* Mon Nov 04 2013 ci <doperations@au.westfield.com> 0.1.215-1
+- [BUG] Let store hours fail gracefully till Christmas hour is implemented
+  (ewee@au.westfield.com)
+
+* Fri Nov 01 2013 ci <doperations@au.westfield.com> 0.1.214-1
+- WSF-5785 update phg tag js (g.w.shaw@comcast.net)
+
+* Fri Nov 01 2013 ci <doperations@au.westfield.com> 0.1.213-1
+- Merge pull request #573 from fchan/zoom (ldewey@au.westfield.com)
+- Revert "Merge pull request #550 from mwratt/feature/WSF-5858-fix-mobile-
+  scroll-bug" (fiona@fionachan.net)
+
+* Fri Nov 01 2013 ci <doperations@au.westfield.com> 0.1.212-1
+- Fixing use of islet abstraction for notices show (CPearce@au.westfield.com)
+- Fixing z-index of site feedback button so it sits behind the feedback modal
+  (CPearce@au.westfield.com)
+- Adding ARIA live attrs back to Stores index container
+  (CPearce@au.westfield.com)
+- Clean up 'application.js' and other JS files - WSF-5928
+  (CPearce@au.westfield.com)
+- Removing redundant comments in grid (CPearce@au.westfield.com)
+- Tidy up island abstraction - WSF-5933 (CPearce@au.westfield.com)
+- Remove global :focus rule and target elements specifically - WSF-5901
+  (CPearce@au.westfield.com)
+
+* Fri Nov 01 2013 ci <doperations@au.westfield.com> 0.1.211-1
+- Merge pull request #575 from fchan/polish-2 (ldewey@au.westfield.com)
+- Merge pull request #581 from ldewey/master (ldewey@au.westfield.com)
+- Fix for notices (fiona@fionachan.net)
+- Return if super categories are blank. When building category nav.
+  (ldewey@au.westfield.com)
+- WSF-5825: Compress SVG icons and remove redundant pay station one
+  (fiona@fionachan.net)
+
+* Thu Oct 31 2013 ci <doperations@au.westfield.com> 0.1.210-1
+- Merge pull request #579 from acohen/feature/WSF-5012
+  (acohen@au.westfield.com)
+- WSF-5012 fix broken page (acohen@au.westfield.com)
+
+* Thu Oct 31 2013 ci <doperations@au.westfield.com> 0.1.209-1
+- Merge pull request #578 from acohen/feature/WSF-5012
+  (ldewey@au.westfield.com)
+- WSF-5012 changes as per Leon's code review (acohen@au.westfield.com)
+- WSF-5012 add img_alt_text display. Clean up html as per Fiona's instructions
+  (acohen@au.westfield.com)
+- WSF-5012 use active: true to filter list of notices (acohen@au.westfield.com)
+- WSF-5012 add notices to customer console (acohen@au.westfield.com)
+
+* Thu Oct 31 2013 ci <doperations@au.westfield.com> 0.1.208-1
+- WSF-5890 respect centre timezone when displaying dates
+  (acohen@au.westfield.com)
+
+* Thu Oct 31 2013 ci <doperations@au.westfield.com> 0.1.207-1
+- 
+
+* Thu Oct 31 2013 ci <doperations@au.westfield.com> 0.1.206-1
+- Merge pull request #567 from cpearce/feedback-button
+  (ldewey@au.westfield.com)
+- Merge pull request #571 from csmith/master (ldewey@au.westfield.com)
+- Merge pull request #569 from ldewey/chris/store-pagination
+  (ldewey@au.westfield.com)
+- We want to show all the published deals, not just the live ones.
+  (craigm.smith@au.westfield.com)
+- Removing & syntax as its slow (ldewey@au.westfield.com)
+- making A-Z pagination dynamic (ldewey@au.westfield.com)
+- Implementing site wide feedback button using JIRA issue collector
+  (CPearce@au.westfield.com)
+- Final style updates to pagination (CPearce@au.westfield.com)
+- Adding A-Z pagination to stores list (CPearce@au.westfield.com)
+
+* Thu Oct 31 2013 ci <doperations@au.westfield.com> 0.1.205-1
+- Product browse category harding (ldewey@au.westfield.com)
+
+* Thu Oct 31 2013 ci <doperations@au.westfield.com> 0.1.204-1
+- Merge pull request #559 from csmith/master (ldewey@au.westfield.com)
+- Merge pull request #568 from ldewey/maps-zoom-fix (ldewey@au.westfield.com)
+- Zoom level updates (ldewey@au.westfield.com)
+- Display the retailer name is there's no logo. (craigm.smith@au.westfield.com)
+- Added the deal start date to CC (craigm.smith@au.westfield.com)
+
+* Thu Oct 31 2013 ci <doperations@au.westfield.com> 0.1.203-1
+- Merge pull request #566 from fchan/polish-2 (ldewey@au.westfield.com)
+- Fix PR after feedback (fiona@fionachan.net)
+- WSF-5877: Centre align hero banners for IE8 (fiona@fionachan.net)
+- Fix title attribute for special day in hours (fiona@fionachan.net)
+- WSF-5889: Fixed datetime in movie sessions (fiona@fionachan.net)
+- WSF-5878: Fix keyboard not being able to tab into tabs nav
+  (fiona@fionachan.net)
+- Determine if today opening hour is closed shown on the centre landing page
+  (ewee@au.westfield.com)
+
+* Tue Oct 29 2013 ci <doperations@au.westfield.com> 0.1.202-1
+- 
+
+* Tue Oct 29 2013 ci <doperations@au.westfield.com> 0.1.201-1
+- Merge pull request #560 from ldewey/remove-auth (ldewey@au.westfield.com)
+- Merge pull request #558 from ldewey/hero-images-update
+  (ldewey@au.westfield.com)
+- Removed auth (ldewey@au.westfield.com)
+- Updated gardencity hero image, info, hours and services.
+  (ldewey@au.westfield.com)
+
+* Tue Oct 29 2013 ci <doperations@au.westfield.com> 0.1.200-1
+- Maps will now be fully zoomed out. (ldewey@au.westfield.com)
+
+* Tue Oct 29 2013 ci <doperations@au.westfield.com> 0.1.199-1
+- Merge pull request #556 from fchan/polish (ldewey@au.westfield.com)
+- Fix PR after feedback (fiona@fionachan.net)
+- WSF-5645: Add JS to detect if nav-contextual is in viewport
+  (fiona@fionachan.net)
+- WSF-5895: Fixed centre hours time wrapping (fiona@fionachan.net)
+- WSF-5897 WSF-5850: Move tabs JS to global and move it out of vendor
+  (fiona@fionachan.net)
+
+* Tue Oct 29 2013 ci <doperations@au.westfield.com> 0.1.198-1
+- Merge pull request #555 from cpearce/UI-polish (ldewey@au.westfield.com)
+- Merge remote-tracking branch 'origin/master' (ben@germanforblack.com)
+- Use suggestions hash keys {stores,products} (ben@germanforblack.com)
+- Removing zoom of viewport when tapping into form elements
+  (CPearce@au.westfield.com)
+
+* Mon Oct 28 2013 ci <doperations@au.westfield.com> 0.1.197-1
+- Merge pull request #552 from cpearce/UI-polish (ldewey@au.westfield.com)
+- Changing full date to lowercase pm in time formats (CPearce@au.westfield.com)
+- Fixing broken tests for events and parking (CPearce@au.westfield.com)
+- Making am/pm formatting consistent and adding en dash for time ranges instead
+  of hyphens (CPearce@au.westfield.com)
+- Adding hover effect to a tile (CPearce@au.westfield.com)
+- Truncate the store name in the map popup - WSF-5882
+  (CPearce@au.westfield.com)
+- Simplfying the selectors for the normalisation of :focus styles
+  (CPearce@au.westfield.com)
+- Normalising :focus styles (CPearce@au.westfield.com)
+- Adding hover and focus states to social share button and cleaning up CSS
+  (CPearce@au.westfield.com)
+
+* Mon Oct 28 2013 ci <doperations@au.westfield.com> 0.1.196-1
+- Merge pull request #550 from mwratt/feature/WSF-5858-fix-mobile-scroll-bug
+  (ldewey@au.westfield.com)
+- fixes filename typo (matt.wratt@trineo.co.nz)
+- standard approach applied to fastclick (matt.wratt@trineo.co.nz)
+- make fastclick global (matt.wratt@trineo.co.nz)
+- adds fastclick and remove touchstart events (matt.wratt@trineo.co.nz)
+
+* Mon Oct 28 2013 ci <doperations@au.westfield.com> 0.1.195-1
+- 
+
+* Mon Oct 28 2013 ci <doperations@au.westfield.com> 0.1.194-1
+- Merge pull request #549 from mwratt/feature/map_multi_level_stores
+  (ldewey@au.westfield.com)
+- Merge pull request #551 from mwratt/feature/ie-8-bugs
+  (ldewey@au.westfield.com)
+- fixes undfined error in IE8 (matt.wratt@trineo.co.nz)
+- adds support for multi level stores in map (matt.wratt@trineo.co.nz)
+- fixes map sliding off page bug (matt.wratt@trineo.co.nz)
+
+* Mon Oct 28 2013 ci <doperations@au.westfield.com> 0.1.193-1
+- WFAPI-89 Home page copy (tfigueiro@au.westfield.com)
+
+* Fri Oct 25 2013 ci <doperations@au.westfield.com> 0.1.192-1
+- Revert "Merge pull request #524 from gwshaw/feature/WSF-5785_update_phg_tag"
+  (ldewey@au.westfield.com)
+
 * Thu Oct 24 2013 ci <doperations@au.westfield.com> 0.1.191-1
 - 
 

@@ -63,9 +63,7 @@ module ApplicationHelper
   end
 
   def twelve_hour_format(time)
-    DateTime.parse(time)
-      .strftime('%l:%M%P')
-      .lstrip rescue nil
+    DateTime.parse(time).to_s(:hour_minute_period).lstrip rescue nil
   end
 
   def to_paragraphs(string)

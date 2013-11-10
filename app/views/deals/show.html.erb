@@ -4,8 +4,8 @@
   <div class="grid__item non-palm-one-half">
     <div class="island detail-view__divider--palm">
       <header class="deal-main box box--torn">
-        <h1 class="deal-main__hdr"><%= @deal.title %></h1>
-        <p class="deal-main__meta">from <%= @store.name %> <span>Deal ends <time datetime="<%= @deal.available_to.strftime("%Y-%m-%d") %>"><%= @deal.available_to.strftime("%A %e %B") %></time></span></p>
+        <h1 class="deal-main__hdr h1"><%= @deal.title %></h1>
+        <p class="deal-main__meta">from <%= @store.name %> <span>Deal from  <time datetime="<%= @deal.available_from.strftime("%Y-%m-%d") %>"><%= @deal.available_from.strftime("%A %e %B") %></time> to <time datetime="<%= @deal.available_to.strftime("%Y-%m-%d") %>"><%= @deal.available_to.strftime("%A %e %B") %></time></span></p>
       </header>
     </div>
   </div>
@@ -21,7 +21,7 @@
     <%# //Store location %>
 
     <%# Contact store %>
-    <div class="island island--fill island--center islet-ends">
+    <div class="island-sides islet-ends island--fill island--center">
       <span class="hide-fully--non-palm">
         <%= phone_link @store.phone_number, class: 'btn btn--full btn--main btn--main-alt2 btn--main-lrg' do |phone_number| %>
           <span class="icon icon--phone icon--xlrg icon--spacing-lrg icon--flush-top" aria-hidden="true"></span><strong>Call <%= @store.name %></strong>
@@ -40,7 +40,7 @@
 
 <%# Availability %>
 <% if @deal.stores and @deal.stores.size > 1 %>
-  <div class="island detail-view__availability">
+  <div class="island">
     <h3 class="detail-view__hdr-sub detail-view__mrg-off hn"><%= @store.name %> also available at</h3>
     <ul class="detail-view__mrg-base">
       <% @deal.stores[0..2].each do |store| %>
@@ -55,9 +55,9 @@
 
 <%# Fine print %>
 <% if @deal.terms_and_conditions and !@deal.terms_and_conditions.empty? %>
-  <div class="island toggle-content js-toggle-content js-hide-show">
+  <div class="island toggle-content js-toggle-content js-hide-show<% if @deal.stores and @deal.stores.size > 1 %> detail-view__divider detail-view__divider--top<% end %>">
     <h2 class="detail-view__hdr-sub hn">The fine print</h2>
-    <div class="detail-view__desc detail-view__desc--fine-print detail-view__subtle-txt txt-formatted txt-formatted--user-generated">
+    <div class="detail-view__desc detail-view__desc--fine-print detail-view__subtle-txt">
       <% @deal.terms_and_conditions.each do |paragraph| %>
         <% unless paragraph.empty? %><p><%= paragraph %></p><% end %>
       <% end %>
@@ -72,11 +72,6 @@
 
   <script>
     $(function() {
-
-      // Check if 'Availability' content exists so we can add divider to 'Fine print' container
-      if ($('.detail-view__availability').length) {
-        $('.toggle-content').addClass('detail-view__divider detail-view__divider--top');
-      }
 
       // Run 'Toggle content' plugin
       $('.js-toggle-content').toggleContent({

@@ -38,7 +38,7 @@ $.fn.tabs = function() {
 		})
 
 		// Set attr's for selected tab nav item
-		$(this).find('li.is-active > a', tabNav).attr({'aria-selected': 'true', 'tabindex' : '0'});
+		tabNav.find('li > a.is-active').attr({'aria-selected': 'true', 'tabindex' : '0'});
 
 		// Set attr's for tab panel that's shown by default
 		$(this).find('div.is-active').attr({'aria-hidden' : 'false', 'aria-expanded' : 'true'});

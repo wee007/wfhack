@@ -57,7 +57,7 @@ describe CannedSearch do
 
   it "should recognize the routes for the various types of tiles" do
     tile_routes = [
-      "/bondijunction/browse",
+      "/bondijunction/products",
       "/bondijunction/stores/1001-optical/21256",
       "/bondijunction/hours",
       "/bondijunction/info"
@@ -71,7 +71,7 @@ describe CannedSearch do
 
   it "should be able to recognize the various routes to apply the correct icon" do
     routes_and_icons = {
-      "/bondijunction/browse" => "browse",
+      "/bondijunction/products" => "products",
       "/bondijunction/stores/1001-optical/21256" => "store",
       "/bondijunction/hours" => "hours",
       "/bondijunction/info" => "info"
@@ -85,7 +85,7 @@ describe CannedSearch do
 
   it "should be able to recognize the routes to generate a tag line" do
     routes_and_tag_lines = {
-      "/bondijunction/browse" => "View collection",
+      "/bondijunction/products" => "View collection",
       "/bondijunction/stores/1001-optical/21256" => "View store details",
       "/bondijunction/hours" => "View shopping hours",
       "/bondijunction/info" => "View details"

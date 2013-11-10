@@ -9,7 +9,7 @@ describe "Global Search" do
         visit centre_path("bondijunction")
         fill_in "global-search", with: "red"
         click_button "Search"
-        expect(current_url).to match(/\/bondijunction\/browse\?.*search_query=red/)
+        expect(current_url).to match(/\/bondijunction\/products\?.*search_query=red/)
       end
     end
   end

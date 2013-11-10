@@ -4,7 +4,7 @@ class RedirectorController < ApplicationController
   def shopping
     request_path = params[:request_path]
 
-    redirect_base_url = '/browse'
+    redirect_base_url = '/products'
 
     # the type parameter has precedence over everything else
     category = params["type"]

@@ -7,8 +7,8 @@
   </div>
   <div id="price-facet-slider"></div>
   <%- if params[:on_sale] == 'true' -%>
-    <%=link_to "On Sale", centre_browse_path(params.reject{|k,v| k=='on_sale'}), class: 'facet-value facet-value--selected' %>
+    <%=link_to "On Sale", centre_products_path(params.reject{|k,v| k=='on_sale'}), class: 'facet-value facet-value--selected' %>
   <%- else -%>
-    <%=link_to "On Sale", centre_browse_path(params.merge on_sale: 'true'), class: 'facet-value' %>
+    <%=link_to "On Sale", centre_products_path(params.merge on_sale: 'true'), class: 'facet-value' %>
   <%- end -%>
 </div>

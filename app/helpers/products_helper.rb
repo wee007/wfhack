@@ -3,7 +3,7 @@ module ProductsHelper
   # This controller is either scoped by a centre or not,
   # a simple helper to tidy the views
   def pb_path
-    (@centre.nil?) ? browse_path : centre_browse_path(@centre)
+    (@centre.nil?) ? products_path : centre_products_path(@centre)
   end
 
 
@@ -19,7 +19,7 @@ module ProductsHelper
     end
     url_params.delete 'category' if filter == 'super_cat'
     url_params.delete_if {|k,v| v.blank? || v.is_a?(Array) && v.all?(&:blank?)}
-    centre_browse_path(url_params)
+    centre_products_path(url_params)
   end
 
 end

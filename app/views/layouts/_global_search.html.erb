@@ -4,7 +4,7 @@
       <div class="container" ng-controller="GlobalSearchCtrl" ng-cloak>
 
         <%# Search form %>
-        <%= form_tag centre_browse_path(centre_id: params[:centre_id] || params[:id]), class: "search-mini", role: "search", method: :get do %>
+        <%= form_tag centre_products_path(centre_id: params[:centre_id] || params[:id]), class: "search-mini", role: "search", method: :get do %>
           <span class="icon icon--search" aria-hidden="true"></span>
           <label for="global-search" class="hide-visually">Search site</label>
           <input type="hidden" ng-model="centre" value="<%= params[:centre_id] || params[:id] %>">

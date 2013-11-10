@@ -6,7 +6,7 @@ app.config ["$httpProvider", "$locationProvider", "$routeProvider", ($httpProvid
 
   $locationProvider.html5Mode(true).hashPrefix('!')
 
-  $routeProvider.when('/:centre?/browse/:super_cat?/:category?',
+  $routeProvider.when('/:centre?/products/:super_cat?/:category?',
     templateUrl: 'ProductBrowseView',
     controller: 'ProductBrowseController'
   )

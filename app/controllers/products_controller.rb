@@ -139,8 +139,7 @@ class ProductsController < ApplicationController
     render layout: 'base'
   end
 
-
-private
+  private
 
   def page_title(centre)
     if params[:sub_category].present? || params[:category].present?

@@ -4,11 +4,11 @@ class RedirectorController < ApplicationController
   def shopping
     request_path = params[:request_path]
 
-    redirect_base_url = '/products'
+    redirect_base_url = '/browse'
 
     # the type parameter has precedence over everything else
     category = params["type"]
-    
+
     # if no type parameter was specified, we take the last path component
     category ||= URI(request_path).path.split("/").last
 

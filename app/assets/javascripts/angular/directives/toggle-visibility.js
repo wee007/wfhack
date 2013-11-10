@@ -1,12 +1,5 @@
-// tab index support:
-// all focusable elements get tab-index: -1.
-// add up down keyboard events for when the object is shown only
-//  that cycle through the focusable elements in the shown target
-
-//aria-controls="id-of-target"
-
 ( function ( app ) {
-  app.directive( 'toggleVisibility', ['$rootScope', '$document', '$animate', function ($rootScope, $document, $animate) {
+  app.directive( 'toggleVisibility', ['$rootScope', '$document', function ($rootScope, $document) {
     // Each trigger / target combination will have a corresponding id.
     var triggerCounter = 0,
     activeClass = 'is-active';
@@ -26,13 +19,7 @@
       // Toggle the active class
       trigger.removeClass( activeClass );
 
-      $animate.addClass( target, 'is-active-animate-leave', function () {
-        $animate.removeClass( target, 'is-active-animate', function () {
-          setTimeout( function () {
-            $animate.removeClass( target, 'is-active-animate-leave is-active' );
-          }, 250)
-        });
-      });
+      target.removeClass( activeClass );
     },
 
     // Show the target
@@ -43,10 +30,7 @@
 
       // Toggle the active class
       trigger.addClass( activeClass );
-
-      $animate.addClass( target, 'is-active', function () {
-        $animate.addClass( target, 'is-active-animate' );
-      });
+      target.addClass( activeClass );
     },
 
     // Toggle visibility

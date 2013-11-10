@@ -41,6 +41,11 @@
     }
   }
 
+  /* Old IE */
+  @include old-ie {
+    .stores & {top: 381px;}
+  }
+
   /* Non JS users */
   .no-js & {position: static;}
 

@@ -25,7 +25,7 @@
         <em class="pager__count"><span class="hide-visually">Page </span><%= @pagination[:page] %> of <%= @pagination[:page_count] %></em>
         <%# Previous page %>
         <% if @pagination[:page] > 1 %>
-          <%= link_to prev_page_url, { rel: 'prev', target: '_self', class: 'pager__prev btn btn--main btn--main-alt4 btn--pointer btn--pointer-alt'} do %>
+          <%= link_to prev_page_url, { rel: 'prev', class: 'pager__prev btn btn--main btn--main-alt4 btn--pointer btn--pointer-alt'} do %>
             <span class="icon icon--arrow-left btn--pointer__icon btn--pointer__icon--flush" aria-hidden="true"></span>
             Prev
           <% end %>
@@ -33,7 +33,7 @@
         <%# //Previous page %>
         <%# Next page %>
         <% if @pagination[:page] < @pagination[:page_count] %>
-          <%= link_to next_page_url, { rel: 'next', target: '_self', class: 'pager__next btn btn--main btn--main-alt4 btn--pointer'} do %>
+          <%= link_to next_page_url, { rel: 'next', class: 'pager__next btn btn--main btn--main-alt4 btn--pointer'} do %>
             Next
             <span class="icon icon--arrow-right btn--pointer__icon btn--pointer__icon--flush" aria-hidden="true"></span>
           <% end %>

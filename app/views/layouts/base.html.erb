@@ -4,7 +4,10 @@
 <!--[if gt IE 8]><!-->            <html class="no-js" lang="en-au">            <!--<![endif]-->
 <head>
   <%= render 'shared/auth' if Rails.env.production? || Rails.env.uat? %>
-  <base href="<%= request.path %>">
+
+  <!--[if !IE]><base href="/"><![endif]-->
+  <!--[if lte IE 9]><base href="<%= request.path %>"><![endif]-->
+
   <meta name="fragment" content="!">
   <meta charset="utf-8">
   <meta name="viewport" content="initial-scale=1.0, width=device-width">

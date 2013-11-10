@@ -4,7 +4,7 @@
 
     # Route changes
     $scope.$on '$routeChangeStart', (event, to, from) -> useUrlParams( to.params )
-    $scope.$on '$routeChangeSuccess', (event, to, from) -> $scope.updateSearch() unless from == to
+    $scope.$on '$routeChangeSuccess', (event, to, from) -> $scope.updateSearch() unless from == undefined or from == to
 
     ProductSearch.onChange -> updateProducts()
 

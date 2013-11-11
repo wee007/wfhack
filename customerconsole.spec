@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.240
+Version:     0.1.241
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,9 @@ fi
 
 
 %changelog
+* Mon Nov 11 2013 ci <doperations@au.westfield.com> 0.1.241-1
+- Added vary header to anguar ajax requests (ldewey@au.westfield.com)
+
 * Mon Nov 11 2013 ci <doperations@au.westfield.com> 0.1.240-1
 - Applying a fix to stores UI after IE banner went in
   (CPearce@au.westfield.com)

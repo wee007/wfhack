@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.242
+Version:     0.1.243
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,13 @@ fi
 
 
 %changelog
+* Tue Nov 12 2013 ci <doperations@au.westfield.com> 0.1.243-1
+- Merge pull request #646 from mwratt/feature/ie8-maps-rm
+  (ldewey@au.westfield.com)
+- fixes broken js specs for maps (matt.wratt@trineo.co.nz)
+- removes more ie8 maps files (matt.wratt@trineo.co.nz)
+- removes IE8 maps support (matt.wratt@trineo.co.nz)
+
 * Mon Nov 11 2013 ci <doperations@au.westfield.com> 0.1.242-1
 - Merge pull request #643 from gwshaw/feature/WSF-5785_update_phg_details_tag
   (ldewey@au.westfield.com)

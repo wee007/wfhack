@@ -51,7 +51,7 @@
       qsParams = queryStringParams()
 
       # Collect routeable params remove undefined
-      rParams = [rParams.centre, 'browse', rParams.super_cat, rParams.category].filter (o) -> o
+      rParams = [rParams.centre, 'products', rParams.super_cat, rParams.category].filter (o) -> o
 
       $location.path(rParams.join('/')).search(ParamCleaner.build(qsParams))
 
@@ -74,10 +74,10 @@
       newParams
 
     # Update products using the same url that we're currently using
-    # document.location.pathname == /browse
-    # document.location.pathname == /bondijunction/browse
-    # document.location.pathname == /bondijunction/browse/womens
-    # document.location.pathname == /bondijunction/browse/womens-fashion-accessories
+    # document.location.pathname == /products
+    # document.location.pathname == /bondijunction/products
+    # document.location.pathname == /bondijunction/products/womens
+    # document.location.pathname == /bondijunction/products/womens-fashion-accessories
     updateProducts = ->
       Products.get document.location.pathname, ProductSearch.params()
 

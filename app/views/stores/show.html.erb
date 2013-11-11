@@ -19,12 +19,12 @@
         <div class="container">
           <%# Small view %>
           <a href="<%= centre_stores_path(@centre) %>" class="stores-maps__toggle stores-maps__toggle--link btn btn--main btn--main-alt4 btn--main-compact-icon">
-            <span class="hide-visually">View list</span>
+            <span class="hide-visually">View stores A-Z</span>
             <span class="icon icon--list icon--lrg" aria-hidden="true"></span>
           </a>
           <%# //Small view %>
           <%# Large view %>
-          <a href="<%= centre_stores_path(@centre) %>" class="stores-maps__filters-toggle__hdr txt-truncate"><span><span class="icon icon--arrow-left-big" aria-hidden="true"></span> Stores A-Z</span> / <%= @store.name %></a>
+          <a href="<%= centre_stores_path(@centre) %>" class="stores-maps__filters-toggle__hdr txt-truncate"><span><span class="icon icon--arrow-left-big" aria-hidden="true"></span> <span class="hide-visually">Back to </span>Stores A-Z</span> / <%= @store.name %></a>
           <%# //Large view %>
         </div>
       </div>

@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.241
+Version:     0.1.242
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,11 @@ fi
 
 
 %changelog
+* Mon Nov 11 2013 ci <doperations@au.westfield.com> 0.1.242-1
+- Merge pull request #643 from gwshaw/feature/WSF-5785_update_phg_details_tag
+  (ldewey@au.westfield.com)
+- WSF-5785 update phg tag details, add placeholders (g.w.shaw@comcast.net)
+
 * Mon Nov 11 2013 ci <doperations@au.westfield.com> 0.1.241-1
 - Added vary header to anguar ajax requests (ldewey@au.westfield.com)
 

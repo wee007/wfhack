@@ -7,6 +7,5 @@
 //= require vendor/modernizr.min
 //= require application
 //= require map/micello
-//= require map/micello_ie
 //= require ./spec_helpers
 //= require_tree ./spec

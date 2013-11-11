@@ -22,7 +22,7 @@ class StoreMapPage
     # after pjax load has completed the user needs to see the detail
     @hide()
 
-    $('.js-pjax-container-stores').toggleClass('is-stores-list-detail-loading', state)
+    $('.js-pjax-container-stores').toggleClass('is-loading', state)
 
   pjaxComplete: =>
     $ ->

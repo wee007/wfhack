@@ -169,7 +169,7 @@
       }
 
       /* Increase top/bottom spacing when there's only 'Opening hours' item */
-      &.is-storefront-details-meta-one {
+      &.is-only-item {
         @include to-rem(padding-top padding-bottom, $spacing-half+$spacing-quarter);
 
         /* Increase top/bottom spacing at this breakpoint */

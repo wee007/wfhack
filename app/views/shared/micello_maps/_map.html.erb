@@ -1,34 +1,10 @@
 <p class="feedback feedback--warning js-enabled-hide">You need JavaScript enabled to view this map. <a href="http://enable-javascript.com/" rel="external" target="_blank">Visit here</a> for instructions on how to enable JavaScript.</p>
-
-<!--[if lte IE 8]>
-  <div id="map-micello-api" class="map-micello__api map-micello-oldie js-disabled-hide">
-    <div class="map-micello-oldie__controls">
-      <em class="hide-visually">Zoom</em>
-      <ul class="map-micello-oldie__controls__zoom" id="ui-zoom">
-        <li><button type="button" class="map-micello-oldie__controls__zoom__in btn">+</button></li>
-        <li><button type="button" class="map-micello-oldie__controls__zoom__out btn">-</button></li>
-      </ul>
-      <em class="hide-visually">Floor levels</em>
-      <ul class="map-micello-oldie__controls__levels" id="ui-levels">
-        <% (1..@centre.number_of_levels).to_a.reverse.each do |level| %>
-          <li><button type="button" class="btn" data-level="<%= level %>"><%= level %></button></li>
-        <% end %>
-      </ul>
-    </div>
-    <% (1..@centre.number_of_levels).each do |level| %>
-      <img class="map-micello-oldie__map-img hide-fully" data-level="<%= level %>" src="<%= image_path("ie8-maps/#{@centre.micello_community}_#{level}.png") %>" alt="Map of shopping centre level <%= level %>">
-    <% end %>
-  </div>
-<![endif]-->
-
-<!--[if gt IE 8]><!-->
-  <div id="map-micello-api" class="map-micello__api js-disabled-hide">
-    <span class="preloader preloader--middle preloader--light"><span class="preloader__spinner"></span><em class="hide-visually">Loading, please wait&#8230;</em></span>
-  </div>
-  <script type="text/html-template" class="map-micello__overlay-wrap">
-    <%= render partial: 'shared/micello_maps/popup' %>
-  </script>
-<!--<![endif]-->
+<div id="map-micello-api" class="map-micello__api js-disabled-hide">
+  <span class="preloader preloader--middle preloader--light"><span class="preloader__spinner"></span><em class="hide-visually">Loading, please wait&#8230;</em></span>
+</div>
+<script type="text/html-template" class="map-micello__overlay-wrap">
+  <%= render partial: 'shared/micello_maps/popup' %>
+</script>
 <% content_for :javascript do %>
   <%= cloudinary_js_config %>
   <% if load_immediately %>

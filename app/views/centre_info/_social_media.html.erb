@@ -1,5 +1,9 @@
 <%# Follow Us - list of social media %>
 <% if social_media.present? %>
+<section aria-labelledby="follow-us">
+  <div class="txt-formatted">
+    <h2 id="follow-us" class="mrg-base">Follow Us</h2>
+  </div>
   <ul class="grid grid--mrg-base-non-palm grid--non-linear">
     <%# Facebook %>
     <% if @centre.facebook.present? %>
@@ -103,5 +107,6 @@
     <% end %>
     <%# //Google+ %>
   </ul>
+</section>
 <% end %>
 <%# //Follow Us - list of social media %>

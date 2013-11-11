@@ -152,10 +152,12 @@
 				left: 50%;
 				@include to-rem(margin, -4 0 0 -4);
 				@extend %transition-subtle;
-				box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
 
 				/* Contain controls version */
-				.flexslider--contain-controls & {background-color: $color-light-txt;}
+				.flexslider--contain-controls & {
+					box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+					background-color: $color-light-txt;
+				}
 			}
 		}
 

@@ -203,6 +203,9 @@
             @include opacity(0, !important);
             top: 0 !important;
             right: 0 !important;
+
+            /* Make sure it's not announced by screen readers for static version */
+            .map-micello--static & {display: none !important;}
           }
 
       /*

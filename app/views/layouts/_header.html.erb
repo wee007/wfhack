@@ -138,7 +138,7 @@
 			<div class="search-toggle-favs hide-fully--non-palm">
 
 				<%# Search toggle btn %>
-				<button class="btn js-disabled-hide" type="button" toggle-visibility="site-search" aria-owns="site-search">
+				<button class="btn js-disabled-hide js-search-toggle" type="button" toggle-visibility="site-search" aria-owns="site-search">
 					<span class="hide-visually">Show site search</span>
 					<span class="icon icon--search icon--spacing icon--flush-top icon--kilo" aria-hidden="true"></span>
 				</button>
@@ -210,3 +210,16 @@
 
 </header>
 <%# //Header %>
+
+<%- content_for :javascript do -%>
+<script>
+/* Focus in the global search input when it's opened via the toggle trigger */
+$(function() {
+	$('.js-search-toggle').click(function() {
+		if($('.js-header-search.is-active').length) {
+			$('.js-header-search input').focus();
+		}
+	});
+});
+</script>
+<%- end -%>

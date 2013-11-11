@@ -1,3 +1,7 @@
+<% content_for :link_rels do %>
+  <link rel="canonical" href="<%= canonical_url %>">
+<% end %>
+
 <% content_for :section_nav do %>
   <%= render '/layouts/section_nav' %>
 <% end %>

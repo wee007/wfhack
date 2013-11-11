@@ -223,8 +223,8 @@
           multipleKeyboard: true,
           slideshow: false,
           sync: '.flexslider--thumbs',
-          prevText: '<span class="hide-visually">Previous</span>',
-          nextText: '<span class="hide-visually">Next</span>',
+          prevText: '<span class="icon icon--arrow-left-big icon--flush-top" aria-hidden="true"></span><span class="hide-visually">Previous photo</span>',
+          nextText: '<span class="icon icon--arrow-right-big icon--flush-top" aria-hidden="true"></span><span class="hide-visually">Next photo</span>',
           // Do stuff when the slider loads the first slide
           start: function(slider) {
             // Add some ARIA
@@ -233,9 +233,6 @@
             slider.slides.eq(slider.currentSlide).attr('aria-selected', 'true');
             slider.controlNav.attr({'href' : '#', 'role' : 'button'});
             slider.directionNav.attr('role', 'button');
-            // Inject classes into prev/next buttons
-            $('.flexslider--lrg-img').find('.flex-prev').addClass('icon icon--arrow-left-big icon--flush-top'); // prev
-            $('.flexslider--lrg-img').find('.flex-next').addClass('icon icon--arrow-right-big icon--flush-top'); // next
           },
           // Do stuff asynchronously with each slider animation
           before: function(slider) {

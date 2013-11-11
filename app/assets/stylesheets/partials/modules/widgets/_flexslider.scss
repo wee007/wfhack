@@ -152,6 +152,7 @@
 				left: 50%;
 				@include to-rem(margin, -4 0 0 -4);
 				@extend %transition-subtle;
+				box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
 
 				/* Contain controls version */
 				.flexslider--contain-controls & {background-color: $color-light-txt;}
@@ -177,8 +178,13 @@
 		display: none;
 	}
 
-	/* Links */
+	/* Arrow icons (`span`) */
 	.icon {
+
+		/* Shared rules */
+		&,
+		&:before {display: block;}
+
 		position: absolute;
 		z-index: 2;
 		top: 50%;
@@ -193,7 +199,7 @@
 		}
 
 		/* Next */
-		&.flex-next {
+		&.icon--arrow-right-big {
 			left: auto;
 			right: 0;
 			@include to-rem(padding-left, 8);
@@ -208,9 +214,8 @@
 			@include to-rem(margin-top, -15);
 		}
 
-		/* Arrows */
+		/* Arrow icon pseudo element */
 		&:before {
-			display: block;
 			@extend %transition-subtle;
 			color: $color-dark-txt;
 			@include font-size(18, 1);

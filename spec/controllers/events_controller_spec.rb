@@ -41,11 +41,12 @@ describe EventsController do
     end
 
     it "adds event meta to meta" do
-      EventService.stub(:build).and_return(double :event, meta: 'event meta', name: 'Bondi Junction', description: 'Some description')
+      EventService.stub(:build).and_return(double :event, meta: 'event meta', name: 'Some event', description: 'Some description')
       meta_double = double :meta
       meta_double.should_receive(:push).with 'event meta'
       meta_double.should_receive(:push).with({
-        page_title: "Bondi Junction at Centre name",
+        twitter_title: "Check out this Some event at Centre name",
+        page_title: "Some event at Centre name",
         description: "At Centre name, Some description"
       })
       controller.stub(:meta).and_return(meta_double)

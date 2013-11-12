@@ -70,6 +70,8 @@ class ProductsController < ApplicationController
 
     @product = ProductService.build product
 
+    meta.push @product.meta
+
     if params[:centre_id]
       stores = StoreService.build(stores)
       centre_ids = stores.map(&:centre_id).uniq
@@ -78,6 +80,8 @@ class ProductsController < ApplicationController
       @centre = CentreService.build centre
       gon.push centre: @centre, stores: @centre_stores.map(&:to_gon)
       meta.push(
+        title: "#{@product.name} from #{stores.first.try(:name)}",
+        twitter_title: "What do you think of #{@product.name} from #{stores.first.try(:name)}?",
         page_title: "#{@product.name} | #{@centre.name}",
         description: "Shop for #{@product.name} from #{stores.first.try(:name)} at #{@centre.name}"
       )
@@ -91,8 +95,6 @@ class ProductsController < ApplicationController
       )
       @product_redirection_url = url_for product_redirection_url
     end
-
-    meta.push @product.meta
   end
 
 

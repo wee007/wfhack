@@ -53,6 +53,8 @@ class Event < Hashie::Mash
 
   def meta
     Meta.new title: title,
+             twitter_title: "Check out this #{title}",
+             email_body: "event",
              image: image
   end
 

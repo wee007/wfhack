@@ -101,7 +101,7 @@
             .icon {
               /* Can't do `display: block` on `.icon:before` because mobile Safari doesn't like it for some reasons */
               display: block;
-              @include font-size($font-size-lrg-2, 1);
+              @include font-size($font-size-lrger, 1);
 
               &:before {@extend %transition-subtle;}
             }
@@ -152,7 +152,7 @@
               @include font-size($font-size-sml);
 
               @include respond-min($non-palm) {
-                @include font-size($font-size-lrg-2);
+                @include font-size($font-size-lrger);
               }
             }
         }
@@ -260,7 +260,7 @@
 
         @include respond-min($non-palm) {
           display: inline-block;
-          @include font-size($font-size-lrg-2);
+          @include font-size($font-size-lrger);
         }
       }
 

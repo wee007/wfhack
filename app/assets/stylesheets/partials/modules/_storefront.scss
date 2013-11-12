@@ -69,7 +69,7 @@
           text-transform: uppercase;
 
           /* Super long store name */
-          &.is-long-store-name {@include font-size($font-size-lrg-2, 1.3);}
+          &.is-long-store-name {@include font-size($font-size-lrger, 1.3);}
 
           /* Increase font size at these breakpoints */
           @include respond-min($iphone-landscape) {
@@ -274,7 +274,7 @@
     /* Headings */
     .storefront__featured__hdr {
       color: $color-txt-light;
-      @include font-size($font-size-lrg-2, 1.5);
+      @include font-size($font-size-lrger, 1.5);
       @include to-rem(margin-bottom, $spacing-half);
 
       /* Increase font size at this breakpoint */

@@ -55,7 +55,7 @@ body .txt-formatted {
   h2 {
     font-family: $font-family-opensans;
     color: $color-txt-light;
-    @include font-size($font-size-lrg-2, 1.5);
+    @include font-size($font-size-lrger, 1.5);
 
     /* Increase font size at this breakpoint */
     @include respond-min($non-palm) {

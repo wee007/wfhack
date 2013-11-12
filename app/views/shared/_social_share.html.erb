@@ -40,7 +40,7 @@
 
     <%# Email %>
     <li class="social-share__email">
-      <a href="mailto:?<%=URI::encode "subject=Look what I found at Westfield&body=I would like to share this #{email_body || ''} from Westfield with you. What do you think?\n\n#{title}" %><%=URI::encode "at #{@centre.name}" if @centre.present? %><%=URI::encode "\n\n#{url}" %>"><span class="icon icon--email icon--xlrg icon--flush-top" aria-hidden="true"></span><span class="hide-visually"> Email</span></a>
+      <a href="mailto:?<%=URI::encode "subject=Look what I found at Westfield&body=I would like to share this #{email_body || ''} from Westfield with you. What do you think?\n\n#{title}" %> <%=URI::encode "at #{@centre.name}" if @centre.present? %><%=URI::encode "\n\n#{url}" %>"><span class="icon icon--email icon--xlrg icon--flush-top" aria-hidden="true"></span><span class="hide-visually"> Email</span></a>
     </li>
     <%# //Email %>
 

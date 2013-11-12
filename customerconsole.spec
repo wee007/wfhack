@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.250
+Version:     0.1.251
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,11 @@ fi
 
 
 %changelog
+* Wed Nov 13 2013 ci <doperations@au.westfield.com> 0.1.251-1
+- Merge pull request #670 from bschwarz/pb-filters-fix (ben@germanforblack.com)
+- Conditional should always be true. Desktop styles just deal with it, but
+  mobile needs to always start in this state. (ben@germanforblack.com)
+
 * Wed Nov 13 2013 ci <doperations@au.westfield.com> 0.1.250-1
 - 
 

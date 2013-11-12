@@ -56,5 +56,5 @@ class CannedSearch < Hashie::Mash
       "service"
     end
   end
-  
+
 end

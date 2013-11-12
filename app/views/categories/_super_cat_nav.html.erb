@@ -6,7 +6,7 @@
     end
     link_to(
       category.short_name,
-      centre_products_path(:super_cat => category.code),
+      centre_products_super_cat_path(@centre, category.code),
       attrs
     )
   %>

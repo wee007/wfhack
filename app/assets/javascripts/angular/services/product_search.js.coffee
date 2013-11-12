@@ -34,7 +34,7 @@
       if angular.isFunction(callback)
         callbacks.push callback
 
-    @getSearch = (callback) ->
+    @getSearch = () ->
 
       angular.forEach callbacks, (callback) -> callback()
 

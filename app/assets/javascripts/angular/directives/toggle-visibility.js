@@ -1,9 +1,8 @@
-// Note: we have to remove some ARIA attr's e.g. `aria-hidden` because some of the elements this directive is applied too only needs to be applied at certain viewports so until we have some way of applying this directive conditionally based on media queries we have to remove.
-
 ( function ( app ) {
-  app.directive( 'toggleVisibility', ['$document', function ($document) {
+  app.directive( 'toggleVisibility', ['$rootScope', '$document', function ($rootScope, $document) {
     // Each trigger / target combination will have a corresponding id.
     var triggerCounter = 0,
+    activeClass = 'is-active';
 
     elementID = function () {
       id = 'toggle-visibility-' + triggerCounter;
@@ -17,12 +16,10 @@
       // ARIA for trigger
       trigger.attr( 'aria-expanded', false );
 
-      // ARIA for target
-      //target.attr( 'aria-hidden', true );
+      // Toggle the active class
+      trigger.removeClass( activeClass );
 
-      // Toggle the `is-active` class
-      trigger.removeClass( 'is-active' );
-      target.removeClass( 'is-active' );
+      target.removeClass( activeClass );
     },
 
     // Show the target
@@ -31,12 +28,9 @@
       // ARIA for trigger
       trigger.attr( 'aria-expanded', true );
 
-      // ARIA for target
-      //target.attr( 'aria-hidden', false );
-
-      // Toggle the `is-active` class
-      trigger.addClass( 'is-active' );
-      target.addClass( 'is-active' );
+      // Toggle the active class
+      trigger.addClass( activeClass );
+      target.addClass( activeClass );
     },
 
     // Toggle visibility
@@ -59,14 +53,11 @@
 
         // ARIA for trigger
         trigger.attr( 'aria-haspopup', true );
-
-        // ARIA for target
-        //target.attr( 'aria-hidden', true );
+        trigger.attr( 'aria-controls', id );
 
         // ID attr and target ARIA `aria-labelledby`
         id = elementID();
         trigger.attr( 'id', id );
-        //target.attr( 'aria-labelledby', id );
 
         // Visibility will be toggled on click / tap
         trigger.bind( 'click', function ( e ) {

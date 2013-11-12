@@ -8,7 +8,7 @@ class RedirectorController < ApplicationController
 
     # the type parameter has precedence over everything else
     category = params["type"]
-    
+
     # if no type parameter was specified, we take the last path component
     category ||= URI(request_path).path.split("/").last
 

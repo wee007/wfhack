@@ -1,5 +1,5 @@
 /**
- * @license AngularJS v1.1.6-258e986
+ * @license AngularJS v1.2.0-rc.3
  * (c) 2010-2012 Google, Inc. http://angularjs.org
  * License: MIT
  */
@@ -7,24 +7,35 @@
 
 /**
  * @ngdoc overview
- * @name ngMobile
+ * @name ngTouch
  * @description
- * Touch events and other mobile helpers.
- * Based on jQuery Mobile touch event handling (jquerymobile.com)
+ *
+ * # ngTouch
+ *
+ * `ngTouch` is the name of the optional Angular module that provides touch events and other
+ * helpers for touch-enabled devices.
+ * The implementation is based on jQuery Mobile touch event handling
+ * ([jquerymobile.com](http://jquerymobile.com/))
+ *
+ * {@installModule touch}
+ *
+ * See {@link ngTouch.$swipe `$swipe`} for usage.
  */
 
-// define ngMobile module
-var ngMobile = angular.module('ngMobile', []);
+// define ngTouch module
+var ngTouch = angular.module('ngTouch', []);
 
 /**
      * @ngdoc object
-     * @name ngMobile.$swipe
+     * @name ngTouch.$swipe
      *
      * @description
      * The `$swipe` service is a service that abstracts the messier details of hold-and-drag swipe
      * behavior, to make implementing swipe-related directives more convenient.
      *
-     * It is used by the `ngSwipeLeft` and `ngSwipeRight` directives in `ngMobile`, and by
+     * Requires the {@link ngTouch `ngTouch`} module to be installed.
+     *
+     * `$swipe` is used by the `ngSwipeLeft` and `ngSwipeRight` directives in `ngTouch`, and by
      * `ngCarousel` in a separate component.
      *
      * # Usage
@@ -33,7 +44,7 @@ var ngMobile = angular.module('ngMobile', []);
      * documentation for `bind` below.
      */
 
-ngMobile.factory('$swipe', [function() {
+ngTouch.factory('$swipe', [function() {
   // The total distance in any direction before we make the call on swipe vs. scroll.
   var MOVE_BUFFER_RADIUS = 10;
 
@@ -53,8 +64,8 @@ ngMobile.factory('$swipe', [function() {
   return {
     /**
      * @ngdoc method
-     * @name ngMobile.$swipe#bind
-     * @methodOf ngMobile.$swipe
+     * @name ngTouch.$swipe#bind
+     * @methodOf ngTouch.$swipe
      *
      * @description
      * The main method of `$swipe`. It takes an element to be watched for swipe motions, and an
@@ -97,12 +108,12 @@ ngMobile.factory('$swipe', [function() {
         totalX = 0;
         totalY = 0;
         lastPos = startCoords;
-        eventHandlers['start'] && eventHandlers['start'](startCoords);
+        eventHandlers['start'] && eventHandlers['start'](startCoords, event);
       });
 
       element.on('touchcancel', function(event) {
         active = false;
-        eventHandlers['cancel'] && eventHandlers['cancel']();
+        eventHandlers['cancel'] && eventHandlers['cancel'](event);
       });
 
       element.on('touchmove mousemove', function(event) {
@@ -130,20 +141,19 @@ ngMobile.factory('$swipe', [function() {
         if (totalY > totalX) {
           // Allow native scrolling to take over.
           active = false;
-          eventHandlers['cancel'] && eventHandlers['cancel']();
+          eventHandlers['cancel'] && eventHandlers['cancel'](event);
           return;
         } else {
           // Prevent the browser from scrolling.
           event.preventDefault();
-
-          eventHandlers['move'] && eventHandlers['move'](coords);
+          eventHandlers['move'] && eventHandlers['move'](coords, event);
         }
       });
 
       element.on('touchend mouseup', function(event) {
         if (!active) return;
         active = false;
-        eventHandlers['end'] && eventHandlers['end'](getCoordinates(event));
+        eventHandlers['end'] && eventHandlers['end'](getCoordinates(event), event);
       });
     }
   };
@@ -151,13 +161,15 @@ ngMobile.factory('$swipe', [function() {
 
 /**
  * @ngdoc directive
- * @name ngMobile.directive:ngClick
+ * @name ngTouch.directive:ngClick
  *
  * @description
  * A more powerful replacement for the default ngClick designed to be used on touchscreen
  * devices. Most mobile browsers wait about 300ms after a tap-and-release before sending
  * the click event. This version handles them immediately, and then prevents the
  * following click event from propagating.
+ *
+ * Requires the {@link ngTouch `ngTouch`} module to be installed.
  *
  * This directive can fall back to using an ordinary click event, and so works on desktop
  * browsers as well as mobile.
@@ -180,7 +192,7 @@ ngMobile.factory('$swipe', [function() {
     </doc:example>
  */
 
-ngMobile.config(['$provide', function($provide) {
+ngTouch.config(['$provide', function($provide) {
   $provide.decorator('ngClickDirective', ['$delegate', function($delegate) {
     // drop the default ngClick directive
     $delegate.shift();
@@ -188,7 +200,7 @@ ngMobile.config(['$provide', function($provide) {
   }]);
 }]);
 
-ngMobile.directive('ngClick', ['$parse', '$timeout', '$rootElement',
+ngTouch.directive('ngClick', ['$parse', '$timeout', '$rootElement',
     function($parse, $timeout, $rootElement) {
   var TAP_DURATION = 750; // Shorter than 750ms is a tap, longer is a taphold or drag.
   var MOVE_TOLERANCE = 12; // 12px seems to work in most mobile browsers.
@@ -284,6 +296,9 @@ ngMobile.directive('ngClick', ['$parse', '$timeout', '$rootElement',
     // If we didn't find an allowable region, bust the click.
     event.stopPropagation();
     event.preventDefault();
+
+    // Blur focused form elements
+    event.target && event.target.blur();
   }
 
 
@@ -382,7 +397,7 @@ ngMobile.directive('ngClick', ['$parse', '$timeout', '$rootElement',
         }
 
         if (!angular.isDefined(attr.disabled) || attr.disabled === false) {
-          element.triggerHandler('click', event);
+          element.triggerHandler('click', [event]);
         }
       }
 
@@ -399,9 +414,9 @@ ngMobile.directive('ngClick', ['$parse', '$timeout', '$rootElement',
     // - On mobile browsers, the simulated "fast" click will call this.
     // - But the browser's follow-up slow click will be "busted" before it reaches this handler.
     // Therefore it's safe to use this directive on both mobile and desktop.
-    element.on('click', function(event) {
+    element.on('click', function(event, touchend) {
       scope.$apply(function() {
-        clickHandler(scope, {$event: event});
+        clickHandler(scope, {$event: (touchend || event)});
       });
     });
 
@@ -418,12 +433,14 @@ ngMobile.directive('ngClick', ['$parse', '$timeout', '$rootElement',
 
 /**
  * @ngdoc directive
- * @name ngMobile.directive:ngSwipeLeft
+ * @name ngTouch.directive:ngSwipeLeft
  *
  * @description
  * Specify custom behavior when an element is swiped to the left on a touchscreen device.
  * A leftward swipe is a quick, right-to-left slide of the finger.
  * Though ngSwipeLeft is designed for touch-based devices, it will work with a mouse click and drag too.
+ *
+ * Requires the {@link ngTouch `ngTouch`} module to be installed.
  *
  * @element ANY
  * @param {expression} ngSwipeLeft {@link guide/expression Expression} to evaluate
@@ -445,12 +462,14 @@ ngMobile.directive('ngClick', ['$parse', '$timeout', '$rootElement',
 
 /**
  * @ngdoc directive
- * @name ngMobile.directive:ngSwipeRight
+ * @name ngTouch.directive:ngSwipeRight
  *
  * @description
  * Specify custom behavior when an element is swiped to the right on a touchscreen device.
  * A rightward swipe is a quick, left-to-right slide of the finger.
  * Though ngSwipeRight is designed for touch-based devices, it will work with a mouse click and drag too.
+ *
+ * Requires the {@link ngTouch `ngTouch`} module to be installed.
  *
  * @element ANY
  * @param {expression} ngSwipeRight {@link guide/expression Expression} to evaluate
@@ -471,7 +490,7 @@ ngMobile.directive('ngClick', ['$parse', '$timeout', '$rootElement',
  */
 
 function makeSwipeDirective(directiveName, direction, eventName) {
-  ngMobile.directive(directiveName, ['$parse', '$swipe', function($parse, $swipe) {
+  ngTouch.directive(directiveName, ['$parse', '$swipe', function($parse, $swipe) {
     // The maximum vertical delta for a swipe should be less than 75px.
     var MAX_VERTICAL_DISTANCE = 75;
     // Vertical distance should not be more than a fraction of the horizontal distance.
@@ -504,18 +523,18 @@ function makeSwipeDirective(directiveName, direction, eventName) {
       }
 
       $swipe.bind(element, {
-        'start': function(coords) {
+        'start': function(coords, event) {
           startCoords = coords;
           valid = true;
         },
-        'cancel': function() {
+        'cancel': function(event) {
           valid = false;
         },
-        'end': function(coords) {
+        'end': function(coords, event) {
           if (validSwipe(coords)) {
             scope.$apply(function() {
               element.triggerHandler(eventName);
-              swipeHandler(scope);
+              swipeHandler(scope, {$event: event});
             });
           }
         }

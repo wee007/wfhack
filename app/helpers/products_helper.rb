@@ -1,41 +1,43 @@
 module ProductsHelper
 
-  def products_sort_tag(sort_options)
-    default = ["","", {'data-sort-link' => centre_products_path(params.reject{|k,v|k=='sort'})}]
-    values = sort_options.select{|s| s[:display]}.map do |s|
-      [s.description, s.code, {'data-sort-link' => centre_products_path(params.merge sort: s.code)}]
-    end
-    selected = params[:sort]
-    select_tag(:sort, options_for_select([default]+values, selected), include_blank: false)
+  # This controller is either scoped by a centre or not,
+  # a simple helper to tidy the views
+  def pb_path
+    (@centre.nil?) ? products_path : centre_products_path(@centre)
   end
 
-  def price_tag(product)
-    if product.is_discounted
-      content_tag :p, class: 'price' do
-        was = content_tag(:del,number_to_currency(product.display_price))
-        now = content_tag(:span, number_to_currency(product.display_sale_price), class: 'sale')
-        "#{was} #{now}".html_safe
-      end
-    else
-      content_tag :p do
-        content_tag(:span, number_to_currency(product.display_price))
-      end
-    end
+  def canonical_url
+    centre_category or
+      centre_super_cat or
+      centre_products or
+      products_category or
+      products_super_cat or
+      products
   end
 
-  def facet_remove_link(filter, value)
-    url_params = params.dup
-    if url_params[filter].is_a? Array
-      url_params[filter] = url_params[filter] - [value]
-    else
-      url_params.delete filter
-    end
-    if %w(super_cat category).include? filter
-      %w(colour size sub_category type).each {|f| url_params.delete f}
-    end
-    url_params.delete 'category' if filter == 'super_cat'
-    url_params.delete_if {|k,v| v.blank? || v.is_a?(Array) && v.all?(&:blank?)}
-    centre_products_path(url_params)
+  private
+
+  def centre_category
+    centre_products_category_url(params[:centre], params[:super_cat], params[:category], params.except(:centre, :super_cat, :category)) if !params[:category].nil? and !params[:centre].nil?
   end
 
+  def centre_super_cat
+    centre_products_super_cat_url(params[:centre], params[:super_cat], params.except(:centre, :category)) if !params[:super_cat].nil? and !params[:centre].nil?
+  end
+
+  def centre_products
+    centre_products_url(params[:centre], params.except(:centre)) if !params[:centre].nil?
+  end
+
+  def products_category
+    products_category_url(params[:super_cat], params[:category], params.except(:super_cat, :category)) if !params[:category].nil?
+  end
+
+  def products_super_cat
+    products_super_cat_url(params[:super_cat], params.except(:super_cat)) if !params[:super_cat].nil?
+  end
+
+  def products
+    products_url(params)
+  end
 end

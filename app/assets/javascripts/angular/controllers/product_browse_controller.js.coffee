@@ -1,19 +1,12 @@
 ((app) ->
-  app.controller "ProductBrowseController", ["$scope", "$window", "$filter", "$location", "$element", "ParamCleaner", "ProductSearch", "Products", ($scope, $window, $filter, $location, $element, ParamCleaner, ProductSearch, Products) ->
+  app.controller "ProductBrowseController", ["$scope", "$window", "$filter", "$location", "$route", "$routeParams", "ParamCleaner", "ProductSearch", "Products", ($scope, $window, $filter, $location, $route, $routeParams, ParamCleaner, ProductSearch, Products) ->
     $scope.search = ProductSearch
 
-    $scope.$on '$locationChangeStart', (scope, current, next) ->
-      useUrlParams() if current != next
+    # Route changes
+    $scope.$on '$routeChangeStart', (event, to, from) -> useUrlParams( to.params )
+    $scope.$on '$routeChangeSuccess', (event, to, from) -> $scope.updateSearch() unless from == undefined or from == to
 
-    $scope.$on '$locationChangeSuccess', (scope, current, next) ->
-      # Comparing current & next will tell us whether its an initial page load
-      # or if its an in-page locationChange event.
-      $scope.updateSearch() if current != next
-
-    ProductSearch.onChange ->
-      cleanParams = ParamCleaner.build(ProductSearch.params())
-      $location.search cleanParams
-      updateProducts()
+    ProductSearch.onChange -> updateProducts()
 
     # Multi-facet search fields
     $scope.categories = []
@@ -31,49 +24,77 @@
       colours: "colour"
       sizes: "size"
 
-    getCentre = ->
-      # $location.path() returns the wrong path
-      # due to inconsistant issues in the angular router code
-      # using document.location because is consistant across browsers
-      path = document.location.pathname.replace(/^\//, "")
-      path.split("/")[0]
+    useUrlParams = ( urlParams = {} ) ->
+      # Add querystrings like last=, rows= & page=, as well
+      # as overwriting the centre (for use when multiple centres are selected)
+      params = angular.extend( urlParams, $location.search() )
 
-    useUrlParams = ->
-      urlParams = $location.search()
+      # Remove any square bracket key[]= notation
+      params = ParamCleaner.deserialize( params )
 
-      # If there is not centre supplied in the query string,
-      # retrieve it from the route
-      urlParams.centre = getCentre() unless urlParams.centre
+      # Hack for IE :-(
+      if !params.centre
+        routeChunks = document.location.pathname.replace(/^\//, "").split("/")
+        centre = routeChunks[0]
+        # If its 'browse', or whatever the route becomes
+        params.centre = centre unless routeChunks.length == 1
 
-      params = ParamCleaner.deserialize(urlParams)
+      # Remove any params that won't be overwritten by the new params
+      ProductSearch.resetParams( params )
 
-      # Remove any params that won't be overwritten
-      ProductSearch.resetParams()
+      # Add params to the controller not all params will be
+      # used by the view but we'll map them anyway.
+      angular.forEach params, (param, key) -> $scope[key] = param
 
-      angular.forEach params, (param, key) ->
+    setParams = ->
+      rParams = routeParams()
+      qsParams = queryStringParams()
 
-        # Add params to the controller
-        # not all params will be used by the view
-        # but we'll map them anyway.
-        $scope[key] = param
-        ProductSearch.setParam key, param
-      # We have to set page last as we are removing it with when you set a diffrent param
-      ProductSearch.setParam 'page', params.page if params.page
+      # Collect routeable params remove undefined
+      rParams = [rParams.centre, 'products', rParams.super_cat, rParams.category].filter (o) -> o
 
+      $location.path(rParams.join('/')).search(ParamCleaner.build(qsParams))
 
+    routeParams = ->
+      params = ProductSearch.params()
+
+      (
+        centre: params.centre
+        super_cat: params.super_cat
+        category: params.category
+      )
+
+    queryStringParams = ->
+      newParams = ProductSearch.params()
+
+      # Never place these params into querystrings
+      delete newParams.super_cat
+      delete newParams.category
+
+      newParams
+
+    # Update products using the same url that we're currently using
+    # document.location.pathname == /products
+    # document.location.pathname == /bondijunction/products
+    # document.location.pathname == /bondijunction/products/womens
+    # document.location.pathname == /bondijunction/products/womens-fashion-accessories
     updateProducts = ->
       Products.get document.location.pathname, ProductSearch.params()
 
-    $scope.bootstrap = ->
+    bootstrap = (->
       ProductSearch.formatSearchResults $window.westfield.products
-      useUrlParams()
+      useUrlParams($routeParams)
       $scope.sort = "" unless $scope.sort
+    )()
+
+    $scope.go = (event, path) ->
+      $location.path(path)
+      event.preventDefault()
 
     $scope.updateSearch = ->
       Products.loading = true
       ProductSearch.getSearch()
       $scope.closeFilters()
-
 
     # Filter controls / toggle / open / close
     $scope.activeFilter = ""
@@ -82,18 +103,16 @@
         $scope.activeFilter = filterName
 
         # The button must be hidden on Lap large breakpoint
-        $scope.hideFilterButtons()  unless angular.element("html").hasClass("lap-lrg")
+        $scope.hideFilterButtons() unless angular.element("html").hasClass("lap-lrg")
       else
         $scope.closeFilters()
 
 
     # Filter buttons are hidden on mobile in certain circumstances,
     # this ensures that they're visible when this is clicked (resets the interface)
-    $scope.showFilterButtons = ->
-      angular.element(".filters__trigger").show()
-
-    $scope.hideFilterButtons = ->
-      angular.element(".filters__trigger").hide()
+    $scope.triggersVisible = false
+    $scope.showFilterButtons = -> $scope.triggersVisible = true
+    $scope.hideFilterButtons = -> $scope.triggersVisible = false
 
     $scope.closeFilters = ->
       $scope.activeFilter = ""
@@ -105,14 +124,16 @@
     $scope.filterIsAvailable = (filterValues) ->
       filterValues isnt `undefined`
 
-    $scope.removeSelectedFilter = (paramName, paramValue) ->
-      ProductSearch.removeParam paramName, paramValue
-      $scope.updateSearch()
+    # For querystring params
+    $scope.removeSelectedFilter = (filter) ->
+      ProductSearch.removeParam filter.type, filter.value
+      setParams()
+
+    $scope.removeAllFilters = -> $scope.search.appliedFilters = []
 
     $scope.filterSearch = (modelName) ->
       ProductSearch.setParam modelName, $scope[modelName]
-      $scope.updateSearch()
-
+      setParams()
 
     # multi-facet filter search
     $scope.mvFilterSearch = (attributeName) ->
@@ -125,17 +146,13 @@
 
       attributeName = searchParamMap[attributeName]  if searchParamMap[attributeName] isnt `undefined`
       ProductSearch.setParam attributeName, values
-      $scope.updateSearch()
+      setParams()
       $scope.closeFilters()
-
-    $scope.clearFilters = ->
-      ProductSearch.resetParams centre: getCentre()
-      $scope.updateSearch()
 
     $scope.filterCategory = (categoryType, categoryCode) ->
       $scope.closeFilters()
       ProductSearch.setParam categoryType, categoryCode
-      $scope.updateSearch()
+      setParams()
 
     $scope.rangeFilter = (paramName) ->
       min = $scope.search[paramName].values.range_start

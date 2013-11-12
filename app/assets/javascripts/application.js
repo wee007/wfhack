@@ -28,9 +28,11 @@
 //= require ./init/viewport_check
 
 // Angular
-//= require ./vendor/angular-head
-//= require ./vendor/angular-mobile
-//= require ./vendor/angular-sanitize
+//= require angular
+//= require angular-touch
+//= require angular-sanitize
+//= require angular-route
+
 //= require ./angular/app
 //= require_tree ./angular/factories
 //= require_tree ./angular/services

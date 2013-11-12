@@ -115,7 +115,7 @@
 
     # Filter buttons are hidden on mobile in certain circumstances,
     # this ensures that they're visible when this is clicked (resets the interface)
-    $scope.triggersVisible = false
+    $scope.triggersVisible = true
     $scope.showFilterButtons = -> $scope.triggersVisible = true
     $scope.hideFilterButtons = -> $scope.triggersVisible = false
 

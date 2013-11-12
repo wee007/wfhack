@@ -35,6 +35,8 @@ class CannedSearch < Hashie::Mash
       "View shopping hours"
     when "info"
       "View details"
+    when "notices"
+      "View details"
     when "service"
       "View details"
     end
@@ -52,6 +54,8 @@ class CannedSearch < Hashie::Mash
       "hours"
     when /[a-z]+\/info/
       "info"
+    when /[a-z]+\/notices/
+      "info"  
     when /[a-z]+\/services/
       "service"
     end

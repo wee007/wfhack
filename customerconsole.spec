@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.247
+Version:     0.1.248
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,12 @@ fi
 
 
 %changelog
+* Tue Nov 12 2013 ci <doperations@au.westfield.com> 0.1.248-1
+- Merge remote-tracking branch 'origin/master' into pb-route-fix
+  (ben@germanforblack.com)
+- Ensure routes are solid on national products as well (ben@germanforblack.com)
+- Settle param hierarchy once and for all (ben@germanforblack.com)
+
 * Tue Nov 12 2013 ci <doperations@au.westfield.com> 0.1.247-1
 - Merge pull request #644 from bschwarz/pb-seo (chorn@au.westfield.com)
 - Merge remote-tracking branch 'origin/master' into pb-seo

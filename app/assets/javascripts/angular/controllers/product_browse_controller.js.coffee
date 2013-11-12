@@ -36,7 +36,8 @@
       if !params.centre
         routeChunks = document.location.pathname.replace(/^\//, "").split("/")
         centre = routeChunks[0]
-        # If its 'browse', or whatever the route becomes
+
+        # If its 'products', or whatever the route becomes
         params.centre = centre unless routeChunks.length == 1
 
       # Remove any params that won't be overwritten by the new params
@@ -50,10 +51,14 @@
       rParams = routeParams()
       qsParams = queryStringParams()
 
-      # Collect routeable params remove undefined
-      rParams = [rParams.centre, 'products', rParams.super_cat, rParams.category].filter (o) -> o
+      # Collect routable params, removing undefined
+      route = ['products', rParams.super_cat, rParams.category]
+      undefinedIndex = route.indexOf(undefined)
+      route = route.splice(0, undefinedIndex) if undefinedIndex >= 0
 
-      $location.path(rParams.join('/')).search(ParamCleaner.build(qsParams))
+      # Prefix with centre if exists
+      route = [rParams.centre].concat route if rParams.centre
+      $location.path(route.join('/')).search(ParamCleaner.build(qsParams))
 
     routeParams = ->
       params = ProductSearch.params()

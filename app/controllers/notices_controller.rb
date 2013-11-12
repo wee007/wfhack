@@ -28,7 +28,6 @@ class NoticesController < ApplicationController
 
     meta.push @notice.meta
     meta.push(
-      title: @notice.name,
       page_title: "#{@notice.name} at #{@centre.name}",
       description: "At #{@centre.name}, #{@notice.description}"
     )

@@ -30,6 +30,7 @@ class EventsController < ApplicationController
 
     meta.push @event.meta
     meta.push(
+      twitter_title: "Check out this #{@event.name} at #{@centre.name}",
       page_title: "#{@event.name} at #{@centre.name}",
       description: "At #{@centre.name}, #{@event.description}"
     )

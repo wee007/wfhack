@@ -253,9 +253,10 @@
 
     });
 
+    // Pass query parameters forward to redirection action to pass forward for tracking.
     $(document).ready(function() {
       $('.js-redirect').on("click", function(e){
-        var pru = "<%= @product_redirection_url %>" +  window.location.search;
+        var pru = "<%= @product_redirection_url.html_safe %>" +  window.location.search;
         e.preventDefault();
         window.open(pru, "_blank");
       });

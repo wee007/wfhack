@@ -44,7 +44,9 @@ class Deal < OpenStruct
   end
 
   def meta
-    Meta.new title: title
+    Meta.new title: title,
+             twitter_title: "Check out this deal",
+             email_body: "deal"
   end
 
 private

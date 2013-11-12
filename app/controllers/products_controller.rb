@@ -70,6 +70,8 @@ class ProductsController < ApplicationController
 
     @product = ProductService.build product
 
+    meta.push @product.meta
+
     if params[:centre_id]
       stores = StoreService.build(stores)
       centre_ids = stores.map(&:centre_id).uniq
@@ -78,6 +80,8 @@ class ProductsController < ApplicationController
       @centre = CentreService.build centre
       gon.push centre: @centre, stores: @centre_stores.map(&:to_gon)
       meta.push(
+        title: "#{@product.name} from #{stores.first.try(:name)}",
+        twitter_title: "What do you think of #{@product.name} from #{stores.first.try(:name)}?",
         page_title: "#{@product.name} | #{@centre.name}",
         description: "Shop for #{@product.name} from #{stores.first.try(:name)} at #{@centre.name}"
       )
@@ -91,8 +95,6 @@ class ProductsController < ApplicationController
       )
       @product_redirection_url = url_for product_redirection_url
     end
-
-    meta.push @product.meta
   end
 
 
@@ -101,7 +103,7 @@ class ProductsController < ApplicationController
 
     @cam_ref = @product.retail_chain.cam_ref
 
-    if @cam_ref
+    if @cam_ref.present?
       ad_ref = @product.categories[0].super_category.code
 
       # FIXME: Needed once authentication installed
@@ -113,7 +115,9 @@ class ProductsController < ApplicationController
         request_url,
         request.remote_ip,
         customer_id,
-      ].compact.join("%7C")
+      ].join("%7C")
+
+      pub_ref += "%7C%7C%7C"  # placeholders for utm data
 
       product_tracking_url =
         "http://prf.hn/click/camref:#{@cam_ref}/pubref:#{pub_ref}/adref:#{ad_ref}/" \

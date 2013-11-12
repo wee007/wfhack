@@ -33,6 +33,7 @@
     @onChange = (callback) ->
       if angular.isFunction(callback)
         callbacks.push callback
+    @paramHierarchy = ['super_cat', 'category', 'sub_category']
 
     @getSearch = () ->
 
@@ -48,11 +49,10 @@
     # The current category facet could be 'super_cat', 'category' or 'sub_category'
     @getCategoryFacet = (facets) ->
       category = {}
-      possibleCategories = ["super_cat", "category", "sub_category"]
       i = 0
 
-      while i < possibleCategories.length
-        type = possibleCategories[i]
+      while i < @paramHierarchy.length
+        type = @paramHierarchy[i]
         category = SearchFacet.retrieve(facets, type)
         break  if category.values
         i++
@@ -74,7 +74,6 @@
       angular.extend {}, params
 
     @setParam = (param, value) ->
-
       # Array params should be added to the 'last'
       # param which will ensure that the full array list
       # is returned for a given facet
@@ -88,10 +87,18 @@
         index = param.indexOf(value)
         params[paramName].splice index, 1
       else delete params[paramName]  if param is value
+      @settleParamHierarchy(paramName)
 
     @resetParams = (newParams) ->
       params = {}
       angular.extend params, defaultParams
       angular.extend params, newParams
+
+    @settleParamHierarchy = (paramName) ->
+      index = @paramHierarchy.indexOf(paramName)
+      if index >= 0
+        angular.forEach @paramHierarchy.slice(index, @paramHierarchy.length), (param) ->
+          delete params[param]
+
   ]
 ) angular.module("Westfield")

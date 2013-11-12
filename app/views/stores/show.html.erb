@@ -212,7 +212,7 @@
                 slider.container.attr('role', 'listbox');
                 slider.slides.attr({'role': 'option', 'aria-selected': 'false'});
                 slider.slides.eq(slider.currentSlide).attr('aria-selected', 'true');
-                slider.controlNav.attr({'href' : '#', 'role' : 'button'});
+                slider.controlNav.attr({'href' : '#', 'role' : 'button'}).prepend('Show slide ');
               },
               // Do stuff after each slider animation completes
               after: function(slider) {

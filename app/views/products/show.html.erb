@@ -231,7 +231,7 @@
             slider.container.attr('role', 'listbox');
             slider.slides.attr({'role': 'option', 'aria-selected': 'false'});
             slider.slides.eq(slider.currentSlide).attr('aria-selected', 'true');
-            slider.controlNav.attr({'href' : '#', 'role' : 'button'});
+            slider.controlNav.attr({'href' : '#', 'role' : 'button'}).prepend('Show photo ');
             slider.directionNav.attr('role', 'button');
           },
           // Do stuff asynchronously with each slider animation

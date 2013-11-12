@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.246
+Version:     0.1.247
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,66 @@ fi
 
 
 %changelog
+* Tue Nov 12 2013 ci <doperations@au.westfield.com> 0.1.247-1
+- Merge pull request #644 from bschwarz/pb-seo (chorn@au.westfield.com)
+- Merge remote-tracking branch 'origin/master' into pb-seo
+  (ben@germanforblack.com)
+- Added canonical url helper (ben@germanforblack.com)
+- Added named routes for super_cat and category products
+  (ben@germanforblack.com)
+- Remove non-used helper and spec (ben@germanforblack.com)
+- Remove non-used views (ben@germanforblack.com)
+- Correct routes for angular app (ben@germanforblack.com)
+- Move /browse back to /products (We're not mapping sub_category, so there is
+  no route clash after all) (ben@germanforblack.com)
+- No need to route sub_category (ben@germanforblack.com)
+- Remove transition (ben@germanforblack.com)
+- Base url is now /browse (ben@germanforblack.com)
+- Remove angular-animate inclusion (ben@germanforblack.com)
+- No longer a constraint (ben@germanforblack.com)
+- Use paths to angular from bower (ben@germanforblack.com)
+- NgAnimate is no longer being used (ben@germanforblack.com)
+- Remove custom build of angular in favour of 1.2.0.rc.3 from bower
+  (ben@germanforblack.com)
+- Remove angular-animate (ben@germanforblack.com)
+- Use correct paths for PB (ben@germanforblack.com)
+- Use correct route in spec (ben@germanforblack.com)
+- Don't make ajax requests on page load (ben@germanforblack.com)
+- Correct merge conflict (ben@germanforblack.com)
+- Merge remote-tracking branch 'origin/master' into angular-1.2
+  (ben@germanforblack.com)
+- Remove animation classes from drop_down (ben@germanforblack.com)
+- Return toggle-visibility to non-experimental state (ben@germanforblack.com)
+- Remove non-used helpers. Add helper for returning the right path for whether
+  there is a centre scoped or not. (ben@germanforblack.com)
+- Use a / base path for browsers with good pushState support. Use relative base
+  path for browsers with not-so-good pushState support.
+  (ben@germanforblack.com)
+- Use URLS for super_cat and category navigation (ben@germanforblack.com)
+- Remove target self - Let angular route (ben@germanforblack.com)
+- Rename category template (ben@germanforblack.com)
+- Use browse_path rather than products_path (ben@germanforblack.com)
+- Tab the class properly (ben@germanforblack.com)
+- Remove param cleaner option (ben@germanforblack.com)
+- Use angular route change events - Hack for IE to find centre in the URL -
+  useUrlParams method takes params from ProductSearch and updates the url
+  (necessary for handling non-linkable filter changes) (ben@germanforblack.com)
+- Use angular router change events (ben@germanforblack.com)
+- Use angular router with optional route param chunks for centre, super_cat and
+  category (ben@germanforblack.com)
+- Added angular-route (ben@germanforblack.com)
+- Use toParams to set the active navigation item (ben@germanforblack.com)
+- Update routes to house product browse at /browse with optional routes for
+  /browse/:super_cat/:category/:sub_category (ben@germanforblack.com)
+- Callback is no longer used (ben@germanforblack.com)
+- Attempt to animate classes (ben@germanforblack.com)
+- Drop in angular ngAnimate (ben@germanforblack.com)
+- Remove extra space (ben@germanforblack.com)
+- Update angular to 1.2.0rc.3 (ben@germanforblack.com)
+- Add aria-controls to the trigger (ben@germanforblack.com)
+- Remove commented code Move is-active class to variable for better compression
+  (ben@germanforblack.com)
+
 * Tue Nov 12 2013 ci <doperations@au.westfield.com> 0.1.246-1
 - 
 

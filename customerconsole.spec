@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.248
+Version:     0.1.249
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,13 @@ fi
 
 
 %changelog
+* Wed Nov 13 2013 ci <doperations@au.westfield.com> 0.1.249-1
+- Merge pull request #667 from acohen/feature/WSF-5728
+  (ldewey@au.westfield.com)
+- Fix social media on products page (ewee@au.westfield.com)
+- WSF-5728 ensure filter_module is loaded before using conditional
+  (acohen@au.westfield.com)
+
 * Tue Nov 12 2013 ci <doperations@au.westfield.com> 0.1.248-1
 - Merge remote-tracking branch 'origin/master' into pb-route-fix
   (ben@germanforblack.com)

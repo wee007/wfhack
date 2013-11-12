@@ -6,10 +6,12 @@ describe "map.micello.Map", ->
       on: sinon.stub()
     })
     $.ajax = sinon.stub().returns(success: sinon.stub())
-    window.westfield = {stores: [], centre: micello_community: 7297}
+    $.getJSON = sinon.stub().callsArgWith(1, [])
+    window.westfield = {centre: micello_community: 7297}
     window.micello = {
       maps: {
         init: sinon.stub().callsArg(1)
+        MapView: prototype: translate: $.noop
         MapControl: sinon.stub().returns({
           getMapData: sinon.stub().returns({
             loadCommunity: sinon.stub()
@@ -34,7 +36,7 @@ describe "map.micello.Map", ->
         })
       }
     }
-    @subject = new map.micello.Map
+    @subject = new map.micello.Map(deferred: $.Deferred())
 
   afterEach ->
     delete micello
@@ -64,22 +66,27 @@ describe "map.micello.Map", ->
 
     beforeEach ->
       @subject.data = community: d: 0: l: []
-      @subject.ready = sinon.stub()
+      @subject.processGeoms = sinon.stub()
       @subject.applyWestfieldStoreNames = sinon.stub()
       @subject.applyCustomIcons = sinon.stub()
 
-    it 'calls ready', ->
+    it 'process geoms', ->
       @subject.onMapChanged(comLoad: 1)
-      expect(@subject.ready).toHaveBeenCalled()
+      expect(@subject.processGeoms).toHaveBeenCalled()
 
   describe "#highlight", ->
 
     beforeEach ->
       @storeId = 21
-      @indexObj = {id: 21, gid: 24, store: {}}
-      @subject.index.findById = sinon.stub().returns().withArgs(21).returns(@indexObj)
-      @subject.data.getCurrentLevel.returns(cid: 123)
-      @subject.data.getGeometryLevel.returns(id: 123)
+      @subject.processStores([
+        id: @storeId,
+        micello_geom_id: 712,
+        today_closing_time: '18:30',
+        _links: {}
+      ])
+      @subject.processGeoms([
+        id: 712
+      ])
 
     it 'does nothing', ->
       @subject.highlight()

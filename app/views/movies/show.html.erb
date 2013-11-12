@@ -24,8 +24,8 @@
     <%# //Movie main image %>
 
     <%# Movie synopsis %>
-    <section aria-labelledby="synopsis">
-      <h2 class="detail-view__hdr-sub hn" id="synopsis">Synopsis</h2>
+    <section aria-labelledby="movie-synopsis">
+      <h2 class="detail-view__hdr-sub hn" id="movie-synopsis">Synopsis</h2>
       <p itemprop="description"><%= @movie.synopsis %></p>
     </section>
     <%# //Movie synopsis %>
@@ -34,8 +34,8 @@
   <%# //Movie details %>
 
   <%# Session times %>
-  <section class="detail-view__schedule island" aria-labelledby="session-times">
-    <h2 class="detail-view__hdr-sub hn" id="session-times">Session Times</h2>
+  <section class="detail-view__schedule island" aria-labelledby="movie-session-times">
+    <h2 class="detail-view__hdr-sub hn" id="movie-session-times">Session Times</h2>
 
     <p>Select a session to purchase tickets at <%= @cinema.name %></p>
 

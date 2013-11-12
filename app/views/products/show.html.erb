@@ -29,67 +29,74 @@
     </header>
     <%# //Product name, brand and price %>
 
-    <%# Check if a product is available at a centre %>
-    <% if @centre.present? && @centre_stores.empty? %>
+    <% if @centre.present? or @product.primary_retailer_product_url.present? %>
+      <section aria-labelledby="product-store">
+        <h2 class="hide-visually" id="product-store">Store location and contact</h2>
 
-      <%# When product is not available at a centre %>
-      <div class="detail-view__product-not-avble detail-view__divider">
-        <div class="vert-align">
-          <div class="vert-align__inner">
-            <span class="icon icon--map icon--flush-top" aria-hidden="true"></span>
-            <span class="icon icon--pin" aria-hidden="true"></span>
-            <p><strong><%= @product.retail_chain_name %></strong> is not located in <%= @centre.name %></p>
+        <%# Check if a product is available at a centre %>
+        <% if @centre.present? && @centre_stores.empty? %>
+
+          <%# When product is not available at a centre %>
+          <div class="detail-view__product-not-avble detail-view__divider">
+            <div class="vert-align">
+              <div class="vert-align__inner">
+                <span class="icon icon--map icon--flush-top" aria-hidden="true"></span>
+                <span class="icon icon--pin" aria-hidden="true"></span>
+                <p><strong><%= @product.retail_chain_name %></strong> is not located in <%= @centre.name %></p>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-      <%# //When product is not available at a centre %>
+          <%# //When product is not available at a centre %>
 
-    <%- elsif @centre.present? -%>
+        <%- elsif @centre.present? -%>
 
-      <%# When product is available at a centre %>
+          <%# When product is available at a centre %>
 
-        <%# Store location %>
-        <div class="map-micello map-micello--static detail-view__divider">
-          <%= render partial: 'shared/micello_maps/map', locals: {store_id: @centre_stores.first.try(:id), interactive: false, load_immediately: true} %>
-        </div>
-        <%# //Store location %>
+          <%# Store location %>
+          <div class="map-micello map-micello--static detail-view__divider">
+            <%= render partial: 'shared/micello_maps/map', locals: {store_id: @centre_stores.first.try(:id), interactive: false, load_immediately: true} %>
+          </div>
+          <%# //Store location %>
 
-        <%# Contact store %>
-        <div class="detail-view__divider island-sides islet-ends island--fill island--center">
-          <span class="hide-fully--non-palm">
-            <%= phone_link store_phone_number(@centre_stores, @product.retail_chain), class: 'btn btn--full btn--main btn--main-alt2 btn--main-lrg' do |phone_number| %>
-              <span class="icon icon--phone icon--xlrg icon--spacing-lrg icon--flush-top" aria-hidden="true"></span><strong>Call <%= @product.retail_chain_name %></strong>
-            <% end %>
-          </span>
-          <p class="detail-view__check-avble hide-fully--palm"><span class="detail-view__subtle-txt">Check store availability</span> <em><span class="icon icon--phone icon--lrg icon--spacing" aria-hidden="true"></span> <%= @product.retail_chain.phone_no %></em></p>
-        </div>
-        <%# //Contact store %>
+          <%# Contact store %>
+          <div class="detail-view__divider island-sides islet-ends island--fill island--center">
+            <span class="hide-fully--non-palm">
+              <%= phone_link store_phone_number(@centre_stores, @product.retail_chain), class: 'btn btn--full btn--main btn--main-alt2 btn--main-lrg' do |phone_number| %>
+                <span class="icon icon--phone icon--xlrg icon--spacing-lrg icon--flush-top" aria-hidden="true"></span><strong>Call <%= @product.retail_chain_name %></strong>
+              <% end %>
+            </span>
+            <p class="detail-view__check-avble hide-fully--palm"><span class="detail-view__subtle-txt">Check store availability</span> <em><span class="icon icon--phone icon--lrg icon--spacing" aria-hidden="true"></span> <%= @product.retail_chain.phone_no %></em></p>
+          </div>
+          <%# //Contact store %>
 
-      <%# //When product is available at a centre %>
+          <%# //When product is available at a centre %>
 
-    <%- end -%>
-    <%# //Check if a product is available at a centre %>
-
-    <%# Store link %>
-    <%- if @product.primary_retailer_product_url -%>
-      <div class="island island--center detail-view__divider--palm">
-        <%= link_to @product_redirection_url, target: "_blank",
-          class: "btn btn--pointer btn--full btn--full-left btn--main btn--main-alt2 btn--main-lrg btn--main-flanked js-redirect", rel: "external nofollow" do %>
-          <span class="txt-truncate">Buy from <%= @product.retail_chain_name %></span>
-          <span class="icon icon--arrow-right-big icon--lrg btn--pointer__icon" aria-hidden="true"></span>
-          <span class="icon icon--bag icon--xlrg icon--flush-top btn--pointer__icon" aria-hidden="true"></span>
         <%- end -%>
-      </div>
-    <%- end -%>
-    <%# //Store link %>
+        <%# //Check if a product is available at a centre %>
 
+        <%# Store link %>
+        <%- if @product.primary_retailer_product_url -%>
+          <div class="island island--center detail-view__divider--palm">
+            <%= link_to @product_redirection_url, target: "_blank",
+              class: "btn btn--pointer btn--full btn--full-left btn--main btn--main-alt2 btn--main-lrg btn--main-flanked js-redirect", rel: "external nofollow" do %>
+              <span class="txt-truncate">Buy from <%= @product.retail_chain_name %></span>
+              <span class="icon icon--arrow-right-big icon--lrg btn--pointer__icon" aria-hidden="true"></span>
+              <span class="icon icon--bag icon--xlrg icon--flush-top btn--pointer__icon" aria-hidden="true"></span>
+            <%- end -%>
+          </div>
+        <%- end -%>
+        <%# //Store link %>
+      </section>
+    <%- end -%>
   </div>
   <%# //Product name, brand, price, location and contact %>
 
   <%# Product images %>
   <div class="grid__item non-palm-three-fifths">
 
-    <div class="detail-view__divider--palm island-ends">
+    <section class="detail-view__divider--palm island-ends" aria-labelledby="product-image">
+      <h2 class="hide-visually" id="product-image">Images</h2>
+
       <%# Flexslider %>
       <div class="flexslider flexslider--lrg-img flexslider--gallery">
         <ul class="slides">
@@ -118,7 +125,7 @@
         </ul>
       </div>
       <%# //Flexslider %>
-    </div>
+    </section>
 
   </div>
   <%# //Product images %>

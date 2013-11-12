@@ -17,7 +17,9 @@
         <%= @product.retail_chain_name %>
         <%- if @product.is_discounted -%>
           <em class="detail-view__meta__sale-price">
+            <span class="hide-visually">Old price: </span>
             <s><%= Money.new(@product.price).format%></s>
+            <span class="hide-visually">Current price: </span>
             <%= Money.new(@product.sale_price).format %>
           </em>
         <%- else -%>

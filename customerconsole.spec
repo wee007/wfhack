@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.243
+Version:     0.1.244
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,11 @@ fi
 
 
 %changelog
+* Tue Nov 12 2013 ci <doperations@au.westfield.com> 0.1.244-1
+- Merge pull request #654 from ewee/master (ldewey@au.westfield.com)
+- Update social media copy (ewee@au.westfield.com)
+- Revert "Merge pull request #634 from ewee/master" (ewee@au.westfield.com)
+
 * Tue Nov 12 2013 ci <doperations@au.westfield.com> 0.1.243-1
 - Merge pull request #646 from mwratt/feature/ie8-maps-rm
   (ldewey@au.westfield.com)

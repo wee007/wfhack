@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.244
+Version:     0.1.245
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,16 @@ fi
 
 
 %changelog
+* Tue Nov 12 2013 ci <doperations@au.westfield.com> 0.1.245-1
+- Merge pull request #611 from acohen/feature/WSF-5728
+  (ldewey@au.westfield.com)
+- Merge pull request #649 from ldewey/notices_route_fix
+  (acohen@au.westfield.com)
+- Removed index from notices as we dont have a index for notices
+  (ldewey@au.westfield.com)
+- WSF-5728 add apache config directives for compression
+  (acohen@au.westfield.com)
+
 * Tue Nov 12 2013 ci <doperations@au.westfield.com> 0.1.244-1
 - Merge pull request #654 from ewee/master (ldewey@au.westfield.com)
 - Update social media copy (ewee@au.westfield.com)

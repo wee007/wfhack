@@ -11,7 +11,7 @@
 <%# 'Super_cat' and 'Category' %>
 <script type="text/ng-template" id="CategoryItemTemplate">
   <div class="drop-down-menu__hdr drop-down-menu__divider islet">
-    <em>{{search.categories.title}}</em>
+    <h3>{{search.categories.title}}</h3>
     <div ng-include src="'FilterItemBackButton'"></div>
   </div>
 
@@ -32,7 +32,7 @@
 <%# Category %>
 <script type="text/ng-template" id="SubCategoryTemplate">
   <div class="drop-down-menu__hdr drop-down-menu__divider islet">
-    <em>{{search.categories.title}}</em>
+    <h3>{{search.categories.title}}</h3>
     <div ng-include src="'FilterItemBackButton'"></div>
   </div>
 
@@ -59,7 +59,10 @@
 <script type="text/ng-template" id="ProductBrowseView">
   <div class="filters__filter-sort">
 
-    <h2 class="hide-visually">Filter products</h2>
+    <div class="hide-visually">
+      <h2>Filter products</h2>
+      <p>Select a button to display filter menu</p>
+    </div>
 
     <div class="drop-down-menu drop-down-container">
 
@@ -118,12 +121,12 @@
             <div ng-show="activeFilter === 'retailer'" class="filters__target">
 
               <div class="drop-down-menu__hdr drop-down-menu__divider islet">
-                <em>{{ search.retailers.title }}</em>
+                <h3>{{ search.retailers.title }}</h3>
                 <div ng-include src="'FilterItemBackButton'"></div>
               </div>
 
               <div class="drop-down-menu__divider islet">
-                <label for="filters-stores-search" class="hide-visually">Search stores</label>
+                <label for="filters-stores-search" class="hide-visually">Type to filter list of stores below</label>
                 <input ng-model="storeSearch" class="txt-input" type="search" placeholder="Enter a store name" id="filters-stores-search">
               </div>
 
@@ -161,12 +164,12 @@
             <div ng-show="activeFilter === 'brand'" class="filters__target">
 
               <div class="drop-down-menu__hdr drop-down-menu__divider islet">
-                <em>{{ search.brands.title }}</em>
+                <h3>{{ search.brands.title }}</h3>
                 <div ng-include src="'FilterItemBackButton'"></div>
               </div>
 
               <div class="drop-down-menu__divider islet">
-                <label for="filters-brands-search" class="hide-visually">Search stores</label>
+                <label for="filters-brands-search" class="hide-visually">Type to filter list of brands below</label>
                 <input ng-model="brandSearch" class="txt-input" type="search" placeholder="Enter a brand name" id="filters-brands-search">
               </div>
 
@@ -204,7 +207,7 @@
             <div ng-show="activeFilter === 'colour'" class="filters__target">
 
               <div class="drop-down-menu__hdr drop-down-menu__divider islet">
-                <em>{{ search.colours.title }}</em>
+                <h3>{{ search.colours.title }}</h3>
                 <div ng-include src="'FilterItemBackButton'"></div>
               </div>
 
@@ -240,10 +243,9 @@
             <%# //Wide view trigger %>
 
             <div ng-show="activeFilter === 'size'" class="filters__target">
-              <span class="arrow arrow--up"></span>
 
               <div class="drop-down-menu__hdr drop-down-menu__divider islet">
-                <em>{{ search.sizes.title }}</em>
+                <h3>{{ search.sizes.title }}</h3>
                 <div ng-include src="'FilterItemBackButton'"></div>
               </div>
 
@@ -281,7 +283,7 @@
             <div ng-show="activeFilter === 'price'" class="filters__target">
 
               <div class="drop-down-menu__hdr drop-down-menu__divider islet">
-                <em>{{ search.price.title }}</em>
+                <h3>{{ search.price.title }}</h3>
                 <div ng-include src="'FilterItemBackButton'"></div>
               </div>
 
@@ -341,9 +343,12 @@
 
   </div>
 
-  <%# Tags %>
+  <%# Applied filters %>
   <div ng-if="hasActiveFilters()" class="tags">
-    <h3 class="hide-visually">Applied Filters</h3>
+    <div class="hide-visually">
+      <h3>Applied Filters</h3>
+      <p>Select button to clear filter</p>
+    </div>
     <ul class="horiz-list">
       <li ng-repeat="filter in search.appliedFilters">
         <button ng-click="removeSelectedFilter(filter)" class="btn"><span class="txt-truncate">{{ filter.title }}</span><span class="icon icon--close-sml icon--lrg icon--flush-top" aria-hidden="true"></span></a>
@@ -353,7 +358,7 @@
       </li>
     </ul>
   </div>
-  <%# //Tags %>
+  <%# //Applied filters %>
 </script>
 
 <%# Expose Product categories for non JS users %>

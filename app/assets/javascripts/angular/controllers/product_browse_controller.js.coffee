@@ -51,6 +51,9 @@
       rParams = routeParams()
       qsParams = queryStringParams()
 
+      # New params mean that we need to reset the page QS
+      delete qsParams.page
+
       # Collect routable params, removing undefined
       route = ['products', rParams.super_cat, rParams.category]
       undefinedIndex = route.indexOf(undefined)

@@ -139,20 +139,25 @@ class ProductsController < ApplicationController
   private
 
   def page_title(centre)
-    if params[:sub_category].present? || params[:category].present?
-      filter_param = params[:sub_category] || [params[:category]]
-      "Buy #{filter_param.map{|param| param.titleize}.join(' and ')} online at #{centre.name}"
+    if filter_params.present?
+      "Buy #{filter_params} online at #{centre.name}"
     else
       "Shopping at #{centre.name}"
     end
   end
 
   def description(centre)
-    if params[:sub_category].present? || params[:category].present?
-      filter_param = params[:sub_category] || [params[ :category]]
-      "Browse the latest #{filter_param.map{|param| param.titleize}.join(' and ')} online at #{centre.name}"
+    if filter_params.present?
+      "Browse the latest #{filter_params} online at #{centre.name}"
     else
       "Find the latest fashion, clothes, shoes, jewellery, accessories and much more at #{centre.name}"
+    end
+  end
+
+  def filter_params
+    if params[:sub_category].present? || params[:category].present?
+      categories = params[:sub_category] || params[:category]
+      [categories].flatten.map{ |param| param.titleize }.join(' and ')
     end
   end
 end

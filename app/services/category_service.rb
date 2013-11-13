@@ -70,6 +70,13 @@ class CategoryService
         # Tack on the children of said super category
         category[:children] = facet_from_fetch('category', children)
 
+        unless category[:children].nil?
+          category[:children].each do |c|
+            children = ProductService.fetch(@search_params.merge({rows: 0, category: c.code}))
+            c[:children] = facet_from_fetch('sub_category', children)
+          end
+        end
+
         # Implicit return
         category
       end.reject{|c| c.nil? }

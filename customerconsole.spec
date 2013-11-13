@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.253
+Version:     0.1.254
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,12 @@ fi
 
 
 %changelog
+* Wed Nov 13 2013 ci <doperations@au.westfield.com> 0.1.254-1
+- Merge pull request #676 from acohen/feature/WSF-5728
+  (ldewey@au.westfield.com)
+- WSF-5728 ensure deflate_module is loaded before using filters
+  (acohen@au.westfield.com)
+
 * Wed Nov 13 2013 ci <doperations@au.westfield.com> 0.1.253-1
 - Merge pull request #672 from bschwarz/clickthrough-routes-fix
   (ldewey@au.westfield.com)

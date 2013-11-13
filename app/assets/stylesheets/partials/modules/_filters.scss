@@ -94,7 +94,7 @@
 
       /* --Filters target-- */
 
-      /* Remove the drop down pointer arrowat this breakpoint */
+      /* Remove the drop down pointer arrow at this breakpoint */
       @include respond-max($lap-lrg - 1) {
         .filters__target:before {display: none;}
       }

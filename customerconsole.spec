@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.254
+Version:     0.1.255
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,15 @@ fi
 
 
 %changelog
+* Wed Nov 13 2013 ci <doperations@au.westfield.com> 0.1.255-1
+- Merge pull request #675 from bschwarz/category-service-third-level
+  (acohen@au.westfield.com)
+- Added third level categories and VCR updates to match
+  (ben@germanforblack.com)
+- Added new VCR entries (ben@germanforblack.com)
+- Added more http stubs (ben@germanforblack.com)
+- Added a third level categories to category service (ben@germanforblack.com)
+
 * Wed Nov 13 2013 ci <doperations@au.westfield.com> 0.1.254-1
 - Merge pull request #676 from acohen/feature/WSF-5728
   (ldewey@au.westfield.com)

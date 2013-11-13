@@ -14,7 +14,7 @@ http_interactions:
   response:
     status:
       code: 200
-      message: 
+      message:
     headers:
       Date:
       - Fri, 01 Nov 2013 01:24:54 GMT
@@ -51,7 +51,7 @@ http_interactions:
       string: '{"name":"Westfield Bondi Junction","short_name":"Bondi Junction","code":"bondijunction","business_unit_code":"21021","type":"premium","street_address":"500
         Oxford St","suburb":"Bondi Junction","state":"NSW","postcode":"2022","country":"au","phone_number":"(02)
         9947 8000","email_address":"bondijunction@au.westfield.com","latitude":"-33.891289","longitude":"151.250815","today_opening_time":"00:00","today_closing_time":"00:00","today_closed":false,"number_of_levels":7,"micello_community":7295,"micello_map_centre":{"x":355,"y":650},"facebook":"https://www.facebook.com/WestfieldBondiJunction","twitter":"","google_plus":"","instagram":"http://instagram.com/westfieldbondijunction","pinterest":"","youtube":"","retail":true,"cinema":true,"enabled":true,"timezone":"Australia/NSW"}'
-    http_version: 
+    http_version:
   recorded_at: Fri, 01 Nov 2013 01:24:54 GMT
 - request:
     method: get
@@ -67,7 +67,7 @@ http_interactions:
   response:
     status:
       code: 200
-      message: 
+      message:
     headers:
       Date:
       - Fri, 01 Nov 2013 01:24:54 GMT
@@ -252,7 +252,7 @@ http_interactions:
         E40S12A 40\" Full HD Smart LED LCD TV","lozenge_name":"Soniq E40S12A 40\"
         Full HD Smart LED LCD TV","retail_chain_name":"JB HiFi","brand":"JB Hi-Fi","category":"e-tv-lcd","cloudinary_public_id":"dkgqfbwqmb9kbkw0n6ta","_links":{"image":{"href":"http://res.cloudinary.com/wlabs/image/upload/v1379974010/dkgqfbwqmb9kbkw0n6ta.jpg"}},"type":"product","retailer_name":"JB
         HiFi"}]}'
-    http_version: 
+    http_version:
   recorded_at: Fri, 01 Nov 2013 01:24:55 GMT
 - request:
     method: get
@@ -268,7 +268,7 @@ http_interactions:
   response:
     status:
       code: 200
-      message: 
+      message:
     headers:
       Date:
       - Fri, 01 Nov 2013 01:24:55 GMT
@@ -305,7 +305,7 @@ http_interactions:
       string: '{"id":46306,"retailer_id":3532,"retailer_code":"aesop","centre_id":"bondijunction","major":false,"description":"Some
         kind of description for you","errors":{},"level":null,"level_span":1,"name":"AESOP","phone_number":"02
         9369 4944","email_address":"","shop_number":"3018","lease_number":"","micello_geom_id":"721595","url":"","abn":null,"accepts_giftcards":"0","enabled_date":"2011-12-17T09:45:31.071Z","enabled":true,"store_front_image_ref":null,"has_opening_hours":false,"today_closing_time":null,"today_opening_time":null,"_links":{"self":{"href":"/api/store/master/stores/46306.json"},"logo":{"href":"http://res.cloudinary.com/wlabs/image/upload/xpagcii3bpjluwcyfssv.png","ref":"xpagcii3bpjluwcyfssv"},"store_front":{"href":"http://res.cloudinary.com/wlabs/image/upload/rnx7zmlwlxnce0fd1ix4.jpg","ref":"rnx7zmlwlxnce0fd1ix4"}}}'
-    http_version: 
+    http_version:
   recorded_at: Fri, 01 Nov 2013 01:24:55 GMT
 - request:
     method: get
@@ -321,7 +321,7 @@ http_interactions:
   response:
     status:
       code: 200
-      message: 
+      message:
     headers:
       Date:
       - Fri, 01 Nov 2013 01:24:56 GMT
@@ -357,7 +357,7 @@ http_interactions:
       encoding: UTF-8
       string: '{"id":20897,"retailer_id":6,"retailer_code":"wittner","centre_id":"bondijunction","major":false,"description":"","errors":{},"level":null,"level_span":1,"name":"Wittner","phone_number":"9386
         5848","email_address":"","shop_number":"2007","lease_number":"49194","micello_geom_id":"721519","url":"","abn":null,"accepts_giftcards":"1","enabled_date":"2004-04-21T02:09:26.487Z","enabled":true,"store_front_image_ref":null,"has_opening_hours":false,"today_closing_time":null,"today_opening_time":null,"_links":{"self":{"href":"/api/store/master/stores/20897.json"},"logo":{"href":"http://res.cloudinary.com/wlabs/image/upload/kfvcugjoihvwacc38ok4.png","ref":"kfvcugjoihvwacc38ok4"},"store_front":{}}}'
-    http_version: 
+    http_version:
   recorded_at: Fri, 01 Nov 2013 01:24:56 GMT
 - request:
     method: get
@@ -373,7 +373,7 @@ http_interactions:
   response:
     status:
       code: 200
-      message: 
+      message:
     headers:
       Date:
       - Fri, 01 Nov 2013 01:24:56 GMT
@@ -409,7 +409,7 @@ http_interactions:
       encoding: UTF-8
       string: '{"id":20897,"retailer_id":6,"retailer_code":"wittner","centre_id":"bondijunction","major":false,"description":"","errors":{},"level":null,"level_span":1,"name":"Wittner","phone_number":"9386
         5848","email_address":"","shop_number":"2007","lease_number":"49194","micello_geom_id":"721519","url":"","abn":null,"accepts_giftcards":"1","enabled_date":"2004-04-21T02:09:26.487Z","enabled":true,"store_front_image_ref":null,"has_opening_hours":false,"today_closing_time":null,"today_opening_time":null,"_links":{"self":{"href":"/api/store/master/stores/20897.json"},"logo":{"href":"http://res.cloudinary.com/wlabs/image/upload/kfvcugjoihvwacc38ok4.png","ref":"kfvcugjoihvwacc38ok4"},"store_front":{}}}'
-    http_version: 
+    http_version:
   recorded_at: Fri, 01 Nov 2013 01:24:56 GMT
 - request:
     method: get
@@ -425,7 +425,7 @@ http_interactions:
   response:
     status:
       code: 200
-      message: 
+      message:
     headers:
       Date:
       - Fri, 01 Nov 2013 01:24:56 GMT
@@ -461,7 +461,7 @@ http_interactions:
       encoding: UTF-8
       string: '{"id":99,"retailer_id":31,"retailer_code":"jeanswest","centre_id":"airportwest","major":false,"description":"","errors":{},"level":null,"level_span":1,"name":"Jeanswest","phone_number":"(03)
         9338 2926      ","email_address":"                                                                                                    ","shop_number":"1-54    ","lease_number":"43726","micello_geom_id":"767305","url":"http://www.jeanswest.com.au/","abn":null,"accepts_giftcards":"1","enabled_date":"2003-04-01T00:00:00.000Z","enabled":true,"store_front_image_ref":null,"has_opening_hours":false,"today_closing_time":null,"today_opening_time":null,"_links":{"self":{"href":"/api/store/master/stores/99.json"},"logo":{"href":"http://res.cloudinary.com/wlabs/image/upload/t3ny7vqepw9eexvt0yz7.png","ref":"t3ny7vqepw9eexvt0yz7"},"store_front":{}}}'
-    http_version: 
+    http_version:
   recorded_at: Fri, 01 Nov 2013 01:24:56 GMT
 - request:
     method: get
@@ -477,7 +477,7 @@ http_interactions:
   response:
     status:
       code: 200
-      message: 
+      message:
     headers:
       Date:
       - Fri, 01 Nov 2013 01:24:56 GMT
@@ -514,7 +514,7 @@ http_interactions:
       string: '[{"name":"Westfield Burwood","short_name":"Burwood","code":"burwood","state":"NSW","country":"au","latitude":"-33.874545","longitude":"151.105889","micello_community":7296,"retail":true,"enabled":true,"_links":{"self":{"href":"http://centre-service.test.dbg.westfield.com/api/centre/master/centres/burwood.json"}}},{"name":"Westfield
         Chatswood","short_name":"Chatswood","code":"chatswood","state":"NSW","country":"au","latitude":"-33.797165","longitude":"151.183758","micello_community":7297,"retail":true,"enabled":true,"_links":{"self":{"href":"http://centre-service.test.dbg.westfield.com/api/centre/master/centres/chatswood.json"}}},{"name":"Westfield
         Eastgardens","short_name":"Eastgardens","code":"eastgardens","state":"NSW","country":"au","latitude":"-33.944814","longitude":"151.224327","micello_community":20069,"retail":true,"enabled":true,"_links":{"self":{"href":"http://centre-service.test.dbg.westfield.com/api/centre/master/centres/eastgardens.json"}}}]'
-    http_version: 
+    http_version:
   recorded_at: Fri, 01 Nov 2013 01:24:57 GMT
 - request:
     method: get
@@ -530,7 +530,7 @@ http_interactions:
   response:
     status:
       code: 200
-      message: 
+      message:
     headers:
       Date:
       - Fri, 01 Nov 2013 01:24:56 GMT
@@ -567,7 +567,7 @@ http_interactions:
       string: '{"name":"Westfield Bondi Junction","short_name":"Bondi Junction","code":"bondijunction","business_unit_code":"21021","type":"premium","street_address":"500
         Oxford St","suburb":"Bondi Junction","state":"NSW","postcode":"2022","country":"au","phone_number":"(02)
         9947 8000","email_address":"bondijunction@au.westfield.com","latitude":"-33.891289","longitude":"151.250815","today_opening_time":"00:00","today_closing_time":"00:00","today_closed":false,"number_of_levels":7,"micello_community":7295,"micello_map_centre":{"x":355,"y":650},"facebook":"https://www.facebook.com/WestfieldBondiJunction","twitter":"","google_plus":"","instagram":"http://instagram.com/westfieldbondijunction","pinterest":"","youtube":"","retail":true,"cinema":true,"enabled":true,"timezone":"Australia/NSW"}'
-    http_version: 
+    http_version:
   recorded_at: Fri, 01 Nov 2013 01:24:57 GMT
 - request:
     method: get
@@ -583,7 +583,7 @@ http_interactions:
   response:
     status:
       code: 200
-      message: 
+      message:
     headers:
       Date:
       - Fri, 01 Nov 2013 01:24:56 GMT
@@ -699,7 +699,7 @@ http_interactions:
         Slimming Dress","retail_chain_name":"Forcast","cloudinary_public_id":"dntihmtveegr2pwro6zq","image_width":662,"image_height":1000,"sale_price":59.0,"default_image_url":"http://res.cloudinary.com/wlabs/image/upload/v1381370168/dntihmtveegr2pwro6zq.jpg"},{"id":"11678","sku":"forcast_10DR825RED","retailer_code":"forcast","name":"Julia
         Shift Dress","retail_chain_name":"Forcast","cloudinary_public_id":"lat4qt6ta8fydudcca9b","image_width":662,"image_height":1000,"sale_price":49.01,"default_image_url":"http://res.cloudinary.com/wlabs/image/upload/v1381377839/lat4qt6ta8fydudcca9b.jpg"},{"id":"24725","sku":"526736","retailer_code":"colette-accessories","name":"Plain
         Diagonal Envelope Clutch","retail_chain_name":"Colette by Colette Hayman","cloudinary_public_id":"xpqgoedy06st65eakndv","image_width":1000,"image_height":1000,"sale_price":34.95,"default_image_url":"http://res.cloudinary.com/wlabs/image/upload/v1379019562/xpqgoedy06st65eakndv.jpg"}]}'
-    http_version: 
+    http_version:
   recorded_at: Fri, 01 Nov 2013 01:24:57 GMT
 - request:
     method: get
@@ -715,7 +715,7 @@ http_interactions:
   response:
     status:
       code: 200
-      message: 
+      message:
     headers:
       Date:
       - Fri, 01 Nov 2013 01:24:57 GMT
@@ -1005,7 +1005,7 @@ http_interactions:
         LCJzZWxlY3RlZCI6ZmFsc2V9LHsiY291bnQiOjEsIm5hbWUiOiJTVVBSw4ki
         LCJjb2RlIjoic3VwcmUiLCJzZWxlY3RlZCI6ZmFsc2V9XSwic2hvdz8iOnRy
         dWV9XSwicmVzdWx0cyI6W119
-    http_version: 
+    http_version:
   recorded_at: Fri, 01 Nov 2013 01:24:57 GMT
 - request:
     method: get
@@ -1021,7 +1021,7 @@ http_interactions:
   response:
     status:
       code: 200
-      message: 
+      message:
     headers:
       Date:
       - Fri, 01 Nov 2013 01:24:57 GMT
@@ -1344,7 +1344,7 @@ http_interactions:
         OiJzYXNzLWFuZC1iaWRlIiwic2VsZWN0ZWQiOmZhbHNlfSx7ImNvdW50Ijox
         LCJuYW1lIjoiU1VQUsOJIiwiY29kZSI6InN1cHJlIiwic2VsZWN0ZWQiOmZh
         bHNlfV0sInNob3c/Ijp0cnVlfV0sInJlc3VsdHMiOltdfQ==
-    http_version: 
+    http_version:
   recorded_at: Fri, 01 Nov 2013 01:24:58 GMT
 - request:
     method: get
@@ -1360,7 +1360,7 @@ http_interactions:
   response:
     status:
       code: 200
-      message: 
+      message:
     headers:
       Date:
       - Fri, 01 Nov 2013 01:24:58 GMT
@@ -1409,7 +1409,7 @@ http_interactions:
         City","code":"gardencity","state":"QLD","selected":false},{"count":5,"name":"Marion","code":"marion","state":"SA","selected":false},{"count":5,"name":"Tea
         Tree Plaza","code":"teatreeplaza","state":"SA","selected":false},{"count":5,"name":"Doncaster","code":"doncaster","state":"VIC","selected":false},{"count":5,"name":"Fountain
         Gate","code":"fountaingate","state":"VIC","selected":false},{"count":5,"name":"Geelong","code":"geelong","state":"VIC","selected":false},{"count":5,"name":"Knox","code":"knox","state":"VIC","selected":false},{"count":5,"name":"Southland","code":"southland","state":"VIC","selected":false},{"count":5,"name":"Carousel","code":"carousel","state":"WA","selected":false}],"show?":true},{"name":"Retailer","label":null,"sorted?":true,"url_key_name":"retailer","reset_link":"/api/product/v3/products/search.json?centre=bondijunction&rows=0&super_cat=mens-fashion-accessories","field":"retailer","title":"Stores","single_value_facet":false,"values":[{"count":5,"name":"Bardot","code":"bardot","selected":false}],"show?":true}],"results":[]}'
-    http_version: 
+    http_version:
   recorded_at: Fri, 01 Nov 2013 01:24:58 GMT
 - request:
     method: get
@@ -1425,7 +1425,7 @@ http_interactions:
   response:
     status:
       code: 200
-      message: 
+      message:
     headers:
       Date:
       - Fri, 01 Nov 2013 01:24:58 GMT
@@ -1482,7 +1482,7 @@ http_interactions:
         Valley","code":"plentyvalley","state":"VIC","selected":false},{"count":33,"name":"Southland","code":"southland","state":"VIC","selected":false},{"count":33,"name":"Carousel","code":"carousel","state":"WA","selected":false},{"count":33,"name":"Innaloo","code":"innaloo","state":"WA","selected":false},{"count":33,"name":"Whitford
         City","code":"whitfordcity","state":"WA","selected":false}],"show?":true},{"name":"Retailer","label":null,"sorted?":true,"url_key_name":"retailer","reset_link":"/api/product/v3/products/search.json?centre=bondijunction&rows=0&super_cat=kids-babies","field":"retailer","title":"Stores","single_value_facet":false,"values":[{"count":33,"name":"Cotton
         On","code":"cotton-on","selected":false}],"show?":true}],"results":[]}'
-    http_version: 
+    http_version:
   recorded_at: Fri, 01 Nov 2013 01:24:58 GMT
 - request:
     method: get
@@ -1498,7 +1498,7 @@ http_interactions:
   response:
     status:
       code: 200
-      message: 
+      message:
     headers:
       Date:
       - Fri, 01 Nov 2013 01:24:58 GMT
@@ -1550,7 +1550,7 @@ http_interactions:
         West","code":"airportwest","state":"VIC","selected":false},{"count":16,"name":"Fountain
         Gate","code":"fountaingate","state":"VIC","selected":false},{"count":16,"name":"Plenty
         Valley","code":"plentyvalley","state":"VIC","selected":false},{"count":16,"name":"Southland","code":"southland","state":"VIC","selected":false}],"show?":true},{"name":"Retailer","label":null,"sorted?":true,"url_key_name":"retailer","reset_link":"/api/product/v3/products/search.json?centre=bondijunction&rows=0&super_cat=shoes-footwear","field":"retailer","title":"Stores","single_value_facet":false,"values":[{"count":16,"name":"Forcast","code":"forcast","selected":false}],"show?":true}],"results":[]}'
-    http_version: 
+    http_version:
   recorded_at: Fri, 01 Nov 2013 01:24:58 GMT
 - request:
     method: get
@@ -1566,7 +1566,7 @@ http_interactions:
   response:
     status:
       code: 200
-      message: 
+      message:
     headers:
       Date:
       - Fri, 01 Nov 2013 01:24:58 GMT
@@ -1629,7 +1629,7 @@ http_interactions:
         City","code":"whitfordcity","state":"WA","selected":false}],"show?":true},{"name":"Retailer","label":null,"sorted?":true,"url_key_name":"retailer","reset_link":"/api/product/v3/products/search.json?centre=bondijunction&rows=0&super_cat=bags-luggage","field":"retailer","title":"Stores","single_value_facet":false,"values":[{"count":618,"name":"Colette
         by Colette Hayman","code":"colette-accessories","selected":false},{"count":3,"name":"Forcast","code":"forcast","selected":false},{"count":46,"name":"General
         Pants","code":"general-pants-co","selected":false}],"show?":true}],"results":[]}'
-    http_version: 
+    http_version:
   recorded_at: Fri, 01 Nov 2013 01:24:59 GMT
 - request:
     method: get
@@ -1645,7 +1645,7 @@ http_interactions:
   response:
     status:
       code: 200
-      message: 
+      message:
     headers:
       Date:
       - Fri, 01 Nov 2013 01:24:59 GMT
@@ -1696,6 +1696,262 @@ http_interactions:
         City","code":"gardencity","state":"QLD","selected":false},{"count":1,"name":"Marion","code":"marion","state":"SA","selected":false},{"count":1,"name":"Tea
         Tree Plaza","code":"teatreeplaza","state":"SA","selected":false},{"count":1,"name":"Doncaster","code":"doncaster","state":"VIC","selected":false},{"count":1,"name":"Fountain
         Gate","code":"fountaingate","state":"VIC","selected":false},{"count":1,"name":"Geelong","code":"geelong","state":"VIC","selected":false},{"count":1,"name":"Knox","code":"knox","state":"VIC","selected":false},{"count":1,"name":"Southland","code":"southland","state":"VIC","selected":false},{"count":1,"name":"Carousel","code":"carousel","state":"WA","selected":false}],"show?":true},{"name":"Retailer","label":null,"sorted?":true,"url_key_name":"retailer","reset_link":"/api/product/v3/products/search.json?centre=bondijunction&rows=0&super_cat=beauty-health","field":"retailer","title":"Stores","single_value_facet":false,"values":[{"count":1,"name":"Bardot","code":"bardot","selected":false}],"show?":true}],"results":[]}'
-    http_version: 
+    http_version:
   recorded_at: Fri, 01 Nov 2013 01:24:59 GMT
+- request:
+    method: get
+    uri: http://product-service.test.dbg.westfield.com/api/product/master/products/search.json?category=womens-shoes-footwear&centre=bondijunction&page=1&rows=0
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.8
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message:
+    headers:
+      Date:
+      - Fri, 01 Nov 2013 01:24:59 GMT
+      Server:
+      - Apache/2.2.15 (Red Hat)
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-UA-Compatible:
+      - chrome=1, IE=edge
+      Cache-Control:
+      - max-age=3600, public
+      ETag:
+      - '"c797936e9e73556ce920027a9ac4ae83"'
+      X-Request-Id:
+      - eef094af-9a5b-4bfb-98ca-8bcbfa6604ac
+      X-Runtime:
+      - '0.104409'
+      X-Powered-By:
+      - Phusion Passenger 4.0.19
+      Status:
+      - 200 OK
+      Connection:
+      - close
+      Transfer-Encoding:
+      - chunked
+      Content-Type:
+      - application/json; charset="utf-8"; charset=utf-8
+    body:
+      encoding: UTF-8
+      string: '{ "count": 3142, "sorted_by": "", "start": 0, "rows": 0, "available_filters": [ "super_cat", "category", "sub_category" ], "applied_filters": { "categories": [ { "type": "super_cat", "value": "shoes-footwear", "title": "Shoes" }, { "type": "category", "value": "womens-shoes-footwear", "title": "Womens Shoes" } ], "facets": { "centre": { "title": "Centre", "type": "centre", "selected_values": [ { "value": "bondijunction", "title": "Bondi Junction" } ] } } }, "display_options": { "sort_options": [] }, "params": { "super_cat": "shoes-footwear", "category": "womens-shoes-footwear", "centre": [ "bondijunction" ] }, "seo_keyword": null, "facets": [ { "name": "Sub Category", "label": "CATEGORIES", "sorted?": true, "url_key_name": "sub_category", "reset_link": "/api/product/v3/products/search.json?&category=womens-shoes-footwear&centre=bondijunction&rows=0&super_cat=shoes-footwear", "field": "sub_category", "title": "Categories", "single_value_facet": true, "values": [ { "count": 990, "name": "Flats", "code": "womens-flats", "sort_order": 208, "url_args": { "sub_category": "womens-flats" }, "short_name": "Flats", "selected": false }, { "count": 809, "name": "Heels", "code": "womens-heels", "sort_order": 209, "url_args": { "sub_category": "womens-heels" }, "short_name": "Heels", "selected": false }, { "count": 116, "name": "Boots", "code": "womens-boots", "sort_order": 210, "url_args": { "sub_category": "womens-boots" }, "short_name": "Boots", "selected": false }, { "count": 16, "name": "Sneakers", "code": "womens-sneakers", "sort_order": 211, "url_args": { "sub_category": "womens-sneakers" }, "short_name": "Sneakers", "selected": false } ], "show?": true } ], "results": [] }'
+    http_version:
+  recorded_at: Tue, 12 Nov 2013 23:56:28 GMT
+- request:
+    method: get
+    uri: http://product-service.test.dbg.westfield.com/api/product/master/products/search.json?category=womens-dresses&centre=bondijunction&page=1&rows=0
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.8
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message:
+    headers:
+      Date:
+      - Fri, 01 Nov 2013 01:24:59 GMT
+      Server:
+      - Apache/2.2.15 (Red Hat)
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-UA-Compatible:
+      - chrome=1, IE=edge
+      Cache-Control:
+      - max-age=3600, public
+      ETag:
+      - '"c797936e9e73556ce920027a9ac4ae83"'
+      X-Request-Id:
+      - eef094af-9a5b-4bfb-98ca-8bcbfa6604ac
+      X-Runtime:
+      - '0.104409'
+      X-Powered-By:
+      - Phusion Passenger 4.0.19
+      Status:
+      - 200 OK
+      Connection:
+      - close
+      Transfer-Encoding:
+      - chunked
+      Content-Type:
+      - application/json; charset="utf-8"; charset=utf-8
+    body:
+      encoding: UTF-8
+      string: '{ "count": 3142, "sorted_by": "", "start": 0, "rows": 0, "available_filters": [ "super_cat", "category", "sub_category" ], "applied_filters": { "categories": [ { "type": "super_cat", "value": "shoes-footwear", "title": "Shoes" }, { "type": "category", "value": "womens-shoes-footwear", "title": "Womens Shoes" } ], "facets": { "centre": { "title": "Centre", "type": "centre", "selected_values": [ { "value": "bondijunction", "title": "Bondi Junction" } ] } } }, "display_options": { "sort_options": [] }, "params": { "super_cat": "shoes-footwear", "category": "womens-shoes-footwear", "centre": [ "bondijunction" ] }, "seo_keyword": null, "facets": [ { "name": "Sub Category", "label": "CATEGORIES", "sorted?": true, "url_key_name": "sub_category", "reset_link": "/api/product/v3/products/search.json?&category=womens-shoes-footwear&centre=bondijunction&rows=0&super_cat=shoes-footwear", "field": "sub_category", "title": "Categories", "single_value_facet": true, "values": [ { "count": 990, "name": "Flats", "code": "womens-flats", "sort_order": 208, "url_args": { "sub_category": "womens-flats" }, "short_name": "Flats", "selected": false }, { "count": 809, "name": "Heels", "code": "womens-heels", "sort_order": 209, "url_args": { "sub_category": "womens-heels" }, "short_name": "Heels", "selected": false }, { "count": 116, "name": "Boots", "code": "womens-boots", "sort_order": 210, "url_args": { "sub_category": "womens-boots" }, "short_name": "Boots", "selected": false }, { "count": 16, "name": "Sneakers", "code": "womens-sneakers", "sort_order": 211, "url_args": { "sub_category": "womens-sneakers" }, "short_name": "Sneakers", "selected": false } ], "show?": true } ], "results": [] }'
+    http_version:
+  recorded_at: Tue, 12 Nov 2013 23:56:28 GMT
+- request:
+    method: get
+    uri: http://product-service.test.dbg.westfield.com/api/product/master/products/search.json?category=womens-coats-jackets&centre=bondijunction&page=1&rows=0
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.8
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message:
+    headers:
+      Date:
+      - Fri, 01 Nov 2013 01:24:59 GMT
+      Server:
+      - Apache/2.2.15 (Red Hat)
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-UA-Compatible:
+      - chrome=1, IE=edge
+      Cache-Control:
+      - max-age=3600, public
+      ETag:
+      - '"c797936e9e73556ce920027a9ac4ae83"'
+      X-Request-Id:
+      - eef094af-9a5b-4bfb-98ca-8bcbfa6604ac
+      X-Runtime:
+      - '0.104409'
+      X-Powered-By:
+      - Phusion Passenger 4.0.19
+      Status:
+      - 200 OK
+      Connection:
+      - close
+      Transfer-Encoding:
+      - chunked
+      Content-Type:
+      - application/json; charset="utf-8"; charset=utf-8
+    body:
+      encoding: UTF-8
+      string: '{ "count": 3142, "sorted_by": "", "start": 0, "rows": 0, "available_filters": [ "super_cat", "category", "sub_category" ], "applied_filters": { "categories": [ { "type": "super_cat", "value": "shoes-footwear", "title": "Shoes" }, { "type": "category", "value": "womens-shoes-footwear", "title": "Womens Shoes" } ], "facets": { "centre": { "title": "Centre", "type": "centre", "selected_values": [ { "value": "bondijunction", "title": "Bondi Junction" } ] } } }, "display_options": { "sort_options": [] }, "params": { "super_cat": "shoes-footwear", "category": "womens-shoes-footwear", "centre": [ "bondijunction" ] }, "seo_keyword": null, "facets": [ { "name": "Sub Category", "label": "CATEGORIES", "sorted?": true, "url_key_name": "sub_category", "reset_link": "/api/product/v3/products/search.json?&category=womens-shoes-footwear&centre=bondijunction&rows=0&super_cat=shoes-footwear", "field": "sub_category", "title": "Categories", "single_value_facet": true, "values": [ { "count": 990, "name": "Flats", "code": "womens-flats", "sort_order": 208, "url_args": { "sub_category": "womens-flats" }, "short_name": "Flats", "selected": false }, { "count": 809, "name": "Heels", "code": "womens-heels", "sort_order": 209, "url_args": { "sub_category": "womens-heels" }, "short_name": "Heels", "selected": false }, { "count": 116, "name": "Boots", "code": "womens-boots", "sort_order": 210, "url_args": { "sub_category": "womens-boots" }, "short_name": "Boots", "selected": false }, { "count": 16, "name": "Sneakers", "code": "womens-sneakers", "sort_order": 211, "url_args": { "sub_category": "womens-sneakers" }, "short_name": "Sneakers", "selected": false } ], "show?": true } ], "results": [] }'
+    http_version:
+  recorded_at: Tue, 12 Nov 2013 23:56:28 GMT
+- request:
+    method: get
+    uri: http://product-service.test.dbg.westfield.com/api/product/master/products/search.json?category=womens-skirts&centre=bondijunction&page=1&rows=0
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.8
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message:
+    headers:
+      Date:
+      - Fri, 01 Nov 2013 01:24:59 GMT
+      Server:
+      - Apache/2.2.15 (Red Hat)
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-UA-Compatible:
+      - chrome=1, IE=edge
+      Cache-Control:
+      - max-age=3600, public
+      ETag:
+      - '"c797936e9e73556ce920027a9ac4ae83"'
+      X-Request-Id:
+      - eef094af-9a5b-4bfb-98ca-8bcbfa6604ac
+      X-Runtime:
+      - '0.104409'
+      X-Powered-By:
+      - Phusion Passenger 4.0.19
+      Status:
+      - 200 OK
+      Connection:
+      - close
+      Transfer-Encoding:
+      - chunked
+      Content-Type:
+      - application/json; charset="utf-8"; charset=utf-8
+    body:
+      encoding: UTF-8
+      string: '{ "count": 3142, "sorted_by": "", "start": 0, "rows": 0, "available_filters": [ "super_cat", "category", "sub_category" ], "applied_filters": { "categories": [ { "type": "super_cat", "value": "shoes-footwear", "title": "Shoes" }, { "type": "category", "value": "womens-shoes-footwear", "title": "Womens Shoes" } ], "facets": { "centre": { "title": "Centre", "type": "centre", "selected_values": [ { "value": "bondijunction", "title": "Bondi Junction" } ] } } }, "display_options": { "sort_options": [] }, "params": { "super_cat": "shoes-footwear", "category": "womens-shoes-footwear", "centre": [ "bondijunction" ] }, "seo_keyword": null, "facets": [ { "name": "Sub Category", "label": "CATEGORIES", "sorted?": true, "url_key_name": "sub_category", "reset_link": "/api/product/v3/products/search.json?&category=womens-shoes-footwear&centre=bondijunction&rows=0&super_cat=shoes-footwear", "field": "sub_category", "title": "Categories", "single_value_facet": true, "values": [ { "count": 990, "name": "Flats", "code": "womens-flats", "sort_order": 208, "url_args": { "sub_category": "womens-flats" }, "short_name": "Flats", "selected": false }, { "count": 809, "name": "Heels", "code": "womens-heels", "sort_order": 209, "url_args": { "sub_category": "womens-heels" }, "short_name": "Heels", "selected": false }, { "count": 116, "name": "Boots", "code": "womens-boots", "sort_order": 210, "url_args": { "sub_category": "womens-boots" }, "short_name": "Boots", "selected": false }, { "count": 16, "name": "Sneakers", "code": "womens-sneakers", "sort_order": 211, "url_args": { "sub_category": "womens-sneakers" }, "short_name": "Sneakers", "selected": false } ], "show?": true } ], "results": [] }'
+    http_version:
+  recorded_at: Tue, 12 Nov 2013 23:56:28 GMT
+- request:
+    method: get
+    uri: http://product-service.test.dbg.westfield.com/api/product/master/products/search.json?category=womens-pants&centre=bondijunction&page=1&rows=0
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.8
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message:
+    headers:
+      Date:
+      - Fri, 01 Nov 2013 01:24:59 GMT
+      Server:
+      - Apache/2.2.15 (Red Hat)
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-UA-Compatible:
+      - chrome=1, IE=edge
+      Cache-Control:
+      - max-age=3600, public
+      ETag:
+      - '"c797936e9e73556ce920027a9ac4ae83"'
+      X-Request-Id:
+      - eef094af-9a5b-4bfb-98ca-8bcbfa6604ac
+      X-Runtime:
+      - '0.104409'
+      X-Powered-By:
+      - Phusion Passenger 4.0.19
+      Status:
+      - 200 OK
+      Connection:
+      - close
+      Transfer-Encoding:
+      - chunked
+      Content-Type:
+      - application/json; charset="utf-8"; charset=utf-8
+    body:
+      encoding: UTF-8
+      string: '{ "count": 3142, "sorted_by": "", "start": 0, "rows": 0, "available_filters": [ "super_cat", "category", "sub_category" ], "applied_filters": { "categories": [ { "type": "super_cat", "value": "shoes-footwear", "title": "Shoes" }, { "type": "category", "value": "womens-shoes-footwear", "title": "Womens Shoes" } ], "facets": { "centre": { "title": "Centre", "type": "centre", "selected_values": [ { "value": "bondijunction", "title": "Bondi Junction" } ] } } }, "display_options": { "sort_options": [] }, "params": { "super_cat": "shoes-footwear", "category": "womens-shoes-footwear", "centre": [ "bondijunction" ] }, "seo_keyword": null, "facets": [ { "name": "Sub Category", "label": "CATEGORIES", "sorted?": true, "url_key_name": "sub_category", "reset_link": "/api/product/v3/products/search.json?&category=womens-shoes-footwear&centre=bondijunction&rows=0&super_cat=shoes-footwear", "field": "sub_category", "title": "Categories", "single_value_facet": true, "values": [ { "count": 990, "name": "Flats", "code": "womens-flats", "sort_order": 208, "url_args": { "sub_category": "womens-flats" }, "short_name": "Flats", "selected": false }, { "count": 809, "name": "Heels", "code": "womens-heels", "sort_order": 209, "url_args": { "sub_category": "womens-heels" }, "short_name": "Heels", "selected": false }, { "count": 116, "name": "Boots", "code": "womens-boots", "sort_order": 210, "url_args": { "sub_category": "womens-boots" }, "short_name": "Boots", "selected": false }, { "count": 16, "name": "Sneakers", "code": "womens-sneakers", "sort_order": 211, "url_args": { "sub_category": "womens-sneakers" }, "short_name": "Sneakers", "selected": false } ], "show?": true } ], "results": [] }'
+    http_version:
+  recorded_at: Tue, 12 Nov 2013 23:56:28 GMT
+
 recorded_with: VCR 2.6.0

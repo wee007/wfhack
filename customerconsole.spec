@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.261
+Version:     0.1.262
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,14 @@ fi
 
 
 %changelog
+* Thu Nov 14 2013 ci <doperations@au.westfield.com> 0.1.262-1
+- Merge pull request #685 from bschwarz/remove-page-qs
+  (ldewey@au.westfield.com)
+- Merge pull request #686 from ldewey/greg/master (ldewey@au.westfield.com)
+- CannedSearch icon update (ldewey@au.westfield.com)
+- Remove page query string when other params have been changed
+  (ben@germanforblack.com)
+
 * Thu Nov 14 2013 ci <doperations@au.westfield.com> 0.1.261-1
 - Merge pull request #684 from bschwarz/routing-specs (ldewey@au.westfield.com)
 - Added routing specs to cover product browse routes (ben@germanforblack.com)

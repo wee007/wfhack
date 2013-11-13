@@ -420,7 +420,6 @@
     -webkit-#{$property}: $value;
 		-moz-#{$property}: $value;
 		-ms-#{$property}: $value;
-		-o-#{$property}: $value;
 		#{$property}: $value;
   }
 
@@ -434,7 +433,6 @@
 	/* Border image */
   @else if $property == border-image {
   	-webkit-#{$property}: $value;
-		-o-#{$property}: $value;
 		#{$property}: $value;
   }
 
@@ -443,7 +441,6 @@
     -webkit-#{$property}: $value;
 		-moz-#{$property}: $value;
 		-ms-#{$property}: $value;
-		-o-#{$property}: $value;
 		#{$property}: $value;
   }
 

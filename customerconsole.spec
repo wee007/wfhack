@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.252
+Version:     0.1.253
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,14 @@ fi
 
 
 %changelog
+* Wed Nov 13 2013 ci <doperations@au.westfield.com> 0.1.253-1
+- Merge pull request #672 from bschwarz/clickthrough-routes-fix
+  (ldewey@au.westfield.com)
+- Moved non-centre scoped route and added spec to cover
+  (ben@germanforblack.com)
+- Changed precedence of click through route. Added routes_spec to cover.
+  (ben@germanforblack.com)
+
 * Wed Nov 13 2013 ci <doperations@au.westfield.com> 0.1.252-1
 - Merge pull request #671 from ewee/master (ldewey@au.westfield.com)
 - Added a space between title and centre name in the social email copy

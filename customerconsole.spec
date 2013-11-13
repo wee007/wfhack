@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.257
+Version:     0.1.258
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,11 @@ fi
 
 
 %changelog
+* Thu Nov 14 2013 ci <doperations@au.westfield.com> 0.1.258-1
+- Merge pull request #678 from bschwarz/filter-tag-fix
+  (ldewey@au.westfield.com)
+- Close the tag correctly (ben@germanforblack.com)
+
 * Wed Nov 13 2013 ci <doperations@au.westfield.com> 0.1.257-1
 - Don't set the centre to products (ben@germanforblack.com)
 

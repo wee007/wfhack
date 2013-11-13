@@ -346,7 +346,7 @@
     <h3 class="hide-visually">Applied Filters</h3>
     <ul class="horiz-list">
       <li ng-repeat="filter in search.appliedFilters">
-        <button ng-click="removeSelectedFilter(filter)" class="btn"><span class="txt-truncate">{{ filter.title }}</span><span class="icon icon--close-sml icon--lrg icon--flush-top" aria-hidden="true"></span></a>
+        <button ng-click="removeSelectedFilter(filter)" class="btn"><span class="txt-truncate">{{ filter.title }}</span><span class="icon icon--close-sml icon--lrg icon--flush-top" aria-hidden="true"></span></button>
       </li>
       <li>
         <a href="<%= pb_path %>" ng-click="removeAllFilters()" class="btn btn--faux-link">Clear all</a>

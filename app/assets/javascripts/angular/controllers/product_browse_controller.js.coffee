@@ -38,7 +38,7 @@
         centre = routeChunks[0]
 
         # If its 'products', or whatever the route becomes
-        params.centre = centre unless routeChunks.length == 1
+        params.centre = centre unless routeChunks.length == 1 or centre == 'products'
 
       # Remove any params that won't be overwritten by the new params
       ProductSearch.resetParams( params )

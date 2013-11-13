@@ -41,23 +41,16 @@
   white-space: nowrap !important;
 }
 
-/* Break word */
+/* Break word - should only be used for instances when it's only one string with no spaces such as email and url */
 .txt-break-word {
 	word-wrap: break-word !important;
 	-ms-word-break: break-all !important;
   word-break: break-all !important;
 	/* Non standard for webkit */
   word-break: break-word !important;
-	/* Hyphens */
-	@include prefix(hyphens, auto);
-	/* Note: 'layout' is needed for IE. */
-	/* Note: `table-layout: fixed;` is needen when this is used within tables, the rule needs to go on the `table` element. */
+  /* Note: 'layout' is needed for IE. */
+  /* Note: `table-layout: fixed;` is needen when this is used within tables, the rule needs to go on the `table` element. */
 }
 
-/* Firefox - need to reset `word-wrap` and `word-break` in order to have hyphens working */
-@include target-mozilla {
-  .txt-break-word {
-    word-wrap: normal !important;
-    word-break: normal !important;
-  }
-}
+/* Hyphenation */
+.txt-hyphen {@include prefix(hyphens, auto);}

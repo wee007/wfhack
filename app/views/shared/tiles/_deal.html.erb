@@ -8,9 +8,9 @@
       format: :auto
     %>
   <% else %>
-    <h3 class="tile__meta__hdr txt-break-word"><%= result.store_name %></h3>
+    <h3 class="tile__meta__hdr txt-truncate"><%= result.store_name %></h3>
   <% end %>
-  <p class="tile__meta__desc txt-break-word"><%= result.title %></p>
+  <p class="tile__meta__desc txt-hyphen"><%= result.title %></p>
 </div>
 
 <span class="tile__meta__icon">

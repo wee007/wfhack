@@ -188,7 +188,7 @@
 
           /* Hover and focus states, need to increase the specificity so as to override hover/focus styles from any outer modules */
           .drop-down-menu &:hover,
-          .drop-down-menu &:focus {color: $color-link-hover;}
+          .drop-down-menu &:focus {color: $color-link;}
         }
       }
 
@@ -200,8 +200,8 @@
       }
     }
 
-    /* Alternative list */
-    .drop-down-menu__list-alt > li {
+    /* Alternative list, need to increase the specificity so as to override hover/focus styles from any outer modules */
+    .drop-down-menu .drop-down-menu__list-alt > li {
       @include to-rem(margin-top, $spacing-third);
 
       &:first-child {margin-top: 0;}
@@ -213,7 +213,7 @@
 
         /* Hover and focus states */
         &:hover,
-        &:focus {color: $color-link-hover;}
+        &:focus {color: $color-link;}
       }
     }
 

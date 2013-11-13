@@ -23,7 +23,7 @@ $header-color-link-hover: $color-brand !default;
 	/* Set common colours */
 	a,
 	.icon:before,
-	.my-account-container__hdr.btn {color: $color-light-txt;}
+	.my-account-container__hdr.btn {color: $color-grey-4;}
 
 	.icon--arrow-down-full:before {color: $color-dark-txt;}
 }
@@ -353,7 +353,7 @@ $header-color-link-hover: $color-brand !default;
 							.header &.is-active {
 								&,
 								.icon:before {
-									color: $color-light-txt;
+									color: $color-grey-4;
 
 									/* Change state color at this breakpoint */
 									@include respond-min($ipad-landscape) {
@@ -420,7 +420,7 @@ $header-color-link-hover: $color-brand !default;
 
 								/* Change colour for 'Centre home page hero banner' my account nav drop down at this breakpoint */
 								@include respond-min($non-palm) {
-									.header--hero .my-account-signedin & {color: $color-light-txt;}
+									.header--hero .my-account-signedin & {color: $color-grey-4;}
 								}
 							}
 				}
@@ -656,7 +656,7 @@ $header-color-link-hover: $color-brand !default;
 					&:hover,
 					&:focus {
 						&,
-						.icon:before {color: $color-light-txt;}
+						.icon:before {color: $color-grey-4;}
 					}
 
 					/* Icon */
@@ -784,7 +784,7 @@ $header-color-link-hover: $color-brand !default;
 					&:hover,
 					&:focus {
 						&,
-						.icon:before {color: $color-light-txt;}
+						.icon:before {color: $color-grey-4;}
 					}
 
 					/* Show at these breakpoints */
@@ -872,7 +872,7 @@ $header-color-link-hover: $color-brand !default;
 					/* Hover and focus states */
 					a:hover,
 					a:focus {
-						.icon:before {color: $color-light-txt;}
+						.icon:before {color: $color-grey-4;}
 					}
 			}
 
@@ -890,11 +890,11 @@ $header-color-link-hover: $color-brand !default;
 				.nav-site-feedback button {
 					display: block;
 					@include font-size($font-size-milli);
-					color: $color-grey-1;
+					color: $color-grey-4;
 
 					/* Hover and focus states */
 					&:hover,
-					&:focus {color: $color-light-txt;}
+					&:focus {color: $color-grey-2;}
 				}
 
 				/* Site feedback button */
@@ -946,11 +946,16 @@ $header-color-link-hover: $color-brand !default;
 				top: 50%;
 				@include translate(0, -50%);
 
-				/* Hover and focus states */
-				.header &:hover,
-				.header &:focus {
-					&,
-					.icon:before {color: $header-color-link-hover;}
+				/* Apply link colours */
+				.header & {
+					color: $color-light-txt;
+
+					/* Hover and focus states */
+					&:hover,
+					&:focus {
+						&,
+						.icon:before {color: $header-color-link-hover;}
+					}
 				}
 
 				/* Bold at this breakpoint */
@@ -1015,6 +1020,7 @@ $header-color-link-hover: $color-brand !default;
 
 			/* Search icon */
 			.icon--search:before {
+				color: $color-light-txt;
 
 				/* IE 9/10 fixes */
 				@include ie-10-up {
@@ -1142,9 +1148,12 @@ $header-color-link-hover: $color-brand !default;
 		}
 	}
 
-		/* --Generic overlay (search/stores)-- */
+		/* --Generic overlay (search)-- */
 		.header__overlay {
 			height: 100%;
+
+			/* Global rules */
+			.icon:before {color: $color-light-txt;}
 
 			/* Inner container */
 			.container {
@@ -1174,9 +1183,6 @@ $header-color-link-hover: $color-brand !default;
 						@include old-ie {
 							@include to-rem(top, 2);
 						}
-
-						/* Icon */
-						.icon {color: lighten($color-light-txt, 6%);}
 					}
 			}
 
@@ -1257,7 +1263,7 @@ $header-color-link-hover: $color-brand !default;
 				/* Links */
 				a {
 					@include to-rem(padding, 11 0 10);
-					color: $color-light-txt;
+					color: $color-grey-4;
 					border-bottom: 2px solid transparent;
 
 					/* Change padding at this breakpoint */
@@ -1305,6 +1311,9 @@ $header-color-link-hover: $color-brand !default;
 					/* Icon */
 					.icon:before {
 						@include font-size(20, 1);
+
+						/* Centre home page hero banner */
+						.header--hero & {color: $color-light-txt;}
 
 						/* Change positon context at this breakpoint */
 						@include respond-max($iphone-landscape - 1) {
@@ -1618,7 +1627,7 @@ $header-color-link-hover: $color-brand !default;
 					&:hover,
 					&:focus {
 						&,
-						.icon:before {color: $color-light-txt;}
+						.icon:before {color: $color-grey-4;}
 					}
 				}
 

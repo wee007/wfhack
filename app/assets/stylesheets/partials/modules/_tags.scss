@@ -31,8 +31,8 @@
     /* Hover and focus states */
     &:hover,
     &:focus {
-      border-color: $color-link-hover;
-      color: $color-link-hover;
+      border-color: $color-link;
+      color: $color-link;
 
       /* Button text (truncate) */
       & .txt-truncate {text-decoration: line-through;}

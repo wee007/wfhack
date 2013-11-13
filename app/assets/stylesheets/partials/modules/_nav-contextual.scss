@@ -22,10 +22,6 @@
   .drop-down-container--hover .drop-down {@include to-rem(left, $spacing-half);}
 }
 
-/* Shared rules */
-.nav-contextual__clip__overlay:before,
-.nav-contextual__list > li > a {color: $color-light-txt;}
-
   /* Clip scrollable content */
   .nav-contextual__clip {
     /* Make space for the arrow on the right, the spacing needs to be smaller than `.nav-contextual__clip__overlay` */
@@ -74,6 +70,7 @@
       &:before {
         top: 50%;
         @include translate(28%, -52%);
+        color: $color-light-txt;
       }
     }
 
@@ -98,11 +95,6 @@
             @include to-rem(padding-top padding-bottom, $spacing-base);
           }
 
-          /* Hover, focus and active states */
-          &:hover,
-          &:focus,
-          &.is-active {color: $color-link-hover;}
-
           /* When the nav item is the selected section */
           &.is-active {border-bottom-color: $color-brand;}
         }
@@ -110,7 +102,8 @@
         /* Highlight parent item (`li`) for when hover drop downs are in view and apply link hover/focus/active states */
         &:hover > a,
         > a:hover,
-        > a:focus {color: $color-link-hover;}
+        > a:focus,
+        > a.is-active {color: $color-dark-txt;}
       }
     }
 
@@ -133,8 +126,12 @@
 /* Extend: dark color */
 .nav-contextual--dark {
 
-  /* Highlight parent item (`li`) for when hover drop downs are in view and apply link hover/focus/active states */
+  /* Items */
   .nav-contextual__list > li  {
+    /* Links */
+    a {color: $color-grey-4;}
+
+    /* Highlight parent item (`li`) for when hover drop downs are in view and apply link hover/focus/active states */
     &:hover > a,
     > a:hover,
     > a:focus,

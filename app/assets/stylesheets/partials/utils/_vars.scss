@@ -199,7 +199,7 @@ $color-brand: #da291c !default;
 $color-base-txt: #333 !default;
 
 /* Light text color */
-$color-light-txt: #777 !default;
+$color-light-txt: #686868 !default;
 
 /* Medium text color */
 $color-med-txt: #42444d !default;
@@ -213,7 +213,7 @@ $color-off-white: #f2f2f2 !default;
 /* CTA's */
 $color-cta-green: #52c884 !default;
 
-$color-cta-blue: #3498db !default;
+$color-cta-blue: #256e9e !default;
 
 /* Link colors */
 $color-link: $color-cta-blue !default;
@@ -224,13 +224,15 @@ $color-link-visited: lighten($color-link-hover, 15%) !default;
 
 /* --Greys-- */
 /*
-	Note: not the best names but best we can do for now.
+	Note: not the best names but best we can do for now, will fix up: https://jira.mywestfield.com/browse/WSF-5999.
 */
 $color-grey-1: #cdcdcd !default;
 
 $color-grey-2: #dfdfdf !default;
 
 $color-grey-3: #e8e8e8 !default;
+
+$color-grey-4: #b2b2b2 !default;
 
 /* --Feedback-- */
 

@@ -51,7 +51,7 @@ class CannedSearch < Hashie::Mash
     when /[a-z]+\/info/
       "info"
     when /[a-z]+\/notices/
-      "notices"
+      "info"
     when /[a-z]+\/services/
       "service"
     end

@@ -88,7 +88,10 @@ describe CannedSearch do
       "/bondijunction/products" => "View collection",
       "/bondijunction/stores/1001-optical/21256" => "View store details",
       "/bondijunction/hours" => "View shopping hours",
-      "/bondijunction/info" => "View details"
+      "/bondijunction/info" => "View details",
+      "/bondijunction/notices" => "View details",
+      "/bondijunction/service" => "View details",
+      "/bondijunction/random_url" => "View details"
     }
 
     routes_and_tag_lines.each do |url,tag_line|

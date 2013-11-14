@@ -2,7 +2,18 @@ class StyleguidesController < ApplicationController
   layout "styleguide"
   helper_method :styleguide
 
+  def index
+    meta.push(
+      page_title:"Style guide",
+      description: ""
+    )
+  end
+
   def show
+    meta.push(
+      page_title:"",
+      description: ""
+    )
     render template: "styleguides/#{params[:id]}"
   end
 

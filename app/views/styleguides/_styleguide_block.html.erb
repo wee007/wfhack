@@ -2,32 +2,31 @@
   <div class="sg-h2"><%= section.section %> <code><%= section.filename %></code></div>
 
   <% unless section.description.blank? %>
-    <div class="sg-note">
-      <p><%= section.description %></p>
-    </div>
+    <p><%= section.description %></p>
   <% end %>
 
   <% if section.modifiers.any? %>
-  <table class="sg-table" caption="<%= section.section %> modifier classes">
-    <thead>
-      <tr>
-        <th class="sg-table__class">Modifier Classes</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% section.modifiers.each do |modifier| %>
+    <table class="sg-table">
+      <caption class="hide-visually"><%= section.section %> modifier classes</caption>
+      <thead>
         <tr>
-          <td>
-            <code><%= modifier.name %></code>
-          </td>
-          <td>
-            <%= modifier.description %>
-          </td>
+          <th class="sg-table__class">Modifier Classes</th>
+          <th>Description</th>
         </tr>
-      <% end %>
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+        <% section.modifiers.each do |modifier| %>
+          <tr>
+            <td>
+              <code><%= modifier.name %></code>
+            </td>
+            <td>
+              <%= modifier.description %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
   <% end %>
 
   <div class="sg-example sg-modifier">

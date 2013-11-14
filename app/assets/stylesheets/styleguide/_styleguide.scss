@@ -1,0 +1,275 @@
+
+/* ======================================================================================
+   @LAYOUT
+   ====================================================================================== */
+
+/* [HEADER]
+-------------------------------------------------------*/
+.sg-header {
+  @include to-rem(margin-bottom, $spacing-base);
+
+  /* Style guide heading */
+  h1 {
+    display: inline-block;
+    @include to-rem(margin, 5 0 0 5);
+    @include font-size(22, 1.2);
+    text-transform: uppercase;
+  }
+
+  /* Menu (hamburger) toggle button */
+  .btn--menu {
+    @include to-rem(width, 42);
+    @include to-rem(height, 38);
+
+    @include respond-min(770) {
+      display: none;
+    }
+  }
+}
+
+/* Main nav container */
+.sg-header__primary {
+  background-color: $color-txt-dark;
+
+  .container {
+    width: 100%;
+
+    @include respond-min(770) {
+      width: $page-container-width;
+    }
+  }
+
+  /* Main nav */
+  .horiz-list {
+    float: none;
+    display: none;
+    border-width: 1px 0;
+    @include to-rem(max-height, 200);
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+
+   /* Show the drop down for 'Angular Toggle Visibility Directive' */
+    &.is-active {display: block;}
+
+    @include respond-min(770) {
+      display: table;
+      width: 100%;
+      border-width: 0 1px;
+    }
+
+    &,
+    li {
+      border-style: solid;
+      border-color: $color-txt-base;
+    }
+
+    /* Nav items */
+    li {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      border-width: 1px 0 0;
+
+      &:first-child {border: 0;}
+
+      @include respond-min(770) {
+        display: table-cell;
+        vertical-align: middle;
+        width: auto;
+        text-align: center;
+        border-width: 0 0 0 1px;
+      }
+    }
+
+      a {
+        display: block;
+        @include to-rem(padding, $spacing-third $spacing-half);
+
+        &:hover,
+        &:focus {color: #fff;}
+      }
+  }
+}
+
+/* [CONTENT WRAPPER]
+-------------------------------------------------------*/
+.sg-content-wrapper .container {
+  @include to-rem(margin-bottom, $spacing-dbl);
+  @extend %clear-fix;
+}
+
+/* [MAIN]
+-------------------------------------------------------*/
+.sg-main {
+  @include respond-min(770) {
+    display: table-cell;
+    width: 10000px;
+  }
+}
+
+/* [ASIDE]
+-------------------------------------------------------*/
+.sg-aside {
+  @include respond-min(770) {
+    float: left;
+    width: 300px;
+    max-height: 200px;
+    @include to-rem(padding-right, $spacing-dbl);
+
+    @include respond-min(770) {
+      max-height: none;
+    }
+  }
+
+  /* Nav */
+  ul {
+    overflow-y: auto;
+    max-height: 190px;
+    @include to-rem(padding, $spacing-half);
+    @include to-rem(margin-bottom, $spacing-base);
+    background: #42444d;
+
+    @include respond-min(770) {
+      max-height: none;
+    }
+  }
+
+    li {
+      margin-top: 2px;
+      /* TODO: update color variable once the variable change has gone in */
+      color: #073642;
+
+      &:first-child {margin: 0;}
+
+        /* Links */
+        span,
+        a {
+          display: block;
+          padding: 3px 6px;
+        }
+
+        /* TODO: update color variable once the variable change has gone in */
+        a {
+          color: #b2b2b2;
+
+          &:before {
+            content: "⇢";
+            display: inline-block;
+            font: normal 16px/.7 "Arial Unicode MS Regular", "Arial Unicode MS", Arial, Helvetica, sans-serif;
+            vertical-align: text-top;
+            margin-right: 6px;
+          }
+
+          &:hover,
+          &.active {color: #fff;}
+        }
+    }
+}
+
+/* ======================================================================================
+   @HEADINGS
+   ====================================================================================== */
+.sg-h1 {
+  font-family: $font-family-opensans;
+  @include to-rem(margin-bottom, $spacing-half);
+  @include font-size(30);}
+
+.sg-h2 {
+  @include to-rem(margin-bottom, $spacing-half);
+  @include font-size($font-size-xlrg);
+  color: $color-txt-light;
+  font-family: $font-family-opensans;
+
+  /* File name */
+  code {@include font-size($font-size-lrg);}
+}
+
+.sg-h3 {
+  font-weight: bold;
+  @include to-rem(margin-bottom, $spacing-half);
+}
+
+/* ======================================================================================
+   @EVERYTHING ELSE
+   ====================================================================================== */
+
+/* [SECTION]
+-------------------------------------------------------*/
+.sg-section {@include to-rem(margin-bottom, $spacing-dbl);}
+
+/* [NOTE]
+-------------------------------------------------------*/
+.sg-note {
+  @include to-rem(padding, $spacing-half);
+  background-color: #fff;
+  box-shadow: $box-shadow-heavy;
+  @extend %mrg-base;
+
+  @include respond-min($non-palm) {
+    @include to-rem(padding, $spacing-base);
+  }
+}
+
+/* [EXAMPLE]
+-------------------------------------------------------*/
+.sg-example {
+  margin-bottom: 25px;
+}
+
+/* [MODIFIER]
+-------------------------------------------------------*/
+.sg-modifier {
+  position: relative;
+  padding-top: 35px;
+  border-top: 1px solid $color-grey-med-1;
+}
+
+  .sg-modifier__name {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 2px 5px;
+    background-color: $color-green;
+    color: #fff;
+  }
+
+/* [CODE]
+-------------------------------------------------------*/
+.sg-code-block {
+  padding: 1px 6px;
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  word-wrap: break-word !important;
+  -ms-word-break: break-all !important;
+  word-break: break-all !important;
+  /* Non standard for webkit */
+  word-break: break-word !important;
+}
+
+/* Override style from prism.css. This is to stop the main content area from getting too wide */
+code[class*="language-"], pre[class*="language-"] {
+  white-space: pre-wrap;
+}
+
+
+/* [TABLE]
+-------------------------------------------------------*/
+.sg-table {
+  th,
+  td {padding: 10px 20px;}
+
+  /* Cells */
+  th,
+  td {
+    border: 1px solid $color-grey-med-3;
+
+    /* No borders for empty cells */
+    &:empty {border: 0;}
+  }
+
+  /* Thicker border for the last row in the `thead` */
+  thead tr:last-child th {border-bottom-width: 2px;}
+}
+
+  .sg-table__class {width: 40%;}

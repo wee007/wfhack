@@ -1,73 +1,92 @@
 <% content_for :title, "Home" %>
-<div class="sg-note sg-note--outdent">
+<div class="sg-note">
   <p>The style guide tries to cover as many of the styles and elements the project uses. If you think there's anything missing please <a href="mailto:cpearce@au.westfield.com">let me know</a>.</p>
-  <p><span class="pt-sans-narrow-bold">Note:</span> the style guide's base styles are that of the project it's being used for however they're specific style guide styles being used to provide clear separation from the project's base styles, these custom styles are being used for the page headings (4 levels) and any style guide specific explanatory text like what you're reading now. And of course the style guide header and the 'Sections' menu are using custom styles. All these custom styles are using 1 of the 4 typefaces from the <a href="http://www.fontsquirrel.com/fonts/PT-Sans" rel="external">PT Sans font family</a>.</p>
 </div>
 
-<div class="sg-h1">Sections</div>
-
 <!-- Templates and Pages -->
-<div class="sg-h3 sg-mrg-off--top sg-mrg-half"><a href="templates-pages.html">Templates &amp; Pages</a></div>
-<div class="sg-txt">Templates are the master layouts for all the pages in the website, think of them as the scaffolding for the entire website.<br>Pages sit inside templates e.g. "About Us" page.</div>
+<div class="sg-section">
+  <div class="sg-h2"><a href="templates-pages.html">Templates &amp; Pages</a></div>
+  <p>Templates are the master layouts for all the pages in the website, think of them as the scaffolding for the entire website.<br>Pages sit inside templates e.g. "About Us" page.</p>
+</div>
 <!-- //Templates and Pages -->
 
 <!-- Default Element Styles -->
-<div class="sg-h3 sg-mrg-half">Default Element Styles</div>
-<div class="sg-txt sg-mrg-half">All default elements e.g. paragraphs, links, headings, images, etc. are given base styles that define how the element should look in all occurrences on the page. Base styles include setting heading sizes, default link styles, default font styles, etc.</div>
-<ul class="list pt-sans-narrow-reg lrg">
-    <li><a href="default-elements(typography).html">Typography</a></li>
-  <li><a href="default-elements(tables).html">Tables</a></li>
-    <li><a href="default-elements(embedded-content).html">Embedded Content</a></li>
-    <li><a href="default-elements(form-inputs-buttons).html">Form Inputs &amp; Buttons</a></li>
-</ul>
+<div class="sg-section">
+  <div class="sg-h2">Default Element Styles</div>
+  <p>All default elements e.g. paragraphs, links, headings, images, etc. are given base styles that define how the element should look in all occurrences on the page. Base styles include setting heading sizes, default link styles, default font styles, etc.</p>
+  <ul class="list pt-sans-narrow-reg lrg">
+      <li><a href="default-elements(typography).html">Typography</a></li>
+    <li><a href="default-elements(tables).html">Tables</a></li>
+      <li><a href="default-elements(embedded-content).html">Embedded Content</a></li>
+      <li><a href="default-elements(form-inputs-buttons).html">Form Inputs &amp; Buttons</a></li>
+  </ul>
+</div>
 <!-- //Default Element Styles -->
 
 <!-- Utilities -->
-<div class="sg-h3 sg-mrg-half"><a href="utilities.html">Utilities</a></div>
-<div class="sg-txt sg-mrg-half">Utilities are a collection of very useful CSS rule sets, their main purpose is to prevent styles from being repeated throughout a style sheet i.e. keep things <abbr title="Don't repeat yourself">DRY</abbr>. They're similar to <a href="helpers.html">Helpers</a> with the main differences being; they're not declared via a class rather all selectors using a utility are tethered together i.e. grouped selectors and they should always be used i.e. the first resort not the last like 'Helpers'. Utilities are handled via <a href="http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#placeholder_selectors_">Sass placeholder selectors</a>.</div>
+<div class="sg-section">
+  <div class="sg-h2 sg-mrg-half"><a href="utilities.html">Utilities</a></div>
+  <p>Utilities are a collection of very useful CSS rule sets, their main purpose is to prevent styles from being repeated throughout a style sheet i.e. keep things <abbr title="Don't repeat yourself">DRY</abbr>. They're similar to <a href="helpers.html">Helpers</a> with the main differences being; they're not declared via a class rather all selectors using a utility are tethered together i.e. grouped selectors and they should always be used i.e. the first resort not the last like 'Helpers'. Utilities are handled via <a href="http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#placeholder_selectors_">Sass placeholder selectors</a>.</p>
+</div>
 <!-- //Utilities -->
 
 <!-- Abstractions -->
-<div class="sg-h3 sg-mrg-half"><a href="abstractions.html">Abstractions</a></div>
-<div class="sg-txt sg-mrg-half">An abstraction is a CSS methodology that basically removes a pattern from a specific idea and makes a more generic idea out of it e.g. make a list render horizontally. They exist to avoid writing the same similar patterns over and over, instead create a single more generic representation of those patterns and reuse that instead.</div>
+<div class="sg-section">
+  <div class="sg-h2"><a href="abstractions.html">Abstractions</a></div>
+  <p>An abstraction is a CSS methodology that basically removes a pattern from a specific idea and makes a more generic idea out of it e.g. make a list render horizontally. They exist to avoid writing the same similar patterns over and over, instead create a single more generic representation of those patterns and reuse that instead.</p>
+</div>
 <!-- //Abstractions -->
 
 <!-- Modules -->
-<div class="sg-h3 sg-mrg-half"><a href="modules.html">Modules</a></div>
-<div class="sg-txt sg-mrg-half">Modules are the discrete components of the page e.g. carousel, tabs, pagination, etc. This is the meat of the page.</div>
-<ul class="list pt-sans-narrow-reg lrg">
-    <li><a href="modules(feedback).html">Feedback</a></li>
-  <li><a href="modules(icon).html">Icon</a></li>
-  <li><a href="modules(widgets).html">Widgets</a></li>
-</ul>
+<div class="sg-section">
+  <div class="sg-h2"><a href="modules.html">Modules</a></div>
+  <p>Modules are the discrete components of the page e.g. carousel, tabs, pagination, etc. This is the meat of the page.</p>
+  <ul class="list pt-sans-narrow-reg lrg">
+      <li><a href="modules(feedback).html">Feedback</a></li>
+    <li><a href="modules(icon).html">Icon</a></li>
+    <li><a href="modules(widgets).html">Widgets</a></li>
+  </ul>
+</div>
 <!-- //Modules -->
 
 <!-- UI Interactions -->
-<div class="sg-h3 sg-mrg-half"><a href="ui-interactions.html">UI Interactions</a></div>
-<div class="sg-txt">UI Interactions are common user interface interactions which use jQuery to function e.g. expand/collapse some content, remove a notification, etc.</div>
+<div class="sg-section">
+  <div class="sg-h2"><a href="ui-interactions.html">UI Interactions</a></div>
+  <p>UI Interactions are common user interface interactions which use jQuery to function e.g. expand/collapse some content, remove a notification, etc.</p>
+</div>
 <!-- //UI Interactions -->
 
 <!-- Form Patterns -->
-<div class="sg-h3 sg-mrg-half"><a href="form-patterns.html">Form Patterns</a></div>
-<div class="sg-txt">Each form especially complex forms are made up of different form elements e.g. checkboxes, radio inputs, file uploads, etc. and these form elements can have different layouts. The form patterns page shows all the available patterns 'out of the box' including validation.</div>
+<div class="sg-section">
+  <div class="sg-h2"><a href="form-patterns.html">Form Patterns</a></div>
+  <p>Each form especially complex forms are made up of different form elements e.g. checkboxes, radio inputs, file uploads, etc. and these form elements can have different layouts. The form patterns page shows all the available patterns 'out of the box' including validation.</p>
+</div>
 <!-- //Form Patterns -->
 
 <!-- Buttons -->
-<div class="sg-h3 sg-mrg-half"><a href="buttons.html">Buttons</a></div>
-<div class="sg-txt">All of the different button styles.</div>
+<div class="sg-section">
+  <div class="sg-h2"><a href="buttons.html">Buttons</a></div>
+  <p>All of the different button styles.</p>
+</div>
 <!-- //Buttons -->
 
 <!-- Helpers -->
-<div class="sg-h3 sg-mrg-half"><a href="helpers.html">Helpers</a></div>
-<div class="sg-txt">Helpers are a bunch of classes to apply very common styles to elements and modules e.g. make text right aligned, apply the base bottom margin to an element, etc. They're to be used arbitrarily i.e. only if an element/module doesn't already have a class to which you could apply this styling.</div>
+<div class="sg-section">
+  <div class="sg-h2"><a href="helpers.html">Helpers</a></div>
+  <p>Helpers are a bunch of classes to apply very common styles to elements and modules e.g. make text right aligned, apply the base bottom margin to an element, etc. They're to be used arbitrarily i.e. only if an element/module doesn't already have a class to which you could apply this styling.</p>
+</div>
 <!-- //Helpers -->
 
 <!-- Grid -->
-<div class="sg-h3 sg-mrg-half"><a href="grid.html">Grid</a></div>
-<div class="sg-txt sg-mrg-half">A responsive grid used for the site structure and for any other layouts. The grid is fluid meaning it can easily resize itself to fit into different screen sizes and adjustments have been made using <a href="http://reference.sitepoint.com/css/mediaqueries" rel="external">CSS3 Media Queries</a> so the grid will fit nicely into smaller screen sizes.</div>
+<div class="sg-section">
+  <div class="sg-h2"><a href="grid.html">Grid</a></div>
+  <p>A responsive grid used for the site structure and for any other layouts. The grid is fluid meaning it can easily resize itself to fit into different screen sizes and adjustments have been made using <a href="http://reference.sitepoint.com/css/mediaqueries" rel="external">CSS3 Media Queries</a> so the grid will fit nicely into smaller screen sizes.</p>
+</div>
 <!-- //Grid -->
 
 <!-- Screen Sizes -->
-<div class="sg-h3 sg-mrg-half"><a href="screen-sizes.html">Screen Sizes</a></div>
-<div class="sg-txt sg-mrg-half">Here you can view how the site renders in different screen sizes e.g. a mobile device screen size. <span class="pt-sans-narrow-bold">Note:</span> to see a true representation of how the website looks on different devices then the site needs to be viewed on that device. <span class="pt-sans-narrow-bold">Credit:</span> <a href="http://bricss.net/post/16538278376/simple-responsive-design-test-page" rel="external">Simple responsive design test page</a>.</div>
+<div class="sg-section">
+  <div class="sg-h2"><a href="screen-sizes.html">Screen Sizes</a></div>
+  <p>Here you can view how the site renders in different screen sizes e.g. a mobile device screen size. <span class="pt-sans-narrow-bold">Note:</span> to see a true representation of how the website looks on different devices then the site needs to be viewed on that device. <span class="pt-sans-narrow-bold">Credit:</span> <a href="http://bricss.net/post/16538278376/simple-responsive-design-test-page" rel="external">Simple responsive design test page</a>.</p>
+</div>
 <!-- //Screen Sizes -->

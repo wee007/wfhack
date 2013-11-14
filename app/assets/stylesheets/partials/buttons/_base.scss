@@ -3,11 +3,17 @@
    ====================================================================================== */
 
 /*
-	Usage:
-		Basic button structural/reset styling that all buttons need, can only be extended from not used by itself.
+	Basic button structural/reset styling that all buttons need, can only be extended from not used by itself.
 
-	Demo:
-		Style Guide -> Buttons -> Base
+	.btn--full              - Make button span full width of parent
+	.btn--full-left         - Make button span full width of parent and align text to the left
+	.btn--sml								- Small button
+	.btn--lrg               - Large button
+	.btn--spacing           - Apply right spacing for adjacent buttons
+	.btn--pointer           - Position icon over to the far right of the button
+	.btn--pointer-alt       - Position icon to the far left of the button
+
+	Styleguide Base Button
 */
 
 /* Reset all the browser default styles */

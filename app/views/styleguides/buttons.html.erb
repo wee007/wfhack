@@ -1,18 +1,13 @@
----
-title: Buttons
----
-
-<div class="sg-h1">Buttons</div>
-<div class="sg-note sg-note--outdent">All of the different button styles.</div>
+<div class="sg-section">
+  <div class="sg-h1">Buttons</div>
+  <div class="sg-note"><p>All of the different button styles</p></div>
+</div>
 
 <!-- Base -->
-<div class="sg-h2">Base</div>
-<div class="sg-note">Basic button structural/reset styling that all buttons need, can only be extended from.</div>
-
-<p>
-    <input type="submit" value="Submit" class="btn">
-    <a href="#" class="btn">Submit (anchor)</a>
-</p>
+<%= styleguide_block 'Base Button' do %>
+<input type="submit" value="Submit" class="btn btn--main $modifier_class">
+<a href="#" class="btn $modifier_class">Submit (anchor)</a>
+<% end %>
 <!-- //Base -->
 
 <!-- Main -->

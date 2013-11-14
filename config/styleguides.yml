@@ -1,24 +1,8 @@
-- "Templates & Pages"
--
-  name: Default element styles
-  sections:
-    - Typography
-    - Tables
-    - Embedded content
-    - "Form inputs & buttons"
+- Default styles
 - Utilities
 - Abstractions
--
-  name: Modules
-  sections:
-    - hCard (Microformat)
-    - Sprite
-    - Pagination
-    - Pager
-    - Preloader
-    - Thumbnail grid
-- UI Interactions
-- Form Patterns
+- Modules
+- Form
 - Buttons
 - Helpers
 - Grid

@@ -3,11 +3,10 @@
    ====================================================================================== */
 
 /*
-  Usage:
-    Simply expands/collapses some content via jQuery.
+  Simply expands/collapses some content via jQuery.
+  This uses the `jquery.toggle-content.js`. You can specify the content of the the toggle content button by passing in value into the `btnTxtOpen` and `btnTxtClose` parameters.
 
-  Demo:
-    Style Guide -> Abstractions -> Toggle Content
+  Styleguide Toggle Content
 */
 
 .toggle-content {

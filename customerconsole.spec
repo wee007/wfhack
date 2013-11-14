@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.265
+Version:     0.1.266
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,10 @@ fi
 
 
 %changelog
+* Thu Nov 14 2013 ci <doperations@au.westfield.com> 0.1.266-1
+- Merge pull request #692 from mcinerney/master (pmcinerney@au.westfield.com)
+- more redirect fixes (pmcinerney@au.westfield.com)
+
 * Thu Nov 14 2013 ci <doperations@au.westfield.com> 0.1.265-1
 - undo temp debug logging locally (pmcinerney@au.westfield.com)
 - Fix redirects (pmcinerney@au.westfield.com)

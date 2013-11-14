@@ -17,7 +17,9 @@
         <%= @product.retail_chain_name %>
         <%- if @product.is_discounted -%>
           <em class="detail-view__meta__sale-price">
+            <span class="hide-visually">Old price: </span>
             <s><%= Money.new(@product.price).format%></s>
+            <span class="hide-visually">Current price: </span>
             <%= Money.new(@product.sale_price).format %>
           </em>
         <%- else -%>
@@ -223,19 +225,16 @@
           multipleKeyboard: true,
           slideshow: false,
           sync: '.flexslider--thumbs',
-          prevText: '<span class="hide-visually">Previous</span>',
-          nextText: '<span class="hide-visually">Next</span>',
+          prevText: '<span class="icon icon--arrow-left-big icon--flush-top" aria-hidden="true"></span><span class="hide-visually">Previous photo</span>',
+          nextText: '<span class="icon icon--arrow-right-big icon--flush-top" aria-hidden="true"></span><span class="hide-visually">Next photo</span>',
           // Do stuff when the slider loads the first slide
           start: function(slider) {
             // Add some ARIA
             slider.container.attr('role', 'listbox');
             slider.slides.attr({'role': 'option', 'aria-selected': 'false'});
             slider.slides.eq(slider.currentSlide).attr('aria-selected', 'true');
-            slider.controlNav.attr({'href' : '#', 'role' : 'button'});
+            slider.controlNav.attr({'href' : '#', 'role' : 'button'}).prepend('Show photo ');
             slider.directionNav.attr('role', 'button');
-            // Inject classes into prev/next buttons
-            $('.flexslider--lrg-img').find('.flex-prev').addClass('icon icon--arrow-left-big icon--flush-top'); // prev
-            $('.flexslider--lrg-img').find('.flex-next').addClass('icon icon--arrow-right-big icon--flush-top'); // next
           },
           // Do stuff asynchronously with each slider animation
           before: function(slider) {

@@ -17,7 +17,7 @@
 
 .drop-down-menu {
 
-  /* Trigger - apply more top/bottom padding than '.btn--main' */
+  /* Trigger - apply more top/bottom padding than `.btn--main` */
   .drop-down-menu__trigger {@include to-em(padding-top padding-bottom, $spacing-half+$spacing-micro);}
 
   /* 'Apply' button (used on multi-facet lists) */
@@ -84,6 +84,12 @@
       position: relative;
       text-align: center;
       color: $color-light-txt;
+
+      /* Header text */
+      h3 {
+        display: inline;
+        @include font-size($font-size-sml);
+      }
 
       /* Back button */
       .btn {
@@ -182,7 +188,7 @@
 
           /* Hover and focus states, need to increase the specificity so as to override hover/focus styles from any outer modules */
           .drop-down-menu &:hover,
-          .drop-down-menu &:focus {color: $color-link-hover;}
+          .drop-down-menu &:focus {color: $color-link;}
         }
       }
 
@@ -194,8 +200,8 @@
       }
     }
 
-    /* Alternative list */
-    .drop-down-menu__list-alt > li {
+    /* Alternative list, need to increase the specificity so as to override hover/focus styles from any outer modules */
+    .drop-down-menu .drop-down-menu__list-alt > li {
       @include to-rem(margin-top, $spacing-third);
 
       &:first-child {margin-top: 0;}
@@ -207,7 +213,7 @@
 
         /* Hover and focus states */
         &:hover,
-        &:focus {color: $color-link-hover;}
+        &:focus {color: $color-link;}
       }
     }
 

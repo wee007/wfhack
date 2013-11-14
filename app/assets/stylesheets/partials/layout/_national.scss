@@ -222,7 +222,6 @@
         }
 
     /* Hero image paths (see 'Image rotate' module) */
-
     .national__hero__1 {
       @include respond-max($palm) {
         background-image: cloudinary-url("heroes/national/national-hero-01-sml.jpg");
@@ -316,7 +315,7 @@
         }
 
           /* Centre name */
-          h3 {
+          .h1 {
             @include font-size(28);
             text-transform: uppercase;
 
@@ -345,7 +344,6 @@
       }
 
     /* Footer */
-
     .national__footer {
       text-align: center;
       @include font-size($font-size-milli);

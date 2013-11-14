@@ -11,7 +11,7 @@
 
 			<%# Menu toggle button for palm/small tablet devices %>
 			<button type="button" class="btn btn--menu js-disabled-hide" toggle-visibility="header-menu-toggle">
-				<span class="hide-visually">Sub menu, change Westfield centre, social follow &amp; legal links</span>
+				<span class="hide-visually">Show menu</span>
 				<span class="btn--menu__icon"></span>
 			</button>
 			<%# //Menu toggle button for palm/small tablet devices %>
@@ -22,7 +22,7 @@
 				<%# Centre selector %>
 				<div class="header-centre-select container">
 					<h1 class="header-centre-select__centre-name"><%= @centre.short_name %></h1>
-					<button type="button" class="header-centre-select__centre-name btn h1" toggle-visibility="nav-social-tertiary-container" aria-owns="nav-social-tertiary-container"><%= @centre.short_name %><span class="hide-visually"> (change Westfield centre)</span> <span class="icon icon--arrow-down-full" aria-hidden="true"></span></button>
+					<button type="button" class="header-centre-select__centre-name btn h1" toggle-visibility="nav-social-tertiary-container" aria-owns="nav-social-tertiary-container"><%= @centre.short_name %><span class="hide-visually"> (show menu)</span> <span class="icon icon--arrow-down-full" aria-hidden="true"></span></button>
 					<a href="/" target="_self" class="header-centre-select__link" rel="home">Change<span class="hide-visually"> centre</span><span class="icon icon--arrow-right icon--xlrg icon--flush-top" aria-hidden="true"></span></a>
 				</div>
 				<%# //Centre selector %>
@@ -139,7 +139,7 @@
 
 				<%# Search toggle btn %>
 				<button class="btn js-disabled-hide" type="button" toggle-visibility="site-search" aria-owns="site-search">
-					<span class="hide-visually">Site search</span>
+					<span class="hide-visually">Show site search</span>
 					<span class="icon icon--search icon--spacing icon--flush-top icon--kilo" aria-hidden="true"></span>
 				</button>
 				<%# //Search toggle btn %>

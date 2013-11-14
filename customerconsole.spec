@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.268
+Version:     0.1.269
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,30 @@ fi
 
 
 %changelog
+* Fri Nov 15 2013 ci <doperations@au.westfield.com> 0.1.269-1
+- Merge pull request #664 from cpearce/accessibility-audit-fixes
+  (ldewey@au.westfield.com)
+- Removing 'shopping' from button text to be consistent with main header
+  (CPearce@au.westfield.com)
+- Issue 12: insufficient colour contrast (CPearce@au.westfield.com)
+- Issue 20: filter menu functionality not clear (CPearce@au.westfield.com)
+- Simplifying and improving button text (CPearce@au.westfield.com)
+- Issue 17: label not precise (CPearce@au.westfield.com)
+- Issue 11: heading markup used for non-headings (CPearce@au.westfield.com)
+- Issue 10: CSS alone used to convey price status (CPearce@au.westfield.com)
+- Issue 9: unclear alternative text for gallery controls
+  (CPearce@au.westfield.com)
+- Changing 2 hex values in flexslider to use vars (CPearce@au.westfield.com)
+- Moving box-shadow style for flexslider pager to 'contain controls version'
+  (CPearce@au.westfield.com)
+- Issue 8: visually hidden image is not hidden from screen readers
+  (CPearce@au.westfield.com)
+- Apply UCS Private Use Area to all icon fonts (CPearce@au.westfield.com)
+- Issue 7: reserved character codes used for custom font characters
+  (CPearce@au.westfield.com)
+- Issue 2: no text alternative for custom font character
+  (CPearce@au.westfield.com)
+
 * Fri Nov 15 2013 ci <doperations@au.westfield.com> 0.1.268-1
 - Merge pull request #681 from cpearce/UI-polish (ldewey@au.westfield.com)
 - Merge pull request #687 from ldewey/redirection_wait_time

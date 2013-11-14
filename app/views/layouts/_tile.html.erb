@@ -5,13 +5,5 @@
   <% end %>
 
   <%= link_to yield, tile_url(@centre, result), target: "_self" %>
-  <div class="tile__controls">
-    <%= render "/shared/social_share",
-      url: tile_url(@centre, result),
-      twitter_title: result.meta.twitter_title,
-      email_body: result.meta.email_body,
-      title: result.meta.title,
-      image: result.meta.image
-    %>
-  </div>
+
 </article>

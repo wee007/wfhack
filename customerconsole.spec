@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.267
+Version:     0.1.268
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,23 @@ fi
 
 
 %changelog
+* Fri Nov 15 2013 ci <doperations@au.westfield.com> 0.1.268-1
+- Merge pull request #681 from cpearce/UI-polish (ldewey@au.westfield.com)
+- Merge pull request #687 from ldewey/redirection_wait_time
+  (ldewey@au.westfield.com)
+- Merge pull request #690 from ldewey/remove_social_media
+  (ldewey@au.westfield.com)
+- Merge pull request #689 from bschwarz/store-phone-numbers
+  (ldewey@au.westfield.com)
+- Move to a helper (ben@germanforblack.com)
+- Removed social shares on the tiles. (ldewey@au.westfield.com)
+- Get the phone number from either one of the stores (that has one) or the
+  retail chain (Closes #653) (ben@germanforblack.com)
+- Made redirection wait time 500ms (ldewey@au.westfield.com)
+- Review all vendor prefixes - WSF-6009 (CPearce@au.westfield.com)
+- Fix incorrectly closed 'Clear all' link for applied filters
+  (CPearce@au.westfield.com)
+
 * Thu Nov 14 2013 ci <doperations@au.westfield.com> 0.1.267-1
 - Merge pull request #693 from mcinerney/master (pmcinerney@au.westfield.com)
 - add NE flag to stop apache encoding the hashes/bookmark on certain redirects

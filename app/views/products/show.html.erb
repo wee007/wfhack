@@ -55,7 +55,7 @@
         <%# Contact store %>
         <div class="detail-view__divider island-sides islet-ends island--fill island--center">
           <span class="hide-fully--non-palm">
-            <%= phone_link ((@centre_stores.collect(&:phone_number) << @product.retail_chain.phone_number).compact.first), class: 'btn btn--full btn--main btn--main-alt2 btn--main-lrg' do |phone_number| %>
+            <%= phone_link store_phone_number(@centre_stores, @product.retail_chain), class: 'btn btn--full btn--main btn--main-alt2 btn--main-lrg' do |phone_number| %>
               <span class="icon icon--phone icon--xlrg icon--spacing-lrg icon--flush-top" aria-hidden="true"></span><strong>Call <%= @product.retail_chain_name %></strong>
             <% end %>
           </span>

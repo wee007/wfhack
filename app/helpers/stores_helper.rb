@@ -1,5 +1,9 @@
 module StoresHelper
 
+  def store_phone_number(stores, retailer)
+    (stores.collect(&:phone_number) << retailer.phone_number).compact.first
+  end
+
   def letters(data, current_letter, centre)
     data.collect do |letter, count|
       has_stores = count > 0

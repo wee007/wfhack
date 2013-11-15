@@ -93,7 +93,7 @@ class ProductsController < ApplicationController
 
 
   def redirection
-    @product = product = ProductService.fetch params[:id]
+    @product = ProductService.find params[:id]
 
     @cam_ref = @product.retail_chain.cam_ref
 

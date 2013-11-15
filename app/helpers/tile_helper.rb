@@ -9,7 +9,7 @@ module TileHelper
     when 'deal'
       centre_deal_url(centre, retailer_code: result.retailer_code, id: result)
     when 'canned_search'
-      begin    
+      begin
         u = URI(result.url)
         u = URI.join(root_url(:only_path => false), result.url) unless u.host
         u.to_s
@@ -24,7 +24,19 @@ module TileHelper
   end
 
   def tile(kind, data)
-    render partial: "/shared/tiles/#{kind}", layout: '/layouts/tile', locals: data
+    # TODO rethink this whole begin / rescue idea
+    begin
+      render partial: "/shared/tiles/#{kind}", layout: '/layouts/tile', locals: data
+    rescue => e # Log and contiune of a tile errors.
+      SplunkLogger::Logger.error \
+        "TileError",
+        "kind", kind,
+        "id", data[:result].to_param,
+        "error", e
+
+      return nil
+    end
+
   end
 
 end

@@ -39,4 +39,18 @@ describe TileHelper do
     end
   end
 
+  describe :tile do
+    let(:data) { {result: double(to_param: 100)} }
+
+    it 'should render a tile' do
+      helper.should_receive(:render).with partial: "/shared/tiles/product", layout: '/layouts/tile', locals: data
+      helper.tile 'product', data
+    end
+
+    it 'should raise' do
+      SplunkLogger::Logger.should_receive(:error)
+      helper.tile 'product', data
+    end
+  end
+
 end

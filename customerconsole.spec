@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.272
+Version:     0.1.273
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,16 @@ fi
 
 
 %changelog
+* Fri Nov 15 2013 ci <doperations@au.westfield.com> 0.1.273-1
+- Merge pull request #510 from bschwarz/enable-sitemap-access
+  (craigM.smith@au.westfield.com)
+- Generate the sitemap, then ping google & bing (ben@germanforblack.com)
+- Merge remote-tracking branch 'origin/master' into enable-sitemap-access
+  (ben@germanforblack.com)
+- Added a way to manage robots.txt for production & other environments
+  (ben@germanforblack.com)
+- Reenable sitemap route (ben@germanforblack.com)
+
 * Fri Nov 15 2013 ci <doperations@au.westfield.com> 0.1.272-1
 - Removed closing times as they're broken. (craigm.smith@au.westfield.com)
 

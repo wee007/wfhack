@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.273
+Version:     0.1.274
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,10 @@ fi
 
 
 %changelog
+* Fri Nov 15 2013 ci <doperations@au.westfield.com> 0.1.274-1
+- Revert "Merge pull request #510 from bschwarz/enable-sitemap-access"
+  (craigm.smith@au.westfield.com)
+
 * Fri Nov 15 2013 ci <doperations@au.westfield.com> 0.1.273-1
 - Merge pull request #510 from bschwarz/enable-sitemap-access
   (craigM.smith@au.westfield.com)

@@ -37,4 +37,15 @@ class ApplicationController < ActionController::Base
   end
   helper_method :meta
 
+  def in_parallel(requests)
+    responses = []
+    Service::API.in_parallel do
+      requests.each do |kind, options|
+        klass = "#{kind}_service".classify.constantize
+        responses << [klass, klass.fetch(options)]
+      end
+    end
+    responses.collect { |service, response| service.build response }
+  end
+
 end

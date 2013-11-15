@@ -3,16 +3,10 @@ class DealsController < ApplicationController
   layout 'detail_view', only: :show
 
   def index
-    centre, deals, campaigns = nil
-    Service::API.in_parallel do
-      centre = CentreService.fetch params[:centre_id]
-      deals = DealService.fetch deals_params
-      campaigns = CampaignService.fetch centre: params[:centre_id]
-    end
-
-    @centre = CentreService.build centre
-    @deals = DealService.build deals
-    @campaigns = CampaignService.build campaigns
+    @centre, @deals = in_parallel \
+      centre: params[:centre_id],
+      deal: deals_params,
+      campaign: {centre: params[:centre_id]}
 
     eager_load_stores
 
@@ -23,13 +17,9 @@ class DealsController < ApplicationController
   end
 
   def show
-    centre, deal = nil
-    Service::API.in_parallel do
-      centre = CentreService.fetch params[:centre_id]
-      deal = DealService.fetch params[:id]
-    end
-    @centre = CentreService.build centre
-    @deal = DealService.build deal
+    @centre, @deal = in_parallel \
+      centre: params[:centre_id],
+      deal: params[:id]
 
     store_service_id = @deal.deal_stores.find{|store| store.centre_id == params[:centre_id]}.try :store_service_id
 

@@ -118,8 +118,8 @@
 
     /* Alternative header */
     .drop-down-menu__hdr-alt {
-      display: block;
       @include font-size($font-size);
+      font-weight: bold;
       border-bottom: 1px solid $color-grey-1;
       @include to-rem(padding-bottom, $spacing-third);
       @include to-rem(margin-bottom, $spacing-third+$spacing-quarter);

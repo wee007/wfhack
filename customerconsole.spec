@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.275
+Version:     0.1.276
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,14 @@ fi
 
 
 %changelog
+* Mon Nov 18 2013 ci <doperations@au.westfield.com> 0.1.276-1
+- Merge pull request #700 from gcallister/SetTimeout (ldewey@au.westfield.com)
+- Merge pull request #703 from gcallister/Redirects-for-QLD
+  (ldewey@au.westfield.com)
+- Add redirects from national offers for ALL centres
+  (gcallister@au.westfield.com)
+- Reduce page delay time wait from 500ms to 100ms (gcallister@au.westfield.com)
+
 * Fri Nov 15 2013 ci <doperations@au.westfield.com> 0.1.275-1
 - #699: Temp fix for when store hour is not in map popup (fiona@fionachan.net)
 

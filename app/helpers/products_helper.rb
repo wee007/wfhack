@@ -18,7 +18,7 @@ module ProductsHelper
   private
 
   def centre_category
-    centre_products_category_url(params[:centre], params[:super_cat], params[:category], params.except(:centre, :super_cat, :category)) if !params[:category].nil? and !params[:centre].nil?
+    centre_products_category_url(params[:centre], params[:super_cat], params[:category], params.except(:centre, :super_cat, :category)) if !params[:super_cat].nil? and !params[:category].nil? and !params[:centre].nil?
   end
 
   def centre_super_cat
@@ -30,7 +30,7 @@ module ProductsHelper
   end
 
   def products_category
-    products_category_url(params[:super_cat], params[:category], params.except(:super_cat, :category)) if !params[:category].nil?
+    products_category_url(params[:super_cat], params[:category], params.except(:super_cat, :category)) if !params[:super_cat].nil? and !params[:category].nil?
   end
 
   def products_super_cat

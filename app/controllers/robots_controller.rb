@@ -22,7 +22,7 @@ class RobotsController < ApplicationController
   private
   def sitemap_index_url
     sitemap_filename = "sitemap.xml.gz"
-    sitemap_filename = Rails.env + sitemap_filename unless Rails.env == 'production'
+    sitemap_filename = "#{Rails.env}_#{sitemap_filename}" unless Rails.env == 'production'
     URI.parse("#{request.scheme}://#{Cloudinary::SHARED_CDN}/#{Cloudinary.config.cloud_name}/raw/upload/#{sitemap_filename}").to_s
   end
 

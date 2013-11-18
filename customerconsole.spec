@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.281
+Version:     0.1.282
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,10 @@ fi
 
 
 %changelog
+* Mon Nov 18 2013 ci <doperations@au.westfield.com> 0.1.282-1
+- Return an array (for broken systest data)  when no sub categories are
+  returned (ben@germanforblack.com)
+
 * Mon Nov 18 2013 ci <doperations@au.westfield.com> 0.1.281-1
 - Merge pull request #708 from bschwarz/canonical-patch
   (acohen@au.westfield.com)

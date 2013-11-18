@@ -110,7 +110,7 @@
           position: absolute;
           @include to-rem(top, 2);
           @include to-rem(right, 3);
-          color: $color-light-txt;
+          color: $color-txt-light;
 
           /* Static version */
           .map-micello--static & {display: none;}
@@ -197,7 +197,7 @@
             max-height: none !important;
             box-shadow: 0 0 10px #ccc,
                         0 1px 1px #b4b4b4;
-            border: 1px solid $color-grey-2;
+            border: 1px solid $color-grey-light-1;
           }
 
           /* Close button */
@@ -282,7 +282,7 @@
 
           /* Common border colour */
           #ui-zoom-in,
-          .ui_levels_floor {border-color: $color-grey-2 !important;}
+          .ui_levels_floor {border-color: $color-grey-light-1 !important;}
 
           /* Common transistion */
           #ui-zoom-in,
@@ -308,9 +308,9 @@
             #ui-zoom-out {
               font-weight: bold;
               font-size: 32px;
-              color: $color-light-txt !important;
+              color: $color-txt-light !important;
 
-              &:hover {background-color: $color-grey-3 !important;}
+              &:hover {background-color: $color-grey-light-2 !important;}
             }
         }
 
@@ -353,7 +353,7 @@
 
               /* Active state */
               .ui_levels_floor {
-                background-color: $color-dark-txt !important;
+                background-color: $color-grey-dark-1 !important;
                 color: #fff !important;
                 cursor: default;
               }
@@ -362,9 +362,9 @@
               .ui_levels_unselected {
                 background-color: #fff !important;
                 cursor: pointer;
-                color: $color-light-txt !important;
+                color: $color-txt-light !important;
 
-                &:hover {background-color: $color-grey-3 !important;}
+                &:hover {background-color: $color-grey-light-2 !important;}
               }
 
                 /* Floor numbers */
@@ -387,7 +387,7 @@
 
                 /* Replace Micello's arrow images with our own icon font arrows */
                 &:before {
-                  color: $color-dark-txt;
+                  color: $color-txt-dark;
                   @include font-size(18, 1);
                   text-align: center;
                   position: absolute;

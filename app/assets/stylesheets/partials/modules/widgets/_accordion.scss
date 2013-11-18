@@ -11,11 +11,11 @@
 */
 
 .accordion {
-	border: 1px solid $color-grey-1;
+	border: 1px solid $color-grey-med-3;
 
 	/* Accordion items */
 	> li {
-		border-top: 1px solid $color-grey-1;
+		border-top: 1px solid $color-grey-med-3;
 
 		/* Turn off border for first child */
 		&:first-child {border-top: 0;}
@@ -30,7 +30,7 @@
 	.accordion__header {
 		@include to-em(padding, $spacing-quarter $spacing-half);
 		@extend %transition-subtle;
-		background-color: $color-grey-1;
+		background-color: $color-grey-med-3;
 		font-size: 100%;
 		margin: 0;
 
@@ -41,7 +41,7 @@
 			/* Hover and focus states */
 			&:hover,
 			&:focus {
-				background: $color-dark-txt;
+				background: $color-grey-dark-1;
 				color: #fff;
 			}
 		}

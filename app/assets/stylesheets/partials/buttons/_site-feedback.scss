@@ -12,7 +12,7 @@
 
 .btn--site-feedback {
 	display: none;
-	background-color: $color-cta-blue;
+	background-color: $color-blue;
 	color: #fff;
 	@include to-rem(padding, $spacing-half);
 	position: fixed;

@@ -16,7 +16,7 @@
 .nav-contextual {
   position: relative;
   @extend %mrg-base;
-  border-bottom: 1px solid $color-grey-1;
+  border-bottom: 1px solid $color-grey-med-3;
 
   /* Indent any hovered drop downs so it aligns flush to the left edge of the anchor text */
   .drop-down-container--hover .drop-down {@include to-rem(left, $spacing-half);}
@@ -58,7 +58,7 @@
       top: 0;
       height: 100%;
       @include to-rem(padding-left, $spacing-dbl);
-      @include linear-gradient($from: rgba($color-grey-3, 0) 0%, $to: rgba($color-grey-3, 1) 50%, $dir: right, $dir-webkit: left);
+      @include linear-gradient($from: rgba($color-grey-light-2, 0) 0%, $to: rgba($color-grey-light-2, 1) 50%, $dir: right, $dir-webkit: left);
 
       /* Hide the overlay by default */
       display: none;
@@ -70,7 +70,7 @@
       &:before {
         top: 50%;
         @include translate(28%, -52%);
-        color: $color-light-txt;
+        color: $color-txt-light;
       }
     }
 
@@ -103,7 +103,7 @@
         &:hover > a,
         > a:hover,
         > a:focus,
-        > a.is-active {color: $color-dark-txt;}
+        > a.is-active {color: $color-txt-dark;}
       }
     }
 
@@ -116,7 +116,7 @@
         &:before {
           content: "";
           /* Same border color as `.nav-contextual` */
-          border-left: 1px solid $color-grey-1;
+          border-left: 1px solid $color-grey-med-3;
           /* Negative margin is needed to compensate for the `padding-left` so you won't get this gap on the anchor when it's highlighted */
           @include to-rem(margin-left, -$spacing-base);
           @include to-rem(padding-left, $spacing-base);
@@ -129,7 +129,7 @@
   /* Items */
   .nav-contextual__list > li  {
     /* Links */
-    a {color: $color-grey-4;}
+    a {color: $color-grey-med-2;}
 
     /* Highlight parent item (`li`) for when hover drop downs are in view and apply link hover/focus/active states */
     &:hover > a,
@@ -139,5 +139,5 @@
   }
 
   /* Gradient that fades out the right side of the links and the scrolling indicator */
-  .nav-contextual__clip__overlay {@include linear-gradient($from: rgba($color-med-txt, 0) 0%, $to: rgba($color-med-txt, 1) 50%, $dir: right, $dir-webkit: left)}
+  .nav-contextual__clip__overlay {@include linear-gradient($from: rgba($color-grey-dark-3, 0) 0%, $to: rgba($color-grey-dark-3, 1) 50%, $dir: right, $dir-webkit: left)}
 }

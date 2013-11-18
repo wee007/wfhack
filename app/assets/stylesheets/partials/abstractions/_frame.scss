@@ -14,13 +14,13 @@
 	background-color: #fff;
 	@include to-rem(padding, $spacing-quarter);
   border-radius: $border-radius;
-  border-bottom: 1px solid $color-grey-1;
+  border-bottom: 1px solid $color-grey-med-3;
 	box-shadow: $box-shadow;
 	display: block;
 
 	/* Old IE */
 	@include old-ie {
-		border: 1px solid $color-grey-1;
+		border: 1px solid $color-grey-med-3;
 		border-bottom-width: 2px;
 	}
 }

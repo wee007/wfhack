@@ -68,7 +68,7 @@
 
     /* Old IE */
     @include old-ie {
-      border: 1px solid $color-grey-3;
+      border: 1px solid $color-grey-light-2;
       border-bottom-width: 2px;
     }
 
@@ -83,7 +83,7 @@
     .drop-down-menu__hdr {
       position: relative;
       text-align: center;
-      color: $color-light-txt;
+      color: $color-txt-light;
 
       /* Header text */
       h3 {
@@ -111,7 +111,7 @@
 
     /* Sub header */
     .drop-down-menu__hdr-sub {
-      color: $color-light-txt;
+      color: $color-txt-light;
       @include to-rem(padding-top padding-bottom, $spacing-micro);
       @include to-rem(padding-left padding-right, $spacing-half);
     }
@@ -120,13 +120,13 @@
     .drop-down-menu__hdr-alt {
       @include font-size($font-size);
       font-weight: bold;
-      border-bottom: 1px solid $color-grey-1;
+      border-bottom: 1px solid $color-grey-med-3;
       @include to-rem(padding-bottom, $spacing-third);
       @include to-rem(margin-bottom, $spacing-third+$spacing-quarter);
     }
 
     /* Divider */
-    .drop-down-menu__divider {border-bottom: 1px solid $color-grey-1;}
+    .drop-down-menu__divider {border-bottom: 1px solid $color-grey-med-3;}
   }
 
     /* Drop down pointer arrow (inc. for 'Filters' and 'Header menu' module) */
@@ -183,7 +183,7 @@
 
         /* Apply 'Islet' padding and default colour to buttons */
         .btn--full {
-          color: $color-base-txt;
+          color: $color-txt-base;
           @include to-rem(padding, $spacing-half);
 
           /* Hover and focus states, need to increase the specificity so as to override hover/focus styles from any outer modules */
@@ -209,7 +209,7 @@
       /* Links */
       a {
         display: block;
-        color: $color-light-txt;
+        color: $color-txt-light;
 
         /* Hover and focus states */
         &:hover,

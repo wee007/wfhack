@@ -23,7 +23,7 @@ html {
 }
 
 body {
-	background-color: $color-grey-3;
+	background-color: $color-grey-light-2;
 	@include to-rem(padding-bottom, $spacing-base);
 }
 
@@ -34,5 +34,5 @@ input,
 select,
 textarea {
 	font-family: $font-family;
-	color: $color-base-txt;
+	color: $color-txt-base;
 }

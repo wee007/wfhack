@@ -71,7 +71,7 @@
   .map-micello {
     position: relative;
     z-index: 1;
-    background-color: $color-off-white;
+    background-color: $color-grey-light-3;
     @include to-rem(min-height, 270);
   }
 
@@ -106,7 +106,7 @@
   .detail-view__hdr {
     @include font-size(27, 1.2);
     @extend %mrg-base;
-    color: $color-dark-txt;
+    color: $color-txt-dark;
 
     /* Increase text size at this breakpoint */
     @include respond-min($non-palm) {
@@ -117,7 +117,7 @@
   .detail-view__hdr-sub {
     @include font-size(18, 1.5);
     @include to-rem(margin-bottom, $spacing-half);
-    color: $color-light-txt;
+    color: $color-txt-light;
 
     /* Increase text size at this breakpoint */
     @include respond-min($non-palm) {
@@ -133,7 +133,7 @@
   .detail-view__divider--palm,
   .detail-view__divider--non-palm {
     border-style: solid;
-    border-color: $color-grey-1;
+    border-color: $color-grey-med-3;
     border-bottom-width: 1px;
   }
 
@@ -160,7 +160,7 @@
         position: absolute;
         z-index: 2;
         top: 0;
-        background-color: $color-grey-1;
+        background-color: $color-grey-med-3;
         width: 1px;
         height: 100%;
 
@@ -197,7 +197,7 @@
   .detail-view__mrg-off {margin-bottom: 0;}
 
   /* Subtle text */
-  .detail-view__subtle-txt {color: $color-light-txt;}
+  .detail-view__subtle-txt {color: $color-txt-light;}
 
   /* Check store availability */
   .detail-view__check-avble {
@@ -234,7 +234,7 @@
 
       /* Remove full width and add right border at this breakpoint */
       @include respond-min($non-palm) {
-        border-right: 1px solid $color-grey-1;
+        border-right: 1px solid $color-grey-med-3;
         display: inline-block;
         width: auto;
       }
@@ -252,7 +252,7 @@
   .detail-view--deal {
 
     /* Faux columns applied to the grid */
-    .grid {background-color: $color-off-white;}
+    .grid {background-color: $color-grey-light-3;}
 
       .grid__item:first-child {background-color: #fff;}
 
@@ -270,7 +270,7 @@
 
       /* Old IE */
       @include old-ie {
-        border-top: 1px solid $color-grey-1;
+        border-top: 1px solid $color-grey-med-3;
       }
     }
   }
@@ -294,7 +294,7 @@
 
         /* Original price */
         s {
-          color: $color-dark-txt;
+          color: $color-txt-dark;
           text-decoration: line-through;
         }
       }
@@ -304,7 +304,7 @@
     .detail-view__product-not-avble {
       @include font-size($font-size);
       @include to-rem(height, 330);
-      background-color: $color-off-white;
+      background-color: $color-grey-light-3;
 
       /* Alternate heights at these breakpoints */
       @include respond-range($non-palm, 899) {
@@ -338,7 +338,7 @@
               }
             }
 
-            &:before {color: $color-grey-1;}
+            &:before {color: $color-grey-med-3;}
           }
 
           /* Map icon */
@@ -352,13 +352,13 @@
 
           /* Pin icon */
           .icon--pin:before {
-            text-shadow: -2px -2px 0 $color-off-white,
-                         3px 3px 0 $color-off-white;
+            text-shadow: -2px -2px 0 $color-grey-light-3,
+                         3px 3px 0 $color-grey-light-3;
             @include font-size(38, 1);
             @include to-rem(left, $spacing-half);
 
             /* IE 9 */
-            .ie-9 & {color: darken($color-grey-1, 5%);}
+            .ie-9 & {color: darken($color-grey-med-3, 5%);}
           }
     }
   }

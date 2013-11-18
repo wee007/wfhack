@@ -12,7 +12,7 @@
 */
 
 .divider {
-	border-bottom: 1px solid $color-grey-1;
+	border-bottom: 1px solid $color-grey-med-3;
 	@include to-rem(padding-bottom, $spacing-base);
 	@extend %mrg-base;
 }

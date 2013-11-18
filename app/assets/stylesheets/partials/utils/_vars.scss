@@ -192,49 +192,62 @@ $grid-pull: false !default;
 
 /* [COLOR PALETTE]
 -------------------------------------------------------*/
-/* Brand color */
+/* Brand colour */
 $color-brand: #da291c !default;
 
-/* Base text color */
-$color-base-txt: #333 !default;
+/* --Greys-- */
+/*
+	Note: we have 9 greys in 3 categories of shades: 'Dark', 'Medium' and 'Light'.
+*/
 
-/* Light text color */
-$color-light-txt: #686868 !default;
+/* Dark */
+$color-grey-dark-1: #242424 !default;
 
-/* Medium text color */
-$color-med-txt: #42444d !default;
+$color-grey-dark-2: #333 !default;
 
-/* Dark text color */
-$color-dark-txt: #242424 !default;
+$color-grey-dark-3: #42444d !default;
 
-/* Off white */
-$color-off-white: #f2f2f2 !default;
+/* Medium */
+$color-grey-med-1: #686868 !default;
 
-/* CTA's */
-$color-cta-green: #52c884 !default;
+$color-grey-med-2: #b2b2b2 !default;
 
-$color-cta-blue: #256e9e !default;
+$color-grey-med-3: #cdcdcd !default;
 
-/* Link colors */
-$color-link: $color-cta-blue !default;
+/* Light */
+$color-grey-light-1: #dfdfdf !default;
+
+$color-grey-light-2: #e8e8e8 !default;
+
+$color-grey-light-3: #f2f2f2 !default;
+
+/* --Other colours-- */
+
+/* Green */
+$color-green: #52c884 !default;
+
+/* Blue */
+$color-blue: #256e9e !default;
+
+/* --Text-- */
+
+/* Base */
+$color-txt-base: $color-grey-dark-2 !default;
+
+/* Dark */
+$color-txt-dark: $color-grey-dark-1 !default;
+
+/* Light */
+$color-txt-light: $color-grey-med-1 !default;
+
+/* --Link colours-- */
+$color-link: $color-blue !default;
 
 $color-link-hover: #52a7e0 !default;
 
 $color-link-visited: lighten($color-link-hover, 15%) !default;
 
-/* --Greys-- */
-/*
-	Note: not the best names but best we can do for now, will fix up: https://jira.mywestfield.com/browse/WSF-5999.
-*/
-$color-grey-1: #cdcdcd !default;
-
-$color-grey-2: #dfdfdf !default;
-
-$color-grey-3: #e8e8e8 !default;
-
-$color-grey-4: #b2b2b2 !default;
-
-/* --Feedback-- */
+/* --Feedback colours-- */
 
 /* Error */
 $color-feedback-error: #6f0f0f !default;
@@ -255,11 +268,6 @@ $color-feedback-warning-border: #f3de7c !default;
 $color-feedback-info: #154c69 !default;
 $color-feedback-info-light: #c7e4f3 !default;
 $color-feedback-info-border: #86c5e6 !default;
-
-/* --Misc-- */
-
-/* Attention (red) */
-$color-attention: #e80000 !default;
 
 /* [FLEXIBLE WIDTHS]
 -------------------------------------------------------*/

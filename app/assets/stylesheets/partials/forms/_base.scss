@@ -9,14 +9,14 @@ label {cursor: pointer;}
 .txt-input,
 textarea,
 .no-touch select {
-  color: $color-base-txt;
+  color: $color-txt-base;
   border-radius: $border-radius;
-  border: 1px solid $color-grey-1;
+  border: 1px solid $color-grey-med-3;
   background: #fff;
   @include prefix(transition, border 0.2s linear);
 
   /* Focus state */
-  &:focus {border-color: darken($color-grey-1, 12%);}
+  &:focus {border-color: darken($color-grey-med-3, 12%);}
 }
 
 /* Text inputs via the `.txt-input` class and `textarea` */
@@ -51,7 +51,7 @@ input[type="search"] {
 
 /* Placeholder */
 @include input-placeholder {
-	color: $color-light-txt;
+	color: $color-txt-light;
 	font-style: italic;
 }
 
@@ -95,7 +95,6 @@ textarea[disabled],
 .req-field {
 	font-family: Verdana, Geneva, sans-serif;
 	line-height: 1;
-	color: $color-attention;
 	cursor: help;
 }
 

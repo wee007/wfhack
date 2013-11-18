@@ -55,9 +55,6 @@
           @include font-size($font-size, 1.2);
           font-weight: bold;
           display: block;
-
-          /* TEMP FIX: To stop the logo from overlapping the "Store details" button when store hours aren't there. Remove when store hours is back in the popup */
-          &.is-store-logo {@include to-rem(margin-bottom, $spacing-base);}
         }
 
         /* Retailer logo and details (name + open till time) */

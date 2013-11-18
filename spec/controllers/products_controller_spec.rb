@@ -10,7 +10,8 @@ describe ProductsController do
       body: {
         details: [],
         retail_chain: {cam_ref: ""},
-        categories: [{super_category: {code: ""}}]
+        categories: [{super_category: {code: ""}}],
+        image_urls: []
       },
 
       facets: [

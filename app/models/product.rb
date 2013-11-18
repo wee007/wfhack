@@ -1,13 +1,7 @@
 class Product < Hashie::Mash
+
   def images
-    images = [default_image_url]
-    details.each do |detail|
-      detail.media.each do |media|
-        url = media
-        images.append url unless images.include?(url)
-      end
-    end
-    images
+    image_urls
   end
 
   def available_colours

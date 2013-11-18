@@ -14,9 +14,6 @@
 
   /* --Global rules-- */
 
-  /* No bottom spacing */
-  p {margin-bottom: 0;}
-
   /* Apply bottom spacing */
   .map-micello__mrg-base {@include to-rem(margin-bottom, $spacing-half);}
 

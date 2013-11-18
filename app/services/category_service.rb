@@ -73,7 +73,8 @@ class CategoryService
         unless category[:children].nil?
           category[:children].each do |c|
             children = ProductService.fetch(@search_params.merge({rows: 0, category: c.code}))
-            c[:children] = facet_from_fetch('sub_category', children)
+            sub_categories = facet_from_fetch('sub_category', children)
+            c[:children] = sub_categories.nil? ? [] : sub_categories
           end
         end
 

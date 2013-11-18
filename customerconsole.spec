@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.280
+Version:     0.1.281
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,12 @@ fi
 
 
 %changelog
+* Mon Nov 18 2013 ci <doperations@au.westfield.com> 0.1.281-1
+- Merge pull request #708 from bschwarz/canonical-patch
+  (acohen@au.westfield.com)
+- Add additional constraints to route selection so that routes will fall
+  through if params are missing (ben@germanforblack.com)
+
 * Mon Nov 18 2013 ci <doperations@au.westfield.com> 0.1.280-1
 - Merge pull request #706 from ldewey/master (ldewey@au.westfield.com)
 -  sitemap_filename update (ldewey@au.westfield.com)

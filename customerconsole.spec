@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.283
+Version:     0.1.284
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,15 @@ fi
 
 
 %changelog
+* Tue Nov 19 2013 ci <doperations@au.westfield.com> 0.1.284-1
+- Merge pull request #715 from ewee/master (ldewey@au.westfield.com)
+- Merge pull request #714 from ldewey/WSF-5833 (matt.wratt@trineo.co.nz)
+- Merge pull request #669 from mwratt/feature/lazy-load-stores-for-maps
+  (ldewey@au.westfield.com)
+- Add super category name to page title and description (ewee@au.westfield.com)
+- Product images now come from the "image_urls" field (ldewey@au.westfield.com)
+- lazy loads stores fixing vacant & multi level bugs (matt.wratt@trineo.co.nz)
+
 * Tue Nov 19 2013 ci <doperations@au.westfield.com> 0.1.283-1
 - Merge pull request #719 from ldewey/robots (ldewey@au.westfield.com)
 - robots.txt update (ldewey@au.westfield.com)

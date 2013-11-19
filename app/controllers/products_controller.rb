@@ -155,8 +155,8 @@ class ProductsController < ApplicationController
   end
 
   def filter_params
-    if params[:sub_category].present? || params[:category].present?
-      categories = params[:sub_category] || params[:category]
+    if params[:sub_category].present? || params[:category].present? || params[:super_cat].present?
+      categories = params[:sub_category] || params[:category] || params[:super_cat]
       [categories].flatten.map{ |param| param.titleize }.join(' and ')
     end
   end

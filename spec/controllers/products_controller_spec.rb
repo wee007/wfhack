@@ -86,6 +86,18 @@ describe ProductsController do
         get :index, centre_id: 'bondijunction', category: 'product'
       end
     end
+
+    context "when requesting for page title and meta description for given super category" do
+      it "adds page title and meta description to meta" do
+        meta_double = double :meta
+        meta_double.should_receive(:push).with({
+          page_title: "Buy Products online at Westfield Bondi Junction",
+          description: "Browse the latest Products online at Westfield Bondi Junction"
+        })
+        controller.stub(:meta).and_return(meta_double)
+        get :index, centre_id: 'bondijunction', super_cat: 'products'
+      end
+    end
   end
 
   describe "GET #show" do

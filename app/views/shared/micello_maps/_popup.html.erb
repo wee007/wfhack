@@ -8,10 +8,9 @@
         %>
       </div>
     <%% } %>
-    <%# TEMP FIX: Remove the check if logo is present and `is-store-logo` class name below when store hour goes back in %>
     <div class="map-micello__overlay__retailer__body">
-      <em class="map-micello__hdr txt-truncate <%% if(obj.logo) { %>is-store-logo<%% } %>"><%%- name %></em>
-      <!-- <p>Open till <time datetime="<%%- closing_time_24 %>"><%%- closing_time_12 %></time></p> -->
+      <em class="map-micello__hdr txt-truncate"><%%- name %></em>
+      <p>Open till <time datetime="<%%- closing_time_24 %>"><%%- closing_time_12 %></time></p>
     </div>
   </div>
   <%%  if(storefront_path) {  %>

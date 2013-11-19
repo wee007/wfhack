@@ -48,14 +48,11 @@
               <%# Store meta %>
               <dl class="storefront__details__meta">
 
-                <% # removed closing time until fixed %>
-                <% if false %>
-                  <%- if @store.closing_time.present? %>
-                    <dt class="hide-visually">Opening hours</dt>
-                    <dd class="storefront__details__meta__no-indent">Open till <time datetime="<%= @store.closing_time %>"><%= twelve_hour_format @store.closing_time %></time> tonight</dd>
-                  <%- else %>
-                    <dd class="storefront__details__meta__no-indent">Closed today</dd>
-                  <%- end %>
+                <%- if @store.closing_time.present? %>
+                  <dt class="hide-visually">Opening hours</dt>
+                  <dd class="storefront__details__meta__no-indent">Open till <time datetime="<%= @store.closing_time %>"><%= twelve_hour_format @store.closing_time %></time> tonight</dd>
+                <%- else %>
+                  <dd class="storefront__details__meta__no-indent">Closed today</dd>
                 <%- end %>
 
                 <%- if @store.phone_number.present? %>

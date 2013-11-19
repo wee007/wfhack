@@ -1,4 +1,4 @@
-class map.micello.Map extends map.micello.MapBase
+class map.micello.Map
 
   key: '357b70ed-2c4b-418b-ad09-cf83f9bfc7b4'
 
@@ -9,10 +9,51 @@ class map.micello.Map extends map.micello.MapBase
     $el.remove()
 
   constructor: (@options) ->
-    super
+    @deferreds =
+      stores: $.Deferred()
+      micello: $.Deferred()
+    @community = westfield.centre.micello_community
+    @map_centre = westfield.centre.micello_map_centre || {x: 0, y: 0}
+    if @community == undefined
+      throw 'Missing micello_community for centre'
     @offset = x: 0.5, y: 0.5
-    @targetStore = null
+    @fetchStores()
+    $.when(@deferreds.stores, @deferreds.micello).then(@ready)
+
+  westfieldCentreId: ->
+    westfield.centre.code
+
+  fetchStores: ->
+    $.getJSON("/api/store/master/stores?centre=#{@westfieldCentreId()}&per_page=9999", @processStores)
+
+  processStores: (stores) =>
     micello.maps.init(@key, @init)
+    _(stores).each (store) =>
+      if store._links.logo?.href?
+        store.logo = store._links.logo.href
+      closingTime = store.today_closing_time || westfield.centre.today_closing_time
+      store.closing_time_24 = closingTime
+      hour24 = parseInt(closingTime, 10)
+      hour12 = hour24 % 12
+      hour12 = 12 if hour12 == 0
+      minute = closingTime.replace(/\d+:/, '')
+      ampm = if hour24 < 12 || hour24 == 24 then 'am' else 'pm'
+      store.closing_time_12 = "#{hour12}:#{minute}#{ampm}"
+      store.storefront_path = "/#{@westfieldCentreId()}/stores/#{store.retailer_code}/#{store.id}"
+    @stores =
+      list: stores
+      idMap: _(stores).chain().map((store) -> [store.id, store]).object().value()
+      micelloMap: _(stores).chain().map((store) -> [store.micello_geom_id, store]).object().value()
+    @deferreds.stores.resolve()
+
+  processGeoms: (geoms) ->
+    @geoms =
+      list: geoms
+      idMap: _(geoms).chain().map((geom) -> [geom.id, geom]).object().value()
+      gidMap: _(geoms).chain().map((geom) -> geom.gid ||= geom.id; geom).groupBy('gid').value()
+      typeMap: _(geoms).groupBy('t')
+      stores: _(geoms).filter((geom) -> geom.t == 'Unit' || geom.t == 'Building')
+      icons: _(geoms).filter((geom) -> geom.lt == 2 || geom.t == 'Entrance')
 
   toggleKeyEvents: (enabled) ->
     @keyEventHandler ||= micello.maps.MapGUI.prototype.onKeyDown
@@ -39,9 +80,11 @@ class map.micello.Map extends map.micello.MapBase
         @event.zoom = 0
         @onViewChange(@event)
 
-  ready: ->
+  ready: =>
     @patchMicelloAPI()
-    super
+    @applyCustomIcons()
+    @applyWestfieldStoreNames()
+    @options.deferred.resolveWith(@)
 
   init: =>
     @initMap()
@@ -71,14 +114,34 @@ class map.micello.Map extends map.micello.MapBase
     canvas.MAP_FONT_MIN = "14px"
     canvas.MAP_FONT_MAX = "14px"
 
-  setTarget: ->
+  setTarget: (@storeId) ->
     @data.removeInlay("slct", true)
     @control.hideInfoWindow()
-    super
+    @
+
+  targetStore: ->
+    @stores.idMap[@storeId] if @hasTarget()
+
+  targetGeom: ->
+    @geoms.idMap[@targetStore().micello_geom_id] if @hasTarget()
+
+  targetGeomGroup: ->
+    @geomGroupForStore(@targetStore()) if @hasTarget()
+
+  storeForGeomGroup: (geoms) ->
+    _(geoms).chain().map((geom) => @stores.micelloMap[geom.id]).compact().first().value()
+
+  geomGroupForStore: (store) ->
+    storeGeom = @geoms.idMap[store.micello_geom_id]
+    geoms = @geoms.gidMap[storeGeom.gid] if storeGeom
+    geoms || []
+
+  hasTarget: ->
+    !!@storeId
 
   showLevel: ->
     if @hasTarget()
-      level = @data.getGeometryLevel(@target.gid)
+      level = @data.getGeometryLevel(@targetGeom().id)
       @data.setLevel(level) if level && level.id != @data.getCurrentLevel().cid
     @
 
@@ -87,16 +150,15 @@ class map.micello.Map extends map.micello.MapBase
 
   zoom: ->
     if @hasTarget()
-      @control.centerOnGeom(@target.geom, 100)
+      @control.centerOnGeom(@targetGeom(), 100)
     @
 
   detail: ->
-    if @hasTarget() && @target.geom
+    if @hasTarget() && @targetGeom()
       level = @data.getCurrentLevel()
-      geoms = @data.groupMap[@target.geom.gid] || [@target.geom]
-      for geom in geoms
+      for geom in @targetGeomGroup()
         if @data.getGeometryLevel(geom.id).id == level.id
-          @control.showInfoWindow(geom, @popupHtml(@target.store))
+          @control.showInfoWindow(geom, @popupHtml(@targetStore()))
       if @locked # we only bring the popup into the centre if it's the main content
         @zoom()
         @view.translate(0, $('#infoDiv').height() / 2)
@@ -104,13 +166,13 @@ class map.micello.Map extends map.micello.MapBase
 
   highlight: ->
     if @hasTarget()
-      @data.addInlay(id: @target.gid, t: 'Selected', anm: 'slct')
+      @data.addInlay(id: @targetGeom().gid, t: 'Selected', anm: 'slct')
     @
 
   centre: ->
     if @hasTarget()
       zoom = @view.getZoom()
-      @control.centerOnGeom(@target.geom)
+      @control.centerOnGeom(@targetGeom())
       @view.setZoom(zoom)
     @
 
@@ -136,13 +198,12 @@ class map.micello.Map extends map.micello.MapBase
     @popupContent(data)
 
   applyCustomIcons: ->
-    for geom in  _.pluck((@index.allByType('Entrance') || []).concat(@index.allIcons()), 'geom')
-      geom.lr ||= 'Entrance' if geom.t == 'Entrance'
+    for geom in @geoms.icons
       img = map.micello.customTheme.icons?[geom.lr]
       if img
         @data.addMarkerOverlay(
           id: geom.id
-          anm: 'entrance'
+          anm: 'icon'
           mr:
             src: img
             ox: map.micello.customTheme.icons?.offset.ox
@@ -151,33 +212,30 @@ class map.micello.Map extends map.micello.MapBase
         )
       @data.addInlay(id: geom.id, lt: 3, lr: '')
 
+  setGeomName: (geom, name) ->
+    geom.nm = geom.lr = name
+
   applyWestfieldStoreNames: ->
-    for item in (@index.allByType('Unit') || []).concat(@index.allByType('Building') || [])
-      # filter for gid in case the geom belongs to a group where the store could have another geoms id
-      item = _(@index.gid).chain().filter((obj) -> obj.geom?.gid == (item.geom.gid || item.geom.id) && !!obj.store).first().value() || item
-      item.geom.nm = item.geom.lr = 'New Store Opening Soon' unless !!item.store
-    for store in _(@index.store).toArray()
-      store.geom.nm = store.geom.lr = store.store.name if store.geom
+    for geoms in _(@geoms.gidMap).toArray()
+      unless @storeForGeomGroup(geoms)
+        @setGeomName(geom, 'New Store Opening Soon') for geom in geoms
+    for store in @stores.list
+      for geom in @geomGroupForStore(store)
+        @setGeomName(geom, store.name)
 
   onMapChanged: (event) =>
     @detail() # show the detail popup on the right level if it changed
     return if !event.comLoad || @geomsLoaded
     @geomsLoaded = true
-    for level in @data.community.d[0].l
-      @index.addGeoms(level.g)
-    @applyCustomIcons()
-    @applyWestfieldStoreNames()
-    @ready()
+    @processGeoms(_(@data.geomMap).pluck('g'))
+    @deferreds.micello.resolve()
 
   onClick: (mx, my, event) =>
     @setTarget()
     return if !event || !event.id
-    geoms = _(@data.getGeometryGroupList(event.id) || [event]).pluck('id')
-    store = _(westfield.stores).chain()
-      .filter((store) -> _(geoms).contains(parseInt(store.micello_geom_id, 10)))
-      .first().value()
-    return if !store
-    @setTarget(store.id).highlight().detail()
+    geom = @geoms.idMap[event.id]
+    store = @storeForGeomGroup(@geoms.gidMap[geom.gid])
+    @setTarget(store.id).highlight().detail() if store
 
   reset: ->
     @control.getMapView().resetView()

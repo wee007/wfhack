@@ -1,7 +1,7 @@
 class StoresController < ApplicationController
 
   def index
-    push_store_info_to_gon
+    push_centre_info_to_gon
 
     @grouped_stores = @stores.group_by { |store| store.first_letter }
     @letter = letter @grouped_stores
@@ -19,7 +19,7 @@ class StoresController < ApplicationController
 
   def show
     return respond_to_error(404) unless store.present?
-    push_store_info_to_gon
+    push_centre_info_to_gon
     meta.push(
       page_title: "#{store.name} at #{centre.name}",
       description: store.description.try(:truncate, 156)
@@ -54,8 +54,8 @@ protected
     @products = ProductService.build(products)
   end
 
-  def push_store_info_to_gon
-    gon.push centre: centre, stores: stores.map(&:to_gon)
+  def push_centre_info_to_gon
+    gon.push centre: centre
   end
 
   def letters(stores)

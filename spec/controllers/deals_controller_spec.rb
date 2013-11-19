@@ -75,10 +75,10 @@ describe DealsController do
       response.should render_template :show
     end
 
-    it "adds centre and store to gon" do
+    it "adds centre to gon" do
       gon = double :gon, meta: Meta.new
       controller.stub(:gon).and_return(gon)
-      gon.should_receive(:push).with(centre: {}, stores: [store])
+      gon.should_receive(:push).with(centre: {})
       get :show, id: 1, centre_id: 'bondijunction', retailer_code: 'for-tracking'
     end
 

@@ -12,7 +12,7 @@
 
 .tile {
   position: relative;
-  color: $color-base-txt;
+  color: $color-txt-base;
   @include font-size($font-size-sml, 1.5);
 
   /* So the social share controls can be seen when they overlap another tile */
@@ -33,7 +33,7 @@
 
   /* Global styles */
   a {
-    color: $color-light-txt;
+    color: $color-txt-light;
     display: block;
 
     /* Focus state for keyboard users */
@@ -88,8 +88,8 @@
     @include to-rem(left, -2);
     @include to-rem(top, 9);
     border-left: 2px solid $color-brand;
-    background-color: $color-off-white;
-    color: $color-light-txt;
+    background-color: $color-grey-light-3;
+    color: $color-txt-light;
     @include font-size($font-size-lrg, 1);
     @include to-rem(padding, 3 5);
 
@@ -101,7 +101,7 @@
 
   /* Header */
   .tile__meta__hdr {
-    color: $color-dark-txt;
+    color: $color-txt-dark;
     font-weight: bold;
     @include font-size($font-size-milli, 1.5);
 
@@ -113,7 +113,7 @@
 
   /* Description */
   .tile__meta__desc {
-    color: $color-light-txt;
+    color: $color-txt-light;
     @include font-size($font-size - 4, 1.5);
 
     /* Increse font size at this breakpoint */
@@ -124,7 +124,7 @@
 
     /* Price */
     .tile__meta__price {
-      color: $color-dark-txt;
+      color: $color-txt-dark;
       font-weight: bold;
 
       /* Make the font larger at this breakpoint, as we have the space */
@@ -146,13 +146,13 @@
     .controls__btn {
       @include to-rem(width, $spacing-base* 2);
       @include to-rem(height, $spacing-base* 2);
-      border: 1px solid $color-grey-2;
+      border: 1px solid $color-grey-light-1;
       border-radius: $border-radius;
       background-color: #fff;
 
       /* Remove the border radius when button is active */
       &.is-active {
-        border-color: $color-med-txt;
+        border-color: $color-grey-dark-3;
         border-bottom-right-radius: 0;
         border-bottom-left-radius: 0;
       }
@@ -194,7 +194,7 @@
       font-family: $font-family-lato;
       @include font-size($font-size, 1.5);
       font-weight: 300;
-      color: $color-dark-txt;
+      color: $color-txt-dark;
 
       /* Increase the font size at this breakpoint */
       @include respond-min($non-palm) {

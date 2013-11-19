@@ -23,9 +23,9 @@ $header-color-link-hover: $color-brand !default;
 	/* Set common colours */
 	a,
 	.icon:before,
-	.my-account-container__hdr.btn {color: $color-grey-4;}
+	.my-account-container__hdr.btn {color: $color-grey-med-2;}
 
-	.icon--arrow-down-full:before {color: $color-dark-txt;}
+	.icon--arrow-down-full:before {color: $color-txt-dark;}
 }
 
 /* --Extenders-- */
@@ -203,7 +203,7 @@ $header-color-link-hover: $color-brand !default;
 
 			/* Apply styles at this breakpoint */
 			@include respond-max($ipad-landscape - 1) {
-				background-color: $color-dark-txt;
+				background-color: $color-grey-dark-1;
 				color: #fff;
 
 				/* Create bottom spacing */
@@ -212,7 +212,7 @@ $header-color-link-hover: $color-brand !default;
 
 			/* Add border at this breakpoint range */
 			@include respond-range($non-palm, $ipad-landscape - 1) {
-				border: 1px solid $color-med-txt;
+				border: 1px solid $color-grey-dark-3;
 			}
 
 			/* Non JS users */
@@ -230,7 +230,7 @@ $header-color-link-hover: $color-brand !default;
 			.header &:before {
 				left: 4%;
 				margin-left: 3px;
-				color: $color-dark-txt;
+				color: $color-txt-dark;
 				text-shadow: none;
 
 				/* Change positioning at this breakpoint range */
@@ -256,7 +256,7 @@ $header-color-link-hover: $color-brand !default;
 
 				/* Generic navigation module */
 				.header-menu-toggle__nav {
-					background-color: $color-med-txt;
+					background-color: $color-grey-dark-3;
 
 					/* Turn off bg colour for sub nav at this breakpoint */
 					@include respond-min($ipad-landscape) {
@@ -272,7 +272,7 @@ $header-color-link-hover: $color-brand !default;
 
 					/* Items */
 					li {
-						border-bottom: 1px solid $color-dark-txt;
+						border-bottom: 1px solid $color-grey-dark-1;
 
 						/* Turn off borders and throw into horizontal mode for sub nav at this breakpoint */
 						@include respond-min($ipad-landscape) {
@@ -339,7 +339,7 @@ $header-color-link-hover: $color-brand !default;
 								.header--hero .nav-sub-container & {padding: 0;}
 
 								/* Change colour for 'Centre home page hero banner' my account nav drop down */
-								.header--hero .my-account-signedin & {color: $color-dark-txt;}
+								.header--hero .my-account-signedin & {color: $color-txt-dark;}
 							}
 
 							/* Reduce left/right padding at this breakpoint */
@@ -353,7 +353,7 @@ $header-color-link-hover: $color-brand !default;
 							.header &.is-active {
 								&,
 								.icon:before {
-									color: $color-grey-4;
+									color: $color-grey-med-2;
 
 									/* Change state color at this breakpoint */
 									@include respond-min($ipad-landscape) {
@@ -399,7 +399,7 @@ $header-color-link-hover: $color-brand !default;
 								/* Change colour at this breakpoint */
 								@include respond-min($ipad-landscape) {
 									.nav-sub-container & {
-										color: $color-light-txt;
+										color: $color-txt-light;
 										@include font-size(17, 1);
 
 										/* Bump up more for iOS/Android */
@@ -420,7 +420,7 @@ $header-color-link-hover: $color-brand !default;
 
 								/* Change colour for 'Centre home page hero banner' my account nav drop down at this breakpoint */
 								@include respond-min($non-palm) {
-									.header--hero .my-account-signedin & {color: $color-grey-4;}
+									.header--hero .my-account-signedin & {color: $color-grey-med-2;}
 								}
 							}
 				}
@@ -546,7 +546,7 @@ $header-color-link-hover: $color-brand !default;
 				/* Remove right margin and change text colour at this breakpoint */
 				@include respond-min($non-palm) {
 					margin-right: 0;
-					color: $color-dark-txt;
+					color: $color-txt-dark;
 
 					/* Centre home page hero banner */
 					.header--hero & {
@@ -605,7 +605,7 @@ $header-color-link-hover: $color-brand !default;
 					/* Down arrow icon (drop down indicator) */
 					.icon:before {
 						@include font-size(18, 1);
-						color: $color-dark-txt;
+						color: $color-txt-dark;
 						top: -2px;
 
 						/* Webkit */
@@ -656,7 +656,7 @@ $header-color-link-hover: $color-brand !default;
 					&:hover,
 					&:focus {
 						&,
-						.icon:before {color: $color-grey-4;}
+						.icon:before {color: $color-grey-med-2;}
 					}
 
 					/* Icon */
@@ -672,7 +672,7 @@ $header-color-link-hover: $color-brand !default;
 		/* --Social Follow and Tertiary nav-- */
 		.nav-social-tertiary-container {
 			@include to-rem(padding-top padding-bottom, $spacing-half+$spacing-quarter);
-			background-color: $color-dark-txt;
+			background-color: $color-grey-dark-1;
 
 			/* Remove `.drop-down` rules at this breakpoint */
 			@include respond-max($ipad-landscape - 1) {
@@ -694,7 +694,7 @@ $header-color-link-hover: $color-brand !default;
 			@include respond-min($ipad-landscape) {
 				@include to-rem(padding, 16);
 				@include to-rem(width, 214);
-				border: 1px solid $color-med-txt;
+				border: 1px solid $color-grey-dark-3;
 
 				/* Adjust top/left positioning (Note: need to increase the specificity) */
 				.js &.drop-down {
@@ -712,7 +712,7 @@ $header-color-link-hover: $color-brand !default;
 					@include to-rem(margin-top, 24 + 5);
 					@include to-rem(padding, 16);
 					@include to-rem(width, 214);
-					border: 1px solid $color-med-txt;
+					border: 1px solid $color-grey-dark-3;
 
 					/* Show the drop down */
     			&.is-active {display: block;}
@@ -745,8 +745,8 @@ $header-color-link-hover: $color-brand !default;
 			.header &:before {
 				display: none;
 				top: -10px;
-				color: $color-dark-txt;
-				text-shadow: 0 -1px $color-med-txt;
+				color: $color-txt-dark;
+				text-shadow: 0 -1px $color-grey-dark-3;
 
 				/* Show at this breakpoints */
 				@include respond-min($ipad-landscape) {
@@ -770,7 +770,7 @@ $header-color-link-hover: $color-brand !default;
 				/* 'Change centre' link */
 				.header-centre-select__link--alt {
 					display: none;
-					border-bottom: 1px solid $color-med-txt;
+					border-bottom: 1px solid $color-grey-dark-3;
 					@include to-rem(padding, 16);
 					@include to-rem(padding-top padding-bottom, 8);
 					@include to-rem(margin, -16);
@@ -784,7 +784,7 @@ $header-color-link-hover: $color-brand !default;
 					&:hover,
 					&:focus {
 						&,
-						.icon:before {color: $color-grey-4;}
+						.icon:before {color: $color-grey-med-2;}
 					}
 
 					/* Show at these breakpoints */
@@ -872,7 +872,7 @@ $header-color-link-hover: $color-brand !default;
 					/* Hover and focus states */
 					a:hover,
 					a:focus {
-						.icon:before {color: $color-grey-4;}
+						.icon:before {color: $color-grey-med-2;}
 					}
 			}
 
@@ -890,11 +890,11 @@ $header-color-link-hover: $color-brand !default;
 				.nav-site-feedback button {
 					display: block;
 					@include font-size($font-size-milli);
-					color: $color-grey-4;
+					color: $color-grey-med-2;
 
 					/* Hover and focus states */
 					&:hover,
-					&:focus {color: $color-grey-2;}
+					&:focus {color: $color-grey-light-1;}
 				}
 
 				/* Site feedback button */
@@ -948,7 +948,7 @@ $header-color-link-hover: $color-brand !default;
 
 				/* Apply link colours */
 				.header & {
-					color: $color-light-txt;
+					color: $color-txt-light;
 
 					/* Hover and focus states */
 					&:hover,
@@ -1020,7 +1020,7 @@ $header-color-link-hover: $color-brand !default;
 
 			/* Search icon */
 			.icon--search:before {
-				color: $color-light-txt;
+				color: $color-txt-light;
 
 				/* IE 9/10 fixes */
 				@include ie-10-up {
@@ -1041,7 +1041,7 @@ $header-color-link-hover: $color-brand !default;
 		background-repeat: no-repeat;
 		background-position: 50% 50%;
 		background-size: cover;
-		background-color: $color-dark-txt;
+		background-color: $color-grey-dark-1;
 		position: relative;
 		z-index: 1;
 		display: none;
@@ -1124,7 +1124,7 @@ $header-color-link-hover: $color-brand !default;
 
 	/* --Header primary-- */
 	.header__primary {
-		background-color: $color-dark-txt;
+		background-color: $color-grey-dark-1;
 		position: relative;
 		z-index: 1;
 
@@ -1153,7 +1153,7 @@ $header-color-link-hover: $color-brand !default;
 			height: 100%;
 
 			/* Global rules */
-			.icon:before {color: $color-light-txt;}
+			.icon:before {color: $color-txt-light;}
 
 			/* Inner container */
 			.container {
@@ -1163,7 +1163,7 @@ $header-color-link-hover: $color-brand !default;
 
 			/* Styles at this breakpoint */
 			@include respond-max($palm) {
-				background-color: $color-dark-txt;
+				background-color: $color-grey-dark-1;
 
 				/* Centre home page hero banner */
 				.header--hero & {
@@ -1237,25 +1237,25 @@ $header-color-link-hover: $color-brand !default;
 
 			/* Items */
 			> li {
-				border-left-color: $color-med-txt;
+				border-left-color: $color-grey-dark-3;
 
 				/* Centre home page hero banner */
-				.header--hero & {border-left-color: $color-grey-2;}
+				.header--hero & {border-left-color: $color-grey-light-1;}
 
 				/* Make dividers appear for first/last list items at this breakpoint */
 				@include respond-min($non-palm) {
 					&:first-child {
-						border-left: 1px solid $color-med-txt;
+						border-left: 1px solid $color-grey-dark-3;
 
 						/* Centre home page hero banner */
-						.header--hero & {border-left-color: $color-grey-2;}
+						.header--hero & {border-left-color: $color-grey-light-1;}
 					}
 
 					&:last-child {
-						border-right: 1px solid $color-med-txt;
+						border-right: 1px solid $color-grey-dark-3;
 
 						/* Centre home page hero banner */
-						.header--hero & {border-right-color: $color-grey-2;}
+						.header--hero & {border-right-color: $color-grey-light-1;}
 					}
 				}
 			}
@@ -1263,7 +1263,7 @@ $header-color-link-hover: $color-brand !default;
 				/* Links */
 				a {
 					@include to-rem(padding, 11 0 10);
-					color: $color-grey-4;
+					color: $color-grey-med-2;
 					border-bottom: 2px solid transparent;
 
 					/* Change padding at this breakpoint */
@@ -1272,7 +1272,7 @@ $header-color-link-hover: $color-brand !default;
 					}
 
 					/* Centre home page hero banner */
-					.header--hero & {color: $color-dark-txt;}
+					.header--hero & {color: $color-txt-dark;}
 
 					/* Hover & focus states */
 					&:hover,
@@ -1294,7 +1294,7 @@ $header-color-link-hover: $color-brand !default;
 						.icon:before {color: #fff;}
 
 						/* Centre home page hero banner */
-						.header--hero & {background-color: $color-dark-txt;}
+						.header--hero & {background-color: $color-grey-dark-1;}
 					}
 
 						/* Reveal link text at this breakpoint */
@@ -1313,7 +1313,7 @@ $header-color-link-hover: $color-brand !default;
 						@include font-size(20, 1);
 
 						/* Centre home page hero banner */
-						.header--hero & {color: $color-light-txt;}
+						.header--hero & {color: $color-txt-light;}
 
 						/* Change positon context at this breakpoint */
 						@include respond-max($iphone-landscape - 1) {
@@ -1391,7 +1391,7 @@ $header-color-link-hover: $color-brand !default;
 				}
 
 				/* Placeholder */
-				@include input-placeholder {color: $color-dark-txt;}
+				@include input-placeholder {color: $color-txt-dark;}
 		}
 
 			/* Text input */
@@ -1399,7 +1399,7 @@ $header-color-link-hover: $color-brand !default;
 				width: 100%;
 				@include to-rem(padding, 4);
 				border: 0;
-				color: $color-dark-txt;
+				color: $color-txt-dark;
 				@include font-size($font-size-sml, 1.2);
 
 				/* Increase text size at this breakpoint */
@@ -1469,7 +1469,7 @@ $header-color-link-hover: $color-brand !default;
 					/* List headers */
 					dt {
 						font-weight: normal;
-						border-top: 1px solid $color-grey-2;
+						border-top: 1px solid $color-grey-light-1;
 						@include to-rem(padding-left padding-right, 8.5);
 						@include to-rem(padding-top margin-top, $spacing-half);
 
@@ -1559,7 +1559,7 @@ $header-color-link-hover: $color-brand !default;
 
 			/* --Heading-- */
 			.header__tabs__hdr {
-				border-bottom: 1px solid $color-med-txt;
+				border-bottom: 1px solid $color-grey-dark-3;
 
 				h1 {font-weight: normal;}
 			}
@@ -1588,7 +1588,7 @@ $header-color-link-hover: $color-brand !default;
 
 			/* --Tab panels-- */
 			.tab__content {
-				background-color: $color-med-txt;
+				background-color: $color-grey-dark-3;
 				max-height: $drop-down-max-height;
 		    overflow-y: auto;
 
@@ -1610,7 +1610,7 @@ $header-color-link-hover: $color-brand !default;
 				.icon:before {color: #fff;}
 
 				/* Global rules */
-				li {border-bottom: 1px solid $color-dark-txt;}
+				li {border-bottom: 1px solid $color-grey-dark-1;}
 
 				/* Links */
 				a {
@@ -1627,7 +1627,7 @@ $header-color-link-hover: $color-brand !default;
 					&:hover,
 					&:focus {
 						&,
-						.icon:before {color: $color-grey-4;}
+						.icon:before {color: $color-grey-med-2;}
 					}
 				}
 

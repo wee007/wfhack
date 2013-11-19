@@ -27,7 +27,7 @@
 .container--narrow {@include to-rem(max-width, $page-container-max-width-narrow);}
 
 /* Dark container */
-.container--dark {background-color: $color-med-txt;}
+.container--dark {background-color: $color-grey-dark-3;}
 
 /* Position relative container */
 .container--position {position: relative;}

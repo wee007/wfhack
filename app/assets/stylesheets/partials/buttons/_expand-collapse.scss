@@ -11,10 +11,10 @@
 */
 
 .btn--expand-collapse {
-	color: $color-light-txt;
+	color: $color-txt-light;
 	@include font-size($font-size-sml, 1);
 	@include to-em(padding-top padding-bottom, $spacing-third);
-	border-top: 1px solid $color-grey-1;
+	border-top: 1px solid $color-grey-med-3;
 
 	/* Icon */
 	.icon:before {margin-left: to-em($spacing-sixth);}

@@ -36,7 +36,7 @@ $fix-mqs: 1600;
 
 .old-ie-banner {
 	background-color: #fff;
-  border-bottom: 1px solid $color-grey-1;
+  border-bottom: 1px solid $color-grey-med-3;
   padding-top: $spacing-half+$spacing-third+px;
   line-height: 1.3;
 
@@ -59,7 +59,7 @@ $fix-mqs: 1600;
     }
 
     /* Byline */
-    p {color: $color-light-txt;}
+    p {color: $color-txt-light;}
 
     /* Browser list */
     li {

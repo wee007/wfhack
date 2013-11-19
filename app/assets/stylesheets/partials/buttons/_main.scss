@@ -32,7 +32,7 @@
   /* Bg colour combined with disabled state */
   &,
   &[disabled],
-  &.is-disabled {background-color: $color-cta-green;}
+  &.is-disabled {background-color: $color-green;}
 
   /* Parent + pseudo classes */
   &,
@@ -42,7 +42,7 @@
 
   /* Hover and focus states */
   &:hover,
-  &:focus {background-color: lighten($color-cta-green, 10%);}
+  &:focus {background-color: lighten($color-green, 10%);}
 
   /* Active state */
   &:active,
@@ -58,11 +58,11 @@
 		/* Bg colour combined with disabled state */
 		&,
 		&[disabled],
-		&.is-disabled {background-color: $color-cta-blue;}
+		&.is-disabled {background-color: $color-blue;}
 
 		/* Hover and focus states */
 		&:hover,
-		&:focus {background-color: lighten($color-cta-blue, 10%);}
+		&:focus {background-color: lighten($color-blue, 10%);}
 	}
 
 	/* Dark */
@@ -70,11 +70,11 @@
 		/* Bg colour combined with disabled state */
 		&,
 		&[disabled],
-		&.is-disabled {background-color: $color-med-txt;}
+		&.is-disabled {background-color: $color-grey-dark-3;}
 
 		/* Hover and focus states */
 		&:hover,
-		&:focus {background-color: lighten($color-med-txt, 10%);}
+		&:focus {background-color: lighten($color-grey-dark-3, 10%);}
 	}
 
 	/* Subtle */
@@ -84,17 +84,17 @@
 		/* Bg colour combined with disabled state */
 		&,
 		&[disabled],
-		&.is-disabled {background-color: $color-grey-3;}
+		&.is-disabled {background-color: $color-grey-light-2;}
 
 		/* Parent + pseudo classes */
 		&,
 		&:visited,
 		&:hover,
-		&:focus {color: $color-dark-txt;}
+		&:focus {color: $color-txt-dark;}
 
 		/* Hover and focus states */
 		&:hover,
-		&:focus {background-color: lighten($color-grey-3, 3%);}
+		&:focus {background-color: lighten($color-grey-light-2, 3%);}
 
 		/* Active state */
 		&:active,
@@ -114,11 +114,11 @@
 		&,
 		&:visited,
 		&:hover,
-		&:focus {color: $color-dark-txt;}
+		&:focus {color: $color-txt-dark;}
 
 		/* Hover and focus states */
 		&:hover,
-		&:focus {background-color: lighten($color-off-white, 2%);}
+		&:focus {background-color: lighten($color-grey-light-3, 2%);}
 
 		/* Active state */
 		&:active,

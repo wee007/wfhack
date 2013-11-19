@@ -59,7 +59,7 @@ table {
 	}
 
 /* Striped */
-.table-striped tbody tr:nth-of-type(odd) {background-color: $color-grey-3;}
+.table-striped tbody tr:nth-of-type(odd) {background-color: $color-grey-light-2;}
 
 /* Enable horizontal scroll bar, works with the JS `tableHorizontalScroll()` function */
 .table-horiz-scroll {
@@ -81,7 +81,7 @@ table {
   /* Cells */
   th,
   td {
-    border: 1px solid $color-grey-2;
+    border: 1px solid $color-grey-light-1;
 
     /* No borders for empty cells */
     &:empty {border: 0;}

@@ -66,18 +66,18 @@ $share-pinterest: #ca2026 !default;
 
 	/* --Drop down menu trigger-- */
   .social-share__trigger {
-    color: $color-med-txt;
+    color: $color-grey-dark-3;
 
     /* Hide elements that need to be shown when the drop down is active */
     .drop-down-container__active {display: none;}
 
     /* Hover and focus states */
     &:hover,
-    &:focus {color: $color-light-txt;}
+    &:focus {color: $color-txt-light;}
 
     /* Active state */
     &.is-active {
-      background-color: $color-med-txt;
+      background-color: $color-grey-dark-3;
       color: #fff;
 
       /* Hide elements that need to be shown when the drop down is non-active */

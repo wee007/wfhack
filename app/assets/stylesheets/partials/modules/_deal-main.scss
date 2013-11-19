@@ -33,7 +33,7 @@
 	/* Meta (deal owner and end date) */
 	.deal-main__meta {
 		margin-bottom: 0;
-		color: $color-light-txt;
+		color: $color-txt-light;
 		@include font-size($font-size-lrg, 1.5);
 
 		/* End date */

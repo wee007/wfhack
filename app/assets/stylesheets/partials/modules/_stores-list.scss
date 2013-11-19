@@ -21,9 +21,9 @@
 
   /* Store A-Z grouping header */
   dt {
-    background-color: $color-off-white;
+    background-color: $color-grey-light-3;
     font-weight: normal;
-    border-top: 1px solid $color-grey-1;
+    border-top: 1px solid $color-grey-med-3;
     @include to-rem(padding-top padding-bottom, $spacing-sixth);
 
     /* Border off for first child */
@@ -37,10 +37,10 @@
 
   /* Store items */
   dd {
-    border-top: 1px solid $color-grey-1;
+    border-top: 1px solid $color-grey-med-3;
 
     /* Bottom border for last child */
-    &:last-child {border-bottom: 1px solid $color-grey-1;}
+    &:last-child {border-bottom: 1px solid $color-grey-med-3;}
 
     /* Inner container */
     .stores-list__inner {position: relative;}
@@ -74,7 +74,7 @@
 
     /* Phone no at non-palm */
     span {
-      color: $color-light-txt;
+      color: $color-txt-light;
       @include font-size($font-size-sml, 1.5);
     }
   }

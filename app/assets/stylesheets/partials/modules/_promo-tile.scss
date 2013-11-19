@@ -14,7 +14,7 @@
   text-align: center;
 
   /* Global rules */
-  img {border-bottom: 1px solid $color-grey-1;}
+  img {border-bottom: 1px solid $color-grey-med-3;}
 
   p {@include to-rem(margin-bottom, $spacing-half);}
 }
@@ -37,7 +37,7 @@
     @include to-rem(margin-top, -20);
     background-color: #fff;
     border-radius: 100%;
-    border: 1px solid $color-grey-1;
+    border: 1px solid $color-grey-med-3;
 
     /* Increase padding, font size and negative top margin at this breakpoint */
     @include respond-min($non-palm) {

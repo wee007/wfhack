@@ -23,7 +23,7 @@
 
   /* Set common colour */
   &,
-  .icon:before {color: $color-light-txt;}
+  .icon:before {color: $color-txt-light;}
 
   /* Make `display: block` */
   em,
@@ -53,7 +53,7 @@
     }
 
     /* 'See nearby centres' text */
-    p > span {color: $color-dark-txt;}
+    p > span {color: $color-txt-dark;}
 }
 
 /* Extend: remove top padding */

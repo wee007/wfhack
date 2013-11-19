@@ -121,7 +121,7 @@
 
 		/* Select list label */
 		.flag__img {
-			color: $color-grey-4;
+			color: $color-grey-med-2;
 			@include font-size($font-size-sml, 1.5);
 
 			/* Bring label text into view at this breakpoint */
@@ -139,7 +139,7 @@
 	/* 'Show products/deals/events nearby centre selector' container */
 	.section-nav__centre-selector {
 		@extend %clear-fix;
-		border-top: 1px solid $color-light-txt;
+		border-top: 1px solid $color-grey-med-1;
 		@include to-rem(padding-top padding-bottom, $spacing-quarter);
 
 		/* Always show at this breakpoint */

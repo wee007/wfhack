@@ -114,7 +114,7 @@
 
           /* Old IE */
           @include old-ie {
-            border: 1px solid $color-grey-3;
+            border: 1px solid $color-grey-light-2;
             border-bottom-width: 2px;
           }
         }

@@ -134,8 +134,8 @@
 
     /* Filters / toggle */
     .stores-maps__filters-toggle {
-      background-color: $color-grey-3;
-      border-bottom: 1px solid $color-grey-1;
+      background-color: $color-grey-light-2;
+      border-bottom: 1px solid $color-grey-med-3;
       position: relative;
       z-index: 6;
 
@@ -196,7 +196,7 @@
         display: block;
         font-family: $font-family-opensans;
         @include font-size($font-size-xlrg, 1.5);
-        color: $color-dark-txt;
+        color: $color-txt-dark;
         @include to-em(margin-bottom, $spacing-third);
 
         /* Detail view */
@@ -222,7 +222,7 @@
           .is-map-view & {display: none;}
         }
 
-          > span {color: $color-light-txt;}
+          > span {color: $color-txt-light;}
       }
 
           /* Reapply global link hover to first child `span` */
@@ -289,8 +289,8 @@
         /* Remove absolute positioning and apply cosmetics/structural rules at this breakpoint */
         @include respond-min($ipad-landscape) {
           position: static;
-          background-color: $color-off-white;
-          border-top: 1px solid $color-grey-1;
+          background-color: $color-grey-light-3;
+          border-top: 1px solid $color-grey-med-3;
         }
 
           /* Nav contextual */
@@ -302,7 +302,7 @@
               /* Disabled state */
               .is-disabled {
                 @include to-rem(padding, $spacing-half);
-                color: lighten($color-light-txt, 20%);
+                color: lighten($color-txt-light, 20%);
               }
 
               a,
@@ -339,7 +339,7 @@
 
             /* Gradient that fades out the right side of the links and the scrolling indicator, change the colour at this breakpoint */
             @include respond-min($ipad-landscape) {
-              .nav-contextual__clip__overlay {@include linear-gradient($from: rgba($color-off-white, 0) 0%, $to: rgba($color-off-white, 1) 50%, $dir: right, $dir-webkit: left)}
+              .nav-contextual__clip__overlay {@include linear-gradient($from: rgba($color-grey-light-3, 0) 0%, $to: rgba($color-grey-light-3, 1) 50%, $dir: right, $dir-webkit: left)}
             }
       }
 
@@ -384,7 +384,7 @@
       /* Post filter count */
       .stores-maps__filters-count {
         @include font-size($font-size-sml, 1.5);
-        border-top: 1px solid $color-grey-1;
+        border-top: 1px solid $color-grey-med-3;
 
         /* Hide when in map view at this breakpoint */
         @include respond-max($ipad-landscape - 1) {
@@ -448,7 +448,7 @@
 
       /* Old IE - change the bg colour */
       @include old-ie {
-        .stores-maps .stores-maps__inner.stores-maps__inner--detail & {background-color: lighten($color-grey-3, 5%);}
+        .stores-maps .stores-maps__inner.stores-maps__inner--detail & {background-color: lighten($color-grey-light-2, 5%);}
       }
 
       /* Alter top positioning at this breakpoint */
@@ -475,7 +475,7 @@
 
         /* Detail view - when they're 'Featured items' */
         .stores-maps__inner--detail.is-featured-items & {
-          background-color: $color-grey-3;
+          background-color: $color-grey-light-2;
           @include to-rem(bottom, $spacing-base);
         }
 
@@ -526,7 +526,7 @@
     top: 0;
     bottom: 0;
     display: none;
-    background-color: $color-grey-3;
+    background-color: $color-grey-light-2;
 
     /* When map view is in view */
     .is-map-view & {display: block;}

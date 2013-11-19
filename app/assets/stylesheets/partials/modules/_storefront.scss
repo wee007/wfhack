@@ -23,7 +23,7 @@
     background-size: cover;
 
     /* When there is no store banner */
-    &.is-no-store-banner {@include linear-gradient($color-med-txt, $color-dark-txt);}
+    &.is-no-store-banner {@include linear-gradient($color-grey-dark-3, $color-txt-dark);}
 
     /* Slides */
     .slides > li {
@@ -136,7 +136,7 @@
   /* --Store details-- */
   .storefront__details {
     border-style: solid;
-    border-color: $color-grey-1;
+    border-color: $color-grey-med-3;
     border-width: 1px 0;
 
     /* When there are featured items */
@@ -233,19 +233,19 @@
           .hide-visually {
             @include prefix(transition, all 0.2s);
             @include hide-visually-off;
-            color: $color-light-txt;
+            color: $color-txt-light;
             display: block;
           }
 
           /* Hover and focus states */
           &:hover .hide-visually,
-          &:focus .hide-visually {color: $color-med-txt;}
+          &:focus .hide-visually {color: $color-grey-dark-3;}
       }
     }
 
   /* Featured items (tiles) */
   .storefront__featured__item {
-    border-top: 1px solid $color-grey-1;
+    border-top: 1px solid $color-grey-med-3;
 
     /* Hide 3rd tile at small viewports */
     .grid__item + .grid__item + .grid__item {
@@ -273,7 +273,7 @@
 
     /* Headings */
     .storefront__featured__hdr {
-      color: $color-light-txt;
+      color: $color-txt-light;
       @include font-size(18, 1.5);
       @include to-rem(margin-bottom, $spacing-half);
 

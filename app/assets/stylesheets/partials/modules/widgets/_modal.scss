@@ -74,7 +74,7 @@
 	/* Modal header */
 	.modal__header {
 		@include to-em(padding, $spacing-quarter $font-size);
-		border-bottom: 1px solid $color-grey-2;
+		border-bottom: 1px solid $color-grey-light-1;
 		position: relative;
 
 			/* Modal title */
@@ -105,8 +105,8 @@
 	.modal__footer {
 		padding: to-em($font-size);
 		text-align: right;
-		background-color: $color-off-white;
-		border-top: 1px solid $color-grey-2;
+		background-color: $color-grey-light-3;
+		border-top: 1px solid $color-grey-light-1;
 		border-radius: 0 0 6px 6px;
 		box-shadow: inset 0 1px 0 #fff;
 		@extend %clear-fix;

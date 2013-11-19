@@ -28,7 +28,7 @@
   /* Cells */
   .storefront-storelist-phone-map-links__cell {
     right: 0;
-    border-left: 1px solid $color-grey-1;
+    border-left: 1px solid $color-grey-med-3;
     @include to-rem(width, 54);
 
     /* Vertically align */
@@ -58,7 +58,7 @@
     .no-js & {right: 0;}
 
     /* Icon */
-    .icon:before {color: $color-cta-green;}
+    .icon:before {color: $color-green;}
   }
 
   /* Location */

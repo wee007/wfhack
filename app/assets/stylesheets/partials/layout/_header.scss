@@ -227,7 +227,7 @@ $header-color-link-hover: $color-brand !default;
 			}
 
 			/* Drop down pointer arrow (most of the styles are brought over from the 'Drop down menu' module) */
-			.header &:before {
+			.header &.pointer-up:before {
 				left: 4%;
 				margin-left: 3px;
 				color: $color-dark-txt;
@@ -250,7 +250,7 @@ $header-color-link-hover: $color-brand !default;
 
 			/* Centre home page hero banner */
 			@include respond-min($non-palm) {
-				.header--hero &:before {display: none;}
+				.header--hero &.pointer-up:before {display: none;}
 			}
 		}
 
@@ -741,8 +741,8 @@ $header-color-link-hover: $color-brand !default;
 				.no-js .header--hero & {display: none;}
 			}
 
-			/* Drop down arrow pointer */
-			.header &:before {
+			/* Drop down pointer arrow (most of the styles are brought over from the 'Drop down menu' module) */
+			.header &.pointer-up:before {
 				display: none;
 				top: -10px;
 				color: $color-dark-txt;
@@ -764,7 +764,7 @@ $header-color-link-hover: $color-brand !default;
 
 				/* Centre home page hero banner */
 				@include respond-min($non-palm) {
-					.header.header--hero &:before {display: block;}
+					.header.header--hero &.pointer-up:before {display: block;}
 				}
 
 				/* 'Change centre' link */

@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.286
+Version:     0.1.287
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,10 @@ fi
 
 
 %changelog
+* Tue Nov 19 2013 ci <doperations@au.westfield.com> 0.1.287-1
+- Merge pull request #722 from csmith/master (craigM.smith@au.westfield.com)
+- Replaced store trading hours. (craigm.smith@au.westfield.com)
+
 * Tue Nov 19 2013 ci <doperations@au.westfield.com> 0.1.286-1
 - Merge pull request #716 from gwshaw/feature/WFAPI-89_update_swagger_doc_info
   (ldewey@au.westfield.com)

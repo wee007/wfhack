@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.285
+Version:     0.1.286
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,11 @@ fi
 
 
 %changelog
+* Tue Nov 19 2013 ci <doperations@au.westfield.com> 0.1.286-1
+- Merge pull request #716 from gwshaw/feature/WFAPI-89_update_swagger_doc_info
+  (ldewey@au.westfield.com)
+- WFAPI-89 Update Swagger Doc Info (g.w.shaw@comcast.net)
+
 * Tue Nov 19 2013 ci <doperations@au.westfield.com> 0.1.285-1
 - Merge pull request #717 from cpearce/UI-polish (ldewey@au.westfield.com)
 - Removing mixins we aren't using anymore (CPearce@au.westfield.com)

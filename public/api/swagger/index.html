@@ -107,6 +107,7 @@
     </script>
 </head>
 
+<!-- Upper Left Image -->
 <body class="swagger">
     <div class="navbar navbar-inverse">
         <div class="navbar-inner">
@@ -119,6 +120,8 @@
             </div>
         </div>
     </div>
+
+    <!-- Left Nav -->
     <div class="container-fluid">
         <div class="row-fluid">
             <div class="sidebar-nav">
@@ -179,6 +182,8 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Right Nav/Display -->
             <div class="span9 offset3">
                 <div class="row-fluid">
                     <div class="span11">
@@ -190,42 +195,84 @@
                             <div class="accordion-group">
                                 <div id="product-doc" class="collapse">
                                     <h2>Categories</h2>
+                                    <p>
+                                      The Westfield Categories API gives you access to retailer and product
+                                      categories and colours. There is a single taxonomy for both retailers
+                                      and products. The POST, PUT, and DELETE methods are only supported for
+                                      Tier 3 (T3) and higher categories. T1 and T2 categories can only be
+                                      edited by the headoffice. Retailer T1 and T2 categories can be omitted
+                                      or re-labeled according to the specific site or app that needs them.
+                                      Output is available in JSON format.
+                                    </p>
                                 </div>
                             </div>
 
                             <div class="accordion-group">
                                 <div id="centre-doc" class="collapse">
                                     <h2>Centres</h2>
+                                    <p>
+                                      The Centres API provides data for our centres including trading hours,
+                                      centre services, notices, parking information, countries, states, and
+                                      centre information. Output is available in JSON format.
+                                    </p>
                                 </div>
                             </div>
 
                             <div class="accordion-group">
                                 <div id="deal-doc" class="collapse">
                                     <h2>Deals</h2>
+                                    <p>
+                                      The Deals API provides content related to deals and time-limited offers
+                                      on products and services sold in stores of our centres. Output is
+                                      available in JSON format.
+                                    </p>
                                 </div>
                             </div>
 
                             <div class="accordion-group">
                                 <div id="event-doc" class="collapse">
                                     <h2>Events</h2>
+                                    <p>
+                                      The Events API provides information on news and events happening in one
+                                      of our centres. Responses can be filtered by geographic area, centre,
+                                      date/time ranges, etc., and events include information such as in-centre
+                                      location and an associated image. Output is available in JSON format.
+                                    </p>
                                 </div>
                             </div>
 
                             <div class="accordion-group">
                                 <div id="movie-doc" class="collapse">
                                     <h2>Movies</h2>
+                                    <p>
+                                      The Movies API allows you to request information about movies playing
+                                      in one of our centres. Currently Westfield uses 3rd party APIs to provide
+                                      Centre movie information.
+                                    </p>
+                                    <p>For the US, use the following APIs</p>
+                                    <p>For movie sessions, use TMS:</p>
+                                    <p>http://developer.tmsapi.com/docs/read/data_v1/Movies</p>
                                 </div>
                             </div>
 
                             <div class="accordion-group">
                                 <div id="store-doc" class="collapse">
                                     <h2>Stores</h2>
+                                    <p>
+                                      The Stores API provides content and metadata for in-centre stores.
+                                      Output is available in JSON format.
+                                    </p>
                                 </div>
                             </div>
 
                             <div class="accordion-group">
                                 <div id="aaa-doc" class="collapse">
                                     <h2>AAA</h2>
+                                    <p>
+                                      Westfield User Authentication allows for assigning user roles and
+                                      privileges. AAA stands for access, authentication and authorization.
+                                      This section of the Westfield API is currently under development.
+                                    </p>
                                 </div>
                             </div>
 

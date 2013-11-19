@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.284
+Version:     0.1.285
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,13 @@ fi
 
 
 %changelog
+* Tue Nov 19 2013 ci <doperations@au.westfield.com> 0.1.285-1
+- Merge pull request #717 from cpearce/UI-polish (ldewey@au.westfield.com)
+- Removing mixins we aren't using anymore (CPearce@au.westfield.com)
+- Improve colour Sass variables names - WSF-5368 (CPearce@au.westfield.com)
+- Change hover drop down headings to use 'h2' instead of 'strong'
+  (CPearce@au.westfield.com)
+
 * Tue Nov 19 2013 ci <doperations@au.westfield.com> 0.1.284-1
 - Merge pull request #715 from ewee/master (ldewey@au.westfield.com)
 - Merge pull request #714 from ldewey/WSF-5833 (matt.wratt@trineo.co.nz)

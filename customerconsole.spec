@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.290
+Version:     0.1.291
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,9 @@ fi
 
 
 %changelog
+* Wed Nov 20 2013 ci <doperations@au.westfield.com> 0.1.291-1
+- add expiry dates to recent redirect additions (pmcinerney@au.westfield.com)
+
 * Wed Nov 20 2013 ci <doperations@au.westfield.com> 0.1.290-1
 - Merge pull request #728 from mcinerney/master (pmcinerney@au.westfield.com)
 - add redirects from marketing+giftcards (pmcinerney@au.westfield.com)

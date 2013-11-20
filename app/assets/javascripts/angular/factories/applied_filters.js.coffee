@@ -32,9 +32,6 @@
       for name, facet of filters.facets
         continue if name.match(filterBlacklistR)
 
-        if name == "search_query"
-          facet.selected_values.value = "\"#{facet.selected_values.value}\""
-
         facetValues = collectValues facet.selected_values, name
         appliedFilters = appliedFilters.concat facetValues
 

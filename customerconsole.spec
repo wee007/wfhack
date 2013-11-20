@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.287
+Version:     0.1.288
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,12 @@ fi
 
 
 %changelog
+* Wed Nov 20 2013 ci <doperations@au.westfield.com> 0.1.288-1
+- Merge pull request #724 from mcinerney/master (dmiller@au.westfield.com)
+- fixed redirect for burwood getting-here, it would have been redirected to
+  sydney (pmcinerney@au.westfield.com)
+- post launch redirects (pmcinerney@au.westfield.com)
+
 * Tue Nov 19 2013 ci <doperations@au.westfield.com> 0.1.287-1
 - Merge pull request #722 from csmith/master (craigM.smith@au.westfield.com)
 - Replaced store trading hours. (craigm.smith@au.westfield.com)

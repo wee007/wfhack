@@ -138,7 +138,9 @@
     @include to-rem(top right, $spacing-quarter);
 
     /* Only show on non-touch devices as they have hover */
-    .no-touch .tile:hover & {display: block;}
+    .no-touch .tile:hover &,
+    .no-touch .tile &.is-active {display: block;}
+
 
     /* Buttons */
     .controls__btn {

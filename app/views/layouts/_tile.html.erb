@@ -6,7 +6,7 @@
 
   <%= link_to yield, tile_url(@centre, result), target: "_self" %>
 
-  <div class="tile__controls">
+  <div class="tile__controls js-tile-controls">
     <%= render "/shared/social_share", kind: result.kind, id: result.id %>
   </div>
 

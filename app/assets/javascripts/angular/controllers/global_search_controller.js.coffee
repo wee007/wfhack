@@ -68,8 +68,7 @@
           $window.location = $scope.url($scope.focusedSuggestion)
           event.preventDefault()
 
-      $scope.url = (suggestion) ->
-        "/#{$scope.centre_id}#{suggestion.url}"
+      $scope.url = (suggestion) -> "/#{$scope.centre_id}#{suggestion.url}"
 
   ]
 ) angular.module("Westfield")

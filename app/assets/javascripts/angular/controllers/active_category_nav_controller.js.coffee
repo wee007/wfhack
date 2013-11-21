@@ -1,5 +1,5 @@
 ((app) ->
-  app.controller 'ActiveCategoryNavController', ['$scope', 'ProductSearch', ( $scope, ProductSearch ) ->
+  app.controller 'ActiveCategoryNavController', ['$scope', ( $scope ) ->
     $scope.$on '$routeChangeSuccess', (event, to, from) ->
       $scope.activeNavigationItem = to.params.super_cat
   ]

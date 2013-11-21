@@ -18,13 +18,20 @@
         <div class="search-results" ng-show="suggestionsVisible">
           <div class="search-results__inner">
             <dl class="search-results__list">
-              <dt class="search-results__list__spacing" ng-if="suggestions.stores"><span aria-hidden="true" class="icon icon--store icon--xlrg"></span> Stores</dt>
+              <dt class="search-results__list__spacing" ng-if="suggestions.stores">
+                <span aria-hidden="true" class="icon icon--store icon--xlrg"></span> Stores</dt>
               <dd ng-repeat="suggestion in suggestions.stores" role="presentation">
-                <a href="/{{centre_id}}{{suggestion.url}}" target="_self" tabindex="-1">{{suggestion.description}}</a>
+                <a ng-class="{'is-focused': suggestion === focusedSuggestion}"
+                  ng-href="{{url(suggestion)}}" tabindex="-1">
+                  {{suggestion.description}}
+                </a>
               </dd>
               <dt ng-if="suggestions.products"><span aria-hidden="true" class="icon icon--products icon--xlrg"></span> Products</dt>
               <dd ng-repeat="suggestion in suggestions.products" role="presentation">
-                 <a href="/{{centre_id}}{{suggestion.url}}" target="_self" tabindex="-1">{{suggestion.description}}</a>
+                <a ng-class="{'is-focused': suggestion === focusedSuggestion}"
+                   ng-href="{{url(suggestion)}}" tabindex="-1">
+                  {{suggestion.description}}
+                </a>
               </dd>
             </dl>
           </div>

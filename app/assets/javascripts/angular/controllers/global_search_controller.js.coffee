@@ -1,12 +1,12 @@
 ((app) ->
-  app.controller "GlobalSearchCtrl", ['$scope', '$element', '$window', 'SuggestionsBuilder', 'GlobalSearch', ($scope, $element, $window, SuggestionsBuilder, GlobalSearch) ->
+  app.controller "GlobalSearchCtrl", ['$scope', '$window', 'SuggestionsBuilder', 'GlobalSearch', ($scope, $window, SuggestionsBuilder, GlobalSearch) ->
     $scope.search = GlobalSearch
     $scope.searchQuery = ""
     $scope.suggestionsVisible = false
 
-    highlightedItem = -1
+    $scope.focusedSuggestion = undefined
+
     highlightedClass = 'is-focused'
-    $suggestionsList = angular.element('.search-results__list')
 
     # When there are search results, collect them as suggestions & display
     GlobalSearch.onChange ->
@@ -16,33 +16,34 @@
     didYouMean = ->
       SuggestionsBuilder.didYouMean($scope.searchQuery, $scope.search.results)
 
+    combinedResults = ->
+      suggestions = []
+      suggestions = suggestions.concat($scope.suggestions.stores) if $scope.suggestions.stores
+      suggestions = suggestions.concat($scope.suggestions.products) if $scope.suggestions.products
+
+      suggestions
+
     highlightSuggestion = (direction) ->
-      $links = $suggestionsList.find('a')
+      suggestions = combinedResults()
 
-      $suggestionsList.find("." + highlightedClass).removeClass(highlightedClass)
+      # Get the current index, or zero
+      index = suggestions.indexOf( $scope.focusedSuggestion ) || 0
 
-      highlightedItem-- if direction == 'prev'
-      highlightedItem++ if direction == 'next'
+      maxLength = suggestions.length - 1
+      index-- if direction == 'prev'
+      index++ if direction == 'next'
+      index = 0 if index > maxLength
+      index = maxLength if index < 0
 
-      # Don't allow the numbers to cycle through above or below the amount of items
-      highlightedItem = 0 if highlightedItem > ($links.length - 1)
-      highlightedItem = $links.length - 1 if highlightedItem < 0
-
-      # Highlight the new item
-      $links.filter(":eq(#{highlightedItem})").addClass(highlightedClass)
+      $scope.focusedSuggestion = suggestions[index]
 
     # Search result text for screen readers
     $scope.searchResultText = ->
-      resultLength = ($scope.suggestions.stores.length + $scope.suggestions.products.length)
-
       'one': "Press enter to search for products."
-      'other':  "#{resultLength} results are available, use up and down arrow keys to navigate."
+      'other':  "#{$scope.suggestions.count} results are available, use up and down arrow keys to navigate."
 
     $scope.showSuggestions = -> $scope.suggestionsVisible = true
-    $scope.hideSuggestions = ->
-      $window.setTimeout (->
-        $scope.$apply -> $scope.suggestionsVisible = false
-      ), 500
+    $scope.hideSuggestions = -> $scope.suggestionsVisible = false
 
     $scope.makeSuggestions = (event) ->
       if event
@@ -58,16 +59,17 @@
     $scope.navigateSuggestions = (event) ->
       switch event.keyCode
         when 38 # up
-          event.preventDefault()
           highlightSuggestion('prev')
-        when 40 # down
           event.preventDefault()
+        when 40 # down
           highlightSuggestion('next')
+          event.preventDefault()
         when 13 # enter
-          location = $suggestionsList.find('.' + highlightedClass).attr('href')
-          unless location == undefined
-            event.preventDefault()
-            $window.location = location
+          $window.location = $scope.url($scope.focusedSuggestion)
+          event.preventDefault()
+
+      $scope.url = (suggestion) ->
+        "/#{$scope.centre_id}#{suggestion.url}"
 
   ]
 ) angular.module("Westfield")

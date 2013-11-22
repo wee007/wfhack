@@ -7,16 +7,8 @@ class RedirectorController < ApplicationController
     redirect_base_url = '/products'
 
     # the type parameter has precedence over everything else
-    category = params["type"]
-
-    # safely parse the URL
-    # URI will not parse a 'path' alone, so we use a dummy tld
-    # and pull the path after the url has been cleaned and parsed
-    clean_uri = URI.extract("http://dummy.tld/" + request_path).first
-    request_path = URI.parse(clean_uri).path
-
-    # if no type parameter was specified, we take the last path component
-    category ||= request_path.split('/').last.try(:match, /[a-zA-z\-]+/).to_s
+    # otherwise, extract the category
+    category = params["type"] || extract_category_from_url(request_path)
 
     # check to see if the category has been deleted
     if REDIRECTOR_DELETED_CATEGORIES[category]

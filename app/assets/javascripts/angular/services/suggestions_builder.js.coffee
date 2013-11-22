@@ -3,6 +3,7 @@
 
     @didYouMean = (searchString, searchResults)->
       suggestions = {}
+      suggestions.count = searchResults.length
       angular.forEach searchResults, (results, type) ->
         suggestions[type] = []
         angular.forEach results, (result) ->

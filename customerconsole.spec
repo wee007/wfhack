@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.1.291
+Version:     0.1.292
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,20 @@ fi
 
 
 %changelog
+* Fri Nov 22 2013 ci <doperations@au.westfield.com> 0.1.292-1
+- #666: Added txt-hyphenate for deals tile (fiona@fionachan.net)
+- #666: Added txt-hyphen for deals tile (fiona@fionachan.net)
+- #674: Fix browser upgrade image distortion (fiona@fionachan.net)
+- WSF-5695: Update font-size variable (fiona@fionachan.net)
+- WSF-5799: Fix up section element after PR feedback (fiona@fionachan.net)
+- WSF-5799: Add section element to product details page (fiona@fionachan.net)
+- WSF-5799: Add section element to events page (fiona@fionachan.net)
+- WSF-5799: Added section element to movies (fiona@fionachan.net)
+- WSF-5799: Added section element to centre services (fiona@fionachan.net)
+- WSF-5799: Added section element to centre info (fiona@fionachan.net)
+- WSF-5602: Make some state classes generic (fiona@fionachan.net)
+- WSF-5695: Update font 18px to use variable (fiona@fionachan.net)
+
 * Wed Nov 20 2013 ci <doperations@au.westfield.com> 0.1.291-1
 - add expiry dates to recent redirect additions (pmcinerney@au.westfield.com)
 

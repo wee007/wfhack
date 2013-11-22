@@ -1,5 +1,6 @@
 class RedirectorController < ApplicationController
   layout false
+  include RedirectorHelper
 
   def shopping
     request_path = params[:request_path]

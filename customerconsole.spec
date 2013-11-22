@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.0
+Version:     0.2.1
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,25 @@ fi
 
 
 %changelog
+* Fri Nov 22 2013 ci <doperations@au.westfield.com> 0.2.1-1
+- bump version (pmcinerney@au.westfield.com)
+- Merge pull request #732 from bschwarz/redirector-patch
+  (ldewey@au.westfield.com)
+- Merge pull request #730 from bschwarz/controller-tidy
+  (ldewey@au.westfield.com)
+- Merge pull request #729 from bschwarz/search-and-browse-issues
+  (ldewey@au.westfield.com)
+- Include the helper (ben@germanforblack.com)
+- Move URL handling into a helper (ben@germanforblack.com)
+- Doc (ben@germanforblack.com)
+- No quotes around search terms (ben@germanforblack.com)
+- Make URL parsing more solid and do its best to remove URL errors and produce
+  clean category names (ben@germanforblack.com)
+- Product search no longer required (ben@germanforblack.com)
+- Tidy url method (ben@germanforblack.com)
+- Patched issues with search. Closes #726 (ben@germanforblack.com)
+- Don't put quotes around search terms. Closes #695 (ben@germanforblack.com)
+
 * Fri Nov 22 2013 ci <doperations@au.westfield.com> 0.1.292-1
 - #666: Added txt-hyphenate for deals tile (fiona@fionachan.net)
 - #666: Added txt-hyphen for deals tile (fiona@fionachan.net)

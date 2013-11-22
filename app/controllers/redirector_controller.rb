@@ -10,6 +10,8 @@ class RedirectorController < ApplicationController
     category = params["type"]
 
     # safely parse the URL
+    # URI will not parse a 'path' alone, so we use a dummy tld
+    # and pull the path after the url has been cleaned and parsed
     clean_uri = URI.extract("http://dummy.tld/" + request_path).first
     request_path = URI.parse(clean_uri).path
 

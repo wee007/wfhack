@@ -76,7 +76,7 @@ $share-pinterest: #ca2026 !default;
     &:focus {color: $color-txt-light;}
 
     /* Active state */
-    &.is-active {
+    .is-active & {
       background-color: $color-grey-dark-3;
       color: #fff;
 
@@ -97,7 +97,7 @@ $share-pinterest: #ca2026 !default;
   /* --Drop down menu target-- */
 
   /* Active state */
-  & > .drop-down.horiz-list--fit.is-active {
+  &.is-active .drop-down.horiz-list--fit {
   	display: table;
 
   	/* 'Tile' version */

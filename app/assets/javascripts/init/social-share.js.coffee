@@ -6,7 +6,6 @@ class @SocialShare
     event.stopPropagation()
 
     socialShare = $ this
-    list = socialShare.find '.js-social-share-list'
     url = socialShare.data 'url'
 
     # Only load the list once, if its loaded toggle
@@ -14,19 +13,16 @@ class @SocialShare
     if socialShare.hasClass('is-loaded')
       active = socialShare.parent('.js-tile-controls').hasClass 'is-active'
 
-      $('.js-social-share-list').removeClass 'is-active'
       $('.js-social-share').removeClass 'is-active'
       $('.js-tile-controls').removeClass 'is-active'
 
       unless active
         socialShare.parent('.js-tile-controls').addClass 'is-active'
-        list.addClass 'is-active'
         socialShare.addClass 'is-active'
 
     else
       socialShare.addClass 'is-loading'
 
-      $('.js-social-share-list').removeClass 'is-active'
       $('.js-social-share').removeClass 'is-active'
       $('.js-tile-controls').removeClass 'is-active'
 
@@ -36,7 +32,6 @@ class @SocialShare
           .addClass('is-loaded')
           .addClass('is-active')
         socialShare.parent('.js-tile-controls').addClass 'is-active'
-        list.addClass 'is-active'
 
 
 
@@ -44,10 +39,6 @@ class @SocialShare
   # Remove the is-active class off the button and list
   @close = (event) ->
     $event = $ event
-
-    $('.js-social-share-list').not(
-      $event.closest('.js-social-share-list')
-    ).removeClass 'is-active'
 
     $('.js-social-share').not(
       $event.closest('.js-social-share')
@@ -70,7 +61,6 @@ class @SocialShare
 
     $( document ).on 'keydown', ( event ) ->
       if ( event.keyCode == 27 )
-        $('.js-social-share-list').removeClass 'is-active'
         $('.js-social-share').removeClass 'is-active'
         $('.js-tile-controls').removeClass 'is-active'
 

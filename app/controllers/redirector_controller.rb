@@ -9,8 +9,12 @@ class RedirectorController < ApplicationController
     # the type parameter has precedence over everything else
     category = params["type"]
 
+    # safely parse the URL
+    clean_uri = URI.extract("http://dummy.tld/" + request_path).first
+    request_path = URI.parse(clean_uri).path
+
     # if no type parameter was specified, we take the last path component
-    category ||= URI(request_path).path.split("/").last
+    category ||= request_path.split('/').last.try(:match, /[a-zA-z\-]+/).to_s
 
     # check to see if the category has been deleted
     if REDIRECTOR_DELETED_CATEGORIES[category]

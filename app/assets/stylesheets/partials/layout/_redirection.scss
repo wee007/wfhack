@@ -9,7 +9,7 @@
   background-color: #fff;
 
   /* Logo */
-  img {
+  .container img {
     width: 145px;
     height: 52px;
     @include to-rem(margin-bottom, $spacing-base);

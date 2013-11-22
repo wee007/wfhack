@@ -385,7 +385,7 @@
                 /* Replace Micello's arrow images with our own icon font arrows */
                 &:before {
                   color: $color-txt-dark;
-                  @include font-size(18, 1);
+                  @include font-size($font-size-lrger, 1);
                   text-align: center;
                   position: absolute;
                   left: 0;

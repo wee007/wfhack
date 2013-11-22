@@ -604,8 +604,8 @@ $header-color-link-hover: $color-brand !default;
 
 					/* Down arrow icon (drop down indicator) */
 					.icon:before {
-						@include font-size(18, 1);
 						color: $color-txt-dark;
+						@include font-size($font-size-lrger, 1);
 						top: -2px;
 
 						/* Webkit */
@@ -1089,7 +1089,7 @@ $header-color-link-hover: $color-brand !default;
 				@include font-size($font-size-lrg, 1.5);
 
 				@include respond-min($ipad-portrait) {
-					@include font-size(18, 1.5);
+					@include font-size($font-size-lrger, 1.5);
 				}
 
 				@include respond-min($desk) {
@@ -1376,7 +1376,7 @@ $header-color-link-hover: $color-brand !default;
 					position: absolute;
 					@include to-rem(left, $spacing-third);
 					@include to-rem(top, 6);
-					@include font-size(18, 1);
+					@include font-size($font-size-lrger, 1);
 
 					/* Change positioning at this breakpoint */
 					@include respond-min($non-palm) {

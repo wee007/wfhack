@@ -24,19 +24,21 @@
     <%# //Movie main image %>
 
     <%# Movie synopsis %>
-    <h2 class="detail-view__hdr-sub hn">Synopsis</h2>
-    <p itemprop="description"><%= @movie.synopsis %></p>
+    <section aria-labelledby="movie-synopsis">
+      <h2 class="detail-view__hdr-sub hn" id="movie-synopsis">Synopsis</h2>
+      <p itemprop="description"><%= @movie.synopsis %></p>
+    </section>
     <%# //Movie synopsis %>
 
   </div>
-  <%# //Movie details wrapper %>
+  <%# //Movie details %>
 
-  <div class="detail-view__schedule island">
-    <h2 class="detail-view__hdr-sub hn">Session Times</h2>
+  <%# Session times %>
+  <section class="detail-view__schedule island" aria-labelledby="movie-session-times">
+    <h2 class="detail-view__hdr-sub hn" id="movie-session-times">Session Times</h2>
 
     <p>Select a session to purchase tickets at <%= @cinema.name %></p>
 
-    <%# Session times %>
     <dl class="timeline">
       <% @movies_sessions_by_date.each do |date, sessions| %>
         <dt>
@@ -53,9 +55,8 @@
         <% end %>
       <% end %>
     </dl>
-    <%# //Session times %>
 
-  </div>
-  <%# //Movie details %>
+  </section>
+  <%# //Session times %>
 
 </div>

@@ -69,7 +69,7 @@
           text-transform: uppercase;
 
           /* Super long store name */
-          &.is-long-store-name {@include font-size(18, 1.3);}
+          &.is-long-store-name {@include font-size($font-size-lrger, 1.3);}
 
           /* Increase font size at these breakpoints */
           @include respond-min($iphone-landscape) {
@@ -169,7 +169,7 @@
       }
 
       /* Increase top/bottom spacing when there's only 'Opening hours' item */
-      &.is-storefront-details-meta-one {
+      &.is-only-item {
         @include to-rem(padding-top padding-bottom, $spacing-half+$spacing-quarter);
 
         /* Increase top/bottom spacing at this breakpoint */
@@ -274,7 +274,7 @@
     /* Headings */
     .storefront__featured__hdr {
       color: $color-txt-light;
-      @include font-size(18, 1.5);
+      @include font-size($font-size-lrger, 1.5);
       @include to-rem(margin-bottom, $spacing-half);
 
       /* Increase font size at this breakpoint */

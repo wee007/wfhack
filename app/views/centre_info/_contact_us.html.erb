@@ -1,7 +1,7 @@
 <%# Contact Us %>
 <% if @centre.phone_number.present? or @centre.email_address.present? %>
-  <h2 id="contact-us">Contact Us</h2>
-  <div class="mrg-dbl-alt">
+  <section aria-labelledby="info-contact-us" class="mrg-dbl">
+    <h2 id="info-contact-us">Contact Us</h2>
     <div class="grid grid--gutter-dbl">
 
       <%# Phone number %>
@@ -37,6 +37,6 @@
         </div>
       <% end %>
     </div>
-  </div>
+  </section>
 <% end %>
 <%# //Contact Us %>

@@ -71,8 +71,8 @@
     /* Hide the preloader by default */
     & > .preloader {display: none;}
 
-    /* Toggle the display of the preloader/content via the `.is-stores-list-detail-loading` class */
-    &.is-stores-list-detail-loading {
+    /* Toggle the display of the preloader/content via the `.is-loading` class */
+    &.is-loading {
       .preloader {display: block;}
 
       .stores-maps__inner {display: none;}

@@ -18,7 +18,7 @@
   /* Show by default for non JS users, old IE users and when the JS that constructs the pin board's layout has loaded */
   .no-js &,
   .old-ie &,
-  &.is-pin-board-loaded {display: block;}
+  &.is-loaded {display: block;}
 
   /* Apply top spacing */
   @include to-rem(margin-top, $spacing-half);

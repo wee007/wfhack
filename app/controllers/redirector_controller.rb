@@ -1,5 +1,6 @@
 class RedirectorController < ApplicationController
   layout false
+  include RedirectorHelper
 
   def shopping
     request_path = params[:request_path]
@@ -7,10 +8,8 @@ class RedirectorController < ApplicationController
     redirect_base_url = '/products'
 
     # the type parameter has precedence over everything else
-    category = params["type"]
-
-    # if no type parameter was specified, we take the last path component
-    category ||= URI(request_path).path.split("/").last
+    # otherwise, extract the category
+    category = params["type"] || extract_category_from_url(request_path)
 
     # check to see if the category has been deleted
     if REDIRECTOR_DELETED_CATEGORIES[category]

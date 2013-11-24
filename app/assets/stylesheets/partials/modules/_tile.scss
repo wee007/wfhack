@@ -150,15 +150,15 @@
       border-radius: $border-radius;
       background-color: #fff;
 
-      /* Remove the border radius when button is active */
-      &.is-active {
-        border-color: $color-grey-dark-3;
-        border-bottom-right-radius: 0;
-        border-bottom-left-radius: 0;
-      }
-
         /* Icon */
         .icon:before {position: static;}
+    }
+
+    /* Remove the border radius when button is active */
+    &.is-active .controls__btn {
+      border-color: $color-grey-dark-3;
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0;
     }
   }
 

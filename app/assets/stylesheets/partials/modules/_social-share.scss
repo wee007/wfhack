@@ -75,8 +75,12 @@ $share-pinterest: #ca2026 !default;
     &:hover,
     &:focus {color: $color-txt-light;}
 
+    /* Saved state for 'Favourites' button */
+    &.is-saved {color: $color-brand;}
+  }
+
     /* Active state */
-    .is-active & {
+    &.is-active .social-share__trigger {
       background-color: $color-grey-dark-3;
       color: #fff;
 
@@ -86,10 +90,6 @@ $share-pinterest: #ca2026 !default;
       /* Show elements that need to be shown when the drop down is active */
       .drop-down-container__active {display: inline-block;}
     }
-
-    /* Saved state for 'Favourites' button */
-    &.is-saved {color: $color-brand;}
-  }
 
     /* Hide button text for 'Tile' version */
     .tile & .social-share__trigger__txt {@include hide-visually;}

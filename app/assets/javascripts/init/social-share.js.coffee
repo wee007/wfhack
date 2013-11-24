@@ -11,7 +11,7 @@ class @SocialShare
     # Only load the list once, if its loaded toggle
     # the is-active class
     if socialShare.hasClass('is-loaded')
-      active = socialShare.parent('.js-tile-controls').hasClass 'is-active'
+      active = socialShare.hasClass 'is-active'
 
       $('.js-social-share').removeClass 'is-active'
       $('.js-tile-controls').removeClass 'is-active'
@@ -34,8 +34,6 @@ class @SocialShare
         socialShare.parent('.js-tile-controls').addClass 'is-active'
 
 
-
-
   # Remove the is-active class off the button and list
   @close = (event) ->
     $event = $ event
@@ -55,12 +53,12 @@ class @SocialShare
       click: SocialShare.close
 
     # On click load in the XHR social share list.
-    $( document ).on
+    $(document).on
       click: SocialShare.load
     , ".js-social-share"
 
-    $( document ).on 'keydown', ( event ) ->
-      if ( event.keyCode == 27 )
+    $(document).on 'keydown', ( event ) ->
+      if event.keyCode == 27
         $('.js-social-share').removeClass 'is-active'
         $('.js-tile-controls').removeClass 'is-active'
 

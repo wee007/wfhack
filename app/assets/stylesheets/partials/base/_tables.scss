@@ -66,9 +66,8 @@ table {
   overflow-x: auto;
   @extend %mrg-base;
 
-  /* iOS/Android */
-  .ios &,
-  .android & {
+  /* Touch device */
+  .touch & {
     overflow-x: scroll;
     -webkit-overflow-scrolling: touch;
   }

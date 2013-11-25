@@ -426,9 +426,8 @@
       /* Post filter count */
       .is-filter-applied & {@include to-rem(top, 88);}
 
-      /* iOS/Android */
-      .ios &,
-      .android & {
+      /* Touch device */
+      .touch & {
         overflow-y: scroll;
         -webkit-overflow-scrolling: touch;
       }

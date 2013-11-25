@@ -167,9 +167,8 @@
       max-height: $drop-down-max-height;
       overflow-y: auto;
 
-      /* iOS/Android */
-      .ios &,
-      .android & {
+      /* Touch device */
+      .touch & {
         overflow-y: scroll;
         -webkit-overflow-scrolling: touch;
       }

@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.2
+Version:     0.2.3
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,12 @@ fi
 
 
 %changelog
+* Mon Nov 25 2013 ci <doperations@au.westfield.com> 0.2.3-1
+- Merge pull request #733 from cpearce/UI-polish
+  (craigM.smith@au.westfield.com)
+- Add level no to storefront, apply aria-hidden attr to store list icons and
+  text correction (CPearce@au.westfield.com)
+
 * Mon Nov 25 2013 ci <doperations@au.westfield.com> 0.2.2-1
 - Merge pull request #739 from ewee/master (craigM.smith@au.westfield.com)
 - Update page title and description on national page for category params

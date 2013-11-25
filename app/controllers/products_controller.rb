@@ -18,15 +18,15 @@ class ProductsController < ApplicationController
       @nearby_centres = CentreService.build nearby_centres
 
       meta.push(
-        page_title: page_title(@centre),
-        description: description(@centre)
+        page_title: page_title(@centre.name),
+        description: description(@centre.name)
       )
     else
       @centres = CentreService.group_by_state centres
 
       meta.push(
-        page_title: "Shopping at Westfield",
-        description: "Find the latest fashion, clothes, shoes, jewellery, accessories and much more at Westfield"
+        page_title: page_title,
+        description: description
       )
     end
     @search = ProductService.build products
@@ -136,21 +136,21 @@ class ProductsController < ApplicationController
     render layout: 'base'
   end
 
-  private
+private
 
-  def page_title(centre)
+  def page_title(centre_name='Westfield')
     if filter_params.present?
-      "Buy #{filter_params} online at #{centre.name}"
+      "Buy #{filter_params} online at #{centre_name}"
     else
-      "Shopping at #{centre.name}"
+      "Shopping at #{centre_name}"
     end
   end
 
-  def description(centre)
+  def description(centre_name='Westfield')
     if filter_params.present?
-      "Browse the latest #{filter_params} online at #{centre.name}"
+      "Browse the latest #{filter_params} online at #{centre_name}"
     else
-      "Find the latest fashion, clothes, shoes, jewellery, accessories and much more at #{centre.name}"
+      "Find the latest fashion, clothes, shoes, jewellery, accessories and much more at #{centre_name}"
     end
   end
 

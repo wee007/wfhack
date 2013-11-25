@@ -1447,9 +1447,8 @@ $header-color-link-hover: $color-brand !default;
 		    overflow-y: auto;
 		    border-radius: 0 0 $border-radius $border-radius;
 
-		    /* iOS/Android */
-	      .ios &,
-	      .android & {
+		    /* Touch device */
+	      .touch & {
 	        overflow-y: scroll;
 	        -webkit-overflow-scrolling: touch;
 	      }
@@ -1592,9 +1591,8 @@ $header-color-link-hover: $color-brand !default;
 				max-height: $drop-down-max-height;
 		    overflow-y: auto;
 
-		    /* iOS and Android */
-			  .ios &,
-			  .android & {
+		    /* Touch device */
+			  .touch & {
 			  	overflow-y: scroll;
 			  	-webkit-overflow-scrolling: touch;
 			  }

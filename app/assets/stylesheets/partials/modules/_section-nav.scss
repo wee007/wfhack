@@ -39,7 +39,7 @@
 	  }
 
 	  /* Change positioning of drop down pointer */
-	  .drop-down-menu__target:before {
+	  .pointer-up:before {
 	  	/* Webkit */
 		  @include target-webkit {
 				 top: -8px;

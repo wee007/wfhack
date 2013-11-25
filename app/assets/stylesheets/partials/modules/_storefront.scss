@@ -13,9 +13,6 @@
 .storefront {
   @include font-size($font-size-sml, 1.5);
 
-  /* --Global rules-- */
-  p {margin-bottom: 0;}
-
   /* Flexslider */
   .flexslider {
     background-position: 0 50%;

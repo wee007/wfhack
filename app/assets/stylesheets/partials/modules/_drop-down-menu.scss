@@ -129,11 +129,8 @@
     .drop-down-menu__divider {border-bottom: 1px solid $color-grey-med-3;}
   }
 
-    /* Drop down pointer arrow (inc. for 'Filters' and 'Header menu' module) */
-    .drop-down-menu__target:before,
-    .drop-down-menu__target .filters__target:before,
-    .header-menu-toggle:before,
-    .nav-social-tertiary-container:before, {
+    /* Drop down pointer arrow (inc. for 'Filters' module and 'Header menu' drop downs) */
+    .pointer-up:before {
       pointer-events: none;
       display: block;
       position: absolute;

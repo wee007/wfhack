@@ -96,7 +96,7 @@
 
       /* Remove the drop down pointer arrow at this breakpoint */
       @include respond-max($lap-lrg - 1) {
-        .filters__target:before {display: none;}
+        .filters__target.pointer-up:before {display: none;}
       }
 
       /* Make into drop down at this breakpoint */

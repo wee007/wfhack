@@ -59,11 +59,6 @@
     &.detail-view--product {@include to-rem(width, 900);}
   }
 
-  /* --Global rules-- */
-
-  /* Off with bottom margins */
-  p {margin-bottom: 0;}
-
   /* Headings */
   .hn {font-family: $font-family-opensans;}
 

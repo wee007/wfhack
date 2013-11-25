@@ -31,7 +31,7 @@
     }
   }
 
-  /* Global styles */
+  /* --Global rules-- */
   a {
     color: $color-txt-light;
     display: block;
@@ -39,8 +39,6 @@
     /* Focus state for keyboard users */
     &:focus {box-shadow: $box-shadow;}
   }
-
-  p {margin-bottom: 0;}
 }
 
   /* Meta */

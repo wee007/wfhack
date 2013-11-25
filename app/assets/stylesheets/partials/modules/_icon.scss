@@ -11,11 +11,10 @@
 */
 
 .icon:before,
-/* These pseudo elements are to render the 'drop down menu' / 'map popup' arrow pointers as they use an icon font (`@extend` isn't suitable for this) */
-.drop-down-menu__target:before,
-.filters__target:before,
-.header-menu-toggle:before,
-.nav-social-tertiary-container:before,
+/* --These pseudo elements are to render the 'Drop down menu' / 'Micello map' arrow pointers as they use an icon font (`@extend` isn't suitable for this)-- */
+/* 'Drop down menu' */
+.pointer-up:before,
+/* 'Micello map' */
 .menuTip:after,
 #ui-levels-arrow-up:before,
 #ui-levels-arrow-down:before {
@@ -202,16 +201,15 @@
 
 /* Arrow full up */
 .icon--arrow-up-full:before,
-/* These pseudo elements are to render the 'drop down menu' arrow pointer as they use an icon font (`@extend` isn't suitable for this) */
-.drop-down-menu__target:before,
-.filters__target:before,
-.header-menu-toggle:before,
-.nav-social-tertiary-container:before,
+/* --These pseudo elements are to render the 'Drop down menu' / 'Micello map' arrow pointers as they use an icon font (`@extend` isn't suitable for this)-- */
+/* 'Drop down menu' */
+.pointer-up:before,
+/* 'Micello map' */
 #ui-levels-arrow-up:before {content: "\e00b";}
 
 /* Arrow full down */
 .icon--arrow-down-full:before,
-/* This pseudo element is to render the 'map popup' arrow pointer as they use an icon font (`@extend` isn't suitable for this) */
+/* These pseudo elements are to render the 'Micello map' arrow pointers as they use an icon font (`@extend` isn't suitable for this) */
 .menuTip:after,
 #ui-levels-arrow-down:before {content: "\e00a";}
 

@@ -29,11 +29,6 @@
   em,
   span {display: block;}
 
-  /* --Global rules-- */
-
-  /* Remove base margin */
-  p {margin-bottom: 0;}
-
   /* Icon */
   .icon:before {
     @include font-size(48, 1);

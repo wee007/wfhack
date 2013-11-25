@@ -5,6 +5,11 @@ class ApplicationController < ActionController::Base
       SplunkLogger::Logger.error "ServiceError", "service", e.service, "code", e.code, "method", e.method, "url", e.url
       respond_to_error e.code
     end
+
+    rescue_from URI::InvalidURIError do |e|
+      SplunkLogger::Logger.error "URI::InvalidURIError", e
+      respond_to_error 404
+    end
   end
 
   # Blanket site wide cache of one hour.

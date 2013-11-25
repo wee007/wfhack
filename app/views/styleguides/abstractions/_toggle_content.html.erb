@@ -1,0 +1,20 @@
+<%= styleguide_block 'Toggle Content' do %>
+  <div class="island toggle-content js-toggle-content">
+    <p>Content that gets toggled</p>
+  </div>
+
+  <%- content_for :javascript do -%>
+    <%# Run 'Toggle content' plugin %>
+    <%= javascript_include_tag 'jquery-extensions/jquery.toggle-content' %>
+
+    <script>
+      $(function() {
+        // Run 'Toggle content' plugin
+        $('.js-toggle-content').toggleContent({
+          btnTxtOpen: 'Read the fine print <span aria-hidden="true" class="icon icon--arrow-down-full icon--lrg"></span>',
+          btnTxtClose: 'Collapse the fine print <span aria-hidden="true" class="icon icon--arrow-up-full icon--lrg"></span>'
+        });
+      });
+    </script>
+  <%- end -%>
+<% end %>

@@ -16,9 +16,9 @@ class CentreService
       if centre.nil? || centre == :all
         uri = URI("#{ServiceHelper.uri_for('centre')}/centres.json")
       else
-        uri = URI("#{ServiceHelper.uri_for('centre')}/centres/#{centre}.json")
+        uri = URI("#{ServiceHelper.uri_for('centre')}/centres/#{URI.escape centre}.json")
       end
-      uri.query = options.to_query
+      uri.query = options.to_query if options.present?
       uri
     end
 

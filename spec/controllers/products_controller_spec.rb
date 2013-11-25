@@ -38,64 +38,132 @@ describe ProductsController do
       assigns(:centre).should be_nil
     end
 
-    context "when requesting for page title and meta description" do
-      it "adds page title and meta description to meta" do
-        meta_double = double :meta
-        meta_double.should_receive(:push).with({
-          page_title: "Shopping at Westfield Bondi Junction",
-          description: "Find the latest fashion, clothes, shoes, jewellery, accessories and much more at Westfield Bondi Junction"
-        })
-        controller.stub(:meta).and_return(meta_double)
-        get :index, centre_id: 'bondijunction'
+    describe 'meta data for centre page' do
+
+      context "when requesting for page title and meta description" do
+        it "adds page title and meta description to meta" do
+          meta_double = double :meta
+          meta_double.should_receive(:push).with({
+            page_title: "Shopping at Westfield Bondi Junction",
+            description: "Find the latest fashion, clothes, shoes, jewellery, accessories and much more at Westfield Bondi Junction"
+          })
+          controller.stub(:meta).and_return(meta_double)
+          get :index, centre_id: 'bondijunction'
+        end
       end
+
+      context "when requesting for page title and meta description for a given super category" do
+        it "includes the super category name in the page title and meta description, and adds to meta" do
+          meta_double = double :meta
+          meta_double.should_receive(:push).with({
+            page_title: "Buy Products online at Westfield Bondi Junction",
+            description: "Browse the latest Products online at Westfield Bondi Junction"
+          })
+          controller.stub(:meta).and_return(meta_double)
+          get :index, centre_id: 'bondijunction', super_cat: 'products'
+        end
+      end
+
+      context "when requesting for page title and meta description for a given category and super category" do
+        it "includes the category name in the page title and meta description, and adds to meta" do
+          meta_double = double :meta
+          meta_double.should_receive(:push).with({
+            page_title: "Buy Product 2 online at Westfield Bondi Junction",
+            description: "Browse the latest Product 2 online at Westfield Bondi Junction"
+          })
+          controller.stub(:meta).and_return(meta_double)
+          get :index, centre_id: 'bondijunction', category: 'product-2', super_cat: 'product-1'
+        end
+      end
+
+      context "when requesting for page title and meta description for a given sub-category, category and super category" do
+        it "includes the sub-category name in the page title and meta description, and add to meta" do
+          meta_double = double :meta
+          meta_double.should_receive(:push).with({
+            page_title: "Buy Product 2 online at Westfield Bondi Junction",
+            description: "Browse the latest Product 2 online at Westfield Bondi Junction"
+          })
+          controller.stub(:meta).and_return(meta_double)
+          get :index, centre_id: 'bondijunction', sub_category: ['product-2'], category: 'product-1'
+        end
+      end
+
+      context "when requesting for page title and meta description for given sub-categories, category and super category" do
+        it "includes the sub-category names in the page title and meta description, and adds to meta" do
+          meta_double = double :meta
+          meta_double.should_receive(:push).with({
+            page_title: "Buy Product 3 and Product 4 online at Westfield Bondi Junction",
+            description: "Browse the latest Product 3 and Product 4 online at Westfield Bondi Junction"
+          })
+          controller.stub(:meta).and_return(meta_double)
+          get :index, centre_id: 'bondijunction', sub_category: ['product-3','product-4'], category: 'product-2', super_cat: 'product-1'
+        end
+      end
+
     end
 
-    context "when requesting for page title and meta description for given sub-category" do
-      it "adds page title and meta description to meta" do
-        meta_double = double :meta
-        meta_double.should_receive(:push).with({
-          page_title: "Buy Product 2 online at Westfield Bondi Junction",
-          description: "Browse the latest Product 2 online at Westfield Bondi Junction"
-        })
-        controller.stub(:meta).and_return(meta_double)
-        get :index, centre_id: 'bondijunction', sub_category: ['product-2'], category: 'product-1'
-      end
-    end
+    describe 'meta data for national page' do
 
-    context "when requesting for page title and meta description for given sub-categories" do
-      it "adds page title and meta description to meta" do
-        meta_double = double :meta
-        meta_double.should_receive(:push).with({
-          page_title: "Buy Product 2 and Product 3 online at Westfield Bondi Junction",
-          description: "Browse the latest Product 2 and Product 3 online at Westfield Bondi Junction"
-        })
-        controller.stub(:meta).and_return(meta_double)
-        get :index, centre_id: 'bondijunction', sub_category: ['product-2','product-3'], category: 'product-1'
+      context "when requesting for page title and meta description" do
+        it "adds the generic page title and meta description to meta" do
+          meta_double = double :meta
+          meta_double.should_receive(:push).with({
+            page_title: "Shopping at Westfield",
+            description: "Find the latest fashion, clothes, shoes, jewellery, accessories and much more at Westfield"
+          })
+          controller.stub(:meta).and_return(meta_double)
+          get :index
+        end
       end
-    end
 
-    context "when requesting for page title and meta description for given category" do
-      it "adds page title and meta description to meta" do
-        meta_double = double :meta
-        meta_double.should_receive(:push).with({
-          page_title: "Buy Product online at Westfield Bondi Junction",
-          description: "Browse the latest Product online at Westfield Bondi Junction"
-        })
-        controller.stub(:meta).and_return(meta_double)
-        get :index, centre_id: 'bondijunction', category: 'product'
+      context "when requesting for page title and meta description for a given super category" do
+        it "includes the super category name in the page title and meta description, and adds to meta" do
+          meta_double = double :meta
+          meta_double.should_receive(:push).with({
+            page_title: "Buy Products online at Westfield",
+            description: "Browse the latest Products online at Westfield"
+          })
+          controller.stub(:meta).and_return(meta_double)
+          get :index, super_cat: 'products'
+        end
       end
-    end
 
-    context "when requesting for page title and meta description for given super category" do
-      it "adds page title and meta description to meta" do
-        meta_double = double :meta
-        meta_double.should_receive(:push).with({
-          page_title: "Buy Products online at Westfield Bondi Junction",
-          description: "Browse the latest Products online at Westfield Bondi Junction"
-        })
-        controller.stub(:meta).and_return(meta_double)
-        get :index, centre_id: 'bondijunction', super_cat: 'products'
+      context "when requesting for page title and meta description for a given category and super category" do
+        it "includes the category name in the page title and meta description, and adds to meta" do
+          meta_double = double :meta
+          meta_double.should_receive(:push).with({
+            page_title: "Buy Product 2 online at Westfield",
+            description: "Browse the latest Product 2 online at Westfield"
+          })
+          controller.stub(:meta).and_return(meta_double)
+          get :index, category: 'product-2', super_cat: 'product-1'
+        end
       end
+
+      context "when requesting for page title and meta description for a given sub-category, category and super category" do
+        it "includes the sub-category name in the page title and meta description, and add to meta" do
+          meta_double = double :meta
+          meta_double.should_receive(:push).with({
+            page_title: "Buy Product 2 online at Westfield",
+            description: "Browse the latest Product 2 online at Westfield"
+          })
+          controller.stub(:meta).and_return(meta_double)
+          get :index, sub_category: ['product-2'], category: 'product-1'
+        end
+      end
+
+      context "when requesting for page title and meta description for given sub-categories, category and super category" do
+        it "includes the sub-category names in the page title and meta description, and adds to meta" do
+          meta_double = double :meta
+          meta_double.should_receive(:push).with({
+            page_title: "Buy Product 3 and Product 4 online at Westfield",
+            description: "Browse the latest Product 3 and Product 4 online at Westfield"
+          })
+          controller.stub(:meta).and_return(meta_double)
+          get :index, sub_category: ['product-3','product-4'], category: 'product-2', super_cat: 'product-1'
+        end
+      end
+
     end
   end
 

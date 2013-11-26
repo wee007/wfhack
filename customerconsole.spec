@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.8
+Version:     0.2.9
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,15 @@ fi
 
 
 %changelog
+* Wed Nov 27 2013 ci <doperations@au.westfield.com> 0.2.9-1
+- Merge pull request #746 from mwratt/fix/new-store-opening-soon-issue
+  (ldewey@au.westfield.com)
+- Merge pull request #747 from bschwarz/styleguide-enhancements
+  (ldewey@au.westfield.com)
+- Added extra style guide options for special example sections and adding
+  script (ben@germanforblack.com)
+- fixes minior bug in store renaming code (matt.wratt@trineo.co.nz)
+
 * Wed Nov 27 2013 ci <doperations@au.westfield.com> 0.2.8-1
 - Don't render the noscript any longer. (ben@germanforblack.com)
 

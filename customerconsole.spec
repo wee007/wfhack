@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.7
+Version:     0.2.8
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,9 @@ fi
 
 
 %changelog
+* Wed Nov 27 2013 ci <doperations@au.westfield.com> 0.2.8-1
+- Don't render the noscript any longer. (ben@germanforblack.com)
+
 * Tue Nov 26 2013 ci <doperations@au.westfield.com> 0.2.7-1
 - Merge pull request #745 from bschwarz/search-fix (ben@germanforblack.com)
 - Use $timeout rather than window.setTimeout w/apply (ben@germanforblack.com)

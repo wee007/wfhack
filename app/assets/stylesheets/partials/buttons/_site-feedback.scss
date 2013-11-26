@@ -31,14 +31,15 @@
 		display: block;
 	}
 
-	/* --Hide for IE-- */
+	/* --Hide for IE and non JS users-- */
 
 	/* IE10 */
 	@include ie-10-up {
 		display: none;
 	}
-	/* IE 8/9 */
-	.ie & {display: none;}
+	/* IE 8/9 and non JS users */
+	.ie &,
+	.no-js & {display: none;}
 }
 
 	/* 'Give feedback' label */

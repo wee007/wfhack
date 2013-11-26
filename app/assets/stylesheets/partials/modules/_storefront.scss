@@ -220,7 +220,7 @@
           width: 100%;
           text-align: center;
           left: 0;
-          @include translate(0, -50%);
+          @include translateY(-50%);
         }
 
           /* Icon */

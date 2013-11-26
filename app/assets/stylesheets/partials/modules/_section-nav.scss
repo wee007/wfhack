@@ -84,7 +84,7 @@
 		position: absolute;
 		right: 0;
 		top: 50%;
-		@include translate(0, -50%);
+		@include translateY(-50%);
 
 		/* Hide at this breakpoint */
 		@include respond-min(970) {

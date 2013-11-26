@@ -125,7 +125,7 @@
         /* Aligns content centre vertically */
         top: 50%;
         left: 0;
-        @include translate(0, -50%);
+        @include translateY(-50%);
         width: 100%;
         text-align: center;
 
@@ -330,7 +330,7 @@
             right: 0;
             /* Aligns text in the centre vertically */
             top: 50%;
-            @include translate(0, -50%);
+            @include translateY(-50%);
             @include font-size(36, 1);
 
             @include respond-min($non-palm) {

@@ -52,7 +52,7 @@
       position: absolute;
       top: 50%;
       @include to-rem(right, $spacing-micro);
-      @include translate(0, -50%);
+      @include translateY(-50%);
 
       /* Old IE */
       @include old-ie {

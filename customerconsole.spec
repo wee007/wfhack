@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.6
+Version:     0.2.7
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,12 @@ fi
 
 
 %changelog
+* Tue Nov 26 2013 ci <doperations@au.westfield.com> 0.2.7-1
+- Merge pull request #745 from bschwarz/search-fix (ben@germanforblack.com)
+- Use $timeout rather than window.setTimeout w/apply (ben@germanforblack.com)
+- Use a setTimeout/$apply to close the drop down. Otherwise click events are
+  ignored. (ben@germanforblack.com)
+
 * Tue Nov 26 2013 ci <doperations@au.westfield.com> 0.2.6-1
 - 
 

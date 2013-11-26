@@ -1,5 +1,5 @@
 ((app) ->
-  app.controller "GlobalSearchCtrl", ['$scope', '$window', 'SuggestionsBuilder', 'GlobalSearch', ($scope, $window, SuggestionsBuilder, GlobalSearch) ->
+  app.controller "GlobalSearchCtrl", ['$scope', '$window', '$timeout', 'SuggestionsBuilder', 'GlobalSearch', ($scope, $window, $timeout, SuggestionsBuilder, GlobalSearch) ->
     $scope.search = GlobalSearch
     $scope.searchQuery = ""
     $scope.suggestionsVisible = false
@@ -43,7 +43,8 @@
       'other':  "#{$scope.suggestions.count} results are available, use up and down arrow keys to navigate."
 
     $scope.showSuggestions = -> $scope.suggestionsVisible = true
-    $scope.hideSuggestions = -> $scope.suggestionsVisible = false
+    $scope.hideSuggestions = ->
+      $timeout (-> $scope.suggestionsVisible = false), 250
 
     $scope.makeSuggestions = (event) ->
       if event

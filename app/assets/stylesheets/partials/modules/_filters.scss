@@ -68,15 +68,10 @@
         display: inline-block;
         vertical-align: middle;
         position: relative;
-        @include to-rem(margin-right, $spacing-micro);
+        @include to-rem(margin-right, $spacing-third);
 
         /* Turn off right margin for last child */
         &:last-child {margin-right: 0;}
-
-        /* Old IE */
-        @include old-ie {
-          @include to-rem(margin-right, $spacing-quarter);
-        }
       }
     }
 

@@ -98,11 +98,11 @@
               <div ng-show="search.categories.field === 'sub_category'"><div ng-include src="'SubCategoryTemplate'"></div></div>
             </div>
 
-          </li>
+          </li><!--
           <%# //Categories %>
 
           <%# Retailers %>
-          <li ng-if="filterIsAvailable(search.retailers.values)">
+          --><li ng-if="filterIsAvailable(search.retailers.values)">
 
             <%# Narrow view trigger %>
             <button ng-show="triggersVisible" ng-click="toggleFilter('retailer')" class="filters__trigger filters__trigger--narrow drop-down-menu__hdr-btn drop-down-menu__divider btn btn--full btn--full-left btn--pointer">
@@ -141,11 +141,11 @@
 
             </div>
 
-          </li>
+          </li><!--
           <%# //Retailers %>
 
           <%# Brands %>
-          <li ng-if="filterIsAvailable(search.brands.values)">
+          --><li ng-if="filterIsAvailable(search.brands.values)">
 
             <%# Narrow view trigger %>
             <button ng-show="triggersVisible" ng-click="toggleFilter('brand')" class="filters__trigger filters__trigger--narrow drop-down-menu__hdr-btn drop-down-menu__divider btn btn--full btn--full-left btn--pointer">
@@ -184,11 +184,11 @@
 
             </div>
 
-          </li>
+          </li><!--
           <%# //Brands %>
 
           <%# Colours %>
-          <li ng-if="filterIsAvailable(search.colours.values)">
+          --><li ng-if="filterIsAvailable(search.colours.values)">
 
             <%# Narrow view trigger %>
             <button ng-show="triggersVisible" ng-click="toggleFilter('colour')" class="filters__trigger filters__trigger--narrow drop-down-menu__hdr-btn drop-down-menu__divider btn btn--full btn--full-left btn--pointer">
@@ -222,11 +222,11 @@
 
             </div>
 
-          </li>
+          </li><!--
           <%# //Colours %>
 
           <%# Size %>
-          <li ng-if="filterIsAvailable(search.sizes.values)">
+          --><li ng-if="filterIsAvailable(search.sizes.values)">
 
             <%# Narrow view trigger %>
             <button ng-show="triggersVisible" ng-click="toggleFilter('size')" class="filters__trigger filters__trigger--narrow drop-down-menu__hdr-btn drop-down-menu__divider btn btn--full btn--full-left btn--pointer">
@@ -260,11 +260,11 @@
 
             </div>
 
-          </li>
+          </li><!--
           <%# //Size %>
 
           <%# Price %>
-          <li ng-if="filterIsAvailable(search.price.values)">
+          --><li ng-if="filterIsAvailable(search.price.values)">
 
             <%# Narrow view trigger %>
             <button ng-show="triggersVisible" ng-click="toggleFilter('price')" class="filters__trigger filters__trigger--narrow drop-down-menu__hdr-btn drop-down-menu__divider btn btn--full btn--full-left btn--pointer">
@@ -305,11 +305,11 @@
 
             </div>
 
-          </li>
+          </li><!--
           <%# //Price %>
 
           <%# On sale %>
-          <li>
+          --><li>
 
             <%# Narrow view toggle %>
             <div ng-show="triggersVisible" class="filters__trigger filters__trigger--narrow islet">

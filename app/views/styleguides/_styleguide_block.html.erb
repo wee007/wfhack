@@ -30,16 +30,34 @@
   </table>
   <% end %>
 
-  <div class="sg-example">
+  <div class="sg-example sg-modifier">
+    <span class="sg-modifier__name">Base style (no modifiers)</span>
     <%= example_html.strip.gsub(' $modifier_class', '').html_safe %>
   </div>
 
   <% section.modifiers.each do |modifier| %>
     <div class="sg-example sg-modifier">
-      <span class="sg-modifier-name"><%= modifier.name %></span>
-      <%= example_html.gsub('$modifier_class', modifier.class_name).html_safe %>
+      <span class="sg-modifier__name"><%= modifier.name %></span>
+      <% if named_examples[modifier.name] %>
+        <%= named_examples[modifier.name].gsub('$modifier_class', modifier.class_name).html_safe %>
+      <% else %>
+        <%= example_html.gsub('$modifier_class', modifier.class_name).html_safe %>
+      <% end %>
+
+      <div class="sg-code">
+        <% if named_examples.key? modifier.name %>
+        <pre class="sg-code-block"><code class="language-markup"><%= named_examples[modifier.name].gsub('$modifier_class', modifier.class_name).gsub(" class=\"\"", "") %></code></pre>
+        <% else %>
+        <pre class="sg-code-block"><code class="language-markup"><%= example_html.gsub('$modifier_class', modifier.class_name).gsub(" class=\"\"", "") %></code></pre>
+        <% end %>
+      </div>
     </div>
   <% end %>
 
-  <pre class="sg-code-block"><code class="language-markup"><%= example_html.strip.gsub(' $modifier_class', '').gsub(" class=\"\"", "") %></code></pre>
+  <% unless script.blank? %>
+  <div class="sg-code">
+    <span class="sg-code-language">Javascript</span>
+    <pre class="sg-code-block"><code class="language-javascript"><%= script %></code></pre>
+  </div>
+  <% end %>
 </div>

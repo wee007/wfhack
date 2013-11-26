@@ -20,6 +20,9 @@ $share-pinterest: #ca2026 !default;
 /* Start module */
 .social-share {
 
+  /* Non JS users */
+  .no-js & {display: none;}
+
   /* Horizontal mode at this breakpoint */
   @include respond-min($non-palm) {
     display: inline-block;

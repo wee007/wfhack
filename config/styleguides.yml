@@ -1,4 +1,4 @@
-- Default styles
+- Base styles
 - Utilities
 - Abstractions
 - Modules
@@ -6,4 +6,3 @@
 - Buttons
 - Helpers
 - Grid
-- Screen sizes

@@ -361,26 +361,6 @@
   <%# //Applied filters %>
 </script>
 
-<%# Expose Product categories for non JS users %>
-<noscript>
-  <nav role="navigation" class="island box mrg-base mrg-base--top">
-    <h2>Product categories</h2>
-    <ul class="mrg-base">
-      <% @categories.each do |category| %>
-        <li><%= link_to category.name, url_for(:controller => params[:controller], :action => params[:action], :params => {category.url_args.keys.first => category.url_args.values.first}) %></li>
-      <% end %>
-    </ul>
-
-    <h2>Brands at Westfield</h2>
-    <ul>
-      <% @brands.each do |brand| %>
-        <li><%= link_to brand.name, url_for(:controller => params[:controller], :action => params[:action], :params => {brand: brand.code}) %></li>
-      <% end %>
-    </ul>
-  </nav>
-</noscript>
-<%# //Expose Product categories for non JS users %>
-
 <p class="feedback feedback--warning js-enabled-hide">You need JavaScript enabled to use the product filters, as a fallback you can filter via the <strong>Product categories</strong> above. <a href="http://enable-javascript.com/" rel="external" target="_blank">Visit here</a> for instructions on how to enable JavaScript.</p>
 
 <% if @search.products.present? %>

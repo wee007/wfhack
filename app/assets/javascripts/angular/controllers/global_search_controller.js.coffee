@@ -1,5 +1,5 @@
 ((app) ->
-  app.controller "GlobalSearchCtrl", ['$scope', '$window', 'SuggestionsBuilder', 'GlobalSearch', ($scope, $window, SuggestionsBuilder, GlobalSearch) ->
+  app.controller "GlobalSearchCtrl", ['$scope', '$window', '$timeout', 'SuggestionsBuilder', 'GlobalSearch', ($scope, $window, $timeout, SuggestionsBuilder, GlobalSearch) ->
     $scope.search = GlobalSearch
     $scope.searchQuery = ""
     $scope.suggestionsVisible = false
@@ -44,9 +44,7 @@
 
     $scope.showSuggestions = -> $scope.suggestionsVisible = true
     $scope.hideSuggestions = ->
-      $window.setTimeout (->
-        $scope.$apply -> $scope.suggestionsVisible = false
-      ), 250
+      $timeout (-> $scope.suggestionsVisible = false), 250
 
     $scope.makeSuggestions = (event) ->
       if event

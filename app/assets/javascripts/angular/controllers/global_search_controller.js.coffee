@@ -43,7 +43,10 @@
       'other':  "#{$scope.suggestions.count} results are available, use up and down arrow keys to navigate."
 
     $scope.showSuggestions = -> $scope.suggestionsVisible = true
-    $scope.hideSuggestions = -> $scope.suggestionsVisible = false
+    $scope.hideSuggestions = ->
+      $window.setTimeout (->
+        $scope.$apply -> $scope.suggestionsVisible = false
+      ), 250
 
     $scope.makeSuggestions = (event) ->
       if event

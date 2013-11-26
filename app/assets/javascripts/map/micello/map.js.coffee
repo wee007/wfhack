@@ -54,6 +54,10 @@ class map.micello.Map
       typeMap: _(geoms).groupBy('t')
       stores: _(geoms).filter((geom) -> geom.t == 'Unit' || geom.t == 'Building')
       icons: _(geoms).filter((geom) -> geom.lt == 2 || geom.t == 'Entrance')
+      types: (types) ->
+        geoms = []
+        geoms = geoms.concat(@typeMap[type]) for type in types
+        geoms
 
   toggleKeyEvents: (enabled) ->
     @keyEventHandler ||= micello.maps.MapGUI.prototype.onKeyDown
@@ -128,8 +132,14 @@ class map.micello.Map
   targetGeomGroup: ->
     @geomGroupForStore(@targetStore()) if @hasTarget()
 
+  store: (id) ->
+    @stores.idMap[id]
+
   storeForGeomGroup: (geoms) ->
     _(geoms).chain().map((geom) => @stores.micelloMap[geom.id]).compact().first().value()
+
+  geomGroupForGeom: (geom) ->
+    @geoms.gidMap[geom.gid]
 
   geomGroupForStore: (store) ->
     storeGeom = @geoms.idMap[store.micello_geom_id]
@@ -138,6 +148,24 @@ class map.micello.Map
 
   hasTarget: ->
     !!@storeId
+
+  pinGeom: (geom) ->
+    @data.addMarkerOverlay
+      id: geom.id
+      mt: micello.maps.markertype.IMAGE
+      mr: westfield.pin
+      anm: 'pins'
+
+  pinStores: (store_ids) ->
+    _(store_ids).chain()
+      .map((store) => @geomGroupForStore(@store(id)))
+      .flatten().compact()
+      .each((geom) => @pinGeom(geom) if geom) # add a pin to each geom
+    @
+
+  clearPins: ->
+    @data.removeMarkerOverlay("pins", true)
+    @
 
   showLevel: ->
     if @hasTarget()
@@ -154,7 +182,7 @@ class map.micello.Map
     @
 
   detail: ->
-    if @hasTarget() && @targetGeom()
+    if @hasTarget() && @targetGeom() && @hasPopup()
       level = @data.getCurrentLevel()
       for geom in @targetGeomGroup()
         if @data.getGeometryLevel(geom.id).id == level.id
@@ -181,6 +209,9 @@ class map.micello.Map
     height: 62
     crop: 'pad'
     background: 'rgb:FFFFFF'
+
+  hasPopup: ->
+    $('script.map-micello__overlay-wrap[type="text/html-template"]').length > 0
 
   popupHtml: (store) =>
     return 'Store not found' unless store.id
@@ -216,7 +247,8 @@ class map.micello.Map
     geom.nm = geom.lr = name
 
   applyWestfieldStoreNames: ->
-    for geoms in _(@geoms.gidMap).toArray()
+    for geom in @geoms.types(['Building', 'Unit'])
+      geoms = @geomGroupForGeom(geom)
       unless @storeForGeomGroup(geoms)
         @setGeomName(geom, 'New Store Opening Soon') for geom in geoms
     for store in @stores.list

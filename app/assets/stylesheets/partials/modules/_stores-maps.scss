@@ -488,7 +488,7 @@
 
       /* Hide location icon for 'storefront' and 'store list' modules at this breakpoint */
       @include respond-min($ipad-landscape) {
-        .storefront-storelist-phone-map-links__cell--location {display:  none;}
+        .storefront-storelist-phone-map-links__cell--location {display: none;}
       }
     }
 

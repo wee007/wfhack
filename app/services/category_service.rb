@@ -8,7 +8,8 @@ class CategoryService
       'kids-babies',
       'shoes-footwear',
       'bags-luggage',
-      'beauty-health'
+      'beauty-health',
+      'computers-electronics'
     ]
 
     def fetch(params = {})

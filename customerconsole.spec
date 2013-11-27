@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.11
+Version:     0.2.12
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,11 @@ fi
 
 
 %changelog
+* Wed Nov 27 2013 ci <doperations@au.westfield.com> 0.2.12-1
+- Merge pull request #751 from chorn/master (chorn@au.westfield.com)
+- fix giftcard / giftcards vanity URL redirect to cope with trailing slash
+  (chorn@au.westfield.com)
+
 * Wed Nov 27 2013 ci <doperations@au.westfield.com> 0.2.11-1
 - Merge pull request #749 from cpearce/master (ldewey@au.westfield.com)
 - Global search test fix (ldewey@au.westfield.com)

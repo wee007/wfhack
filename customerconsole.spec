@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.13
+Version:     0.2.14
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,11 @@ fi
 
 
 %changelog
+* Thu Nov 28 2013 ci <doperations@au.westfield.com> 0.2.14-1
+- Merge pull request #753 from cpearce/master (craigM.smith@au.westfield.com)
+- Bumping up the breakpoint for the section nav (CPearce@au.westfield.com)
+- Tile module clean ups (CPearce@au.westfield.com)
+
 * Wed Nov 27 2013 ci <doperations@au.westfield.com> 0.2.13-1
 - fix redirects to point to non-permanently moved pages
   (chorn@au.westfield.com)

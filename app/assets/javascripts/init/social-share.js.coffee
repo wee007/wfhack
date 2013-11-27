@@ -2,9 +2,8 @@ class @SocialShare
 
   # Remove the is-active class off the button and list
   @closeAll = (event) ->
-    $('.js-social-share').removeClass 'is-active'
-    $('.js-tile-controls').removeClass 'is-active'
-    $('.js-social-share button').attr('aria-expanded', false)
+    $('.js-social-share, .js-tile-controls').removeClass 'is-active'
+    $('.js-social-share-trigger').attr 'aria-expanded', false
 
   @open = (event) ->
     $toOpen = $ this

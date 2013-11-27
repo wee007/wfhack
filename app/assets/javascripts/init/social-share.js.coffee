@@ -1,66 +1,46 @@
 class @SocialShare
 
-  # Hide / Show the social share list.
-  @load = (event) ->
+  # Remove the is-active class off the button and list
+  @closeAll = (event) ->
+    $('.js-social-share').removeClass 'is-active'
+    $('.js-tile-controls').removeClass 'is-active'
+    $('.js-social-share button').attr('aria-expanded', false)
+
+  @open = (event) ->
+    $toOpen = $ this
+    active = $toOpen.hasClass 'is-active'
+    loaded = $toOpen.hasClass 'is-loaded'
 
     event.stopPropagation()
+    SocialShare.closeAll()
 
-    socialShare = $ this
-    url = socialShare.data 'url'
+    open = ->
+      $toOpen
+        .addClass('is-active')
+        .parent('.js-tile-controls').addClass('is-active')
+        .find('button').attr('aria-expanded', true)
 
-    # Only load the list once, if its loaded toggle
-    # the is-active class
-    if socialShare.hasClass('is-loaded')
-      active = socialShare.hasClass 'is-active'
-
-      $('.js-social-share').removeClass 'is-active'
-      $('.js-tile-controls').removeClass 'is-active'
-
-      unless active
-        socialShare.parent('.js-tile-controls').addClass 'is-active'
-        socialShare.addClass 'is-active'
-
+    if loaded
+      # Only open if it was not active before... aka toggle
+      open() unless active
     else
-      socialShare.addClass 'is-loading'
-
-      $('.js-social-share').removeClass 'is-active'
-      $('.js-tile-controls').removeClass 'is-active'
-
-      $.get url, (data) ->
-        socialShare.append(data)
+      # Load in the list if we dont have it
+      $toOpen.addClass 'is-loading'
+      $.get $toOpen.data('url'), (data) ->
+        $toOpen.append(data)
           .removeClass('is-loading')
           .addClass('is-loaded')
-          .addClass('is-active')
-        socialShare.parent('.js-tile-controls').addClass 'is-active'
-
-
-  # Remove the is-active class off the button and list
-  @close = (event) ->
-    $event = $ event
-
-    $('.js-social-share').not(
-      $event.closest('.js-social-share')
-    ).removeClass 'is-active'
-
-    $('.js-tile-controls').not(
-      $event.closest('.js-tile-controls')
-    ).removeClass 'is-active'
-
+        open()
 
   @bind = ->
     # Close the social share, when its not needed.
-    $(document).on
-      click: SocialShare.close
+    $(document).on click: SocialShare.closeAll
 
     # On click load in the XHR social share list.
-    $(document).on
-      click: SocialShare.load
-    , ".js-social-share"
+    $(document).on click: SocialShare.open, ".js-social-share"
 
-    $(document).on 'keydown', ( event ) ->
-      if event.keyCode == 27
-        $('.js-social-share').removeClass 'is-active'
-        $('.js-tile-controls').removeClass 'is-active'
-
+    # Close all on esc key being pressed
+    $(document).on 'keydown', (event) ->
+      SocialShare.closeAll() if event.keyCode == 27
 
 SocialShare.bind()

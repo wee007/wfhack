@@ -56,7 +56,7 @@ class map.micello.Map
       icons: _(geoms).filter((geom) -> geom.lt == 2 || geom.t == 'Entrance')
       types: (types) ->
         geoms = []
-        geoms = geoms.concat(@typeMap[type]) for type in types
+        (geoms = geoms.concat(@typeMap[type]) if @typeMap[type]) for type in types
         geoms
 
   toggleKeyEvents: (enabled) ->

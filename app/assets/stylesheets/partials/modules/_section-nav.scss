@@ -26,7 +26,7 @@
 	  border-bottom: 0;
 
 	  /* Remove right margin at this breakpoint */
-		@include respond-min(970) {
+		@include respond-min(1000) {
 	    margin-right: 0;
 	  }
 
@@ -34,7 +34,7 @@
 	  .drop-down-container--hover .drop-down {z-index: $z-index-high+1;}
 
 	  /* Hide all drop downs at this breakpoint */
-		@include respond-max(969) {
+		@include respond-max(999) {
 	    .drop-down {display: none;}
 	  }
 
@@ -52,7 +52,7 @@
 	}
 
 		/* Turn off `overflow: hidden` so we can see the drop down's at this breakpoint */
-		@include respond-min(970) {
+		@include respond-min(1000) {
 			.nav-contextual__clip__inner {
 				&,
 				.no-js & {overflow: visible;}
@@ -72,7 +72,7 @@
 			  }
 
 			  /* Turn off oversize width as we don't need the scrolling JS behaviour */
-				@include respond-min(970) {
+				@include respond-min(1000) {
 					width: auto;
 				}
 			}
@@ -87,7 +87,7 @@
 		@include translate(0, -50%);
 
 		/* Hide at this breakpoint */
-		@include respond-min(970) {
+		@include respond-min(1000) {
 	    display: none;
 	  }
 
@@ -109,7 +109,7 @@
 	  }
 
 	  /* Make the nav and centre selector sit side by side at this breakpoint */
-		@include respond-min(970) {
+		@include respond-min(1000) {
 			float: none;
 	    position: absolute;
 			right: 0;
@@ -130,7 +130,7 @@
 		  }
 
 		  /* Reduce the gutter at this breakpoint */
-			@include respond-max(969) {
+			@include respond-max(999) {
 		    @include to-rem(padding-right, $spacing-half);
 		  }
 		}
@@ -143,7 +143,7 @@
 		@include to-rem(padding-top padding-bottom, $spacing-quarter);
 
 		/* Always show at this breakpoint */
-		@include respond-min(970) {
+		@include respond-min(1000) {
 
 			/* JS users */
 	    .js & {display: block;}

@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.10
+Version:     0.2.11
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,17 @@ fi
 
 
 %changelog
+* Wed Nov 27 2013 ci <doperations@au.westfield.com> 0.2.11-1
+- Merge pull request #749 from cpearce/master (ldewey@au.westfield.com)
+- Global search test fix (ldewey@au.westfield.com)
+- Removing extra white space (CPearce@au.westfield.com)
+- Fixing a typo (CPearce@au.westfield.com)
+- Fixing tight spacing between product filters - BUG-737
+  (CPearce@au.westfield.com)
+- Adding 'Computers' to category nav (CPearce@au.westfield.com)
+- Hide site feedback button for non JS users - WSF-6037
+  (CPearce@au.westfield.com)
+
 * Wed Nov 27 2013 ci <doperations@au.westfield.com> 0.2.10-1
 - fixes undefined error in maps (matt.wratt@trineo.co.nz)
 

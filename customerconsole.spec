@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.14
+Version:     0.2.15
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,10 @@ fi
 
 
 %changelog
+* Thu Nov 28 2013 ci <doperations@au.westfield.com> 0.2.15-1
+- Fixing broken anchor links on Centre Info page (CPearce@au.westfield.com)
+- Removing palm label in Centre hours table (CPearce@au.westfield.com)
+
 * Thu Nov 28 2013 ci <doperations@au.westfield.com> 0.2.14-1
 - Merge pull request #753 from cpearce/master (craigM.smith@au.westfield.com)
 - Bumping up the breakpoint for the section nav (CPearce@au.westfield.com)

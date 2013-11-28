@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.15
+Version:     0.2.16
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,28 @@ fi
 
 
 %changelog
+* Thu Nov 28 2013 ci <doperations@au.westfield.com> 0.2.16-1
+- Merge pull request #721 from ldewey/social_shares
+  (craigM.smith@au.westfield.com)
+- Changes as per Chris's comments. (ldewey@au.westfield.com)
+- Added aria-expanded="true/false" to social share button
+  (ldewey@au.westfield.com)
+- Do not show the soical shares to people with no JS. (ldewey@au.westfield.com)
+- Adding preloader, ARIA live attributes and accessiblity testing
+  (CPearce@au.westfield.com)
+- Moved styles around as I cleaned up the is-active stuff.
+  (ldewey@au.westfield.com)
+- Removed the need for js-social-share-list (ldewey@au.westfield.com)
+- Fixed issues with social shares. ESC and clicking off now works
+  (ldewey@au.westfield.com)
+- Social shares are now pulled in with JS/Ajax (ldewey@au.westfield.com)
+- Redirection spec fixes (ldewey@au.westfield.com)
+- Removed product stream as its not used (ldewey@au.westfield.com)
+- Removed movie_service_spec as the whole lot was commented
+  (ldewey@au.westfield.com)
+- Removed image_service As its not used (ldewey@au.westfield.com)
+- Controller work for social shares. (ldewey@au.westfield.com)
+
 * Thu Nov 28 2013 ci <doperations@au.westfield.com> 0.2.15-1
 - Fixing broken anchor links on Centre Info page (CPearce@au.westfield.com)
 - Removing palm label in Centre hours table (CPearce@au.westfield.com)

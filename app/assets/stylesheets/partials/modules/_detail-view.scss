@@ -238,6 +238,13 @@
         @include target-webkit {
           .icon--share:before {top: -2px;}
         }
+
+        /* Preloader */
+        .preloader__spinner {
+          width: 16px;
+          height: 16px;
+          background-size: 16px 16px;
+        }
     }
   }
 

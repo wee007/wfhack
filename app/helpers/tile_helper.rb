@@ -16,6 +16,8 @@ module TileHelper
       rescue
         result.url
       end
+    when 'movie'
+      centre_movie_url(centre_id: centre, id: result.id, movie_name: result.title.to_slug)
     end
   end
 

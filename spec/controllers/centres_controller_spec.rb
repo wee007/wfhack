@@ -15,6 +15,15 @@ describe CentresController do
 
     end
 
+    describe :product_stream do
+      it "renders show view" do
+        CentreService.should_receive( :fetch ).with('1').and_return double :response, body: {}
+        StreamService.should_receive( :fetch ).with(centre: '1', stream: 'product').and_return double :response, body: {}
+        get :product_stream, id: 1
+        response.should render_template :show
+      end
+    end
+
     describe :show do
 
       it "renders show view" do

@@ -31,6 +31,11 @@ class CentresController < ApplicationController
     )
   end
 
+  def product_stream
+    stream 'product'
+    render :show
+  end
+
 private
   def stream(filter=nil)
     centre, stream = nil

@@ -22,24 +22,21 @@
 	right: 0;
 	@include to-rem(bottom, $spacing-base);
 
-	/* Hide for 'National home page' and all Androids users */
-	.national &,
-	.android & {display: none;}
-
 	/* Only show for large desktop */
 	@include respond-min($desk-lrg) {
 		display: block;
 	}
 
-	/* --Hide for IE and non JS users-- */
+	/* --Hide-- */
 
 	/* IE10 */
 	@include ie-10-up {
 		display: none;
 	}
-	/* IE 8/9 and non JS users */
+	/* IE 8/9, non JS and Android users */
 	.ie &,
-	.no-js & {display: none;}
+	.no-js &,
+	.android & {display: none;}
 }
 
 	/* 'Give feedback' label */

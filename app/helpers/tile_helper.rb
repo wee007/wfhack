@@ -19,6 +19,14 @@ module TileHelper
     end
   end
 
+  def tile_social_share_url(centre, kind, id)
+    if centre
+      send "centre_#{kind}_social_share_url", centre, id
+    else
+      send "#{kind}_social_share_url", id
+    end
+  end
+
   def pin_board(rows, &block)
     render layout: "/layouts/pin_board", locals: { rows: rows }, &block
   end

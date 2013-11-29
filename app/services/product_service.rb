@@ -17,20 +17,20 @@ class ProductService
   private
 
     def request_uri(options)
-
-      return show_uri(options) unless options.is_a?(Hash)
-
       options.delete :controller
       action = options.delete :action
       options.reject! {|k,v|v.blank? || v.is_a?(Array) && v.all?(&:blank?) }
-      if action == 'lite'
+      if action == 'show'
+        show_uri(options)
+      elsif action == 'lite'
         lite_uri(options)
       else
         search_uri(options)
       end
     end
 
-    def show_uri(id)
+    def show_uri(options)
+      id = options.delete :id
       URI("#{ServiceHelper.uri_for('product')}/products/#{id}.json")
     end
 

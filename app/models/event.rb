@@ -52,12 +52,10 @@ class Event < Hashie::Mash
   end
 
   def meta
-    Meta.new id: id,
-             title: title,
+    Meta.new title: title,
              twitter_title: "Check out this #{title}",
              email_body: "event",
-             image: image,
-             kind: kind
+             image: image
   end
 
   class Occurrence < Hashie::Mash

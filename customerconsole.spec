@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.20
+Version:     0.2.21
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,9 @@ fi
 
 
 %changelog
+* Fri Nov 29 2013 ci <doperations@au.westfield.com> 0.2.21-1
+- Update wifi for Sydney and Carindale (gcallister@au.westfield.com)
+
 * Fri Nov 29 2013 ci <doperations@au.westfield.com> 0.2.20-1
 - Revert "Merge pull request #721 from ldewey/social_shares"
   (craigm.smith@au.westfield.com)

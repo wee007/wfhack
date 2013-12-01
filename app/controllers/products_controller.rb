@@ -64,7 +64,7 @@ class ProductsController < ApplicationController
     Service::API.in_parallel do
       centre = CentreService.fetch params[:centre_id] if params[:centre_id]
       centres = CentreService.fetch :all, country: 'au' unless params[:centre_id]
-      product = ProductService.fetch params[:id]
+      product = ProductService.fetch params.dup
       stores = StoreService.fetch retailer_code: params[:retailer_code], per_page: 50
     end
 
@@ -99,7 +99,7 @@ class ProductsController < ApplicationController
 
 
   def redirection
-    @product = ProductService.find params[:id]
+    @product = ProductService.build(ProductService.fetch params.dup.merge({action: 'show'}))
 
     @cam_ref = @product.retail_chain.cam_ref
 

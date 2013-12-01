@@ -66,10 +66,17 @@
           highlightSuggestion('next')
           event.preventDefault()
         when 13 # enter
-          $window.location = $scope.url($scope.focusedSuggestion)
-          event.preventDefault()
+          if $scope.focusedSuggestion
+            $window.location = $scope.url($scope.focusedSuggestion)
+            event.preventDefault()
 
       $scope.url = (suggestion) -> "/#{$scope.centre_id}#{suggestion.url}"
+      $scope.submit = ( event ) ->
+        suggestions = $scope.suggestions.products
+        suggestion = suggestions[suggestions.length-1]
+
+        $window.location = $scope.url(suggestion)
+        event.preventDefault()
 
   ]
 ) angular.module("Westfield")

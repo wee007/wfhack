@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.16
+Version:     0.2.21
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,27 @@ fi
 
 
 %changelog
+* Fri Nov 29 2013 ci <doperations@au.westfield.com> 0.2.21-1
+- Update wifi for Sydney and Carindale (gcallister@au.westfield.com)
+
+* Fri Nov 29 2013 ci <doperations@au.westfield.com> 0.2.20-1
+- Revert "Merge pull request #721 from ldewey/social_shares"
+  (craigm.smith@au.westfield.com)
+
+* Fri Nov 29 2013 ci <doperations@au.westfield.com> 0.2.19-1
+- 
+
+* Fri Nov 29 2013 ci <doperations@au.westfield.com> 0.2.18-1
+- Merge pull request #756 from bschwarz/searchOHIJACK
+  (craigM.smith@au.westfield.com)
+- Update to include redirects for wifi - 3 centres (Carindale, Sydney, Geelong)
+  (gcallister@au.westfield.com)
+- Hijack the search form so that rails doesn't munge the request params in IE.
+  Thusly causing product search to work incorrectly. (ben@germanforblack.com)
+
+* Thu Nov 28 2013 ci <doperations@au.westfield.com> 0.2.17-1
+- Use store_phone_number helper here too (ben@germanforblack.com)
+
 * Thu Nov 28 2013 ci <doperations@au.westfield.com> 0.2.16-1
 - Merge pull request #721 from ldewey/social_shares
   (craigM.smith@au.westfield.com)

@@ -65,7 +65,7 @@
                 <span class="icon icon--phone icon--xlrg icon--spacing-lrg icon--flush-top" aria-hidden="true"></span><strong>Call <%= @product.retail_chain_name %></strong>
               <% end %>
             </span>
-            <p class="detail-view__check-avble hide-fully--palm"><span class="detail-view__subtle-txt">Check store availability</span> <em><span class="icon icon--phone icon--lrg icon--spacing" aria-hidden="true"></span> <%= @product.retail_chain.phone_no %></em></p>
+            <p class="detail-view__check-avble hide-fully--palm"><span class="detail-view__subtle-txt">Check store availability</span> <em><span class="icon icon--phone icon--lrg icon--spacing" aria-hidden="true"></span><%=  phone_format store_phone_number(@centre_stores, @product.retail_chain) %></em></p>
           </div>
           <%# //Contact store %>
 

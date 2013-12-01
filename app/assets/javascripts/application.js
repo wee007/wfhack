@@ -26,7 +26,6 @@
 //= require ./init/tabs
 //= require ./vendor/jquery.viewport
 //= require ./init/viewport_check
-//= require ./init/social-share
 
 // Angular
 //= require angular

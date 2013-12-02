@@ -241,7 +241,7 @@
         #ui-levels,
         #ui-attribution {
           left: auto !important;
-          right: 4%;
+          right: $page-container-gutter;
           opacity: 1 !important;
           display: block !important;
         }

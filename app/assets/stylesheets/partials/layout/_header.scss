@@ -228,7 +228,7 @@ $header-color-link-hover: $color-brand !default;
 
 			/* Drop down pointer arrow (most of the styles are brought over from the 'Drop down menu' module) */
 			.header &.pointer-up:before {
-				left: 4%;
+				left: $page-container-gutter;
 				margin-left: 3px;
 				color: $color-txt-dark;
 				text-shadow: none;
@@ -1037,24 +1037,26 @@ $header-color-link-hover: $color-brand !default;
 
 	/* --Header hero (centre home page)-- */
 	.header__hero {
-		@include to-rem(min-height, 220);
 		background-repeat: no-repeat;
 		background-position: 50% 50%;
 		background-size: cover;
 		background-color: $color-grey-dark-1;
 		position: relative;
 		z-index: 1;
-		display: none;
 
-		.header--hero & {display: block;}
+		/* Set min heights */
+		&,
+		.header-disclaimer {
+			@include to-rem(min-height, 220);
 
-		/* Increase min height at these breakpoints */
-		@include respond-min($non-palm) {
-			@include to-rem(min-height, $hero-banner-height-sml);
-		}
+			/* Increase min heights at these breakpoints */
+			@include respond-min($non-palm) {
+				@include to-rem(min-height, $hero-banner-height-sml);
+			}
 
-		@include respond-min($ipad-portrait) {
-			@include to-rem(min-height, $hero-banner-height-lrg);
+			@include respond-min($ipad-portrait) {
+				@include to-rem(min-height, $hero-banner-height-lrg);
+			}
 		}
 	}
 
@@ -1102,6 +1104,18 @@ $header-color-link-hover: $color-brand !default;
 				/* Icon */
 				.icon:before {font-size: 100%;}
 			}
+
+		/* 'Artist impression' disclaimer, needed when the centre home page image is not a photograph, currently only applies to 'Miranda' and 'Garden City' centres */
+		.header-disclaimer small {
+			position: absolute;
+			right: 0;
+			@include to-rem(bottom, $spacing-sixth);
+			color: #fff;
+			@include font-size($font-size-milli);
+
+			/* IE9 */
+			.ie-9 & {opacity: 0.6;}
+		}
 
 		/* Gradient overlay - used on national landing page as well */
 		.hero-gradient {
@@ -1523,6 +1537,7 @@ $header-color-link-hover: $color-brand !default;
 						}
 					}
 				}
+
 
 	/* --National view-- */
 

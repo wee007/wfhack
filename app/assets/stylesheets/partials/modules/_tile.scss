@@ -133,8 +133,9 @@
     position: absolute;
     @include to-rem(top right, $spacing-quarter);
 
-    /* Only show on non-touch devices as they have hover */
-    .no-touch .tile:hover & {display: block;}
+    /* Only show on non-touch devices when tile is hovered and to keep in view via dynamic `is-active` class */
+    .no-touch .tile:hover &,
+    .no-touch .tile &.is-active {display: block;}
 
     /* Buttons */
     .controls__btn {
@@ -144,15 +145,18 @@
       border-radius: $border-radius;
       background-color: #fff;
 
-      /* Remove the border radius when button is active */
-      &.is-active {
-        border-color: $color-grey-dark-3;
-        border-bottom-right-radius: 0;
-        border-bottom-left-radius: 0;
-      }
-
         /* Icon */
         .icon:before {position: static;}
+
+        /* Preloader */
+        .preloader em {@include hide-visually;}
+    }
+
+    /* Active state */
+    .is-active .controls__btn {
+      border-color: $color-grey-dark-3;
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0;
     }
   }
 

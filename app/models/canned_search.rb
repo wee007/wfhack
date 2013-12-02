@@ -17,10 +17,8 @@ class CannedSearch < Hashie::Mash
   end
 
   def meta
-    Meta.new id: id,
-             title: name,
-             image: image,
-             kind: kind
+    Meta.new title: name,
+             image: image
   end
 
   def icon

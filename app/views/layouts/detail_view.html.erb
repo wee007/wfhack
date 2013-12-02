@@ -10,7 +10,8 @@
 
   <% unless meta.hide_social_share %>
     <div class="detail-view__controls detail-view__divider">
-      <%= render "/shared/social_share", kind: meta.kind, id: meta.id %>
+      <%= render "/shared/social_share", url: current_url, title: meta.title, twitter_title: meta.twitter_title, email_body: meta.email_body, image: meta.image %>
+
       <% if in_lightbox? %>
         <button type="button" class="btn"><span class="icon icon--close-sml icon--flush-top" aria-hidden="true"></span><span class="hide-visually"> Close</span></button>
       <% end %>

@@ -37,12 +37,6 @@ describe TileHelper do
       cs = double(:canned_search, kind: 'canned_search', to_param: 'id', url: 'example.com/something/bad and $')
       helper.tile_url("centre_id", cs).should eq("example.com/something/bad and $")
     end
-
-    it "returns a movie url" do
-      movie = double(:movie, kind: 'movie', id: 1, title: 'movie name')
-      expect(helper.tile_url "centre_id", movie).to eq "http://test.host/centre_id/movies/movie-name/1"
-    end
-
   end
 
   describe :tile do

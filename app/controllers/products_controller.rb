@@ -37,6 +37,12 @@ class ProductsController < ApplicationController
     @search = ProductService.build products
     @super_categories = CategoryService.build super_categories
 
+    categories = @search.facets.detect{|f| ["super_cat", "category", "sub_category"].include? f.field }
+    @categories = categories ? categories['values'] : []
+
+    brands = @search.facets.detect{|f| f.field == "brand" }
+    @brands = brands ? brands['values'] : []
+
     @pagination = {
       page: (params[:page] || 1).to_i,
       page_count: (@search['count'].to_f / @search['rows'].to_f).ceil

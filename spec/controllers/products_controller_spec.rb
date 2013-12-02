@@ -101,6 +101,18 @@ describe ProductsController do
         end
       end
 
+      context "when requesting for page title and meta description for given a retailer" do
+        it "includes the retailer name and description in the page title and meta description respectively, and adds to meta" do
+          meta_double = double :meta
+          meta_double.should_receive(:push).with({
+            page_title: "Retailer at Westfield Bondi Junction",
+            description: "Find the latest fashion, clothes, shoes, jewellery, accessories and much more at Westfield Bondi Junction"
+          })
+          controller.stub(:meta).and_return(meta_double)
+          get :index, centre_id: 'bondijunction', retailer: ['retailer']
+        end
+      end
+
     end
 
     describe 'meta data for national page' do
@@ -162,6 +174,18 @@ describe ProductsController do
           })
           controller.stub(:meta).and_return(meta_double)
           get :index, sub_category: ['product-3','product-4'], category: 'product-2', super_cat: 'product-1'
+        end
+      end
+
+      context "when requesting for page title and meta description for given a retailer" do
+        it "includes the retailer name and description in the page title and meta description respectively, and adds to meta" do
+          meta_double = double :meta
+          meta_double.should_receive(:push).with({
+            page_title: "Retailer at Westfield",
+            description: "Find the latest fashion, clothes, shoes, jewellery, accessories and much more at Westfield"
+          })
+          controller.stub(:meta).and_return(meta_double)
+          get :index, retailer: ['retailer']
         end
       end
 

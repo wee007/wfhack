@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.22
+Version:     0.2.23
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,16 @@ fi
 
 
 %changelog
+* Mon Dec 02 2013 ci <doperations@au.westfield.com> 0.2.23-1
+- Merge pull request #766 from cpearce/centre-banner-disclaimer
+  (craigM.smith@au.westfield.com)
+- Merge pull request #759 from cpearce/master (craigM.smith@au.westfield.com)
+- Fixing grammar issue (CPearce@au.westfield.com)
+- Adding a disclaimer for certain centre home page banners
+  (CPearce@au.westfield.com)
+- Bringing site feedback button for national home page
+  (CPearce@au.westfield.com)
+
 * Mon Dec 02 2013 ci <doperations@au.westfield.com> 0.2.22-1
 - Merge pull request #762 from ldewey/social_shares (ldewey@au.westfield.com)
 - Soical shares now work with movies (ldewey@au.westfield.com)

@@ -194,14 +194,14 @@ describe ProductsController do
 
   describe "GET #show" do
     it "assigns the centre instance variable and redirection url" do
-      get :show, id: 1, centre_id: 'bondijunction'
+      get :show, id: 1, centre_id: 'bondijunction', retailer_code: 'retailer_code', product_name: 'product_name'
       response.should render_template :show
       assigns(:centre).should_not be_nil
       assigns(:product_redirection_url).should == centre_product_redirection_url
     end
 
     it "does not assign the centre instance variable and does assigns centre redirection url" do
-      get :show, id: 1
+      get :show, id: 1, retailer_code: 'retailer_code', product_name: 'product_name'
       response.should render_template :show
       assigns(:centre).should be_nil
       assigns(:product_redirection_url).should == product_redirection_url

@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.21
+Version:     0.2.22
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,11 @@ fi
 
 
 %changelog
+* Mon Dec 02 2013 ci <doperations@au.westfield.com> 0.2.22-1
+- Merge pull request #762 from ldewey/social_shares (ldewey@au.westfield.com)
+- Soical shares now work with movies (ldewey@au.westfield.com)
+- Adding social shares back in (ldewey@au.westfield.com)
+
 * Fri Nov 29 2013 ci <doperations@au.westfield.com> 0.2.21-1
 - Update wifi for Sydney and Carindale (gcallister@au.westfield.com)
 

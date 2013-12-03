@@ -43,6 +43,7 @@ CustomerConsole::Application.routes.draw do
     get 'movies/:movie_name/:id' => 'movies#show', as: 'movie'
     get 'movies/:id/social-share' => 'social_shares#show', as: 'movie_social_share', kind: 'movie'
     resources :notices, only: [:show]
+    get 'notices/:id/social-share' => 'social_shares#show', as: 'notice_social_share', kind: 'centre_service_notices'
     resources :stores, only: [:index]
     get 'stores/:retailer_code/:id' => 'stores#show', as: 'store'
     get 'hours', to: 'centre_hours#show'

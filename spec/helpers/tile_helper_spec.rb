@@ -43,6 +43,11 @@ describe TileHelper do
       expect(helper.tile_url "centre_id", movie).to eq "http://test.host/centre_id/movies/movie-name/1"
     end
 
+    it "returns a notice url" do
+      notice = double(:notice, kind: 'notice', id: 1, title: 'notice name')
+      expect(helper.tile_url "centre_id", notice).to eq "http://test.host/centre_id/notices/1"
+    end
+
   end
 
   describe :tile do

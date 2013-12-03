@@ -36,6 +36,11 @@ describe SocialSharesController do
         get :show, id: 1, kind: 'movie', centre_id: 'centre_code'
       end
 
+      it 'should work for canned searches' do
+        CentreServiceNoticesService.should_receive(:find).with '1'
+        get :show, id: 1, kind: 'centre_service_notices', centre_id: 'centre_code'
+      end
+
     end
 
   end

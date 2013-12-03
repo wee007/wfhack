@@ -5,8 +5,6 @@
 /* Set variables */
 $hero-banner-height-sml: 270 !default;
 $hero-banner-height-lrg: 380 !default;
-$header-color-grey: #bababa !default;
-$header-color-link-hover: $color-brand !default;
 
 /* Start header */
 .header {
@@ -32,7 +30,7 @@ $header-color-link-hover: $color-brand !default;
 
 /* 'Centre home page hero banner' and 'National' */
 .header--hero,
-.header--national {border-bottom: 1px solid $header-color-grey;}
+.header--national {border-bottom: 1px solid $color-grey-med-2;}
 
 	/* --Header secondary-- */
 	.header__secondary {
@@ -307,7 +305,7 @@ $header-color-link-hover: $color-brand !default;
 							}
 
 							/* My account nav drop down */
-							.header--hero .my-account-signedin & {border-color: $header-color-grey;}
+							.header--hero .my-account-signedin & {border-color: $color-grey-med-2;}
 						}
 
 						/* Increase right spacing at this breakpoint */
@@ -357,7 +355,7 @@ $header-color-link-hover: $color-brand !default;
 
 									/* Change state color at this breakpoint */
 									@include respond-min($ipad-landscape) {
-										color: $header-color-link-hover;
+										color: $color-brand;
 									}
 								}
 							}
@@ -368,7 +366,7 @@ $header-color-link-hover: $color-brand !default;
 								.header--hero &:focus,
 								.header--hero &.is-active {
 									&,
-									.icon:before {color: $header-color-link-hover;}
+									.icon:before {color: $color-brand;}
 								}
 							}
 
@@ -851,7 +849,7 @@ $header-color-link-hover: $color-brand !default;
 						/* Hover and focus states */
 						a:hover,
 						a:focus {
-							.icon:before {color: $header-color-link-hover;}
+							.icon:before {color: $color-brand;}
 						}
 
 							/* Icon */
@@ -954,7 +952,7 @@ $header-color-link-hover: $color-brand !default;
 					&:hover,
 					&:focus {
 						&,
-						.icon:before {color: $header-color-link-hover;}
+						.icon:before {color: $color-brand;}
 					}
 				}
 
@@ -1015,7 +1013,7 @@ $header-color-link-hover: $color-brand !default;
 			/* Hover & focus states */
 			a:hover,
 			a:focus {
-				.icon:before {color: $header-color-link-hover;}
+				.icon:before {color: $color-brand;}
 			}
 
 			/* Search icon */
@@ -1079,7 +1077,7 @@ $header-color-link-hover: $color-brand !default;
 				&:hover,
 				&:focus {
 					&,
-					.icon:before {color: $header-color-link-hover;}
+					.icon:before {color: $color-brand;}
 				}
 			}
 
@@ -1296,7 +1294,7 @@ $header-color-link-hover: $color-brand !default;
 							color: #fff;
 
 							/* Centre home page hero banner */
-							.header--hero & {color: $header-color-link-hover;}
+							.header--hero & {color: $color-brand;}
 						}
 					}
 
@@ -1383,7 +1381,7 @@ $header-color-link-hover: $color-brand !default;
 			}
 
 			/* Centre home page hero banner */
-			.header--hero & {border-color: $header-color-grey;}
+			.header--hero & {border-color: $color-grey-med-2;}
 
 				/* Icon */
 				.icon:before {
@@ -1470,7 +1468,7 @@ $header-color-link-hover: $color-brand !default;
 	      /* Centre home page hero banner */
 				.header--hero & {
 					box-shadow: 0 2px 2px rgba(#000, 0.3);
-					border: 1px solid $header-color-grey;
+					border: 1px solid $color-grey-med-2;
 					border-top: 0;
 				}
 			}

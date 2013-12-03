@@ -7,6 +7,9 @@ VCR.configure do |c|
     :record => :once,
     :allow_playback_repeats => true
   }
+  c.default_cassette_options = {
+    :match_requests_on => [:method, VCR.request_matchers.uri_without_param(:date)]
+  }
   c.configure_rspec_metadata!
 end
 

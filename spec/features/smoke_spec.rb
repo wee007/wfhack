@@ -24,7 +24,7 @@ feature "Smoke tests", :vcr => {
     should eql(200)
   end
 
-  context "in a centre a user vists a" do
+  context "in a centre a user vists the" do
 
     let(:centre_code) { "bondijunction" }
 
@@ -95,6 +95,16 @@ feature "Smoke tests", :vcr => {
 
       # show
       first(".test-store a").click
+      should eql(200)
+    end
+
+    scenario "notice pages" do
+      # index
+      visit centre_info_path(centre_code)
+      should eql(200)
+
+      # show
+      first(".test-notice a").click
       should eql(200)
     end
 

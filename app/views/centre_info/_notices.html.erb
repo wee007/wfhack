@@ -6,7 +6,7 @@
     <div class="grid__item non-palm-one-whole">
       <ul class="txt-formatted__list-unstyled">
         <% @notices.each_with_index do |notice, idx| -%>
-        <li>
+        <li class="test-notice">
             <a href="<%= centre_notice_path(@centre, notice.id) -%>" class="list-divider txt-truncate<%= ' list-divider--first' if idx == 0 -%>">
               <%= notice.name  %>
             <span class="icon icon--arrow-right icon--lrg icon--base-color" aria-hidden="true"></span>

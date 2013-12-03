@@ -1,6 +1,6 @@
 GIT
   remote: git@github.dbg.westfield.com:digital/service_api.git
-  revision: e404c66593e94ae65638daba0fda4b46e54e3ee0
+  revision: eb4a58df7ca9a58c300635c17b971d772749e672
   specs:
     service_api (0.0.6)
       faraday
@@ -171,7 +171,7 @@ GEM
     newrelic_rpm (3.6.8.168)
     nokogiri (1.6.0)
       mini_portile (~> 0.5.0)
-    oj (2.1.7)
+    oj (2.3.0)
     poltergeist (1.4.1)
       capybara (~> 2.1.0)
       cliver (~> 0.2.1)
@@ -261,7 +261,7 @@ GEM
       polyglot
       polyglot (>= 0.3.1)
     truncate (0.1.0)
-    typhoeus (0.6.5)
+    typhoeus (0.6.6)
       ethon (~> 0.6.1)
     tzinfo (0.3.38)
     uglifier (2.2.1)

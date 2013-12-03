@@ -40,8 +40,8 @@ CustomerConsole::Application.routes.draw do
     get 'deals/:id/social-share' => 'social_shares#show', as: 'deal_social_share', kind: 'deal'
     get 'deals/:retailer_code/:id' => 'deals#show', as: 'deal'
     resources :movies, only: [:index]
-    get 'movies/:movie_name/:id' => 'movies#show', as: 'movie'
     get 'movies/:id/social-share' => 'social_shares#show', as: 'movie_social_share', kind: 'movie'
+    get 'movies/:movie_name/:id' => 'movies#show', as: 'movie'
     resources :notices, only: [:show]
     get 'notices/:id/social-share' => 'social_shares#show', as: 'notice_social_share', kind: 'centre_service_notices'
     resources :stores, only: [:index]

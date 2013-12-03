@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.25
+Version:     0.2.26
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,22 @@ fi
 
 
 %changelog
+* Tue Dec 03 2013 ci <doperations@au.westfield.com> 0.2.26-1
+- Merge pull request #771 from csmith/master (ldewey@au.westfield.com)
+- Added redirect for incorrect movie urls (craigm.smith@au.westfield.com)
+- The date changes everyday omit the date when matching the url.
+  (craigm.smith@au.westfield.com)
+- Fixed movies url to not include the centre name twice.
+  (craigm.smith@au.westfield.com)
+- Merge pull request #765 from bschwarz/add-noscript
+  (craigM.smith@au.westfield.com)
+- Merge pull request #768 from ldewey/testing (craigM.smith@au.westfield.com)
+- Merge pull request #769 from ewee/master (craigM.smith@au.westfield.com)
+- Add page title and description for retailer (ewee@au.westfield.com)
+- Added the ablity to turn off VCR (ldewey@au.westfield.com)
+- Added basic smoke tests (ldewey@au.westfield.com)
+- Revert "Don't render the noscript any longer." (ben@germanforblack.com)
+
 * Tue Dec 03 2013 ci <doperations@au.westfield.com> 0.2.25-1
 - Revert "Merge pull request #762 from ldewey/social_shares"
   (craigm.smith@au.westfield.com)

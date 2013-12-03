@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.26
+Version:     0.2.27
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,14 @@ fi
 
 
 %changelog
+* Tue Dec 03 2013 ci <doperations@au.westfield.com> 0.2.27-1
+- Merge pull request #773 from cpearce/master (craigM.smith@au.westfield.com)
+- Adding 'in store' to the gift card notification on storefront - WSF-6046
+  (chrispearce@chriss-mbp.au.ad.westfield.com)
+- Added notices to social shares (ldewey@au.westfield.com)
+- Added tests for notices (ldewey@au.westfield.com)
+- Revert "Merge pull request #770 from csmith/master" (ldewey@au.westfield.com)
+
 * Tue Dec 03 2013 ci <doperations@au.westfield.com> 0.2.26-1
 - Merge pull request #771 from csmith/master (ldewey@au.westfield.com)
 - Added redirect for incorrect movie urls (craigm.smith@au.westfield.com)

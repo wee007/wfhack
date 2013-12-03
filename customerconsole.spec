@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.27
+Version:     0.2.28
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,9 @@ fi
 
 
 %changelog
+* Tue Dec 03 2013 ci <doperations@au.westfield.com> 0.2.28-1
+- 
+
 * Tue Dec 03 2013 ci <doperations@au.westfield.com> 0.2.27-1
 - Merge pull request #773 from cpearce/master (craigM.smith@au.westfield.com)
 - Adding 'in store' to the gift card notification on storefront - WSF-6046

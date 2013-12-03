@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.28
+Version:     0.2.29
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,17 @@ fi
 
 
 %changelog
+* Wed Dec 04 2013 ci <doperations@au.westfield.com> 0.2.29-1
+- Merge pull request #776 from mcinerney/master (craigM.smith@au.westfield.com)
+- Merge pull request #775 from cpearce/framework-refactoring
+  (craigM.smith@au.westfield.com)
+- change logging to warn, info is too verbose (pmcinerney@au.westfield.com)
+- OPS-7809 add case insensitive vanity url redirect off westfield.com.au for
+  brandspace (pmcinerney@au.westfield.com)
+- Check usage of all our colours - WSF-6048 (cpearce@au.westfield.com)
+- Moved up movie social share route so it is routable (ldewey@au.westfield.com)
+- Added spec to check Social share routes (ldewey@au.westfield.com)
+
 * Tue Dec 03 2013 ci <doperations@au.westfield.com> 0.2.28-1
 - 
 

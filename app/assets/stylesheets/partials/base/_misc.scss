@@ -22,7 +22,7 @@ abbr[title] {cursor: help;}
 -------------------------------------------------------*/
 ins {
 	background-color: #ff9;
-	color: #000;
+	color: $color-grey-dark-1;
 	text-decoration: none;
 }
 
@@ -46,4 +46,4 @@ canvas {-ms-touch-action: double-tap-zoom;}
 
 /* [CODE]
 -------------------------------------------------------*/
-code {color: darken(#c90, 5%);}
+code {color: $color-blue;}

@@ -175,7 +175,7 @@
             font-size: 30px;
             line-height: 11px;
             color: #fff;
-            text-shadow: 0 3px 1px rgba(#c7c7c7, 0.9);
+            text-shadow: 0 3px 1px rgba($color-grey-med-3, 0.9);
 
             /* IE 10 */
             @include ie-10-up {
@@ -189,8 +189,8 @@
             padding: 0 !important;
             max-width: none !important;
             max-height: none !important;
-            box-shadow: 0 0 10px #ccc,
-                        0 1px 1px #b4b4b4;
+            box-shadow: 0 0 10px $color-grey-med-3,
+                        0 1px 1px $color-grey-med-2;
             border: 1px solid $color-grey-light-1;
           }
 

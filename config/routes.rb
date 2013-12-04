@@ -39,6 +39,7 @@ CustomerConsole::Application.routes.draw do
     resources :deals, only: [:index]
     get 'deals/:id/social-share' => 'social_shares#show', as: 'deal_social_share', kind: 'deal'
     get 'deals/:retailer_code/:id' => 'deals#show', as: 'deal'
+    get 'deals/:campaign_code' => 'deals#index', as: 'campaign'
     resources :movies, only: [:index]
     get 'movies/:id/social-share' => 'social_shares#show', as: 'movie_social_share', kind: 'movie'
     get 'movies/:movie_name/:id' => 'movies#show', as: 'movie'

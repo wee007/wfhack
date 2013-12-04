@@ -60,7 +60,8 @@ describe CannedSearch do
       "/bondijunction/products",
       "/bondijunction/stores/1001-optical/21256",
       "/bondijunction/hours",
-      "/bondijunction/info"
+      "/bondijunction/info",
+      "/bondijunction/deals"
     ]
     tile_routes.each do |r|
       lambda {
@@ -74,7 +75,8 @@ describe CannedSearch do
       "/bondijunction/products" => "products",
       "/bondijunction/stores/1001-optical/21256" => "store",
       "/bondijunction/hours" => "hours",
-      "/bondijunction/info" => "info"
+      "/bondijunction/info" => "info",
+      "/bondijunction/deals" => "deals"
     }
 
     routes_and_icons.each do |url,icon|
@@ -91,7 +93,8 @@ describe CannedSearch do
       "/bondijunction/info" => "View details",
       "/bondijunction/notices" => "View details",
       "/bondijunction/service" => "View details",
-      "/bondijunction/random_url" => "View details"
+      "/bondijunction/random_url" => "View details",
+      "/bondijunction/deals" => "View deals"
     }
 
     routes_and_tag_lines.each do |url,tag_line|

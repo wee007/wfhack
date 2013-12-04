@@ -1,0 +1,23 @@
+<% if @centre.present? && @deals..present? %>
+<div ng-controller="ActiveCategoryNavController" class="section-nav container container--wide container--dark">
+
+  <%# Section nav %>
+  <div class="container container--position">
+    <div class="nav-contextual nav-contextual--dark js-nav-contextual js-viewport-check">
+      <div class="nav-contextual__clip">
+        <nav class="nav-contextual__clip__inner" role="navigation" aria-label="<%= params[:controller].humanize %> categories navigation">
+          <ul class="nav-contextual__list horiz-list js-nav-contextual-list">
+            <li><%= link_to 'All Deals', centre_deals_path(@centre) %></li>
+            <% @campaigns.each do |campaign| %>
+              <li><%= link_to campaign.name, centre_campaign_path(@centre, campaign.code) %></li>
+            <% end %>
+        </ul>
+        </nav>
+        <span class="nav-contextual__clip__overlay icon icon--arrow-right icon--mega icon--flush-top js-nav-contextual-clip-overlay" aria-hidden="true"></span>
+      </div>
+    </div>
+  </div>
+  <%# //Section nav %>
+
+</div>
+<%- end -%>

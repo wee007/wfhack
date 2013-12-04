@@ -6,7 +6,7 @@ class DealsController < ApplicationController
     centre, deals, campaigns = nil
     Service::API.in_parallel do
       centre = CentreService.fetch params[:centre_id]
-      deals = DealService.fetch centre: params[:centre_id], campaign_code: params[:campaign_code], state: 'published', rows: 50
+      deals = DealService.fetch deals_params
       campaigns = CampaignService.fetch centre: params[:centre_id]
     end
 
@@ -39,6 +39,14 @@ class DealsController < ApplicationController
       page_title: "#{@deal.title} from #{@store.name} at #{@centre.name}",
       description: "At #{@centre.name}, find #{@deal.title} - ends #{@deal.available_to.strftime("%Y-%m-%d")}"
     )
+  end
+
+  private
+
+  def deals_params
+    deals_params = { centre: params[:centre_id], state: 'published', rows: 50 }
+    deals_params.merge! campaign_code: params[:campaign_code] if params[:campaign_code]
+    deals_params
   end
 
 end

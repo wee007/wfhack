@@ -3,13 +3,12 @@ class ProductsController < ApplicationController
   layout 'detail_view', only: :show
 
   def index
-    centre, centres, nearby_centres, products, super_categories, stores = nil
+    centre, centres, nearby_centres, products, super_categories = nil
     Service::API.in_parallel do
       centre = CentreService.fetch params[:centre_id] if params[:centre_id]
       nearby_centres = CentreService.fetch nil, near_to: params[:centre_id] if params[:centre_id]
       centres = CentreService.fetch :all, country: 'au' unless params[:centre_id]
       products = ProductService.fetch params.merge({rows: 50})
-      stores = StoreService.fetch retailer_code: params[:retailer].first if params[:retailer]
     end
 
     super_categories = CategoryService.fetch centre_id: params[:centre_id], product_mapable: true if params[:centre_id]
@@ -18,20 +17,16 @@ class ProductsController < ApplicationController
       @centre = CentreService.build centre
       @nearby_centres = CentreService.build nearby_centres
 
-      stores = StoreService.build stores, centre_id: params[:centre_id] if stores.present?
-
       meta.push(
         page_title: page_title(@centre.name),
-        description: description(@centre.name, stores)
+        description: description(@centre.name)
       )
     else
       @centres = CentreService.group_by_state centres
 
-      stores = StoreService.build stores if stores.present?
-
       meta.push(
-        page_title: page_title('Westfield'),
-        description: description('Westfield', stores)
+        page_title: page_title,
+        description: description
       )
     end
     @search = ProductService.build products
@@ -143,27 +138,23 @@ class ProductsController < ApplicationController
 
 private
 
-  def page_title(centre_name)
-    if category_params.present?
-      "Buy #{category_params} online at #{centre_name}"
-    elsif params[:retailer].present?
-      "#{params[:retailer].map{ |param| param.titleize }.join(' and ')} at #{centre_name}"
+  def page_title(centre_name='Westfield')
+    if filter_params.present?
+      "Buy #{filter_params} online at #{centre_name}"
     else
       "Shopping at #{centre_name}"
     end
   end
 
-  def description(centre_name, stores)
-    if category_params.present?
-      "Browse the latest #{category_params} online at #{centre_name}"
-    elsif stores.present?
-      stores.first.description.try(:truncate, 156)
+  def description(centre_name='Westfield')
+    if filter_params.present?
+      "Browse the latest #{filter_params} online at #{centre_name}"
     else
       "Find the latest fashion, clothes, shoes, jewellery, accessories and much more at #{centre_name}"
     end
   end
 
-  def category_params
+  def filter_params
     if params[:sub_category].present? || params[:category].present? || params[:super_cat].present?
       categories = params[:sub_category] || params[:category] || params[:super_cat]
       [categories].flatten.map{ |param| param.titleize }.join(' and ')

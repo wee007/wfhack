@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.32
+Version:     0.2.33
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,12 @@ fi
 
 
 %changelog
+* Wed Dec 04 2013 ci <doperations@au.westfield.com> 0.2.33-1
+- Updated Deals nav css; ensure inline <li>s (michael@michaelbamford.com)
+- VCR Deals smoke test to pending (michael@michaelbamford.com)
+- Updated Gemfile.lock for service_api 0.0.7 (michael@michaelbamford.com)
+- Added Campaigns with section_nav (michael@michaelbamford.com)
+
 * Wed Dec 04 2013 ci <doperations@au.westfield.com> 0.2.32-1
 - Update customer_console.conf (gcallister@au.westfield.com)
 - Update customer_console.conf (gcallister@au.westfield.com)

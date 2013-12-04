@@ -73,7 +73,6 @@ describe CustomerConsole::Application do
       end
     end
 
-
     context "for social shares" do
 
       let(:base_params) { { controller: "social_shares", action: "show", id: "1" } }
@@ -114,5 +113,21 @@ describe CustomerConsole::Application do
 
     end
 
+    describe "for :centres/deals" do
+      let(:route) {{ controller: 'deals', centre_id: 'bondijunction' }}
+      it "routes centre deals" do
+        expect(get: '/bondijunction/deals').to route_to route.merge action: 'index'
+      end
+
+      it "routes retailer deals" do
+        retailer_deal_route = { retailer_code: 'saba', id: '666', action: 'show' }
+        expect(get: '/bondijunction/deals/saba/666').to route_to route.merge retailer_deal_route
+      end
+
+      it 'routes campaigns' do
+        campaign_route = { campaign_code: 'back-to-school', action: 'index'}
+        expect(get: '/bondijunction/deals/back-to-school').to route_to route.merge campaign_route
+      end
+    end
   end
 end

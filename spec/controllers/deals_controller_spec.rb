@@ -9,9 +9,11 @@ describe DealsController do
 
     before :each do
       CentreService.stub(:fetch).with('bondijunction').and_return double :response, body: {name: 'Centre name'}
-      DealService.stub(:fetch).with(centre: 'bondijunction', state: "published", rows: 50).and_return("DEAL JSON")
+      DealService.stub(:fetch).with(centre: 'bondijunction', campaign_code: 'halloween', state: "published", rows: 50).and_return("DEAL JSON")
       DealService.stub(:build).with("DEAL JSON").and_return(['Deal', 'Deal1'])
-      get :index, centre_id: 'bondijunction'
+      CampaignService.stub(:fetch).with(centre: 'bondijunction').and_return("CAMPAIGN JSON")
+      CampaignService.stub(:build).with("CAMPAIGN JSON").and_return(['Campaign', 'Campaign'])
+      get :index, centre_id: 'bondijunction', campaign_code: 'halloween'
     end
 
     it "populates an array of deals" do
@@ -28,7 +30,7 @@ describe DealsController do
         description: "Find the best deals, sales and great offers on a variety of products and brands at Centre name"
       })
       controller.stub(:meta).and_return(meta)
-      get :index, centre_id: 'bondijunction'
+      get :index, centre_id: 'bondijunction', campaign_code: 'halloween'
     end
   end
 

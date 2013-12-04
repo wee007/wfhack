@@ -51,6 +51,11 @@
 	  }
 	}
 
+  /* Temp fix for Deal nav bar */
+  &.section-nav--deals .nav-contextual {
+    margin-right: 0;
+  }
+
 		/* Turn off `overflow: hidden` so we can see the drop down's at this breakpoint */
 		@include respond-min(1000) {
 			.nav-contextual__clip__inner {

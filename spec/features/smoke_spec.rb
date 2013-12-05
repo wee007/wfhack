@@ -9,19 +9,38 @@ feature "Smoke tests", :vcr => {
 
   subject { page.status_code }
 
-  scenario "User vists the national homepage" do
-    visit root_path
-    should eql(200)
-  end
+  context "User vists the national" do
 
-  scenario "User vists the national product pages" do
-    # index
-    visit products_path
-    should eql(200)
+    scenario "homepage" do
+      visit root_path
+      should eql(200)
+    end
 
-    # show
-    first(".test-tile a").click
-    should eql(200)
+    scenario "product pages" do
+      # index
+      visit products_path
+      should eql(200)
+
+      # show
+      first(".test-tile a").click
+      should eql(200)
+    end
+
+    scenario "terms and conditions" do
+      visit "/terms-conditions"
+      should eql(200)
+    end
+
+    scenario "privacy policy" do
+      visit "/privacy-policy"
+      should eql(200)
+    end
+
+    scenario "robots.txt" do
+      visit "/robots.txt"
+      should eql(200)
+    end
+
   end
 
   context "in a centre a user vists the" do

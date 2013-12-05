@@ -3,14 +3,12 @@ class EventsController < ApplicationController
   layout 'detail_view', only: :show
 
   def index
-    centre, event = nil
-    Service::API.in_parallel do
-      centre = CentreService.fetch params[:centre_id]
-      event = EventService.fetch centre: params[:centre_id], published: true, rows: 50
-    end
+    @events, @centre = in_parallel \
+      event: {centre: params[:centre_id], published: true, rows: 50},
+      centre: params[:centre_id]
 
-    @centre = CentreService.build centre
-    @events = EventService.build event, timezone: @centre.timezone
+    #Add time zone to events
+    @events.each { |event| event.timezone = @centre.timezone }
 
     meta.push(
       page_title: "Events and Activities at #{@centre.name}",
@@ -19,14 +17,12 @@ class EventsController < ApplicationController
   end
 
   def show
-    centre, event = nil
-    Service::API.in_parallel do
-      centre = CentreService.fetch params[:centre_id]
-      event = EventService.fetch params[:id]
-    end
+    @event, @centre = in_parallel \
+      event: params[:id],
+      centre: params[:centre_id]
 
-    @centre = CentreService.build centre
-    @event = EventService.build event, timezone: @centre.timezone
+    #Add time zone to event
+    @event.timezone = @centre.timezone
 
     meta.push @event.meta
     meta.push(

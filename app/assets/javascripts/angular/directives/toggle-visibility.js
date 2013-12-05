@@ -1,45 +1,57 @@
 ( function ( app ) {
   app.directive( 'toggleVisibility', ['$rootScope', '$document', function ($rootScope, $document) {
+    $rootScope.activeTVTarget = undefined;
+
+    $rootScope.$watch( 'activeTVTarget', function ( value, prevValue ) {
+      if ( value == prevValue ) { return; } // on init
+      if ( prevValue ) { deactivateTarget( prevValue ); } // close prevTarget
+      activateTarget( value ); // activate new target
+    });
+
+    // Clicking outside will close all toggleVisibility targets
+    $document.bind( 'click', function ( event ) { close(); });
+
+    // Escape key will close all toggleVisibility targets
+    $document.bind( 'keydown', function ( event ) {
+      if ( event.keyCode == 27 ) { close(); }
+    });
+
     // Each trigger / target combination will have a corresponding id.
     var triggerCounter = 0,
-    activeClass = 'is-active';
+        activeClass = 'is-active',
 
-    elementID = function () {
-      id = 'toggle-visibility-' + triggerCounter;
-      triggerCounter++;
-      return id;
+    // Closes all instances of toggleVisibility
+    close = function () {
+      $rootScope.$apply(function () {
+        $rootScope.activeTVTarget = undefined;
+      });
     },
 
-    // Hide the target
-    hide = function ( trigger, target ) {
-
-      // ARIA for trigger
-      trigger.attr( 'aria-expanded', false );
-
-      // Toggle the active class
-      trigger.removeClass( activeClass );
-
-      target.removeClass( activeClass );
+    // Update the active target
+    open = function ( id ) {
+      $rootScope.$apply(function () {
+        $rootScope.activeTVTarget = id;
+      });
     },
 
-    // Show the target
-    show = function ( trigger, target ) {
-
-      // ARIA for trigger
-      trigger.attr( 'aria-expanded', true );
-
-      // Toggle the active class
-      trigger.addClass( activeClass );
-      target.addClass( activeClass );
+    triggers = function ( targetID ) {
+      return $( "[aria-controls=" + targetID + "]" );
     },
 
-    // Toggle visibility
-    toggleVisibility = function ( trigger, target ) {
-      if ( target.is( ':visible' ) ) {
-        hide( trigger, target );
-      } else {
-        show( trigger, target );
-      }
+    target = function ( targetID ) {
+      return $( "#" + targetID )
+    },
+
+    // Hide the target, set appropriate ARIA
+    deactivateTarget = function ( targetID ) {
+      triggers( targetID ).attr( 'aria-expanded', false ).removeClass( activeClass );
+      target( targetID ).removeClass( activeClass );
+    },
+
+    // Show the target, set appropriate ARIA
+    activateTarget = function ( targetID ) {
+      triggers( targetID ).attr( 'aria-expanded', true ).addClass( activeClass );
+      target( targetID ).addClass( activeClass );
     };
 
     return {
@@ -55,29 +67,14 @@
         trigger.attr( 'aria-haspopup', true );
         trigger.attr( 'aria-controls', id );
 
-        // ID attr and target ARIA `aria-labelledby`
-        id = elementID();
-        trigger.attr( 'id', id );
-
         // Visibility will be toggled on click / tap
         trigger.bind( 'click', function ( e ) {
-          toggleVisibility( trigger, target );
+          ( $rootScope.activeTVTarget == id ) ? close() : open(id);
           e.stopPropagation();
         });
 
-        // Clicking outside will close it
-        $document.bind( 'click', function ( event ) {
-          hide( trigger, target );
-        });
-
-        target.bind( 'click', function( e ) {
-          e.stopPropagation();
-        });
-
-        // Escape key will close it
-        $document.bind( 'keydown', function ( event ) {
-          if ( event.keyCode == 27 ) { hide( trigger, target ); }
-        });
+        // Allow the user to click inside the target
+        target.bind( 'click', function( e ) { e.stopPropagation(); });
       }
     }
   }]);

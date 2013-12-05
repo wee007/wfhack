@@ -3,15 +3,10 @@ class CentreHoursController < ApplicationController
   layout 'sub_page', only: :show
 
   def show
-    centre, trading_hours, stores = nil
-    Service::API.in_parallel do
-      centre = CentreService.fetch params[:centre_id]
-      trading_hours = CentreTradingHourService.fetch params[:centre_id]
-      stores = StoreService.fetch centre: params[:centre_id], per_page: "all", has_opening_hours: true
-    end
-    @centre = CentreService.build centre
-    @weeks = CentreTradingHourService.build trading_hours
-    @stores_with_hours = StoreService.build stores
+    @centre, @weeks, @stores = in_parallel \
+      centre: params[:centre_id],
+      centre_trading_hour: params[:centre_id],
+      store: {centre: params[:centre_id], per_page: "all", has_opening_hours: true}
 
     if @stores_with_hours.present?
       store_id = params[:store_id].present? ? params[:store_id].to_i : @stores_with_hours.first.try(:id)

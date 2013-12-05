@@ -2,7 +2,7 @@ class CentresController < ApplicationController
   layout 'base', :only => :index
 
   def index
-    @centres, @products = in_parallel \
+    @centres, @products = service_map \
       centre: [:all, {country: 'au'}],
       product: {rows: 1}
 

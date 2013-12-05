@@ -1,7 +1,7 @@
 class MoviesController < ApplicationController
 
   def index
-    @centre, @cinema, @movies, @movie_sessions = in_parallel \
+    @centre, @cinema, @movies, @movie_sessions = service_map \
       centre: params[:centre_id],
       store: cinema_id,
       movie: {centre: params[:centre_id], date: params[:date] || Time.now.strftime("%d-%m-%Y")},
@@ -18,7 +18,7 @@ class MoviesController < ApplicationController
   end
 
   def show
-    @centre, @cinema, @movie, movie_sessions = in_parallel \
+    @centre, @cinema, @movie, movie_sessions = service_map \
       centre: params[:centre_id],
       store: cinema_id,
       movie: params[:id],

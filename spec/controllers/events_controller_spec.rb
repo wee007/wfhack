@@ -12,7 +12,7 @@ describe EventsController do
 
   describe "GET #index" do
     before :each do
-      controller.stub(:in_parallel).and_return [{}, centre]
+      controller.stub(:service_map).and_return [{}, centre]
       get :index, centre_id: 'bondijunction'
     end
 
@@ -35,7 +35,7 @@ describe EventsController do
   describe "GET #show" do
 
     before :each do
-      controller.stub(:in_parallel).and_return [event, centre]
+      controller.stub(:service_map).and_return [event, centre]
     end
 
     it "renders the :show template" do

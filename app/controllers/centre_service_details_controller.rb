@@ -3,7 +3,7 @@ class CentreServiceDetailsController < ApplicationController
   layout 'sub_page', only: :show
 
   def show
-    @centre, @centre_service_details = in_parallel \
+    @centre, @centre_service_details = service_map \
       centre: params[:centre_id],
       centre_service_detail: params[:centre_id]
 

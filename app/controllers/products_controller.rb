@@ -9,8 +9,8 @@ class ProductsController < ApplicationController
       products: params.merge({rows: 50})
     }
 
-    services[:stores] = {retailer_code: params[:retailer].first} if params[:retailer]
-    @centre, @nearby_centres, @search, stores = in_parallel services
+    services[:store] = {retailer_code: params[:retailer].first} if params[:retailer]
+    @centre, @nearby_centres, @search = service_map services
     @super_categories = CategoryService.find centre_id: params[:centre_id], product_mapable: true
 
     respond_to do |format|
@@ -37,8 +37,8 @@ class ProductsController < ApplicationController
 
   def index_national
     services = { centre: [:all, country: 'au'], products: params.merge({rows: 50}) }
-    services[:stores] = {retailer_code: params[:retailer].first} if params[:retailer]
-    centres, @search, stores = in_parallel services
+    services[:store] = {retailer_code: params[:retailer].first} if params[:retailer]
+    centres, @search = service_map services
 
     @centres = centres.group_by{ |centre| centre.state }
 
@@ -64,7 +64,7 @@ class ProductsController < ApplicationController
   end
 
   def show_centre
-    @centre, @product, stores = in_parallel \
+    @centre, @product, stores = service_map \
       centre: params[:centre_id],
       product: params[:id],
       store: {retailer_code: params[:retailer_code], per_page: 50}
@@ -92,7 +92,7 @@ class ProductsController < ApplicationController
   end
 
   def show_national
-    centres, @product, @stores = in_parallel \
+    centres, @product, @stores = service_map \
       centre: [:all, {country: 'au'}],
       product: params[:id],
       store: {retailer_code: params[:retailer_code], per_page: 50}

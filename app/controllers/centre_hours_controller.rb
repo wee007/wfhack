@@ -3,7 +3,7 @@ class CentreHoursController < ApplicationController
   layout 'sub_page', only: :show
 
   def show
-    @centre, @weeks, @stores = in_parallel \
+    @centre, @weeks, @stores = service_map \
       centre: params[:centre_id],
       centre_trading_hour: params[:centre_id],
       store: {centre: params[:centre_id], per_page: "all", has_opening_hours: true}

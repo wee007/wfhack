@@ -3,7 +3,7 @@ class NoticesController < ApplicationController
   layout 'detail_view', only: :show
 
   def index
-    @centre, @notices = in_parallel \
+    @centre, @notices = service_map \
       centre: params[:centre_id],
       centre_service_notices: {centre: params[:centre_id], active: true}
 
@@ -14,7 +14,7 @@ class NoticesController < ApplicationController
   end
 
   def show
-    @centre, @notice = in_parallel \
+    @centre, @notice = service_map \
       centre: params[:centre_id],
       centre_service_notice: params[:id]
 

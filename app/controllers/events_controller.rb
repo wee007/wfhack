@@ -3,7 +3,7 @@ class EventsController < ApplicationController
   layout 'detail_view', only: :show
 
   def index
-    @events, @centre = in_parallel \
+    @events, @centre = service_map \
       event: {centre: params[:centre_id], published: true, rows: 50},
       centre: params[:centre_id]
 
@@ -17,7 +17,7 @@ class EventsController < ApplicationController
   end
 
   def show
-    @event, @centre = in_parallel \
+    @event, @centre = service_map \
       event: params[:id],
       centre: params[:centre_id]
 

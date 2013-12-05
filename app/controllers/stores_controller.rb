@@ -43,7 +43,7 @@ protected
   end
 
   def fetch_centre_and_stores
-    @centre, @stores, @products = in_parallel \
+    @centre, @stores, @products = service_map \
       centre: params[:centre_id],
       store: {centre: params[:centre_id], per_page: 1000},
       product: {action: 'lite', retailer: [params[:retailer_code]], rows: 3}

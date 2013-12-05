@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.33
+Version:     0.2.34
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,9 @@ fi
 
 
 %changelog
+* Thu Dec 05 2013 ci <doperations@au.westfield.com> 0.2.34-1
+- Added deals back into the smoke tests. (ldewey@au.westfield.com)
+
 * Wed Dec 04 2013 ci <doperations@au.westfield.com> 0.2.33-1
 - Updated Deals nav css; ensure inline <li>s (michael@michaelbamford.com)
 - VCR Deals smoke test to pending (michael@michaelbamford.com)

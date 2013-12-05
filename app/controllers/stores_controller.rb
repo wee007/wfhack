@@ -43,15 +43,10 @@ protected
   end
 
   def fetch_centre_and_stores
-    centre, stores, products = nil
-    Service::API.in_parallel do
-      centre = CentreService.fetch params[:centre_id]
-      stores = StoreService.fetch centre: params[:centre_id], per_page: 1000
-      products = ProductService.fetch action: 'lite', retailer: [params[:retailer_code]], rows: 3
-    end
-    @centre = CentreService.build centre
-    @stores = StoreService.build(stores, centre: @centre)
-    @products = ProductService.build(products)
+    @centre, @stores, @products = in_parallel \
+      centre: params[:centre_id],
+      store: {centre: params[:centre_id], per_page: 1000},
+      product: {action: 'lite', retailer: [params[:retailer_code]], rows: 3}
   end
 
   def push_centre_info_to_gon

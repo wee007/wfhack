@@ -10,7 +10,7 @@
 		Style Guide -> Modules -> Social Share
 */
 
-/* Set vairables */
+/* Set variables */
 $share-facebook: #355f9f !default;
 $share-twitter: #2ba9e1 !default;
 $share-email: #f4801f !default;
@@ -19,6 +19,9 @@ $share-pinterest: #ca2026 !default;
 
 /* Start module */
 .social-share {
+
+  /* Non JS users */
+  .no-js & {display: none;}
 
   /* Horizontal mode at this breakpoint */
   @include respond-min($non-palm) {
@@ -37,33 +40,6 @@ $share-pinterest: #ca2026 !default;
 		/* Icon for 'Tile' version */
 		.tile & .icon:before {margin-right: 0;}
 
-	/* --Drop down menu-- */
-	.drop-down {
-
-	  /* Alter position and width at this breakpoint */
-	  @include respond-min($non-palm) {
-      @include to-rem(width, 290);
-      left: 100%;
-      top: 0;
-      margin-left: -1px;
-	  }
-
-	  /* 'Tile' version */
-	  .tile & {
-	  	width: 100%;
-	  	left: 0;
-	  	top: 100%;
-      margin-left: 0;
-
-	  	li {
-	  		display: block;
-
-	  		/* Round off bottom left/right corners */
-	  		&:last-child a {border-radius: 0 0 $border-radius $border-radius;}
-	  	}
-	  }
-	}
-
 	/* --Drop down menu trigger-- */
   .social-share__trigger {
     color: $color-grey-dark-3;
@@ -75,29 +51,72 @@ $share-pinterest: #ca2026 !default;
     &:hover,
     &:focus {color: $color-txt-light;}
 
-    /* Active state */
-    &.is-active {
-      background-color: $color-grey-dark-3;
-      color: #fff;
+    /* Preloader */
+    .preloader {
+      display: none;
 
-      /* Hide elements that need to be shown when the drop down is non-active */
-      .drop-down-container__non-active {display: none;}
-
-      /* Show elements that need to be shown when the drop down is active */
-      .drop-down-container__active {display: inline-block;}
+      /* Override bg color */
+      &,
+      .preloader__spinner {background-color: transparent;}
     }
+  }
 
-    /* Saved state for 'Favourites' button */
-    &.is-saved {color: $color-brand;}
+  /* Active state */
+  &.is-active .social-share__trigger {
+    background-color: $color-grey-dark-3;
+    color: #fff;
+
+    /* Hide elements that need to be shown when the drop down is non-active */
+    .drop-down-container__non-active {display: none;}
+
+    /* Show elements that need to be shown when the drop down is active */
+    .drop-down-container__active {display: inline-block;}
+  }
+
+  /* Loading state */
+  &.is-loading .social-share__trigger {
+
+    /* Show the preloader */
+    .preloader {display: inline-block;}
+
+    /* Hide elements whilst in loading state */
+    .drop-down-container__non-active,
+    .drop-down-container__active {display: none;}
   }
 
     /* Hide button text for 'Tile' version */
     .tile & .social-share__trigger__txt {@include hide-visually;}
 
   /* --Drop down menu target-- */
+  .drop-down {
+
+    /* Alter position and width at this breakpoint */
+    @include respond-min($non-palm) {
+      @include to-rem(width, 290);
+      left: 100%;
+      top: 0;
+      margin-left: -1px;
+    }
+
+    /* 'Tile' version */
+    .tile & {
+      width: 100%;
+      left: 0;
+      top: 100%;
+      margin-left: 0;
+      z-index: $z-index-high - 1;
+
+      li {
+        display: block;
+
+        /* Round off bottom left/right corners */
+        &:last-child a {border-radius: 0 0 $border-radius $border-radius;}
+      }
+    }
+  }
 
   /* Active state */
-  & > .drop-down.horiz-list--fit.is-active {
+  &.is-active .drop-down.horiz-list--fit {
   	display: table;
 
   	/* 'Tile' version */

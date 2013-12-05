@@ -16,6 +16,18 @@ module TileHelper
       rescue
         result.url
       end
+    when 'movie'
+      centre_movie_url(centre_id: centre, id: result.id, movie_name: result.title.to_slug)
+    when 'notice' then
+      centre_notice_url(centre_id: centre, id: result.id)
+    end
+  end
+
+  def tile_social_share_url(centre, kind, id)
+    if centre
+      send "centre_#{kind}_social_share_url", centre, id
+    else
+      send "#{kind}_social_share_url", id
     end
   end
 

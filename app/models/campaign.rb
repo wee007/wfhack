@@ -1,0 +1,2 @@
+class Campaign < OpenStruct
+end

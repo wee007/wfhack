@@ -3,13 +3,16 @@ class DealsController < ApplicationController
   layout 'detail_view', only: :show
 
   def index
-    centre, deal = nil
+    centre, deals, campaigns = nil
     Service::API.in_parallel do
       centre = CentreService.fetch params[:centre_id]
-      deal = DealService.fetch centre: params[:centre_id], state: 'published', rows: 50
+      deals = DealService.fetch deals_params
+      campaigns = CampaignService.fetch centre: params[:centre_id]
     end
+
     @centre = CentreService.build centre
-    @deals = DealService.build deal
+    @deals = DealService.build deals
+    @campaigns = CampaignService.build campaigns
 
     meta.push(
       page_title: "Deals, Sales & Special Offers available at #{@centre.name}",
@@ -36,6 +39,14 @@ class DealsController < ApplicationController
       page_title: "#{@deal.title} from #{@store.name} at #{@centre.name}",
       description: "At #{@centre.name}, find #{@deal.title} - ends #{@deal.available_to.strftime("%Y-%m-%d")}"
     )
+  end
+
+  private
+
+  def deals_params
+    deals_params = { centre: params[:centre_id], state: 'published', rows: 50 }
+    deals_params.merge! campaign_code: params[:campaign_code] if params[:campaign_code]
+    deals_params
   end
 
 end

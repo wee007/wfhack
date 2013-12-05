@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.21
+Version:     0.2.33
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,85 @@ fi
 
 
 %changelog
+* Wed Dec 04 2013 ci <doperations@au.westfield.com> 0.2.33-1
+- Updated Deals nav css; ensure inline <li>s (michael@michaelbamford.com)
+- VCR Deals smoke test to pending (michael@michaelbamford.com)
+- Updated Gemfile.lock for service_api 0.0.7 (michael@michaelbamford.com)
+- Added Campaigns with section_nav (michael@michaelbamford.com)
+
+* Wed Dec 04 2013 ci <doperations@au.westfield.com> 0.2.32-1
+- Update customer_console.conf (gcallister@au.westfield.com)
+- Update customer_console.conf (gcallister@au.westfield.com)
+- Update customer_console.conf (gcallister@au.westfield.com)
+- Urgent Redirects 04DEC13 be-inspired etc (gcallister@au.westfield.com)
+
+* Wed Dec 04 2013 ci <doperations@au.westfield.com> 0.2.31-1
+- Revert "Merge pull request #769 from ewee/master"
+  (craigm.smith@au.westfield.com)
+
+* Wed Dec 04 2013 ci <doperations@au.westfield.com> 0.2.30-1
+- 
+
+* Wed Dec 04 2013 ci <doperations@au.westfield.com> 0.2.29-1
+- Merge pull request #776 from mcinerney/master (craigM.smith@au.westfield.com)
+- Merge pull request #775 from cpearce/framework-refactoring
+  (craigM.smith@au.westfield.com)
+- change logging to warn, info is too verbose (pmcinerney@au.westfield.com)
+- OPS-7809 add case insensitive vanity url redirect off westfield.com.au for
+  brandspace (pmcinerney@au.westfield.com)
+- Check usage of all our colours - WSF-6048 (cpearce@au.westfield.com)
+- Moved up movie social share route so it is routable (ldewey@au.westfield.com)
+- Added spec to check Social share routes (ldewey@au.westfield.com)
+
+* Tue Dec 03 2013 ci <doperations@au.westfield.com> 0.2.28-1
+- 
+
+* Tue Dec 03 2013 ci <doperations@au.westfield.com> 0.2.27-1
+- Merge pull request #773 from cpearce/master (craigM.smith@au.westfield.com)
+- Adding 'in store' to the gift card notification on storefront - WSF-6046
+  (chrispearce@chriss-mbp.au.ad.westfield.com)
+- Added notices to social shares (ldewey@au.westfield.com)
+- Added tests for notices (ldewey@au.westfield.com)
+- Revert "Merge pull request #770 from csmith/master" (ldewey@au.westfield.com)
+
+* Tue Dec 03 2013 ci <doperations@au.westfield.com> 0.2.26-1
+- Merge pull request #771 from csmith/master (ldewey@au.westfield.com)
+- Added redirect for incorrect movie urls (craigm.smith@au.westfield.com)
+- The date changes everyday omit the date when matching the url.
+  (craigm.smith@au.westfield.com)
+- Fixed movies url to not include the centre name twice.
+  (craigm.smith@au.westfield.com)
+- Merge pull request #765 from bschwarz/add-noscript
+  (craigM.smith@au.westfield.com)
+- Merge pull request #768 from ldewey/testing (craigM.smith@au.westfield.com)
+- Merge pull request #769 from ewee/master (craigM.smith@au.westfield.com)
+- Add page title and description for retailer (ewee@au.westfield.com)
+- Added the ablity to turn off VCR (ldewey@au.westfield.com)
+- Added basic smoke tests (ldewey@au.westfield.com)
+- Revert "Don't render the noscript any longer." (ben@germanforblack.com)
+
+* Tue Dec 03 2013 ci <doperations@au.westfield.com> 0.2.25-1
+- Revert "Merge pull request #762 from ldewey/social_shares"
+  (craigm.smith@au.westfield.com)
+
+* Mon Dec 02 2013 ci <doperations@au.westfield.com> 0.2.24-1
+- 
+
+* Mon Dec 02 2013 ci <doperations@au.westfield.com> 0.2.23-1
+- Merge pull request #766 from cpearce/centre-banner-disclaimer
+  (craigM.smith@au.westfield.com)
+- Merge pull request #759 from cpearce/master (craigM.smith@au.westfield.com)
+- Fixing grammar issue (CPearce@au.westfield.com)
+- Adding a disclaimer for certain centre home page banners
+  (CPearce@au.westfield.com)
+- Bringing site feedback button for national home page
+  (CPearce@au.westfield.com)
+
+* Mon Dec 02 2013 ci <doperations@au.westfield.com> 0.2.22-1
+- Merge pull request #762 from ldewey/social_shares (ldewey@au.westfield.com)
+- Soical shares now work with movies (ldewey@au.westfield.com)
+- Adding social shares back in (ldewey@au.westfield.com)
+
 * Fri Nov 29 2013 ci <doperations@au.westfield.com> 0.2.21-1
 - Update wifi for Sydney and Carindale (gcallister@au.westfield.com)
 

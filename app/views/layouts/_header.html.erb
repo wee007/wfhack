@@ -153,27 +153,35 @@
 
 	<%# Centre home page hero banner %>
 	<% if header_hero? %>
-	<div class="header__hero">
+		<div class="header__hero">
 
-		<div class="header__hero__inner hide-fully--non-palm">
+			<div class="header__hero__inner hide-fully--non-palm">
 
-			<%# Centre selector %>
-			<div class="header-centre-select">
-				<h1 class="header-centre-select__centre-name"><%= @centre.short_name %></h1>
+				<%# Centre selector %>
+				<div class="header-centre-select">
+					<h1 class="header-centre-select__centre-name"><%= @centre.short_name %></h1>
+				</div>
+				<%# //Centre selector %>
+
+				<%# Centre opening hours %>
+	      <a href="<%= centre_hours_path( params[ :centre_id ] || params[ :id ] ) %>" target="_self" class="open-hours-link"><span class="icon icon--hours" aria-hidden="true"></span> <strong>Open <time datetime="<%= @centre.today_opening_time %>"><%= twelve_hour_format(@centre.today_opening_time) %></time> - <time datetime="<%= @centre.today_closing_time %>"><%= twelve_hour_format(@centre.today_closing_time) %></time> today</strong><span class="icon icon--arrow-right" aria-hidden="true"></span></a>
+				<%# //Centre opening hours %>
+
 			</div>
-			<%# //Centre selector %>
 
-			<%# Centre opening hours %>
-      <a href="<%= centre_hours_path( params[ :centre_id ] || params[ :id ] ) %>" target="_self" class="open-hours-link"><span class="icon icon--hours" aria-hidden="true"></span> <strong>Open <time datetime="<%= @centre.today_opening_time %>"><%= twelve_hour_format(@centre.today_opening_time) %></time> - <time datetime="<%= @centre.today_closing_time %>"><%= twelve_hour_format(@centre.today_closing_time) %></time> today</strong><span class="icon icon--arrow-right" aria-hidden="true"></span></a>
-			<%# //Centre opening hours %>
+			<%# 'Artist impression' disclaimer %>
+			<% if header_disclaimer? @centre.code %>
+				<div class="header-disclaimer container container--position">
+					<small>Artist's impression<span class="hide-visually"> of Westfield centre</span></small>
+				</div>
+			<%- end -%>
+			<%# //'Artist impression' disclaimer %>
+
+			<%# Gradient overlay %>
+			<span class="hero-gradient"></span>
+			<%# //Gradient overlay %>
 
 		</div>
-
-		<%# Gradient overlay %>
-		<span class="hero-gradient"></span>
-		<%# //Gradient overlay %>
-
-	</div>
 	<%- end -%>
 	<%# //Centre home page hero banner %>
 

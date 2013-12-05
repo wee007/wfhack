@@ -17,8 +17,10 @@ class CannedSearch < Hashie::Mash
   end
 
   def meta
-    Meta.new title: name,
-             image: image
+    Meta.new id: id,
+             title: name,
+             image: image,
+             kind: kind
   end
 
   def icon
@@ -33,6 +35,8 @@ class CannedSearch < Hashie::Mash
       "View store details"
     when "hours"
       "View shopping hours"
+    when "deals"
+      "View deals"
     else
       "View details"
     end
@@ -54,6 +58,8 @@ class CannedSearch < Hashie::Mash
       "info"
     when /[a-z]+\/services/
       "service"
+    when /[a-z]+\/deals/
+      "deals"
     end
   end
 

@@ -5,8 +5,6 @@
 /* Set variables */
 $hero-banner-height-sml: 270 !default;
 $hero-banner-height-lrg: 380 !default;
-$header-color-grey: #bababa !default;
-$header-color-link-hover: $color-brand !default;
 
 /* Start header */
 .header {
@@ -32,7 +30,7 @@ $header-color-link-hover: $color-brand !default;
 
 /* 'Centre home page hero banner' and 'National' */
 .header--hero,
-.header--national {border-bottom: 1px solid $header-color-grey;}
+.header--national {border-bottom: 1px solid $color-grey-med-2;}
 
 	/* --Header secondary-- */
 	.header__secondary {
@@ -228,7 +226,7 @@ $header-color-link-hover: $color-brand !default;
 
 			/* Drop down pointer arrow (most of the styles are brought over from the 'Drop down menu' module) */
 			.header &.pointer-up:before {
-				left: 4%;
+				left: $page-container-gutter;
 				margin-left: 3px;
 				color: $color-txt-dark;
 				text-shadow: none;
@@ -307,7 +305,7 @@ $header-color-link-hover: $color-brand !default;
 							}
 
 							/* My account nav drop down */
-							.header--hero .my-account-signedin & {border-color: $header-color-grey;}
+							.header--hero .my-account-signedin & {border-color: $color-grey-med-2;}
 						}
 
 						/* Increase right spacing at this breakpoint */
@@ -357,7 +355,7 @@ $header-color-link-hover: $color-brand !default;
 
 									/* Change state color at this breakpoint */
 									@include respond-min($ipad-landscape) {
-										color: $header-color-link-hover;
+										color: $color-brand;
 									}
 								}
 							}
@@ -368,7 +366,7 @@ $header-color-link-hover: $color-brand !default;
 								.header--hero &:focus,
 								.header--hero &.is-active {
 									&,
-									.icon:before {color: $header-color-link-hover;}
+									.icon:before {color: $color-brand;}
 								}
 							}
 
@@ -851,7 +849,7 @@ $header-color-link-hover: $color-brand !default;
 						/* Hover and focus states */
 						a:hover,
 						a:focus {
-							.icon:before {color: $header-color-link-hover;}
+							.icon:before {color: $color-brand;}
 						}
 
 							/* Icon */
@@ -954,7 +952,7 @@ $header-color-link-hover: $color-brand !default;
 					&:hover,
 					&:focus {
 						&,
-						.icon:before {color: $header-color-link-hover;}
+						.icon:before {color: $color-brand;}
 					}
 				}
 
@@ -1015,7 +1013,7 @@ $header-color-link-hover: $color-brand !default;
 			/* Hover & focus states */
 			a:hover,
 			a:focus {
-				.icon:before {color: $header-color-link-hover;}
+				.icon:before {color: $color-brand;}
 			}
 
 			/* Search icon */
@@ -1037,24 +1035,26 @@ $header-color-link-hover: $color-brand !default;
 
 	/* --Header hero (centre home page)-- */
 	.header__hero {
-		@include to-rem(min-height, 220);
 		background-repeat: no-repeat;
 		background-position: 50% 50%;
 		background-size: cover;
 		background-color: $color-grey-dark-1;
 		position: relative;
 		z-index: 1;
-		display: none;
 
-		.header--hero & {display: block;}
+		/* Set min heights */
+		&,
+		.header-disclaimer {
+			@include to-rem(min-height, 220);
 
-		/* Increase min height at these breakpoints */
-		@include respond-min($non-palm) {
-			@include to-rem(min-height, $hero-banner-height-sml);
-		}
+			/* Increase min heights at these breakpoints */
+			@include respond-min($non-palm) {
+				@include to-rem(min-height, $hero-banner-height-sml);
+			}
 
-		@include respond-min($ipad-portrait) {
-			@include to-rem(min-height, $hero-banner-height-lrg);
+			@include respond-min($ipad-portrait) {
+				@include to-rem(min-height, $hero-banner-height-lrg);
+			}
 		}
 	}
 
@@ -1077,7 +1077,7 @@ $header-color-link-hover: $color-brand !default;
 				&:hover,
 				&:focus {
 					&,
-					.icon:before {color: $header-color-link-hover;}
+					.icon:before {color: $color-brand;}
 				}
 			}
 
@@ -1102,6 +1102,18 @@ $header-color-link-hover: $color-brand !default;
 				/* Icon */
 				.icon:before {font-size: 100%;}
 			}
+
+		/* 'Artist impression' disclaimer, needed when the centre home page image is not a photograph, currently only applies to 'Miranda' and 'Garden City' centres */
+		.header-disclaimer small {
+			position: absolute;
+			right: 0;
+			@include to-rem(bottom, $spacing-sixth);
+			color: #fff;
+			@include font-size($font-size-milli);
+
+			/* IE9 */
+			.ie-9 & {opacity: 0.6;}
+		}
 
 		/* Gradient overlay - used on national landing page as well */
 		.hero-gradient {
@@ -1282,7 +1294,7 @@ $header-color-link-hover: $color-brand !default;
 							color: #fff;
 
 							/* Centre home page hero banner */
-							.header--hero & {color: $header-color-link-hover;}
+							.header--hero & {color: $color-brand;}
 						}
 					}
 
@@ -1369,7 +1381,7 @@ $header-color-link-hover: $color-brand !default;
 			}
 
 			/* Centre home page hero banner */
-			.header--hero & {border-color: $header-color-grey;}
+			.header--hero & {border-color: $color-grey-med-2;}
 
 				/* Icon */
 				.icon:before {
@@ -1456,7 +1468,7 @@ $header-color-link-hover: $color-brand !default;
 	      /* Centre home page hero banner */
 				.header--hero & {
 					box-shadow: 0 2px 2px rgba(#000, 0.3);
-					border: 1px solid $header-color-grey;
+					border: 1px solid $color-grey-med-2;
 					border-top: 0;
 				}
 			}
@@ -1523,6 +1535,7 @@ $header-color-link-hover: $color-brand !default;
 						}
 					}
 				}
+
 
 	/* --National view-- */
 

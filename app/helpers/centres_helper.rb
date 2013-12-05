@@ -13,6 +13,9 @@ module CentresHelper
     social_media.keep_if { |social_media| social_media.present? }
   end
 
+  def header_disclaimer?(centre_code)
+    ['miranda', 'gardencity'].include? centre_code
+  end
 
   def google_static_maps_url(options)
     # Decode the key

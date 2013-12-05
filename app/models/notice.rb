@@ -11,15 +11,20 @@ class Notice < Hashie::Mash
   end
 
   def meta
-    Meta.new title: name,
+    Meta.new id: id,
+             title: name,
              twitter_title: "Check out this #{name}",
-             image: image
+             image: image,
+             kind: kind
   end
 
   def date(strftime = nil)
     parsed_time = Time.parse(publish_date_time)
-
     strftime ? parsed_time.strftime(strftime) : parsed_time
+  end
+
+  def kind
+    self.class.name.downcase
   end
 
 end

@@ -102,7 +102,7 @@ describe CustomerConsole::Application do
         end
 
         it "routes to a notice" do
-          expect(get: "/bondijunction/notices/1/social-share").to route_to(base_params.merge({"kind"=>"centre_service_notices"}))
+          expect(get: "/bondijunction/notices/1/social-share").to route_to(base_params.merge({"kind"=>"centre_service_notice"}))
         end
 
         it "routes to a canned search" do

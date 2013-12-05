@@ -14,9 +14,16 @@
 	border-top: 1px solid $color-grey-med-3;
   @include to-rem(padding-top, $spacing-half);
   color: $color-txt-light;
+  line-height: normal;
+
+  /* Increase top padding at this breakpoint */
+  @include respond-min($non-palm) {
+    @include to-rem(padding-top, $spacing-dbl);
+  }
 
   /* Prev and next */
   .btn.btn--main {
+    @include font-size($font-size, normal);
     position: absolute;
     top: 0;
 
@@ -27,7 +34,7 @@
   }
 
     /* Arrow icons */
-    .icon:before {@include font-size(22, 1);}
+    .icon:before {@include font-size(20, 1);}
 }
 
 /* Extend: pin board version */
@@ -36,8 +43,9 @@
   /* Need a negative bottom margin to offset the bottom padding on the `body` to keep the spacing consistent with the top spacing */
   @include to-rem(margin-bottom, -$spacing-half);
 
-  /* Remove the negative bottom margin at this breakpoint */
+  /* Increase top margin and remove negative bottom margin at this breakpoint */
   @include respond-min($non-palm) {
+    @include to-rem(margin-top, $spacing-dbl);
     margin-bottom: 0;
   }
 }
@@ -50,16 +58,31 @@
 
     /* Count */
     .pager__count {
-      @include font-size($font-size-sml, normal);
       @include to-em(padding-top padding-bottom, $spacing-half);
       display: inline-block;
 
       /* Turn off bottom padding when they're no prev/next links */
-      &:only-child {padding-bottom: 0;}
+      &:only-child {padding: 0;}
     }
 
     /* Prev */
-    .pager__prev {left: 0;}
+    .pager__prev {
+      left: 0;
+
+      /* Position off-centre at this breakpoint */
+      @include respond-min($non-palm) {
+        left: 50%;
+        @include to-rem(margin-left, -$spacing-dbl*4);
+      }
+    }
 
     /* Next */
-    .pager__next {right: 0;}
+    .pager__next {
+      right: 0;
+
+      /* Position off-centre at this breakpoint */
+      @include respond-min($non-palm) {
+        right: 50%;
+        @include to-rem(margin-right, -$spacing-dbl*4);
+      }
+    }

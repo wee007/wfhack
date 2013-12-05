@@ -39,13 +39,23 @@ class ApplicationController < ActionController::Base
 
   def in_parallel(requests)
     responses = []
+
     Service::API.in_parallel do
-      requests.each do |kind, options|
-        klass = "#{kind}_service".classify.constantize
-        responses << [klass, klass.fetch(options)]
+      responses = requests.collect do |kind, options|
+        klass = "#{kind.to_s.singularize}_service".classify.constantize
+        if options.is_a?(Array)
+          response = klass.fetch(*options)
+        else
+          response = klass.fetch(options)
+        end
+        [klass, response]
       end
     end
-    responses.collect { |service, response| service.build response }
+
+    responses.collect do |service, response, build_options|
+      service.build response
+    end
+
   end
 
 end

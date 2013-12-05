@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
 
-  layout 'detail_view', only: :show
+  layout 'detail_view', only: [:show_centre, :show_national]
 
   def index_centre
     services = {

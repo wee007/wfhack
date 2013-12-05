@@ -3,13 +3,10 @@ class CentreServiceDetailsController < ApplicationController
   layout 'sub_page', only: :show
 
   def show
-    centre, centre_service_details = nil
-    Service::API.in_parallel do
-      centre = CentreService.fetch params[:centre_id]
-      centre_service_details = CentreServiceDetailService.fetch params[:centre_id]
-    end
-    @centre = CentreService.build centre
-    @centre_service_details = CentreServiceDetailService.build centre_service_details
+    @centre, @centre_service_details = in_parallel \
+      centre: params[:centre_id],
+      centre_service_detail: params[:centre_id]
+
     @concierge = @centre_service_details.service_type_details('concierge') if @centre_service_details.present?
     @hero = Hashie::Mash.new heading: 'Centre services', image: 'centre-services', icon: 'icon--service'
 

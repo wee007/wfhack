@@ -8,7 +8,7 @@ class ProductService
         results.collect { |result| Product.new result }
       elsif results.has_key? :facets
         products = results.delete(:results).collect { |result| Product.new result }
-        Hashie::Mash.new results.merge products: products
+        ProductSearch.new results.merge products: products
       else
         Product.new results
       end

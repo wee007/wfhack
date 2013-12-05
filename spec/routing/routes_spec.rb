@@ -20,7 +20,8 @@ describe CustomerConsole::Application do
     end
 
     context "for /products" do
-      let(:base_params) { { controller: "products", action: "index" } }
+      let(:base_params) { { controller: "products", action: "index_national" } }
+
       it "routes to product browse" do
         expect(get: "/products").to route_to(base_params)
       end
@@ -38,7 +39,7 @@ describe CustomerConsole::Application do
 
       it "routes to a product" do
         expect(get: "/products/runway-fashionz/sparkle-top/100").to route_to(base_params.merge({
-          action: 'show',
+          action: 'show_national',
           retailer_code: 'runway-fashionz',
           product_name: 'sparkle-top',
           id: '100'
@@ -47,7 +48,7 @@ describe CustomerConsole::Application do
     end
 
     context "for :centre/products" do
-      let(:base_params) { { controller: "products", action: "index", centre_id: "bondijunction" } }
+      let(:base_params) { { controller: "products", action: "index_centre", centre_id: "bondijunction" } }
       it "routes centre scoped product browse" do
         expect(get: "/bondijunction/products").to route_to(base_params)
       end
@@ -65,7 +66,7 @@ describe CustomerConsole::Application do
 
       it "routes to a product" do
         expect(get: "/bondijunction/products/runway-fashionz/sparkle-top/100").to route_to(base_params.merge({
-          action: 'show',
+          action: 'show_centre',
           retailer_code: 'runway-fashionz',
           product_name: 'sparkle-top',
           id: '100'

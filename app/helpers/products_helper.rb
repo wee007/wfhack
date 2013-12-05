@@ -15,6 +15,14 @@ module ProductsHelper
       products
   end
 
+  def prev_page_url
+    url_for(params.merge({page: (@search.page - 1)}))
+  end
+
+  def next_page_url
+    url_for(params.merge({page: (@search.page + 1)}))
+  end
+
   private
 
   def centre_category

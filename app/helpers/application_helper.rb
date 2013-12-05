@@ -26,14 +26,6 @@ module ApplicationHelper
     "#{request.protocol}#{request.host_with_port}#{request.fullpath}"
   end
 
-  def prev_page_url
-    url_for(params.merge({page: (@pagination[:page] - 1)}))
-  end
-
-  def next_page_url
-    url_for(params.merge({page: (@pagination[:page] + 1)}))
-  end
-
   def parent_layout(layout)
     @view_flow.set(:layout,output_buffer)
     self.output_buffer = render(:file => "layouts/#{layout}")

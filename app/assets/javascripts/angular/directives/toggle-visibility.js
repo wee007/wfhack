@@ -66,6 +66,7 @@
         // ARIA for trigger
         trigger.attr( 'aria-haspopup', true );
         trigger.attr( 'aria-controls', id );
+        trigger.attr( 'aria-expanded', false );
 
         // Visibility will be toggled on click / tap
         trigger.bind( 'click', function ( e ) {

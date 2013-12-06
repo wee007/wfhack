@@ -1,5 +1,7 @@
 class Deal < OpenStruct
 
+  attr_accessor :store
+
   # TODO: remove this
   def title
     super || name

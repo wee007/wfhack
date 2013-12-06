@@ -13,6 +13,7 @@ describe DealsController do
       DealService.stub(:build).with("DEAL JSON").and_return(['Deal', 'Deal1'])
       CampaignService.stub(:fetch).with(centre: 'bondijunction').and_return("CAMPAIGN JSON")
       CampaignService.stub(:build).with("CAMPAIGN JSON").and_return(['Campaign', 'Campaign'])
+      controller.stub(:eager_load_stores)
       get :index, centre_id: 'bondijunction', campaign_code: 'halloween'
     end
 

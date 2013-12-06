@@ -1,5 +1,5 @@
 ( function ( app ) {
-  app.directive( 'toggleVisibility', ['$rootScope', '$document', function ($rootScope, $document) {
+  app.directive( 'toggleVisibility', ['$rootScope', '$document', function ( $rootScope, $document ) {
     $rootScope.activeTVTarget = undefined;
 
     $rootScope.$watch( 'activeTVTarget', function ( value, prevValue ) {
@@ -35,11 +35,11 @@
     },
 
     triggers = function ( targetID ) {
-      return $( "[aria-controls=" + targetID + "]" );
+      return angular.element( "[aria-controls=" + targetID + "]" );
     },
 
     target = function ( targetID ) {
-      return $( "#" + targetID )
+      return angular.element( "#" + targetID )
     },
 
     // Hide the target, set appropriate ARIA
@@ -61,7 +61,7 @@
      // Angular invokes this function for every attribute instance of `toggle-visibility="target"`
      link: function ( scope, trigger, attributes ) {
         var id = attributes['toggleVisibility'],
-            target = $( '#' + id );
+            target = angular.element( '#' + id );
 
         // ARIA for trigger
         trigger.attr( 'aria-haspopup', true );

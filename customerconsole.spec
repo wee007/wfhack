@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.35
+Version:     0.2.36
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,20 @@ fi
 
 
 %changelog
+* Mon Dec 09 2013 ci <doperations@au.westfield.com> 0.2.36-1
+- Merge pull request #781 from bschwarz/toggle-vis
+  (craigM.smith@au.westfield.com)
+- Merge pull request #779 from ewee/master (craigM.smith@au.westfield.com)
+- Use jqlite (angular.element) (ben@germanforblack.com)
+- Added default state for aria-expanded (ben@germanforblack.com)
+- Merge remote-tracking branch 'origin/master' into toggle-vis
+  (ben@germanforblack.com)
+- Rewrote much of toggle visibility to use $rootScope, and have only one active
+  instance of toggleVisibility at a given time. Less events in the browser.
+  (ben@germanforblack.com)
+- Add page title and description for retailer(s) (ewee@au.westfield.com)
+- Merge remote-tracking branch 'origin/master' (ben@germanforblack.com)
+
 * Fri Dec 06 2013 ci <doperations@au.westfield.com> 0.2.35-1
 - Merge pull request #787 from cpearce/master (craigM.smith@au.westfield.com)
 - Updating products pagination - WSF-6065 (cpearce@au.westfield.com)

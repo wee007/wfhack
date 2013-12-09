@@ -30,8 +30,9 @@
   <% end %>
 
   <div class="sg-example sg-modifier">
-    <span class="sg-modifier__name">Base style (no modifiers)</span>
+    <span class="sg-modifier__name">Base style</span>
     <%= example_html.strip.gsub(' $modifier_class', '').html_safe %>
+    <pre class="sg-code-block"><code class="language-markup"><%= example_html %></code></pre>
   </div>
 
   <% section.modifiers.each do |modifier| %>

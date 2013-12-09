@@ -1,13 +1,13 @@
 <% content_for :custom_styles do %>
   <link rel="stylesheet" href="<%= asset_path "prism/prism.css" %>">
 
-  <link href="<%= asset_path 'styleguide/main.css' %>" rel="stylesheet">
+  <link href="<%= asset_path 'styleguide/styleguide.css' %>" rel="stylesheet">
 <% end %>
 
 <%# Header %>
-<div class="header sg-header" role="banner">
+<div class="sg-header" role="banner">
   <%# Header secondary %>
-  <div class="header__secondary">
+  <div class="sg-header__secondary">
     <div class="container">
       <%# Logo %>
       <%= link_to site_logo, centre_path(@centre), href:"/styleguide", class: "logo" %>
@@ -18,7 +18,8 @@
   </div>
 
   <%# Header primary %>
-  <div class="sg-header__primary drop-down-container">
+  <div class="sg-header__primary">
+
     <%# Container %>
     <div class="container">
 
@@ -52,6 +53,7 @@
       </nav>
     </div>
     <%# //Container %>
+
   </div>
 </div>
 <%# //Header %>

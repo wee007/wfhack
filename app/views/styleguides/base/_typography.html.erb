@@ -1,33 +1,17 @@
-<div class="sg-h2">Headings <code>_headings.scss</code></div>
+<%= styleguide_block 'Headings' do %>
+  <h1>h1.Heading 1</h1>
 
-<div class="sg-section">
-  <div class="divider">
-    <h1>h1.Heading 1</h1>
-  </div>
+  <h2>h2.Heading 2</h2>
 
-  <div class="divider">
-    <h2>h2.Heading 2</h2>
-  </div>
+  <h3>h3.Heading 3</h3>
 
-  <div class="divider">
-    <h3>h3.Heading 3</h3>
-  </div>
+  <h4>h4.Heading 4</h4>
 
-  <div class="divider">
-    <h4>h4.Heading 4</h4>
-  </div>
+  <h5>h5.Heading 5</h5>
 
-  <div class="divider">
-    <h5>h5.Heading 5</h5>
-  </div>
+  <h6>h6.Heading 6</h6>
 
-  <div class="divider">
-    <h6>h6.Heading 6</h6>
-  </div>
-
-  <h2 class="h1">h1.Heading style on a h2 tag</h2>
-</div>
-
-<div class="sg-h2">Paragraph <code>_paragraph.scss</code></div>
-<p>Something something</p>
-<p>Something something</p>
+  <% example '.h1' do %>
+    <h2 class="$modifier_class">Heading 2 that looks like Heading 1</h2>
+  <% end %>
+<% end %>

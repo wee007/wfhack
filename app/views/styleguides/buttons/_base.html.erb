@@ -1,4 +1,21 @@
-<%= styleguide_block 'Button Base' do %>
-<p><button type="button" class="btn btn--main $modifier_class">Button (button)</button></p>
-<p><a href="#" class="btn btn--main $modifier_class">Button (anchor)</a></p>
+<%= styleguide_block 'Button Base' do |style| %>
+  <div class="sg-sub-section"><button type="button" class="btn btn--main $modifier_class">Button (button)</button></div>
+
+  <div class="sg-sub-section"><a href="#" class="btn btn--main $modifier_class">Button (anchor)</a></div>
+
+  <%# btn--pointer %>
+  <% example '.btn--pointer' do %>
+    <div class="sg-sub-section"><button type="button" class="btn btn--main $modifier_class">Button (button)<span aria-hidden="true" class="icon icon--lrg icon--arrow-down-full btn--pointer__icon"></span></button></div>
+
+    <div class="sg-sub-section"><a href="#" class="btn btn--main $modifier_class">Button (anchor)<span aria-hidden="true" class="icon icon--lrg icon--arrow-down-full btn--pointer__icon"></span></a></div>
+  <% end %>
+  <%# //btn--pointer %>
+
+  <%# btn--pointer-alt %>
+  <% example '.btn--pointer-alt' do %>
+    <div class="sg-sub-section"><button type="button" class="btn btn--main btn--main-alt4 btn--pointer $modifier_class"><span class="icon icon--arrow-left-big btn--pointer__icon btn--pointer__icon--flush" aria-hidden="true"></span>Button (button)</button></div>
+
+    <div class="sg-sub-section"><a href="#" class="btn btn--main btn--main-alt4 btn--pointer $modifier_class"><span class="icon icon--arrow-left-big btn--pointer__icon btn--pointer__icon--flush" aria-hidden="true"></span>Button (anchor)</a></div>
+  <% end %>
+  <%# //btn--pointer-alt %>
 <% end %>

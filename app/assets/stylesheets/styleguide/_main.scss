@@ -83,11 +83,26 @@
 
       a {
         display: block;
+        color: $color-grey-med-2;
         @include to-rem(padding, $spacing-third $spacing-half);
 
         &:hover,
         &:focus {color: #fff;}
       }
+  }
+}
+
+.sg-header__secondary {
+  background-color: #fff;
+  @include to-rem(min-height, 44);
+
+  /* Inner container */
+  > .container {
+    @include to-rem(padding-top padding-bottom, 7);
+
+    @include respond-min($non-palm) {
+      @include to-rem(padding-top, 10);
+    }
   }
 }
 
@@ -136,7 +151,6 @@
 
     li {
       margin-top: 2px;
-      /* TODO: update color variable once the variable change has gone in */
       color: #073642;
 
       &:first-child {margin: 0;}
@@ -148,9 +162,8 @@
           padding: 3px 6px;
         }
 
-        /* TODO: update color variable once the variable change has gone in */
         a {
-          color: #b2b2b2;
+          color: $color-blue;
 
           &:before {
             content: "⇢";
@@ -195,7 +208,15 @@
 
 /* [SECTION]
 -------------------------------------------------------*/
-.sg-section {@include to-rem(margin-bottom, $spacing-dbl);}
+.sg-section {
+  @include to-rem(margin-bottom, $spacing-dbl);
+
+  > p {@include to-rem(margin-bottom, $spacing-base);}
+}
+
+.sg-sub-section {
+  @include to-rem(margin-bottom, $spacing-base);
+}
 
 /* [NOTE]
 -------------------------------------------------------*/

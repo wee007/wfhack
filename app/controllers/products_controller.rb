@@ -8,9 +8,8 @@ class ProductsController < ApplicationController
       centres: [nil, {near_to: params[:centre_id]}],
       products: params.merge({rows: 50})
     }
-
     services[:store] = {retailer_code: params[:retailer].first} if params[:retailer]
-    @centre, @nearby_centres, @search = service_map services
+    @centre, @nearby_centres, @search, stores = service_map services
     @super_categories = CategoryService.find centre_id: params[:centre_id], product_mapable: true
 
     respond_to do |format|
@@ -38,7 +37,7 @@ class ProductsController < ApplicationController
   def index_national
     services = { centre: [:all, country: 'au'], products: params.merge({rows: 50}) }
     services[:store] = {retailer_code: params[:retailer].first} if params[:retailer]
-    centres, @search = service_map services
+    centres, @search, stores = service_map services
 
     @centres = centres.group_by{ |centre| centre.state }
 

@@ -3,7 +3,7 @@ class DealsController < ApplicationController
   layout 'detail_view', only: :show
 
   def index
-    @centre, @deals = service_map \
+    @centre, @deals, @campaigns = service_map \
       centre: params[:centre_id],
       deal: deals_params,
       campaign: {centre: params[:centre_id]}

@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.36
+Version:     0.2.37
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,9 @@ fi
 
 
 %changelog
+* Mon Dec 09 2013 ci <doperations@au.westfield.com> 0.2.37-1
+- Update national landing page with Christmas images (fiona@fionachan.net)
+
 * Mon Dec 09 2013 ci <doperations@au.westfield.com> 0.2.36-1
 - Merge pull request #781 from bschwarz/toggle-vis
   (craigM.smith@au.westfield.com)

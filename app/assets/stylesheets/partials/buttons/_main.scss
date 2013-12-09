@@ -11,7 +11,7 @@
   .btn--main-alt4             - White
   .btn--main-compact          - Compact - decrease padding
   .btn--main-lrg              - Large - increase top/btm padding
-  .btn--checkbox-toggle       - Checkbox toggle
+  .btn--main-checkbox-toggle  - Checkbox toggle
 
   Styleguide Button Main
 */
@@ -137,51 +137,56 @@
 	/* Large - increase top/btm padding */
 	.btn--main-lrg {@include to-em(padding-top padding-bottom, $spacing-half+$spacing-micro);}
 
-	/* Pointer - used when you need to position an arrow icon over to the far right, has to be used with the `.btn--pointer` base extender */
-	.btn--pointer.btn--main {
-		@include to-em(padding-left, $spacing-half);
-		@include to-em(padding-right, $spacing-base+$spacing-half+$spacing-micro);
+	/* Pointer styles - used when you need to position an arrow icon over to the far right, has to be used with the `.btn--pointer` base extender */
+	.btn--main {
 
-		/* Icon */
-		.btn--pointer__icon {@include to-em(right, $spacing-half);}
+    /* Position icon over to the far right */
+    &.btn--pointer {
+  		@include to-em(padding-left, $spacing-half);
+  		@include to-em(padding-right, $spacing-base+$spacing-half+$spacing-micro);
 
-    /* Icon - remove the right indent */
-    .btn--pointer__icon--flush {right: 0;}
-	}
+  		/* Icon */
+  		.btn--pointer__icon {@include to-em(right, $spacing-half);}
 
-	/* As above but position icon over to the far left */
-	.btn--pointer-alt.btn--main {
-		@include to-em(padding-left, $spacing-base+$spacing-half+$spacing-micro);
-		@include to-em(padding-right, $spacing-half);
+      /* Icon - remove the right indent */
+      .btn--pointer__icon--flush {right: 0;}
+    }
 
-		/* Icon */
-		.btn--pointer__icon {
-			right: auto;
-			@include to-em(left, $spacing-half);
-		}
+    /* As above but position icon over to the far left */
+    &.btn--pointer-alt {
+      @include to-em(padding-left, $spacing-base+$spacing-half+$spacing-micro);
+      @include to-em(padding-right, $spacing-half);
 
-    /* Icon - remove the left indent */
-    .btn--pointer__icon--flush {left: 0;}
-	}
+      /* Icon */
+      .btn--pointer__icon {
+        right: auto;
+        @include to-em(left, $spacing-half);
+      }
 
-	/* Add more right padding to 'pointer' */
-	.btn--pointer-padding-med.btn--main {@include to-em(padding-right, $spacing-dbl);}
+      /* Icon - remove the left indent */
+      .btn--pointer__icon--flush {left: 0;}
+    }
 
-	.btn--pointer-padding-lrg.btn--main {@include to-em(padding-right, $spacing-dbl+$spacing-base);}
+    /* Add more right padding */
+    &.btn--pointer-padding-med {@include to-em(padding-right, $spacing-dbl);}
 
-	/* Flanked - position 2 icons either ends, has to be used with the `.btn--pointer` base extender */
-	.btn--main.btn--main-flanked {
-		@include to-em(padding, $spacing-half+$spacing-micro+$spacing-micro $spacing-dbl);
+    &.btn--pointer-padding-lrg {@include to-em(padding-right, $spacing-dbl+$spacing-base);}
 
-		/* Icons */
-		.btn--pointer__icon + .btn--pointer__icon {
-			@include to-em(left, $spacing-half);
-			right: auto;
-		}
+    /* Flanked - position 2 icons either ends, has to be used with the `.btn--pointer` base extender */
+    &.btn--main-flanked {
+      @include to-em(padding, $spacing-half+$spacing-micro+$spacing-micro $spacing-dbl);
+
+      /* Icons */
+      .btn--pointer__icon + .btn--pointer__icon {
+        @include to-em(left, $spacing-half);
+        right: auto;
+      }
+    }
+
 	}
 
   /* --Checkbox toggle-- */
-  .btn--checkbox-toggle {
+  .btn--main-checkbox-toggle {
     @include to-em(padding, $spacing-half+1.5 $spacing-half);
 
     /* iOS and Android */
@@ -190,7 +195,7 @@
   }
 
   /* When an icon is used within the checkbox toggle */
-  .btn--checkbox-toggle-icon {
+  .btn--main-checkbox-toggle-icon {
     @include to-em(padding-top padding-bottom, $spacing-half);
 
     /* iOS and Android */
@@ -199,11 +204,11 @@
   }
 
     /* Shared rules */
-    .btn--checkbox-toggle__input,
-    .btn--checkbox-toggle__lbl {vertical-align: middle;}
+    .btn--main-checkbox-toggle__input,
+    .btn--main-checkbox-toggle__lbl {vertical-align: middle;}
 
     /* Checkbox */
-    .btn--checkbox-toggle__input {
+    .btn--main-checkbox-toggle__input {
       cursor: pointer;
       @include to-rem(margin-right, $spacing-third);
     }

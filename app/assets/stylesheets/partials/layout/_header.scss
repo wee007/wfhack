@@ -21,7 +21,7 @@ $hero-banner-height-lrg: 380 !default;
 	/* Set common colours */
 	a,
 	.icon:before,
-	.my-account-container__hdr.btn {color: $color-grey-med-2;}
+	.my-account-container__hdr {color: $color-grey-med-2;}
 
 	.icon--arrow-down-full:before {color: $color-txt-dark;}
 }
@@ -81,7 +81,7 @@ $hero-banner-height-lrg: 380 !default;
 					/* Shared rules */
 					a,
 					.icon:before,
-					.my-account-container__hdr.btn {color: #fff;}
+					.my-account-container__hdr {color: #fff;}
 			}
 		}
 

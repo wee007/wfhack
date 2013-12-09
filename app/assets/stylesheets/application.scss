@@ -81,6 +81,19 @@ Global stylesheet
 @import "partials/base/misc";
 @import "partials/base/skip-link";
 
+/* Forms */
+@import "partials/forms/base";
+//@import "partials/forms/layout";
+//@import "partials/forms/validation";
+
+/* Buttons */
+@import "partials/buttons/base";
+@import "partials/buttons/main";
+@import "partials/buttons/menu";
+@import "partials/buttons/faux-link";
+@import "partials/buttons/expand-collapse";
+@import "partials/buttons/site-feedback";
+
 /* Layout */
 @import "partials/layout/containers";
 @import "partials/layout/header";
@@ -159,19 +172,6 @@ Global stylesheet
 
 /* This must come after all the modules and widgets so the txt-formatted styles will always be applied */
 @import "partials/modules/txt-formatted";
-
-/* Forms */
-@import "partials/forms/base";
-//@import "partials/forms/layout";
-//@import "partials/forms/validation";
-
-/* Buttons */
-@import "partials/buttons/base";
-@import "partials/buttons/main";
-@import "partials/buttons/menu";
-@import "partials/buttons/faux-link";
-@import "partials/buttons/expand-collapse";
-@import "partials/buttons/site-feedback";
 
 /* Helpers */
 @import "partials/helpers/hide";

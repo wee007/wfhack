@@ -28,6 +28,7 @@
 	&,
 	&:before,
 	&:after {@extend %transition-subtle;}
+}
 
 	/* --Extenders-- */
 
@@ -36,7 +37,7 @@
 	*/
 
 	/* Make span full width of parent */
-	&.btn--full {
+	.btn--full {
 		display: block;
 		text-align: center;
 		width: 100%;
@@ -44,18 +45,18 @@
 		padding-right: 0;
 	}
 
-	&.btn--full-left {text-align: left;}
+	.btn--full-left {text-align: left;}
 
 	/* Small and large sizes */
-	&.btn--sml {@include font-size($font-size-sml, normal);}
+	.btn--sml {@include font-size($font-size-sml, normal);}
 
-	&.btn--lrg {@include font-size($font-size-lrg, normal);}
+	.btn--lrg {@include font-size($font-size-lrg, normal);}
 
 	/* Apply right spacing for adjacent buttons */
-	&.btn--spacing {margin-right: to-em($spacing-quarter);}
+	.btn--spacing {margin-right: to-em($spacing-quarter);}
 
 	/* When you need to position an icon over to the far right */
-	&.btn--pointer {
+	.btn--pointer {
 		position: relative;
 		@include to-em(padding-right, $spacing-half+$spacing-quarter);
 
@@ -80,7 +81,7 @@
 	}
 
 	/* As above but position icon over to the far left */
-	&.btn--pointer-alt {
+	.btn--pointer-alt {
 		padding-right: 0;
 		@include to-em(padding-left, $spacing-half+$spacing-quarter);
 
@@ -90,4 +91,3 @@
 			right: auto;
 		}
 	}
-}

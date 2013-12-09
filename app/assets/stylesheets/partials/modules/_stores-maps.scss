@@ -248,7 +248,7 @@
           }
 
           /* Gift card toggle */
-          .btn--checkbox-toggle {
+          .btn--main-checkbox-toggle {
 
             /* Reveal text at this breakpoint */
             @include respond-min($non-palm) {
@@ -357,7 +357,7 @@
 
         /* Hide at this breakpoint */
         @include respond-min($ipad-landscape) {
-          &.btn {display: none;}
+          display: none;
         }
 
         /* Non JS users */

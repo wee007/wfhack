@@ -91,11 +91,11 @@
 
           /* Hide the 'Store details' link at this breakpoint for the relevant store in 'Stores show' */
           .map-micello__overlay.is-active-store {
-            a.map-micello__overlay__cta.btn {display: none;}
+            a.map-micello__overlay__cta {display: none;}
 
             /* Hide both the button and the link at this breakpoint */
             @include respond-min($ipad-landscape) {
-              .map-micello__overlay__cta.btn  {display: none;}
+              .map-micello__overlay__cta {display: none;}
             }
           }
 

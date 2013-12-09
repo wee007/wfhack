@@ -5,10 +5,10 @@
 /*
   The main button for the site.
 
-  .btn--main-alt              - Blue
-  .btn--main-alt2             - Dark
-  .btn--main-alt3             - Subtle
-  .btn--main-alt4             - White
+  .btn--main-blue             - Blue
+  .btn--main-dark             - Dark
+  .btn--main-light            - Light
+  .btn--main-white            - White
   .btn--main-compact          - Compact - decrease padding
   .btn--main-lrg              - Large - increase top/btm padding
   .btn--main-checkbox-toggle  - Checkbox toggle
@@ -54,7 +54,7 @@
 	/* -Alternate colours- */
 
 	/* Blue */
-	.btn--main-alt {
+	.btn--main-blue {
 		/* Bg colour combined with disabled state */
 		&,
 		&[disabled],
@@ -66,7 +66,7 @@
 	}
 
 	/* Dark */
-	.btn--main-alt2 {
+	.btn--main-dark {
 		/* Bg colour combined with disabled state */
 		&,
 		&[disabled],
@@ -77,8 +77,8 @@
 		&:focus {background-color: lighten($color-grey-dark-3, 10%);}
 	}
 
-	/* Subtle */
-	.btn--main-alt3 {
+	/* Light */
+	.btn--main-light {
 		box-shadow: inset 0 -1px 0 rgba(#000, 0.15);
 
 		/* Bg colour combined with disabled state */
@@ -102,7 +102,7 @@
 	}
 
 	/* White */
-	.btn--main-alt4 {
+	.btn--main-white {
 		box-shadow: inset 0 -1px 0 rgba(#000, 0.15);
 
 		/* Bg colour combined with disabled state */

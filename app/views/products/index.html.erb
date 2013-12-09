@@ -67,7 +67,7 @@
     <div class="drop-down-menu drop-down-container">
 
       <%# Drop down trigger (narrow view) %>
-      <button ng-click="showFilterButtons" toggle-visibility="filters" class="filters__hide-wide drop-down-menu__trigger btn btn--main btn--main-alt4 btn--pointer btn--pointer-padding-med">Filter<span class="icon icon--lrg icon--arrow-down-full btn--pointer__icon" aria-hidden="true"></span></button>
+      <button ng-click="showFilterButtons" toggle-visibility="filters" class="filters__hide-wide drop-down-menu__trigger btn btn--main btn--main-white btn--pointer btn--pointer-padding-med">Filter<span class="icon icon--lrg icon--arrow-down-full btn--pointer__icon" aria-hidden="true"></span></button>
       <%# //Drop down trigger (narrow view) %>
 
       <%# Drop down target (narrow view) %>
@@ -86,7 +86,7 @@
             <%# //Narrow view trigger %>
 
             <%# Wide view trigger %>
-            <button ng-show="triggersVisible" ng-click="toggleFilter('category')" class="filters__trigger filters__trigger--wide drop-down-menu__trigger btn btn--main btn--main-alt4 btn--pointer">
+            <button ng-show="triggersVisible" ng-click="toggleFilter('category')" class="filters__trigger filters__trigger--wide drop-down-menu__trigger btn btn--main btn--main-white btn--pointer">
               {{ search.categories.title }}
               <span class="icon icon--arrow-down-full btn--pointer__icon" aria-hidden="true"></span>
             </button>
@@ -112,7 +112,7 @@
             <%# //Narrow view trigger %>
 
             <%# Wide view trigger %>
-            <button ng-show="triggersVisible" ng-click="toggleFilter('retailer')" class="filters__trigger filters__trigger--wide drop-down-menu__trigger btn btn--main btn--main-alt4 btn--pointer">
+            <button ng-show="triggersVisible" ng-click="toggleFilter('retailer')" class="filters__trigger filters__trigger--wide drop-down-menu__trigger btn btn--main btn--main-white btn--pointer">
               {{ search.retailers.title }}
               <span class="icon icon--arrow-down-full btn--pointer__icon" aria-hidden="true"></span>
             </button>
@@ -155,7 +155,7 @@
             <%# //Narrow view trigger %>
 
             <%# Wide view trigger %>
-            <button ng-show="triggersVisible" ng-click="toggleFilter('brand')" class="filters__trigger filters__trigger--wide drop-down-menu__trigger btn btn--main btn--main-alt4 btn--pointer">
+            <button ng-show="triggersVisible" ng-click="toggleFilter('brand')" class="filters__trigger filters__trigger--wide drop-down-menu__trigger btn btn--main btn--main-white btn--pointer">
               {{ search.brands.title }}
               <span class="icon icon--arrow-down-full btn--pointer__icon" aria-hidden="true"></span>
             </button>
@@ -198,7 +198,7 @@
             <%# //Narrow view trigger %>
 
             <%# Wide view trigger %>
-            <button ng-show="triggersVisible" ng-click="toggleFilter('colour')" class="filters__trigger filters__trigger--wide drop-down-menu__trigger btn btn--main btn--main-alt4 btn--pointer">
+            <button ng-show="triggersVisible" ng-click="toggleFilter('colour')" class="filters__trigger filters__trigger--wide drop-down-menu__trigger btn btn--main btn--main-white btn--pointer">
               {{ search.colours.title }}
               <span class="icon icon--arrow-down-full btn--pointer__icon" aria-hidden="true"></span>
             </button>
@@ -236,7 +236,7 @@
             <%# //Narrow view trigger %>
 
             <%# Wide view trigger %>
-            <button ng-show="triggersVisible" ng-click="toggleFilter('size')" class="filters__trigger filters__trigger--wide drop-down-menu__trigger btn btn--main btn--main-alt4 btn--pointer">
+            <button ng-show="triggersVisible" ng-click="toggleFilter('size')" class="filters__trigger filters__trigger--wide drop-down-menu__trigger btn btn--main btn--main-white btn--pointer">
               {{ search.sizes.title }}
               <span class="icon icon--arrow-down-full btn--pointer__icon" aria-hidden="true"></span>
             </button>
@@ -274,7 +274,7 @@
             <%# //Narrow view trigger %>
 
             <%# Wide view trigger %>
-            <button ng-show="triggersVisible" ng-click="toggleFilter('price')" class="filters__trigger filters__trigger--wide drop-down-menu__trigger btn btn--main btn--main-alt4 btn--pointer">
+            <button ng-show="triggersVisible" ng-click="toggleFilter('price')" class="filters__trigger filters__trigger--wide drop-down-menu__trigger btn btn--main btn--main-white btn--pointer">
               {{ search.price.title }}
               <span class="icon icon--arrow-down-full btn--pointer__icon" aria-hidden="true"></span>
             </button>
@@ -319,7 +319,7 @@
             <%# //Narrow view toggle %>
 
             <%# Wide view toggle %>
-            <label ng-show="triggersVisible" for="sale-items-2" class="filters__trigger filters__trigger--wide btn btn--main btn--main-alt4 btn--main-checkbox-toggle">
+            <label ng-show="triggersVisible" for="sale-items-2" class="filters__trigger filters__trigger--wide btn btn--main btn--main-white btn--main-checkbox-toggle">
               <input ng-model="on_sale" ng-checked="search.params().on_sale" ng-change="filterSearch('on_sale')" id="sale-items-2" type="checkbox" class="btn--main-checkbox-toggle__input"><!--
               --><span class="btn--main-checkbox-toggle__lbl">On sale</span>
             </label>

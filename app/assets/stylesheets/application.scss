@@ -27,13 +27,13 @@ Global stylesheet
     - UTILS.................generic utility styles and Sass settings e.g. mixins
       - PLACEHOLDERS........placeholder selectors to keep things DRY
     - BASE..................base styles; unclassed HTML elements
+    - FORMS.................everything relating to forms
+    - BUTTONS...............you guessed it; all the buttons!
     - LAYOUT................site structure styles e.g. header/footer
       - GRID................you guessed it; the grid!
     - ABSTRACTIONS..........very common patterns to be used 'as is' or built upon
     - MODULES...............discrete components of the page, this is the meat
       - WIDGETS ............more interactive rich requiring JavaScript/jQuery
-    - FORMS.................everything relating to forms
-    - BUTTONS...............you guessed it; all the buttons!
     - HELPERS...............a bunch of classes to apply very common styles
     - PRINT.................global print styles (rest of print styles live inline)
     - DEBUG.................enable to add visual flags for debugging purposes

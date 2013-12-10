@@ -1,0 +1,26 @@
+<div class="sg-section">
+  <div class="sg-h2"><%= title %></div>
+
+  <% unless description.nil? %>
+    <div class="sg-note">
+      <p><%= description %></p>
+    </div>
+  <% end %>
+
+  <div class="sg-example">
+    <div class="sg-demo">
+      <%= example_html.html_safe %>
+    </div>
+
+    <div class="sg-code">
+      <pre class="sg-code-block"><code class="language-markup"><%= example_html %></code></pre>
+    </div>
+  </div>
+
+  <% #unless script.blank? %>
+  <!-- <div class="sg-code">
+    <span class="sg-code-language">Javascript</span>
+    <pre class="sg-code-block"><code class="language-javascript"><%# script %></code></pre>
+  </div> -->
+  <% #end %>
+</div>

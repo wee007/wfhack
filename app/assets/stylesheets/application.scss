@@ -27,13 +27,13 @@ Global stylesheet
     - UTILS.................generic utility styles and Sass settings e.g. mixins
       - PLACEHOLDERS........placeholder selectors to keep things DRY
     - BASE..................base styles; unclassed HTML elements
+    - FORMS.................everything relating to forms
+    - BUTTONS...............you guessed it; all the buttons!
     - LAYOUT................site structure styles e.g. header/footer
       - GRID................you guessed it; the grid!
     - ABSTRACTIONS..........very common patterns to be used 'as is' or built upon
     - MODULES...............discrete components of the page, this is the meat
       - WIDGETS ............more interactive rich requiring JavaScript/jQuery
-    - FORMS.................everything relating to forms
-    - BUTTONS...............you guessed it; all the buttons!
     - HELPERS...............a bunch of classes to apply very common styles
     - PRINT.................global print styles (rest of print styles live inline)
     - DEBUG.................enable to add visual flags for debugging purposes
@@ -80,6 +80,19 @@ Global stylesheet
 @import "partials/base/text-selection";
 @import "partials/base/misc";
 @import "partials/base/skip-link";
+
+/* Forms */
+@import "partials/forms/base";
+//@import "partials/forms/layout";
+//@import "partials/forms/validation";
+
+/* Buttons */
+@import "partials/buttons/base";
+@import "partials/buttons/main";
+@import "partials/buttons/menu";
+@import "partials/buttons/faux-link";
+@import "partials/buttons/expand-collapse";
+@import "partials/buttons/site-feedback";
 
 /* Layout */
 @import "partials/layout/containers";
@@ -159,19 +172,6 @@ Global stylesheet
 
 /* This must come after all the modules and widgets so the txt-formatted styles will always be applied */
 @import "partials/modules/txt-formatted";
-
-/* Forms */
-@import "partials/forms/base";
-//@import "partials/forms/layout";
-//@import "partials/forms/validation";
-
-/* Buttons */
-@import "partials/buttons/base";
-@import "partials/buttons/main";
-@import "partials/buttons/menu";
-@import "partials/buttons/faux-link";
-@import "partials/buttons/expand-collapse";
-@import "partials/buttons/site-feedback";
 
 /* Helpers */
 @import "partials/helpers/hide";

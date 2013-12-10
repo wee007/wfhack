@@ -33,6 +33,18 @@
     }
   }
 
+  /* --Shared rules-- */
+
+  /* Link/button hover/focus states */
+  .drop-down-menu__hdr-btn,
+  .drop-down-menu__list > li .btn--full,
+  .drop-down-menu__list > dd .btn--full,
+  .drop-down-menu__list-alt > li a,
+  .drop-down-menu__hdr .btn {
+    &:hover,
+    &:focus {color: $color-link;}
+  }
+
   /* --Global rules-- */
 
   /* Form elements */
@@ -102,11 +114,11 @@
     }
 
     /* Header button */
-    .drop-down-menu__hdr-btn.btn {
+    .drop-down-menu__hdr-btn {
       @include to-rem(padding, $spacing-half);
 
       /* Forward indicator (arrow icon) */
-      .icon.btn--pointer__icon {@include to-rem(right, $spacing-half);}
+      .btn--pointer__icon {@include to-rem(right, $spacing-half);}
     }
 
     /* Sub header */
@@ -181,10 +193,6 @@
         .btn--full {
           color: $color-txt-base;
           @include to-rem(padding, $spacing-half);
-
-          /* Hover and focus states, need to increase the specificity so as to override hover/focus styles from any outer modules */
-          .drop-down-menu &:hover,
-          .drop-down-menu &:focus {color: $color-link;}
         }
       }
 
@@ -206,10 +214,6 @@
       a {
         display: block;
         color: $color-txt-light;
-
-        /* Hover and focus states */
-        &:hover,
-        &:focus {color: $color-link;}
       }
     }
 

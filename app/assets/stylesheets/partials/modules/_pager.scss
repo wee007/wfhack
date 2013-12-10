@@ -18,11 +18,11 @@
 
   /* Increase top padding at this breakpoint */
   @include respond-min($non-palm) {
-    @include to-rem(padding-top, $spacing-dbl);
+    @include to-rem(padding-top, $spacing-base);
   }
 
   /* Prev and next */
-  .btn.btn--main {
+  .btn--main {
     @include font-size($font-size, normal);
     position: absolute;
     top: 0;
@@ -45,7 +45,7 @@
 
   /* Increase top margin and remove negative bottom margin at this breakpoint */
   @include respond-min($non-palm) {
-    @include to-rem(margin-top, $spacing-dbl);
+    @include to-rem(margin-top, $spacing-base);
     margin-bottom: 0;
   }
 }

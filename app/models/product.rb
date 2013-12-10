@@ -24,7 +24,7 @@ class Product < Hashie::Mash
   def to_param
     {
       retailer_code: retailer_code,
-      product_name: name.to_slug,
+      product_name: name_slug,
       id: id
     }
   end

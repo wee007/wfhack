@@ -627,7 +627,7 @@ $hero-banner-height-lrg: 380 !default;
 						position: absolute;
 						right: 0;
 						top: 50%;
-						@include translate(0, -45%);
+						@include translateY(-45%);
 					}
 
 					/* Make block level and fix alignment at this breakpoint */
@@ -838,7 +838,7 @@ $hero-banner-height-lrg: 380 !default;
 						position: absolute;
 						top: 50%;
 						right: 0;
-						@include translate(0, -50%);
+						@include translateY(-50%);
 						margin-bottom: 0;
 
 						/* Old IE */
@@ -942,7 +942,7 @@ $hero-banner-height-lrg: 380 !default;
 				position: absolute;
 				right: 0;
 				top: 50%;
-				@include translate(0, -50%);
+				@include translateY(-50%);
 
 				/* Apply link colours */
 				.header & {
@@ -964,7 +964,7 @@ $hero-banner-height-lrg: 380 !default;
         /* Alter top positioning and turn off `translate` for 'Centre home page hero banner' */
 				.header--hero & {
 					@include to-rem(top, 54);
-					@include translate(0, 0);
+					@include translateY(0);
 				}
 
 				/* Old IE - fix for not supporting `translate` */
@@ -1188,7 +1188,7 @@ $hero-banner-height-lrg: 380 !default;
 						position: absolute;
 						right: 0;
 						top: 50%;
-						@include translate(0, -50%);
+						@include translateY(-50%);
 						@include to-rem(padding, 6 $spacing-third);
 
 						/* Old IE */
@@ -1431,7 +1431,7 @@ $hero-banner-height-lrg: 380 !default;
 				position: absolute;
 				@include to-rem(right, $spacing-third);
 				top: 50%;
-				@include translate(0, -50%);
+				@include translateY(-50%);
 			}
 
 		/* Search results */
@@ -1647,7 +1647,7 @@ $hero-banner-height-lrg: 380 !default;
 						position: absolute;
 						right: 0;
 						top: 50%;
-						@include translate(0, -50%);
+						@include translateY(-50%);
 					}
 			}
 		}

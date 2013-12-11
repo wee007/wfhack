@@ -65,7 +65,7 @@
 			position: absolute;
 			right: 0;
 			top: 50%;
-			@include translate(0, -50%);
+			@include translateY(-50%);
 
 			/* Old IE */
 			@include old-ie {

@@ -116,7 +116,7 @@
 		z-index: 2;
 		left: 50%;
 		@include to-rem(bottom, $spacing-quarter);
-		@include translate(-50%, 0);
+		@include translateX(-50%);
 	}
 
 	/* Print */

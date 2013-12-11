@@ -295,27 +295,37 @@
 		@include transform(scale($x, $y));
 	}
 
-	/* --Translate-- */
-
-	/* 2D */
-	@mixin translate($x, $y: 0) {
-		@include transform(translate($x, $y));
-	}
-
-  /* 2D Z */
-  @mixin translateZ($z: 0) {
-    @include transform(translateZ($z));
+  /* Skew */
+  @mixin skew($x, $y: 0) {
+    @include transform(skew(#{$x}deg, #{$y}deg));
   }
 
-	/* 3D */
-	@mixin translate3d($x, $y: 0, $z: 0) {
-		@include transform(translate($x, $y, $z));
-	}
+	/* -Translate- */
 
-	/* Skew */
-	@mixin skew($x, $y: 0) {
-		@include transform(skew(#{$x}deg, #{$y}deg));
-	}
+  /* 2D */
+  @mixin translate($x, $y: 0) {
+    @include transform(translate($x, $y));
+  }
+
+    /* 2D "X" */
+    @mixin translateX($x: 0) {
+      @include transform(translateX($x));
+    }
+
+    /* 2D "Y" */
+    @mixin translateY($y: 0) {
+      @include transform(translateY($y));
+    }
+
+    /* 2D "Z" */
+    @mixin translateZ($z: 0) {
+      @include transform(translateZ($z));
+    }
+
+  /* 3D */
+  @mixin translate3d($x, $y: 0, $z: 0) {
+    @include transform(translate($x, $y, $z));
+  }
 
 /* [OPACITY]
 -------------------------------------------------------*/

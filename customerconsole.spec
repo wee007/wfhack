@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.39
+Version:     0.2.40
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,12 @@ fi
 
 
 %changelog
+* Wed Dec 11 2013 ci <doperations@au.westfield.com> 0.2.40-1
+- Merge pull request #795 from bschwarz/matchMedia-update
+  (craigM.smith@au.westfield.com)
+- Updated matchMedia to current head while we're waiting for a release to be
+  made (Likely 0.2.0) (ben@germanforblack.com)
+
 * Wed Dec 11 2013 ci <doperations@au.westfield.com> 0.2.39-1
 - Merge pull request #796 from ldewey/name_slug (craigM.smith@au.westfield.com)
 - Merge pull request #792 from ewee/master (craigM.smith@au.westfield.com)

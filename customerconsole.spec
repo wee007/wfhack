@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.40
+Version:     0.2.41
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,16 @@ fi
 
 
 %changelog
+* Wed Dec 11 2013 ci <doperations@au.westfield.com> 0.2.41-1
+- Merge pull request #794 from bschwarz/styleguide_example
+  (craigM.smith@au.westfield.com)
+- Merge pull request #790 from ldewey/deals-speed-up
+  (craigM.smith@au.westfield.com)
+- Added example usage of style guide block in use (ben@germanforblack.com)
+- Added styleguide_example helper for calling out a section of styleguide not
+  based on a CSS module (ben@germanforblack.com)
+- Deals speed up idea (ldewey@au.westfield.com)
+
 * Wed Dec 11 2013 ci <doperations@au.westfield.com> 0.2.40-1
 - Merge pull request #795 from bschwarz/matchMedia-update
   (craigM.smith@au.westfield.com)

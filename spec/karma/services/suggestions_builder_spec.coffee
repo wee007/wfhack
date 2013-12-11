@@ -61,6 +61,7 @@ describe 'Service: SuggestionsBuilder', ->
     }
 
     expect(SuggestionsBuilder.didYouMean(searchString, searchResults)).toEqual({
+      count : 4,
       products: [
         { description: "sass & bide products", url: '/products?retailer[]=sass-and-bide' },
         { description: "Red products", url: '/products?colour[]=Reds' },

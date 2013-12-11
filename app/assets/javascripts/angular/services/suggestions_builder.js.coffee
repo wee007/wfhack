@@ -5,17 +5,20 @@
 
     @didYouMean = (searchString, searchResults)->
       suggestions = {}
+      suggestions.count = 0
       angular.forEach searchResults, (results, type) ->
         suggestions[type] = []
         angular.forEach results, (result) ->
 
           if isValidType(result.result_type) # Only add valid types
+            suggestions.count++
             suggestions[type].push {
               description: result.display,
               url: buildUrl(result.result_type, result.attributes)
             }
 
       # Add the default product search.
+      suggestions.count++
       (suggestions.products ||=[]).push dummyResult(searchString)
 
       suggestions

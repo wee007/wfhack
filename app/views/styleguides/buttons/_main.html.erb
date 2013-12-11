@@ -1,18 +1,18 @@
 <%= styleguide_block 'Button Main' do |style| %>
-  <div class="sg-sub-section"><button type="button" class="btn btn--main $modifier_class">Button (button)</button></div>
+  <button type="button" class="btn btn--main $modifier_class">Button (button)</button>
 
-  <div class="sg-sub-section"><a href="#" class="btn btn--main $modifier_class">Button (anchor)</a></div>
+  <a href="#" class="btn btn--main $modifier_class">Button (anchor)</a>
 
-  <% example '.btn--checkbox-toggle' do %>
-    <label class="btn btn--main btn--main-alt4 btn--checkbox-toggle">
-      <input type="checkbox" class="btn--checkbox-toggle__input"><!--
-      --><span class="btn--checkbox-toggle__lbl">On sale</span>
+  <% example '.btn--main-checkbox-toggle' do %>
+    <label class="btn btn--main btn--main-white btn--main-checkbox-toggle">
+      <input type="checkbox" class="btn--main-checkbox-toggle__input"><!--
+      --><span class="btn--main-checkbox-toggle__lbl">On sale</span>
     </label>
   <% end %>
 
-  <% example '.btn--checkbox-toggle-icon' do %>
-    <label for="gift-card-toggle" class="btn btn--main btn--main-alt2 btn--checkbox-toggle btn--checkbox-toggle-icon">
-      <input id="gift-card-toggle" type="checkbox" class="btn--checkbox-toggle__input"><span class="btn--checkbox-toggle__lbl"><span class="hide-visually">Westfield </span>Gift Card<span class="hide-visually"> accepted</span><span aria-hidden="true" class="icon icon--gift-card icon--xlrg icon--flush-top-mozilla"></span></span>
+  <% example '.btn--main-checkbox-toggle.btn--main-checkbox-toggle-icon' do %>
+    <label for="gift-card-toggle" class="btn btn--main btn--main-dark btn--main-checkbox-toggle btn--checkbox-toggle-icon">
+      <input id="gift-card-toggle" type="checkbox" class="btn--main-checkbox-toggle__input"><span class="btn--main-checkbox-toggle__lbl"><span class="hide-visually">Westfield </span>Gift Card <span class="hide-visually"> accepted</span><span aria-hidden="true" class="icon icon--gift-card icon--xlrg icon--flush-top-mozilla"></span></span>
     </label>
   <% end %>
 <% end %>

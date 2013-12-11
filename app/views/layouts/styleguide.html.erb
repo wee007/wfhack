@@ -1,3 +1,5 @@
+<% content_for :class_for_main, "sg" %>
+
 <% content_for :custom_styles do %>
   <link rel="stylesheet" href="<%= asset_path "prism/prism.css" %>">
 
@@ -6,9 +8,11 @@
 
 <%# Header %>
 <div class="sg-header" role="banner">
+
   <%# Header secondary %>
   <div class="sg-header__secondary">
     <div class="container">
+
       <%# Logo %>
       <%= link_to site_logo, centre_path(@centre), href:"/styleguide", class: "logo" %>
       <%# //Logo %>
@@ -16,9 +20,10 @@
       <h1>Style guide</h1>
     </div>
   </div>
+  <%# //Header secondary %>
 
   <%# Header primary %>
-  <div class="sg-header__primary">
+  <header class="sg-header__primary">
 
     <%# Container %>
     <div class="container">
@@ -32,7 +37,7 @@
 
       <%# Main navigation %>
       <nav role="navigation" aria-label="Main navigation">
-        <ul class="horiz-list" id="sg-header-menu-toggle">
+        <ul class="sg-menu-main" id="sg-header-menu-toggle">
           <% Styleguide::TREE.each_with_index do |sg, major| %>
             <% if sg.is_a? Hash %>
               <li>
@@ -54,36 +59,39 @@
     </div>
     <%# //Container %>
 
-  </div>
+  </header>
+  <%# //Header primary %>
+
 </div>
 <%# //Header %>
 
-<%# Content Wrapper %>
-<div class="sg-content-wrapper">
-  <div class="container">
+<%# Content %>
+<div class="sg-content container">
 
-      <%# Aside %>
-      <!-- <aside class="sg-aside">
-        <ul>
-          <li><a href="#">Horizontal list</a></li>
-          <li><a href="#">Vertical alignment</a></li>
-          <li><a href="#">Island</a></li>
-          <li><a href="#">Islet</a></li>
-          <li><a href="#">Slats</a></li>
-          <li><a href="#">Divider</a></li>
-          <li><a href="#">Link</a></li>
-          <li><a href="#">Link</a></li>
-          <li><a href="#">Link</a></li>
-        </ul>
-      </aside> -->
-      <%# //Aside %>
+    <%# Aside %>
+    <!-- <aside class="sg-aside" role="complemtary">
+      <ul>
+        <li><a href="#">Horizontal list</a></li>
+        <li><a href="#">Vertical alignment</a></li>
+        <li><a href="#">Island</a></li>
+        <li><a href="#">Islet</a></li>
+        <li><a href="#">Slats</a></li>
+        <li><a href="#">Divider</a></li>
+        <li><a href="#">Link</a></li>
+        <li><a href="#">Link</a></li>
+        <li><a href="#">Link</a></li>
+      </ul>
+    </aside> -->
+    <%# //Aside %>
 
-      <main class="sg-main" role="main">
-        <%= yield %>
-      </main>
-  </div>
-  <%# //Content Wrapper %>
+    <%# Main %>
+    <main class="sg-main" role="main" id="main">
+      <%= yield %>
+    </main>
+    <%# //Main %>
+
 </div>
+<%# //Content %>
 
 <%= javascript_include_tag "prism/prism.js" %>
 <%= javascript_include_tag "vendor/kss" %>

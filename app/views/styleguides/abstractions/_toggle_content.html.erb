@@ -1,5 +1,5 @@
 <%= styleguide_block 'Toggle Content' do |style| %>
-  <div class="island toggle-content js-toggle-content">
+  <div class="toggle-content js-toggle-content $modifier_class">
     <p>Content that gets toggled</p>
   </div>
 
@@ -10,9 +10,8 @@
     <script>
       $(function() {
         // Run 'Toggle content' plugin
-        $('.js-toggle-content').toggleContent({
-          btnTxtOpen: 'Read the fine print <span aria-hidden="true" class="icon icon--arrow-down-full icon--lrg"></span>',
-          btnTxtClose: 'Collapse the fine print <span aria-hidden="true" class="icon icon--arrow-up-full icon--lrg"></span>'
+        $('.js-toggle-content').each(function() {
+          $(this).toggleContent();
         });
       });
     </script>

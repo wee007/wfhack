@@ -3,16 +3,16 @@
    ====================================================================================== */
 
 /*
-	Generic button styling
+	Generic button styling. These classes can be used in combination with other button classes e.g. `.btn-main`.
 
-	.btn--full                        - Make button span full width of parent
-	.btn--full.btn--full-left         - Make button span full width of parent and align text to the left
-	.btn--sml								          - Small button
-	.btn--lrg                         - Large button
+	.btn--full                        - Span full width of parent
+	.btn--full.btn--full-left         - Span full width of parent and align text to the left
+	.btn--sml								          - Descrease text size
+	.btn--lrg                         - Increase text size
 	.btn--pointer                     - Position icon over to the far right of the button
-	.btn--pointer-alt                 - Position icon to the far left of the button
+	.btn--pointer.btn--pointer-alt                 - Position icon to the far left of the button
 
-	Styleguide Button Base
+	Styleguide Base
 */
 
 /* Reset all the browser default styles */

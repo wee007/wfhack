@@ -2,15 +2,15 @@
   <div class="sg-h2"><%= section.section %> <code><%= section.filename %></code></div>
 
   <% unless section.description.blank? %>
-    <p><%= section.description %></p>
+    <div class="sg-section__desc"><p><%= section.description %></p></div>
   <% end %>
 
   <% if section.modifiers.any? %>
-    <table class="sg-table">
+    <table cellspacing="0" class="sg-table table-bordered">
       <caption class="hide-visually"><%= section.section %> modifier classes</caption>
       <thead>
         <tr>
-          <th class="sg-table__class">Modifier Classes</th>
+          <th class="two-fifths">Modifier Classes</th>
           <th>Description</th>
         </tr>
       </thead>
@@ -32,7 +32,9 @@
   <div class="sg-example sg-modifier">
     <span class="sg-modifier__name">Base style</span>
     <%= example_html.strip.gsub(' $modifier_class', '').html_safe %>
-    <pre class="sg-code-block"><code class="language-markup"><%= example_html %></code></pre>
+    <div class="sg-code">
+     <pre class="sg-code-block"><code class="language-markup"><%= example_html.strip.gsub(' $modifier_class', '') %></code></pre>
+    </div>
   </div>
 
   <% section.modifiers.each do |modifier| %>
@@ -46,7 +48,7 @@
 
       <div class="sg-code">
         <% if named_examples.key? modifier.name %>
-        <pre class="sg-code-block"><code class="language-markup"><%= named_examples[modifier.name].gsub('$modifier_class', modifier.class_name).gsub(" class=\"\"", "") %></code></pre>
+        <pre class="sg-code-block txt-break-word"><code class="language-markup"><%= named_examples[modifier.name].gsub('$modifier_class', modifier.class_name).gsub(" class=\"\"", "") %></code></pre>
         <% else %>
         <pre class="sg-code-block"><code class="language-markup"><%= example_html.gsub('$modifier_class', modifier.class_name).gsub(" class=\"\"", "") %></code></pre>
         <% end %>

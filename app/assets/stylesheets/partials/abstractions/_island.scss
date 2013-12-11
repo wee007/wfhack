@@ -5,8 +5,14 @@
 /*
 	Simple, boxed off content.
 
-  .island--top-btm    - Top and bottom padding only.
-  .island--center     - Align text to the center
+  .island-ends       - Top/bottom padding
+  .island-sides      - Left/right padding
+  .island-top         - Padding top
+  .island-btm         - Padding bottom
+  .island-left        - Padding left
+  .island-right       - Padding right
+  .island--flush-btm  - Remove bottom padding
+  .island--center     - Center align
   .island--fill       - Solid background
 
   Styleguide Island
@@ -15,9 +21,14 @@
 /*
   Same as island, but with half the spacing.
 
-  .islet--top-btm      - Top and bottom padding only
-  .islet--center      - Align text to the center
-  .islet--fill        - Solid background
+  .islet-ends       - Top and bottom padding
+  .islet-sides      - Left/right padding
+  .islet-top        - Top padding
+  .islet-btm        - Bottom padding
+  .islet-left       - Left padding
+  .islet-right      - Right padding
+  .islet--center     - Center align
+  .islet--fill       - Solid background
 
   Styleguide Islet
 */

@@ -94,6 +94,7 @@ describe RedirectorController do
       ].each do |source_url,redirected_to|
         get source_url
         response.should redirect_to(redirected_to)
+        response.code.to_i.should == 301
       end
     end
   end

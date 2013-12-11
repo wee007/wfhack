@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.38
+Version:     0.2.39
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,18 @@ fi
 
 
 %changelog
+* Wed Dec 11 2013 ci <doperations@au.westfield.com> 0.2.39-1
+- Merge pull request #796 from ldewey/name_slug (craigM.smith@au.westfield.com)
+- Merge pull request #792 from ewee/master (craigM.smith@au.westfield.com)
+- Merge pull request #791 from cpearce/framework-refactoring
+  (craigM.smith@au.westfield.com)
+- Product now uses api slug_name field instead of .to_slug
+  (ldewey@au.westfield.com)
+- Make centres count dynamic (ewee@au.westfield.com)
+- Cleaning up 'translate' rules - WSF-5535 (CPearce@au.westfield.com)
+- Add spacing base to 'horiz list' abstraction - WSF-5938
+  (CPearce@au.westfield.com)
+
 * Wed Dec 11 2013 ci <doperations@au.westfield.com> 0.2.38-1
 - Merge pull request #788 from cpearce/refactoring-framework
   (craigM.smith@au.westfield.com)

@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.37
+Version:     0.2.38
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,18 @@ fi
 
 
 %changelog
+* Wed Dec 11 2013 ci <doperations@au.westfield.com> 0.2.38-1
+- Merge pull request #788 from cpearce/refactoring-framework
+  (craigM.smith@au.westfield.com)
+- Correcting the ordering of 'Forms' and 'Buttons' to reflect the CSS cascade
+  (cpearce@au.westfield.com)
+- Fixing selector order for various buttons (cpearce@au.westfield.com)
+- Fixing selector order for 'Centre Services - Buy Now' button
+  (cpearce@au.westfield.com)
+- Changing names of the coloured buttons (cpearce@au.westfield.com)
+- Change the specificity of 'buttons' and 'forms' and other 'buttons' updates
+  (cpearce@au.westfield.com)
+
 * Mon Dec 09 2013 ci <doperations@au.westfield.com> 0.2.37-1
 - Update national landing page with Christmas images (fiona@fionachan.net)
 

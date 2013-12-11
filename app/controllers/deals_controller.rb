@@ -14,6 +14,8 @@ class DealsController < ApplicationController
     @deals = DealService.build deals
     @campaigns = CampaignService.build campaigns
 
+    eager_load_stores
+
     meta.push(
       page_title: "Deals, Sales & Special Offers available at #{@centre.name}",
       description: "Find the best deals, sales and great offers on a variety of products and brands at #{@centre.name}"
@@ -47,6 +49,25 @@ class DealsController < ApplicationController
     deals_params = { centre: params[:centre_id], state: 'published', rows: 50 }
     deals_params.merge! campaign_code: params[:campaign_code] if params[:campaign_code]
     deals_params
+  end
+
+  def eager_load_stores
+    stores = nil
+    Service::API.in_parallel do
+      stores = @deals.collect do |deal|
+        StoreService.fetch(deal.deal_stores.first.store_service_id)
+      end
+    end
+
+    stores = stores.inject({}) do |hash, store|
+      store = StoreService.build store
+      hash[store.id] = store
+      hash
+    end
+
+    @deals.each do |deal|
+      deal.store = stores[deal.deal_stores.first.store_service_id]
+    end
   end
 
 end

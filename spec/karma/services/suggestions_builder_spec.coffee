@@ -16,19 +16,37 @@ describe 'Service: SuggestionsBuilder', ->
     searchResults = {
       products: [
         {
-          id: "kids-footwear",
-          term: "kids shoes",
-          score: 40,
-          display: "Kids Shoes in Kids ",
-          result_type: "category",
+          id: "sass-and-bide",
+          term: "sass bide",
+          score: 69,
+          display: "sass & bide products",
+          result_type: "retail_chain",
+          attributes: { retailer_code: "sass-and-bide" }
+        },
+        {
+          id: "Reds",
+          term: "reds",
+          score: 10,
+          display: "Red products",
+          result_type: "colour",
+          attributes: { colour: "Reds" }
+        },
+        {
+          id: "toddler-baby-footwear",
+          term: "babies shoes",
+          score: 6,
+          display: "Babies Shoes",
+          result_type: "product_category",
           attributes: {
-            category_type: {
-              super_cat: "shoes-footwear",
-              category: "kids-footwear"
-            },
-            code: "kids-footwear"
+            alt_name: "Babies Shoes in Babies & Toddlers (Kids)",
+            code: "toddler-baby-footwear",
+            url_params: {
+              sub_category: "toddler-baby-footwear",
+              category: "k-babies",
+              super_cat: "kids-babies"
+            }
           }
-        }
+        },
       ],
       stores: [
         {
@@ -37,17 +55,20 @@ describe 'Service: SuggestionsBuilder', ->
           score: 72,
           display: "DC Shoes",
           result_type: "store",
-          attributes: {
-            id: 43076,
-            retailer_code: "dc-shoes"
-          }
+          attributes: { id: 43076, retailer_code: "dc-shoes" }
         }
       ]
     }
 
     expect(SuggestionsBuilder.didYouMean(searchString, searchResults)).toEqual({
-      products: [ { description: "Products matching 'shoes'", url: '/products?search_query=shoes' } ],
-      stores: [ { description: 'DC Shoes', url: '/stores/dc-shoes/43076' } ]
+      products: [
+        { description: "sass & bide products", url: '/products?retailer[]=sass-and-bide' },
+        { description: "Red products", url: '/products?colour[]=Reds' },
+        { description: "Products matching 'shoes'", url: '/products?search_query=shoes' }
+      ],
+      stores: [
+        { description: 'DC Shoes', url: '/stores/dc-shoes/43076' }
+      ]
     })
 
 

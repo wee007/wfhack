@@ -104,7 +104,7 @@ describe ProductsController do
             description: "Find the latest fashion, clothes, shoes, jewellery, accessories and much more at Westfield Bondi Junction"
           })
           controller.stub(:meta).and_return(meta_double)
-          get :index, centre_id: 'bondijunction', retailer: ['retailer']
+          get :index_centre, centre_id: 'bondijunction', retailer: ['retailer']
         end
       end
 
@@ -196,7 +196,7 @@ describe ProductsController do
             description: "Find the latest fashion, clothes, shoes, jewellery, accessories and much more at Westfield"
           })
           controller.stub(:meta).and_return(meta_double)
-          get :index, retailer: 'retailer'
+          get :index_national, retailer: 'retailer'
         end
       end
 
@@ -208,7 +208,7 @@ describe ProductsController do
             description: "Find the latest fashion, clothes, shoes, jewellery, accessories and much more at Westfield"
           })
           controller.stub(:meta).and_return(meta_double)
-          get :index, retailer: ['retailer-1','retailer-2']
+          get :index_national, retailer: ['retailer-1','retailer-2']
         end
       end
 

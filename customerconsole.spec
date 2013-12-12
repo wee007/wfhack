@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.43
+Version:     0.2.44
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,14 @@ fi
 
 
 %changelog
+* Fri Dec 13 2013 ci <doperations@au.westfield.com> 0.2.44-1
+- Merge pull request #799 from bschwarz/pb-tidy (ldewey@au.westfield.com)
+- fixes missing entrances in maps (matt.wratt@trineo.co.nz)
+- Merge remote-tracking branch 'origin/master' (ben@germanforblack.com)
+- Let the Products controller update the products (ben@germanforblack.com)
+- Remove callbacks — not required. Promises are better anyway
+  (ben@germanforblack.com)
+
 * Thu Dec 12 2013 ci <doperations@au.westfield.com> 0.2.43-1
 - Merge pull request #798 from acohen/feature/WSF-4921
   (acohen@au.westfield.com)

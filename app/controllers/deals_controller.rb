@@ -31,8 +31,11 @@ class DealsController < ApplicationController
     @centre = CentreService.build centre
     @deal = DealService.build deal
 
-    store = StoreService.fetch @deal.deal_stores.find{|store| store.centre_id == params[:centre_id]}.store_service_id
-    @store = StoreService.build store
+    store_service_id = @deal.deal_stores.find{|store| store.centre_id == params[:centre_id]}.try :store_service_id
+
+    return respond_to_error(404) unless store_service_id
+
+    @store = StoreService.find store_service_id
 
     gon.push centre: @centre
     meta.push @deal.meta

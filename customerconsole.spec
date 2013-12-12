@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.42
+Version:     0.2.43
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,14 @@ fi
 
 
 %changelog
+* Thu Dec 12 2013 ci <doperations@au.westfield.com> 0.2.43-1
+- Merge pull request #798 from acohen/feature/WSF-4921
+  (acohen@au.westfield.com)
+- WSF-4921 use :moved_permanently symbol instead of numeric value
+  (acohen@au.westfield.com)
+- WSF-4921 use status code 301 (permanent) instead of 302 (temporary)
+  (acohen@au.westfield.com)
+
 * Thu Dec 12 2013 ci <doperations@au.westfield.com> 0.2.42-1
 - Merge pull request #797 from ldewey/product-category-search
   (ldewey@au.westfield.com)

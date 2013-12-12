@@ -10,7 +10,7 @@ $sg-breakpoint: 770;
 /* [HEADER]
 -------------------------------------------------------*/
 .sg-header {
-  @include to-rem(margin-bottom, $spacing-base);
+  @extend %mrg-base;
 
   /* Style guide heading */
   h1 {
@@ -38,7 +38,7 @@ $sg-breakpoint: 770;
     background-color: $color-txt-dark;
 
     @include respond-min($sg-breakpoint) {
-      > .container {width: $page-container-width;}
+      .container {width: $page-container-width;}
     }
 
     /* Main nav */
@@ -115,10 +115,9 @@ $sg-breakpoint: 770;
   @extend %clear-fix;
 }
 
-  /* Main */
-  .sg-main {
-    /* Allows the main content area to be fluid while the aside is fixed width */
-    @include respond-min($sg-breakpoint) {
+  /* Main - allows it to be fluid while the aside is fixed width */
+  @include respond-min($sg-breakpoint) {
+    .sg-main {
       display: table-cell;
       width: 10000px;
     }

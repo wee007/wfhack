@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.41
+Version:     0.2.42
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,14 @@ fi
 
 
 %changelog
+* Thu Dec 12 2013 ci <doperations@au.westfield.com> 0.2.42-1
+- Merge pull request #797 from ldewey/product-category-search
+  (ldewey@au.westfield.com)
+- Added suggestions.count back into SuggestionsBuilder
+  (ldewey@au.westfield.com)
+- Hardend suggestions builder specs (ldewey@au.westfield.com)
+- Added a white list to search suggestions. (ldewey@au.westfield.com)
+
 * Wed Dec 11 2013 ci <doperations@au.westfield.com> 0.2.41-1
 - Merge pull request #794 from bschwarz/styleguide_example
   (craigM.smith@au.westfield.com)

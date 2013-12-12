@@ -28,6 +28,6 @@ class RedirectorController < ApplicationController
 
     redirect_url = "#{redirect_url}&retailer=#{params['retailer']}" if !params["retailer"].nil?
 
-    redirect_to(redirect_url)
+    redirect_to(redirect_url, :status => :moved_permanently)
   end
 end

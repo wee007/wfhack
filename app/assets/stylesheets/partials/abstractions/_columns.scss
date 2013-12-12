@@ -70,11 +70,6 @@
 	@include col-classes("lap-lrg-");
 }
 
-/* Portable */
-@include respond-max($lap-end) {
-	@include col-classes("portable-");
-}
-
 /* Desk */
 @include respond-min($desk) {
 	@include col-classes("desk-");

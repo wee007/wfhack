@@ -111,11 +111,6 @@
   @include width-classes("lap-lrg-");
 }
 
-/* Portable */
-/*@include respond-max($lap-end) {
-  @include width-classes("portable-");
-}*/
-
 /* Desk */
 @include respond-min($desk) {
   @include width-classes("desk-");

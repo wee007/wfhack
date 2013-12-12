@@ -1,21 +1,24 @@
 ((app) ->
   app.service "SuggestionsBuilder", ->
 
+    whiteListedTypes = ['store', 'retail_chain', 'colour']
+
     @didYouMean = (searchString, searchResults)->
       suggestions = {}
-      suggestions.count = searchResults.length
+      suggestions.count = 0
       angular.forEach searchResults, (results, type) ->
         suggestions[type] = []
         angular.forEach results, (result) ->
 
-          # Skip category for now till we can sort it out.
-          unless result.result_type == 'category'
+          if isValidType(result.result_type) # Only add valid types
+            suggestions.count++
             suggestions[type].push {
               description: result.display,
               url: buildUrl(result.result_type, result.attributes)
             }
 
       # Add the default product search.
+      suggestions.count++
       (suggestions.products ||=[]).push dummyResult(searchString)
 
       suggestions
@@ -30,7 +33,11 @@
         when "retail_chain" then "/products?retailer[]=#{params.retailer_code}"
         when "product_query" then "/products?search_query=#{params.query}"
         when "colour" then "/products?colour[]=#{params.colour}"
-        when "category" then "/products?#{params.category_type}=#{params.code}"
 
+    isValidType = (toCheck) ->
+      whiteListedTypes.indexOf(toCheck) >= 0
 
 ) angular.module("Westfield")
+
+
+

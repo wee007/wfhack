@@ -1,3 +1,7 @@
+/* ======================================================================================
+   @VARIABLES
+   ====================================================================================== */
+$sg-breakpoint: 770;
 
 /* ======================================================================================
    @LAYOUT
@@ -17,19 +21,15 @@
   }
 
   /* Menu (hamburger) toggle button */
-  .btn--menu {
-    @include respond-min(770) {
-      display: none;
-    }
+  @include respond-min($sg-breakpoint) {
+    .btn--menu {display: none;}
   }
 
     /* The three lines in icon */
     .btn--menu__icon {
       &,
       &:before,
-      &:after {
-        background-color: $color-grey-med-2;
-      }
+      &:after {background-color: $color-grey-med-2;}
     }
 }
 
@@ -37,17 +37,21 @@
   .sg-header__primary {
     background-color: $color-txt-dark;
 
-    .container {
-      @include respond-min(770) {
-        width: $page-container-width;
-      }
+    @include respond-min($sg-breakpoint) {
+      > .container {width: $page-container-width;}
     }
 
     /* Main nav */
-    .sg-menu-main {
-      display: none;
+    .sg-nav-main {
       border-width: 1px 0;
       @include to-rem(max-height, $drop-down-max-height);
+
+      /* Set main nav to be horizontal at this breakpoint */
+      @include respond-min($sg-breakpoint) {
+        display: table;
+        width: 100%;
+        border-width: 0 1px;
+      }
 
       /* Touch device */
       .touch & {
@@ -55,16 +59,7 @@
         -webkit-overflow-scrolling: touch;
       }
 
-     /* Show the drop down for 'Angular Toggle Visibility Directive' */
-      &.is-active {display: block;}
-
-      /* Set main nav to be horizontal at this breakpoint */
-      @include respond-min(770) {
-        display: table;
-        width: 100%;
-        border-width: 0 1px;
-      }
-
+      /* Shared rule */
       &,
       li {
         border-style: solid;
@@ -77,7 +72,8 @@
 
         &:first-child {border-top: 0;}
 
-        @include respond-min(770) {
+        /* Set nav items to display horizontally and give them border-left */
+        @include respond-min($sg-breakpoint) {
           display: table-cell;
           vertical-align: middle;
           text-align: center;
@@ -96,6 +92,7 @@
     }
   }
 
+  /* Logo & Style Guide heading */
   .sg-header__secondary {
     background-color: #fff;
     @include to-rem(min-height, 44);
@@ -121,7 +118,7 @@
   /* Main */
   .sg-main {
     /* Allows the main content area to be fluid while the aside is fixed width */
-    @include respond-min(770) {
+    @include respond-min($sg-breakpoint) {
       display: table-cell;
       width: 10000px;
     }
@@ -129,13 +126,13 @@
 
   /* Aside */
   .sg-aside {
-    @include respond-min(770) {
+    @include respond-min($sg-breakpoint) {
       float: left;
       width: 300px;
       max-height: 200px;
       @include to-rem(padding-right, $spacing-dbl);
 
-      @include respond-min(770) {
+      @include respond-min($sg-breakpoint) {
         max-height: none;
       }
     }
@@ -148,7 +145,7 @@
       @include to-rem(margin-bottom, $spacing-base);
       background: #42444d;
 
-      @include respond-min(770) {
+      @include respond-min($sg-breakpoint) {
         max-height: none;
       }
     }
@@ -186,17 +183,18 @@
 /* ======================================================================================
    @HEADINGS
    ====================================================================================== */
-.sg-h1 {
-  @include to-rem(margin-bottom, $spacing-half);
-  font-family: $font-family-opensans;
-  @include font-size(30);
-}
-
+/* Shared rules */
+.sg-h1,
 .sg-h2 {
   @include to-rem(margin-bottom, $spacing-half);
+  font-family: $font-family-opensans;
+}
+
+.sg-h1 {@include font-size(30);}
+
+.sg-h2 {
   @include font-size($font-size-xlrg);
   color: $color-txt-light;
-  font-family: $font-family-opensans;
 
   /* File name */
   code {@include font-size($font-size-lrg);}
@@ -226,7 +224,7 @@
   }
 
   /* Sub section */
-  .sg-section-sub {@include to-rem(margin-bottom, $spacing-base);}
+  .sg-section-sub {@extend %mrg-btm;}
 
 /* [EXAMPLE]
 -------------------------------------------------------*/
@@ -268,18 +266,20 @@ code[class*="language-"], pre[class*="language-"] {
 .sg-table {
   /* Cells */
   th,
-  td {
-    border-color: $color-grey-med-3;
-  }
+  td {border-color: $color-grey-med-3;}
 }
 
 /* [OVERRIDES]
 -------------------------------------------------------*/
-/* Turn off site feedback button */
-.styleguides .btn--site-feedback {display: none;}
+/* Site feedback button */
+.btn--site-feedback {
 
-/* Force feedback button to show in example */
-.sg-section .btn--site-feedback {
-  display: block;
-  position: static;
+  /* Hide the default version */
+  .styleguides & {display: none;}
+
+  /* Force feedback button to show in example */
+  .sg-section & {
+    display: block;
+    position: static;
+  }
 }

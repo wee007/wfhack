@@ -1,56 +1,56 @@
 <% content_for :title, "Home" %>
 <!-- Default Element Styles -->
 <div class="sg-section">
-  <div class="sg-h2"><a href="base-styles">Base Styles</a></div>
+  <div class="sg-h2"><%= link_to 'Base', styleguide_path('base') %></div>
   <p>All default elements e.g. paragraphs, links, headings, images, etc. are given base styles that define how the element should look in all occurrences on the page. Base styles include setting heading sizes, default link styles, default font styles, etc.</p>
 </div>
 <!-- //Default Element Styles -->
 
 <!-- Abstractions -->
 <div class="sg-section">
-  <div class="sg-h2"><a href="abstractions">Abstractions</a></div>
+  <div class="sg-h2"><%= link_to 'Abstractions', styleguide_path('abstractions') %></div>
   <p>An abstraction is a CSS methodology that basically removes a pattern from a specific idea and makes a more generic idea out of it e.g. make a list render horizontally. They exist to avoid writing the same similar patterns over and over, instead create a single more generic representation of those patterns and reuse that instead.</p>
 </div>
 <!-- //Abstractions -->
 
 <!-- Modules -->
 <div class="sg-section">
-  <div class="sg-h2"><a href="modules">Modules</a></div>
+  <div class="sg-h2"><%= link_to 'Modules', styleguide_path('modules') %></div>
   <p>Modules are the discrete components of the page e.g. carousel, tabs, pagination, etc. This is the meat of the page.</p>
 </div>
 <!-- //Modules -->
 
 <!-- Grid -->
 <div class="sg-section">
-  <div class="sg-h2"><a href="grid">Grid</a></div>
+  <div class="sg-h2"><%= link_to 'Grid', styleguide_path('grid') %></div>
   <p>A responsive grid used for the site structure and for any other layouts. The grid is fluid meaning it can easily resize itself to fit into different screen sizes and adjustments have been made using <a href="http://reference.sitepoint.com/css/mediaqueries" rel="external">CSS3 Media Queries</a> so the grid will fit nicely into smaller screen sizes.</p>
 </div>
 <!-- //Grid -->
 
 <!-- Form Patterns -->
 <div class="sg-section">
-  <div class="sg-h2"><a href="form-patterns">Form Patterns</a></div>
+  <div class="sg-h2"><%= link_to 'Form patterns', styleguide_path('form-patterns') %></div>
   <p>Each form especially complex forms are made up of different form elements e.g. checkboxes, radio inputs, file uploads, etc. and these form elements can have different layouts. The form patterns page shows all the available patterns 'out of the box' including validation.</p>
 </div>
 <!-- //Form Patterns -->
 
 <!-- Buttons -->
 <div class="sg-section">
-  <div class="sg-h2"><a href="buttons">Buttons</a></div>
+  <div class="sg-h2"><%= link_to 'Buttons', styleguide_path('buttons') %></div>
   <p>All of the different button styles.</p>
 </div>
 <!-- //Buttons -->
 
 <!-- Utilities -->
 <div class="sg-section">
-  <div class="sg-h2 sg-mrg-half"><a href="utilities">Utilities</a></div>
+  <div class="sg-h2 sg-mrg-half"><%= link_to 'Utilities', styleguide_path('utilities') %></div>
   <p>Utilities are a collection of very useful CSS rule sets, their main purpose is to prevent styles from being repeated throughout a style sheet i.e. keep things <abbr title="Don't repeat yourself">DRY</abbr>. They're similar to <a href="helpers.html">Helpers</a> with the main differences being; they're not declared via a class rather all selectors using a utility are tethered together i.e. grouped selectors and they should always be used i.e. the first resort not the last like 'Helpers'. Utilities are handled via <a href="http://sass-lang.com/docs/yardoc/file.SASS_REFERENCE.html#placeholder_selectors_">Sass placeholder selectors</a>.</p>
 </div>
 <!-- //Utilities -->
 
 <!-- Helpers -->
 <div class="sg-section">
-  <div class="sg-h2"><a href="helpers.html">Helpers</a></div>
+  <div class="sg-h2"><%= link_to 'Helpers', styleguide_path('helpers') %></div>
   <p>Helpers are a bunch of classes to apply very common styles to elements and modules e.g. make text right aligned, apply the base bottom margin to an element, etc. They're to be used arbitrarily i.e. only if an element/module doesn't already have a class to which you could apply this styling.</p>
 </div>
 <!-- //Helpers -->

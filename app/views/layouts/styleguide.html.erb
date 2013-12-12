@@ -7,7 +7,7 @@
 <% end %>
 
 <%# Header %>
-<div class="sg-header" role="banner">
+<header class="sg-header" role="banner">
 
   <%# Header secondary %>
   <div class="sg-header__secondary">
@@ -23,7 +23,7 @@
   <%# //Header secondary %>
 
   <%# Header primary %>
-  <header class="sg-header__primary">
+  <div class="sg-header__primary">
 
     <%# Container %>
     <div class="container">
@@ -37,7 +37,7 @@
 
       <%# Main navigation %>
       <nav role="navigation" aria-label="Main navigation">
-        <ul class="sg-menu-main" id="sg-header-menu-toggle">
+        <ul class="sg-nav-main toggle-visibility" id="sg-header-menu-toggle">
           <% Styleguide::TREE.each_with_index do |sg, major| %>
             <% if sg.is_a? Hash %>
               <li>
@@ -59,10 +59,10 @@
     </div>
     <%# //Container %>
 
-  </header>
+  </div>
   <%# //Header primary %>
 
-</div>
+</header>
 <%# //Header %>
 
 <%# Content %>

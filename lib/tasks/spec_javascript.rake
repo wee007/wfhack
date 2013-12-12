@@ -3,7 +3,7 @@ namespace :spec do
   desc "Run all JavaScript specs"
   task :javascript => :environment do
     Rake::Task["spec:karma"].invoke
-    Rake::Task["spec:karma"].invoke
+    Rake::Task["spec:jasmine"].invoke
   end
 
   desc "Run all Karma specs"

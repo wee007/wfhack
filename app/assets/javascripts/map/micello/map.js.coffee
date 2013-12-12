@@ -53,7 +53,7 @@ class map.micello.Map
       gidMap: _(geoms).chain().map((geom) -> geom.gid ||= geom.id; geom).groupBy('gid').value()
       typeMap: _(geoms).groupBy('t')
       stores: _(geoms).filter((geom) -> geom.t == 'Unit' || geom.t == 'Building')
-      icons: _(geoms).filter((geom) -> geom.lt == 2 || geom.t == 'Entrance')
+      icons: _(geoms).chain().filter((geom) -> geom.lt == 2 || geom.t == 'Entrance').map((geom) -> geom.lr ||= geom.t; geom).value()
       types: (types) ->
         geoms = []
         (geoms = geoms.concat(@typeMap[type]) if @typeMap[type]) for type in types

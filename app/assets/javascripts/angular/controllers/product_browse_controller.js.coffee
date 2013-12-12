@@ -4,9 +4,8 @@
 
     # Route changes
     $scope.$on '$routeChangeStart', (event, to, from) -> useUrlParams( to.params )
-    $scope.$on '$routeChangeSuccess', (event, to, from) -> $scope.updateSearch() unless from == undefined or from == to
-
-    ProductSearch.onChange -> updateProducts()
+    $scope.$on '$routeChangeSuccess', (event, to, from) ->
+      $scope.updateSearch() unless from == undefined or from == to
 
     # Multi-facet search fields
     $scope.categories = []
@@ -81,14 +80,6 @@
 
       newParams
 
-    # Update products using the same url that we're currently using
-    # document.location.pathname == /products
-    # document.location.pathname == /bondijunction/products
-    # document.location.pathname == /bondijunction/products/womens
-    # document.location.pathname == /bondijunction/products/womens-fashion-accessories
-    updateProducts = ->
-      Products.get document.location.pathname, ProductSearch.params()
-
     bootstrap = (->
       ProductSearch.formatSearchResults $window.westfield.products
       useUrlParams($routeParams)
@@ -137,7 +128,8 @@
       ProductSearch.removeParam filter.type, filter.value
       setParams()
 
-    $scope.removeAllFilters = -> $scope.search.appliedFilters = []
+    $scope.removeAllFilters = ->
+      $scope.search.appliedFilters = []
 
     $scope.filterSearch = (modelName) ->
       ProductSearch.setParam modelName, $scope[modelName]

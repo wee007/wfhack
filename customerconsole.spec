@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.44
+Version:     0.2.45
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,9 @@ fi
 
 
 %changelog
+* Fri Dec 13 2013 ci <doperations@au.westfield.com> 0.2.45-1
+- 
+
 * Fri Dec 13 2013 ci <doperations@au.westfield.com> 0.2.44-1
 - Merge pull request #799 from bschwarz/pb-tidy (ldewey@au.westfield.com)
 - fixes missing entrances in maps (matt.wratt@trineo.co.nz)

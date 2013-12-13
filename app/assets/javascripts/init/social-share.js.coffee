@@ -17,7 +17,7 @@ class @SocialShare
       $toOpen
         .addClass('is-active')
         .parent('.js-tile-controls').addClass('is-active')
-        .find('button').attr('aria-expanded', true)
+      $toOpen.find('button').attr('aria-expanded', true)
 
     if loaded
       # Only open if it was not active before... aka toggle

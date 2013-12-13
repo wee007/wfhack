@@ -256,9 +256,8 @@ $sg-breakpoint: 770;
 }
 
 /* Override style from prism.css. This is to stop the main content area from getting too wide */
-code[class*="language-"], pre[class*="language-"] {
-  white-space: pre-wrap;
-}
+code[class*="language-"],
+pre[class*="language-"] {white-space: pre-wrap;}
 
 /* [TABLE]
 -------------------------------------------------------*/

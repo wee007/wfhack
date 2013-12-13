@@ -1,12 +1,18 @@
 /*
- * Style Guide stylesheet
+ * This is a manifest file that'll be compiled into styleguide.css, which will include all the files
+ * that are imported below.
  *
- *
- * Note:
- *  All class names need to be prefixed with `sg-` so they're isolated to the 'Style
- *  Guide' pages only and don't conflict with the project styles.
- *
- * application.css is imported via Base layout template
+ * application.css is imported via Base layout template so you shouldn't need to re-import
+ * your application styles. Placholders, functions, mixins and variables however will need
+ * to be re-imported here in order for Sass to compile them into styleguide.css
+======================================================================================
+
+Style Guide stylesheet
+
+  Note:
+    All class names need to be prefixed with `sg-` so they're isolated to the 'Style
+    Guide' pages only and don't conflict with the project styles.
+
 ======================================================================================
 */
 

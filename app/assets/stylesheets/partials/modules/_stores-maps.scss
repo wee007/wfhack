@@ -33,11 +33,13 @@
     @include to-rem(top, 110);
   }
 
-  /* Turn off `.container` rules at this breakpoint */
-  @include respond-max($ipad-landscape - 1) {
-    &.container {
-      width: auto;
-      max-width: none;
+  /* Inner container */
+  &.container {
+    width: auto;
+
+    /* Reapply default width */
+    @include respond-min($ipad-landscape) {
+      width: $page-container-width;
     }
   }
 
@@ -92,9 +94,14 @@
 
     /* --Detail view-- */
 
-    /* Turn off absolute positioning for 'detail view' at this breakpoint */
-    @include respond-max($ipad-landscape - 1) {
-      &.stores-maps__inner--detail {position: static;}
+    /* Turn off absolute positioning for 'detail view' */
+    &.stores-maps__inner--detail {
+      position: static;
+
+      /* Turn on absolute positioning at this breakpoint */
+      @include respond-min($ipad-landscape) {
+        position: absolute;
+      }
     }
 
     /* Enable click events on map canvas that sits behind this */
@@ -112,7 +119,7 @@
       &.stores-maps__inner--detail.is-featured-items {bottom: 0;}
     }
 
-    /* When map view is in view */
+    /* Change `position` context when in map view */
     .is-map-view & {
       position: static;
 
@@ -136,35 +143,40 @@
       position: relative;
       z-index: 6;
 
-      /* Hide for detail view */
-      .stores-maps__inner--detail & {
-        display: none;
-
-        .is-map-view & {display: block;}
-      }
-
-      /* When map view is in view */
-      @include respond-max($ipad-landscape - 1) {
-        .is-map-view & {
-          background: none;
-          border: 0;
-          pointer-events: none;
-
-          /* Make nested elements clickable */
-          .stores-maps__filters,
-          .stores-maps__toggle {pointer-events: auto;}
-        }
-      }
-
       /* Apply box treatments at this breakpoint */
       @include respond-min($ipad-landscape) {
         border: 0;
         @include box;
         @include box-heavy;
-        @include to-rem(margin-bottom margin-top, $spacing-base);
+        @include to-rem(margin-top, $spacing-base);
+      }
 
-        /* Show for detail view and restore `pointer-events` */
-        .stores-maps__inner--detail & {
+      /* Map view */
+      .is-map-view & {
+        background: none;
+        border: 0;
+        pointer-events: none;
+
+        /* Restore `pointer-events` for nested elements */
+        .stores-maps__filters,
+        .stores-maps__toggle {pointer-events: auto;}
+
+        /* Restore `pointer-events` and bg color at this breakpoint */
+        @include respond-min($ipad-landscape) {
+          pointer-events: auto;
+          background-color: #fff;
+        }
+      }
+
+      /* Detail view */
+      .stores-maps__inner--detail & {
+        display: none;
+
+        /* Map view */
+        .is-map-view & {display: block;}
+
+        /* Show and restore `pointer-events` */
+        @include respond-min($ipad-landscape) {
           display: block;
           pointer-events: auto;
         }
@@ -194,12 +206,28 @@
         font-family: $font-family-opensans;
         @include font-size($font-size-xlrg, 1.5);
         color: $color-txt-dark;
-        @include to-em(margin-bottom, $spacing-third);
+
+        /* Hide the header and add bottom margin at this breakpoint */
+        @include respond-min($ipad-landscape) {
+          @include hide-visually-off;
+          @include to-em(margin-bottom, $spacing-third);
+        }
+
+        /* Hide when in map view */
+        .is-map-view & {
+          display: none;
+
+          /* Show at this breakpoint */
+          @include respond-min($ipad-landscape) {
+            display: block;
+          }
+        }
 
         /* Detail view */
         .stores-maps__inner--detail & {
           margin-bottom: 0;
 
+          /* Icon */
           .icon:before {
             top: -2px;
 
@@ -211,20 +239,14 @@
           }
         }
 
-        /* Hide the header at this breakpoint */
-        @include respond-max($ipad-landscape - 1) {
-          @include hide-visually;
-
-          /* When map view is in view */
-          .is-map-view & {display: none;}
-        }
-
           > span {color: $color-txt-light;}
       }
 
           /* Reapply global link hover to first child `span` */
-          a.stores-maps__filters-toggle__hdr:hover > span,
-          a.stores-maps__filters-toggle__hdr:focus > span {color: $color-link-hover;}
+          a.stores-maps__filters-toggle__hdr {
+            &:hover > span,
+            &:focus > span {color: $color-link-hover;}
+          }
 
       /* --Filters-- */
 
@@ -237,9 +259,14 @@
           float: none;
         }
 
-        /* Hide when in map view at this breakpoint */
-        @include respond-max($ipad-landscape - 1) {
-          .is-map-view & {display: none;}
+        /* Hide when in map view */
+        .is-map-view & {
+          display: none;
+
+          /* Show at this breakpoint */
+          @include respond-min($ipad-landscape) {
+            display: block;
+          }
         }
 
           /* Increase right padding for drop down trigger at this breakpoint */
@@ -278,16 +305,21 @@
           @include to-rem(top, 12);
         }
 
-        /* Hide when in map view at this breakpoint */
-        @include respond-max($ipad-landscape - 1) {
-          .is-map-view & {display: none;}
-        }
-
         /* Remove absolute positioning and apply cosmetics/structural rules at this breakpoint */
         @include respond-min($ipad-landscape) {
           position: static;
           background-color: $color-grey-light-3;
           border-top: 1px solid $color-grey-med-3;
+        }
+
+        /* Hide when in map view */
+        .is-map-view & {
+          display: none;
+
+          /* Show at this breakpoint */
+          @include respond-min($ipad-landscape) {
+            display: block;
+          }
         }
 
           /* Nav contextual */
@@ -371,7 +403,7 @@
           /* Hide/show icons */
           .icon--list {display: none;}
 
-          /* When map view is in view */
+          /* Map view */
           .is-map-view & {
             .icon--map2 {display: none;}
             .icon--list {display: inline-block;}
@@ -383,9 +415,14 @@
         @include font-size($font-size-sml, 1.5);
         border-top: 1px solid $color-grey-med-3;
 
-        /* Hide when in map view at this breakpoint */
-        @include respond-max($ipad-landscape - 1) {
-          .is-map-view & {display: none;}
+        /* Hide when in map view */
+        .is-map-view & {
+          display: none;
+
+          /* Show at this breakpoint */
+          @include respond-min($ipad-landscape) {
+            display: block;
+          }
         }
 
         /* Inner container */
@@ -412,11 +449,15 @@
       /* Make white bg for 'listing view' */
       .stores-maps__inner--listing & {background-color: #fff;}
 
-      /* Turn off absolute positioning/overflow for 'detail view' at this breakpoint */
-      @include respond-max($ipad-landscape - 1) {
-        .stores-maps__inner--detail & {
-          position: static;
-          overflow-y: visible;
+      /* Detail view */
+      .stores-maps__inner--detail & {
+        position: static;
+        overflow-y: visible;
+
+        /* Bring back absolute positioning and auto scrolling at this breakpoint */
+        @include respond-min($ipad-landscape) {
+          position: absolute;
+          overflow-y: auto;
         }
       }
 
@@ -429,11 +470,11 @@
         -webkit-overflow-scrolling: touch;
       }
 
-      /* When map view is in view */
+      /* Hide when in map view */
       .is-map-view & {
         display: none;
 
-        /* Always show at this breakpoint */
+        /* Show at this breakpoint */
         @include respond-min($ipad-landscape) {
           display: block;
         }
@@ -524,7 +565,7 @@
     display: none;
     background-color: $color-grey-light-2;
 
-    /* When map view is in view */
+    /* Map view */
     .is-map-view & {display: block;}
 
     /* Always show at this breakpoint */

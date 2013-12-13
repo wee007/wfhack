@@ -89,9 +89,14 @@
 
       /* --Filters target-- */
 
-      /* Remove the drop down pointer arrow at this breakpoint */
-      @include respond-max($lap-lrg - 1) {
-        .filters__target.pointer-up:before {display: none;}
+      /* Remove the drop down pointer arrow */
+      .filters__target.pointer-up:before {
+        display: none;
+
+        /* Show at this breakpoint */
+        @include respond-min($lap-lrg) {
+          display: block;
+        }
       }
 
       /* Make into drop down at this breakpoint */

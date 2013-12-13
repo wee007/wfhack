@@ -114,9 +114,9 @@
 /* Bottom */
 .island--flush-btm {padding-bottom: 0;}
 
-  /* Palm only */
-  @include respond-max($palm) {
-    .island--flush-btm-palm {padding-bottom: 0;}
+  /* Turn off at this breakpoint  */
+  @include respond-min($non-palm) {
+    .island--flush-btm-off-non-palm {@include to-rem(padding, $spacing-base);}
   }
 
 /* Center align */

@@ -10,7 +10,7 @@
   <div class="grid__item non-palm-two-fifths">
 
     <%# Product name, brand and price %>
-    <header class="island detail-view__divider">
+    <header class="detail-view__divider island">
       <h1 class="detail-view__hdr hn detail-view__mrg-half"><%= @product.name %></h1>
       <p class="detail-view__meta">
         <span class="detail-view__subtle-txt">from</span>
@@ -76,7 +76,7 @@
 
         <%# Store link %>
         <%- if @product.primary_retailer_product_url -%>
-          <div class="island island--center detail-view__divider--palm">
+          <div class="detail-view__divider--palm island island--center">
             <%= link_to @product_redirection_url, target: "_blank",
               class: "btn btn--pointer btn--full btn--full-left btn--main btn--main-dark btn--main-lrg btn--main-flanked js-redirect", rel: "external nofollow" do %>
               <span class="txt-truncate">Buy from <%= @product.retail_chain_name %></span>
@@ -139,7 +139,7 @@
   <%# Available Colours %>
   <%- if @product.available_colours.present? -%>
   <div class="grid__item non-palm-two-fifths">
-    <section class="island island--flush-btm-palm" aria-labelledby="available-colours">
+    <section class="island island--flush-btm island--flush-btm-off-non-palm" aria-labelledby="available-colours">
       <h2 class="detail-view__hdr-sub hn" id="available-colours">Available Colours</h2>
       <ul class="horiz-list horiz-list--comma"><!--
         <%- @product.available_colours.each do |colour| -%>
@@ -172,7 +172,7 @@
 
 <%# Availability %>
 <%- if @product_centres.present? -%>
-<section class="island detail-view__divider--top-btm detail-view__divider--top" aria-labelledby="available">
+<section class="detail-view__divider--top-btm detail-view__divider--top island" aria-labelledby="available">
   <h2 class="detail-view__hdr-sub detail-view__mrg-off hn" id="available"><%= @product.retail_chain_name %> also available at</h2>
   <ul class="detail-view__centres">
     <%- @product_centres.each do |centre| -%>

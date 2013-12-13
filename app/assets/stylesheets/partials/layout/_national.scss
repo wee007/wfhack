@@ -250,41 +250,45 @@
         @include to-rem(margin-top, -64);
       }
 
+      /* --Global rules-- */
+
+      /* Heading next to`tab__nav` */
+      h2 {
+        display: none;
+
+        /* Add right spacing at this breakpoint */
+        @include respond-min($non-palm) {
+          @include to-rem(margin-right, 40);
+        }
+      }
+
       /* --Shared rules-- */
 
-      /* Set common font-size and display property */
+      /* Set common font rules */
       h2,
       .tab__nav {
         @include font-size($font-size);
         font-family: $font-family-opensans;
 
+        /* Change `display` and increase font size */
         @include respond-min($non-palm) {
           display: inline-block;
           @include font-size($font-size-lrger);
         }
       }
 
-      /* --Global rules-- */
-
-      /* Heading next to`tab__nav` */
-      h2 {
-        @include to-rem(margin-right, 40);
-
-        @include respond-max($palm) {
-          display: none;
-        }
-      }
-
       /* Tab nav */
       .tab__nav {
         a {
-          opacity: .6;
+          opacity: 0.6;
           @include to-rem(padding, $spacing-half);
 
+          /* Hover, focus and active states */
           &:hover,
           &:focus,
           &.is-active {opacity: 1;}
 
+          /* Increase padding at this breakpoint */
           @include respond-min($non-palm) {
             @include to-rem(padding, $spacing-base $spacing-half);
           }

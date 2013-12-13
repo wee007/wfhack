@@ -10,11 +10,15 @@
     Style Guide -> Modules -> Detail View
 */
 
-/* Styles for `body` element at this breakpoint */
-@include respond-max($palm) {
-  .page-detail-view {
-    background-color: #fff;
-    padding-bottom: 0;
+/* Styles for `body` element */
+.page-detail-view {
+  background-color: #fff;
+  padding-bottom: 0;
+
+  /* Reapply base `body` element rules */
+  @include respond-min($non-palm) {
+    background-color: $color-grey-light-2;
+    @include to-rem(padding-bottom, $spacing-base);
   }
 }
 
@@ -22,13 +26,9 @@
 .detail-view {
   @include font-size($font-size-sml);
 
-  /* Turn off shadow at this breakpoint */
-  @include respond-max($palm) {
-    box-shadow: none;
-  }
-
   /* Adjustments at this breakpoint */
   @include respond-min($non-palm) {
+    @include box;
     @include font-size($font-size);
     width: $page-container-width;
     margin-left: auto;
@@ -139,12 +139,16 @@
   .detail-view__divider--top {border-width: 1px 0 0 0;}
 
   /* Dividers only at these breakpoints */
-  @include respond-min($non-palm) {
-    .detail-view__divider--palm {border-width: 0;}
+  .detail-view__divider--non-palm {
+    border-width: 0;
+
+    @include respond-min($non-palm) {
+      border-bottom-width: 1px;
+    }
   }
 
-  @include respond-max($palm) {
-    .detail-view__divider--non-palm {border-width: 0;}
+  @include respond-min($non-palm) {
+    .detail-view__divider--palm {border-width: 0;}
   }
 
   /* Divider for columns at this breakpoint */
@@ -213,8 +217,13 @@
   }
 
   /* Centres list ('Also available at') */
-  @include respond-max($palm) {
-    .detail-view__centres {@include to-rem(margin-top, $spacing-sixth);}
+  .detail-view__centres {
+    @include to-rem(margin-top, $spacing-sixth);
+
+    /* Turn off top margin at this breakpoint */
+    @include respond-min($non-palm) {
+      margin-top: 0;
+    }
   }
 
   /* Controls - 'Share' and 'Favourites' */

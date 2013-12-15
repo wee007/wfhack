@@ -27,7 +27,7 @@
 	}
 }
 
-/* --Extenders-- */
+/* --Modifiers-- */
 
 /* With dividers */
 .horiz-list--dividers > li {
@@ -59,7 +59,7 @@
 		> a {display: block;}
 	}
 
-	/* When combined with the `.horiz-list--dividers` and `.horiz-list--center` extenders */
+	/* When combined with the `.horiz-list--dividers` and `.horiz-list--center` modifiers */
 	&.horiz-list--dividers > li {
 		margin-left: 0;
 		padding-right: to-em($spacing-half);

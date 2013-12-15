@@ -37,7 +37,7 @@
     .icon:before {@include font-size(20, 1);}
 }
 
-/* Extend: pin board version */
+/* Modifier: pin board version */
 .pager--pin-board {
   @include to-rem(margin-top, $spacing-base);
   /* Need a negative bottom margin to offset the bottom padding on the `body` to keep the spacing consistent with the top spacing */

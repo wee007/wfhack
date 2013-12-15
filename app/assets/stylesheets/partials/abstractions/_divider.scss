@@ -17,7 +17,7 @@
 	@extend %mrg-base;
 }
 
-/* --Extenders-- */
+/* --Modifiers-- */
 
 /* Larger spacing */
 .divider--lrg {@include to-rem(padding-bottom margin-bottom, $spacing-dbl);}

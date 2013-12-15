@@ -184,7 +184,6 @@
 
       /* Inner container */
       > .container {
-        position: relative;
         @include to-rem(padding-top padding-bottom, $spacing-half);
         @extend %clear-fix;
 

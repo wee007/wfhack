@@ -3,11 +3,16 @@
    ====================================================================================== */
 
 /*
-	Usage:
-		Basic button structural/reset styling that all buttons need, can only be extended from not used by itself.
+	Generic button styling. These classes can be used in combination with other button classes e.g. `.btn-main`.
 
-	Demo:
-		Style Guide -> Buttons -> Base
+	.btn--full                        - Span full width of parent
+	.btn--full.btn--full-left         - Span full width of parent and align text to the left
+	.btn--sml								          - Descrease text size
+	.btn--lrg                         - Increase text size
+	.btn--pointer                     - Position icon over to the far right of the button
+	.btn--pointer.btn--pointer-alt    - Position icon to the far left of the button
+
+	Styleguide Base
 */
 
 /* Reset all the browser default styles */

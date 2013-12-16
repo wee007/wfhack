@@ -1,153 +1,22 @@
-<div class="sg-h1">Abstractions</div>
-<div class="sg-note">An abstraction is a CSS methodology that basically removes a pattern from a specific idea and makes a more generic idea out of it e.g. make a list render horizontally. They exist to avoid writing the same similar patterns over and over, instead create a single more generic representation of those patterns and reuse that instead.</div>
-
-
-<%= styleguide_block 'Horizontal List' do %>
-  <ul class="horiz-list $modifier_class">
-      <li><a href="#">Semper</a></li><!--
-    --><li><a href="#">Virtute</a></li><!--
-    --><li><a href="#">Euripidis</a></li><!--
-    --><li><a href="#">Natoque</a></li><!--
-    --><li><a href="#">Gubergren</a></li>
-  </ul>
-<% end %>
-
-<!-- Vertical Alignment -->
-<%= styleguide_block 'Vertical Alignment' do %>
-  <div style="height: 400px">
-      <div class="vert-align $modifier_class">
-        <div class="vert-align__inner">
-          <p>Nec at quodsi elaboraret definitionem. Ne facilisi pericula honestatis qui. In sanctus platonem voluptatum ius. Ad sed labores inermis disputando, etiam adversarium quo te. Eu vis nostrud deseruisse, est possit iracundia no, has an ferri meliore nusquam. Semper apeirian pericula eos id. Error graeci graecis sed no, quo ex hinc justo pertinax. Pro nostro placerat ex, id tamquam sadipscing vim, te tota errem audiam duo. Vim scripta recusabo elaboraret eu, sea periculis iracundia repudiandae ea, has duis modus persequeris in.</p>
-        </div>
-      </div>
-  </div>
-<% end %>
-<!-- //Vertical Alignment -->
-
-<!-- Preserve Aspect Ratio -->
-<%= styleguide_block 'Preserve Aspect Ratio' do %>
-<div class="preserve-aspect-ratio $modifier_class">
-  <iframe class="preserve-aspect-ratio__inner" width="560" height="315" src="http://www.youtube.com/embed/8KdtgoSCXpU?rel=0" frameborder="0" allowfullscreen></iframe>
-</div>
-<% end %>
-<!-- //Preserve Aspect Ratio -->
-
-<!-- Block List -->
-<%= styleguide_block 'Block List' do %>
-<ul class="block-list $modifier_class">
-  <li>Semper</li>
-  <li>Virtute</li>
-  <li>Natoque</li>
-  <li><a href="#" class="block-list__link">Gubergren</a></li>
-</ul>
-<% end %>
-<!-- //Block List -->
-
-<!-- Definition List -->
-<%= styleguide_block 'Definition List' do %>
-<dl class="def-list $modifier_class">
-    <dt class="def-list__title"><a href="#">Semper</a></dt>
-    <dd class="def-list__desc">Virtute</dd>
-    <dt class="def-list__title"><a href="#">Euripidis</a></dt>
-    <dd class="def-list__desc">Natoque</dd>
-    <dt class="def-list__title"><a href="#">Gubergren</a></dt>
-    <dd class="def-list__desc">Semper</dd>
-</dl>
-<% end %>
-<!-- //Definition List -->
-
-<!-- Split -->
-<%= styleguide_block 'Split' do %>
-<dl class="split $modifier_class" style="width: 50%;">
-    <dt class="split__title">Pericula honestatis</dt>
-    <dd>$5.99</dd>
-    <dt class="split__title">Nostrud deseruisse</dt>
-    <dd>$19.99</dd>
-    <dt class="split__title">Possit iracundia</dt>
-    <dd>$2.99</dd>
-</dl>
-
-<ol class="split $modifier_class" style="width: 50%;">
-    <li><b class="split__title">1st place</b> Bob</li>
-    <li><b class="split__title">2nd place</b> Lilly</li>
-    <li><b class="split__title">3rd place</b> Ted</li>
-</ol>​
-<% end %>
-<!-- //Split -->
-
-<!-- Complex Link -->
-<%= styleguide_block 'Complex Link' do %>
-<p><a href="#" class="complex-link $modifier_class"><img src="http://placekitten.com/16/16" alt="" class="sg-demo-right-space"><span class="complex-link__target sg-demo-right-space">Log in</span></a></p>
-
-<p><a href="#" class="complex-link $modifier_class">I don't want link styles, <span class="complex-link__target">but I do</span></a></p>
-<% end %>
-<!-- //Complex Link -->
-
-<!-- Island -->
-<%= styleguide_block 'Island' do %>
-<div class="island $modifier_class">
-  <p>Nec at quodsi elaboraret definitionem. Ne facilisi pericula honestatis qui. In sanctus platonem voluptatum ius. Ad sed labores inermis disputando, etiam adversarium quo te. Eu vis nostrud deseruisse, est possit iracundia no, has an ferri meliore nusquam. Semper apeirian pericula eos id. Error graeci graecis sed no, quo ex hinc justo pertinax. Pro nostro placerat ex, id tamquam sadipscing vim, te tota errem audiam duo. Vim scripta recusabo elaboraret eu, sea periculis iracundia repudiandae ea, has duis modus persequeris in.</p>
-</div>
-<% end %>
-
-<%= styleguide_block 'Islet' do %>
-<div class="islet $modifier_class">
-  <p>Nec at quodsi elaboraret definitionem. Ne facilisi pericula honestatis qui. In sanctus platonem voluptatum ius. Ad sed labores inermis disputando, etiam adversarium quo te. Eu vis nostrud deseruisse, est possit iracundia no, has an ferri meliore nusquam. Semper apeirian pericula eos id. Error graeci graecis sed no, quo ex hinc justo pertinax. Pro nostro placerat ex, id tamquam sadipscing vim, te tota errem audiam duo. Vim scripta recusabo elaboraret eu, sea periculis iracundia repudiandae ea, has duis modus persequeris in.</p>
-</div>
-<% end %>
-<!-- //Island -->
-
-<!-- Slats -->
-<%= styleguide_block 'Slats' do %>
-  <div class="sg-h3">Small</div>
-  <div class="slats">
-    <img src="http://placekitten.com/60/60" alt="" class="slats__img">
-      <div class="slats__body">
-        <p>Ne mel utroque apeirian, eum ex cibo choro. Discere commune concludaturque eum te, eros movet comprehensam eum id. Cu nulla salutatus duo. Phaedrum efficiantur vix at, ius ancillae reprimique in, percipit mandamus assueverit eu eum. Alia natum vidisse id ius, vide soleat vis no.</p>
-      </div>
-  </div>
-<% end %>
-
-<div class="sg-h3">Medium</div>
-<div class="slats">
-  <a href="#" class="slats__img"><img src="http://placekitten.com/110/110" alt=""></a>
-    <div class="slats__body">
-      <p>Ne mel utroque apeirian, eum ex cibo choro. Discere commune concludaturque eum te, eros movet comprehensam eum id. Cu nulla salutatus duo. Phaedrum efficiantur vix at, ius ancillae reprimique in, percipit mandamus assueverit eu eum. Alia natum vidisse id ius, vide soleat vis no.</p>
-    <p>Ne mel utroque apeirian, eum ex cibo choro. Discere commune concludaturque eum te, eros movet comprehensam eum id. Cu nulla salutatus duo. Phaedrum efficiantur vix at, ius ancillae reprimique in, percipit mandamus assueverit eu eum. Alia natum vidisse id ius, vide soleat vis no.</p>
-    <p>Ne mel utroque apeirian, eum ex cibo choro. Discere commune concludaturque eum te, eros movet comprehensam eum id. Cu nulla salutatus duo. Phaedrum efficiantur vix at, ius ancillae reprimique in, percipit mandamus assueverit eu eum. Alia natum vidisse id ius, vide soleat vis no.</p>
-    </div>
+<div class="sg-section">
+  <div class="sg-h1">Abstractions</div>
+  <div class="box island">An abstraction is a CSS methodology that basically removes a pattern from a specific idea and makes a more generic idea out of it e.g. make a list render horizontally. They exist to avoid writing the same similar patterns over and over, instead create a single more generic representation of those patterns and reuse that instead.</div>
 </div>
 
-<div class="sg-h3">Large</div>
-<div class="slats">
-  <div class="slats__img--rev">
-    <img src="http://placekitten.com/220/220" alt="">
-    <strong>Nice kitty</strong>
-  </div>
-    <div class="slats__body">
-      <p>Ne mel utroque apeirian, eum ex cibo choro. Discere commune concludaturque eum te, eros movet comprehensam eum id. Cu nulla salutatus duo. Phaedrum efficiantur vix at, ius ancillae reprimique in, percipit mandamus assueverit eu eum. Alia natum vidisse id ius, vide soleat vis no.</p>
-    <p>Ne mel utroque apeirian, eum ex cibo choro. Discere commune concludaturque eum te, eros movet comprehensam eum id. Cu nulla salutatus duo. Phaedrum efficiantur vix at, ius ancillae reprimique in, percipit mandamus assueverit eu eum. Alia natum vidisse id ius, vide soleat vis no.</p>
-    </div>
-</div>
-<!-- //Slats -->
+<%= render 'styleguides/abstractions/horizontal_list' %>
 
-<!-- Columns -->
-<%= styleguide_block 'Columns' do %>
-<div class="sg-mrg-on sg-demo-boxed-padded">
-  <p class="txt-cols $modifider_class">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget.</p>
-</div>
-<% end %>
-<!-- //Columns -->
+<%= render 'styleguides/abstractions/vertical_alignment' %>
 
-<!-- Arrows -->
-<%= styleguide_block 'Arrows' do %>
-<span class="arrow $modifier_class"></span>
-<% end %>
-<!-- //Arrows -->
+<%= render 'styleguides/abstractions/island' %>
 
-<!-- Divider -->
-<%= styleguide_block 'Divider' do %>
-<p class="divider $modifier_class">Ne mel utroque apeirian, eum ex cibo choro. Discere commune concludaturque eum te, eros movet comprehensam eum id. Cu nulla salutatus duo. Phaedrum efficiantur vix at, ius ancillae reprimique in, percipit mandamus assueverit eu eum. Alia natum vidisse id ius, vide soleat vis no.</p>
-<p>Ne mel utroque apeirian, eum ex cibo choro. Discere commune concludaturque eum te, eros movet comprehensam eum id. Cu nulla salutatus duo. Phaedrum efficiantur vix at, ius ancillae reprimique in, percipit mandamus assueverit eu eum. Alia natum vidisse id ius, vide soleat vis no.</p>
-<% end %>
-<!-- //Divider -->
+<%= render 'styleguides/abstractions/islet' %>
+
+<%= render 'styleguides/abstractions/slats' %>
+
+<%= render 'styleguides/abstractions/divider' %>
+
+<%= render 'styleguides/abstractions/box' %>
+
+<%= render 'styleguides/abstractions/toggle_visibility' %>
+
+<%= render 'styleguides/abstractions/toggle_content' %>

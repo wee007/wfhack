@@ -1,0 +1,19 @@
+<%= styleguide_block 'Toggle Content' do |style| %>
+  <div class="toggle-content js-toggle-content $modifier_class">
+    <p>Content that gets toggled</p>
+  </div>
+
+  <%- content_for :javascript do -%>
+    <%# Run 'Toggle content' plugin %>
+    <%= javascript_include_tag 'jquery-extensions/jquery.toggle-content' %>
+
+    <script>
+      $(function() {
+        // Run 'Toggle content' plugin
+        $('.js-toggle-content').each(function() {
+          $(this).toggleContent();
+        });
+      });
+    </script>
+  <%- end -%>
+<% end %>

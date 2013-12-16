@@ -1,90 +1,16 @@
----
-title: Buttons
----
+<div class="sg-section">
+  <div class="sg-h1">Buttons</div>
+  <div class="box island">All of the different button styles</div>
+</div>
 
-<div class="sg-h1">Buttons</div>
-<div class="sg-note sg-note--outdent">All of the different button styles.</div>
+<%= render 'styleguides/buttons/base' %>
 
-<!-- Base -->
-<div class="sg-h2">Base</div>
-<div class="sg-note">Basic button structural/reset styling that all buttons need, can only be extended from.</div>
+<%= render 'styleguides/buttons/main' %>
 
-<p>
-    <input type="submit" value="Submit" class="btn">
-    <a href="#" class="btn">Submit (anchor)</a>
-</p>
-<!-- //Base -->
+<%= render 'styleguides/buttons/faux_link' %>
 
-<!-- Main -->
-<div class="sg-h2">Main</div>
-<div class="sg-note">The main button for the site.</div>
+<%= render 'styleguides/buttons/expand_collapse' %>
 
-<p>
-    <input type="submit" value="Submit" class="btn btn--main">
-    <a href="#" class="btn btn--main">Submit (anchor)</a>
-</p>
+<%= render 'styleguides/buttons/menu' %>
 
-<div class="sg-h3">Full</div>
-<p>
-	<input type="submit" value="Submit" class="btn btn--full btn--main">
-	<br>
-    <a href="#" class="btn btn--full btn--main">Submit (anchor)</a>
-</p>
-
-<div class="sg-h3">Small &amp; Large</div>
-
-<div class="sg-h4">Small</div>
-<p>
-	<input type="submit" value="Submit" class="btn btn--sml btn--main">
-    <a href="#" class="btn btn--sml btn--main">Submit (anchor)</a>
-</p>
-<div class="sg-h4">Large</div>
-<p>
-	<input type="submit" value="Submit" class="btn btn--lrg btn--main">
-    <a href="#" class="btn btn--lrg btn--main">Submit (anchor)</a>
-</p>
-
-<div class="sg-h3">Compact</div>
-<p>
-	<input type="submit" value="Submit" class="btn btn--main btn--main-compact">
-    <a href="#" class="btn btn--main btn--main-compact">Submit (anchor)</a>
-</p>
-
-<div class="sg-h3">Spacing for adjacent buttons</div>
-<p>
-	<input type="submit" value="Submit" class="btn btn--spacing btn--main">
-    <a href="#" class="btn btn--spacing btn--main">Submit (anchor)</a>
-</p>
-
-<div class="sg-h3">Disabled</div>
-<p>
-	<input type="submit" value="Submit" class="btn btn--main" disabled>
-    <a href="#" class="btn btn--main is-disabled">Submit (anchor)</a>
-</p>
-<!-- //Main -->
-
-<!-- Faux Link -->
-<div class="sg-h2">Faux Link</div>
-<div class="sg-note">Make a button look like a link.</div>
-
-<p><input type="submit" value="Click me" class="btn btn--faux-link"></p>
-<!-- //Faux Link -->
-
-<!-- Menu Toggle -->
-<div class="sg-h2">Menu Toggle</div>
-<div class="sg-note">Toggles the header menu for palm sized viewports.</div>
-
-<p>
-	<button type="button" class="btn btn--main btn--menu-toggle" aria-haspopup="true" aria-owns="nav-main" style="display: block;">
-		<span class="btn--menu-toggle__txt hide-visually">Open menu</span>
-		<span class="btn--menu-toggle__icon"></span>
-	</button>
-</p>
-<!-- //Menu Toggle -->
-
-<!-- Close -->
-<div class="sg-h2">Close</div>
-<div class="sg-note">For closing/removing UI components e.g. a dialog/modal.</div>
-
-<p><button type="button" class="btn btn--close"><span class="hide-visually">Close</span></button></p>
-<!-- //Close -->
+<%= render 'styleguides/buttons/site_feedback' %>

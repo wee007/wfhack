@@ -1,0 +1,283 @@
+/* ======================================================================================
+   @VARIABLES
+   ====================================================================================== */
+$sg-breakpoint: 770;
+
+/* ======================================================================================
+   @LAYOUT
+   ====================================================================================== */
+
+/* [HEADER]
+-------------------------------------------------------*/
+.sg-header {
+  @extend %mrg-base;
+
+  /* Style guide heading */
+  h1 {
+    display: inline-block;
+    @include to-rem(margin, 5 0 0 5);
+    @include font-size(22, 1.2);
+    text-transform: uppercase;
+  }
+
+  /* Menu (hamburger) toggle button */
+  @include respond-min($sg-breakpoint) {
+    .btn--menu {display: none;}
+  }
+
+    /* The three lines in icon */
+    .btn--menu__icon {
+      &,
+      &:before,
+      &:after {background-color: $color-grey-med-2;}
+    }
+}
+
+  /* Main nav container */
+  .sg-header__primary {
+    background-color: $color-txt-dark;
+
+    @include respond-min($sg-breakpoint) {
+      .container {width: $page-container-width;}
+    }
+
+    /* Main nav */
+    .sg-nav-main {
+      border-width: 1px 0;
+      @include to-rem(max-height, $drop-down-max-height);
+
+      /* Set main nav to be horizontal at this breakpoint */
+      @include respond-min($sg-breakpoint) {
+        display: table;
+        width: 100%;
+        border-width: 0 1px;
+      }
+
+      /* Touch device */
+      .touch & {
+        overflow-y: scroll;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      /* Shared rule */
+      &,
+      li {
+        border-style: solid;
+        border-color: $color-txt-base;
+      }
+
+      /* Nav items */
+      li {
+        border-top-width: 1px;
+
+        &:first-child {border-top: 0;}
+
+        /* Set nav items to display horizontally and give them border-left */
+        @include respond-min($sg-breakpoint) {
+          display: table-cell;
+          vertical-align: middle;
+          text-align: center;
+          border-width: 0 0 0 1px;
+        }
+      }
+
+        a {
+          display: block;
+          color: $color-grey-med-2;
+          @include to-rem(padding, $spacing-third $spacing-half);
+
+          &:hover,
+          &:focus {color: #fff;}
+        }
+    }
+  }
+
+  /* Logo & Style Guide heading */
+  .sg-header__secondary {
+    background-color: #fff;
+    @include to-rem(min-height, 44);
+
+    /* Inner container */
+    > .container {
+      @include to-rem(padding-top padding-bottom, 7);
+
+      @include respond-min($non-palm) {
+        @include to-rem(padding-top, 10);
+      }
+    }
+  }
+
+/* [CONTENT]
+-------------------------------------------------------*/
+
+.sg-content {
+  @include to-rem(margin-bottom, $spacing-dbl);
+  @extend %clear-fix;
+}
+
+  /* Main - allows it to be fluid while the aside is fixed width */
+  @include respond-min($sg-breakpoint) {
+    .sg-main {
+      display: table-cell;
+      width: 10000px;
+    }
+  }
+
+  /* Aside */
+  .sg-aside {
+    @include respond-min($sg-breakpoint) {
+      float: left;
+      width: 300px;
+      max-height: 200px;
+      @include to-rem(padding-right, $spacing-dbl);
+
+      @include respond-min($sg-breakpoint) {
+        max-height: none;
+      }
+    }
+
+    /* Nav */
+    ul {
+      overflow-y: auto;
+      max-height: 190px;
+      @include to-rem(padding, $spacing-half);
+      @include to-rem(margin-bottom, $spacing-base);
+      background: #42444d;
+
+      @include respond-min($sg-breakpoint) {
+        max-height: none;
+      }
+    }
+
+      li {
+        margin-top: 2px;
+        color: #073642;
+
+        &:first-child {margin: 0;}
+
+          /* Links */
+          span,
+          a {
+            display: block;
+            padding: 3px 6px;
+          }
+
+          a {
+            color: $color-blue;
+
+            &:before {
+              content: "⇢";
+              display: inline-block;
+              font: normal 16px/.7 "Arial Unicode MS Regular", "Arial Unicode MS", Arial, Helvetica, sans-serif;
+              vertical-align: text-top;
+              margin-right: 6px;
+            }
+
+            &:hover,
+            &.active {color: #fff;}
+          }
+      }
+}
+
+/* ======================================================================================
+   @HEADINGS
+   ====================================================================================== */
+/* Shared rules */
+.sg-h1,
+.sg-h2 {
+  @include to-rem(margin-bottom, $spacing-half);
+  font-family: $font-family-opensans;
+}
+
+.sg-h1 {@include font-size(30);}
+
+.sg-h2 {
+  @include font-size($font-size-xlrg);
+  color: $color-txt-light;
+
+  /* File name */
+  code {@include font-size($font-size-lrg);}
+}
+
+.sg-h3 {
+  font-weight: bold;
+  @include to-rem(margin-bottom, $spacing-half);
+}
+
+/* ======================================================================================
+   @EVERYTHING ELSE
+   ====================================================================================== */
+
+/* [SECTION]
+-------------------------------------------------------*/
+.sg-section {
+  @include to-rem(margin-bottom, $spacing-dbl);
+
+  &:last-child {margin-bottom: 0;}
+}
+
+  /* Description of section */
+  .sg-section__desc {
+    &,
+    p {@extend %mrg-base;}
+  }
+
+  /* Sub section */
+  .sg-section-sub {@extend %mrg-btm;}
+
+/* [EXAMPLE]
+-------------------------------------------------------*/
+.sg-example {@extend %mrg-base;}
+
+/* [MODIFIER]
+-------------------------------------------------------*/
+.sg-modifier {
+  position: relative;
+  @include to-rem(padding-top, 35);
+  border-top: 1px solid $color-grey-med-1;
+}
+
+  .sg-modifier__name {
+    position: absolute;
+    top: 0;
+    right: 0;
+    @include to-rem(padding, 2 5);
+    background-color: $color-green;
+    color: #fff;
+  }
+
+/* [CODE]
+-------------------------------------------------------*/
+.sg-code-block {
+  @include to-rem(padding, 1 6);
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Override style from prism.css. This is to stop the main content area from getting too wide */
+code[class*="language-"],
+pre[class*="language-"] {white-space: pre-wrap;}
+
+/* [TABLE]
+-------------------------------------------------------*/
+.sg-table {
+  /* Cells */
+  th,
+  td {border-color: $color-grey-med-3;}
+}
+
+/* [OVERRIDES]
+-------------------------------------------------------*/
+/* Site feedback button */
+.btn--site-feedback {
+
+  /* Hide the default version */
+  .styleguides & {display: none;}
+
+  /* Force feedback button to show in example */
+  .sg-section & {
+    display: block;
+    position: static;
+  }
+}

@@ -1,0 +1,21 @@
+<%= styleguide_block 'Base' do |style| %>
+  <button type="button" class="btn btn--main $modifier_class">Button (button)</button>
+
+  <a href="#" class="btn btn--main $modifier_class">Button (anchor)</a>
+
+  <%# btn--pointer %>
+  <% example '.btn--pointer' do %>
+    <button type="button" class="btn btn--main $modifier_class">Button (button)<span aria-hidden="true" class="icon icon--lrg icon--arrow-down-full btn--pointer__icon"></span></button>
+
+    <a href="#" class="btn btn--main $modifier_class">Button (anchor)<span aria-hidden="true" class="icon icon--lrg icon--arrow-down-full btn--pointer__icon"></span></a>
+  <% end %>
+  <%# //btn--pointer %>
+
+  <%# btn--pointer-alt %>
+  <% example '.btn--pointer-alt' do %>
+    <button type="button" class="btn btn--main btn--pointer $modifier_class"><span class="icon icon--arrow-left-big btn--pointer__icon btn--pointer__icon--flush" aria-hidden="true"></span>Button (button)</button>
+
+    <a href="#" class="btn btn--main btn--pointer $modifier_class"><span class="icon icon--arrow-left-big btn--pointer__icon btn--pointer__icon--flush" aria-hidden="true"></span>Button (anchor)</a>
+  <% end %>
+  <%# //btn--pointer-alt %>
+<% end %>

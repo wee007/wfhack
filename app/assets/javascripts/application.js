@@ -27,7 +27,6 @@
 //= require ./vendor/jquery.viewport
 //= require ./init/viewport_check
 //= require ./init/social-share
-//= require ./jquery-extensions/jquery.global-search-focus
 
 // Angular
 //= require angular
@@ -41,6 +40,10 @@
 //= require_tree ./angular/directives
 //= require_tree ./angular/filters
 //= require_tree ./angular/controllers
+
+// Global search focus - needs to come after Angular JS
+//= require ./jquery-extensions/jquery.global-search-focus
+//= require ./init/global-search-focus
 
 // --Misc--
 

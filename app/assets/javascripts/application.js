@@ -27,6 +27,7 @@
 //= require ./vendor/jquery.viewport
 //= require ./init/viewport_check
 //= require ./init/social-share
+//= require ./jquery-extensions/jquery.global-search-focus
 
 // Angular
 //= require angular

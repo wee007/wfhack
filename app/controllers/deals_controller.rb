@@ -3,16 +3,10 @@ class DealsController < ApplicationController
   layout 'detail_view', only: :show
 
   def index
-    centre, deals, campaigns = nil
-    Service::API.in_parallel do
-      centre = CentreService.fetch params[:centre_id]
-      deals = DealService.fetch deals_params
-      campaigns = CampaignService.fetch centre: params[:centre_id]
-    end
-
-    @centre = CentreService.build centre
-    @deals = DealService.build deals
-    @campaigns = CampaignService.build campaigns
+    @centre, @deals, @campaigns = service_map \
+      centre: params[:centre_id],
+      deal: deals_params,
+      campaign: {centre: params[:centre_id]}
 
     eager_load_stores
 
@@ -23,18 +17,13 @@ class DealsController < ApplicationController
   end
 
   def show
-    centre, deal = nil
-    Service::API.in_parallel do
-      centre = CentreService.fetch params[:centre_id]
-      deal = DealService.fetch params[:id]
-    end
-    @centre = CentreService.build centre
-    @deal = DealService.build deal
+    @centre, @deal = service_map \
+      centre: params[:centre_id],
+      deal: params[:id]
 
+    # Get the store, 404 if the deal is not valid in this centre.
     store_service_id = @deal.deal_stores.find{|store| store.centre_id == params[:centre_id]}.try :store_service_id
-
     return respond_to_error(404) unless store_service_id
-
     @store = StoreService.find store_service_id
 
     gon.push centre: @centre

@@ -1,58 +1,57 @@
 class ProductsController < ApplicationController
 
-  layout 'detail_view', only: :show
+  layout 'detail_view', only: [:show_centre, :show_national]
 
-  def index
-    centre, centres, nearby_centres, products, super_categories, stores = nil
-    Service::API.in_parallel do
-      centre = CentreService.fetch params[:centre_id] if params[:centre_id]
-      nearby_centres = CentreService.fetch nil, near_to: params[:centre_id] if params[:centre_id]
-      centres = CentreService.fetch :all, country: 'au' unless params[:centre_id]
-      products = ProductService.fetch params.merge({rows: 50})
-      stores = StoreService.fetch retailer_code: params[:retailer].first if params[:retailer]
-    end
-
-    super_categories = CategoryService.fetch centre_id: params[:centre_id], product_mapable: true if params[:centre_id]
-
-    if params[:centre_id]
-      @centre = CentreService.build centre
-      @nearby_centres = CentreService.build nearby_centres
-
-      stores = StoreService.build stores, centre_id: params[:centre_id] if stores.present?
-
-      meta.push(
-        page_title: page_title(@centre.name),
-        description: description(@centre.name, stores)
-      )
-    else
-      @centres = CentreService.group_by_state centres
-
-      stores = StoreService.build stores if stores.present?
-
-      meta.push(
-        page_title: page_title('Westfield'),
-        description: description('Westfield', stores)
-      )
-    end
-    @search = ProductService.build products
-    @super_categories = CategoryService.build super_categories
-
-    categories = @search.facets.detect{|f| ["super_cat", "category", "sub_category"].include? f.field }
-    @categories = categories ? categories['values'] : []
-
-    brands = @search.facets.detect{|f| f.field == "brand" }
-    @brands = brands ? brands['values'] : []
-
-    @pagination = {
-      page: (params[:page] || 1).to_i,
-      page_count: (@search['count'].to_f / @search['rows'].to_f).ceil
+  def index_centre
+    services = {
+      centre: params[:centre_id],
+      centres: [nil, {near_to: params[:centre_id]}],
+      products: params.merge({rows: 50})
     }
+    services[:store] = {retailer_code: params[:retailer].first} if params[:retailer]
+    @centre, @nearby_centres, @search, stores = service_map services
+    @super_categories = CategoryService.find centre_id: params[:centre_id], product_mapable: true
 
     respond_to do |format|
       if request.xhr?
         # This should be its own route? There is alot of stuff above it does not need.
         format.html { render partial: "products" }
       else
+
+        meta.push(
+          page_title: page_title(@centre.name),
+          description: description(@centre.name, stores)
+        )
+
+        gon.products = {
+          display_options: @search.display_options,
+          facets: @search.facets,
+          applied_filters: @search.applied_filters
+        }
+        format.html { render :index }
+      end
+
+    end
+  end
+
+  def index_national
+    services = { centre: [:all, country: 'au'], products: params.merge({rows: 50}) }
+    services[:store] = {retailer_code: params[:retailer].first} if params[:retailer]
+    centres, @search, stores = service_map services
+
+    @centres = centres.group_by{ |centre| centre.state }
+
+    respond_to do |format|
+      if request.xhr?
+        # This should be its own route? There is alot of stuff above it does not need.
+        format.html { render partial: "products" }
+      else
+
+        meta.push(
+          page_title: page_title('Westfield'),
+          description: description('Westfield', stores)
+        )
+
         gon.products = {
           display_options: @search.display_options,
           facets: @search.facets,
@@ -63,45 +62,51 @@ class ProductsController < ApplicationController
     end
   end
 
+  def show_centre
+    @centre, @product, stores = service_map \
+      centre: params[:centre_id],
+      product: params[:id],
+      store: {retailer_code: params[:retailer_code], per_page: 50}
 
-  def show
-    centre, centres, product, stores = nil
-    Service::API.in_parallel do
-      centre = CentreService.fetch params[:centre_id] if params[:centre_id]
-      centres = CentreService.fetch :all, country: 'au' unless params[:centre_id]
-      product = ProductService.fetch params[:id]
-      stores = StoreService.fetch retailer_code: params[:retailer_code], per_page: 50
+    centre_ids = stores.map(&:centre_id).uniq
+    @centre_stores = stores.select {|store| store.centre_id == params[:centre_id]}
+
+    @product_centres = []
+    if centre_ids.present?
+      @product_centres = CentreService.find(:all, centre_id: centre_ids, near_to: params[:centre_id])
     end
 
-    @product = ProductService.build product
+    gon.push centre: @centre
 
     meta.push @product.meta
+    meta.push(
+      page_title: "#{@product.name} | #{@centre.name}",
+      description: "Shop for #{@product.name} from #{stores.first.try(:name)} at #{@centre.name}",
+      title: "#{@product.name} from #{stores.first.try(:name)}",
+      twitter_title: "What do you think of #{@product.name} from #{stores.first.try(:name)}?"
+    )
+    @product_redirection_url = url_for centre_product_redirection_url
 
-    if params[:centre_id]
-      stores = StoreService.build(stores)
-      centre_ids = stores.map(&:centre_id).uniq
-      @centre_stores = stores.select {|store| store['centre_id'] == params[:centre_id]}
-      @product_centres = centre_ids.present? ? CentreService.find(:all, centre_id: centre_ids, near_to: params[:centre_id]) : []
-      @centre = CentreService.build centre
-      gon.push centre: @centre
-      meta.push(
-        title: "#{@product.name} from #{stores.first.try(:name)}",
-        twitter_title: "What do you think of #{@product.name} from #{stores.first.try(:name)}?",
-        page_title: "#{@product.name} | #{@centre.name}",
-        description: "Shop for #{@product.name} from #{stores.first.try(:name)} at #{@centre.name}"
-      )
-      @product_redirection_url = url_for centre_product_redirection_url
-    else
-      @centres = CentreService.group_by_state centres
-
-      meta.push(
-        page_title: @product.name,
-        description: @product.name
-      )
-      @product_redirection_url = url_for product_redirection_url
-    end
+    render :show
   end
 
+  def show_national
+    centres, @product, @stores = service_map \
+      centre: [:all, {country: 'au'}],
+      product: params[:id],
+      store: {retailer_code: params[:retailer_code], per_page: 50}
+
+    @centres = centres.group_by{ |centre| centre.state }
+
+    meta.push @product.meta
+    meta.push(
+      page_title: @product.name,
+      description: @product.name
+    )
+    @product_redirection_url = url_for product_redirection_url
+
+    render :show
+  end
 
   def redirection
     @product = ProductService.find params[:id]
@@ -169,4 +174,5 @@ private
       [categories].flatten.map{ |param| param.titleize }.join(' and ')
     end
   end
+
 end

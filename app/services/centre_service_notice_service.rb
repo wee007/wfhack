@@ -1,4 +1,4 @@
-class CentreServiceNoticesService
+class CentreServiceNoticeService
   class << self
     include ApiClientRequests
 

@@ -3,13 +3,9 @@ class NoticesController < ApplicationController
   layout 'detail_view', only: :show
 
   def index
-    centre, notices = nil
-    Service::API.in_parallel do
-      centre = CentreService.fetch params[:centre_id]
-      notices = CentreServiceNoticesService.fetch centre: params[:centre_id], active: true
-    end
-    @centre = CentreService.build centre
-    @notices = CentreServiceNoticesService.build notices
+    @centre, @notices = service_map \
+      centre: params[:centre_id],
+      centre_service_notices: {centre: params[:centre_id], active: true}
 
     meta.push(
       page_title: "Notices and Activities at #{@centre.name}",
@@ -18,13 +14,9 @@ class NoticesController < ApplicationController
   end
 
   def show
-    centre, notice = nil
-    Service::API.in_parallel do
-      centre = CentreService.fetch params[:centre_id]
-      notice = CentreServiceNoticesService.fetch params[:id]
-    end
-    @centre = CentreService.build centre
-    @notice = CentreServiceNoticesService.build notice
+    @centre, @notice = service_map \
+      centre: params[:centre_id],
+      centre_service_notice: params[:id]
 
     meta.push @notice.meta
     meta.push(

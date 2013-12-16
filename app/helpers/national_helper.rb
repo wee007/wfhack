@@ -4,7 +4,10 @@ module NationalHelper
     if params[:controller] == 'pages'
       centre_path centre
     else
-      url_for centre_id: centre.code
+      url_for(
+        centre_id: centre.code,
+        action: params[:action].gsub('_national', '_centre')
+      )
     end
   end
 

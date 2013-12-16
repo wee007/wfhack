@@ -1,13 +1,14 @@
 module Routes
   module ProductRoutes
-    def self.draw(context)
+    def self.draw(context, kind)
       context.instance_eval do
-        get 'products' => 'products#index'
+        get 'products' => "products#index_#{kind}"
         get 'products/:id/redirection' => 'products#redirection', as: 'product_redirection'
         get 'products/:id/social-share' => 'social_shares#show', as: 'product_social_share', kind: 'product'
-        get 'products/:super_cat' => 'products#index', as: 'products_super_cat'
-        get 'products/:super_cat/:category' => 'products#index', as: 'products_category'
-        get 'products/:retailer_code/:product_name/:id' => 'products#show', as: 'product'
+
+        get 'products/:super_cat' => "products#index_#{kind}", as: 'products_super_cat'
+        get 'products/:super_cat/:category' => "products#index_#{kind}", as: 'products_category'
+        get 'products/:retailer_code/:product_name/:id' => "products#show_#{kind}", as: 'product'
       end
     end
   end
@@ -28,7 +29,7 @@ CustomerConsole::Application.routes.draw do
   get 'api', to: redirect('/api/index.html') # This lets /api work, not just /api/
   get 'terms-conditions' => 'pages#terms_conditions'
   get 'privacy-policy' => 'pages#privacy_policy'
-  Routes::ProductRoutes.draw self
+  Routes::ProductRoutes.draw self, 'national'
   get '/au/shopping/*request_path' => 'redirector#shopping'
 
 
@@ -44,14 +45,14 @@ CustomerConsole::Application.routes.draw do
     get 'movies/:id/social-share' => 'social_shares#show', as: 'movie_social_share', kind: 'movie'
     get 'movies/:movie_name/:id' => 'movies#show', as: 'movie'
     resources :notices, only: [:show]
-    get 'notices/:id/social-share' => 'social_shares#show', as: 'notice_social_share', kind: 'centre_service_notices'
+    get 'notices/:id/social-share' => 'social_shares#show', as: 'notice_social_share', kind: 'centre_service_notice'
     resources :stores, only: [:index]
     get 'stores/:retailer_code/:id' => 'stores#show', as: 'store'
     get 'hours', to: 'centre_hours#show'
     get 'info', to: 'centre_info#show'
     get 'services', to: 'centre_service_details#show'
     get 'canned-searches/:id/social-share' => 'social_shares#show', as: 'canned_search_social_share', kind: 'canned_search'
-    Routes::ProductRoutes.draw self
+    Routes::ProductRoutes.draw self, 'centre'
   end
 
   root 'centres#index'

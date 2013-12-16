@@ -2,16 +2,11 @@ class CentresController < ApplicationController
   layout 'base', :only => :index
 
   def index
-    centres, products = nil
-    Service::API.in_parallel do
-      centres = CentreService.fetch( :all, country: 'au' )
-      products = ProductService.fetch( rows: 1 )
-    end
+    @centres, @products = service_map \
+      centre: [:all, {country: 'au'}],
+      product: {rows: 1}
 
-    @centres = CentreService.build centres
     @centres_by_state = @centres.group_by{ |c| c.state } if @centres.present?
-
-    @products = ProductService.build products
     if @products.present? && @products['count'].respond_to?(:round)
       @products_count = @products['count'].round(-2)
     end
@@ -32,6 +27,8 @@ class CentresController < ApplicationController
   end
 
 private
+
+  # TODO: move over to the new in_parallel stuff
   def stream(filter=nil)
     centre, stream = nil
     stream_params = {centre: params[:id]}

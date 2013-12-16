@@ -37,4 +37,25 @@ class ApplicationController < ActionController::Base
   end
   helper_method :meta
 
+  def service_map(requests)
+    responses = []
+
+    Service::API.in_parallel do
+      responses = requests.collect do |kind, options|
+        klass = "#{kind.to_s.singularize}_service".classify.constantize
+        if options.is_a?(Array)
+          response = klass.fetch(*options)
+        else
+          response = klass.fetch(options)
+        end
+        [klass, response]
+      end
+    end
+
+    responses.collect do |service, response, build_options|
+      service.build response
+    end
+
+  end
+
 end

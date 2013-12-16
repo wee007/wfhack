@@ -20,23 +20,18 @@ describe ProductsController do
     )
   end
 
-  describe "GET #index" do
+  describe "GET #index_centre" do
+
     before :each do
-      CentreService.stub(:fetch).and_return double :response, body: { name: 'Westfield Bondi Junction' }
+      CentreService.stub(:fetch).and_return double :response, body: {state: 'NSW', name: 'Westfield Bondi Junction' }
       object = Hashie::Mash.new(count: 50, rows: 50, facets: [{'values' => [], 'field' => 'super_cat'}])
       ProductService.stub(:build).and_return object
     end
 
     it "assigns the centre instance variable" do
-      get :index, centre_id: 'bondijunction'
+      get :index_centre, centre_id: 'bondijunction'
       response.should render_template :index
       assigns(:centre).should_not be_nil
-    end
-
-    it "does not assign the centre instance variable" do
-      get :index
-      response.should render_template :index
-      assigns(:centre).should be_nil
     end
 
     describe 'meta data for centre page' do
@@ -49,7 +44,7 @@ describe ProductsController do
             description: "Find the latest fashion, clothes, shoes, jewellery, accessories and much more at Westfield Bondi Junction"
           })
           controller.stub(:meta).and_return(meta_double)
-          get :index, centre_id: 'bondijunction'
+          get :index_centre, centre_id: 'bondijunction'
         end
       end
 
@@ -61,7 +56,7 @@ describe ProductsController do
             description: "Browse the latest Products online at Westfield Bondi Junction"
           })
           controller.stub(:meta).and_return(meta_double)
-          get :index, centre_id: 'bondijunction', super_cat: 'products'
+          get :index_centre, centre_id: 'bondijunction', super_cat: 'products'
         end
       end
 
@@ -73,7 +68,7 @@ describe ProductsController do
             description: "Browse the latest Product 2 online at Westfield Bondi Junction"
           })
           controller.stub(:meta).and_return(meta_double)
-          get :index, centre_id: 'bondijunction', category: 'product-2', super_cat: 'product-1'
+          get :index_centre, centre_id: 'bondijunction', category: 'product-2', super_cat: 'product-1'
         end
       end
 
@@ -85,7 +80,7 @@ describe ProductsController do
             description: "Browse the latest Product 2 online at Westfield Bondi Junction"
           })
           controller.stub(:meta).and_return(meta_double)
-          get :index, centre_id: 'bondijunction', sub_category: ['product-2'], category: 'product-1'
+          get :index_centre, centre_id: 'bondijunction', sub_category: ['product-2'], category: 'product-1'
         end
       end
 
@@ -97,7 +92,7 @@ describe ProductsController do
             description: "Browse the latest Product 3 and Product 4 online at Westfield Bondi Junction"
           })
           controller.stub(:meta).and_return(meta_double)
-          get :index, centre_id: 'bondijunction', sub_category: ['product-3','product-4'], category: 'product-2', super_cat: 'product-1'
+          get :index_centre, centre_id: 'bondijunction', sub_category: ['product-3','product-4'], category: 'product-2', super_cat: 'product-1'
         end
       end
 
@@ -109,10 +104,26 @@ describe ProductsController do
             description: "Find the latest fashion, clothes, shoes, jewellery, accessories and much more at Westfield Bondi Junction"
           })
           controller.stub(:meta).and_return(meta_double)
-          get :index, centre_id: 'bondijunction', retailer: ['retailer']
+          get :index_centre, centre_id: 'bondijunction', retailer: ['retailer']
         end
       end
 
+    end
+
+  end
+
+
+  describe "GET #index_national" do
+    before :each do
+      CentreService.stub(:fetch).and_return double :response, body: [{state: 'NSW', name: 'Westfield Bondi Junction' }]
+      object = Hashie::Mash.new(count: 50, rows: 50, facets: [{'values' => [], 'field' => 'super_cat'}])
+      ProductService.stub(:build).and_return object
+    end
+
+    it "does not assign the centre instance variable" do
+      get :index_national
+      response.should render_template :index
+      assigns(:centre).should be_nil
     end
 
     describe 'meta data for national page' do
@@ -125,7 +136,7 @@ describe ProductsController do
             description: "Find the latest fashion, clothes, shoes, jewellery, accessories and much more at Westfield"
           })
           controller.stub(:meta).and_return(meta_double)
-          get :index
+          get :index_national
         end
       end
 
@@ -137,7 +148,7 @@ describe ProductsController do
             description: "Browse the latest Products online at Westfield"
           })
           controller.stub(:meta).and_return(meta_double)
-          get :index, super_cat: 'products'
+          get :index_national, super_cat: 'products'
         end
       end
 
@@ -149,7 +160,7 @@ describe ProductsController do
             description: "Browse the latest Product 2 online at Westfield"
           })
           controller.stub(:meta).and_return(meta_double)
-          get :index, category: 'product-2', super_cat: 'product-1'
+          get :index_national, category: 'product-2', super_cat: 'product-1'
         end
       end
 
@@ -161,7 +172,7 @@ describe ProductsController do
             description: "Browse the latest Product 2 online at Westfield"
           })
           controller.stub(:meta).and_return(meta_double)
-          get :index, sub_category: ['product-2'], category: 'product-1'
+          get :index_national, sub_category: ['product-2'], category: 'product-1'
         end
       end
 
@@ -173,7 +184,7 @@ describe ProductsController do
             description: "Browse the latest Product 3 and Product 4 online at Westfield"
           })
           controller.stub(:meta).and_return(meta_double)
-          get :index, sub_category: ['product-3','product-4'], category: 'product-2', super_cat: 'product-1'
+          get :index_national, sub_category: ['product-3','product-4'], category: 'product-2', super_cat: 'product-1'
         end
       end
 
@@ -185,7 +196,7 @@ describe ProductsController do
             description: "Find the latest fashion, clothes, shoes, jewellery, accessories and much more at Westfield"
           })
           controller.stub(:meta).and_return(meta_double)
-          get :index, retailer: 'retailer'
+          get :index_national, retailer: 'retailer'
         end
       end
 
@@ -197,7 +208,7 @@ describe ProductsController do
             description: "Find the latest fashion, clothes, shoes, jewellery, accessories and much more at Westfield"
           })
           controller.stub(:meta).and_return(meta_double)
-          get :index, retailer: ['retailer-1','retailer-2']
+          get :index_national, retailer: ['retailer-1','retailer-2']
         end
       end
 
@@ -206,14 +217,14 @@ describe ProductsController do
 
   describe "GET #show" do
     it "assigns the centre instance variable and redirection url" do
-      get :show, id: 1, centre_id: 'bondijunction', retailer_code: 'retailer_code', product_name: 'product_name'
+      get :show_centre, id: 1, centre_id: 'bondijunction', retailer_code: 'retailer_code', product_name: 'product_name'
       response.should render_template :show
       assigns(:centre).should_not be_nil
       assigns(:product_redirection_url).should == centre_product_redirection_url
     end
 
     it "does not assign the centre instance variable and does assigns centre redirection url" do
-      get :show, id: 1, retailer_code: 'retailer_code', product_name: 'product_name'
+      get :show_national, id: 1, retailer_code: 'retailer_code', product_name: 'product_name'
       response.should render_template :show
       assigns(:centre).should be_nil
       assigns(:product_redirection_url).should == product_redirection_url

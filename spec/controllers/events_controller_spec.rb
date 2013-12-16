@@ -2,15 +2,17 @@ require 'spec_helper'
 
 describe EventsController do
 
-  before :each do
-    CentreService.stub(:fetch).and_return double :response, body: {name: "Centre name", timezone: "Australia/Sydney"}
+  let(:event) do
+    Event.new name: "Event name", description: "Some description", "_links" => {image: {href: 'image_link'}}
+  end
 
-    EventService.stub(:fetch).with(centre: 'bondijunction', rows: 50, published: true).and_return({})
-    EventService.stub(:fetch).with('1').and_return double :response, body: {name: "Event name", "_links" => {image: {href: 'image_link'}}}
+  let(:centre) do
+    Centre.new name: "Centre name", timezone: "Australia/Sydney"
   end
 
   describe "GET #index" do
     before :each do
+      controller.stub(:service_map).and_return [{}, centre]
       get :index, centre_id: 'bondijunction'
     end
 
@@ -33,20 +35,20 @@ describe EventsController do
   describe "GET #show" do
 
     before :each do
-      get :show, id: 1, centre_id: 'bondijunction'
+      controller.stub(:service_map).and_return [event, centre]
     end
 
     it "renders the :show template" do
+      get :show, id: 1, centre_id: 'bondijunction'
       response.should render_template :show
     end
 
     it "adds event meta to meta" do
-      EventService.stub(:build).and_return(double :event, meta: 'event meta', name: 'Some event', description: 'Some description')
       meta_double = double :meta
-      meta_double.should_receive(:push).with 'event meta'
+      meta_double.should_receive(:push).with event.meta
       meta_double.should_receive(:push).with({
-        twitter_title: "Check out this Some event at Centre name",
-        page_title: "Some event at Centre name",
+        twitter_title: "Check out this Event name at Centre name",
+        page_title: "Event name at Centre name",
         description: "At Centre name, Some description"
       })
       controller.stub(:meta).and_return(meta_double)

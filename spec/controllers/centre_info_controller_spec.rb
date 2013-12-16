@@ -10,7 +10,7 @@ describe CentreInfoController do
 
       it "renders show view" do
         CentreService.should_receive( :fetch ).with('chatswood').and_return double :response, body: {}
-        CentreServiceNoticesService.should_receive( :fetch ).with(:centre => 'chatswood', :active => true)
+        CentreServiceNoticeService.should_receive( :fetch ).with(:centre => 'chatswood', :active => true)
         get :show, centre_id: 'chatswood'
         response.should render_template :show
       end

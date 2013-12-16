@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.46
+Version:     0.2.47
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,19 @@ fi
 
 
 %changelog
+* Mon Dec 16 2013 ci <doperations@au.westfield.com> 0.2.47-1
+- Merge pull request #793 from fchan/styleguide (fchan@au.westfield.com)
+- More PR feedback for style guide (fiona@fionachan.net)
+- More PR feedback (fiona@fionachan.net)
+- Fix PR after feedback round 2 (fiona@fionachan.net)
+- Fix style guide after PR feedback (fiona@fionachan.net)
+- Some refactoring after style guide enhancement (fiona@fionachan.net)
+- Remove btn--spacing as it's not being used (fiona@fionachan.net)
+- Added heading base styles (fiona@fionachan.net)
+- Added buttons to styleguide (fiona@fionachan.net)
+- Split abstractions into partials (fiona@fionachan.net)
+- WIP style guide (fiona@fionachan.net)
+
 * Fri Dec 13 2013 ci <doperations@au.westfield.com> 0.2.46-1
 - 404 if the deal is not valid in the given centre. (ldewey@au.westfield.com)
 

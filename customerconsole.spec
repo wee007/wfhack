@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.50
+Version:     0.2.54
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,78 @@ fi
 
 
 %changelog
+* Wed Dec 18 2013 ci <doperations@au.westfield.com> 0.2.54-1
+- Merge pull request #808 from ewee/master (ldewey@au.westfield.com)
+- Merge pull request #802 from ldewey/social-share-aria-expanded
+  (ldewey@au.westfield.com)
+- Merge pull request #806 from ldewey/product-category-search
+  (ldewey@au.westfield.com)
+- Merge pull request #809 from bschwarz/centre-selector-fix
+  (ldewey@au.westfield.com)
+- Merge pull request #811 from bschwarz/fix-on-sale (ldewey@au.westfield.com)
+- Refactor error pages and add Tealium tag to error pages
+  (ewee@au.westfield.com)
+- Make on sale param a "true" string so that it's persisted in the URL.
+  (ben@germanforblack.com)
+- Centre selector will now update the URL and let the routes handle reloading
+  filters and products (ben@germanforblack.com)
+- soical share aria-expanded fixes (ldewey@au.westfield.com)
+- Added in product_categories as a valid search type (ldewey@au.westfield.com)
+
+* Wed Dec 18 2013 ci <doperations@au.westfield.com>
+- Merge pull request #808 from ewee/master (ldewey@au.westfield.com)
+- Merge pull request #802 from ldewey/social-share-aria-expanded
+  (ldewey@au.westfield.com)
+- Merge pull request #806 from ldewey/product-category-search
+  (ldewey@au.westfield.com)
+- Merge pull request #809 from bschwarz/centre-selector-fix
+  (ldewey@au.westfield.com)
+- Merge pull request #811 from bschwarz/fix-on-sale (ldewey@au.westfield.com)
+- Refactor error pages and add Tealium tag to error pages
+  (ewee@au.westfield.com)
+- Make on sale param a "true" string so that it's persisted in the URL.
+  (ben@germanforblack.com)
+- Centre selector will now update the URL and let the routes handle reloading
+  filters and products (ben@germanforblack.com)
+- soical share aria-expanded fixes (ldewey@au.westfield.com)
+- Added in product_categories as a valid search type (ldewey@au.westfield.com)
+
+* Wed Dec 18 2013 ci <doperations@au.westfield.com>
+- Merge pull request #808 from ewee/master (ldewey@au.westfield.com)
+- Merge pull request #802 from ldewey/social-share-aria-expanded
+  (ldewey@au.westfield.com)
+- Merge pull request #806 from ldewey/product-category-search
+  (ldewey@au.westfield.com)
+- Merge pull request #809 from bschwarz/centre-selector-fix
+  (ldewey@au.westfield.com)
+- Merge pull request #811 from bschwarz/fix-on-sale (ldewey@au.westfield.com)
+- Refactor error pages and add Tealium tag to error pages
+  (ewee@au.westfield.com)
+- Make on sale param a "true" string so that it's persisted in the URL.
+  (ben@germanforblack.com)
+- Centre selector will now update the URL and let the routes handle reloading
+  filters and products (ben@germanforblack.com)
+- soical share aria-expanded fixes (ldewey@au.westfield.com)
+- Added in product_categories as a valid search type (ldewey@au.westfield.com)
+
+* Wed Dec 18 2013 ci <doperations@au.westfield.com>
+- Merge pull request #808 from ewee/master (ldewey@au.westfield.com)
+- Merge pull request #802 from ldewey/social-share-aria-expanded
+  (ldewey@au.westfield.com)
+- Merge pull request #806 from ldewey/product-category-search
+  (ldewey@au.westfield.com)
+- Merge pull request #809 from bschwarz/centre-selector-fix
+  (ldewey@au.westfield.com)
+- Merge pull request #811 from bschwarz/fix-on-sale (ldewey@au.westfield.com)
+- Refactor error pages and add Tealium tag to error pages
+  (ewee@au.westfield.com)
+- Make on sale param a "true" string so that it's persisted in the URL.
+  (ben@germanforblack.com)
+- Centre selector will now update the URL and let the routes handle reloading
+  filters and products (ben@germanforblack.com)
+- soical share aria-expanded fixes (ldewey@au.westfield.com)
+- Added in product_categories as a valid search type (ldewey@au.westfield.com)
+
 * Tue Dec 17 2013 ci <doperations@au.westfield.com> 0.2.50-1
 - 
 

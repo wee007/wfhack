@@ -31,7 +31,8 @@ module CustomerConsole
                                    flexslider/flexslider.css
                                    html5shiv/src/html5shiv-printshiv.js
                                    stores_maps.js
-                                   jquery-extensions/jquery.toggle-content.js)
+                                   jquery-extensions/jquery.toggle-content.js
+                                   server_errors.css)
     if Rails.env.development?
       require File.expand_path('../../lib/service_proxy', __FILE__)
       config.middleware.use "ServiceProxy"

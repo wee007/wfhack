@@ -1,8 +1,8 @@
 module UniversalTaggingHelper
 
-  def universal_tagging
+  def third_party_universal_tagging
     <<-EOF
-      <script type="text/javascript">
+      <script>
       var utag_data = westfield.meta;
       (function(a,b,c,d)
       { a='//tags.tiqcdn.com/utag/westfield/#{universal_tagging_profile}/#{universal_tagging_env}/utag.js'; b=document;c='script';d=b.createElement(c);d.src=a;d.type='text/java'+c;d.async=true; a=b.getElementsByTagName(c)[0];a.parentNode.insertBefore(d,a); }

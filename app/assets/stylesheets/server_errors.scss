@@ -1,0 +1,111 @@
+/*
+======================================================================================
+
+Server Error stylesheet
+
+  Usage:
+    This stylesheet is for styling the server error pages e.g. 404 error.
+
+======================================================================================
+*/
+
+/* [IMPORT PARTIALS]
+-------------------------------------------------------*/
+
+/* Utils */
+@import "partials/utils/vars";
+@import "partials/utils/mixins";
+@import "partials/utils/normalize";
+@import "partials/utils/reset";
+
+
+/* [GLOBAL RULES]
+-------------------------------------------------------*/
+
+/* Viewport */
+
+/*
+  Note: add `@viewport` rule to future proof, leave out `-ms-` prefix, see here: http://nostrongbeliefs.com/why-i-think-we-shouldnt-use-css-viewport-in-ie10-for-now/.
+*/
+@-webkit-viewport {width: device-width;}
+@-moz-viewport {width: device-width;}
+@-o-viewport {width: device-width;}
+@viewport {width: device-width;}
+
+/* Main */
+html,
+body {height: 100%;}
+
+html {
+  font-size: ($font-size/16)+em;
+  line-height: $line-height-ratio;
+  font-family: $font-family;
+  color: $color-txt-base;
+}
+
+body {background-color: $color-grey-light-3;}
+
+/* Links */
+a {
+  color: $color-link;
+  text-decoration: none;
+  @extend %transition-subtle;
+
+  /* Hover and focus states */
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+    color: $color-link-hover;
+  }
+}
+
+/* Main title */
+h1 {
+  @include font-size(43, 1.1);
+  font-family: $font-family-lato;
+  font-weight: 300;
+  text-transform: uppercase;
+  color: $color-grey-med-1;
+  @include to-rem(margin-bottom, 27);
+
+  /* Bump up font size at this breakpoint */
+  @include respond-min($non-palm) {
+    @include font-size(61, 1.1);
+  }
+
+    em {
+      color: $color-brand;
+      font-style: normal;
+    }
+}
+
+/* Vertically align the content */
+div {
+  display: table;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: cover;
+
+  /* Load in small bg image at this breakpoint */
+  @include respond-max($palm) {
+    background-image: cloudinary-url("css/server-error-bg-sml.jpg");
+  }
+
+  /* Load in large bg image at this breakpoint */
+  @include respond-min($non-palm) {
+    background-image: cloudinary-url("css/server-error-bg-lrg.jpg");
+  }
+
+  /* Old IE */
+  .old-ie & {background-image: cloudinary-url("css/server-error-bg-lrg.jpg");}
+
+    /* Inner container */
+    & > div {
+      display: table-cell;
+      text-align: center;
+      vertical-align: middle;
+      @include to-rem(padding, 0 14);
+    }
+}

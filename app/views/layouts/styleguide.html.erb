@@ -9,58 +9,42 @@
 <%# Header %>
 <header class="sg-header" role="banner">
 
-  <%# Header secondary %>
-  <div class="sg-header__secondary">
-    <div class="container">
+  <div class="container container--position">
 
-      <%# Logo %>
-      <%= link_to site_logo, centre_path(@centre), href:"/styleguide", class: "logo" %>
-      <%# //Logo %>
+    <%# Logo %>
+    <%= link_to site_logo, centre_path(@centre), href:"/styleguide", class: "logo" %>
+    <%# //Logo %>
 
-      <h1>Style guide</h1>
-    </div>
-  </div>
-  <%# //Header secondary %>
+    <h1>Style guide</h1>
 
-  <%# Header primary %>
-  <div class="sg-header__primary">
+    <%# Menu toggle button for palm/small tablet devices %>
+    <button type="button" class="btn btn--menu js-disabled-hide" toggle-visibility="sg-header-menu-toggle">
+      <span class="hide-visually">Menu</span>
+      <span class="btn--menu__icon"></span>
+    </button>
+    <%# //Menu toggle button for palm/small tablet devices %>
 
-    <%# Container %>
-    <div class="container">
-
-      <%# Menu toggle button for palm/small tablet devices %>
-      <button type="button" class="btn btn--menu js-disabled-hide" toggle-visibility="sg-header-menu-toggle">
-        <span class="hide-visually">Menu</span>
-        <span class="btn--menu__icon"></span>
-      </button>
-      <%# //Menu toggle button for palm/small tablet devices %>
-
-      <%# Main navigation %>
-      <nav role="navigation" aria-label="Main navigation">
-        <ul class="sg-nav-main toggle-visibility" id="sg-header-menu-toggle">
-          <% Styleguide::TREE.each_with_index do |sg, major| %>
-            <% if sg.is_a? Hash %>
-              <li>
-                <span><%= sg['name'] %>:</span>
-                <ul>
-                  <% sg['sections'].each_with_index do |sgc, minor| %>
-                  <% slug = ActiveSupport::Inflector.parameterize("#{sg['name']} #{sgc}") %>
-                  <li><a href="<%= styleguide_path(slug) %>"><%= sgc %></a></li>
-                  <% end %>
-                </ul>
-              </li>
-            <% else %>
-              <% slug = ActiveSupport::Inflector.parameterize(sg) %>
-              <li><a href="<%= styleguide_path(slug) %>"><%= sg %></a></li>
-            <% end %>
+    <%# Main navigation %>
+    <nav role="navigation" aria-label="Main navigation">
+      <ul class="sg-nav-main toggle-visibility" id="sg-header-menu-toggle">
+        <% Styleguide::TREE.each_with_index do |sg, major| %>
+          <% if sg.is_a? Hash %><li>
+              <span><%= sg['name'] %>:</span>
+              <ul>
+                <% sg['sections'].each_with_index do |sgc, minor| %>
+                <% slug = ActiveSupport::Inflector.parameterize("#{sg['name']} #{sgc}") %>
+                <li><a href="<%= styleguide_path(slug) %>"><%= sgc %></a></li>
+                <% end %>
+              </ul>
+            </li>
+          <% else %>
+            <% slug = ActiveSupport::Inflector.parameterize(sg) %>
+            <li><a href="<%= styleguide_path(slug) %>"><%= sg %></a></li>
           <% end %>
-        </ul>
-      </nav>
-    </div>
-    <%# //Container %>
-
+        <% end %>
+      </ul>
+    </nav>
   </div>
-  <%# //Header primary %>
 
 </header>
 <%# //Header %>

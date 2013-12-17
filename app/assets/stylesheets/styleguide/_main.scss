@@ -1,16 +1,29 @@
 /* ======================================================================================
    @VARIABLES
    ====================================================================================== */
-$sg-breakpoint: 770;
+$sg-breakpoint: 890;
 
 /* ======================================================================================
    @LAYOUT
    ====================================================================================== */
+.styleguides {background: $color-grey-light-3;}
 
 /* [HEADER]
 -------------------------------------------------------*/
 .sg-header {
   @extend %mrg-base;
+  background-color: #fff;
+  @include to-rem(min-height, 44);
+  border-bottom: 1px solid $color-grey-med-2;
+
+  /* Inner container */
+  .container {
+    @include to-rem(padding-top padding-bottom, 7);
+
+    @include respond-min($non-palm) {
+      @include to-rem(padding-top, 10);
+    }
+  }
 
   /* Style guide heading */
   h1 {
@@ -21,8 +34,13 @@ $sg-breakpoint: 770;
   }
 
   /* Menu (hamburger) toggle button */
-  @include respond-min($sg-breakpoint) {
-    .btn--menu {display: none;}
+  .btn--menu {
+    position: absolute;
+    right: 0;
+
+    @include respond-min($sg-breakpoint) {
+      display: none;
+    }
   }
 
     /* The three lines in icon */
@@ -31,81 +49,52 @@ $sg-breakpoint: 770;
       &:before,
       &:after {background-color: $color-grey-med-2;}
     }
+
+  /* Main nav */
+  .sg-nav-main {
+    @include to-rem(max-height, $drop-down-max-height);
+
+    /* Set main nav to be horizontal at this breakpoint */
+    @include respond-min($sg-breakpoint) {
+      display: block;
+      position: absolute;
+      right: 0;
+      @include to-rem(top, $spacing-half);
+    }
+
+    /* Touch device */
+    .touch & {
+      overflow-y: scroll;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    /* Nav items */
+    li {
+      border-top-width: 1px;
+      border-color: $color-grey-med-3;
+      border-style: solid;
+
+      &:first-child {border-top: 0;}
+
+      /* Set nav items to display horizontally and give them border-left */
+      @include respond-min($sg-breakpoint) {
+        display: inline-block;
+        vertical-align: middle;
+        border-width: 0;
+      }
+    }
+
+      a {
+        display: block;
+        color: $color-grey-med-1;
+        @include to-rem(padding, $spacing-third $spacing-half);
+
+        &:hover,
+        &:focus {color: $color-brand;}
+      }
+  }
 }
 
-  /* Main nav container */
-  .sg-header__primary {
-    background-color: $color-txt-dark;
-
-    @include respond-min($sg-breakpoint) {
-      .container {width: $page-container-width;}
-    }
-
-    /* Main nav */
-    .sg-nav-main {
-      border-width: 1px 0;
-      @include to-rem(max-height, $drop-down-max-height);
-
-      /* Set main nav to be horizontal at this breakpoint */
-      @include respond-min($sg-breakpoint) {
-        display: table;
-        width: 100%;
-        border-width: 0 1px;
-      }
-
-      /* Touch device */
-      .touch & {
-        overflow-y: scroll;
-        -webkit-overflow-scrolling: touch;
-      }
-
-      /* Shared rule */
-      &,
-      li {
-        border-style: solid;
-        border-color: $color-txt-base;
-      }
-
-      /* Nav items */
-      li {
-        border-top-width: 1px;
-
-        &:first-child {border-top: 0;}
-
-        /* Set nav items to display horizontally and give them border-left */
-        @include respond-min($sg-breakpoint) {
-          display: table-cell;
-          vertical-align: middle;
-          text-align: center;
-          border-width: 0 0 0 1px;
-        }
-      }
-
-        a {
-          display: block;
-          color: $color-grey-med-2;
-          @include to-rem(padding, $spacing-third $spacing-half);
-
-          &:hover,
-          &:focus {color: #fff;}
-        }
-    }
-  }
-
-  /* Logo & Style Guide heading */
-  .sg-header__secondary {
-    background-color: #fff;
-    @include to-rem(min-height, 44);
-
-    /* Inner container */
-    > .container {
-      @include to-rem(padding-top padding-bottom, 7);
-
-      @include respond-min($non-palm) {
-        @include to-rem(padding-top, 10);
-      }
-    }
-  }
 
 /* [CONTENT]
 -------------------------------------------------------*/
@@ -184,15 +173,17 @@ $sg-breakpoint: 770;
    ====================================================================================== */
 /* Shared rules */
 .sg-h1,
-.sg-h2 {
-  @include to-rem(margin-bottom, $spacing-half);
-  font-family: $font-family-opensans;
-}
+.sg-h2 {@include to-rem(margin-bottom, $spacing-half);}
 
-.sg-h1 {@include font-size(30);}
+.sg-h1 {
+  font-weight: 300;
+  @include font-size(30);
+  font-family: $font-family-lato;
+}
 
 .sg-h2 {
   @include font-size($font-size-xlrg);
+  font-family: $font-family-opensans;
   color: $color-txt-light;
 
   /* File name */
@@ -207,6 +198,15 @@ $sg-breakpoint: 770;
 /* ======================================================================================
    @EVERYTHING ELSE
    ====================================================================================== */
+
+/* [HOMEPAGE]
+-------------------------------------------------------*/
+.sg-homepage .sg-header {@include to-rem(margin-bottom, $spacing-dbl+$spacing-dbl);}
+
+  .sg-homepage-heading {
+    text-transform: uppercase;
+    @include font-size(60);
+  }
 
 /* [SECTION]
 -------------------------------------------------------*/

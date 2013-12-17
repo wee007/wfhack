@@ -1,5 +1,5 @@
 # Focus in the global search input when it's opened via the toggle trigger
-@globalSearchFocus = -> # or window.globalSearchFocus = ->
+@globalSearchFocus = ->
   $(".js-global-search-toggle").click ->
     globalSearchInput = $(".js-global-search input[type=\"search\"]")
     if $(".js-global-search.is-active").length

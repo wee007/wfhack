@@ -1,7 +1,7 @@
 ((app) ->
   app.service "SuggestionsBuilder", ->
 
-    whiteListedTypes = ['store', 'retail_chain', 'colour']
+    whiteListedTypes = ['store', 'retail_chain', 'colour', 'product_category']
 
     @didYouMean = (searchString, searchResults)->
       suggestions = {}
@@ -33,11 +33,16 @@
         when "retail_chain" then "/products?retailer[]=#{params.retailer_code}"
         when "product_query" then "/products?search_query=#{params.query}"
         when "colour" then "/products?colour[]=#{params.colour}"
+        when "product_category" then buildProductCategoryUrl params.super_cat, params.category, params.sub_category
+
+    buildProductCategoryUrl = (super_cat, category, sub_category) ->
+      url = '/products'
+      url = "#{url}/#{super_cat}" if super_cat
+      url = "#{url}/#{category}" if category
+      url = "#{url}?sub_category[]=#{sub_category}" if sub_category
+      url
 
     isValidType = (toCheck) ->
       whiteListedTypes.indexOf(toCheck) >= 0
 
 ) angular.module("Westfield")
-
-
-

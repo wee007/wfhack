@@ -35,18 +35,26 @@ describe 'Service: SuggestionsBuilder', ->
           id: "toddler-baby-footwear",
           term: "babies shoes",
           score: 6,
-          display: "Babies Shoes",
+          display: "Babies Shoes in Babies & Toddlers (Kids)",
           result_type: "product_category",
-          attributes: {
-            alt_name: "Babies Shoes in Babies & Toddlers (Kids)",
-            code: "toddler-baby-footwear",
-            url_params: {
-              sub_category: "toddler-baby-footwear",
-              category: "k-babies",
-              super_cat: "kids-babies"
-            }
-          }
+          attributes: { sub_category: "toddler-baby-footwear", category: "k-babies", super_cat: "kids-babies" }
         },
+        {
+          id: "toddler-baby-footwear",
+          term: "babies shoes",
+          score: 6,
+          display: "Babies & Toddlers in Kids",
+          result_type: "product_category",
+          attributes: { category: "k-babies", super_cat: "kids-babies" }
+        },
+        {
+          id: "toddler-baby-footwear",
+          term: "babies shoes",
+          score: 6,
+          display: "Kids",
+          result_type: "product_category",
+          attributes: { super_cat: "kids-babies" }
+        }
       ],
       stores: [
         {
@@ -61,10 +69,13 @@ describe 'Service: SuggestionsBuilder', ->
     }
 
     expect(SuggestionsBuilder.didYouMean(searchString, searchResults)).toEqual({
-      count : 4,
+      count : 7,
       products: [
         { description: "sass & bide products", url: '/products?retailer[]=sass-and-bide' },
         { description: "Red products", url: '/products?colour[]=Reds' },
+        { description: "Babies Shoes in Babies & Toddlers (Kids)", url: '/products/kids-babies/k-babies?sub_category[]=toddler-baby-footwear' },
+        { description: "Babies & Toddlers in Kids", url: '/products/kids-babies/k-babies' },
+        { description: "Kids", url: '/products/kids-babies' },
         { description: "Products matching 'shoes'", url: '/products?search_query=shoes' }
       ],
       stores: [

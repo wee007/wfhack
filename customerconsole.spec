@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.47
+Version:     0.2.48
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,35 @@ fi
 
 
 %changelog
+* Tue Dec 17 2013 ci <doperations@au.westfield.com> 0.2.48-1
+- Spec fix now we have show_national, index_centre etc
+  (ldewey@au.westfield.com)
+- url/path generation fix for national product pages (ldewey@au.westfield.com)
+- Fixes after rebase. (ldewey@au.westfield.com)
+- Hours page fix (ldewey@au.westfield.com)
+- Fixed up product detail view page (ldewey@au.westfield.com)
+- Renamed in_parallel, service_map as per feed back (ldewey@au.westfield.com)
+- Large product refactor (ldewey@au.westfield.com)
+- refactored centre_info_controller (ldewey@au.westfield.com)
+- Store spec fixes (ldewey@au.westfield.com)
+- Parking spec fix after CentreServiceNoticeService rename
+  (ldewey@au.westfield.com)
+- Spec fixes (ldewey@au.westfield.com)
+- Renamed droped "s" on centre_service_notices_service
+  (ldewey@au.westfield.com)
+- refactored stores (ldewey@au.westfield.com)
+- refactored pages controller (ldewey@au.westfield.com)
+- refactored notices (ldewey@au.westfield.com)
+- refactored movies (ldewey@au.westfield.com)
+- refactored events_controller (ldewey@au.westfield.com)
+- refactored deals controller (ldewey@au.westfield.com)
+- Did first pass of refactoring on app/controllers/centres_controller
+  (ldewey@au.westfield.com)
+- refactored centre_service_details_controller (ldewey@au.westfield.com)
+- Refactored centre hours (ldewey@au.westfield.com)
+- Added the ablity to work with array in in_parallel (ldewey@au.westfield.com)
+- in_parallel syntax sugar (ldewey@au.westfield.com)
+
 * Mon Dec 16 2013 ci <doperations@au.westfield.com> 0.2.47-1
 - Merge pull request #793 from fchan/styleguide (fchan@au.westfield.com)
 - More PR feedback for style guide (fiona@fionachan.net)

@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.48
+Version:     0.2.49
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,9 @@ fi
 
 
 %changelog
+* Tue Dec 17 2013 ci <doperations@au.westfield.com> 0.2.49-1
+- 
+
 * Tue Dec 17 2013 ci <doperations@au.westfield.com> 0.2.48-1
 - Spec fix now we have show_national, index_centre etc
   (ldewey@au.westfield.com)

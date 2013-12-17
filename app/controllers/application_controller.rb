@@ -22,10 +22,9 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def respond_to_error(status)
-    file_name = "#{Rails.root}/public/#{status}.html"
-    error_file = File.exist?(file_name) ? file_name : "#{Rails.root}/public/503.html"
+    status = 503 unless [404, 422, 500, 503].include?(status)
     respond_to do |format|
-      format.html { render :file => error_file, :layout => false, :status => status }
+      format.html { render "server_errors/#{status}", layout: 'server_errors', status: status, locals: { status: status } }
       format.xml  { head status }
       format.json { head status }
       format.any  { head status }

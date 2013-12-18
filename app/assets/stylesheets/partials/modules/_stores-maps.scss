@@ -272,21 +272,6 @@
           @include respond-min($non-palm) {
             .drop-down-menu__trigger {@include to-em(padding-right, $spacing-dbl+$spacing-base);}
           }
-
-          /* Gift card toggle */
-          .btn--main-checkbox-toggle {
-
-            /* Reveal text at this breakpoint */
-            @include respond-min($non-palm) {
-              .hide-visually {@include hide-visually-off;}
-            }
-
-            /* Icon */
-            .icon--gift-card:before {
-              color: #fff;
-              @include to-rem(margin-left, $spacing-quarter);
-            }
-          }
       }
 
       /* Toggle button */

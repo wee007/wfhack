@@ -312,32 +312,6 @@
           }
       }
 
-      /* Post filter count */
-      .stores-maps__filters-count {
-        @include font-size($font-size-sml, 1.5);
-        border-top: 1px solid $color-grey-med-3;
-
-        /* Hide when in map view */
-        .is-map-view & {
-          display: none;
-
-          /* Show at this breakpoint */
-          @include respond-min($ipad-landscape) {
-            display: block;
-          }
-        }
-
-        /* Inner container */
-        .container {
-          @include to-rem(padding-top padding-bottom, $spacing-micro);
-
-          /* Increase padding at this breakpoint */
-          @include respond-min($non-palm) {
-            @include to-rem(padding-top padding-bottom, $spacing-sixth);
-          }
-        }
-      }
-
     /* List / Detail views */
     .stores-maps__list-detail {
       position: absolute;
@@ -362,9 +336,6 @@
           overflow-y: auto;
         }
       }
-
-      /* Post filter count */
-      .is-filter-applied & {@include to-rem(top, 88);}
 
       /* Touch device */
       .touch & {
@@ -393,9 +364,6 @@
       /* Alter top positioning at this breakpoint */
       @include respond-min($non-palm) {
         @include to-rem(top, 65);
-
-        /* Post filter count */
-        .is-filter-applied & {@include to-rem(top, 102);}
       }
 
       /* Apply box treatments and alter top/btm positioning at this breakpoint */
@@ -417,9 +385,6 @@
           background-color: $color-grey-light-2;
           @include to-rem(bottom, $spacing-base);
         }
-
-        /* Post filter count */
-        .is-filter-applied & {@include to-rem(top, 200);}
       }
 
       /* --Store list module-- */
@@ -434,27 +399,6 @@
         .storefront-storelist-phone-map-links__cell--location {display: none;}
       }
     }
-
-      /* Category applied indicator at this breakpoint */
-      .is-filter-applied .stores-list__store-name {
-
-        @include respond-min($ipad-landscape) {
-          @include to-rem(padding-left, $spacing-base+$spacing-quarter);
-        }
-
-        /* Location pin */
-        .icon--pin:before {
-          display: none;
-
-          @include respond-min($ipad-landscape) {
-            display: block;
-            position: absolute;
-            left: 0;
-            @include to-rem(top, $spacing-base+$spacing-micro);
-            @include to-rem(margin-top, -$spacing-sixth);
-          }
-        }
-      }
 
   /* Micello map */
   .stores-maps__map {

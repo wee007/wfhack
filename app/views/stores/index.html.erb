@@ -3,7 +3,6 @@
 <div class="stores-maps container js-stores-maps-toggle-wrap is-list-view">
 
   <%# Contain 'filters', 'map/list toggle', and 'listings' %>
-  <%# [BACKEND] append `is-filter-applied` class to this container when a category filter has been applied %>
   <div class="js-pjax-container-stores" aria-live="polite" aria-atomic="true">
 
     <h1 class="hide-visually">Stores</h1>
@@ -58,15 +57,6 @@
 
         </div>
 
-        <%# Post filter count %>
-        <%# [BACKEND] inject this when a category filter has been applied, see the store name in the list below for further instructions %>
-        <%#<div class="stores-maps__filters-count">
-          <div class="container">
-            <p aria-atomic="true" aria-live="polite"><span class="icon icon--pin"></span> 44 Results found</p>
-          </div>
-        </div>%>
-        <%# //Post filter count %>
-
       </div>
       <%# //Filters & list/map toggle button %>
 
@@ -95,8 +85,6 @@
                   <%# Phone no %>
                   <span class="hide-fully--palm"><span class="hide-visually">Call store: </span><%= phone_format store.phone_number %></span>
                   <%# //Phone no %>
-                  <%# [BACKEND] inject this `span` when a category filter has been applied %>
-                  <%# <span class="icon icon--pin icon--flush-top"></span> %>
                 </div>
                 <%# //Store name %>
 

@@ -5,7 +5,11 @@
       # so we'll always treat it as such
       centres = $scope.selectedCentre.split( ',' )
 
-      ProductSearch.resetParams({centre: centres})
+      if centres.length > 1 || centres[0] == 'all'
+        ProductSearch.resetParams({centres: centres})
+      else
+        ProductSearch.resetParams()
+
       params = ProductSearch.params()
       queryStringParams = ParamCleaner.build(params)
 

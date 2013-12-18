@@ -75,6 +75,7 @@
       newParams = ProductSearch.params()
 
       # Never place these params into querystrings
+      delete newParams.centre
       delete newParams.super_cat
       delete newParams.category
 

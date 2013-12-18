@@ -1,0 +1,20 @@
+/* ======================================================================================
+   @OVERRIDES -> OVERRIDES
+   ====================================================================================== */
+
+/*
+  Overrides site CSS for the purpose of showing examples in the style guide
+*/
+
+/* Site feedback button */
+.btn--site-feedback {
+
+  /* Hide the default version */
+  .styleguides & {display: none;}
+
+  /* Force feedback button to show in example */
+  .sg-section & {
+    display: block;
+    position: static;
+  }
+}

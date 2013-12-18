@@ -1,0 +1,19 @@
+/* ======================================================================================
+   @MODULES -> SECTION
+   ====================================================================================== */
+
+/*
+  For separating style guide into logical groups
+*/
+
+.sg-section {
+  @include to-rem(margin-bottom, $spacing-dbl);
+
+  &:last-child {margin-bottom: 0;}
+}
+
+  /* Description of section */
+  .sg-section__desc {
+    &,
+    p {@extend %mrg-base;}
+  }

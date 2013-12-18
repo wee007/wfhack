@@ -1,0 +1,13 @@
+/* ======================================================================================
+   @BASE -> TABLES
+   ====================================================================================== */
+
+/*
+  Table displaying modifier classes and their descriptions
+*/
+
+.sg-table {
+  /* Cells */
+  th,
+  td {border-color: $color-grey-med-3;}
+}

@@ -1,0 +1,61 @@
+/* ======================================================================================
+   @LAYOUT -> CONTENT
+   ====================================================================================== */
+
+.sg-content {@extend %clear-fix;}
+
+  /* Aside */
+  .sg-aside {
+    @include respond-min($sg-breakpoint) {
+      float: left;
+      width: 300px;
+      max-height: 200px;
+      @include to-rem(padding-right, $spacing-dbl);
+
+      @include respond-min($sg-breakpoint) {
+        max-height: none;
+      }
+    }
+
+    /* Nav */
+    ul {
+      overflow-y: auto;
+      max-height: 190px;
+      @include to-rem(padding, $spacing-half);
+      @include to-rem(margin-bottom, $spacing-base);
+      background: #42444d;
+
+      @include respond-min($sg-breakpoint) {
+        max-height: none;
+      }
+    }
+
+      li {
+        margin-top: 2px;
+        color: #073642;
+
+        &:first-child {margin: 0;}
+
+          /* Links */
+          span,
+          a {
+            display: block;
+            padding: 3px 6px;
+          }
+
+          a {
+            color: $color-blue;
+
+            &:before {
+              content: "⇢";
+              display: inline-block;
+              font: normal 16px/.7 "Arial Unicode MS Regular", "Arial Unicode MS", Arial, Helvetica, sans-serif;
+              vertical-align: text-top;
+              margin-right: 6px;
+            }
+
+            &:hover,
+            &.active {color: #fff;}
+          }
+      }
+}

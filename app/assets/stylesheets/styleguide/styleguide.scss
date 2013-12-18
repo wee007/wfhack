@@ -13,8 +13,23 @@ Style Guide stylesheet
     All class names need to be prefixed with `sg-` so they're isolated to the 'Style
     Guide' pages only and don't conflict with the project styles.
 
+  Partial dir structure - see application.scss for explaination of the purpose of each dir:
+    Main site:
+      - UTILS
+        - PLACEHOLDERS
+
+    Style guide:
+      - UTILS
+      - BASE
+      - LAYOUT
+      - MODULES
+      - OVERRIDES
+
 ======================================================================================
 */
+
+/* [MAIN SITE]
+-------------------------------------------------------*/
 
 /* Utils */
 @import "../partials/utils/vars";
@@ -24,8 +39,26 @@ Style Guide stylesheet
   @import "../partials/utils/placeholders/clear-fix";
   @import "../partials/utils/placeholders/bottom-spacing";
 
-/* Style guide */
-@import "vars";
-@import "layout";
-@import "headings";
-@import "main";
+/* [STYLE GUIDE]
+-------------------------------------------------------*/
+
+/* Utils */
+@import "partials/utils/vars";
+
+/* Base */
+@import "partials/base/headings";
+@import "partials/base/main";
+@import "partials/base/tables";
+
+/* Layout */
+@import "partials/layout/header";
+@import "partials/layout/content";
+
+/* Modules */
+@import "partials/modules/section";
+@import "partials/modules/example";
+@import "partials/modules/modifier";
+@import "partials/modules/code-block";
+
+/* Overrides */
+@import "partials/overrides/overrides";

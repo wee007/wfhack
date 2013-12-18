@@ -15,6 +15,7 @@
   .sg-homepage & {
     text-transform: uppercase;
     @include font-size(60);
+    text-align: center;
   }
 }
 

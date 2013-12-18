@@ -21,7 +21,7 @@
   width: 100%;
 }
 
-/* Extend: shrink wrap */
+/* Modifier: shrink wrap */
 .flag--shrink-wrap {width: auto;}
 
   /* Image and body container */
@@ -30,7 +30,7 @@
     display: table-cell;
     vertical-align: middle;
 
-    /* Extend: different alignments */
+    /* Modifier: different alignments */
     .flag--top & {vertical-align: top;}
 
     .flag--btm & {vertical-align: bottom;}
@@ -40,7 +40,7 @@
   .flag__img {
     @include to-rem(padding-right, $spacing-base);
 
-    /* Extend: switch the padding around for when the image is on the right of `flag__body` */
+    /* Modifier: switch the padding around for when the image is on the right of `flag__body` */
     .flag--rev & {
       padding-right: 0;
       @include to-rem(padding-left, $spacing-base);

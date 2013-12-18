@@ -20,8 +20,7 @@
 //TODO: .btn-main-compact-icon
 
 /*
-  Note:
-    Extends from `.btn`, see: 'buttons/base'.
+  Note: modifier from `.btn`, see: 'buttons/base'.
 */
 
 .btn--main {
@@ -50,7 +49,7 @@
   &.is-active {box-shadow: inset 0 1px 0 rgba(#000, 0.4);}
 }
 
-	/* --Extenders-- */
+	/* --Modifiers-- */
 
 	/* -Alternate colours- */
 
@@ -138,7 +137,7 @@
 	/* Large - increase top/btm padding */
 	.btn--main-lrg {@include to-em(padding-top padding-bottom, $spacing-half+$spacing-micro);}
 
-	/* Pointer styles - used when you need to position an arrow icon over to the far right, has to be used with the `.btn--pointer` base extender */
+	/* Pointer styles - used when you need to position an arrow icon over to the far right, has to be used with the `.btn--pointer` base modifier */
 	.btn--main {
 
     /* Position icon over to the far right */
@@ -173,7 +172,7 @@
 
     &.btn--pointer-padding-lrg {@include to-em(padding-right, $spacing-dbl+$spacing-base);}
 
-    /* Flanked - position 2 icons either ends, has to be used with the `.btn--pointer` base extender */
+    /* Flanked - position 2 icons either ends, has to be used with the `.btn--pointer` base modifier */
     &.btn--main-flanked {
       @include to-em(padding, $spacing-half+$spacing-micro+$spacing-micro $spacing-dbl);
 

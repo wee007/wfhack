@@ -1,7 +1,7 @@
 <div class="header__overlay header-search-toggle drop-down" id="site-search">
   <div class="vert-align">
     <div class="vert-align__inner">
-      <div class="container" ng-controller="GlobalSearchCtrl" ng-cloak>
+      <div class="container container--position" ng-controller="GlobalSearchCtrl" ng-cloak>
 
         <%# Search form %>
         <%= form_tag centre_products_path(centre_id: params[:centre_id] || params[:id]), "ng-submit" => "submit($event)", class: "search-mini", role: "search", method: :get do %>

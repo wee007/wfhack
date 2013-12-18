@@ -12,9 +12,21 @@
 
 	/* --Apply at specific breakpoints (all pre-defined breakpoints)-- */
 
-	/* Palm */
-	@include respond-max($palm) {
-		.hide-fully--palm {display: none;}
+	/* Palm - need 3 versions for `block` (default), `inline` and `inline-block` */
+	.hide-fully--palm,
+	.hide-fully--palm-inline,
+	.hide-fully--palm-inline-block {display: none;}
+
+	/* Show the above at this breakpoint */
+	@include respond-min($non-palm) {
+		/* `block` (default) */
+		.hide-fully--palm {display: block;}
+
+		/* `inline` */
+		.hide-fully--palm-inline {display: inline;}
+
+		/* `inline-block` */
+		.hide-fully--palm-inline-block {display: inline-block;}
 	}
 
 	/* Non-palm */

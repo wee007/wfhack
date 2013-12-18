@@ -20,5 +20,5 @@
   @include font-size($font-size-milli);
 }
 
-/* Extend: apply spacing both sides */
+/* Modifier: apply spacing both sides */
 .pill--spacing {@include to-rem(margin-left margin-right, $spacing-base);}

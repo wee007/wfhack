@@ -10,6 +10,13 @@
     Style Guide -> Modules -> Section Nav
 */
 
+/* Set variables */
+/*
+	Note: this will be replaced by a dynamic breakpoint set via JS: https://jira.mywestfield.com/browse/WSF-5868.
+*/
+$section-nav-breakpoint: 1000 !default;
+
+/* Start module */
 .section-nav {
 	@include font-size($font-size-sml, 1.5);
 
@@ -26,7 +33,7 @@
 	  border-bottom: 0;
 
 	  /* Remove right margin at this breakpoint */
-		@include respond-min(1000) {
+		@include respond-min($section-nav-breakpoint) {
 	    margin-right: 0;
 	  }
 
@@ -34,7 +41,7 @@
 	  .drop-down-container--hover .drop-down {z-index: $z-index-high+1;}
 
 	  /* Hide all drop downs at this breakpoint */
-		@include respond-max(999) {
+		@include respond-max($section-nav-breakpoint - 1) {
 	    .drop-down {display: none;}
 	  }
 
@@ -57,7 +64,7 @@
   }
 
 		/* Turn off `overflow: hidden` so we can see the drop down's at this breakpoint */
-		@include respond-min(1000) {
+		@include respond-min($section-nav-breakpoint) {
 			.nav-contextual__clip__inner {
 				&,
 				.no-js & {overflow: visible;}
@@ -77,7 +84,7 @@
 			  }
 
 			  /* Turn off oversize width as we don't need the scrolling JS behaviour */
-				@include respond-min(1000) {
+				@include respond-min($section-nav-breakpoint) {
 					width: auto;
 				}
 			}
@@ -92,7 +99,7 @@
 		@include translateY(-50%);
 
 		/* Hide at this breakpoint */
-		@include respond-min(1000) {
+		@include respond-min($section-nav-breakpoint) {
 	    display: none;
 	  }
 
@@ -102,19 +109,16 @@
 
 	/* Centre selector */
 	.flag {
+		width: 100%;
 
-		/* Make full width at this breakpoint */
-		@include respond-max(420) {
-	    width: 100%;
-	  }
-
-	  /* Sit over to the right edge at this breakpoint */
+	  /* Sit over to the right edge and remove full width at this breakpoint */
 		@include respond-min(421) {
+			width: auto;
 	    float: right;
 	  }
 
 	  /* Make the nav and centre selector sit side by side at this breakpoint */
-		@include respond-min(1000) {
+		@include respond-min($section-nav-breakpoint) {
 			float: none;
 	    position: absolute;
 			right: 0;
@@ -128,15 +132,16 @@
 		.flag__img {
 			color: $color-grey-med-2;
 			@include font-size($font-size-sml, 1.5);
+			@include to-rem(padding-right, $spacing-half);
 
 			/* Bring label text into view at this breakpoint */
 			@include respond-min(421) {
 		    @include hide-visually-off;
 		  }
 
-		  /* Reduce the gutter at this breakpoint */
-			@include respond-max(999) {
-		    @include to-rem(padding-right, $spacing-half);
+		  /* Increase the gutter at this breakpoint */
+			@include respond-min($section-nav-breakpoint) {
+		    @include to-rem(padding-right, $spacing-base);
 		  }
 		}
 }
@@ -148,7 +153,7 @@
 		@include to-rem(padding-top padding-bottom, $spacing-quarter);
 
 		/* Always show at this breakpoint */
-		@include respond-min(1000) {
+		@include respond-min($section-nav-breakpoint) {
 
 			/* JS users */
 	    .js & {display: block;}

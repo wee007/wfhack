@@ -23,6 +23,12 @@ class ApplicationController < ActionController::Base
 
   def respond_to_error(status)
     status = 503 unless [404, 422, 500, 503].include?(status)
+
+    meta.push(
+      page_title: "Sorry, we couldn't find the page you requested (#{status} error) | Westfield",
+      description: "Sorry, we couldn't find the page you requested (#{status} error) at Westfield"
+    )
+
     respond_to do |format|
       format.html { render "server_errors/#{status}", layout: 'server_errors', status: status, locals: { status: status } }
       format.xml  { head status }

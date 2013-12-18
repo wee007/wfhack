@@ -24,7 +24,7 @@
 		.islet & {@include to-rem(margin-right, $spacing-half);}
 	}
 
-	/* Extend: reverse the image location (right instead of left) */
+	/* Modifier: reverse the image location (right instead of left) */
 	.slats__img--rev {
 		float: right;
 		@include to-rem(margin-left, $spacing-base);
@@ -33,7 +33,7 @@
 		.islet & {@include to-rem(margin-left, $spacing-half);}
 	}
 
-	/* Extend: remove spacing on the right/left of the image */
+	/* Modifier: remove spacing on the right/left of the image */
 	.slats__img--compact {margin-right: 0;}
 
 	.slats__img--compact.slats__img--rev {margin-left: 0;}

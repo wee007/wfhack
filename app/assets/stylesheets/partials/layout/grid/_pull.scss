@@ -113,11 +113,6 @@
 		@include pull-classes("lap-lrg-");
 	}
 
-	/* Portable */
-	@include respond-max($lap-end) {
-		@include pull-classes("portable-");
-	}
-
 	/* Desk */
 	@include respond-min($desk) {
 		@include pull-classes("desk-");

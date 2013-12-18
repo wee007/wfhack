@@ -170,6 +170,9 @@ $ipad-landscape: 1024 !default;
 /* Page container width */
 $page-container-width: 92% !default;
 
+/* Page container min width */
+$page-container-min-width: 220 !default;
+
 /* Page container max width - don't forget to update in 'old-ie.scss' */
 $page-container-max-width: 1600 !default;
 

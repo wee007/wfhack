@@ -143,9 +143,6 @@
     @include respond-min($ipad-portrait) {
       position: relative;
     }
-
-    /* Inner container */
-    .container {position: relative;}
   }
 
     /* Store meta */

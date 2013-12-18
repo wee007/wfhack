@@ -5,7 +5,7 @@
 /* Generic container */
 .container {
 	width: $page-container-width;
-	@include to-rem(min-width, 220);
+	@include to-rem(min-width, $page-container-min-width);
 	@include to-rem(max-width, $page-container-max-width);
 	margin: 0 auto;
 
@@ -15,7 +15,7 @@
 	}
 }
 
-/* --Extenders-- */
+/* --Modifiers-- */
 
 /* Wide container (full width of viewport) */
 .container--wide {

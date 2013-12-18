@@ -35,10 +35,10 @@
 	&:after {@extend %transition-subtle;}
 }
 
-	/* --Extenders-- */
+	/* --Modifiers-- */
 
 	/*
-		Note: have to increase the specificity by chaining the base `.btn` class to make it easy to override non-simple extenders.
+		Note: have to increase the specificity by chaining the base `.btn` class to make it easy to override non-simple modifiers.
 	*/
 
 	/* Make span full width of parent */

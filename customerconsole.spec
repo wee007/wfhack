@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.57
+Version:     0.2.58
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,22 @@ fi
 
 
 %changelog
+* Wed Dec 18 2013 ci <doperations@au.westfield.com> 0.2.58-1
+- Merge branch 'master' of github.dbg.westfield.com:digital/customer_console
+  (doperations@au.westfield.com)
+- Merge pull request #803 from cpearce/refactoring-framework
+  (ldewey@au.westfield.com)
+- Add meta data to error pages (ewee@au.westfield.com)
+- Finishing off the removal of all max-width media queries
+  (cpearce@au.westfield.com)
+- Check all '.container' to see if they can use '.container--position'
+  (cpearce@au.westfield.com)
+- Change all occurrences of Extenders in the CSS partial comments to Modifiers
+  (cpearce@au.westfield.com)
+- Removing all max-width media queries to be truly mobile first
+  (cpearce@au.westfield.com)
+- Removing '.portable' classes (cpearce@au.westfield.com)
+
 * Wed Dec 18 2013 ci <doperations@au.westfield.com> 0.2.57-1
 - 
 

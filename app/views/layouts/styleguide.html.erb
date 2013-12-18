@@ -25,11 +25,11 @@
     <%# //Menu toggle button for palm/small tablet devices %>
 
     <%# Main navigation %>
-    <nav role="navigation" aria-label="Main navigation">
-      <ul class="sg-nav-main toggle-visibility" id="sg-header-menu-toggle">
+    <nav class="sg-nav-main toggle-visibility" id="sg-header-menu-toggle" role="navigation" aria-label="Main navigation">
+      <ul>
         <% Styleguide::TREE.each_with_index do |sg, major| %>
           <% if sg.is_a? Hash %><li>
-              <span><%= sg['name'] %>:</span>
+              <%= sg['name'] %>:
               <ul>
                 <% sg['sections'].each_with_index do |sgc, minor| %>
                 <% slug = ActiveSupport::Inflector.parameterize("#{sg['name']} #{sgc}") %>

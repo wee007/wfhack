@@ -25,4 +25,7 @@ Style Guide stylesheet
   @import "../partials/utils/placeholders/bottom-spacing";
 
 /* Style guide */
+@import "vars";
+@import "layout";
+@import "headings";
 @import "main";

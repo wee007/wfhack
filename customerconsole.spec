@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.60
+Version:     0.2.61
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,26 @@ fi
 
 
 %changelog
+* Thu Dec 19 2013 ci <doperations@au.westfield.com> 0.2.61-1
+- Merge branch 'master' of github.dbg.westfield.com:digital/customer_console
+  (doperations@au.westfield.com)
+- Merge pull request #807 from fchan/search-focus (ben@germanforblack.com)
+- Merge pull request #805 from fchan/polish (ben@germanforblack.com)
+- Merge pull request #814 from bschwarz/on-sale-further-fix
+  (ben@germanforblack.com)
+- Fixes a bug where multiple centres could be into the url
+  /bondi,other/products. (ben@germanforblack.com)
+- Update global search focus JS (fiona@fionachan.net)
+- Update class names and change to coffee script (fiona@fionachan.net)
+- Add init function (fiona@fionachan.net)
+- update comment (fiona@fionachan.net)
+- Move txt-formatted class (fiona@fionachan.net)
+- Unfocus search field when it's not visible (fiona@fionachan.net)
+- Added back in h2 and removed redundant div (fiona@fionachan.net)
+- Move global search focus script to separate file (fiona@fionachan.net)
+- WSF-5375: Set focus on global search input when it's opened via toggle
+  trigger (fiona@fionachan.net)
+
 * Thu Dec 19 2013 ci <doperations@au.westfield.com> 0.2.60-1
 - 
 

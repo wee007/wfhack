@@ -23,7 +23,6 @@ Style Guide stylesheet
       - BASE
       - LAYOUT
       - MODULES
-      - OVERRIDES
 
 ======================================================================================
 */
@@ -61,4 +60,4 @@ Style Guide stylesheet
 @import "partials/modules/code-block";
 
 /* Overrides */
-@import "partials/overrides/overrides";
+@import "partials/utils/overrides";

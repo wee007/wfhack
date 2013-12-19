@@ -1,4 +1,4 @@
-module StyleguidesHelper
+module StyleguideHelper
   @@named_examples = {}
   @@script = ''
 
@@ -13,7 +13,7 @@ module StyleguidesHelper
 
     @content = capture(&block).strip
 
-    render 'styleguides/styleguide_block',
+    render 'styleguide/styleguide_block',
       section: @section,
       example_html: @content,
       named_examples: @@named_examples,
@@ -24,7 +24,7 @@ module StyleguidesHelper
     raise ArgumentError, "Missing code example" unless block_given?
     content = capture(&block).strip
 
-    render 'styleguides/styleguide_block_static',
+    render 'styleguide/styleguide_block_static',
       title: title,
       description: description,
       example_html: content

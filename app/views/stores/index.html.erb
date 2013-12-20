@@ -2,7 +2,7 @@
 
 <div class="stores-maps container js-stores-maps-toggle-wrap is-list-view">
 
-  <%# Contain 'filters', 'map/list toggle', and 'listings' %>
+  <%# Contain 'category filter', 'map/list toggle', and 'listings' %>
   <div class="js-pjax-container-stores" aria-live="polite" aria-atomic="true">
 
     <h1 class="hide-visually">Stores</h1>
@@ -24,27 +24,121 @@
           <h2 class="stores-maps__filters-toggle__hdr hide-visually">Stores A-Z</h2>
 
           <%# Filters %>
+          <div class="stores-maps__filters">
 
-              <li class="drop-down-menu drop-down-container">
-                <button class="drop-down-menu__trigger btn btn--main btn--main-dark btn--pointer btn--pointer-padding-med" toggle-visibility="stores-filters">Category<span aria-hidden="true" class="icon icon--lrg icon--arrow-down-full btn--pointer__icon"></span></button>
-                <div class="drop-down-menu__target drop-down-menu__target--alt-width-palm drop-down pointer-up box box--drop-down" id="stores-filters">
+            <p class="hide-visually">Filter stores by <strong>Category</strong> and whether they accept <strong>Gift cards</strong>.</p>
+
+            <%# Category %>
+            <%# [BACKEND] When a category has been selected remove the Category filter HTML from the DOM, if cannot remove from the DOM then append `hide-fully` class to this `div` %>
+            <div class="stores-maps__filters__item drop-down-menu drop-down-container hide-fullyx">
+
+              <%# Drop down trigger %>
+              <button class="drop-down-menu__trigger btn btn--main btn--main-dark btn--pointer btn--pointer-padding-med js-disabled-hide" toggle-visibility="category-store-filter">
+                Category
+                <span class="hide-visually"> filter</span>
+                <span aria-hidden="true" class="icon icon--lrg icon--arrow-down-full btn--pointer__icon"></span>
+              </button>
+              <%# //Drop down trigger %>
+
+              <%# Drop down target %>
+              <div class="drop-down-menu__target drop-down-menu__target--alt-width-palm drop-down pointer-up box box--drop-down" id="category-store-filter">
+
+                <%# T1 categories %>
+                <%# [BACKEND] when a T1 has been selected remove `is-active` class to hide it, bring it back when the 'Back' button is selected in the relevant T2's header %>
+                <ul id="stores-t1-categories" class="drop-down-menu__list toggle-visibility is-actives">
+                  <li class="drop-down-menu__divider">
+                    <%# [BACKEND]
+                      the T1 links to it's T2 via the T2's `id` and each T1 link needs a unique `id`, just increment the number at the end of the `id`s, the following ARIA attr's are needed:
+                      -
+                    %>
+                    <a href="#stores-t2-category-1" id="stores-t1-category-1" class="drop-down-menu__hdr-btn btn btn--full btn--full-left btn--pointer">
+                      Health Services
+                      <span class="hide-visually"> (view sub categories)</span>
+                      <span class="icon icon--arrow-right-big icon--lrg btn--pointer__icon js-disabled-hide" aria-hidden="true"></span>
+                    </a>
+                    <%# [BACKEND]
+                      For when gift cards aren't available for a category i.e. disabled state, HTML is the same accept for:
+                      - `a` changes to a `div`.
+                      - Add `is-disabled is-disabled--no-hover` classes to the `div`.
+                      - Change the text in the nested `span`.
+                    %>
+                    <!-- <div class="drop-down-menu__hdr-btn btn btn--full btn--full-left btn--pointer is-disabled is-disabled--no-hover">
+                      [T1 category]
+                      <span class="hide-visually"> (gift cards not available for this category)</span>
+                      <span class="icon icon--arrow-right-big icon--lrg btn--pointer__icon js-disabled-hide" aria-hidden="true"></span>
+                    </div> -->
+                    <%# [BACKEND]
+                      For when T1's don't have T2's, these links needs to render at the bottom of the list, HTML is the same accept for:
+                      - 2 nested `span`s aren't needed.
+                      - Don't require any ARIA attr's.
+                      If you need a way to target these links you could filter it by the URL in the `href` e.g. if `http://` is present, if a class is easier then use `is-childless`.
+                    %>
+                    <!-- <a href="#" class="drop-down-menu__hdr-btn btn btn--full btn--full-left btn--pointer">[T1 category]</a> -->
+                  </li>
+                </ul>
+                <%# //T1 categories %>
+
+                <%# T2 categories %>
+                <%# [BACKEND] the display of the T2 categories are handled via the `is-active` class, when a T1 has been selected append `is-active` to the container `div` and remove the `is-active` from the T1 container `div` %>
+                <div id="stores-t2-category-1" class="toggle-visibility is-active">
+                  <div class="drop-down-menu__hdr drop-down-menu__divider islet">
+                    <h3>[T2 category]</h3>
+                    <%# [BACKEND] simple anchor link that links to the T1 category container `ul` %>
+                    <a href="#stores-t1-categories" class="btn js-disabled-hide">
+                      <span class="hide-visually">Back to main categories</span>
+                      <span class="icon icon--arrow-left-big icon--lrg" aria-hidden="true"></span>
+                    </a>
+                  </div>
                   <ul class="drop-down-menu__list">
-                    <li class="drop-down-menu__divider"><button class="btn btn--full btn--full-left">Women's Fashion</button></li>
-                    <li class="drop-down-menu__divider"><button class="btn btn--full btn--full-left">Shoes &amp; Footwear</button></li>
-                    <li class="drop-down-menu__divider"><button class="btn btn--full btn--full-left">Jewellery &amp; Watches</button></li>
-                    <li class="drop-down-menu__divider"><button class="btn btn--full btn--full-left">Bags &amp; Luggage</button></li>
-                    <li class="drop-down-menu__divider"><button class="btn btn--full btn--full-left">Computers &amp; Electronics</button></li>
-                    <li class="drop-down-menu__divider"><button class="btn btn--full btn--full-left">Movies &amp; Music</button></li>
-                    <li class="drop-down-menu__divider"><button class="btn btn--full btn--full-left">Women's Fashion</button></li>
-                    <li class="drop-down-menu__divider"><button class="btn btn--full btn--full-left">Shoes &amp; Footwear</button></li>
-                    <li class="drop-down-menu__divider"><button class="btn btn--full btn--full-left">Jewellery &amp; Watches</button></li>
-                    <li class="drop-down-menu__divider"><button class="btn btn--full btn--full-left">Bags &amp; Luggage</button></li>
-                    <li class="drop-down-menu__divider"><button class="btn btn--full btn--full-left">Computers &amp; Electronics</button></li>
-                    <li class="drop-down-menu__divider"><button class="btn btn--full btn--full-left">Movies &amp; Music</button></li>
+                    <li class="drop-down-menu__divider">
+                      <a href="#" class="btn btn--full btn--full-left">[T2 category]</a>
+                      <%# [BACKEND] for when gift cards aren't available for a category i.e. disabled state, HTML is the same as above but changes to a `div` and gets the `is-disabled` class, also a nested `span` is added %>
+                      <!-- <div class="btn btn--full btn--full-left is-disabled">
+                        [T2 sub category]
+                        <span class="hide-visually"> (gift cards not available for this category)</span>
+                      </div> -->
+                    </li>
                   </ul>
                 </div>
-              </li>
+                <%# //T2 categories %>
 
+              </div>
+              <%# //Drop down target %>
+
+            </div><!--
+            <%# //Category %>
+
+            <%# Applied category %>
+            <%# [BACKEND] this shouldn't be in the DOM until a category has been selected, if it can't be removed from the DOM then use class `hide-fully` on the `form` %>
+            --><form action="" method="get" class="stores-maps__filters__item hide-fully">
+                <legend class="hide-visually">Clear the filtered category from the stores list</legend>
+                <button type="submit" class="tags__btn tags__btn--solo btn">
+                  <span class="txt-truncate">Specialty Health Providers</span>
+                  <span class="icon icon--close-sml icon--lrg icon--flush-top" aria-hidden="true"></span>
+                </button>
+            </form><!--
+            <%# //Applied category %>
+
+            <%# Gift card filter %>
+            --><form action="" method="get" class="stores-maps__filters__item">
+                <legend class="hide-visually">Gift card filter</legend>
+                <%# [BACKEND] when the gift card checkbox is checked append class `is-active` to the `label` and when gift cards aren't available in categories append class `is-disabled` onto the `label` and see below for further instructions %>
+                <label for="gift-card-store-filter" class="btn btn--main btn--main-dark btn--main-checkbox-toggle btn--main-checkbox-toggle-icon">
+                  <%# [BACKEND] when gift cards aren't available in categories append `disabled` attr onto the `checkbox` %>
+                  <input id="gift-card-store-filter" type="checkbox" class="btn--main-checkbox-toggle__input">
+                  <span class="btn--main-checkbox-toggle__lbl">
+                    <span class="hide-visually">Westfield </span>
+                    Gift Card
+                    <span class="hide-visually"> accepted</span>
+                    <span aria-hidden="true" class="icon icon--gift-card icon--xlrg icon--flush-top-mozilla"></span>
+                  </span>
+                </label>
+                <%# [BACKEND] use this submit button to submit the above checkbox when JS is disabled and when gift cards aren't available in categories append `disabled` attr onto the `button` %>
+                <button type="submit" class="js-enabled-hide">Go</button>
+            </form>
+            <%# //Gift card filter %>
+
+          </div>
           <%# //Filters %>
 
           <%# List/map toggle %>
@@ -67,6 +161,7 @@
 
             <dt>
               <div class="stores-list__inner container">
+                <%# [BACKEND] this should just go back to rendering the letter only %>
                 <% if @letter == 'All' %>
                   <%= letter %>
                 <% else %>
@@ -147,7 +242,7 @@
 
     </div>
   </div>
-  <%# //Contain 'filters', 'map/list toggle', and 'listings' %>
+  <%# //Contain 'category filter', 'map/list toggle', and 'listings' %>
 
   <%# Map %>
   <div class="stores-maps__map map-micello js-stores-maps-toggle-map" id="stores-maps-toggle-map">

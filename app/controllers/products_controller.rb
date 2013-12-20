@@ -114,7 +114,7 @@ class ProductsController < ApplicationController
     @cam_ref = @product.retail_chain.cam_ref
 
     if @cam_ref.present?
-      ad_ref = @product.try('[]', 0).try(:super_category).try(:code) || ''
+      ad_ref = @product.categories.try('[]', 0).try(:super_category).try(:code) || ''
 
       # FIXME: Needed once authentication installed
       # customer_id = cas_session.user_id

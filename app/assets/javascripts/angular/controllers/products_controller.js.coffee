@@ -4,6 +4,6 @@
 
     $scope.$on '$routeChangeSuccess', (event, to, from) ->
       unless from == undefined or from == to
-        Products.get document.location.pathname, ProductSearch.params()
+        Products.get '/products-xhr', ProductSearch.params()
   ]
 ) angular.module("Westfield")

@@ -29,6 +29,7 @@ CustomerConsole::Application.routes.draw do
   get 'api', to: redirect('/api/index.html') # This lets /api work, not just /api/
   get 'terms-conditions' => 'pages#terms_conditions'
   get 'privacy-policy' => 'pages#privacy_policy'
+  get 'products-xhr' => "products#index_xhr", as: 'product_xhr'
   Routes::ProductRoutes.draw self, 'national'
   get '/au/shopping/*request_path' => 'redirector#shopping'
 

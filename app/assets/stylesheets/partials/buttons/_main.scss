@@ -31,8 +31,8 @@
 
   /* Bg colour combined with disabled state */
   &,
-  &[disabled],
-  &.is-disabled {background-color: $color-green;}
+  &[disabled].btn,
+  &.is-disabled.btn {background-color: $color-green;}
 
   /* Parent + pseudo classes */
   &,
@@ -57,8 +57,8 @@
 	.btn--main-blue {
 		/* Bg colour combined with disabled state */
 		&,
-		&[disabled],
-		&.is-disabled {background-color: $color-blue;}
+		&[disabled].btn,
+		&.is-disabled.btn {background-color: $color-blue;}
 
 		/* Hover and focus states */
 		&:hover,
@@ -69,8 +69,8 @@
 	.btn--main-dark {
 		/* Bg colour combined with disabled state */
 		&,
-		&[disabled],
-		&.is-disabled {background-color: $color-grey-dark-3;}
+		&[disabled].btn,
+		&.is-disabled.btn {background-color: $color-grey-dark-3;}
 
 		/* Hover and focus states */
 		&:hover,
@@ -83,8 +83,8 @@
 
 		/* Bg colour combined with disabled state */
 		&,
-		&[disabled],
-		&.is-disabled {background-color: $color-grey-light-2;}
+		&[disabled].btn,
+		&.is-disabled.btn {background-color: $color-grey-light-2;}
 
 		/* Parent + pseudo classes */
 		&,
@@ -107,8 +107,8 @@
 
 		/* Bg colour combined with disabled state */
 		&,
-		&[disabled],
-		&.is-disabled {background-color: #fff;}
+		&[disabled].btn,
+		&.is-disabled.btn {background-color: #fff;}
 
 		/* Parent + pseudo classes */
 		&,
@@ -210,5 +210,5 @@
     /* Checkbox */
     .btn--main-checkbox-toggle__input {
       cursor: pointer;
-      @include to-rem(margin-right, $spacing-third);
+      @include to-rem(margin-right, $spacing-sixth);
     }

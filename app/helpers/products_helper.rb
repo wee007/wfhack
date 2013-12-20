@@ -16,11 +16,19 @@ module ProductsHelper
   end
 
   def prev_page_url
-    url_for(params.merge({page: (@search.page - 1)}))
+    url_for pagination_params @search.page - 1
   end
 
   def next_page_url
-    url_for(params.merge({page: (@search.page + 1)}))
+    url_for pagination_params @search.page + 1
+  end
+
+  def pagination_params(page)
+    params_dup = params.dup
+    params_dup[:centre_id] = params_dup.delete :centre if params_dup[:centre]
+    params_dup[:action] = params_dup[:centre_id] ? 'index_centre' : 'index_national'
+    params_dup[:page] = page
+    params_dup
   end
 
   private

@@ -103,6 +103,7 @@
 
       /* Back button */
       .btn {
+        color: $color-grey-dark-2;
         position: absolute;
         top: 50%;
         left: 0;
@@ -162,9 +163,15 @@
         top: -8px;
       }
 
-      /* Hide for IE 9/8 */
+      /* Hide for IE 9/8 and non JS users */
+
+      /*
+        Note: it is okay to use `!important` here as we're doing it pre-emptively i.e. you know you will always want the rule it's applied too to take precedence.
+      */
+
       .ie-9 &,
-      .old-ie & {display: none;}
+      .old-ie &,
+      .no-js & {display: none !important;}
     }
 
     /* List */

@@ -2,7 +2,7 @@
 
 <div class="stores-maps container js-stores-maps-toggle-wrap is-list-view">
 
-  <%# Contain 'category filter', 'map/list toggle', and 'listings' %>
+  <%# Contain 'filters', 'map/list toggle', and 'listings' %>
   <div class="js-pjax-container-stores" aria-live="polite" aria-atomic="true">
 
     <h1 class="hide-visually">Stores</h1>
@@ -30,7 +30,16 @@
 
             <%# Category %>
             <%# [BACKEND] When a category has been selected remove the Category filter HTML from the DOM, if cannot remove from the DOM then append `hide-fully` class to this `div` %>
-            <div class="stores-maps__filters__item drop-down-menu drop-down-container hide-fullyx">
+            <div class="stores-maps__filters__item drop-down-menu drop-down-container">
+
+              <%#
+                [BACKEND] following keyboard behaviour is required:
+                - ENTER/SPACE key opens the drop down when focused on the drop down trigger.
+                - Only 1 tab stop which should only be the 'Drop down trigger'. So all links need `tabindex="-1"`.
+                - When the drop down is open set focus to the 1st link so if the T2 category menu is open set focus to the 'Back' link.
+                - Down/up arrow keys sets focus to the links and cylces through i.e. if you get to the last link and hit down arrow key you'll go the top link.
+                - See here for example: http://dl.dropboxusercontent.com/u/1065747/csun13/with_aria.html.
+              %>
 
               <%# Drop down trigger %>
               <button class="drop-down-menu__trigger btn btn--main btn--main-dark btn--pointer btn--pointer-padding-med js-disabled-hide" toggle-visibility="category-store-filter">
@@ -44,46 +53,41 @@
               <div class="drop-down-menu__target drop-down-menu__target--alt-width-palm drop-down pointer-up box box--drop-down" id="category-store-filter">
 
                 <%# T1 categories %>
-                <%# [BACKEND] when a T1 has been selected remove `is-active` class to hide it, bring it back when the 'Back' button is selected in the relevant T2's header %>
-                <ul id="stores-t1-categories" class="drop-down-menu__list toggle-visibility is-actives">
+                <%# [BACKEND] when a T1 has been selected remove `is-active` class to hide it, bring it back when the 'Back' anchor is selected in the relevant T2's header %>
+                <ul id="stores-t1-categories" class="drop-down-menu__list toggle-visibility is-active">
                   <li class="drop-down-menu__divider">
-                    <%# [BACKEND]
-                      the T1 links to it's T2 via the T2's `id` and each T1 link needs a unique `id`, just increment the number at the end of the `id`s, the following ARIA attr's are needed:
-                      -
+                    <%#
+                      [BACKEND] the T1 links to it's T2 via the T2's `id` (make sure the `id` isn't in the URL) and each T1 link that has children needs a unique `id` for ARIA, just increment the number at the end of the `id`s, the following ARIA attr's are needed:
+                      - `aria-haspopup="true"`.
+                      - `aria-controls="id-of-T2-container"`.
                     %>
                     <a href="#stores-t2-category-1" id="stores-t1-category-1" class="drop-down-menu__hdr-btn btn btn--full btn--full-left btn--pointer">
                       Health Services
                       <span class="hide-visually"> (view sub categories)</span>
                       <span class="icon icon--arrow-right-big icon--lrg btn--pointer__icon js-disabled-hide" aria-hidden="true"></span>
                     </a>
-                    <%# [BACKEND]
-                      For when gift cards aren't available for a category i.e. disabled state, HTML is the same accept for:
-                      - `a` changes to a `div`.
-                      - Add `is-disabled is-disabled--no-hover` classes to the `div`.
-                      - Change the text in the nested `span`.
-                    %>
+                    <%# [BACKEND] for when gift cards aren't available for a category i.e. disabled state, make sure no ARIA attr's are applied %>
                     <!-- <div class="drop-down-menu__hdr-btn btn btn--full btn--full-left btn--pointer is-disabled is-disabled--no-hover">
                       [T1 category]
                       <span class="hide-visually"> (gift cards not available for this category)</span>
                       <span class="icon icon--arrow-right-big icon--lrg btn--pointer__icon js-disabled-hide" aria-hidden="true"></span>
                     </div> -->
-                    <%# [BACKEND]
-                      For when T1's don't have T2's, these links needs to render at the bottom of the list, HTML is the same accept for:
-                      - 2 nested `span`s aren't needed.
-                      - Don't require any ARIA attr's.
-                      If you need a way to target these links you could filter it by the URL in the `href` e.g. if `http://` is present, if a class is easier then use `is-childless`.
-                    %>
+                    <%# [BACKEND] for when T1's don't have T2's, these links needs to render at the bottom of the list, if you need a way to target these links use `is-childless`, make sure no ARIA attr's are applied %>
                     <!-- <a href="#" class="drop-down-menu__hdr-btn btn btn--full btn--full-left btn--pointer">[T1 category]</a> -->
                   </li>
                 </ul>
                 <%# //T1 categories %>
 
                 <%# T2 categories %>
-                <%# [BACKEND] the display of the T2 categories are handled via the `is-active` class, when a T1 has been selected append `is-active` to the container `div` and remove the `is-active` from the T1 container `div` %>
-                <div id="stores-t2-category-1" class="toggle-visibility is-active">
+                <%#
+                  [BACKEND] the display of the T2 categories are handled via the `is-active` class, when a T1 has been selected append `is-active` to the container `div` and remove the `is-active` from the T1 container `div`. The following ARIA attr's are needed:
+                  - `aria-hidden`, default value is `true`, when it's in view it should be `false`.
+                  - `aria-labelledby="id-of-T1-anchor"`.
+                %>
+                <div id="stores-t2-category-1" class="toggle-visibility">
                   <div class="drop-down-menu__hdr drop-down-menu__divider islet">
                     <h3>[T2 category]</h3>
-                    <%# [BACKEND] simple anchor link that links to the T1 category container `ul` %>
+                    <%# [BACKEND] simple anchor link that links to the T1 category container `ul`, make sure the `id` isn't in the URL %>
                     <a href="#stores-t1-categories" class="btn js-disabled-hide">
                       <span class="hide-visually">Back to main categories</span>
                       <span class="icon icon--arrow-left-big icon--lrg" aria-hidden="true"></span>
@@ -92,7 +96,7 @@
                   <ul class="drop-down-menu__list">
                     <li class="drop-down-menu__divider">
                       <a href="#" class="btn btn--full btn--full-left">[T2 category]</a>
-                      <%# [BACKEND] for when gift cards aren't available for a category i.e. disabled state, HTML is the same as above but changes to a `div` and gets the `is-disabled` class, also a nested `span` is added %>
+                      <%# [BACKEND] for when gift cards aren't available for a category i.e. disabled state %>
                       <!-- <div class="btn btn--full btn--full-left is-disabled">
                         [T2 sub category]
                         <span class="hide-visually"> (gift cards not available for this category)</span>
@@ -110,13 +114,13 @@
 
             <%# Applied category %>
             <%# [BACKEND] this shouldn't be in the DOM until a category has been selected, if it can't be removed from the DOM then use class `hide-fully` on the `form` %>
-            --><form action="" method="get" class="stores-maps__filters__item hide-fully">
+            --><!-- <form action="" method="get" class="stores-maps__filters__item">
                 <legend class="hide-visually">Clear the filtered category from the stores list</legend>
                 <button type="submit" class="tags__btn tags__btn--solo btn">
                   <span class="txt-truncate">Specialty Health Providers</span>
                   <span class="icon icon--close-sml icon--lrg icon--flush-top" aria-hidden="true"></span>
                 </button>
-            </form><!--
+            </form> --><!--
             <%# //Applied category %>
 
             <%# Gift card filter %>
@@ -237,7 +241,7 @@
 
     </div>
   </div>
-  <%# //Contain 'category filter', 'map/list toggle', and 'listings' %>
+  <%# //Contain 'filters', 'map/list toggle', and 'listings' %>
 
   <%# Map %>
   <div class="stores-maps__map map-micello js-stores-maps-toggle-map" id="stores-maps-toggle-map">

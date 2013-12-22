@@ -211,4 +211,7 @@
     .btn--main-checkbox-toggle__input {
       cursor: pointer;
       @include to-rem(margin-right, $spacing-sixth);
+
+      /* Make focus state seen when using dark colour */
+      .btn--main-dark &:focus {outline-color: #fff;}
     }

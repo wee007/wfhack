@@ -46,25 +46,25 @@ $.fn.toggleContent = function(options, toggleBtnWrap, toggleBtnTrigger, btnTxtOp
 
     // Show content
     showContent = function(toggleBtnTrigger) {
-      toggleBtnTrigger.removeClass(btnOpenClass).addClass(btnCloseClass).html(btnTxtClose);
-      toggleContentWrap.show().attr('aria-expanded', 'true');
+      toggleBtnTrigger.removeClass(btnOpenClass).addClass(btnCloseClass).html(btnTxtClose).attr('aria-expanded', 'true');
+      toggleContentWrap.show();
     }
 
     // Hide content
     hideContent = function(toggleBtnTrigger) {
-      toggleBtnTrigger.removeClass(btnCloseClass).addClass(btnOpenClass).html(btnTxtOpen);
-      toggleContentWrap.hide().attr('aria-expanded', 'false');
+      toggleBtnTrigger.removeClass(btnCloseClass).addClass(btnOpenClass).html(btnTxtOpen).attr('aria-expanded', 'false');
+      toggleContentWrap.hide();
     }
 
     // When clicking on the toggle button
     toggleBtnTrigger.click(function() {
       if (toggleContentWrap.is(':visible')) {
-        toggleContentWrap.slideUp(toggleSpeed).attr('aria-expanded', 'false');
-        toggleBtnTrigger.removeClass(btnCloseClass).addClass(btnOpenClass).html(btnTxtOpen);
+        toggleContentWrap.slideUp(toggleSpeed);
+        toggleBtnTrigger.removeClass(btnCloseClass).addClass(btnOpenClass).html(btnTxtOpen).attr('aria-expanded', 'false');
       } else {
-        toggleBtnTrigger.removeClass(btnOpenClass).addClass(btnCloseClass).html(btnTxtClose);
+        toggleBtnTrigger.removeClass(btnOpenClass).addClass(btnCloseClass).html(btnTxtClose).attr('aria-expanded', 'true');
         toggleContentWrap.slideDown(toggleSpeed, function() {
-          $(this).attr({'aria-expanded' : 'true', 'tabindex' : -1}).focus();
+          $(this).attr('tabindex', -1).focus();
         });
       }
     });
@@ -72,7 +72,7 @@ $.fn.toggleContent = function(options, toggleBtnWrap, toggleBtnTrigger, btnTxtOp
     // Link the toggle button to the toggle content via ARIA `aria-controls` attr using a dynamically generated `id` on the toggle content panel
     var id = Math.floor(Math.random()*100);
     toggleContentWrap.attr('id', 'toggle-content-' + id);
-    toggleBtnTrigger.attr('aria-controls', 'toggle-content-' + id);
+    toggleBtnTrigger.attr({'aria-controls' : 'toggle-content-' + id, 'aria-expanded' : 'false'});
 
     // If toggle content is visible by default
     if (shownByDefault) {

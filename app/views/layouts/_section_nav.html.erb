@@ -1,49 +1,52 @@
 <% if @centre.present? && @search.products.present? %>
-<div ng-controller="ActiveCategoryNavController" class="section-nav container container--wide container--dark">
+  <div ng-controller="ActiveCategoryNavController" class="section-nav container container--wide container--dark">
 
-  <%# Section nav %>
-  <div class="container container--position">
-    <div class="nav-contextual nav-contextual--dark js-nav-contextual js-viewport-check">
-      <div class="nav-contextual__clip">
-        <nav class="nav-contextual__clip__inner" role="navigation" aria-label="<%= params[:controller].humanize %> categories navigation">
-          <ul class="nav-contextual__list horiz-list js-nav-contextual-list"><%=
-              render(
-                :collection => @super_categories,
-                :partial => 'categories/super_cat_nav',
-                :as => :category
-              )
-            -%></ul>
-        </nav>
-        <span class="nav-contextual__clip__overlay icon icon--arrow-right icon--mega icon--flush-top js-nav-contextual-clip-overlay" aria-hidden="true"></span>
-      </div>
-    </div>
-    <%# Show products/deals/events centre selector toggle button %>
-    <button type="button" class="btn btn--main btn--main-white btn--main-compact-icon-sml" toggle-visibility="show-products-deals-events-toggle">
-      <span class="hide-visually">Show <%= params[:controller] %> shopping centre select menu</span>
-      <span class="icon icon--ellipsis-horizontal icon--xlrg icon--flush-top" aria-hidden="true"></span>
-    </button>
-    <%# //Show products/deals/events centre selector toggle button %>
-  </div>
-  <%# //Section nav %>
-
-  <%# Show products/deals/events centre selector %>
-  <div class="section-nav__centre-selector container--wide toggle-visibility js-disabled-hide" id="show-products-deals-events-toggle">
+    <%# Section nav %>
     <div class="container container--position">
-      <div class="flag flag--shrink-wrap">
-        <div class="flag__img hide-visually">
-          <label for="show-products-deals-events">Show <%= params[:controller] %> at</label>
+
+      <div class="nav-contextual nav-contextual--dark js-nav-contextual js-viewport-check">
+        <div class="nav-contextual__clip">
+          <nav class="nav-contextual__clip__inner" role="navigation" aria-label="<%= params[:controller].humanize %> categories navigation">
+            <ul class="nav-contextual__list horiz-list js-nav-contextual-list"><%=
+                render(
+                  :collection => @super_categories,
+                  :partial => 'categories/super_cat_nav',
+                  :as => :category
+                )
+              -%></ul>
+          </nav>
+          <span class="nav-contextual__clip__overlay icon icon--arrow-right icon--mega icon--flush-top js-nav-contextual-clip-overlay" aria-hidden="true"></span>
         </div>
-        <div class="flag__body">
-          <select class="one-whole" ng-controller="CentreSelectorController" ng-model="selectedCentre" ng-change="selectCentre()" ng-init="selectedCentre='<%= @centre.code %>'" id="show-products-deals-events">
-            <option value="<%= @centre.code %>"><%= @centre.short_name %></option>
-            <option value="<%= ([@centre] + @nearby_centres).map{|c| c.code}.join(',') %>"><%= @centre.short_name %> &amp; nearby centres</option>
-            <option value="all">All Centres</option>
-          </select>
+      </div>
+
+      <%# Show products/deals/events centre selector toggle button %>
+      <button type="button" class="btn btn--main btn--main-white btn--main-compact-icon-sml" toggle-visibility="show-products-deals-events-toggle">
+        <span class="hide-visually">Show <%= params[:controller] %> shopping centre select menu</span>
+        <span class="icon icon--ellipsis-horizontal icon--xlrg icon--flush-top" aria-hidden="true"></span>
+      </button>
+      <%# //Show products/deals/events centre selector toggle button %>
+
+    </div>
+    <%# //Section nav %>
+
+    <%# Show products/deals/events centre selector %>
+    <div class="section-nav__centre-selector container--wide toggle-visibility js-disabled-hide" id="show-products-deals-events-toggle">
+      <div class="container container--position">
+        <div class="flag flag--shrink-wrap">
+          <div class="flag__img hide-visually">
+            <label for="show-products-deals-events">Show <%= params[:controller] %> at</label>
+          </div>
+          <div class="flag__body">
+            <select class="one-whole" ng-controller="CentreSelectorController" ng-model="selectedCentre" ng-change="selectCentre()" ng-init="selectedCentre='<%= @centre.code %>'" id="show-products-deals-events">
+              <option value="<%= @centre.code %>"><%= @centre.short_name %></option>
+              <option value="<%= ([@centre] + @nearby_centres).map{|c| c.code}.join(',') %>"><%= @centre.short_name %> &amp; nearby centres</option>
+              <option value="all">All Centres</option>
+            </select>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <%# //Show products/deals/events centre selector %>
+    <%# //Show products/deals/events centre selector %>
 
-</div>
+  </div>
 <%- end -%>

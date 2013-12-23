@@ -10,7 +10,9 @@
           <input type="hidden" ng-model="centre" value="<%= params[:centre_id] || params[:id] %>">
           <input ng-model="searchQuery" ng-blur="hideSuggestions()" ng-focus="makeSuggestions()" ng-keyup="makeSuggestions($event)" ng-keydown="navigateSuggestions($event)" type="search" class="search-mini__input" id="global-search" name="search_query" autocomplete="off" placeholder="Search stores &amp; products&#8230;">
           <input type="submit" value="Search" ng-hide="true" class="search-mini__submit">
-          <em role="status" aria-live="polite" class="hide-visually"><span ng-if="suggestions" ng-pluralize count="{{suggestions.stores.length + suggestions.products.length}}" when="searchResultText()"></span></em>
+          <em role="status" aria-live="polite" class="hide-visually">
+            <span ng-if="suggestions" ng-pluralize count="{{suggestions.stores.length + suggestions.products.length}}" when="searchResultText()"></span>
+          </em>
         <% end %>
         <%# //Search form %>
 
@@ -19,19 +21,16 @@
           <div class="search-results__inner">
             <dl class="search-results__list">
               <dt class="search-results__list__spacing" ng-if="suggestions.stores">
-                <span aria-hidden="true" class="icon icon--store icon--xlrg"></span> Stores</dt>
+                <span aria-hidden="true" class="icon icon--store icon--xlrg"></span> Stores
+              </dt>
               <dd ng-repeat="suggestion in suggestions.stores" role="presentation">
-                <a ng-class="{'is-focused': suggestion === focusedSuggestion}"
-                  ng-href="{{url(suggestion)}}" tabindex="-1">
-                  {{suggestion.description}}
-                </a>
+                <a ng-class="{'is-focused': suggestion === focusedSuggestion}" ng-href="{{url(suggestion)}}" tabindex="-1">{{suggestion.description}}</a>
               </dd>
-              <dt ng-if="suggestions.products"><span aria-hidden="true" class="icon icon--products icon--xlrg"></span> Products</dt>
+              <dt ng-if="suggestions.products">
+                <span aria-hidden="true" class="icon icon--products icon--xlrg"></span> Products
+              </dt>
               <dd ng-repeat="suggestion in suggestions.products" role="presentation">
-                <a ng-class="{'is-focused': suggestion === focusedSuggestion}"
-                   ng-href="{{url(suggestion)}}" tabindex="-1">
-                  {{suggestion.description}}
-                </a>
+                <a ng-class="{'is-focused': suggestion === focusedSuggestion}" ng-href="{{url(suggestion)}}" tabindex="-1">{{suggestion.description}}</a>
               </dd>
             </dl>
           </div>

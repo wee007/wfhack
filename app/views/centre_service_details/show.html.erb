@@ -3,11 +3,14 @@
 
   <h2>Concierge Services</h2>
 
-  <%# Concierge Desk %>
+  <%# Concierge desk %>
   <% if @concierge.present? %>
     <div class="mrg-dbl-alt">
+
       <div class="grid grid--gutter-dbl">
+
         <div class="grid__item non-palm-one-half">
+
           <h3>Concierge Desk</h3>
           <% to_paragraphs(@concierge.description).each do |text| %>
             <p><%= text %></p>
@@ -33,19 +36,24 @@
             </span>
             <%# //Show CTA button for centre contact number for palm %>
           <% end %>
+
         </div>
 
         <div class="grid__item non-palm-one-half">
            <%= image_tag 'concierge.jpg', alt: '', quality: 25, fetch_format: 'auto' %>
         </div>
-     </div>
-    </div>
- <% end %>
- <%# //Concierge Desk %>
 
- <%# Westfield gift cards %>
- <div class="mrg-dbl-alt">
+      </div>
+
+    </div>
+  <% end %>
+  <%# //Concierge desk %>
+
+  <%# Westfield gift cards %>
+  <div class="mrg-dbl-alt">
+
     <div class="grid grid--gutter-dbl">
+
       <div class="grid__item non-palm-one-half">
         <%= image_tag 'gift-cards.jpg', alt: '', quality: 25, fetch_format: 'auto' %>
       </div>
@@ -79,13 +87,18 @@
           <%#</div>%>
         <%#</div>%>
         <%# //Uncomment when gift card filter is done %>
+
       </div>
-   </div>
+
+    </div>
+
   </div>
   <%# //Westfield gift cards %>
+
 </div>
 <%# //Txt formatted and divider %>
 
+<%# Footer promo tiles %>
 <%= render "shared/footer_promo_tiles",
   promo_tile_1: {
     image_src: "promo-tiles/promo-tile-01.jpg",
@@ -104,3 +117,4 @@
     link_url: centre_info_path(@centre)
   }
 %>
+<%# //Footer promo tiles %>

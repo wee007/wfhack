@@ -1,35 +1,36 @@
 <%# Render high res Google static map of the centre  - http://webdesigntutsplus.s3.amazonaws.com/tuts/365_google_maps/demo/index.html %>
 <% content_for :custom_styles do %>
   <style>
-    .map-google-static {
-      background-image: url("<%=raw getting_here_map_url(@centre) %>");
-    }
+    .map-google-static {background-image: url("<%=raw getting_here_map_url(@centre) %>");}
     /* High res */
     @media  (-o-min-device-pixel-ratio: 5/4),
             (-webkit-min-device-pixel-ratio: 1.25),
             (min-resolution: 120dpi) {
-              .map-google-static {
-                background-image: url("<%=raw getting_here_map_url(@centre, 2) %>");
-              }
+              .map-google-static {background-image: url("<%=raw getting_here_map_url(@centre, 2) %>");}
     }
   </style>
 <% end %>
 
 <%# Getting here %>
 <section aria-labelledby="getting-here" class="mrg-dbl-alt">
+
   <h2 id="getting-here">Getting Here</h2>
 
-  <%# Shopping centre map %>
+  <%# Centre map and address %>
   <div class="mrg-base-alt">
+
     <div class="centre-location">
+
       <%# Static Google map %>
       <div class="map-google-static">
         <%= image_tag getting_here_map_url(@centre), alt: "Google map showing location of #{@centre.short_name} shopping centre" %>
       </div>
       <%# //Static Google map %>
 
-      <%# Address box %>
+      <%# Centre address and image %>
       <div class="centre-location__info box slats">
+
+        <%# Centre image %>
         <div class="slats__img slats__img--compact">
           <%= image_tag "heroes/#{@centre.code}.jpg",
             :crop => :thumb,
@@ -42,6 +43,9 @@
             :fetch_format => 'auto'
           %>
         </div>
+        <%# //Centre image %>
+
+        <%# Centre address %>
         <div class="slats__body islet">
           <p itemscope itemtype="http://schema.org/Organization">
             <span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
@@ -56,10 +60,15 @@
             Open in Google Maps<span class="icon icon--arrow-right icon--lrg" aria-hidden="true"></span>
           <% end -%>
         </div>
+        <%# //Centre address %>
+
       </div>
-      <%# //Address box %>
+      <%# //Centre address and image %>
+
     </div>
+
   </div>
+  <%# //Centre map and address %>
 
   <% if false %>
     <div class="grid grid--gutter-dbl">
@@ -75,7 +84,6 @@
       </div>
     </div>
   <% end %>
-  <%# //Shopping centre map %>
 
 </section>
 <%# //Getting here %>

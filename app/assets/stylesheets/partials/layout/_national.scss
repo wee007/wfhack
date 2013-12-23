@@ -250,6 +250,9 @@
         @include to-rem(margin-top, -64);
       }
 
+      /* Non JS users */
+      .no-js & {margin-top: 0;}
+
       /* --Global rules-- */
 
       /* Heading next to`tab__nav` */
@@ -296,6 +299,9 @@
 
         li:first-child a {padding-left: 0;}
       }
+
+      /* Tab content - non JS users */
+      .no-js & .tab__content {margin-bottom: 0;}
     }
 
       /* Set on `a`. Tile that links to the relevant centre homepage */

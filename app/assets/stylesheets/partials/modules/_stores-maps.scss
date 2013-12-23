@@ -51,7 +51,11 @@
   /* Non JS users */
   .no-js & {
     position: static;
-    @include to-rem(padding-bottom, $spacing-base);
+
+    /* Apply bottom padding at this breakpoint */
+    @include respond-min($ipad-landscape) {
+      @include to-rem(padding-bottom, $spacing-base);
+    }
   }
 
   /* Location icon */
@@ -187,7 +191,9 @@
       }
 
       /* Non JS users */
-      .no-js & {@extend %mrg-base;}
+      @include respond-min($ipad-landscape) {
+        .no-js & {@include to-rem(margin-bottom, $spacing-base);}
+      }
 
       /* Inner container */
       > .container {
@@ -258,6 +264,9 @@
           float: none;
         }
 
+        /* Non JS Users */
+        .no-js & {float: none;}
+
         /* Hide when in map view */
         .is-map-view & {
           display: none;
@@ -316,6 +325,24 @@
           @include to-rem(margin-right, $spacing-half);
 
           &:last-child {margin-right: 0;}
+
+          /* Non JS users */
+          .no-js & {
+            display: block;
+            margin-right: 0;
+            @extend %mrg-base;
+          }
+        }
+
+        /* Show hidden text for non JS users */
+        .no-js {
+          .stores-maps__intro,
+          .drop-down-menu__list .btn .hide-visually {@include hide-visually-off;}
+
+          .drop-down-menu__list .btn .hide-visually {
+            font-style: italic;
+            opacity: 0.8;
+          }
         }
 
       /* Toggle button */

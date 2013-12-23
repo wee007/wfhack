@@ -85,6 +85,9 @@
     /* Hover version */
     .drop-down-container--hover & {@include to-rem(margin-top, -4);}
 
+    /* Non JS Users */
+    .no-js .drop-down-menu & {width: auto;}
+
     /* Shared rules */
     .drop-down-menu__hdr,
     .drop-down-menu__hdr-sub {font-weight: normal;}
@@ -94,6 +97,9 @@
       position: relative;
       text-align: center;
       color: $color-txt-light;
+
+      /* Non JS users */
+      .no-js & {border-top: 1px solid $color-grey-med-3;}
 
       /* Header text */
       h3 {

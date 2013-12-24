@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.63
+Version:     0.2.64
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,16 @@ fi
 
 
 %changelog
+* Tue Dec 24 2013 ci <doperations@au.westfield.com> 0.2.64-1
+- Merge branch 'master' of github.dbg.westfield.com:digital/customer_console
+  (doperations@au.westfield.com)
+- Adding new campaign images to national home page and new hero/promo images
+  for sub pages (cpearce@au.westfield.com)
+- Merge pull request #819 from ldewey/xhr (ldewey@au.westfield.com)
+- Moved product XHR request into its own method (ldewey@au.westfield.com)
+- Erm. Didn't reset / commit properly (ben@germanforblack.com)
+- Handle failure more gracefully (ben@germanforblack.com)
+
 * Tue Dec 24 2013 ci <doperations@au.westfield.com> 0.2.63-1
 - 
 

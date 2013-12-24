@@ -6,9 +6,9 @@
   <%# Header %>
   <header class="national__header img-rotate" role="banner">
 
-    <%# Rotating images %>
+    <%# Hero image %>
     <div class="national__hero__1 img-rotate__item"></div>
-    <%# //Rotating images %>
+    <%# //Hero image %>
 
     <%# Gradient overlay %>
     <span class="hero-gradient"></span>
@@ -35,12 +35,14 @@
         <ul class="horiz-list horiz-list--spacing-half">
           <li>
             <a href="<%= products_path %>">
-              <span class="icon icon--shirt" aria-hidden="true"></span>Shop products
+              <span class="icon icon--shirt" aria-hidden="true"></span>
+              Shop products
             </a>
           </li>
           <li>
             <a href="http://www.westfieldgiftcards.com.au" rel="external" target="_blank">
-              <span class="icon icon--gift-card" aria-hidden="true"></span>Buy Gift Cards
+              <span class="icon icon--gift-card" aria-hidden="true"></span>
+              Buy Gift Cards
             </a>
           </li>
         </ul>
@@ -174,7 +176,7 @@
 <%# //National landing page wrapper %>
 
 <% content_for :javascript do %>
-  <%# Background images of the centre tiles at each breakpoint. This is in the `content_for :javascript` because it is not need untill after the JS has loaded and adds quite a bit of page weight %>
+  <%# Background images of the centre tiles at each breakpoint. This is in the `content_for :javascript` because it is not needed untill after the JS has loaded and adds quite a bit of page weight %>
   <style>
     <% @centres.each do |centre| %>
       <%# Hero image at small breakpoint %>

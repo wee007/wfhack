@@ -1,6 +1,11 @@
 <%= include_gon(:namespace => :westfield) %>
+
 <%# Site wide JavaScript %>
 <%= javascript_include_tag 'application' %>
 <%# //Site wide JavaScript %>
+
+<%# Inline JavaScript %>
 <%= yield :javascript %>
+<%# Inline JavaScript %>
+
 <%=raw third_party_universal_tagging %>

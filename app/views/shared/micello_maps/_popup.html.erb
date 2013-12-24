@@ -1,5 +1,10 @@
+<%# Store map popup %>
 <div class="map-micello__overlay islet js-toggle-store-logo <%%- classname %>">
+
+  <%# Store logo, name and closing time %>
   <div class="map-micello__overlay__retailer map-micello__mrg-base">
+
+    <%# Store logo %>
     <%% if(obj.logo) { %>
       <div class="map-micello__overlay__retailer__img">
         <%%=
@@ -8,11 +13,19 @@
         %>
       </div>
     <%% } %>
+    <%# //Store logo %>
+
+    <%# Store name and closing time %>
     <div class="map-micello__overlay__retailer__body">
       <em class="map-micello__hdr txt-truncate"><%%- name %></em>
       <!--p>Open till <time datetime="<%%- closing_time_24 %>"><%%- closing_time_12 %></time></p-->
     </div>
+    <%# //Store name and closing time %>
+
   </div>
+  <%# //Store logo, name and closing time %>
+
+  <%# Link and button to storefront %>
   <%%  if(storefront_path) {  %>
   <a href="<%%- storefront_path %>" class="map-micello__overlay__cta btn btn--full btn--main js-pjax-link-stores">
     <span class="icon icon--store icon--lrg icon--spacing-lrg" aria-hidden="true"></span>
@@ -24,5 +37,12 @@
     Store details
   </button>
   <%%  }  %>
+  <%# //Link and button to storefront %>
+
 </div>
+
+<%# Faux popup close button %>
 <span class="map-micello__overlay__close icon icon--close-sml icon--xlrg icon--flush-top" aria-hidden="true"></span>
+<%# //Faux popup close button %>
+
+<%# //Store map popup %>

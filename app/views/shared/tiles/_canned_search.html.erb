@@ -1,3 +1,4 @@
+<%# Tile canned search image %>
 <div class="tile__image">
   <%= cl_image_tag(result.image_ref,
     width: 289,
@@ -7,12 +8,23 @@
     fetch_format: 'auto')
   %>
 </div>
+<%# //Tile canned search image %>
+
+<%# Tile canned search meta %>
 <div class="tile__meta">
+
+  <%# Tile canned search icon %>
   <span class="tile__meta__icon">
     <span class="icon icon--<%= result.icon %>" aria-hidden="true"></span>
   </span>
+  <%# //Tile canned search icon %>
+
+  <%# Tile canned search title and tag line %>
   <div class="tile__meta__inner">
     <h3 class="tile__meta__hdr txt-truncate"><%= result.name %></h3>
     <p class="tile__meta__desc txt-truncate"><%= result.tag_line %></p>
   </div>
+  <%# //Tile canned search title and tag line %>
+
 </div>
+<%# //Tile canned search meta %>

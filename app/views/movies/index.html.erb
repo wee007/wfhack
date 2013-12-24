@@ -3,63 +3,77 @@
   <%# No Movies fallback message %>
   <div class="no-content-fallback-msg no-content-fallback-msg--flush">
     <span class="icon icon--video icon--flush-top" aria-hidden="true"></span>
-    <p><em class="h1">No movies at this centre</em> <span>See nearby centres</span></p>
+    <p>
+      <em class="h1">No movies at this centre</em>
+      <span>See nearby centres</span>
+    </p>
   </div>
   <%# //No Movies fallback message %>
 
 <% else %>
-  <%# Link in hero section %>
+
+  <%# Hero %>
   <% content_for :hero_intro do %>
     <div class="hero__intro">
-      <a href="<%= centre_store_path(retailer_code: @cinema.retailer_code, id: @cinema.id) %>" class="btn btn--main"><span class="icon icon--store icon--xlrg icon--spacing" aria-hidden="true"></span> Cinema Details</a>
+      <a href="<%= centre_store_path(retailer_code: @cinema.retailer_code, id: @cinema.id) %>" class="btn btn--main">
+        <span class="icon icon--store icon--xlrg icon--spacing" aria-hidden="true"></span>
+        Cinema Details
+      </a>
     </div>
   <% end %>
+  <%# //Hero %>
 
   <h2 class="hide-visually">Session Times</h2>
 
-    <%# Nav contextual %>
-    <div class="nav-contextual js-nav-contextual js-viewport-check">
-      <div class="nav-contextual__clip">
-        <div class="nav-contextual__clip__inner">
-          <ul class="nav-contextual__list tab__nav horiz-list js-nav-contextual-list">
-            <% days(@movie_sessions.last['start_time'], @centre.code, params['date']).each do |day| %><li><%= day %></li><% end %>
-          </ul>
-        </div>
-        <span class="nav-contextual__clip__overlay icon icon--arrow-right icon--mega icon--flush-top js-nav-contextual-clip-overlay" aria-hidden="true"></span>
+  <%# Nav contextual %>
+  <div class="nav-contextual js-nav-contextual js-viewport-check">
+    <div class="nav-contextual__clip">
+      <div class="nav-contextual__clip__inner">
+        <ul class="nav-contextual__list tab__nav horiz-list js-nav-contextual-list">
+          <% days(@movie_sessions.last['start_time'], @centre.code, params['date']).each do |day| %><li><%= day %></li><% end %>
+        </ul>
       </div>
+      <span class="nav-contextual__clip__overlay icon icon--arrow-right icon--mega icon--flush-top js-nav-contextual-clip-overlay" aria-hidden="true"></span>
     </div>
-    <%# //Nav contextual %>
+  </div>
+  <%# //Nav contextual %>
 
-    <%# List of movies %>
-    <%# @movies.in_groups_of(4, false) do |movies|%>
-      <ul class="grid grid--gutter-half grid--mrg-half grid--non-linear test-movies">
-        <% @movies.each do |movie| %>
-          <li class="grid__item one-half lap-sml-one-third non-palm-one-quarter">
+  <%# List of movies %>
+  <ul class="grid grid--gutter-half grid--mrg-half grid--non-linear test-movies">
+    <% @movies.each do |movie| %>
+      <li class="grid__item one-half lap-sml-one-third non-palm-one-quarter">
 
-            <%# Movie tile %>
-            <article class="tile box test-movie" role="article">
-              <a href="<%= centre_movie_path(centre_id: @centre.code, id: movie.id, movie_name: movie.title.to_slug) %>">
-                <div class="tile__image">
-                  <% if movie.cloudinary_public_id %>
-                    <%= cl_image_tag(movie.cloudinary_public_id, alt: '', quality: 35, width: 578, crop: 'limit', format: 'jpg', fetch_format: 'auto') %>
-                  <% else %>
-                    <%= image_tag 'placeholder-movie.png', alt: '', fetch_format: 'auto' %>
-                  <% end %>
-                </div>
-                <div class="tile__meta">
-                  <h3 class="tile__meta__hdr txt-truncate test-title"><%= movie.title %></h3>
-                  <%# Not implementing next session time at the moment %>
-                  <%# [BACKEND] Add next session time and output the time as ISO date format (the session time in the movie feed we get) in `datetime` attribute as indicated below %>
-                  <%#<p class="tile__meta__desc">Next session at <time datetime="[session time]"> Time.parse(movie.next_session.start_time).strftime("%l:%M %P (%e)") </time></p> %>
-                  <p class="tile__meta__desc">View Sessions</p>
-                </div>
-              </a>
-            </article>
-            <%# //Movie tile %>
+        <%# Movie tile %>
+        <article class="tile box test-movie" role="article">
+          <a href="<%= centre_movie_path(centre_id: @centre.code, id: movie.id, movie_name: movie.title.to_slug) %>">
 
-          </li>
-        <% end %>
-      </ul>
-    <%# end %>
-    <%# //List of movies %>
+            <%# Movie tile image %>
+            <div class="tile__image">
+              <% if movie.cloudinary_public_id %>
+                <%= cl_image_tag(movie.cloudinary_public_id, alt: '', quality: 35, width: 578, crop: 'limit', format: 'jpg', fetch_format: 'auto') %>
+              <% else %>
+                <%= image_tag 'placeholder-movie.png', alt: '', fetch_format: 'auto' %>
+              <% end %>
+            </div>
+            <%# //Movie tile image %>
+
+            <%# Movie tile meta %>
+            <div class="tile__meta">
+              <h3 class="tile__meta__hdr txt-truncate test-title"><%= movie.title %></h3>
+              <%# Not implementing next session time at the moment %>
+              <%# [BACKEND] Add next session time and output the time as ISO date format (the session time in the movie feed we get) in `datetime` attribute as indicated below %>
+              <%#<p class="tile__meta__desc">Next session at <time datetime="[session time]"> Time.parse(movie.next_session.start_time).strftime("%l:%M %P (%e)") </time></p> %>
+              <p class="tile__meta__desc">View Sessions</p>
+            </div>
+            <%# //Movie tile meta %>
+
+          </a>
+        </article>
+        <%# //Movie tile %>
+
+      </li>
+    <% end %>
+  </ul>
+  <%# //List of movies %>
+
 <% end %>

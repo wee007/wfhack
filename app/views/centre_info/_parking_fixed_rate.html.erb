@@ -1,7 +1,7 @@
 <div class="mrg-dbl-alt">
   <div class="grid grid--gutter-dbl">
     <div class="grid__item non-palm-one-half">
-      <p>Fixed Parking rate of $<%= @parking.flat_rate %> per day.</p>
+      <p>Fixed Parking rate of $<%= @parking.flat_rate %> per day</p>
       <%= render partial: 'parking_terms_and_conditions', locals: {align: 'left'} if @parking.terms_conditions? %>
     </div>
     <%= render partial: "parking_info" if @parking.info? %>

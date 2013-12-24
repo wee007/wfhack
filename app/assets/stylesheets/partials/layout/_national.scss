@@ -224,15 +224,15 @@
     /* Hero image paths (see 'Image rotate' module) */
     .national__hero__1 {
       @include respond-max($palm) {
-        background-image: cloudinary-url("heroes/national/national-hero-01-sml.jpg");
+        background-image: cloudinary-url("heroes/national/national-hero-01-sml.jpg", $quality: 95);
       }
 
       @include respond-range($lap, $lap-sml-end) {
-        background-image: cloudinary-url("heroes/national/national-hero-01-med.jpg", $quality: 80);
+        background-image: cloudinary-url("heroes/national/national-hero-01-med.jpg", $quality: 95);
       }
 
       @include respond-min($lap-lrg) {
-        background-image: cloudinary-url("heroes/national/national-hero-01-lrg.jpg", $quality: 60);
+        background-image: cloudinary-url("heroes/national/national-hero-01-lrg.jpg", $quality: 95);
       }
     }
 

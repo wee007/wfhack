@@ -1,6 +1,7 @@
 <% content_for :class_for_body, "page-detail-view" %>
 <% content_for :class_for_main, "container--wide" %>
 
+<%# Detail view container %>
 <% if in_lightbox? %>
   <div class="page-overlay"></div>
   <article role="article" class="detail-view detail-view--<%= params[:controller].singularize %>" tabindex="-1" role="dialog" aria-labelledby="detail-view__hdr" aria-hidden="true">
@@ -8,16 +9,25 @@
   <article role="article" class="detail-view detail-view--<%= params[:controller].singularize %>">
 <% end %>
 
+  <%# Detail view controls %>
   <% unless meta.hide_social_share %>
     <div class="detail-view__controls detail-view__divider">
       <%= render "/shared/social_share", kind: meta.kind, id: meta.id %>
       <% if in_lightbox? %>
-        <button type="button" class="btn"><span class="icon icon--close-sml icon--flush-top" aria-hidden="true"></span><span class="hide-visually"> Close</span></button>
+        <button type="button" class="btn">
+          <span class="icon icon--close-sml icon--flush-top" aria-hidden="true"></span>
+          <span class="hide-visually"> Close</span>
+        </button>
       <% end %>
     </div>
   <% end %>
+  <%# //Detail view controls %>
 
+  <%# Detail view content %>
   <%= yield %>
+  <%# //Detail view content %>
+
 </article>
+<%# //Detail view container %>
 
 <%= parent_layout 'application' %>

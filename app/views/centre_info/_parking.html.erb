@@ -1,4 +1,5 @@
 <section aria-labelledby="parking" class="mrg-dbl-alt">
+
   <h2 id="parking">Parking</h2>
 
   <% if @parking.rates_apply? %>
@@ -10,4 +11,5 @@
   <% else %>
     <%= render :partial => 'parking_complimentary'%>
   <% end %>
+
 </section>

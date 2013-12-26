@@ -1,6 +1,8 @@
+<%# Category items for category nav - this is rendered in the section nav layout (layouts/_section_nav.html.erb) %>
 <li><%=
   link_to(
     category.name,
     centre_products_category_path(@centre, super_cat.code, category.code),
   )
 %></li>
+<%# //Category items for category nav - this is rendered in the section nav layout (layouts/_section_nav.html.erb) %>

@@ -17,15 +17,25 @@
       <%# Back to listing link %>
       <div class="stores-maps__filters-toggle">
         <div class="container">
-          <%# Small view %>
+
+          <%# Small screen view %>
           <a href="<%= centre_stores_path(@centre) %>" class="stores-maps__toggle stores-maps__toggle--link btn btn--main btn--main-white btn--main-compact-icon">
             <span class="hide-visually">View stores A-Z</span>
             <span class="icon icon--list icon--lrg" aria-hidden="true"></span>
           </a>
-          <%# //Small view %>
-          <%# Large view %>
-          <a href="<%= centre_stores_path(@centre) %>" class="stores-maps__filters-toggle__hdr txt-truncate"><span><span class="icon icon--arrow-left-big" aria-hidden="true"></span> <span class="hide-visually">Back to </span>Stores A-Z</span> / <%= @store.name %></a>
-          <%# //Large view %>
+          <%# //Small screen view %>
+
+          <%# Large screen view %>
+          <a href="<%= centre_stores_path(@centre) %>" class="stores-maps__filters-toggle__hdr txt-truncate">
+            <span>
+              <span class="icon icon--arrow-left-big" aria-hidden="true"></span>
+              <span class="hide-visually">Back to </span>
+              Stores A-Z
+            </span>
+            / <%= @store.name %>
+          </a>
+          <%# //Large screen view %>
+
         </div>
       </div>
       <%# //Back to listing link %>
@@ -35,9 +45,9 @@
 
         <article class="storefront" role="article" itemscope itemtype="http://schema.org/Organization">
 
-          <%# Header (flexslider) %>
+          <%# Header (carousel) %>
           <%= render @store.has_storefront? ? 'header_with_banner' : 'header_without_banner' %>
-          <%# //Header (flexslider) %>
+          <%# //Header (carousel) %>
 
           <%# Store details %>
           <div class="storefront__details">
@@ -48,18 +58,23 @@
               <%# Store meta %>
               <dl class="storefront__details__meta">
 
+                <%# Store level %>
                 <%- if @store.level.present? %>
                   <dt class="hide-visually">Shopping centre level</dt>
                   <dd class="hide-visually"><%= @store.level %></dd>
                 <%- end %>
+                <%# //Store level %>
 
+                <%# Store closing time %>
                 <%- if @store.closing_time.present? %>
                   <dt class="hide-visually">Opening hours</dt>
                   <!--dd class="storefront__details__meta__no-indent">Open till <time datetime="<%= @store.closing_time %>"><%= twelve_hour_format @store.closing_time %></time> tonight</dd-->
                 <%- else %>
                   <dd class="storefront__details__meta__no-indent">Closed today</dd>
                 <%- end %>
+                <%# //Store closing time %>
 
+                <%# Store phone no %>
                 <%- if @store.phone_number.present? %>
                   <dt class="hide-visually hide-fully--palm">Store phone number</dt>
                   <dd class="hide-fully--palm" itemprop="telephone">
@@ -67,7 +82,9 @@
                     <span class="icon icon--phone2 icon--xlrg icon--fixed-width" aria-hidden="true"></span>
                   </dd>
                 <%- end %>
+                <%# //Store phone no %>
 
+                <%# Store email %>
                 <%- if @store.email_address.present? %>
                   <dt class="hide-visually">Store email</dt>
                   <dd class="txt-truncate">
@@ -75,7 +92,9 @@
                     <span class="icon icon--email icon--xlrg icon--fixed-width" aria-hidden="true"></span>
                   </dd>
                 <%- end %>
+                <%# //Store email %>
 
+                <%# Store gift cards accepted %>
                 <%- if @store.accepts_giftcards.present? %>
                   <dt class="hide-visually">Westfield gift card</dt>
                   <dd>
@@ -83,6 +102,8 @@
                     <span class="icon icon--gift-card icon--xlrg icon--fixed-width" aria-hidden="true"></span>
                   </dd>
                 <%- end %>
+                <%# //Store gift cards accepted %>
+
               </dl>
               <%# //Store meta %>
 
@@ -92,9 +113,12 @@
                 <%# Phone no %>
                 <%- if @store.phone_number.present? %>
                   <%= phone_link @store.phone_number, class: 'storefront-storelist-phone-map-links__cell storefront-storelist-phone-map-links__cell--phone hide-fully--non-palm' do |phone_number| %>
-                    <span class="hide-visually">Call store: <span itemprop="telephone"><%= phone_number %></span></span>
+                    <span class="hide-visually">
+                      Call store:
+                      <span itemprop="telephone"><%= phone_number %></span>
+                    </span>
                     <span class="icon icon--phone2 icon--flush-top storefront-storelist-phone-map-links__cell__valign"></span>
-                    <% end %>
+                  <% end %>
                 <%- end %>
                 <%# //Phone no %>
 
@@ -146,8 +170,8 @@
                 </div>
                 <%# //Product tiles %>
 
-                <%- if false %>
                 <%# Deal tiles %>
+                <%- if false %>
                 <div class="storefront__featured__item storefront__featured__item--deals island-ends">
                   <div class="container">
                     <h2 class="storefront__featured__hdr">Deals from <%= @store.name %></h2>

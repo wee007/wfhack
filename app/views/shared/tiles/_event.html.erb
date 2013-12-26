@@ -1,3 +1,4 @@
+<%# Tile event image %>
 <div class="tile__image">
   <%= fetch_image_tag result.image,
     width: 289,
@@ -6,14 +7,23 @@
     format: :auto
   %>
 </div>
+<%# //Tile event image %>
+
+<%# Tile event meta %>
 <div class="tile__meta">
+
+  <%# Tile event icon %>
   <span class="tile__meta__icon">
     <span class="icon icon--events" aria-hidden="true"></span>
   </span>
+  <%# Tile event icon %>
+
+  <%# Tile event title and date %>
   <div class="tile__meta__inner">
     <h3 class="tile__meta__hdr txt-truncate"><%= result.name %></h3>
-    <p class="tile__meta__desc txt-truncate">
-      <%= display_event_date(result)  %>
-    </p>
+    <p class="tile__meta__desc txt-truncate"><%= display_event_date(result) %></p>
   </div>
+  <%# //Tile event title and date %>
+
 </div>
+<%# //Tile event meta %>

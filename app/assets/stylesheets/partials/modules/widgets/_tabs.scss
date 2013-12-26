@@ -45,6 +45,7 @@
 	/* Tab content heading - typically for 'print' media and 'non-JS' users */
 	.tab__content__hdr {
 		display: none;
+		@extend %mrg-base;
 
 		/* Non JS users */
 		.no-js & {display: block;}

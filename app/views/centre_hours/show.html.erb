@@ -5,11 +5,13 @@
   <div class="tabs">
 
     <%# Nav contextual %>
-    <div class="nav-contextual js-nav-contextual js-viewport-check">
+    <div class="nav-contextual js-nav-contextual js-viewport-check js-disabled-hide">
       <div class="nav-contextual__clip">
         <div class="nav-contextual__clip__inner">
           <ul class="tab__nav nav-contextual__list js-nav-contextual-list horiz-list">
-            <% @weeks.each_with_index do |week, week_number| %><li><a class="<%= 'is-active' if week_number == 0 %>" href="#tab-<%= week_number %>"><%= ["This week", "Next week"][week_number] || "#{week.first.date '%-d %b'} - #{week.last.date '%-d %b'}" %></a></li><% end %>
+            <% @weeks.each_with_index do |week, week_number| %><li>
+              <a class="<%= 'is-active' if week_number == 0 %>" href="#tab-<%= week_number %>"><%= ["This week", "Next week"][week_number] || "#{week.first.date '%-d %b'} - #{week.last.date '%-d %b'}" %></a>
+            </li><% end %>
             <%# [BACKEND]
                 - For the first item of the dates with special opening hours (Christmas, ANAZC etc), need to add class `nav-contextual__divider` to the `a`
                 - Need to add a `href` that matches the `id` of the `tab__content` that contains the content for the the special opening hours. E.g. `#tab-[the date of special opening hours]`.
@@ -53,9 +55,15 @@
 
                 <thead>
                   <tr>
-                    <th scope="col" class="table-cell-padding-off"><span class="hide-visually">Day</span></th>
-                    <th scope="col" class="table-cell-padding-off"><span class="hide-visually">Public holiday</span></th>
-                    <th scope="col" class="table-cell-padding-off"><span class="hide-visually">Time</span></th>
+                    <th scope="col" class="table-cell-padding-off">
+                      <span class="hide-visually">Day</span>
+                    </th>
+                    <th scope="col" class="table-cell-padding-off">
+                      <span class="hide-visually">Public holiday</span>
+                    </th>
+                    <th scope="col" class="table-cell-padding-off">
+                      <span class="hide-visually">Time</span>
+                    </th>
                   </tr>
                 </thead>
 
@@ -63,7 +71,13 @@
                   <% week.each do |day| %>
                     <tr>
                       <td>
-                        <% if today?(day.date) %><em class="txt-bold"><% end %><%= format_day(day.date,0,3) %><span class="hide-fully--palm-inline"><%= format_day(day.date,3,6) %></span><% if today?(day.date) %></em><% end %>
+                        <% if today?(day.date) %>
+                          <em class="txt-bold">
+                        <% end %>
+                          <%= format_day(day.date,0,3) %><span class="hide-fully--palm-inline"><%= format_day(day.date,3,6) %></span>
+                        <% if today?(day.date) %>
+                          </em>
+                        <% end %>
                       </td>
                       <td>
                         <% if day.description.present? %>
@@ -73,49 +87,46 @@
                         <% end %>
                       </td>
                       <td class="txt-right">
-                        <% if today?(day.date) %><em class="txt-bold"><% end %>
+                        <% if today?(day.date) %>
+                          <em class="txt-bold">
+                        <% end %>
                         <% if day.closed %>
                           Closed
                         <% else %>
                           <time datetime="<%= day.date %>T<%= day.opening_time %>"><%= twelve_hour_format(day.opening_time) %></time> &#8211; <time datetime="<%= day.date %>T<%= day.closing_time %>"><%= twelve_hour_format(day.closing_time) %></time>
                           <% end %>
-                        <% if today?(day.date) %></em><% end %>
+                        <% if today?(day.date) %>
+                          </em>
+                        <% end %>
                       </td>
                     </tr>
                   <% end %>
                 </tbody>
               </table>
               <%# //Centre hours table %>
+
             </div>
             <%# // Centre hours box %>
+
           </div>
           <%# // Centre hours %>
 
         </div>
-        <%# // Grid %>
+        <%# //Grid %>
+
       </div>
-      <%# // Tab content %>
+      <%# //Tab content %>
+
     <% end %>
-    <%# // Hours %>
+    <%# //Hours %>
 
   </div>
-  <%# // Tabs %>
+  <%# //Tabs %>
+
 </div>
-<%# // Divider %>
+<%# //Divider %>
 
-<%- content_for :javascript do -%>
-  <script>
-  $(function() {
-    /* Submit store trading hours request on change */
-    $(".js-store-trading-hours").each(function(index,value) {
-      $("#store-id-"+index).change(function () {
-        $("#store-"+index).submit();
-      })
-    })
-  });
-  </script>
-<%- end -%>
-
+<%# Footer promo tiles %>
 <%= render "shared/footer_promo_tiles",
   promo_tile_1: {
     image_src: "promo-tiles/promo-tile-03.jpg",
@@ -134,3 +145,17 @@
     link_url: centre_services_path(@centre)
   }
 %>
+<%# //Footer promo tiles %>
+
+<%- content_for :javascript do -%>
+  <script>
+    $(function() {
+      // Submit store trading hours request on change
+      $(".js-store-trading-hours").each(function(index,value) {
+        $("#store-id-"+index).change(function () {
+          $("#store-"+index).submit();
+        })
+      })
+    });
+  </script>
+<%- end -%>

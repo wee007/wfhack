@@ -1,12 +1,15 @@
 <%# Contact Us %>
 <% if @centre.phone_number.present? or @centre.email_address.present? %>
   <section aria-labelledby="contact-us" class="mrg-dbl">
+
     <h2 id="contact-us">Contact Us</h2>
+
     <div class="grid grid--gutter-dbl">
 
       <%# Phone number %>
       <% if @centre.phone_number.present? %>
         <div class="grid__item non-palm-one-half">
+
           <%# Show centre number if at non-palm size %>
           <div class="box island txt-center hide-fully--palm" itemscope itemtype="http://schema.org/Organization">
             <span class="icon icon--phone2 icon--kilo icon--spacing-lrg" aria-hidden="true"></span>
@@ -23,10 +26,12 @@
             <% end %>
           </span>
           <%# //Show CTA button for centre contact number for palm %>
+
         </div>
       <% end %>
       <%# //Phone number %>
 
+      <%# Email address %>
       <% if @centre.email_address.present? %>
         <div class="grid__item non-palm-one-half">
           <div class="box island txt-center txt-truncate">
@@ -36,7 +41,10 @@
           </div>
         </div>
       <% end %>
+      <%# //Email address %>
+
     </div>
+
   </section>
 <% end %>
 <%# //Contact Us %>

@@ -1,48 +1,61 @@
 <div itemscope itemtype="http://data-vocabulary.org/Event">
 
+  <%# Event name, date, location and details %>
   <div class="island detail-view__divider">
+
+    <%# Event name, date and location %>
     <header class="detail-view__mrg-base">
       <h1 class="detail-view__hdr hn" itemprop="summary"><%= @event.name %></h1>
       <ul class="detail-view__meta detail-view__divider detail-view__divider--top-btm islet-ends horiz-list horiz-list--fit">
         <li class="detail-view__subtle-txt"><%= display_event_date(@event) %></li>
         <%- if @event.location.present? -%>
-          <li><span class="icon icon--pin icon--lrg icon--spacing" aria-hidden="true"></span><span itemprop="location"><%= @event.location %></span></li>
+          <li>
+            <span class="icon icon--pin icon--lrg" aria-hidden="true"></span>
+            <span itemprop="location"><%= @event.location %></span>
+          </li>
         <% end %>
       </ul>
     </header>
+    <%# //Event name, date and location %>
 
-    <div class="detail-view__media detail-view__mrg-base" itemprop="photo">
+    <%# Event image %>
+    <section class="detail-view__media detail-view__mrg-base" itemprop="photo" aria-labelledby="image">
+      <h2 class="hide-visually" id="image">Event Image</h2>
       <%= fetch_image_tag @event.image,
         alt: "",
         width: 638,
         crop: :limit,
         format: :auto
       %>
-    </div>
-
-    <%- if @event.description.present? -%>
-    <section aria-labelledby="event-details">
-      <h2 class="detail-view__hdr-sub hn" id="event-details">Event Details</h2>
-      <div class="detail-view__desc" itemprop="description">
-        <% to_paragraphs(@event.description).each do |text| %>
-          <p><%= text %></p>
-        <%- end %>
-      </div>
     </section>
+    <%# //Event image %>
+
+    <%# Event details %>
+    <%- if @event.description.present? -%>
+      <section aria-labelledby="details">
+        <h2 class="detail-view__hdr-sub hn" id="details">Event Details</h2>
+        <div class="detail-view__desc" itemprop="description">
+          <% to_paragraphs(@event.description).each do |text| %>
+            <p><%= text %></p>
+          <%- end %>
+        </div>
+      </section>
     <% end %>
+    <%# //Event details %>
 
   </div>
+  <%# //Event name, date, location and details %>
 
-  <section class="detail-view__schedule island" aria-labelledby="event-schedule">
-    <h2 class="detail-view__hdr-sub hn" id="event-schedule">Event Schedule</h2>
-
-    <%# Event schedule %>
+  <%# Event schedule %>
+  <section class="detail-view__schedule island" aria-labelledby="schedule">
+    <h2 class="detail-view__hdr-sub hn" id="schedule">Event Schedule</h2>
     <dl class="timeline">
       <% @event.event_times_grouped_by_date.each do |date, occurrences| %>
         <dt>
           <%= date.strftime("%A") %>
           <em class="timeline__date">
-            <span><%= date.strftime("%e") %></span> <abbr title="<%= date.strftime("%B") %>"><%= date.strftime("%b") %></abbr>
+            <span><%= date.strftime("%e") %></span>
+            <abbr title="<%= date.strftime("%B") %>"><%= date.strftime("%b") %></abbr>
           </em>
         </dt>
         <% occurrences.each do |occurrence| %>
@@ -52,9 +65,7 @@
         <% end %>
       <% end %>
     </dl>
-    <%# //Event schedule %>
-
   </section>
-  <%# //Event details %>
+  <%# //Event schedule %>
 
 </div>

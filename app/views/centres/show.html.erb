@@ -1,10 +1,10 @@
-<% content_for :custom_styles,
-  render('/shared/centre_hero_custom_styles', centre_id: @centre.code, target: '.header__hero')
-%>
+<% content_for :custom_styles, render('/shared/centre_hero_custom_styles', centre_id: @centre.code, target: '.header__hero') %>
 
+<%# Pin board %>
 <%= pin_board(@stream) do |result| %>
   <%= tile result.kind,
     result: result,
     image: {href: result[:_links][:image][:href], title: result[:name]}
   %>
 <% end %>
+<%# //Pin board %>

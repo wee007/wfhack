@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.70
+Version:     0.2.71
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,14 @@ fi
 
 
 %changelog
+* Thu Dec 26 2013 ci <doperations@au.westfield.com> 0.2.71-1
+- Merge branch 'master' of github.dbg.westfield.com:digital/customer_console
+  (doperations@au.westfield.com)
+- BOXING DAY FIX - Wrap mobile view with the same conditional as the desktop
+  breakpoint (pmcinerney@au.westfield.com)
+- BOXING DAY FIX - Remove store hours from the mobile breakpoint as it does not
+  respect closed centres (pmcinerney@au.westfield.com)
+
 * Thu Dec 26 2013 ci <doperations@au.westfield.com> 0.2.70-1
 - 
 

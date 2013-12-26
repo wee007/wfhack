@@ -163,9 +163,6 @@
 				</div>
 				<%# //Centre selector %>
 
-				<%# Centre opening hours %>
-	      <a href="<%= centre_hours_path( params[ :centre_id ] || params[ :id ] ) %>" target="_self" class="open-hours-link"><span class="icon icon--hours" aria-hidden="true"></span> <strong>Open <time datetime="<%= @centre.today_opening_time %>"><%= twelve_hour_format(@centre.today_opening_time) %></time> - <time datetime="<%= @centre.today_closing_time %>"><%= twelve_hour_format(@centre.today_closing_time) %></time> today</strong><span class="icon icon--arrow-right" aria-hidden="true"></span></a>
-				<%# //Centre opening hours %>
 
 			</div>
 

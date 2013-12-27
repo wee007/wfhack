@@ -67,7 +67,7 @@
     @include to-rem(padding, 8 10);
   }
 
-    /* Icon */
+    /* Icon that identifies the tile */
     .tile__meta__icon {
       position: absolute;
       @include to-rem(left, -2);
@@ -75,7 +75,6 @@
       border-left: 2px solid $color-brand;
       background-color: $color-grey-light-3;
       color: $color-txt-light;
-      @include font-size($font-size-lrg, 1);
       @include to-rem(padding, 3 5);
 
       /* Increase the padding at this breakpoint, as we have more space */
@@ -122,6 +121,23 @@
           color: $color-txt-dark;
           font-weight: bold;
         }
+
+  /* Alternative icon, tiny icon that sits top left corner of it's tile, have 2 types: 'Collections' and 'Occasions' */
+  .tile__icon-alt {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(#000, 0.5);
+    @include to-rem(padding, 2.5 4.5);
+
+    /* Increase padding at this breakpoint */
+    @include respond-min($non-palm) {
+      @include to-rem(padding, 4.5 6.5);
+    }
+
+      /* The icon */
+      &:before {color: #fff;}
+  }
 
   /* Controls - 'Share' and 'Favourites' */
   .tile__controls {

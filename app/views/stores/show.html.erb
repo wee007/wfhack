@@ -217,11 +217,6 @@
           // Target the store in the map
           storeMapPage.store(<%= @store.id %>);
 
-          // Add a hook if there is only 'Opening hours' item in `storefront__details__meta`
-          if ($('.storefront__details__meta dd').length === 2) {
-            $('.storefront__details__meta').addClass('is-only-item');
-          }
-
           // Run 'Flexslider' plugin
 
           // Get the count of flexslider items

@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.73
+Version:     0.2.74
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,43 @@ fi
 
 
 %changelog
+* Sun Dec 29 2013 ci <doperations@au.westfield.com> 0.2.74-1
+- Merge branch 'master' of github.dbg.westfield.com:digital/customer_console
+  (doperations@au.westfield.com)
+- Removing broken jQuery and fixing padding for storefront details
+  (cpearce@au.westfield.com)
+- Adding space between icon/text and changing hyphen to en dash for shopping
+  hours link in centre home page header (cpearce@au.westfield.com)
+- Removing Ruby comments to prevent category nav links wrapping onto 2 lines
+  (cpearce@au.westfield.com)
+- Fix nav-contextual hidden when JS is off on Movies index page
+  (cpearce@au.westfield.com)
+- Fix product filter back button icon span not closed
+  (cpearce@au.westfield.com)
+- Merge pull request #812 from fchan/styleguide (craigM.smith@au.westfield.com)
+- Fixing broken build test (cpearce@au.westfield.com)
+- Finish Formatting of HTML better inc comments to make it more readable -
+  WSF-6045 (cpearce@au.westfield.com)
+- Format HTML better inc comments to make it more readable - WSF-6045
+  (cpearce@au.westfield.com)
+- Cleaning up non JS styles and hiding HTML that is dependant on JS
+  (cpearce@au.westfield.com)
+- Review all buttons to check they have relevant type attrs - WSF-6097
+  (cpearce@au.westfield.com)
+- Check the Toggle Content abstraction modifiers and fixing aria-expanded attr
+  in jQuery plugin - WSF-6101 (cpearce@au.westfield.com)
+- Fix up SG comments and small updates (fiona@fionachan.net)
+- Added 3rd level list (fiona@fionachan.net)
+- Remove redundant classes in style guide homepage heading
+  (fiona@fionachan.net)
+- Break up partials more and remove redundant dir (fiona@fionachan.net)
+- Separate styleguide CSS into partials and various updates
+  (fiona@fionachan.net)
+- Added base styles (fiona@fionachan.net)
+- Added toggle visibility example (fiona@fionachan.net)
+- Update helper name (fiona@fionachan.net)
+- Some style guide styling updates (fiona@fionachan.net)
+
 * Fri Dec 27 2013 ci <doperations@au.westfield.com> 0.2.73-1
 - 
 

@@ -1,3 +1,4 @@
+<%# Tile product image %>
 <div class="tile__image">
   <%# FIXME There is something causing some images in beta not to load if the cl_image_tag is used here %>
   <%= fetch_image_tag result.primary_image, {
@@ -9,11 +10,18 @@
     }.merge((options if defined? options) || {})
   %>
 </div>
+<%# //Tile product image %>
 
+<%# Tile product meta %>
 <div class="tile__meta">
+
+  <%# Tile product icon %>
   <span class="tile__meta__icon">
     <span class="icon icon--products" aria-hidden="true"></span>
   </span>
+  <%# //Tile product icon %>
+
+  <%# Tile product name, price and brand %>
   <div class="tile__meta__inner">
     <h3 class="tile__meta__hdr txt-truncate"><%= result.name %></h3>
     <p class="tile__meta__desc txt-truncate">
@@ -21,4 +29,7 @@
       from <strong><%= result.retail_chain_name %></strong>
     </p>
   </div>
+  <%# //Tile product name, price and brand %>
+
 </div>
+<%# //Tile product meta %>

@@ -1,0 +1,89 @@
+/* ======================================================================================
+   @LAYOUT -> HEADER
+   ====================================================================================== */
+
+.sg-header {
+  @extend %mrg-base;
+  background-color: #fff;
+  @include to-rem(min-height, 44);
+  border-bottom: 1px solid $color-grey-med-2;
+
+  /* Home page version */
+  .sg-homepage & {@include to-rem(margin-bottom, $spacing-dbl+$spacing-dbl);}
+
+  /* Inner container */
+  .container {
+    @include to-rem(padding-top padding-bottom, 7);
+
+    @include respond-min($non-palm) {
+      @include to-rem(padding-top, 10);
+    }
+  }
+
+  /* Style guide heading */
+  h1 {
+    display: inline-block;
+    @include to-rem(margin, 5 0 0 5);
+    @include font-size(22, 1.2);
+    text-transform: uppercase;
+  }
+
+  /* Menu (hamburger) toggle button */
+  .btn--menu {
+    position: absolute;
+    right: 0;
+
+    @include respond-min($sg-breakpoint) {
+      display: none;
+    }
+  }
+
+    /* The three lines in icon */
+    .btn--menu__icon {
+      &,
+      &:before,
+      &:after {background-color: $color-grey-med-2;}
+    }
+
+  /* Main nav */
+  .sg-nav-main {
+    @include to-rem(max-height, $drop-down-max-height);
+
+    /* Set main nav to be horizontal at this breakpoint */
+    @include respond-min($sg-breakpoint) {
+      display: block;
+      position: absolute;
+      right: 0;
+      @include to-rem(top, $spacing-half);
+    }
+
+    /* Touch device */
+    .touch & {
+      overflow-y: scroll;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    /* Nav items */
+    li {
+      border-top: 1px solid $color-grey-med-3;
+
+      &:first-child {border-top: 0;}
+
+      /* Set nav items to display horizontally */
+      @include respond-min($sg-breakpoint) {
+        display: inline-block;
+        vertical-align: middle;
+        border-top: 0;
+      }
+    }
+
+      a {
+        display: block;
+        color: $color-grey-med-1;
+        @include to-rem(padding, $spacing-third $spacing-half);
+
+        &:hover,
+        &:focus {color: $color-brand;}
+      }
+  }
+}

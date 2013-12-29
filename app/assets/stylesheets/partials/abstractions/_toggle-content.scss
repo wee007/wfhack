@@ -5,9 +5,6 @@
 /*
   Simply expands/collapses some content via jQuery.
 
-  .toggle-content--btn-center     - Center align
-  .toggle-content--btn-mrg-base   - Apply base bottom margin
-
   Styleguide Toggle Content
 */
 
@@ -18,11 +15,3 @@
 	/* Non JS users */
 	.no-js & {display: block !important;}
 }
-
-/* --Modifiers-- */
-
-/* Center align */
-.toggle-content--btn-center {text-align: center;}
-
-/* Apply base bottom margin */
-.toggle-content--btn-mrg-base .is-expanded {@include to-rem(margin-bottom, $spacing-base);}

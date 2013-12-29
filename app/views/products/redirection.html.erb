@@ -1,15 +1,20 @@
 <div class="container">
+
+  <%# Logo %>
   <%= site_logo %>
+  <%# //Logo %>
 
-  <p>Forwarding to <%= meta.retail_chain_name %> website<br> or go to the
-  <%= link_to "retailer's site", meta.product_tracking_url.html_safe, target: "_blank",
-    class: "js-redirect", rel: "external" %>
-  directly.</p>
+  <%# Redirect message %>
+  <p>Forwarding to <%= meta.retail_chain_name %> website<br> or go to the <%= link_to "retailer's site", meta.product_tracking_url.html_safe, target: "_blank", class: "js-redirect", rel: "external" %> directly.</p>
+  <%# //Redirect message %>
 
+  <%# Preloader %>
   <span class="preloader preloader--light">
     <span class="preloader__spinner"></span>
     <em class="hide-visually">Loading, please wait&#8230;</em>
   </span>
+  <%# //Preloader %>
+
 </div>
 
 <%- content_for :javascript do -%>
@@ -24,7 +29,6 @@
         window.location.replace(collectUtmData());
       },100)
     });
-
 
     function collectUtmData() {
       var utmSource, utmKeyword, utmMedium, queryString;
@@ -51,6 +55,5 @@
 
       return ptu;
     }
-
   </script>
 <%- end %>

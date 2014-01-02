@@ -14,7 +14,7 @@
     </span>
     <%# //PJAX preloader %>
 
-    <div class="stores-maps__inner stores-maps__inner--listing">
+    <div ng-controller="StoreListController" class="stores-maps__inner stores-maps__inner--listing">
 
       <%# Filters & list/map toggle button %>
       <div class="stores-maps__filters-toggle">
@@ -30,8 +30,9 @@
 
             <%# Category %>
             <%# [BACKEND] When a category has been selected remove the Category filter HTML from the DOM, if cannot remove from the DOM then append `hide-fully` class to this `div` %>
-            <div class="stores-maps__filters__item drop-down-menu drop-down-container">
 
+            <% unless @active_category %>
+            <div class="stores-maps__filters__item drop-down-menu drop-down-container">
               <%#
                 [BACKEND] following keyboard behaviour is required:
                 - ENTER/SPACE key opens the drop down when focused on the drop down trigger.
@@ -42,7 +43,7 @@
               %>
 
               <%# Drop down trigger %>
-              <button class="drop-down-menu__trigger btn btn--main btn--main-dark btn--pointer btn--pointer-padding-med js-disabled-hide" toggle-visibility="category-store-filter">
+              <button ng-click="viewSubCategory(null)" class="drop-down-menu__trigger btn btn--main btn--main-dark btn--pointer btn--pointer-padding-med js-disabled-hide" toggle-visibility="category-store-filter">
                 Category
                 <span class="hide-visually"> filter</span>
                 <span aria-hidden="true" class="icon icon--lrg icon--arrow-down-full btn--pointer__icon"></span>
@@ -54,82 +55,95 @@
 
                 <%# T1 categories %>
                 <%# [BACKEND] when a T1 has been selected remove `is-active` class to hide it, bring it back when the 'Back' anchor is selected in the relevant T2's header %>
-                <ul id="stores-t1-categories" class="drop-down-menu__list toggle-visibility is-active">
-                  <li class="drop-down-menu__divider">
-                    <%#
-                      [BACKEND] the T1 links to it's T2 via the T2's `id` (make sure the `id` isn't in the URL) and each T1 link that has children needs a unique `id` for ARIA, just increment the number at the end of the `id`s, the following ARIA attr's are needed:
-                      - `aria-haspopup="true"`.
-                      - `aria-controls="id-of-T2-container"`.
-                    %>
-                    <a href="#stores-t2-category-1" id="stores-t1-category-1" class="drop-down-menu__hdr-btn btn btn--full btn--full-left btn--pointer">
-                      Health Services
-                      <span class="hide-visually"> (view sub categories)</span>
-                      <span class="icon icon--arrow-right-big icon--lrg btn--pointer__icon js-disabled-hide" aria-hidden="true"></span>
-                    </a>
-                    <%# [BACKEND] for when gift cards aren't available for a category i.e. disabled state, make sure no ARIA attr's are applied %>
-                    <!-- <div class="drop-down-menu__hdr-btn btn btn--full btn--full-left btn--pointer is-disabled is-disabled--no-hover">
-                      [T1 category]
-                      <span class="hide-visually"> (gift cards not available for this category)</span>
-                      <span class="icon icon--arrow-right-big icon--lrg btn--pointer__icon js-disabled-hide" aria-hidden="true"></span>
-                    </div> -->
-                    <%# [BACKEND] for when T1's don't have T2's, these links needs to render at the bottom of the list, if you need a way to target these links use `is-childless`, make sure no ARIA attr's are applied %>
-                    <!-- <a href="#" class="drop-down-menu__hdr-btn btn btn--full btn--full-left btn--pointer">[T1 category]</a> -->
-                  </li>
+                <ul ng-class="{'is-active': (viewingSubCategory == undefined)}" id="stores-t1-categories" class="drop-down-menu__list toggle-visibility is-active">
+                  <% @categories.each do |category| %>
+                    <li class="drop-down-menu__divider">
+                      <% if category.children.empty? %>
+                        <% if filtering_gift_cards? %>
+                          <div class="drop-down-menu__hdr-btn btn btn--full btn--full-left btn--pointer is-disabled is-disabled--no-hover">
+                            <%= category.name %>
+                            <span class="hide-visually"> (gift cards not available for this category)</span>
+                          </div>
+                        <% else %>
+                          <a href="<%= centre_stores_category_path(@centre, category.code) %>" class="drop-down-menu__hdr-btn btn btn--full btn--full-left btn--pointer is-childless"><%= category.name %></a>
+                        <% end %>
+                      <% else %>
+                        <% if filtering_gift_cards? %>
+                          <div class="drop-down-menu__hdr-btn btn btn--full btn--full-left btn--pointer is-disabled is-disabled--no-hover">
+                            <%= category.name %>
+                            <span class="hide-visually"> (gift cards not available for this category)</span>
+                            <span class="icon icon--arrow-right-big icon--lrg btn--pointer__icon js-disabled-hide" aria-hidden="true"></span>
+                          </div>
+                        <% else %>
+                          <a ng-click="viewSubCategory('<%= category.code %>')" href="#<%= category.code %>" id="<%= category.code %>" aria-haspopup="true" aria-controls="<%= category.code %>_categories" class="drop-down-menu__hdr-btn btn btn--full btn--full-left btn--pointer">
+                            <%= category.name %>
+                            <span class="hide-visually"> (view sub categories)</span>
+                            <span class="icon icon--arrow-right-big icon--lrg btn--pointer__icon js-disabled-hide" aria-hidden="true"></span>
+                          </a>
+                        <% end %>
+                      <% end %>
+                    </li>
+                  <% end %>
                 </ul>
                 <%# //T1 categories %>
 
-                <%# T2 categories %>
-                <%#
-                  [BACKEND] the display of the T2 categories are handled via the `is-active` class, when a T1 has been selected append `is-active` to the container `div` and remove the `is-active` from the T1 container `div`. The following ARIA attr's are needed:
-                  - `aria-hidden`, default value is `true`, when it's in view it should be `false`.
-                  - `aria-labelledby="id-of-T1-anchor"`.
-                %>
-                <div id="stores-t2-category-1" class="toggle-visibility">
-                  <div class="drop-down-menu__hdr drop-down-menu__divider islet">
-                    <h3>[T2 category]</h3>
-                    <%# [BACKEND] simple anchor link that links to the T1 category container `ul`, make sure the `id` isn't in the URL %>
-                    <a href="#stores-t1-categories" class="btn js-disabled-hide">
-                      <span class="hide-visually">Back to main categories</span>
-                      <span class="icon icon--arrow-left-big icon--lrg" aria-hidden="true"></span>
-                    </a>
+                <% @categories_with_children.each do |category| %>
+                  <div ng-class="{'is-active': (viewingSubCategory == '<%= category.code %>')}"
+                       ng-attr-aria-hidden="{{viewingSubCategory == '<%= category.code %>'}}"
+                       aria-labelledby="<%= category.code %>"
+                    id="<%= category.code %>_categories" class="toggle-visibility">
+                    <div class="drop-down-menu__hdr drop-down-menu__divider islet">
+                      <h3><%= category.name %></h3>
+
+                      <a ng-click="viewSubCategory(null)" href="#stores-t1-categories" class="btn js-disabled-hide">
+                        <span class="hide-visually">Back to main categories</span>
+                        <span class="icon icon--arrow-left-big icon--lrg" aria-hidden="true"></span>
+                      </a>
+                    </div>
+                    <ul class="drop-down-menu__list">
+                      <% category.children.each do |sub_category| %>
+                        <li class="drop-down-menu__divider">
+                          <% if filtering_gift_cards? %>
+                            <div class="btn btn--full btn--full-left is-disabled">
+                              <%= sub_category.name %>
+                              <span class="hide-visually"> (gift cards not available for this category)</span>
+                            </div>
+                          <% else %>
+                            <a href="<%= centre_stores_category_path(@centre, sub_category.code) %>" class="btn btn--full btn--full-left"><%= sub_category.name %></a>
+                          <% end %>
+                        </li>
+                      <% end %>
+                    </ul>
                   </div>
-                  <ul class="drop-down-menu__list">
-                    <li class="drop-down-menu__divider">
-                      <a href="#" class="btn btn--full btn--full-left">[T2 category]</a>
-                      <%# [BACKEND] for when gift cards aren't available for a category i.e. disabled state %>
-                      <!-- <div class="btn btn--full btn--full-left is-disabled">
-                        [T2 sub category]
-                        <span class="hide-visually"> (gift cards not available for this category)</span>
-                      </div> -->
-                    </li>
-                  </ul>
-                </div>
+                <% end %>
                 <%# //T2 categories %>
 
               </div>
               <%# //Drop down target %>
-
-            </div><!--
+            </div>
+            <% end %>
             <%# //Category %>
 
             <%# Applied category %>
             <%# [BACKEND] this shouldn't be in the DOM until a category has been selected, if it can't be removed from the DOM then use class `hide-fully` on the `form` %>
-            --><!-- <form action="" method="get" class="stores-maps__filters__item">
+            <% if @active_category %>
+            <form action="<%= centre_stores_path(@centre) %>" method="get" class="stores-maps__filters__item">
                 <legend class="hide-visually">Clear the filtered category from the stores list</legend>
                 <button type="submit" class="tags__btn tags__btn--solo btn">
-                  <span class="txt-truncate">Specialty Health Providers</span>
+                  <span class="txt-truncate"><%= @active_category.name %></span>
                   <span class="icon icon--close-sml icon--lrg icon--flush-top" aria-hidden="true"></span>
                 </button>
-            </form> --><!--
+            </form>
+            <% end %>
             <%# //Applied category %>
 
             <%# Gift card filter %>
-            --><form action="" method="get" class="stores-maps__filters__item">
+            <form id="giftCardForm" action="<%= request.path %>" method="get" class="stores-maps__filters__item">
                 <legend class="hide-visually">Gift card filter</legend>
                 <%# [BACKEND] when the gift card checkbox is checked append class `is-active` to the `label` and when gift cards aren't available in categories append class `is-disabled` onto the `label` and see below for further instructions %>
                 <label for="gift-card-store-filter" class="btn btn--main btn--main-dark btn--main-checkbox-toggle btn--main-checkbox-toggle-icon">
                   <%# [BACKEND] when gift cards aren't available in categories append `disabled` attr onto the `checkbox` %>
-                  <input id="gift-card-store-filter" type="checkbox" class="btn--main-checkbox-toggle__input">
+                  <input ng-init="gift_cards = <%= filtering_gift_cards? ? true : false %>" ng-model="gift_cards" ng-change="giftCardSubmit()" id="gift-card-store-filter" type="checkbox" name="gift_cards" value="true" class="btn--main-checkbox-toggle__input" <%= 'checked' if filtering_gift_cards? %>>
                   <span class="btn--main-checkbox-toggle__lbl">
                     <span class="hide-visually">Westfield </span>
                     Gift Card
@@ -165,67 +179,11 @@
 
             <dt>
               <div class="stores-list__inner container">
-                <%# [BACKEND] this should just go back to rendering the letter only %>
-                <% if @letter == 'All' %>
-                  <%= letter %>
-                <% else %>
-                  Stores starting with "<%= letter %>"
-                <% end %>
+                Stores starting with "<%= letter %>"
               </div>
             </dt>
 
-            <% stores.each do |store| %>
-            <dd>
-              <div class="stores-list__inner container">
-
-                <%# Store name %>
-                <div class="stores-list__store-name test-store">
-                  <strong><%= link_to store.name, (centre_store_url @centre.code, store.retailer_code, store.id), class: 'js-pjax-link-stores' %></strong>
-                  <%# Phone no %>
-                  <span class="hide-fully--palm"><span class="hide-visually">Call store: </span><%= phone_format store.phone_number %></span>
-                  <%# //Phone no %>
-                </div>
-                <%# //Store name %>
-
-                <%# Logo %>
-                <% if store.has_logo? %>
-                  <div class="stores-list__logo hide-fully--palm">
-                    <div class="vert-align">
-                      <div class="vert-align__inner">
-                        <span class="preloader preloader--light js-disabled-hide" data-image-src="<%= cl_image_path(store.logo, type: "fetch", width: 168, height: 62, crop: :pad, background: 'rgb:FFFFFF', fetch_format: 'auto') %>" data-image-alt="<%= "#{store.name} logo" %>" data-image-itemprop="photo">
-                          <span class="preloader__spinner"></span>
-                          <em class="hide-visually">Loading, please wait&#8230;</em>
-                        </span>
-                        <noscript><img src="<%= cl_image_path(store.logo, type: "fetch", width: 168, height: 62, crop: :pad, background: 'rgb:FFFFFF', fetch_format: 'auto') %>" alt="<%= "#{store.name} logo" %>"></noscript>
-                      </div>
-                    </div>
-                  </div>
-                <% end %>
-                <%# //Logo %>
-
-                <%# Icon links %>
-                <div class="stores-list__phone-map storefront-storelist-phone-map-links">
-
-                  <%# Phone no %>
-                  <%= phone_link store.phone_number, class: 'storefront-storelist-phone-map-links__cell storefront-storelist-phone-map-links__cell--phone hide-fully--non-palm' do |phone_number| %>
-                    <span class="hide-visually">Call store: <%= phone_number %></span>
-                    <span class="icon icon--phone2 icon--flush-top storefront-storelist-phone-map-links__cell__valign" aria-hidden="true"></span>
-                  <% end %>
-                  <%# //Phone no %>
-
-                  <%# Location %>
-                  <a href="#infoDiv" class="storefront-storelist-phone-map-links__cell storefront-storelist-phone-map-links__cell--location" data-store-id="<%= store.id %>">
-                    <span class="hide-visually">View on map</span>
-                    <span class="icon icon--pin icon--flush-top storefront-storelist-phone-map-links__cell__valign" aria-hidden="true"></span>
-                  </a>
-                  <%# //Location %>
-
-                </div>
-                <%# //Icon links %>
-
-              </div>
-            </dd>
-            <% end %>
+            <%= render stores %>
 
           <% end %>
         </dl>

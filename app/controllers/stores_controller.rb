@@ -3,16 +3,26 @@ class StoresController < ApplicationController
   def index
     push_centre_info_to_gon
 
-    @grouped_stores = @stores.group_by { |store| store.first_letter }
-    @letter = letter @grouped_stores
-    @letters = letters @grouped_stores
+    # Categories, sorted by whether they have any sub-categories
+    @categories = store_categories(@stores).sort_by {|category| !category.children.any? ? 1 : 0 }
+    @categories_with_children = @categories.select{|c| c.children.any? }
 
-    # Reduce to one if we are scoping by letter
-    @grouped_stores = {@letter => @grouped_stores[@letter]} unless @letter == 'All'
-    return respond_to_error 404 if @grouped_stores[@letter].blank? && @letter != 'All'
+    # If theres a category that has been selected
+    if params[:category]
+      # Filter the stores list
+      @stores.delete_if{|store| !store.category_codes.include? params[:category] }
+
+      # Get the category
+      @active_category = @categories.find{ |category| category.code == params[:category] } ||
+        @categories.map{|c| c.children.map{|cc| cc} }.flatten.find {|category| category.code == params[:category]}
+    end
+
+    @grouped_stores = @stores.group_by { |store| store.first_letter }
+
+    title = @active_category.nil? ? "Stores at #{centre.name}" : "#{centre.name} #{@active_category.name}"
 
     meta.push(
-      page_title: "Stores at #{centre.name}",
+      page_title: title,
       description: "Find your favourite store at #{centre.name} along with a map to help you easily find its location"
     )
   end
@@ -53,19 +63,23 @@ protected
     gon.push centre: centre
   end
 
-  def letters(stores)
-    output = {}
-    output['#'] = stores['#'].try(:length) || 0
-    ('A'..'Z').inject(output) do |hash, letter|
-      hash[letter] = stores[letter].try(:length) || 0
-      hash
-    end
-    output['All'] = @stores.length if @stores.length < 100
-    output
-  end
+private
 
-  def letter(stores)
-    params[:letter] || (@stores.length < 100 ? "All" : "A")
-  end
+  # Filter list of retailer categories by whether there is an associated store
+  def store_categories(stores)
+    # Array of categories that stores have
+    store_categories = stores.map{|store| store.category_codes }.flatten.uniq
 
+    RetailerCategoryService.find(country: 'au').map do |category|
+      # Remove children that don't match to any stores
+      category.children.delete_if {|child| !store_categories.include?(child.code) }
+
+      # If category has no children and doesn't match to any stores, remove it
+      if store_categories.include?(category.code)
+        category
+      else
+        nil
+      end
+    end.compact
+  end
 end

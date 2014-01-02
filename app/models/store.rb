@@ -9,8 +9,8 @@ class Store < Hashie::Mash
     end
   end
 
-  def accepts_giftcard?
-    false
+  def to_partial_path
+    'store'
   end
 
   def has_logo?

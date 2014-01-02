@@ -1,4 +1,4 @@
-<%# Header %>
+<%# Header national %>
 <header class="header header--national" role="banner">
 
 	<%# Header secondary %>
@@ -27,12 +27,36 @@
 
 				<%# Tab nav %>
 	      <ul class="tab__nav container horiz-list">
-	        <li><a href="#tab-nsw" class="is-active"><abbr title="New South Wales">NSW</abbr></a></li>
-	        <li><a href="#tab-act"><abbr title="Australian Capital Territory">ACT</abbr></a></li>
-	        <li><a href="#tab-qld"><abbr title="Queensland">QLD</abbr></a></li>
-	        <li><a href="#tab-vic"><abbr title="Victoria">VIC</abbr></a></li>
-	        <li><a href="#tab-sa"><abbr title="South Australia">SA</abbr></a></li>
-	        <li><a href="#tab-wa"><abbr title="Western Australia">WA</abbr></a></li>
+	        <li>
+            <a href="#tab-nsw" class="is-active">
+              <abbr title="New South Wales">NSW</abbr>
+            </a>
+          </li>
+	        <li>
+            <a href="#tab-act">
+              <abbr title="Australian Capital Territory">ACT</abbr>
+            </a>
+          </li>
+	        <li>
+            <a href="#tab-qld">
+              <abbr title="Queensland">QLD</abbr>
+            </a>
+          </li>
+	        <li>
+            <a href="#tab-vic">
+              <abbr title="Victoria">VIC</abbr>
+            </a>
+          </li>
+	        <li>
+            <a href="#tab-sa">
+              <abbr title="South Australia">SA</abbr>
+            </a>
+          </li>
+	        <li>
+            <a href="#tab-wa">
+              <abbr title="Western Australia">WA</abbr>
+            </a>
+          </li>
 	      </ul>
       	<%# //Tab nav %>
 
@@ -57,19 +81,29 @@
 			<%# Centre select (non-palm) %>
 			<nav class="header-centre-select-national hide-fully--palm-inline-block" role="navigation">
 				<h1>Choose a <span class="hide-visually">centre to see products, deals, events, and centre info:</span></h1>
-				<div class="drop-down-menu drop-down-container">
-          <button class="drop-down-menu__trigger btn btn--main btn--main-dark btn--pointer btn--pointer-padding-med" toggle-visibility="header-menu-toggle-non-palm">Westfield Centre<span aria-hidden="true" class="icon icon--lrg icon--arrow-down-full btn--pointer__icon"></span></button>
+
+        <div class="drop-down-menu drop-down-container">
+
+          <button type="button" class="drop-down-menu__trigger btn btn--main btn--main-dark btn--pointer btn--pointer-padding-med" toggle-visibility="header-menu-toggle-non-palm">
+            Westfield Centre
+            <span aria-hidden="true" class="icon icon--lrg icon--arrow-down-full btn--pointer__icon"></span>
+          </button>
+
           <div class="drop-down-menu__target drop-down pointer-up box box--drop-down" id="header-menu-toggle-non-palm">
           	<dl class="drop-down-menu__list">
       				<% %w(NSW ACT QLD VIC SA WA).each do |state| %>
 	          		<dt class="drop-down-menu__hdr-sub drop-down-menu__divider"><%= state %></dt>
 		        		<% @centres[state].each do |centre| %>
-	          			<dd class="drop-down-menu__divider"><%= link_to centre.short_name, context_aware_link(centre), class: 'btn btn--full btn--full-left' %></dd>
+	          			<dd class="drop-down-menu__divider">
+                    <%= link_to centre.short_name, context_aware_link(centre), class: 'btn btn--full btn--full-left' %>
+                  </dd>
 	          		<% end %>
 	          	<% end %>
           	</dl>
           </div>
+
         </div>
+
         <span class="header-centre-select-national__lbl" aria-hidden="true">to see products, deals, events, and centre info</span>
 			</nav>
 			<%# //Centre select (non-palm) %>
@@ -79,4 +113,4 @@
 	<%# //Header secondary %>
 
 </header>
-<%# //Header %>
+<%# //Header national %>

@@ -1,18 +1,20 @@
+<%# Hero images for sub pages %>
 <% content_for :custom_styles do %>
   <style>
     <%# Hero image at this breakpoint (small) %>
     @media (max-width: 25em) {
-        <%= target %> {background-image: url(<%= image_path("heroes/#{image}-sml.jpg", fetch_format: 'auto') %>);}
+        <%= target %> {background-image: url(<%= image_path("heroes/#{image}-sml.jpg", quality: 90) %>);}
     }
     <%# Hero image at this breakpoint (medium) %>
     @media (min-width: 25.0625em) and (max-width: 48em) {
-        <%= target %> {background-image: url(<%= image_path("heroes/#{image}-med.jpg", fetch_format: 'auto') %>);}
+        <%= target %> {background-image: url(<%= image_path("heroes/#{image}-med.jpg", quality: 90) %>);}
     }
     <%# Hero image at this breakpoint (large) %>
     @media (min-width: 48.0625em) {
-        <%= target %> {background-image: url(<%= image_path("heroes/#{image}-lrg.jpg", fetch_format: 'auto') %>);}
+        <%= target %> {background-image: url(<%= image_path("heroes/#{image}-lrg.jpg", quality: 90) %>);}
     }
     <%# Old IE %>
     .old-ie <%= target %> {background-image: url(<%= image_path("heroes/#{image}-lrg.jpg") %>);}
   </style>
 <% end %>
+<%# //Hero images for sub pages %>

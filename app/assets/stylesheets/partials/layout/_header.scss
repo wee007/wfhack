@@ -1543,6 +1543,13 @@ $hero-banner-height-lrg: 380 !default;
 				.js .header--national &.drop-down {display: none;}
 	  	}
 
+	  	/* Non JS users */
+		  .no-js & {
+		  	display: block;
+		  	background: none;
+		  	border: 0;
+		  }
+
 			/* --Shared rules-- */
 
 			/* Common font family and size */
@@ -1560,7 +1567,12 @@ $hero-banner-height-lrg: 380 !default;
 			.header__tabs__hdr {
 				border-bottom: 1px solid $color-grey-dark-3;
 
-				h1 {font-weight: normal;}
+				h1 {
+					font-weight: normal;
+
+					/* Non JS users */
+					.no-js & {color: $color-txt-base;}
+				}
 			}
 
 			/* --Tab nav-- */
@@ -1595,12 +1607,6 @@ $hero-banner-height-lrg: 380 !default;
 			  .touch & {
 			  	overflow-y: scroll;
 			  	-webkit-overflow-scrolling: touch;
-			  }
-
-			  /* Non JS users */
-			  .no-js & {
-			  	max-height: none;
-			  	overflow: visible;
 			  }
 
 				/* Shared rules */

@@ -1,9 +1,8 @@
 <footer class="grid grid--gutter-dbl">
   <% [promo_tile_1, promo_tile_2].each do |promo| %>
     <div class="grid__item non-palm-one-half">
-      <%# Promo tile %>
       <div class="promo-tile box">
-        <%= image_tag promo[:image_src], alt: '', width: 589, crop: 'limit', quality: 70, fetch_format: 'auto' %>
+        <%= image_tag promo[:image_src], alt: '', width: 589, crop: 'limit', quality: 90 %>
         <span class="promo-tile__icon icon <%= promo[:icon] %> icon--flush-top" aria-hidden="true"></span>
         <div class="islet island-non-palm">
           <h2 class="promo-tile__hdr"><%= promo[:heading] %></h2>
@@ -11,7 +10,6 @@
           <%= link_to promo[:link_text], promo[:link_url] %>
         </div>
       </div>
-      <%# //Promo tile %>
     </div>
   <% end %>
 </footer>

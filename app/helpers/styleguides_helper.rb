@@ -20,11 +20,11 @@ module StyleguidesHelper
       script: @@script
   end
 
-  def styleguide_example(title, description = nil, &block)
+  def styleguide_block_static(title, description = nil, &block)
     raise ArgumentError, "Missing code example" unless block_given?
     content = capture(&block).strip
 
-    render 'styleguides/styleguide_example',
+    render 'styleguides/styleguide_block_static',
       title: title,
       description: description,
       example_html: content

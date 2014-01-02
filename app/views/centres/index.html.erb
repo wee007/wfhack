@@ -4,10 +4,11 @@
 <div class="national__inner">
 
   <%# Header %>
-  <header class="national__header img-rotate">
-    <%# Rotating images %>
+  <header class="national__header img-rotate" role="banner">
+
+    <%# Hero image %>
     <div class="national__hero__1 img-rotate__item"></div>
-    <%# //Rotating images %>
+    <%# //Hero image %>
 
     <%# Gradient overlay %>
     <span class="hero-gradient"></span>
@@ -15,6 +16,7 @@
 
     <%# Container %>
     <div class="container container--position">
+
       <%# Logo %>
       <%= image_tag image_path('logo-white-beta.svg'), alt: 'Westfield', "data-svg-fallback" => image_path('logo-white-beta.png'), class: 'national__logo' %>
       <%# //Logo %>
@@ -33,12 +35,14 @@
         <ul class="horiz-list horiz-list--spacing-half">
           <li>
             <a href="<%= products_path %>">
-              <span class="icon icon--shirt" aria-hidden="true"></span>Shop products
+              <span class="icon icon--shirt" aria-hidden="true"></span>
+              Shop products
             </a>
           </li>
           <li>
             <a href="http://www.westfieldgiftcards.com.au" rel="external" target="_blank">
-              <span class="icon icon--gift-card" aria-hidden="true"></span>Buy Gift Cards
+              <span class="icon icon--gift-card" aria-hidden="true"></span>
+              Buy Gift Cards
             </a>
           </li>
         </ul>
@@ -47,6 +51,7 @@
 
     </div>
     <%# //Container %>
+
   </header>
   <%# //Header %>
 
@@ -54,33 +59,49 @@
   <main class="national__tabs tabs" id="main" role="main">
 
     <nav role="navigation">
+
       <div class="container">
 
         <h2>Find your centre</h2>
+
         <%# Tab nav %>
         <ul class="tab__nav horiz-list">
           <li>
-            <a class="js-viewport-check-on-click is-active" href="#tab-nsw"><abbr title="New South Wales">NSW</abbr></a>
+            <a class="js-viewport-check-on-click is-active" href="#tab-nsw">
+              <abbr title="New South Wales">NSW</abbr>
+            </a>
           </li>
           <li>
-            <a class="js-viewport-check-on-click" href="#tab-act"><abbr title="Australian Capital Territory">ACT</abbr></a>
+            <a class="js-viewport-check-on-click" href="#tab-act">
+              <abbr title="Australian Capital Territory">ACT</abbr>
+            </a>
           </li>
           <li>
-            <a class="js-viewport-check-on-click" href="#tab-qld"><abbr title="Queensland">QLD</abbr></a>
+            <a class="js-viewport-check-on-click" href="#tab-qld">
+              <abbr title="Queensland">QLD</abbr>
+            </a>
           </li>
           <li>
-            <a class="js-viewport-check-on-click" href="#tab-vic"><abbr title="Victoria">VIC</abbr></a>
+            <a class="js-viewport-check-on-click" href="#tab-vic">
+              <abbr title="Victoria">VIC</abbr>
+            </a>
           </li>
           <li>
-            <a class="js-viewport-check-on-click" href="#tab-sa"><abbr title="South Australia">SA</abbr></a>
+            <a class="js-viewport-check-on-click" href="#tab-sa">
+              <abbr title="South Australia">SA</abbr>
+            </a>
           </li>
           <li>
-            <a class="js-viewport-check-on-click" href="#tab-wa"><abbr title="Western Australia">WA</abbr></a>
+            <a class="js-viewport-check-on-click" href="#tab-wa">
+              <abbr title="Western Australia">WA</abbr>
+            </a>
           </li>
         </ul>
         <%# //Tab nav %>
+
       </div>
 
+      <%# Tab content %>
       <% %w(NSW ACT QLD VIC SA WA).each do |state| %>
         <ul id="tab-<%= state.downcase %>" class="tab__content<%= ' is-active' if state == 'NSW' %>">
           <% @centres_by_state[state].each do |centre| %>
@@ -95,34 +116,17 @@
           <% end %>
         </ul>
       <% end %>
+      <%# //Tab content %>
+
     </nav>
+
   </main>
   <%# //Tabs %>
-
-  <% content_for :javascript do %>
-    <%#
-        Background images of the centre tiles at each breakpoint.
-        This is in the `content_for :javascript` because it is not need till after the js
-        has loaded and adds quite a bit of page weight.
-    %>
-    <style>
-      <% @centres.each do |centre| %>
-        <%# Hero image at small breakpoint %>
-        @media (max-width: 25em) {.is-in-viewport-history .national__centre-tile--<%= centre.code %> {background-image: url(<%= centre_tile_image(centre.code, 400, 107) %>);}}
-        <%# Hero image at medium breakpoint %>
-        @media (min-width: 25.0625em) and (max-width: 48em) {.is-in-viewport-history .national__centre-tile--<%= centre.code %> {background-image: url(<%= centre_tile_image(centre.code, 768, 205) %>);}}
-        <%# Hero image at large breakpoint %>
-        @media (min-width: 48.0625em) {.is-in-viewport-history .national__centre-tile--<%= centre.code %> {background-image: url(<%= centre_tile_image(centre.code, 1600, 300) %>);}}
-        <%# Old IE %>
-        .old-ie .is-in-viewport-history .national__centre-tile--<%= centre.code %> {background-image: url(<%= centre_tile_image(centre.code, 1600, 300) %>);}
-      <% end %>
-    </style>
-    <%# //Background images of centre tiles %>
-  <% end %>
 
   <%# Footer %>
   <footer class="national__footer" role="contentinfo">
     <div class="container">
+
       <ul class="national__footer__nav horiz-list horiz-list--slash">
         <li>
           <%= link_to 'Westfield Group', 'http://corporate.westfield.com/', rel: 'external', target: '_blank' %>
@@ -163,9 +167,26 @@
           </li>
         </ul>
       </nav>
+
     </div>
   </footer>
   <%# //Footer %>
 
 </div>
 <%# //National landing page wrapper %>
+
+<% content_for :javascript do %>
+  <%# Background images of the centre tiles at each breakpoint. This is in the `content_for :javascript` because it is not needed untill after the JS has loaded and adds quite a bit of page weight %>
+  <style>
+    <% @centres.each do |centre| %>
+      <%# Hero image at small breakpoint %>
+      @media (max-width: 25em) {.is-in-viewport-history .national__centre-tile--<%= centre.code %> {background-image: url(<%= centre_tile_image(centre.code, 400, 107) %>);}}
+      <%# Hero image at medium breakpoint %>
+      @media (min-width: 25.0625em) and (max-width: 48em) {.is-in-viewport-history .national__centre-tile--<%= centre.code %> {background-image: url(<%= centre_tile_image(centre.code, 768, 205) %>);}}
+      <%# Hero image at large breakpoint %>
+      @media (min-width: 48.0625em) {.is-in-viewport-history .national__centre-tile--<%= centre.code %> {background-image: url(<%= centre_tile_image(centre.code, 1600, 300) %>);}}
+      <%# Old IE %>
+      .old-ie .is-in-viewport-history .national__centre-tile--<%= centre.code %> {background-image: url(<%= centre_tile_image(centre.code, 1600, 300) %>);}
+    <% end %>
+  </style>
+<% end %>

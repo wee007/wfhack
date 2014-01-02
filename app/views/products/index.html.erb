@@ -8,7 +8,7 @@
 
 <h1 class="hide-visually">Products</h1>
 
-<%# 'Super_cat' and 'Category' %>
+<%# 'Super category' and 'Category' %>
 <script type="text/ng-template" id="CategoryItemTemplate">
   <div class="drop-down-menu__hdr drop-down-menu__divider islet">
     <h3>{{search.categories.title}}</h3>
@@ -27,7 +27,7 @@
     </li>
   </ul>
 </script>
-<%# //'Super_cat' and 'Category' %>
+<%# //'Super category' and 'Category' %>
 
 <%# Category %>
 <script type="text/ng-template" id="SubCategoryTemplate">
@@ -43,14 +43,14 @@
     </li>
   </ul>
 
-  <button toggle-visibility="filters" ng-click="mvFilterSearch( 'categories' )" class="btn btn--main drop-down-menu__apply">Apply</button>
+  <button type="submit" toggle-visibility="filters" ng-click="mvFilterSearch( 'categories' )" class="btn btn--main drop-down-menu__apply">Apply</button>
 </script>
 <%# //Category %>
 
 <%# Back button %>
 <script type="text/ng-template" id="FilterItemBackButton">
-  <button ng-click="closeFilters()" class="filters__hide-wide btn">
-    <span class="icon icon--arrow-left-big icon--lrg" aria-hidden="true">
+  <button type="button" ng-click="closeFilters()" class="filters__hide-wide btn">
+    <span class="icon icon--arrow-left-big icon--lrg" aria-hidden="true"></span>
     <span class="hide-visually">Back</span>
   </button>
 </script>
@@ -67,7 +67,10 @@
     <div class="drop-down-menu drop-down-container">
 
       <%# Drop down trigger (narrow view) %>
-      <button ng-click="showFilterButtons" toggle-visibility="filters" class="filters__hide-wide drop-down-menu__trigger btn btn--main btn--main-white btn--pointer btn--pointer-padding-med">Filter<span class="icon icon--lrg icon--arrow-down-full btn--pointer__icon" aria-hidden="true"></span></button>
+      <button type="button" ng-click="showFilterButtons" toggle-visibility="filters" class="filters__hide-wide drop-down-menu__trigger btn btn--main btn--main-white btn--pointer btn--pointer-padding-med">
+        Filter
+        <span class="icon icon--lrg icon--arrow-down-full btn--pointer__icon" aria-hidden="true"></span>
+      </button>
       <%# //Drop down trigger (narrow view) %>
 
       <%# Drop down target (narrow view) %>
@@ -79,14 +82,14 @@
           <li ng-if="filterIsAvailable(search.categories.values)">
 
             <%# Narrow view trigger %>
-            <button ng-show="triggersVisible" ng-click="toggleFilter('category')" class="filters__trigger filters__trigger--narrow drop-down-menu__hdr-btn drop-down-menu__divider btn btn--full btn--full-left btn--pointer">
+            <button type="button" ng-show="triggersVisible" ng-click="toggleFilter('category')" class="filters__trigger filters__trigger--narrow drop-down-menu__hdr-btn drop-down-menu__divider btn btn--full btn--full-left btn--pointer">
               {{ search.categories.title }}
               <span class="icon icon--arrow-right-big icon--lrg btn--pointer__icon" aria-hidden="true"></span>
             </button>
             <%# //Narrow view trigger %>
 
             <%# Wide view trigger %>
-            <button ng-show="triggersVisible" ng-click="toggleFilter('category')" class="filters__trigger filters__trigger--wide drop-down-menu__trigger btn btn--pointer btn--main btn--main-white">
+            <button type="button" ng-show="triggersVisible" ng-click="toggleFilter('category')" class="filters__trigger filters__trigger--wide drop-down-menu__trigger btn btn--pointer btn--main btn--main-white">
               {{ search.categories.title }}
               <span class="icon icon--arrow-down-full btn--pointer__icon" aria-hidden="true"></span>
             </button>
@@ -105,14 +108,14 @@
           --><li ng-if="filterIsAvailable(search.retailers.values)">
 
             <%# Narrow view trigger %>
-            <button ng-show="triggersVisible" ng-click="toggleFilter('retailer')" class="filters__trigger filters__trigger--narrow drop-down-menu__hdr-btn drop-down-menu__divider btn btn--full btn--full-left btn--pointer">
+            <button type="button" ng-show="triggersVisible" ng-click="toggleFilter('retailer')" class="filters__trigger filters__trigger--narrow drop-down-menu__hdr-btn drop-down-menu__divider btn btn--full btn--full-left btn--pointer">
               {{ search.retailers.title }}
               <span class="icon icon--arrow-right-big icon--lrg btn--pointer__icon" aria-hidden="true"></span>
             </button>
             <%# //Narrow view trigger %>
 
             <%# Wide view trigger %>
-            <button ng-show="triggersVisible" ng-click="toggleFilter('retailer')" class="filters__trigger filters__trigger--wide drop-down-menu__trigger btn btn--pointer btn--main btn--main-white">
+            <button type="button" ng-show="triggersVisible" ng-click="toggleFilter('retailer')" class="filters__trigger filters__trigger--wide drop-down-menu__trigger btn btn--pointer btn--main btn--main-white">
               {{ search.retailers.title }}
               <span class="icon icon--arrow-down-full btn--pointer__icon" aria-hidden="true"></span>
             </button>
@@ -137,7 +140,7 @@
                 </li>
               </ul>
 
-              <button toggle-visibility="filters" ng-click="mvFilterSearch( 'retailers' )" class="btn btn--main drop-down-menu__apply">Apply</button>
+              <button type="submit" toggle-visibility="filters" ng-click="mvFilterSearch( 'retailers' )" class="btn btn--main drop-down-menu__apply">Apply</button>
 
             </div>
 
@@ -148,14 +151,14 @@
           --><li ng-if="filterIsAvailable(search.brands.values)">
 
             <%# Narrow view trigger %>
-            <button ng-show="triggersVisible" ng-click="toggleFilter('brand')" class="filters__trigger filters__trigger--narrow drop-down-menu__hdr-btn drop-down-menu__divider btn btn--full btn--full-left btn--pointer">
+            <button type="button" ng-show="triggersVisible" ng-click="toggleFilter('brand')" class="filters__trigger filters__trigger--narrow drop-down-menu__hdr-btn drop-down-menu__divider btn btn--full btn--full-left btn--pointer">
               {{ search.brands.title }}
               <span class="icon icon--arrow-right-big icon--lrg btn--pointer__icon" aria-hidden="true"></span>
             </button>
             <%# //Narrow view trigger %>
 
             <%# Wide view trigger %>
-            <button ng-show="triggersVisible" ng-click="toggleFilter('brand')" class="filters__trigger filters__trigger--wide drop-down-menu__trigger btn btn--pointer btn--main btn--main-white">
+            <button type="button" ng-show="triggersVisible" ng-click="toggleFilter('brand')" class="filters__trigger filters__trigger--wide drop-down-menu__trigger btn btn--pointer btn--main btn--main-white">
               {{ search.brands.title }}
               <span class="icon icon--arrow-down-full btn--pointer__icon" aria-hidden="true"></span>
             </button>
@@ -180,7 +183,7 @@
                 </li>
               </ul>
 
-              <button toggle-visibility="filters" ng-click="mvFilterSearch( 'brands' )" class="btn btn--main drop-down-menu__apply">Apply</button>
+              <button type="submit" toggle-visibility="filters" ng-click="mvFilterSearch( 'brands' )" class="btn btn--main drop-down-menu__apply">Apply</button>
 
             </div>
 
@@ -191,14 +194,14 @@
           --><li ng-if="filterIsAvailable(search.colours.values)">
 
             <%# Narrow view trigger %>
-            <button ng-show="triggersVisible" ng-click="toggleFilter('colour')" class="filters__trigger filters__trigger--narrow drop-down-menu__hdr-btn drop-down-menu__divider btn btn--full btn--full-left btn--pointer">
+            <button type="button" ng-show="triggersVisible" ng-click="toggleFilter('colour')" class="filters__trigger filters__trigger--narrow drop-down-menu__hdr-btn drop-down-menu__divider btn btn--full btn--full-left btn--pointer">
               {{ search.colours.title }}
               <span class="icon icon--arrow-right-big icon--lrg btn--pointer__icon" aria-hidden="true"></span>
             </button>
             <%# //Narrow view trigger %>
 
             <%# Wide view trigger %>
-            <button ng-show="triggersVisible" ng-click="toggleFilter('colour')" class="filters__trigger filters__trigger--wide drop-down-menu__trigger btn btn--pointer btn--main btn--main-white">
+            <button type="button" ng-show="triggersVisible" ng-click="toggleFilter('colour')" class="filters__trigger filters__trigger--wide drop-down-menu__trigger btn btn--pointer btn--main btn--main-white">
               {{ search.colours.title }}
               <span class="icon icon--arrow-down-full btn--pointer__icon" aria-hidden="true"></span>
             </button>
@@ -218,7 +221,7 @@
                 </li>
               </ul>
 
-              <button toggle-visibility="filters" ng-click="mvFilterSearch( 'colours' )" class="btn btn--main drop-down-menu__apply">Apply</button>
+              <button type="submit" toggle-visibility="filters" ng-click="mvFilterSearch( 'colours' )" class="btn btn--main drop-down-menu__apply">Apply</button>
 
             </div>
 
@@ -229,14 +232,14 @@
           --><li ng-if="filterIsAvailable(search.sizes.values)">
 
             <%# Narrow view trigger %>
-            <button ng-show="triggersVisible" ng-click="toggleFilter('size')" class="filters__trigger filters__trigger--narrow drop-down-menu__hdr-btn drop-down-menu__divider btn btn--full btn--full-left btn--pointer">
+            <button type="button" ng-show="triggersVisible" ng-click="toggleFilter('size')" class="filters__trigger filters__trigger--narrow drop-down-menu__hdr-btn drop-down-menu__divider btn btn--full btn--full-left btn--pointer">
               {{ search.sizes.title }}
               <span class="icon icon--arrow-right-big icon--lrg btn--pointer__icon" aria-hidden="true"></span>
             </button>
             <%# //Narrow view trigger %>
 
             <%# Wide view trigger %>
-            <button ng-show="triggersVisible" ng-click="toggleFilter('size')" class="filters__trigger filters__trigger--wide drop-down-menu__trigger btn btn--pointer btn--main btn--main-white">
+            <button type="button" ng-show="triggersVisible" ng-click="toggleFilter('size')" class="filters__trigger filters__trigger--wide drop-down-menu__trigger btn btn--pointer btn--main btn--main-white">
               {{ search.sizes.title }}
               <span class="icon icon--arrow-down-full btn--pointer__icon" aria-hidden="true"></span>
             </button>
@@ -256,7 +259,7 @@
                 </li>
               </ul>
 
-              <button toggle-visibility="filters" ng-click="mvFilterSearch( 'sizes' )" class="btn btn--main drop-down-menu__apply">Apply</button>
+              <button type="submit" toggle-visibility="filters" ng-click="mvFilterSearch( 'sizes' )" class="btn btn--main drop-down-menu__apply">Apply</button>
 
             </div>
 
@@ -267,14 +270,14 @@
           --><li ng-if="filterIsAvailable(search.price.values)">
 
             <%# Narrow view trigger %>
-            <button ng-show="triggersVisible" ng-click="toggleFilter('price')" class="filters__trigger filters__trigger--narrow drop-down-menu__hdr-btn drop-down-menu__divider btn btn--full btn--full-left btn--pointer">
+            <button type="button" ng-show="triggersVisible" ng-click="toggleFilter('price')" class="filters__trigger filters__trigger--narrow drop-down-menu__hdr-btn drop-down-menu__divider btn btn--full btn--full-left btn--pointer">
               {{ search.price.title }}
               <span class="icon icon--arrow-right-big icon--lrg btn--pointer__icon" aria-hidden="true"></span>
             </button>
             <%# //Narrow view trigger %>
 
             <%# Wide view trigger %>
-            <button ng-show="triggersVisible" ng-click="toggleFilter('price')" class="filters__trigger filters__trigger--wide drop-down-menu__trigger btn btn--pointer btn--main btn--main-white">
+            <button type="button" ng-show="triggersVisible" ng-click="toggleFilter('price')" class="filters__trigger filters__trigger--wide drop-down-menu__trigger btn btn--pointer btn--main btn--main-white">
               {{ search.price.title }}
               <span class="icon icon--arrow-down-full btn--pointer__icon" aria-hidden="true"></span>
             </button>
@@ -301,7 +304,7 @@
                 </div>
               </div>
 
-              <button toggle-visibility="filters" ng-click="updateSearch()" class="btn btn--main drop-down-menu__apply">Apply</button>
+              <button type="submit" toggle-visibility="filters" ng-click="updateSearch()" class="btn btn--main drop-down-menu__apply">Apply</button>
 
             </div>
 
@@ -351,7 +354,10 @@
     </div>
     <ul class="horiz-list">
       <li ng-repeat="filter in search.appliedFilters">
-        <button ng-click="removeSelectedFilter(filter)" class="tags__btn btn"><span class="txt-truncate">{{ filter.title }}</span><span class="icon icon--close-sml icon--lrg icon--flush-top" aria-hidden="true"></span></button>
+        <button type="button" ng-click="removeSelectedFilter(filter)" class="tags__btn btn">
+          <span class="txt-truncate">{{ filter.title }}</span>
+          <span class="icon icon--close-sml icon--lrg icon--flush-top" aria-hidden="true"></span>
+        </button>
       </li>
       <li>
         <a href="<%= pb_path %>" ng-click="removeAllFilters()" class="tags__btn tags__btn--clear btn btn--faux-link">Clear all</a>
@@ -361,25 +367,28 @@
   <%# //Applied filters %>
 </script>
 
-<%# Expose Product categories for non JS users %>
+<%# Expose product categories for non JS users %>
 <noscript>
-  <nav role="navigation" class="island box mrg-base mrg-base--top">
+  <nav role="navigation" class="island box mrg-base mrg-base-top">
     <h2>Product categories</h2>
     <ul class="mrg-base">
       <% @search.categories.each do |category| %>
-        <li><%= link_to category.name, url_for(:controller => params[:controller], :action => params[:action], :params => {category.url_args.keys.first => category.url_args.values.first}) %></li>
+        <li>
+          <%= link_to category.name, url_for(:controller => params[:controller], :action => params[:action], :params => {category.url_args.keys.first => category.url_args.values.first}) %>
+        </li>
       <% end %>
     </ul>
-
     <h2>Brands at Westfield</h2>
     <ul>
       <% @search.brands.each do |brand| %>
-        <li><%= link_to brand.name, url_for(:controller => params[:controller], :action => params[:action], :params => {brand: brand.code}) %></li>
+        <li>
+          <%= link_to brand.name, url_for(:controller => params[:controller], :action => params[:action], :params => {brand: brand.code}) %>
+        </li>
       <% end %>
     </ul>
   </nav>
 </noscript>
-<%# //Expose Product categories for non JS users %>
+<%# //Expose product categories for non JS users %>
 
 <p class="feedback feedback--warning js-enabled-hide">You need JavaScript enabled to use the product filters, as a fallback you can filter via the <strong>Product categories</strong> above. <a href="http://enable-javascript.com/" rel="external" target="_blank">Visit here</a> for instructions on how to enable JavaScript.</p>
 

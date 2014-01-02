@@ -1,0 +1,18 @@
+/* ======================================================================================
+   @MODULES -> CODE BLOCK
+   ====================================================================================== */
+
+/*
+  Example code block. Syntax highlighting uses Prism.
+*/
+
+.sg-code-block {
+  @include to-rem(padding, 1 6);
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+
+  /* Override style from prism.css. This is to stop the main content area from getting too wide */
+  code[class*="language-"],
+  pre[class*="language-"] {white-space: pre-wrap;}
+}

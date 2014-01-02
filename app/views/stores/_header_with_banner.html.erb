@@ -1,5 +1,11 @@
+<%# Storefront header (with banner) %>
 <header>
+
+  <%# Storefront name %>
   <h1 class="hide-visually" itemprop="name"><%= @store.name %></h1>
+  <%# //Storefront name %>
+
+  <%# Storefront banner and SEO description carousel %>
   <div class="flexslider flexslider--contain-controls" style="background-image: url(<%= cl_image_path(@store.storefront, width: 2048, crop: :limit, quality: 25, format: :auto, type: :fetch) %>);">
     <ul class="slides">
       <li>
@@ -8,4 +14,7 @@
       <%= render 'description' %>
     </ul>
   </div>
+  <%# //Storefront banner and SEO description carousel %>
+
 </header>
+<%# //Storefront header (with banner) %>

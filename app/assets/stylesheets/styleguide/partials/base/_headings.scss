@@ -1,0 +1,31 @@
+/* ======================================================================================
+   @BASE -> @HEADINGS
+   ====================================================================================== */
+/* Shared rules */
+.sg-h1,
+.sg-h2,
+.sg-h3 {@include to-rem(margin-bottom, $spacing-half);}
+
+.sg-h1 {
+  font-weight: 300;
+  @include font-size(30);
+  font-family: $font-family-lato;
+
+  /* Home page version */
+  .sg-homepage & {
+    text-transform: uppercase;
+    @include font-size(60);
+    text-align: center;
+  }
+}
+
+.sg-h2 {
+  @include font-size($font-size-xlrg);
+  font-family: $font-family-opensans;
+  color: $color-txt-light;
+
+  /* File name */
+  code {@include font-size($font-size-lrg);}
+}
+
+.sg-h3 {font-weight: bold;}

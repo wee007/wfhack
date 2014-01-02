@@ -1,9 +1,13 @@
 <div class="mrg-dbl-alt">
+
   <div class="grid grid--gutter-dbl">
     <div class="grid__item non-palm-one-half">
+
       <div class="box box--mrg-half islet island-non-palm">
+
         <table cellspacing="0" class="table-striped" id="parking-rates">
           <caption class="hide-visually">Parking rates</caption>
+
           <thead>
             <tr>
                 <th scope="col">Time</th>
@@ -11,6 +15,7 @@
                 <th scope="col" class="txt-right">Weekend</th>
             </tr>
           </thead>
+
           <tbody>
             <% @parking.rates.each do |rate| %>
               <tr>
@@ -35,8 +40,11 @@
             <% end %>
           </tbody>
         </table>
+
       </div>
+
       <%= render partial: 'parking_terms_and_conditions', locals: {align: 'center'} if @parking.terms_conditions? %>
+
     </div>
 
     <%= render partial: "parking_info" if @parking.info? %>

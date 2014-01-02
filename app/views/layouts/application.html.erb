@@ -1,10 +1,13 @@
 <%= render @centre ? "/layouts/header" : "/layouts/header_national" %>
 
 <main class="main" id="main" role="main">
+
 	<%= yield :section_nav %>
+
 	<div class="container <%= yield(:class_for_main) %>">
 		<%= yield %>
 	</div>
+
 </main>
 
 <%= parent_layout 'base' %>

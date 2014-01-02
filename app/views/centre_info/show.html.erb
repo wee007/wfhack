@@ -19,12 +19,12 @@
 
 <%# Divider %>
 <div class="divider divider--lrg">
+
   <%# Text formatted %>
   <div class="txt-formatted">
 
     <%= render 'getting_here' %>
     <%= render :partial => 'parking' if @parking.present? %>
-    <%#= render 'community' %>
     <%= render 'notices' if @notices.present? %>
     <%= render 'contact_us' %>
 
@@ -32,8 +32,8 @@
   <%# //Text formatted %>
 
   <%= render 'social_media' %>
+
 </div>
 <%# //Divider %>
-
 
 <%= render 'footer' %>

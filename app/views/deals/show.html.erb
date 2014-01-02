@@ -5,14 +5,23 @@
     <div class="island detail-view__divider--palm">
       <header class="deal-main box box--torn">
         <h1 class="deal-main__hdr h1"><%= @deal.title %></h1>
-        <p class="deal-main__meta">from <%= @store.name %> <span>Deal from  <time datetime="<%= @deal.available_from.strftime("%Y-%m-%d") %>"><%= @deal.available_from.strftime("%A %e %B") %></time> to <time datetime="<%= @deal.available_to.strftime("%Y-%m-%d") %>"><%= @deal.available_to.strftime("%A %e %B") %></time></span></p>
+        <p class="deal-main__meta">
+          from <%= @store.name %>
+          <span>
+            Deal from
+            <time datetime="<%= @deal.available_from.strftime("%Y-%m-%d") %>"><%= @deal.available_from.strftime("%A %e %B") %></time>
+            to
+            <time datetime="<%= @deal.available_to.strftime("%Y-%m-%d") %>"><%= @deal.available_to.strftime("%A %e %B") %></time>
+          </span>
+        </p>
       </header>
     </div>
   </div>
   <%# //The Deal %>
 
-  <%# Store location & contact store %>
-  <div class="grid__item non-palm-one-half">
+  <%# Store location and contact store %>
+  <section class="grid__item non-palm-one-half" aria-labelledby="location-contact">
+    <h2 class="hide-visually" id="location-contact">Store location and contact details</h2>
 
     <%# Store location %>
     <div class="map-micello map-micello--static detail-view__divider">
@@ -22,47 +31,68 @@
 
     <%# Contact store %>
     <div class="island-sides islet-ends island--fill island--center">
+
+      <%# Palm version %>
       <span class="hide-fully--non-palm">
         <%= phone_link @store.phone_number, class: 'btn btn--full btn--main btn--main-dark btn--main-lrg' do |phone_number| %>
-          <span class="icon icon--phone icon--xlrg icon--spacing-lrg icon--flush-top" aria-hidden="true"></span><strong>Call <%= @store.name %></strong>
+          <span class="icon icon--phone icon--xlrg icon--spacing-lrg icon--flush-top" aria-hidden="true"></span>
+          <strong>Call <%= @store.name %></strong>
         <% end %>
       </span>
-      <p class="detail-view__check-avble hide-fully--palm"><span class="detail-view__subtle-txt">Check store availability</span> <em><span class="icon icon--phone icon--lrg icon--spacing" aria-hidden="true"></span> <%= @store.phone_number %></em></p>
+      <%# //Palm version %>
+
+      <%# Non-palm version %>
+      <p class="detail-view__check-avble hide-fully--palm">
+        <span class="detail-view__subtle-txt">Check store availability</span>
+        <em>
+          <span class="icon icon--phone icon--lrg icon--spacing" aria-hidden="true"></span>
+          <%= @store.phone_number %>
+        </em>
+      </p>
+      <%# //Non-palm version %>
+
     </div>
     <%# //Contact store %>
 
-  </div>
-  <%# //Store location & contact store %>
+  </section>
+  <%# //Store location and contact store %>
 
+  <%# Divider %>
   <span class="detail-view__divider--col-line hide-fully--palm"></span>
+  <%# //Divider %>
 
 </div>
 
 <%# Availability %>
 <% if @deal.stores and @deal.stores.size > 1 %>
-  <div class="island">
-    <h3 class="detail-view__hdr-sub detail-view__mrg-off hn"><%= @store.name %> also available at</h3>
+  <section class="island" aria-labelledby="availability">
+    <h2 class="detail-view__hdr-sub detail-view__mrg-off hn" id="availability"><%= @store.name %> also available at</h2>
     <ul class="detail-view__mrg-base">
       <% @deal.stores[0..2].each do |store| %>
         <% unless store.id == @store.id %>
-          <li><a href="<%= centre_deal_path(store.centre.code, @deal.retailer_code, @deal.id)%>" class="list-divider"><span class="icon icon--pin icon--lrg icon--spacing-lrg icon--base-color" aria-hidden="true"></span><%= store.centre.name %><span class="icon icon--arrow-right icon--lrg icon--base-color" aria-hidden="true"></span></a></li>
+          <li>
+            <a href="<%= centre_deal_path(store.centre.code, @deal.retailer_code, @deal.id)%>" class="list-divider">
+              <span class="icon icon--pin icon--lrg icon--spacing-lrg icon--base-color" aria-hidden="true"></span><%= store.centre.name %>
+              <span class="icon icon--arrow-right icon--lrg icon--base-color" aria-hidden="true"></span>
+            </a>
+          </li>
         <% end %>
       <% end %>
     </ul>
-  </div>
+  </section>
 <% end %>
 <%# //Availability %>
 
 <%# Fine print %>
 <% if @deal.terms_and_conditions and !@deal.terms_and_conditions.empty? %>
-  <div class="island toggle-content js-toggle-content js-hide-show<% if @deal.stores and @deal.stores.size > 1 %> detail-view__divider detail-view__divider--top<% end %>">
-    <h2 class="detail-view__hdr-sub hn">The fine print</h2>
+  <section class="island toggle-content js-toggle-content js-hide-show<% if @deal.stores and @deal.stores.size > 1 %> detail-view__divider detail-view__divider--top<% end %>" aria-labelledby="fine-print">
+    <h2 class="detail-view__hdr-sub hn" id="fine-print">The fine print</h2>
     <div class="detail-view__desc detail-view__desc--fine-print detail-view__subtle-txt">
       <% @deal.terms_and_conditions.each do |paragraph| %>
         <% unless paragraph.empty? %><p><%= paragraph %></p><% end %>
       <% end %>
     </div>
-  </div>
+  </section>
 <% end %>
 <%# //Fine print %>
 
@@ -71,9 +101,8 @@
   <%= javascript_include_tag 'jquery-extensions/jquery.toggle-content' %>
 
   <script>
+    // Initialise 'Toggle content' plugin
     $(function() {
-
-      // Run 'Toggle content' plugin
       $('.js-toggle-content').toggleContent({
         btnTxtOpen: 'Read the fine print <span aria-hidden="true" class="icon icon--arrow-down-full icon--lrg"></span>',
         btnTxtClose: 'Collapse the fine print <span aria-hidden="true" class="icon icon--arrow-up-full icon--lrg"></span>'

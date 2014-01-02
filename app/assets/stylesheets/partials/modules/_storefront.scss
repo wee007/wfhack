@@ -148,7 +148,7 @@
     /* Store meta */
     .storefront__details__meta {
       @extend %clear-fix;
-      @include to-rem(padding-top padding-bottom, $spacing-half);
+      @include to-rem(padding-top padding-bottom, $spacing-half+$spacing-quarter);
       @include to-rem(margin-right, 100);
       margin-bottom: 0;
 
@@ -157,26 +157,13 @@
         @include to-rem(margin-right, 130);
       }
 
-      /* Remove right spacing at this breakpoint */
+      /* Remove right spacing and decrease top/bottom padding at this breakpoint */
       @include respond-min($ipad-landscape) {
         margin-right: 0;
+        @include to-rem(padding-top padding-bottom, $spacing-half);
       }
 
-      /* Increase top/bottom spacing when there's only 'Opening hours' item */
-      &.is-only-item {
-        @include to-rem(padding-top padding-bottom, $spacing-half+$spacing-quarter);
-
-        /* Increase top/bottom spacing at this breakpoint */
-        @include respond-min($non-palm) {
-          @include to-rem(padding-top padding-bottom, $spacing-base);
-        }
-
-        /* Restore top/bottom spacing at this breakpoint */
-        @include respond-min($ipad-landscape) {
-          @include to-rem(padding-top padding-bottom, $spacing-half);
-        }
-      }
-
+      /* Store meta items */
       dd {
         @include to-rem(margin-top, $spacing-micro);
         @include to-rem(padding-left, $spacing-base + $spacing-micro);
@@ -190,8 +177,18 @@
         }
       }
 
-      /* Turn off top margin for first `dd` */
-      dt:first-child + dd {margin-top: 0;}
+      /* Turn off top margin for 1st and 2nd `dd`s */
+      dt:first-child {
+        + dd,
+        + dd + dt + dd {margin-top: 0;}
+      }
+
+      /* Restore rules for `.hide-visually` elements */
+      .storefront__details & .hide-visually {
+        position: absolute;
+        margin: -1px;
+        padding: 0;
+      }
 
       /* No indent */
       .storefront__details__meta__no-indent {padding-left: 0;}

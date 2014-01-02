@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.61
+Version:     0.2.74
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,96 @@ fi
 
 
 %changelog
+* Sun Dec 29 2013 ci <doperations@au.westfield.com> 0.2.74-1
+- Merge branch 'master' of github.dbg.westfield.com:digital/customer_console
+  (doperations@au.westfield.com)
+- Removing broken jQuery and fixing padding for storefront details
+  (cpearce@au.westfield.com)
+- Adding space between icon/text and changing hyphen to en dash for shopping
+  hours link in centre home page header (cpearce@au.westfield.com)
+- Removing Ruby comments to prevent category nav links wrapping onto 2 lines
+  (cpearce@au.westfield.com)
+- Fix nav-contextual hidden when JS is off on Movies index page
+  (cpearce@au.westfield.com)
+- Fix product filter back button icon span not closed
+  (cpearce@au.westfield.com)
+- Merge pull request #812 from fchan/styleguide (craigM.smith@au.westfield.com)
+- Fixing broken build test (cpearce@au.westfield.com)
+- Finish Formatting of HTML better inc comments to make it more readable -
+  WSF-6045 (cpearce@au.westfield.com)
+- Format HTML better inc comments to make it more readable - WSF-6045
+  (cpearce@au.westfield.com)
+- Cleaning up non JS styles and hiding HTML that is dependant on JS
+  (cpearce@au.westfield.com)
+- Review all buttons to check they have relevant type attrs - WSF-6097
+  (cpearce@au.westfield.com)
+- Check the Toggle Content abstraction modifiers and fixing aria-expanded attr
+  in jQuery plugin - WSF-6101 (cpearce@au.westfield.com)
+- Fix up SG comments and small updates (fiona@fionachan.net)
+- Added 3rd level list (fiona@fionachan.net)
+- Remove redundant classes in style guide homepage heading
+  (fiona@fionachan.net)
+- Break up partials more and remove redundant dir (fiona@fionachan.net)
+- Separate styleguide CSS into partials and various updates
+  (fiona@fionachan.net)
+- Added base styles (fiona@fionachan.net)
+- Added toggle visibility example (fiona@fionachan.net)
+- Update helper name (fiona@fionachan.net)
+- Some style guide styling updates (fiona@fionachan.net)
+
+* Fri Dec 27 2013 ci <doperations@au.westfield.com> 0.2.73-1
+- 
+
+* Fri Dec 27 2013 ci <doperations@au.westfield.com> 0.2.72-1
+- 
+
+* Thu Dec 26 2013 ci <doperations@au.westfield.com> 0.2.71-1
+- Merge branch 'master' of github.dbg.westfield.com:digital/customer_console
+  (doperations@au.westfield.com)
+- BOXING DAY FIX - Wrap mobile view with the same conditional as the desktop
+  breakpoint (pmcinerney@au.westfield.com)
+- BOXING DAY FIX - Remove store hours from the mobile breakpoint as it does not
+  respect closed centres (pmcinerney@au.westfield.com)
+
+* Thu Dec 26 2013 ci <doperations@au.westfield.com> 0.2.70-1
+- 
+
+* Thu Dec 26 2013 ci <doperations@au.westfield.com> 0.2.69-1
+- Merge branch 'master' of github.dbg.westfield.com:digital/customer_console
+  (doperations@au.westfield.com)
+- remove store hours from the centre hours page (pmcinerney@au.westfield.com)
+
+* Thu Dec 26 2013 ci <doperations@au.westfield.com> 0.2.68-1
+- 
+
+* Thu Dec 26 2013 ci <doperations@au.westfield.com> 0.2.67-1
+- Merge branch 'master' of github.dbg.westfield.com:digital/customer_console
+  (doperations@au.westfield.com)
+- BOXING DAY FIX - Remove store hours from store fronts and micello maps popup
+  as they are not showing closed stores correctly (pmcinerney@au.westfield.com)
+
+* Thu Dec 26 2013 ci <doperations@au.westfield.com> 0.2.66-1
+- 
+
+* Tue Dec 24 2013 ci <doperations@au.westfield.com> 0.2.65-1
+- 
+
+* Tue Dec 24 2013 ci <doperations@au.westfield.com> 0.2.64-1
+- Merge branch 'master' of github.dbg.westfield.com:digital/customer_console
+  (doperations@au.westfield.com)
+- Adding new campaign images to national home page and new hero/promo images
+  for sub pages (cpearce@au.westfield.com)
+- Merge pull request #819 from ldewey/xhr (ldewey@au.westfield.com)
+- Moved product XHR request into its own method (ldewey@au.westfield.com)
+- Erm. Didn't reset / commit properly (ben@germanforblack.com)
+- Handle failure more gracefully (ben@germanforblack.com)
+
+* Tue Dec 24 2013 ci <doperations@au.westfield.com> 0.2.63-1
+- 
+
+* Fri Dec 20 2013 ci <doperations@au.westfield.com> 0.2.62-1
+- 
+
 * Thu Dec 19 2013 ci <doperations@au.westfield.com> 0.2.61-1
 - Merge branch 'master' of github.dbg.westfield.com:digital/customer_console
   (doperations@au.westfield.com)

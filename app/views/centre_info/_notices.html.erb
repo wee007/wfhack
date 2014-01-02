@@ -1,20 +1,22 @@
 <%# Notices %>
 <section aria-labelledby="notices" class="mrg-dbl-alt">
+
   <h2 id="notices">Notices</h2>
 
   <div class="grid grid--gutter-dbl">
     <div class="grid__item non-palm-one-whole">
       <ul class="txt-formatted__list-unstyled">
         <% @notices.each_with_index do |notice, idx| -%>
-        <li class="test-notice">
+          <li class="test-notice">
             <a href="<%= centre_notice_path(@centre, notice.id) -%>" class="list-divider txt-truncate<%= ' list-divider--first' if idx == 0 -%>">
               <%= notice.name  %>
-            <span class="icon icon--arrow-right icon--lrg icon--base-color" aria-hidden="true"></span>
-          </a>
-        </li>
+              <span class="icon icon--arrow-right icon--lrg icon--base-color" aria-hidden="true"></span>
+            </a>
+          </li>
         <% end -%>
       </ul>
     </div>
   </div>
+
 </section>
 <%# //Notices %>

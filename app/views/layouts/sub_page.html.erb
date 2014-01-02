@@ -1,28 +1,32 @@
 <% content_for :class_for_main, "container--wide" %>
 
-<% content_for :custom_styles,
-  render('/shared/hero_custom_styles', image: @hero.image, target: '.hero')
-%>
+<% content_for :custom_styles, render('/shared/hero_custom_styles', image: @hero.image, target: '.hero') %>
 
+<%# Sub page container %>
 <article role="article">
+
+  <%# Sub page header %>
   <header class="hero">
     <div class="vert-align">
       <div class="vert-align__inner">
-
         <div class="hero__inner container container--narrow">
           <span class="hero__icon icon <%= @hero.icon %>" aria-hidden="true"></span>
           <h1><%= @hero.heading %></h1>
           <%= content_tag :p, @hero.text, class: 'hero__txt' if @hero.text %>
           <%= yield :hero_intro %>
         </div>
-
       </div>
     </div>
   </header>
+  <%# //Sub page header %>
 
+  <%# Sub page content %>
   <div class="container container--narrow">
     <%= yield %>
   </div>
+  <%# //Sub page content %>
+
 </article>
+<%# //Sub page container %>
 
 <%= parent_layout 'application' %>

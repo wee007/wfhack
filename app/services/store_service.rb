@@ -68,8 +68,7 @@ class StoreService
         hornsby: 1435,
         carousel: 890,
         knox: 48555,
-        fountaingate: 4573,
-        knox: 50141
+        fountaingate: 4573
       }[centre_id.to_sym]
     end
   end

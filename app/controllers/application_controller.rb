@@ -26,7 +26,9 @@ class ApplicationController < ActionController::Base
 
     meta.push(
       page_title: "Sorry, we couldn't find the page you requested (#{status} error) | Westfield",
-      description: "Sorry, we couldn't find the page you requested (#{status} error) at Westfield"
+      description: "Sorry, we couldn't find the page you requested (#{status} error) at Westfield",
+      is_error_page: "true",
+      error_code: "#{status}"
     )
 
     respond_to do |format|
@@ -38,7 +40,10 @@ class ApplicationController < ActionController::Base
   end
 
   def meta
-    gon.meta ||= Meta.new
+    gon.meta ||= Meta.new(
+      is_error_page: "false",
+      error_code: ""
+    )
   end
   helper_method :meta
 

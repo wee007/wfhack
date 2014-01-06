@@ -68,7 +68,7 @@
                 <%# Store closing time %>
                 <%- if @store.closing_time.present? %>
                   <dt class="hide-visually">Opening hours</dt>
-                  <!--dd class="storefront__details__meta__no-indent">Open till <time datetime="<%= @store.closing_time %>"><%= twelve_hour_format @store.closing_time %></time> tonight</dd-->
+                  <dd class="storefront__details__meta__no-indent">Open till <time datetime="<%= @store.closing_time %>"><%= twelve_hour_format @store.closing_time %></time> tonight</dd>
                 <%- else %>
                   <dd class="storefront__details__meta__no-indent">Closed today</dd>
                 <%- end %>

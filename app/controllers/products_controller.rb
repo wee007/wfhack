@@ -1,5 +1,7 @@
 class ProductsController < ApplicationController
 
+  before_action :remove_gclid_param
+
   layout 'detail_view', only: [:show_centre, :show_national]
 
   def index_centre
@@ -164,6 +166,10 @@ private
       categories = params[:sub_category] || params[:category] || params[:super_cat]
       [categories].flatten.map{ |param| param.titleize }.join(' and ')
     end
+  end
+
+  def remove_gclid_param
+    params.delete(:gclid)
   end
 
 end

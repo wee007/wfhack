@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.85
+Version:     0.2.86
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,13 @@ fi
 
 
 %changelog
+* Mon Jan 06 2014 ci <doperations@au.westfield.com> 0.2.86-1
+- Merge branch 'master' of github.dbg.westfield.com:digital/customer_console
+  (doperations@au.westfield.com)
+- Merge pull request #833 from ewee/master (ewee@au.westfield.com)
+- remove Howards Storage World as a cinema for Knox (chorn@au.westfield.com)
+- Expose is_error_page and error_code to Tealium (ewee@au.westfield.com)
+
 * Mon Jan 06 2014 ci <doperations@au.westfield.com> 0.2.85-1
 - 
 

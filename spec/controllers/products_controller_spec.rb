@@ -110,6 +110,13 @@ describe ProductsController do
 
     end
 
+    describe "params" do
+      it "remove gclid param" do
+        controller.stub(:params).and_return({ centre_id: 'bondijunction' })
+        get :index_centre, centre_id: 'bondijunction', gclid: 'CN3h6JTO4LsCFfFV4god9gMAkQ'
+      end
+    end
+
   end
 
 
@@ -213,9 +220,17 @@ describe ProductsController do
       end
 
     end
+
+    describe "params" do
+      it "remove gclid param" do
+        controller.stub(:params).and_return({})
+        get :index_national, gclid: 'CN3h6JTO4LsCFfFV4god9gMAkQ'
+      end
+    end
+
   end
 
-  describe "GET #show" do
+  describe "GET #show_centre" do
     it "assigns the centre instance variable and redirection url" do
       get :show_centre, id: 1, centre_id: 'bondijunction', retailer_code: 'retailer_code', product_name: 'product_name'
       response.should render_template :show
@@ -223,11 +238,27 @@ describe ProductsController do
       assigns(:product_redirection_url).should == centre_product_redirection_url
     end
 
+    describe "params" do
+      it "remove gclid param" do
+        controller.stub(:params).and_return({ id: 1, centre_id: 'bondijunction', retailer_code: 'retailer_code', product_name: 'product_name' })
+        get :show_centre, id: 1, centre_id: 'bondijunction', retailer_code: 'retailer_code', product_name: 'product_name', gclid: 'CN3h6JTO4LsCFfFV4god9gMAkQ'
+      end
+    end
+  end
+
+  describe "GET #show_national" do
     it "does not assign the centre instance variable and does assigns centre redirection url" do
       get :show_national, id: 1, retailer_code: 'retailer_code', product_name: 'product_name'
       response.should render_template :show
       assigns(:centre).should be_nil
       assigns(:product_redirection_url).should == product_redirection_url
+    end
+
+    describe "params" do
+      it "remove gclid param" do
+        controller.stub(:params).and_return({ id: 1, retailer_code: 'retailer_code', product_name: 'product_name' })
+        get :show_national, id: 1, retailer_code: 'retailer_code', product_name: 'product_name', gclid: 'CN3h6JTO4LsCFfFV4god9gMAkQ'
+      end
     end
   end
 

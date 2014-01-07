@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.92
+Version:     0.2.93
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,18 @@ fi
 
 
 %changelog
+* Tue Jan 07 2014 ci <doperations@au.westfield.com> 0.2.93-1
+- Merge branch 'master' of github.dbg.westfield.com:digital/customer_console
+  (doperations@au.westfield.com)
+- Merge pull request #841 from csmith/master (craigM.smith@au.westfield.com)
+- Show the store is closed if it's closed. (craigm.smith@au.westfield.com)
+- Removing the oldie partial and bringing it inline into main template
+  (cpearce@au.westfield.com)
+- Fixing order of rel attr and adding missing comment for styleguide layout
+  (cpearce@au.westfield.com)
+- Review all commenting for CSS to be inline with CSS Guidelines - WSF-6095
+  (cpearce@au.westfield.com)
+
 * Tue Jan 07 2014 ci <doperations@au.westfield.com> 0.2.92-1
 - 
 

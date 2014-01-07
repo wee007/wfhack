@@ -101,12 +101,20 @@
     $scope.toggleFilter = (filterName) ->
       if $scope.activeFilter isnt filterName
         $scope.activeFilter = filterName
+        $scope.triggersVisible = false;
 
-        # The button must be hidden on Lap large breakpoint
-        $scope.hideFilterButtons() unless angular.element("html").hasClass("lap-lrg")
       else
         $scope.closeFilters()
 
+    if angular.element("html").hasClass("lap-lrg")
+      $(document).click ->
+          $scope.closeFilters()
+          $scope.$apply()
+
+      # Escape key will close all filter dropdowns
+      $(document).bind "keydown", (event) ->
+        $scope.closeFilters() if event.keyCode is 27
+        $scope.$apply()
 
     # Filter buttons are hidden on mobile in certain circumstances,
     # this ensures that they're visible when this is clicked (resets the interface)

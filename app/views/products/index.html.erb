@@ -18,11 +18,11 @@
   <ul class="drop-down-menu__list">
     <li ng-repeat="category in search.categories.values | orderBy: 'sort_order'" class="drop-down-menu__divider">
       <div ng-if="search.categories.field === 'super_cat'">
-        <a ng-href="<%= pb_path %>/{{ category.code }}" ng-click="go($event, '<%= pb_path %>/' + category.code)" toggle-visibility="filters" class="btn btn--full btn--full-left">{{ category.name }}</a>
+        <a ng-href="<%= pb_path %>/{{ category.code }}" ng-click="go($event, '<%= pb_path %>/' + category.code)" class="btn btn--full btn--full-left">{{ category.name }}</a>
       </div>
 
       <div ng-if="search.categories.field === 'category'">
-        <a ng-href="<%= pb_path %>/{{category.url_args.super_cat}}/{{category.code}}" ng-click="go($event, '<%= pb_path %>/' + category.url_args.super_cat + '/' + category.code)" toggle-visibility="filters" class="btn btn--full btn--full-left">{{ category.name }}</a>
+        <a ng-href="<%= pb_path %>/{{category.url_args.super_cat}}/{{category.code}}" ng-click="go($event, '<%= pb_path %>/' + category.url_args.super_cat + '/' + category.code)" class="btn btn--full btn--full-left">{{ category.name }}</a>
       </div>
     </li>
   </ul>
@@ -43,7 +43,7 @@
     </li>
   </ul>
 
-  <button type="submit" toggle-visibility="filters" ng-click="mvFilterSearch( 'categories' )" class="btn btn--main drop-down-menu__apply">Apply</button>
+  <button type="submit" ng-click="mvFilterSearch( 'categories' )" class="btn btn--main drop-down-menu__apply">Apply</button>
 </script>
 <%# //Category %>
 
@@ -67,7 +67,7 @@
     <div class="drop-down-menu drop-down-container">
 
       <%# Drop down trigger (narrow view) %>
-      <button type="button" ng-click="showFilterButtons" toggle-visibility="filters" class="filters__hide-wide drop-down-menu__trigger btn btn--main btn--main-white btn--pointer btn--pointer-padding-med">
+      <button type="button" ng-click="showFilterButtons" toggle-visibility="filters" data-toggle-children="li" class="filters__hide-wide drop-down-menu__trigger btn btn--main btn--main-white btn--pointer btn--pointer-padding-med">
         Filter
         <span class="icon icon--lrg icon--arrow-down-full btn--pointer__icon" aria-hidden="true"></span>
       </button>
@@ -89,13 +89,13 @@
             <%# //Narrow view trigger %>
 
             <%# Wide view trigger %>
-            <button type="button" ng-show="triggersVisible" ng-click="toggleFilter('category')" class="filters__trigger filters__trigger--wide drop-down-menu__trigger btn btn--pointer btn--main btn--main-white">
+            <button type="button" ng-show="triggersVisible" ng-click="toggleFilter('category')" aria-haspopup="true" aria-expanded="{{activeFilter === 'category'" aria-controls="filters-category" class="filters__trigger filters__trigger--wide drop-down-menu__trigger btn btn--pointer btn--main btn--main-white">
               {{ search.categories.title }}
               <span class="icon icon--arrow-down-full btn--pointer__icon" aria-hidden="true"></span>
             </button>
             <%# //Wide view trigger %>
 
-            <div ng-show="activeFilter === 'category'" class="filters__target pointer-up">
+            <div id="filters-category" ng-show="activeFilter === 'category'" class="filters__target pointer-up">
               <div ng-show="search.categories.field === 'super_cat'"><div ng-include src="'CategoryItemTemplate'"></div></div>
               <div ng-show="search.categories.field === 'category'"><div ng-include src="'CategoryItemTemplate'"></div></div>
               <div ng-show="search.categories.field === 'sub_category'"><div ng-include src="'SubCategoryTemplate'"></div></div>
@@ -115,13 +115,13 @@
             <%# //Narrow view trigger %>
 
             <%# Wide view trigger %>
-            <button type="button" ng-show="triggersVisible" ng-click="toggleFilter('retailer')" class="filters__trigger filters__trigger--wide drop-down-menu__trigger btn btn--pointer btn--main btn--main-white">
+            <button type="button" ng-show="triggersVisible" ng-click="toggleFilter('retailer')" aria-haspopup="true" aria-expanded="{{activeFilter === 'retailer'}}" aria-controls="filters-retailer" class="filters__trigger filters__trigger--wide drop-down-menu__trigger btn btn--pointer btn--main btn--main-white">
               {{ search.retailers.title }}
               <span class="icon icon--arrow-down-full btn--pointer__icon" aria-hidden="true"></span>
             </button>
             <%# //Wide view trigger %>
 
-            <div ng-show="activeFilter === 'retailer'" class="filters__target pointer-up">
+            <div id="filters-retailer" ng-show="activeFilter === 'retailer'" class="filters__target pointer-up">
 
               <div class="drop-down-menu__hdr drop-down-menu__divider islet">
                 <h3>{{ search.retailers.title }}</h3>
@@ -140,7 +140,7 @@
                 </li>
               </ul>
 
-              <button type="submit" toggle-visibility="filters" ng-click="mvFilterSearch( 'retailers' )" class="btn btn--main drop-down-menu__apply">Apply</button>
+              <button type="submit" ng-click="mvFilterSearch( 'retailers' )" class="btn btn--main drop-down-menu__apply">Apply</button>
 
             </div>
 
@@ -158,13 +158,13 @@
             <%# //Narrow view trigger %>
 
             <%# Wide view trigger %>
-            <button type="button" ng-show="triggersVisible" ng-click="toggleFilter('brand')" class="filters__trigger filters__trigger--wide drop-down-menu__trigger btn btn--pointer btn--main btn--main-white">
+            <button type="button" ng-show="triggersVisible" ng-click="toggleFilter('brand')" aria-haspopup="true" aria-expanded="{{activeFilter === 'brand'}}" aria-controls="filters-brand" class="filters__trigger filters__trigger--wide drop-down-menu__trigger btn btn--pointer btn--main btn--main-white">
               {{ search.brands.title }}
               <span class="icon icon--arrow-down-full btn--pointer__icon" aria-hidden="true"></span>
             </button>
             <%# //Wide view trigger %>
 
-            <div ng-show="activeFilter === 'brand'" class="filters__target pointer-up">
+            <div id="filters-brand" ng-show="activeFilter === 'brand'" class="filters__target pointer-up">
 
               <div class="drop-down-menu__hdr drop-down-menu__divider islet">
                 <h3>{{ search.brands.title }}</h3>
@@ -183,7 +183,7 @@
                 </li>
               </ul>
 
-              <button type="submit" toggle-visibility="filters" ng-click="mvFilterSearch( 'brands' )" class="btn btn--main drop-down-menu__apply">Apply</button>
+              <button type="submit" ng-click="mvFilterSearch( 'brands' )" class="btn btn--main drop-down-menu__apply">Apply</button>
 
             </div>
 
@@ -201,13 +201,13 @@
             <%# //Narrow view trigger %>
 
             <%# Wide view trigger %>
-            <button type="button" ng-show="triggersVisible" ng-click="toggleFilter('colour')" class="filters__trigger filters__trigger--wide drop-down-menu__trigger btn btn--pointer btn--main btn--main-white">
+            <button type="button" ng-show="triggersVisible" ng-click="toggleFilter('colour')" aria-haspopup="true" aria-expanded="{{activeFilter === 'colour'}}" aria-controls="filters-colour" class="filters__trigger filters__trigger--wide drop-down-menu__trigger btn btn--pointer btn--main btn--main-white">
               {{ search.colours.title }}
               <span class="icon icon--arrow-down-full btn--pointer__icon" aria-hidden="true"></span>
             </button>
             <%# //Wide view trigger %>
 
-            <div ng-show="activeFilter === 'colour'" class="filters__target pointer-up">
+            <div id="filters-colour" ng-show="activeFilter === 'colour'" class="filters__target pointer-up">
 
               <div class="drop-down-menu__hdr drop-down-menu__divider islet">
                 <h3>{{ search.colours.title }}</h3>
@@ -221,7 +221,7 @@
                 </li>
               </ul>
 
-              <button type="submit" toggle-visibility="filters" ng-click="mvFilterSearch( 'colours' )" class="btn btn--main drop-down-menu__apply">Apply</button>
+              <button type="submit" ng-click="mvFilterSearch( 'colours' )" class="btn btn--main drop-down-menu__apply">Apply</button>
 
             </div>
 
@@ -239,13 +239,13 @@
             <%# //Narrow view trigger %>
 
             <%# Wide view trigger %>
-            <button type="button" ng-show="triggersVisible" ng-click="toggleFilter('size')" class="filters__trigger filters__trigger--wide drop-down-menu__trigger btn btn--pointer btn--main btn--main-white">
+            <button type="button" ng-show="triggersVisible" ng-click="toggleFilter('size')" aria-haspopup="true" aria-expanded="{{activeFilter === 'size'}}" aria-controls="filters-size" class="filters__trigger filters__trigger--wide drop-down-menu__trigger btn btn--pointer btn--main btn--main-white">
               {{ search.sizes.title }}
               <span class="icon icon--arrow-down-full btn--pointer__icon" aria-hidden="true"></span>
             </button>
             <%# //Wide view trigger %>
 
-            <div ng-show="activeFilter === 'size'" class="filters__target pointer-up">
+            <div id="size" ng-show="activeFilter === 'size'" class="filters__target pointer-up">
 
               <div class="drop-down-menu__hdr drop-down-menu__divider islet">
                 <h3>{{ search.sizes.title }}</h3>
@@ -259,7 +259,7 @@
                 </li>
               </ul>
 
-              <button type="submit" toggle-visibility="filters" ng-click="mvFilterSearch( 'sizes' )" class="btn btn--main drop-down-menu__apply">Apply</button>
+              <button type="submit" ng-click="mvFilterSearch( 'sizes' )" class="btn btn--main drop-down-menu__apply">Apply</button>
 
             </div>
 
@@ -277,13 +277,13 @@
             <%# //Narrow view trigger %>
 
             <%# Wide view trigger %>
-            <button type="button" ng-show="triggersVisible" ng-click="toggleFilter('price')" class="filters__trigger filters__trigger--wide drop-down-menu__trigger btn btn--pointer btn--main btn--main-white">
+            <button type="button" ng-show="triggersVisible" ng-click="toggleFilter('price')" aria-haspopup="true" aria-expanded="{{activeFilter === 'size'}}" aria-controls="filters-size" class="filters__trigger filters__trigger--wide drop-down-menu__trigger btn btn--pointer btn--main btn--main-white">
               {{ search.price.title }}
               <span class="icon icon--arrow-down-full btn--pointer__icon" aria-hidden="true"></span>
             </button>
             <%# //Wide view trigger %>
 
-            <div ng-show="activeFilter === 'price'" class="filters__target pointer-up">
+            <div id="size" ng-show="activeFilter === 'price'" class="filters__target pointer-up">
 
               <div class="drop-down-menu__hdr drop-down-menu__divider islet">
                 <h3>{{ search.price.title }}</h3>
@@ -304,7 +304,7 @@
                 </div>
               </div>
 
-              <button type="submit" toggle-visibility="filters" ng-click="updateSearch()" class="btn btn--main drop-down-menu__apply">Apply</button>
+              <button type="submit" ng-click="updateSearch()" class="btn btn--main drop-down-menu__apply">Apply</button>
 
             </div>
 

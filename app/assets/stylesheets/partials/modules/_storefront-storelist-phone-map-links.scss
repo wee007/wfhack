@@ -16,7 +16,6 @@
 .storefront-storelist-phone-map-links {
   right: -$page-container-gutter;
 
-  /* Shared rules */
   &,
   .storefront-storelist-phone-map-links__cell {
     position: absolute;
@@ -39,11 +38,9 @@
       @include translate(-50%, -50%);
     }
 
-    /* Icons */
     .icon:before {
       @include font-size(28, 1);
 
-      /* Increase icon size at this breakpoint */
       @include respond-min($non-palm) {
         @include font-size(34, 1);
       }
@@ -57,7 +54,6 @@
     /* Non JS users */
     .no-js & {right: 0;}
 
-    /* Icon */
     .icon:before {color: $color-green;}
   }
 
@@ -67,6 +63,5 @@
     /* Non JS users */
     .no-js & {display: none;}
 
-    /* Icon */
     .icon:before {color: $color-brand;}
   }

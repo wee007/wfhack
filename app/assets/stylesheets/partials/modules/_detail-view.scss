@@ -10,7 +10,7 @@
     Style Guide -> Modules -> Detail View
 */
 
-/* Styles for `body` element */
+/* `body` element */
 .page-detail-view {
   background-color: #fff;
   padding-bottom: 0;
@@ -22,11 +22,9 @@
   }
 }
 
-/* Start module */
 .detail-view {
   @include font-size($font-size-sml);
 
-  /* Adjustments at this breakpoint */
   @include respond-min($non-palm) {
     @include box;
     @include font-size($font-size);
@@ -41,7 +39,7 @@
     @include to-rem(width, 680);
   }
 
-  /* --Set fixed widths for each detail view at these breakpoints-- */
+  /* Set fixed widths for each detail view at these breakpoints */
 
   /* Override the default `.detail-view` width at iPad portrait */
   @include respond-min($ipad-portrait) {
@@ -95,15 +93,12 @@
     }
 }
 
-  /* --Global-- */
-
   /* Headings */
   .detail-view__hdr {
-    @include font-size(27, 1.2);
     @extend %mrg-base;
+    @include font-size(27, 1.2);
     color: $color-txt-dark;
 
-    /* Increase text size at this breakpoint */
     @include respond-min($non-palm) {
       @include font-size(36, 1.2);
     }
@@ -114,7 +109,6 @@
     @include to-rem(margin-bottom, $spacing-half);
     color: $color-txt-light;
 
-    /* Increase text size at this breakpoint */
     @include respond-min($non-palm) {
       @include font-size($font-size-xlrg, 1.5);
     }
@@ -122,7 +116,7 @@
 
   .detail-view__meta abbr {border-bottom: 0;}
 
-  /* --Dividing lines-- */
+  /* Dividing lines */
   .detail-view__divider,
   .detail-view__divider--top-btm,
   .detail-view__divider--palm,
@@ -182,7 +176,7 @@
 
   /* Schedule */
   .detail-view__schedule {
-    /* Need it for creating a bigger spacing between the content and box that wraps around `detail-view` */
+    /* Need it for creating a bigger spacing between the content and box that wraps around `.detail-view` */
     @include to-rem(padding-bottom, 32);
 
     abbr {border-bottom: 0;}
@@ -208,7 +202,6 @@
       @include font-size($font-size-lrg);
       display: block;
 
-      /* Make inline and create left spacing at this breakpoint */
       @include respond-min(900) {
         display: inline;
         @include to-rem(margin-left, $spacing-base);
@@ -220,7 +213,6 @@
   .detail-view__centres {
     @include to-rem(margin-top, $spacing-sixth);
 
-    /* Turn off top margin at this breakpoint */
     @include respond-min($non-palm) {
       margin-top: 0;
     }
@@ -257,9 +249,7 @@
     }
   }
 
-  /* --Variations-- */
-
-  /* Deal */
+  /* Modifier: Deal */
   .detail-view--deal {
 
     /* Faux columns applied to the grid */
@@ -280,16 +270,14 @@
       box-shadow: inset 0 5px 5px -5px rgba(#000, 0.4);
 
       /* Old IE */
-      @include old-ie {
-        border-top: 1px solid $color-grey-med-3;
-      }
+      @include old-ie {border-top: 1px solid $color-grey-med-3;}
     }
   }
 
-  /* Product */
+  /* Modifier: Product */
   .detail-view--product {
 
-    /* Apply `table-layout: fixed` to grid so 'store link' text can be truncated */
+    /* Apply `table-layout: fixed` to grid so store link text can be truncated */
     @include respond-max($palm) {
       .grid--rev-stack {table-layout: fixed;}
     }
@@ -336,7 +324,7 @@
           margin: 0 auto;
         }
 
-          /* --Icons-- */
+          /* Icons */
           .icon {
 
             &,
@@ -344,9 +332,7 @@
               display: block;
 
               /* Old IE */
-              @include old-ie {
-                display: none;
-              }
+              @include old-ie {display: none;}
             }
 
             &:before {color: $color-grey-med-3;}
@@ -374,7 +360,7 @@
     }
   }
 
-  /* Event */
+  /* Modifier: Event */
   .detail-view--event {
 
     /* Meta */
@@ -382,7 +368,6 @@
       width: 50%;
       @include to-rem(padding-right, $spacing-half);
 
-      /* Turn off for last child */
       &:last-child {
         padding-right: 0;
         text-align: right;
@@ -393,7 +378,7 @@
     }
   }
 
-  /* Movie */
+  /* Modifier: Movie */
   .detail-view--movie {
 
     /* Copy explaining to users how to purchase ticket */

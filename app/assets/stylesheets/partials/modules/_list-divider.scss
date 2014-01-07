@@ -19,29 +19,23 @@
 	font-weight: bold;
 	display: block;
 	border-bottom: 1px solid $color-grey-light-1;
-  /* The padding-right is to make space for the arrow icon */
+  /* The `padding-right` is to make space for the arrow icon */
 	@include to-rem(padding, $spacing-half $spacing-base $spacing-quarter 0);
 
-	/* Increase padding at this breakpoint */
 	@include respond-min($non-palm) {
     @include to-rem(padding-top, $spacing-base);
 		@include to-rem(padding-bottom, $spacing-half);
   }
 
-  /* --Icons-- */
-
   /* Left hand side icon */
 	.icon--spacing-lrg:before {
 
-    /* Increase right spacing for icon */
     @include respond-min($non-palm) {
       margin-right: to-em($spacing-half);
     }
 
     /* Webkit */
-    @include target-webkit {
-  		top: -2px;
-  	}
+    @include target-webkit {top: -2px;}
   }
 
   /* Position arrow icon over to the right */

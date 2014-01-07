@@ -12,14 +12,13 @@
 
 .timeline {
   position: relative;
-  /* Should be even number so it can be divided by 2 which is needed for positioning the line between `timeline__date` */
+  /* Should be even number so it can be divided by 2 which is needed for positioning the line between `.timeline__date` */
   @include to-rem(padding-left, 116);
 
   > dt {
     /* Gives it a bit of spacing between each sets of date */
     @include to-rem(margin-top, $spacing-base);
 
-    /* More spacing between each sets of date at this breakpoint */
     @include respond-min($non-palm) {
       @include to-rem(margin-top, $spacing-dbl);
     }
@@ -48,14 +47,20 @@
     /* Hide the line if there's only 1 instance of the date */
     &:only-of-type:before {display: none;}
 
-    /* For the last `dt`, display a white line from the `dd` to cover up the bottom part of the line coming from `.timeline dt:before` */
+    /*
+      For the last `dt`, display a white line from the `dd` to cover up the bottom part of the line coming from `.timeline dt:before`.
+    */
     &:last-of-type ~ dd {
       position: relative;
 
       &:before {
-        /* left = padding-left of `.timeline` - position left of `.timeline__date` - (width of `.timeline__date` / 2) - width of `.timeline:before` */
+        /*
+          left = padding-left of `.timeline` - position left of `.timeline__date` - (width of `.timeline__date` / 2) - width of `.timeline:before`.
+        */
         @include to-rem(left, -66);
-        /* Needs to match `margin-bottom` of `dd`. This is to shift the line up so it'll cover the the entire line coming from `dt:before` */
+        /*
+          Needs to match `margin-bottom` of `dd`. This is to shift the line up so it'll cover the the entire line coming from `dt:before`.
+        */
         @include to-rem(top, -($spacing-half));
         /* Needs to match background that the timeline sits on */
         background-color: #fff;
@@ -79,7 +84,7 @@
     /* Allows the date to sit on top of the line */
     z-index: 2;
     position: absolute;
-    /* Should be even number so it can be divided by 2 which is needed for positioning the line between `timeline__date` */
+    /* Should be even number so it can be divided by 2 which is needed for positioning the line between `.timeline__date` */
     @include to-rem(left, 14);
     background-color: $color-grey-dark-1;
     color: #fff;
@@ -87,7 +92,9 @@
     border-radius: 50%;
     text-transform: uppercase;
     @include to-rem(padding-top, 18);
-    /* `width` and `height` should be even number so it can be divided by 2 which is needed for positioning the line between `timeline__date` */
+    /*
+      `width` and `height` should be even number so it can be divided by 2 which is needed for positioning the line between `timeline__date`.
+    */
     @include to-rem(width height, 76);
     @include font-size($font-size);
     font-weight: normal;

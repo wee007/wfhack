@@ -5,14 +5,11 @@
 /* [CONVERT PX TO EM/REM]
 -------------------------------------------------------*/
 /*
-	Usage:
-		To convert `px` to `em`s or `rem`s.
+	Usage: to convert `px` to `em`s or `rem`s.
 
-	Note:
-		'REM' `@function` outputs a `px` fallback for old IE and Opera Mini, when Opera Mini supports `rem` (http://caniuse.com/#feat=rem) change the `@function` to an archived version (11-02-2013).
+	Note: 'REM' `@function` outputs a `px` fallback for old IE and Opera Mini, when Opera Mini supports `rem` (http://caniuse.com/#feat=rem) change the `@function` to an archived version (11-02-2013).
 
-	Credit:
-		https://gist.github.com/2237465
+	Credit: https://gist.github.com/2237465
 
 	Example:
 		.foo {margin-left: to-em(8, 20);}

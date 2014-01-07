@@ -17,11 +17,7 @@
   Styleguide Button Main
 */
 
-//TODO: .btn-main-compact-icon
-
-/*
-  Note: modifier from `.btn`, see: 'buttons/base'.
-*/
+/* TODO: `.btn-main-compact-icon` */
 
 .btn--main {
   @include font-size($font-size-sml, normal);
@@ -34,13 +30,11 @@
   &[disabled],
   &.is-disabled {background-color: $color-green;}
 
-  /* Parent + pseudo classes */
   &,
   &:visited,
   &:hover,
   &:focus {color: #fff;}
 
-  /* Hover and focus states */
   &:hover,
   &:focus {background-color: lighten($color-green, 10%);}
 
@@ -49,50 +43,39 @@
   &.is-active {box-shadow: inset 0 1px 0 rgba(#000, 0.4);}
 }
 
-	/* --Modifiers-- */
-
-	/* -Alternate colours- */
-
-	/* Blue */
+	/* Modifier: blue colour */
 	.btn--main-blue {
-		/* Bg colour combined with disabled state */
 		&,
 		&[disabled],
 		&.is-disabled {background-color: $color-blue;}
 
-		/* Hover and focus states */
 		&:hover,
 		&:focus {background-color: lighten($color-blue, 10%);}
 	}
 
-	/* Dark */
+	/* Modifier: dark colour */
 	.btn--main-dark {
-		/* Bg colour combined with disabled state */
 		&,
 		&[disabled],
 		&.is-disabled {background-color: $color-grey-dark-3;}
 
-		/* Hover and focus states */
 		&:hover,
 		&:focus {background-color: lighten($color-grey-dark-3, 10%);}
 	}
 
-	/* Light */
+	/* Modifier: light colour */
 	.btn--main-light {
 		box-shadow: inset 0 -1px 0 rgba(#000, 0.15);
 
-		/* Bg colour combined with disabled state */
 		&,
 		&[disabled],
 		&.is-disabled {background-color: $color-grey-light-2;}
 
-		/* Parent + pseudo classes */
 		&,
 		&:visited,
 		&:hover,
 		&:focus {color: $color-txt-dark;}
 
-		/* Hover and focus states */
 		&:hover,
 		&:focus {background-color: lighten($color-grey-light-2, 3%);}
 
@@ -101,22 +84,19 @@
 		&.is-active {box-shadow: inset 0 1px 0 rgba(#000, 0.15);}
 	}
 
-	/* White */
+	/* Modifier: white colour */
 	.btn--main-white {
 		box-shadow: inset 0 -1px 0 rgba(#000, 0.15);
 
-		/* Bg colour combined with disabled state */
 		&,
 		&[disabled],
 		&.is-disabled {background-color: #fff;}
 
-		/* Parent + pseudo classes */
 		&,
 		&:visited,
 		&:hover,
 		&:focus {color: $color-txt-dark;}
 
-		/* Hover and focus states */
 		&:hover,
 		&:focus {background-color: lighten($color-grey-light-3, 2%);}
 
@@ -125,19 +105,19 @@
 		&.is-active {box-shadow: inset 0 1px 0 rgba(#000, 0.15);}
 	}
 
-	/* Compact - decrease padding */
+	/* Modifier: compact - decrease padding */
 	.btn--main-compact {@include to-em(padding, $spacing-third $spacing-base);}
 
-	/* Compact icon - as above but decrease padding more (use with icons) */
+	/* Modifier: compact icon - as above but decrease padding more (use with icons) */
 	.btn--main-compact-icon {@include to-em(padding, $spacing-half+1 $spacing-half+3.5);}
 
-  /* Compact icon small - as above but decrease padding even more (use with icons) */
+  /* Modifier: compact icon small - as above but decrease padding even more (use with icons) */
   .btn--main-compact-icon-sml {@include to-em(padding, $spacing-quarter $spacing-half);}
 
-	/* Large - increase top/btm padding */
+	/* Modifier: large - increase top/btm padding */
 	.btn--main-lrg {@include to-em(padding-top padding-bottom, $spacing-half+$spacing-micro);}
 
-	/* Pointer styles - used when you need to position an arrow icon over to the far right, has to be used with the `.btn--pointer` base modifier */
+	/* Modifier: pointer styles - used when you need to position an arrow icon over to the far right, has to be used with the `.btn--pointer` base modifier */
 	.btn--main {
 
     /* Position icon over to the far right */
@@ -167,12 +147,13 @@
       .btn--pointer__icon--flush {left: 0;}
     }
 
-    /* Add more right padding */
+    /* Modifier: as above but add more right padding */
     &.btn--pointer-padding-med {@include to-em(padding-right, $spacing-dbl);}
 
+    /* Modifier: as above but add even more right padding */
     &.btn--pointer-padding-lrg {@include to-em(padding-right, $spacing-dbl+$spacing-base);}
 
-    /* Flanked - position 2 icons either ends, has to be used with the `.btn--pointer` base modifier */
+    /* Modifier: flanked - position 2 icons either ends, has to be used with the `.btn--pointer` base modifier */
     &.btn--main-flanked {
       @include to-em(padding, $spacing-half+$spacing-micro+$spacing-micro $spacing-dbl);
 
@@ -185,7 +166,7 @@
 
 	}
 
-  /* --Checkbox toggle-- */
+  /* Modifier: checkbox toggle */
   .btn--main-checkbox-toggle {
     @include to-em(padding, $spacing-half+1.5 $spacing-half);
 
@@ -194,7 +175,7 @@
     .android & {@include to-em(padding-top, $spacing-half+0.5);}
   }
 
-  /* When an icon is used within the checkbox toggle */
+  /* Modifier: as above but when an icon is used within the checkbox toggle */
   .btn--main-checkbox-toggle-icon {
     @include to-em(padding-top padding-bottom, $spacing-half);
 
@@ -203,11 +184,10 @@
     .android & {@include to-em(padding-top, $spacing-half - 1);}
   }
 
-    /* Shared rules */
     .btn--main-checkbox-toggle__input,
     .btn--main-checkbox-toggle__lbl {vertical-align: middle;}
 
-    /* Checkbox */
+    /* The checkbox */
     .btn--main-checkbox-toggle__input {
       cursor: pointer;
       @include to-rem(margin-right, $spacing-third);

@@ -10,14 +10,12 @@
 		Style Guide -> Modules -> Social Share
 */
 
-/* Set variables */
 $share-facebook: #355f9f !default;
 $share-twitter: #2ba9e1 !default;
 $share-email: #f4801f !default;
 $share-google: #db5442 !default;
 $share-pinterest: #ca2026 !default;
 
-/* Start module */
 .social-share {
 
   /* Non JS users */
@@ -31,7 +29,6 @@ $share-pinterest: #ca2026 !default;
     .tile & {display: block;}
   }
 
-	/* Links */
 	a {
 		@include to-rem(padding-top padding-bottom, 9);
 		color: #fff;
@@ -40,14 +37,13 @@ $share-pinterest: #ca2026 !default;
 		/* Icon for 'Tile' version */
 		.tile & .icon:before {margin-right: 0;}
 
-	/* --Drop down menu trigger-- */
+	/* Drop down menu trigger */
   .social-share__trigger {
     color: $color-grey-dark-3;
 
     /* Hide elements that need to be shown when the drop down is active */
     .drop-down-container__active {display: none;}
 
-    /* Hover and focus states */
     &:hover,
     &:focus {color: $color-txt-light;}
 
@@ -87,7 +83,7 @@ $share-pinterest: #ca2026 !default;
     /* Hide button text for 'Tile' version */
     .tile & .social-share__trigger__txt {@include hide-visually;}
 
-  /* --Drop down menu target-- */
+  /* Drop down menu target */
   .drop-down {
 
     /* Alter position and width at this breakpoint */
@@ -124,13 +120,12 @@ $share-pinterest: #ca2026 !default;
   }
 }
 
-	/* --Colour scheme for icons-- */
+	/* Colour scheme for icons */
 
 	/* Facebook */
 	.social-share__facebook a {
 		background-color: $share-facebook;
 
-		/* Hover and focus states */
 		&:hover,
 		&:focus {background-color: darken($share-facebook, 5%);}
 	}
@@ -139,7 +134,6 @@ $share-pinterest: #ca2026 !default;
 	.social-share__twitter a {
 		background-color: $share-twitter;
 
-		/* Hover and focus states */
 		&:hover,
 		&:focus {background-color: darken($share-twitter, 5%);}
 	}
@@ -148,7 +142,6 @@ $share-pinterest: #ca2026 !default;
 	.social-share__email a {
 		background-color: $share-email;
 
-		/* Hover and focus states */
 		&:hover,
 		&:focus {background-color: darken($share-email, 5%);}
 	}
@@ -157,7 +150,6 @@ $share-pinterest: #ca2026 !default;
 	.social-share__google a {
 		background-color: $share-google;
 
-		/* Hover and focus states */
 		&:hover,
 		&:focus {background-color: darken($share-google, 5%);}
 	}
@@ -166,7 +158,6 @@ $share-pinterest: #ca2026 !default;
 	.social-share__pinterest a {
 		background-color: $share-pinterest;
 
-		/* Hover and focus states */
 		&:hover,
 		&:focus {background-color: darken($share-pinterest, 5%);}
 	}

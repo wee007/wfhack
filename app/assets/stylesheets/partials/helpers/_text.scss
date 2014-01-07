@@ -3,11 +3,7 @@
    ====================================================================================== */
 
 /*
-	Usage:
-		Various helpers specifically for text.
-
-	Demo:
-		Style Guide -> Helpers -> Text
+	Various helpers specifically for text.
 */
 
 /* Sizes */
@@ -46,9 +42,8 @@
 	word-wrap: break-word !important;
 	-ms-word-break: break-all !important;
   word-break: break-all !important;
-	/* Non standard for webkit */
+	/* Non standard for Webkit */
   word-break: break-word !important;
-  /* Note: 'layout' is needed for IE. */
   /* Note: `table-layout: fixed;` is needen when this is used within tables, the rule needs to go on the `table` element. */
 }
 

@@ -17,8 +17,8 @@
 
 /* Base */
 table {
+  @extend %mrg-base;
 	width: 100%;
-	@extend %mrg-base;
 }
 
 	/* Cell padding */
@@ -26,7 +26,6 @@ table {
 	td {
 		padding: to-em($spacing-quarter);
 
-		/* Increase at this breakpoint */
 		@include respond-min($non-palm) {
 			padding: to-em($spacing-half);
 		}
@@ -63,8 +62,8 @@ table {
 
 /* Enable horizontal scroll bar, works with the JS `tableHorizontalScroll()` function */
 .table-horiz-scroll {
-  overflow-x: auto;
   @extend %mrg-base;
+  overflow-x: auto;
 
   /* Touch device */
   .touch & {
@@ -77,7 +76,6 @@ table {
 .table-bordered,
 .txt-formatted--user-generated table {
 
-  /* Cells */
   th,
   td {
     border: 1px solid $color-grey-light-1;
@@ -90,7 +88,7 @@ table {
   thead tr:last-child th {border-bottom-width: 2px;}
 }
 
-/* Allows the overflow property to be used to handle content that exceeds the width of a table cell` */
+/* Allows the overflow property to be used to handle content that exceeds the width of a table cell */
 .table-fixed {table-layout: fixed;}
 
 /* Turn off padding on cells */

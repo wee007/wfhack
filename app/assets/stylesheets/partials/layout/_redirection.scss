@@ -2,7 +2,7 @@
    @LAYOUT -> REDIRECTION
    ====================================================================================== */
 
-/* Styles for `body` element */
+/* `body` element */
 .redirection {
   text-align: center;
   @include to-rem(padding-top, 80);

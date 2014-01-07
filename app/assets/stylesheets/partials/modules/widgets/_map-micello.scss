@@ -3,16 +3,10 @@
    ====================================================================================== */
 
 /*
-  Usage:
-    3rd party Map API from 'Micello'.
-
-  Demo:
-    Style Guide -> Modules -> Widgets -> Map Micello
+  3rd party Map API from 'Micello'.
 */
 
 .map-micello {
-
-  /* --Global rules-- */
 
   /* Apply bottom spacing */
   .map-micello__mrg-base {@include to-rem(margin-bottom, $spacing-half);}
@@ -37,7 +31,7 @@
     bottom: 0;
   }
 
-    /* --Overlay-- */
+    /* Overlay (popup) */
     .map-micello__overlay-wrap {display: none;}
 
       .map-micello__overlay {
@@ -110,9 +104,9 @@
           .map-micello--static & {display: none;}
         }
 
-    /* --3rd party stylesheet overrides-- */
-
     /*
+      3rd party stylesheet overrides.
+
       Note: have to use `!important` here a lot as we need to override the 3rd party 'Micello' styles.
     */
 
@@ -122,9 +116,9 @@
       line-height: 1.5 !important;
       background-image: none !important;
 
-      /* --Overlay-- */
-
       /*
+        Overlay
+
         - infoOut
           - infoWrapper
             - infoBack
@@ -178,9 +172,7 @@
             text-shadow: 0 3px 1px rgba($color-grey-med-3, 0.9);
 
             /* IE 10 */
-            @include ie-10-up {
-              top: -2px;
-            }
+            @include ie-10-up {top: -2px;}
           }
         }
 
@@ -223,8 +215,6 @@
       /* All controls */
       #ui-all {
         position: static !important;
-
-        /* --Shared rules-- */
 
         /* Hide 'Map name' and 'GEO' */
         #ui-name,
@@ -287,12 +277,10 @@
         #ui-zoom {
           top: 58px !important;
 
-          /* Increase top positioning at this breakpoint */
           @include respond-min($non-palm) {
             top: 80px !important;
           }
 
-          /* Decrease top positioning at this breakpoint */
           @include respond-min($ipad-landscape) {
             top: 21px !important;
           }
@@ -313,7 +301,6 @@
           top: auto !important;
           bottom: $spacing-micro+px;
 
-          /* Increase bottom positioning at this breakpoint */
           @include respond-min($ipad-landscape) {
             bottom: $spacing-half+px;
           }
@@ -330,12 +317,10 @@
           top: 154px !important;
           margin-right: 5px;
 
-          /* Increase top positioning at this breakpoint */
           @include respond-min($non-palm) {
             top: 176px !important;
           }
 
-          /* Decrease top positioning and turn off right margin at this breakpoint */
           @include respond-min($ipad-landscape) {
             top: 120px !important;
             margin-right: 0;

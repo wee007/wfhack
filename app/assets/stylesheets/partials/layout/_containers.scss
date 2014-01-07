@@ -2,7 +2,6 @@
    @LAYOUT -> CONTAINERS
    ====================================================================================== */
 
-/* Generic container */
 .container {
 	width: $page-container-width;
 	@include to-rem(min-width, $page-container-min-width);
@@ -15,19 +14,17 @@
 	}
 }
 
-/* --Modifiers-- */
-
-/* Wide container (full width of viewport) */
+/* Modifier: wide container (full width of viewport) */
 .container--wide {
   width: auto;
   max-width: none;
 }
 
-/* Narrow container (max-width of 980px) */
+/* Modifier: narrow container */
 .container--narrow {@include to-rem(max-width, $page-container-max-width-narrow);}
 
-/* Dark container */
+/* Modifier: dark container */
 .container--dark {background-color: $color-grey-dark-3;}
 
-/* Position relative container */
+/* Modifier: position relative container */
 .container--position {position: relative;}

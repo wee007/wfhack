@@ -11,7 +11,9 @@
 */
 
 .icon:before,
-/* --These pseudo elements are to render the 'Drop down menu' / 'Micello map' arrow pointers as they use an icon font (`@extend` isn't suitable for this)-- */
+/*
+  Note: these pseudo elements are to render the 'Drop down menu' / 'Micello map' arrow pointers as they use an icon font (`@extend` isn't suitable for this)
+*/
 /* 'Drop down menu' */
 .pointer-up:before,
 /* 'Micello map' */
@@ -29,7 +31,7 @@
 	-webkit-font-smoothing: antialiased;
 }
 
-/* --Set icons-- */
+/* Set icons */
 
 /* Store */
 .icon--store:before {content: "\e002";}
@@ -209,7 +211,9 @@
 
 /* Arrow full down */
 .icon--arrow-down-full:before,
-/* These pseudo elements are to render the 'Micello map' arrow pointers as they use an icon font (`@extend` isn't suitable for this) */
+/*
+  Note: these pseudo elements are to render the 'Micello map' arrow pointers as they use an icon font (`@extend` isn't suitable for this)
+*/
 .menuTip:after,
 #ui-levels-arrow-down:before {content: "\e00a";}
 
@@ -228,14 +232,14 @@
 /* Arrow opposites */
 .icon--arrow-opposites:before {content: "\e007";}
 
-/* --Modifiers-- */
+/* Modifiers */
 
-/* Apply some spacing between the icon element and adjacent text */
+/* Modifier: apply some spacing between the icon element and adjacent text */
 .icon--spacing:before {margin-right: to-em($spacing-sixth);}
 
 .icon--spacing-lrg:before {margin-right: to-em($spacing-third);}
 
-/* Remove the negative 1px top positiong */
+/* Modifier: remove the negative 1px top positiong */
 .icon--flush-top:before {position: static;}
 
 /* Firefox */
@@ -243,33 +247,29 @@
 	.icon--flush-top-mozilla:before {position: static;}
 }
 
-/* Fixed width */
+/* Modifier: fixed width */
 .icon--fixed-width:before {
 	width: 1em;
 	text-align: center;
 }
 
-/* -Alternate sizes- */
-
-/* Small */
+/* Modifier: small */
 .icon--sml:before {@include font-size($font-size-sml, 1);}
 
-/* Large */
+/* Modifier: large */
 .icon--lrg:before {@include font-size($font-size-lrg, 1);}
 
 .icon--xlrg:before {@include font-size($font-size-lrger, 1);}
 
-/* Extra large */
+/* Modifier: extra large */
 .icon--giga:before {@include font-size(48, 1);}
 
 .icon--mega:before {@include font-size(30, 1);}
 
 .icon--kilo:before {@include font-size($font-size-xlrg, 1);}
 
-/* -Restore base rules- */
-
-/* Font size */
+/* Modifier: restore base font size */
 .icon--base-size:before {font-size: inherit;}
 
-/* Colour */
+/* Modifier: restore base text colour */
 .icon--base-color:before {color: $color-txt-base;}

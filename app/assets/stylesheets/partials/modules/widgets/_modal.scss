@@ -3,17 +3,11 @@
    ====================================================================================== */
 
 /*
-	Usage:
-		Typically for dialog prompts e.g. warning/error messages in the form of an overlay (child window). Depending on the jQuery plugin configuration the parent window (page the dialog is overlaying) can either be interacted with again i.e. closing the dialog by clicking anywhere outside the dialog or by only clicking the 'Close' button within the dialog (the latter is true modal behaviour).
+	Usage: typically for dialog prompts e.g. warning/error messages in the form of an overlay (child window). Depending on the jQuery plugin configuration the parent window (page the dialog is overlaying) can either be interacted with again i.e. closing the dialog by clicking anywhere outside the dialog or by only clicking the 'Close' button within the dialog (the latter is true modal behaviour).
 
-	Note:
-		`.is-modal-active` class gets appended to the `body` element when the modal is open.
+	Note: `.is-modal-active` class gets appended to the `body` element when the modal is open.
 
-	Demo:
-		Style Guide -> Modules -> Widgets -> Modal
-
-	Credit:
-		http://twitter.github.com/bootstrap/javascript.html#modals
+	Credit: http://twitter.github.com/bootstrap/javascript.html#modals
 */
 
 /* Shared fade state */
@@ -95,7 +89,6 @@
 		padding: to-em($font-size);
 		overflow-y: auto;
 
-		/* Increase the max height at this breakpoint */
 		@include respond-min($ipad-portrait) {
 			max-height: to-em(400);
 		}
@@ -103,11 +96,11 @@
 
 	/* Modal footer */
 	.modal__footer {
+		@extend %clear-fix;
 		padding: to-em($font-size);
 		text-align: right;
 		background-color: $color-grey-light-3;
 		border-top: 1px solid $color-grey-light-1;
 		border-radius: 0 0 6px 6px;
 		box-shadow: inset 0 1px 0 #fff;
-		@extend %clear-fix;
 	}

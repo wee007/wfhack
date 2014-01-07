@@ -245,7 +245,7 @@
             </button>
             <%# //Wide view trigger %>
 
-            <div id="size" ng-show="activeFilter === 'size'" class="filters__target pointer-up">
+            <div id="filters-size" ng-show="activeFilter === 'size'" class="filters__target pointer-up">
 
               <div class="drop-down-menu__hdr drop-down-menu__divider islet">
                 <h3>{{ search.sizes.title }}</h3>
@@ -277,13 +277,13 @@
             <%# //Narrow view trigger %>
 
             <%# Wide view trigger %>
-            <button type="button" ng-show="triggersVisible" ng-click="toggleFilter('price')" aria-haspopup="true" aria-expanded="{{activeFilter === 'size'}}" aria-controls="filters-size" class="filters__trigger filters__trigger--wide drop-down-menu__trigger btn btn--pointer btn--main btn--main-white">
+            <button type="button" ng-show="triggersVisible" ng-click="toggleFilter('price')" aria-haspopup="true" aria-expanded="{{activeFilter === 'price'}}" aria-controls="filters-size" class="filters__trigger filters__trigger--wide drop-down-menu__trigger btn btn--pointer btn--main btn--main-white">
               {{ search.price.title }}
               <span class="icon icon--arrow-down-full btn--pointer__icon" aria-hidden="true"></span>
             </button>
             <%# //Wide view trigger %>
 
-            <div id="size" ng-show="activeFilter === 'price'" class="filters__target pointer-up">
+            <div id="filters-price" ng-show="activeFilter === 'price'" class="filters__target pointer-up">
 
               <div class="drop-down-menu__hdr drop-down-menu__divider islet">
                 <h3>{{ search.price.title }}</h3>

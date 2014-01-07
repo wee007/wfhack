@@ -28,7 +28,6 @@
     border-radius: $border-radius;
     @include to-rem(max-width, 120);
 
-    /* Hover and focus states */
     &:hover,
     &:focus {
       border-color: $color-link;
@@ -55,9 +54,7 @@
       @include translateY(-50%);
 
       /* Old IE */
-      @include old-ie {
-        @include to-rem(margin-top, -8);
-      }
+      @include old-ie {@include to-rem(margin-top, -8);}
     }
   }
 

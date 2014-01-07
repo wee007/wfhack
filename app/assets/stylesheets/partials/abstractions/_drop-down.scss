@@ -3,8 +3,7 @@
    ====================================================================================== */
 
 /*
-	A generic drop down powered by 'Angular Toggle Visibility Directive' and a version for `:hover`.
-  See the drop down menu module for an example of how it can be used.
+	A generic drop down powered by 'Angular Toggle Visibility Directive' and a version for `:hover`. See the drop down menu module for an example of how it can be used.
 
   Styleguide Drop Down
 */
@@ -24,7 +23,7 @@
     }
   }
 
-  /* Hover version */
+  /* Modifier: hover version */
   .drop-down-container--hover {
     /* Show the drop down */
     &:hover .drop-down {display: block;}

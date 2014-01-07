@@ -1,7 +1,7 @@
 <% content_for :class_for_main, "sg" %>
 
 <% content_for :custom_styles do %>
-  <link rel="stylesheet" href="<%= asset_path "prism/prism.css" %>">
+  <link href="<%= asset_path "prism/prism.css" %>" rel="stylesheet">
 
   <link href="<%= asset_path 'styleguide/styleguide.css' %>" rel="stylesheet">
 <% end %>
@@ -44,6 +44,8 @@
         <% end %>
       </ul>
     </nav>
+    <%# //Main navigation %>
+
   </div>
 
 </header>

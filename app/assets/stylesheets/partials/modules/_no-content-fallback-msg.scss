@@ -14,26 +14,20 @@
   text-align: center;
   @include to-rem(padding-top, 62);
 
-  /* Increase top padding at this breakpoint */
   @include respond-min($non-palm) {
     @include to-rem(padding-top, 118);
   }
-
-  /* --Shared rules-- */
 
   /* Set common colour */
   &,
   .icon:before {color: $color-txt-light;}
 
-  /* Make `display: block` */
   em,
   span {display: block;}
 
-  /* Icon */
   .icon:before {
     @include font-size(48, 1);
 
-    /* Increase font size at this breakpoint */
     @include respond-min($non-palm) {
       @include font-size(60, 1);
     }

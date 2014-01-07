@@ -3,32 +3,20 @@
    ====================================================================================== */
 
 /*
-	Usage:
-		Creates a CSS arrow on a given element, they're 12 locations the arrow can be placed. For full details see the 'Credit' URL.
+	Usage: creates a CSS arrow on a given element, they're 12 locations the arrow can be placed. For full details see the 'Credit' URL.
 
-	Demo:
-		Style Guide -> Utilities -> Arrows
-
-	Credit:
-		https://github.com/csswizardry/inuit.css/blob/master/inuit.css/objects/_arrows.scss
+	Credit: https://github.com/csswizardry/inuit.css/blob/master/inuit.css/objects/_arrows.scss
 */
 
-/* Set variables */
 $arrow-size: $spacing-third !default;
-
 $arrow-border: 1 !default;
-
 $border: $arrow-size+px;
-
 $arrow: ($arrow-size - $arrow-border)+px;
-
-/* --Start abstraction-- */
 
 /* Forms the basis for any/all CSS arrows */
 %arrow {
   position: relative;
 
-  /* Pseudo elements */
   &:before,
   &:after {
     content: "";
@@ -41,7 +29,7 @@ $arrow: ($arrow-size - $arrow-border)+px;
   &:after {border: $arrow inset transparent;}
 }
 
-/* --Define individual edges so we can combine what we need, when we need-- */
+/* Define individual edges so we can combine what we need, when we need */
 
 /* Top */
 %arrow--top {

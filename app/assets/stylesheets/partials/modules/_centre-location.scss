@@ -17,7 +17,6 @@
   .map-google-static {
     @include to-rem(margin-bottom, $spacing-sixth);
 
-    /* Remove bottom spacing at this breakpoint */
     @include respond-min($lap-lrg) {
       margin-bottom: 0;
     }

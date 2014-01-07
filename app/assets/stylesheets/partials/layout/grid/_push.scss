@@ -3,11 +3,9 @@
    ====================================================================================== */
 
 /*
-	Usage:
-		Push classes, to move grid items over to the left by certain amounts.
+	Usage: push classes, to move grid items over to the left by certain amounts.
 
-	Credit:
-		https://github.com/csswizardry/csswizardry-grids/blob/master/csswizardry-grids.scss
+	Credit: https://github.com/csswizardry/csswizardry-grids/blob/master/csswizardry-grids.scss
 */
 
 @mixin push-classes($namespace: "") {
@@ -79,17 +77,16 @@
 	/* Not a particularly great selector, but the DRYest way to do things */
 	[class*="push-"] {position: relative;}
 
-	/* Output all the pull classes */
-
 	/*
+		Output all the push classes.
+
 		Note: these may not be required esp. if the width classes are only being used for the grid.
 	*/
-
 	@include push-classes();
 
-	/* --Output all the pull classes under specific breakpoints applied via specific classes (namespaced) e.g. `.push-lap-one-half` (all pre-defined breakpoints)-- */
-
 	/*
+		Output all the push classes under specific breakpoints applied via specific classes (namespaced) e.g. `.push-lap-one-half`.
+
 		Note: be sure to comment out what you don't use as a lot of CSS is generated from all of this.
 	*/
 

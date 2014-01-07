@@ -16,7 +16,6 @@
   color: $color-txt-light;
   line-height: normal;
 
-  /* Increase top padding at this breakpoint */
   @include respond-min($non-palm) {
     @include to-rem(padding-top, $spacing-base);
   }
@@ -40,10 +39,11 @@
 /* Modifier: pin board version */
 .pager--pin-board {
   @include to-rem(margin-top, $spacing-base);
-  /* Need a negative bottom margin to offset the bottom padding on the `body` to keep the spacing consistent with the top spacing */
+  /*
+    Need a negative bottom margin to offset the bottom padding on the `body` to keep the spacing consistent with the top spacing.
+  */
   @include to-rem(margin-bottom, -$spacing-half);
 
-  /* Increase top margin and remove negative bottom margin at this breakpoint */
   @include respond-min($non-palm) {
     @include to-rem(margin-top, $spacing-base);
     margin-bottom: 0;

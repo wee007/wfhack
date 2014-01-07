@@ -8,18 +8,15 @@
   Styleguide Headings
 */
 
-/*
-	Note: to target any heading of any level use this generic heading class: `.hn`.
-*/
+/* Note: to target any heading of any level use this generic heading class: `.hn` */
 
-/* Shared */
 @include headings(1, 6) {
   font-weight: normal;
 }
 
-/* H1 */
 h1, .h1 {
   font-family: $font-family-lato;
   font-weight: 300;
-  margin-top: 0; /* Note: this is needed to turn off the top margin set in 'utils/normalize' */
+  /* This is needed to turn off the top margin set in 'utils/normalize' */
+  margin-top: 0;
 }

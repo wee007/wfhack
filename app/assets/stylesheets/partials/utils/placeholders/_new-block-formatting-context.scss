@@ -3,14 +3,9 @@
    ====================================================================================== */
 
 /*
-  Usage:
-    Makes the container take up remaining space next to the floated element, also prevents margin collapse.
+  Usage: makes the container take up remaining space next to the floated element, also prevents margin collapse.
 
-  Demo:
-    Style Guide -> Utilities -> New Block Formatting Context
-
-  Credit:
-    https://github.com/stubbornella/oocss/blob/master/oocss/src/components/utils/_clearfix-me.scss
+  Credit: https://github.com/stubbornella/oocss/blob/master/oocss/src/components/utils/_clearfix-me.scss
 */
 
 %new-block-formatting-context {

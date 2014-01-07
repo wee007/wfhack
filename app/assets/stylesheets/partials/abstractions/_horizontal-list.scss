@@ -18,24 +18,19 @@
 
 .horiz-list {
 
-	/* List items */
 	> li {
 
-		/* List items + links */
 		&,
 		> a {display: inline-block;}
 	}
 }
 
-/* --Modifiers-- */
-
-/* With dividers */
+/* Modifier: with dividers */
 .horiz-list--dividers > li {
 	border-left: 1px solid $color-grey-light-2;
 	padding-left: to-em($spacing-half);
 	margin-left: to-em($spacing-half);
 
-	/* Kill rules for the first item */
 	&:first-child {
 		padding: 0;
 		margin: 0;
@@ -43,19 +38,17 @@
 	}
 }
 
-/* Center align */
+/* Modifier: center align */
 .horiz-list--center {text-align: center;}
 
-/* Fit - force the items to occupy 100% of the available width of its parent */
+/* Modifier: fit - force the items to occupy 100% of the available width of its parent */
 .horiz-list--fit {
 	display: table;
 	width: 100%;
 
-	/* List items */
 	> li {
 		display: table-cell;
 
-		/* Links */
 		> a {display: block;}
 	}
 
@@ -68,17 +61,16 @@
 	&.horiz-list--center > li {padding: 0;}
 }
 
-/* Comma/slash seperated */
+/* Modifier: comma/slash seperated */
 .horiz-list--comma,
 .horiz-list--slash {
 
-	/* List items */
 	> li {
 
-		/* Add spacing */
+		/* Add right spacing */
 		&:after {margin-right: to-em($spacing-quarter);}
 
-		/* Remove for last child */
+		/* Remove comma/slash from last child */
 		&:last-child:after {display: none;}
 	}
 }
@@ -90,16 +82,14 @@
 
 .horiz-list--comma > li:after {content: ",";}
 
-/* -Spacing- */
-
-/* Shared - remove gutter for the first item */
+/* Modifier: spacing - remove gutter for the first item */
 .horiz-list--spacing-base,
 .horiz-list--spacing-half {
 	> li:first-child {margin-left: 0;}
 }
 
-/* Base */
+/* Modifier: spacing base */
 .horiz-list--spacing-base > li {@include to-rem(margin-left, $spacing-base);}
 
-/* Half */
+/* Modifier: spacing half */
 .horiz-list--spacing-half > li {@include to-rem(margin-left, $spacing-half);}

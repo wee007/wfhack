@@ -7,10 +7,8 @@ a {
 	color: $color-link;
 	text-decoration: none;
 
-	/* Visited state */
-	//&:visited {color: $color-link-visited;}
+	/* &:visited {color: $color-link-visited;} */
 
-	/* Hover and focus states */
 	&:hover,
 	&:focus {color: $color-link-hover;}
 

@@ -33,17 +33,13 @@
   Styleguide Islet
 */
 
-/*
-	Credit:
-		http://csswizardry.com/2011/10/the-island-object
-*/
+/* Credit: http://csswizardry.com/2011/10/the-island-object */
 
-/* Shared rules */
 .island,
 .islet {@extend %clear-fix;}
 
-
-/* --Island-- */
+/* [ISLAND]
+-------------------------------------------------------*/
 
 /* Full padding */
 .island {@include to-rem(padding, $spacing-base);}
@@ -54,7 +50,7 @@
 /* Sides - left/right padding */
 .island-sides {@include to-rem(padding-left padding-right, $spacing-base);}
 
-/* -One edge only- */
+/* One edge only */
 
 /* Top */
 .island-top {@include to-rem(padding-top, $spacing-base);}
@@ -68,8 +64,8 @@
 /* Right */
 .island-right {@include to-rem(padding-right, $spacing-base);}
 
-
-/* --Islet-- */
+/* [ISLET]
+-------------------------------------------------------*/
 
 /* Half padding */
 .islet {@include to-rem(padding, $spacing-half);}
@@ -80,7 +76,7 @@
 /* Sides - left/right padding */
 .islet-sides {@include to-rem(padding-left padding-right, $spacing-half);}
 
-/* -One edge only- */
+/* One edge only */
 
 /* Top */
 .islet-top {@include to-rem(padding-top, $spacing-half);}
@@ -95,9 +91,9 @@
 .islet-right {@include to-rem(padding-right, $spacing-half);}
 
 
-/* --Only apply to specific viewports-- */
-
 /*
+  Only apply to specific viewports.
+
   Note: cannot group these rules in context above because they need to override everything above.
 */
 
@@ -106,23 +102,18 @@
   .island-non-palm {@include to-rem(padding, $spacing-base);}
 }
 
-
-/* --Modifiers-- */
-
-/* -Island flush (remove padding from edges)- */
-
-/* Bottom */
+/* Modifier: flush bottom (remove padding from edges) */
 .island--flush-btm {padding-bottom: 0;}
 
-  /* Turn off at this breakpoint  */
+  /* Turn flush bottom off at this breakpoint  */
   @include respond-min($non-palm) {
     .island--flush-btm-off-non-palm {@include to-rem(padding, $spacing-base);}
   }
 
-/* Center align */
+/* Modifier: center align */
 .island--center,
 .islet--center {text-align: center;}
 
-/* Solid bg */
+/* Modifier: solid bg */
 .island--fill,
 .islet--fill {background-color: $color-grey-light-3;}

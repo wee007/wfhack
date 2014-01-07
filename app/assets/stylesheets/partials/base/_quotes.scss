@@ -2,31 +2,31 @@
    @BASE -> QUOTES
    ====================================================================================== */
 
-/* [INLINE]
--------------------------------------------------------*/
 q {
 	quotes: "\2018" "\2019" "\201C" "\201D";
 
-	/* Pseudo elements */
 	&:before {
-		content: "\2018"; /* Left single quotation mark */
+		/* Left single quotation mark */
+		content: "\2018";
 		content: open-quote;
 	}
 
 	&:after {
-		content: "\2019"; /* Right single quotation mark */
+		/* Right single quotation mark */
+		content: "\2019";
 		content: close-quote;
 	}
 
-		/* Nested */
 		q {
 			&:before {
-				content: "\201C"; /* Left double quotation mark */
+				/* Left double quotation mark */
+				content: "\201C";
 				content: open-quote;
 			}
 
 			&:after {
-				content: "\201D"; /* Right double quotation mark */
+				/* Right double quotation mark */
+				content: "\201D";
 				content: close-quote;
 			}
 		}

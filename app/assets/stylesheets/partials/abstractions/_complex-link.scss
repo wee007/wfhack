@@ -9,25 +9,22 @@
 */
 
 /*
-	Note:
-		The base link styles are repeated here so not very DRY (need to look into this).
-	Credit:
-		http://github.com/necolas/suit-utils/blob/master/link.css#L18
+	Note: the base link styles are repeated here so not very DRY (need to look into this).
+
+	Credit: http://github.com/necolas/suit-utils/blob/master/link.css#L18
 */
 
 .complex-link {
 	@extend %disguised-link;
 
-	/* Pseudo classes for link target */
 	&:visited .complex-link__target {color: $color-link-visited;}
 
 	&:hover .complex-link__target,
 	&:focus .complex-link__target {color: $color-link-hover;}
 }
 
-	/* Link target */
 	.complex-link__target {
+		@extend %transition-subtle;
 		color: $color-link;
 		cursor: pointer;
-		@extend %transition-subtle;
 	}

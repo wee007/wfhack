@@ -3,14 +3,9 @@
    ====================================================================================== */
 
 /*
-	Usage:
-		So parent containers can contain their floated children.
+	Usage: so parent containers can contain their floated children.
 
-	Demo:
-		Style Guide -> Utilities -> Clear Fix
-
-	Credit:
-		http://nicolasgallagher.com/micro-clearfix-hack
+	Credit: http://nicolasgallagher.com/micro-clearfix-hack
 */
 
 %clear-fix {@include clear-fix;}

@@ -5,7 +5,9 @@
 /* Indicate that `label` will shift focus to the associated `input` element */
 label {cursor: pointer;}
 
-/* Text inputs via the `.txt-input` class, `textarea` and `select` (only for non-touch) */
+/*
+  Text inputs via the `.txt-input` class, `textarea` and `select` (only for non-touch as styling `select`s for the likes of iOS and Android is too inconsistent)
+*/
 .txt-input,
 textarea,
 .no-touch select {
@@ -15,21 +17,17 @@ textarea,
   background: #fff;
   @include prefix(transition, border 0.2s linear);
 
-  /* Focus state */
   &:focus {border-color: darken($color-grey-med-3, 12%);}
 }
 
-/* Text inputs via the `.txt-input` class and `textarea` */
 .txt-input,
 textarea {
   width: 100%;
   @include to-rem(padding, $spacing-third $spacing-half);
 
-  /* Focus state */
   &:focus {outline: none;}
 }
 
-/* Textarea */
 textarea {
 	height: 9em;
 	resize: vertical;
@@ -44,7 +42,7 @@ input[type="search"] {
   @include prefix(box-sizing, border-box);
 }
 
-/* Alternate sizes */
+/* Modifiers: alternate size widths */
 .txt-input--sml {@include to-rem(width, 80);}
 
 .txt-input--med {@include to-rem(width, 236);}
@@ -58,7 +56,7 @@ input[type="search"] {
 /* Firefox 19+ sets an opacity on placeholder text by default so we need to reset it */
 ::-moz-placeholder {opacity: 1;}
 
-/* Disable zooming of inputs and selects for iOS/iPhone and Androids when focused by setting to 16px */
+/* Disable zooming of `input`s and `select`s for iOS/iPhone and Androids when focused by setting to 16px */
 .iphone,
 .android {
   .search-mini__input,
@@ -69,9 +67,7 @@ input[type="search"] {
   }
 
   /* 2px top and bottom padding for these inputs so the UI doesn't jump */
-  .search-mini__input:focus {
-    @include to-rem(padding-top padding-bottom, 2);
-  }
+  .search-mini__input:focus {@include to-rem(padding-top padding-bottom, 2);}
 }
 
 /* Disabled and Read-only */
@@ -91,12 +87,9 @@ textarea[disabled],
 	@include opacity(0.7, !important);
 }
 
-/* 'Required field' indicator (asterisk) */
+/* Required field indicator (asterisk) */
 .req-field {
 	font-family: Verdana, Geneva, sans-serif;
 	line-height: 1;
 	cursor: help;
 }
-
-/* Resest some defaults */
-form p {margin: 0;}

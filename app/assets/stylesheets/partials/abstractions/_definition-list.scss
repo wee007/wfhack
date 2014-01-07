@@ -8,22 +8,18 @@
 	Styleguide Definition List
 */
 
-/* Definiton title */
 .def-list__title {
 	float: left;
 	clear: left;
 	margin-right: to-em($spacing-quarter);
 
-	/* Remove spacing at this breakpoint */
 	@include respond-min($ipad-portrait) {
 		margin-right: 0;
 	}
 
-	/* Add a colon */
 	&:after {content: ":";}
 }
 
-/* Definiton description - left indent at this breakpoint */
 @include respond-min($non-palm) {
 	.def-list__desc {margin-left: to-em(100);}
 }

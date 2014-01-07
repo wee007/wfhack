@@ -3,37 +3,29 @@
 
 Old IE (IE < 9) stylesheet
 
-	Usage:
-		Refer to the 'Usage' section in 'main.scss'.
+Refer to the intro comment in 'application.scss'.
 
 ======================================================================================
 */
-
-
-/* ======================================================================================
-   @SASS SETTINGS
-   ====================================================================================== */
 
 /* [VARS]
 -------------------------------------------------------*/
 /* For targetting old IE (IE < 9) */
 $old-ie: true;
 
-/* Set the max width breakpoint of the media query CSS we want to grab i.e. anything above this width will be discarded  */
 /*
-	Note: '1600' is the max width for the page container as declared by the `$page-container-max-width` var in 'utils/vars'.
+  Set the max width breakpoint of the media query CSS we want to grab i.e. anything above this width will be discarded.
+
+  Note: '1600' is the max width for the page container as declared by the `$page-container-max-width` var in 'utils/vars'.
 */
 $fix-mqs: 1600;
 
-/* [IMPORTS]
+/* [IMPORT EVERYTHING FROM APPLICATION.SCSS]
 -------------------------------------------------------*/
-/* Import everything from 'application.scss' */
 @import "application";
 
-/* ======================================================================================
-   @OLD IE BANNER - Inform old IE users they should upgrade their browser
-   ====================================================================================== */
-
+/* [OLD IE BANNER - INFORM OLD IE USERS TO UPGRADE]
+-------------------------------------------------------*/
 .old-ie-banner {
 	background-color: #fff;
   border-bottom: 1px solid $color-grey-med-3;
@@ -46,7 +38,6 @@ $fix-mqs: 1600;
     margin: 0 auto;
   }
 
-    /* Shared rules */
     .h1,
     li img,
     li a {display: block;}

@@ -2,21 +2,15 @@
    @LAYOUT -> HEADER
    ====================================================================================== */
 
-/* Set variables */
 $hero-banner-height-sml: 270 !default;
 $hero-banner-height-lrg: 380 !default;
 
-/* Start header */
 .header {
 	position: relative;
 	z-index: 99;
 
-	/* --Global rules-- */
-
 	/* Icons */
 	.icon:before {@extend %transition-subtle;}
-
-	/* --Shared rules-- */
 
 	/* Set common colours */
 	a,
@@ -26,41 +20,19 @@ $hero-banner-height-lrg: 380 !default;
 	.icon--arrow-down-full:before {color: $color-txt-dark;}
 }
 
-/* --Modifiers-- */
-
-/* 'Centre home page hero banner' and 'National' */
+/* Modifiers: 'Centre home page hero banner' and 'National' */
 .header--hero,
 .header--national {border-bottom: 1px solid $color-grey-med-2;}
 
-	/* --Header secondary-- */
+	/* [HEADER SECONDARY]
+	-------------------------------------------------------*/
 	.header__secondary {
+		@extend %clear-fix;
 		background-color: #fff;
 		position: relative;
 		z-index: 2;
-		@extend %clear-fix;
 		@include to-rem(min-height, 44);
 
-		/* Menu (hamburger) toggle button */
-		.btn--menu {
-			float: left;
-			@include to-rem(margin, -1 0 0 -9);
-
-			/* Remove top outdent and add right spacing at this breakpoint */
-			@include respond-min($non-palm) {
-				margin-top: 0;
-				@include to-rem(margin-right, 6);
-
-				/* Centre home page hero banner */
-				.header--hero & {display: none;}
-			}
-
-			/* Hide at this breakpoint */
-			@include respond-min($ipad-landscape) {
-				display: none;
-			}
-		}
-
-		/* Increase min height at this breakpoint */
 		@include respond-min($non-palm) {
 			@include to-rem(min-height, 50);
 
@@ -73,15 +45,31 @@ $hero-banner-height-lrg: 380 !default;
 				@include to-rem(min-height, $hero-banner-height-sml);
 				background: transparent;
 
-				/* Increase min height at this breakpoint */
 				@include respond-min($ipad-portrait) {
 					@include to-rem(min-height, $hero-banner-height-lrg);
 				}
 
-					/* Shared rules */
 					a,
 					.icon:before,
 					.my-account-container__hdr {color: #fff;}
+			}
+		}
+
+		/* Menu (hamburger) toggle button */
+		.btn--menu {
+			float: left;
+			@include to-rem(margin, -1 0 0 -9);
+
+			@include respond-min($non-palm) {
+				margin-top: 0;
+				@include to-rem(margin-right, 6);
+
+				/* Centre home page hero banner */
+				.header--hero & {display: none;}
+			}
+
+			@include respond-min($ipad-landscape) {
+				display: none;
 			}
 		}
 
@@ -89,7 +77,6 @@ $hero-banner-height-lrg: 380 !default;
 		> .container {
 			@include to-rem(padding-top padding-bottom, 7);
 
-			/* Change positioning context and increase top padding at this breakpoint */
 			@include respond-min($non-palm) {
 				position: relative;
 				@include to-rem(padding-top, 10);
@@ -99,7 +86,6 @@ $hero-banner-height-lrg: 380 !default;
 					@include to-rem(padding-top, $spacing-base);
 					@include to-rem(min-height, $hero-banner-height-sml);
 
-					/* Increase min height and top padding at this breakpoint */
 					@include respond-min($ipad-portrait) {
 						@include to-rem(padding-top, $spacing-base + $spacing-half);
 						@include to-rem(min-height, $hero-banner-height-lrg);
@@ -132,7 +118,6 @@ $hero-banner-height-lrg: 380 !default;
 				@include to-rem(top, $spacing-micro);
 				vertical-align: top;
 
-				/* Decrease top indent at this breakpoint */
 				@include respond-min($non-palm) {
 					@include to-rem(top, 1);
 
@@ -143,19 +128,18 @@ $hero-banner-height-lrg: 380 !default;
 
 		}
 
-		/* --Toggle menu/search via Angular toggle visibility directive-- */
+		/* Toggle menu/search via Angular toggle visibility directive */
 		.js .header {
 			.header-menu-toggle,
 			.header-search-toggle {width: 100%;}
 
-			/* --Search-- */
+			/* Search */
 			.header-search-toggle {top: 0;}
 
 			/* Centre home page hero banner */
 			&.header--hero .header-search-toggle {
 				@include to-rem(top, 38);
 
-				/* Remove top positioning at this breakpoint */
 				@include respond-min($non-palm) {
 					@include to-rem(top, 0);
 				}
@@ -174,7 +158,6 @@ $hero-banner-height-lrg: 380 !default;
 			/* Menu */
 			.header-menu-toggle {
 
-				/* Alter positioning and width of menu at this breakpoint range */
 				@include respond-range($non-palm, $ipad-landscape - 1) {
 					@include to-rem(margin-top, -5);
 					@include to-rem(left, -7);
@@ -206,12 +189,10 @@ $hero-banner-height-lrg: 380 !default;
 			background-color: $color-grey-dark-1;
 			color: #fff;
 
-			/* Override bg colour at this breakpoint */
 			@include respond-min($ipad-landscape) {
 				background-color: transparent;
 			}
 
-			/* Add border at this breakpoint range */
 			@include respond-range($non-palm, $ipad-landscape - 1) {
 				border: 1px solid $color-grey-dark-3;
 			}
@@ -220,7 +201,6 @@ $hero-banner-height-lrg: 380 !default;
 			.no-js & {
 				@include to-rem(margin-top, $spacing-quarter);
 
-				/* Bring inline at this breakpoint */
 				@include respond-min($ipad-landscape) {
 					display: inline-block;
 					margin-top: 0;
@@ -234,13 +214,11 @@ $hero-banner-height-lrg: 380 !default;
 				color: $color-txt-dark;
 				text-shadow: none;
 
-				/* Change positioning at this breakpoint range */
 				@include respond-range($non-palm, $ipad-landscape - 1) {
 					left: 10px;
 					margin-left: -1px;
 				}
 
-				/* Hide at this breakpoint */
 				@include respond-min($ipad-landscape) {
 					display: none;
 				}
@@ -259,23 +237,20 @@ $hero-banner-height-lrg: 380 !default;
 				.header-menu-toggle__nav {
 					background-color: $color-grey-dark-3;
 
-					/* Turn off bg colour for sub nav at this breakpoint */
 					@include respond-min($ipad-landscape) {
 						.nav-sub-container & {background: none;}
 					}
 
-					/* As above but for 'Centre home page hero banner' at this breakpoint */
+					/* Change bg colour for 'Centre home page hero banner' at this breakpoint */
 					@include respond-min($non-palm) {
 						.header--hero .nav-sub-container & {background: none;}
 
 						.header--hero .my-account-signedin & {background: #fff;}
 					}
 
-					/* Items */
 					li {
 						border-bottom: 1px solid $color-grey-dark-1;
 
-						/* Turn off borders and throw into horizontal mode for sub nav at this breakpoint */
 						@include respond-min($ipad-landscape) {
 							.nav-sub-container & {
 								border: 0;
@@ -283,7 +258,7 @@ $hero-banner-height-lrg: 380 !default;
 							}
 						}
 
-						/* As above but for 'Centre home page hero banner' at this breakpoint */
+						/* Turn off borders and throw into horizontal mode for 'Centre home page hero banner' at this breakpoint */
 						@include respond-min($non-palm) {
 
 							/* Sub nav */
@@ -293,15 +268,12 @@ $hero-banner-height-lrg: 380 !default;
 								@include to-rem(margin-left, $spacing-base);
 								vertical-align: middle;
 
-								/* Turn left margin off for first child */
 								&:first-child {margin-left: 0;}
 
-								/* Increase left margin at this breakpoint */
 								@include respond-min($desk) {
 									@include to-rem(margin-left, $spacing-base+$spacing-quarter);
 								}
 
-								/* Bold font at this breakpoint */
 								@include respond-min($desk-lrg) {
 									font-weight: bold;
 								}
@@ -319,11 +291,9 @@ $hero-banner-height-lrg: 380 !default;
 							.my-account-signedin & {margin-right: 0;}
 						}
 
-						/* Turn border off for last child */
 						&:last-child {border: 0;}
 					}
 
-						/* Links */
 						a {
 							display: block;
 							width: 91.5%;
@@ -331,7 +301,6 @@ $hero-banner-height-lrg: 380 !default;
 							color: #fff;
 							@include to-rem(padding, $spacing-third 0);
 
-							/* Full width and side padding at this breakpoint */
 							@include respond-min($non-palm) {
 								width: auto;
 								@include to-rem(padding-left padding-right, $spacing-half + $spacing-quarter);
@@ -343,12 +312,10 @@ $hero-banner-height-lrg: 380 !default;
 								.header--hero .my-account-signedin & {color: $color-txt-dark;}
 							}
 
-							/* Reduce left/right padding at this breakpoint */
 							@include respond-min($ipad-landscape) {
 								.nav-sub-container & {@include to-rem(padding-left padding-right, 6);}
 							}
 
-							/* Hover, focus & active states */
 							.header &:hover,
 							.header &:focus,
 							.header &.is-active {
@@ -356,7 +323,6 @@ $hero-banner-height-lrg: 380 !default;
 								.icon:before {
 									color: $color-grey-med-2;
 
-									/* Change state color at this breakpoint */
 									@include respond-min($ipad-landscape) {
 										color: $color-brand;
 									}
@@ -378,7 +344,7 @@ $hero-banner-height-lrg: 380 !default;
 									.nav-sub-container & .nav-sub__txt {
 										@include hide-visually;
 
-										/* Bring link text into view for centre home page hero banner */
+										/* Bring link text into view for 'Centre home page hero banner' */
 										.header--hero & {@include hide-visually-off;}
 									}
 								}
@@ -397,7 +363,6 @@ $hero-banner-height-lrg: 380 !default;
 								.ios &,
 								.android & {top: -2px;}
 
-								/* Change colour at this breakpoint */
 								@include respond-min($ipad-landscape) {
 									.nav-sub-container & {
 										color: $color-txt-light;
@@ -429,14 +394,12 @@ $hero-banner-height-lrg: 380 !default;
 		/* Sub navigation */
 		.nav-sub-container {
 
-			/* Display inline and create some left spacing at this breakpoint */
 			@include respond-min($ipad-landscape) {
 				display: inline-block;
 				@include to-rem(margin-left, 16);
 				top: 0;
 			}
 
-			/* Increase left spacing at this breakpoint */
 			@include respond-min($desk) {
 				@include to-rem(margin-left, 28);
 			}
@@ -450,7 +413,6 @@ $hero-banner-height-lrg: 380 !default;
 					left: 0;
 					margin-left: 0;
 
-					/* Add left indent at this breakpoint */
 					@include respond-min($desk) {
 						@include to-rem(left, $spacing-dbl);
 						@include to-rem(right, $spacing-dbl);
@@ -480,7 +442,6 @@ $hero-banner-height-lrg: 380 !default;
 				@include to-rem(margin-bottom, $spacing-half);
 			}
 
-			/* Adjustments at this breakpoint */
 			@include respond-min($non-palm) {
 				display: inline-block;
 				padding: 0;
@@ -497,12 +458,10 @@ $hero-banner-height-lrg: 380 !default;
 					top: 50%;
 					@include to-rem(margin, -24 0 0 0);
 
-					/* Increase negative top margin at this breakpoint */
 					@include respond-min($ipad-portrait) {
 						@include to-rem(margin-top, -33.5);
 					}
 
-					/* Increase negative top margin and indent left/right edges at this breakpoint */
 					@include respond-min($desk) {
 						@include to-rem(left, $spacing-dbl);
 						@include to-rem(right, $spacing-dbl);
@@ -518,7 +477,6 @@ $hero-banner-height-lrg: 380 !default;
 				}
 			}
 
-			/* Change vertical align at this breakpoint */
 			@include respond-min($ipad-landscape) {
 				vertical-align: top;
 			}
@@ -542,7 +500,6 @@ $hero-banner-height-lrg: 380 !default;
 				@include to-rem(margin-right, 60);
 				color: #fff;
 
-				/* Remove right margin and change text colour at this breakpoint */
 				@include respond-min($non-palm) {
 					margin-right: 0;
 					color: $color-txt-dark;
@@ -553,7 +510,6 @@ $hero-banner-height-lrg: 380 !default;
 						@include font-size(40, 1.2);
 						color: #fff;
 
-						/* Increase text size at these breakpoints */
 						@include respond-min($ipad-portrait) {
 							@include font-size(56, 1.2);
 						}
@@ -580,7 +536,6 @@ $hero-banner-height-lrg: 380 !default;
 					margin-right: 0;
 					text-shadow: 0 0 8px rgba(#000, 0.6);
 
-					/* Increase text size at this breakpoint */
 					@include respond-min(400) {
 						@include font-size(32, 1.2);
 					}
@@ -590,7 +545,6 @@ $hero-banner-height-lrg: 380 !default;
 				&.btn {
 					display: none;
 
-					/* Show at these breakpoints */
 					@include respond-min($ipad-landscape) {
 						display: inline-block;
 					}
@@ -627,7 +581,6 @@ $hero-banner-height-lrg: 380 !default;
 					top: 50%;
 					@include translateY(-45%);
 
-					/* Make block level, remove absolute positioning and fix alignment at this breakpoint */
 					@include respond-min($non-palm) {
 						position: static;
 						@include translateY(0);
@@ -645,19 +598,16 @@ $hero-banner-height-lrg: 380 !default;
 						.header--hero & {display: none;}
 					}
 
-					/* Hide at this breakpoint */
 					@include respond-min($ipad-landscape) {
 						display: none;
 					}
 
-					/* Hover and focus states */
 					&:hover,
 					&:focus {
 						&,
 						.icon:before {color: $color-grey-med-2;}
 					}
 
-					/* Icon */
 					.icon:before {
 						color: #fff;
 
@@ -667,7 +617,7 @@ $hero-banner-height-lrg: 380 !default;
 				}
 		}
 
-		/* --Social Follow and Tertiary nav-- */
+		/* Social Follow and Tertiary nav */
 		.nav-social-tertiary-container {
 			@include to-rem(padding-top padding-bottom, $spacing-half+$spacing-quarter);
 			background-color: $color-grey-dark-1;
@@ -686,13 +636,14 @@ $hero-banner-height-lrg: 380 !default;
 				@include to-rem(padding-left padding-right, $spacing-half + $spacing-quarter);
 			}
 
-			/* Alter padding and add width at this breakpoint */
 			@include respond-min($ipad-landscape) {
 				@include to-rem(padding, 16);
 				@include to-rem(width, 214);
 				border: 1px solid $color-grey-dark-3;
 
-				/* Adjust top/left positioning and bring back drop down rules, note: need to increase the specificity to override 'Drop down' abstraction */
+				/*
+					Adjust top/left positioning and bring back drop down rules, note: need to increase the specificity to override 'Drop down' abstraction.
+				*/
 				.js &.drop-down {
 					display: none;
 					@include drop-down;
@@ -715,12 +666,10 @@ $hero-banner-height-lrg: 380 !default;
 					/* Show the drop down */
     			&.is-active {display: block;}
 
-    			/* Increase top margin at this breakpoint */
 					@include respond-min($ipad-portrait) {
 						@include to-rem(margin-top, 33.5 + 5);
 					}
 
-					/* Increase top margin and left indent at this breakpoint */
 					@include respond-min($desk) {
 						@include to-rem(left, $spacing-dbl);
 						@include to-rem(margin-top, 42 + 5);
@@ -746,15 +695,12 @@ $hero-banner-height-lrg: 380 !default;
 				color: $color-txt-dark;
 				text-shadow: 0 -1px $color-grey-dark-3;
 
-				/* Show at this breakpoints */
 				@include respond-min($ipad-landscape) {
 					display: block;
 				}
 
 				/* IE 10 */
-				@include ie-10-up {
-					top: -9px;
-				}
+				@include ie-10-up {top: -9px;}
 
 				/* Non JS users */
 				.no-js & {display: none;}
@@ -774,18 +720,15 @@ $hero-banner-height-lrg: 380 !default;
 					@include to-rem(margin, -16);
 					@include to-rem(margin-bottom, $spacing-half);
 
-					/* Link and icon colour */
 					&,
 					.icon:before {color: #fff;}
 
-					/* Hover and focus states */
 					&:hover,
 					&:focus {
 						&,
 						.icon:before {color: $color-grey-med-2;}
 					}
 
-					/* Show at these breakpoints */
 					@include respond-min($ipad-landscape) {
 						display: block;
 					}
@@ -797,20 +740,21 @@ $hero-banner-height-lrg: 380 !default;
 
 					/* Icon - IE fixes */
 					.icon:before {
+
 						/* IE10 */
 						@include ie-10-up {
 							position: relative;
 							top: 1px;
 						}
+
 						/* IE9 */
 						.ie-9 & {
 							position: relative;
 							top: 1px;
 						}
+
 						/* Old IE */
-						@include old-ie {
-							position: relative;
-						}
+						@include old-ie {position: relative;}
 					}
 				}
 		}
@@ -828,9 +772,7 @@ $hero-banner-height-lrg: 380 !default;
 						display: none;
 
 						/* Old IE */
-						@include old-ie {
-							display: block;
-						}
+						@include old-ie {display: block;}
 					}
 
 					.nav-sub-container & {
@@ -842,32 +784,25 @@ $hero-banner-height-lrg: 380 !default;
 						margin-bottom: 0;
 
 						/* Old IE */
-						@include old-ie {
-							display: none;
-						}
+						@include old-ie {display: none;}
 
-						/* Hover and focus states */
 						a:hover,
 						a:focus {
 							.icon:before {color: $color-brand;}
 						}
 
-							/* Icon */
 							.icon:before {@include font-size(20, 1);}
 					}
 				}
 
-				/* Items */
 				li {
 					@include to-rem(margin-left, $spacing-half);
 
 					&:first-child {margin-left: 0;}
 				}
 
-					/* Icons */
 					.icon:before {color: #fff;}
 
-					/* Hover and focus states */
 					a:hover,
 					a:focus {
 						.icon:before {color: $color-grey-med-2;}
@@ -890,7 +825,6 @@ $hero-banner-height-lrg: 380 !default;
 					@include font-size($font-size-milli);
 					color: $color-grey-med-2;
 
-					/* Hover and focus states */
 					&:hover,
 					&:focus {color: $color-grey-light-1;}
 				}
@@ -906,24 +840,24 @@ $hero-banner-height-lrg: 380 !default;
 					@include respond-min(860) {
 						display: block;
 					}
+
 					@include respond-min($desk-lrg) {
 						display: none;
 					}
 
-					/* --Hide for IE-- */
+					/* Hide for IE */
 
 					/* IE10 */
-					@include ie-10-up {
-						display: none;
-					}
+					@include ie-10-up {display: none;}
+
 					/* IE 8/9 */
 					.ie & {display: none;}
 				}
 			}
 
-		/* --Buy Gift Cards link-- */
-
 		/*
+			Buy Gift Cards link
+
 			Note: this is just temporary until 'My Account' and 'Favourites' come back.
 		*/
 
@@ -936,7 +870,6 @@ $hero-banner-height-lrg: 380 !default;
 		.nav-buy-gift-cards--alt {
 			display: none;
 
-			/* Always show and style it up at this breakpoint */
 			@include respond-min($lap-lrg) {
 				display: block;
 				position: absolute;
@@ -948,7 +881,6 @@ $hero-banner-height-lrg: 380 !default;
 				.header & {
 					color: $color-txt-light;
 
-					/* Hover and focus states */
 					&:hover,
 					&:focus {
 						&,
@@ -956,12 +888,11 @@ $hero-banner-height-lrg: 380 !default;
 					}
 				}
 
-				/* Bold at this breakpoint */
 				@include respond-min($desk) {
 	        font-weight: bold;
         }
 
-        /* Alter top positioning and turn off `translate` for 'Centre home page hero banner' and 'No JS users' */
+        /* Alter top positioning and turn off `translate` for 'Centre home page hero banner' and 'Non JS users' */
 				.header--hero &,
 				.no-js & {
 					@include to-rem(top, 54);
@@ -971,16 +902,12 @@ $hero-banner-height-lrg: 380 !default;
 				.no-js & {@include to-rem(top, $spacing-base);}
 
 				/* Old IE - fix for not supporting `translate` */
-				@include old-ie {
-					@include to-rem(top, 16);
-				}
+				@include old-ie {@include to-rem(top, 16);}
 
-				/* Icon */
 				.icon:before {
 					@include font-size(20, 1);
 					color: $color-brand;
 
-					/* Increase font size at this breakpoint */
 					@include respond-min($desk) {
 		         @include font-size(22, 1);
 	        }
@@ -990,16 +917,13 @@ $hero-banner-height-lrg: 380 !default;
 					.android & {top: -2px;}
 
 					/* IE10 */
-					@include ie-10-up {
-						position: static;
-					}
+					@include ie-10-up {position: static;}
+
 					/* IE9 */
 					.ie-9 & {position: static;}
 				}
 			}
 		}
-
-		/* --Search toggle button & favourites-- */
 
 		/* Search toggle button (palm) */
 		.search-toggle-favs {
@@ -1013,7 +937,6 @@ $hero-banner-height-lrg: 380 !default;
 				@include to-rem(margin-bottom, 4);
 			}
 
-			/* Hover & focus states */
 			a:hover,
 			a:focus {
 				.icon:before {color: $color-brand;}
@@ -1028,6 +951,7 @@ $hero-banner-height-lrg: 380 !default;
 					position: relative;
 					top: 1px;
 				}
+
 				.ie-9 & {
 					position: relative;
 					top: 1px;
@@ -1036,7 +960,8 @@ $hero-banner-height-lrg: 380 !default;
 		}
 
 
-	/* --Header hero (centre home page)-- */
+	/* [HEADER HERO]
+	-------------------------------------------------------*/
 	.header__hero {
 		background-repeat: no-repeat;
 		background-position: 50% 50%;
@@ -1050,7 +975,6 @@ $hero-banner-height-lrg: 380 !default;
 		.header-disclaimer {
 			@include to-rem(min-height, 220);
 
-			/* Increase min heights at these breakpoints */
 			@include respond-min($non-palm) {
 				@include to-rem(min-height, $hero-banner-height-sml);
 			}
@@ -1076,7 +1000,6 @@ $hero-banner-height-lrg: 380 !default;
 				a,
 				.icon:before {color: #fff;}
 
-				/* Hover & focus states */
 				&:hover,
 				&:focus {
 					&,
@@ -1098,7 +1021,6 @@ $hero-banner-height-lrg: 380 !default;
 				@include respond-min($desk) {
 					@include font-size(22, 1.5);
 
-					/* Icon */
 					.icon--hours:before {top: -3px;}
 				}
 
@@ -1106,7 +1028,9 @@ $hero-banner-height-lrg: 380 !default;
 				.icon:before {font-size: 100%;}
 			}
 
-		/* 'Artist impression' disclaimer, needed when the centre home page image is not a photograph, currently only applies to 'Miranda' and 'Garden City' centres */
+		/*
+			'Artist impression' disclaimer, needed when the centre home page image is not a photograph, currently only applies to 'Miranda' and 'Garden City' centres.
+		*/
 		.header-disclaimer small {
 			position: absolute;
 			right: 0;
@@ -1137,7 +1061,8 @@ $hero-banner-height-lrg: 380 !default;
 		}
 
 
-	/* --Header primary-- */
+	/* [HEADER PRIMARY]
+	-------------------------------------------------------*/
 	.header__primary {
 		background-color: $color-grey-dark-1;
 		position: relative;
@@ -1153,7 +1078,6 @@ $hero-banner-height-lrg: 380 !default;
 		> .container {
 			width: auto;
 
-			/* Bring back default width, contain float, and change positioning context at this breakpoint */
 			@include respond-min($non-palm) {
 				width: $page-container-width;
 				@include clear-fix;
@@ -1164,13 +1088,11 @@ $hero-banner-height-lrg: 380 !default;
 			/* Main navigation */
 			.nav-main {
 
-				/* Change layout at this breakpoint */
 				@include respond-min($non-palm) {
 					float: left;
 					display: block;
 				}
 
-				/* Items */
 				> li {
 					border-left-color: $color-grey-dark-3;
 
@@ -1201,7 +1123,6 @@ $hero-banner-height-lrg: 380 !default;
 						color: $color-grey-med-2;
 						border-bottom: 2px solid transparent;
 
-						/* Change padding at this breakpoint */
 						@include respond-min($non-palm) {
 							@include to-rem(padding, 20 $spacing-base 17);
 						}
@@ -1209,7 +1130,6 @@ $hero-banner-height-lrg: 380 !default;
 						/* Centre home page hero banner */
 						.header--hero & {color: $color-txt-dark;}
 
-						/* Hover & focus states */
 						&:hover,
 						&:focus {
 							&,
@@ -1243,12 +1163,10 @@ $hero-banner-height-lrg: 380 !default;
 							}
 					}
 
-						/* Icon */
 						.icon:before {
 							@include font-size(20, 1);
 							position: static;
 
-							/* Change positon context, decrease text size, and create some spacing between icon and link text at this breakpoint */
 							@include respond-min($iphone-landscape) {
 								position: relative;
 								@include font-size(17, 1);
@@ -1262,7 +1180,6 @@ $hero-banner-height-lrg: 380 !default;
 								}
 							}
 
-							/* Increase text size, turn off right margin and change position context at this breakpoint range */
 							@include respond-range($non-palm, $ipad-portrait - 1) {
 								@include font-size(20, 1);
 								margin-right: 0;
@@ -1275,12 +1192,11 @@ $hero-banner-height-lrg: 380 !default;
 			}
 	}
 
-		/* --Generic overlay (search)-- */
+		/* Generic overlay (search) */
 		.header__overlay {
 			height: 100%;
 			background-color: $color-grey-dark-1;
 
-			/* Styles at this breakpoint */
 			@include respond-min($non-palm) {
 				position: absolute;
 				right: 0;
@@ -1291,13 +1207,11 @@ $hero-banner-height-lrg: 380 !default;
 				background-color: #fff;
 				@include to-rem(height, 45);
 
-				/* Restore height at this breakpoint */
 				@include respond-min($non-palm) {
 					height: 100%;
 				}
 			}
 
-			/* Global rules */
 			.icon:before {color: $color-txt-light;}
 
 				/* Inner container rules at this breakpoint */
@@ -1307,22 +1221,18 @@ $hero-banner-height-lrg: 380 !default;
 						max-width: none;
 						min-width: 0;
 
-						/* Decrease width at this breakpoint range */
 						@include respond-range($ipad-portrait, 839) {
 							@include to-rem(width, 241);
 						}
 
-						/* Increase width at this breakpoint */
 						@include respond-min(840) {
 							@include to-rem(width, 318);
 						}
 
-						/* Increase width at this breakpoint */
 						@include respond-min($ipad-landscape) {
 							@include to-rem(width, 418);
 						}
 
-						/* Increase width at this breakpoint */
 						@include respond-min($desk) {
 							@include to-rem(width, 518);
 						}
@@ -1338,28 +1248,23 @@ $hero-banner-height-lrg: 380 !default;
 						@include to-rem(padding, 6 $spacing-third);
 
 						/* Old IE */
-						@include old-ie {
-							@include to-rem(top, 2);
-						}
+						@include old-ie {@include to-rem(top, 2);}
 					}
 		}
 
-		/* --Search-- */
+		/* Search */
 
-		/* -Shared rules- */
-
-		/* Right margin for search form/results to make room for the 'close' button at this breakpoint */
+		/* Right margin for search form/results to make room for the 'close' button */
 		.search-mini,
 		.search-results__inner {
 			@include to-rem(margin-right, 30);
 
-			/* Turn off right margin at this breakpoint */
 			@include respond-min($non-palm) {
 				margin-right: 0;
 			}
 		}
 
-		/* -Search form- */
+		/* Search form */
 		.search-mini {
 			background-color: #fff;
 			border:	1px solid transparent;
@@ -1367,7 +1272,6 @@ $hero-banner-height-lrg: 380 !default;
 			@include to-rem(padding, 4 10 4 26);
 			position: relative;
 
-			/* Change padding at this breakpoint */
 			@include respond-min($non-palm) {
 				@include to-rem(padding-top padding-bottom, 9);
 				@include to-rem(padding-left, 38);
@@ -1376,22 +1280,18 @@ $hero-banner-height-lrg: 380 !default;
 			/* Centre home page hero banner */
 			.header--hero & {border-color: $color-grey-med-2;}
 
-				/* Icon */
 				.icon:before {
 					position: absolute;
 					@include to-rem(left, $spacing-third);
 					@include to-rem(top, 6);
 					@include font-size($font-size-lrger, 1);
 
-					/* Change positioning at this breakpoint */
 					@include respond-min($non-palm) {
 						@include to-rem(top, 11);
 						@include to-rem(left, $spacing-half+$spacing-quarter);
 
 						/* IE 10 fixes */
-						@include ie-10-up {
-							@include to-rem(top, 12);
-						}
+						@include ie-10-up {@include to-rem(top, 12);}
 					}
 				}
 
@@ -1407,12 +1307,10 @@ $hero-banner-height-lrg: 380 !default;
 				color: $color-txt-dark;
 				@include font-size($font-size-sml, 1.2);
 
-				/* Increase text size at this breakpoint */
 				@include respond-min($non-palm) {
 					@include font-size($font-size, 1.2);
 				}
 
-				/* Focus */
 				&:focus {outline: none;}
 
 				/* Hide the 'close' button generated by `input[type="search"]` for IE10 */
@@ -1435,7 +1333,6 @@ $hero-banner-height-lrg: 380 !default;
 			@include to-rem(margin-top, -2);
 			@include font-size($font-size-sml, 1.5);
 
-			/* Increase font size at this breakpoint */
 			@include respond-min($non-palm) {
 				@include font-size($font-size, 1.5);
 	  	}
@@ -1471,33 +1368,27 @@ $hero-banner-height-lrg: 380 !default;
 				.search-results__list {
 					@include to-rem(padding-bottom, $spacing-half);
 
-					/* List headers */
 					dt {
 						font-weight: normal;
 						border-top: 1px solid $color-grey-light-1;
 						@include to-rem(padding-left padding-right, 8.5);
 						@include to-rem(padding-top margin-top, $spacing-half);
 
-						/* Turn off top spacing for first header */
 						&:first-child {margin-top: 0;}
 
-						/* Increase left/right padding at this breakpoint */
 						@include respond-min($non-palm) {
 							@include to-rem(padding-left padding-right, 16.5);
 						}
 
-						/* Icon */
 						.icon:before {
 							@include to-rem(margin-right, 3);
 
-							/* Increase right spacing at this breakpoint */
 							@include respond-min($non-palm) {
 								@include to-rem(margin-right, 4.5);
 							}
 						}
 					}
 
-					/* List items */
 					dd {
 						@include to-rem(margin-top, 3);
 						@include to-rem(padding-left padding-right, 32);
@@ -1505,7 +1396,6 @@ $hero-banner-height-lrg: 380 !default;
 						/* Android */
 						.android & {@include to-rem(padding-left padding-right, 33);}
 
-						/* Increase left/right padding at this breakpoint */
 						@include respond-min($non-palm) {
 							&,
 							.android & {@include to-rem(padding-left padding-right, 43);}
@@ -1514,7 +1404,6 @@ $hero-banner-height-lrg: 380 !default;
 							.ios & {@include to-rem(padding-left padding-right, 41);}
 						}
 
-						/* Links */
 						a {
 							display: block;
 							color: $color-link;
@@ -1522,7 +1411,6 @@ $hero-banner-height-lrg: 380 !default;
 							/* Pseudo focus */
 							&.is-focused {outline: 1px dotted $color-link;}
 
-							/* Hover and focus states */
 							&:hover,
 							&:focus {color: $color-link-hover;}
 						}
@@ -1530,11 +1418,10 @@ $hero-banner-height-lrg: 380 !default;
 				}
 
 
-	/* --National view-- */
+	/* [NATIONAL VIEW]
+	-------------------------------------------------------*/
 
-	/*
-		Note: these styles are for when a user arrives at a site without any centre context i.e. 'National view'
-	*/
+	/* Note: these styles are for when a user arrives at a site without any centre context i.e. 'National view' */
 
 	/* Increase bottom padding for `.container` at this breakpoint */
 	@include respond-min($desk) {
@@ -1544,7 +1431,6 @@ $hero-banner-height-lrg: 380 !default;
 		/* Tabs (palm) */
 		.header__tabs {
 
-			/* Hide at this breakpoint */
 			@include respond-min($non-palm) {
 				.js .header--national &.drop-down {display: none;}
 	  	}
@@ -1556,20 +1442,16 @@ $hero-banner-height-lrg: 380 !default;
 		  	border: 0;
 		  }
 
-			/* --Shared rules-- */
-
-			/* Common font family and size */
 			.header__tabs__hdr h1,
 			.tab__nav {
 				font-family: $font-family-opensans;
 				@include font-size($font-size);
 			}
 
-			/* Common spacing */
 			.header__tabs__hdr h1,
 			.tab__nav a {@include to-rem(padding-top padding-bottom, $spacing-third);}
 
-			/* --Heading-- */
+			/* Heading */
 			.header__tabs__hdr {
 				border-bottom: 1px solid $color-grey-dark-3;
 
@@ -1581,19 +1463,16 @@ $hero-banner-height-lrg: 380 !default;
 				}
 			}
 
-			/* --Tab nav-- */
+			/* Tab nav */
 			.tab__nav {
 
-				/* Links */
 				a {
 					@include to-rem(padding-left padding-right, $spacing-half);
 
-					/* Hover, focus and active states */
 					&:hover,
 					&:focus,
 					&.is-active {color: #fff;}
 
-						/* Abbreviation */
 						abbr {
 							border-bottom: 0;
 							cursor: pointer;
@@ -1603,7 +1482,7 @@ $hero-banner-height-lrg: 380 !default;
 				li:first-child a {padding-left: 0;}
 			}
 
-			/* --Tab panels-- */
+			/* Tab panels */
 			.tab__content {
 				background-color: $color-grey-dark-3;
 				max-height: $drop-down-max-height;
@@ -1615,14 +1494,11 @@ $hero-banner-height-lrg: 380 !default;
 			  	-webkit-overflow-scrolling: touch;
 			  }
 
-				/* Shared rules */
 				a,
 				.icon:before {color: #fff;}
 
-				/* Global rules */
 				li {border-bottom: 1px solid $color-grey-dark-1;}
 
-				/* Links */
 				a {
 					display: block;
 					text-transform: uppercase;
@@ -1633,7 +1509,6 @@ $hero-banner-height-lrg: 380 !default;
 					@include to-rem(padding-right, $spacing-base);
 					position: relative;
 
-					/* Hover and focus states */
 					&:hover,
 					&:focus {
 						&,
@@ -1641,7 +1516,6 @@ $hero-banner-height-lrg: 380 !default;
 					}
 				}
 
-					/* Icon */
 					.icon:before {
 						position: absolute;
 						right: 0;
@@ -1658,24 +1532,18 @@ $hero-banner-height-lrg: 380 !default;
 			/* Non JS users */
 			.no-js & {display: none;}
 
-			/* --Shared rules-- */
-
-			/* Make `inline-block` */
 			&,
 			h1,
 			.drop-down-menu {display: inline-block;}
 
-			/* Common font family */
 			h1,
 			.header-centre-select-national__lbl,
 			.drop-down-menu__trigger {font-family: $font-family-opensans;}
 
-			/* Common font size */
 			h1,
 			.header-centre-select-national__lbl {
 				@include font-size($font-size-lrg, 1.5);
 
-				/* Increase font size and change font family at this breakpoint */
 				@include respond-min($desk) {
 					@include font-size(22, 1.5);
 					font-family: $font-family-lato;
@@ -1689,11 +1557,9 @@ $hero-banner-height-lrg: 380 !default;
 				@include to-rem(top, $spacing-micro);
 			}
 
-			/* Label */
 			.header-centre-select-national__lbl {
 				display: none;
 
-				/* Show at this breakpoint */
 				@include respond-min(730) {
 					display: inline-block;
 		  	}

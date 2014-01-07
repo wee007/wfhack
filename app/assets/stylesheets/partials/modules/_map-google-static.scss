@@ -23,9 +23,8 @@
   /* High res image */
   @media (-o-min-device-pixel-ratio: 5/4),
          (-webkit-min-device-pixel-ratio: 1.25),
-         (min-resolution: 120dpi) {
-          background-size: 980px 280px;
-        }
+         (min-resolution: 120dpi)
+         {background-size: 980px 280px;}
 
   /* Hide image so we can use a bg img instead to maintain scale */
   img {
@@ -33,8 +32,6 @@
     @include to-rem(height, 280);
 
     /* Print */
-    @media print {
-      opacity: 1;
-    }
+    @media print {opacity: 1;}
   }
 }

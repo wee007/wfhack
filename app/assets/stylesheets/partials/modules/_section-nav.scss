@@ -10,37 +10,33 @@
     Style Guide -> Modules -> Section Nav
 */
 
-/* Set variables */
-/*
-	Note: this will be replaced by a dynamic breakpoint set via JS: https://jira.mywestfield.com/browse/WSF-5868.
-*/
+/* Note: this will be replaced by a dynamic breakpoint set via JS: https://jira.mywestfield.com/browse/WSF-5868 */
 $section-nav-breakpoint: 1000 !default;
 
-/* Start module */
 .section-nav {
 	@include font-size($font-size-sml, 1.5);
 
-	/* Increase text size at this breakpoint */
 	@include respond-min($non-palm) {
     @include font-size($font-size, 1.5);
   }
 
-	/* Section nav */
+  /* [CATEGORY NAV]
+	-------------------------------------------------------*/
 	.nav-contextual {
 		/* Need to make room for the centre selector toggle button */
 		@include to-rem(margin-right, 41);
 	  margin-bottom: 0;
 	  border-bottom: 0;
 
-	  /* Remove right margin at this breakpoint */
 		@include respond-min($section-nav-breakpoint) {
 	    margin-right: 0;
 	  }
 
-	  /* Increase the `z-index` of the drop down to always ensure it overlaps the 'Product filters' that usually sit underneath */
+	  /*
+	  	Increase the `z-index` of the drop down to always ensure it overlaps the 'Product filters' that usually sit underneath.
+	  */
 	  .drop-down-container--hover .drop-down {z-index: $z-index-high+1;}
 
-	  /* Hide all drop downs at this breakpoint */
 		@include respond-max($section-nav-breakpoint - 1) {
 	    .drop-down {display: none;}
 	  }
@@ -48,20 +44,15 @@ $section-nav-breakpoint: 1000 !default;
 	  /* Change positioning of drop down pointer */
 	  .pointer-up:before {
 	  	/* Webkit */
-		  @include target-webkit {
-				 top: -8px;
-			}
+		  @include target-webkit {top: -8px;}
+
 			/* IE 10 */
-	    @include ie-10-up {
-	      top: -7px;
-	    }
+	    @include ie-10-up {top: -7px;}
 	  }
 	}
 
-  /* Temp fix for Deal nav bar */
-  &.section-nav--deals .nav-contextual {
-    margin-right: 0;
-  }
+  /* TODO Modifier: temp fix for Deals version because it doesn't use the centre selector */
+  &.section-nav--deals .nav-contextual {margin-right: 0;}
 
 		/* Turn off `overflow: hidden` so we can see the drop down's at this breakpoint */
 		@include respond-min($section-nav-breakpoint) {
@@ -89,64 +80,10 @@ $section-nav-breakpoint: 1000 !default;
 				}
 			}
 
-	/* --Show products/deals/events centre selector-- */
+	/* [CENTRE SELECTOR]
+	-------------------------------------------------------*/
 
-	/* Toggle button */
-	.btn--main-compact-icon-sml {
-		position: absolute;
-		right: 0;
-		top: 50%;
-		@include translateY(-50%);
-
-		/* Hide at this breakpoint */
-		@include respond-min($section-nav-breakpoint) {
-	    display: none;
-	  }
-
-	  /* Non JS users */
-	  .no-js & {display: none;}
-	}
-
-	/* Centre selector */
-	.flag {
-		width: 100%;
-
-	  /* Sit over to the right edge and remove full width at this breakpoint */
-		@include respond-min(421) {
-			width: auto;
-	    float: right;
-	  }
-
-	  /* Make the nav and centre selector sit side by side at this breakpoint */
-		@include respond-min($section-nav-breakpoint) {
-			float: none;
-	    position: absolute;
-			right: 0;
-			/* '65' is the height of the section nav, this is a bit fragile but should be stable enough + I'd rather not bring JS into it */
-			@include to-rem(top, -65);
-			@include to-rem(height, 65);
-	  }
-	}
-
-		/* Select list label */
-		.flag__img {
-			color: $color-grey-med-2;
-			@include font-size($font-size-sml, 1.5);
-			@include to-rem(padding-right, $spacing-half);
-
-			/* Bring label text into view at this breakpoint */
-			@include respond-min(421) {
-		    @include hide-visually-off;
-		  }
-
-		  /* Increase the gutter at this breakpoint */
-			@include respond-min($section-nav-breakpoint) {
-		    @include to-rem(padding-right, $spacing-base);
-		  }
-		}
-}
-
-	/* 'Show products/deals/events nearby centre selector' container */
+	/* Container */
 	.section-nav__centre-selector {
 		@extend %clear-fix;
 		border-top: 1px solid $color-grey-med-1;
@@ -162,3 +99,59 @@ $section-nav-breakpoint: 1000 !default;
 	    padding: 0;
 	  }
 	}
+
+		/* Toggle button */
+		.btn--main-compact-icon-sml {
+			position: absolute;
+			right: 0;
+			top: 50%;
+			@include translateY(-50%);
+
+			@include respond-min($section-nav-breakpoint) {
+		    display: none;
+		  }
+
+		  /* Non JS users */
+		  .no-js & {display: none;}
+		}
+
+		/* Centre selector */
+		.flag {
+			width: 100%;
+
+		  /* Sit over to the right edge at this breakpoint */
+			@include respond-min(421) {
+				width: auto;
+		    float: right;
+		  }
+
+		  /* Make the nav and centre selector sit side by side at this breakpoint */
+			@include respond-min($section-nav-breakpoint) {
+				float: none;
+		    position: absolute;
+				right: 0;
+				/*
+					'65' is the height of the section nav, this is a bit fragile but should be stable enough + I'd rather not bring JS into it.
+				*/
+				@include to-rem(top, -65);
+				@include to-rem(height, 65);
+		  }
+		}
+
+			/* Centre selector label */
+			.flag__img {
+				color: $color-grey-med-2;
+				@include font-size($font-size-sml, 1.5);
+				@include to-rem(padding-right, $spacing-half);
+
+				/* Bring label text into view at this breakpoint */
+				@include respond-min(421) {
+			    @include hide-visually-off;
+			  }
+
+			  /* Increase the gutter at this breakpoint */
+				@include respond-min($section-nav-breakpoint) {
+			    @include to-rem(padding-right, $spacing-base);
+			  }
+			}
+}

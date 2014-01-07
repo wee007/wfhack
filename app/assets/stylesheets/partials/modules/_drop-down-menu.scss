@@ -28,12 +28,8 @@
     @include to-em(padding, $spacing-half $spacing-base);
 
     /* Webkit */
-    @include target-webkit {
-      @include to-rem(top, 4.5);
-    }
+    @include target-webkit {@include to-rem(top, 4.5);}
   }
-
-  /* --Shared rules-- */
 
   /* Link/button hover/focus states */
   .drop-down-menu__hdr-btn,
@@ -44,8 +40,6 @@
     &:hover,
     &:focus {color: $color-link;}
   }
-
-  /* --Global rules-- */
 
   /* Form elements */
   label,
@@ -158,9 +152,7 @@
       .ios & {top: -10px;}
 
       /* IE 10 */
-      @include ie-10-up {
-        top: -8px;
-      }
+      @include ie-10-up {top: -8px;}
 
       /* Hide for IE 9/8 */
       .ie-9 &,
@@ -208,7 +200,6 @@
 
       &:first-child {margin-top: 0;}
 
-      /* Links */
       a {
         display: block;
         color: $color-txt-light;
@@ -220,9 +211,7 @@
       position: relative;
 
       /* Old IE */
-      @include old-ie {
-        width: 100%;
-      }
+      @include old-ie {width: 100%;}
     }
 
       /* Range inputs - position them side by side */

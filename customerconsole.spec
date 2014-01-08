@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.94
+Version:     0.2.95
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,13 @@ fi
 
 
 %changelog
+* Wed Jan 08 2014 ci <doperations@au.westfield.com> 0.2.95-1
+- Merge branch 'master' of github.dbg.westfield.com:digital/customer_console
+  (doperations@au.westfield.com)
+- Merge pull request #843 from csmith/master (craigM.smith@au.westfield.com)
+- Show the store as closed in the popup if it's closed today.
+  (craigm.smith@au.westfield.com)
+
 * Wed Jan 08 2014 ci <doperations@au.westfield.com> 0.2.94-1
 - 
 

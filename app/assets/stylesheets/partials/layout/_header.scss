@@ -645,7 +645,6 @@ $hero-banner-height-lrg: 380 !default;
 					Adjust top/left positioning and bring back drop down rules, note: need to increase the specificity to override 'Drop down' abstraction.
 				*/
 				.js &.drop-down {
-					display: none;
 					@include drop-down;
 					@include to-rem(margin-top, -5);
 					@include to-rem(left, 92);
@@ -655,7 +654,6 @@ $hero-banner-height-lrg: 380 !default;
 			/* 'Centre home page hero banner' drop down */
 			@include respond-min($non-palm) {
 				.js .header--hero &.drop-down {
-					display: none;
 					@include drop-down;
 					top: 50%;
 					@include to-rem(margin-top, 24 + 5);
@@ -1328,7 +1326,6 @@ $hero-banner-height-lrg: 380 !default;
 		/* Search results */
 		.search-results {
 			text-align: left;
-			@include drop-down;
 			width: 100%;
 			@include to-rem(margin-top, -2);
 			@include font-size($font-size-sml, 1.5);
@@ -1336,6 +1333,9 @@ $hero-banner-height-lrg: 380 !default;
 			@include respond-min($non-palm) {
 				@include font-size($font-size, 1.5);
 	  	}
+
+	  	/* JS users - want to show the drop down when the Angular `.ng-hide` is not on the element */
+	  	.js &:not(.ng-hide) {display: block;}
 
 	  	/* Non JS users */
 	  	.no-js & {display: none;}

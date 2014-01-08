@@ -29,8 +29,6 @@ $font-family: Arial, sans-serif !default;
 
 /* [MORE TYPOGRAPHY]
 -------------------------------------------------------*/
-/* --Sizes-- */
-
 /* Small */
 $font-size-sml: $font-size - 2 !default;
 
@@ -114,11 +112,10 @@ $spacing-dbl: $line-height * 2 !default;
 		-	https://developers.google.com/webmasters/smartphone-sites/details?hl=en
 */
 
-/* --Start and end points-- */
-
 /*
-	Note: these vars typically won't appear outside of this partial, they're used as a way to set-up all the breakpoints easily, when declaring breakpoints in media queries througout the build most of the time the 'Readable breakpoints' are used, one exception is when media query min/max ranges are used which 'out of the box' is only for defining the flexible width classes at specific breakpoints for the grid system (see: 'utils/widths').
+	Start and end points
 
+	Note: these vars typically won't appear outside of this partial, they're used as a way to set-up all the breakpoints easily, when declaring breakpoints in media queries througout the build most of the time the 'Readable breakpoints' are used, one exception is when media query min/max ranges are used which 'out of the box' is only for defining the flexible width classes at specific breakpoints for the grid system (see: 'utils/widths').
 */
 
 /* Start points */
@@ -139,7 +136,7 @@ $lap-sml-end: $lap-lrg-start - 1 !default;
 
 $desk-sml-end: $desk-lrg-start - 1 !default;
 
-/* --Readable breakpoints-- */
+/* Readable breakpoints */
 
 /* Palm */
 $palm: $palm-end !default;
@@ -157,7 +154,7 @@ $desk: $desk-start !default;
 
 $desk-lrg: $desk-lrg-start !default;
 
-/* --Arbitrary breakpoints-- */
+/* Arbitrary breakpoints */
 
 $iphone-landscape: 480 !default;
 
@@ -165,7 +162,7 @@ $ipad-portrait: 768 !default;
 
 $ipad-landscape: 1024 !default;
 
-/* [GRID / LAYOUT]
+/* [GRID/LAYOUT]
 -------------------------------------------------------*/
 /* Page container width */
 $page-container-width: 92% !default;
@@ -173,7 +170,7 @@ $page-container-width: 92% !default;
 /* Page container min width */
 $page-container-min-width: 220 !default;
 
-/* Page container max width - don't forget to update in 'old-ie.scss' */
+/* Page container max width, don't forget to update in 'old-ie.scss' */
 $page-container-max-width: 1600 !default;
 
 $page-container-max-width-narrow: 980 !default;
@@ -181,16 +178,14 @@ $page-container-max-width-narrow: 980 !default;
 /* Page container gutter */
 $page-container-gutter: 4% !default;
 
-/* --Grid-- */
+/* Grid */
 
 /* Gutter */
 $grid-gutter: $spacing-base !default;
 $grid-gutter-dbl: $spacing-dbl !default;
 $grid-gutter-half: $spacing-half !default;
 
-/*
-	Note: be sure to set the vars below to 'false' if they're not needed as they generate a lot of CSS.
-*/
+/* Note: be sure to set the vars below to 'false' if they're not needed as they generate a lot of CSS */
 
 /* Push */
 $grid-push: false !default;
@@ -203,8 +198,9 @@ $grid-pull: false !default;
 /* Brand colour */
 $color-brand: #da291c !default;
 
-/* --Greys-- */
 /*
+	Greys
+
 	Note: we have 9 greys in 3 categories of shades: 'Dark', 'Medium' and 'Light'.
 */
 
@@ -229,7 +225,7 @@ $color-grey-light-2: #e8e8e8 !default;
 
 $color-grey-light-3: #f2f2f2 !default;
 
-/* --Other colours-- */
+/* Other colours */
 
 /* Green */
 $color-green: #52c884 !default;
@@ -237,7 +233,7 @@ $color-green: #52c884 !default;
 /* Blue */
 $color-blue: #256e9e !default;
 
-/* --Text-- */
+/* Text */
 
 /* Base */
 $color-txt-base: $color-grey-dark-2 !default;
@@ -248,14 +244,14 @@ $color-txt-dark: $color-grey-dark-1 !default;
 /* Light */
 $color-txt-light: $color-grey-med-1 !default;
 
-/* --Link colours-- */
+/* Link colours */
 $color-link: $color-blue !default;
 
 $color-link-hover: #52a7e0 !default;
 
 $color-link-visited: lighten($color-link-hover, 15%) !default;
 
-/* --Feedback colours-- */
+/* Feedback colours */
 
 /* Error */
 $color-feedback-error: #6f0f0f !default;

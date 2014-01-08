@@ -12,15 +12,13 @@
 */
 
 .divider {
+  @extend %mrg-base;
 	border-bottom: 1px solid $color-grey-med-3;
 	@include to-rem(padding-bottom, $spacing-base);
-	@extend %mrg-base;
 }
 
-/* --Modifiers-- */
-
-/* Larger spacing */
+/* Modifier: larger spacing */
 .divider--lrg {@include to-rem(padding-bottom margin-bottom, $spacing-dbl);}
 
-/* Smaller spacing */
+/* Modifier: smaller spacing */
 .divider--sml {@include to-rem(padding-bottom margin-bottom, $spacing-half);}

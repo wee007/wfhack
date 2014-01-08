@@ -3,19 +3,14 @@
    ====================================================================================== */
 
 /*
-	Usage:
-		Fluid and nestable mobile first grid system.
+	Usage: fluid and nestable mobile first grid system.
 
-	Demo:
-		Style Guide -> Grid
-
-	Credit:
-		https://github.com/csswizardry/csswizardry-grids/blob/master/csswizardry-grids.scss
+	Credit: https://github.com/csswizardry/csswizardry-grids/blob/master/csswizardry-grids.scss
 */
 
 /* Grid container */
 .grid {
-	/* Negative `margin-left` to negate the columns' gutters */
+	/* Negative `margin-left` to negate the columns gutters */
 	@include to-rem(margin-left, -$grid-gutter);
 
 	/* Clear fix */
@@ -37,7 +32,7 @@
 		float: left;
 		@include to-rem(padding-left, $grid-gutter);
 
-		/* Print - have to re-linearise as all browsers except Chrome will honor any width classes above the `$non-palm` breakpoint */
+		/* Print - have to re-linearise as all browsers except Chrome will honour any width classes above the `$non-palm` breakpoint */
 		@media print {
 			width: 100% !important;
 		}
@@ -54,18 +49,14 @@
 		}
 	}
 
-/* --Modifiers-- */
-
-/* 'Gutterless' and 'Center align' */
+/* Modifiers: 'gutterless' and 'center align' */
 .grid--gutterless,
 .grid--center {margin-left: 0;}
 
-/* -Gutters- */
-
-/* Gutterless */
+/* Modifier: gutterless */
 .grid--gutterless > .grid__item {padding-left: 0;}
 
-/* Double the gutter */
+/* Modifier: double the gutter */
 .grid--gutter-dbl {
 	/* Negative `margin-left` to negate the columns' gutters */
 	@include to-rem(margin-left, -$grid-gutter-dbl);
@@ -74,7 +65,7 @@
 	> .grid__item {@include to-rem(padding-left, $grid-gutter-dbl);}
 }
 
-/* Half the gutter */
+/* Modifier: half the gutter */
 .grid--gutter-half {
   /* Negative `margin-left` to negate the columns' gutters */
   @include to-rem(margin-left, -$grid-gutter-half);
@@ -83,26 +74,22 @@
   > .grid__item {@include to-rem(padding-left, $grid-gutter-half);}
 }
 
-/* -Bottom spacing- */
-
-/* Remove bottom margin */
+/* Modifier: remove bottom margin */
 .grid--flush {
 	&,
 	> .grid__item {
 		margin-bottom: 0;
 
-		/* Turn off for last child */
 		&:last-child {margin-bottom: 0;}
 	}
 }
 
-/* Apply half bottom margin */
+/* Modifier: apply half bottom margin */
 .grid--mrg-half {
 	&,
 	> .grid__item {
 		@include to-rem(margin-bottom, $grid-gutter-half);
 
-		/* Turn off for last child */
 		&:last-child {margin-bottom: 0;}
 	}
 
@@ -110,24 +97,24 @@
 	&.grid--non-linear {
 		/* Need to offset bottom margin to keep spacing consistent */
 		@include to-rem(margin-bottom, -$grid-gutter-half);
+
 		/* Need to renable bottom margin for `:last-child` */
 		> .grid__item:last-child {@include to-rem(margin-bottom, $grid-gutter-half);}
 	}
 }
 
-/* Apply bottom margin only for 'Non-palm' */
+/* Modifier: apply bottom margin only for 'non-palm' */
 @include respond-min($non-palm) {
 	.grid--mrg-base-non-palm > .grid__item {@include to-rem(margin-bottom, $grid-gutter);}
 }
 
-/* Apply bottom margin only for 'Lap small' when linearised */
+/* Modifier: apply bottom margin only for 'lap-small' when linearised */
 @include respond-range-fixed(lap-sml) {
   .grid--mrg-base-lap-sml {
   	&,
 	  > .grid__item {
 	    @include to-rem(margin-bottom, $grid-gutter);
 
-	    /* Turn off for last child */
 	    &:last-child {margin-bottom: 0;}
 	  }
   }
@@ -144,7 +131,7 @@
 /* Reversed */
 .grid--rev > .grid__item {float: right;}
 
-/* Change stacking order for 'Palm' - only works for 2 cols */
+/* Change stacking order for 'palm' - only works for 2 cols */
 @include respond-max($palm) {
 	.grid--rev-stack {
 		display: table;
@@ -170,7 +157,7 @@
 	}
 }
 
-/* Table at 'Non-palm' */
+/* Table only at 'non-palm' */
 @include respond-min($non-palm) {
 	.grid--table-non-palm {
 		display: table;

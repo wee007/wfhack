@@ -2,38 +2,36 @@
    @LAYOUT -> NATIONAL HOMEPAGE
    ====================================================================================== */
 
-/* Styles for `body` element */
+/* [`body` ELEMENT]
+-------------------------------------------------------*/
 .national {
   padding-bottom: 0;
   background-color: $color-grey-dark-1;
 
-  /* Remove cursor and border on `abbr` when it's in an anchor */
+  /* Remove `cursor` and `border` on `abbr` when it's in an anchor */
   a abbr {
     cursor: pointer;
     border-bottom: 0;
   }
 }
 
-  /* Wrapper around the whole page. Need this for the (almost) full viewport background image */
+  /* [INNER WRAPPER]
+  -------------------------------------------------------*/
   .national__inner {
+
+    &,
+    a,
+    .icon:before {color: #fff;}
+
     @include respond-min($non-palm) {
       position: absolute;
       width: 100%;
       height: 100%;
     }
-
-    /* --Shared rules-- */
-
-    /* Set common colours */
-    &,
-    a,
-    .icon:before {color: #fff;}
   }
 
-    /* --Header-- */
-
-    /* Shared rules */
-
+    /* [HEADER]
+    -------------------------------------------------------*/
     .national__logo,
     .national__heading__intro,
     .national__header nav {
@@ -46,7 +44,7 @@
       /* Need the height for vertical alignment of the text and video thumbnail to work */
       @include to-rem(height, 250);
 
-      /* By making it shorter than 100%, we will have room to show the centres tiles in the viewport */
+      /* By making it shorter than 100%, we will have room to show the centres tiles at this breakpoint */
       @include respond-min($non-palm) {
         height: 60%;
         @include to-rem(min-height, 400);
@@ -57,14 +55,14 @@
         height: 80%;
       }
 
-      /* Old IE - centre align the hero image*/
+      /* Old IE - centre align the hero image */
       @include old-ie {
-        .img-rotate__item {
-          background-position: 50% 0;
-        }
+        .img-rotate__item {background-position: 50% 0;}
       }
 
-      /* `.container` wraps around the logo, nav and tagline. This sets its height to be the full height of `.national-header` */
+      /*
+        Inner container wraps around the logo, nav and tagline. This sets its height to be the full height of `.national-header`.
+      */
       .container {height: 100%;}
 
         /* Nav */
@@ -73,7 +71,6 @@
           @include to-rem(top, 10);
           @include font-size($font-size-milli);
 
-          /* Shift the nav down a bit at this breakpoint */
           @include respond-min($non-palm) {
             @include to-rem(top, 43);
             @include font-size($font-size-sml);
@@ -82,13 +79,12 @@
           a {
             display: block;
             text-align: center;
-            opacity: .7;
+            opacity: 0.7;
 
             @include respond-min($non-palm) {
               opacity: 1;
             }
 
-            /* Hover and focus state */
             &:hover,
             &:focus {
               opacity: 1;
@@ -99,7 +95,7 @@
           }
 
             .icon {
-              /* Can't do `display: block` on `.icon:before` because mobile Safari doesn't like it for some reasons */
+              /* Can't do `display: block` on `.icon:before` because mobile Safari doesn't like it for some reason */
               display: block;
               @include font-size($font-size-lrger, 1);
 
@@ -122,7 +118,6 @@
 
       /* Wrapper around the hero heading and video thumbnail */
       .national__heading__intro {
-        /* Aligns content centre vertically */
         top: 50%;
         left: 0;
         @include translateY(-50%);
@@ -137,11 +132,10 @@
         @include old-ie {top: 110px;}
 
         h1 {
-          /* Need a tigher `line-height` so the `span` will sit closer to the text under it */
-          line-height: 1;
           @extend %mrg-base;
+          /* Need a tighter `line-height` so the `span` will sit closer to the text under it */
+          line-height: 1;
 
-          /* Increase `font-size` */
           @include respond-min($non-palm) {
             @include font-size($font-size-kilo);
           }
@@ -178,7 +172,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background-color: rgba(0, 0, 0, 0.3);
+            background-color: rgba(#000, 0.3);
           }
 
           /* On hover/focus, the semi transparent background will cover up the video thumbnail image */
@@ -194,9 +188,7 @@
             z-index: 1;
 
              /* Old IE - makes the play icon can appear in front of the image */
-            @include old-ie {
-              position: static;
-            }
+            @include old-ie {position: static;}
           }
 
           /* Play icon */
@@ -236,11 +228,12 @@
       }
     }
 
-    /* --Main-- */
+    /* [MAIN]
+    -------------------------------------------------------*/
 
     /* Tabs */
     .national__tabs {
-      /* Needs the tab to sit on top of `.hero-gradient`, which the `z-index` is set in `_header.scss` */
+      /* Need the tab to sit on top of `.hero-gradient`, which the `z-index` is set in `_header.scss` */
       z-index: 2;
       /* Need `position: relative` so that it'll appear on top of the hero image which has `position: absolute` */
       position: relative;
@@ -253,27 +246,19 @@
       /* Non JS users */
       .no-js & {margin-top: 0;}
 
-      /* --Global rules-- */
-
-      /* Heading next to`tab__nav` */
       h2 {
         display: none;
 
-        /* Add right spacing at this breakpoint */
         @include respond-min($non-palm) {
           @include to-rem(margin-right, 40);
         }
       }
 
-      /* --Shared rules-- */
-
-      /* Set common font rules */
       h2,
       .tab__nav {
         @include font-size($font-size);
         font-family: $font-family-opensans;
 
-        /* Change `display` and increase font size */
         @include respond-min($non-palm) {
           display: inline-block;
           @include font-size($font-size-lrger);
@@ -286,12 +271,10 @@
           opacity: 0.6;
           @include to-rem(padding, $spacing-half);
 
-          /* Hover, focus and active states */
           &:hover,
           &:focus,
           &.is-active {opacity: 1;}
 
-          /* Increase padding at this breakpoint */
           @include respond-min($non-palm) {
             @include to-rem(padding, $spacing-base $spacing-half);
           }
@@ -304,7 +287,7 @@
       .no-js & .tab__content {margin-bottom: 0;}
     }
 
-      /* Set on `a`. Tile that links to the relevant centre homepage */
+      /* Tile that links to the relevant centre homepage */
       .national__centre-tile {
         display: block;
         position: relative;
@@ -313,9 +296,9 @@
         border-bottom: 1px solid $color-grey-dark-2;
 
         /* First `.national__centre-tile` gets `box-shadow` */
-        li:first-child & {box-shadow: inset 0 4px 4px 0 rgba(0,0,0,.4)}
+        li:first-child & {box-shadow: inset 0 4px 4px 0 rgba(#000, 0.4)}
 
-        /* Wrapper around centre's name */
+        /* Inner container */
         .container {
           @include to-rem(padding, 30 $spacing-base 30 0);
 
@@ -338,7 +321,6 @@
           .icon:before {
             position: absolute;
             right: 0;
-            /* Aligns text in the centre vertically */
             top: 50%;
             @include translateY(-50%);
             @include font-size(36, 1);
@@ -349,11 +331,11 @@
 
             /* Old IE */
             @include old-ie {margin-top: -25px;}
-
           }
       }
 
-    /* Footer */
+    /* [FOOTER]
+    -------------------------------------------------------*/
     .national__footer {
       text-align: center;
       @include font-size($font-size-milli);
@@ -363,17 +345,14 @@
         @include to-rem(padding-top padding-bottom, $spacing-quarter);
       }
 
-      /* Shared rules */
       &,
       a {color: $color-grey-med-3;}
 
-      /* Hover and focus states */
       a:hover,
       a:focus {color: $color-txt-light;}
 
       .container {@extend %clear-fix;}
 
-        /* List of footer links */
         .national__footer__nav {
           @include respond-min($lap-lrg) {
             float: right;

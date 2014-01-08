@@ -61,7 +61,8 @@ class Store < Hashie::Mash
       storefront_path: Rails.application.routes.url_helpers.centre_store_path(centre_id, retailer_code, id),
       micello_geom_id: micello_geom_id,
       closing_time_24: closing_time,
-      closing_time_12: closing_time_12
+      closing_time_12: closing_time_12,
+      closed_today: closed_today
     }
     gon[:logo] = logo if has_logo?
     gon

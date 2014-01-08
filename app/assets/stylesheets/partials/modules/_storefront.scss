@@ -109,12 +109,10 @@
           margin-right: auto;
           @include to-rem(margin-top, -14);
 
-          /* Remove negative top positioning at this breakpoint */
           @include respond-min($iphone-landscape) {
             margin-top: 0;
           }
 
-          /* Increase width and font size at these breakpoints */
           @include respond-min($non-palm) {
             width: 66%;
             @include font-size($font-size, 1.5);
@@ -130,7 +128,7 @@
         }
       }
 
-  /* --Store details-- */
+  /* Store details */
   .storefront__details {
     border-style: solid;
     border-color: $color-grey-med-3;
@@ -152,12 +150,10 @@
       @include to-rem(margin-right, 100);
       margin-bottom: 0;
 
-      /* Increase right spacing at this breakpoint */
       @include respond-min($non-palm) {
         @include to-rem(margin-right, 130);
       }
 
-      /* Remove right spacing and decrease top/bottom padding at this breakpoint */
       @include respond-min($ipad-landscape) {
         margin-right: 0;
         @include to-rem(padding-top padding-bottom, $spacing-half);
@@ -169,7 +165,6 @@
         @include to-rem(padding-left, $spacing-base + $spacing-micro);
         position: relative;
 
-        /* Icons */
         .icon:before {
           position: absolute;
           left: 0;
@@ -217,7 +212,6 @@
           @include translateY(-50%);
         }
 
-          /* Icon */
           .icon:before {@include font-size(40, 1);}
 
           /* Show link text */
@@ -228,7 +222,6 @@
             display: block;
           }
 
-          /* Hover and focus states */
           &:hover .hide-visually,
           &:focus .hide-visually {color: $color-grey-dark-3;}
       }
@@ -268,7 +261,6 @@
       @include font-size($font-size-lrger, 1.5);
       @include to-rem(margin-bottom, $spacing-half);
 
-      /* Increase font size at this breakpoint */
       @include respond-min($non-palm) {
         @include font-size(22, 1.5);
       }

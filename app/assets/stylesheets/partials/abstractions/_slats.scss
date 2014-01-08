@@ -8,14 +8,10 @@
 	Styleguide Slats
 */
 
-/*
-	Credit:
-		http://stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code
-*/
+/* Credit: http://stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code */
 
 .slats {@extend %clear-fix;}
 
-	/* Image container */
 	.slats__img {
 		float: left;
 		@include to-rem(margin-right, $spacing-base);
@@ -38,9 +34,7 @@
 
 	.slats__img--compact.slats__img--rev {margin-left: 0;}
 
-		/* Images */
 		.slats__img img,
 		.slats__img--rev img {display: block;}
 
-	/* Body container */
 	.slats__body {@extend %new-block-formatting-context;}

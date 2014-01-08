@@ -3,14 +3,9 @@
    ====================================================================================== */
 
 /*
-	Usage:
-		For replacing a text element with an image.
+	Usage: for replacing a text element with an image.
 
-	Demo:
-		Style Guide -> Utilities -> Image Replacement
-
-	Credit:
-		http://html5boilerplate.com/
+	Credit: http://html5boilerplate.com/
 */
 
 %img-replacement {
@@ -18,7 +13,6 @@
   border: 0;
   overflow: hidden;
 
-	/* Pseudo element */
 	&:before {
 		content: "";
 		display: block;

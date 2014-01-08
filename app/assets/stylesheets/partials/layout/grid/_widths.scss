@@ -3,14 +3,11 @@
    ====================================================================================== */
 
 /*
-  Usage:
-    Set-up flexible widths via classes which are mostly used for the grid system, the mixin allows you to define widths at specific breakpoints.
+  Usage: set-up flexible widths via classes which are mostly used for the grid system, the mixin allows you to define widths at specific breakpoints.
 
-  Note:
-    All the width values come from: 'utils/vars -> FLEXIBLE WIDTHS' so they can be used outside of this `@mixin`.
+  Note: all the width values come from: 'utils/vars -> FLEXIBLE WIDTHS' so they can be used outside of this `@mixin`.
 
-  Credit:
-    https://github.com/csswizardry/csswizardry-grids/blob/master/csswizardry-grids.scss
+  Credit: https://github.com/csswizardry/csswizardry-grids/blob/master/csswizardry-grids.scss
 */
 
 @mixin width-classes($namespace: "") {
@@ -77,17 +74,16 @@
   .#{$namespace}eleven-twelfths {width: $eleven-twelfths;}
 }
 
-/* Output all the flexible width classes */
-
 /*
+  Output all the flexible width classes.
+
   Note: these may not be required esp. if the width classes are only being used for the grid.
 */
-
 @include width-classes();
 
-/* --Output all the flexible width classes under specific breakpoints applied via specific classes (namespaced) e.g. `.lap-one-half` (all pre-defined breakpoints)-- */
-
 /*
+  Output all the flexible width classes under specific breakpoints applied via specific classes (namespaced) e.g. `.lap-one-half`.
+
   Note: be sure to comment out what you don't use as a lot of CSS is generated from all of this.
 */
 

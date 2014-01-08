@@ -6,10 +6,10 @@
   Styleguide Lists
 */
 
-
-/* [UNORDERED / ORDERED]
+/* [UNORDERED/ORDERED]
 -------------------------------------------------------*/
 .list,
+/* Including selectors from 'modules/txt-formatted' to keep things DRY */
 .txt-formatted ul,
 .txt-formatted ol {
 	@extend %mrg-base;
@@ -20,7 +20,6 @@
 	ol {
 		@include to-rem(margin-left, $spacing-base);
 
-		/* Increase left indent at this breakpoint */
 		@include respond-min($non-palm) {
 			@include to-rem(margin-left, $spacing-dbl);
 		}

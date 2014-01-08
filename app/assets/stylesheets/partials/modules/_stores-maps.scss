@@ -16,10 +16,9 @@
 		Style Guide -> Modules -> Stores / Maps
 */
 
-/* Styles for `body` element */
+/* `body` element */
 .stores {padding-bottom: 0;}
 
-/* Start module */
 .stores-maps {
   position: absolute;
   z-index: 2;
@@ -28,7 +27,6 @@
   left: 0;
   right: 0;
 
-  /* Increase top positioning at this breakpoint */
   @include respond-min($non-palm) {
     @include to-rem(top, 110);
   }
@@ -65,11 +63,8 @@
   }
 }
 
-  /* --Shared rules-- */
-
   /* Outdent the pin icons so they're flush to left edge */
-  .stores-list__store-name .icon--pin:before,
-  .stores-maps__filters-count .icon--pin:before {@include to-rem(margin-left, -4);}
+  .stores-list__store-name .icon--pin:before {@include to-rem(margin-left, -4);}
 
   /* Show a preloader whilst waiting for the list/detail view content to load via PJAX */
   .js-pjax-container-stores {
@@ -99,13 +94,12 @@
       width: 50%;
     }
 
-    /* --Detail view-- */
+    /* Modifier: Detail view */
 
     /* Turn off absolute positioning for 'detail view' */
     &.stores-maps__inner--detail {
       position: static;
 
-      /* Turn on absolute positioning at this breakpoint */
       @include respond-min($ipad-landscape) {
         position: absolute;
       }
@@ -118,7 +112,9 @@
 
         /* IE 8/9/10 fallbacks for not supporting `pointer-events` */
         @include old-ie {bottom: auto;}
+
         .ie-9 & {bottom: auto;}
+
         @include ie-10-up {bottom: auto;}
       }
 
@@ -130,7 +126,6 @@
     .is-map-view & {
       position: static;
 
-      /* Back to absolute positioning at this breakpoint */
       @include respond-min($ipad-landscape) {
         position: absolute;
       }
@@ -176,7 +171,7 @@
         }
       }
 
-      /* Detail view */
+      /* Modifier: Detail view */
       .stores-maps__inner--detail & {
         display: none;
 
@@ -197,10 +192,9 @@
 
       /* Inner container */
       > .container {
-        @include to-rem(padding-top padding-bottom, $spacing-half);
         @extend %clear-fix;
+        @include to-rem(padding-top padding-bottom, $spacing-half);
 
-        /* Increase padding at this breakpoint */
         @include respond-min($non-palm) {
           @include to-rem(padding-top padding-bottom, $spacing-half+$spacing-quarter);
         }
@@ -224,24 +218,21 @@
         .is-map-view & {
           display: none;
 
-          /* Show at this breakpoint */
           @include respond-min($ipad-landscape) {
             display: block;
           }
         }
 
-        /* Detail view */
+        /* Modifier: Detail view */
         .stores-maps__inner--detail & {
           margin-bottom: 0;
 
-          /* Icon */
           .icon:before {
             top: -2px;
 
             /* IE 10/9 fixes */
-            @include ie-10-up {
-              top: 0;
-            }
+            @include ie-10-up {top: 0;}
+
             .ie-9 & {top: 0;}
           }
         }
@@ -255,11 +246,12 @@
             &:focus > span {color: $color-link-hover;}
           }
 
-      /* Category filter */
+      /* Filters */
+
+      /* 'Categories' and 'Gift card toggle' */
       .stores-maps__filters {
         float: left;
 
-        /* Unfloat at this breakpoint */
         @include respond-min($ipad-landscape) {
           float: none;
         }
@@ -271,7 +263,6 @@
         .is-map-view & {
           display: none;
 
-          /* Show at this breakpoint */
           @include respond-min($ipad-landscape) {
             display: block;
           }
@@ -290,7 +281,6 @@
               .hide-visually {@include hide-visually-off;}
             }
 
-            /* Icon */
             .icon--gift-card:before {
               color: #fff;
               @include to-rem(margin-left, $spacing-quarter);
@@ -409,12 +399,11 @@
       /* Listing view */
       .stores-maps__inner--listing & {background-color: #fff;}
 
-      /* Detail view */
+      /* Modifier: Detail view */
       .stores-maps__inner--detail & {
         position: static;
         overflow-y: visible;
 
-        /* Bring back absolute positioning, auto scrolling and pointer events at this breakpoint */
         @include respond-min($ipad-landscape) {
           position: absolute;
           @include to-rem(top, 110);
@@ -442,7 +431,6 @@
       .is-map-view & {
         display: none;
 
-        /* Show at this breakpoint */
         @include respond-min($ipad-landscape) {
           display: block;
         }
@@ -456,7 +444,39 @@
         .stores-maps .stores-maps__inner.stores-maps__inner--detail & {background-color: lighten($color-grey-light-2, 5%);}
       }
 
-      /* --Store list module-- */
+      /* Alter top positioning at this breakpoint */
+      @include respond-min($non-palm) {
+        @include to-rem(top, 65);
+
+        /* Post filter count */
+        .is-filter-applied & {@include to-rem(top, 102);}
+      }
+
+      /* Apply box treatments and alter top/btm positioning at this breakpoint */
+      @include respond-min($ipad-landscape) {
+        @include to-rem(top, 151);
+        @include to-rem(bottom, $spacing-base);
+        @include box;
+        @include box-heavy;
+
+        /* Modifier: Detail view */
+        .stores-maps__inner--detail & {
+          bottom: auto;
+          pointer-events: auto;
+          @include to-rem(top, 110);
+        }
+
+        /* Modifier: Detail view - when they're 'Featured items' */
+        .stores-maps__inner--detail.is-featured-items & {
+          background-color: $color-grey-light-2;
+          @include to-rem(bottom, $spacing-base);
+        }
+
+        /* Post filter count */
+        .is-filter-applied & {@include to-rem(top, 200);}
+      }
+
+      /* Store list module */
 
       /* Remove right indent for store name at this breakpoint */
       @include respond-min($ipad-landscape) {
@@ -489,9 +509,7 @@
     }
 
     /* Always show for old IE */
-    @include old-ie {
-      display: block;
-    }
+    @include old-ie {display: block;}
 
     /* Non JS users */
     .no-js & {position: static;}

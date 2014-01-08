@@ -13,16 +13,14 @@
 		Style Guide -> Modules -> Text Formatted
 */
 
-/* Increase specificity so we can override formats set in other modules when `txt-formatted` is being used */
+/* Increase specificity so we can override formats set in other modules when `.txt-formatted` is being used */
 body .txt-formatted {
   @include font-size($font-size-sml);
 
-  /* Increase font size at this breakpoint */
   @include respond-min($non-palm) {
     @include font-size($font-size);
   }
 
-  /* Shared rules */
   h3,
   h4,
   h5 {font-weight: bold;}
@@ -39,7 +37,6 @@ body .txt-formatted {
   h6 {
     @include font-size($font-size-sml, 1.5);
 
-    /* Increase font size at this breakpoint */
     @include respond-min($non-palm) {
       @include font-size($font-size, 1.5);
     }
@@ -49,15 +46,12 @@ body .txt-formatted {
   h2,
   h3 {@extend %mrg-base;}
 
-  /* --Headings-- */
-
   /* H2 */
   h2 {
     font-family: $font-family-opensans;
     color: $color-txt-light;
     @include font-size($font-size-lrger, 1.5);
 
-    /* Increase font size at this breakpoint */
     @include respond-min($non-palm) {
       @include font-size($font-size-xlrg, 1.5);
     }
@@ -67,7 +61,6 @@ body .txt-formatted {
   h3 {
     @include font-size(13, 1.5);
 
-    /* Increase font size at this breakpoint */
     @include respond-min($non-palm) {
       @include font-size(15, 1.5);
     }
@@ -78,7 +71,6 @@ body .txt-formatted {
     @include font-size($font-size-milli, 1.5);
     text-transform: uppercase;
 
-    /* Increase font size at this breakpoint */
     @include respond-min($non-palm) {
       @include font-size(13, 1.5);
     }
@@ -100,8 +92,6 @@ body .txt-formatted {
 
 /* User generated rules */
 .txt-formatted--user-generated {
-
-  /* Inline elements */
   i,
   em {font-style: italic;}
 }

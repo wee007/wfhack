@@ -10,15 +10,13 @@
 
 .box {@include box;}
 
-/* --Modifiers-- */
-
-/* Heavy */
+/* Modifier: heavy */
 .box--heavy {@include box-heavy;}
 
-/* Drop down */
+/* Modifier: drop down */
 .box--drop-down {@include box-drop-down;}
 
-/* Torn paper treatment */
+/* Modifier: torn paper treatment */
 .box--torn {
   background: none;
   box-shadow: none;
@@ -26,7 +24,7 @@
   border-bottom: 0;
   position: relative;
 
-  /* Pseudo element - contain the torn paper image */
+  /* Contain the torn paper image */
   &:after {
     content: "";
     background: #fff cloudinary-url("css/paper-tear.png") repeat-x 0 0;
@@ -39,5 +37,8 @@
   }
 }
 
-/* Small margin bottom */
+/* Modifier: base margin bottom */
+.box--mrg-base {@include to-rem(margin-bottom, $spacing-base);}
+
+/* Modifier: half base margin bottom */
 .box--mrg-half {@include to-rem(margin-bottom, $spacing-half);}

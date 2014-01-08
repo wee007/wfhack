@@ -12,7 +12,6 @@ img {
 	max-width: 100%; /* 2 */
 	height: auto; /* 2 */
 	font-style: italic; /* 3 */
-}
 
-/* Images in `figure` elements */
-figure > img {display: block;}
+  figure > & {display: block;}
+}

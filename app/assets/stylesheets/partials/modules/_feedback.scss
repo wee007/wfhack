@@ -16,70 +16,62 @@
 	box-shadow: inset 0 1px 0 rgba(#fff, 0.25),
 							0 1px 2px rgba(#000, 0.3);
 
-	/* Links */
 	a {
 		text-decoration: underline;
 
-		/* Hover and focus states */
 		&:hover,
 		&:focus {text-decoration: none;}
 	}
 }
 
-/* Block */
+/* Modifier: Block */
 .feedback--block {
 	@extend %mrg-base;
 	@include to-em(padding-top padding-bottom, $spacing-half);
 
-	/* Shared rules */
 	.hn,
 	p,
 	.list {margin-bottom: 0;}
 
-	/* Paragraphs and lists */
 	p,
 	.list {margin-top: to-em($spacing-quarter);}
 }
 
-/* Error */
+/* Modifier: Error */
 .feedback--error {
 	background-color: $color-feedback-error-light;
 	border-color: $color-feedback-error-border;
 
-	/* Parent, links + headings */
 	&,
 	a,
 	.hn {color: $color-feedback-error;}
 }
 
-/* Warning */
+/* Modifier: Warning */
 .feedback--warning {
 	background-color: $color-feedback-warning-light;
 	border-color: $color-feedback-warning-border;
 
-	/* Parent, links + headings */
 	&,
 	a,
 	.hn {color: $color-feedback-warning;}
 }
 
-/* Success */
+/* Modifier: Success */
 .feedback--success {
 	background-color: $color-feedback-success-light;
 	border-color: $color-feedback-success-border;
 
-	/* Parent, links + headings */
 	&,
 	a,
 	.hn {color: $color-feedback-success;}
 }
 
-/* Info */
+/* Modifier: Info */
 .feedback--info {
 	background-color: $color-feedback-info-light;
 	border-color: $color-feedback-info-border;
 
-	/* Parent, links + headings */
 	&,
 	a,
 	.hn {color: $color-feedback-info;}

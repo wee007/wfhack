@@ -3,17 +3,11 @@
    ====================================================================================== */
 
 /*
-  Usage:
-    Place any image- and text-like content side-by-side with vertical alignment.
+  Usage: place any image- and text-like content side-by-side with vertical alignment.
 
-  Note:
-    Same as the 'Slat' abstraction but we get vertical alignment.
+  Note: same as the 'Slat' abstraction but we get vertical alignment.
 
-  Demo:
-    Style Guide -> Abstractions -> Flag
-
-  Credit:
-    http://csswizardry.com/2013/05/the-flag-object/
+  Credit: http://csswizardry.com/2013/05/the-flag-object/
 */
 
 .flag {
@@ -24,19 +18,18 @@
 /* Modifier: shrink wrap */
 .flag--shrink-wrap {width: auto;}
 
-  /* Image and body container */
   .flag__img,
   .flag__body {
     display: table-cell;
     vertical-align: middle;
 
-    /* Modifier: different alignments */
+    /* Modifier: alignment top */
     .flag--top & {vertical-align: top;}
 
+    /* Modifier: alignment bottom */
     .flag--btm & {vertical-align: bottom;}
   }
 
-  /* Image container */
   .flag__img {
     @include to-rem(padding-right, $spacing-base);
 

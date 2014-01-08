@@ -3,11 +3,7 @@
    ====================================================================================== */
 
 /*
-  Usage:
-    Overrides `ngCloak` styles for angular.js. Angular will use `display: none !important;`, we override this so that the UI doesn't shift around so much.
-
-  Demo:
-    Style Guide -> Abstractions -> Angular Cloak
+  Overrides `ngCloak` styles for Angular JS. Angular will use `display: none !important;`, we override this so that the UI doesn't shift around so much.
 */
 
 [ng\:cloak],
@@ -22,9 +18,11 @@
   /* Non JS users */
   .no-js & {opacity: 1;}
 
-  /* --Conditional overrides-- */
+  /* Conditional overrides */
 
-  /* We don't want the pre-JS loaded UI state here as it loads in in an obtrusive way, also old IE doesn't support `opacity` (`filter` fallback does not work in this case) */
+  /*
+    We don't want the pre-JS loaded UI state here as it loads in in an obtrusive way, also old IE doesn't support `opacity` (`filter` fallback does not work in this case)
+  */
   .header__primary .header__overlay &,
   .old-ie & {display: none !important;}
 

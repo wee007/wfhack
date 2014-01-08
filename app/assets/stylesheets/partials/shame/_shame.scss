@@ -3,13 +3,9 @@
    ====================================================================================== */
 
 /*
-	Usage:
-		A stylesheet dedicated for back-end devs to house their quick-fix CSS when there's no time for a front-end dev to write the CSS.
+	Usage: a stylesheet dedicated for back-end devs to house their quick-fix CSS when there's no time for a front-end dev to write the CSS.
 
-	Note:
-		-	Ideally the CSS in this stylesheet shouldn't make it into production rather it should be looked at and intergrated into the CSS architecture prior to that.
-		- This stylesheet is imported last so anything you put here should override all other CSS, if you're having trouble then use the sledgehammer: `!important`.
+	Note: ideally the CSS in this stylesheet shouldn't make it into production rather it should be looked at and intergrated into the CSS architecture prior to that. This stylesheet is imported last so anything you put here should override all other CSS, if you're having trouble then use the sledgehammer: `!important`.
 
-	Credit:
-		http://csswizardry.com/2013/04/shame-css/
+	Credit: http://csswizardry.com/2013/04/shame-css/
 */

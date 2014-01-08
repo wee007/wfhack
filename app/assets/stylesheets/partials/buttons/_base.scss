@@ -3,7 +3,7 @@
    ====================================================================================== */
 
 /*
-	Generic button styling. These classes can be used in combination with other button classes e.g. `.btn-main`.
+	Generic button styling. All buttons need to use this base button class i.e. they're modifiers e.g. `.btn--main`.
 
 	.btn--full                        - Span full width of parent
 	.btn--full.btn--full-left         - Span full width of parent and align text to the left
@@ -24,24 +24,21 @@
 	border: 0;
 	padding: 0;
 
+	&,
+	&:before,
+	&:after {@extend %transition-subtle;}
+
 	/* Print */
 	@media print {
 		display: none;
 	}
-
-	/* Parent + pseudo elements */
-	&,
-	&:before,
-	&:after {@extend %transition-subtle;}
 }
-
-	/* --Modifiers-- */
 
 	/*
 		Note: have to increase the specificity by chaining the base `.btn` class to make it easy to override non-simple modifiers.
 	*/
 
-	/* Make span full width of parent */
+	/* Modifier: make span full width of parent */
 	.btn--full {
 		display: block;
 		text-align: center;
@@ -52,15 +49,15 @@
 
 	.btn--full-left {text-align: left;}
 
-	/* Small and large sizes */
+	/* Modifier: small and large sizes */
 	.btn--sml {@include font-size($font-size-sml, normal);}
 
 	.btn--lrg {@include font-size($font-size-lrg, normal);}
 
-	/* Apply right spacing for adjacent buttons */
+	/* Modifier: apply right spacing for adjacent buttons */
 	.btn--spacing {margin-right: to-em($spacing-quarter);}
 
-	/* When you need to position an icon over to the far right */
+	/* Modifier: when you need to position an icon over to the far right */
 	.btn--pointer {
 		position: relative;
 		@include to-em(padding-right, $spacing-half+$spacing-quarter);
@@ -73,9 +70,7 @@
 			@include translateY(-50%);
 
 			/* Old IE */
-			@include old-ie {
-				top: 28%;
-			}
+			@include old-ie {top: 28%;}
 
 				/* Remove negative top position */
 				&:before {position: static;}
@@ -85,7 +80,7 @@
 		.txt-truncate {display: block;}
 	}
 
-	/* As above but position icon over to the far left */
+	/* Modifier: as above but position icon over to the far left */
 	.btn--pointer-alt {
 		padding-right: 0;
 		@include to-em(padding-left, $spacing-half+$spacing-quarter);

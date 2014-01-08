@@ -14,43 +14,38 @@
 */
 
 /*
-	Note:
-		Same as: 'utils/placeholders/arrows' except this version doesn't apply to an existing element rather it's an independent element which is more flexible.
+  Note: Same as: 'utils/placeholders/arrows' except this version doesn't apply to an existing element rather it's an independent element which is more flexible
 */
 
-/* Set variables */
 $arrow-width: 8px;
-
 $arrow-bg: $color-txt-light;
 
-/* Start abstraction */
+
 .arrow {
 	width: 0;
 	height: 0;
-	border: $arrow-width solid rgba(255, 255, 255, 0);
+	border: $arrow-width solid rgba(#fff, 0);
 	display: inline-block;
 	vertical-align: middle;
 
   /* Old IE */
-  @include old-ie {
-    border-color: transparent;
-  }
+  @include old-ie {border-color: transparent;}
 }
 
-/* Down */
+/* Modifier: down arrow */
 .arrow--down {
 	border-top-color: $arrow-bg;
 	margin-bottom: -$arrow-width;
 }
 
-/* Up */
+/* Modifier: up arrow */
 .arrow--up {
 	border-bottom-color: $arrow-bg;
 	margin-top: -$arrow-width;
 }
 
-/* Left */
+/* Modifier: left arrow */
 .arrow--left {border-right-color: $arrow-bg;}
 
-/* Right */
+/* Modifier: right arrow */
 .arrow--right {border-left-color: $arrow-bg;}

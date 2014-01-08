@@ -8,16 +8,12 @@
   Styleguide Block List
 */
 
-/* Shared */
-.block-list {
-  &,
-  > li {border: 0 solid $color-grey-med-3;}
-}
-
 .block-list {
   border-top-width: 1px;
 
-  /* List items */
+  &,
+  > li {border: 0 solid $color-grey-med-3;}
+
   > li {
     border-bottom-width: 1px;
     padding: to-em($spacing-half);

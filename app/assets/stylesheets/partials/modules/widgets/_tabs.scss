@@ -3,11 +3,7 @@
    ====================================================================================== */
 
 /*
-	Usage:
-		Similar to the accordion in terms of preserving screen real estate but a tabbed interface is typically rendered horizontally not vertically and rather than 'expanding' and 'collapsing' each item the item simply appears and you can only ever see one item at a time.
-
-	Demo:
-		Style Guide -> Modules -> Widgets -> Tabs
+	Similar to the accordion in terms of preserving screen real estate but a tabbed interface is typically rendered horizontally not vertically and rather than 'expanding' and 'collapsing' each item the item simply appears and you can only ever see one item at a time.
 */
 
 /* Tab nav */
@@ -31,21 +27,21 @@
 
 	/* Non JS users */
 	.no-js & {
-		display: block;
 		@extend %mrg-base;
+		display: block;
 	}
 
 	/* Print */
 	@media print {
-		display: block;
 		@extend %mrg-base;
+		display: block;
 	}
 }
 
-	/* Tab content heading - typically for 'print' media and 'non-JS' users */
+	/* Tab content heading - typically for print media and non JS users */
 	.tab__content__hdr {
-		display: none;
 		@extend %mrg-base;
+		display: none;
 
 		/* Non JS users */
 		.no-js & {display: block;}

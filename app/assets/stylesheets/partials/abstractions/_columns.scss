@@ -14,10 +14,7 @@
 	Styleguide Columns
 */
 
-/*
-	Credit:
-		https://github.com/csswizardry/inuit.css/blob/master/inuit.css/objects/_columns.scss
-*/
+/* Credit: https://github.com/csswizardry/inuit.css/blob/master/inuit.css/objects/_columns.scss */
 
 @mixin col-classes($namespace: "") {
   /* 2 cols */
@@ -49,10 +46,10 @@
 	}
 }
 
-/* --Output all the col classes under specific breakpoints applied via specific classes (namespaced) e.g. `.lap-txt-cols--2` (all pre-defined breakpoints)-- */
-
 /*
-	Note: be sure to comment out what you don't use as a lot of CSS is generated from all of this.
+  Output all the col classes under specific breakpoints applied via specific classes (namespaced) e.g. `.lap-txt-cols--2` (all pre-defined breakpoints).
+
+  Note: be sure to comment out what you don't use as a lot of CSS is generated from all of this.
 */
 
 /* Lap */

@@ -3,21 +3,16 @@
    ====================================================================================== */
 
 /*
-	Usage:
-		A fully responsive jQuery slider, typically for photo galleries.
+	Usage: a fully responsive jQuery slider, typically for photo galleries.
 
-	Demo:
-		Style Guide -> Modules -> Widgets -> Flexslider
-
-	Credit:
-		http://www.woothemes.com/flexslider/
+	Credit: http://www.woothemes.com/flexslider/
 */
 
 .flexslider {
 	position: relative;
 	@include to-rem(padding-left padding-right, $spacing-base);
 
-	/* Contain controls version */
+	/* Modifier: contain controls */
 	&.flexslider--contain-controls {
 		padding-left: 0;
 		padding-right: 0;
@@ -40,7 +35,7 @@
 				-webkit-backface-visibility: visible;
 			}
 
-			/* Contain controls version */
+			/* Modifier: contain controls */
 			.flexslider--contain-controls & {z-index: 1;}
 
 			/* Print */
@@ -70,19 +65,20 @@
 		display: none;
 	}
 
-		/* Slides */
 		/*
+			Slides
+
 			Note: it is okay to use `!important` here as we need to override inline styles set by jQuery plugin.
 		*/
 		.slides {
 			width: 100% !important;
 
 			li {
+				@extend %transition-subtle;
 				width: 76px;
 				margin-right: 3px;
 				display: inline-block !important;
 				float: none !important;
-				@extend %transition-subtle;
 				cursor: pointer;
 				border: 1px solid $color-grey-light-1;
 
@@ -90,7 +86,6 @@
 				&:hover,
 				&.flex-active-slide {border-color: $color-brand;}
 
-				/* Turn off right margin for last child */
 				&:last-child {margin-right: 0;}
 			}
 
@@ -109,7 +104,7 @@
 		.flexslider--gallery & {display: none;}
 	}
 
-	/* Contain controls version */
+	/* Modifier: contain controls */
 	.flexslider--contain-controls & {
 		margin-top: 0;
 		position: absolute;
@@ -124,16 +119,13 @@
 		display: none;
 	}
 
-	/* Pager nav items */
 	li {
 		display: inline-block;
 		@include to-rem(margin-right, 2);
 
-		/* Turn off spacing for last child */
 		&:last-child {margin-right: 0;}
 	}
 
-		/* Links */
 		a {
 			text-indent: $off-screen-distance;
 			display: block;
@@ -143,6 +135,7 @@
 
 			/* Dots */
 			&:before {
+				@extend %transition-subtle;
 				content: "";
 				@include to-rem(width height, 8);
 				border-radius: 100%;
@@ -151,11 +144,10 @@
 				top: 50%;
 				left: 50%;
 				@include to-rem(margin, -4 0 0 -4);
-				@extend %transition-subtle;
 
-				/* Contain controls version */
+				/* Modifier: contain controls */
 				.flexslider--contain-controls & {
-					box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+					box-shadow: 0 0 3px rgba(#000, 0.5);
 					background-color: $color-grey-med-1;
 				}
 			}
@@ -167,7 +159,7 @@
 		.flex-active:before {
 			background-color: $color-grey-dark-1;
 
-			/* Contain controls version */
+			/* Modifier: contain controls */
 			.flexslider--contain-controls & {background-color: #fff;}
 		}
 }
@@ -183,7 +175,6 @@
 	/* Arrow icons (`span`) */
 	.icon {
 
-		/* Shared rules */
 		&,
 		&:before {display: block;}
 
@@ -192,9 +183,10 @@
 		top: 50%;
 		left: 0;
 		@include to-rem(padding, 6 8 6 0);
-		@include to-rem(margin-top, -27.5); /* 12.5px = half pager nav height + half height of this icon = 15px == 27.5px */
+		/* 12.5px = half pager nav height + half height of this icon = 15px == 27.5px */
+		@include to-rem(margin-top, -27.5);
 
-		/* Contain controls version */
+		/* Modifier: contain controls */
 		.flexslider--contain-controls & {
 			@include to-rem(margin-top, -15);
 			@include to-rem(left, $spacing-sixth);
@@ -207,22 +199,21 @@
 			@include to-rem(padding-left, 8);
 			@include to-rem(padding-right, 0);
 
-			/* Contain controls version */
+			/* Modifier: contain controls */
 			.flexslider--contain-controls & {@include to-rem(right, $spacing-sixth);}
 		}
 
-		/* Decrease negative top outdent at this breakpoint */
 		@include respond-min($non-palm) {
 			@include to-rem(margin-top, -15);
 		}
 
-		/* Arrow icon pseudo element */
+		/* Arrow icon */
 		&:before {
 			@extend %transition-subtle;
 			color: $color-txt-dark;
 			@include font-size($font-size-lrger, 1);
 
-			/* Contain controls version */
+			/* Modifier: contain controls */
 			.flexslider--contain-controls & {color: #fff;}
 		}
 	}

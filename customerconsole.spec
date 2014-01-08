@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.74
+Version:     0.2.95
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,97 @@ fi
 
 
 %changelog
+* Wed Jan 08 2014 ci <doperations@au.westfield.com> 0.2.95-1
+- Merge branch 'master' of github.dbg.westfield.com:digital/customer_console
+  (doperations@au.westfield.com)
+- Merge pull request #843 from csmith/master (craigM.smith@au.westfield.com)
+- Show the store as closed in the popup if it's closed today.
+  (craigm.smith@au.westfield.com)
+
+* Wed Jan 08 2014 ci <doperations@au.westfield.com> 0.2.94-1
+- 
+
+* Tue Jan 07 2014 ci <doperations@au.westfield.com> 0.2.93-1
+- Merge branch 'master' of github.dbg.westfield.com:digital/customer_console
+  (doperations@au.westfield.com)
+- Merge pull request #841 from csmith/master (craigM.smith@au.westfield.com)
+- Show the store is closed if it's closed. (craigm.smith@au.westfield.com)
+- Removing the oldie partial and bringing it inline into main template
+  (cpearce@au.westfield.com)
+- Fixing order of rel attr and adding missing comment for styleguide layout
+  (cpearce@au.westfield.com)
+- Review all commenting for CSS to be inline with CSS Guidelines - WSF-6095
+  (cpearce@au.westfield.com)
+
+* Tue Jan 07 2014 ci <doperations@au.westfield.com> 0.2.92-1
+- 
+
+* Tue Jan 07 2014 ci <doperations@au.westfield.com> 0.2.91-1
+- 
+
+* Tue Jan 07 2014 ci <doperations@au.westfield.com> 0.2.90-1
+- Merge branch 'master' of github.dbg.westfield.com:digital/customer_console
+  (doperations@au.westfield.com)
+- Revert "Merge branch 'master' of
+  github.dbg.westfield.com:digital/customer_console"
+  (craigm.smith@au.westfield.com)
+
+* Tue Jan 07 2014 ci <doperations@au.westfield.com> 0.2.89-1
+- 
+
+* Mon Jan 06 2014 ci <doperations@au.westfield.com> 0.2.88-1
+- Merge branch 'master' of github.dbg.westfield.com:digital/customer_console
+  (doperations@au.westfield.com)
+- Merge pull request #836 from ewee/master (ewee@au.westfield.com)
+- Remove gclid param if exists (ewee@au.westfield.com)
+- Expose is_error_page and error_code to Tealium (ewee@au.westfield.com)
+
+* Mon Jan 06 2014 ci <doperations@au.westfield.com> 0.2.87-1
+- 
+
+* Mon Jan 06 2014 ci <doperations@au.westfield.com> 0.2.86-1
+- Merge branch 'master' of github.dbg.westfield.com:digital/customer_console
+  (doperations@au.westfield.com)
+- Merge pull request #833 from ewee/master (ewee@au.westfield.com)
+- remove Howards Storage World as a cinema for Knox (chorn@au.westfield.com)
+- Expose is_error_page and error_code to Tealium (ewee@au.westfield.com)
+
+* Mon Jan 06 2014 ci <doperations@au.westfield.com> 0.2.85-1
+- 
+
+* Mon Jan 06 2014 ci <doperations@au.westfield.com> 0.2.84-1
+- 
+
+* Mon Jan 06 2014 ci <doperations@au.westfield.com> 0.2.83-1
+- 
+
+* Mon Jan 06 2014 ci <doperations@au.westfield.com> 0.2.82-1
+- 
+
+* Mon Jan 06 2014 ci <doperations@au.westfield.com> 0.2.81-1
+- 
+
+* Mon Jan 06 2014 ci <doperations@au.westfield.com> 0.2.80-1
+- 
+
+* Mon Jan 06 2014 ci <doperations@au.westfield.com> 0.2.79-1
+- 
+
+* Mon Jan 06 2014 ci <doperations@au.westfield.com> 0.2.78-1
+- 
+
+* Fri Jan 03 2014 ci <doperations@au.westfield.com> 0.2.77-1
+- Merge branch 'master' of github.dbg.westfield.com:digital/customer_console
+  (doperations@au.westfield.com)
+- Reverted c5faf88e0f2baab7657ea64e7a191f1ebf77030f
+  (craigm.smith@au.westfield.com)
+
+* Fri Jan 03 2014 ci <doperations@au.westfield.com> 0.2.76-1
+- 
+
+* Fri Jan 03 2014 ci <doperations@au.westfield.com> 0.2.75-1
+- 
+
 * Sun Dec 29 2013 ci <doperations@au.westfield.com> 0.2.74-1
 - Merge branch 'master' of github.dbg.westfield.com:digital/customer_console
   (doperations@au.westfield.com)

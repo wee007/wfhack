@@ -5,8 +5,7 @@
 /* [NICELY FORMED TYPE STYLE]
 -------------------------------------------------------*/
 /*
-	Usage:
-		Create a fully formed type style (sizing and vertical rhythm).
+	Usage: create a fully formed type style (sizing and vertical rhythm).
 
 	Notes:
 		-	The line height sets the `line-height` to a multiple of `$line-height` that's not smaller than `$font-size`, this can be overridden.
@@ -37,11 +36,9 @@
 /* [STYLE ALL HEADINGS EASILY]
 -------------------------------------------------------*/
 /*
-	Usage:
-		Style any number of headings in one fell swoop.
+	Usage: style any number of headings in one fell swoop.
 
-	Credit:
-		https://github.com/csswizardry/inuit.css/blob/master/generic/_mixins.scss
+	Credit: https://github.com/csswizardry/inuit.css/blob/master/generic/_mixins.scss
 
 	Example:
 		@include headings(1, 3) {color: red;}
@@ -70,8 +67,7 @@
 /* [CONVERT PX TO EM/REM]
 -------------------------------------------------------*/
 /*
-	Usage:
-		To convert `px` to `em`'s or `rem`'s for multiple properties or values or both.
+	Usage: to convert `px` to `em`'s or `rem`'s for multiple properties or values or both.
 
 	Notes:
 		-	Accepts a list of lists (instead a list of values) for properties that accept multiple lists of values. Only numbers are converted; everything else is passed through.
@@ -80,8 +76,7 @@
 		-	`$sledgehammer` is an optional argument that allows for the `!important` keyword to be specified, when used in the `to-em` `@mixin` and the optional `$context` argument does not need to be included then it has to be called using a named argument: `$sledgehammer: !important` so that we can skip over `$context` avoiding having to redundantly redeclare it.
 		-	'REM' `@mixin` outputs a `px` fallback for old IE and Opera Mini, when Opera Mini supports `rem` (http://caniuse.com/#feat=rem) change the `@mixin` to an archived version (11-02-2013).
 
-	Credit:
-		https://gist.github.com/2237465
+	Credit: https://gist.github.com/2237465
 
 	Examples:
 		@include to-em(line-height, 30)
@@ -148,13 +143,10 @@
 
 /* [CSS3]
 -------------------------------------------------------*/
-
 /*
-	Property:
-		`rgba`
+	Property: `rgba`
 
-	Usage:
-		RGBA background color with an old IE fallback (no alpha transparency).
+	Usage: RGBA background color with an old IE fallback (no alpha transparency).
 
 	Example:
 		@include rgba-bg(#000, 0.8);
@@ -169,11 +161,9 @@
 }
 
 /*
-	Property:
-		`linear-gradient`
+	Property: `linear-gradient`
 
-	Usage:
-		Simple CSS3 linear gradients with old IE/Webkit fallbacks.
+	Usage: simple CSS3 linear gradients with old IE/Webkit fallbacks.
 
 	Notes:
 		-	This mixin is very basic in that it only caters for two colour's ('from' and 'to'), no colour stops, only linear (no radial), not repeating, etc. in most cases this is all you need, for more involved gradients then look into Compass: http://compass-style.org/examples/compass/css3/gradient/ however keep an eye on their vendor prefixes as they tend to be dated.
@@ -247,17 +237,13 @@
 }
 
 /*
-	Property:
-		`transform`
+	Property: `transform`
 
-	Usage:
-		CSS3 Transforms for 'Rotate', 'Scale', 'Translate' and 'Scale'.
+	Usage: CSS3 Transforms for 'Rotate', 'Scale', 'Translate' and 'Scale'.
 
-	Note:
-		Keep an eye on browser support: http://caniuse.com/#feat=transforms2d.
+	Note: Keep an eye on browser support: http://caniuse.com/#feat=transforms2d.
 
-	Credit:
-		https://github.com/madr/css3-sass-mixins/blob/master/_all.scss
+	Credit: https://github.com/madr/css3-sass-mixins/blob/master/_all.scss
 
 	Examples:
 		@include rotate(-12.5);
@@ -283,7 +269,7 @@
   transform-origin: $location;
 }
 
-	/* --Different transforms-- */
+	/* Different transforms */
 
 	/* Rotate */
 	@mixin rotate($deg) {
@@ -300,7 +286,7 @@
     @include transform(skew(#{$x}deg, #{$y}deg));
   }
 
-	/* -Translate- */
+	/* Translate */
 
   /* 2D */
   @mixin translate($x, $y: 0) {
@@ -330,8 +316,7 @@
 /* [OPACITY]
 -------------------------------------------------------*/
 /*
-	Usage:
-		Quick way to declare `opacity` for modern browsers and old IE.
+	Usage: quick way to declare `opacity` for modern browsers and old IE.
 
 	Examples:
 		@include opacity(0.2);
@@ -350,8 +335,7 @@
 /* [VENDOR PREFIXES]
 -------------------------------------------------------*/
 /*
-	Usage:
-		Specify vendor prefixes for CSS3 properties.
+	Usage: specify vendor prefixes for CSS3 properties.
 
 	Note:
 		Keep an eye on browser support:
@@ -470,11 +454,9 @@
 }
 
 /*
-	Usage:
-		Create CSS keyframe animations for the necessary vendors.
+	Usage: create CSS keyframe animations for the necessary vendors.
 
-	Note:
-		Keep an eye on browser support: http://caniuse.com/#feat=css-animation.
+	Note: keep an eye on browser support: http://caniuse.com/#feat=css-animation.
 
 	Examples:
 		@include prefix(animation, shrink 3s);}
@@ -496,8 +478,7 @@
 /* [INPUT PLACEHOLDER]
 -------------------------------------------------------*/
 /*
-	Usage:
-		Take care of all the different browser vendor prefixes for the form input `placeholder` attr.
+	Usage: take care of all the different browser vendor prefixes for the form input `placeholder` attr.
 
 	Example:
 		@include input-placeholder {
@@ -535,8 +516,7 @@
 /* [TARGET BROWSERS]
 -------------------------------------------------------*/
 /*
-	Usage:
-		For targetting specific browsers.
+	Usage: for targetting specific browsers.
 
 	Notes:
 		-	The non-old IE `@mixin`s should be avoided at all costs (last resort).
@@ -595,14 +575,11 @@
 /* [MEDIA QUERY STUFF]
 -------------------------------------------------------*/
 /*
-	Usage:
-		Set-up media queries for min/max widths inc. ranges and handle support for old IE, also include a flag to only target 'screen' media so as to not affect 'print' media.
+	Usage: set-up media queries for min/max widths inc. ranges and handle support for old IE, also include a flag to only target 'screen' media so as to not affect 'print' media.
 
-	Note:
-		For old IE we're wrapping `@media screen` around `@content` in order to prevent 'print' media being affected however be careful because `@extend` will not work so might be that this has to be removed?
+	Note: for old IE we're wrapping `@media screen` around `@content` in order to prevent 'print' media being affected however be careful because `@extend` will not work so might be that this has to be removed?
 
-	Credit:
-		http://jakearchibald.github.com/sass-ie/
+	Credit: http://jakearchibald.github.com/sass-ie/
 
 	Examples:
 		@include respond-min($lap) {
@@ -662,7 +639,7 @@
 	}
 }
 
-/* --Min/max ranges-- */
+/* Min/max ranges */
 
 /* Accepts any range */
 @mixin respond-range($min-width, $max-width, $screen-only: false) {
@@ -685,7 +662,7 @@
 	}
 }
 
-/* --Grouped (comma seperated list)-- */
+/* Grouped (comma seperated list) */
 
 /* Accepts 2 `min-width` values */
 @mixin respond-group-min($width-1, $width-2, $screen-only: false) {
@@ -812,14 +789,11 @@
 }
 
 /*
-	Usage:
-		For targetting high resolution displays (retina).
+	Usage: for targetting high resolution displays (retina).
 
-	Note:
-		On retina, use image that's scaled by 2.
+	Note: on retina, use image that's scaled by 2.
 
-	Credit:
-		http://37signals.com/svn/posts/3271-easy-retina-ready-images-using-scss
+	Credit: http://37signals.com/svn/posts/3271-easy-retina-ready-images-using-scss
 
 	Example:
 		.logo {
@@ -840,11 +814,9 @@
 /* [IMAGE ROTATE]
 -------------------------------------------------------*/
 /*
-  Usage:
-    Creates a set of rotating images
+  Usage: creates a set of rotating images
 
-  Credit:
-    https://github.com/benschwarz/gallery-css
+  Credit: https://github.com/benschwarz/gallery-css
 
   Variables:
     $item-count             How many items there are to animate
@@ -856,13 +828,17 @@
 */
 
 @mixin img-rotate($item-count, $display-duration, $transition-duration) {
-  /* Work out the total duration of the entire animation, based on how many items there are and how long they should each be displayed for */
+  /*
+    Work out the total duration of the entire animation, based on how many items there are and how long they should each be displayed for.
+  */
   $total-duration: $display-duration * $item-count;
 
   /* Creates the keyframe animation */
   @include prefix-keyframe(img-rotate-animation-#{$item-count}) {
     0% {opacity: 0;}
-    /* Works out the time in % that the fade in and out should happen, according to the animation's total duration, transition duration and display duration */
+    /*
+      Works out the time in % that the fade in and out should happen, according to the animation's total duration, transition duration and display duration.
+    */
     #{round(100% * $transition-duration / $total-duration)},
     #{round(100% * $display-duration / $total-duration)} {opacity: 1;}
     #{round(100% * ($display-duration + $transition-duration) / $total-duration)},
@@ -872,12 +848,16 @@
   /* Creates unique class name based on no. of items */
   .img-rotate--items-#{$item-count} {
     /* Runs the animation when the item is loaded. Bit specific to catering for lazy-loading at the moment... */
-    .img-rotate__item.is-loaded {@include prefix(animation, img-rotate-animation-#{$item-count} #{$total-duration}s linear infinite);}
+    .img-rotate__item.is-loaded {
+      @include prefix(animation, img-rotate-animation-#{$item-count} #{$total-duration}s linear infinite);
+    }
   }
 
   @for $j from 1 through $item-count {
     .img-rotate__item.is-loaded:nth-of-type(#{$j}) {
-      /* By setting negative value for `animation-delay` we'll achieve the effect of one image fading out while the other one fading in */
+      /*
+        By setting negative value for `animation-delay` we'll achieve the effect of one image fading out while the other one fading in.
+      */
       $delay: #{($j - 1) * ($display-duration) - $transition-duration}s;
       @include prefix(animation-delay, #{$delay});
     }
@@ -887,8 +867,7 @@
 /* [PLACEHOLDER SELECTOR MEDIA QUERY FIX]
 -------------------------------------------------------*/
 /*
-	Usage:
-		Placeholder selectors cannot be extended within media queries therefore to keep things DRY we use a `@mixin` to contain it's styles and when a selector is in a media query the `@mixin` needs to be called not the placeholder selector.
+	Placeholder selectors cannot be extended within media queries therefore to keep things DRY we use a `@mixin` to contain it's styles and when a selector is in a media query the `@mixin` needs to be called not the placeholder selector.
 */
 
 /* Disguised link */
@@ -897,7 +876,6 @@
 	text-decoration: inherit;
 	cursor: text;
 
-	/* Pseudo classes */
 	&:visited,
 	&:hover,
 	&:focus {color: inherit;}
@@ -912,7 +890,7 @@
   }
 }
 
-/* --Box-- */
+/* Box */
 
 /* Default */
 @mixin box {
@@ -938,7 +916,7 @@
   left: 0;
 }
 
-/* --Hide-- */
+/* Hide */
 
 /* Hide only visually but have it available for screen readers */
 @mixin hide-visually {

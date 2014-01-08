@@ -3,8 +3,7 @@
 
 Server Error stylesheet
 
-  Usage:
-    This stylesheet is for styling the server error pages e.g. 404 error.
+This stylesheet is for styling the server error pages e.g. 404 error.
 
 ======================================================================================
 */
@@ -19,7 +18,7 @@ Server Error stylesheet
 @import "partials/utils/reset";
 
 
-/* [GLOBAL RULES]
+/* [EVERYTHING ELSE]
 -------------------------------------------------------*/
 
 /* Viewport */
@@ -45,13 +44,11 @@ html {
 
 body {background-color: $color-grey-light-3;}
 
-/* Links */
 a {
   color: $color-link;
   text-decoration: none;
   @extend %transition-subtle;
 
-  /* Hover and focus states */
   &:hover,
   &:focus {
     text-decoration: underline;
@@ -68,7 +65,6 @@ h1 {
   color: $color-grey-med-1;
   @include to-rem(margin-bottom, 27);
 
-  /* Bump up font size at this breakpoint */
   @include respond-min($non-palm) {
     @include font-size(61, 1.1);
   }

@@ -79,7 +79,7 @@
 
                 <% @categories.with_children.each do |category| %>
                   <div ng-class="{'is-active': (viewingSubCategory == '<%= category.code %>')}"
-                       ng-attr-aria-hidden="{{viewingSubCategory == '<%= category.code %>'}}"
+                       ng-attr-aria-hidden="{{viewingSubCategory != '<%= category.code %>'}}"
                        aria-labelledby="<%= category.code %>"
                     id="<%= category.code %>_categories" class="toggle-visibility">
                     <div class="drop-down-menu__hdr drop-down-menu__divider islet">

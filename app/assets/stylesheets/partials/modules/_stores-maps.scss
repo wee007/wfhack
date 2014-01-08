@@ -312,7 +312,7 @@
         .stores-maps__filters__item {
           display: inline-block;
           vertical-align: middle;
-          @include to-rem(margin-right, $spacing-half);
+          @include to-rem(margin-right, $spacing-sixth);
 
           &:last-child {margin-right: 0;}
 

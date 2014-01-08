@@ -110,23 +110,23 @@
 
               </div>
               <%# //Drop down target %>
-            </div><!--
+            </div>
             <% end %>
             <%# //Category %>
 
             <%# Applied category %>
             <% if @active_category %>
-            --><form action="<%= centre_stores_path(@centre) %>" method="get" class="stores-maps__filters__item">
+            <form action="<%= centre_stores_path(@centre) %>" method="get" class="stores-maps__filters__item">
                 <legend class="hide-visually">Clear the filtered category from the stores list</legend>
                 <button type="submit" class="tags__btn tags__btn--solo btn">
                   <span class="txt-truncate"><%= @active_category.name %></span>
                   <span class="icon icon--close-sml icon--lrg icon--flush-top" aria-hidden="true"></span>
                 </button>
             </form>
-            <% end %><!--
+            <% end %>
 
 
-            --><form id="giftCardForm" action="<%= request.path %>" method="get" class="stores-maps__filters__item">
+            <form id="giftCardForm" action="<%= request.path %>" method="get" class="stores-maps__filters__item">
                 <legend class="hide-visually">Gift card filter</legend>
 
                 <label for="gift-card-store-filter" class="btn btn--main btn--main-dark btn--main-checkbox-toggle btn--main-checkbox-toggle-icon <%= 'is-disabled' if !@stores.any_accepting_gift_cards? %> <%= 'is-active' if filtering_gift_cards? %>">

@@ -88,9 +88,8 @@
     )()
 
     $scope.go = (event, path) ->
-      #$location.path(path)
-      location.href = path;
-      #event.preventDefault()
+      $location.path(path)
+      event.preventDefault()
 
     $scope.updateSearch = ->
       Products.loading = true

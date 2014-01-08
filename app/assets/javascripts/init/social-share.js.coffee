@@ -14,7 +14,7 @@ class @SocialShare
     SocialShare.closeAll()
 
     open = ->
-      window.closeFilters();
+      window.closeFilters?();
       window.closeToggleVisibilty();
       $toOpen
         .addClass('is-active')

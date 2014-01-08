@@ -94,7 +94,7 @@
                       <% category.children.each do |sub_category| %>
                         <li class="drop-down-menu__divider">
                           <% if filtering_gift_cards? && sub_category.stores_accepting_gift_cards < 1 %>
-                            <div class="btn btn--full btn--full-left is-disabled">
+                            <div class="btn btn--full btn--full-left is-disabled is-disabled--no-hover">
                               <%= sub_category.name %>
                               <span class="hide-visually"> (gift cards not available for this category)</span>
                             </div>

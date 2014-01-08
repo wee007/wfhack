@@ -1,5 +1,5 @@
 ((app) ->
-  app.controller "ProductBrowseController", ["$scope", "$window", "$filter", "$location", "$route", "$routeParams", "ParamCleaner", "ProductSearch", "Products", ($scope, $window, $filter, $location, $route, $routeParams, ParamCleaner, ProductSearch, Products) ->
+  app.controller "ProductBrowseController", ["$rootScope", "$scope", "$window", "$timeout", "$filter", "$location", "$route", "$routeParams", "ParamCleaner", "ProductSearch", "Products", ($rootScope, $scope, $window, $timeout, $filter, $location, $route, $routeParams, ParamCleaner, ProductSearch, Products) ->
     $scope.search = ProductSearch
 
     # Route changes
@@ -88,8 +88,9 @@
     )()
 
     $scope.go = (event, path) ->
-      $location.path(path)
-      event.preventDefault()
+      #$location.path(path)
+      location.href = path;
+      #event.preventDefault()
 
     $scope.updateSearch = ->
       Products.loading = true
@@ -102,9 +103,18 @@
       if $scope.activeFilter isnt filterName
         $scope.activeFilter = filterName
         $scope.triggersVisible = false;
-
+        #let other dropdowns know that they should close themselves
+        $rootScope.$broadcast "product-filter-dropdown-open"
+        SocialShare.closeAll()
       else
         $scope.closeFilters()
+
+      return
+
+    #When the centre drop down menu is opened close product filter drop downs
+    $rootScope.$on "centre-dropdown-open", ->
+      $timeout($scope.closeFilters, 0);
+
 
     if angular.element("html").hasClass("lap-lrg")
       $(document).click ->
@@ -125,6 +135,10 @@
     $scope.closeFilters = ->
       $scope.activeFilter = ""
       $scope.showFilterButtons()
+
+    window.closeFilters = ->
+      $scope.closeFilters()
+      $scope.$apply()
 
     $scope.hasActiveFilters = ->
       !!ProductSearch.appliedFilters.length

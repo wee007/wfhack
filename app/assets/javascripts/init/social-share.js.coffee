@@ -14,6 +14,8 @@ class @SocialShare
     SocialShare.closeAll()
 
     open = ->
+      window.closeFilters();
+      window.closeToggleVisibilty();
       $toOpen
         .addClass('is-active')
         .parent('.js-tile-controls').addClass('is-active')

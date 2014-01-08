@@ -110,13 +110,13 @@
 
               </div>
               <%# //Drop down target %>
-            </div>
+            </div><!--
             <% end %>
             <%# //Category %>
 
             <%# Applied category %>
             <% if @active_category %>
-            <form action="<%= centre_stores_path(@centre) %>" method="get" class="stores-maps__filters__item">
+            --><form action="<%= centre_stores_path(@centre) %>" method="get" class="stores-maps__filters__item">
                 <legend class="hide-visually">Clear the filtered category from the stores list</legend>
                 <button type="submit" class="tags__btn tags__btn--solo btn">
                   <span class="txt-truncate"><%= @active_category.name %></span>

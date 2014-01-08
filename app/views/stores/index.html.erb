@@ -123,11 +123,10 @@
                   <span class="icon icon--close-sml icon--lrg icon--flush-top" aria-hidden="true"></span>
                 </button>
             </form>
-            <% end %>
-            <%# //Applied category %>
+            <% end %><!--
 
-            <%# Gift card filter %>
-            <form id="giftCardForm" action="<%= request.path %>" method="get" class="stores-maps__filters__item">
+
+            --><form id="giftCardForm" action="<%= request.path %>" method="get" class="stores-maps__filters__item">
                 <legend class="hide-visually">Gift card filter</legend>
 
                 <label for="gift-card-store-filter" class="btn btn--main btn--main-dark btn--main-checkbox-toggle btn--main-checkbox-toggle-icon <%= @stores.any_accepting_gift_cards? ? 'is-active' : 'is-disabled' %>">

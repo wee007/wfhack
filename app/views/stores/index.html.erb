@@ -129,7 +129,7 @@
             --><form id="giftCardForm" action="<%= request.path %>" method="get" class="stores-maps__filters__item">
                 <legend class="hide-visually">Gift card filter</legend>
 
-                <label for="gift-card-store-filter" class="btn btn--main btn--main-dark btn--main-checkbox-toggle btn--main-checkbox-toggle-icon <%= @stores.any_accepting_gift_cards? ? 'is-active' : 'is-disabled' %>">
+                <label for="gift-card-store-filter" class="btn btn--main btn--main-dark btn--main-checkbox-toggle btn--main-checkbox-toggle-icon <%= 'is-disabled' if !@stores.any_accepting_gift_cards? %> <%= 'is-active' if filtering_gift_cards? %>">
                   <input ng-init="gift_cards = <%= filtering_gift_cards? ? true : false %>" ng-model="gift_cards" ng-change="giftCardSubmit()" id="gift-card-store-filter" type="checkbox" name="gift_cards" value="true" class="btn--main-checkbox-toggle__input" <%= 'checked' if filtering_gift_cards? %> <%= 'disabled' unless @stores.any_accepting_gift_cards? %>>
                   <span class="btn--main-checkbox-toggle__lbl">
                     <span class="hide-visually">Westfield </span>

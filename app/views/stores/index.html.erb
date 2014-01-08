@@ -44,7 +44,7 @@
               <div class="drop-down-menu__target drop-down-menu__target--alt-width-palm drop-down pointer-up box box--drop-down" id="category-store-filter">
 
                 <%# T1 categories %>
-                <ul ng-class="{'is-active': (viewingSubCategory == undefined)}" id="stores-t1-categories" class="drop-down-menu__list toggle-visibility <%= 'is-active' unless @active_category %>">
+                <ul ng-class="{'is-active': (viewingSubCategory == undefined)}" id="stores-main-categories" class="drop-down-menu__list toggle-visibility <%= 'is-active' unless @active_category %>">
 
                   <% @categories.each do |category| %>
                     <li class="drop-down-menu__divider">

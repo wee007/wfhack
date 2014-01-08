@@ -29,18 +29,8 @@
             <p class="stores-maps__intro hide-visually">Filter stores by <strong>Category</strong> and whether they accept <strong>Gift cards</strong>.</p>
 
             <%# Category %>
-            <%# [BACKEND] When a category has been selected remove the Category filter HTML from the DOM, if cannot remove from the DOM then append `hide-fully` class to this `div` %>
-
             <% unless @active_category %>
             <div class="stores-maps__filters__item drop-down-menu drop-down-container">
-              <%#
-                [BACKEND] following keyboard behaviour is required:
-                - ENTER/SPACE key opens the drop down when focused on the drop down trigger.
-                - Only 1 tab stop which should only be the 'Drop down trigger'. So all links need `tabindex="-1"`.
-                - When the drop down is open set focus to the 1st link so if the T2 category menu is open set focus to the 'Back' link.
-                - Down/up arrow keys sets focus to the links and cylces through i.e. if you get to the last link and hit down arrow key you'll go the top link.
-                - See here for example: http://dl.dropboxusercontent.com/u/1065747/csun13/with_aria.html.
-              %>
 
               <%# Drop down trigger %>
               <button ng-click="viewSubCategory(null)" class="drop-down-menu__trigger btn btn--main btn--main-dark btn--pointer btn--pointer-padding-med js-disabled-hide" toggle-visibility="category-store-filter">
@@ -54,12 +44,12 @@
               <div class="drop-down-menu__target drop-down-menu__target--alt-width-palm drop-down pointer-up box box--drop-down" id="category-store-filter">
 
                 <%# T1 categories %>
-                <%# [BACKEND] when a T1 has been selected remove `is-active` class to hide it, bring it back when the 'Back' anchor is selected in the relevant T2's header %>
-                <ul ng-class="{'is-active': (viewingSubCategory == undefined)}" id="stores-t1-categories" class="drop-down-menu__list toggle-visibility is-active">
+                <ul ng-class="{'is-active': (viewingSubCategory == undefined)}" id="stores-t1-categories" class="drop-down-menu__list toggle-visibility <%= 'is-active' unless @active_category %>">
+
                   <% @categories.each do |category| %>
                     <li class="drop-down-menu__divider">
                       <% if category.children.empty? %>
-                        <% if filtering_gift_cards? %>
+                        <% if filtering_gift_cards? && category.stores_accepting_gift_cards < 1 %>
                           <div class="drop-down-menu__hdr-btn btn btn--full btn--full-left btn--pointer is-disabled is-disabled--no-hover">
                             <%= category.name %>
                             <span class="hide-visually"> (gift cards not available for this category)</span>
@@ -68,7 +58,7 @@
                           <a href="<%= centre_stores_category_path(@centre, category.code) %>" class="drop-down-menu__hdr-btn btn btn--full btn--full-left btn--pointer is-childless"><%= category.name %></a>
                         <% end %>
                       <% else %>
-                        <% if filtering_gift_cards? %>
+                        <% if filtering_gift_cards? && category.stores_accepting_gift_cards < 1 %>
                           <div class="drop-down-menu__hdr-btn btn btn--full btn--full-left btn--pointer is-disabled is-disabled--no-hover">
                             <%= category.name %>
                             <span class="hide-visually"> (gift cards not available for this category)</span>
@@ -87,7 +77,7 @@
                 </ul>
                 <%# //T1 categories %>
 
-                <% @categories_with_children.each do |category| %>
+                <% @categories.with_children.each do |category| %>
                   <div ng-class="{'is-active': (viewingSubCategory == '<%= category.code %>')}"
                        ng-attr-aria-hidden="{{viewingSubCategory == '<%= category.code %>'}}"
                        aria-labelledby="<%= category.code %>"
@@ -103,7 +93,7 @@
                     <ul class="drop-down-menu__list">
                       <% category.children.each do |sub_category| %>
                         <li class="drop-down-menu__divider">
-                          <% if filtering_gift_cards? %>
+                          <% if filtering_gift_cards? && sub_category.stores_accepting_gift_cards < 1 %>
                             <div class="btn btn--full btn--full-left is-disabled">
                               <%= sub_category.name %>
                               <span class="hide-visually"> (gift cards not available for this category)</span>
@@ -125,7 +115,6 @@
             <%# //Category %>
 
             <%# Applied category %>
-            <%# [BACKEND] this shouldn't be in the DOM until a category has been selected, if it can't be removed from the DOM then use class `hide-fully` on the `form` %>
             <% if @active_category %>
             <form action="<%= centre_stores_path(@centre) %>" method="get" class="stores-maps__filters__item">
                 <legend class="hide-visually">Clear the filtered category from the stores list</legend>
@@ -140,10 +129,9 @@
             <%# Gift card filter %>
             <form id="giftCardForm" action="<%= request.path %>" method="get" class="stores-maps__filters__item">
                 <legend class="hide-visually">Gift card filter</legend>
-                <%# [BACKEND] when the gift card checkbox is checked append class `is-active` to the `label` and when gift cards aren't available in categories append class `is-disabled` onto the `label` and see below for further instructions %>
-                <label for="gift-card-store-filter" class="btn btn--main btn--main-dark btn--main-checkbox-toggle btn--main-checkbox-toggle-icon">
-                  <%# [BACKEND] when gift cards aren't available in categories append `disabled` attr onto the `checkbox` %>
-                  <input ng-init="gift_cards = <%= filtering_gift_cards? ? true : false %>" ng-model="gift_cards" ng-change="giftCardSubmit()" id="gift-card-store-filter" type="checkbox" name="gift_cards" value="true" class="btn--main-checkbox-toggle__input" <%= 'checked' if filtering_gift_cards? %>>
+
+                <label for="gift-card-store-filter" class="btn btn--main btn--main-dark btn--main-checkbox-toggle btn--main-checkbox-toggle-icon <%= @stores.any_accepting_gift_cards? ? 'is-active' : 'is-disabled' %>">
+                  <input ng-init="gift_cards = <%= filtering_gift_cards? ? true : false %>" ng-model="gift_cards" ng-change="giftCardSubmit()" id="gift-card-store-filter" type="checkbox" name="gift_cards" value="true" class="btn--main-checkbox-toggle__input" <%= 'checked' if filtering_gift_cards? %> <%= 'disabled' unless @stores.any_accepting_gift_cards? %>>
                   <span class="btn--main-checkbox-toggle__lbl">
                     <span class="hide-visually">Westfield </span>
                     Gift Card
@@ -151,7 +139,7 @@
                     <span aria-hidden="true" class="icon icon--gift-card icon--xlrg icon--flush-top-mozilla"></span>
                   </span>
                 </label>
-                <%# [BACKEND] use this submit button to submit the above checkbox when JS is disabled and when gift cards aren't available in categories append `disabled` attr onto the `button` %>
+
                 <button type="submit" class="js-enabled-hide">Go</button>
             </form>
             <%# //Gift card filter %>
@@ -175,7 +163,7 @@
       <%# Stores list %>
       <div class="stores-maps__list-detail js-defer-image-load-container" id="stores-maps-toggle-listing-detail">
         <dl class="stores-list js-fastclick">
-          <% @grouped_stores.each do |letter, stores| %>
+          <% @stores.in_alpha_groups.each do |letter, stores| %>
 
             <dt>
               <div class="stores-list__inner container">

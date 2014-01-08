@@ -3,21 +3,13 @@ class StoresController < ApplicationController
   def index
     push_centre_info_to_gon
 
-    stores_decorator = FilteredStoresDecorator.decorate(@stores)
+    store_decorator = FilteredStoresDecorator.decorate(@stores)
 
-    @categories = stores_decorator.sorted_categories
-    @categories_with_children = @categories.select{|c| c.children.any? }
+    @categories = RetailerCategoriesDecorator.new(store_decorator.sorted_categories, with: RetailerCategoryDecorator)
+    @active_category = @categories.get(params[:category])
 
-    # If theres a category that has been selected
-    if params[:category]
-      # Filter the stores list
-      @stores = stores_decorator.by_category(params[:category])
-
-      # Get the category
-      @active_category = (@categories + @categories.map{|c| c.children}).flatten.find {|category| category.code == params[:category]}
-    end
-
-    @grouped_stores = @stores.group_by { |store| store.first_letter }
+    # Filter the store list by params
+    @stores = store_decorator.filter!(params)
 
     title = @active_category.nil? ? "Stores at #{centre.name}" : "#{centre.name} #{@active_category.name}"
     meta.push(

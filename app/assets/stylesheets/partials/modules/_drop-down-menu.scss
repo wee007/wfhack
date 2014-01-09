@@ -96,6 +96,7 @@
       .no-js & {border-top: 1px solid $color-grey-med-3;}
 
       /* Header text */
+      h2,
       h3 {
         display: inline;
         @include font-size($font-size-sml);

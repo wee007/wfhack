@@ -1547,6 +1547,7 @@ $hero-banner-height-lrg: 380 !default;
 				@include respond-min($desk) {
 					@include font-size(22, 1.5);
 					font-family: $font-family-lato;
+					font-weight: 300;
 		  	}
 			}
 

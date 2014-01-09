@@ -306,6 +306,13 @@
               @include to-em(padding-bottom, $spacing-half+$spacing-micro+1);
             }
           }
+
+          /* Non JS styles for drop down menu module */
+          .no-js & {
+            .drop-down-menu__list {max-height: none;}
+
+            .drop-down-menu__hdr {background-color: $color-grey-light-3;}
+          }
       }
 
         /* Filter items */

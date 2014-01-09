@@ -163,15 +163,12 @@
       <div class="stores-maps__list-detail js-defer-image-load-container" id="stores-maps-toggle-listing-detail">
         <dl class="stores-list js-fastclick">
           <% @stores.in_alpha_groups.each do |letter, stores| %>
-
             <dt>
               <div class="stores-list__inner container">
-                Stores starting with "<%= letter %>"
+                <%= letter %>
               </div>
             </dt>
-
             <%= render stores %>
-
           <% end %>
         </dl>
       </div>

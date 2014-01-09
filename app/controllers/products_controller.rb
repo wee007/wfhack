@@ -8,10 +8,12 @@ class ProductsController < ApplicationController
     services = {
       centre: params[:centre_id],
       centres: [nil, {near_to: params[:centre_id]}],
-      products: params.merge({rows: 50})
+      products: params.merge({rows: 50}),
+      product: { :category_codes => category_params }
     }
+    services[:product] = services[:products] if services[:product][:category_codes].nil?
     services[:store] = {retailer_code: params[:retailer].first} if params[:retailer]
-    @centre, @nearby_centres, @search, stores = service_map services
+    @centre, @nearby_centres, @search, @categories, stores = service_map services
     @super_categories = CategoryService.find centre_id: params[:centre_id], product_mapable: true
 
     meta.push(
@@ -29,9 +31,13 @@ class ProductsController < ApplicationController
   end
 
   def index_national
-    services = { centre: [:all, country: 'au'], products: params.merge({rows: 50}) }
+    services = {
+      centre: [:all, country: 'au'],
+      products: params.merge({rows: 50}),
+      product: { :category_codes => category_params }
+    }
     services[:store] = {retailer_code: params[:retailer].first} if params[:retailer]
-    centres, @search, stores = service_map services
+    centres, @search, @categories, stores = service_map services
 
     @centres = centres.group_by{ |centre| centre.state }
 
@@ -142,8 +148,8 @@ class ProductsController < ApplicationController
 private
 
   def page_title(centre_name)
-    if category_params.present?
-      "Buy #{category_params} online at #{centre_name}"
+    if category.present?
+      "#{category.seo_page_title} at #{centre_name}"
     elsif params[:retailer].present?
       "#{[params[:retailer]].flatten.map{ |param| param.titleize }.join(' and ')} at #{centre_name}"
     else
@@ -152,8 +158,8 @@ private
   end
 
   def description(centre_name, stores)
-    if category_params.present?
-      "Browse the latest #{category_params} online at #{centre_name}"
+    if category.present?
+      "#{category.seo_page_description} at #{centre_name}"
     elsif stores.present?
       stores.first.description.try(:truncate, 156)
     else
@@ -161,11 +167,12 @@ private
     end
   end
 
+  def category
+    @categories.try(:first) if params[:sub_category].present? || params[:category].present? || params[:super_cat].present?
+  end
+
   def category_params
-    if params[:sub_category].present? || params[:category].present? || params[:super_cat].present?
-      categories = params[:sub_category] || params[:category] || params[:super_cat]
-      [categories].flatten.map{ |param| param.titleize }.join(' and ')
-    end
+    params[:sub_category] || params[:category] || params[:super_cat]
   end
 
   def remove_gclid_param

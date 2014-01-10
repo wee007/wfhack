@@ -13,9 +13,9 @@
     // Clicking outside will close all toggleVisibility targets
     $document.bind( 'click', function ( event ) { close(); });
 
-    //when product filter dropdowns are opened, close this toggle vis widget
-    $rootScope.$on("product-filter-dropdown-open", function() {
-      $timeout(close,0);
+    // When product filter dropdowns are opened, close this toggle vis widget
+    $rootScope.$on( 'product-filter-dropdown-open', function() {
+      $timeout(close, 0);
     });
 
     window.closeToggleVisibilty = function () {
@@ -65,7 +65,7 @@
       target( targetID ).addClass( activeClass );
       if (targetID) {
         //let other dropdowns know that they should close themselves
-        $rootScope.$broadcast("centre-dropdown-open");
+        $rootScope.$broadcast("toggle-visibility-dropdowns");
         SocialShare.closeAll();
       }
 

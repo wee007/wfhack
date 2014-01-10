@@ -111,7 +111,7 @@
       return
 
     #When the centre drop down menu is opened close product filter drop downs
-    $rootScope.$on "centre-dropdown-open", ->
+    $rootScope.$on "toggle-visibility-dropdowns", ->
       $timeout($scope.closeFilters, 0);
 
 

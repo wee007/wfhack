@@ -136,13 +136,14 @@
                         <div id="collapseOne" class="accordion-body collapse">
                             <div class="accordion-inner">
                                 <ul>
-                                    <li><a href="/api/product" class="swagger-doc" data-toggle="collapse" data-target="#product-doc" data-parent="#docs">Categories</a></li>
                                     <li><a href="/api/centre" class="swagger-doc" data-toggle="collapse" data-target="#centre-doc" data-parent="#docs">Centres</a></li>
                                     <li><a href="/api/deal" class="swagger-doc" data-toggle="collapse" data-target="#deal-doc" data-parent="#docs">Deals</a></li>
                                     <li><a href="/api/event" class="swagger-doc" data-toggle="collapse" data-target="#event-doc" data-parent="#docs">Events</a></li>
                                     <li><a href="/api/movie" class="swagger-doc" data-toggle="collapse" data-target="#movie-doc" data-parent="#docs">Movies</a></li>
                                     <li><a href="https://retailerintegration.atlassian.net/wiki/display/ret/Westfield+Retailer+Integration" target="_blank">Products</a></li>
+                                    <li><a href="/api/product" class="swagger-doc" data-toggle="collapse" data-target="#product-category-doc" data-parent="#docs">Product Categories</a></li>
                                     <li><a href="/api/store" class="swagger-doc" data-toggle="collapse" data-target="#store-doc" data-parent="#docs">Stores</a></li>
+                                    <li><a href="/api/category" class="swagger-doc" data-toggle="collapse" data-target="#store-category-doc" data-parent="#docs">Store Categories</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -193,8 +194,15 @@
 
                         <div id="docs">
                             <div class="accordion-group">
-                                <div id="product-doc" class="collapse">
-                                    <h2>Categories</h2>
+                                <div id="store-category-doc" class="collapse">
+                                    <h2>Store Categories</h2>
+                                    <p>
+                                      The Westfield Store Categories API gives you access to store categories.
+                                      Output is available in JSON format.
+                                    </p>
+                                </div>
+                                <div id="product-category-doc" class="collapse">
+                                    <h2>Product Categories</h2>
                                     <p>
                                       The Westfield Categories API gives you access to retailer and product
                                       categories and colours. There is a single taxonomy for both retailers

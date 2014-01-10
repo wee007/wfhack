@@ -29,6 +29,8 @@
 </div>
 <%# //Tile canned search meta %>
 
-<%# Alternative icon for "Collections" and "Occasions" %>
-<span class="tile__icon-alt icon icon--product-collection icon--flush-top icon--lrg" aria-hidden="true"></span>
-<%# //Alternative icon for "Collections" and "Occasions" %>
+<%# Alternative icon for 'Product' type canned search %>
+<% if result.icon == 'products' %>
+  <span class="tile__icon-alt icon icon--product-collection icon--flush-top icon--lrg" aria-hidden="true"></span>
+<% end %>
+<%# //Alternative icon for 'Product' type canned search %>

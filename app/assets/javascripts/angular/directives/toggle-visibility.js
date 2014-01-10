@@ -64,8 +64,8 @@
       triggers( targetID ).attr( 'aria-expanded', true ).addClass( activeClass );
       target( targetID ).addClass( activeClass );
       if (targetID) {
-        //let other dropdowns know that they should close themselves
-        $rootScope.$broadcast("toggle-visibility-dropdowns");
+        // Let other dropdowns know that they should close themselves
+        $rootScope.$broadcast( 'toggle-visibility-dropdowns');
         SocialShare.closeAll();
       }
 

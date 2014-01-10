@@ -110,7 +110,7 @@
 
       return
 
-    #When the centre drop down menu is opened close product filter drop downs
+    # When a toggle visbility directive is opened close product filter drop downs
     $rootScope.$on "toggle-visibility-dropdowns", ->
       $timeout($scope.closeFilters, 0);
 

@@ -20554,4 +20554,44 @@ http_interactions:
         b3J6YTkzYm9ieTFmLmpwZyIsInNhbGVfcHJpY2UiOjc5Ljk5fV19
     http_version: 
   recorded_at: Wed, 04 Dec 2013 04:35:19 GMT
+- request:
+    method: get
+    uri: http://product-service.test.dbg.westfield.com/api/product/master/products/search.json?centre=&page=1&rows=50
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.8
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 404
+      message: 
+    headers:
+      Date:
+      - Fri, 10 Jan 2014 02:54:12 GMT
+      Server:
+      - Apache/2.2.15 (CentOS)
+      Vary:
+      - Accept-Encoding
+      Content-Length:
+      - '237'
+      Connection:
+      - close
+      Content-Type:
+      - text/html; charset=iso-8859-1
+    body:
+      encoding: UTF-8
+      string: |
+        <!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+        <html><head>
+        <title>404 Not Found</title>
+        </head><body>
+        <h1>Not Found</h1>
+        <p>The requested URL /api/product/master/products/search.json was not found on this server.</p>
+        </body></html>
+    http_version: 
+  recorded_at: Fri, 10 Jan 2014 02:54:12 GMT
 recorded_with: VCR 2.6.0

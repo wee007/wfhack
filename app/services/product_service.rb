@@ -25,6 +25,10 @@ class ProductService
       options.reject! {|k,v|v.blank? || v.is_a?(Array) && v.all?(&:blank?) }
       if action == 'lite'
         lite_uri(options)
+      elsif options[:category_codes].present?
+        uri = URI("#{ServiceHelper.uri_for('product')}/categories.json")
+        uri.query = options.to_query
+        uri
       else
         search_uri(options)
       end

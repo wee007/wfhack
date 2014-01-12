@@ -15,7 +15,6 @@
   .js,
   .drop-down-container--hover {
     .drop-down {
-      display: none;
       @include drop-down;
 
       /* Show the drop down for 'Angular Toggle Visibility Directive' */

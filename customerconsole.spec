@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.96
+Version:     0.2.97
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,46 @@ fi
 
 
 %changelog
+* Mon Jan 13 2014 ci <doperations@au.westfield.com> 0.2.97-1
+- Merge branch 'master' of github.dbg.westfield.com:digital/customer_console
+  (ci)
+- build rpm fix - fetch latest code (pmcinerney@au.westfield.com)
+- Merge pull request #840 from araeside/master (craigM.smith@au.westfield.com)
+- Merge pull request #845 from cpearce/refactoring-framework
+  (craigM.smith@au.westfield.com)
+- Merge pull request #847 from cpearce/canned-search-icon
+  (craigM.smith@au.westfield.com)
+- Use seo_page_title and seo_page_descriptions fields on product page
+  (ewee@au.westfield.com)
+- Applying correct if statement and cleaning up comments
+  (cpearce@au.westfield.com)
+- Doing the front end dev to add product collection icon to tiles
+  (cpearce@au.westfield.com)
+- Changing the centre home page tile label to a H2 (cpearce@au.westfield.com)
+- Clean up coffee script comments and messages (alec@smartalecwebsites.com.au)
+- Clean up message names and comments (alec@smartalecwebsites.com.au)
+- Adding font weight to national view header text (cpearce@au.westfield.com)
+- extra comment for social share (alec@smartalecwebsites.com.au)
+- check to see if closeFilters function exists before calling, to handle
+  product details pages (alec@smartalecwebsites.com.au)
+- Remove old experimental code (alec@smartalecwebsites.com.au)
+- Add communication between different dropdown code to make sure only one
+  dropdown is open at a time (alec@smartalecwebsites.com.au)
+- add is-active class to product dropdown triggers when active
+  (alec@smartalecwebsites.com.au)
+- Add display: none rule to: @mixin drop-down - WSF-6132
+  (cpearce@au.westfield.com)
+- Fixing up main stylesheet comments to be inline with CSS guidelines
+  (cpearce@au.westfield.com)
+- fix up typo with missing curly braces (alec@smartalecwebsites.com.au)
+- fix up wrong size names in aria attributes (alec@smartalecwebsites.com.au)
+- fix up wrong names in aria attributes (alec@smartalecwebsites.com.au)
+- remove old unnecessary toggle-children attribute
+  (alec@smartalecwebsites.com.au)
+- add aria attributes, esc-to-close and click-outside-to-close to product
+  dropdowns. remove unnecessary toggle-visibility directives.
+  (alec@smartalecwebsites.com.au)
+
 * Mon Jan 13 2014 ci <doperations@au.westfield.com> 0.2.96-1
 - 
 

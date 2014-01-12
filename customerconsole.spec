@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.95
+Version:     0.2.96
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,9 @@ fi
 
 
 %changelog
+* Mon Jan 13 2014 ci <doperations@au.westfield.com> 0.2.96-1
+- 
+
 * Wed Jan 08 2014 ci <doperations@au.westfield.com> 0.2.95-1
 - Merge branch 'master' of github.dbg.westfield.com:digital/customer_console
   (doperations@au.westfield.com)

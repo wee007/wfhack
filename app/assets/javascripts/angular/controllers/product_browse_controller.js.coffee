@@ -1,5 +1,5 @@
 ((app) ->
-  app.controller "ProductBrowseController", ["$scope", "$window", "$filter", "$location", "$route", "$routeParams", "ParamCleaner", "ProductSearch", "Products", ($scope, $window, $filter, $location, $route, $routeParams, ParamCleaner, ProductSearch, Products) ->
+  app.controller "ProductBrowseController", ["$rootScope", "$scope", "$window", "$timeout", "$filter", "$location", "$route", "$routeParams", "ParamCleaner", "ProductSearch", "Products", ($rootScope, $scope, $window, $timeout, $filter, $location, $route, $routeParams, ParamCleaner, ProductSearch, Products) ->
     $scope.search = ProductSearch
 
     # Route changes
@@ -101,12 +101,29 @@
     $scope.toggleFilter = (filterName) ->
       if $scope.activeFilter isnt filterName
         $scope.activeFilter = filterName
-
-        # The button must be hidden on Lap large breakpoint
-        $scope.hideFilterButtons() unless angular.element("html").hasClass("lap-lrg")
+        $scope.triggersVisible = false;
+        #let other dropdowns know that they should close themselves
+        $rootScope.$broadcast "product-filter-dropdown-open"
+        SocialShare.closeAll()
       else
         $scope.closeFilters()
 
+      return
+
+    # When a toggle visbility directive is opened close product filter drop downs
+    $rootScope.$on "toggle-visibility-dropdowns", ->
+      $timeout($scope.closeFilters, 0);
+
+
+    if angular.element("html").hasClass("lap-lrg")
+      $(document).click ->
+          $scope.closeFilters()
+          $scope.$apply()
+
+      # Escape key will close all filter dropdowns
+      $(document).bind "keydown", (event) ->
+        $scope.closeFilters() if event.keyCode is 27
+        $scope.$apply()
 
     # Filter buttons are hidden on mobile in certain circumstances,
     # this ensures that they're visible when this is clicked (resets the interface)
@@ -117,6 +134,10 @@
     $scope.closeFilters = ->
       $scope.activeFilter = ""
       $scope.showFilterButtons()
+
+    window.closeFilters = ->
+      $scope.closeFilters()
+      $scope.$apply()
 
     $scope.hasActiveFilters = ->
       !!ProductSearch.appliedFilters.length

@@ -15,7 +15,9 @@
 
     // When product filter dropdowns are opened, close this toggle vis widget
     $rootScope.$on( 'product-filter-dropdown-open', function() {
-      $timeout(close, 0);
+      if ($rootScope.activeTVTarget !== 'filters') {
+        $timeout(close, 0);
+      }
     });
 
     window.closeToggleVisibilty = function () {

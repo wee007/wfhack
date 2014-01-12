@@ -15,7 +15,7 @@
 
   <%# Tile canned search icon %>
   <span class="tile__meta__icon">
-    <span class="icon icon--<%= result.icon %>" aria-hidden="true"></span>
+    <span class="icon icon--<%= result.icon %> icon--lrg" aria-hidden="true"></span>
   </span>
   <%# //Tile canned search icon %>
 
@@ -28,3 +28,9 @@
 
 </div>
 <%# //Tile canned search meta %>
+
+<%# Alternative icon for 'Product' type canned search %>
+<% if result.icon == 'products' %>
+  <span class="tile__icon-alt icon icon--product-collection icon--flush-top icon--lrg" aria-hidden="true"></span>
+<% end %>
+<%# //Alternative icon for 'Product' type canned search %>

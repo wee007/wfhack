@@ -105,6 +105,9 @@
           @include to-rem(width, $drop-down-width);
           @include to-rem(margin-top, 10);
 
+          /* JS users - want to show the drop down when the Angular `.ng-hide` is not on the element */
+          .js &:not(.ng-hide) {display: block;}
+
           /* Reduce the top margin for IE 9/8 */
           .ie-9 &,
           .old-ie & {@include to-rem(margin-top, 4);}

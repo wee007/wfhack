@@ -1,30 +1,24 @@
+/* ======================================================================================
+   @APPLICATION STYLESHEET
+   ====================================================================================== */
+
 /*
-======================================================================================
+  This stylesheet imports all Sass partials which is compiled to: 'application.css' which is then loaded from the HTML Head. Old IE (IE < 9) imports this stylesheet along with all it's partials in order to support CSS within media queries. Using IE conditional comments in the HTML Head allows us to only load the one style sheet for Old IE: 'old-ie.css' and ignore 'application.css' and vice versa for the main stylesheet.
 
-Global stylesheet
-
-This stylesheet imports all Sass partials which is compiled to: 'application.css'
-which is then loaded from the HTML Head. Old IE (IE < 9) imports this stylesheet along
-with all it's partials in order to support CSS within media queries. Using IE conditional
-comments in the HTML Head allows us to only load the one style sheet for Old IE:
-'old-ie.css' and ignore 'application.css' and vice versa for the main stylesheet.
-
-Partial dir structure:
-  - UTILS.................generic utility styles and Sass settings e.g. mixins.
-    - PLACEHOLDERS........placeholder selectors to keep things DRY.
-  - BASE..................base styles; unclassed HTML elements.
-  - FORMS.................everything relating to forms.
-  - BUTTONS...............you guessed it; all the buttons!
-  - LAYOUT................site structure styles e.g. header/footer.
-    - GRID................you guessed it; the grid!
-  - ABSTRACTIONS..........very common patterns to be used 'as is' or built upon.
-  - MODULES...............discrete components of the page, this is the meat.
-    - WIDGETS ............more interactive rich requiring JavaScript/jQuery.
-  - HELPERS...............a bunch of classes to apply very common styles.
-  - PRINT.................global print styles (rest of print styles live inline).
-  - SHAME.................home for housing nasty, hacky, quick-fix CSS.
-
-======================================================================================
+  Partial dir structure:
+    - UTILS.................generic utility styles and Sass settings e.g. mixins.
+      - PLACEHOLDERS........placeholder selectors to keep things DRY.
+    - BASE..................base styles; unclassed HTML elements.
+    - FORMS.................everything relating to forms.
+    - BUTTONS...............you guessed it; all the buttons!
+    - LAYOUT................site structure styles e.g. header/footer.
+      - GRID................you guessed it; the grid!
+    - ABSTRACTIONS..........very common patterns to be used 'as is' or built upon.
+    - MODULES...............discrete components of the page, this is the meat.
+      - WIDGETS ............more interactive rich requiring JavaScript/jQuery.
+    - HELPERS...............a bunch of classes to apply very common styles.
+    - PRINT.................global print styles (rest of print styles live inline).
+    - SHAME.................home for housing nasty, hacky, quick-fix CSS.
 */
 
 /* [IMPORT ALL PARTIALS]

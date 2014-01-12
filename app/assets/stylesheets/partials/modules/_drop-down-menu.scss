@@ -154,9 +154,13 @@
       /* IE 10 */
       @include ie-10-up {top: -8px;}
 
-      /* Hide for IE 9/8 */
+      /*
+        Hide for IE 9/8
+
+        Note: it is okay to use `!important` here as we're doing it pre-emptively i.e. you know you will always want the rule it's applied too to take precedence.
+      */
       .ie-9 &,
-      .old-ie & {display: none;}
+      .old-ie & {display: none !important;}
     }
 
     /* List */

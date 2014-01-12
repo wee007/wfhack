@@ -1,10 +1,15 @@
 <div class="header__overlay header-search-toggle drop-down js-global-search" id="site-search">
   <div class="vert-align">
     <div class="vert-align__inner">
-      <div class="container container--position" ng-controller="GlobalSearchCtrl" ng-cloak>
+      <div class="container drop-down-container" ng-controller="GlobalSearchCtrl" ng-cloak>
 
         <%# Search form %>
-        <%= form_tag centre_products_path(centre_id: params[:centre_id] || params[:id]), "ng-submit" => "submit($event)", class: "search-mini", role: "search", method: :get do %>
+        <%= form_tag centre_products_path(centre_id: params[:centre_id] || params[:id]),
+            "ng-submit" => "submit($event)",
+            class: "search-mini",
+            role: "search",
+            method: :get do
+        %>
 
           <%# Icon %>
           <span class="icon icon--search" aria-hidden="true"></span>
@@ -27,7 +32,7 @@
         <%# //Search form %>
 
         <%# Search results %>
-        <div class="search-results" ng-show="suggestionsVisible">
+        <div class="search-results drop-down" ng-show="suggestionsVisible">
           <div class="search-results__inner">
             <dl class="search-results__list">
 

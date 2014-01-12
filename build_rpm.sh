@@ -3,6 +3,7 @@ gem install bundler --no-ri --no-rdoc
 bundle install --without test
 sudo yum-builddep *.spec --nogpgcheck -y
 git checkout master
+git pull origin master
 tito tag --accept-auto-changelog
 git push 
 git push --tags

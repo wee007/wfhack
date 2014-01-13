@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.98
+Version:     0.2.99
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,12 @@ fi
 
 
 %changelog
+* Tue Jan 14 2014 ci <doperations@au.westfield.com> 0.2.99-1
+- Merge pull request #848 from wasabhi/category_service_swagger
+  (ben.tillman@trineo.co.nz)
+- Inclusion of store category service into swagger.
+  (abhinav.keswani@trineo.co.nz)
+
 * Mon Jan 13 2014 ci <doperations@au.westfield.com> 0.2.98-1
 - Merge pull request #853 from araeside/master (craigM.smith@au.westfield.com)
 - Fix bug where 2nd level product filter could not open on mobile, caused by

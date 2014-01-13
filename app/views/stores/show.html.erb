@@ -19,7 +19,7 @@
         <div class="container">
 
           <%# Small screen view %>
-          <a href="<%= centre_stores_path(@centre) %>" class="stores-maps__toggle stores-maps__toggle--link btn btn--main btn--main-white btn--main-compact-icon stores-maps-back">
+          <a href="<%= centre_stores_path(@centre) %>" class="stores-maps__toggle stores-maps__toggle--link btn btn--main btn--main-white btn--main-compact-icon js-maintain-store-filter">
             <span class="hide-visually">View stores</span>
             <span class="icon icon--list icon--lrg" aria-hidden="true"></span>
           </a>
@@ -215,9 +215,9 @@
         function storeMapPageReady() {
 
           // If the user has come from the stores index page when filtering by category
-          // then set the back line to the correct category.
+          // then set the back link to the correct category.
           if (Modernizr.localstorage && typeof localStorage.filteredCategory != 'undefined') {
-            $(".stores-maps-back").attr('href', function(i, href) {
+            $('.js-maintain-store-filter').attr('href', function(i, href) {
               return href + '/' + localStorage.filteredCategory;
             });
             localStorage.removeItem('filteredCategory')

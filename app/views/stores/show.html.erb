@@ -19,14 +19,14 @@
         <div class="container">
 
           <%# Small screen view %>
-          <a href="<%= centre_stores_path(@centre) %>" class="stores-maps__toggle stores-maps__toggle--link btn btn--main btn--main-white btn--main-compact-icon">
+          <a href="<%= centre_stores_path(@centre) %>" class="stores-maps__toggle stores-maps__toggle--link btn btn--main btn--main-white btn--main-compact-icon stores-maps-back">
             <span class="hide-visually">View stores</span>
             <span class="icon icon--list icon--lrg" aria-hidden="true"></span>
           </a>
           <%# //Small screen view %>
 
           <%# Large screen view %>
-          <a href="<%= centre_stores_path(@centre) %>" class="stores-maps__filters-toggle__hdr txt-truncate">
+          <a href="<%= centre_stores_path(@centre) %>" class="stores-maps__filters-toggle__hdr txt-truncate stores-maps-back">
             <span>
               <span class="icon icon--arrow-left-big" aria-hidden="true"></span>
               <span class="hide-visually">Back to </span>
@@ -213,6 +213,15 @@
 
       <%= javascript_tag do %>
         function storeMapPageReady() {
+
+          // If the user has come from the stores index page when filtering by category
+          // then set the back line to the correct category.
+          if (Modernizr.localstorage && typeof localStorage.filteredCategory != 'undefined') {
+            $(".stores-maps-back").attr('href', function(i, href) {
+              return href + '/' + localStorage.filteredCategory;
+            });
+            localStorage.removeItem('filteredCategory')
+          }
 
           // Target the store in the map
           storeMapPage.store(<%= @store.id %>);

@@ -3,6 +3,11 @@
     $scope.viewingSubCategory = undefined
     $scope.viewSubCategory = (category) -> $scope.viewingSubCategory = category
 
+    $scope.saveCategory = (category) ->
+      if Modernizr.localstorage and
+          category?
+        localStorage.filteredCategory = category
+
     # Gift card submit
     $scope.giftCardSubmit = -> $window.giftCardForm.submit()
 

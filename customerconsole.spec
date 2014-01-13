@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.97
+Version:     0.2.98
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,12 @@ fi
 
 
 %changelog
+* Mon Jan 13 2014 ci <doperations@au.westfield.com> 0.2.98-1
+- Merge pull request #853 from araeside/master (craigM.smith@au.westfield.com)
+- Fix bug where 2nd level product filter could not open on mobile, caused by
+  code which keeps only one drop down open at a time
+  (alec@smartalecwebsites.com.au)
+
 * Mon Jan 13 2014 ci <doperations@au.westfield.com> 0.2.97-1
 - Merge branch 'master' of github.dbg.westfield.com:digital/customer_console
   (ci)

@@ -1,5 +1,5 @@
 <% content_for :section_nav do %>
-  <%= render 'section_nav' %>
+  <%= render 'section_nav' if @campaigns.present? %>
 <% end %>
 
 <h1 class="hide-visually">Deals</h1>

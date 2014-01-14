@@ -54,7 +54,7 @@
                               <span class="icon icon--arrow-right-big icon--lrg btn--pointer__icon js-disabled-hide" aria-hidden="true"></span>
                             </div>
                           <% else %>
-                            <a href="<%= centre_stores_category_path(@centre, category.code) %>" class="drop-down-menu__hdr-btn btn btn--full btn--full-left btn--pointer is-childless" ng-click="saveCategory('<%= category.code %>')"><%= category.name %></a>
+                            <a href="<%= centre_stores_category_path(@centre, category.code) %>{{gift_cards ? '?gift_cards=true':''}}" class="drop-down-menu__hdr-btn btn btn--full btn--full-left btn--pointer is-childless" ng-click="saveCategory('<%= category.code %>')"><%= category.name %></a>
                           <% end %>
                         <% else %>
                           <% if filtering_gift_cards? && category.stores_accepting_gift_cards < 1 %>
@@ -98,7 +98,7 @@
                                 <span class="hide-visually"> (gift cards not available for this category)</span>
                               </div>
                             <% else %>
-                              <a href="<%= centre_stores_category_path(@centre, sub_category.code) %>" class="btn btn--full btn--full-left" ng-click="saveCategory('<%= category.code %>')"><%= sub_category.name %></a>
+                              <a href="<%= centre_stores_category_path(@centre, sub_category.code) %>{{gift_cards ? '?gift_cards=true':''}}" class="btn btn--full btn--full-left" ng-click="saveCategory('<%= category.code %>')"><%= sub_category.name %></a>
                             <% end %>
                           </li>
                         <% end %>
@@ -117,6 +117,7 @@
             <% if @active_category %>
               <form action="<%= centre_stores_path(@centre) %>" method="get" class="stores-maps__filters__item">
                   <legend class="hide-visually">Clear the filtered category from the stores list</legend>
+                  <input type="hidden" name="gift_cards" value="{{gift_cards}}" />
                   <button type="submit" class="tags__btn tags__btn--solo btn">
                     <span class="txt-truncate"><%= @active_category.name %></span>
                     <span class="icon icon--close-sml icon--lrg icon--flush-top" aria-hidden="true"></span>

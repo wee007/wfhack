@@ -8,6 +8,13 @@
           category?
         localStorage.filteredCategory = category
 
+    $scope.$watch 'gift_cards', (val) ->
+      if Modernizr.localstorage
+        if val
+          localStorage.giftCards = true;
+        else
+          localStorage.removeItem 'giftCards'
+
     # Gift card submit
     $scope.giftCardSubmit = -> $window.giftCardForm.submit()
 

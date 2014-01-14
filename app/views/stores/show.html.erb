@@ -216,11 +216,19 @@
 
           // If the user has come from the stores index page when filtering by category
           // then set the back link to the correct category.
-          if (Modernizr.localstorage && typeof localStorage.filteredCategory != 'undefined') {
-            $('.js-maintain-store-filter').attr('href', function(i, href) {
-              return href + '/' + localStorage.filteredCategory;
-            });
-            localStorage.removeItem('filteredCategory')
+          if (Modernizr.localstorage) {
+            if (typeof localStorage.filteredCategory != 'undefined') {
+              $('.js-maintain-store-filter').attr('href', function(i, href) {
+                return href + '/' + localStorage.filteredCategory;
+              });
+              localStorage.removeItem('filteredCategory');
+            }
+            if (typeof localStorage.giftCards != 'undefined' && !!localStorage.giftCards) {
+              $('.js-maintain-store-filter').attr('href', function(i, href) {
+                return href + '?gift_cards=true';
+              });
+              localStorage.removeItem('giftCards');
+            }
           }
 
           // Target the store in the map

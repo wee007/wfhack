@@ -24,8 +24,11 @@
 
   /* Modifier: hover version */
   .drop-down-container--hover {
-    /* Show the drop down */
-    &:hover .drop-down {display: block;}
+    /* Show the drop down and increase the `z-index` as it's possible for a hover drop down to overlap a non hover drop down */
+    &:hover .drop-down {
+      display: block;
+      z-index: $z-index-high+1;
+    }
 
     /* Hide for touch devices as they don't have hover support */
     .touch & .drop-down {display: none;}

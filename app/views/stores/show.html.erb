@@ -3,14 +3,7 @@
 <div class="stores-maps container js-stores-maps-toggle-wrap">
 
   <%# Contain 'back to listing link' and 'store details' %>
-  <div class="js-pjax-container-stores" aria-live="polite" aria-atomic="true">
-
-    <%# PJAX preloader %>
-    <span class="preloader preloader--middle preloader--light">
-      <span class="preloader__spinner"></span>
-      <em class="hide-visually">Loading, please wait&#8230;</em>
-    </span>
-    <%# //PJAX preloader %>
+  <div class="js-pjax-container-stores">
 
     <div class="stores-maps__inner stores-maps__inner--detail <%= 'is-featured-items' if !@products.empty? %>" id="stores-maps-toggle-listing-detail">
 
@@ -211,61 +204,6 @@
       </div>
       <%#//Store details %>
 
-      <%= javascript_tag do %>
-        function storeMapPageReady() {
-
-          // If the user has come from the stores index page when filtering by category
-          // then set the back link to the correct category.
-          if (Modernizr.localstorage) {
-            if (typeof localStorage.filteredCategory != 'undefined') {
-              $('.js-maintain-store-filter').attr('href', function(i, href) {
-                return href + '/' + localStorage.filteredCategory;
-              });
-              localStorage.removeItem('filteredCategory');
-            }
-            if (typeof localStorage.giftCards != 'undefined' && !!localStorage.giftCards) {
-              $('.js-maintain-store-filter').attr('href', function(i, href) {
-                return href + '?gift_cards=true';
-              });
-              localStorage.removeItem('giftCards');
-            }
-          }
-
-          // Target the store in the map
-          storeMapPage.store(<%= @store.id %>);
-
-          // Run 'Flexslider' plugin
-
-          // Get the count of flexslider items
-          var flexsliderItemsCount = $('.flexslider .slides li').length;
-
-          // Only initialise flexslider if more than 1 item
-          if (flexsliderItemsCount > 1) {
-
-            $('.flexslider').flexslider({
-              animationSpeed: 50,
-              controlNav: true,
-              directionNav: false,
-              slideshow: false,
-              // Do stuff when the slider loads the first slide
-              start: function(slider) {
-                // Add some ARIA
-                slider.container.attr('role', 'listbox');
-                slider.slides.attr({'role': 'option', 'aria-selected': 'false'});
-                slider.slides.eq(slider.currentSlide).attr('aria-selected', 'true');
-                slider.controlNav.attr({'href' : '#', 'role' : 'button'}).prepend('Show slide ');
-              },
-              // Do stuff after each slider animation completes
-              after: function(slider) {
-                slider.slides.attr('aria-selected', 'false');
-                slider.slides.eq(slider.currentSlide).attr('aria-selected', 'true');
-              }
-            });
-
-          }
-        }
-      <% end %>
-
     </div>
   </div>
   <%# //Contain 'back to listing link' and 'store details' %>
@@ -280,4 +218,58 @@
 
 <%- content_for :javascript do -%>
   <%= javascript_include_tag 'stores_maps' %>
+  <script>
+   $(function() {
+
+    // If the user has come from the stores index page when filtering by category
+    // then set the back link to the correct category.
+    if (Modernizr.localstorage) {
+      if (typeof localStorage.filteredCategory != 'undefined') {
+        $('.js-maintain-store-filter').attr('href', function(i, href) {
+          return href + '/' + localStorage.filteredCategory;
+        });
+        localStorage.removeItem('filteredCategory');
+      }
+      if (typeof localStorage.giftCards != 'undefined' && !!localStorage.giftCards) {
+        $('.js-maintain-store-filter').attr('href', function(i, href) {
+          return href + '?gift_cards=true';
+        });
+        localStorage.removeItem('giftCards');
+      }
+    }
+
+    // Target the store in the map
+    storeMapPage.store(<%= @store.id %>);
+
+    // Run 'Flexslider' plugin
+
+    // Get the count of flexslider items
+    var flexsliderItemsCount = $('.flexslider .slides li').length;
+
+    // Only initialise flexslider if more than 1 item
+    if (flexsliderItemsCount > 1) {
+
+      $('.flexslider').flexslider({
+        animationSpeed: 50,
+        controlNav: true,
+        directionNav: false,
+        slideshow: false,
+        // Do stuff when the slider loads the first slide
+        start: function(slider) {
+          // Add some ARIA
+          slider.container.attr('role', 'listbox');
+          slider.slides.attr({'role': 'option', 'aria-selected': 'false'});
+          slider.slides.eq(slider.currentSlide).attr('aria-selected', 'true');
+          slider.controlNav.attr({'href' : '#', 'role' : 'button'}).prepend('Show slide ');
+        },
+        // Do stuff after each slider animation completes
+        after: function(slider) {
+          slider.slides.attr('aria-selected', 'false');
+          slider.slides.eq(slider.currentSlide).attr('aria-selected', 'true');
+        }
+      });
+
+    }
+  });
+  </script>
 <%- end -%>

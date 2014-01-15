@@ -3,14 +3,7 @@
 <div class="stores-maps container js-stores-maps-toggle-wrap is-list-view">
 
   <%# Contain 'filters', 'map/list toggle', and 'listings' %>
-  <div class="js-pjax-container-stores" aria-live="polite" aria-atomic="true">
-
-    <%# PJAX preloader %>
-    <span class="preloader preloader--middle preloader--light">
-      <span class="preloader__spinner"></span>
-      <em class="hide-visually">Loading, please wait&#8230;</em>
-    </span>
-    <%# //PJAX preloader %>
+  <div class="js-pjax-container-stores">
 
     <div ng-controller="StoreListController" class="stores-maps__inner stores-maps__inner--listing">
 
@@ -173,13 +166,6 @@
       </div>
       <%#//Stores list %>
 
-      <%= javascript_tag do %>
-        function storeMapPageReady() {
-          $('.js-defer-image-load-container').deferImages({matchMedia: 'all and (min-width: 40.0625em)'});
-          storeMapPage.store();
-        }
-      <% end %>
-
     </div>
   </div>
   <%# //Contain 'filters', 'map/list toggle', and 'listings' %>
@@ -194,4 +180,10 @@
 
 <%- content_for :javascript do -%>
   <%= javascript_include_tag 'stores_maps' %>
+  <script>
+    $(function() {
+      $('.js-defer-image-load-container').deferImages({matchMedia: 'all and (min-width: 40.0625em)'});
+      storeMapPage.store();
+    });
+  </script>
 <%- end -%>

@@ -1,0 +1,150 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://deal-service.test.dbg.westfield.com/api/deal/master/campaigns.json?centre=sydney
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.8
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      Date:
+      - Tue, 14 Jan 2014 02:11:57 GMT
+      Server:
+      - Apache/2.2.15 (CentOS)
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Request-Method:
+      - '*'
+      ETag:
+      - '"d751713988987e9331980363e24189ce"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 4791f38d-edbf-4c7e-b09f-726631600c2f
+      X-Runtime:
+      - '0.048452'
+      X-Powered-By:
+      - Phusion Passenger 4.0.8
+      Content-Length:
+      - '2'
+      Status:
+      - 200 OK
+      Connection:
+      - close
+      Content-Type:
+      - application/json
+    body:
+      encoding: UTF-8
+      string: '[]'
+    http_version: 
+  recorded_at: Tue, 14 Jan 2014 02:11:57 GMT
+- request:
+    method: get
+    uri: http://centre-service.test.dbg.westfield.com/api/centre/master/centres/sydney.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.8
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      Date:
+      - Tue, 14 Jan 2014 02:11:57 GMT
+      Server:
+      - Apache/2.2.15 (CentOS)
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-UA-Compatible:
+      - chrome=1
+      ETag:
+      - '"79fc5f37ae8db52be59f69f374c05c00"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - b94f641b-f809-4dc1-a84c-3ecb9e0d74bc
+      X-Runtime:
+      - '0.152242'
+      X-Powered-By:
+      - Phusion Passenger 4.0.8
+      Status:
+      - 200 OK
+      Connection:
+      - close
+      Transfer-Encoding:
+      - chunked
+      Content-Type:
+      - application/json; charset=utf-8
+    body:
+      encoding: UTF-8
+      string: '{"name":"Westfield Sydney","short_name":"Sydney","code":"sydney","state":"NSW","country":"au","latitude":"-33.870371","longitude":"151.207735","hero_image_ref":null,"micello_community":null,"retail":true,"enabled":true,"_links":{"self":{"href":"http://centre-service.test.dbg.westfield.com/api/centre/master/centres/sydney.json"},"hero_image":{"href":null}},"business_unit_code":"16621","type":"premium","street_address":"Cnr
+        Pitt St Mall and Market St","suburb":"Sydney","postcode":"2000","phone_number":"(02)
+        8236 9200","email_address":"","today_opening_time":"00:00","today_closing_time":"00:00","today_closed":false,"number_of_levels":0,"micello_map_centre":{"x":0,"y":0},"facebook":null,"twitter":null,"google_plus":null,"instagram":null,"pinterest":null,"youtube":null,"cinema":false,"timezone":"Australia/NSW"}'
+    http_version: 
+  recorded_at: Tue, 14 Jan 2014 02:11:57 GMT
+- request:
+    method: get
+    uri: http://deal-service.test.dbg.westfield.com/api/deal/master/deals.json?centre=sydney&rows=50&state=published
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.8
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      Date:
+      - Tue, 14 Jan 2014 02:11:57 GMT
+      Server:
+      - Apache/2.2.15 (CentOS)
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Request-Method:
+      - '*'
+      ETag:
+      - '"d751713988987e9331980363e24189ce"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - e2f7b47e-f546-4b71-b2b9-9c028499ed8f
+      X-Runtime:
+      - '0.364565'
+      X-Powered-By:
+      - Phusion Passenger 4.0.8
+      Content-Length:
+      - '2'
+      Status:
+      - 200 OK
+      Connection:
+      - close
+      Content-Type:
+      - application/json
+    body:
+      encoding: UTF-8
+      string: '[]'
+    http_version: 
+  recorded_at: Tue, 14 Jan 2014 02:11:57 GMT
+recorded_with: VCR 2.6.0

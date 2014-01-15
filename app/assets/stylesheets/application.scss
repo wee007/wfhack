@@ -97,6 +97,7 @@
 @import "partials/abstractions/toggle-content";
 @import "partials/abstractions/angular-cloak";
 @import "partials/abstractions/flag";
+@import "partials/abstractions/overlay";
 //@import "partials/abstractions/definition-list";
 //@import "partials/abstractions/block-list";
 //@import "partials/abstractions/complex-link";
@@ -137,6 +138,7 @@
 @import "partials/modules/promo-tile";
 @import "partials/modules/no-content-fallback-msg";
 @import "partials/modules/img-rotate";
+@import "partials/modules/dialog";
 //@import "partials/modules/sprite";
 
   /* Modules -> Widgets */
@@ -145,7 +147,6 @@
   @import "partials/modules/widgets/tabs";
   //@import "partials/modules/widgets/accordion";
   //@import "partials/modules/widgets/adaptive-google-map";
-  //@import "partials/modules/widgets/modal";
   //@import "partials/modules/widgets/social-media-share";
   //@import "partials/modules/widgets/tooltip";
 

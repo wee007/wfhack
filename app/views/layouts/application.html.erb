@@ -1,3 +1,5 @@
+<%= render "/products/national_view_dialog" if @centre.nil? %>
+
 <%= render @centre ? "/layouts/header" : "/layouts/header_national" %>
 
 <main class="main" id="main" role="main">

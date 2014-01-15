@@ -459,7 +459,6 @@
 	Note: keep an eye on browser support: http://caniuse.com/#feat=css-animation.
 
 	Examples:
-		@include prefix(animation, shrink 3s);}
 		@include prefix-keyframe(shrink) {
 			from {font-size: 5em;}
 		}

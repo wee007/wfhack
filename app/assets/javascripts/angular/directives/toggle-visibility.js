@@ -1,5 +1,7 @@
 ( function ( app ) {
-  app.directive( 'toggleVisibility', ['$rootScope', '$document', function ( $rootScope, $document ) {
+  app.directive( 'toggleVisibility', ['$rootScope', '$timeout', '$document', function ( $rootScope, $timeout, $document ) {
+
+
     $rootScope.activeTVTarget = undefined;
 
     $rootScope.$watch( 'activeTVTarget', function ( value, prevValue ) {
@@ -10,6 +12,17 @@
 
     // Clicking outside will close all toggleVisibility targets
     $document.bind( 'click', function ( event ) { close(); });
+
+    // When product filter dropdowns are opened, close this toggle vis widget
+    $rootScope.$on( 'product-filter-dropdown-open', function() {
+      if ($rootScope.activeTVTarget !== 'filters') {
+        $timeout(close, 0);
+      }
+    });
+
+    window.closeToggleVisibilty = function () {
+      close();
+    }
 
     // Escape key will close all toggleVisibility targets
     $document.bind( 'keydown', function ( event ) {
@@ -52,6 +65,12 @@
     activateTarget = function ( targetID ) {
       triggers( targetID ).attr( 'aria-expanded', true ).addClass( activeClass );
       target( targetID ).addClass( activeClass );
+      if (targetID) {
+        // Let other dropdowns know that they should close themselves
+        $rootScope.$broadcast( 'toggle-visibility-dropdowns');
+        SocialShare.closeAll();
+      }
+
     };
 
     return {

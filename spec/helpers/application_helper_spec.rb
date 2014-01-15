@@ -55,4 +55,20 @@ describe ApplicationHelper do
     end
   end
 
+  describe :active_link? do
+
+    context "when string matches param value" do
+      it "returns the is_active class" do
+        expect( helper.active_link?( "Westfield", "Westfield" ) ).to eql( 'is-active' )
+      end
+    end
+
+    context "when string does not match param value" do
+      it "returns no class" do
+        expect( helper.active_link?( "Westfield", "Stockland" ) ).to eql( nil )
+      end
+    end
+
+  end
+
 end

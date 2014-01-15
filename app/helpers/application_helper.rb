@@ -70,4 +70,8 @@ module ApplicationHelper
     date == Time.now.strftime("%Y-%m-%d")
   end
 
+  def active_link?( string, param )
+    'is-active' if string.eql?( param )
+  end
+
 end

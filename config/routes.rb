@@ -48,7 +48,6 @@ CustomerConsole::Application.routes.draw do
     resources :notices, only: [:show]
     get 'notices/:id/social-share' => 'social_shares#show', as: 'notice_social_share', kind: 'centre_service_notice'
     resources :stores, only: [:index]
-    get 'stores/:category' => 'stores#index', as: 'stores_category'
     get 'stores/:retailer_code/:id' => 'stores#show', as: 'store'
     get 'hours', to: 'centre_hours#show'
     get 'info', to: 'centre_info#show'

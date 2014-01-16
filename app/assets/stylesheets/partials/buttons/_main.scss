@@ -27,8 +27,8 @@
 
   /* Bg colour combined with disabled state */
   &,
-  &[disabled].btn,
-  &.is-disabled.btn {background-color: $color-green;}
+  &[disabled],
+  &.is-disabled {background-color: $color-green;}
 
   &,
   &:visited,
@@ -46,8 +46,8 @@
 	/* Modifier: blue colour */
 	.btn--main-blue {
 		&,
-		&[disabled].btn,
-		&.is-disabled.btn {background-color: $color-blue;}
+		&[disabled],
+		&.is-disabled {background-color: $color-blue;}
 
 		&:hover,
 		&:focus {background-color: lighten($color-blue, 10%);}
@@ -56,8 +56,8 @@
 	/* Modifier: dark colour */
 	.btn--main-dark {
 		&,
-		&[disabled].btn,
-		&.is-disabled.btn {background-color: $color-grey-dark-3;}
+		&[disabled],
+		&.is-disabled {background-color: $color-grey-dark-3;}
 
 		&:hover,
 		&:focus {background-color: lighten($color-grey-dark-3, 10%);}
@@ -68,8 +68,8 @@
 		box-shadow: inset 0 -1px 0 rgba(#000, 0.15);
 
 		&,
-		&[disabled].btn,
-		&.is-disabled.btn {background-color: $color-grey-light-2;}
+		&[disabled],
+		&.is-disabled {background-color: $color-grey-light-2;}
 
 		&,
 		&:visited,
@@ -89,8 +89,8 @@
 		box-shadow: inset 0 -1px 0 rgba(#000, 0.15);
 
 		&,
-		&[disabled].btn,
-		&.is-disabled.btn {background-color: #fff;}
+		&[disabled],
+		&.is-disabled {background-color: #fff;}
 
 		&,
 		&:visited,
@@ -190,8 +190,5 @@
     /* The checkbox */
     .btn--main-checkbox-toggle__input {
       cursor: pointer;
-      @include to-rem(margin-right, $spacing-sixth);
-
-      /* Make focus state seen when using dark colour */
-      .btn--main-dark &:focus {outline-color: #fff;}
+      @include to-rem(margin-right, $spacing-third);
     }

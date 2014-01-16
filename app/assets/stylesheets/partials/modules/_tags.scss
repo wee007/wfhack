@@ -14,15 +14,12 @@
   border-width: 1px 0;
   border-style: solid;
   border-color: $color-grey-med-3;
+  @include to-rem(margin-top, $spacing-half);
   @include to-rem(padding-top, $spacing-quarter - 1);
   @include to-rem(padding-bottom, $spacing-quarter*2);
 
-  /* When tags live within 'Filters' module */
-  .filters--pin-board & {@include to-rem(margin-top, $spacing-half);}
-}
-
-  /* Main button */
-  .tags__btn {
+  /* Button */
+  .btn {
     @include to-rem(margin-right margin-top, $spacing-quarter);
     position: relative;
     @include font-size($font-size-sml, 1);
@@ -61,13 +58,9 @@
     }
   }
 
-  /* --Modifiers-- */
-
-  /* Remove the default margin when there is only one tag */
-  .tags__btn--solo {margin: 0;}
-
-  /* Clear all tags button */
-  .tags__btn--clear {
+  /* Clear button */
+  .btn--faux-link {
     border: 0;
     margin-right: 0;
   }
+}

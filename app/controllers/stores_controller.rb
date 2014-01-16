@@ -3,17 +3,16 @@ class StoresController < ApplicationController
   def index
     push_centre_info_to_gon
 
-    store_decorator = FilteredStoresDecorator.decorate(@stores)
+    @grouped_stores = @stores.group_by { |store| store.first_letter }
+    @letter = letter @grouped_stores
+    @letters = letters @grouped_stores
 
-    @categories = RetailerCategoriesDecorator.new(store_decorator.sorted_categories, with: RetailerCategoryDecorator)
-    @active_category = @categories.get(params[:category])
+    # Reduce to one if we are scoping by letter
+    @grouped_stores = {@letter => @grouped_stores[@letter]} unless @letter == 'All'
+    return respond_to_error 404 if @grouped_stores[@letter].blank? && @letter != 'All'
 
-    # Filter the store list by params
-    @stores = store_decorator.filter!(params)
-
-    title = @active_category.nil? ? "Stores at #{centre.name}" : "#{centre.name} #{@active_category.name}"
     meta.push(
-      page_title: title,
+      page_title: "Stores at #{centre.name}",
       description: "Find your favourite store at #{centre.name} along with a map to help you easily find its location"
     )
   end
@@ -53,4 +52,20 @@ protected
   def push_centre_info_to_gon
     gon.push centre: centre
   end
+
+  def letters(stores)
+    output = {}
+    output['#'] = stores['#'].try(:length) || 0
+    ('A'..'Z').inject(output) do |hash, letter|
+      hash[letter] = stores[letter].try(:length) || 0
+      hash
+    end
+    output['All'] = @stores.length if @stores.length < 100
+    output
+  end
+
+  def letter(stores)
+    params[:letter] || (@stores.length < 100 ? "All" : "A")
+  end
+
 end

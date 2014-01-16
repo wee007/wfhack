@@ -43,16 +43,9 @@ begin
       add centre_info_path(centre.code), priority: 0.6
 
       # Stores
-      stores = Service::API.get(stores_uri, {centre_id: centre.code, per_page: 1000}, timeout: 5.minutes, retry: 5)
-      stores.each do |store|
+      Service::API.get(stores_uri, {centre_id: centre.code}, timeout: 5.minutes, retry: 5).each do |store|
         next unless centre.code and store.retailer_code and store.id
         add centre_store_path(centre.code, store.retailer_code, store.id), priority: 0.6, lastmod: store.updated_at
-      end
-
-      # Store categories
-      Rails.logger.info "[SITEMAP] #{centre.name} store categories"
-      FilteredStoresDecorator.decorate(stores).categories.each do |centre_retailer_category|
-        add centre_stores_category_path(centre, centre_retailer_category.code), priority: 0.6
       end
     end
 

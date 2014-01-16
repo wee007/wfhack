@@ -222,6 +222,9 @@ $hero-banner-height-lrg: 380 !default;
 				@include respond-min($ipad-landscape) {
 					display: none;
 				}
+
+				/* Non JS users */
+				.no-js & {display: none;}
 			}
 
 			/* Centre home page hero banner */

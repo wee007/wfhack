@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.101
+Version:     0.2.102
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,118 @@ fi
 
 
 %changelog
+* Thu Jan 16 2014 ci <doperations@au.westfield.com> 0.2.102-1
+- Merge pull request #860 from araeside/feature/store-filters
+  (craigM.smith@au.westfield.com)
+- back out some of the refactoring to fix intermittent bug with map
+  (alec@smartalecwebsites.com.au)
+- indent html correctly and use window.load instead of $ function shorthand
+  (alec@smartalecwebsites.com.au)
+- remove unneeded html and revert Gemfile.lock (alec@smartalecwebsites.com.au)
+- Remove pjax to fix bug where dropdown would not work when going from show to
+  index (alec@smartalecwebsites.com.au)
+- resolving drop down conflict, HEAD into branch
+  (alec@smartalecwebsites.com.au)
+- change to not use self closing tag as its html5
+  (alec@smartalecwebsites.com.au)
+- maintain gift card filtering state between page loads
+  (alec@smartalecwebsites.com.au)
+- put js hook on correct element (alec@smartalecwebsites.com.au)
+- change class to be in line with JS hooks guidelines, fix comment typo
+  (alec@smartalecwebsites.com.au)
+- add fastclick to store category dropdown, to solve performance problems on
+  android (alec@smartalecwebsites.com.au)
+- maintain category selection state when going back and forward between store
+  index and store details pages (alec@smartalecwebsites.com.au)
+- Fixed the tests after letters have been removed.
+  (craigm.smith@au.westfield.com)
+- Dulling the disabled state (cpearce@au.westfield.com)
+- Removing 'Stores starting from' text in store list (cpearce@au.westfield.com)
+- Final updates to store filters (cpearce@au.westfield.com)
+- Removing HTML comments and fixing white space issue in CSS instead
+  (cpearce@au.westfield.com)
+- Merge remote-tracking branch 'cpearce/store-filters' into store-filters
+  (ben@germanforblack.com)
+- Fixing merge conflicts (cpearce@au.westfield.com)
+- Correct ID (ben@germanforblack.com)
+- Correct comment (ben@germanforblack.com)
+- Correct href target (ben@germanforblack.com)
+- is-active class only when we're filtering by gift cards
+  (ben@germanforblack.com)
+- Added missing clas (ben@germanforblack.com)
+- Change hash link (ben@germanforblack.com)
+- Correct aria-hidden conditional (ben@germanforblack.com)
+- White space (ben@germanforblack.com)
+- Fix white space (ben@germanforblack.com)
+- Grey categories when the stores beneath them don't accept gift cards (and
+  gift card is being filtered!) (ben@germanforblack.com)
+- Added retailer category decorator (ben@germanforblack.com)
+- Added retailer categories decorator (ben@germanforblack.com)
+- Added :centre/stores/:category routes to the sitemap (ben@germanforblack.com)
+- Moved retailer categories / store collection intersection into a decorator
+  class: FilteredStoresDecorator Added draper gem to aid decorator pattern
+  (ben@germanforblack.com)
+- Merge remote-tracking branch 'cpearce/store-filters' into store-filters
+  (ben@germanforblack.com)
+- Added store / category retrieval & filtering (ben@germanforblack.com)
+- Removed unused method Added a partial name method for rails routing methods
+  to work with Store (ben@germanforblack.com)
+- Added store list controller (ben@germanforblack.com)
+- Move store list to partial New templates for store categories and angular
+  logic (ben@germanforblack.com)
+- Carry store category through routes (ben@germanforblack.com)
+- Removed unused method (ben@germanforblack.com)
+- Added retailer category service (ben@germanforblack.com)
+- Adding new tag button selectors to applied product filters
+  (cpearce@au.westfield.com)
+- Adding styles for non JS users for Stores filters (cpearce@au.westfield.com)
+- Making the focus state for the checkbox in the checkbox toggle button seen
+  when using dark version (cpearce@au.westfield.com)
+- Cleaning up comments and adding ARIA/keyboard specs for store filters
+  (cpearce@au.westfield.com)
+- Updates to apply the category and gift card filters
+  (cpearce@au.westfield.com)
+- Creating a new modifier to tags module and making it more reusable
+  (cpearce@au.westfield.com)
+- Updates to stores maps module to apply category and gift card filters
+  (cpearce@au.westfield.com)
+- Adding back button colour for drop down menu module and removing the drop
+  down pointer for non JS users (cpearce@au.westfield.com)
+- Removing the Non JS rules from the header for removing the drop down pointer
+  (cpearce@au.westfield.com)
+- Decreasing the opacity for disabled state and adding new modifier to remove
+  hover/focus styles (cpearce@au.westfield.com)
+- Increasing the specificity for the button disabled states and decreasing the
+  spacing between the checkbox and label for the checkbox toggle button
+  (cpearce@au.westfield.com)
+- Removing Stores post filter count and map markers (cpearce@au.westfield.com)
+- Removing Stores Gift Card toggle (cpearce@au.westfield.com)
+- Removing A-Z stores pagination (cpearce@au.westfield.com)
+- Adding styles for non JS users for Stores filters (cpearce@au.westfield.com)
+- Making the focus state for the checkbox in the checkbox toggle button seen
+  when using dark version (cpearce@au.westfield.com)
+- Cleaning up comments and adding ARIA/keyboard specs for store filters
+  (cpearce@au.westfield.com)
+- Updates to apply the category and gift card filters
+  (cpearce@au.westfield.com)
+- Adding tag module style hooks (cpearce@au.westfield.com)
+- Creating a new modifier to tags module and making it more reusable
+  (cpearce@au.westfield.com)
+- Updates to stores maps module to apply category and gift card filters
+  (cpearce@au.westfield.com)
+- Adding back button colour for drop down menu module and removing the drop
+  down pointer for non JS users (cpearce@au.westfield.com)
+- Removing the Non JS rules from the header for removing the drop down pointer
+  (cpearce@au.westfield.com)
+- Decreasing the opacity for disabled state and adding new modifier to remove
+  hover/focus styles (cpearce@au.westfield.com)
+- Increasing the specificity for the button disabled states and decreasing the
+  spacing between the checkbox and label for the checkbox toggle button
+  (cpearce@au.westfield.com)
+- Removing Stores post filter count and map markers (cpearce@au.westfield.com)
+- Removing Stores Gift Card toggle (cpearce@au.westfield.com)
+- Removing A-Z stores pagination (cpearce@au.westfield.com)
+
 * Thu Jan 16 2014 ci <doperations@au.westfield.com> 0.2.101-1
 - 
 

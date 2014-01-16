@@ -29,8 +29,10 @@
 		.hide-fully--non-palm {display: none;}
 	}
 
-/* Hide only visually but have it available for screen readers */
-.hide-visually {@extend %hide-visually;}
+/* Hide only visually but have it available for screen readers, can use at specific breakpoints */
+.hide-visually,
+.hide-visually--palm,
+.hide-visually--non-palm {@extend %hide-visually;}
 
 /* Form `legend` requires this */
 legend.hide-visually {left: $off-screen-distance;}

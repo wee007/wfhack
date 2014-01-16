@@ -23,7 +23,7 @@ class DealsController < ApplicationController
 
     # Get the store, 404 if the deal is not valid in this centre.
     store_service_id = @deal.deal_stores.find{|store| store.centre_id == params[:centre_id]}.try :store_service_id
-    return respond_to_error(404) unless store_service_id
+    return respond_to_error(404) unless store_service_id and @deal.available_to >= DateTime.now
     @store = StoreService.find store_service_id
 
     gon.push centre: @centre

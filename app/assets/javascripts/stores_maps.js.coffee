@@ -11,6 +11,14 @@ class StoreMapPage
       nonPalm: offset: x: 0.75, y: 0.5, zoom: 0.7
     }
 
+  loadComplete: =>
+    $ ->
+      if window.storeMapPageReady
+        setTimeout((->
+          storeMapPageReady()
+          delete storeMapPageReady
+        ), 0)
+
   setup: =>
     body = $('body')
     body.on('click', '.is-list-view .js-stores-maps-toggle-btn', @show)
@@ -22,6 +30,7 @@ class StoreMapPage
       setTimeout((-> self.store(el.data('store-id'))), 0)
       false
     )
+    @loadComplete()
 
   show: =>
     @updateGUI @map.show()

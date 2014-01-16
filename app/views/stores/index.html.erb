@@ -178,9 +178,9 @@
 <%- content_for :javascript do -%>
   <%= javascript_include_tag 'stores_maps' %>
   <script>
-    $(window).load(function() {
+    function storeMapPageReady() {
       $('.js-defer-image-load-container').deferImages({matchMedia: 'all and (min-width: 40.0625em)'});
       storeMapPage.store();
-    });
+    }
   </script>
 <%- end -%>

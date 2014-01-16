@@ -216,7 +216,7 @@
 <%- content_for :javascript do -%>
   <%= javascript_include_tag 'stores_maps' %>
   <script>
-    $(window).load(function() {
+    function storeMapPageReady() {
 
       // If the user has come from the stores index page when filtering by category
       // then set the back link to the correct category.
@@ -267,6 +267,6 @@
         });
 
       }
-    });
+    }
   </script>
 <%- end -%>

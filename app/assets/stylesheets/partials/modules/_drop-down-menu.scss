@@ -148,6 +148,9 @@
       color: #fff;
       text-shadow: 0 -2px rgba(#e5e5e5, 0.9);
 
+      /* Turn off `text-shadow` when pointer sits on a dark bg */
+      .container--dark & {text-shadow: none;}
+
       /* iOS */
       .ios & {top: -10px;}
 

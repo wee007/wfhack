@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.102
+Version:     0.2.103
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,10 @@ fi
 
 
 %changelog
+* Thu Jan 16 2014 ci <doperations@au.westfield.com> 0.2.103-1
+- Revert "Merge pull request #860 from araeside/feature/store-filters"
+  (craigm.smith@au.westfield.com)
+
 * Thu Jan 16 2014 ci <doperations@au.westfield.com> 0.2.102-1
 - Merge pull request #860 from araeside/feature/store-filters
   (craigM.smith@au.westfield.com)

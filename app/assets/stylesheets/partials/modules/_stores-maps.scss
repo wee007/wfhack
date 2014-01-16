@@ -47,7 +47,14 @@
   }
 
   /* Non JS users */
-  .no-js & {position: static;}
+  .no-js & {
+    position: static;
+
+    /* Apply bottom padding at this breakpoint */
+    @include respond-min($ipad-landscape) {
+      @include to-rem(padding-bottom, $spacing-base);
+    }
+  }
 
   /* Location icon */
   .icon--pin:before {
@@ -57,22 +64,7 @@
 }
 
   /* Outdent the pin icons so they're flush to left edge */
-  .stores-list__store-name .icon--pin:before,
-  .stores-maps__filters-count .icon--pin:before {@include to-rem(margin-left, -4);}
-
-  /* Show a preloader whilst waiting for the list/detail view content to load via PJAX */
-  .js-pjax-container-stores {
-
-    /* Hide the preloader by default */
-    & > .preloader {display: none;}
-
-    /* Toggle the display of the preloader/content via the `.is-loading` class */
-    &.is-loading {
-      .preloader {display: block;}
-
-      .stores-maps__inner {display: none;}
-    }
-  }
+  .stores-list__store-name .icon--pin:before {@include to-rem(margin-left, -4);}
 
   /* Listing and detail views container */
   .stores-maps__inner {
@@ -129,6 +121,7 @@
     .no-js & {
       position: static;
       width: auto;
+      @include to-rem(margin-bottom, $spacing-base);
     }
   }
 
@@ -178,6 +171,11 @@
         }
       }
 
+      /* Non JS users */
+      @include respond-min($ipad-landscape) {
+        .no-js & {@include to-rem(margin-bottom, $spacing-base);}
+      }
+
       /* Inner container */
       > .container {
         @extend %clear-fix;
@@ -185,11 +183,6 @@
 
         @include respond-min($non-palm) {
           @include to-rem(padding-top padding-bottom, $spacing-half+$spacing-quarter);
-        }
-
-        /* Remove bottom padding for 'Listing' view at this breakpoint */
-        @include respond-min($ipad-landscape) {
-          .stores-maps__inner--listing & {padding-bottom: 0;}
         }
       }
     }
@@ -201,10 +194,10 @@
         @include font-size($font-size-xlrg, 1.5);
         color: $color-txt-dark;
 
-        /* Hide the header and add bottom margin at this breakpoint */
+        /* Bring the header into view and add bottom margin at this breakpoint */
         @include respond-min($ipad-landscape) {
           @include hide-visually-off;
-          @include to-em(margin-bottom, $spacing-third);
+          @include to-em(margin-bottom, $spacing-sixth);
         }
 
         /* Hide when in map view */
@@ -249,6 +242,9 @@
           float: none;
         }
 
+        /* Non JS Users */
+        .no-js & {float: none;}
+
         /* Hide when in map view */
         .is-map-view & {
           display: none;
@@ -276,89 +272,61 @@
               @include to-rem(margin-left, $spacing-quarter);
             }
           }
+
+          /* Applied filter tag */
+          .tags__btn {
+            background-color: $color-grey-light-2;
+
+            /* Increase `max-width` at these breakpoints */
+            @include respond-min(400) {
+              @include to-rem(max-width, 174);
+            }
+
+            @include respond-min($iphone-landscape) {
+              @include to-rem(max-width, 213);
+            }
+
+            /* Button text (truncate) */
+            .txt-truncate {
+              @include to-em(padding-top, $spacing-half+$spacing-micro);
+              @include to-em(padding-bottom, $spacing-half+$spacing-micro+1);
+            }
+          }
+
+          /* Non JS styles for drop down menu module */
+          .no-js & {
+            .drop-down-menu__list {max-height: none;}
+
+            .drop-down-menu__hdr {background-color: $color-grey-light-3;}
+          }
       }
 
-      /* A-Z pagination */
-      .stores-maps__pagination {
-        position: absolute;
-        left: 0;
-        /* This right position equals the width of the map view toggle button + 10px */
-        @include to-rem(right, 55);
-        @include to-rem(top, 6);
+        /* Filter items */
+        .stores-maps__filters__item {
+          display: inline-block;
+          vertical-align: middle;
+          @include to-rem(margin-right, $spacing-sixth);
 
-        /* Increase top and right positioning at this breakpoint */
-        @include respond-min($non-palm) {
-          /* This right position equals the width of the map view toggle button + 10px */
-          @include to-rem(right, 139);
-          @include to-rem(top, 12);
-        }
+          &:last-child {margin-right: 0;}
 
-        /* Remove absolute positioning and apply cosmetics/structural rules at this breakpoint */
-        @include respond-min($ipad-landscape) {
-          position: static;
-          background-color: $color-grey-light-3;
-          border-top: 1px solid $color-grey-med-3;
-        }
-
-        /* Hide when in map view */
-        .is-map-view & {
-          display: none;
-
-          /* Show at this breakpoint */
-          @include respond-min($ipad-landscape) {
+          /* Non JS users */
+          .no-js & {
             display: block;
+            margin-right: 0;
+            @extend %mrg-base;
           }
         }
 
-          /* Nav contextual */
-          .nav-contextual {border-bottom: 0;}
+        /* Show hidden text for non JS users */
+        .no-js {
+          .stores-maps__intro,
+          .drop-down-menu__list .btn .hide-visually {@include hide-visually-off;}
 
-            /* Links and disabled state */
-            .nav-contextual__list {
-
-              /* Disabled state */
-              .is-disabled {
-                @include to-rem(padding, $spacing-half);
-                color: lighten($color-txt-light, 20%);
-              }
-
-              a,
-              .is-disabled {
-                /* Decrease top and bottom padding for links at this breakpoint */
-                @include respond-min($non-palm) {
-                  @include to-rem(padding-top padding-bottom, $spacing-half);
-                }
-
-                /* Tighten up for non touch devices to avoid the horizontal scroll */
-                @include respond-min($ipad-landscape) {
-                  .no-touch & {
-                    @include to-rem(padding-left padding-right, $spacing-sixth);
-                    @include font-size(12, 1.5);
-
-                    /* Pad out more at these breakpoints */
-                    @include respond-min(1200) {
-                      @include to-rem(padding-left padding-right, $spacing-sixth+0.5);
-                      @include font-size(13, 1.5);
-                    }
-
-                    @include respond-min(1300) {
-                      @include to-rem(padding-left padding-right, $spacing-quarter - 1);
-                      @include font-size(14, 1.5);
-                    }
-
-                    @include respond-min(1400) {
-                      @include to-rem(padding-left padding-right, $spacing-quarter+0.25);
-                    }
-                  }
-                }
-              }
-            }
-
-            /* Gradient that fades out the right side of the links and the scrolling indicator, change the colour at this breakpoint */
-            @include respond-min($ipad-landscape) {
-              .nav-contextual__clip__overlay {@include linear-gradient($from: rgba($color-grey-light-3, 0) 0%, $to: rgba($color-grey-light-3, 1) 50%, $dir: right, $dir-webkit: left)}
-            }
-      }
+          .drop-down-menu__list .btn .hide-visually {
+            font-style: italic;
+            opacity: 0.8;
+          }
+        }
 
       /* Toggle button */
       .stores-maps__toggle {
@@ -398,30 +366,6 @@
           }
       }
 
-      /* Post filter count */
-      .stores-maps__filters-count {
-        @include font-size($font-size-sml, 1.5);
-        border-top: 1px solid $color-grey-med-3;
-
-        /* Hide when in map view */
-        .is-map-view & {
-          display: none;
-
-          @include respond-min($ipad-landscape) {
-            display: block;
-          }
-        }
-
-        /* Inner container */
-        .container {
-          @include to-rem(padding-top padding-bottom, $spacing-micro);
-
-          @include respond-min($non-palm) {
-            @include to-rem(padding-top padding-bottom, $spacing-sixth);
-          }
-        }
-      }
-
     /* List / Detail views */
     .stores-maps__list-detail {
       position: absolute;
@@ -432,7 +376,20 @@
       right: 0;
       overflow-y: auto;
 
-      /* Make white bg for 'listing view' */
+      /* Alter top positioning at this breakpoint */
+      @include respond-min($non-palm) {
+        @include to-rem(top, 65);
+      }
+
+      /* Apply box treatments and alter top/btm positioning at this breakpoint */
+      @include respond-min($ipad-landscape) {
+        @include to-rem(top, 151);
+        @include to-rem(bottom, $spacing-base);
+        @include box;
+        @include box-heavy;
+      }
+
+      /* Listing view */
       .stores-maps__inner--listing & {background-color: #fff;}
 
       /* Modifier: Detail view */
@@ -442,12 +399,20 @@
 
         @include respond-min($ipad-landscape) {
           position: absolute;
+          @include to-rem(top, 110);
+          bottom: auto;
           overflow-y: auto;
+          pointer-events: auto;
         }
       }
 
-      /* Post filter count */
-      .is-filter-applied & {@include to-rem(top, 88);}
+      /* Detail view - when they're 'Featured items' */
+      @include respond-min($ipad-landscape) {
+        .stores-maps__inner--detail.is-featured-items & {
+          background-color: $color-grey-light-2;
+          @include to-rem(bottom, $spacing-base);
+        }
+      }
 
       /* Touch device */
       .touch & {
@@ -516,27 +481,6 @@
         .storefront-storelist-phone-map-links__cell--location {display: none;}
       }
     }
-
-      /* Category applied indicator at this breakpoint */
-      .is-filter-applied .stores-list__store-name {
-
-        @include respond-min($ipad-landscape) {
-          @include to-rem(padding-left, $spacing-base+$spacing-quarter);
-        }
-
-        /* Location pin */
-        .icon--pin:before {
-          display: none;
-
-          @include respond-min($ipad-landscape) {
-            display: block;
-            position: absolute;
-            left: 0;
-            @include to-rem(top, $spacing-base+$spacing-micro);
-            @include to-rem(margin-top, -$spacing-sixth);
-          }
-        }
-      }
 
   /* Micello map */
   .stores-maps__map {

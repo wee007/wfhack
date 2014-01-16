@@ -79,6 +79,9 @@
     /* Hover version */
     .drop-down-container--hover & {@include to-rem(margin-top, -4);}
 
+    /* Non JS Users */
+    .no-js .drop-down-menu & {width: auto;}
+
     /* Shared rules */
     .drop-down-menu__hdr,
     .drop-down-menu__hdr-sub {font-weight: normal;}
@@ -89,7 +92,11 @@
       text-align: center;
       color: $color-txt-light;
 
+      /* Non JS users */
+      .no-js & {border-top: 1px solid $color-grey-med-3;}
+
       /* Header text */
+      h2,
       h3 {
         display: inline;
         @include font-size($font-size-sml);
@@ -97,6 +104,7 @@
 
       /* Back button */
       .btn {
+        color: $color-grey-dark-2;
         position: absolute;
         top: 50%;
         left: 0;
@@ -154,13 +162,15 @@
       /* IE 10 */
       @include ie-10-up {top: -8px;}
 
-      /*
-        Hide for IE 9/8
+      /* Hide for IE 9/8 and non JS users */
 
+      /*
         Note: it is okay to use `!important` here as we're doing it pre-emptively i.e. you know you will always want the rule it's applied too to take precedence.
       */
+
       .ie-9 &,
-      .old-ie & {display: none !important;}
+      .old-ie &,
+      .no-js & {display: none !important;}
     }
 
     /* List */

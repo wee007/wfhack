@@ -43,9 +43,6 @@
       @include respond-min(1400) {
         @include to-rem(height, 228);
       }
-
-      /* Hide the image and fallback to bg image as we always need the image to be always in view between slides */
-      img {@include hide-visually;}
     }
   }
 }

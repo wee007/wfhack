@@ -10,10 +10,6 @@
 .dialog,
 .overlay--dialog {display: none;}
 
-/* Alert dialog and overlay should show by default */
-.dialog--alert,
-.overlay--dialog {display: block;}
-
 /* When dialog is active (`body` element) */
 .is-dialog-active {
 	/*
@@ -30,20 +26,9 @@
 	.btn--site-feedback {display: none;}
 }
 
-/*
-	When alert dialog is not active (`body` element)
-
-	Note: this is only applicable for the 'Alert' dialog
-*/
-.is-dialog-not-active {
-	/* Hide dialog and overlay */
-	.dialog--alert,
-	.overlay--dialog {display: none;}
-}
-
 .dialog {
 	position: fixed;
-	z-index: $z-index-high+2;
+	z-index: $z-index-high+3;
 	@include to-rem(top, $spacing-half);
 	left: 4%;
 	right: 4%;

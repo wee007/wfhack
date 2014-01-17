@@ -1,8 +1,10 @@
 ((app) ->
   app.directive 'dialog', ['$rootScope', '$timeout', '$document', ($rootScope, $timeout, $document) ->
+
     body = jQuery('body')
     main = $('#main')
     header = $('header')
+
     isDialogOpen = false
     dialog = null
 
@@ -10,18 +12,19 @@
 
     close = ->
       isDialogOpen = false
-
-      dialog.attr 'aria-hidden', true
+      dialog?.attr 'aria-hidden', true
 
       dialog = null
 
       body.removeClass 'is-dialog-active'
-      body.addClass 'is-dialog-not-active'
 
       main.attr 'aria-hidden', false
       header.attr 'aria-hidden', false
 
       jQuery('.dialog-prevent-overflow-x').children().unwrap();
+
+      if Modernizr.localstorage
+	sessionStorage.viewedNationalProductDialog = true
 
     open = (element) ->
       isDialogOpen = true
@@ -30,15 +33,16 @@
       dialog.attr 'aria-hidden', false
 
       body.addClass 'is-dialog-active'
-      body.removeClass 'is-dialog-not-active'
 
       main.attr 'aria-hidden', true
       header.attr 'aria-hidden', true
 
       body.wrapInner '<div class="dialog-prevent-overflow-x"></div>'
 
+
       dialog.attr('tabindex', '-1')
       dialog.focus()
+      dialog.find(tabbableElements).eq(0).focus()
 
     # From https://gist.github.com/drublic/5899658
     tabbableElements = 'a[href], area[href], input:not([disabled]),' + 'select:not([disabled]), textarea:not([disabled]),' + 'button:not([disabled]), iframe, object, embed, *[tabindex],' + '*[contenteditable]'
@@ -75,20 +79,22 @@
     $document.on 'keydown', (event) ->
       close()  if event.keyCode is 27
 
-
-    $('.overlay').bind 'click', close
-
     restrict: 'A'
 
     # The all important 'link' function
     # Angular invokes this function for every attribute instance of dialog attribute
     link: (scope, element, attributes) ->
       isAlertDialog = attributes['role'] is 'alertdialog'
-      open(element)  if isAlertDialog
+      if isAlertDialog and
+	  Modernizr.localstorage and
+	  !sessionStorage.viewedNationalProductDialog
+	open(element)
+      else
+	close()
 
       keepFocus(element.get(0))
 
-      dialog.find('.js-dialog-close').bind 'click', ->
+      dialog?.find('.js-dialog-close').bind 'click', ->
 	close()
 
   ]

@@ -1,5 +1,5 @@
 <%# Dialog to push users to choose a centre when in national view %>
-<div dialog class="dialog dialog--national-centre-selector box island js-disabled-hide js-dialog js-dialog-alert" aria-describedby="dialog-desc" aria-hidden="false" role="alertdialog">
+<div wng-dialog class="dialog dialog--national-centre-selector box island js-dialog js-dialog-alert" aria-describedby="dialog-desc" aria-hidden="false" role="alertdialog">
 
   <%# Logo and heading %>
   <div class="dialog__logo dialog__mrg-base">
@@ -21,7 +21,6 @@
     <%# Centre selector target %>
     <div class="drop-down-menu__target drop-down pointer-up box box--drop-down" id="national-dialog-centre-selector">
       <dl class="drop-down-menu__list">
-
       <% %w(NSW ACT QLD VIC SA WA).each do |state| %>
         <dt class="drop-down-menu__hdr-sub drop-down-menu__divider"><%= state %></dt>
         <% @centres[state].each do |centre| %>
@@ -30,7 +29,6 @@
           </dd>
         <% end %>
       <% end %>
-
       </dl>
     </div>
     <%# //Centre selector target %>
@@ -46,5 +44,5 @@
   <%# //Dismiss dialog %>
 
 </div>
-<div class="overlay overlay--dialog js-disabled-hide" tabindex="-1"></div>
+<div class="overlay overlay--dialog" tabindex="-1"></div>
 <%# //Dialog to push users to choose a centre when in national view %>

@@ -28,7 +28,7 @@
 
 .dialog {
 	position: fixed;
-	z-index: $z-index-high+3;
+	z-index: $z-index-high+4;
 	@include to-rem(top, $spacing-half);
 	left: 4%;
 	right: 4%;

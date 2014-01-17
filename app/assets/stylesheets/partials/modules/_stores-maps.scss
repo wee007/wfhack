@@ -230,7 +230,18 @@
           }
         }
 
-          > span {color: $color-txt-light;}
+          > a {
+            color: $color-txt-light;
+
+            &:hover,
+            &:focus {color: $color-link-hover;}
+
+            /* Forward slash to seperate the link and the store name */
+            &:after {
+              content: " /";
+              color: $color-txt-dark;
+            }
+          }
       }
 
           /* Reapply global link hover to first child `span` */

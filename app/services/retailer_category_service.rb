@@ -8,5 +8,9 @@ class RetailerCategoryService
 
       uri
     end
+
+    def connection_details
+      {connection: {proxy: 'http://proxy.dbg.westfield.com:8080'}}
+    end
   end
 end

@@ -28,6 +28,7 @@ gem 'sterile'
 gem 'kaminari'
 gem 'money'
 gem 'truncate'
+gem 'draper', '~> 1.3'
 
 gem 'splunk_logger', git: 'https://github.com/westfield/splunk_logger.git'
 

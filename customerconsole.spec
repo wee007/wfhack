@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.106
+Version:     0.2.107
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,14 @@ fi
 
 
 %changelog
+* Mon Jan 20 2014 ci <doperations@au.westfield.com> 0.2.107-1
+- Merge pull request #870 from csmith/feature/store-filters
+  (craigM.smith@au.westfield.com)
+- Allow a proxy to be passed in to the connection.
+  (craigm.smith@au.westfield.com)
+- Revert of ff038c1d6647e113afc828e71765c90274229fa6
+  (craigm.smith@au.westfield.com)
+
 * Mon Jan 20 2014 ci <doperations@au.westfield.com> 0.2.106-1
 - Merge pull request #869 from cpearce/map-control-labels
   (craigM.smith@au.westfield.com)

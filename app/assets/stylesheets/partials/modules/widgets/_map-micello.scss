@@ -275,6 +275,8 @@
 
         /* Zoom */
         #ui-zoom {
+          /* This is needed so that it's label (`:before` pseudo element) can be seen */
+          overflow: visible !important;
           top: 58px !important;
 
           @include respond-min($non-palm) {
@@ -282,7 +284,7 @@
           }
 
           @include respond-min($ipad-landscape) {
-            top: 21px !important;
+            top: 38px !important;
           }
 
             /* '+' and '-' buttons */
@@ -318,11 +320,11 @@
           margin-right: 5px;
 
           @include respond-min($non-palm) {
-            top: 176px !important;
+            top: 196px !important;
           }
 
           @include respond-min($ipad-landscape) {
-            top: 120px !important;
+            top: 157px !important;
             margin-right: 0;
           }
 
@@ -386,6 +388,28 @@
                   bottom: 0;
                 }
               }
+        }
+
+        /* Zoom and floor level labels (don't show for palm) */
+        #ui-zoom:before,
+        #ui-levels:before {
+          display: none;
+          position: absolute;
+          top: -20px;
+          left: 0;
+          width: 40px;
+          text-align: center;
+
+          @include respond-min($non-palm) {
+            display: block;
+          }
+        }
+
+        #ui-zoom:before {content: "ZOOM";}
+
+        #ui-levels:before {
+          content: "LEVEL";
+          left: 15px;
         }
       }
 

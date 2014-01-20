@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.107
+Version:     0.2.108
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,13 @@ fi
 
 
 %changelog
+* Mon Jan 20 2014 ci <doperations@au.westfield.com> 0.2.108-1
+- Merge pull request #871 from cpearce/quick-fixes
+  (craigM.smith@au.westfield.com)
+- Fixed proxy (craigm.smith@au.westfield.com)
+- Restoring storefront back link HTML after merge conflict error
+  (cpearce@au.westfield.com)
+
 * Mon Jan 20 2014 ci <doperations@au.westfield.com> 0.2.107-1
 - Merge pull request #870 from csmith/feature/store-filters
   (craigM.smith@au.westfield.com)

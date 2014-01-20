@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.104
+Version:     0.2.105
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,10 @@ fi
 
 
 %changelog
+* Mon Jan 20 2014 ci <doperations@au.westfield.com> 0.2.105-1
+- When viewing store detail, store name should not be clickable in the title -
+  WSF-6151 (cpearce@au.westfield.com)
+
 * Thu Jan 16 2014 ci <doperations@au.westfield.com> 0.2.104-1
 - Merge pull request #859 from cpearce/quick-fixes
   (craigM.smith@au.westfield.com)

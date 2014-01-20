@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.105
+Version:     0.2.106
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,11 @@ fi
 
 
 %changelog
+* Mon Jan 20 2014 ci <doperations@au.westfield.com> 0.2.106-1
+- Merge pull request #869 from cpearce/map-control-labels
+  (craigM.smith@au.westfield.com)
+- Add labels to map floor level & zoom controls (cpearce@au.westfield.com)
+
 * Mon Jan 20 2014 ci <doperations@au.westfield.com> 0.2.105-1
 - When viewing store detail, store name should not be clickable in the title -
   WSF-6151 (cpearce@au.westfield.com)

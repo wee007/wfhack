@@ -17,14 +17,14 @@
         <%# //Small screen view %>
 
         <%# Large screen view %>
-        <a href="<%= centre_stores_path(@centre) %>" class="stores-maps__filters-toggle__hdr txt-truncate js-maintain-store-filter">
-          <span>
+        <span class="stores-maps__filters-toggle__hdr txt-truncate">
+          <a href="<%= centre_stores_path(@centre) %>" class="js-maintain-store-filter">
             <span class="icon icon--arrow-left-big" aria-hidden="true"></span>
             <span class="hide-visually">Back to </span>
             Stores
-          </span>
-          / <%= @store.name %>
-        </a>
+          </a>
+          <span class="hide-visually">You are viewing store:</span> <%= @store.name %>
+        </span>
         <%# //Large screen view %>
       </div>
     </div>

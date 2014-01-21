@@ -11,7 +11,7 @@
 
         <%# Small screen view %>
         <a href="<%= centre_stores_path(@centre) %>" class="stores-maps__toggle stores-maps__toggle--link btn btn--main btn--main-white btn--main-compact-icon js-maintain-store-filter">
-          <span class="hide-visually">View stores</span>
+          <span class="hide-visually--palm">View stores</span>
           <span class="icon icon--list icon--lrg" aria-hidden="true"></span>
         </a>
         <%# //Small screen view %>
@@ -116,7 +116,7 @@
               <a href="#infoDiv" class="storefront-storelist-phone-map-links__cell storefront-storelist-phone-map-links__cell--location" data-store-id="<%= @store.id %>">
                 <span class="storefront-storelist-phone-map-links__cell__valign">
                   <span class="icon icon--pin icon--flush-top"></span>
-                  <span class="hide-visually">Store location</span>
+                  <span class="hide-visually--palm">Store location</span>
                 </span>
               </a>
               <%# //Location %>

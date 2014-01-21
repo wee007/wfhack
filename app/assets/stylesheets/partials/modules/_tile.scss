@@ -159,7 +159,7 @@
         .icon:before {position: static;}
 
         /* Preloader */
-        .preloader em {@include hide-visually;}
+        .preloader em {@extend %hide-visually;}
     }
 
     /* Active state */

@@ -588,9 +588,6 @@ $hero-banner-height-lrg: 380 !default;
 						@include to-rem(padding-left padding-right, $spacing-half + $spacing-quarter);
 						@include to-rem(margin-top margin-left, -5);
 
-						/* Display 'centre' text */
-						.hide-visually {@include hide-visually-off;}
-
 						/* Hide for 'Centre home page hero banner' */
 						.header--hero & {display: none;}
 					}

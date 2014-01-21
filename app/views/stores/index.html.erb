@@ -123,9 +123,9 @@
               <label for="gift-card-store-filter" class="btn btn--main btn--main-dark btn--main-checkbox-toggle btn--main-checkbox-toggle-icon <%= 'is-disabled' if !@stores.any_accepting_gift_cards? %> <%= 'is-active' if filtering_gift_cards? %>">
                 <input ng-init="gift_cards = <%= filtering_gift_cards? ? true : false %>" ng-model="gift_cards" ng-change="giftCardSubmit()" id="gift-card-store-filter" type="checkbox" name="gift_cards" value="true" class="btn--main-checkbox-toggle__input" <%= 'checked' if filtering_gift_cards? %><%= 'disabled' unless @stores.any_accepting_gift_cards? %>>
                 <span class="btn--main-checkbox-toggle__lbl">
-                  <span class="hide-visually">Westfield </span>
+                  <span class="hide-visually--palm">Westfield </span>
                   Gift Card
-                  <span class="hide-visually"> accepted</span>
+                  <span class="hide-visually--palm"> accepted</span>
                   <span aria-hidden="true" class="icon icon--gift-card icon--xlrg icon--flush-top-mozilla"></span>
                 </span>
               </label>
@@ -138,7 +138,7 @@
 
         <%# List/map toggle %>
         <button type="button" class="stores-maps__toggle btn btn--main btn--main-white btn--main-compact-icon js-stores-maps-toggle-btn" aria-owns="stores-maps-toggle-listing-detail stores-maps-toggle-map">
-          <span class="hide-visually">View <span class="js-stores-maps-toggle-btn-txt">map</span></span>
+          <span class="hide-visually--palm">View <span class="js-stores-maps-toggle-btn-txt">map</span></span>
           <span class="icon icon--map2 icon--lrg" aria-hidden="true"></span>
           <span class="icon icon--list icon--lrg" aria-hidden="true"></span>
         </button>

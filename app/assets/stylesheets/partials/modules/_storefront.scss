@@ -211,16 +211,15 @@
 
           .icon:before {@include font-size(40, 1);}
 
-          /* Show link text */
-          .hide-visually {
+          /* Link text */
+          .hide-visually--palm {
             @include prefix(transition, all 0.2s);
-            @include hide-visually-off;
             color: $color-txt-light;
             display: block;
           }
 
-          &:hover .hide-visually,
-          &:focus .hide-visually {color: $color-grey-dark-3;}
+          &:hover .hide-visually--palm,
+          &:focus .hide-visually--palm {color: $color-grey-dark-3;}
       }
     }
 

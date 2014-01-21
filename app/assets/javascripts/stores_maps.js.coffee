@@ -59,6 +59,11 @@ class StoreMapPage
   store: (storeId) ->
     @map.setTarget(storeId).showLevel().zoom().highlight().detail()
 
+  pinStores: ->
+    getId = -> $(@).data 'store-id'
+    ids = $('a[data-store-id]').map getId
+    storeMapPage.map.pinStores(ids, true, true)
+
 $('.js-fastclick').each -> FastClick.attach(@)
 @storeMapPage = new StoreMapPage
 $(@storeMapPage.setup)

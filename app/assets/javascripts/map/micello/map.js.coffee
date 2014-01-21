@@ -149,22 +149,51 @@ class map.micello.Map
   hasTarget: ->
     !!@storeId
 
-  pinGeom: (geom) ->
-    @data.addMarkerOverlay
+
+  pinGeom: (geom, anm = 'pins') ->
+    pin =
       id: geom.id
       mt: micello.maps.markertype.IMAGE
-      mr: westfield.pin
-      anm: 'pins'
+      mr: map.micello.customTheme.pin
+      anm: anm
+    @data.addMarkerOverlay(pin, true)
+    $(pin.element).on('click', => @onClick(pin.mx, pin.my, pin))
 
-  pinStores: (store_ids) ->
-    _(store_ids).chain()
-      .map((store) => @geomGroupForStore(@store(id)))
-      .flatten().compact()
-      .each((geom) => @pinGeom(geom) if geom) # add a pin to each geom
+  levelStyle: ->
+    @style ||= $('<style></style>').appendTo('body')
+
+  clearLevelCounts: ->
+    @levelStyle().html('')
     @
 
-  clearPins: ->
-    @data.removeMarkerOverlay("pins", true)
+  setLevelCount: (id, count) ->
+    @levelStyle().get(0).innerHTML += "#ui-levels-floor-#{id}.ui_levels_floor:before { content: '#{count}'; }"
+
+  pinStore: (withCount = false, andGotoLevel = false) ->
+    @clearPins('targetPin')
+    if @hasTargetGeom()
+      if(withCount)
+        @pinStores([@targetStore().id], andGotoLevel, 'targetPin')
+      else
+        @pinGeom(geom, 'targetPin') for geom in @targetGeomGroup()
+
+  pinStores: (store_ids, andGotoLevel = true, anm = 'pins') ->
+    @clearLevelCounts()
+    @clearPins()
+    levels = _(store_ids).chain()
+      .map((id) => @geomGroupForStore(@store(id)))
+      .flatten().compact()
+      .map((geom) => @pinGeom(geom, anm); @data.getGeometryLevel(geom.id))
+      .groupBy('id')
+      .map((levels, id) => @setLevelCount(id, levels.length); [id, levels])
+      .value()
+    needsLevelChange = levels.length > 0 && !_(levels).chain().pluck(0).contains(@data.getCurrentLevel().id.toString()).value()
+    if andGotoLevel && needsLevelChange
+      @data.setLevel _(levels).max((level) -> level[1].length)[1][0]
+    @
+
+  clearPins: (anm = 'pins') ->
+    @data.removeMarkerOverlay(anm, true)
     @
 
   showLevel: ->

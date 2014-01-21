@@ -181,6 +181,9 @@
     function storeMapPageReady() {
       $('.js-defer-image-load-container').deferImages({matchMedia: 'all and (min-width: 40.0625em)'});
       storeMapPage.store();
+      <% if @active_category %>
+      storeMapPage.pinStores();
+      <% end %>
     }
   </script>
 <%- end -%>

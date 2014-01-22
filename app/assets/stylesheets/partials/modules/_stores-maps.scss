@@ -27,8 +27,25 @@
   left: 0;
   right: 0;
 
+  /* IE10 */
+  @include ie-10-up {@include to-rem(top, 87);}
+
+  /* Old IE */
+  @include old-ie {
+    .stores & {top: 381px;}
+  }
+
   @include respond-min($non-palm) {
     @include to-rem(top, 110);
+  }
+
+  /* Non JS users */
+  .no-js & {
+    position: static;
+
+    @include respond-min($ipad-landscape) {
+      @include to-rem(padding-bottom, $spacing-base);
+    }
   }
 
   /* Inner container */
@@ -41,21 +58,6 @@
     }
   }
 
-  /* Old IE */
-  @include old-ie {
-    .stores & {top: 381px;}
-  }
-
-  /* Non JS users */
-  .no-js & {
-    position: static;
-
-    /* Apply bottom padding at this breakpoint */
-    @include respond-min($ipad-landscape) {
-      @include to-rem(padding-bottom, $spacing-base);
-    }
-  }
-
   /* Location icon */
   .icon--pin:before {
     color: $color-brand;
@@ -64,7 +66,10 @@
 }
 
   /* Outdent the pin icons so they're flush to left edge */
-  .stores-list__store-name .icon--pin:before {@include to-rem(margin-left, -4);}
+  .stores-list__store-name,
+  .stores-maps__filters-count {
+    .icon--pin:before {@include to-rem(margin-left, -4);}
+  }
 
   /* Listing and detail views container */
   .stores-maps__inner {
@@ -75,25 +80,17 @@
     left: 0;
     right: 0;
 
-    /* Half the width at this breakpoint */
     @include respond-min($ipad-landscape) {
       width: 50%;
     }
 
     /* Modifier: Detail view */
-
-    /* Turn off absolute positioning for 'detail view' */
     &.stores-maps__inner--detail {
       position: static;
 
       @include respond-min($ipad-landscape) {
         position: absolute;
-      }
-    }
-
-    /* Enable click events on map canvas that sits behind this */
-    @include respond-min($ipad-landscape) {
-      &.stores-maps__inner--detail {
+        /* Disable click events so the map canvas that sits behind can be interacted with */
         pointer-events: none;
 
         /* IE 8/9/10 fallbacks for not supporting `pointer-events` */
@@ -103,8 +100,10 @@
 
         @include ie-10-up {bottom: auto;}
       }
+    }
 
-      /* Featured items */
+    /* Modifier: Detail view when they're 'Featured items' */
+    @include respond-min($ipad-landscape) {
       &.stores-maps__inner--detail.is-featured-items {bottom: 0;}
     }
 
@@ -223,6 +222,7 @@
           }
         }
 
+          /* Back to listing link */
           > a {
             color: $color-txt-light;
 
@@ -237,15 +237,7 @@
           }
       }
 
-          /* Reapply global link hover to first child `span` */
-          a.stores-maps__filters-toggle__hdr {
-            &:hover > span,
-            &:focus > span {color: $color-link-hover;}
-          }
-
-      /* Filters */
-
-      /* 'Categories' and 'Gift card toggle' */
+      /* Filters - 'Categories' and 'Gift card toggle' */
       .stores-maps__filters {
         float: left;
 
@@ -255,15 +247,6 @@
 
         /* Non JS Users */
         .no-js & {float: none;}
-
-        /* Hide when in map view */
-        .is-map-view & {
-          display: none;
-
-          @include respond-min($ipad-landscape) {
-            display: block;
-          }
-        }
 
           /* Increase right padding for drop down trigger at this breakpoint */
           @include respond-min($non-palm) {
@@ -377,6 +360,32 @@
           }
       }
 
+      /* Post filter count */
+      .stores-maps__filters-count {
+        @include font-size($font-size-sml, 1.5);
+        border-top: 1px solid $color-grey-med-3;
+
+        /* Hide when in map view */
+        .is-map-view & {
+          display: none;
+
+          /* Show at this breakpoint */
+          @include respond-min($ipad-landscape) {
+            display: block;
+          }
+        }
+
+        /* Inner container */
+        .container {
+          @include to-rem(padding-top padding-bottom, $spacing-micro);
+
+          /* Increase padding at this breakpoint */
+          @include respond-min($non-palm) {
+            @include to-rem(padding-top padding-bottom, $spacing-sixth);
+          }
+        }
+      }
+
     /* List / Detail views */
     .stores-maps__list-detail {
       position: absolute;
@@ -387,42 +396,16 @@
       right: 0;
       overflow-y: auto;
 
-      /* Alter top positioning at this breakpoint */
-      @include respond-min($non-palm) {
-        @include to-rem(top, 65);
-      }
+      /* Post filter count */
+      .is-filter-applied & {@include to-rem(top, 89);}
 
-      /* Apply box treatments and alter top/btm positioning at this breakpoint */
-      @include respond-min($ipad-landscape) {
-        @include to-rem(top, 151);
-        @include to-rem(bottom, $spacing-base);
-        @include box;
-        @include box-heavy;
-      }
-
-      /* Listing view */
+      /* Modifier: Listing view */
       .stores-maps__inner--listing & {background-color: #fff;}
 
       /* Modifier: Detail view */
       .stores-maps__inner--detail & {
         position: static;
         overflow-y: visible;
-
-        @include respond-min($ipad-landscape) {
-          position: absolute;
-          @include to-rem(top, 110);
-          bottom: auto;
-          overflow-y: auto;
-          pointer-events: auto;
-        }
-      }
-
-      /* Detail view - when they're 'Featured items' */
-      @include respond-min($ipad-landscape) {
-        .stores-maps__inner--detail.is-featured-items & {
-          background-color: $color-grey-light-2;
-          @include to-rem(bottom, $spacing-base);
-        }
       }
 
       /* Touch device */
@@ -439,9 +422,6 @@
           display: block;
         }
       }
-
-      /* Non JS users */
-      .no-js & {position: static;}
 
       /* Old IE - change the bg colour */
       @include old-ie {
@@ -463,33 +443,55 @@
         @include box;
         @include box-heavy;
 
+        /* Post filter count */
+        .is-filter-applied & {@include to-rem(top, 187);}
+
         /* Modifier: Detail view */
         .stores-maps__inner--detail & {
+          position: absolute;
           bottom: auto;
-          pointer-events: auto;
           @include to-rem(top, 110);
+          pointer-events: auto;
+          overflow-y: auto;
         }
 
-        /* Modifier: Detail view - when they're 'Featured items' */
+        /* Modifier: Detail view when they're 'Featured items' */
         .stores-maps__inner--detail.is-featured-items & {
           background-color: $color-grey-light-2;
           @include to-rem(bottom, $spacing-base);
         }
-
-        /* Post filter count */
-        .is-filter-applied & {@include to-rem(top, 200);}
       }
+
+      /* Non JS users, note: has to come after the mq's */
+      .no-js & {position: static;}
 
       /* Store list module */
-
-      /* Remove right indent for store name at this breakpoint */
       @include respond-min($ipad-landscape) {
+        /* Remove right indent for store name */
         .stores-list__store-name {margin-right: 0;}
+
+        /* Hide location icon for 'storefront' and 'store list' modules */
+        .storefront-storelist-phone-map-links__cell--location {display: none;}
       }
 
-      /* Hide location icon for 'storefront' and 'store list' modules at this breakpoint */
-      @include respond-min($ipad-landscape) {
-        .storefront-storelist-phone-map-links__cell--location {display: none;}
+      /* Post filter count applied indicator (pin) */
+      .is-filter-applied & .stores-list__store-name {
+
+        @include respond-min($ipad-landscape) {
+          @include to-rem(padding-left, $spacing-base+$spacing-quarter);
+        }
+
+        .icon--pin:before {
+          display: none;
+
+          @include respond-min($ipad-landscape) {
+            display: block;
+            position: absolute;
+            left: 0;
+            @include to-rem(top, $spacing-base+$spacing-micro);
+            @include to-rem(margin-top, -$spacing-sixth);
+          }
+        }
       }
     }
 
@@ -507,19 +509,16 @@
     /* Map view */
     .is-map-view & {display: block;}
 
-    /* Always show at this breakpoint */
-    @include respond-min($ipad-landscape) {
-      display: block;
-    }
-
-    /* Always show for old IE */
-    @include old-ie {display: block;}
-
     /* Non JS users */
     .no-js & {position: static;}
 
-    /* Preloader */
+    /* Always show at this breakpoint */
     @include respond-min($ipad-landscape) {
+      display: block;
+
+      /* Preloader */
       &.map-micello .preloader {left: 75%;}
     }
+
+    @include old-ie {display: block;}
   }

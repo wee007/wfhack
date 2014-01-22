@@ -1,9 +1,11 @@
 <% content_for :class_for_main, "container--wide" %>
 
+<%# [BACKEND] when you're in map view need to make sure the `is-map-view` class still applies after applying a filter as the page will refresh and revert back to `is-list-view` %>
 <div class="stores-maps container js-stores-maps-toggle-wrap is-list-view">
 
   <%# Contain 'filters', 'map/list toggle', and 'listings' %>
-  <div ng-controller="StoreListController" class="stores-maps__inner stores-maps__inner--listing">
+  <%# [BACKEND] append `is-filter-applied` class to this `div` when a filter has been applied and remove when filter(s) are cleared %>
+  <div ng-controller="StoreListController" class="stores-maps__inner stores-maps__inner--listing is-filter-applied">
 
     <%# Filters & list/map toggle button %>
     <div class="stores-maps__filters-toggle">
@@ -145,6 +147,15 @@
         <%# //List/map toggle %>
 
       </div>
+
+      <%# Post filter count %>
+      <%# [BACKEND] inject this HTML when a filter has been applied and remove when filter(s) are cleared %>
+      <div class="stores-maps__filters-count">
+        <div class="container">
+          <p aria-atomic="true" aria-live="polite"><span class="icon icon--pin icon--flush-top"></span>44 Results found</p>
+        </div>
+      </div>
+      <%# //Post filter count %>
 
     </div>
     <%# //Filters & list/map toggle button %>

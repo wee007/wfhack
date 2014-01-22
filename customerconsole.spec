@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.108
+Version:     0.2.109
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,11 @@ fi
 
 
 %changelog
+* Wed Jan 22 2014 ci <doperations@au.westfield.com> 0.2.109-1
+- Fix issue where 2nd level categories in drop down would not persist as
+  selected category between index and show on /stores
+  (alec@smartalecwebsites.com.au)
+
 * Mon Jan 20 2014 ci <doperations@au.westfield.com> 0.2.108-1
 - Merge pull request #871 from cpearce/quick-fixes
   (craigM.smith@au.westfield.com)

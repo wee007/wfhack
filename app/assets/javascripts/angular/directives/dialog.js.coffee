@@ -1,7 +1,7 @@
 ((app) ->
   app.directive 'wngDialog', ['$rootScope', '$timeout', '$document', ($rootScope, $timeout, $document) ->
 
-    # Use jquery instead of angular's jqLite do we can use wrapInner
+    # Use jquery instead of angular's jqLite so we can use wrapInner
     body = jQuery('body')
     main = $('[role="main"]')
     header = $('[role="banner"]')
@@ -20,6 +20,7 @@
       main.attr 'aria-hidden', false
       header.attr 'aria-hidden', false
 
+      # Use jquery instead of angular's jqLite so we can use wrapInner
       jQuery('.dialog-prevent-overflow-x').children().unwrap();
 
       if Modernizr.localstorage

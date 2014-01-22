@@ -89,7 +89,7 @@
                               <span class="hide-visually"> (gift cards not available for this category)</span>
                             </div>
                           <% else %>
-                            <a href="<%= centre_stores_category_path(@centre, sub_category.code) %>{{gift_cards ? '?gift_cards=true':''}}" class="btn btn--full btn--full-left" ng-click="saveCategory('<%= category.code %>')"><%= sub_category.name %></a>
+                            <a href="<%= centre_stores_category_path(@centre, sub_category.code) %>{{gift_cards ? '?gift_cards=true':''}}" class="btn btn--full btn--full-left" ng-click="saveCategory('<%= sub_category.code %>')"><%= sub_category.name %></a>
                           <% end %>
                         </li>
                       <% end %>

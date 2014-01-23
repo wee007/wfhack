@@ -31,13 +31,6 @@ module ProductsHelper
     params_dup
   end
 
-  def national_to_centre(centre)
-    params_dup = params.dup
-    params_dup[:centre_id] = centre
-    params_dup[:action] = 'index_centre'
-    params_dup
-  end
-
   private
 
   def centre_category

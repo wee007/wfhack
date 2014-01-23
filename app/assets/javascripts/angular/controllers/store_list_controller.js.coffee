@@ -1,7 +1,18 @@
 ((app) ->
-  app.controller 'StoreListController', ['$scope', '$document', '$window',  ( $scope, $document, $window ) ->
+  app.controller 'StoreListController', ['$scope', '$document', '$window', '$attrs',  ( $scope, $document, $window, $attrs ) ->
     $scope.viewingSubCategory = undefined
     $scope.viewSubCategory = (category) -> $scope.viewingSubCategory = category
+    $scope.queryParams = ''
+    $scope.viewingMap = false
+    
+    param = (key, val) ->
+      [key, val].join('=')
+    
+    updateQueryParams = ->
+      params = []
+      params.push(param('gift_cards', true)) if $scope.gift_cards
+      params.push(param('map', true)) if $scope.viewingMap
+      $scope.queryParams = if params.length then '?' + params.join('&') else ''
 
     $scope.saveCategory = (category) ->
       if Modernizr.localstorage and
@@ -11,9 +22,12 @@
     $scope.$watch 'gift_cards', (val) ->
       if Modernizr.localstorage
         if val
-          localStorage.giftCards = true;
+          localStorage.giftCards = true
         else
           localStorage.removeItem 'giftCards'
+      updateQueryParams()
+
+    $scope.$watch('viewingMap', updateQueryParams)
 
     # Gift card submit
     $scope.giftCardSubmit = -> $window.giftCardForm.submit()

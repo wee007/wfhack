@@ -10,6 +10,8 @@ class StoresController < ApplicationController
 
     # Filter the store list by params
     @stores = store_decorator.filter!(params)
+    
+    @show_map_on_palm = params[:map] == "true"
 
     title = @active_category.nil? ? "Stores at #{centre.name}" : "#{centre.name} #{@active_category.name}"
     meta.push(

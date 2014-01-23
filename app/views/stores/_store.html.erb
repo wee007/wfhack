@@ -7,8 +7,9 @@
       <%# Phone no %>
       <span class="hide-fully--palm"><span class="hide-visually">Call store: </span><%= phone_format store.phone_number %></span>
       <%# //Phone no %>
-      <%# [BACKEND] inject this `span` when a filter has been applied and remove when filter(s) are cleared %>
-      <span class="icon icon--pin icon--flush-top"></span>
+      <% if @active_category %>
+        <span class="icon icon--pin icon--flush-top"></span>
+      <% end %>
     </div>
     <%# //Store name %>
 

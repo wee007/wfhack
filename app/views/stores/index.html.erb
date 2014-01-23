@@ -4,8 +4,7 @@
 <div class="stores-maps container js-stores-maps-toggle-wrap is-list-view">
 
   <%# Contain 'filters', 'map/list toggle', and 'listings' %>
-  <%# [BACKEND] append `is-filter-applied` class to this `div` when a filter has been applied and remove when filter(s) are cleared %>
-  <div ng-controller="StoreListController" class="stores-maps__inner stores-maps__inner--listing is-filter-applied">
+  <div ng-controller="StoreListController" class="stores-maps__inner stores-maps__inner--listing <%= 'is-filter-applied' if @active_category %>">
 
     <%# Filters & list/map toggle button %>
     <div class="stores-maps__filters-toggle">
@@ -149,12 +148,13 @@
       </div>
 
       <%# Post filter count %>
-      <%# [BACKEND] inject this HTML when a filter has been applied and remove when filter(s) are cleared %>
-      <div class="stores-maps__filters-count">
-        <div class="container">
-          <p aria-atomic="true" aria-live="polite"><span class="icon icon--pin icon--flush-top"></span>44 Results found</p>
+      <% if @active_category %>
+        <div class="stores-maps__filters-count">
+          <div class="container">
+            <p aria-atomic="true" aria-live="polite"><span class="icon icon--pin icon--flush-top"></span><%= @stores.count %> Results found</p>
+          </div>
         </div>
-      </div>
+      <% end %>
       <%# //Post filter count %>
 
     </div>

@@ -9,6 +9,10 @@ class FilteredStoresDecorator < Draper::CollectionDecorator
     return self
   end
 
+  def count
+    object.count
+  end
+
   def any_accepting_gift_cards?
     object.any?{|store| store.accepts_giftcards }
   end

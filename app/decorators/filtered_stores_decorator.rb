@@ -41,11 +41,12 @@ class FilteredStoresDecorator < Draper::CollectionDecorator
       category.children.delete_if {|child| !store_categories.include?(child.code) }
 
       # If category has no children and doesn't match to any stores, remove it
-      if store_categories.include?(category.code)
-        category
-      else
+      if category.children.empty? && !store_categories.include?(category.code)
         nil
+      else
+        category
       end
+
     end.compact
   end
 

@@ -1,7 +1,6 @@
 <% content_for :class_for_main, "container--wide" %>
 
-<%# [BACKEND] when you're in map view need to make sure the `is-map-view` class still applies after applying a filter as the page will refresh and revert back to `is-list-view` %>
-<div class="stores-maps container js-stores-maps-toggle-wrap is-list-view">
+<div class="stores-maps container js-stores-maps-toggle-wrap <%= @show_map_on_palm ? 'is-map-view' : 'is-list-view' %>">
 
   <%# Contain 'filters', 'map/list toggle', and 'listings' %>
   <div ng-controller="StoreListController" class="stores-maps__inner stores-maps__inner--listing <%= 'is-filter-applied' if @active_category %>">

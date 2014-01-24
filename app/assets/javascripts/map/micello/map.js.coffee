@@ -91,6 +91,9 @@ class map.micello.Map
     @options.deferred.resolveWith(@)
 
   init: =>
+    # Overriding Micello's "mouse shield" fixes stores list no scrolling issue
+    micello.maps.MapGUI.prototype.createMouseShield = ->
+      @shield = document.createElement("div")
     @initMap()
     @attachEventListeners()
 

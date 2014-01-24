@@ -1,5 +1,5 @@
 ((app) ->
-  app.controller 'StoreListController', ['$scope', '$document', '$window', '$attrs',  ( $scope, $document, $window, $attrs ) ->
+  app.controller 'StoreListController', ['$scope', '$document', '$window',  ( $scope, $document, $window ) ->
     $scope.viewingSubCategory = undefined
     $scope.viewSubCategory = (category) -> $scope.viewingSubCategory = category
     $scope.queryParams = ''

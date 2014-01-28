@@ -11,9 +11,12 @@ module NationalHelper
     end
   end
 
-  def national_to_centre_link(centre)
-    query_params = params.select{|k,v| !['controller','action'].include?(k)}
-    centre_products_path({centre_id: centre}.merge(query_params))
+  def params_without_controller_or_action
+    params.select{|k,v| !['controller','action'].include?(k)}
+  end
+
+  def centre_products_path(options)
+    super options.merge(params_without_controller_or_action)
   end
 
   def centre_tile_image(centre_id, width, height)

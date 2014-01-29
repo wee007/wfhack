@@ -309,11 +309,17 @@ class map.micello.Map
       for geom in @geomGroupForStore(store)
         @setGeomName(geom, store.name)
 
+  forceRedraw: ->
+    container = $('.js-stores-maps-toggle-wrap')
+    container.css('width', '-=1px')
+    container.css('width', '+=1px')
+
   onMapChanged: (event) =>
     @detail() # show the detail popup on the right level if it changed
     return if !event.comLoad || @geomsLoaded
     @geomsLoaded = true
     @processGeoms(_(@data.geomMap).pluck('g'))
+    @forceRedraw()
     @deferreds.micello.resolve()
 
   onClick: (mx, my, event) =>

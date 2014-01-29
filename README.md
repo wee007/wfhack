@@ -18,6 +18,7 @@ Coming soon. For now whenever a spec build passes an rpm should be built and ins
 
 * Host file
 Add this to your hostfile, this will point all services at production.
+<pre>
 10.3.14.210  event-service.development.dbg.westfield.com
 10.3.14.210  centre-service.development.dbg.westfield.com
 10.3.14.210  stream-service.development.dbg.westfield.com
@@ -28,3 +29,4 @@ Add this to your hostfile, this will point all services at production.
 10.3.14.210  search-service.development.dbg.westfield.com
 10.3.14.210  product-service.development.dbg.westfield.com
 10.3.14.210  canned-search-service.development.dbg.westfield.com
+</pre>

@@ -119,6 +119,7 @@ class map.micello.Map
     canvas.MAP_FONT_MAX = "14px"
 
   setTarget: (@storeId) ->
+    @clearPins('pin')
     @data.removeInlay("slct", true)
     @control.hideInfoWindow()
     @
@@ -213,7 +214,9 @@ class map.micello.Map
   detail: ->
     if @hasTarget() && @targetGeom() && @hasPopup()
       level = @data.getCurrentLevel()
+      @clearPins('pin')
       for geom in @targetGeomGroup()
+        @pinGeom(geom, 'pin')
         if @data.getGeometryLevel(geom.id).id == level.id
           @control.showInfoWindow(geom, @popupHtml(@targetStore()))
       if @locked # we only bring the popup into the centre if it's the main content

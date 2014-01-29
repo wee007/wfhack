@@ -96,7 +96,7 @@
               opacity: 1;
 
               &,
-              .icon:before {color: $color-grey-light-1;}
+              .icon:before {color: $color-grey-med-1;}
             }
           }
 
@@ -222,15 +222,15 @@
     /* Hero image paths (see 'Image rotate' module) */
     .national__hero__1 {
       @include respond-max($palm) {
-        background-image: cloudinary-url("heroes/national/national-hero-01-sml.jpg", $quality: 95);
+        background-image: cloudinary-url("heroes/national/national-hero-01-sml.jpg", $quality: 88);
       }
 
       @include respond-range($lap, $lap-sml-end) {
-        background-image: cloudinary-url("heroes/national/national-hero-01-med.jpg", $quality: 95);
+        background-image: cloudinary-url("heroes/national/national-hero-01-med.jpg", $quality: 88);
       }
 
       @include respond-min($lap-lrg) {
-        background-image: cloudinary-url("heroes/national/valentines-lrg.jpg", $quality: 95);
+        background-image: cloudinary-url("heroes/national/national-hero-01-lrg.jpg", $quality: 88);
       }
     }
 

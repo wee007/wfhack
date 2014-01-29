@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.110
+Version:     0.2.111
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,17 @@ fi
 
 
 %changelog
+* Wed Jan 29 2014 ci <doperations@au.westfield.com> 0.2.111-1
+- Update customerconsole.spec (ldewey@au.westfield.com)
+- Merge pull request #852 from chorn/master (ldewey@au.westfield.com)
+- Update README.md (ldewey@au.westfield.com)
+- Update README.md (ldewey@au.westfield.com)
+- Update README.md (ldewey@au.westfield.com)
+- Commented out giftcard filter. (ldewey@au.westfield.com)
+- Fixed up category scoping on the stores page. (ldewey@au.westfield.com)
+- make sure branch is at latest before attempting to tag
+  (chorn@au.westfield.com)
+
 * Wed Jan 22 2014 ci <doperations@au.westfield.com> 0.2.109-1
 - Fix issue where 2nd level categories in drop down would not persist as
   selected category between index and show on /stores

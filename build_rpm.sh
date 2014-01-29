@@ -5,7 +5,7 @@ sudo yum-builddep *.spec --nogpgcheck -y
 git checkout master
 git pull origin master
 tito tag --accept-auto-changelog
-git push 
+git push
 git push --tags
 tito build --rpm
 RPM_FILE=$(ls -rt /tmp/tito/noarch/ | tail -1)

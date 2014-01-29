@@ -38,9 +38,15 @@
       position: absolute;
       /* Setting it at a higher `z-index` than `img-rotate__item` */
       z-index: 2;
+
+      &,
+      a,
+      .icon:before {color: #000;}
+
     }
 
     .national__header {
+
       /* Need the height for vertical alignment of the text and video thumbnail to work */
       @include to-rem(height, 250);
 
@@ -224,7 +230,7 @@
       }
 
       @include respond-min($lap-lrg) {
-        background-image: cloudinary-url("heroes/national/national-hero-01-lrg.jpg", $quality: 95);
+        background-image: cloudinary-url("heroes/national/valentines-lrg.jpg", $quality: 95);
       }
     }
 
@@ -242,6 +248,9 @@
       @include respond-min($non-palm) {
         @include to-rem(margin-top, -64);
       }
+
+      &,
+      a {color: #000;}
 
       /* Non JS users */
       .no-js & {margin-top: 0;}
@@ -281,6 +290,10 @@
         }
 
         li:first-child a {padding-left: 0;}
+      }
+
+      .tab__content {
+        a {color: #fff}
       }
 
       /* Tab content - non JS users */

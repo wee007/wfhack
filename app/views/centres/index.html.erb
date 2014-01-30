@@ -189,4 +189,7 @@
       .old-ie .is-in-viewport-history .national__centre-tile--<%= centre.code %> {background-image: url(<%= centre_tile_image(centre.code, 1600, 300) %>);}
     <% end %>
   </style>
+
+  <%= javascript_include_tag 'init/sort_centres' %>
 <% end %>
+

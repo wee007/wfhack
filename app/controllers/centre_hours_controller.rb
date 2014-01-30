@@ -8,6 +8,9 @@ class CentreHoursController < ApplicationController
       centre_trading_hour: params[:centre_id],
       store: {centre: params[:centre_id], per_page: "all", has_opening_hours: true}
 
+    @centre_trading_hour = @weeks.select{|hour| hour.date == Time.now.in_time_zone(@centre.timezone).strftime("%Y-%m-%d")}.first
+    @weeks = @weeks.in_groups_of(7)
+
     if @stores_with_hours.present?
       store_id = params[:store_id].present? ? params[:store_id].to_i : @stores_with_hours.first.try(:id)
       @store = StoreService.find(store_id)

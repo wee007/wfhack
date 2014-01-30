@@ -4,7 +4,12 @@ class CentreTradingHourService
 
     def build(json)
       body = json.respond_to?(:body) ? json.body : json
-      body.map{|hour_data| CentreTradingHour.new(hour_data)}
+      if body.size > 1
+        weeks = body.map{|hour_data| CentreTradingHour.new(hour_data)}.in_groups_of(7).reverse
+        [weeks.pop, weeks.pop]
+      else
+        CentreTradingHour.new(body.first)
+      end
     end
 
     def request_uri(centre=nil, options={})

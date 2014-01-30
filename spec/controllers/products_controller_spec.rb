@@ -120,27 +120,48 @@ describe ProductsController do
       end
 
       context "when requesting for page title and meta description for given sub-categories, category and super category" do
-        before(:each) do
-          category_object = [Hashie::Mash.new(
-            category_id: 3,
-            code: 'product-3',
-            enabled: true,
-            hierarchy_level: 3,
-            seo_page_title: 'Buy Product 3 online',
-            seo_page_description: 'Browse the latest Product 3 online'
-          )]
-          ProductService.stub(:build).and_return(@search_object, category_object)
+
+        context "and page title and meta description exist" do
+
+          before(:each) do
+            category_object = [Hashie::Mash.new(
+              category_id: 3,
+              code: 'product-3',
+              enabled: true,
+              hierarchy_level: 3,
+              seo_page_title: 'Buy Product 3 online',
+              seo_page_description: 'Browse the latest Product 3 online'
+            )]
+            ProductService.stub(:build).and_return(@search_object, category_object)
+          end
+
+          it "includes the sub-category names in the page title and meta description, and adds to meta" do
+            meta_double = double :meta
+            meta_double.should_receive(:push).with({
+              page_title: "Buy Product 3 online at Westfield Bondi Junction",
+              description: "Browse the latest Product 3 online at Westfield Bondi Junction"
+            })
+            controller.stub(:meta).and_return(meta_double)
+            get :index_centre, centre_id: 'bondijunction', sub_category: ['product-3','product-4'], category: 'product-2', super_cat: 'product-1'
+          end
+
         end
 
-        it "includes the sub-category names in the page title and meta description, and adds to meta" do
-          meta_double = double :meta
-          meta_double.should_receive(:push).with({
-            page_title: "Buy Product 3 online at Westfield Bondi Junction",
-            description: "Browse the latest Product 3 online at Westfield Bondi Junction"
-          })
-          controller.stub(:meta).and_return(meta_double)
-          get :index_centre, centre_id: 'bondijunction', sub_category: ['product-3','product-4'], category: 'product-2', super_cat: 'product-1'
+        context "and page title and meta description do NOT exist" do
+
+          it "includes the sub-category names in the page title and meta description extracted from the params, and adds to meta" do
+            meta_double = double :meta
+            meta_double.should_receive(:push).with({
+              page_title: "Find Product 3 and Product 4 at Westfield Bondi Junction",
+              description: "Shop for the latest Product 3 and Product 4 online or in-store at Westfield Bondi Junction"
+            })
+            controller.stub(:meta).and_return(meta_double)
+            get :index_centre, centre_id: 'bondijunction', sub_category: ['product-3','product-4'], category: 'product-2', super_cat: 'product-1'
+
+          end
+
         end
+
       end
 
       context "when requesting for page title and meta description for given a retailer" do
@@ -266,27 +287,48 @@ describe ProductsController do
       end
 
       context "when requesting for page title and meta description for given sub-categories, category and super category" do
-        before(:each) do
-          category_object = [Hashie::Mash.new(
-            category_id: 3,
-            code: 'product-3',
-            enabled: true,
-            hierarchy_level: 3,
-            seo_page_title: 'Buy Product 3 online',
-            seo_page_description: 'Browse the latest Product 3 online'
-          )]
-          ProductService.stub(:build).and_return(@search_object, category_object)
+
+        context "and page title and meta description exist" do
+
+          before(:each) do
+            category_object = [Hashie::Mash.new(
+              category_id: 3,
+              code: 'product-3',
+              enabled: true,
+              hierarchy_level: 3,
+              seo_page_title: 'Buy Product 3 online',
+              seo_page_description: 'Browse the latest Product 3 online'
+            )]
+            ProductService.stub(:build).and_return(@search_object, category_object)
+          end
+
+          it "includes the sub-category names in the page title and meta description, and adds to meta" do
+            meta_double = double :meta
+            meta_double.should_receive(:push).with({
+              page_title: "Buy Product 3 online at Westfield",
+              description: "Browse the latest Product 3 online at Westfield"
+            })
+            controller.stub(:meta).and_return(meta_double)
+            get :index_national, sub_category: ['product-3','product-4'], category: 'product-2', super_cat: 'product-1'
+          end
+
         end
 
-        it "includes the sub-category names in the page title and meta description, and adds to meta" do
-          meta_double = double :meta
-          meta_double.should_receive(:push).with({
-            page_title: "Buy Product 3 online at Westfield",
-            description: "Browse the latest Product 3 online at Westfield"
-          })
-          controller.stub(:meta).and_return(meta_double)
-          get :index_national, sub_category: ['product-3','product-4'], category: 'product-2', super_cat: 'product-1'
+        context "and page title and meta description do NOT exist" do
+
+          it "includes the sub-category names in the page title and meta description extracted from the params, and adds to meta" do
+            meta_double = double :meta
+            meta_double.should_receive(:push).with({
+              page_title: "Find Product 3 and Product 4 at Westfield",
+              description: "Shop for the latest Product 3 and Product 4 online or in-store at Westfield"
+            })
+            controller.stub(:meta).and_return(meta_double)
+            get :index_national, sub_category: ['product-3','product-4'], category: 'product-2', super_cat: 'product-1'
+
+          end
+
         end
+
       end
 
       context "when requesting for page title and meta description for given a retailer" do

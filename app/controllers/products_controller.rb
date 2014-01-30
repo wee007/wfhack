@@ -148,8 +148,10 @@ class ProductsController < ApplicationController
 private
 
   def page_title(centre_name)
-    if category.present?
+    if category.try( :seo_page_title ).present?
       "#{category.seo_page_title} at #{centre_name}"
+    elsif category_params.present?
+      "Find #{ [ category_params ].flatten.map{ |param| param.titleize }.join(' and ')} at #{ centre_name }"
     elsif params[:retailer].present?
       "#{[params[:retailer]].flatten.map{ |param| param.titleize }.join(' and ')} at #{centre_name}"
     else
@@ -158,17 +160,19 @@ private
   end
 
   def description(centre_name, stores)
-    if category.present?
+    if category.try( :seo_page_description ).present?
       "#{category.seo_page_description} at #{centre_name}"
+    elsif category_params.present?
+      "Shop for the latest #{ [ category_params ].flatten.map{ |param| param.titleize }.join(' and ')} online or in-store at #{ centre_name }"
     elsif stores.present?
-      stores.first.description.try(:truncate, 156)
+      stores.first.description
     else
       "Find the latest fashion, clothes, shoes, jewellery, accessories and much more at #{centre_name}"
     end
   end
 
   def category
-    @categories.try(:first) if params[:sub_category].present? || params[:category].present? || params[:super_cat].present?
+    @categories.first if params[:sub_category].present? || params[:category].present? || params[:super_cat].present?
   end
 
   def category_params

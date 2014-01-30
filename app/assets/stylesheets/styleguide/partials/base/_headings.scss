@@ -13,6 +13,7 @@
 
   /* Home page version */
   .sg-homepage & {
+    @include to-rem(margin-bottom, $spacing-dbl);
     text-transform: uppercase;
     @include font-size(60);
     text-align: center;
@@ -25,7 +26,7 @@
   color: $color-txt-light;
 
   /* File name */
-  code {@include font-size($font-size-lrg);}
+  code {@include font-size($font-size);}
 }
 
 .sg-h3 {font-weight: bold;}

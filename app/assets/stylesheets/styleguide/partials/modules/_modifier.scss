@@ -8,15 +8,15 @@
 
 .sg-modifier {
   position: relative;
-  @include to-rem(padding-top, 35);
-  border-top: 1px solid $color-grey-med-1;
+  @include to-rem(padding-top, 60);
 }
 
   .sg-modifier__name {
     position: absolute;
     top: 0;
-    right: 0;
-    @include to-rem(padding, 2 5);
+    left: 0;
+    @include to-rem(padding, $spacing-half);
     background-color: $color-green;
     color: #fff;
+    border-radius: 4px 0 0 0;
   }

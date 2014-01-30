@@ -1,5 +1,5 @@
-<div class="sg-section">
-  <div class="sg-h2"><%= section.section %> <code><%= section.filename %></code></div>
+<div class="sg-section container container--narrow">
+  <h3 class="sg-h2"><%= section.section %> <code><%= section.filename %></code></h3>
 
   <% unless section.description.blank? %>
     <div class="sg-section__desc"><p><%= section.description %></p></div>
@@ -31,7 +31,9 @@
 
   <div class="sg-example sg-modifier">
     <span class="sg-modifier__name">Base style</span>
-    <%= example_html.strip.gsub(' $modifier_class', '').html_safe %>
+    <div class="sg-example-inner">
+      <%= example_html.strip.gsub(' $modifier_class', '').html_safe %>
+    </div>
     <div class="sg-code">
      <pre class="sg-code-block"><code class="language-markup"><%= example_html.strip.gsub(' $modifier_class', '') %></code></pre>
     </div>
@@ -40,11 +42,13 @@
   <% section.modifiers.each do |modifier| %>
     <div class="sg-example sg-modifier">
       <span class="sg-modifier__name"><%= modifier.name %></span>
-      <% if named_examples[modifier.name] %>
-        <%= named_examples[modifier.name].gsub('$modifier_class', modifier.class_name).html_safe %>
-      <% else %>
-        <%= example_html.gsub('$modifier_class', modifier.class_name).html_safe %>
-      <% end %>
+      <div class="sg-example-inner">
+        <% if named_examples[modifier.name] %>
+          <%= named_examples[modifier.name].gsub('$modifier_class', modifier.class_name).html_safe %>
+        <% else %>
+          <%= example_html.gsub('$modifier_class', modifier.class_name).html_safe %>
+        <% end %>
+      </div>
 
       <div class="sg-code">
         <% if named_examples.key? modifier.name %>

@@ -23,6 +23,10 @@ class StoreMapPage
     body = $('body')
     body.on('click', '.is-list-view .js-stores-maps-toggle-btn', @show)
     body.on('click', '.is-map-view .js-stores-maps-toggle-btn', @hide)
+    # Micello hijacks clicks on the store map for touch devices
+    # so listen for touchstart event which is not hijacked and send user to the url manually
+    body.on 'touchstart', '.js-touchlink', ->
+      window.location.href = $(@).attr 'href'
     self = @
     body.on('click', '[data-store-id]', ->
       self.show()

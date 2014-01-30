@@ -44,6 +44,7 @@ class map.micello.Map
       list: stores
       idMap: _(stores).chain().map((store) -> [store.id, store]).object().value()
       micelloMap: _(stores).chain().map((store) -> [store.micello_geom_id, store]).object().value()
+
     @deferreds.stores.resolve()
 
   processGeoms: (geoms) ->
@@ -89,6 +90,9 @@ class map.micello.Map
     @applyCustomIcons()
     @applyWestfieldStoreNames()
     @options.deferred.resolveWith(@)
+
+    # fixes windows chrome canvas redraw bug causing a blank map on page load
+    $('#map-micello-api img').first().on('load', @forceRedraw)
 
   init: =>
     # Overriding Micello's "mouse shield" fixes stores list no scrolling issue
@@ -310,7 +314,7 @@ class map.micello.Map
         @setGeomName(geom, store.name)
 
   forceRedraw: ->
-    container = $('.js-stores-maps-toggle-wrap')
+    container = $('.js-stores-maps-toggle-wrap, canvas')
     container.css('width', '-=1px')
     container.css('width', '+=1px')
 
@@ -319,7 +323,6 @@ class map.micello.Map
     return if !event.comLoad || @geomsLoaded
     @geomsLoaded = true
     @processGeoms(_(@data.geomMap).pluck('g'))
-    @forceRedraw()
     @deferreds.micello.resolve()
 
   onClick: (mx, my, event) =>

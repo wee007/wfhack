@@ -4,6 +4,7 @@ describe "map.micello.Map", ->
     sinon.stub(window, '$').returns({
       text: sinon.stub()
       on: sinon.stub()
+      css: sinon.stub()
     })
     $.ajax = sinon.stub().returns(success: sinon.stub())
     $.getJSON = sinon.stub().callsArgWith(1, [])

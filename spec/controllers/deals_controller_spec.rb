@@ -42,7 +42,7 @@ describe DealsController do
       double(:deal,
         title: 'Deal title',
         description: 'Some description',
-        available_to: DateTime.new(2013,01,01),
+        available_to: DateTime.new( Time.now.year+1, 01, 01 ),
         :deal_stores => deal_store
       ).as_null_object
     }
@@ -51,7 +51,7 @@ describe DealsController do
         meta: 'deal meta',
         title: 'Deal title',
         description: 'Some description',
-        available_to: DateTime.new(2013,01,01),
+        available_to: DateTime.new( Time.now.year+1, 01, 01 ),
         :deal_stores => deal_store
       ).as_null_object
     }
@@ -96,6 +96,27 @@ describe DealsController do
       controller.stub(:meta).and_return(meta)
       get :show, id: 1, centre_id: 'bondijunction', retailer_code: 'for-tracking'
     end
+
+    context "when a deal expired" do
+
+      let( :expired_deal ) do
+        Hashie::Mash.new(
+          available_to: DateTime.new( Time.now.year-1, 01, 01 ),
+          deal_stores: deal_store
+        )
+      end
+
+      before( :each ) do
+        DealService.stub( :build ).and_return( expired_deal )
+        get :show, id: 1, centre_id: 'bondijunction', retailer_code: 'for-tracking'
+      end
+
+      it "returns four uh-oh! four" do
+        expect( response.response_code ).to eq( 404 )
+      end
+
+    end
+
   end
 
 end

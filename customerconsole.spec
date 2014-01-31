@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.118
+Version:     0.2.119
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,17 @@ fi
 
 
 %changelog
+* Fri Jan 31 2014 ci <doperations@au.westfield.com> 0.2.119-1
+- Merge pull request #887 from araeside/valentines-day
+  (araeside@au.westfield.com)
+- Use webp for images, cleanup css (alec@smartalecwebsites.com.au)
+- update cloudinary file (alec@smartalecwebsites.com.au)
+- remove summy image (alec@smartalecwebsites.com.au)
+- update images and cloudinary with valentines background image
+  (alec@smartalecwebsites.com.au)
+- add dummy valentines day background and and change the text and icon colours
+  (alec@smartalecwebsites.com.au)
+
 * Fri Jan 31 2014 ci <doperations@au.westfield.com> 0.2.118-1
 - Merge pull request #879 from ewee/featured_deals (ewee@au.westfield.com)
 - WSF-4973 Display 3 deals on storefront page (ewee@au.westfield.com)

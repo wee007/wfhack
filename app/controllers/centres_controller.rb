@@ -15,6 +15,14 @@ class CentresController < ApplicationController
       page_title: "Westfield Australia | Shopping Centres in NSW, QLD, VIC, SA & WA",
       description: "Find the best in retail, dining, leisure and entertainment at one of our centres across Australia, shop online or buy a gift card today"
     )
+
+    gon.push geo: @centres.collect { |centre| {
+      name: centre.short_name,
+      code: centre.code,
+      latitude: centre.latitude,
+      longitude: centre.longitude,
+      state: centre.state
+    }}
   end
 
   def show

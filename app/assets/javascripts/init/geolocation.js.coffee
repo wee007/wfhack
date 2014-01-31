@@ -1,4 +1,4 @@
-Geolocation =
+this.Geolocation =
   rad: (x) ->
     x * Math.PI / 180
 
@@ -15,5 +15,5 @@ Geolocation =
 
 
   # Distance between me and the passed position.
-  distance_from: (current_location, to) ->
-    Geolocation.haversine current_location, to
+  distanceFrom: (current_location, to) ->
+    this.haversine current_location, to

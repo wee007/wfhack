@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.120
+Version:     0.2.121
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,11 @@ fi
 
 
 %changelog
+* Fri Jan 31 2014 ci <doperations@au.westfield.com> 0.2.121-1
+- Merge pull request #888 from ldewey/master (craigM.smith@au.westfield.com)
+- Revert "Merge pull request #883 from ldewey/gift-card-toggle"
+  (ldewey@au.westfield.com)
+
 * Fri Jan 31 2014 ci <doperations@au.westfield.com> 0.2.120-1
 - Merge pull request #886 from gcallister/master (pmcinerney@au.westfield.com)
 - add EDM images so we no longer need to rely on teamsite on

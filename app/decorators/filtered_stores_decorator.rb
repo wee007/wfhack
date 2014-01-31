@@ -28,17 +28,14 @@ class FilteredStoresDecorator < Draper::CollectionDecorator
     store_categories = object.map(&:category_codes).flatten
 
     RetailerCategoryService.find(country: 'au').map do |category|
+      # Count the amount of stores that accept gift cards
+      category[:stores_accepting_gift_cards] = object.count{|store| store.accepts_giftcards && store.category_codes.include?(category.code) }
 
       # Same for the children
       category.children.each do |child|
         number = object.count{|store| store.accepts_giftcards && store.category_codes.include?(child.code) }
         child[:stores_accepting_gift_cards] = number
       end
-
-      # Count the amount of stores that accept gift cards
-      category[:stores_accepting_gift_cards] = object.count{ |store|
-        store.accepts_giftcards && store.category_codes.include?(category.code)
-      } + category.children.sum(&:stores_accepting_gift_cards)
 
       # Remove children that don't match to any stores
       category.children.delete_if {|child| !store_categories.include?(child.code) }

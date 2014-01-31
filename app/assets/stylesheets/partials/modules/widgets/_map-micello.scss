@@ -31,6 +31,13 @@
     bottom: 0;
   }
 
+  /*
+    Map canvas does not render correctly in Chrome v32 on Windows.
+    This forces hardware acceleration to make sure it renders correctly.
+    This line need to come after the API container + overlay declaration above to work
+  */
+  .map-micello__api {@extend %hardware-accelerate-2d}
+
     /* Overlay (popup) */
     .map-micello__overlay-wrap {display: none;}
 

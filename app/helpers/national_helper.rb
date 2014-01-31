@@ -16,7 +16,7 @@ module NationalHelper
   end
 
   def centre_products_path(options)
-    super options.merge(params_without_controller_or_action)
+    super(options.kind_of?(Hash) ? options.merge(params_without_controller_or_action) : options)
   end
 
   def centre_tile_image(centre_id, width, height)

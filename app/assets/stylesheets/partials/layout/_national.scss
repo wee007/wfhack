@@ -42,11 +42,9 @@
       &,
       a,
       .icon:before {color: #000;}
-
     }
 
     .national__header {
-
       /* Need the height for vertical alignment of the text and video thumbnail to work */
       @include to-rem(height, 250);
 
@@ -222,15 +220,15 @@
     /* Hero image paths (see 'Image rotate' module) */
     .national__hero__1 {
       @include respond-max($palm) {
-        background-image: cloudinary-url("heroes/national/national-hero-01-sml.jpg", $quality: 88);
+        background-image: cloudinary-url("heroes/national/national-hero-01-sml.jpg", $quality: 95, $fetch_format: 'auto');
       }
 
       @include respond-range($lap, $lap-sml-end) {
-        background-image: cloudinary-url("heroes/national/national-hero-01-med.jpg", $quality: 88);
+        background-image: cloudinary-url("heroes/national/national-hero-01-med.jpg", $quality: 95, $fetch_format: 'auto');
       }
 
       @include respond-min($lap-lrg) {
-        background-image: cloudinary-url("heroes/national/national-hero-01-lrg.jpg", $quality: 88);
+        background-image: cloudinary-url("heroes/national/national-hero-01-lrg.jpg", $quality: 95, $fetch_format: 'auto');
       }
     }
 
@@ -292,9 +290,7 @@
         li:first-child a {padding-left: 0;}
       }
 
-      .tab__content {
-        a {color: #fff}
-      }
+      .tab__content a {color: #fff;}
 
       /* Tab content - non JS users */
       .no-js & .tab__content {margin-bottom: 0;}

@@ -16,6 +16,7 @@ describe "map.micello.Map", ->
           getMapData: sinon.stub().returns({
             loadCommunity: sinon.stub()
             removeInlay: sinon.stub()
+            removeMarkerOverlay: sinon.stub()
             getCurrentLevel: sinon.stub()
             getGeometryLevel: sinon.stub()
             setLevel: sinon.stub()

@@ -92,7 +92,7 @@ class map.micello.Map
     @options.deferred.resolveWith(@)
 
     # fixes windows chrome canvas redraw bug causing a blank map on page load
-    $('#map-micello-api img').first().on('load', @forceRedraw)
+    setInterval(@forceRedraw, 1000)
 
   init: =>
     # Overriding Micello's "mouse shield" fixes stores list no scrolling issue

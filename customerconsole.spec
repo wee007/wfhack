@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.117
+Version:     0.2.118
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,10 @@ fi
 
 
 %changelog
+* Fri Jan 31 2014 ci <doperations@au.westfield.com> 0.2.118-1
+- Merge pull request #879 from ewee/featured_deals (ewee@au.westfield.com)
+- WSF-4973 Display 3 deals on storefront page (ewee@au.westfield.com)
+
 * Fri Jan 31 2014 ci <doperations@au.westfield.com> 0.2.117-1
 - Merge pull request #885 from araeside/fix-map-redraw-bug-with-gpu
   (ldewey@au.westfield.com)

@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.119
+Version:     0.2.120
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,11 @@ fi
 
 
 %changelog
+* Fri Jan 31 2014 ci <doperations@au.westfield.com> 0.2.120-1
+- Merge pull request #886 from gcallister/master (pmcinerney@au.westfield.com)
+- add EDM images so we no longer need to rely on teamsite on
+  www.westfield.com.au (gcallister@au.westfield.com)
+
 * Fri Jan 31 2014 ci <doperations@au.westfield.com> 0.2.119-1
 - Merge pull request #887 from araeside/valentines-day
   (araeside@au.westfield.com)

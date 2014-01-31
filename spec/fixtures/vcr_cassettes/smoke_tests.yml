@@ -42885,4 +42885,145 @@ http_interactions:
         In0=
     http_version: 
   recorded_at: Fri, 10 Jan 2014 05:40:21 GMT
+- request:
+    method: get
+    uri: http://deal-service.test.dbg.westfield.com/api/deal/master/deals.json?centre=bondijunction&state=published
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.8
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      Date:
+      - Wed, 22 Jan 2014 08:34:43 GMT
+      Server:
+      - Apache/2.2.15 (CentOS)
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Request-Method:
+      - '*'
+      ETag:
+      - '"d751713988987e9331980363e24189ce"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 9968b081-0ec0-45c6-b12f-1102e14bf269
+      X-Runtime:
+      - '0.026361'
+      X-Powered-By:
+      - Phusion Passenger 4.0.8
+      Content-Length:
+      - '2'
+      Status:
+      - 200 OK
+      Connection:
+      - close
+      Content-Type:
+      - application/json
+    body:
+      encoding: UTF-8
+      string: '[]'
+    http_version: 
+  recorded_at: Wed, 22 Jan 2014 08:34:43 GMT
+- request:
+    method: get
+    uri: http://deal-service.test.dbg.westfield.com/api/deal/master/deals.json?centre=bondijunction&state=published
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.8
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      Date:
+      - Wed, 22 Jan 2014 08:34:44 GMT
+      Server:
+      - Apache/2.2.15 (CentOS)
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Request-Method:
+      - '*'
+      ETag:
+      - '"d751713988987e9331980363e24189ce"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 2b3459aa-4732-4ce5-a9a3-5e13cea08b1b
+      X-Runtime:
+      - '0.023234'
+      X-Powered-By:
+      - Phusion Passenger 4.0.8
+      Content-Length:
+      - '2'
+      Status:
+      - 200 OK
+      Connection:
+      - close
+      Content-Type:
+      - application/json
+    body:
+      encoding: UTF-8
+      string: '[]'
+    http_version: 
+  recorded_at: Wed, 22 Jan 2014 08:34:44 GMT
+- request:
+    method: get
+    uri: http://deal-service.test.dbg.westfield.com/api/deal/master/deals.json?centre=bondijunction&retailer=5311&state=published
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.8
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      Date:
+      - Thu, 23 Jan 2014 02:49:58 GMT
+      Server:
+      - Apache/2.2.15 (CentOS)
+      Access-Control-Allow-Origin:
+      - '*'
+      Access-Control-Request-Method:
+      - '*'
+      ETag:
+      - '"d751713988987e9331980363e24189ce"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 06dbf1c5-ac43-4879-b1c9-086babd3f53a
+      X-Runtime:
+      - '0.599736'
+      X-Powered-By:
+      - Phusion Passenger 4.0.8
+      Content-Length:
+      - '2'
+      Status:
+      - 200 OK
+      Connection:
+      - close
+      Content-Type:
+      - application/json
+    body:
+      encoding: UTF-8
+      string: '[]'
+    http_version: 
+  recorded_at: Thu, 23 Jan 2014 02:50:02 GMT
 recorded_with: VCR 2.6.0

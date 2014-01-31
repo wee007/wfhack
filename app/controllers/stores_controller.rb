@@ -34,23 +34,32 @@ protected
   end
 
   def centre
-    fetch_centre_and_stores unless @centre.present?
+    build_services_responses unless @centre.present?
     @centre
   end
 
   def stores
-    fetch_centre_and_stores unless @stores.present?
+    build_services_responses unless @stores.present?
     @stores
   end
 
-  def fetch_centre_and_stores
-    @centre, @stores, @products = service_map \
-      centre: params[:centre_id],
-      store: {centre: params[:centre_id], per_page: 1000},
-      product: {action: 'lite', retailer: [params[:retailer_code]], rows: 3}
+  def build_services_responses
+    services = {
+      centre: params[ :centre_id ],
+      stores: { centre: params[ :centre_id ], per_page: 1000 }
+    }
+
+    if params[ :action ].eql?( 'show' )
+      services[ :product ] = { action: 'lite', retailer: [ params[ :retailer_code ] ], rows: 3 }
+      services[ :store ] = { centre: params[ :centre_id ], retailer_code: params[ :retailer_code ], per_page: 1000 }
+    end
+
+    @centre, @stores, @products, store = service_map services
+    @deals = DealService.find( { centre: params[ :centre_id ], retailer: store.first.retailer_id, state: 'published', count: 3 } ) if store.present?
   end
 
   def push_centre_info_to_gon
     gon.push centre: centre
   end
+
 end

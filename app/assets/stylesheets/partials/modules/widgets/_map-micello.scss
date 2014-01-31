@@ -142,8 +142,11 @@
       */
 
       .infoOut {
-        /* Allows space for the pin to be seen under the popup */
-        margin-bottom: 20px !important;
+
+        &.is-pinned-store {
+          /* Allows space for the pin to be seen under the popup */
+          margin-bottom: 20px !important;
+        }
 
         /* Wrapper */
         .infoWrapper,

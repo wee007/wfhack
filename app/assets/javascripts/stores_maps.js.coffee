@@ -62,7 +62,7 @@ class StoreMapPage
     container.css 'width', '+=1px'
 
   store: (storeId) ->
-    @map.setTarget(storeId).showLevel().zoom().highlight().detail()
+    @map.setTarget(storeId).showLevel().zoom().highlight().pinStore(true, true).detail()
 
   pinStores: ->
     getId = -> $(@).data 'store-id'

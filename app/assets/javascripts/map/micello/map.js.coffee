@@ -150,8 +150,24 @@ class map.micello.Map
   hasTarget: ->
     !!@storeId
 
+  hasTargetGeom: ->
+    !!@targetGeom()
+
+  isPinned: (geom) ->
+    @pinned?.ids?[geom.id] != undefined
+
+  rememberPin: (key, id) ->
+    @pinned ||= {keys: {}, ids: {}}
+    (@pinned.keys[key] ||= []).push(id)
+    (@pinned.ids[id] ||= []).push(key)
+
+  fogetPinGroup: (key) ->
+    if ids = @pinned?.keys?[key]
+      delete @pinned.keys[key]
+      (delete @pinned.ids[id]) for id in ids
 
   pinGeom: (geom, anm = 'pins') ->
+    @rememberPin(anm, geom.id)
     pin =
       id: geom.id
       mt: micello.maps.markertype.IMAGE
@@ -194,6 +210,7 @@ class map.micello.Map
     @
 
   clearPins: (anm = 'pins') ->
+    @fogetPinGroup(anm)
     @data.removeMarkerOverlay(anm, true)
     @
 
@@ -214,11 +231,10 @@ class map.micello.Map
   detail: ->
     if @hasTarget() && @targetGeom() && @hasPopup()
       level = @data.getCurrentLevel()
-      @clearPins('pin')
       for geom in @targetGeomGroup()
-        @pinGeom(geom, 'pin')
         if @data.getGeometryLevel(geom.id).id == level.id
           @control.showInfoWindow(geom, @popupHtml(@targetStore()))
+          $('.infoOut').addClass('is-pinned-store') if @isPinned(geom)
       if @locked # we only bring the popup into the centre if it's the main content
         @zoom()
         @view.translate(0, $('#infoDiv').height() / 2)
@@ -250,7 +266,10 @@ class map.micello.Map
     @popupContent ||= _.template($('script.map-micello__overlay-wrap[type="text/html-template"]').html())
 
     locationMatch = !!location.toString().match(///#{store.storefront_path}///)
-    classname = "#{unless store.logo then 'is-no-store-logo' else ''} #{if locationMatch then 'is-active-store' else ''}"
+    classname = []
+    classname.push('is-no-store-logo') unless store.logo
+    classname.push('is-active-store') if locationMatch
+    classname = classname.join(' ')
     storefront_path = "#{unless locationMatch then store.storefront_path else ''}"
 
     data = _.extend({}, store,

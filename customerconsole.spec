@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.115
+Version:     0.2.116
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,13 @@ fi
 
 
 %changelog
+* Fri Jan 31 2014 ci <doperations@au.westfield.com> 0.2.116-1
+- Merge pull request #883 from ldewey/gift-card-toggle
+  (ldewey@au.westfield.com)
+- Added decorator specs. (ldewey@au.westfield.com)
+- Fixed giftcard toggle on stores page (ldewey@au.westfield.com)
+- Revert "Commented out giftcard filter." (ldewey@au.westfield.com)
+
 * Fri Jan 31 2014 ci <doperations@au.westfield.com> 0.2.115-1
 - Fixing sitemap cron (mmancuso@au.westfield.com)
 

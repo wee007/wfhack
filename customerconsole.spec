@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.114
+Version:     0.2.115
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,9 @@ fi
 
 
 %changelog
+* Fri Jan 31 2014 ci <doperations@au.westfield.com> 0.2.115-1
+- Fixing sitemap cron (mmancuso@au.westfield.com)
+
 * Thu Jan 30 2014 ci <doperations@au.westfield.com> 0.2.114-1
 - Merge pull request #878 from ewee/expired_deals (ewee@au.westfield.com)
 - WSF-5992 Return four uh-oh! four for an expired deal (ewee@au.westfield.com)

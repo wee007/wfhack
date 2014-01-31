@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.116
+Version:     0.2.117
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,17 @@ fi
 
 
 %changelog
+* Fri Jan 31 2014 ci <doperations@au.westfield.com> 0.2.117-1
+- Merge pull request #885 from araeside/fix-map-redraw-bug-with-gpu
+  (ldewey@au.westfield.com)
+- remove blank line (alec@smartalecwebsites.com.au)
+- switch to use correct silent class and correct order and position of code
+  (alec@smartalecwebsites.com.au)
+- revert back to custom translate3d as the silent hardware acceleration class
+  doesnt use 3d (alec@smartalecwebsites.com.au)
+- fix micello map not rendering on chrome 32 on Windows by forcing hardware
+  acceleration (alec@smartalecwebsites.com.au)
+
 * Fri Jan 31 2014 ci <doperations@au.westfield.com> 0.2.116-1
 - Merge pull request #883 from ldewey/gift-card-toggle
   (ldewey@au.westfield.com)

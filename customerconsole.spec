@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.122
+Version:     0.2.123
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,10 @@ fi
 
 
 %changelog
+* Mon Feb 03 2014 ci <doperations@au.westfield.com> 0.2.123-1
+- Merge pull request #884 from fchan/styleguide (araeside@au.westfield.com)
+- Change styleguides to styleguide (fiona@fionachan.net)
+
 * Mon Feb 03 2014 ci <doperations@au.westfield.com> 0.2.122-1
 - Revert "Merge pull request #888 from ldewey/master" (ldewey@au.westfield.com)
 

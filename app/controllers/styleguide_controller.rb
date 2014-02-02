@@ -1,4 +1,4 @@
-class StyleguidesController < ApplicationController
+class StyleguideController < ApplicationController
   layout "styleguide"
   helper_method :styleguide
 
@@ -14,7 +14,7 @@ class StyleguidesController < ApplicationController
       page_title:"",
       description: ""
     )
-    render template: "styleguides/#{params[:id]}"
+    render template: "styleguide/#{params[:id]}"
   end
 
   private

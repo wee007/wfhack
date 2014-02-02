@@ -16,8 +16,7 @@ end
 
 CustomerConsole::Application.routes.draw do
   if !Rails.env.production?
-    resources :styleguides, only: [:index, :show]
-    get 'styleguide', to: redirect('/styleguides')
+    resources :styleguide, only: [:index, :show]
 
     get 'robots.txt' => 'robots#not_welcome'
   end

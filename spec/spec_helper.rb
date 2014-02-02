@@ -16,6 +16,8 @@ Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 # If you are not using ActiveRecord, you can remove this line.
 ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
 
+Draper::ViewContext.test_strategy :fast
+
 RSpec.configure do |config|
   # Assume symbol without a value is assigned true
   config.treat_symbols_as_metadata_keys_with_true_values = true

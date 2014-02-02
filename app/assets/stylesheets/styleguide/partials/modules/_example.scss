@@ -12,6 +12,5 @@
   border-radius: 4px;
 }
   .sg-example-inner {
-    @include to-rem(margin-left margin-right, $spacing-half);
-    @include to-rem(margin-bottom, $spacing-base);
+    @include to-rem(padding, $spacing-half);
   }

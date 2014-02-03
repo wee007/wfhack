@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.125
+Version:     0.2.126
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,12 @@ fi
 
 
 %changelog
+* Tue Feb 04 2014 ci <doperations@au.westfield.com> 0.2.126-1
+- Merge pull request #891 from fchan/styleguide (craigM.smith@au.westfield.com)
+- WSF-6244: Enabled gift card accepted link (fiona@fionachan.net)
+- Added modules: centre location, deal main, drop down menu
+  (fiona@fionachan.net)
+
 * Mon Feb 03 2014 ci <doperations@au.westfield.com> 0.2.125-1
 - Merge pull request #890 from fchan/styleguide (araeside@au.westfield.com)
 - Update class name for style guide example (fiona@fionachan.net)

@@ -30,6 +30,12 @@ module StyleguideHelper
       example_html: content
   end
 
+  def styleguide_intro(title, description = nil)
+    render 'styleguide/styleguide_intro',
+      title: title,
+      description: description
+  end
+
   def example(name, &block)
     @@named_examples[name] = capture(&block).strip
   end

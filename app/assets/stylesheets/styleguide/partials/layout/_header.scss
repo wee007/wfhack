@@ -3,7 +3,6 @@
    ====================================================================================== */
 
 .sg-header {
-  @extend %mrg-base;
   background-color: #fff;
   @include to-rem(min-height, 44);
   border-bottom: 1px solid $color-grey-med-2;

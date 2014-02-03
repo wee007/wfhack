@@ -6,4 +6,11 @@
   Container around each example within each section
 */
 
-.sg-example {@extend %mrg-base;}
+.sg-example {
+  @extend %mrg-base;
+  border: 1px solid $color-grey-light-1;
+  border-radius: 4px;
+}
+  .sg-example__inner {
+    @include to-rem(padding, $spacing-half);
+  }

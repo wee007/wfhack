@@ -1,5 +1,5 @@
-<div class="sg-section">
-  <div class="sg-h2"><%= title %></div>
+<div class="sg-section container container--narrow">
+  <h3 class="sg-h2"><%= title %></h3>
 
   <% unless description.nil? %>
     <div class="sg-note">
@@ -8,7 +8,9 @@
   <% end %>
 
   <div class="sg-example">
-    <%= example_html.html_safe %>
+    <div class="sg-example__inner">
+      <%= example_html.html_safe %>
+    </div>
 
     <div class="sg-code">
       <pre class="sg-code-block"><code class="language-markup"><%= example_html %></code></pre>

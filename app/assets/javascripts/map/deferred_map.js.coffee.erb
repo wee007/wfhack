@@ -18,9 +18,9 @@
     return @initializeMap() if Micello.loadTriggered
     Micello.loadTriggered = true
     if @micelloSupported()
-      $script(['//anzmaps.micello.com/webmap/v0/micellomap.js', '<%= asset_url 'map/micello.js' %>'], @initializeMap)
+      $script(['//anzmaps.micello.com/webmap/v0/micellomap.js', '<%= asset_url "map/micello.js" %>'], @initializeMap)
     else
-      $script('<%= asset_url 'map/micello_ie.js' %>', @initializeMap)
+      $script('<%= asset_url "map/micello_ie.js" %>', @initializeMap)
     @
 
   initializeMap: =>

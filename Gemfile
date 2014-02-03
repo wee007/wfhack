@@ -52,12 +52,8 @@ group :development, :test do
   gem "rspec-rails"
   gem 'uglifier', '>= 1.3.0'
   gem 'coffee-rails', '~> 4.0.0'
-  gem 'guard', '~> 1.8.0'
   gem 'kss', git: 'https://github.com/kneath/kss.git' # Gem release pending
-  gem "jasminerice", git: 'https://github.com/bradphelan/jasminerice.git'
   gem 'json'
-  gem 'rb-fsevent', require: false if RUBY_PLATFORM =~ /darwin/i
-  gem 'guard-jasmine', git: 'https://github.com/cwalsh/guard-jasmine.git' # Fix coverage issue
   gem 'rack-proxy', '0.4.0' # Updating it broke our proxying (/api/<service>/...)
   gem 'launchy'
   gem 'thin'

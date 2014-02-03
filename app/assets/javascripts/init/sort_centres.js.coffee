@@ -12,6 +12,8 @@ if navigator.geolocation
       a.distance - b.distance
 
     #select current state tab
+    closestCentreState = westfield.geo[0].state.toLowerCase()
+    $('.js-#{closestCentreState}').trigger 'click'
 
     #order centres list
 

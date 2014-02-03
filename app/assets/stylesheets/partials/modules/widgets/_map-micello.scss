@@ -6,6 +6,9 @@
   3rd party Map API from 'Micello'.
 */
 
+/* Removes unwanted sroll from the page */
+body.stores { overflow: hidden; }
+
 .map-micello {
 
   /* Apply bottom spacing */

@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.124
+Version:     0.2.125
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,14 @@ fi
 
 
 %changelog
+* Mon Feb 03 2014 ci <doperations@au.westfield.com> 0.2.125-1
+- Merge pull request #890 from fchan/styleguide (araeside@au.westfield.com)
+- Update class name for style guide example (fiona@fionachan.net)
+- Minor update to buttons and example styles (fiona@fionachan.net)
+- Update style guide look and add intro for base and buttons
+  (fiona@fionachan.net)
+- Added style guide intro helper (fiona@fionachan.net)
+
 * Mon Feb 03 2014 ci <doperations@au.westfield.com> 0.2.124-1
 - Merge pull request #882 from araeside/misc-bugfixes
   (araeside@au.westfield.com)

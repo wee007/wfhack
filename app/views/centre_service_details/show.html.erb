@@ -72,28 +72,14 @@
 
         <p>Gift Cards can be purchased from Centre Concierge Desks or online.</p>
 
-        <%# [BACKEND] When gift card filter is done:
-          - Remove the section marked "Temp fix"
-          - uncomment the section marked as "Uncomment when gift card filter is done" and add the link to store index page filtered by gift card.
-        %>
-        <%# Temp fix %>
-        <div class="grid">
+        <div class="grid grid--gutter-half grid--table-non-palm">
           <div class="grid__item one-whole non-palm-two-fifths">
             <a href="http://www.westfieldgiftcards.com.au/" rel="external" target="_target" class="btn btn--full btn--main btn--main-blue">Buy Now</a>
           </div>
+          <div class="grid__item one-whole non-palm-three-fifths">
+            or <%= link_to "Redeem at these stores", "#{centre_stores_path}?gift_cards=true" %>
+          </div>
         </div>
-        <%# //Temp fix %>
-
-        <%# Uncomment when gift card filter is done %>
-        <%#<div class="grid grid--gutter-half grid--table-non-palm">
-          <div class="grid__item one-whole non-palm-two-fifths">
-            <a href="http://www.westfieldgiftcards.com.au/" rel="external" target="_target" class="btn btn--full btn--main btn--main-blue">Buy Now</a>
-          </div>%>
-          <%#<div class="grid__item one-whole non-palm-three-fifths">%>
-            <%#or%> <%#= link_to 'redeem at these stores', '#' %>
-          <%#</div>%>
-        <%#</div>%>
-        <%# //Uncomment when gift card filter is done %>
 
       </div>
       <%# //Westfield gift card details %>

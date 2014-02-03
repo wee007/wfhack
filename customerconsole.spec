@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.123
+Version:     0.2.124
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,16 @@ fi
 
 
 %changelog
+* Mon Feb 03 2014 ci <doperations@au.westfield.com> 0.2.124-1
+- Merge pull request #882 from araeside/misc-bugfixes
+  (araeside@au.westfield.com)
+- fix for page not redrawing when toggling map and list view on mobile
+  (alec@smartalecwebsites.com.au)
+- fix store details button on mobile. fixes #832 and #740
+  (alec@smartalecwebsites.com.au)
+- Pressing enter key submits a filter dropdown on products page. fixes #734
+  (alec@smartalecwebsites.com.au)
+
 * Mon Feb 03 2014 ci <doperations@au.westfield.com> 0.2.123-1
 - Merge pull request #884 from fchan/styleguide (araeside@au.westfield.com)
 - Change styleguides to styleguide (fiona@fionachan.net)

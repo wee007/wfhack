@@ -32,6 +32,7 @@ describe CentresController do
     before do
       CentreService.should_receive(:fetch).with('centre').and_return double(:response, body: { name: 'Centre name', type: 'aspirational' })
       StreamService.should_receive(:fetch).with(centre: 'centre').and_return double(:response, body: {})
+      CentreTradingHourService.should_receive(:fetch).with('centre', an_instance_of(Hash)).and_return double(:response, body: {})
     end
 
     it "renders show view" do

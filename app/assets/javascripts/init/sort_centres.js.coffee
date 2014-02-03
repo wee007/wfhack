@@ -13,13 +13,21 @@ if navigator.geolocation
 
     #select current state tab
     closestCentreState = westfield.geo[0].state.toLowerCase()
-    $('.js-#{closestCentreState}').trigger 'click'
 
-    #order centres list
+    # Have to use double quotes here so coffeescript's string interpolation works
+    $(".js-#{closestCentreState}").trigger 'click'
 
+    # Order centres list by distance from user
+    # by cloning html for each centre li closest to furthers
+    list = $("#tab-#{closestCentreState}")
 
+    # Create a dummy DOM node to store sorted centre li's
+    # Adding elements to a node detached from the DOM prevents excessive repaints.
+    tempParent = $('<div/>')
 
+    $.each westfield.geo, (i, centre) ->
+      tempParent.append list.find(".js-centrecode-#{centre.code}").clone()
+      @
 
-
-
-
+    # Get the sorted centre li's and put them in the real DOM
+    list.html tempParent.html()

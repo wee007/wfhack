@@ -105,8 +105,8 @@
       <% %w(NSW ACT QLD VIC SA WA).each do |state| %>
         <ul id="tab-<%= state.downcase %>" class="tab__content<%= ' is-active' if state == 'NSW' %>">
           <% @centres_by_state[state].each do |centre| %>
-            <li class="js-viewport-check">
-              <a class="national__centre-tile national__centre-tile--<%= centre.code %>" href="<%= centre_path( centre ) %>">
+            <li class="js-viewport-check js-centrecode-<%= centre.code %>" >
+              <a class="national__centre-tile national__centre-tile--<%= centre.code %> " href="<%= centre_path( centre ) %>">
                 <div class="container">
                   <div class="h1"><%= centre.short_name %></div>
                   <span class="icon icon--arrow-right icon--lrg" aria-hidden="true"></span>

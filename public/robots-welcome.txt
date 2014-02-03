@@ -6,5 +6,3 @@ Disallow: /javascripts/products/facets*.js
 Disallow: /{{*
 Disallow: /*/products/*/redirection
 Sitemap: http://www.westfield.com.au/sitemap.xml.gz
-Sitemap: http://uk.westfield.com/uk/assets/index.xml
-Sitemap: http://www.westfield.com/us/assets/index.xml

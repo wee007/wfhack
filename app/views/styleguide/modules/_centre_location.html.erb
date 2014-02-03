@@ -1,0 +1,43 @@
+<% content_for :custom_styles do %>
+  <style>
+    .map-google-static {
+      background-image: url("http://maps.googleapis.com/maps/api/staticmap?client=gme-westfieldltd&markers=scale%3A1%7Cicon%3Ahttp%3A%2F%2Fres.cloudinary.com%2Fwlabs%2Fimage%2Fasset%2Ficon_map_pointer-8ab66b4319aba1123254db978dc78dba.png%7C-33.891289%2C151.250815&scale=1&sensor=false&size=980x280&zoom=15&signature=Vlbs9WnZYXpNV-AtuKcdCJ_6-UQ=");
+    }
+    /* High res */
+    @media  (-o-min-device-pixel-ratio: 5/4),
+            (-webkit-min-device-pixel-ratio: 1.25),
+            (min-resolution: 120dpi) {
+              .map-google-static {
+                background-image: url("http://maps.googleapis.com/maps/api/staticmap?client=gme-westfieldltd&markers=scale%3A2%7Cicon%3Ahttp%3A%2F%2Fres.cloudinary.com%2Fwlabs%2Fimage%2Fasset%2Ficon_map_pointer%25402x-ce70a9f384a80327ecebad831db21157.png%7C-33.891289%2C151.250815&scale=2&sensor=false&size=980x280&zoom=15&signature=eKtntL3qWeFCawzXUkMo3Va_x3I=");
+              }
+    }
+  </style>
+<% end %>
+
+<%= styleguide_block 'Centre Location' do |style| %>
+  <div class="centre-location">
+    <div class="map-google-static">
+      <img alt="Google map showing location of Bondi Junction shopping centre" src="http://maps.googleapis.com/maps/api/staticmap?client=gme-westfieldltd&amp;markers=scale%3A1%7Cicon%3Ahttp%3A%2F%2Fres.cloudinary.com%2Fwlabs%2Fimage%2Fasset%2Ficon_map_pointer-8ab66b4319aba1123254db978dc78dba.png%7C-33.891289%2C151.250815&amp;scale=1&amp;sensor=false&amp;size=980x280&amp;zoom=15&amp;signature=Vlbs9WnZYXpNV-AtuKcdCJ_6-UQ=">
+    </div>
+
+    <div class="centre-location__info box slats">
+      <div class="slats__img slats__img--compact">
+        <img alt="" height="130" onerror="this.remove();" src="http://res.cloudinary.com/wlabs/image/asset/c_thumb,f_auto,h_130,w_120/bondijunction-c5c77c76a20c6c4f38544a049e61509c.jpg" width="120">
+      </div>
+      <div class="slats__body islet">
+        <p itemscope="" itemtype="http://schema.org/Organization">
+          <span itemprop="address" itemscope="" itemtype="http://schema.org/PostalAddress">
+            <span itemprop="streetAddress">500 Oxford St</span>
+            <br>
+            <span itemprop="addressLocality">Bondi Junction</span>
+            <br>
+            <span itemprop="addressRegion">NSW 2022</span>
+          </span>
+        </p>
+        <a href="https://maps.google.com/maps?q=-33.891289,151.250815" rel="external" target="_blank">
+          Open in Google Maps<span class="icon icon--arrow-right icon--lrg" aria-hidden="true"></span>
+        </a>
+      </div>
+    </div>
+  </div>
+<% end %>

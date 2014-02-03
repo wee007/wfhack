@@ -11,6 +11,6 @@
   border: 1px solid $color-grey-light-1;
   border-radius: 4px;
 }
-  .sg-example-inner {
+  .sg-example__inner {
     @include to-rem(padding, $spacing-half);
   }

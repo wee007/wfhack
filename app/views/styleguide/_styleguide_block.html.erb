@@ -31,7 +31,7 @@
 
   <div class="sg-example sg-modifier">
     <span class="sg-modifier__name">Base style</span>
-    <div class="sg-example-inner">
+    <div class="sg-example__inner">
       <%= example_html.strip.gsub(' $modifier_class', '').html_safe %>
     </div>
     <div class="sg-code">
@@ -42,7 +42,7 @@
   <% section.modifiers.each do |modifier| %>
     <div class="sg-example sg-modifier">
       <span class="sg-modifier__name"><%= modifier.name %></span>
-      <div class="sg-example-inner">
+      <div class="sg-example__inner">
         <% if named_examples[modifier.name] %>
           <%= named_examples[modifier.name].gsub('$modifier_class', modifier.class_name).html_safe %>
         <% else %>

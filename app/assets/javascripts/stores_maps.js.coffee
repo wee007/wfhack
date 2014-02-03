@@ -23,6 +23,10 @@ class StoreMapPage
     body = $('body')
     body.on('click', '.is-list-view .js-stores-maps-toggle-btn', @show)
     body.on('click', '.is-map-view .js-stores-maps-toggle-btn', @hide)
+    # Micello hijacks clicks on the store map for touch devices
+    # so listen for touchstart event which is not hijacked and send user to the url manually
+    body.on 'touchstart', '.js-touchlink', ->
+      window.location.href = $(@).attr 'href'
     self = @
     body.on('click', '[data-store-id]', ->
       self.show()
@@ -46,8 +50,11 @@ class StoreMapPage
     $('.js-stores-maps-toggle-wrap').toggleClass('is-map-view', viewingMap)
     $('.js-stores-maps-toggle-wrap').toggleClass('is-list-view', !viewingMap)
 
-    # FIXME: Webkit doesn't redraw the page correctly unless we force it
-    $('.js-stores-maps-toggle-wrap').width()
+    # Webkit doesn't redraw the page correctly unless we force it
+    # This should have minimal visual impact while forcing a redraw
+    container = $('.js-stores-maps-toggle-wrap')
+    container.css 'width', '-=1px'
+    container.css 'width', '+=1px'
 
   store: (storeId) ->
     @map.setTarget(storeId).showLevel().zoom().highlight().detail()

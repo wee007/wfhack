@@ -6,7 +6,7 @@
   <% end %>
   <%# //Tile indentifier for centre home page only %>
 
-  <%= link_to yield, tile_url(@centre, result), target: "_self" %>
+  <%= link_to yield, tile_url((@centre || params[:centre]), result), target: "_self" %>
 
   <%# Tile controls %>
   <div class="tile__controls js-tile-controls">

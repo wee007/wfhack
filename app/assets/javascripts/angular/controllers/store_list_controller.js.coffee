@@ -18,6 +18,7 @@
       if Modernizr.localstorage and
           category?
         localStorage.filteredCategory = category
+      return true
 
     $scope.$watch 'gift_cards', (val) ->
       if Modernizr.localstorage

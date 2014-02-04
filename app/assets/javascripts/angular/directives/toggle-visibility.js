@@ -11,7 +11,13 @@
     });
 
     // Clicking outside will close all toggleVisibility targets
-    $document.bind( 'click', function ( event ) { close(); });
+    $document.bind( 'click', function ( event ) {
+      //debugger;
+
+      if ($(event.target).parents('.toggle-visibility').length == 0) {
+        close();
+      }
+    });
 
     // When product filter dropdowns are opened, close this toggle vis widget
     $rootScope.$on( 'product-filter-dropdown-open', function() {
@@ -102,7 +108,7 @@
         });
 
         // Allow the user to click inside the target
-        target.bind( 'click', function( e ) { e.stopPropagation(); });
+        //target.bind( 'click', function( e ) { e.stopPropagation(); });
       }
     }
   }]);

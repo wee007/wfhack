@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.126
+Version:     0.2.127
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,18 @@ fi
 
 
 %changelog
+* Tue Feb 04 2014 ci <doperations@au.westfield.com> 0.2.127-1
+- Merge pull request #850 from thiago/master (ldewey@au.westfield.com)
+- Merge pull request #892 from
+  wasabhi/swagger_docs_for_centre_directory_service (ldewey@au.westfield.com)
+- Merge pull request #893 from mwratt/js-specs-removing-jasmine
+  (ldewey@au.westfield.com)
+- removes jasmine in favour of karma (matt.wratt@trineo.co.nz)
+- Inclusion of Centre Directory Service in swagger.
+  (abhinav.keswani@trineo.co.nz)
+- RWUMA-584 Remove non-AU sitemaps from westfield.com.au
+  (tfigueiro@au.westfield.com)
+
 * Tue Feb 04 2014 ci <doperations@au.westfield.com> 0.2.126-1
 - Merge pull request #891 from fchan/styleguide (craigM.smith@au.westfield.com)
 - WSF-6244: Enabled gift card accepted link (fiona@fionachan.net)

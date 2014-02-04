@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.129
+Version:     0.2.130
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,11 @@ fi
 
 
 %changelog
+* Wed Feb 05 2014 ci <doperations@au.westfield.com> 0.2.130-1
+- Merge pull request #897 from fchan/gift-card (ldewey@au.westfield.com)
+- WSF-6220 - Add redirect for flatlay the nation (gcallister@au.westfield.com)
+- WSF-6244: Fix gift card accepted link (fiona@fionachan.net)
+
 * Tue Feb 04 2014 ci <doperations@au.westfield.com> 0.2.129-1
 - Merge pull request #866 from araeside/national-view-dialog
   (araeside@au.westfield.com)

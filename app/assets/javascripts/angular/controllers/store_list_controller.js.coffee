@@ -31,7 +31,9 @@
     $scope.$watch('viewingMap', updateQueryParams)
 
     # Gift card submit
-    $scope.giftCardSubmit = -> $window.giftCardForm.submit()
+    $scope.giftCardChange = ->
+      $(':submit', $window.giftCardForm).click()
+      @
 
     # Clicking outside will unselect category
     $document.bind 'click', -> $scope.viewSubCategory(null)

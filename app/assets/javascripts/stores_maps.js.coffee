@@ -46,12 +46,16 @@ class StoreMapPage
   setup: =>
     body = $('body')
     if $.support.pjax
-      $.pjax.defaults?.timeout = 50000
+      $.pjax.defaults?.timeout = 5000
       $(document).on('pjax:send', @startLoading)
       $(document).on('pjax:success', @stopLoading)
       body.on('pjax:end', '.js-pjax-container-stores', @pjaxComplete)
       body.on('pjax:end', '.js-pjax-container-stores', @recompileAngularScope)
       body.on('click', 'a.js-pjax-link-stores', @pjaxNavigate)
+
+      body.on 'submit', 'form[data-pjax]', (event) ->
+        $.pjax.submit(event, '.js-pjax-container-stores')
+
     body.on('click', '.is-list-view .js-stores-maps-toggle-btn', @show)
     body.on('click', '.is-map-view .js-stores-maps-toggle-btn', @hide)
     # Micello hijacks clicks on the store map for touch devices

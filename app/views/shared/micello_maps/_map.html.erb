@@ -25,7 +25,7 @@
   <%= cloudinary_js_config %>
   <% if load_immediately %>
     <%= javascript_tag do %>
-      new map.Micello().load().setTarget(<%= store_id %>).lock().showLevel().zoom().detail().highlight().toggleKeyEvents(false);
+      new map.Micello().load().setTarget(<%= store_id %>).lock().showLevel().zoom().pinStore(true, true).detail().highlight().toggleKeyEvents(false);
     <% end %>
   <% end %>
 <% end %>

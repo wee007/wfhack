@@ -119,6 +119,7 @@ class map.micello.Map
     canvas.MAP_FONT_MAX = "14px"
 
   setTarget: (@storeId) ->
+    @clearPins('pin')
     @data.removeInlay("slct", true)
     @control.hideInfoWindow()
     @
@@ -149,22 +150,68 @@ class map.micello.Map
   hasTarget: ->
     !!@storeId
 
-  pinGeom: (geom) ->
-    @data.addMarkerOverlay
+  hasTargetGeom: ->
+    !!@targetGeom()
+
+  isPinned: (geom) ->
+    @pinned?.ids?[geom.id] != undefined
+
+  rememberPin: (key, id) ->
+    @pinned ||= {keys: {}, ids: {}}
+    (@pinned.keys[key] ||= []).push(id)
+    (@pinned.ids[id] ||= []).push(key)
+
+  fogetPinGroup: (key) ->
+    if ids = @pinned?.keys?[key]
+      delete @pinned.keys[key]
+      (delete @pinned.ids[id]) for id in ids
+
+  pinGeom: (geom, anm = 'pins') ->
+    @rememberPin(anm, geom.id)
+    pin =
       id: geom.id
       mt: micello.maps.markertype.IMAGE
-      mr: westfield.pin
-      anm: 'pins'
+      mr: map.micello.customTheme.pin
+      anm: anm
+    @data.addMarkerOverlay(pin, true)
+    $(pin.element).on('click', => @onClick(pin.mx, pin.my, pin))
 
-  pinStores: (store_ids) ->
-    _(store_ids).chain()
-      .map((store) => @geomGroupForStore(@store(id)))
-      .flatten().compact()
-      .each((geom) => @pinGeom(geom) if geom) # add a pin to each geom
+  levelStyle: ->
+    @style ||= $('<style></style>').appendTo('body')
+
+  clearLevelCounts: ->
+    @levelStyle().html('')
     @
 
-  clearPins: ->
-    @data.removeMarkerOverlay("pins", true)
+  setLevelCount: (id, count) ->
+    @levelStyle().get(0).innerHTML += "#ui-levels-floor-#{id}.ui_levels_floor:before { content: '#{count}'; }"
+
+  pinStore: (withCount = false, andGotoLevel = false) ->
+    @clearPins('targetPin')
+    if @hasTargetGeom()
+      if(withCount)
+        @pinStores([@targetStore().id], andGotoLevel, 'targetPin')
+      else
+        @pinGeom(geom, 'targetPin') for geom in @targetGeomGroup()
+
+  pinStores: (store_ids, andGotoLevel = true, anm = 'pins') ->
+    @clearLevelCounts()
+    @clearPins()
+    levels = _(store_ids).chain()
+      .map((id) => @geomGroupForStore(@store(id)))
+      .flatten().compact()
+      .map((geom) => @pinGeom(geom, anm); @data.getGeometryLevel(geom.id))
+      .groupBy('id')
+      .map((levels, id) => @setLevelCount(id, levels.length); [id, levels])
+      .value()
+    needsLevelChange = levels.length > 0 && !_(levels).chain().pluck(0).contains(@data.getCurrentLevel().id.toString()).value()
+    if andGotoLevel && needsLevelChange
+      @data.setLevel _(levels).max((level) -> level[1].length)[1][0]
+    @
+
+  clearPins: (anm = 'pins') ->
+    @fogetPinGroup(anm)
+    @data.removeMarkerOverlay(anm, true)
     @
 
   showLevel: ->
@@ -187,6 +234,7 @@ class map.micello.Map
       for geom in @targetGeomGroup()
         if @data.getGeometryLevel(geom.id).id == level.id
           @control.showInfoWindow(geom, @popupHtml(@targetStore()))
+          $('.infoOut').addClass('is-pinned-store') if @isPinned(geom)
       if @locked # we only bring the popup into the centre if it's the main content
         @zoom()
         @view.translate(0, $('#infoDiv').height() / 2)
@@ -218,7 +266,10 @@ class map.micello.Map
     @popupContent ||= _.template($('script.map-micello__overlay-wrap[type="text/html-template"]').html())
 
     locationMatch = !!location.toString().match(///#{store.storefront_path}///)
-    classname = "#{unless store.logo then 'is-no-store-logo' else ''} #{if locationMatch then 'is-active-store' else ''}"
+    classname = []
+    classname.push('is-no-store-logo') unless store.logo
+    classname.push('is-active-store') if locationMatch
+    classname = classname.join(' ')
     storefront_path = "#{unless locationMatch then store.storefront_path else ''}"
 
     data = _.extend({}, store,

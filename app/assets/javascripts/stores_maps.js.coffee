@@ -44,7 +44,12 @@ class StoreMapPage
     @updateGUI @map.hide()
     false
 
+  updateAngularStoreListControllerLinks: (viewingMap) ->
+    $scope = angular.element($('[ng-controller="StoreListController"]').get(0)).scope()
+    $scope.$apply -> $scope.viewingMap = viewingMap
+
   updateGUI: (viewingMap) ->
+    @updateAngularStoreListControllerLinks(viewingMap)
     $('.js-stores-maps-toggle-btn').toggleClass('is-expanded', viewingMap)
     $('.js-stores-maps-toggle-btn-txt').html(if viewingMap then 'list' else 'map')
     $('.js-stores-maps-toggle-wrap').toggleClass('is-map-view', viewingMap)
@@ -57,7 +62,12 @@ class StoreMapPage
     container.css 'width', '+=1px'
 
   store: (storeId) ->
-    @map.setTarget(storeId).showLevel().zoom().highlight().detail()
+    @map.setTarget(storeId).showLevel().zoom().highlight().pinStore(true, true).detail()
+
+  pinStores: ->
+    getId = -> $(@).data 'store-id'
+    ids = $('a[data-store-id]').map getId
+    storeMapPage.map.pinStores(ids, true, true)
 
 $('.js-fastclick').each -> FastClick.attach(@)
 @storeMapPage = new StoreMapPage

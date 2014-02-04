@@ -1,33 +1,67 @@
 #= require init/geolocation
+insertOverlayAndPreloader = ->
+  html = '<div class="overlay overlay--absolute overlay--light">
+    <span class="preloader preloader--top preloader--middle preloader--light js-disabled-hide">
+      <span class="preloader__spinner"></span>
+      <em class="hide-visually">Loading, please wait&#8230;</em>
+    </span>
+  </div>'
+  $('.js-centre-container').append(html)
+
+removeOverlayAndPreloader = ->
+  $('.overlay','.js-centre-container').remove()
+
+calculateClosestCentresAndState = (userPosition) ->
+  $.each westfield.geo, (i, centre) ->
+    centre.latitude = parseFloat centre.latitude, 10
+    centre.longitude = parseFloat centre.longitude, 10
+    centre.distance = Geolocation.distanceFrom userPosition.coords, centre
+    @
+
+  westfield.geo.sort (a, b) ->
+    a.distance - b.distance
+
+selectClosestState = ->
+  #select current state tab
+  closestCentreState = westfield.geo[0].state.toLowerCase()
+
+  # Have to use double quotes here so coffeescript's string interpolation works
+  $(".js-#{closestCentreState}").trigger 'click'
+
+  return closestCentreState
+
+
+sortCentreListByLocation = (userState) ->
+  # Order centres list by distance from user
+  # by cloning html for each centre li closest to furthers
+  list = $("#tab-#{userState}")
+
+  # Create a dummy DOM node to store sorted centre li's
+  # Adding elements to a node detached from the DOM prevents excessive repaints.
+  tempParent = $('<div/>')
+
+  $.each westfield.geo, (i, centre) ->
+    tempParent.append list.find(".js-centrecode-#{centre.code}").clone()
+    @
+
+  # Get the sorted centre li's and put them in the real DOM
+  list.html tempParent.html()
+
+
 if navigator.geolocation
+  insertOverlayAndPreloader()
+  searchStartTime = new Date().getTime()
   navigator.geolocation.getCurrentPosition (userPosition) ->
+    searchEndTime = new Date().getTime()
+    extraDelay = 0
+    if searchEndTime - searchStartTime < 1000
+      extraDelay = 1000 - (searchEndTime - searchStartTime);
+    setTimeout (->
+      removeOverlayAndPreloader()
+      calculateClosestCentresAndState userPosition
+      state = selectClosestState()
+      sortCentreListByLocation(state)
+    ), extraDelay
 
-    $.each westfield.geo, (i, centre) ->
-      centre.latitude = parseFloat centre.latitude, 10
-      centre.longitude = parseFloat centre.longitude, 10
-      centre.distance = Geolocation.distanceFrom userPosition.coords, centre
-      @
 
-    westfield.geo.sort (a, b) ->
-      a.distance - b.distance
 
-    #select current state tab
-    closestCentreState = westfield.geo[0].state.toLowerCase()
-
-    # Have to use double quotes here so coffeescript's string interpolation works
-    $(".js-#{closestCentreState}").trigger 'click'
-
-    # Order centres list by distance from user
-    # by cloning html for each centre li closest to furthers
-    list = $("#tab-#{closestCentreState}")
-
-    # Create a dummy DOM node to store sorted centre li's
-    # Adding elements to a node detached from the DOM prevents excessive repaints.
-    tempParent = $('<div/>')
-
-    $.each westfield.geo, (i, centre) ->
-      tempParent.append list.find(".js-centrecode-#{centre.code}").clone()
-      @
-
-    # Get the sorted centre li's and put them in the real DOM
-    list.html tempParent.html()

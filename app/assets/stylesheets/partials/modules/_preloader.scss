@@ -34,6 +34,12 @@
 	}
 }
 
+/* Modifier: position the loader in the centre of it's parent */
+.preloader--top {
+	@include to-rem(top, $spacing-base);
+	@include translate(-50%, 0);
+}
+
 	/* Spinner animation */
 	.preloader--light,
 	.preloader__spinner {

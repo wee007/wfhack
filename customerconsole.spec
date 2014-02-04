@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.128
+Version:     0.2.129
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,27 @@ fi
 
 
 %changelog
+* Tue Feb 04 2014 ci <doperations@au.westfield.com> 0.2.129-1
+- Merge pull request #866 from araeside/national-view-dialog
+  (araeside@au.westfield.com)
+- Small fix to the centre_products_path "monkey patch".
+  (ldewey@au.westfield.com)
+- Further refactoring with Leon (alec@smartalecwebsites.com.au)
+- refactor national to centre link function with Craig S
+  (alec@smartalecwebsites.com.au)
+- preserve querystring when linking to products pages in dialog
+  (alec@smartalecwebsites.com.au)
+- fix typo in comments and capture ESC key in toggle visibility when a drop
+  down is open. (alec@smartalecwebsites.com.au)
+- updates as per pull request comments from Chris P.
+  (alec@smartalecwebsites.com.au)
+- do not show dialog on subsequent visits to /products if the user closed the
+  dialog, code cleanups (alec@smartalecwebsites.com.au)
+- add interactive functionality to dialog via angular directive
+  (alec@smartalecwebsites.com.au)
+- UI build for National product browse dialog (cpearce@au.westfield.com)
+- UI build for National product browse dialog (cpearce@au.westfield.com)
+
 * Tue Feb 04 2014 ci <doperations@au.westfield.com> 0.2.128-1
 - 
 

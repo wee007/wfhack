@@ -3,14 +3,16 @@
    ====================================================================================== */
 
 /*
-  Usage:
-    Generic contextual nav that can be scrolled horizontally when it needs to be i.e. when there isn't enough screen real estate.
+  Generic contextual nav that can be scrolled horizontally when it needs to be i.e. when there isn't enough screen real estate.
 
+  .nav-contextual--dark       - Dark colour
+
+  Styleguide Nav Contextual
+*/
+
+/*
   Notes:
     To apply the horizontal scroll functionality append the relevant JS hooks, see the JS file: 'javascripts/jquery-extensions/jquery.nav-contextual.coffee'.
-
-  Demo:
-    Style Guide -> Modules -> Nav Contextual
 */
 
 .nav-contextual {

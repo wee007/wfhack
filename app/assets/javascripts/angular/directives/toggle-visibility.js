@@ -59,6 +59,7 @@
     deactivateTarget = function ( targetID ) {
       triggers( targetID ).attr( 'aria-expanded', false ).removeClass( activeClass );
       target( targetID ).removeClass( activeClass );
+      target( targetID ).unbind('keydown');
     },
 
     // Show the target, set appropriate ARIA
@@ -71,6 +72,13 @@
         SocialShare.closeAll();
       }
 
+      target( targetID ).bind('keydown', function(event) {
+        // Escape key closes the target and stops event from bubbling to document
+        if ( event.keyCode == 27 ) {
+          event.stopPropagation();
+          close();
+        }
+      })
     };
 
     return {

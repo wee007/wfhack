@@ -123,8 +123,8 @@
 
     /* Sub header */
     .drop-down-menu__hdr-sub {
-      color: $color-txt-light;
-      @include to-rem(padding-top padding-bottom, $spacing-micro);
+      color: $color-grey-med-2;
+      @include to-rem(padding-top padding-bottom, 1);
       @include to-rem(padding-left padding-right, $spacing-half);
     }
 

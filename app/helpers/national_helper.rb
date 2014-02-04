@@ -11,6 +11,14 @@ module NationalHelper
     end
   end
 
+  def params_without_controller_or_action
+    params.select{|k,v| !['controller','action'].include?(k)}
+  end
+
+  def centre_products_path(options)
+    super(options.kind_of?(Hash) ? options.merge(params_without_controller_or_action) : options)
+  end
+
   def centre_tile_image(centre_id, width, height)
     image_path(
       "heroes/#{centre_id}.jpg",

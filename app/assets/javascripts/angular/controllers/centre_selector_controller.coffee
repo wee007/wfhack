@@ -6,7 +6,7 @@
       centres = $scope.selectedCentre.split( ',' )
 
       if centres.length > 1 || centres[0] == 'all'
-        ProductSearch.resetParams({centres: centres})
+        ProductSearch.resetParams({centre: centres})
       else
         ProductSearch.resetParams()
 

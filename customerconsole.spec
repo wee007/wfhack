@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.130
+Version:     0.2.131
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,22 @@ fi
 
 
 %changelog
+* Wed Feb 05 2014 ci <doperations@au.westfield.com> 0.2.131-1
+- Merge pull request #875 from mwratt/feature/store-category-pins
+  (dmiller@au.westfield.com)
+- removes unwanted scroll from the map page (matt.wratt@trineo.co.nz)
+- fixes broken javascrip spec (matt.wratt@trineo.co.nz)
+- removes pins from selected but not current stores (matt.wratt@trineo.co.nz)
+- add pins to user selected stores and static map (matt.wratt@trineo.co.nz)
+- fixing whitespace inconsistencies (matt.wratt@trineo.co.nz)
+- fixes stores list flash when expecting the map (matt.wratt@trineo.co.nz)
+- removed debug code (matt.wratt@trineo.co.nz)
+- makes store list page load on maps when expected (matt.wratt@trineo.co.nz)
+- adds store count per level css for filtering (matt.wratt@trineo.co.nz)
+- dynamic category filter count and styling (matt.wratt@trineo.co.nz)
+- Outstanding changes from Chris's machine (IanT) (cpearce@au.westfield.com)
+- adds pins to store filtered by a category (matt.wratt@trineo.co.nz)
+
 * Wed Feb 05 2014 ci <doperations@au.westfield.com> 0.2.130-1
 - Merge pull request #897 from fchan/gift-card (ldewey@au.westfield.com)
 - WSF-6220 - Add redirect for flatlay the nation (gcallister@au.westfield.com)

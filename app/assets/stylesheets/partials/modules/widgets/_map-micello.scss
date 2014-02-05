@@ -128,7 +128,6 @@
       font-family: $font-family !important;
       line-height: 1.5 !important;
       background-image: none !important;
-      overflow: visible !important;
 
       /*
         Overlay
@@ -456,7 +455,7 @@
           
             &:before {
               position: absolute;
-              left: 70%;
+              right: -15%;
               background-color: #da291c;
               color: white;
               border-radius: 50px;

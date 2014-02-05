@@ -316,7 +316,7 @@ class map.micello.Map
   forceRedraw: ->
     container = $('.js-stores-maps-toggle-wrap, canvas')
     container.css('width', '-=1px')
-    container.css('width', '+=1px')
+    container.css('width', '')
 
   onMapChanged: (event) =>
     @detail() # show the detail popup on the right level if it changed

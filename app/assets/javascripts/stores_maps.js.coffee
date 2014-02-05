@@ -25,6 +25,10 @@ class StoreMapPage
     $('.js-pjax-container-stores').toggleClass('is-loading', state)
 
   pjaxComplete: =>
+    @pageLoaded()
+    @recompileAngularScope()
+  
+  pageLoaded: ->
     $ ->
       if window.storeMapPageReady
         setTimeout((->
@@ -32,7 +36,7 @@ class StoreMapPage
           delete storeMapPageReady
         ), 0)
 
-  recompileAngularScope: =>
+  recompileAngularScope: ->
     scope = angular.element('.js-pjax-container-stores').scope()
     compile = angular.element('.js-pjax-container-stores').injector().get('$compile')
 
@@ -50,7 +54,7 @@ class StoreMapPage
       $(document).on('pjax:send', @startLoading)
       $(document).on('pjax:success', @stopLoading)
       body.on('pjax:end', '.js-pjax-container-stores', @pjaxComplete)
-      body.on('pjax:end', '.js-pjax-container-stores', @recompileAngularScope)
+      body.on('pjax:popstate', '.js-pjax-container-stores', @pjaxComplete)
       body.on('click', 'a.js-pjax-link-stores', @pjaxNavigate)
 
       body.on 'submit', 'form[data-pjax]', (event) ->
@@ -69,7 +73,7 @@ class StoreMapPage
       setTimeout((-> self.store(el.data('store-id'))), 0)
       false
     )
-    @pjaxComplete()
+    @pageLoaded()
 
   show: =>
     @updateGUI @map.show()
@@ -96,10 +100,15 @@ class StoreMapPage
   store: (storeId) ->
     @map.setTarget(storeId).showLevel().zoom().highlight().pinStore(true, true).detail()
 
-  pinStores: ->
+  pinFilteredStores: ->
     getId = -> $(@).data 'store-id'
     ids = $('a[data-store-id]').map getId
-    storeMapPage.map.pinStores(ids, true, true)
+    @map.pinStores(ids, true)
+
+  updatePinAndPopup: ->
+    @map.pinStores([])
+    @pinFilteredStores() if $('.stores-maps__filters-count').length
+    @map.detail()
 
 $('.js-fastclick').each -> FastClick.attach(@)
 @storeMapPage = new StoreMapPage

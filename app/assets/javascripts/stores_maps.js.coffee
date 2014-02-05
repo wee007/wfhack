@@ -33,11 +33,11 @@ class StoreMapPage
         ), 0)
 
   recompileAngularScope: =>
-    scope = angular.element('.js-pjax-container-stores').scope();
-    compile = angular.element('.js-pjax-container-stores').injector().get('$compile');
+    scope = angular.element('.js-pjax-container-stores').scope()
+    compile = angular.element('.js-pjax-container-stores').injector().get('$compile')
 
-    compile($('.js-pjax-container-stores').contents())(scope);
-    scope.$apply();
+    compile($('.js-pjax-container-stores').contents())(scope)
+    scope.$apply()
 
   pjaxNavigate: (event) =>
     @startLoading()
@@ -46,7 +46,7 @@ class StoreMapPage
   setup: =>
     body = $('body')
     if $.support.pjax
-      $.pjax.defaults?.timeout = 5000
+      $.pjax.defaults?.timeout = 50000
       $(document).on('pjax:send', @startLoading)
       $(document).on('pjax:success', @stopLoading)
       body.on('pjax:end', '.js-pjax-container-stores', @pjaxComplete)

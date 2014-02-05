@@ -61,12 +61,10 @@
     }
   }
 
-  /* --Modifiers-- */
-
-  /* Remove the default margin when there is only one tag */
+  /* Modifier: remove the default margin when there is only one tag */
   .tags__btn--solo {margin: 0;}
 
-  /* Clear all tags button */
+  /* Modifier: clear all tags button */
   .tags__btn--clear {
     border: 0;
     margin-right: 0;

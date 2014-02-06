@@ -34,7 +34,7 @@
 	}
 }
 
-/* Modifier: position the loader in the centre of it's parent */
+/* Modifier: position the loader near the top of it's parent */
 .preloader--top {
 	@include to-rem(top, $spacing-base);
 	@include translate(-50%, 0);

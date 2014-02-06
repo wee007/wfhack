@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.131
+Version:     0.2.132
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,11 @@ fi
 
 
 %changelog
+* Fri Feb 07 2014 ci <doperations@au.westfield.com> 0.2.132-1
+- Merge pull request #896 from ldewey/WSF-6133 (craigM.smith@au.westfield.com)
+- Fixed - "All Centres" Product Search is not showing all stores
+  (ldewey@au.westfield.com)
+
 * Wed Feb 05 2014 ci <doperations@au.westfield.com> 0.2.131-1
 - Merge pull request #875 from mwratt/feature/store-category-pins
   (dmiller@au.westfield.com)

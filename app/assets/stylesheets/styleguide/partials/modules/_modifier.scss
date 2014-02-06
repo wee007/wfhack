@@ -18,5 +18,5 @@
     @include to-rem(padding, $spacing-half);
     background-color: $color-green;
     color: #fff;
-    border-radius: 4px 0 0 0;
+    border-top-left-radius: 4px;
   }

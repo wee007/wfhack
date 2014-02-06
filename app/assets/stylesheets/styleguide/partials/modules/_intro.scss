@@ -8,7 +8,7 @@
 
 .sg-intro {
   @extend %mrg-base;
-  @include to-rem(padding, $spacing-dbl 0);
+  @include to-rem(padding-top padding-bottom, $spacing-dbl);
   color: #fff;
   background-color: $color-grey-dark-1;
 

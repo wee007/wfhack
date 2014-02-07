@@ -47,12 +47,17 @@ sortCentreListByLocation = (userState) ->
   # Get the sorted centre li's and put them in the real DOM
   list.html tempParent.html()
 
-
+# Only execute if geolocation is supported
 if navigator.geolocation
   insertOverlayAndPreloader()
+
+  # Record how long it takes to get user position
   searchStartTime = new Date().getTime()
   navigator.geolocation.getCurrentPosition (userPosition) ->
     searchEndTime = new Date().getTime()
+
+    # If it takes less than a second to get the user position
+    # delay the overlay removal and list sorting so it doesn't flash up on the screen momentarily
     extraDelay = 0
     if searchEndTime - searchStartTime < 1000
       extraDelay = 1000 - (searchEndTime - searchStartTime);

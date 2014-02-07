@@ -71,6 +71,3 @@ if navigator.geolocation
   , ->
     removeOverlayAndPreloader()
     @
-
-
-

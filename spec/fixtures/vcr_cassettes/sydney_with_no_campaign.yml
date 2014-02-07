@@ -147,4 +147,47 @@ http_interactions:
       string: '[]'
     http_version: 
   recorded_at: Tue, 14 Jan 2014 02:11:57 GMT
+- request:
+    method: get
+    uri: http://trading-hour-service.test.dbg.westfield.com/api/trading-hour/master/centre_trading_hours/range.json?centre_id=sydney
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.8
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-UA-Compatible:
+      - chrome=1
+      Content-Type:
+      - application/json; charset=utf-8
+      ETag:
+      - '"d7e3558302d89b65bcaa31a18b8a2134"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - c87b7b81-4342-4539-9188-dd00f6b75275
+      X-Runtime:
+      - '0.072466'
+      Date:
+      - Fri, 07 Feb 2014 02:57:27 GMT
+      Connection:
+      - close
+    body:
+      encoding: UTF-8
+      string: '[{"id":484,"centre_id":"sydney","store_id":null,"hour_type":"standard","description":null,"day_of_week":0,"date":"2014-02-03","opening_time":"09:30","closing_time":"18:30","closed":false},{"id":485,"centre_id":"sydney","store_id":null,"hour_type":"standard","description":null,"day_of_week":1,"date":"2014-02-04","opening_time":"09:30","closing_time":"18:30","closed":false},{"id":486,"centre_id":"sydney","store_id":null,"hour_type":"standard","description":null,"day_of_week":2,"date":"2014-02-05","opening_time":"09:30","closing_time":"18:30","closed":false},{"id":487,"centre_id":"sydney","store_id":null,"hour_type":"standard","description":null,"day_of_week":3,"date":"2014-02-06","opening_time":"09:30","closing_time":"21:00","closed":false},{"id":488,"centre_id":"sydney","store_id":null,"hour_type":"standard","description":null,"day_of_week":4,"date":"2014-02-07","opening_time":"09:30","closing_time":"18:30","closed":false},{"id":489,"centre_id":"sydney","store_id":null,"hour_type":"standard","description":null,"day_of_week":5,"date":"2014-02-08","opening_time":"09:30","closing_time":"18:30","closed":false},{"id":490,"centre_id":"sydney","store_id":null,"hour_type":"standard","description":null,"day_of_week":6,"date":"2014-02-09","opening_time":"10:00","closing_time":"18:00","closed":false},{"id":484,"centre_id":"sydney","store_id":null,"hour_type":"standard","description":null,"day_of_week":0,"date":"2014-02-10","opening_time":"09:30","closing_time":"18:30","closed":false},{"id":485,"centre_id":"sydney","store_id":null,"hour_type":"standard","description":null,"day_of_week":1,"date":"2014-02-11","opening_time":"09:30","closing_time":"18:30","closed":false},{"id":486,"centre_id":"sydney","store_id":null,"hour_type":"standard","description":null,"day_of_week":2,"date":"2014-02-12","opening_time":"09:30","closing_time":"18:30","closed":false},{"id":487,"centre_id":"sydney","store_id":null,"hour_type":"standard","description":null,"day_of_week":3,"date":"2014-02-13","opening_time":"09:30","closing_time":"21:00","closed":false},{"id":488,"centre_id":"sydney","store_id":null,"hour_type":"standard","description":null,"day_of_week":4,"date":"2014-02-14","opening_time":"09:30","closing_time":"18:30","closed":false},{"id":489,"centre_id":"sydney","store_id":null,"hour_type":"standard","description":null,"day_of_week":5,"date":"2014-02-15","opening_time":"09:30","closing_time":"18:30","closed":false},{"id":490,"centre_id":"sydney","store_id":null,"hour_type":"standard","description":null,"day_of_week":6,"date":"2014-02-16","opening_time":"10:00","closing_time":"18:00","closed":false},{"id":484,"centre_id":"sydney","store_id":null,"hour_type":"standard","description":null,"day_of_week":0,"date":"2014-02-17","opening_time":"09:30","closing_time":"18:30","closed":false},{"id":485,"centre_id":"sydney","store_id":null,"hour_type":"standard","description":null,"day_of_week":1,"date":"2014-02-18","opening_time":"09:30","closing_time":"18:30","closed":false},{"id":486,"centre_id":"sydney","store_id":null,"hour_type":"standard","description":null,"day_of_week":2,"date":"2014-02-19","opening_time":"09:30","closing_time":"18:30","closed":false},{"id":487,"centre_id":"sydney","store_id":null,"hour_type":"standard","description":null,"day_of_week":3,"date":"2014-02-20","opening_time":"09:30","closing_time":"21:00","closed":false},{"id":488,"centre_id":"sydney","store_id":null,"hour_type":"standard","description":null,"day_of_week":4,"date":"2014-02-21","opening_time":"09:30","closing_time":"18:30","closed":false},{"id":489,"centre_id":"sydney","store_id":null,"hour_type":"standard","description":null,"day_of_week":5,"date":"2014-02-22","opening_time":"09:30","closing_time":"18:30","closed":false},{"id":490,"centre_id":"sydney","store_id":null,"hour_type":"standard","description":null,"day_of_week":6,"date":"2014-02-23","opening_time":"10:00","closing_time":"18:00","closed":false},{"id":484,"centre_id":"sydney","store_id":null,"hour_type":"standard","description":null,"day_of_week":0,"date":"2014-02-24","opening_time":"09:30","closing_time":"18:30","closed":false},{"id":485,"centre_id":"sydney","store_id":null,"hour_type":"standard","description":null,"day_of_week":1,"date":"2014-02-25","opening_time":"09:30","closing_time":"18:30","closed":false},{"id":486,"centre_id":"sydney","store_id":null,"hour_type":"standard","description":null,"day_of_week":2,"date":"2014-02-26","opening_time":"09:30","closing_time":"18:30","closed":false},{"id":487,"centre_id":"sydney","store_id":null,"hour_type":"standard","description":null,"day_of_week":3,"date":"2014-02-27","opening_time":"09:30","closing_time":"21:00","closed":false},{"id":488,"centre_id":"sydney","store_id":null,"hour_type":"standard","description":null,"day_of_week":4,"date":"2014-02-28","opening_time":"09:30","closing_time":"18:30","closed":false},{"id":489,"centre_id":"sydney","store_id":null,"hour_type":"standard","description":null,"day_of_week":5,"date":"2014-03-01","opening_time":"09:30","closing_time":"18:30","closed":false},{"id":490,"centre_id":"sydney","store_id":null,"hour_type":"standard","description":null,"day_of_week":6,"date":"2014-03-02","opening_time":"10:00","closing_time":"18:00","closed":false},{"id":484,"centre_id":"sydney","store_id":null,"hour_type":"standard","description":null,"day_of_week":0,"date":"2014-03-03","opening_time":"09:30","closing_time":"18:30","closed":false},{"id":485,"centre_id":"sydney","store_id":null,"hour_type":"standard","description":null,"day_of_week":1,"date":"2014-03-04","opening_time":"09:30","closing_time":"18:30","closed":false},{"id":486,"centre_id":"sydney","store_id":null,"hour_type":"standard","description":null,"day_of_week":2,"date":"2014-03-05","opening_time":"09:30","closing_time":"18:30","closed":false},{"id":487,"centre_id":"sydney","store_id":null,"hour_type":"standard","description":null,"day_of_week":3,"date":"2014-03-06","opening_time":"09:30","closing_time":"21:00","closed":false},{"id":488,"centre_id":"sydney","store_id":null,"hour_type":"standard","description":null,"day_of_week":4,"date":"2014-03-07","opening_time":"09:30","closing_time":"18:30","closed":false},{"id":489,"centre_id":"sydney","store_id":null,"hour_type":"standard","description":null,"day_of_week":5,"date":"2014-03-08","opening_time":"09:30","closing_time":"18:30","closed":false},{"id":490,"centre_id":"sydney","store_id":null,"hour_type":"standard","description":null,"day_of_week":6,"date":"2014-03-09","opening_time":"10:00","closing_time":"18:00","closed":false},{"id":484,"centre_id":"sydney","store_id":null,"hour_type":"standard","description":null,"day_of_week":0,"date":"2014-03-10","opening_time":"09:30","closing_time":"18:30","closed":false},{"id":485,"centre_id":"sydney","store_id":null,"hour_type":"standard","description":null,"day_of_week":1,"date":"2014-03-11","opening_time":"09:30","closing_time":"18:30","closed":false},{"id":486,"centre_id":"sydney","store_id":null,"hour_type":"standard","description":null,"day_of_week":2,"date":"2014-03-12","opening_time":"09:30","closing_time":"18:30","closed":false},{"id":487,"centre_id":"sydney","store_id":null,"hour_type":"standard","description":null,"day_of_week":3,"date":"2014-03-13","opening_time":"09:30","closing_time":"21:00","closed":false},{"id":488,"centre_id":"sydney","store_id":null,"hour_type":"standard","description":null,"day_of_week":4,"date":"2014-03-14","opening_time":"09:30","closing_time":"18:30","closed":false},{"id":489,"centre_id":"sydney","store_id":null,"hour_type":"standard","description":null,"day_of_week":5,"date":"2014-03-15","opening_time":"09:30","closing_time":"18:30","closed":false},{"id":490,"centre_id":"sydney","store_id":null,"hour_type":"standard","description":null,"day_of_week":6,"date":"2014-03-16","opening_time":"10:00","closing_time":"18:00","closed":false}]'
+    http_version: 
+  recorded_at: Fri, 07 Feb 2014 02:57:27 GMT
 recorded_with: VCR 2.6.0

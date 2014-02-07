@@ -34233,5 +34233,51 @@ http_interactions:
   recorded_at: Fri, 07 Feb 2014 06:00:01 GMT
 =======
   recorded_at: Wed, 05 Feb 2014 04:07:46 GMT
+<<<<<<< HEAD
 >>>>>>> Fixing tests WIP
+=======
+- request:
+    method: get
+    uri: http://trading-hour-service.test.dbg.westfield.com/api/trading-hour/master/centre_trading_hours/range.json?centre_id=bondijunction&from=2014-02-07&to=2014-02-07
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.8
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-UA-Compatible:
+      - chrome=1
+      Content-Type:
+      - application/json; charset=utf-8
+      ETag:
+      - '"5f005c9b2d14ab75b8d06da82a536321"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 6773ee8d-afae-4f10-9f22-082aacdf6c4f
+      X-Runtime:
+      - '0.482347'
+      Date:
+      - Fri, 07 Feb 2014 02:51:55 GMT
+      Connection:
+      - close
+    body:
+      encoding: UTF-8
+      string: '[{"id":285,"centre_id":"bondijunction","store_id":null,"hour_type":"standard","description":null,"day_of_week":4,"date":"2014-02-07","opening_time":"09:30","closing_time":"19:00","closed":false}]'
+    http_version: 
+  recorded_at: Fri, 07 Feb 2014 02:51:55 GMT
+>>>>>>> Getting all the specs green.
 recorded_with: VCR 2.6.0

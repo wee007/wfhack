@@ -92,4 +92,47 @@ http_interactions:
         9848 1699","email_address":"doncaster@au.westfield.com","latitude":"-37.785423","longitude":"145.12562","today_opening_time":null,"today_closing_time":null,"number_of_levels":12,"micello_community":20068,"facebook":null,"twitter":null,"google_plus":null,"instagram":null,"pinterest":null,"youtube":null,"retail":true,"enabled":true}'
     http_version: 
   recorded_at: Tue, 17 Sep 2013 06:31:31 GMT
-recorded_with: VCR 2.5.0
+- request:
+    method: get
+    uri: http://trading-hour-service.test.dbg.westfield.com/api/trading-hour/master/centre_trading_hours/range.json?centre_id=doncaster
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.8
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-UA-Compatible:
+      - chrome=1
+      Content-Type:
+      - application/json; charset=utf-8
+      ETag:
+      - '"c7475791b08ea22bf647763f07596a36"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 5fa2ed23-ca37-40bf-abe6-6e05afd94c25
+      X-Runtime:
+      - '0.037317'
+      Date:
+      - Tue, 04 Feb 2014 22:45:05 GMT
+      Connection:
+      - close
+    body:
+      encoding: UTF-8
+      string: '[{"id":323,"centre_id":"doncaster","store_id":null,"hour_type":"standard","description":null,"day_of_week":0,"date":"2014-02-03","opening_time":"09:00","closing_time":"17:30","closed":false},{"id":324,"centre_id":"doncaster","store_id":null,"hour_type":"standard","description":null,"day_of_week":1,"date":"2014-02-04","opening_time":"09:00","closing_time":"17:30","closed":false},{"id":325,"centre_id":"doncaster","store_id":null,"hour_type":"standard","description":null,"day_of_week":2,"date":"2014-02-05","opening_time":"09:00","closing_time":"17:30","closed":false},{"id":326,"centre_id":"doncaster","store_id":null,"hour_type":"standard","description":null,"day_of_week":3,"date":"2014-02-06","opening_time":"09:00","closing_time":"21:00","closed":false},{"id":327,"centre_id":"doncaster","store_id":null,"hour_type":"standard","description":null,"day_of_week":4,"date":"2014-02-07","opening_time":"09:00","closing_time":"21:00","closed":false},{"id":328,"centre_id":"doncaster","store_id":null,"hour_type":"standard","description":null,"day_of_week":5,"date":"2014-02-08","opening_time":"09:00","closing_time":"18:00","closed":false},{"id":329,"centre_id":"doncaster","store_id":null,"hour_type":"standard","description":null,"day_of_week":6,"date":"2014-02-09","opening_time":"10:00","closing_time":"17:00","closed":false},{"id":323,"centre_id":"doncaster","store_id":null,"hour_type":"standard","description":null,"day_of_week":0,"date":"2014-02-10","opening_time":"09:00","closing_time":"17:30","closed":false},{"id":324,"centre_id":"doncaster","store_id":null,"hour_type":"standard","description":null,"day_of_week":1,"date":"2014-02-11","opening_time":"09:00","closing_time":"17:30","closed":false},{"id":325,"centre_id":"doncaster","store_id":null,"hour_type":"standard","description":null,"day_of_week":2,"date":"2014-02-12","opening_time":"09:00","closing_time":"17:30","closed":false},{"id":326,"centre_id":"doncaster","store_id":null,"hour_type":"standard","description":null,"day_of_week":3,"date":"2014-02-13","opening_time":"09:00","closing_time":"21:00","closed":false},{"id":327,"centre_id":"doncaster","store_id":null,"hour_type":"standard","description":null,"day_of_week":4,"date":"2014-02-14","opening_time":"09:00","closing_time":"21:00","closed":false},{"id":328,"centre_id":"doncaster","store_id":null,"hour_type":"standard","description":null,"day_of_week":5,"date":"2014-02-15","opening_time":"09:00","closing_time":"18:00","closed":false},{"id":329,"centre_id":"doncaster","store_id":null,"hour_type":"standard","description":null,"day_of_week":6,"date":"2014-02-16","opening_time":"10:00","closing_time":"17:00","closed":false},{"id":323,"centre_id":"doncaster","store_id":null,"hour_type":"standard","description":null,"day_of_week":0,"date":"2014-02-17","opening_time":"09:00","closing_time":"17:30","closed":false},{"id":324,"centre_id":"doncaster","store_id":null,"hour_type":"standard","description":null,"day_of_week":1,"date":"2014-02-18","opening_time":"09:00","closing_time":"17:30","closed":false},{"id":325,"centre_id":"doncaster","store_id":null,"hour_type":"standard","description":null,"day_of_week":2,"date":"2014-02-19","opening_time":"09:00","closing_time":"17:30","closed":false},{"id":326,"centre_id":"doncaster","store_id":null,"hour_type":"standard","description":null,"day_of_week":3,"date":"2014-02-20","opening_time":"09:00","closing_time":"21:00","closed":false},{"id":327,"centre_id":"doncaster","store_id":null,"hour_type":"standard","description":null,"day_of_week":4,"date":"2014-02-21","opening_time":"09:00","closing_time":"21:00","closed":false},{"id":328,"centre_id":"doncaster","store_id":null,"hour_type":"standard","description":null,"day_of_week":5,"date":"2014-02-22","opening_time":"09:00","closing_time":"18:00","closed":false},{"id":329,"centre_id":"doncaster","store_id":null,"hour_type":"standard","description":null,"day_of_week":6,"date":"2014-02-23","opening_time":"10:00","closing_time":"17:00","closed":false},{"id":323,"centre_id":"doncaster","store_id":null,"hour_type":"standard","description":null,"day_of_week":0,"date":"2014-02-24","opening_time":"09:00","closing_time":"17:30","closed":false},{"id":324,"centre_id":"doncaster","store_id":null,"hour_type":"standard","description":null,"day_of_week":1,"date":"2014-02-25","opening_time":"09:00","closing_time":"17:30","closed":false},{"id":325,"centre_id":"doncaster","store_id":null,"hour_type":"standard","description":null,"day_of_week":2,"date":"2014-02-26","opening_time":"09:00","closing_time":"17:30","closed":false},{"id":326,"centre_id":"doncaster","store_id":null,"hour_type":"standard","description":null,"day_of_week":3,"date":"2014-02-27","opening_time":"09:00","closing_time":"21:00","closed":false},{"id":327,"centre_id":"doncaster","store_id":null,"hour_type":"standard","description":null,"day_of_week":4,"date":"2014-02-28","opening_time":"09:00","closing_time":"21:00","closed":false},{"id":328,"centre_id":"doncaster","store_id":null,"hour_type":"standard","description":null,"day_of_week":5,"date":"2014-03-01","opening_time":"09:00","closing_time":"18:00","closed":false},{"id":329,"centre_id":"doncaster","store_id":null,"hour_type":"standard","description":null,"day_of_week":6,"date":"2014-03-02","opening_time":"10:00","closing_time":"17:00","closed":false},{"id":323,"centre_id":"doncaster","store_id":null,"hour_type":"standard","description":null,"day_of_week":0,"date":"2014-03-03","opening_time":"09:00","closing_time":"17:30","closed":false},{"id":324,"centre_id":"doncaster","store_id":null,"hour_type":"standard","description":null,"day_of_week":1,"date":"2014-03-04","opening_time":"09:00","closing_time":"17:30","closed":false},{"id":325,"centre_id":"doncaster","store_id":null,"hour_type":"standard","description":null,"day_of_week":2,"date":"2014-03-05","opening_time":"09:00","closing_time":"17:30","closed":false},{"id":326,"centre_id":"doncaster","store_id":null,"hour_type":"standard","description":null,"day_of_week":3,"date":"2014-03-06","opening_time":"09:00","closing_time":"21:00","closed":false},{"id":327,"centre_id":"doncaster","store_id":null,"hour_type":"standard","description":null,"day_of_week":4,"date":"2014-03-07","opening_time":"09:00","closing_time":"21:00","closed":false},{"id":328,"centre_id":"doncaster","store_id":null,"hour_type":"standard","description":null,"day_of_week":5,"date":"2014-03-08","opening_time":"09:00","closing_time":"18:00","closed":false},{"id":329,"centre_id":"doncaster","store_id":null,"hour_type":"standard","description":null,"day_of_week":6,"date":"2014-03-09","opening_time":"10:00","closing_time":"17:00","closed":false},{"id":323,"centre_id":"doncaster","store_id":null,"hour_type":"standard","description":null,"day_of_week":0,"date":"2014-03-10","opening_time":"09:00","closing_time":"17:30","closed":false},{"id":324,"centre_id":"doncaster","store_id":null,"hour_type":"standard","description":null,"day_of_week":1,"date":"2014-03-11","opening_time":"09:00","closing_time":"17:30","closed":false},{"id":325,"centre_id":"doncaster","store_id":null,"hour_type":"standard","description":null,"day_of_week":2,"date":"2014-03-12","opening_time":"09:00","closing_time":"17:30","closed":false},{"id":326,"centre_id":"doncaster","store_id":null,"hour_type":"standard","description":null,"day_of_week":3,"date":"2014-03-13","opening_time":"09:00","closing_time":"21:00","closed":false},{"id":327,"centre_id":"doncaster","store_id":null,"hour_type":"standard","description":null,"day_of_week":4,"date":"2014-03-14","opening_time":"09:00","closing_time":"21:00","closed":false},{"id":328,"centre_id":"doncaster","store_id":null,"hour_type":"standard","description":null,"day_of_week":5,"date":"2014-03-15","opening_time":"09:00","closing_time":"18:00","closed":false},{"id":329,"centre_id":"doncaster","store_id":null,"hour_type":"standard","description":null,"day_of_week":6,"date":"2014-03-16","opening_time":"10:00","closing_time":"17:00","closed":false}]'
+    http_version: 
+  recorded_at: Tue, 04 Feb 2014 22:45:05 GMT
+recorded_with: VCR 2.6.0

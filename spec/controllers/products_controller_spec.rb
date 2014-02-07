@@ -6,6 +6,7 @@ describe ProductsController do
     StoreService.stub(:fetch)
     CentreService.stub(:fetch).and_return double :centre_service_response, body: {}
     CentreService.stub(:group_by_state)
+    CentreTradingHour.stub(:fetch)
     ProductService.stub(:fetch).and_return double( :product_service_response,
       body: {
         details: [],

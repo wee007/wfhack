@@ -9,11 +9,15 @@ class ProductsController < ApplicationController
       centre: params[:centre_id],
       centres: [nil, {near_to: params[:centre_id]}],
       products: params.merge({rows: 50}),
-      product: { :category_codes => category_params }
+      product: { :category_codes => category_params },
+      centre_trading_hour: params[:centre_id]
     }
     services[:product] = services[:products] if services[:product][:category_codes].nil?
     services[:store] = {retailer_code: params[:retailer].first} if params[:retailer]
-    @centre, @nearby_centres, @search, @categories, stores = service_map services
+    
+    #BUG: Stores is NEVER assigned to anything.
+    @centre, @nearby_centres, @search, @categories, centre_trading_hour, stores = service_map services
+    @centre_trading_hour = centre_trading_hour.flatten.select{|hour| hour.date == Time.now.in_time_zone(@centre.timezone).strftime("%Y-%m-%d")}.first
     @super_categories = CategoryService.find centre_id: params[:centre_id], product_mapable: true
 
     meta.push(

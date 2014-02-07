@@ -5,7 +5,6 @@ describe "Parking" do
 
   before(:each) do
     CentreServiceNoticeService.stub(:fetch)
-    # CentreTradingHourService.stub(:fetch)
   end
 
 

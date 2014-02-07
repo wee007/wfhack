@@ -296,10 +296,11 @@
       .no-js & .tab__content {margin-bottom: 0;}
     }
 
-    /* Container for tab content to give positioning context for geolocation preloader and overlay */
+    /* Container for tab content to give positioning context for geolocation overlay */
     .national__tabs__content__container {
       position: relative;
 
+      /* Position the geolocation preloader to be the same top indent as the centre name */
       .preloader--top {
         @include to-rem(top, 30);
 

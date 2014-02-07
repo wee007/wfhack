@@ -16,6 +16,8 @@
   background-color: rgba($color-grey-light-3, 0.85);
 }
 
+/* Modifier: Set position to absolute so overlay will fit within container rather than screen */
 .overlay--absolute {position: absolute;}
 
+/* Modifier: Change the background colour to be more transparent. This works well with dark backgrounds */
 .overlay--light {background-color: rgba($color-grey-light-3, 0.5);}

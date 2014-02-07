@@ -42,7 +42,7 @@ sortCentreListByLocation = (userState) ->
   tempParent = $('<div/>')
 
   $.each westfield.geo, (i, centre) ->
-    tempParent.append list.find(".js-centrecode-#{centre.code}").clone()
+    tempParent.append list.find(".js-sort-centres-geolocation-#{centre.code}").clone()
     @
 
   # Get the sorted centre li's and put them in the real DOM

@@ -20,24 +20,24 @@
 	em {font-style: italic;}
 }
 
-/* Modifier: position the loader in the centre of it's parent */
-.preloader--middle {
-	position: absolute;
-	z-index: 99;
-	top: 50%;
-	left: 50%;
-	@include translate(-50%, -50%);
+/* Modifier: shared rules for position modifiers */
+.preloader--middle,
+.preloader--top {
+  position: absolute;
+  z-index: 99;
+  left: 50%;
+ }
 
-	/* Old IE */
-	@include old-ie {
-		&.preloader--light {margin: -20px 0 0 -20px;}
-	}
+/* Modifier: position the loader in the middle of it's parent */
+.preloader--middle {
+  top: 50%;
+  @include translate(-50%, -50%);
 }
 
 /* Modifier: position the loader near the top of it's parent */
 .preloader--top {
-	@include to-rem(top, $spacing-base);
-	@include translate(-50%, 0);
+  @include to-rem(top, $spacing-base);
+	@include translateX(-50%);
 }
 
 	/* Spinner animation */

@@ -296,6 +296,19 @@
       .no-js & .tab__content {margin-bottom: 0;}
     }
 
+    /* Container for tab content to give positioning context for geolocation preloader and overlay */
+    .national__tabs__content__container {
+      position: relative;
+
+      .preloader--top {
+        @include to-rem(top, 30);
+
+        @include respond-min($non-palm) {
+          @include to-rem(top, $spacing-dbl);
+        }
+      }
+    }
+
       /* Tile that links to the relevant centre homepage */
       .national__centre-tile {
         display: block;

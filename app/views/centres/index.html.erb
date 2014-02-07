@@ -67,32 +67,32 @@
         <%# Tab nav %>
         <ul class="tab__nav horiz-list">
           <li>
-            <a class="js-viewport-check-on-click js-nsw is-active" href="#tab-nsw">
+            <a class="js-viewport-check-on-click js-sort-centres-geolocation-nsw is-active" href="#tab-nsw">
               <abbr title="New South Wales">NSW</abbr>
             </a>
           </li>
           <li>
-            <a class="js-viewport-check-on-click js-act" href="#tab-act">
+            <a class="js-viewport-check-on-click js-sort-centres-geolocation-act" href="#tab-act">
               <abbr title="Australian Capital Territory">ACT</abbr>
             </a>
           </li>
           <li>
-            <a class="js-viewport-check-on-click js-qld" href="#tab-qld">
+            <a class="js-viewport-check-on-click js-sort-centres-geolocation-qld" href="#tab-qld">
               <abbr title="Queensland">QLD</abbr>
             </a>
           </li>
           <li>
-            <a class="js-viewport-check-on-click js-vic" href="#tab-vic">
+            <a class="js-viewport-check-on-click js-sort-centres-geolocation-vic" href="#tab-vic">
               <abbr title="Victoria">VIC</abbr>
             </a>
           </li>
           <li>
-            <a class="js-viewport-check-on-click js-sa" href="#tab-sa">
+            <a class="js-viewport-check-on-click js-sort-centres-geolocation-sa" href="#tab-sa">
               <abbr title="South Australia">SA</abbr>
             </a>
           </li>
           <li>
-            <a class="js-viewport-check-on-click js-wa" href="#tab-wa">
+            <a class="js-viewport-check-on-click js-sort-centres-geolocation-wa" href="#tab-wa">
               <abbr title="Western Australia">WA</abbr>
             </a>
           </li>
@@ -101,7 +101,7 @@
 
       </div>
 
-      <div class="container--position js-centre-container">
+      <div class="national__tabs__content__container js-sort-centres-geolocation-container">
         <%# Tab content %>
         <% %w(NSW ACT QLD VIC SA WA).each do |state| %>
           <ul id="tab-<%= state.downcase %>" class="tab__content<%= ' is-active' if state == 'NSW' %>">

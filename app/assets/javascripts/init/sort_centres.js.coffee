@@ -1,15 +1,15 @@
 #= require init/geolocation
 insertOverlayAndPreloader = ->
   html = '<div class="overlay overlay--absolute overlay--light">
-    <span class="preloader preloader--top preloader--middle preloader--light js-disabled-hide">
+    <span class="preloader preloader--top preloader--light">
       <span class="preloader__spinner"></span>
       <em class="hide-visually">Loading, please wait&#8230;</em>
     </span>
   </div>'
-  $('.js-centre-container').append(html)
+  $('.js-sort-centres-geolocation-container').prepend(html)
 
 removeOverlayAndPreloader = ->
-  $('.overlay','.js-centre-container').remove()
+  $('.overlay','.js-sort-centres-geolocation-container').remove()
 
 calculateClosestCentresAndState = (userPosition) ->
   # Use haversine algorithm in geolocation module to calculate distance bewteen users and centres.
@@ -27,14 +27,14 @@ selectClosestState = ->
   closestCentreState = westfield.geo[0].state.toLowerCase()
 
   # Have to use double quotes here so coffeescript's string interpolation works
-  $(".js-#{closestCentreState}").trigger 'click'
+  $(".js-sort-centres-geolocation-#{closestCentreState}").trigger 'click'
 
   return closestCentreState
 
 
 sortCentreListByLocation = (userState) ->
   # Order centres list by distance from user
-  # by cloning html for each centre li closest to furthers
+  # by cloning html for each centre li closest to furthest
   list = $("#tab-#{userState}")
 
   # Create a dummy DOM node to store sorted centre li's

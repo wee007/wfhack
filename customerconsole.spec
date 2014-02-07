@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.132
+Version:     0.2.133
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,13 @@ fi
 
 
 %changelog
+* Fri Feb 07 2014 ci <doperations@au.westfield.com> 0.2.133-1
+- Merge pull request #901 from mwratt/map-regression-fixes
+  (dmiller@au.westfield.com)
+- removes un-needed css (matt.wratt@trineo.co.nz)
+- fixes unwanted scroll on map pages (matt.wratt@trineo.co.nz)
+- allows scrolling of store detail on non palm (matt.wratt@trineo.co.nz)
+
 * Fri Feb 07 2014 ci <doperations@au.westfield.com> 0.2.132-1
 - Merge pull request #896 from ldewey/WSF-6133 (craigM.smith@au.westfield.com)
 - Fixed - "All Centres" Product Search is not showing all stores

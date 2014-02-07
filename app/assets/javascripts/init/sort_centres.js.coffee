@@ -68,6 +68,9 @@ if navigator.geolocation
       state = selectClosestState()
       sortCentreListByLocation(state)
     ), extraDelay
+  , ->
+    removeOverlayAndPreloader()
+    @
 
 
 

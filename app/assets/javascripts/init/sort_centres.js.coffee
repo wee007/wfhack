@@ -12,6 +12,7 @@ removeOverlayAndPreloader = ->
   $('.overlay','.js-centre-container').remove()
 
 calculateClosestCentresAndState = (userPosition) ->
+  # Use haversine algorithm in geolocation module to calculate distance bewteen users and centres.
   $.each westfield.geo, (i, centre) ->
     centre.latitude = parseFloat centre.latitude, 10
     centre.longitude = parseFloat centre.longitude, 10
@@ -22,7 +23,7 @@ calculateClosestCentresAndState = (userPosition) ->
     a.distance - b.distance
 
 selectClosestState = ->
-  #select current state tab
+  # Select current state tab
   closestCentreState = westfield.geo[0].state.toLowerCase()
 
   # Have to use double quotes here so coffeescript's string interpolation works

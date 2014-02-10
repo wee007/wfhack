@@ -1,4 +1,4 @@
-this.Geolocation =
+@.Geolocation =
   rad: (x) ->
     x * Math.PI / 180
 

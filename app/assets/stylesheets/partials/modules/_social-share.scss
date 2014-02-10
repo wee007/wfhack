@@ -81,7 +81,7 @@ $share-pinterest: #ca2026 !default;
   }
 
     /* Hide button text for 'Tile' version */
-    .tile & .social-share__trigger__txt {@include hide-visually;}
+    .tile & .social-share__trigger__txt {@extend %hide-visually;}
 
   /* Drop down menu target */
   .drop-down {

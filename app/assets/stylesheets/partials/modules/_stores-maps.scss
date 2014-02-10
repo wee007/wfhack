@@ -254,17 +254,9 @@
           }
 
           /* Gift card toggle */
-          .btn--main-checkbox-toggle {
-
-            /* Reveal text at this breakpoint */
-            @include respond-min($non-palm) {
-              .hide-visually {@include hide-visually-off;}
-            }
-
-            .icon--gift-card:before {
-              color: #fff;
-              @include to-rem(margin-left, $spacing-quarter);
-            }
+          .btn--main-checkbox-toggle .icon--gift-card:before {
+            color: #fff;
+            @include to-rem(margin-left, $spacing-quarter);
           }
 
           /* Applied filter tag */
@@ -314,7 +306,7 @@
         /* Show hidden text for non JS users */
         .no-js {
           .stores-maps__intro,
-          .drop-down-menu__list .btn .hide-visually {@include hide-visually-off;}
+          .drop-down-menu__list .btn .hide-visually {@extend %hide-visually-off;}
 
           .drop-down-menu__list .btn .hide-visually {
             font-style: italic;
@@ -326,15 +318,12 @@
       .stores-maps__toggle {
         float: right;
 
-        /* Reveal button text, float right and fix a width at this breakpoint */
+        /* Float right and fix a width at this breakpoint */
         @include respond-min($non-palm) {
           @include to-rem(min-width, 120);
 
           /* Link version */
           &.stores-maps__toggle--link {@include to-rem(min-width, 106);}
-
-          /* Reveal button text */
-          .hide-visually {@include hide-visually-off;}
         }
 
         /* Hide at this breakpoint */

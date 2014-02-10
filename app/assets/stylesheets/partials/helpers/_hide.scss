@@ -29,8 +29,19 @@
 		.hide-fully--non-palm {display: none;}
 	}
 
-/* Hide only visually but have it available for screen readers */
-.hide-visually {@extend %hide-visually;}
+/*
+	Hide only visually but have it available for screen readers, can use at specific breakpoints.
+
+	Note: need to use silent placeholders to decrease the specificity as the CSS for placeholders is called first, so we can easily override when required. However within the mq we use a `@mixin` as we can't `@extend` in mq's.
+*/
+.hide-visually,
+.hide-visually--palm {@extend %hide-visually;}
+
+@include respond-min($non-palm) {
+	.hide-visually--palm {@include hide-visually-off;}
+
+	.hide-visually--non-palm {@include hide-visually;}
+}
 
 /* Form `legend` requires this */
 legend.hide-visually {left: $off-screen-distance;}

@@ -9,7 +9,14 @@
   <div class="flexslider flexslider--contain-controls" style="background-image: url(<%= cl_image_path(@store.storefront, width: 2048, crop: :limit, quality: 25, format: :auto, type: :fetch) %>);">
     <ul class="slides">
       <li>
-        <%= fetch_image_tag @store.storefront, alt: "#{@store.name} banner", width: 2048, crop: :limit, quality: 25, format: :auto %>
+        <%= fetch_image_tag @store.storefront,
+          alt: "#{@store.name} banner",
+          width: 2048,
+          crop: :limit,
+          quality: 25,
+          format: :auto,
+          class: "hide-visually"
+        %>
       </li>
       <%= render 'description' %>
     </ul>

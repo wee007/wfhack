@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.133
+Version:     0.2.134
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,23 @@ fi
 
 
 %changelog
+* Mon Feb 10 2014 ci <doperations@au.westfield.com> 0.2.134-1
+- Merge pull request #900 from cpearce/quick-fixes (dmiller@au.westfield.com)
+- Merge pull request #873 from cpearce/refactoring-framework
+  (dmiller@au.westfield.com)
+- Merge pull request #899 from fchan/styleguide (dmiller@au.westfield.com)
+- More updates from PR feedback (fiona@fionachan.net)
+- Fix up style guide scss from previous PR (fiona@fionachan.net)
+- Fix up modules after PR feedback (fiona@fionachan.net)
+- Added modules: fine print, feedback, hero, list-divider and nav-contextual
+  (fiona@fionachan.net)
+- Fixing up legacy CSS heading style comments (cpearce@au.westfield.com)
+- Final clean of hide-visually usage throughout the CSS
+  (cpearce@au.westfield.com)
+- Updating comments for hide silent placeholder (cpearce@au.westfield.com)
+- Adding .hide-visually class to storefront banner (cpearce@au.westfield.com)
+- Adding breakpoint specific hide-visually classes (cpearce@au.westfield.com)
+
 * Fri Feb 07 2014 ci <doperations@au.westfield.com> 0.2.133-1
 - Merge pull request #901 from mwratt/map-regression-fixes
   (dmiller@au.westfield.com)

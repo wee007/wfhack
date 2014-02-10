@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.134
+Version:     0.2.135
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,21 @@ fi
 
 
 %changelog
+* Mon Feb 10 2014 ci <doperations@au.westfield.com> 0.2.135-1
+- Merge pull request #881 from mwratt/fix-map-redraw-issue
+  (araeside@au.westfield.com)
+- Merge pull request #895 from ldewey/WSF-6232 (dmiller@au.westfield.com)
+- fixes broken responsive layout (matt.wratt@trineo.co.nz)
+- apply fix on an interval to make sure its applied (matt.wratt@trineo.co.nz)
+- fixes windows chrome blank canvas issue on load (matt.wratt@trineo.co.nz)
+- fixes js spec failure (matt.wratt@trineo.co.nz)
+- fixes map not redrawing on page load issue (matt.wratt@trineo.co.nz)
+- fixes broken jasmine specs (matt.wratt@trineo.co.nz)
+- fixes scroll bug on stores list after viewing map (matt.wratt@trineo.co.nz)
+- bug fix for when page doesnt repaint on stores page when toggling list and
+  map view on Chrome. fixes #822 (alec@smartalecwebsites.com.au)
+- Fixed "Products not retaining centre context" (ldewey@au.westfield.com)
+
 * Mon Feb 10 2014 ci <doperations@au.westfield.com> 0.2.134-1
 - Merge pull request #900 from cpearce/quick-fixes (dmiller@au.westfield.com)
 - Merge pull request #873 from cpearce/refactoring-framework

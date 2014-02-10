@@ -46,7 +46,8 @@ class StoreMapPage
 
   updateAngularStoreListControllerLinks: (viewingMap) ->
     $scope = angular.element($('[ng-controller="StoreListController"]').get(0)).scope()
-    $scope.$apply -> $scope.viewingMap = viewingMap
+    if $scope
+      $scope.$apply -> $scope.viewingMap = viewingMap
 
   updateGUI: (viewingMap) ->
     @updateAngularStoreListControllerLinks(viewingMap)

@@ -23,6 +23,14 @@
       colours: "colour"
       sizes: "size"
 
+    if westfield.products.count == 0
+      ProductSearch.resetParams()
+      ProductSearch.getSearch()
+      $location.search(searchParamMap.categories, null)
+      $location.search(searchParamMap.retailers, null)
+      $location.search(searchParamMap.brands, null)
+      $location.search(searchParamMap.colours, null)
+
     useUrlParams = ( urlParams = {} ) ->
       # Add querystrings like last=, rows= & page=, as well
       # as overwriting the centre (for use when multiple centres are selected)

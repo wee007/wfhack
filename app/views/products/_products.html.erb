@@ -13,7 +13,7 @@
   </div>
   <%# //No product search results message %>
 
-<%- else -%>
+<%- end -%>
 
   <%# Pin board %>
   <%= pin_board(@search.products) do |result| %>
@@ -21,7 +21,7 @@
       result: result,
       image: { href: result.default_image_url, title: result.name }
     %>
-  <% end %>
+  <%# end %>
   <%# //Pin board %>
 
   <%# Pager %>

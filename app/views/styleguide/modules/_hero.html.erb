@@ -1,0 +1,27 @@
+<% content_for :custom_styles do %>
+<style>
+  @media (max-width: 25em) {
+      .hero {background-image: url(http://res.cloudinary.com/wlabs/image/asset/f_auto/centre-info-sml-ee6111b2607bed86cdb4d65ce5f50a04.jpg);}
+  }
+  @media (min-width: 25.0625em) and (max-width: 48em) {
+      .hero {background-image: url(http://res.cloudinary.com/wlabs/image/asset/f_auto/centre-info-med-eb4ca10eaf3bec693fe3ac6d9a48a193.jpg);}
+  }
+  @media (min-width: 48.0625em) {
+      .hero {background-image: url(http://res.cloudinary.com/wlabs/image/asset/f_auto/centre-info-lrg-c6c6cd405a4ec4b8b8a733577880b9c2.jpg);}
+  }
+  .old-ie .hero {background-image: url(http://res.cloudinary.com/wlabs/image/asset/centre-info-lrg-c6c6cd405a4ec4b8b8a733577880b9c2.jpg);}
+</style>
+<% end %>
+
+<%= styleguide_block 'Hero' do |style| %>
+<div class="hero">
+  <div class="vert-align">
+    <div class="vert-align__inner">
+      <div class="hero__inner container">
+        <span class="hero__icon icon icon--info" aria-hidden="true"></span>
+        <h1>Centre Information</h1>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>

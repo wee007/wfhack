@@ -3,14 +3,15 @@
    ====================================================================================== */
 
 /*
-	Usage:
-		List of content with a divider in-between
+  List of content with a divider in-between
 
-	Note:
-		For most cases this module will be a list but they're cases when there can be a single item hence no styling is set on the list HTML (`ul/li`).
+  .list-divider--first    - Turn off top padding for the first item
 
-	Demo:
-		Style Guide -> Modules -> List Divider
+  Styleguide List Divider
+*/
+
+/*
+	Note: For most cases this module will be a list but they're cases when there can be a single item hence no styling is set on the list HTML (`ul/li`).
 */
 
 .list-divider {

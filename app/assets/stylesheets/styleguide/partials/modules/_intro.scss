@@ -7,13 +7,13 @@
 */
 
 .sg-intro {
-  @include to-rem(padding, $spacing-dbl 0);
   @extend %mrg-base;
+  @include to-rem(padding-top padding-bottom, $spacing-dbl);
   color: #fff;
   background-color: $color-grey-dark-1;
 
   @include respond-min($non-palm) {
-    @include to-rem(padding-top padding-bottom, ($spacing-dbl+$spacing-dbl));
+    @include to-rem(padding-top padding-bottom, $spacing-dbl+$spacing-dbl);
     @include to-rem(margin-bottom, $spacing-dbl);
   }
 }

@@ -3,11 +3,15 @@
    ====================================================================================== */
 
 /*
-	Usage:
-		Provides appropriately designed UI feedback messages for users to acknowledge their actions and to orient users to their location in the site. Most common use case is for errors e.g. form validation errors. Read more here: http://styleguide.yahoo.com/writing/write-clear-user-interface-text/feedback-messages-and-error-messages.
+  Provides appropriately designed UI feedback messages for users to acknowledge their actions and to orient users to their location in the site. Most common use case is for errors e.g. form validation errors. Read more here: http://styleguide.yahoo.com/writing/write-clear-user-interface-text/feedback-messages-and-error-messages.
 
-	Demo:
-		Style Guide -> Modules -> Feedback
+  .feedback--error    - Error feedback
+  .feedback--warning  - Warning feedback
+  .feedback--success  - Success feedback
+  .feedback--info     - General feedback
+  .feedback--block    - For when you need more than one paragraph of text
+
+  Styleguide Feedback
 */
 
 .feedback {
@@ -26,8 +30,8 @@
 
 /* Modifier: Block */
 .feedback--block {
-	@extend %mrg-base;
-	@include to-em(padding-top padding-bottom, $spacing-half);
+  @extend %mrg-base;
+  @include to-em(padding-top padding-bottom, $spacing-half);
 
 	.hn,
 	p,
@@ -39,8 +43,8 @@
 
 /* Modifier: Error */
 .feedback--error {
-	background-color: $color-feedback-error-light;
-	border-color: $color-feedback-error-border;
+  background-color: $color-feedback-error-light;
+  border-color: $color-feedback-error-border;
 
 	&,
 	a,
@@ -49,8 +53,8 @@
 
 /* Modifier: Warning */
 .feedback--warning {
-	background-color: $color-feedback-warning-light;
-	border-color: $color-feedback-warning-border;
+  background-color: $color-feedback-warning-light;
+  border-color: $color-feedback-warning-border;
 
 	&,
 	a,
@@ -59,8 +63,8 @@
 
 /* Modifier: Success */
 .feedback--success {
-	background-color: $color-feedback-success-light;
-	border-color: $color-feedback-success-border;
+  background-color: $color-feedback-success-light;
+  border-color: $color-feedback-success-border;
 
 	&,
 	a,
@@ -69,8 +73,8 @@
 
 /* Modifier: Info */
 .feedback--info {
-	background-color: $color-feedback-info-light;
-	border-color: $color-feedback-info-border;
+  background-color: $color-feedback-info-light;
+  border-color: $color-feedback-info-border;
 
 	&,
 	a,

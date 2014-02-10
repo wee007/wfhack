@@ -1,0 +1,15 @@
+<%= styleguide_block 'Preloader' do |style| %>
+<span class="preloader $modifier_class js-disabled-hide">
+  <span class="preloader__spinner"></span>
+  <em class="hide-visually">Loading, please wait&#8230;</em>
+</span>
+<% end %>
+
+<% example '.preloader--middle' do %>
+<div class="container--position">
+  <span class="preloader preloader--middle js-disabled-hide">
+    <span class="preloader__spinner"></span>
+    <em class="hide-visually">Loading, please wait&#8230;</em>
+  </span>
+</div>
+<% end %>

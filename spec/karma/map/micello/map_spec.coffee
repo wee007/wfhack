@@ -4,6 +4,10 @@ describe "map.micello.Map", ->
     sinon.stub(window, '$').returns({
       text: sinon.stub()
       on: sinon.stub()
+      css: sinon.stub()
+      first: sinon.stub().returns({
+        on: sinon.stub()
+      })
     })
     $.ajax = sinon.stub().returns(success: sinon.stub())
     $.getJSON = sinon.stub().callsArgWith(1, [])
@@ -12,6 +16,7 @@ describe "map.micello.Map", ->
       maps: {
         init: sinon.stub().callsArg(1)
         MapView: prototype: translate: $.noop
+        MapGUI: prototype: createMouseShield: $.noop
         MapControl: sinon.stub().returns({
           getMapData: sinon.stub().returns({
             loadCommunity: sinon.stub()
@@ -31,7 +36,9 @@ describe "map.micello.Map", ->
             getViewportWidth: sinon.stub()
             getViewportHeight: sinon.stub()
           })
-          getMapGUI: sinon.stub().returns({})
+          getMapGUI: sinon.stub().returns({
+            createMouseShield: sinon.stub()
+          })
           showInfoWindow: sinon.stub()
           hideInfoWindow: sinon.stub()
         })

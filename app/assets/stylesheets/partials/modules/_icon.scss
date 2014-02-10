@@ -212,7 +212,9 @@
 
 /* Arrow full up */
 .icon--arrow-up-full:before,
-/* --These pseudo elements are to render the 'Drop down menu' / 'Micello map' arrow pointers as they use an icon font (`@extend` isn't suitable for this)-- */
+/*
+  These pseudo elements are to render the 'Drop down menu' / 'Micello map' arrow pointers as they use an icon font (`@extend` isn't suitable for this)
+*/
 /* 'Drop down menu' */
 .pointer-up:before,
 /* 'Micello map' */

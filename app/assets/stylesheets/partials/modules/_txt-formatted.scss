@@ -3,14 +3,15 @@
    ====================================================================================== */
 
 /*
-	Usage:
-		Styles for text formatting which aren't provided by the base styles, this is usually used for user generated text e.g. product description.
+	Styles for text formatting which aren't provided by the base styles, this is usually used for user generated text e.g. product description.
 
-	Note:
-		User generated text needs the modifier: `.txt-formatted--user-generated`.
+  .txt-formatted--user-generated     - User generated rules
 
-	Demo:
-		Style Guide -> Modules -> Text Formatted
+  Styleguide Text Formatted
+*/
+
+/*
+	Note: User generated text needs the modifier: `.txt-formatted--user-generated`.
 */
 
 /* Increase specificity so we can override formats set in other modules when `.txt-formatted` is being used */

@@ -4,13 +4,13 @@
 
 <% content_for :section_nav do %>
   <%= render layout: '/layouts/section_nav' do %>
-    <ul class="nav-contextual__list horiz-list js-nav-contextual-list"><%=
+    <%=
         render(
           :collection => @super_categories,
           :partial => '/shared/categories/super_cat_nav',
           :as => :category
         )
-      -%></ul>
+    -%>
   <% end %>
 <% end %>
 

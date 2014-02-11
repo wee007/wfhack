@@ -6,7 +6,9 @@
     <div class="nav-contextual nav-contextual--dark js-nav-contextual js-viewport-check">
       <div class="nav-contextual__clip">
         <nav class="nav-contextual__clip__inner" role="navigation" aria-label="<%= params[:controller].singularize.humanize %> categories navigation">
-          <%= yield %>
+          <ul class="nav-contextual__list horiz-list js-nav-contextual-list">
+            <%= yield %>
+          </ul>
         </nav>
         <span class="nav-contextual__clip__overlay icon icon--arrow-right icon--mega icon--flush-top js-nav-contextual-clip-overlay" aria-hidden="true"></span>
       </div>

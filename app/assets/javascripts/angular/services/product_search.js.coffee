@@ -48,7 +48,7 @@
 
     @getAvailableFilters = (centre) ->
       $http.get("/api/product/master/products/search.json",
-        params: ParamCleaner.build({centre: centre})
+        params: ParamCleaner.build({centre: centre, rows: 0})
         cache: true
       ).then (response) ->
         self.formatSearchResults response.data

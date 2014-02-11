@@ -24,12 +24,8 @@
       sizes: "size"
 
     if westfield.products.count == 0
-      ProductSearch.resetParams()
-      ProductSearch.getSearch()
-      $location.search(searchParamMap.categories, null)
-      $location.search(searchParamMap.retailers, null)
-      $location.search(searchParamMap.brands, null)
-      $location.search(searchParamMap.colours, null)
+        ProductSearch.resetParams()
+        ProductSearch.getAvailableFilters $rootScope.centre_id
 
     useUrlParams = ( urlParams = {} ) ->
       # Add querystrings like last=, rows= & page=, as well
@@ -54,12 +50,18 @@
       # used by the view but we'll map them anyway.
       angular.forEach params, (param, key) -> $scope[key] = param
 
-    setParams = ->
+    setParams = (newAttribute, newValues) ->
       rParams = routeParams()
       qsParams = queryStringParams()
 
       # New params mean that we need to reset the page QS
       delete qsParams.page
+
+      if westfield.products.count == 0
+        qsParams = {}
+        qsParams[newAttribute] = newValues
+        #qsParams.centre = rParams.centre
+
 
       # Collect routable params, removing undefined
       route = ['products', rParams.super_cat, rParams.category]
@@ -176,7 +178,7 @@
 
       attributeName = searchParamMap[attributeName]  if searchParamMap[attributeName] isnt `undefined`
       ProductSearch.setParam attributeName, values
-      setParams()
+      setParams(attributeName, values)
       $scope.closeFilters()
 
     $scope.filterCategory = (categoryType, categoryCode) ->

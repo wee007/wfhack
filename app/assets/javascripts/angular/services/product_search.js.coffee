@@ -44,7 +44,14 @@
         cache: true
       ).then (response) ->
         self.formatSearchResults response.data
+        westfield.products.count = response.data.count
 
+    @getAvailableFilters = (centre) ->
+      $http.get("/api/product/master/products/search.json",
+        params: ParamCleaner.build({centre: centre})
+        cache: true
+      ).then (response) ->
+        self.formatSearchResults response.data
 
     # The current category facet could be 'super_cat', 'category' or 'sub_category'
     @getCategoryFacet = (facets) ->

@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.136
+Version:     0.2.137
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,32 @@ fi
 
 
 %changelog
+* Tue Feb 11 2014 ci <doperations@au.westfield.com> 0.2.137-1
+- WSF-6082 Show external URL on Event detail page (ewee@au.westfield.com)
+- Merge pull request #902 from araeside/geolocation (dmiller@au.westfield.com)
+- remove redundant dot (alec@smartalecwebsites.com.au)
+- use coffeescript reference @ instead of 'this'
+  (alec@smartalecwebsites.com.au)
+- update comments for national container element
+  (alec@smartalecwebsites.com.au)
+- refactor css classes and add more comments (alec@smartalecwebsites.com.au)
+- Rename file to be more descriptive (alec@smartalecwebsites.com.au)
+- Remove trailing whitespace (alec@smartalecwebsites.com.au)
+- Refactor scss and class names (alec@smartalecwebsites.com.au)
+- If retrieving the users location fails then remove the overlay and preloader
+  (alec@smartalecwebsites.com.au)
+- more comments (alec@smartalecwebsites.com.au)
+- add more comments (alec@smartalecwebsites.com.au)
+- comment fix (alec@smartalecwebsites.com.au)
+- add spinner and overlay to centre list while users location is being
+  retrieved (alec@smartalecwebsites.com.au)
+- Update list of centres UI to be sorted by location
+  (alec@smartalecwebsites.com.au)
+- select state tab based off location (alec@smartalecwebsites.com.au)
+- get user position and sort centre list based on users distance from centres
+  (alec@smartalecwebsites.com.au)
+- start geolocation (alec@smartalecwebsites.com.au)
+
 * Tue Feb 11 2014 ci <doperations@au.westfield.com> 0.2.136-1
 - fixes map toggle pin from mobile storefront page (matt.wratt@trineo.co.nz)
 

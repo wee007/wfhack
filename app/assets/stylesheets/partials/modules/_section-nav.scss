@@ -47,7 +47,8 @@ $section-nav-breakpoint: 1000 !default;
 	}
 
   /* TODO Modifier: temp fix for Deals version because it doesn't use the centre selector */
-  &.section-nav--deals .nav-contextual {margin-right: 0;}
+  &.section-nav--deals-index .nav-contextual,
+  &.section-nav--products-index-national .nav-contextual {margin-right: 0;}
 
 		/* Turn off `overflow: hidden` so we can see the drop down's at this breakpoint */
 		@include respond-min($section-nav-breakpoint) {

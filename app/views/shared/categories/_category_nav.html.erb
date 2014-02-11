@@ -1,0 +1,6 @@
+<li><%=
+  link_to(
+    category.name,
+    url_for(centre_id: params[:centre_id], super_cat: super_cat.code, category: category.code)
+  )
+%></li>

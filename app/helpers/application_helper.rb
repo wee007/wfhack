@@ -74,4 +74,8 @@ module ApplicationHelper
     'is-active' if string.eql?( param )
   end
 
+  def controller_and_action
+    "#{params[ :controller ]}-#{params[ :action ]}".gsub '_', '-'
+  end
+
 end

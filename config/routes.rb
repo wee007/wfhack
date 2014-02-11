@@ -16,7 +16,9 @@ end
 
 CustomerConsole::Application.routes.draw do
   if !Rails.env.production?
-    resources :styleguide, only: [:index, :show]
+    resources :styleguide, only: [:index, :show] do
+      get '/:file' => 'styleguide#static'
+    end
 
     get 'robots.txt' => 'robots#not_welcome'
   end

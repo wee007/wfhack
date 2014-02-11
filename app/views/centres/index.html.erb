@@ -67,32 +67,32 @@
         <%# Tab nav %>
         <ul class="tab__nav horiz-list">
           <li>
-            <a class="js-viewport-check-on-click is-active" href="#tab-nsw">
+            <a class="js-viewport-check-on-click js-sort-centres-geolocation-nsw is-active" href="#tab-nsw">
               <abbr title="New South Wales">NSW</abbr>
             </a>
           </li>
           <li>
-            <a class="js-viewport-check-on-click" href="#tab-act">
+            <a class="js-viewport-check-on-click js-sort-centres-geolocation-act" href="#tab-act">
               <abbr title="Australian Capital Territory">ACT</abbr>
             </a>
           </li>
           <li>
-            <a class="js-viewport-check-on-click" href="#tab-qld">
+            <a class="js-viewport-check-on-click js-sort-centres-geolocation-qld" href="#tab-qld">
               <abbr title="Queensland">QLD</abbr>
             </a>
           </li>
           <li>
-            <a class="js-viewport-check-on-click" href="#tab-vic">
+            <a class="js-viewport-check-on-click js-sort-centres-geolocation-vic" href="#tab-vic">
               <abbr title="Victoria">VIC</abbr>
             </a>
           </li>
           <li>
-            <a class="js-viewport-check-on-click" href="#tab-sa">
+            <a class="js-viewport-check-on-click js-sort-centres-geolocation-sa" href="#tab-sa">
               <abbr title="South Australia">SA</abbr>
             </a>
           </li>
           <li>
-            <a class="js-viewport-check-on-click" href="#tab-wa">
+            <a class="js-viewport-check-on-click js-sort-centres-geolocation-wa" href="#tab-wa">
               <abbr title="Western Australia">WA</abbr>
             </a>
           </li>
@@ -101,23 +101,24 @@
 
       </div>
 
-      <%# Tab content %>
-      <% %w(NSW ACT QLD VIC SA WA).each do |state| %>
-        <ul id="tab-<%= state.downcase %>" class="tab__content<%= ' is-active' if state == 'NSW' %>">
-          <% @centres_by_state[state].each do |centre| %>
-            <li class="js-viewport-check">
-              <a class="national__centre-tile national__centre-tile--<%= centre.code %>" href="<%= centre_path( centre ) %>">
-                <div class="container">
-                  <div class="h1"><%= centre.short_name %></div>
-                  <span class="icon icon--arrow-right icon--lrg" aria-hidden="true"></span>
-                </div>
-              </a>
-            </li>
-          <% end %>
-        </ul>
-      <% end %>
-      <%# //Tab content %>
-
+      <div class="national__tabs__content__container js-sort-centres-geolocation-container">
+        <%# Tab content %>
+        <% %w(NSW ACT QLD VIC SA WA).each do |state| %>
+          <ul id="tab-<%= state.downcase %>" class="tab__content<%= ' is-active' if state == 'NSW' %>">
+            <% @centres_by_state[state].each do |centre| %>
+              <li class="js-viewport-check js-sort-centres-geolocation-<%= centre.code %>" >
+                <a class="national__centre-tile national__centre-tile--<%= centre.code %> " href="<%= centre_path( centre ) %>">
+                  <div class="container">
+                    <div class="h1"><%= centre.short_name %></div>
+                    <span class="icon icon--arrow-right icon--lrg" aria-hidden="true"></span>
+                  </div>
+                </a>
+              </li>
+            <% end %>
+          </ul>
+        <% end %>
+        <%# //Tab content %>
+      </div>
     </nav>
 
   </main>
@@ -189,4 +190,7 @@
       .old-ie .is-in-viewport-history .national__centre-tile--<%= centre.code %> {background-image: url(<%= centre_tile_image(centre.code, 1600, 300) %>);}
     <% end %>
   </style>
+
+  <%= javascript_include_tag 'init/sort_centres_by_geolocation' %>
 <% end %>
+

@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.139
+Version:     0.2.140
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,14 @@ fi
 
 
 %changelog
+* Wed Feb 12 2014 ci <doperations@au.westfield.com> 0.2.140-1
+- Merge pull request #905 from cpearce/map-level-count-styles
+  (dmiller@au.westfield.com)
+- Removing redundant px value from SVG image X Y coordinates
+  (cpearce@au.westfield.com)
+- Clean up CSS for map level counts and reduce map pin image and make SVG
+  (cpearce@au.westfield.com)
+
 * Wed Feb 12 2014 ci <doperations@au.westfield.com> 0.2.139-1
 - Merge pull request #908 from cpearce/quick-fixes (dmiller@au.westfield.com)
 - Fixing UI breakages from Deals going on storefront - WSF-6261

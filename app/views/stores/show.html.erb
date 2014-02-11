@@ -3,7 +3,7 @@
 <div class="stores-maps container js-stores-maps-toggle-wrap">
 
   <%# Contain 'back to listing link' and 'store details' %>
-  <div class="stores-maps__inner stores-maps__inner--detail <%= 'is-featured-items' if !@products.empty? %>" id="stores-maps-toggle-listing-detail">
+  <div class="stores-maps__inner stores-maps__inner--detail <%= 'is-featured-items' if @products.present? or @deals.present? %>" id="stores-maps-toggle-listing-detail">
 
     <%# Back to listing link %>
     <div class="stores-maps__filters-toggle">
@@ -133,10 +133,8 @@
         <%# Product and Deal tiles %>
         <%- if @products.present? or @deals.present? %>
           <footer class="storefront__featured">
-
             <%= render 'tiles', results: @products, kind: 'product', heading: 'Featured', path: centre_products_path( centre_id: @centre.code, retailer: [ params[ :retailer_code ] ] ), store: @store if @products.present? %>
             <%= render 'tiles', results: @deals, kind: 'deal', heading: 'Deals', path: centre_deals_path( @centre.code ), store: @store if @deals.present? %>
-
           </footer>
         <% end %>
         <%# //Product and Deal tiles %>

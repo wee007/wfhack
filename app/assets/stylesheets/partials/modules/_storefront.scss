@@ -228,7 +228,7 @@
     border-top: 1px solid $color-grey-med-3;
 
     /* Hide 3rd tile at small viewports */
-    .grid__item + .grid__item + .grid__item {
+    li:nth-child(3) {
       display: none;
 
       /* Show 3rd tile at this breakpoint */
@@ -236,6 +236,9 @@
         display: block;
       }
     }
+
+    /* Reinstate bottom margin for last child grid item */
+    .grid__item:last-child {@include to-rem(margin-bottom, $grid-gutter-half);}
 
     /* Mods for 'Deals' tile at this breakpoint range */
     @include respond-range($ipad-landscape, 1300) {

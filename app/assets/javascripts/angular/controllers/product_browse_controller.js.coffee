@@ -98,7 +98,10 @@
     )()
 
     $scope.go = (event, path) ->
-      $location.path(path)
+      if westfield.products.count == 0
+        $window.location.href = path
+      else
+        $location.path(path)
       event.preventDefault()
 
     $scope.updateSearch = ->

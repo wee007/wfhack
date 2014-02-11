@@ -60,6 +60,10 @@ class Event < Hashie::Mash
              kind: kind
   end
 
+  def external_url_and_description_present?
+    external_url.present? and external_url_description.present?
+  end
+
   class Occurrence < Hashie::Mash
     def start(format_string = :raw)
       # make sure we display the date in the timezone of the centre

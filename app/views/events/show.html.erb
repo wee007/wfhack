@@ -30,18 +30,28 @@
     </section>
     <%# //Event image %>
 
-    <%# Event details %>
-    <%- if @event.description.present? -%>
+    <%# Event details & external link %>
+    <% if @event.description.present? or @event.external_url.present? %>
       <section aria-labelledby="details">
+        <%# Event details %>
         <h2 class="detail-view__hdr-sub hn" id="details">Event Details</h2>
-        <div class="detail-view__desc" itemprop="description">
-          <% to_paragraphs(@event.description).each do |text| %>
-            <p><%= text %></p>
-          <%- end %>
-        </div>
+        <% if @event.description.present? %>
+          <div class="detail-view__desc<%= ' detail-view__mrg-base' if @event.external_url_and_description_present? %>" itemprop="description">
+            <% to_paragraphs( @event.description ).each do |text| %>
+              <p><%= text %></p>
+            <% end %>
+          </div>
+        <% end %>
+        <%# //Event details %>
+        <%# External link %>
+        <% if @event.external_url_and_description_present? %>
+          <span class="icon icon--link icon--spacing" aria-hidden="true"></span>
+          <%= link_to @event.external_url_description, @event.external_url, target: '_blank', rel: 'external' %>
+        <% end %>
+        <%# //External link %>
       </section>
     <% end %>
-    <%# //Event details %>
+    <%# //Event details & external link %>
 
   </div>
   <%# //Event name, date, location and details %>

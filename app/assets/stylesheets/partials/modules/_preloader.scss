@@ -3,21 +3,21 @@
    ====================================================================================== */
 
 /*
-	Usage:
-		Provides feedback to the user letting them know that their action is being processed e.g. a form submission. It renders an animating spinner (light) but can also include a message with the spinner e.g. "Loading, please wait..." (full).
+  Provides feedback to the user letting them know that their action is being processed e.g. a form submission. It renders an animating spinner (light) but can also include a message with the spinner e.g. "Loading, please wait...".
 
-	Demo:
-		Style Guide -> Modules -> Preloader
+  .preloader--middle      - position the loader in the centre of its parent
+
+  Styleguide Preloader
 */
 
 .preloader {
 
-	&,
-	& * {display: inline-block;}
+  &,
+  & * {display: inline-block;}
 
-	& * {vertical-align: middle;}
+  & * {vertical-align: middle;}
 
-	em {font-style: italic;}
+  em {font-style: italic;}
 }
 
 /* Modifier: shared rules for position modifiers */
@@ -40,19 +40,19 @@
 	@include translateX(-50%);
 }
 
-	/* Spinner animation */
-	.preloader--light,
-	.preloader__spinner {
-		width: 40px;
-		height: 40px;
-		overflow: hidden;
-		border-radius: $border-radius;
-		background: $color-grey-light-3 cloudinary-url("css/preloader.gif") no-repeat 50% 50%;
-		@include img-2x("css/preloader@2x.gif", 24px, 24px);
-	}
+  /* Spinner animation */
+  .preloader--light,
+  .preloader__spinner {
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+    border-radius: $border-radius;
+    background: $color-grey-light-3 cloudinary-url("css/preloader.gif") no-repeat 50% 50%;
+    @include img-2x("css/preloader@2x.gif", 24px, 24px);
+  }
 
-	/* Create some space between the spinner and the message */
-	.preloader__spinner {margin-right: to-em($spacing-quarter);}
+  /* Create some space between the spinner and the message */
+  .preloader__spinner {margin-right: to-em($spacing-quarter);}
 
-	/* Remove the spinner as it's parent has hijacked it's styles */
-	.preloader--light .preloader__spinner {display: none;}
+  /* Remove the spinner as it's parent has hijacked it's styles */
+  .preloader--light .preloader__spinner {display: none;}

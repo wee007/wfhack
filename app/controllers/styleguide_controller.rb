@@ -17,6 +17,14 @@ class StyleguideController < ApplicationController
     render template: "styleguide/#{params[:id]}"
   end
 
+  def static
+    meta.push(
+      page_title:"",
+      description: ""
+    )
+    render template: "styleguide/static/#{params[:file]}", layout: false
+  end
+
   private
 
   def styleguide

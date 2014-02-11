@@ -1,0 +1,46 @@
+<%= styleguide_block 'Flexslider' do |style| %>
+<div class="flexslider $modifier_class">
+  <ul class="slides">
+    <li>
+      <img alt="" src="http://placehold.it/2048x760&text=First image">
+    </li>
+    <li>
+      <img alt="" src="http://placehold.it/2048x760&text=Second image">
+    </li>
+  </ul>
+</div>
+<% end %>
+
+<%- content_for :javascript do -%>
+  <%= javascript_include_tag 'flexslider/jquery.flexslider' %>
+
+  <script>
+  // Run 'Flexslider' plugin
+  // Get the count of flexslider items
+  var flexsliderItemsCount = $('.flexslider .slides li').length;
+
+  // Only initialise flexslider if more than 1 item
+  if (flexsliderItemsCount > 1) {
+
+    $('.flexslider').flexslider({
+      animationSpeed: 50,
+      controlNav: true,
+      directionNav: false,
+      slideshow: false,
+      // Do stuff when the slider loads the first slide
+      start: function(slider) {
+        // Add some ARIA
+        slider.container.attr('role', 'listbox');
+        slider.slides.attr({'role': 'option', 'aria-selected': 'false'});
+        slider.slides.eq(slider.currentSlide).attr('aria-selected', 'true');
+        slider.controlNav.attr({'href' : '#', 'role' : 'button'}).prepend('Show slide ');
+      },
+      // Do stuff after each slider animation completes
+      after: function(slider) {
+        slider.slides.attr('aria-selected', 'false');
+        slider.slides.eq(slider.currentSlide).attr('aria-selected', 'true');
+      }
+    });
+  }
+</script>
+<%- end -%>

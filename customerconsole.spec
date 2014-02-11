@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.137
+Version:     0.2.138
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,17 @@ fi
 
 
 %changelog
+* Wed Feb 12 2014 ci <doperations@au.westfield.com> 0.2.138-1
+- Merge pull request #903 from fchan/styleguide (dmiller@au.westfield.com)
+- Added social share as static file for AJAXing into module
+  (fiona@fionachan.net)
+- Update modules after PR feedback (fiona@fionachan.net)
+- Style guide modules: Preloader, promo tile, social follow, social share and
+  tags (fiona@fionachan.net)
+- Remove utilities section from style guide (fiona@fionachan.net)
+- Style guide modules: fallback msg, pager, pill, pin board
+  (fiona@fionachan.net)
+
 * Tue Feb 11 2014 ci <doperations@au.westfield.com> 0.2.137-1
 - WSF-6082 Show external URL on Event detail page (ewee@au.westfield.com)
 - Merge pull request #902 from araeside/geolocation (dmiller@au.westfield.com)

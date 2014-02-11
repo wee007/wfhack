@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.135
+Version:     0.2.136
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,9 @@ fi
 
 
 %changelog
+* Tue Feb 11 2014 ci <doperations@au.westfield.com> 0.2.136-1
+- fixes map toggle pin from mobile storefront page (matt.wratt@trineo.co.nz)
+
 * Mon Feb 10 2014 ci <doperations@au.westfield.com> 0.2.135-1
 - Merge pull request #881 from mwratt/fix-map-redraw-issue
   (araeside@au.westfield.com)

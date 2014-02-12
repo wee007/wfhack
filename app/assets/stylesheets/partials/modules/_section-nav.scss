@@ -46,7 +46,7 @@ $section-nav-breakpoint: 1000 !default;
 	  }
 	}
 
-  /* TODO Modifier: temp fix for Deals version because it doesn't use the centre selector */
+  /* Modifier: remove right indentation as these navs don't feature the toggle button */
   &.section-nav--deals-index .nav-contextual,
   &.section-nav--products-index-national .nav-contextual {margin-right: 0;}
 

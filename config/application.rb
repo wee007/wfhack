@@ -32,7 +32,7 @@ module CustomerConsole
                                    html5shiv/src/html5shiv-printshiv.js
                                    stores_maps.js
                                    jquery-extensions/jquery.toggle-content.js
-                                   server_errors.css)
+                                   server_errors.css init/sort_centres_by_geolocation.js)
     if Rails.env.development?
       require File.expand_path('../../lib/service_proxy', __FILE__)
       config.middleware.use "ServiceProxy"

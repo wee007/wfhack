@@ -6,6 +6,8 @@
   A fully responsive jQuery slider, typically for photo galleries.
 
   .flexslider--contain-controls     - Contains controls
+  .flexslider--gallery              - Gallery
+  .flexslider--thumbs               - Thumbnails
 
   Styleguide Flexslider
 */
@@ -51,7 +53,7 @@
     }
 }
 
-/* Thumbnails */
+/* Modifier: Thumbnails */
 .flexslider--thumbs {
 
   /* Hide for palm, non JS users and when there is only 1 item */
@@ -107,6 +109,7 @@
 
   /* Hide if thumbnails are being used (aka: gallery) at this breakpoint */
   @include respond-min($non-palm) {
+    /* Modifier: Gallery */
     .flexslider--gallery & {display: none;}
   }
 

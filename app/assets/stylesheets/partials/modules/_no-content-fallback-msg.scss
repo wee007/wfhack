@@ -25,13 +25,19 @@
   em,
   span {display: block;}
 
-  .icon:before {
+  .no-content-fallback-msg__icon:before {
     @include font-size(48, 1);
 
     @include respond-min($non-palm) {
       @include font-size(60, 1);
     }
   }
+
+  .drop-down-container {
+    margin: 0 auto;
+    @include to-rem(max-width, $drop-down-width);
+  }
+
 
     /* 'No content/search results' text */
     em {

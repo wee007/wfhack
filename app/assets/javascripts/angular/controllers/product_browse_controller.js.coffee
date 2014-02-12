@@ -24,8 +24,8 @@
       sizes: "size"
 
     if westfield.products.count == 0
-        ProductSearch.resetParams()
-        ProductSearch.getAvailableFilters $rootScope.centre_id
+      ProductSearch.resetParams()
+      ProductSearch.getAvailableFilters $rootScope.centre_id
 
     useUrlParams = ( urlParams = {} ) ->
       # Add querystrings like last=, rows= & page=, as well

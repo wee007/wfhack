@@ -43,6 +43,8 @@ class ProductsController < ApplicationController
     @centres = centres.group_by{ |centre| centre.state }
     @super_categories = CategoryService.find centre_id: params[:centre_id], product_mapable: true
 
+    @is_national = true
+
     meta.push(
       page_title: page_title('Westfield'),
       description: description('Westfield', stores)

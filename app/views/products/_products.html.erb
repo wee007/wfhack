@@ -2,14 +2,52 @@
 
   <%# No product search results message %>
   <div class="no-content-fallback-msg">
-    <span class="icon icon--products icon--flush-top" aria-hidden="true"></span>
+    <span class="no-content-fallback-msg__icon icon icon--products icon--flush-top" aria-hidden="true"></span>
     <p role="status" aria-live="polite">
       <em class="h1">No products <% if params[:search_query] %> matching
         <span>"<%= params[:search_query] %>"</span>
         <% end %>
       </em>
-      <span>See nearby centres</span>
     </p>
+    <div class="drop-down-container">
+      <span>See nearby centres</span>
+
+      <%# Centre selector trigger %>
+      <button type="button" class="drop-down-menu__trigger btn btn--full btn--full-left btn--main btn--main-dark btn--pointer" toggle-visibility="no-products-nearby-centre">
+        Westfield Centre
+        <span aria-hidden="true" class="icon icon--lrg icon--arrow-down-full btn--pointer__icon"></span>
+      </button>
+      <%# //Centre selector trigger %>
+
+      <%# Centre selector target %>
+      <% if not @is_national %>
+        <div class="drop-down-menu__target drop-down pointer-up box box--drop-down" id="no-products-nearby-centre">
+          <dl class="drop-down-menu__list">
+            <% @nearby_centres.each do |nearby_centre| %>
+              <dd class="drop-down-menu__divider">
+              <%= centre_products_path(centre_id: nearby_centre) %>
+                <%= link_to nearby_centre.short_name, centre_products_path({centre_id: nearby_centre}), class: 'btn btn--full btn--full-left' %>
+              </dd>
+            <% end %>
+          </dl>
+        </div>
+      <% else %>
+         <div class="drop-down-menu__target drop-down pointer-up box box--drop-down" id="no-products-nearby-centre">
+          <dl class="drop-down-menu__list">
+            <% %w(NSW ACT QLD VIC SA WA).each do |state| %>
+              <dt class="drop-down-menu__hdr-sub drop-down-menu__divider"><%= state %></dt>
+              <% @nearby_centres[state].each do |centre| %>
+                <dd class="drop-down-menu__divider">
+                  <%= link_to centre.short_name, centre_products_path(centre_id: centre), class: 'btn btn--full btn--full-left' %>
+                </dd>
+              <% end %>
+            <% end %>
+          </dl>
+        </div>
+      <% end %>
+      <%# //Centre selector target %>
+    </div>
+
   </div>
   <%# //No product search results message %>
 

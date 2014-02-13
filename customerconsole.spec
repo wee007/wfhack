@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.142
+Version:     0.2.143
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,14 @@ fi
 
 
 %changelog
+* Thu Feb 13 2014 ci <doperations@au.westfield.com> 0.2.143-1
+- Merge pull request #910 from fchan/styleguide (dmiller@au.westfield.com)
+- Update JS hooks on flexslider in style guide (fiona@fionachan.net)
+- Added more flexslider examples (fiona@fionachan.net)
+- Minor updates to style guide based on PR feedback (fiona@fionachan.net)
+- Style guide widgets: flexslider, tabs (fiona@fionachan.net)
+- Style guide modules: tile, timeline, txt-formatted (fiona@fionachan.net)
+
 * Thu Feb 13 2014 ci <doperations@au.westfield.com> 0.2.142-1
 - Temporarily remove preloader and overlay. (alec@smartalecwebsites.com.au)
 

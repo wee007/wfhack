@@ -41,7 +41,7 @@
 
       &,
       a,
-      .icon:before {color: #000;}
+      .icon:before {color: #fff;}
     }
 
     .national__header {
@@ -220,15 +220,15 @@
     /* Hero image paths (see 'Image rotate' module) */
     .national__hero__1 {
       @include respond-max($palm) {
-        background-image: cloudinary-url("heroes/national/national-hero-01-sml.jpg", $quality: 95, $fetch_format: 'auto');
+        background-image: cloudinary-url("heroes/national/national-hero-01-sml.jpg", $quality: 90, $fetch_format: 'auto');
       }
 
       @include respond-range($lap, $lap-sml-end) {
-        background-image: cloudinary-url("heroes/national/national-hero-01-med.jpg", $quality: 95, $fetch_format: 'auto');
+        background-image: cloudinary-url("heroes/national/national-hero-01-med.jpg", $quality: 90, $fetch_format: 'auto');
       }
 
       @include respond-min($lap-lrg) {
-        background-image: cloudinary-url("heroes/national/national-hero-01-lrg.jpg", $quality: 95, $fetch_format: 'auto');
+        background-image: cloudinary-url("heroes/national/national-hero-01-lrg.jpg", $quality: 80, $fetch_format: 'auto');
       }
     }
 
@@ -248,7 +248,7 @@
       }
 
       &,
-      a {color: #000;}
+      a {color: #fff;}
 
       /* Non JS users */
       .no-js & {margin-top: 0;}

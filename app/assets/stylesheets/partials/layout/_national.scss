@@ -38,10 +38,6 @@
       position: absolute;
       /* Setting it at a higher `z-index` than `img-rotate__item` */
       z-index: 2;
-
-      &,
-      a,
-      .icon:before {color: #000;}
     }
 
     .national__header {
@@ -220,15 +216,15 @@
     /* Hero image paths (see 'Image rotate' module) */
     .national__hero__1 {
       @include respond-max($palm) {
-        background-image: cloudinary-url("heroes/national/national-hero-01-sml.jpg", $quality: 95, $fetch_format: 'auto');
+        background-image: cloudinary-url("heroes/national/national-hero-01-sml.jpg", $quality: 90, $fetch_format: 'auto');
       }
 
       @include respond-range($lap, $lap-sml-end) {
-        background-image: cloudinary-url("heroes/national/national-hero-01-med.jpg", $quality: 95, $fetch_format: 'auto');
+        background-image: cloudinary-url("heroes/national/national-hero-01-med.jpg", $quality: 90, $fetch_format: 'auto');
       }
 
       @include respond-min($lap-lrg) {
-        background-image: cloudinary-url("heroes/national/national-hero-01-lrg.jpg", $quality: 95, $fetch_format: 'auto');
+        background-image: cloudinary-url("heroes/national/national-hero-01-lrg.jpg", $quality: 80, $fetch_format: 'auto');
       }
     }
 
@@ -246,9 +242,6 @@
       @include respond-min($non-palm) {
         @include to-rem(margin-top, -64);
       }
-
-      &,
-      a {color: #000;}
 
       /* Non JS users */
       .no-js & {margin-top: 0;}
@@ -289,8 +282,6 @@
 
         li:first-child a {padding-left: 0;}
       }
-
-      .tab__content a {color: #fff;}
 
       /* Tab content - non JS users */
       .no-js & .tab__content {margin-bottom: 0;}

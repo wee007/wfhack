@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.144
+Version:     0.2.145
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,11 @@ fi
 
 
 %changelog
+* Fri Feb 14 2014 ci <doperations@au.westfield.com> 0.2.145-1
+- Update national landing page scss after PR feedback (fiona@fionachan.net)
+- WSF-6284 WSF-6288: Update national landing page and Airport west iimages
+  (fiona@fionachan.net)
+
 * Thu Feb 13 2014 ci <doperations@au.westfield.com> 0.2.144-1
 - Merge pull request #907 from ldewey/WSF-6226 (dmiller@au.westfield.com)
 - Updated comment to refect better whats going on. (ldewey@au.westfield.com)

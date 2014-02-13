@@ -25,7 +25,6 @@
           <dl class="drop-down-menu__list">
             <% @nearby_centres.each do |nearby_centre| %>
               <dd class="drop-down-menu__divider">
-              <%= centre_products_path(centre_id: nearby_centre) %>
                 <%= link_to nearby_centre.short_name, centre_products_path({centre_id: nearby_centre}), class: 'btn btn--full btn--full-left' %>
               </dd>
             <% end %>

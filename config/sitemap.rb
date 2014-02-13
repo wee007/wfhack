@@ -14,8 +14,8 @@ begin
     stores_uri = URI("#{ServiceHelper.uri_for('store')}/stores.json")
     product_search_url = URI("#{ServiceHelper.uri_for('product')}/products/search.json")
 
-    centres = Service::API.get(centres_uri)
-    stores = Service::API.get(stores_uri)
+    centres = Service::API.get(centres_uri, {}, timeout: 5.minutes, retry: 5)
+    stores = Service::API.get(stores_uri, {}, timeout: 5.minutes, retry: 5)
 
     # Hit the product_search_url once to discover the amount of products / pages,
     # then loop over those.

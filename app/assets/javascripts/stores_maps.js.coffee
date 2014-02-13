@@ -20,14 +20,14 @@ class StoreMapPage
 
   loading: (state) ->
     # after pjax load has completed the user needs to see the detail
-    @hide()
+    #@hide()
 
     $('.js-pjax-container-stores').toggleClass('is-loading', state)
 
   pjaxComplete: =>
     @pageLoaded()
     @recompileAngularScope()
-  
+
   pageLoaded: ->
     $ ->
       if window.storeMapPageReady
@@ -80,6 +80,7 @@ class StoreMapPage
     false
 
   hide: =>
+    #debugger
     @updateGUI @map.hide()
     false
 

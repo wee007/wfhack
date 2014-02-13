@@ -1,18 +1,20 @@
 ((app) ->
-  app.controller 'StoreListController', ['$scope', '$document', '$window',  ( $scope, $document, $window ) ->
+  app.controller 'StoreListController', ['$scope', '$document', '$window', '$timeout', ( $scope, $document, $window, $timeout ) ->
     $scope.viewingSubCategory = undefined
     $scope.viewSubCategory = (category) -> $scope.viewingSubCategory = category
     $scope.queryParams = ''
     $scope.viewingMap = false
-    
+
     param = (key, val) ->
       [key, val].join('=')
-    
-    updateQueryParams = ->
+
+    updateQueryParams = (val)->
       params = []
       params.push(param('gift_cards', true)) if $scope.gift_cards
       params.push(param('map', true)) if $scope.viewingMap
-      $scope.queryParams = if params.length then '?' + params.join('&') else ''
+      $timeout ->
+        $scope.queryParams = if params.length then '?' + params.join('&') else ''
+      , 100
 
     $scope.saveCategory = (category) ->
       if Modernizr.localstorage and

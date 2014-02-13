@@ -98,7 +98,7 @@
                                 <span class="hide-visually"> (gift cards not available for this category)</span>
                               </div>
                             <% else %>
-                              <a ng-href="<%= centre_stores_category_path(@centre, sub_category.code) %>{{queryParams}}" class="btn btn--full btn--full-left js-pjax-link-stores" ng-click="saveCategory('<%= sub_category.code %>')"><%= sub_category.name %></a>
+                              <a ng-href="<%= centre_stores_category_path(@centre, sub_category.code) %>{{queryParams}}" class="btn btn--full btn--full-left js-pjax-link-stores" ng-click="saveCategory('<%= sub_category.code %>')" target="_self"><%= sub_category.name %></a>
                             <% end %>
                           </li>
                         <% end %>

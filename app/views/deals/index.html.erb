@@ -1,6 +1,9 @@
 <% content_for :section_nav do %>
-  <%= render '/layouts/section_nav' if @campaigns.present? %>
-<% end %>
+  <%= render layout: '/layouts/section_nav' do %>
+    <li><%= link_to 'All Deals', centre_deals_path(@centre), 'ng-class' => "{'is-active': (activeNavigationItem == '')}", class: active_link?( params[ :campaign_code ], nil ) -%></li><%-
+      @campaigns.each do |campaign| -%><li><%= link_to campaign.name, centre_campaign_path(@centre, campaign.code), 'ng-class' => "{'is-active': (activeNavigationItem == '#{campaign.code}')}", class: active_link?( campaign.code, params[ :campaign_code ] ) -%></li><%- end -%>
+  <%- end -%>
+<% end if @campaigns.present? %>
 
 <h1 class="hide-visually">Deals</h1>
 

@@ -40,6 +40,7 @@ class ProductsController < ApplicationController
     centres, @search, @categories, stores = service_map services
 
     @centres = centres.group_by{ |centre| centre.state }
+    @super_categories = CategoryService.find centre_id: params[:centre_id], product_mapable: true
 
     meta.push(
       page_title: page_title('Westfield'),

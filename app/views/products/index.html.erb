@@ -3,7 +3,15 @@
 <% end %>
 
 <% content_for :section_nav do %>
-  <%= render '/layouts/section_nav' %>
+  <%= render layout: '/layouts/section_nav' do %>
+    <%=
+        render(
+          :collection => @super_categories,
+          :partial => '/shared/categories/super_cat_nav',
+          :as => :category
+        )
+    -%>
+  <% end %>
 <% end %>
 
 <h1 class="hide-visually">Products</h1>

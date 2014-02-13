@@ -3,218 +3,227 @@
    ====================================================================================== */
 
 /*
-	Usage: a fully responsive jQuery slider, typically for photo galleries.
+  A fully responsive jQuery slider, typically for photo galleries.
 
-	Credit: http://www.woothemes.com/flexslider/
+  .flexslider--contain-controls     - Contains controls
+  .flexslider--gallery              - Gallery
+  .flexslider--thumbs               - Thumbnails
+
+  Styleguide Flexslider
+*/
+
+/*
+  Credit: http://www.woothemes.com/flexslider/
 */
 
 .flexslider {
-	position: relative;
-	@include to-rem(padding-left padding-right, $spacing-base);
+  position: relative;
+  @include to-rem(padding-left padding-right, $spacing-base);
 
-	/* Modifier: contain controls */
-	&.flexslider--contain-controls {
-		padding-left: 0;
-		padding-right: 0;
-	}
+  /* Modifier: contain controls */
+  &.flexslider--contain-controls {
+    padding-left: 0;
+    padding-right: 0;
+  }
 
-	/* Slides container */
-	.slides {
-		@extend %clear-fix;
-		text-align: center;
-	}
+  /* Slides container */
+  .slides {
+    @extend %clear-fix;
+    text-align: center;
+  }
 
-		/* Slides - hide the slides before JS is loaded to avoid images jumping */
-		.slides > li {
-			display: none;
-			-webkit-backface-visibility: hidden;
+    /* Slides - hide the slides before JS is loaded to avoid images jumping */
+    .slides > li {
+      display: none;
+      -webkit-backface-visibility: hidden;
 
-			/* First child should always be visible */
-			&:first-child {
-				display: block;
-				-webkit-backface-visibility: visible;
-			}
+      /* First child should always be visible */
+      &:first-child {
+        display: block;
+        -webkit-backface-visibility: visible;
+      }
 
-			/* Modifier: contain controls */
-			.flexslider--contain-controls & {z-index: 1;}
+      /* Modifier: contain controls */
+      .flexslider--contain-controls & {z-index: 1;}
 
-			/* Print */
-			@media print {
-				float: none !important;
-			}
-		}
+      /* Print */
+      @media print {
+        float: none !important;
+      }
+    }
 }
 
-/* Thumbnails */
+/* Modifier: Thumbnails */
 .flexslider--thumbs {
 
-	/* Hide for palm, non JS users and when there is only 1 item */
-	&,
-	.no-js & {display: none;}
+  /* Hide for palm, non JS users and when there is only 1 item */
+  &,
+  .no-js & {display: none;}
 
-	/* Show at this breakpoint when they're multiple items */
-	@include respond-min($non-palm) {
-		&.is-multiple-items {
-			display: block;
-			@include to-rem(margin-top, $spacing-half);
-		}
-	}
+  /* Show at this breakpoint when they're multiple items */
+  @include respond-min($non-palm) {
+    &.is-multiple-items {
+      display: block;
+      @include to-rem(margin-top, $spacing-half);
+    }
+  }
 
-	/* Print */
-	@media print {
-		display: none;
-	}
+  /* Print */
+  @media print {
+    display: none;
+  }
 
-		/*
-			Slides
+    /*
+      Slides
 
-			Note: it is okay to use `!important` here as we need to override inline styles set by jQuery plugin.
-		*/
-		.slides {
-			width: 100% !important;
+      Note: it is okay to use `!important` here as we need to override inline styles set by jQuery plugin.
+    */
+    .slides {
+      width: 100% !important;
 
-			li {
-				@extend %transition-subtle;
-				width: 76px;
-				margin-right: 3px;
-				display: inline-block !important;
-				float: none !important;
-				cursor: pointer;
-				border: 1px solid $color-grey-light-1;
+      li {
+        @extend %transition-subtle;
+        width: 76px;
+        margin-right: 3px;
+        display: inline-block !important;
+        float: none !important;
+        cursor: pointer;
+        border: 1px solid $color-grey-light-1;
 
-				/* Hover and active states */
-				&:hover,
-				&.flex-active-slide {border-color: $color-brand;}
+        /* Hover and active states */
+        &:hover,
+        &.flex-active-slide {border-color: $color-brand;}
 
-				&:last-child {margin-right: 0;}
-			}
+        &:last-child {margin-right: 0;}
+      }
 
-				img {display: block;}
-		}
+        img {display: block;}
+    }
 }
 
 /* Pager nav */
 .flex-control-paging {
-	text-align: center;
-	@include to-rem(height, 20);
-	@include to-rem(margin-top, $spacing-quarter);
+  text-align: center;
+  @include to-rem(height, 20);
+  @include to-rem(margin-top, $spacing-quarter);
 
-	/* Hide if thumbnails are being used (aka: gallery) at this breakpoint */
-	@include respond-min($non-palm) {
-		.flexslider--gallery & {display: none;}
-	}
+  /* Hide if thumbnails are being used (aka: gallery) at this breakpoint */
+  @include respond-min($non-palm) {
+    /* Modifier: Gallery */
+    .flexslider--gallery & {display: none;}
+  }
 
-	/* Modifier: contain controls */
-	.flexslider--contain-controls & {
-		margin-top: 0;
-		position: absolute;
-		z-index: 2;
-		left: 50%;
-		@include to-rem(bottom, $spacing-quarter);
-		@include translateX(-50%);
-	}
+  /* Modifier: contain controls */
+  .flexslider--contain-controls & {
+    margin-top: 0;
+    position: absolute;
+    z-index: 2;
+    left: 50%;
+    @include to-rem(bottom, $spacing-quarter);
+    @include translateX(-50%);
+  }
 
-	/* Print */
-	@media print {
-		display: none;
-	}
+  /* Print */
+  @media print {
+    display: none;
+  }
 
-	li {
-		display: inline-block;
-		@include to-rem(margin-right, 2);
+  li {
+    display: inline-block;
+    @include to-rem(margin-right, 2);
 
-		&:last-child {margin-right: 0;}
-	}
+    &:last-child {margin-right: 0;}
+  }
 
-		a {
-			text-indent: $off-screen-distance;
-			display: block;
-			@include to-rem(width height, 20);
-			overflow: hidden;
-			position: relative;
+    a {
+      text-indent: $off-screen-distance;
+      display: block;
+      @include to-rem(width height, 20);
+      overflow: hidden;
+      position: relative;
 
-			/* Dots */
-			&:before {
-				@extend %transition-subtle;
-				content: "";
-				@include to-rem(width height, 8);
-				border-radius: 100%;
-				background-color: $color-grey-light-1;
-				position: absolute;
-				top: 50%;
-				left: 50%;
-				@include to-rem(margin, -4 0 0 -4);
+      /* Dots */
+      &:before {
+        @extend %transition-subtle;
+        content: "";
+        @include to-rem(width height, 8);
+        border-radius: 100%;
+        background-color: $color-grey-light-1;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        @include to-rem(margin, -4 0 0 -4);
 
-				/* Modifier: contain controls */
-				.flexslider--contain-controls & {
-					box-shadow: 0 0 3px rgba(#000, 0.5);
-					background-color: $color-grey-med-1;
-				}
-			}
-		}
+        /* Modifier: contain controls */
+        .flexslider--contain-controls & {
+          box-shadow: 0 0 3px rgba(#000, 0.5);
+          background-color: $color-grey-med-1;
+        }
+      }
+    }
 
-		/* Hover, focus and active states */
-		a:hover:before,
-		a:focus:before,
-		.flex-active:before {
-			background-color: $color-grey-dark-1;
+    /* Hover, focus and active states */
+    a:hover:before,
+    a:focus:before,
+    .flex-active:before {
+      background-color: $color-grey-dark-1;
 
-			/* Modifier: contain controls */
-			.flexslider--contain-controls & {background-color: #fff;}
-		}
+      /* Modifier: contain controls */
+      .flexslider--contain-controls & {background-color: #fff;}
+    }
 }
 
 /* Prev/next */
 .flex-direction-nav {
 
-	/* Print */
-	@media print {
-		display: none;
-	}
+  /* Print */
+  @media print {
+    display: none;
+  }
 
-	/* Arrow icons (`span`) */
-	.icon {
+  /* Arrow icons (`span`) */
+  .icon {
 
-		&,
-		&:before {display: block;}
+    &,
+    &:before {display: block;}
 
-		position: absolute;
-		z-index: 2;
-		top: 50%;
-		left: 0;
-		@include to-rem(padding, 6 8 6 0);
-		/* 12.5px = half pager nav height + half height of this icon = 15px == 27.5px */
-		@include to-rem(margin-top, -27.5);
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 0;
+    @include to-rem(padding, 6 8 6 0);
+    /* 12.5px = half pager nav height + half height of this icon = 15px == 27.5px */
+    @include to-rem(margin-top, -27.5);
 
-		/* Modifier: contain controls */
-		.flexslider--contain-controls & {
-			@include to-rem(margin-top, -15);
-			@include to-rem(left, $spacing-sixth);
-		}
+    /* Modifier: contain controls */
+    .flexslider--contain-controls & {
+      @include to-rem(margin-top, -15);
+      @include to-rem(left, $spacing-sixth);
+    }
 
-		/* Next */
-		&.icon--arrow-right-big {
-			left: auto;
-			right: 0;
-			@include to-rem(padding-left, 8);
-			@include to-rem(padding-right, 0);
+    /* Next */
+    &.icon--arrow-right-big {
+      left: auto;
+      right: 0;
+      @include to-rem(padding-left, 8);
+      @include to-rem(padding-right, 0);
 
-			/* Modifier: contain controls */
-			.flexslider--contain-controls & {@include to-rem(right, $spacing-sixth);}
-		}
+      /* Modifier: contain controls */
+      .flexslider--contain-controls & {@include to-rem(right, $spacing-sixth);}
+    }
 
-		@include respond-min($non-palm) {
-			@include to-rem(margin-top, -15);
-		}
+    @include respond-min($non-palm) {
+      @include to-rem(margin-top, -15);
+    }
 
-		/* Arrow icon */
-		&:before {
-			@extend %transition-subtle;
-			color: $color-txt-dark;
-			@include font-size($font-size-lrger, 1);
+    /* Arrow icon */
+    &:before {
+      @extend %transition-subtle;
+      color: $color-txt-dark;
+      @include font-size($font-size-lrger, 1);
 
-			/* Modifier: contain controls */
-			.flexslider--contain-controls & {color: #fff;}
-		}
-	}
+      /* Modifier: contain controls */
+      .flexslider--contain-controls & {color: #fff;}
+    }
+  }
 }

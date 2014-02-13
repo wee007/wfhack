@@ -1,0 +1,129 @@
+<%= styleguide_block 'Flexslider' do |style| %>
+<div class="flexslider $modifier_class js-flexslider">
+  <ul class="slides">
+    <li>
+      <img alt="" src="http://placehold.it/2048x760&text=First image">
+    </li>
+    <li>
+      <img alt="" src="http://placehold.it/2048x760&text=Second image">
+    </li>
+  </ul>
+</div>
+
+<%# flexslider--gallery %>
+<% example '.flexslider--gallery' do %>
+<div class="flexslider $modifier_class js-flexslider-lrg-img">
+  <ul class="slides">
+    <li>
+      <img alt="" src="http://placehold.it/2048x760&text=First image">
+    </li>
+    <li>
+      <img alt="" src="http://placehold.it/2048x760&text=Second image">
+    </li>
+  </ul>
+</div>
+<% end %>
+<%# //flexslider--gallery %>
+
+<%# flexslider--thumbs %>
+<% example '.flexslider--thumbs' do %>
+<div class="flexslider flexslider--gallery $modifier_class js-flexslider-thumbs">
+  <ul class="slides">
+    <li><img alt="" height="74" width="74" src="http://placehold.it/74x74&text=A"></li>
+    <li><img alt="" height="74" width="74" src="http://placehold.it/74x74&text=B"></li>
+  </ul>
+</div>
+<% end %>
+<%# //flexslider--thumbs %>
+
+<% end %>
+
+<%- content_for :javascript do -%>
+  <%= javascript_include_tag 'flexslider/jquery.flexslider' %>
+
+  <script>
+  // Initialise 'Flexslider' plugin
+  $(window).load(function() {
+    // Get the count of flexslider items
+    var flexsliderItemsCount = $('.flexslider .slides li').length;
+    // Flexslider thumbs
+    var flexsliderThumbs = $('.js-flexslider-thumbs');
+
+    // Only initialise flexslider if more than 2 items
+    if (flexsliderItemsCount > 2) {
+
+      // Thumbnails
+      flexsliderThumbs.addClass('is-multiple-items');
+      $('.js-flexslider-thumbs').flexslider({
+        animation: 'slide',
+        animationSpeed: 200,
+        multipleKeyboard: true,
+        controlNav: false,
+        directionNav: false,
+        touch: false,
+        itemWidth: 76,
+        itemMargin: 3,
+        slideshow: false,
+        asNavFor: '.js-flexslider-lrg-img',
+        // Do stuff when the slider loads the first slide
+        start: function(slider) {
+          // Add some ARIA
+          slider.container.attr('role', 'listbox');
+          slider.slides.attr({'role': 'option', 'aria-selected': 'false'});
+          slider.slides.eq(slider.currentSlide).attr('aria-selected', 'true');
+        }
+      });
+
+      // Large image
+      $('.js-flexslider-lrg-img').flexslider({
+        animationSpeed: 50,
+        multipleKeyboard: true,
+        slideshow: false,
+        sync: '.flexslider--thumbs',
+        prevText: '<span class="icon icon--arrow-left-big icon--flush-top" aria-hidden="true"></span><span class="hide-visually">Previous photo</span>',
+        nextText: '<span class="icon icon--arrow-right-big icon--flush-top" aria-hidden="true"></span><span class="hide-visually">Next photo</span>',
+        // Do stuff when the slider loads the first slide
+        start: function(slider) {
+          // Add some ARIA
+          slider.container.attr('role', 'listbox');
+          slider.slides.attr({'role': 'option', 'aria-selected': 'false'});
+          slider.slides.eq(slider.currentSlide).attr('aria-selected', 'true');
+          slider.controlNav.attr({'href' : '#', 'role' : 'button'}).prepend('Show photo ');
+          slider.directionNav.attr('role', 'button');
+        },
+        // Do stuff asynchronously with each slider animation
+        before: function(slider) {
+          $('.flexslider--thumbs').find('.flex-active-slide').attr('aria-selected', 'false');
+        },
+        // Do stuff after each slider animation completes
+        after: function(slider) {
+          slider.slides.attr('aria-selected', 'false');
+          slider.slides.eq(slider.currentSlide).attr('aria-selected', 'true');
+          $('.flexslider--thumbs').find('.flex-active-slide').attr('aria-selected', 'true');
+        }
+      });
+
+      // With controls
+      $('.js-flexslider').flexslider({
+        animationSpeed: 50,
+        controlNav: true,
+        directionNav: false,
+        slideshow: false,
+        // Do stuff when the slider loads the first slide
+        start: function(slider) {
+          // Add some ARIA
+          slider.container.attr('role', 'listbox');
+          slider.slides.attr({'role': 'option', 'aria-selected': 'false'});
+          slider.slides.eq(slider.currentSlide).attr('aria-selected', 'true');
+          slider.controlNav.attr({'href' : '#', 'role' : 'button'}).prepend('Show slide ');
+        },
+        // Do stuff after each slider animation completes
+        after: function(slider) {
+          slider.slides.attr('aria-selected', 'false');
+          slider.slides.eq(slider.currentSlide).attr('aria-selected', 'true');
+        }
+      });
+    }
+  });
+  </script>
+<%- end -%>

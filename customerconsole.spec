@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.141
+Version:     0.2.142
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,9 @@ fi
 
 
 %changelog
+* Thu Feb 13 2014 ci <doperations@au.westfield.com> 0.2.142-1
+- Temporarily remove preloader and overlay. (alec@smartalecwebsites.com.au)
+
 * Thu Feb 13 2014 ci <doperations@au.westfield.com> 0.2.141-1
 - Fix to add sort_centres_by_geolocation.js to the assets list
   (ldewey@au.westfield.com)

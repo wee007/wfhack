@@ -108,6 +108,19 @@
 			</nav>
 			<%# //Centre select (non-palm) %>
 
+      <%# Search toggle %>
+      <div class="search-toggle-favs js-disabled-hide">
+        <button type="button" class="btn js-global-search-toggle" toggle-visibility="site-search" aria-owns="site-search">
+          <span class="hide-visually">Show site search</span>
+          <span class="icon icon--search icon--spacing icon--flush-top icon--kilo" aria-hidden="true"></span>
+        </button>
+      </div>
+      <%# //Search toggle %>
+
+      <%# Global search %>
+      <%= render partial: 'layouts/global_search' %>
+      <%# //Global search %>
+
 		</div>
 	</div>
 	<%# //Header secondary %>

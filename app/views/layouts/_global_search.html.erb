@@ -4,7 +4,7 @@
       <div class="container drop-down-container" ng-controller="GlobalSearchCtrl" ng-cloak>
 
         <%# Search form %>
-        <%= form_tag centre_products_path(centre_id: params[:centre_id] || params[:id]),
+        <%= form_tag "#{national_product_view? ? products_path : centre_products_path(centre_id: params[:centre_id] || params[:id])}",
             "ng-submit" => "submit($event)",
             class: "search-mini",
             role: "search",
@@ -16,51 +16,55 @@
           <%# //Icon %>
 
           <%# Label and inputs %>
-          <label for="global-search" class="hide-visually">Search stores &amp; products</label>
+          <label for="global-search" class="hide-visually">Search<%= 'stores &amp;'.html_safe unless national_product_view? %> products</label>
           <input type="hidden" ng-model="centre" value="<%= params[:centre_id] || params[:id] %>">
-          <input ng-model="searchQuery" ng-blur="hideSuggestions()" ng-focus="makeSuggestions()" ng-keyup="makeSuggestions($event)" ng-keydown="navigateSuggestions($event)" type="search" class="search-mini__input" id="global-search" name="search_query" autocomplete="off" placeholder="Search stores &amp; products&#8230;">
+          <input ng-model="searchQuery" ng-blur="hideSuggestions()" ng-focus="makeSuggestions()" ng-keyup="makeSuggestions($event)" ng-keydown="navigateSuggestions($event)" type="search" class="search-mini__input" id="global-search" name="search_query" autocomplete="off" placeholder="Search<%= ' stores &amp;'.html_safe unless national_product_view? %> products&#8230;">
           <input type="submit" value="Search" ng-hide="true" class="search-mini__submit">
           <%# //Label and inputs %>
 
           <%# Search results total for screen readers %>
-          <em role="status" aria-live="polite" class="hide-visually">
-            <span ng-if="suggestions" ng-pluralize count="{{suggestions.stores.length + suggestions.products.length}}" when="searchResultText()"></span>
-          </em>
+          <% unless national_product_view? %>
+            <em role="status" aria-live="polite" class="hide-visually">
+              <span ng-if="suggestions" ng-pluralize count="{{suggestions.stores.length + suggestions.products.length}}" when="searchResultText()"></span>
+            </em>
+          <% end %>
           <%# //Search results total for screen readers %>
 
         <% end %>
         <%# //Search form %>
 
         <%# Search results %>
-        <div class="search-results drop-down" ng-show="suggestionsVisible">
-          <div class="search-results__inner">
-            <dl class="search-results__list">
+        <% unless national_product_view? %>
+          <div class="search-results drop-down" ng-show="suggestionsVisible">
+            <div class="search-results__inner">
+              <dl class="search-results__list">
 
-              <%# Stores %>
-              <dt class="search-results__list__spacing" ng-if="suggestions.stores">
-                <span aria-hidden="true" class="icon icon--store icon--xlrg"></span> Stores
-              </dt>
-              <dd ng-repeat="suggestion in suggestions.stores" role="presentation">
-                <a ng-class="{'is-focused': suggestion === focusedSuggestion}" ng-href="{{url(suggestion)}}" tabindex="-1">{{suggestion.description}}</a>
-              </dd>
-              <%# //Stores %>
+                <%# Stores %>
+                <dt class="search-results__list__spacing" ng-if="suggestions.stores">
+                  <span aria-hidden="true" class="icon icon--store icon--xlrg"></span> Stores
+                </dt>
+                <dd ng-repeat="suggestion in suggestions.stores" role="presentation">
+                  <a ng-class="{'is-focused': suggestion === focusedSuggestion}" ng-href="{{url(suggestion)}}" tabindex="-1">{{suggestion.description}}</a>
+                </dd>
+                <%# //Stores %>
 
-              <%# Products %>
-              <dt ng-if="suggestions.products">
-                <span aria-hidden="true" class="icon icon--products icon--xlrg"></span> Products
-              </dt>
-              <dd ng-repeat="suggestion in suggestions.products" role="presentation">
-                <a ng-class="{'is-focused': suggestion === focusedSuggestion}" ng-href="{{url(suggestion)}}" tabindex="-1">{{suggestion.description}}</a>
-              </dd>
-              <%# //Products %>
+                <%# Products %>
+                <dt ng-if="suggestions.products">
+                  <span aria-hidden="true" class="icon icon--products icon--xlrg"></span> Products
+                </dt>
+                <dd ng-repeat="suggestion in suggestions.products" role="presentation">
+                  <a ng-class="{'is-focused': suggestion === focusedSuggestion}" ng-href="{{url(suggestion)}}" tabindex="-1">{{suggestion.description}}</a>
+                </dd>
+                <%# //Products %>
 
-            </dl>
+              </dl>
+            </div>
           </div>
-        </div>
+        <% end %>
         <%# //Search results %>
 
         <%# Search close button for palm %>
-        <button type="button" class="btn header__overlay__close-btn hide-fully--non-palm js-disabled-hide" aria-owns="site-search" toggle-visibility="site-search">
+        <button type="button" class="btn header__overlay__close-btn<%= ' hide-fully--non-palm'.html_safe unless national_product_view? %> js-disabled-hide" aria-owns="site-search" toggle-visibility="site-search">
           <span class="hide-visually">Close search</span>
           <span class="icon icon--close-lrg" aria-hidden="true"></span>
         </button>

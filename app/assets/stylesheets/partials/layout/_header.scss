@@ -4,6 +4,7 @@
 
 $hero-banner-height-sml: 270 !default;
 $hero-banner-height-lrg: 380 !default;
+$national-view-search-toggle-bp: 1080 !default;
 
 .header {
 	position: relative;
@@ -20,9 +21,8 @@ $hero-banner-height-lrg: 380 !default;
 	.icon--arrow-down-full:before {color: $color-txt-dark;}
 }
 
-/* Modifiers: 'Centre home page hero banner' and 'National' */
-.header--hero,
-.header--national {border-bottom: 1px solid $color-grey-med-2;}
+/* Modifier: 'Centre home page hero banner' */
+.header--hero {border-bottom: 1px solid $color-grey-med-2;}
 
 	/* [HEADER SECONDARY]
 	-------------------------------------------------------*/
@@ -134,7 +134,12 @@ $hero-banner-height-lrg: 380 !default;
 			.header-search-toggle {width: 100%;}
 
 			/* Search */
+
+			/* Default header search */
 			.header-search-toggle {top: 0;}
+
+			/* National view header search */
+			&.header--national .header-search-toggle {top: 100%;}
 
 			/* Centre home page hero banner */
 			&.header--hero .header-search-toggle {
@@ -145,9 +150,19 @@ $hero-banner-height-lrg: 380 !default;
 				}
 			}
 
-			/* Always show search at this breakpoint */
+			/* Always show search for default header at this breakpoint */
 			@include respond-min($non-palm) {
-				& .header-search-toggle {
+				& .header__primary .header-search-toggle {
+					display: inline-block;
+					width: auto;
+					position: absolute;
+					left: auto;
+				}
+			}
+
+			/* Always show search for national view header at this breakpoint */
+			@include respond-min($national-view-search-toggle-bp) {
+				&.header--national .header-search-toggle {
 					display: inline-block;
 					width: auto;
 					position: absolute;
@@ -922,11 +937,16 @@ $hero-banner-height-lrg: 380 !default;
 			float: right;
 			@include to-rem(margin-top, 3);
 
-			/* Non JS users */
-			.no-js & {
-				float: none;
-				text-align: center;
-				@include to-rem(margin-bottom, 4);
+			/* National view header */
+			.header--national & {
+
+				@include respond-min($non-palm) {
+      		@include to-rem(margin-top, 5.5);
+      	}
+
+				@include respond-min($national-view-search-toggle-bp) {
+      		display: none;
+      	}
 			}
 
 			a:hover,
@@ -1204,9 +1224,25 @@ $hero-banner-height-lrg: 380 !default;
 				}
 			}
 
+			/* National view header */
+			.header--national & {
+				background-color: $color-grey-dark-3;
+				@include to-rem(height, 41);
+
+				@include respond-min($non-palm) {
+					@include to-rem(height, 65);
+				}
+
+				/* Non JS users */
+				.no-js & {
+					position: static;
+					@include to-rem(margin-top, $spacing-base);
+				}
+			}
+
 			.icon:before {color: $color-txt-light;}
 
-				/* Inner container rules at this breakpoint */
+				/* Adjust widths for inner container */
 				@include respond-min($non-palm) {
 					.container {
 						@include to-rem(width, 300);
@@ -1231,6 +1267,18 @@ $hero-banner-height-lrg: 380 !default;
 					}
 				}
 
+				/* National view header */
+				@include respond-range($non-palm, $national-view-search-toggle-bp) {
+					.header--national & .container {
+						width: auto;
+						max-width: none;
+						min-width: 0;
+
+						/* Non JS users */
+						.no-js & {margin: 0 4%;}
+					}
+				}
+
 					/* Close button */
 					.header__overlay__close-btn {
 						position: absolute;
@@ -1241,6 +1289,15 @@ $hero-banner-height-lrg: 380 !default;
 
 						/* Old IE */
 						@include old-ie {@include to-rem(top, 2);}
+
+						/* National view header */
+						.header--national & {
+							@include respond-min($national-view-search-toggle-bp) {
+								display: none;
+							}
+
+							.icon:before {color: lighten($color-txt-light, 5%);}
+						}
 					}
 		}
 
@@ -1249,11 +1306,20 @@ $hero-banner-height-lrg: 380 !default;
 		/* Right margin for search form/results to make room for the 'close' button */
 		.search-mini,
 		.search-results__inner {
-			@include to-rem(margin-right, 30);
+			&,
+			.header--national & {@include to-rem(margin-right, 32);}
 
 			@include respond-min($non-palm) {
 				margin-right: 0;
 			}
+
+			/* National view header */
+			@include respond-min($national-view-search-toggle-bp) {
+				.header--national & {margin-right: 0;}
+			}
+
+			/* Non JS users */
+			.no-js & {margin-right: 0;}
 		}
 
 		/* Search form */
@@ -1555,7 +1621,7 @@ $hero-banner-height-lrg: 380 !default;
 			.header-centre-select-national__lbl {
 				display: none;
 
-				@include respond-min(730) {
+				@include respond-min(780) {
 					display: inline-block;
 		  	}
 			}
@@ -1563,6 +1629,11 @@ $hero-banner-height-lrg: 380 !default;
 			/* Drop down */
 			.drop-down-menu {
 				@include to-rem(margin-left margin-right, $spacing-quarter);
+
+				/* Bump up the positioning of the drop down target at this breakpoint range */
+				@include respond-range($non-palm, $desk) {
+					.drop-down-menu__target {@include to-rem(margin-top, 7.5);}
+				}
 			}
 
 				/* Trigger icon */

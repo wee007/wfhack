@@ -50,7 +50,7 @@ sortCentreListByLocation = (userState) ->
 
 # Only execute if geolocation is supported
 if navigator.geolocation
-  insertOverlayAndPreloader()
+  #insertOverlayAndPreloader()
 
   # Record how long it takes to get user position
   searchStartTime = new Date().getTime()
@@ -63,11 +63,11 @@ if navigator.geolocation
     if searchEndTime - searchStartTime < 1000
       extraDelay = 1000 - (searchEndTime - searchStartTime);
     setTimeout (->
-      removeOverlayAndPreloader()
+      #removeOverlayAndPreloader()
       calculateClosestCentresAndState userPosition
       state = selectClosestState()
       sortCentreListByLocation(state)
     ), extraDelay
   , ->
-    removeOverlayAndPreloader()
+    #removeOverlayAndPreloader()
     @

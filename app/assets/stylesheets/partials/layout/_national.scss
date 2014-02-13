@@ -38,10 +38,6 @@
       position: absolute;
       /* Setting it at a higher `z-index` than `img-rotate__item` */
       z-index: 2;
-
-      &,
-      a,
-      .icon:before {color: #fff;}
     }
 
     .national__header {
@@ -247,9 +243,6 @@
         @include to-rem(margin-top, -64);
       }
 
-      &,
-      a {color: #fff;}
-
       /* Non JS users */
       .no-js & {margin-top: 0;}
 
@@ -289,8 +282,6 @@
 
         li:first-child a {padding-left: 0;}
       }
-
-      .tab__content a {color: #fff;}
 
       /* Tab content - non JS users */
       .no-js & .tab__content {margin-bottom: 0;}

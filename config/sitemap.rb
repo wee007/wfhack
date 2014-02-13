@@ -52,7 +52,7 @@ begin
       # Store categories
       Rails.logger.info "[SITEMAP] #{centre.name} store categories"
       FilteredStoresDecorator.decorate(stores).categories.each do |centre_retailer_category|
-        add centre_stores_category_path(centre, centre_retailer_category.code), priority: 0.6
+        add centre_stores_category_path(centre.code, centre_retailer_category.code), priority: 0.6
       end
     end
 

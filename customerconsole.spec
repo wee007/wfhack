@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.143
+Version:     0.2.144
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,14 @@ fi
 
 
 %changelog
+* Thu Feb 13 2014 ci <doperations@au.westfield.com> 0.2.144-1
+- Merge pull request #907 from ldewey/WSF-6226 (dmiller@au.westfield.com)
+- Updated comment to refect better whats going on. (ldewey@au.westfield.com)
+- Removing white space (ldewey@au.westfield.com)
+- Moved nav-contextual ul list into layout (ldewey@au.westfield.com)
+- Fixed gap when showing the category list on palm view
+  (ldewey@au.westfield.com)
+
 * Thu Feb 13 2014 ci <doperations@au.westfield.com> 0.2.143-1
 - Merge pull request #910 from fchan/styleguide (dmiller@au.westfield.com)
 - Update JS hooks on flexslider in style guide (fiona@fionachan.net)

@@ -35,13 +35,13 @@
         </div>
       <% else %>
         <div class="drop-down-menu__target drop-down pointer-up box box--drop-down" id="no-products-nearby-centre">
-          <dl class="drop-down-menu__list">
-            <% @nearby_centres.each do |nearby_centre| %>
-              <dd class="drop-down-menu__divider">
-                <%= link_to nearby_centre.short_name, centre_products_path({centre_id: nearby_centre.code}), class: 'btn btn--full btn--full-left' %>
-              </dd>
-            <% end %>
-          </dl>
+          <ul class="drop-down-menu__list">
+          <% @nearby_centres.each do |nearby_centre| %>
+            <li class="drop-down-menu__divider">
+              <%= link_to nearby_centre.short_name, centre_products_path({centre_id: nearby_centre.code}), class: 'btn btn--full btn--full-left' %>
+            </li>
+          <% end %>
+          </ul>
         </div>
       <% end %>
       <%# //Centre selector target %>

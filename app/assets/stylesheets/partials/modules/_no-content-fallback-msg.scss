@@ -34,8 +34,7 @@
   }
 
   .drop-down-container {
-    margin: 0 auto;
-    @include to-rem(margin-top, $spacing-third);
+    @include to-rem(margin, $spacing-third auto 0);
     @include to-rem(max-width, $drop-down-width);
   }
 

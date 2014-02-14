@@ -31,6 +31,11 @@ module ProductsHelper
     params_dup
   end
 
+  def national
+    params[:action] == 'index_national' &&
+    params[:controller] == 'products'
+  end
+
   private
 
   def centre_category

@@ -51,4 +51,8 @@ module TileHelper
 
   end
 
+  def tile_heading?
+    controller_and_action  == 'centres-show'
+  end
+
 end

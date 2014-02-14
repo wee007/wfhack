@@ -52,42 +52,41 @@
 
 <%- end -%>
 
-  <%# Pin board %>
-  <%= pin_board(@search.products) do |result| %>
-    <%= tile "product",
-      result: result,
-      image: { href: result.default_image_url, title: result.name }
-    %>
-  <%# end %>
-  <%# //Pin board %>
+<%# Pin board %>
+<%= pin_board(@search.products) do |result| %>
+  <%= tile "product",
+    result: result,
+    image: { href: result.default_image_url, title: result.name }
+  %>
+<% end %>
+<%# //Pin board %>
 
-  <%# Pager %>
-  <% if @search.products.present? %>
-    <nav class="pager pager--pin-board" role="navigation" aria-label="Product pagination">
-      <div class="pager__inner">
-        <em class="pager__count">
-          <span class="hide-visually">Page </span>
-          <%= @search.page %> of <%= @search.page_count %>
-        </em>
-        <%# Previous page %>
-        <% if @search.page > 1 %>
-          <%= link_to prev_page_url, { rel: 'prev', class: 'pager__prev btn btn--pointer btn--pointer-alt btn--main btn--main-white '} do %>
-            <span class="icon icon--arrow-left-big btn--pointer__icon btn--pointer__icon--flush" aria-hidden="true"></span>
-            Prev
-          <% end %>
+<%# Pager %>
+<% if @search.products.present? %>
+  <nav class="pager pager--pin-board" role="navigation" aria-label="Product pagination">
+    <div class="pager__inner">
+      <em class="pager__count">
+        <span class="hide-visually">Page </span>
+        <%= @search.page %> of <%= @search.page_count %>
+      </em>
+      <%# Previous page %>
+      <% if @search.page > 1 %>
+        <%= link_to prev_page_url, { rel: 'prev', class: 'pager__prev btn btn--pointer btn--pointer-alt btn--main btn--main-white '} do %>
+          <span class="icon icon--arrow-left-big btn--pointer__icon btn--pointer__icon--flush" aria-hidden="true"></span>
+          Prev
         <% end %>
-        <%# //Previous page %>
-        <%# Next page %>
-        <% if @search.page < @search.page_count %>
-          <%= link_to next_page_url, { rel: 'next', class: 'pager__next btn btn--pointer btn--main btn--main-white'} do %>
-            Next
-            <span class="icon icon--arrow-right-big btn--pointer__icon btn--pointer__icon--flush" aria-hidden="true"></span>
-          <% end %>
+      <% end %>
+      <%# //Previous page %>
+      <%# Next page %>
+      <% if @search.page < @search.page_count %>
+        <%= link_to next_page_url, { rel: 'next', class: 'pager__next btn btn--pointer btn--main btn--main-white'} do %>
+          Next
+          <span class="icon icon--arrow-right-big btn--pointer__icon btn--pointer__icon--flush" aria-hidden="true"></span>
         <% end %>
-        <%# //Next page %>
-      </div>
-    </nav>
-  <% end %>
-  <%# //Pager %>
+      <% end %>
+      <%# //Next page %>
+    </div>
+  </nav>
+<% end %>
+<%# //Pager %>
 
-<%- end -%>

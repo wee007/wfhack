@@ -23,6 +23,8 @@
       colours: "colour"
       sizes: "size"
 
+    # On page load, if there are no products
+    # Remove bad params and do a search with no params to get all available params for this centre
     if westfield.products.count == 0
       ProductSearch.resetParams()
       ProductSearch.getAvailableFilters $rootScope.centre_id
@@ -57,11 +59,11 @@
       # New params mean that we need to reset the page QS
       delete qsParams.page
 
+      # When doing a search after a "no products" result
+      # Make sure bad params are removed from URL, with only the new param being added
       if westfield.products.count == 0
         qsParams = {}
         qsParams[newAttribute] = newValues
-        #qsParams.centre = rParams.centre
-
 
       # Collect routable params, removing undefined
       route = ['products', rParams.super_cat, rParams.category]
@@ -98,6 +100,8 @@
     )()
 
     $scope.go = (event, path) ->
+      # Angular's $location.path wasnt replacing the full URL when there were no products,
+      # So use to lower level value to change URL
       if westfield.products.count == 0
         $window.location.href = path
       else

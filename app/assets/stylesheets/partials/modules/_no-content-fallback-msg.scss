@@ -36,6 +36,8 @@
   .drop-down-container {
     margin: 0 auto;
     @include to-rem(max-width, $drop-down-width);
+
+    .drop-down-menu__trigger {@include to-rem(margin-top, $spacing-third);}
   }
 
     /* 'No content/search results' text */

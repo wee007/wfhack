@@ -4,7 +4,7 @@
       <div class="container drop-down-container" ng-controller="GlobalSearchCtrl" ng-cloak>
 
         <%# Search form %>
-        <%= form_tag "#{national_product_view? ? products_path : centre_products_path(centre_id: params[:centre_id] || params[:id])}",
+        <%= form_tag (national_product_view? ? products_path : centre_products_path(centre_id: params[:centre_id] || params[:id])),
             "ng-submit" => "submit($event)",
             class: "search-mini",
             role: "search",
@@ -18,7 +18,14 @@
           <%# Label and inputs %>
           <label for="global-search" class="hide-visually">Search<%= 'stores &amp;'.html_safe unless national_product_view? %> products</label>
           <input type="hidden" ng-model="centre" value="<%= params[:centre_id] || params[:id] %>">
-          <input ng-model="searchQuery" ng-blur="hideSuggestions()" ng-focus="makeSuggestions()" ng-keyup="makeSuggestions($event)" ng-keydown="navigateSuggestions($event)" type="search" class="search-mini__input" id="global-search" name="search_query" autocomplete="off" placeholder="Search<%= ' stores &amp;'.html_safe unless national_product_view? %> products&#8230;">
+
+          <%# We do don need the search suggest to trigger on natinal pages %>
+          <% if national_product_view? %>
+            <input type="search" class="search-mini__input" name="search_query" autocomplete="off" placeholder="Search products&#8230;">
+          <% else %>
+            <input ng-model="searchQuery" ng-blur="hideSuggestions()" ng-focus="makeSuggestions()" ng-keyup="makeSuggestions($event)" ng-keydown="navigateSuggestions($event)" type="search" class="search-mini__input" id="global-search" name="search_query" autocomplete="off" placeholder="Search stores &amp; products&#8230;">
+          <% end -%>
+
           <input type="submit" value="Search" ng-hide="true" class="search-mini__submit">
           <%# //Label and inputs %>
 

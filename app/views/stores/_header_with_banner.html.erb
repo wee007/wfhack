@@ -6,7 +6,7 @@
   <%# //Storefront name %>
 
   <%# Storefront banner and SEO description carousel %>
-  <div class="flexslider flexslider--contain-controls" style="background-image: url(<%= cl_image_path(@store.storefront, width: 2048, crop: :limit, quality: 25, format: :auto, type: :fetch) %>);">
+  <div class="flexslider flexslider--contain-controls">
     <ul class="slides">
       <li>
         <%= fetch_image_tag @store.storefront,
@@ -14,11 +14,28 @@
           width: 2048,
           crop: :limit,
           quality: 25,
-          format: :auto,
-          class: "hide-visually"
+          format: :auto
         %>
       </li>
-      <%= render 'description' %>
+      <%- if @store.description.present? %>
+        <li class="storefront__flexslider-blurb">
+          <%# We repeat the banner image in this slide so that the slide gets the same dimensions as the slide above %>
+          <%= fetch_image_tag @store.storefront,
+            alt: "",
+            width: 2048,
+            crop: :limit,
+            quality: 25,
+            format: :auto
+          %>
+          <div>
+            <div class="vert-align">
+              <div class="vert-align__inner">
+                <p><%=raw @store.description.truncate(300, '&#8230;') %></p>
+              </div>
+            </div>
+          </div>
+        </li>
+      <%- end %>
     </ul>
   </div>
   <%# //Storefront banner and SEO description carousel %>

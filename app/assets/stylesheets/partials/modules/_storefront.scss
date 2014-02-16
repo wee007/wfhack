@@ -15,35 +15,37 @@
 
   /* Flexslider */
   .flexslider {
-    background-position: 0 50%;
-    background-repeat: no-repeat;
-    background-size: cover;
+    color: #fff;
 
     /* When there is no store banner */
     &.is-no-store-banner {@include linear-gradient($color-grey-dark-3, $color-txt-dark);}
 
-    /* Slides */
-    .slides > li {
-      @include to-rem(height, 140);
-      overflow: hidden;
-
-      /* Increase heights at these breakpoints */
-      @include respond-min($iphone-landscape) {
-        @include to-rem(height, 180);
+      .slides > li {
+        @include to-rem(max-height, 297);
+        overflow: hidden;
       }
 
-      @include respond-min($non-palm) {
-        @include to-rem(height, 288);
-      }
+      /* Need fixed heights for each slide when there is no store banner */
+      &.is-no-store-banner .slides > li {
+        @include to-rem(height, 140);
 
-      @include respond-min($ipad-landscape) {
-        @include to-rem(height, 210);
-      }
 
-      @include respond-min(1400) {
-        @include to-rem(height, 228);
+        @include respond-min($iphone-landscape) {
+          @include to-rem(height, 180);
+        }
+
+        @include respond-min($non-palm) {
+          @include to-rem(height, 288);
+        }
+
+        @include respond-min($ipad-landscape) {
+          @include to-rem(height, 210);
+        }
+
+        @include respond-min(1400) {
+          @include to-rem(height, 228);
+        }
       }
-    }
   }
 }
 
@@ -52,11 +54,10 @@
       .flex-control-paging {@include to-rem(margin-left, -$spacing-base);}
     }
 
-      /* Flexslider store name when no store banner is provided */
+      /* Store name when there is no store banner */
       .storefront__flexslider-storename {
 
         h1 {
-          color: #fff;
           @include to-rem(padding-left padding-right, $spacing-base);
           @include to-rem(margin-top, -6);
           @include font-size(21, 1.3);
@@ -65,7 +66,6 @@
           /* Super long store name */
           &.is-long-store-name {@include font-size($font-size-lrger, 1.3);}
 
-          /* Increase font size at these breakpoints */
           @include respond-min($iphone-landscape) {
             @include font-size(26, 1.3);
 
@@ -92,35 +92,44 @@
         }
       }
 
-      /* Flexslider blurb */
+      /* Blurb */
       .storefront__flexslider-blurb {
-        @include rgba-bg(#000, 0.8);
-        color: #fff;
 
-        /* When there is no store banner */
-        .is-no-store-banner & {background: none;}
+        > div {
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          @include rgba-bg(#000, 0.85);
 
-        p {
-          width: $page-container-width;
-          margin-left: auto;
-          margin-right: auto;
-          @include to-rem(margin-top, -14);
+          /* When there is no store banner */
+          .is-no-store-banner & {background: transparent;}
 
-          @include respond-min($iphone-landscape) {
-            margin-top: 0;
-          }
+          p {
+            width: $page-container-width;
+            margin-left: auto;
+            margin-right: auto;
+            @include to-rem(margin-top, -$spacing-half);
+            @include font-size($font-size-milli, 1.5);
 
-          @include respond-min($non-palm) {
-            width: 66%;
-            @include font-size($font-size, 1.5);
-          }
+            @include respond-min($iphone-landscape) {
+              margin-top: 0;
+              @include font-size($font-size-sml, 1.5);
+            }
 
-          @include respond-min($ipad-landscape) {
-            width: 80%;
-          }
+            @include respond-min($non-palm) {
+              width: 66%;
+              @include font-size($font-size, 1.5);
+            }
 
-          @include respond-range($ipad-landscape, 1100) {
-            @include font-size($font-size-sml, 1.5);
+            @include respond-min($ipad-landscape) {
+              width: 80%;
+            }
+
+            @include respond-range($ipad-landscape, 1100) {
+              @include font-size($font-size-sml, 1.5);
+            }
           }
         }
       }

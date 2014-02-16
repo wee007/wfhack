@@ -13,7 +13,17 @@
           </div>
         </div>
       </li>
-      <%= render 'description' %>
+      <%- if @store.description.present? %>
+        <li class="storefront__flexslider-blurb">
+          <div>
+            <div class="vert-align">
+              <div class="vert-align__inner">
+                <p><%=raw @store.description.truncate(300, '&#8230;') %></p>
+              </div>
+            </div>
+          </div>
+        </li>
+      <%- end %>
     </ul>
   </div>
   <%# //Storefront name and SEO description carousel %>

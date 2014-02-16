@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.145
+Version:     0.2.146
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,12 @@ fi
 
 
 %changelog
+* Mon Feb 17 2014 ci <doperations@au.westfield.com> 0.2.146-1
+- Merge pull request #916 from ldewey/WSF-6121 (dmiller@au.westfield.com)
+- Added larger timeout and more retrys to the sitemap builder json calls
+  (ldewey@au.westfield.com)
+- Fixed store category pages link in sitemap (ldewey@au.westfield.com)
+
 * Fri Feb 14 2014 ci <doperations@au.westfield.com> 0.2.145-1
 - Update national landing page scss after PR feedback (fiona@fionachan.net)
 - WSF-6284 WSF-6288: Update national landing page and Airport west iimages

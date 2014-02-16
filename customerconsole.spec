@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.148
+Version:     0.2.149
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,12 @@ fi
 
 
 %changelog
+* Mon Feb 17 2014 ci <doperations@au.westfield.com> 0.2.149-1
+- Merge pull request #920 from cpearce/storefront-banner-fix
+  (dmiller@au.westfield.com)
+- Determine fix for storefront banner cropping - WSF-6255
+  (cpearce@au.westfield.com)
+
 * Mon Feb 17 2014 ci <doperations@au.westfield.com> 0.2.148-1
 - Merge pull request #919 from ldewey/tile_titles (dmiller@au.westfield.com)
 - Title title fix (ldewey@au.westfield.com)

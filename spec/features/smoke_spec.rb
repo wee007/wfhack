@@ -129,6 +129,20 @@ feature "Smoke tests", :vcr => {
       should eql(200)
     end
 
+    scenario "styleguide" do
+      # index
+      visit styleguide_index_path
+      should eql(200)
+
+      # show
+      visit styleguide_path('base')
+      should eql(200)
+
+      # static
+      visit styleguide_path('static/social_share')
+      should eql(200)
+    end
+
   end
 
 end

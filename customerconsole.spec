@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.147
+Version:     0.2.148
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,10 @@ fi
 
 
 %changelog
+* Mon Feb 17 2014 ci <doperations@au.westfield.com> 0.2.148-1
+- Merge pull request #919 from ldewey/tile_titles (dmiller@au.westfield.com)
+- Title title fix (ldewey@au.westfield.com)
+
 * Mon Feb 17 2014 ci <doperations@au.westfield.com> 0.2.147-1
 - Merge pull request #918 from ldewey/master (dmiller@au.westfield.com)
 - Made style guide accessible in any environment. (ldewey@au.westfield.com)

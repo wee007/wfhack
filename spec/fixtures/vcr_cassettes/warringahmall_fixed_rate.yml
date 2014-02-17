@@ -1,6 +1,5 @@
 ---
 http_interactions:
-
 - request:
     method: get
     uri: http://centre-service.test.dbg.westfield.com/api/centre/master/centres/warringahmall.json
@@ -15,7 +14,7 @@ http_interactions:
   response:
     status:
       code: 200
-      message:
+      message: 
     headers:
       X-Frame-Options:
       - SAMEORIGIN
@@ -52,9 +51,8 @@ http_interactions:
       string: '{"name":"Westfield Knox","short_name":"Knox","code":"knox","business_unit_code":"26821","type":"aspirational","street_address":"425
         Burwood Highway","suburb":"Wantirna South","state":"VIC","postcode":"3152","country":"au","phone_number":"(03)
         9814 5000","email_address":"knox@au.westfield.com","latitude":"-37.868891","longitude":"145.237885","today_opening_time":"09:00","today_closing_time":"17:30","number_of_levels":3,"micello_community":20077,"facebook":"http://www.facebook.com/westfieldknox","twitter":"https://twitter.com/westfieldknox","google_plus":"https://plus.google.com/116705982116614986647/posts","instagram":"http://instagram.com/WestfieldKnox","pinterest":"http://pinterest.com/westfieldau","youtube":"http://www.youtube.com/westfieldfashion","retail":true,"cinema":true,"enabled":true}'
-    http_version:
+    http_version: 
   recorded_at: Tue, 22 Oct 2013 10:15:08 GMT
-
 - request:
     method: get
     uri: http://centre-service.test.dbg.westfield.com/api/centre/master/parkings/warringahmall.json
@@ -69,7 +67,7 @@ http_interactions:
   response:
     status:
       code: 200
-      message:
+      message: 
     headers:
       X-Frame-Options:
       - SAMEORIGIN
@@ -98,6 +96,49 @@ http_interactions:
       string: '{"centre_id":"warringahmall","additional_parking_information":"Some
         additional info","rates_apply":true,"credit_card_surcharge_amount":"2","type_of_rate":"fixed_rate","maximum_daily_rate_weekday":"","maximum_daily_rate_weekend":"","overnight_fee_weekday":"","overnight_fee_weekend":"","flat_rate":"5","free_parking_instructions":"No
         free parking","valet_parking_instructions":"None of this","parking_rates":[]}'
-    http_version:
+    http_version: 
   recorded_at: Sun, 15 Sep 2013 23:38:57 GMT
-recorded_with: VCR 2.5.0
+- request:
+    method: get
+    uri: http://trading-hour-service.test.dbg.westfield.com/api/trading-hour/master/centre_trading_hours/range.json?centre_id=warringahmall
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.8
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-UA-Compatible:
+      - chrome=1
+      Content-Type:
+      - application/json; charset=utf-8
+      ETag:
+      - '"f727944fbb2d184e596e52c082ce6a1b"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - f446194b-0c33-4b07-9813-2ea90966f323
+      X-Runtime:
+      - '0.073818'
+      Date:
+      - Tue, 04 Feb 2014 22:45:05 GMT
+      Connection:
+      - close
+    body:
+      encoding: UTF-8
+      string: '[{"id":512,"centre_id":"warringahmall","store_id":null,"hour_type":"standard","description":null,"day_of_week":0,"date":"2014-02-03","opening_time":"09:00","closing_time":"17:30","closed":false},{"id":513,"centre_id":"warringahmall","store_id":null,"hour_type":"standard","description":null,"day_of_week":1,"date":"2014-02-04","opening_time":"09:00","closing_time":"17:30","closed":false},{"id":514,"centre_id":"warringahmall","store_id":null,"hour_type":"standard","description":null,"day_of_week":2,"date":"2014-02-05","opening_time":"09:00","closing_time":"17:30","closed":false},{"id":515,"centre_id":"warringahmall","store_id":null,"hour_type":"standard","description":null,"day_of_week":3,"date":"2014-02-06","opening_time":"09:00","closing_time":"21:00","closed":false},{"id":516,"centre_id":"warringahmall","store_id":null,"hour_type":"standard","description":null,"day_of_week":4,"date":"2014-02-07","opening_time":"09:00","closing_time":"17:30","closed":false},{"id":517,"centre_id":"warringahmall","store_id":null,"hour_type":"standard","description":null,"day_of_week":5,"date":"2014-02-08","opening_time":"09:00","closing_time":"17:00","closed":false},{"id":518,"centre_id":"warringahmall","store_id":null,"hour_type":"standard","description":null,"day_of_week":6,"date":"2014-02-09","opening_time":"10:00","closing_time":"17:00","closed":false},{"id":512,"centre_id":"warringahmall","store_id":null,"hour_type":"standard","description":null,"day_of_week":0,"date":"2014-02-10","opening_time":"09:00","closing_time":"17:30","closed":false},{"id":513,"centre_id":"warringahmall","store_id":null,"hour_type":"standard","description":null,"day_of_week":1,"date":"2014-02-11","opening_time":"09:00","closing_time":"17:30","closed":false},{"id":514,"centre_id":"warringahmall","store_id":null,"hour_type":"standard","description":null,"day_of_week":2,"date":"2014-02-12","opening_time":"09:00","closing_time":"17:30","closed":false},{"id":515,"centre_id":"warringahmall","store_id":null,"hour_type":"standard","description":null,"day_of_week":3,"date":"2014-02-13","opening_time":"09:00","closing_time":"21:00","closed":false},{"id":516,"centre_id":"warringahmall","store_id":null,"hour_type":"standard","description":null,"day_of_week":4,"date":"2014-02-14","opening_time":"09:00","closing_time":"17:30","closed":false},{"id":517,"centre_id":"warringahmall","store_id":null,"hour_type":"standard","description":null,"day_of_week":5,"date":"2014-02-15","opening_time":"09:00","closing_time":"17:00","closed":false},{"id":518,"centre_id":"warringahmall","store_id":null,"hour_type":"standard","description":null,"day_of_week":6,"date":"2014-02-16","opening_time":"10:00","closing_time":"17:00","closed":false},{"id":512,"centre_id":"warringahmall","store_id":null,"hour_type":"standard","description":null,"day_of_week":0,"date":"2014-02-17","opening_time":"09:00","closing_time":"17:30","closed":false},{"id":513,"centre_id":"warringahmall","store_id":null,"hour_type":"standard","description":null,"day_of_week":1,"date":"2014-02-18","opening_time":"09:00","closing_time":"17:30","closed":false},{"id":514,"centre_id":"warringahmall","store_id":null,"hour_type":"standard","description":null,"day_of_week":2,"date":"2014-02-19","opening_time":"09:00","closing_time":"17:30","closed":false},{"id":515,"centre_id":"warringahmall","store_id":null,"hour_type":"standard","description":null,"day_of_week":3,"date":"2014-02-20","opening_time":"09:00","closing_time":"21:00","closed":false},{"id":516,"centre_id":"warringahmall","store_id":null,"hour_type":"standard","description":null,"day_of_week":4,"date":"2014-02-21","opening_time":"09:00","closing_time":"17:30","closed":false},{"id":517,"centre_id":"warringahmall","store_id":null,"hour_type":"standard","description":null,"day_of_week":5,"date":"2014-02-22","opening_time":"09:00","closing_time":"17:00","closed":false},{"id":518,"centre_id":"warringahmall","store_id":null,"hour_type":"standard","description":null,"day_of_week":6,"date":"2014-02-23","opening_time":"10:00","closing_time":"17:00","closed":false},{"id":512,"centre_id":"warringahmall","store_id":null,"hour_type":"standard","description":null,"day_of_week":0,"date":"2014-02-24","opening_time":"09:00","closing_time":"17:30","closed":false},{"id":513,"centre_id":"warringahmall","store_id":null,"hour_type":"standard","description":null,"day_of_week":1,"date":"2014-02-25","opening_time":"09:00","closing_time":"17:30","closed":false},{"id":514,"centre_id":"warringahmall","store_id":null,"hour_type":"standard","description":null,"day_of_week":2,"date":"2014-02-26","opening_time":"09:00","closing_time":"17:30","closed":false},{"id":515,"centre_id":"warringahmall","store_id":null,"hour_type":"standard","description":null,"day_of_week":3,"date":"2014-02-27","opening_time":"09:00","closing_time":"21:00","closed":false},{"id":516,"centre_id":"warringahmall","store_id":null,"hour_type":"standard","description":null,"day_of_week":4,"date":"2014-02-28","opening_time":"09:00","closing_time":"17:30","closed":false},{"id":517,"centre_id":"warringahmall","store_id":null,"hour_type":"standard","description":null,"day_of_week":5,"date":"2014-03-01","opening_time":"09:00","closing_time":"17:00","closed":false},{"id":518,"centre_id":"warringahmall","store_id":null,"hour_type":"standard","description":null,"day_of_week":6,"date":"2014-03-02","opening_time":"10:00","closing_time":"17:00","closed":false},{"id":512,"centre_id":"warringahmall","store_id":null,"hour_type":"standard","description":null,"day_of_week":0,"date":"2014-03-03","opening_time":"09:00","closing_time":"17:30","closed":false},{"id":513,"centre_id":"warringahmall","store_id":null,"hour_type":"standard","description":null,"day_of_week":1,"date":"2014-03-04","opening_time":"09:00","closing_time":"17:30","closed":false},{"id":514,"centre_id":"warringahmall","store_id":null,"hour_type":"standard","description":null,"day_of_week":2,"date":"2014-03-05","opening_time":"09:00","closing_time":"17:30","closed":false},{"id":515,"centre_id":"warringahmall","store_id":null,"hour_type":"standard","description":null,"day_of_week":3,"date":"2014-03-06","opening_time":"09:00","closing_time":"21:00","closed":false},{"id":516,"centre_id":"warringahmall","store_id":null,"hour_type":"standard","description":null,"day_of_week":4,"date":"2014-03-07","opening_time":"09:00","closing_time":"17:30","closed":false},{"id":517,"centre_id":"warringahmall","store_id":null,"hour_type":"standard","description":null,"day_of_week":5,"date":"2014-03-08","opening_time":"09:00","closing_time":"17:00","closed":false},{"id":518,"centre_id":"warringahmall","store_id":null,"hour_type":"standard","description":null,"day_of_week":6,"date":"2014-03-09","opening_time":"10:00","closing_time":"17:00","closed":false},{"id":512,"centre_id":"warringahmall","store_id":null,"hour_type":"standard","description":null,"day_of_week":0,"date":"2014-03-10","opening_time":"09:00","closing_time":"17:30","closed":false},{"id":513,"centre_id":"warringahmall","store_id":null,"hour_type":"standard","description":null,"day_of_week":1,"date":"2014-03-11","opening_time":"09:00","closing_time":"17:30","closed":false},{"id":514,"centre_id":"warringahmall","store_id":null,"hour_type":"standard","description":null,"day_of_week":2,"date":"2014-03-12","opening_time":"09:00","closing_time":"17:30","closed":false},{"id":515,"centre_id":"warringahmall","store_id":null,"hour_type":"standard","description":null,"day_of_week":3,"date":"2014-03-13","opening_time":"09:00","closing_time":"21:00","closed":false},{"id":516,"centre_id":"warringahmall","store_id":null,"hour_type":"standard","description":null,"day_of_week":4,"date":"2014-03-14","opening_time":"09:00","closing_time":"17:30","closed":false},{"id":517,"centre_id":"warringahmall","store_id":null,"hour_type":"standard","description":null,"day_of_week":5,"date":"2014-03-15","opening_time":"09:00","closing_time":"17:00","closed":false},{"id":518,"centre_id":"warringahmall","store_id":null,"hour_type":"standard","description":null,"day_of_week":6,"date":"2014-03-16","opening_time":"10:00","closing_time":"17:00","closed":false}]'
+    http_version: 
+  recorded_at: Tue, 04 Feb 2014 22:45:05 GMT
+recorded_with: VCR 2.6.0

@@ -1,6 +1,6 @@
 module ApiClientRequests
   def fetch(*args)
-    connection_params = connection_details if self.respond_to?(:connection_details) and Rails.env != 'development'
+    connection_params = connection_details if self.respond_to?(:connection_details) and  !['development','test'].include?(Rails.env)
     Service::API.get(request_uri(*args), {}, connection_params || {})
   end
   def build(json_response)

@@ -13,6 +13,8 @@ class ProductsController < ApplicationController
     }
     services[:product] = services[:products] if services[:product][:category_codes].nil?
     services[:store] = {retailer_code: params[:retailer].first} if params[:retailer]
+    
+    #BUG: Stores is NEVER assigned to anything.
     @centre, @nearby_centres, @search, @categories, stores = service_map services
     @super_categories = CategoryService.find centre_id: params[:centre_id], product_mapable: true
 

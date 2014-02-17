@@ -107,21 +107,19 @@ feature "Smoke tests", :vcr => {
       should eql(200)
     end
 
-    # Removed because it'll be easier to make this pass when I can get the data from prod!!!
-    # Regenerate once deployed.
-    # scenario "store pages" do
-    #   # index
-    #   visit centre_stores_path(centre_code)
-    #   should eql(200)
-    # 
-    #   # show
-    #   first(".test-store a").click
-    #   should eql(200)
-    # end
+    scenario "store pages" do
+      # index
+      visit centre_stores_path(centre_code)
+      should eql(200)
+
+      # show
+      first(".test-store a").click
+      should eql(200)
+    end
 
     scenario "notice pages" do
       # index
-      visit centre_info_path(centre_code)
+      visit centre_info_path('carindale')
       should eql(200)
 
       # show

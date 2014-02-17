@@ -43,7 +43,7 @@ http_interactions:
       string: '{"centre_id":"caseycentral","additional_parking_information":"Some
         additional info","rates_apply":false,"credit_card_surcharge_amount":"","type_of_rate":"fixed_rate","maximum_daily_rate_weekday":"","maximum_daily_rate_weekend":"","overnight_fee_weekday":"","overnight_fee_weekend":"","flat_rate":"","valet_parking_instructions":"None
         of this","pdf_ref":null,"parking_rates":[]}'
-    http_version:
+    http_version: 
   recorded_at: Tue, 17 Sep 2013 06:31:31 GMT
 - request:
     method: get
@@ -59,7 +59,7 @@ http_interactions:
   response:
     status:
       code: 200
-      message:
+      message: 
     headers:
       X-Frame-Options:
       - SAMEORIGIN
@@ -96,6 +96,49 @@ http_interactions:
       string: '{"name":"Westfield Knox","short_name":"Knox","code":"knox","business_unit_code":"26821","type":"aspirational","street_address":"425
         Burwood Highway","suburb":"Wantirna South","state":"VIC","postcode":"3152","country":"au","phone_number":"(03)
         9814 5000","email_address":"knox@au.westfield.com","latitude":"-37.868891","longitude":"145.237885","today_opening_time":"09:00","today_closing_time":"17:30","number_of_levels":3,"micello_community":20077,"facebook":"http://www.facebook.com/westfieldknox","twitter":"https://twitter.com/westfieldknox","google_plus":"https://plus.google.com/116705982116614986647/posts","instagram":"http://instagram.com/WestfieldKnox","pinterest":"http://pinterest.com/westfieldau","youtube":"http://www.youtube.com/westfieldfashion","retail":true,"cinema":true,"enabled":true}'
-    http_version:
+    http_version: 
   recorded_at: Tue, 22 Oct 2013 10:15:08 GMT
+- request:
+    method: get
+    uri: http://trading-hour-service.test.dbg.westfield.com/api/trading-hour/master/centre_trading_hours/range.json?centre_id=caseycentral
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.8
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-UA-Compatible:
+      - chrome=1
+      Content-Type:
+      - application/json; charset=utf-8
+      ETag:
+      - '"72df4bcb4ab4dc005b725fc397eb95d1"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 969afffb-d16e-4940-87f7-f43583201b75
+      X-Runtime:
+      - '0.073566'
+      Date:
+      - Tue, 04 Feb 2014 22:45:04 GMT
+      Connection:
+      - close
+    body:
+      encoding: UTF-8
+      string: '[{"id":540,"centre_id":"caseycentral","store_id":null,"hour_type":"standard","description":null,"day_of_week":0,"date":"2014-02-03","opening_time":"09:00","closing_time":"17:00","closed":false},{"id":541,"centre_id":"caseycentral","store_id":null,"hour_type":"standard","description":null,"day_of_week":1,"date":"2014-02-04","opening_time":"09:00","closing_time":"17:00","closed":false},{"id":542,"centre_id":"caseycentral","store_id":null,"hour_type":"standard","description":null,"day_of_week":2,"date":"2014-02-05","opening_time":"09:00","closing_time":"17:00","closed":false},{"id":543,"centre_id":"caseycentral","store_id":null,"hour_type":"standard","description":null,"day_of_week":3,"date":"2014-02-06","opening_time":"09:00","closing_time":"17:00","closed":false},{"id":544,"centre_id":"caseycentral","store_id":null,"hour_type":"standard","description":null,"day_of_week":4,"date":"2014-02-07","opening_time":"09:00","closing_time":"17:00","closed":false},{"id":545,"centre_id":"caseycentral","store_id":null,"hour_type":"standard","description":null,"day_of_week":5,"date":"2014-02-08","opening_time":"09:00","closing_time":"17:00","closed":false},{"id":546,"centre_id":"caseycentral","store_id":null,"hour_type":"standard","description":null,"day_of_week":6,"date":"2014-02-09","opening_time":"09:00","closing_time":"17:00","closed":false},{"id":540,"centre_id":"caseycentral","store_id":null,"hour_type":"standard","description":null,"day_of_week":0,"date":"2014-02-10","opening_time":"09:00","closing_time":"17:00","closed":false},{"id":541,"centre_id":"caseycentral","store_id":null,"hour_type":"standard","description":null,"day_of_week":1,"date":"2014-02-11","opening_time":"09:00","closing_time":"17:00","closed":false},{"id":542,"centre_id":"caseycentral","store_id":null,"hour_type":"standard","description":null,"day_of_week":2,"date":"2014-02-12","opening_time":"09:00","closing_time":"17:00","closed":false},{"id":543,"centre_id":"caseycentral","store_id":null,"hour_type":"standard","description":null,"day_of_week":3,"date":"2014-02-13","opening_time":"09:00","closing_time":"17:00","closed":false},{"id":544,"centre_id":"caseycentral","store_id":null,"hour_type":"standard","description":null,"day_of_week":4,"date":"2014-02-14","opening_time":"09:00","closing_time":"17:00","closed":false},{"id":545,"centre_id":"caseycentral","store_id":null,"hour_type":"standard","description":null,"day_of_week":5,"date":"2014-02-15","opening_time":"09:00","closing_time":"17:00","closed":false},{"id":546,"centre_id":"caseycentral","store_id":null,"hour_type":"standard","description":null,"day_of_week":6,"date":"2014-02-16","opening_time":"09:00","closing_time":"17:00","closed":false},{"id":540,"centre_id":"caseycentral","store_id":null,"hour_type":"standard","description":null,"day_of_week":0,"date":"2014-02-17","opening_time":"09:00","closing_time":"17:00","closed":false},{"id":541,"centre_id":"caseycentral","store_id":null,"hour_type":"standard","description":null,"day_of_week":1,"date":"2014-02-18","opening_time":"09:00","closing_time":"17:00","closed":false},{"id":542,"centre_id":"caseycentral","store_id":null,"hour_type":"standard","description":null,"day_of_week":2,"date":"2014-02-19","opening_time":"09:00","closing_time":"17:00","closed":false},{"id":543,"centre_id":"caseycentral","store_id":null,"hour_type":"standard","description":null,"day_of_week":3,"date":"2014-02-20","opening_time":"09:00","closing_time":"17:00","closed":false},{"id":544,"centre_id":"caseycentral","store_id":null,"hour_type":"standard","description":null,"day_of_week":4,"date":"2014-02-21","opening_time":"09:00","closing_time":"17:00","closed":false},{"id":545,"centre_id":"caseycentral","store_id":null,"hour_type":"standard","description":null,"day_of_week":5,"date":"2014-02-22","opening_time":"09:00","closing_time":"17:00","closed":false},{"id":546,"centre_id":"caseycentral","store_id":null,"hour_type":"standard","description":null,"day_of_week":6,"date":"2014-02-23","opening_time":"09:00","closing_time":"17:00","closed":false},{"id":540,"centre_id":"caseycentral","store_id":null,"hour_type":"standard","description":null,"day_of_week":0,"date":"2014-02-24","opening_time":"09:00","closing_time":"17:00","closed":false},{"id":541,"centre_id":"caseycentral","store_id":null,"hour_type":"standard","description":null,"day_of_week":1,"date":"2014-02-25","opening_time":"09:00","closing_time":"17:00","closed":false},{"id":542,"centre_id":"caseycentral","store_id":null,"hour_type":"standard","description":null,"day_of_week":2,"date":"2014-02-26","opening_time":"09:00","closing_time":"17:00","closed":false},{"id":543,"centre_id":"caseycentral","store_id":null,"hour_type":"standard","description":null,"day_of_week":3,"date":"2014-02-27","opening_time":"09:00","closing_time":"17:00","closed":false},{"id":544,"centre_id":"caseycentral","store_id":null,"hour_type":"standard","description":null,"day_of_week":4,"date":"2014-02-28","opening_time":"09:00","closing_time":"17:00","closed":false},{"id":545,"centre_id":"caseycentral","store_id":null,"hour_type":"standard","description":null,"day_of_week":5,"date":"2014-03-01","opening_time":"09:00","closing_time":"17:00","closed":false},{"id":546,"centre_id":"caseycentral","store_id":null,"hour_type":"standard","description":null,"day_of_week":6,"date":"2014-03-02","opening_time":"09:00","closing_time":"17:00","closed":false},{"id":540,"centre_id":"caseycentral","store_id":null,"hour_type":"standard","description":null,"day_of_week":0,"date":"2014-03-03","opening_time":"09:00","closing_time":"17:00","closed":false},{"id":541,"centre_id":"caseycentral","store_id":null,"hour_type":"standard","description":null,"day_of_week":1,"date":"2014-03-04","opening_time":"09:00","closing_time":"17:00","closed":false},{"id":542,"centre_id":"caseycentral","store_id":null,"hour_type":"standard","description":null,"day_of_week":2,"date":"2014-03-05","opening_time":"09:00","closing_time":"17:00","closed":false},{"id":543,"centre_id":"caseycentral","store_id":null,"hour_type":"standard","description":null,"day_of_week":3,"date":"2014-03-06","opening_time":"09:00","closing_time":"17:00","closed":false},{"id":544,"centre_id":"caseycentral","store_id":null,"hour_type":"standard","description":null,"day_of_week":4,"date":"2014-03-07","opening_time":"09:00","closing_time":"17:00","closed":false},{"id":545,"centre_id":"caseycentral","store_id":null,"hour_type":"standard","description":null,"day_of_week":5,"date":"2014-03-08","opening_time":"09:00","closing_time":"17:00","closed":false},{"id":546,"centre_id":"caseycentral","store_id":null,"hour_type":"standard","description":null,"day_of_week":6,"date":"2014-03-09","opening_time":"09:00","closing_time":"17:00","closed":false},{"id":540,"centre_id":"caseycentral","store_id":null,"hour_type":"standard","description":null,"day_of_week":0,"date":"2014-03-10","opening_time":"09:00","closing_time":"17:00","closed":false},{"id":541,"centre_id":"caseycentral","store_id":null,"hour_type":"standard","description":null,"day_of_week":1,"date":"2014-03-11","opening_time":"09:00","closing_time":"17:00","closed":false},{"id":542,"centre_id":"caseycentral","store_id":null,"hour_type":"standard","description":null,"day_of_week":2,"date":"2014-03-12","opening_time":"09:00","closing_time":"17:00","closed":false},{"id":543,"centre_id":"caseycentral","store_id":null,"hour_type":"standard","description":null,"day_of_week":3,"date":"2014-03-13","opening_time":"09:00","closing_time":"17:00","closed":false},{"id":544,"centre_id":"caseycentral","store_id":null,"hour_type":"standard","description":null,"day_of_week":4,"date":"2014-03-14","opening_time":"09:00","closing_time":"17:00","closed":false},{"id":545,"centre_id":"caseycentral","store_id":null,"hour_type":"standard","description":null,"day_of_week":5,"date":"2014-03-15","opening_time":"09:00","closing_time":"17:00","closed":false},{"id":546,"centre_id":"caseycentral","store_id":null,"hour_type":"standard","description":null,"day_of_week":6,"date":"2014-03-16","opening_time":"09:00","closing_time":"17:00","closed":false}]'
+    http_version: 
+  recorded_at: Tue, 04 Feb 2014 22:45:04 GMT
 recorded_with: VCR 2.6.0

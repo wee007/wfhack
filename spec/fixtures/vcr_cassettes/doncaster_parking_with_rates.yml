@@ -24,29 +24,51 @@ http_interactions:
       - nosniff
       X-UA-Compatible:
       - chrome=1
-      Content-Type:
-      - application/json; charset=utf-8
       ETag:
-      - '"41f7395373ba132f710feaef41e1d04f"'
+      - '"7f1263ebdce1909212fdf41ac2fb24f3"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 50b5b7ad-42d9-4665-b5d4-d843d6c12f4c
-      X-Runtime:
-      - '0.006656'
+      - 6a38987b-94cf-4b22-982c-f21a88498160
+      Status:
+      - 200 OK
+      Content-Type:
+      - application/json; charset=utf-8
+      Server:
+      - Apache
+      Content-Length:
+      - '2791'
       Date:
-      - Tue, 17 Sep 2013 06:31:31 GMT
+      - Sun, 16 Feb 2014 23:43:12 GMT
+      Age:
+      - '0'
+      Via:
+      - 1.1 varnish
       Connection:
-      - close
+      - keep-alive
+      Vary:
+      - Accept-Encoding
     body:
       encoding: UTF-8
-      string: '{"centre_id":"doncaster","additional_parking_information":"additional
-        parking info test","rates_apply":true,"credit_card_surcharge_amount":"3","type_of_rate":"hourly_rate","maximum_daily_rate_weekday":"8","maximum_daily_rate_weekend":"8","overnight_fee_weekday":"5","overnight_fee_weekend":"5","flat_rate":"","valet_parking_instructions":"Lorem
-        ipsum dolor sit amet, consectetur adipiscing elit.\r\nVestibulum nec urna
-        pharetra, ultricies enim non, tempus est. Vivamus id pellentesque tortor,
-        dapibus pharetra nibh.","pdf_ref":"df4zc8o8cxd4u8oxvqhb","parking_rates":[{"hourly_rate_from":"0","hourly_rate_to":"3","hourly_rate_weekday":"0","hourly_rate_weekend":"0"},{"hourly_rate_from":"3","hourly_rate_to":"5","hourly_rate_weekday":"5","hourly_rate_weekend":"5"},{"hourly_rate_from":"5","hourly_rate_to":"7","hourly_rate_weekday":"10","hourly_rate_weekend":"10"}]}'
+      string: '{"centre_id":"doncaster","additional_parking_information":"At Westfield
+        Doncaster we offer complimentary parking for the first 3 hours. \r\n\r\nPlus,
+        spend more than $400 in one single visit and you will receive complimentary
+        parking - no matter how long you stay.\r\n\r\nAre you seeing a movie at Village
+        Cinemas, Doncaster? Be  sure to validate your ticket at the Village Cinemas
+        Box Office, located on Level 2, to receive one additional hour of complimentary
+        parking.\r\n\r\nParking is FREE if you arrive after 6.00pm any day.","rates_apply":true,"credit_card_surcharge_amount":"2.5","type_of_rate":"hourly_rate","maximum_daily_rate_weekday":"30","maximum_daily_rate_weekend":"30","overnight_fee_weekday":"30","overnight_fee_weekend":"30","flat_rate":"","valet_parking_instructions":"For
+        a shopping experience that''s convenient and hassle-free Westfield Doncaster
+        offers a Valet Parking service - accessed via Williamsons Road near Myer.
+        \r\n\r\nThe Valet Parking service costs $12 plus standard parking fees (parking
+        fees apply after 3 hours)\r\nValet Parking is safe, convenient and time saving
+        - drive up to the door and let us take care of the rest.\r\n\r\nPre-Paid Valet
+        Parking Vouchers Now Available. \r\n\r\nEvery Valet Parking customer receives
+        a loyalty card which entitles you to every 6th visit free. Ask at the Valet
+        Parking desk for more details.\r\n\r\nCar Wash Service\r\nNeed your car washed?
+        The Valet Parking attendants can arrange that too. Car wash services start
+        from just $39 (sedan) for an exterior wash including interior dust and vacuum.","pdf_ref":"df4zc8o8cxd4u8oxvqhb","parking_rates":[{"hourly_rate_from":"0","hourly_rate_to":"3.0","hourly_rate_weekday":"0.0","hourly_rate_weekend":"0.0"},{"hourly_rate_from":"3.0","hourly_rate_to":"3.5","hourly_rate_weekday":"3.00","hourly_rate_weekend":"3.00"},{"hourly_rate_from":"3.5","hourly_rate_to":"4.0","hourly_rate_weekday":"4.00","hourly_rate_weekend":"4.00"},{"hourly_rate_from":"4.0","hourly_rate_to":"4.5","hourly_rate_weekday":"5.00","hourly_rate_weekend":"5.00"},{"hourly_rate_from":"4.5","hourly_rate_to":"5.0","hourly_rate_weekday":"7.00","hourly_rate_weekend":"7.00"},{"hourly_rate_from":"5.0","hourly_rate_to":"5.5","hourly_rate_weekday":"9.00","hourly_rate_weekend":"9.00"},{"hourly_rate_from":"5.5","hourly_rate_to":"6.0","hourly_rate_weekday":"12.00","hourly_rate_weekend":"12.00"},{"hourly_rate_from":"6.0","hourly_rate_to":"6.5","hourly_rate_weekday":"15.00","hourly_rate_weekend":"15.00"},{"hourly_rate_from":"6.5","hourly_rate_to":"7.0","hourly_rate_weekday":"18.00","hourly_rate_weekend":"18.00"},{"hourly_rate_from":"7.0","hourly_rate_to":"7.5","hourly_rate_weekday":"25.00","hourly_rate_weekend":"25.00"},{"hourly_rate_from":"7.5","hourly_rate_to":"+","hourly_rate_weekday":"30.00","hourly_rate_weekend":"30.00"}]}'
     http_version: 
-  recorded_at: Tue, 17 Sep 2013 06:31:31 GMT
+  recorded_at: Sun, 16 Feb 2014 23:43:15 GMT
 - request:
     method: get
     uri: http://centre-service.test.dbg.westfield.com/api/centre/master/centres/doncaster.json
@@ -71,25 +93,36 @@ http_interactions:
       - nosniff
       X-UA-Compatible:
       - chrome=1
-      Content-Type:
-      - application/json; charset=utf-8
       ETag:
-      - '"1285086991efdba55c5633b266005b3c"'
+      - '"cbab7e9a61d497fc1cee4654671ebdfb"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - d0c40948-76ef-4c52-b8a5-1e0ed7f6f7a1
-      X-Runtime:
-      - '0.012870'
+      - 6d121f44-86ba-446a-8f2a-df15eb90632d
+      Status:
+      - 200 OK
+      Content-Type:
+      - application/json; charset=utf-8
+      Server:
+      - Apache
+      Content-Length:
+      - '1091'
       Date:
-      - Tue, 17 Sep 2013 06:31:31 GMT
+      - Sun, 16 Feb 2014 23:43:12 GMT
+      Age:
+      - '0'
+      Via:
+      - 1.1 varnish
       Connection:
-      - close
+      - keep-alive
+      Vary:
+      - Accept-Encoding
     body:
       encoding: UTF-8
-      string: '{"name":"Westfield Doncaster","short_name":"Doncaster","code":"doncaster","business_unit_code":"11021","type":"premium","street_address":"619
-        Doncaster Rd (Cnr Williamsons Rd)","state":"VIC","postcode":"3108","country":"au","phone_number":"(03)
-        9848 1699","email_address":"doncaster@au.westfield.com","latitude":"-37.785423","longitude":"145.12562","today_opening_time":null,"today_closing_time":null,"number_of_levels":12,"micello_community":20068,"facebook":null,"twitter":null,"google_plus":null,"instagram":null,"pinterest":null,"youtube":null,"retail":true,"enabled":true}'
+      string: '{"name":"Westfield Doncaster","short_name":"Doncaster","code":"doncaster","state":"VIC","country":"au","latitude":"-37.785423","longitude":"145.12562","hero_image_ref":null,"micello_community":20068,"retail":true,"enabled":true,"_links":{"self":{"href":"http://centre-service.test.dbg.westfield.com/api/centre/master/centres/doncaster.json"},"hero_image":{"href":""}},"business_unit_code":"28821","type":"premium","street_address":"619
+        Doncaster Rd (Cnr Williamsons Rd)","suburb":"Doncaster","postcode":"3108","phone_number":"(03)
+        9848 1699","email_address":"doncaster@au.westfield.com","today_opening_time":"09:00","today_closing_time":"17:30","today_closed":false,"number_of_levels":13,"micello_map_centre":{"x":0,"y":0},"facebook":"http://www.facebook.com/westfielddoncaster","twitter":"https://twitter.com/westfieldau","google_plus":"https://plus.google.com/116705982116614986647/posts","instagram":"http://instagram.com/westfielddoncaster
+        ","pinterest":"http://pinterest.com/westfieldau","youtube":"http://www.youtube.com/westfieldfashion","cinema":true,"timezone":"Australia/Victoria"}'
     http_version: 
-  recorded_at: Tue, 17 Sep 2013 06:31:31 GMT
-recorded_with: VCR 2.5.0
+  recorded_at: Sun, 16 Feb 2014 23:43:15 GMT
+recorded_with: VCR 2.6.0

@@ -49,6 +49,9 @@ private
 
     @centre = CentreService.build centre
     @stream = StreamService.build(stream, timezone: @centre.timezone)
+
+    centre_trading_hours = CentreTradingHourService.fetch(params[:id], {from: Time.now.in_time_zone(@centre.timezone).strftime("%Y-%m-%d"), to: Time.now.in_time_zone(@centre.timezone).strftime("%Y-%m-%d")})
+    @centre_trading_hour = CentreTradingHourService.build(centre_trading_hours)
   end
 
 end

@@ -16,10 +16,6 @@ http_interactions:
       code: 200
       message: 
     headers:
-      Date:
-      - Tue, 14 Jan 2014 02:11:28 GMT
-      Server:
-      - Apache/2.2.15 (CentOS)
       X-Frame-Options:
       - SAMEORIGIN
       X-XSS-Protection:
@@ -29,77 +25,36 @@ http_interactions:
       X-UA-Compatible:
       - chrome=1
       ETag:
-      - '"79fc5f37ae8db52be59f69f374c05c00"'
+      - '"2727e7651ddba7edcf5d5a801ef4e975"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 05f2044a-2a12-4010-8d21-7f23e1589a55
-      X-Runtime:
-      - '0.309036'
-      X-Powered-By:
-      - Phusion Passenger 4.0.8
+      - b3e821cd-416d-4c44-92ec-5279c4a6b078
       Status:
       - 200 OK
-      Connection:
-      - close
-      Transfer-Encoding:
-      - chunked
       Content-Type:
       - application/json; charset=utf-8
-    body:
-      encoding: UTF-8
-      string: '{"name":"Westfield Sydney","short_name":"Sydney","code":"sydney","state":"NSW","country":"au","latitude":"-33.870371","longitude":"151.207735","hero_image_ref":null,"micello_community":null,"retail":true,"enabled":true,"_links":{"self":{"href":"http://centre-service.test.dbg.westfield.com/api/centre/master/centres/sydney.json"},"hero_image":{"href":null}},"business_unit_code":"16621","type":"premium","street_address":"Cnr
-        Pitt St Mall and Market St","suburb":"Sydney","postcode":"2000","phone_number":"(02)
-        8236 9200","email_address":"","today_opening_time":"00:00","today_closing_time":"00:00","today_closed":false,"number_of_levels":0,"micello_map_centre":{"x":0,"y":0},"facebook":null,"twitter":null,"google_plus":null,"instagram":null,"pinterest":null,"youtube":null,"cinema":false,"timezone":"Australia/NSW"}'
-    http_version: 
-  recorded_at: Tue, 14 Jan 2014 02:11:28 GMT
-- request:
-    method: get
-    uri: http://deal-service.test.dbg.westfield.com/api/deal/master/campaigns.json?centre=sydney
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Faraday v0.8.8
-      Content-Type:
-      - application/json
-  response:
-    status:
-      code: 200
-      message: 
-    headers:
-      Date:
-      - Tue, 14 Jan 2014 02:11:28 GMT
       Server:
-      - Apache/2.2.15 (CentOS)
-      Access-Control-Allow-Origin:
-      - '*'
-      Access-Control-Request-Method:
-      - '*'
-      ETag:
-      - '"d751713988987e9331980363e24189ce"'
-      Cache-Control:
-      - max-age=0, private, must-revalidate
-      X-Request-Id:
-      - f2820858-aee1-40fe-a9fe-b488a96ea87f
-      X-Runtime:
-      - '0.537235'
-      X-Powered-By:
-      - Phusion Passenger 4.0.8
+      - Apache
       Content-Length:
-      - '2'
-      Status:
-      - 200 OK
+      - '1072'
+      Date:
+      - Sun, 16 Feb 2014 23:43:12 GMT
+      Age:
+      - '0'
+      Via:
+      - 1.1 varnish
       Connection:
-      - close
-      Content-Type:
-      - application/json
+      - keep-alive
+      Vary:
+      - Accept-Encoding
     body:
       encoding: UTF-8
-      string: '[]'
+      string: '{"name":"Westfield Sydney","short_name":"Sydney","code":"sydney","state":"NSW","country":"au","latitude":"-33.870371","longitude":"151.207735","hero_image_ref":null,"micello_community":20468,"retail":true,"enabled":true,"_links":{"self":{"href":"http://centre-service.test.dbg.westfield.com/api/centre/master/centres/sydney.json"},"hero_image":{"href":""}},"business_unit_code":"16621","type":"premium","street_address":"Cnr
+        Pitt St Mall and Market St","suburb":"Sydney","postcode":"2000","phone_number":"(02)
+        8236 9200","email_address":"conciergeWS@au.westfield.com","today_opening_time":"09:30","today_closing_time":"18:30","today_closed":false,"number_of_levels":6,"micello_map_centre":{"x":0,"y":0},"facebook":"http://www.facebook.com/westfieldsydney","twitter":"http://www.twitter.com/westfieldsyd","google_plus":"http://https://plus.google.com/116705982116614986647/posts","instagram":"http://instagram.com/westfieldsyd","pinterest":"http://www.pinterest.com/westfieldsyd","youtube":"http://www.youtube.com/westfieldfashion","cinema":null,"timezone":"Australia/NSW"}'
     http_version: 
-  recorded_at: Tue, 14 Jan 2014 02:11:31 GMT
+  recorded_at: Sun, 16 Feb 2014 23:43:14 GMT
 - request:
     method: get
     uri: http://deal-service.test.dbg.westfield.com/api/deal/master/deals.json?centre=sydney&rows=50&state=published
@@ -116,328 +71,348 @@ http_interactions:
       code: 200
       message: 
     headers:
-      Date:
-      - Tue, 14 Jan 2014 02:11:28 GMT
-      Server:
-      - Apache/2.2.15 (CentOS)
       Access-Control-Allow-Origin:
       - '*'
       Access-Control-Request-Method:
       - '*'
       ETag:
-      - '"d751713988987e9331980363e24189ce"'
+      - '"fa40fe4755c6998f018ed1f308167ff0"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - 462643d9-3ae0-4d51-b9f3-2b1ef1a95929
-      X-Runtime:
-      - '0.030512'
-      X-Powered-By:
-      - Phusion Passenger 4.0.8
-      Content-Length:
-      - '2'
+      - 045be282-587e-45fc-8702-9e9e6ba1b4da
       Status:
       - 200 OK
-      Connection:
-      - close
       Content-Type:
       - application/json
-    body:
-      encoding: UTF-8
-      string: '[]'
-    http_version: 
-  recorded_at: Tue, 14 Jan 2014 02:11:32 GMT
-- request:
-    method: get
-    uri: http://store-service.test.dbg.westfield.com/api/store/master/stores/1.json
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Faraday v0.8.8
-      Content-Type:
-      - application/json
-  response:
-    status:
-      code: 500
-      message: 
-    headers:
-      Date:
-      - Tue, 14 Jan 2014 05:34:19 GMT
       Server:
-      - Apache/2.2.15 (CentOS)
-      X-Request-Id:
-      - 59a93d19-9f6d-46d7-bb88-1811f2d12a1d
-      X-Runtime:
-      - '0.083965'
-      X-Powered-By:
-      - Phusion Passenger 4.0.8
+      - Apache
       Content-Length:
-      - '8769'
-      Status:
-      - 500 Internal Server Error
+      - '13766'
+      Date:
+      - Sun, 16 Feb 2014 23:43:12 GMT
+      Age:
+      - '0'
+      Via:
+      - 1.1 varnish
+      Connection:
+      - keep-alive
       Vary:
       - Accept-Encoding
-      Connection:
-      - close
-      Content-Type:
-      - text/html; charset=utf-8
     body:
-      encoding: UTF-8
-      string: "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"utf-8\"
-        />\n  <title>Action Controller: Exception caught</title>\n  <style>\n    body
-        {\n      background-color: #FAFAFA;\n      color: #333;\n      margin: 0px;\n
-        \   }\n\n    body, p, ol, ul, td {\n      font-family: helvetica, verdana,
-        arial, sans-serif;\n      font-size:   13px;\n      line-height: 18px;\n    }\n\n
-        \   pre {\n      font-size: 11px;\n      white-space: pre-wrap;\n    }\n\n
-        \   pre.box {\n      border: 1px solid #EEE;\n      padding: 10px;\n      margin:
-        0px;\n      width: 958px;\n    }\n\n    header {\n      color: #F0F0F0;\n
-        \     background: #C52F24;\n      padding: 0.5em 1.5em;\n    }\n\n    h1 {\n
-        \     margin: 0.2em 0;\n      line-height: 1.1em;\n      font-size: 2em;\n
-        \   }\n\n    h2 {\n      color: #C52F24;\n      line-height: 25px;\n    }\n\n
-        \   .details {\n      border: 1px solid #D0D0D0;\n      border-radius: 4px;\n
-        \     margin: 1em 0px;\n      display: block;\n      width: 978px;\n    }\n\n
-        \   .summary {\n      padding: 8px 15px;\n      border-bottom: 1px solid #D0D0D0;\n
-        \     display: block;\n    }\n\n    .details pre {\n      margin: 5px;\n      border:
-        none;\n    }\n\n    #container {\n      box-sizing: border-box;\n      width:
-        100%;\n      padding: 0 1.5em;\n    }\n\n    .source * {\n      margin: 0px;\n
-        \     padding: 0px;\n    }\n\n    .source {\n      border: 1px solid #D9D9D9;\n
-        \     background: #ECECEC;\n      width: 978px;\n    }\n\n    .source pre
-        {\n      padding: 10px 0px;\n      border: none;\n    }\n\n    .source .data
-        {\n      font-size: 80%;\n      overflow: auto;\n      background-color: #FFF;\n
-        \   }\n\n    .info {\n      padding: 0.5em;\n    }\n\n    .source .data .line_numbers
-        {\n      background-color: #ECECEC;\n      color: #AAA;\n      padding: 1em
-        .5em;\n      border-right: 1px solid #DDD;\n      text-align: right;\n    }\n\n
-        \   .line {\n      padding-left: 10px;\n    }\n\n    .line:hover {\n      background-color:
-        #F6F6F6;\n    }\n\n    .line.active {\n      background-color: #FFCCCC;\n
-        \   }\n\n    a { color: #980905; }\n    a:visited { color: #666; }\n    a:hover
-        { color: #C52F24; }\n\n    \n  </style>\n\n  <script>\n    var toggle = function(id)
-        {\n      var s = document.getElementById(id).style;\n      s.display = s.display
-        == 'none' ? 'block' : 'none';\n      return false;\n    }\n    var show =
-        function(id) {\n      document.getElementById(id).style.display = 'block';\n
-        \   }\n    var hide = function(id) {\n      document.getElementById(id).style.display
-        = 'none';\n    }\n    var toggleTrace = function() {\n      return toggle('blame_trace');\n
-        \   }\n    var toggleSessionDump = function() {\n      return toggle('session_dump');\n
-        \   }\n    var toggleEnvDump = function() {\n      return toggle('env_dump');\n
-        \   }\n  </script>\n</head>\n<body>\n\n<header>\n  <h1>\n    ActiveRecord::PendingMigrationError\n
-        \ </h1>\n</header>\n\n<div id=\"container\">\n  <h2>Migrations are pending;
-        run &#39;bin/rake db:migrate RAILS_ENV=development&#39; to resolve this issue.</h2>\n\n
-        \ \n  \n<p><code>Rails.root: /home/vagrant/vmshare/store_service</code></p>\n\n<div
-        id=\"traces\">\n    <a href=\"#\" onclick=\"hide(&#39;Framework-Trace&#39;);hide(&#39;Full-Trace&#39;);show(&#39;Application-Trace&#39;);;
-        return false;\">Application Trace</a> |\n    <a href=\"#\" onclick=\"hide(&#39;Application-Trace&#39;);hide(&#39;Full-Trace&#39;);show(&#39;Framework-Trace&#39;);;
-        return false;\">Framework Trace</a> |\n    <a href=\"#\" onclick=\"hide(&#39;Application-Trace&#39;);hide(&#39;Framework-Trace&#39;);show(&#39;Full-Trace&#39;);;
-        return false;\">Full Trace</a> \n\n    <div id=\"Application-Trace\" style=\"display:
-        block;\">\n      <pre><code></code></pre>\n    </div>\n    <div id=\"Framework-Trace\"
-        style=\"display: none;\">\n      <pre><code>activerecord (4.0.2) lib/active_record/migration.rb:379:in
-        `check_pending!&#39;\nactiverecord (4.0.2) lib/active_record/migration.rb:366:in
-        `call&#39;\nactionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:29:in
-        `block in call&#39;\nactivesupport (4.0.2) lib/active_support/callbacks.rb:373:in
-        `_run__3028810818219334395__call__callbacks&#39;\nactivesupport (4.0.2) lib/active_support/callbacks.rb:80:in
-        `run_callbacks&#39;\nactionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:27:in
-        `call&#39;\nactionpack (4.0.2) lib/action_dispatch/middleware/reloader.rb:64:in
-        `call&#39;\nactionpack (4.0.2) lib/action_dispatch/middleware/remote_ip.rb:76:in
-        `call&#39;\nactionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:17:in
-        `call&#39;\nactionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in
-        `call&#39;\nrailties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app&#39;\nrailties
-        (4.0.2) lib/rails/rack/logger.rb:20:in `block in call&#39;\nactivesupport
-        (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged&#39;\nactivesupport
-        (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged&#39;\nactivesupport
-        (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged&#39;\nrailties
-        (4.0.2) lib/rails/rack/logger.rb:20:in `call&#39;\nactionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in
-        `call&#39;\nrack (1.5.2) lib/rack/runtime.rb:17:in `call&#39;\nactivesupport
-        (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call&#39;\nrack
-        (1.5.2) lib/rack/lock.rb:17:in `call&#39;\nactionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in
-        `call&#39;\nrailties (4.0.2) lib/rails/engine.rb:511:in `call&#39;\nrailties
-        (4.0.2) lib/rails/application.rb:97:in `call&#39;\npassenger (4.0.8) lib/phusion_passenger/rack/thread_handler_extension.rb:77:in
-        `process_request&#39;\npassenger (4.0.8) lib/phusion_passenger/request_handler/thread_handler.rb:140:in
-        `accept_and_process_next_request&#39;\npassenger (4.0.8) lib/phusion_passenger/request_handler/thread_handler.rb:108:in
-        `main_loop&#39;\npassenger (4.0.8) lib/phusion_passenger/request_handler.rb:441:in
-        `block (3 levels) in start_threads&#39;</code></pre>\n    </div>\n    <div
-        id=\"Full-Trace\" style=\"display: none;\">\n      <pre><code>activerecord
-        (4.0.2) lib/active_record/migration.rb:379:in `check_pending!&#39;\nactiverecord
-        (4.0.2) lib/active_record/migration.rb:366:in `call&#39;\nactionpack (4.0.2)
-        lib/action_dispatch/middleware/callbacks.rb:29:in `block in call&#39;\nactivesupport
-        (4.0.2) lib/active_support/callbacks.rb:373:in `_run__3028810818219334395__call__callbacks&#39;\nactivesupport
-        (4.0.2) lib/active_support/callbacks.rb:80:in `run_callbacks&#39;\nactionpack
-        (4.0.2) lib/action_dispatch/middleware/callbacks.rb:27:in `call&#39;\nactionpack
-        (4.0.2) lib/action_dispatch/middleware/reloader.rb:64:in `call&#39;\nactionpack
-        (4.0.2) lib/action_dispatch/middleware/remote_ip.rb:76:in `call&#39;\nactionpack
-        (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call&#39;\nactionpack
-        (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call&#39;\nrailties
-        (4.0.2) lib/rails/rack/logger.rb:38:in `call_app&#39;\nrailties (4.0.2) lib/rails/rack/logger.rb:20:in
-        `block in call&#39;\nactivesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in
-        `block in tagged&#39;\nactivesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in
-        `tagged&#39;\nactivesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in
-        `tagged&#39;\nrailties (4.0.2) lib/rails/rack/logger.rb:20:in `call&#39;\nactionpack
-        (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call&#39;\nrack
-        (1.5.2) lib/rack/runtime.rb:17:in `call&#39;\nactivesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in
-        `call&#39;\nrack (1.5.2) lib/rack/lock.rb:17:in `call&#39;\nactionpack (4.0.2)
-        lib/action_dispatch/middleware/static.rb:64:in `call&#39;\nrailties (4.0.2)
-        lib/rails/engine.rb:511:in `call&#39;\nrailties (4.0.2) lib/rails/application.rb:97:in
-        `call&#39;\npassenger (4.0.8) lib/phusion_passenger/rack/thread_handler_extension.rb:77:in
-        `process_request&#39;\npassenger (4.0.8) lib/phusion_passenger/request_handler/thread_handler.rb:140:in
-        `accept_and_process_next_request&#39;\npassenger (4.0.8) lib/phusion_passenger/request_handler/thread_handler.rb:108:in
-        `main_loop&#39;\npassenger (4.0.8) lib/phusion_passenger/request_handler.rb:441:in
-        `block (3 levels) in start_threads&#39;</code></pre>\n    </div>\n</div>\n\n
-        \ \n\n<h2 style=\"margin-top: 30px\">Request</h2>\n<p><b>Parameters</b>:</p>
-        <pre>None</pre>\n\n<div class=\"details\">\n  <div class=\"summary\"><a href=\"#\"
-        onclick=\"return toggleSessionDump()\">Toggle session dump</a></div>\n  <div
-        id=\"session_dump\" style=\"display:none\"><pre></pre></div>\n</div>\n\n<div
-        class=\"details\">\n  <div class=\"summary\"><a href=\"#\" onclick=\"return
-        toggleEnvDump()\">Toggle env dump</a></div>\n  <div id=\"env_dump\" style=\"display:none\"><pre>HTTP_ACCEPT:
-        &quot;*/*&quot;\nREMOTE_ADDR: &quot;127.0.0.1&quot;\nSERVER_NAME: &quot;store-service.test.dbg.westfield.com&quot;\nSERVER_PROTOCOL:
-        &quot;HTTP/1.1&quot;</pre></div>\n</div>\n\n<h2 style=\"margin-top: 30px\">Response</h2>\n<p><b>Headers</b>:</p>
-        <pre>None</pre>\n\n</div>\n\n\n</body>\n</html>\n"
+      encoding: ASCII-8BIT
+      string: !binary |-
+        W3siaWQiOjU0MDksInRpdGxlIjoiU3VtbWVyIHN0eWxlcyBhcmUgbm93IHVw
+        IHRvIDMwJSBvZmYiLCJ0ZXJtc19hbmRfY29uZGl0aW9ucyI6IlNlbGVjdGVk
+        IGl0ZW1zIG9ubHkuIEV4Y2x1ZGVzIHNob2UgY2FyZSBhbmQgZ2lmdCB2b3Vj
+        aGVycy4gU2VlIGluIHN0b3JlIGZvciBkZXRhaWxzLlxyXG5WYWxpZCB1bnRp
+        bCAxN3RoIEZlYnJ1YXJ5IDIwMTQg4oCTIEluLXN0b3JlIG9yIG9ubGluZSBh
+        dCB6dXNob2UuY29tLmF1XHJcbiIsImRlYWxfc3RvcmVzIjpbeyJpZCI6MjQz
+        NjUsImRlYWxfaWQiOjU0MDksImNyZWF0ZWRfYXQiOiIyMDE0LTAyLTA0VDA5
+        OjI5OjQwLjQwOCsxMTowMCIsInVwZGF0ZWRfYXQiOiIyMDE0LTAyLTA0VDA5
+        OjI5OjQwLjQwOCsxMTowMCIsInN0b3JlX3NlcnZpY2VfaWQiOjQyMjcyLCJj
+        ZW50cmVfaWQiOiJzeWRuZXkiLCJyZXRhaWxlcl9pZCI6MTUwfV0sInN0YXRl
+        IjoibGl2ZSIsInN0YXRlX2V2ZW50cyI6WyJ3aXRoZHJhdyJdLCJ1cmdlbnQi
+        OmZhbHNlLCJpbWFnZV9yZWYiOm51bGwsImZlYXR1cmVkIjp0cnVlLCJkZXNj
+        cmlwdGlvbiI6IiIsInN1YnRpdGxlIjoiIiwiZXh0ZXJuYWxfdXJsIjoiIiwi
+        X2xpbmtzIjp7ImltYWdlIjp7ImhyZWYiOiIifX0sInB1Ymxpc2hfZGF0ZSI6
+        IjIwMTQtMDItMDNUMjI6Mjg6MDBaIiwiYXZhaWxhYmxlX2Zyb20iOiIyMDE0
+        LTAyLTAzVDIyOjI4OjAwWiIsImF2YWlsYWJsZV90byI6IjIwMTQtMDItMTdU
+        MDY6MDA6MDBaIiwidXBkYXRlZF9hdCI6IjIwMTQtMDItMDNUMjI6Mjk6NTFa
+        IiwiY2FtcGFpZ25zIjpbXX0seyJpZCI6NTQxMCwidGl0bGUiOiJTYXZlIDI1
+        JSBvbiBzZWxlY3RlZCBDYXJlZXIgYW5kIERyZXNzIHNob2VzIGluIHRoZSBa
+        VU1BTiBDb2xsZWN0aW9uIiwidGVybXNfYW5kX2NvbmRpdGlvbnMiOiJTZWxl
+        Y3RlZCBpdGVtcyBvbmx5LiBFeGNsdWRlcyBzaG9lIGNhcmUgYW5kIGdpZnQg
+        dm91Y2hlcnMuIFNlZSBpbiBzdG9yZSBmb3IgZGV0YWlscy5cclxuVmFsaWQg
+        dW50aWwgMTd0aCBGZWJydWFyeSAyMDE0IOKAkyBJbi1zdG9yZSBvciBvbmxp
+        bmUgYXQgenVzaG9lLmNvbS5hdVxyXG4gXHJcbiIsImRlYWxfc3RvcmVzIjpb
+        eyJpZCI6MjQzNzksImRlYWxfaWQiOjU0MTAsImNyZWF0ZWRfYXQiOiIyMDE0
+        LTAyLTA0VDA5OjMxOjA5Ljc4MSsxMTowMCIsInVwZGF0ZWRfYXQiOiIyMDE0
+        LTAyLTA0VDA5OjMxOjA5Ljc4MSsxMTowMCIsInN0b3JlX3NlcnZpY2VfaWQi
+        OjQyMjcyLCJjZW50cmVfaWQiOiJzeWRuZXkiLCJyZXRhaWxlcl9pZCI6MTUw
+        fV0sInN0YXRlIjoibGl2ZSIsInN0YXRlX2V2ZW50cyI6WyJ3aXRoZHJhdyJd
+        LCJ1cmdlbnQiOmZhbHNlLCJpbWFnZV9yZWYiOm51bGwsImZlYXR1cmVkIjp0
+        cnVlLCJkZXNjcmlwdGlvbiI6IiIsInN1YnRpdGxlIjoiIiwiZXh0ZXJuYWxf
+        dXJsIjoiIiwiX2xpbmtzIjp7ImltYWdlIjp7ImhyZWYiOiIifX0sInB1Ymxp
+        c2hfZGF0ZSI6IjIwMTQtMDItMDNUMjI6MzA6MDBaIiwiYXZhaWxhYmxlX2Zy
+        b20iOiIyMDE0LTAyLTAzVDIyOjMwOjAwWiIsImF2YWlsYWJsZV90byI6IjIw
+        MTQtMDItMTdUMDY6MDA6MDBaIiwidXBkYXRlZF9hdCI6IjIwMTQtMDItMDNU
+        MjI6MzE6MTdaIiwiY2FtcGFpZ25zIjpbXX0seyJpZCI6NTkwMywidGl0bGUi
+        OiJCdXkgMSBnZXQgdGhlIDJuZCBoYWxmIHByaWNlIiwidGVybXNfYW5kX2Nv
+        bmRpdGlvbnMiOiJCdXkgYSBmdWxsIHByaWNlIHBhaXIgb2Ygc2hvZXMgb3Ig
+        YmVsdCBhbmQgZ2V0IGEgc2Vjb25kIGZ1bGwgcHJpY2UgcGFpciBvZiBzaG9l
+        cyBvciBiZWx0IGhhbGYgcHJpY2UuIFRoaXMgaXMgb25seSBhdmFpbGFibGUg
+        b24gZnVsbCBwcmljZWQgaXRlbXMuIDJuZCBwYWlyIGF0IGhhbGYgcHJpY2Ug
+        aXMgdG8gYmUgb2YgZXF1YWwgb3IgbGVzc2VyIHZhbHVlIHRvIHRoZSBmaXJz
+        dCBwYWlyLiIsImRlYWxfc3RvcmVzIjpbeyJpZCI6Mjg0NTEsImRlYWxfaWQi
+        OjU5MDMsImNyZWF0ZWRfYXQiOiIyMDE0LTAyLTEyVDE1OjE1OjQ4LjczMisx
+        MTowMCIsInVwZGF0ZWRfYXQiOiIyMDE0LTAyLTEyVDE1OjE1OjQ4LjczMisx
+        MTowMCIsInN0b3JlX3NlcnZpY2VfaWQiOjUyMTgwLCJjZW50cmVfaWQiOiJz
+        eWRuZXkiLCJyZXRhaWxlcl9pZCI6OTE0N31dLCJzdGF0ZSI6ImxpdmUiLCJz
+        dGF0ZV9ldmVudHMiOlsid2l0aGRyYXciXSwidXJnZW50IjpmYWxzZSwiaW1h
+        Z2VfcmVmIjpudWxsLCJmZWF0dXJlZCI6dHJ1ZSwiZGVzY3JpcHRpb24iOiIi
+        LCJzdWJ0aXRsZSI6IiIsImV4dGVybmFsX3VybCI6IiIsIl9saW5rcyI6eyJp
+        bWFnZSI6eyJocmVmIjoiIn19LCJwdWJsaXNoX2RhdGUiOiIyMDE0LTAyLTEy
+        VDA0OjE0OjAwWiIsImF2YWlsYWJsZV9mcm9tIjoiMjAxNC0wMi0xMlQwNDox
+        NDowMFoiLCJhdmFpbGFibGVfdG8iOiIyMDE0LTAzLTEwVDA0OjE0OjAwWiIs
+        InVwZGF0ZWRfYXQiOiIyMDE0LTAyLTEyVDA0OjE1OjUzWiIsImNhbXBhaWdu
+        cyI6W119LHsiaWQiOjU0MTIsInRpdGxlIjoiUmVjZWl2ZSAyNSUgb2ZmIG9u
+        IHNlbGVjdGVkIG1lbuKAmXMgZHJlc3MgYW5kIGNhcmVlciBzaG9lcyIsInRl
+        cm1zX2FuZF9jb25kaXRpb25zIjoiU2VsZWN0ZWQgaXRlbXMgb25seS4gRXhj
+        bHVzaW9ucyBhcHBseS4gU2VlIGluIHN0b3JlIGZvciBkZXRhaWxzLlxyXG5W
+        YWxpZCB1bnRpbCAxN3RoIEZlYnJ1YXJ5ICDigJMgSW4tc3RvcmUgb3Igb25s
+        aW5lIGF0IGFpcmZsZXguY29tLmF1XHJcbiIsImRlYWxfc3RvcmVzIjpbeyJp
+        ZCI6MjQ0MDUsImRlYWxfaWQiOjU0MTIsImNyZWF0ZWRfYXQiOiIyMDE0LTAy
+        LTA0VDA5OjMzOjQ0LjYzNCsxMTowMCIsInVwZGF0ZWRfYXQiOiIyMDE0LTAy
+        LTA0VDA5OjMzOjQ0LjYzNCsxMTowMCIsInN0b3JlX3NlcnZpY2VfaWQiOjUx
+        NTU2LCJjZW50cmVfaWQiOiJzeWRuZXkiLCJyZXRhaWxlcl9pZCI6MzM1M31d
+        LCJzdGF0ZSI6ImxpdmUiLCJzdGF0ZV9ldmVudHMiOlsid2l0aGRyYXciXSwi
+        dXJnZW50IjpmYWxzZSwiaW1hZ2VfcmVmIjpudWxsLCJmZWF0dXJlZCI6ZmFs
+        c2UsImRlc2NyaXB0aW9uIjoiIiwic3VidGl0bGUiOiIiLCJleHRlcm5hbF91
+        cmwiOiIiLCJfbGlua3MiOnsiaW1hZ2UiOnsiaHJlZiI6IiJ9fSwicHVibGlz
+        aF9kYXRlIjoiMjAxNC0wMi0wM1QyMjozMjowMFoiLCJhdmFpbGFibGVfZnJv
+        bSI6IjIwMTQtMDItMDNUMjI6MzI6MDBaIiwiYXZhaWxhYmxlX3RvIjoiMjAx
+        NC0wMi0xN1QwNjowMDowMFoiLCJ1cGRhdGVkX2F0IjoiMjAxNC0wMi0wM1Qy
+        MjozNToxMVoiLCJjYW1wYWlnbnMiOltdfSx7ImlkIjo1NDE0LCJ0aXRsZSI6
+        IjMwJSBvZmYgQWlyZmxleOKAmXMgYmVzdCBvZiBzdW1tZXIgbGFkaWVzIHNh
+        bmRhbHMiLCJ0ZXJtc19hbmRfY29uZGl0aW9ucyI6IlNlbGVjdGVkIFN0eWxl
+        cyBvbmx5LiBTZWUgaW4gc3RvcmUgZm9yIGZ1bGwgdGVybXMgYW5kIGNvbmRp
+        dGlvbnMuXHJcblZhbGlkIHVudGlsIDE3dGggRmVicnVhcnkgIOKAkyBJbi1z
+        dG9yZSBvciBvbmxpbmUgYXQgYWlyZmxleC5jb20uYXVcclxuIiwiZGVhbF9z
+        dG9yZXMiOlt7ImlkIjoyNDQyNSwiZGVhbF9pZCI6NTQxNCwiY3JlYXRlZF9h
+        dCI6IjIwMTQtMDItMDRUMDk6MzU6MDQuMDU5KzExOjAwIiwidXBkYXRlZF9h
+        dCI6IjIwMTQtMDItMDRUMDk6MzU6MDQuMDU5KzExOjAwIiwic3RvcmVfc2Vy
+        dmljZV9pZCI6NTE1NTYsImNlbnRyZV9pZCI6InN5ZG5leSIsInJldGFpbGVy
+        X2lkIjozMzUzfV0sInN0YXRlIjoibGl2ZSIsInN0YXRlX2V2ZW50cyI6WyJ3
+        aXRoZHJhdyJdLCJ1cmdlbnQiOmZhbHNlLCJpbWFnZV9yZWYiOm51bGwsImZl
+        YXR1cmVkIjpmYWxzZSwiZGVzY3JpcHRpb24iOiIiLCJzdWJ0aXRsZSI6IiIs
+        ImV4dGVybmFsX3VybCI6IiIsIl9saW5rcyI6eyJpbWFnZSI6eyJocmVmIjoi
+        In19LCJwdWJsaXNoX2RhdGUiOiIyMDE0LTAyLTAzVDIyOjM0OjAwWiIsImF2
+        YWlsYWJsZV9mcm9tIjoiMjAxNC0wMi0wM1QyMjozNDowMFoiLCJhdmFpbGFi
+        bGVfdG8iOiIyMDE0LTAyLTE3VDA2OjAwOjAwWiIsInVwZGF0ZWRfYXQiOiIy
+        MDE0LTAyLTAzVDIyOjM1OjA5WiIsImNhbXBhaWducyI6W119LHsiaWQiOjU0
+        MTEsInRpdGxlIjoiU2F2ZSB1cCB0byA3MCUgb24gc2VsZWN0ZWQgc3R5bGVz
+        IGF0IHRoZSBaVSBFbmQgb2YgU2Vhc29uIFNhbGUiLCJ0ZXJtc19hbmRfY29u
+        ZGl0aW9ucyI6IlByaWNlcyBhcyBtYXJrZWQuIFNlZSBpbiBzdG9yZSBmb3Ig
+        ZnVsbCB0ZXJtcyBhbmQgY29uZGl0aW9ucy5cclxuVmFsaWQgMTd0aCBGZWJy
+        dWFyeSAyMDE0ICDigJMgSW4tc3RvcmUgb3Igb25saW5lIGF0IHp1c2hvZS5j
+        b20uYXVcclxuIiwiZGVhbF9zdG9yZXMiOlt7ImlkIjoyNDM5MywiZGVhbF9p
+        ZCI6NTQxMSwiY3JlYXRlZF9hdCI6IjIwMTQtMDItMDRUMDk6MzI6MDMuOTE5
+        KzExOjAwIiwidXBkYXRlZF9hdCI6IjIwMTQtMDItMDRUMDk6MzI6MDMuOTE5
+        KzExOjAwIiwic3RvcmVfc2VydmljZV9pZCI6NDIyNzIsImNlbnRyZV9pZCI6
+        InN5ZG5leSIsInJldGFpbGVyX2lkIjoxNTB9XSwic3RhdGUiOiJsaXZlIiwi
+        c3RhdGVfZXZlbnRzIjpbIndpdGhkcmF3Il0sInVyZ2VudCI6ZmFsc2UsImlt
+        YWdlX3JlZiI6bnVsbCwiZmVhdHVyZWQiOmZhbHNlLCJkZXNjcmlwdGlvbiI6
+        IiIsInN1YnRpdGxlIjoiIiwiZXh0ZXJuYWxfdXJsIjoiIiwiX2xpbmtzIjp7
+        ImltYWdlIjp7ImhyZWYiOiIifX0sInB1Ymxpc2hfZGF0ZSI6IjIwMTQtMDIt
+        MDNUMjI6MzE6MDBaIiwiYXZhaWxhYmxlX2Zyb20iOiIyMDE0LTAyLTAzVDIy
+        OjMxOjAwWiIsImF2YWlsYWJsZV90byI6IjIwMTQtMDItMTdUMDY6MDA6MDBa
+        IiwidXBkYXRlZF9hdCI6IjIwMTQtMDItMDNUMjI6MzI6MTFaIiwiY2FtcGFp
+        Z25zIjpbXX0seyJpZCI6NTQxMywidGl0bGUiOiJTYXZlIHVwIHRvIDUwJSBh
+        dCB0aGUgQWlyZmxleCBFbmQgb2YgU2Vhc29uIFNhbGUhIiwidGVybXNfYW5k
+        X2NvbmRpdGlvbnMiOiJQcmljZXMgYXMgbWFya2VkLiBTZWUgaW4gc3RvcmUg
+        Zm9yIGZ1bGwgdGVybXMgYW5kIGNvbmRpdGlvbnMuXHJcblZhbGlkIHVudGls
+        IDE3dGggRmVicnVhcnkgIOKAkyBJbi1zdG9yZSBvciBvbmxpbmUgYXQgYWly
+        ZmxleC5jb20uYXVcclxuIiwiZGVhbF9zdG9yZXMiOlt7ImlkIjoyNDQxNSwi
+        ZGVhbF9pZCI6NTQxMywiY3JlYXRlZF9hdCI6IjIwMTQtMDItMDRUMDk6MzQ6
+        MjYuNzE1KzExOjAwIiwidXBkYXRlZF9hdCI6IjIwMTQtMDItMDRUMDk6MzQ6
+        MjYuNzE1KzExOjAwIiwic3RvcmVfc2VydmljZV9pZCI6NTE1NTYsImNlbnRy
+        ZV9pZCI6InN5ZG5leSIsInJldGFpbGVyX2lkIjozMzUzfV0sInN0YXRlIjoi
+        bGl2ZSIsInN0YXRlX2V2ZW50cyI6WyJ3aXRoZHJhdyJdLCJ1cmdlbnQiOmZh
+        bHNlLCJpbWFnZV9yZWYiOm51bGwsImZlYXR1cmVkIjpmYWxzZSwiZGVzY3Jp
+        cHRpb24iOiIiLCJzdWJ0aXRsZSI6IiIsImV4dGVybmFsX3VybCI6IiIsIl9s
+        aW5rcyI6eyJpbWFnZSI6eyJocmVmIjoiIn19LCJwdWJsaXNoX2RhdGUiOiIy
+        MDE0LTAyLTAzVDIyOjMzOjAwWiIsImF2YWlsYWJsZV9mcm9tIjoiMjAxNC0w
+        Mi0wM1QyMjozMzowMFoiLCJhdmFpbGFibGVfdG8iOiIyMDE0LTAyLTE3VDA2
+        OjAwOjAwWiIsInVwZGF0ZWRfYXQiOiIyMDE0LTAyLTAzVDIyOjM1OjExWiIs
+        ImNhbXBhaWducyI6W119LHsiaWQiOjU0NzYsInRpdGxlIjoiU2FsZSBleHRl
+        bmRlZCEgNTAlIG9mZiBhbGwgZHJlc3NlcyIsInRlcm1zX2FuZF9jb25kaXRp
+        b25zIjoiSW5jbHVkaW5nIGRyZXNzZXMgYWxyZWFkeSBvbiBzYWxlLiBTZWUg
+        aW4gc3RvcmUgZm9yIGZ1bGwgdGVybXMgYW5kIGNvbmRpdGlvbnMuIE9mZmVy
+        IGFsc28gYXZhaWxhYmxlIG9ubGluZS4iLCJkZWFsX3N0b3JlcyI6W3siaWQi
+        OjMxMzA0LCJkZWFsX2lkIjo1NDc2LCJjcmVhdGVkX2F0IjoiMjAxNC0wMi0x
+        NFQxMjoxMTozOC4yMDUrMTE6MDAiLCJ1cGRhdGVkX2F0IjoiMjAxNC0wMi0x
+        NFQxMjoxMTozOC4yMDUrMTE6MDAiLCJzdG9yZV9zZXJ2aWNlX2lkIjo0MjEz
+        NCwiY2VudHJlX2lkIjoic3lkbmV5IiwicmV0YWlsZXJfaWQiOjEzMn1dLCJz
+        dGF0ZSI6ImxpdmUiLCJzdGF0ZV9ldmVudHMiOlsid2l0aGRyYXciXSwidXJn
+        ZW50IjpmYWxzZSwiaW1hZ2VfcmVmIjpudWxsLCJmZWF0dXJlZCI6ZmFsc2Us
+        ImRlc2NyaXB0aW9uIjoiIiwic3VidGl0bGUiOiIiLCJleHRlcm5hbF91cmwi
+        OiIiLCJfbGlua3MiOnsiaW1hZ2UiOnsiaHJlZiI6IiJ9fSwicHVibGlzaF9k
+        YXRlIjoiMjAxNC0wMi0wNFQwNTo0NzowMFoiLCJhdmFpbGFibGVfZnJvbSI6
+        IjIwMTQtMDItMDRUMDU6NDc6MDBaIiwiYXZhaWxhYmxlX3RvIjoiMjAxNC0w
+        Mi0xN1QxMjo1OTowMFoiLCJ1cGRhdGVkX2F0IjoiMjAxNC0wMi0xNFQwMTox
+        MToyNloiLCJjYW1wYWlnbnMiOlt7ImlkIjo1fSx7ImlkIjo2fV19LHsiaWQi
+        OjUwOTAsInRpdGxlIjoiQ2VsZWJyYXRlIExvdmUgdGhpcyBWYWxlbnRpbmUn
+        cyBEYXksIHdpdGggdXAgdG8gNTAlIG9mZiBzZWxlY3RlZCBzdHlsZXMiLCJ0
+        ZXJtc19hbmRfY29uZGl0aW9ucyI6IkNlbGVicmF0ZSBsb3ZlIHRoaXMgVmFs
+        ZW50aW5l4oCZcyBEYXkgYW5kIHNhdmUgYXQgUHJvdWRzIFRoZSBKZXdlbGxl
+        cnMuICBPdXIgVmFsZW50aW5l4oCZcyBEYXkgQ2F0YWxvZ3VlIGlzIG91dCBu
+        b3cuICBTYXZpbmdzIG9uIERpYW1vbmRzLCBHb2xkLCBGYXNoaW9uIGpld2Vs
+        bGVyeSwgd2F0Y2hlcyBhbmQgbW9yZSFcclxuQ2FuIGEgZHJlYW0gY29tZSB0
+        cnVlPyBJdCBjYW4gYXQgUHJvdWRzLlxyXG4iLCJkZWFsX3N0b3JlcyI6W3si
+        aWQiOjIzNTM0LCJkZWFsX2lkIjo1MDkwLCJjcmVhdGVkX2F0IjoiMjAxNC0w
+        MS0yNFQxMTozNzoxMi4xODgrMTE6MDAiLCJ1cGRhdGVkX2F0IjoiMjAxNC0w
+        MS0yNFQxMTozNzoxMi4xODgrMTE6MDAiLCJzdG9yZV9zZXJ2aWNlX2lkIjo0
+        MTExMCwiY2VudHJlX2lkIjoic3lkbmV5IiwicmV0YWlsZXJfaWQiOjI0MjF9
+        XSwic3RhdGUiOiJsaXZlIiwic3RhdGVfZXZlbnRzIjpbIndpdGhkcmF3Il0s
+        InVyZ2VudCI6ZmFsc2UsImltYWdlX3JlZiI6bnVsbCwiZmVhdHVyZWQiOmZh
+        bHNlLCJkZXNjcmlwdGlvbiI6IiIsInN1YnRpdGxlIjoiIiwiZXh0ZXJuYWxf
+        dXJsIjoiIiwiX2xpbmtzIjp7ImltYWdlIjp7ImhyZWYiOiIifX0sInB1Ymxp
+        c2hfZGF0ZSI6IjIwMTQtMDEtMjdUMDA6MzI6MDBaIiwiYXZhaWxhYmxlX2Zy
+        b20iOiIyMDE0LTAxLTI3VDAwOjMyOjAwWiIsImF2YWlsYWJsZV90byI6IjIw
+        MTQtMDItMTlUMDA6MzI6MDBaIiwidXBkYXRlZF9hdCI6IjIwMTQtMDEtMjRU
+        MDA6Mzc6MjFaIiwiY2FtcGFpZ25zIjpbeyJpZCI6NX1dfSx7ImlkIjo2MTA3
+        LCJ0aXRsZSI6IjQwJSBvZmYgRGlhbW9uZHMiLCJ0ZXJtc19hbmRfY29uZGl0
+        aW9ucyI6Ik5vdCB2YWxpZCBpbiBjb25qdW5jdGlvbiB3aXRoIGFueSBvdGhl
+        ciBvZmZlciBvciBkaXNjb3VudC4gIE5vIGxheWJ5cy4gIERpc3BsYXkgc3Rv
+        Y2sgb25seS4gIERpc2NvdW50IGFwcGxpZXMgdG8gUHJvdWRz4oCZIHJlZ3Vs
+        YXIgcmV0YWlsIHByaWNlLiAgVmFsaWQgMTUgLSAxOSBGZWJydWFyeSAyMDE0
+        LiIsImRlYWxfc3RvcmVzIjpbeyJpZCI6MzE0NDYsImRlYWxfaWQiOjYxMDcs
+        ImNyZWF0ZWRfYXQiOiIyMDE0LTAyLTE0VDE3OjA4OjQwLjgzNisxMTowMCIs
+        InVwZGF0ZWRfYXQiOiIyMDE0LTAyLTE0VDE3OjA4OjQwLjgzNisxMTowMCIs
+        InN0b3JlX3NlcnZpY2VfaWQiOjQxMTEwLCJjZW50cmVfaWQiOiJzeWRuZXki
+        LCJyZXRhaWxlcl9pZCI6MjQyMX1dLCJzdGF0ZSI6ImxpdmUiLCJzdGF0ZV9l
+        dmVudHMiOlsid2l0aGRyYXciXSwidXJnZW50IjpmYWxzZSwiaW1hZ2VfcmVm
+        IjpudWxsLCJmZWF0dXJlZCI6ZmFsc2UsImRlc2NyaXB0aW9uIjoiIiwic3Vi
+        dGl0bGUiOiIiLCJleHRlcm5hbF91cmwiOiIiLCJfbGlua3MiOnsiaW1hZ2Ui
+        OnsiaHJlZiI6IiJ9fSwicHVibGlzaF9kYXRlIjoiMjAxNC0wMi0xNFQyMToz
+        MDowMFoiLCJhdmFpbGFibGVfZnJvbSI6IjIwMTQtMDItMTRUMjI6MDA6MDBa
+        IiwiYXZhaWxhYmxlX3RvIjoiMjAxNC0wMi0xOVQwNjowNzowMFoiLCJ1cGRh
+        dGVkX2F0IjoiMjAxNC0wMi0xNFQwNjowODo0OVoiLCJjYW1wYWlnbnMiOlt7
+        ImlkIjo1fV19LHsiaWQiOjU4MzcsInRpdGxlIjoiVXAgdG8gNTAlIG9mZiIs
+        InRlcm1zX2FuZF9jb25kaXRpb25zIjoiV2hpbGUgc3RvY2tzIGxhc3QuIiwi
+        ZGVhbF9zdG9yZXMiOlt7ImlkIjoyNzU5MiwiZGVhbF9pZCI6NTgzNywiY3Jl
+        YXRlZF9hdCI6IjIwMTQtMDItMTJUMDk6Mzg6NTcuNjgxKzExOjAwIiwidXBk
+        YXRlZF9hdCI6IjIwMTQtMDItMTJUMDk6Mzg6NTcuNjgxKzExOjAwIiwic3Rv
+        cmVfc2VydmljZV9pZCI6NDIwOTMsImNlbnRyZV9pZCI6InN5ZG5leSIsInJl
+        dGFpbGVyX2lkIjoyN31dLCJzdGF0ZSI6ImxpdmUiLCJzdGF0ZV9ldmVudHMi
+        Olsid2l0aGRyYXciXSwidXJnZW50IjpmYWxzZSwiaW1hZ2VfcmVmIjpudWxs
+        LCJmZWF0dXJlZCI6ZmFsc2UsImRlc2NyaXB0aW9uIjoiIiwic3VidGl0bGUi
+        OiIiLCJleHRlcm5hbF91cmwiOiIiLCJfbGlua3MiOnsiaW1hZ2UiOnsiaHJl
+        ZiI6IiJ9fSwicHVibGlzaF9kYXRlIjoiMjAxNC0wMi0xMVQyMjozNDowMFoi
+        LCJhdmFpbGFibGVfZnJvbSI6IjIwMTQtMDItMTFUMjI6MzQ6MDBaIiwiYXZh
+        aWxhYmxlX3RvIjoiMjAxNC0wMi0yMVQwNzowMDowMFoiLCJ1cGRhdGVkX2F0
+        IjoiMjAxNC0wMi0xMVQyMjozODo0NVoiLCJjYW1wYWlnbnMiOlt7ImlkIjo2
+        fV19LHsiaWQiOjUyNzcsInRpdGxlIjoiQnV5IGFueSAyIFRyZWF0bWVudHMg
+        b3IgUHJvZHVjdHMgYW5kIGdldCA1MCUgT0ZGIHlvdXIgM3JkIFRyZWF0bWVu
+        dCBvciBQcm9kdWN0LiIsInRlcm1zX2FuZF9jb25kaXRpb25zIjoiUHVyY2hh
+        c2UgYW55IGNvbWJpbmF0aW9uIG9mIHRyZWF0bWVudHMgYW5kL29yIHByb2R1
+        Y3RzIHwgNTAlIG9mZiBtdXN0IGJlIGVxdWFsIG9yIGxlc3NlciB2YWx1ZSB8
+        IG5vIGZ1cnRoZXIgZGlzY291bnQgYXBwbGllcyB8IHRyZWF0bWVudHMgYXJl
+        IHByZS1wYWlkIGFuZCBtdXN0IGJlIHJlZGVlbWVkIGluIHRoZSBzdG9yZSBv
+        ZiBwdXJjaGFzZSB8IHRyZWF0bWVudHMgYW5kIHByb2R1Y3RzIG1heSBub3Qg
+        YmUgcHVyY2hhc2VkIGFzIGEgZ2lmdCB2b3VjaGVyIHwgZXhjbHVkZXMgd2F4
+        aW5nLCBib2R5IG1hc3NhZ2UsIGJhY2sgbWFzc2FnZSwgcGFja2FnZXMsIGlu
+        amVjdGFibGVzIiwiZGVhbF9zdG9yZXMiOlt7ImlkIjoyMzk3MiwiZGVhbF9p
+        ZCI6NTI3NywiY3JlYXRlZF9hdCI6IjIwMTQtMDEtMzBUMTQ6MjA6NDcuNzkx
+        KzExOjAwIiwidXBkYXRlZF9hdCI6IjIwMTQtMDEtMzBUMTQ6MjA6NDcuNzkx
+        KzExOjAwIiwic3RvcmVfc2VydmljZV9pZCI6NDI1MTEsImNlbnRyZV9pZCI6
+        InN5ZG5leSIsInJldGFpbGVyX2lkIjoyNjc0fSx7ImlkIjoyMzk3MywiZGVh
+        bF9pZCI6NTI3NywiY3JlYXRlZF9hdCI6IjIwMTQtMDEtMzBUMTQ6MjA6NDgu
+        MTc4KzExOjAwIiwidXBkYXRlZF9hdCI6IjIwMTQtMDEtMzBUMTQ6MjA6NDgu
+        MTc4KzExOjAwIiwic3RvcmVfc2VydmljZV9pZCI6NDIxMjQsImNlbnRyZV9p
+        ZCI6InN5ZG5leSIsInJldGFpbGVyX2lkIjoyNjc0fV0sInN0YXRlIjoibGl2
+        ZSIsInN0YXRlX2V2ZW50cyI6WyJ3aXRoZHJhdyJdLCJ1cmdlbnQiOmZhbHNl
+        LCJpbWFnZV9yZWYiOm51bGwsImZlYXR1cmVkIjpmYWxzZSwiZGVzY3JpcHRp
+        b24iOiIiLCJzdWJ0aXRsZSI6IiIsImV4dGVybmFsX3VybCI6IiIsIl9saW5r
+        cyI6eyJpbWFnZSI6eyJocmVmIjoiIn19LCJwdWJsaXNoX2RhdGUiOiIyMDE0
+        LTAxLTMwVDAzOjE4OjAwWiIsImF2YWlsYWJsZV9mcm9tIjoiMjAxNC0wMS0z
+        MVQxMzowMTowMFoiLCJhdmFpbGFibGVfdG8iOiIyMDE0LTAyLTI4VDEyOjU5
+        OjAwWiIsInVwZGF0ZWRfYXQiOiIyMDE0LTAxLTMwVDAzOjIwOjU1WiIsImNh
+        bXBhaWducyI6W119LHsiaWQiOjUyNzksInRpdGxlIjoiSHVnZSBzYXZpbmdz
+        IG9uIElQTCBIYWlyIFJlbW92YWwtIEhpcyBhbmQgSGVycy4iLCJ0ZXJtc19h
+        bmRfY29uZGl0aW9ucyI6Ikhpc1xyXG5CYWNrICsgU2hvdWxkZXJzICQ5OSAo
+        c2F2ZSAkMTY5KVxyXG5DaGVzdCArIFNob3VsZGVycyAkOTkgKHNhdmUgJDE1
+        OSlcclxuSGVyc1xyXG5CcmF6aWxpYW4gKyAxLzIgTGVncyAkOTkgKHNhdmUg
+        JDEwOSlcclxuQnJhemlsaWFuICsgVW5kZXJhcm1zICQ0OSAoc2F2ZSAkNDkp
+        XHJcbk1pbmltdW0gb2YgNiB0cmVhdG1lbnRzIHwgbm8gZnVydGhlciBkaXNj
+        b3VudCBhcHBsaWVzIHwgcHJlcGFpZCBhbmQgcmVkZWVtZWQgaW4gdGhlIHNh
+        bG9uIG9mIHB1cmNoYXNlIGZvciB0cmVhdG1lbnQgb25seSB8IGNyZWRpdCBp
+        c3N1ZWQgd2l0aCBhbnkgb2YgdGhlIGFib3ZlIHRyZWF0bWVudHMgb24gZGF0
+        ZSBvZiBwdXJjaGFzZSB8IHJlZGVlbWFibGUgaW4gc3RvcmUgb2YgcHVyY2hh
+        c2UiLCJkZWFsX3N0b3JlcyI6W3siaWQiOjIzOTg2LCJkZWFsX2lkIjo1Mjc5
+        LCJjcmVhdGVkX2F0IjoiMjAxNC0wMS0zMFQxNDoyNDozNy4wODMrMTE6MDAi
+        LCJ1cGRhdGVkX2F0IjoiMjAxNC0wMS0zMFQxNDoyNDozNy4wODMrMTE6MDAi
+        LCJzdG9yZV9zZXJ2aWNlX2lkIjo0MjUxMSwiY2VudHJlX2lkIjoic3lkbmV5
+        IiwicmV0YWlsZXJfaWQiOjI2NzR9LHsiaWQiOjIzOTg3LCJkZWFsX2lkIjo1
+        Mjc5LCJjcmVhdGVkX2F0IjoiMjAxNC0wMS0zMFQxNDoyNDozNy40MTcrMTE6
+        MDAiLCJ1cGRhdGVkX2F0IjoiMjAxNC0wMS0zMFQxNDoyNDozNy40MTcrMTE6
+        MDAiLCJzdG9yZV9zZXJ2aWNlX2lkIjo0MjEyNCwiY2VudHJlX2lkIjoic3lk
+        bmV5IiwicmV0YWlsZXJfaWQiOjI2NzR9XSwic3RhdGUiOiJsaXZlIiwic3Rh
+        dGVfZXZlbnRzIjpbIndpdGhkcmF3Il0sInVyZ2VudCI6ZmFsc2UsImltYWdl
+        X3JlZiI6bnVsbCwiZmVhdHVyZWQiOmZhbHNlLCJkZXNjcmlwdGlvbiI6IiIs
+        InN1YnRpdGxlIjoiIiwiZXh0ZXJuYWxfdXJsIjoiIiwiX2xpbmtzIjp7Imlt
+        YWdlIjp7ImhyZWYiOiIifX0sInB1Ymxpc2hfZGF0ZSI6IjIwMTQtMDEtMzBU
+        MDM6MjE6MDBaIiwiYXZhaWxhYmxlX2Zyb20iOiIyMDE0LTAxLTMxVDEzOjAx
+        OjAwWiIsImF2YWlsYWJsZV90byI6IjIwMTQtMDItMjhUMTI6NTk6MDBaIiwi
+        dXBkYXRlZF9hdCI6IjIwMTQtMDEtMzBUMDM6MjQ6NThaIiwiY2FtcGFpZ25z
+        IjpbXX0seyJpZCI6NTQ1NiwidGl0bGUiOiJDbGFzc2ljIFRpZXMgLSAyIEZv
+        ciAkMTAwIC8gMyBGb3IgJDE1MCIsInRlcm1zX2FuZF9jb25kaXRpb25zIjoi
+        Tm90IHRvIGJlIHVzZWQgaW4gY29uanVuY3Rpb24gd2l0aCBhbnkgb3RoZXIg
+        b2ZmZXIuIFZhbGlkIG9uIHNlbGVjdGVkIHN0eWxlcyBvbmx5LiIsImRlYWxf
+        c3RvcmVzIjpbeyJpZCI6MjQ1NDEsImRlYWxfaWQiOjU0NTYsImNyZWF0ZWRf
+        YXQiOiIyMDE0LTAyLTA0VDEyOjI4OjQwLjQ0NCsxMTowMCIsInVwZGF0ZWRf
+        YXQiOiIyMDE0LTAyLTA0VDEyOjI4OjQwLjQ0NCsxMTowMCIsInN0b3JlX3Nl
+        cnZpY2VfaWQiOjQzMzIwLCJjZW50cmVfaWQiOiJzeWRuZXkiLCJyZXRhaWxl
+        cl9pZCI6MzYxNX1dLCJzdGF0ZSI6ImxpdmUiLCJzdGF0ZV9ldmVudHMiOlsi
+        d2l0aGRyYXciXSwidXJnZW50IjpmYWxzZSwiaW1hZ2VfcmVmIjpudWxsLCJm
+        ZWF0dXJlZCI6ZmFsc2UsImRlc2NyaXB0aW9uIjoiIiwic3VidGl0bGUiOiIi
+        LCJleHRlcm5hbF91cmwiOiIiLCJfbGlua3MiOnsiaW1hZ2UiOnsiaHJlZiI6
+        IiJ9fSwicHVibGlzaF9kYXRlIjoiMjAxNC0wMi0wNFQwMToyNzowMFoiLCJh
+        dmFpbGFibGVfZnJvbSI6IjIwMTQtMDItMDRUMDQ6MDA6MDBaIiwiYXZhaWxh
+        YmxlX3RvIjoiMjAxNC0wNi0zMFQwNTowMDowMFoiLCJ1cGRhdGVkX2F0Ijoi
+        MjAxNC0wMi0wNFQwMToyODo0N1oiLCJjYW1wYWlnbnMiOltdfSx7ImlkIjo1
+        NDU1LCJ0aXRsZSI6IjMgU29ja3MgRm9yICQ1MCAvIDUgU29ja3MgRm9yICQ3
+        NSIsInRlcm1zX2FuZF9jb25kaXRpb25zIjoiTm90IHRvIGJlIHVzZWQgaW4g
+        Y29uanVuY3Rpb24gd2l0aCBhbnkgb3RoZXIgb2ZmZXIuIiwiZGVhbF9zdG9y
+        ZXMiOlt7ImlkIjoyNDUzOSwiZGVhbF9pZCI6NTQ1NSwiY3JlYXRlZF9hdCI6
+        IjIwMTQtMDItMDRUMTI6MjU6MDQuOTQyKzExOjAwIiwidXBkYXRlZF9hdCI6
+        IjIwMTQtMDItMDRUMTI6MjU6MDQuOTQyKzExOjAwIiwic3RvcmVfc2Vydmlj
+        ZV9pZCI6NDMzMjAsImNlbnRyZV9pZCI6InN5ZG5leSIsInJldGFpbGVyX2lk
+        IjozNjE1fV0sInN0YXRlIjoibGl2ZSIsInN0YXRlX2V2ZW50cyI6WyJ3aXRo
+        ZHJhdyJdLCJ1cmdlbnQiOmZhbHNlLCJpbWFnZV9yZWYiOm51bGwsImZlYXR1
+        cmVkIjpmYWxzZSwiZGVzY3JpcHRpb24iOiIiLCJzdWJ0aXRsZSI6IiIsImV4
+        dGVybmFsX3VybCI6IiIsIl9saW5rcyI6eyJpbWFnZSI6eyJocmVmIjoiIn19
+        LCJwdWJsaXNoX2RhdGUiOiIyMDE0LTAyLTA0VDAxOjI0OjAwWiIsImF2YWls
+        YWJsZV9mcm9tIjoiMjAxNC0wMi0wNFQwNDowMDowMFoiLCJhdmFpbGFibGVf
+        dG8iOiIyMDE0LTA2LTMwVDA1OjAwOjAwWiIsInVwZGF0ZWRfYXQiOiIyMDE0
+        LTAyLTA0VDAxOjI1OjExWiIsImNhbXBhaWducyI6W119LHsiaWQiOjU0NTQs
+        InRpdGxlIjoiMiBDbGFzc2ljIFN1aXRzIEZvciAkMTAwMCIsInRlcm1zX2Fu
+        ZF9jb25kaXRpb25zIjoiTm90IHRvIGJlIHVzZWQgaW4gY29uanVuY3Rpb24g
+        d2l0aCBhbnkgb3RoZXIgb2ZmZXIuIENlcnRhaW4gc3R5bGVzIGluIHRoZSBj
+        bGFzc2ljIHN1aXRzIHJhbmdlIGFyZSBub3QgaW5jbHVkZWQuIiwiZGVhbF9z
+        dG9yZXMiOlt7ImlkIjoyNDUzNywiZGVhbF9pZCI6NTQ1NCwiY3JlYXRlZF9h
+        dCI6IjIwMTQtMDItMDRUMTI6MjQ6MDYuMDgyKzExOjAwIiwidXBkYXRlZF9h
+        dCI6IjIwMTQtMDItMDRUMTI6MjQ6MDYuMDgyKzExOjAwIiwic3RvcmVfc2Vy
+        dmljZV9pZCI6NDMzMjAsImNlbnRyZV9pZCI6InN5ZG5leSIsInJldGFpbGVy
+        X2lkIjozNjE1fV0sInN0YXRlIjoibGl2ZSIsInN0YXRlX2V2ZW50cyI6WyJ3
+        aXRoZHJhdyJdLCJ1cmdlbnQiOmZhbHNlLCJpbWFnZV9yZWYiOm51bGwsImZl
+        YXR1cmVkIjpmYWxzZSwiZGVzY3JpcHRpb24iOiIiLCJzdWJ0aXRsZSI6IiIs
+        ImV4dGVybmFsX3VybCI6IiIsIl9saW5rcyI6eyJpbWFnZSI6eyJocmVmIjoi
+        In19LCJwdWJsaXNoX2RhdGUiOiIyMDE0LTAyLTA0VDAxOjIyOjAwWiIsImF2
+        YWlsYWJsZV9mcm9tIjoiMjAxNC0wMi0wNFQwNDowMDowMFoiLCJhdmFpbGFi
+        bGVfdG8iOiIyMDE0LTA2LTMwVDA1OjAwOjAwWiIsInVwZGF0ZWRfYXQiOiIy
+        MDE0LTAyLTA0VDAxOjI0OjEwWiIsImNhbXBhaWducyI6W119LHsiaWQiOjI5
+        MDYsInRpdGxlIjoiRXhjbHVzaXZlOiBzdHVkZW50IGRpc2NvdW50IDIwJSBv
+        ZmYiLCJ0ZXJtc19hbmRfY29uZGl0aW9ucyI6IlRlcm1zIFx1MDAyNiBDb25k
+        aXRpb25zIGFwcGx5LiBTZWUgaW4gc3RvcmUgZm9yIGRldGFpbHMuICIsImRl
+        YWxfc3RvcmVzIjpbeyJpZCI6MTM2NTQsImRlYWxfaWQiOjI5MDYsImNyZWF0
+        ZWRfYXQiOiIyMDEzLTEyLTEwVDE2OjU4OjAzLjU2NisxMTowMCIsInVwZGF0
+        ZWRfYXQiOiIyMDEzLTEyLTEwVDE2OjU4OjAzLjU2NisxMTowMCIsInN0b3Jl
+        X3NlcnZpY2VfaWQiOjQyNTY5LCJjZW50cmVfaWQiOiJzeWRuZXkiLCJyZXRh
+        aWxlcl9pZCI6NDYzNH1dLCJzdGF0ZSI6ImxpdmUiLCJzdGF0ZV9ldmVudHMi
+        Olsid2l0aGRyYXciXSwidXJnZW50IjpmYWxzZSwiaW1hZ2VfcmVmIjpudWxs
+        LCJmZWF0dXJlZCI6ZmFsc2UsImRlc2NyaXB0aW9uIjoiIiwic3VidGl0bGUi
+        OiIiLCJleHRlcm5hbF91cmwiOiIiLCJfbGlua3MiOnsiaW1hZ2UiOnsiaHJl
+        ZiI6IiJ9fSwicHVibGlzaF9kYXRlIjoiMjAxMy0xMi0xMFQwNTo1NzowMFoi
+        LCJhdmFpbGFibGVfZnJvbSI6IjIwMTMtMTItMTBUMDU6NTc6MDBaIiwiYXZh
+        aWxhYmxlX3RvIjoiMjAxNC0wNi0zMFQwNjo1NzowMFoiLCJ1cGRhdGVkX2F0
+        IjoiMjAxMy0xMi0xMFQwNTo1ODowOFoiLCJjYW1wYWlnbnMiOltdfV0=
     http_version: 
-  recorded_at: Tue, 14 Jan 2014 05:34:20 GMT
+  recorded_at: Sun, 16 Feb 2014 23:43:15 GMT
 - request:
     method: get
-    uri: http://store-service.test.dbg.westfield.com/api/store/master/stores/12.json
-    body:
-      encoding: US-ASCII
-      string: ''
-    headers:
-      User-Agent:
-      - Faraday v0.8.8
-      Content-Type:
-      - application/json
-  response:
-    status:
-      code: 500
-      message: 
-    headers:
-      Date:
-      - Tue, 14 Jan 2014 05:36:38 GMT
-      Server:
-      - Apache/2.2.15 (CentOS)
-      X-Request-Id:
-      - b1a2937d-99de-4971-b54d-6792cf52ee54
-      X-Runtime:
-      - '0.055855'
-      X-Powered-By:
-      - Phusion Passenger 4.0.8
-      Content-Length:
-      - '8769'
-      Status:
-      - 500 Internal Server Error
-      Vary:
-      - Accept-Encoding
-      Connection:
-      - close
-      Content-Type:
-      - text/html; charset=utf-8
-    body:
-      encoding: UTF-8
-      string: "<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"utf-8\"
-        />\n  <title>Action Controller: Exception caught</title>\n  <style>\n    body
-        {\n      background-color: #FAFAFA;\n      color: #333;\n      margin: 0px;\n
-        \   }\n\n    body, p, ol, ul, td {\n      font-family: helvetica, verdana,
-        arial, sans-serif;\n      font-size:   13px;\n      line-height: 18px;\n    }\n\n
-        \   pre {\n      font-size: 11px;\n      white-space: pre-wrap;\n    }\n\n
-        \   pre.box {\n      border: 1px solid #EEE;\n      padding: 10px;\n      margin:
-        0px;\n      width: 958px;\n    }\n\n    header {\n      color: #F0F0F0;\n
-        \     background: #C52F24;\n      padding: 0.5em 1.5em;\n    }\n\n    h1 {\n
-        \     margin: 0.2em 0;\n      line-height: 1.1em;\n      font-size: 2em;\n
-        \   }\n\n    h2 {\n      color: #C52F24;\n      line-height: 25px;\n    }\n\n
-        \   .details {\n      border: 1px solid #D0D0D0;\n      border-radius: 4px;\n
-        \     margin: 1em 0px;\n      display: block;\n      width: 978px;\n    }\n\n
-        \   .summary {\n      padding: 8px 15px;\n      border-bottom: 1px solid #D0D0D0;\n
-        \     display: block;\n    }\n\n    .details pre {\n      margin: 5px;\n      border:
-        none;\n    }\n\n    #container {\n      box-sizing: border-box;\n      width:
-        100%;\n      padding: 0 1.5em;\n    }\n\n    .source * {\n      margin: 0px;\n
-        \     padding: 0px;\n    }\n\n    .source {\n      border: 1px solid #D9D9D9;\n
-        \     background: #ECECEC;\n      width: 978px;\n    }\n\n    .source pre
-        {\n      padding: 10px 0px;\n      border: none;\n    }\n\n    .source .data
-        {\n      font-size: 80%;\n      overflow: auto;\n      background-color: #FFF;\n
-        \   }\n\n    .info {\n      padding: 0.5em;\n    }\n\n    .source .data .line_numbers
-        {\n      background-color: #ECECEC;\n      color: #AAA;\n      padding: 1em
-        .5em;\n      border-right: 1px solid #DDD;\n      text-align: right;\n    }\n\n
-        \   .line {\n      padding-left: 10px;\n    }\n\n    .line:hover {\n      background-color:
-        #F6F6F6;\n    }\n\n    .line.active {\n      background-color: #FFCCCC;\n
-        \   }\n\n    a { color: #980905; }\n    a:visited { color: #666; }\n    a:hover
-        { color: #C52F24; }\n\n    \n  </style>\n\n  <script>\n    var toggle = function(id)
-        {\n      var s = document.getElementById(id).style;\n      s.display = s.display
-        == 'none' ? 'block' : 'none';\n      return false;\n    }\n    var show =
-        function(id) {\n      document.getElementById(id).style.display = 'block';\n
-        \   }\n    var hide = function(id) {\n      document.getElementById(id).style.display
-        = 'none';\n    }\n    var toggleTrace = function() {\n      return toggle('blame_trace');\n
-        \   }\n    var toggleSessionDump = function() {\n      return toggle('session_dump');\n
-        \   }\n    var toggleEnvDump = function() {\n      return toggle('env_dump');\n
-        \   }\n  </script>\n</head>\n<body>\n\n<header>\n  <h1>\n    ActiveRecord::PendingMigrationError\n
-        \ </h1>\n</header>\n\n<div id=\"container\">\n  <h2>Migrations are pending;
-        run &#39;bin/rake db:migrate RAILS_ENV=development&#39; to resolve this issue.</h2>\n\n
-        \ \n  \n<p><code>Rails.root: /home/vagrant/vmshare/store_service</code></p>\n\n<div
-        id=\"traces\">\n    <a href=\"#\" onclick=\"hide(&#39;Framework-Trace&#39;);hide(&#39;Full-Trace&#39;);show(&#39;Application-Trace&#39;);;
-        return false;\">Application Trace</a> |\n    <a href=\"#\" onclick=\"hide(&#39;Application-Trace&#39;);hide(&#39;Full-Trace&#39;);show(&#39;Framework-Trace&#39;);;
-        return false;\">Framework Trace</a> |\n    <a href=\"#\" onclick=\"hide(&#39;Application-Trace&#39;);hide(&#39;Framework-Trace&#39;);show(&#39;Full-Trace&#39;);;
-        return false;\">Full Trace</a> \n\n    <div id=\"Application-Trace\" style=\"display:
-        block;\">\n      <pre><code></code></pre>\n    </div>\n    <div id=\"Framework-Trace\"
-        style=\"display: none;\">\n      <pre><code>activerecord (4.0.2) lib/active_record/migration.rb:379:in
-        `check_pending!&#39;\nactiverecord (4.0.2) lib/active_record/migration.rb:366:in
-        `call&#39;\nactionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:29:in
-        `block in call&#39;\nactivesupport (4.0.2) lib/active_support/callbacks.rb:373:in
-        `_run__3028810818219334395__call__callbacks&#39;\nactivesupport (4.0.2) lib/active_support/callbacks.rb:80:in
-        `run_callbacks&#39;\nactionpack (4.0.2) lib/action_dispatch/middleware/callbacks.rb:27:in
-        `call&#39;\nactionpack (4.0.2) lib/action_dispatch/middleware/reloader.rb:64:in
-        `call&#39;\nactionpack (4.0.2) lib/action_dispatch/middleware/remote_ip.rb:76:in
-        `call&#39;\nactionpack (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:17:in
-        `call&#39;\nactionpack (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in
-        `call&#39;\nrailties (4.0.2) lib/rails/rack/logger.rb:38:in `call_app&#39;\nrailties
-        (4.0.2) lib/rails/rack/logger.rb:20:in `block in call&#39;\nactivesupport
-        (4.0.2) lib/active_support/tagged_logging.rb:67:in `block in tagged&#39;\nactivesupport
-        (4.0.2) lib/active_support/tagged_logging.rb:25:in `tagged&#39;\nactivesupport
-        (4.0.2) lib/active_support/tagged_logging.rb:67:in `tagged&#39;\nrailties
-        (4.0.2) lib/rails/rack/logger.rb:20:in `call&#39;\nactionpack (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in
-        `call&#39;\nrack (1.5.2) lib/rack/runtime.rb:17:in `call&#39;\nactivesupport
-        (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in `call&#39;\nrack
-        (1.5.2) lib/rack/lock.rb:17:in `call&#39;\nactionpack (4.0.2) lib/action_dispatch/middleware/static.rb:64:in
-        `call&#39;\nrailties (4.0.2) lib/rails/engine.rb:511:in `call&#39;\nrailties
-        (4.0.2) lib/rails/application.rb:97:in `call&#39;\npassenger (4.0.8) lib/phusion_passenger/rack/thread_handler_extension.rb:77:in
-        `process_request&#39;\npassenger (4.0.8) lib/phusion_passenger/request_handler/thread_handler.rb:140:in
-        `accept_and_process_next_request&#39;\npassenger (4.0.8) lib/phusion_passenger/request_handler/thread_handler.rb:108:in
-        `main_loop&#39;\npassenger (4.0.8) lib/phusion_passenger/request_handler.rb:441:in
-        `block (3 levels) in start_threads&#39;</code></pre>\n    </div>\n    <div
-        id=\"Full-Trace\" style=\"display: none;\">\n      <pre><code>activerecord
-        (4.0.2) lib/active_record/migration.rb:379:in `check_pending!&#39;\nactiverecord
-        (4.0.2) lib/active_record/migration.rb:366:in `call&#39;\nactionpack (4.0.2)
-        lib/action_dispatch/middleware/callbacks.rb:29:in `block in call&#39;\nactivesupport
-        (4.0.2) lib/active_support/callbacks.rb:373:in `_run__3028810818219334395__call__callbacks&#39;\nactivesupport
-        (4.0.2) lib/active_support/callbacks.rb:80:in `run_callbacks&#39;\nactionpack
-        (4.0.2) lib/action_dispatch/middleware/callbacks.rb:27:in `call&#39;\nactionpack
-        (4.0.2) lib/action_dispatch/middleware/reloader.rb:64:in `call&#39;\nactionpack
-        (4.0.2) lib/action_dispatch/middleware/remote_ip.rb:76:in `call&#39;\nactionpack
-        (4.0.2) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call&#39;\nactionpack
-        (4.0.2) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call&#39;\nrailties
-        (4.0.2) lib/rails/rack/logger.rb:38:in `call_app&#39;\nrailties (4.0.2) lib/rails/rack/logger.rb:20:in
-        `block in call&#39;\nactivesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in
-        `block in tagged&#39;\nactivesupport (4.0.2) lib/active_support/tagged_logging.rb:25:in
-        `tagged&#39;\nactivesupport (4.0.2) lib/active_support/tagged_logging.rb:67:in
-        `tagged&#39;\nrailties (4.0.2) lib/rails/rack/logger.rb:20:in `call&#39;\nactionpack
-        (4.0.2) lib/action_dispatch/middleware/request_id.rb:21:in `call&#39;\nrack
-        (1.5.2) lib/rack/runtime.rb:17:in `call&#39;\nactivesupport (4.0.2) lib/active_support/cache/strategy/local_cache.rb:83:in
-        `call&#39;\nrack (1.5.2) lib/rack/lock.rb:17:in `call&#39;\nactionpack (4.0.2)
-        lib/action_dispatch/middleware/static.rb:64:in `call&#39;\nrailties (4.0.2)
-        lib/rails/engine.rb:511:in `call&#39;\nrailties (4.0.2) lib/rails/application.rb:97:in
-        `call&#39;\npassenger (4.0.8) lib/phusion_passenger/rack/thread_handler_extension.rb:77:in
-        `process_request&#39;\npassenger (4.0.8) lib/phusion_passenger/request_handler/thread_handler.rb:140:in
-        `accept_and_process_next_request&#39;\npassenger (4.0.8) lib/phusion_passenger/request_handler/thread_handler.rb:108:in
-        `main_loop&#39;\npassenger (4.0.8) lib/phusion_passenger/request_handler.rb:441:in
-        `block (3 levels) in start_threads&#39;</code></pre>\n    </div>\n</div>\n\n
-        \ \n\n<h2 style=\"margin-top: 30px\">Request</h2>\n<p><b>Parameters</b>:</p>
-        <pre>None</pre>\n\n<div class=\"details\">\n  <div class=\"summary\"><a href=\"#\"
-        onclick=\"return toggleSessionDump()\">Toggle session dump</a></div>\n  <div
-        id=\"session_dump\" style=\"display:none\"><pre></pre></div>\n</div>\n\n<div
-        class=\"details\">\n  <div class=\"summary\"><a href=\"#\" onclick=\"return
-        toggleEnvDump()\">Toggle env dump</a></div>\n  <div id=\"env_dump\" style=\"display:none\"><pre>HTTP_ACCEPT:
-        &quot;*/*&quot;\nREMOTE_ADDR: &quot;127.0.0.1&quot;\nSERVER_NAME: &quot;store-service.test.dbg.westfield.com&quot;\nSERVER_PROTOCOL:
-        &quot;HTTP/1.1&quot;</pre></div>\n</div>\n\n<h2 style=\"margin-top: 30px\">Response</h2>\n<p><b>Headers</b>:</p>
-        <pre>None</pre>\n\n</div>\n\n\n</body>\n</html>\n"
-    http_version: 
-  recorded_at: Tue, 14 Jan 2014 05:36:38 GMT
-- request:
-    method: get
-    uri: http://deal-service.test.dbg.westfield.com/api/deal/master/deals.json?campaign_code=campaign-code&centre=sydney&rows=50&state=published
+    uri: http://store-service.test.dbg.westfield.com/api/store/master/stores/41110.json
     body:
       encoding: US-ASCII
       string: ''
@@ -451,35 +426,949 @@ http_interactions:
       code: 200
       message: 
     headers:
-      Date:
-      - Tue, 14 Jan 2014 06:45:22 GMT
-      Server:
-      - Apache/2.2.15 (CentOS)
-      Access-Control-Allow-Origin:
-      - '*'
-      Access-Control-Request-Method:
-      - '*'
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-UA-Compatible:
+      - chrome=1
       ETag:
-      - '"d751713988987e9331980363e24189ce"'
+      - '"2af7438753c88f572d24596c1fc22715"'
       Cache-Control:
       - max-age=0, private, must-revalidate
       X-Request-Id:
-      - a89c524c-54dd-4342-a9d4-0e5bf35644c4
-      X-Runtime:
-      - '0.036364'
-      X-Powered-By:
-      - Phusion Passenger 4.0.8
-      Content-Length:
-      - '2'
+      - ea2e7d51-958d-4092-8b28-bc8f29376998
       Status:
       - 200 OK
-      Connection:
-      - close
       Content-Type:
-      - application/json
+      - application/json; charset=utf-8
+      Server:
+      - Apache
+      Content-Length:
+      - '911'
+      Date:
+      - Sun, 16 Feb 2014 23:43:12 GMT
+      Age:
+      - '0'
+      Via:
+      - 1.1 varnish
+      Connection:
+      - keep-alive
     body:
       encoding: UTF-8
-      string: '[]'
+      string: '{"id":41110,"retailer_id":2421,"retailer_code":"prouds-the-jewellers","centre_id":"sydney","major":false,"description":"","errors":{},"level":"2","level_span":1,"name":"Prouds
+        The Jewellers","phone_number":"92334488","email_address":"","shop_number":"PS171","lease_number":"","micello_geom_id":"6122676","category_codes":["jewellery-watches"],"url":"","abn":"","accepts_giftcards":true,"enabled":true,"enabled_date":"2010-08-06T00:00:00Z","disabled_date":null,"store_front_image_ref":"vbahjfuvkzccabmsx64o","has_opening_hours":false,"today_closing_time":null,"today_opening_time":null,"closed_today":null,"_links":{"self":{"href":"/api/store/master/stores/41110.json"},"logo":{"ref":"tcljwglie8jughc5owxl","href":"http://res.cloudinary.com/wlabs/image/upload/tcljwglie8jughc5owxl.png"},"store_front":{"ref":"vbahjfuvkzccabmsx64o","href":"http://res.cloudinary.com/wlabs/image/upload/vbahjfuvkzccabmsx64o.jpg"}}}'
     http_version: 
-  recorded_at: Tue, 14 Jan 2014 06:45:22 GMT
+  recorded_at: Sun, 16 Feb 2014 23:43:15 GMT
+- request:
+    method: get
+    uri: http://store-service.test.dbg.westfield.com/api/store/master/stores/51556.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.8
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-UA-Compatible:
+      - chrome=1
+      ETag:
+      - '"f2f9acf8a7e93a79cbc43c2101ce527d"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - a5b1a223-4137-4f58-b87f-24a014d7e449
+      Status:
+      - 200 OK
+      Content-Type:
+      - application/json; charset=utf-8
+      Server:
+      - Apache
+      Content-Length:
+      - '1216'
+      Date:
+      - Sun, 16 Feb 2014 23:43:12 GMT
+      Age:
+      - '0'
+      Via:
+      - 1.1 varnish
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"id":51556,"retailer_id":3353,"retailer_code":"airflex","centre_id":"sydney","major":false,"description":"Airflex
+        creates fashionable footwear with comfort, quality and durability. We use
+        the finest materials available; high quality leather used both inside and
+        out. Taking inspiration from international trends, we interpret and translate
+        each season?s fashions into a collection for style and comfort.","errors":{},"level":"2","level_span":1,"name":"Airflex","phone_number":"0292232766","email_address":"","shop_number":"11G","lease_number":"","micello_geom_id":"6122664","category_codes":["womens-fashion-accessories","womens-shoes-footwear"],"url":"","abn":"","accepts_giftcards":false,"enabled":true,"enabled_date":"2013-08-12T00:00:00Z","disabled_date":null,"store_front_image_ref":"ouk2wkbglevy6x7nzr2i","has_opening_hours":false,"today_closing_time":null,"today_opening_time":null,"closed_today":null,"_links":{"self":{"href":"/api/store/master/stores/51556.json"},"logo":{"ref":"epizvofsoeezblqcojfm","href":"http://res.cloudinary.com/wlabs/image/upload/epizvofsoeezblqcojfm.png"},"store_front":{"ref":"ouk2wkbglevy6x7nzr2i","href":"http://res.cloudinary.com/wlabs/image/upload/ouk2wkbglevy6x7nzr2i.jpg"}}}'
+    http_version: 
+  recorded_at: Sun, 16 Feb 2014 23:43:15 GMT
+- request:
+    method: get
+    uri: http://store-service.test.dbg.westfield.com/api/store/master/stores/42134.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.8
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-UA-Compatible:
+      - chrome=1
+      ETag:
+      - '"b0d5ade03f242f89e92b174142802a67"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 89c93028-4a20-40fd-b621-92552cd3706e
+      Status:
+      - 200 OK
+      Content-Type:
+      - application/json; charset=utf-8
+      Server:
+      - Apache
+      Content-Length:
+      - '1163'
+      Date:
+      - Sun, 16 Feb 2014 23:43:12 GMT
+      Age:
+      - '0'
+      Via:
+      - 1.1 varnish
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"id":42134,"retailer_id":132,"retailer_code":"bardot","centre_id":"sydney","major":false,"description":"The
+        favourite store of style-savvy women, Bardot always has the season''s latest
+        looks first, whether it''s a hot new print or a must-have statement piece.
+        Be bold and express your glamorous side today with Bardot''s wide range of
+        chic, on-trend apparel and accessories.","errors":{},"level":null,"level_span":1,"name":"Bardot","phone_number":"0292312056","email_address":"","shop_number":"2046A","lease_number":"","micello_geom_id":"6203428","category_codes":["womens-fashion-accessories"],"url":"","abn":null,"accepts_giftcards":true,"enabled":true,"enabled_date":"2010-08-27T00:00:00Z","disabled_date":null,"store_front_image_ref":"q4rcsu6ixjpu3mr48pyf","has_opening_hours":false,"today_closing_time":null,"today_opening_time":null,"closed_today":null,"_links":{"self":{"href":"/api/store/master/stores/42134.json"},"logo":{"ref":"qu6cxcxqthfthuz8dduz","href":"http://res.cloudinary.com/wlabs/image/upload/qu6cxcxqthfthuz8dduz.png"},"store_front":{"ref":"q4rcsu6ixjpu3mr48pyf","href":"http://res.cloudinary.com/wlabs/image/upload/q4rcsu6ixjpu3mr48pyf.jpg"}}}'
+    http_version: 
+  recorded_at: Sun, 16 Feb 2014 23:43:15 GMT
+- request:
+    method: get
+    uri: http://store-service.test.dbg.westfield.com/api/store/master/stores/42272.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.8
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-UA-Compatible:
+      - chrome=1
+      ETag:
+      - '"90f02bd21ec7c3d961dd5aaaf6570285"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 26b2d308-427b-439a-9716-ba20e9f97663
+      Status:
+      - 200 OK
+      Content-Type:
+      - application/json; charset=utf-8
+      Server:
+      - Apache
+      Content-Length:
+      - '1180'
+      Date:
+      - Sun, 16 Feb 2014 23:43:12 GMT
+      Age:
+      - '0'
+      Via:
+      - 1.1 varnish
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"id":42272,"retailer_id":150,"retailer_code":"zu","centre_id":"sydney","major":false,"description":"ZU
+        has a focus on high fashion shoes and accessories for every occasion for both
+        men and women. Our designers travel the world in search of the latest global
+        footwear trends to create innovative designs made with top quality materials
+        that are sold at prices our customers love.","errors":{},"level":null,"level_span":1,"name":"ZU","phone_number":"0292316922","email_address":"","shop_number":"9G","lease_number":"","micello_geom_id":"6122665","category_codes":["mens-shoes-footwear","womens-shoes-footwear"],"url":"","abn":null,"accepts_giftcards":true,"enabled":true,"enabled_date":"2010-09-01T10:16:05Z","disabled_date":null,"store_front_image_ref":"vcesv7s9f1lgxqzczhq2","has_opening_hours":false,"today_closing_time":null,"today_opening_time":null,"closed_today":null,"_links":{"self":{"href":"/api/store/master/stores/42272.json"},"logo":{"ref":"gtxg70dobqn8biypuwhh","href":"http://res.cloudinary.com/wlabs/image/upload/gtxg70dobqn8biypuwhh.png"},"store_front":{"ref":"vcesv7s9f1lgxqzczhq2","href":"http://res.cloudinary.com/wlabs/image/upload/vcesv7s9f1lgxqzczhq2.jpg"}}}'
+    http_version: 
+  recorded_at: Sun, 16 Feb 2014 23:43:15 GMT
+- request:
+    method: get
+    uri: http://store-service.test.dbg.westfield.com/api/store/master/stores/42093.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.8
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-UA-Compatible:
+      - chrome=1
+      ETag:
+      - '"c03de976d7e36d4dc6e53864ec33806c"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 9887852a-2dc9-4889-9dc0-1e080ba8d921
+      Status:
+      - 200 OK
+      Content-Type:
+      - application/json; charset=utf-8
+      Server:
+      - Apache
+      Content-Length:
+      - '1284'
+      Date:
+      - Sun, 16 Feb 2014 23:43:12 GMT
+      Age:
+      - '0'
+      Via:
+      - 1.1 varnish
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"id":42093,"retailer_id":27,"retailer_code":"general-pants-co","centre_id":"sydney","major":false,"description":"With
+        a blend of retro and modern urban style, General Pants has become an institution
+        for trendy girls and guys who want cutting-edge fashion each season. General
+        Pants Co.''s eclectic mix of brands is sourced from around the world, bringing
+        you the hippest new looks each season.","errors":{},"level":"1","level_span":1,"name":"General
+        Pants Co.","phone_number":"0282755160","email_address":"","shop_number":"1014","lease_number":"","micello_geom_id":"6203295","category_codes":["jewellery-watches","mens-fashion-accessories","mens-shoes-footwear","womens-fashion-accessories","womens-shoes-footwear"],"url":"","abn":"","accepts_giftcards":true,"enabled":true,"enabled_date":"2010-08-27T00:00:00Z","disabled_date":null,"store_front_image_ref":"wcvxbrg05u6bn9qacs0z","has_opening_hours":false,"today_closing_time":null,"today_opening_time":null,"closed_today":null,"_links":{"self":{"href":"/api/store/master/stores/42093.json"},"logo":{"ref":"grhq7kmrltaraou0mnlz","href":"http://res.cloudinary.com/wlabs/image/upload/grhq7kmrltaraou0mnlz.png"},"store_front":{"ref":"wcvxbrg05u6bn9qacs0z","href":"http://res.cloudinary.com/wlabs/image/upload/wcvxbrg05u6bn9qacs0z.jpg"}}}'
+    http_version: 
+  recorded_at: Sun, 16 Feb 2014 23:43:15 GMT
+- request:
+    method: get
+    uri: http://store-service.test.dbg.westfield.com/api/store/master/stores/42569.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.8
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-UA-Compatible:
+      - chrome=1
+      ETag:
+      - '"4669e677b4d9c9083ba745e22c80ee89"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - c90007c6-d4cc-45bc-9e3a-982a85015613
+      Status:
+      - 200 OK
+      Content-Type:
+      - application/json; charset=utf-8
+      Server:
+      - Apache
+      Content-Length:
+      - '768'
+      Date:
+      - Sun, 16 Feb 2014 23:43:12 GMT
+      Age:
+      - '0'
+      Via:
+      - 1.1 varnish
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"id":42569,"retailer_id":4634,"retailer_code":"coast-london","centre_id":"sydney","major":false,"description":"","errors":{},"level":"4","level_span":1,"name":"Coast
+        London","phone_number":"0290374107","email_address":"","shop_number":"4017","lease_number":"","micello_geom_id":"6204179","category_codes":[],"url":"","abn":"","accepts_giftcards":true,"enabled":true,"enabled_date":"2010-10-06T00:00:00Z","disabled_date":null,"store_front_image_ref":"","has_opening_hours":false,"today_closing_time":null,"today_opening_time":null,"closed_today":null,"_links":{"self":{"href":"/api/store/master/stores/42569.json"},"logo":{"ref":"djreu7wjlblv22d7ephk","href":"http://res.cloudinary.com/wlabs/image/upload/djreu7wjlblv22d7ephk.png"},"store_front":{"ref":"","href":""}}}'
+    http_version: 
+  recorded_at: Sun, 16 Feb 2014 23:43:15 GMT
+- request:
+    method: get
+    uri: http://store-service.test.dbg.westfield.com/api/store/master/stores/52180.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.8
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-UA-Compatible:
+      - chrome=1
+      ETag:
+      - '"ef73942435d661e0757540455a80ca06"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 13b8bdf0-4406-43f1-a27a-d0cc155c13a2
+      Status:
+      - 200 OK
+      Content-Type:
+      - application/json; charset=utf-8
+      Server:
+      - Apache
+      Content-Length:
+      - '1162'
+      Date:
+      - Sun, 16 Feb 2014 23:43:12 GMT
+      Age:
+      - '0'
+      Via:
+      - 1.1 varnish
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"id":52180,"retailer_id":9147,"retailer_code":"fane-footwear","centre_id":"sydney","major":false,"description":"FANE
+        covers a range of men''s high end fashion loafers, brogues, boat shoes \u0026
+        belts. The unique style offers comfort, durability and reliability fit for
+        any occasion. A complimentary piece to any attire - formal, casual, beach
+        \u0026 boating, it''s hard to say No to Fane Footwear!","errors":{},"level":"1","level_span":1,"name":"Fane
+        Footwear","phone_number":"0404067713","email_address":"","shop_number":"SY3","lease_number":"","micello_geom_id":"6203294","category_codes":[],"url":"","abn":"","accepts_giftcards":true,"enabled":true,"enabled_date":"2013-10-24T00:00:00Z","disabled_date":null,"store_front_image_ref":"e8mqmev2rnhpaanwhbkt","has_opening_hours":false,"today_closing_time":null,"today_opening_time":null,"closed_today":null,"_links":{"self":{"href":"/api/store/master/stores/52180.json"},"logo":{"ref":"jfbyznfnwzmyeacohvhz","href":"http://res.cloudinary.com/wlabs/image/upload/jfbyznfnwzmyeacohvhz.png"},"store_front":{"ref":"e8mqmev2rnhpaanwhbkt","href":"http://res.cloudinary.com/wlabs/image/upload/e8mqmev2rnhpaanwhbkt.jpg"}}}'
+    http_version: 
+  recorded_at: Sun, 16 Feb 2014 23:43:15 GMT
+- request:
+    method: get
+    uri: http://store-service.test.dbg.westfield.com/api/store/master/stores/43320.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.8
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-UA-Compatible:
+      - chrome=1
+      ETag:
+      - '"a1f6b5a726b6237066f7fa96e32a73ac"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 6ecee734-e80d-4c0c-90c8-663234e98fa7
+      Status:
+      - 200 OK
+      Content-Type:
+      - application/json; charset=utf-8
+      Server:
+      - Apache
+      Content-Length:
+      - '1172'
+      Date:
+      - Sun, 16 Feb 2014 23:43:12 GMT
+      Age:
+      - '0'
+      Via:
+      - 1.1 varnish
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"id":43320,"retailer_id":3615,"retailer_code":"mj-bale","centre_id":"sydney","major":false,"description":"M.J.
+        Bale is an Australian menswear label offering quality menswear garments including
+        business shirts, casual shirts, merino wool suits, blazers and ties. M.J.
+        Bale specialises in wedding parties and ready-to-wear casual menswear for
+        the weekend such as polo shirts, t-shirt, shorts and swim shorts.","errors":{},"level":null,"level_span":1,"name":"M.J.
+        Bale","phone_number":"0282469169","email_address":"","shop_number":"3051","lease_number":"","micello_geom_id":"6203613","category_codes":[],"url":"","abn":null,"accepts_giftcards":true,"enabled":true,"enabled_date":"2010-12-17T15:58:04Z","disabled_date":null,"store_front_image_ref":"b4xwemq6aahkophsrket","has_opening_hours":false,"today_closing_time":null,"today_opening_time":null,"closed_today":null,"_links":{"self":{"href":"/api/store/master/stores/43320.json"},"logo":{"ref":"pjluv1esduzidgjmvhis","href":"http://res.cloudinary.com/wlabs/image/upload/pjluv1esduzidgjmvhis.png"},"store_front":{"ref":"b4xwemq6aahkophsrket","href":"http://res.cloudinary.com/wlabs/image/upload/b4xwemq6aahkophsrket.jpg"}}}'
+    http_version: 
+  recorded_at: Sun, 16 Feb 2014 23:43:15 GMT
+- request:
+    method: get
+    uri: http://store-service.test.dbg.westfield.com/api/store/master/stores/42511.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.8
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-UA-Compatible:
+      - chrome=1
+      ETag:
+      - '"5fe1ae1451f74a6a51873977ca6cac2d"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - f719b722-082e-44c3-8c02-6081390f86f2
+      Status:
+      - 200 OK
+      Content-Type:
+      - application/json; charset=utf-8
+      Server:
+      - Apache
+      Content-Length:
+      - '1257'
+      Date:
+      - Sun, 16 Feb 2014 23:43:12 GMT
+      Age:
+      - '0'
+      Via:
+      - 1.1 varnish
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"id":42511,"retailer_id":2674,"retailer_code":"ella-rouge-beauty","centre_id":"sydney","major":false,"description":"Ella
+        Rouge Beauty provides only the best in skin care technology that will leave
+        you feeling rejuvenated and radiant. Ella Rouge Beauty offers body massages,
+        facial treatments, body shaping and non-surgical cosmetic procedures in a
+        professional, hygienic, comfortable and relaxed atmosphere.","errors":{},"level":"2","level_span":1,"name":"Ella
+        Rouge Beauty- Level 2","phone_number":"0292229900","email_address":"","shop_number":"2008","lease_number":"","micello_geom_id":"6203451","category_codes":["gs-beauticians"],"url":"http://westfield.com.au/au/retailers/ella-rouge-beauty","abn":"","accepts_giftcards":true,"enabled":true,"enabled_date":"2010-10-05T15:33:02Z","disabled_date":null,"store_front_image_ref":"kq2uhlkq8urgb95p8la4","has_opening_hours":false,"today_closing_time":null,"today_opening_time":null,"closed_today":null,"_links":{"self":{"href":"/api/store/master/stores/42511.json"},"logo":{"ref":"la8z9uj3f0evysuv7sjj","href":"http://res.cloudinary.com/wlabs/image/upload/la8z9uj3f0evysuv7sjj.png"},"store_front":{"ref":"kq2uhlkq8urgb95p8la4","href":"http://res.cloudinary.com/wlabs/image/upload/kq2uhlkq8urgb95p8la4.jpg"}}}'
+    http_version: 
+  recorded_at: Sun, 16 Feb 2014 23:43:15 GMT
+- request:
+    method: get
+    uri: http://store-service.test.dbg.westfield.com/api/store/master/stores/41110.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.8
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-UA-Compatible:
+      - chrome=1
+      ETag:
+      - '"2af7438753c88f572d24596c1fc22715"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - bd8c0e17-1f36-463f-957f-537c0a281d39
+      Status:
+      - 200 OK
+      Content-Type:
+      - application/json; charset=utf-8
+      Server:
+      - Apache
+      Content-Length:
+      - '911'
+      Date:
+      - Sun, 16 Feb 2014 23:43:12 GMT
+      Age:
+      - '0'
+      Via:
+      - 1.1 varnish
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"id":41110,"retailer_id":2421,"retailer_code":"prouds-the-jewellers","centre_id":"sydney","major":false,"description":"","errors":{},"level":"2","level_span":1,"name":"Prouds
+        The Jewellers","phone_number":"92334488","email_address":"","shop_number":"PS171","lease_number":"","micello_geom_id":"6122676","category_codes":["jewellery-watches"],"url":"","abn":"","accepts_giftcards":true,"enabled":true,"enabled_date":"2010-08-06T00:00:00Z","disabled_date":null,"store_front_image_ref":"vbahjfuvkzccabmsx64o","has_opening_hours":false,"today_closing_time":null,"today_opening_time":null,"closed_today":null,"_links":{"self":{"href":"/api/store/master/stores/41110.json"},"logo":{"ref":"tcljwglie8jughc5owxl","href":"http://res.cloudinary.com/wlabs/image/upload/tcljwglie8jughc5owxl.png"},"store_front":{"ref":"vbahjfuvkzccabmsx64o","href":"http://res.cloudinary.com/wlabs/image/upload/vbahjfuvkzccabmsx64o.jpg"}}}'
+    http_version: 
+  recorded_at: Sun, 16 Feb 2014 23:43:15 GMT
+- request:
+    method: get
+    uri: http://store-service.test.dbg.westfield.com/api/store/master/stores/42272.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.8
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-UA-Compatible:
+      - chrome=1
+      ETag:
+      - '"90f02bd21ec7c3d961dd5aaaf6570285"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 7e2c25eb-d8d9-44ab-95fc-59d92f90946d
+      Status:
+      - 200 OK
+      Content-Type:
+      - application/json; charset=utf-8
+      Server:
+      - Apache
+      Content-Length:
+      - '1180'
+      Date:
+      - Sun, 16 Feb 2014 23:43:12 GMT
+      Age:
+      - '0'
+      Via:
+      - 1.1 varnish
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"id":42272,"retailer_id":150,"retailer_code":"zu","centre_id":"sydney","major":false,"description":"ZU
+        has a focus on high fashion shoes and accessories for every occasion for both
+        men and women. Our designers travel the world in search of the latest global
+        footwear trends to create innovative designs made with top quality materials
+        that are sold at prices our customers love.","errors":{},"level":null,"level_span":1,"name":"ZU","phone_number":"0292316922","email_address":"","shop_number":"9G","lease_number":"","micello_geom_id":"6122665","category_codes":["mens-shoes-footwear","womens-shoes-footwear"],"url":"","abn":null,"accepts_giftcards":true,"enabled":true,"enabled_date":"2010-09-01T10:16:05Z","disabled_date":null,"store_front_image_ref":"vcesv7s9f1lgxqzczhq2","has_opening_hours":false,"today_closing_time":null,"today_opening_time":null,"closed_today":null,"_links":{"self":{"href":"/api/store/master/stores/42272.json"},"logo":{"ref":"gtxg70dobqn8biypuwhh","href":"http://res.cloudinary.com/wlabs/image/upload/gtxg70dobqn8biypuwhh.png"},"store_front":{"ref":"vcesv7s9f1lgxqzczhq2","href":"http://res.cloudinary.com/wlabs/image/upload/vcesv7s9f1lgxqzczhq2.jpg"}}}'
+    http_version: 
+  recorded_at: Sun, 16 Feb 2014 23:43:15 GMT
+- request:
+    method: get
+    uri: http://store-service.test.dbg.westfield.com/api/store/master/stores/42272.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.8
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-UA-Compatible:
+      - chrome=1
+      ETag:
+      - '"90f02bd21ec7c3d961dd5aaaf6570285"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - f24c4497-07c7-4c5f-9d63-59582192b2c9
+      Status:
+      - 200 OK
+      Content-Type:
+      - application/json; charset=utf-8
+      Server:
+      - Apache
+      Content-Length:
+      - '1180'
+      Date:
+      - Sun, 16 Feb 2014 23:43:12 GMT
+      Age:
+      - '0'
+      Via:
+      - 1.1 varnish
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"id":42272,"retailer_id":150,"retailer_code":"zu","centre_id":"sydney","major":false,"description":"ZU
+        has a focus on high fashion shoes and accessories for every occasion for both
+        men and women. Our designers travel the world in search of the latest global
+        footwear trends to create innovative designs made with top quality materials
+        that are sold at prices our customers love.","errors":{},"level":null,"level_span":1,"name":"ZU","phone_number":"0292316922","email_address":"","shop_number":"9G","lease_number":"","micello_geom_id":"6122665","category_codes":["mens-shoes-footwear","womens-shoes-footwear"],"url":"","abn":null,"accepts_giftcards":true,"enabled":true,"enabled_date":"2010-09-01T10:16:05Z","disabled_date":null,"store_front_image_ref":"vcesv7s9f1lgxqzczhq2","has_opening_hours":false,"today_closing_time":null,"today_opening_time":null,"closed_today":null,"_links":{"self":{"href":"/api/store/master/stores/42272.json"},"logo":{"ref":"gtxg70dobqn8biypuwhh","href":"http://res.cloudinary.com/wlabs/image/upload/gtxg70dobqn8biypuwhh.png"},"store_front":{"ref":"vcesv7s9f1lgxqzczhq2","href":"http://res.cloudinary.com/wlabs/image/upload/vcesv7s9f1lgxqzczhq2.jpg"}}}'
+    http_version: 
+  recorded_at: Sun, 16 Feb 2014 23:43:15 GMT
+- request:
+    method: get
+    uri: http://store-service.test.dbg.westfield.com/api/store/master/stores/51556.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.8
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-UA-Compatible:
+      - chrome=1
+      ETag:
+      - '"f2f9acf8a7e93a79cbc43c2101ce527d"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 8f606bcd-b290-4040-b3fd-5c20201ecd61
+      Status:
+      - 200 OK
+      Content-Type:
+      - application/json; charset=utf-8
+      Server:
+      - Apache
+      Content-Length:
+      - '1216'
+      Date:
+      - Sun, 16 Feb 2014 23:43:12 GMT
+      Age:
+      - '0'
+      Via:
+      - 1.1 varnish
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"id":51556,"retailer_id":3353,"retailer_code":"airflex","centre_id":"sydney","major":false,"description":"Airflex
+        creates fashionable footwear with comfort, quality and durability. We use
+        the finest materials available; high quality leather used both inside and
+        out. Taking inspiration from international trends, we interpret and translate
+        each season?s fashions into a collection for style and comfort.","errors":{},"level":"2","level_span":1,"name":"Airflex","phone_number":"0292232766","email_address":"","shop_number":"11G","lease_number":"","micello_geom_id":"6122664","category_codes":["womens-fashion-accessories","womens-shoes-footwear"],"url":"","abn":"","accepts_giftcards":false,"enabled":true,"enabled_date":"2013-08-12T00:00:00Z","disabled_date":null,"store_front_image_ref":"ouk2wkbglevy6x7nzr2i","has_opening_hours":false,"today_closing_time":null,"today_opening_time":null,"closed_today":null,"_links":{"self":{"href":"/api/store/master/stores/51556.json"},"logo":{"ref":"epizvofsoeezblqcojfm","href":"http://res.cloudinary.com/wlabs/image/upload/epizvofsoeezblqcojfm.png"},"store_front":{"ref":"ouk2wkbglevy6x7nzr2i","href":"http://res.cloudinary.com/wlabs/image/upload/ouk2wkbglevy6x7nzr2i.jpg"}}}'
+    http_version: 
+  recorded_at: Sun, 16 Feb 2014 23:43:15 GMT
+- request:
+    method: get
+    uri: http://store-service.test.dbg.westfield.com/api/store/master/stores/43320.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.8
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-UA-Compatible:
+      - chrome=1
+      ETag:
+      - '"a1f6b5a726b6237066f7fa96e32a73ac"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 2928a3df-a30f-4c0a-9c66-58d1e2a2885f
+      Status:
+      - 200 OK
+      Content-Type:
+      - application/json; charset=utf-8
+      Server:
+      - Apache
+      Content-Length:
+      - '1172'
+      Date:
+      - Sun, 16 Feb 2014 23:43:12 GMT
+      Age:
+      - '0'
+      Via:
+      - 1.1 varnish
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"id":43320,"retailer_id":3615,"retailer_code":"mj-bale","centre_id":"sydney","major":false,"description":"M.J.
+        Bale is an Australian menswear label offering quality menswear garments including
+        business shirts, casual shirts, merino wool suits, blazers and ties. M.J.
+        Bale specialises in wedding parties and ready-to-wear casual menswear for
+        the weekend such as polo shirts, t-shirt, shorts and swim shorts.","errors":{},"level":null,"level_span":1,"name":"M.J.
+        Bale","phone_number":"0282469169","email_address":"","shop_number":"3051","lease_number":"","micello_geom_id":"6203613","category_codes":[],"url":"","abn":null,"accepts_giftcards":true,"enabled":true,"enabled_date":"2010-12-17T15:58:04Z","disabled_date":null,"store_front_image_ref":"b4xwemq6aahkophsrket","has_opening_hours":false,"today_closing_time":null,"today_opening_time":null,"closed_today":null,"_links":{"self":{"href":"/api/store/master/stores/43320.json"},"logo":{"ref":"pjluv1esduzidgjmvhis","href":"http://res.cloudinary.com/wlabs/image/upload/pjluv1esduzidgjmvhis.png"},"store_front":{"ref":"b4xwemq6aahkophsrket","href":"http://res.cloudinary.com/wlabs/image/upload/b4xwemq6aahkophsrket.jpg"}}}'
+    http_version: 
+  recorded_at: Sun, 16 Feb 2014 23:43:15 GMT
+- request:
+    method: get
+    uri: http://store-service.test.dbg.westfield.com/api/store/master/stores/51556.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.8
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-UA-Compatible:
+      - chrome=1
+      ETag:
+      - '"f2f9acf8a7e93a79cbc43c2101ce527d"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 5757bc7b-744c-4192-8eaf-e7db9fa15d06
+      Status:
+      - 200 OK
+      Content-Type:
+      - application/json; charset=utf-8
+      Server:
+      - Apache
+      Content-Length:
+      - '1216'
+      Date:
+      - Sun, 16 Feb 2014 23:43:12 GMT
+      Age:
+      - '0'
+      Via:
+      - 1.1 varnish
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"id":51556,"retailer_id":3353,"retailer_code":"airflex","centre_id":"sydney","major":false,"description":"Airflex
+        creates fashionable footwear with comfort, quality and durability. We use
+        the finest materials available; high quality leather used both inside and
+        out. Taking inspiration from international trends, we interpret and translate
+        each season?s fashions into a collection for style and comfort.","errors":{},"level":"2","level_span":1,"name":"Airflex","phone_number":"0292232766","email_address":"","shop_number":"11G","lease_number":"","micello_geom_id":"6122664","category_codes":["womens-fashion-accessories","womens-shoes-footwear"],"url":"","abn":"","accepts_giftcards":false,"enabled":true,"enabled_date":"2013-08-12T00:00:00Z","disabled_date":null,"store_front_image_ref":"ouk2wkbglevy6x7nzr2i","has_opening_hours":false,"today_closing_time":null,"today_opening_time":null,"closed_today":null,"_links":{"self":{"href":"/api/store/master/stores/51556.json"},"logo":{"ref":"epizvofsoeezblqcojfm","href":"http://res.cloudinary.com/wlabs/image/upload/epizvofsoeezblqcojfm.png"},"store_front":{"ref":"ouk2wkbglevy6x7nzr2i","href":"http://res.cloudinary.com/wlabs/image/upload/ouk2wkbglevy6x7nzr2i.jpg"}}}'
+    http_version: 
+  recorded_at: Sun, 16 Feb 2014 23:43:15 GMT
+- request:
+    method: get
+    uri: http://store-service.test.dbg.westfield.com/api/store/master/stores/43320.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.8
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-UA-Compatible:
+      - chrome=1
+      ETag:
+      - '"a1f6b5a726b6237066f7fa96e32a73ac"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - c912786a-7a92-443d-bbef-15cefa9849fc
+      Status:
+      - 200 OK
+      Content-Type:
+      - application/json; charset=utf-8
+      Server:
+      - Apache
+      Content-Length:
+      - '1172'
+      Date:
+      - Sun, 16 Feb 2014 23:43:12 GMT
+      Age:
+      - '0'
+      Via:
+      - 1.1 varnish
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"id":43320,"retailer_id":3615,"retailer_code":"mj-bale","centre_id":"sydney","major":false,"description":"M.J.
+        Bale is an Australian menswear label offering quality menswear garments including
+        business shirts, casual shirts, merino wool suits, blazers and ties. M.J.
+        Bale specialises in wedding parties and ready-to-wear casual menswear for
+        the weekend such as polo shirts, t-shirt, shorts and swim shorts.","errors":{},"level":null,"level_span":1,"name":"M.J.
+        Bale","phone_number":"0282469169","email_address":"","shop_number":"3051","lease_number":"","micello_geom_id":"6203613","category_codes":[],"url":"","abn":null,"accepts_giftcards":true,"enabled":true,"enabled_date":"2010-12-17T15:58:04Z","disabled_date":null,"store_front_image_ref":"b4xwemq6aahkophsrket","has_opening_hours":false,"today_closing_time":null,"today_opening_time":null,"closed_today":null,"_links":{"self":{"href":"/api/store/master/stores/43320.json"},"logo":{"ref":"pjluv1esduzidgjmvhis","href":"http://res.cloudinary.com/wlabs/image/upload/pjluv1esduzidgjmvhis.png"},"store_front":{"ref":"b4xwemq6aahkophsrket","href":"http://res.cloudinary.com/wlabs/image/upload/b4xwemq6aahkophsrket.jpg"}}}'
+    http_version: 
+  recorded_at: Sun, 16 Feb 2014 23:43:15 GMT
+- request:
+    method: get
+    uri: http://store-service.test.dbg.westfield.com/api/store/master/stores/42511.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.8
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-UA-Compatible:
+      - chrome=1
+      ETag:
+      - '"5fe1ae1451f74a6a51873977ca6cac2d"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 0d2450eb-a057-4a7b-b36a-6cf19ea55926
+      Status:
+      - 200 OK
+      Content-Type:
+      - application/json; charset=utf-8
+      Server:
+      - Apache
+      Content-Length:
+      - '1257'
+      Date:
+      - Sun, 16 Feb 2014 23:43:12 GMT
+      Age:
+      - '0'
+      Via:
+      - 1.1 varnish
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+    body:
+      encoding: UTF-8
+      string: '{"id":42511,"retailer_id":2674,"retailer_code":"ella-rouge-beauty","centre_id":"sydney","major":false,"description":"Ella
+        Rouge Beauty provides only the best in skin care technology that will leave
+        you feeling rejuvenated and radiant. Ella Rouge Beauty offers body massages,
+        facial treatments, body shaping and non-surgical cosmetic procedures in a
+        professional, hygienic, comfortable and relaxed atmosphere.","errors":{},"level":"2","level_span":1,"name":"Ella
+        Rouge Beauty- Level 2","phone_number":"0292229900","email_address":"","shop_number":"2008","lease_number":"","micello_geom_id":"6203451","category_codes":["gs-beauticians"],"url":"http://westfield.com.au/au/retailers/ella-rouge-beauty","abn":"","accepts_giftcards":true,"enabled":true,"enabled_date":"2010-10-05T15:33:02Z","disabled_date":null,"store_front_image_ref":"kq2uhlkq8urgb95p8la4","has_opening_hours":false,"today_closing_time":null,"today_opening_time":null,"closed_today":null,"_links":{"self":{"href":"/api/store/master/stores/42511.json"},"logo":{"ref":"la8z9uj3f0evysuv7sjj","href":"http://res.cloudinary.com/wlabs/image/upload/la8z9uj3f0evysuv7sjj.png"},"store_front":{"ref":"kq2uhlkq8urgb95p8la4","href":"http://res.cloudinary.com/wlabs/image/upload/kq2uhlkq8urgb95p8la4.jpg"}}}'
+    http_version: 
+  recorded_at: Sun, 16 Feb 2014 23:43:15 GMT
 recorded_with: VCR 2.6.0

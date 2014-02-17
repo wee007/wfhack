@@ -12,9 +12,9 @@ GIT
 
 GIT
   remote: git@github.dbg.westfield.com:digital/service_helper.git
-  revision: 4c5662559f5318e26c1021cd34be4520871f62f2
+  revision: e6888d85a5c8ab04840ba44c732fe7c7a13f9487
   specs:
-    service_helper (0.0.22)
+    service_helper (0.0.23)
 
 GIT
   remote: https://github.com/kneath/kss.git

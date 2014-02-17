@@ -71,7 +71,7 @@
     .icon--pin:before {@include to-rem(margin-left, -4);}
   }
 
-  /* Show a preloader whilst waiting for the list/detail view content to load via PJAX */
+  /* Show a preloader whilst waiting for the list/detail view content and filtered list view content to load via PJAX */
   .js-pjax-container-stores {
 
     /* Hide the preloader by default */

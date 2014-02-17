@@ -3,17 +3,11 @@
    ====================================================================================== */
 
 /*
-  Usage:
-    Creates a set of rotating images.
+  Usage: creates a set of rotating images.
 
-  Notes:
-    Need to `@include img-rotate` mixin to generate the specific image rotate classes that's based on the number of images it's rotating.
+  Notes: need to `@include img-rotate` mixin to generate the specific image rotate classes that's based on the number of images it's rotating.
 
-  Credit:
-    https://github.com/benschwarz/gallery-css
-
-  Demo:
-    Style Guide -> Modules -> Image Rotate
+  Credit: https://github.com/benschwarz/gallery-css
 */
 
 .img-rotate {position: relative;}

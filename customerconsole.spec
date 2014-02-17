@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.151
+Version:     0.2.152
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,10 @@ fi
 
 
 %changelog
+* Mon Feb 17 2014 ci <doperations@au.westfield.com> 0.2.152-1
+- Merge pull request #923 from ldewey/master (dmiller@au.westfield.com)
+- Moved kss into the main gem group. (ldewey@au.westfield.com)
+
 * Mon Feb 17 2014 ci <doperations@au.westfield.com> 0.2.151-1
 - Added more peoples names to the deploy alerts. (ldewey@au.westfield.com)
 

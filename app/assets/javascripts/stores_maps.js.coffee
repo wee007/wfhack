@@ -20,8 +20,6 @@ class StoreMapPage
 
   loading: (state) ->
     # after pjax load has completed the user needs to see the detail
-    #@hide()
-
     $('.js-pjax-container-stores').toggleClass('is-loading', state)
 
   pjaxComplete: =>
@@ -61,7 +59,7 @@ class StoreMapPage
         $.pjax.submit(event, '.js-pjax-container-stores')
 
     body.on('click', '.is-list-view .js-stores-maps-toggle-btn', @show)
-    body.on('click', '.is-map-view .js-stores-maps-toggle-btn', @hide)
+    body.on('click', '.is-map-view .js-stores-maps-toggle-btn, .is-map-view .js-pjax-view-stores', @hide)
     # Micello hijacks clicks on the store map for touch devices
     # so listen for touchstart event which is not hijacked and send user to the url manually
     body.on 'touchstart', '.js-touchlink', ->

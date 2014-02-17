@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.153
+Version:     0.2.154
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,20 @@ fi
 
 
 %changelog
+* Tue Feb 18 2014 ci <doperations@au.westfield.com> 0.2.154-1
+- Merge pull request #909 from csmith/feature/centre-trading-hours-rewrite
+  (craigM.smith@au.westfield.com)
+- Rebuilding VCR after merge (craigm.smith@au.westfield.com)
+- Rebuilding vcd after rebase (craigm.smith@au.westfield.com)
+- Getting all the specs green. (craigm.smith@au.westfield.com)
+- Fixing tests WIP (craigm.smith@au.westfield.com)
+- WIP (craigm.smith@au.westfield.com)
+- Got centre hours working with the hours service.
+  (craigm.smith@au.westfield.com)
+- Get todays opening times for the header. (craigm.smith@au.westfield.com)
+- The centre homepage now uses the TradingHourService to get todays hours.
+  (craigm.smith@au.westfield.com)
+
 * Tue Feb 18 2014 ci <doperations@au.westfield.com> 0.2.153-1
 - Merge pull request #926 from ldewey/styleguide (matt.wratt@trineo.co.nz)
 - Styleguide fixes (ldewey@au.westfield.com)

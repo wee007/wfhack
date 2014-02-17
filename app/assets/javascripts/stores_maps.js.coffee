@@ -5,6 +5,9 @@
 
 class StoreMapPage
 
+  pjaxContainerSelector = '.js-pjax-container-stores'
+  $pjaxContainer = $(pjaxContainerSelector)
+
   constructor: ->
     @map = new map.ResponsiveMap {
       breakpoint: 'all and (min-width: 64em)'
@@ -20,7 +23,7 @@ class StoreMapPage
 
   loading: (state) ->
     # after pjax load has completed the user needs to see the detail
-    $('.js-pjax-container-stores').toggleClass('is-loading', state)
+    $pjaxContainer.toggleClass('is-loading', state)
 
   pjaxComplete: =>
     @pageLoaded()
@@ -35,15 +38,15 @@ class StoreMapPage
         ), 0)
 
   recompileAngularScope: ->
-    scope = angular.element('.js-pjax-container-stores').scope()
-    compile = angular.element('.js-pjax-container-stores').injector().get('$compile')
+    scope = angular.element(pjaxContainerSelector).scope()
+    compile = angular.element(pjaxContainerSelector).injector().get('$compile')
 
-    compile($('.js-pjax-container-stores').contents())(scope)
+    compile($pjaxContainer.contents())(scope)
     scope.$apply()
 
   pjaxNavigate: (event) =>
     @startLoading()
-    $.pjax.click(event, container: $('.js-pjax-container-stores'))
+    $.pjax.click(event, container: $pjaxContainer)
 
   setup: =>
     body = $('body')
@@ -51,12 +54,12 @@ class StoreMapPage
       $.pjax.defaults?.timeout = 50000
       $(document).on('pjax:send', @startLoading)
       $(document).on('pjax:success', @stopLoading)
-      body.on('pjax:end', '.js-pjax-container-stores', @pjaxComplete)
-      body.on('pjax:popstate', '.js-pjax-container-stores', @pjaxComplete)
+      body.on('pjax:end', pjaxContainerSelector, @pjaxComplete)
+      body.on('pjax:popstate', pjaxContainerSelector, @pjaxComplete)
       body.on('click', 'a.js-pjax-link-stores', @pjaxNavigate)
 
       body.on 'submit', 'form[data-pjax]', (event) ->
-        $.pjax.submit(event, '.js-pjax-container-stores')
+        $.pjax.submit(event, pjaxContainerSelector)
 
     body.on('click', '.is-list-view .js-stores-maps-toggle-btn', @show)
     body.on('click', '.is-map-view .js-stores-maps-toggle-btn, .is-map-view .js-pjax-view-stores', @hide)

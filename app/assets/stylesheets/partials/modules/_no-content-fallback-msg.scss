@@ -25,14 +25,6 @@
   em,
   span {display: block;}
 
-  .no-content-fallback-msg__icon:before {
-    @include font-size(48, 1);
-
-    @include respond-min($non-palm) {
-      @include font-size(60, 1);
-    }
-  }
-
   .drop-down-container {
     @include to-rem(margin, $spacing-third auto 0);
     @include to-rem(max-width, $drop-down-width);
@@ -49,6 +41,14 @@
     /* 'See nearby centres' text */
     p > span {color: $color-txt-dark;}
 }
+
+  .no-content-fallback-msg__icon:before {
+    @include font-size(48, 1);
+
+    @include respond-min($non-palm) {
+      @include font-size(60, 1);
+    }
+  }
 
 /* Modifier: remove top padding */
 .no-content-fallback-msg--flush {padding-top: 0;}

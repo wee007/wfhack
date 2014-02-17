@@ -12,8 +12,6 @@
 
     // Clicking outside will close all toggleVisibility targets
     $document.bind( 'click', function ( event ) {
-      //debugger;
-
       if ($(event.target).parents('.toggle-visibility').length == 0) {
         close();
       }
@@ -106,9 +104,6 @@
           ( $rootScope.activeTVTarget == id ) ? close() : open(id);
           e.stopPropagation();
         });
-
-        // Allow the user to click inside the target
-        //target.bind( 'click', function( e ) { e.stopPropagation(); });
       }
     }
   }]);

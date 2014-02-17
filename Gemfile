@@ -35,6 +35,7 @@ gem 'splunk_logger', git: 'https://github.com/westfield/splunk_logger.git'
 # CSS (cant live in development or css will not get minified)
 # https://github.com/rails/rails/issues/10084#issuecomment-20855970
 gem 'sass-rails', '~> 4.0.0'
+gem 'kss', git: 'https://github.com/kneath/kss.git' # Gem release pending
 gem 'newrelic_rpm'
 
 group :development do
@@ -52,7 +53,6 @@ group :development, :test do
   gem "rspec-rails"
   gem 'uglifier', '>= 1.3.0'
   gem 'coffee-rails', '~> 4.0.0'
-  gem 'kss', git: 'https://github.com/kneath/kss.git' # Gem release pending
   gem 'json'
   gem 'rack-proxy', '0.4.0' # Updating it broke our proxying (/api/<service>/...)
   gem 'launchy'

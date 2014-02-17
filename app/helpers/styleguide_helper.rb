@@ -30,10 +30,20 @@ module StyleguideHelper
       example_html: content
   end
 
-  def styleguide_intro(title, description = nil)
+  def styleguide_intro(title = nil, description = nil)
+
+    if params[:id]
+      styleguide = Styleguide::TREE.find do |styleguide|
+        ActiveSupport::Inflector.parameterize(styleguide['title']) == params[:id]
+      end
+      title ||= styleguide['title']
+      description ||= styleguide['description']
+    end
+
     render 'styleguide/styleguide_intro',
       title: title,
-      description: description
+      description: description if title && description
+
   end
 
   def example(name, &block)

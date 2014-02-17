@@ -12,7 +12,7 @@
   <div class="container container--position">
 
     <%# Logo %>
-    <%= link_to site_logo, centre_path(@centre), href:"/styleguide", class: "logo" %>
+    <%= link_to site_logo, root_path, class: "logo" %>
     <%# //Logo %>
 
     <h1>Style guide</h1>
@@ -29,13 +29,8 @@
       <ul>
         <% Styleguide::TREE.each_with_index do |sg, major| %>
           <% if sg.is_a? Hash %><li>
-              <%= sg['name'] %>:
-              <ul>
-                <% sg['sections'].each_with_index do |sgc, minor| %>
-                <% slug = ActiveSupport::Inflector.parameterize("#{sg['name']} #{sgc}") %>
-                <li><a href="<%= styleguide_path(slug) %>"><%= sgc %></a></li>
-                <% end %>
-              </ul>
+              <% slug = ActiveSupport::Inflector.parameterize(sg['title']) %>
+              <li><a href="<%= styleguide_path(slug) %>"><%= sg['title'] %></a></li>
             </li>
           <% else %>
             <% slug = ActiveSupport::Inflector.parameterize(sg) %>
@@ -72,6 +67,7 @@
 
     <%# Main %>
     <main class="sg-main" role="main" id="main">
+      <%= styleguide_intro %>
       <%= yield %>
     </main>
     <%# //Main %>

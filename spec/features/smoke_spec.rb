@@ -119,7 +119,7 @@ feature "Smoke tests", :vcr => {
 
     scenario "notice pages" do
       # index
-      visit centre_info_path(centre_code)
+      visit centre_info_path('carindale')
       should eql(200)
 
       # show

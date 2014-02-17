@@ -1,4 +1,4 @@
-<%= render "/products/national_view_dialog" if @centre.nil? %>
+<%= render "/products/national_view_dialog" if national_products? %>
 
 <%= render @centre ? "/layouts/header" : "/layouts/header_national" %>
 

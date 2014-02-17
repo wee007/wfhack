@@ -5,4 +5,5 @@ Disallow: /api/*
 Disallow: /javascripts/products/facets*.js
 Disallow: /{{*
 Disallow: /*/products/*/redirection
+Disallow: /styleguide/*
 Sitemap: http://www.westfield.com.au/sitemap.xml.gz

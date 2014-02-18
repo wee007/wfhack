@@ -846,8 +846,8 @@ $national-view-search-toggle-bp: 1080 !default;
 					/* IE10 */
 					@include ie-10-up {display: none;}
 
-					/* IE 8/9 */
-					.ie & {display: none;}
+					/* IE 9 */
+					.ie-9 & {display: none;}
 				}
 			}
 

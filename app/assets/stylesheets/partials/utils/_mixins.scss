@@ -24,7 +24,6 @@
 
 @mixin font-size($font-size-val, $line-height-val: "", $sledgehammer: false) {
 	$important: if($sledgehammer, "!important", "");
-    font-size: ($font-size-val)+px#{$important};
     font-size: ($font-size-val / $font-size)+rem#{$important};
 	@if $line-height-val == "" {
 		line-height: ceil($font-size-val / $line-height) * ($line-height / $font-size-val);
@@ -71,10 +70,8 @@
 
 	Notes:
 		-	Accepts a list of lists (instead a list of values) for properties that accept multiple lists of values. Only numbers are converted; everything else is passed through.
-		-	For the `to-rem` `@mixin` we fallback to `px` value for old IE and this is only compiled to 'old-ie.css'.
 		-	For the `to-em` `@mixin` `$context` is an optional argument that allows making measurements relative to the parent font size rather than the current.
 		-	`$sledgehammer` is an optional argument that allows for the `!important` keyword to be specified, when used in the `to-em` `@mixin` and the optional `$context` argument does not need to be included then it has to be called using a named argument: `$sledgehammer: !important` so that we can skip over `$context` avoiding having to redundantly redeclare it.
-		-	'REM' `@mixin` outputs a `px` fallback for old IE and Opera Mini, when Opera Mini supports `rem` (http://caniuse.com/#feat=rem) change the `@mixin` to an archived version (11-02-2013).
 
 	Credit: https://gist.github.com/2237465
 
@@ -99,7 +96,7 @@
         $sublists: true;
         $vv: ();
         @each $ss in $s {
-            $vv: append($vv, if(type-of($ss) == number, #{$ss / $context}em, $ss));
+          $vv: append($vv, if(type-of($ss) == number, #{$ss / $context}em, $ss));
         }
         $values: append($values, join((), $vv));
       } @else {
@@ -114,29 +111,22 @@
 
 /* REM */
 @mixin to-rem($props, $sizes, $sledgehammer: "") {
-	$values-px: ();
 	$values: ();
   $sublists: false;
   @each $s in $sizes {
     @if type-of($s) == list {
     	$sublists: true;
-			$vv-px: ();
       $vv: ();
       @each $ss in $s {
-				$vv-px: append($vv-px, if(type-of($ss) == number, #{$ss}px, $ss));
 				$vv: append($vv, if(type-of($ss) == number, #{$ss / $font-size}rem, $ss));
       }
-		  $values-px: append($values-px, join((), $vv-px));
       $values: append($values, join((), $vv));
     } @else {
-		    $values-px: append($values-px, if(type-of($s) == number, #{$s}px, $s));
-		    $values: append($values, if(type-of($s) == number, #{$s / $font-size}rem, $s));
+		  $values: append($values, if(type-of($s) == number, #{$s / $font-size}rem, $s));
     }
   }
-	$value-px: join((), $values-px, if($sublists, comma, space));
   $value: join((), $values, if($sublists, comma, space));
   @each $prop in $props {
-  	#{$prop}: $value-px#{$sledgehammer};
   	#{$prop}: $value#{$sledgehammer};
 	}
 }

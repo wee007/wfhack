@@ -7,8 +7,6 @@
 /*
 	Usage: to convert `px` to `em`s or `rem`s.
 
-	Note: 'REM' `@function` outputs a `px` fallback for old IE and Opera Mini, when Opera Mini supports `rem` (http://caniuse.com/#feat=rem) change the `@function` to an archived version (11-02-2013).
-
 	Credit: https://gist.github.com/2237465
 
 	Example:
@@ -23,9 +21,5 @@
 
 /* REM */
 @function to-rem($pxval) {
-	@if $old-ie {
-		@return #{$pxval}px;
-	} @else {
-		 @return #{$pxval / $font-size}rem;
-	}
+	@return #{$pxval / $font-size}rem;
 }

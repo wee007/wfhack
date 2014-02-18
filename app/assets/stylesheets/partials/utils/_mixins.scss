@@ -279,25 +279,6 @@
     @include transform(translate($x, $y, $z));
   }
 
-/* [OPACITY]
--------------------------------------------------------*/
-/*
-	Usage: quick way to declare `opacity` for modern browsers and old IE.
-
-	Examples:
-		@include opacity(0.2);
-		@include opacity(0.9, !important);
-*/
-
-@mixin opacity($alpha, $sledgehammer: "") {
-	$alpha-ie: $alpha * 100;
-	@if $old-ie {
-		filter: alpha(opacity="#{$alpha-ie}")#{$sledgehammer};
-	} @else {
-		opacity: $alpha#{$sledgehammer};
-	}
-}
-
 /* [VENDOR PREFIXES]
 -------------------------------------------------------*/
 /*

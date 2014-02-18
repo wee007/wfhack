@@ -84,7 +84,7 @@ textarea[disabled],
 	cursor: not-allowed !important;
 	text-shadow: none !important;
 	box-shadow: none !important;
-	@include opacity(0.5, !important);
+	opacity: 0.5 !important;
 }
 
 /* Modifier: prevent hover/focus states being applied */

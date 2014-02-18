@@ -201,7 +201,7 @@
           /* Close button */
           .infoClose {
             display: block !important;
-            @include opacity(0, !important);
+            opacity: 0 !important;
             top: 0 !important;
             right: 0 !important;
 

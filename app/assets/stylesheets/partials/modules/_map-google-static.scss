@@ -28,7 +28,7 @@
 
   /* Hide image so we can use a bg img instead to maintain scale */
   img {
-    @include opacity(0);
+    opacity: 0;
     @include to-rem(height, 280);
 
     /* Print */

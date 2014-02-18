@@ -15,6 +15,7 @@
 <% end %>
 
 <h1 class="hide-visually">Products</h1>
+
 <%# 'Super category' and 'Category' %>
 <script type="text/ng-template" id="CategoryItemTemplate">
   <div class="drop-down-menu__hdr drop-down-menu__divider islet">
@@ -110,7 +111,7 @@
 
           </li><!--
           <%# //Categories %>
-          {{activeFilter}}
+
           <%# Retailers %>
           --><li ng-if="filterIsAvailable(search.retailers.values)">
 
@@ -406,7 +407,7 @@
     <div ng-view></div>
   </div>
 <%- end -%>
-{{activeFilter}} {{triggersVisible}}
+
 <%# Render results %>
 <div ng-cloak ng-controller="ProductsController" aria-live="polite" aria-atomic="true">
 

@@ -2,10 +2,6 @@
 <link href="http://fonts.googleapis.com/css?family=Lato:300|Open+Sans" rel="stylesheet">
 <%# //Fonts %>
 
-<%# Modern browser CSS %>
-<!--[if gt IE 8]><!--><link href="<%= stylesheet_path('application') %>" rel="stylesheet"><!--<![endif]-->
-<%# //Modern browser CSS %>
-
-<%# Old IE CSS (IE < 9) %>
-<!--[if (lt IE 9) & (!IEMobile)]><link href="<%= stylesheet_path('old-ie') %>" rel="stylesheet"><![endif]-->
-<%# //Old IE CSS (IE < 9) %>
+<%# All CSS %>
+<link href="<%= stylesheet_path('application') %>" rel="stylesheet">
+<%# //All CSS %>

@@ -21,9 +21,6 @@
     @include to-rem(margin-bottom, $spacing-base+$spacing-half);
   }
 
-  /* Old IE */
-  @include old-ie {background-position: 50% 50%;}
-
   .hero__icon,
   h1 {
     display: block;

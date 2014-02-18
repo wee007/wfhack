@@ -518,8 +518,7 @@
 	Usage: for targetting specific browsers.
 
 	Notes:
-		-	The non-old IE `@mixin`s should be avoided at all costs (last resort).
-		-	Whenever the old IE `@mixin` is called it will only appear in 'old-ie.css'.
+		-	These `@mixin`s should be avoided at all costs (last resort).
 		-	'Mozilla' `@mixin` cannot be nested in a style declaration, has to exist as it's own rule.
 
 	Examples:
@@ -527,9 +526,6 @@
 			.foo {background: red;}
 		}
 		@include target-mozilla {
-			.foo {background: red;}
-		}
-		@include old-ie {
 			.foo {background: red;}
 		}
 		@include ie-10-up {
@@ -560,13 +556,6 @@
 /* IE 10+ */
 @mixin ie-10-up {
 	@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-    @content;
-	}
-}
-
-/* Old IE */
-@mixin old-ie {
-	@if $old-ie {
     @content;
 	}
 }

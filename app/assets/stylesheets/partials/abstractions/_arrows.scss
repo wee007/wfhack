@@ -27,9 +27,6 @@ $arrow-bg: $color-txt-light;
 	border: $arrow-width solid rgba(#fff, 0);
 	display: inline-block;
 	vertical-align: middle;
-
-  /* Old IE */
-  @include old-ie {border-color: transparent;}
 }
 
 /* Modifier: down arrow */

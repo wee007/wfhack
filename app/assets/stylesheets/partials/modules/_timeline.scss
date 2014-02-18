@@ -37,9 +37,6 @@
       /* left = `.timeline__date` left position + (`.timeline__date` width / 2) - (width of line / 2) */
       @include to-rem(left, 50);
       background-color: $color-grey-light-3;
-
-      /* Old IE */
-      @include old-ie {display: none;}
     }
 
     /* Hide the line if there's only 1 instance of the date */

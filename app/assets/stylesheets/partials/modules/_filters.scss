@@ -111,12 +111,6 @@
           /* Reduce the top margin for IE 9/8 */
           .ie-9 &,
           .old-ie & {@include to-rem(margin-top, 4);}
-
-          /* Old IE */
-          @include old-ie {
-            border: 1px solid $color-grey-light-2;
-            border-bottom-width: 2px;
-          }
         }
       }
 
@@ -127,7 +121,4 @@
       top: 50%;
       right: 0;
       @include translateY(-50%);
-
-      /* Old IE */
-      @include old-ie {top: 0;}
     }

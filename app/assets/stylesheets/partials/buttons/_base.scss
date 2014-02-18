@@ -69,9 +69,6 @@
 			top: 50%;
 			@include translateY(-50%);
 
-			/* Old IE */
-			@include old-ie {top: 28%;}
-
 				/* Remove negative top position */
 				&:before {position: static;}
 		}

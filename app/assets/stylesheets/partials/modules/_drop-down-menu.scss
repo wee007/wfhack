@@ -67,12 +67,6 @@
     .ie-9 &,
     .old-ie & {@include to-rem(margin-top, 4);}
 
-    /* Old IE */
-    @include old-ie {
-      border: 1px solid $color-grey-light-2;
-      border-bottom-width: 2px;
-    }
-
     /* Override default width */
     &.drop-down-menu__target--alt-width-palm {@include to-rem(width, $drop-down-width);}
 
@@ -224,12 +218,7 @@
     }
 
     /* Range */
-    .drop-down-menu__range {
-      position: relative;
-
-      /* Old IE */
-      @include old-ie {width: 100%;}
-    }
+    .drop-down-menu__range {position: relative;}
 
       /* Range inputs - position them side by side */
       .drop-down-menu__range__input {
@@ -259,10 +248,4 @@
         top: 50%;
         left: 50%;
         @include translate(-50%, -50%);
-
-        /* Old IE */
-        @include old-ie {
-          @include to-rem(margin-top, -10);
-          @include to-rem(margin-left, -5);
-        }
       }

@@ -64,11 +64,6 @@
         height: 80%;
       }
 
-      /* Old IE - centre align the hero image */
-      @include old-ie {
-        .img-rotate__item {background-position: 50% 0;}
-      }
-
       /*
         Inner container wraps around the logo, nav and tagline. This sets its height to be the full height of `.national-header`.
       */
@@ -136,9 +131,6 @@
         @include respond-min($non-palm) {
           text-align: left;
         }
-
-        /* Old IE */
-        @include old-ie {top: 110px;}
 
         h1 {
           /* @extend %mrg-base; */
@@ -295,9 +287,6 @@
             @include respond-min($non-palm) {
               @include font-size($font-size-kilo, 1);
             }
-
-            /* Old IE */
-            @include old-ie {margin-top: -25px;}
           }
       }
 

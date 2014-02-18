@@ -14,9 +14,8 @@
 
 .pin-board {
 
-  /* Show by default for non JS users, old IE users and when the JS that constructs the pin board's layout has loaded */
+  /* Show by default for non JS users, and when the JS that constructs the pin board's layout has loaded */
   .no-js &,
-  .old-ie &,
   &.is-loaded {display: block;}
 
   /* Apply top spacing */

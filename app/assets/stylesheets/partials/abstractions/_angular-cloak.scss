@@ -20,11 +20,8 @@
 
   /* Conditional overrides */
 
-  /*
-    We don't want the pre-JS loaded UI state here as it loads in in an obtrusive way, also old IE doesn't support `opacity` (`filter` fallback does not work in this case)
-  */
-  .header__primary .header__overlay &,
-  .old-ie & {display: none !important;}
+  /* We don't want the pre-JS loaded UI state here as it loads in an obtrusive way */
+  .header__primary .header__overlay & {display: none !important;}
 
   /* Non JS users */
   .no-js .header__primary .header__overlay & {display: block !important;}

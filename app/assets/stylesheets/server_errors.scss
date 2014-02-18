@@ -92,9 +92,6 @@ div {
     background-image: cloudinary-url("css/server-error-bg-lrg.jpg");
   }
 
-  /* Old IE */
-  .old-ie & {background-image: cloudinary-url("css/server-error-bg-lrg.jpg");}
-
     /* Inner container */
     & > div {
       display: table-cell;

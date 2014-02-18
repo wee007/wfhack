@@ -136,12 +136,12 @@
 /*
 	Property: `linear-gradient`
 
-	Usage: simple CSS3 linear gradients with old IE/Webkit fallbacks.
+	Usage: simple CSS3 linear gradients with IE 9/Webkit fallbacks.
 
 	Notes:
 		-	This mixin is very basic in that it only caters for two colour's ('from' and 'to'), no colour stops, only linear (no radial), not repeating, etc. in most cases this is all you need, for more involved gradients then look into Compass: http://compass-style.org/examples/compass/css3/gradient/ however keep an eye on their vendor prefixes as they tend to be dated.
 		-	When Webkit supports the new syntax (see: http://caniuse.com/#feat=css-gradients) then the Webkit specific syntax can be removed, in the meantime any direction keywords used need to be reversed (see: http://generatedcontent.org/post/37949105556/updateyourcss3).
-		-	There's support for IE 9 using the `-ms-filter` property same as old IE but be mindful that if it's turned on and there's a `border-radius` property being used then the element will not get rounded corners.
+		-	There's support for IE 9 using the `-ms-filter` property but be mindful that if it's turned on and there's a `border-radius` property being used then the element will not get rounded corners.
 		-	In order to skip over optional arguments then named arguments need to be used: `$from: #7a7a7a, $to: #1a1a1a,` so that we avoid having to redundantly redeclare the optional arguments, see: http://stackoverflow.com/questions/14435927/skipping-an-optional-argument-in-sass-mixin.
 		-	Handy reminders:
 			-	Direction keywords: 'top', 'right', 'bottom', 'left', 'top left', 'top right', 'bottom left' and 'bottom right'.
@@ -158,11 +158,10 @@
 		@include linear-gradient-light(#f63, top, bottom);
 		@include linear-gradient-dark(#f63);
 		@include linear-gradient-dark(#f63, top, bottom);
-
 */
 
 /* Using 'direction' keywords */
-@mixin linear-gradient($from, $to, $dir: bottom, $dir-webkit: top, $old-ie-filter: false, $ie-9-filter: false, $override-bg-color: false, $bg-color-override: "") {
+@mixin linear-gradient($from, $to, $dir: bottom, $dir-webkit: top, $ie-9-filter: false, $override-bg-color: false, $bg-color-override: "") {
 	@if $override-bg-color == true {
 		background-color: $bg-color-override;
 	} @else {
@@ -170,16 +169,13 @@
 	}
 	background-image: -webkit-linear-gradient($dir-webkit, $from, $to);
 	background-image: linear-gradient(to $dir, $from, $to);
-  @if $old-ie-filter == true and $old-ie {
-		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{ie-hex-str($from)}', endColorstr='#{ie-hex-str($to)}');
-	}
-	@if $ie-9-filter == true and $old-ie != true {
+	@if $ie-9-filter == true {
 		-ms-filter: quote(progid:DXImageTransform.Microsoft.gradient(startColorstr='#{ie-hex-str($from)}', endColorstr='#{ie-hex-str($to)}'));
 	}
 }
 
 /* Using 'degree' values */
-@mixin linear-gradient-deg($from, $to, $deg: 180deg, $deg-webkit: 270deg, $old-ie-filter: false, $ie-9-filter: false, $override-bg-color: false, $bg-color-override: "") {
+@mixin linear-gradient-deg($from, $to, $deg: 180deg, $deg-webkit: 270deg, $ie-9-filter: false, $override-bg-color: false, $bg-color-override: "") {
 	@if $override-bg-color == true {
 		background-color: $bg-color-override;
 	} @else {
@@ -187,10 +183,7 @@
 	}
 	background-image: -webkit-linear-gradient($deg-webkit, $from, $to);
 	background-image: linear-gradient($deg, $from, $to);
-  @if $old-ie-filter == true and $old-ie {
-		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{ie-hex-str($from)}', endColorstr='#{ie-hex-str($to)}');
-	}
-	@if $ie-9-filter == true and $old-ie != true {
+	@if $ie-9-filter == true {
 		-ms-filter: quote(progid:DXImageTransform.Microsoft.gradient(startColorstr='#{ie-hex-str($from)}', endColorstr='#{ie-hex-str($to)}'));
 	}
 }

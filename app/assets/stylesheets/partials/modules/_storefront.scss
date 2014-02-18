@@ -96,7 +96,7 @@
           bottom: 0;
           left: 0;
           right: 0;
-          @include rgba-bg(#000, 0.85);
+          background-color: rgba(#000, 0.85);
 
           /* When there is no store banner */
           .is-no-store-banner & {background: transparent;}

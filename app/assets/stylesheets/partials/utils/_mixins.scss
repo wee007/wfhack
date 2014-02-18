@@ -134,23 +134,6 @@
 /* [CSS3]
 -------------------------------------------------------*/
 /*
-	Property: `rgba`
-
-	Usage: RGBA background color with an old IE fallback (no alpha transparency).
-
-	Example:
-		@include rgba-bg(#000, 0.8);
-*/
-
-@mixin rgba-bg($hex, $alpha) {
-	@if $old-ie {
-		background-color: $hex;
-	} @else {
-		background-color: rgba($hex, $alpha);
-	}
-}
-
-/*
 	Property: `linear-gradient`
 
 	Usage: simple CSS3 linear gradients with old IE/Webkit fallbacks.

@@ -19,7 +19,7 @@ $tooltip-arrow-margin: -5px !default;
 #tooltip {
 	cursor: default;
 	color: #fff;
-	@include rgba-bg(#000, 0.8);
+	background-color: rgba(#000, 0.8);
 	border-radius: $border-radius;
 	padding: to-em($spacing-third);
 	display: none;

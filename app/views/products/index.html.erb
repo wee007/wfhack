@@ -15,7 +15,6 @@
 <% end %>
 
 <h1 class="hide-visually">Products</h1>
-
 <%# 'Super category' and 'Category' %>
 <script type="text/ng-template" id="CategoryItemTemplate">
   <div class="drop-down-menu__hdr drop-down-menu__divider islet">
@@ -90,14 +89,14 @@
           <li ng-if="filterIsAvailable(search.categories.values)">
 
             <%# Narrow view trigger %>
-            <button type="button" ng-show="triggersVisible" ng-click="toggleFilter('category')" class="filters__trigger filters__trigger--narrow drop-down-menu__hdr-btn drop-down-menu__divider btn btn--full btn--full-left btn--pointer">
+            <button type="button" ng-show="triggersVisible" ng-click="toggleFilter($event, 'category')" class="filters__trigger filters__trigger--narrow drop-down-menu__hdr-btn drop-down-menu__divider btn btn--full btn--full-left btn--pointer">
               {{ search.categories.title }}
               <span class="icon icon--arrow-right-big icon--lrg btn--pointer__icon" aria-hidden="true"></span>
             </button>
             <%# //Narrow view trigger %>
 
             <%# Wide view trigger %>
-            <button type="button" ng-show="triggersVisible" ng-click="toggleFilter('category')" aria-haspopup="true" aria-expanded="{{activeFilter === 'category'}}" aria-controls="filters-category" class="filters__trigger filters__trigger--wide drop-down-menu__trigger btn btn--pointer btn--main btn--main-white" ng-class="{'is-active': activeFilter === 'category'}">
+            <button type="button" ng-show="triggersVisible" ng-click="toggleFilter($event, 'category')" aria-haspopup="true" aria-expanded="{{activeFilter === 'category'}}" aria-controls="filters-category" class="filters__trigger filters__trigger--wide drop-down-menu__trigger btn btn--pointer btn--main btn--main-white" ng-class="{'is-active': activeFilter === 'category'}">
               {{ search.categories.title }}
               <span class="icon icon--arrow-down-full btn--pointer__icon" aria-hidden="true"></span>
             </button>
@@ -111,19 +110,19 @@
 
           </li><!--
           <%# //Categories %>
-
+          {{activeFilter}}
           <%# Retailers %>
           --><li ng-if="filterIsAvailable(search.retailers.values)">
 
             <%# Narrow view trigger %>
-            <button type="button" ng-show="triggersVisible" ng-click="toggleFilter('retailer')" class="filters__trigger filters__trigger--narrow drop-down-menu__hdr-btn drop-down-menu__divider btn btn--full btn--full-left btn--pointer">
+            <button type="button" ng-show="triggersVisible" ng-click="toggleFilter($event, 'retailer')" class="filters__trigger filters__trigger--narrow drop-down-menu__hdr-btn drop-down-menu__divider btn btn--full btn--full-left btn--pointer">
               {{ search.retailers.title }}
               <span class="icon icon--arrow-right-big icon--lrg btn--pointer__icon" aria-hidden="true"></span>
             </button>
             <%# //Narrow view trigger %>
 
             <%# Wide view trigger %>
-            <button type="button" ng-show="triggersVisible" ng-click="toggleFilter('retailer')" aria-haspopup="true" aria-expanded="{{activeFilter === 'retailer'}}" aria-controls="filters-retailer" class="filters__trigger filters__trigger--wide drop-down-menu__trigger btn btn--pointer btn--main btn--main-white" ng-class="{'is-active': activeFilter === 'retailer'}">
+            <button type="button" ng-show="triggersVisible" ng-click="toggleFilter($event, 'retailer')" aria-haspopup="true" aria-expanded="{{activeFilter === 'retailer'}}" aria-controls="filters-retailer" class="filters__trigger filters__trigger--wide drop-down-menu__trigger btn btn--pointer btn--main btn--main-white" ng-class="{'is-active': activeFilter === 'retailer'}">
               {{ search.retailers.title }}
               <span class="icon icon--arrow-down-full btn--pointer__icon" aria-hidden="true"></span>
             </button>
@@ -159,14 +158,14 @@
           --><li ng-if="filterIsAvailable(search.brands.values)">
 
             <%# Narrow view trigger %>
-            <button type="button" ng-show="triggersVisible" ng-click="toggleFilter('brand')" class="filters__trigger filters__trigger--narrow drop-down-menu__hdr-btn drop-down-menu__divider btn btn--full btn--full-left btn--pointer">
+            <button type="button" ng-show="triggersVisible" ng-click="toggleFilter($event, 'brand')" class="filters__trigger filters__trigger--narrow drop-down-menu__hdr-btn drop-down-menu__divider btn btn--full btn--full-left btn--pointer">
               {{ search.brands.title }}
               <span class="icon icon--arrow-right-big icon--lrg btn--pointer__icon" aria-hidden="true"></span>
             </button>
             <%# //Narrow view trigger %>
 
             <%# Wide view trigger %>
-            <button type="button" ng-show="triggersVisible" ng-click="toggleFilter('brand')" aria-haspopup="true" aria-expanded="{{activeFilter === 'brand'}}" aria-controls="filters-brand" class="filters__trigger filters__trigger--wide drop-down-menu__trigger btn btn--pointer btn--main btn--main-white" ng-class="{'is-active': activeFilter === 'brand'}">
+            <button type="button" ng-show="triggersVisible" ng-click="toggleFilter($event, 'brand')" aria-haspopup="true" aria-expanded="{{activeFilter === 'brand'}}" aria-controls="filters-brand" class="filters__trigger filters__trigger--wide drop-down-menu__trigger btn btn--pointer btn--main btn--main-white" ng-class="{'is-active': activeFilter === 'brand'}">
               {{ search.brands.title }}
               <span class="icon icon--arrow-down-full btn--pointer__icon" aria-hidden="true"></span>
             </button>
@@ -202,14 +201,14 @@
           --><li ng-if="filterIsAvailable(search.colours.values)">
 
             <%# Narrow view trigger %>
-            <button type="button" ng-show="triggersVisible" ng-click="toggleFilter('colour')" class="filters__trigger filters__trigger--narrow drop-down-menu__hdr-btn drop-down-menu__divider btn btn--full btn--full-left btn--pointer">
+            <button type="button" ng-show="triggersVisible" ng-click="toggleFilter($event, 'colour')" class="filters__trigger filters__trigger--narrow drop-down-menu__hdr-btn drop-down-menu__divider btn btn--full btn--full-left btn--pointer">
               {{ search.colours.title }}
               <span class="icon icon--arrow-right-big icon--lrg btn--pointer__icon" aria-hidden="true"></span>
             </button>
             <%# //Narrow view trigger %>
 
             <%# Wide view trigger %>
-            <button type="button" ng-show="triggersVisible" ng-click="toggleFilter('colour')" aria-haspopup="true" aria-expanded="{{activeFilter === 'colour'}}" aria-controls="filters-colour" class="filters__trigger filters__trigger--wide drop-down-menu__trigger btn btn--pointer btn--main btn--main-white" ng-class="{'is-active': activeFilter === 'colour'}">
+            <button type="button" ng-show="triggersVisible" ng-click="toggleFilter($event, 'colour')" aria-haspopup="true" aria-expanded="{{activeFilter === 'colour'}}" aria-controls="filters-colour" class="filters__trigger filters__trigger--wide drop-down-menu__trigger btn btn--pointer btn--main btn--main-white" ng-class="{'is-active': activeFilter === 'colour'}">
               {{ search.colours.title }}
               <span class="icon icon--arrow-down-full btn--pointer__icon" aria-hidden="true"></span>
             </button>
@@ -240,14 +239,14 @@
           --><li ng-if="filterIsAvailable(search.sizes.values)">
 
             <%# Narrow view trigger %>
-            <button type="button" ng-show="triggersVisible" ng-click="toggleFilter('size')" class="filters__trigger filters__trigger--narrow drop-down-menu__hdr-btn drop-down-menu__divider btn btn--full btn--full-left btn--pointer">
+            <button type="button" ng-show="triggersVisible" ng-click="toggleFilter($event, 'size')" class="filters__trigger filters__trigger--narrow drop-down-menu__hdr-btn drop-down-menu__divider btn btn--full btn--full-left btn--pointer">
               {{ search.sizes.title }}
               <span class="icon icon--arrow-right-big icon--lrg btn--pointer__icon" aria-hidden="true"></span>
             </button>
             <%# //Narrow view trigger %>
 
             <%# Wide view trigger %>
-            <button type="button" ng-show="triggersVisible" ng-click="toggleFilter('size')" aria-haspopup="true" aria-expanded="{{activeFilter === 'size'}}" aria-controls="filters-size" class="filters__trigger filters__trigger--wide drop-down-menu__trigger btn btn--pointer btn--main btn--main-white" ng-class="{'is-active': activeFilter === 'size'}">
+            <button type="button" ng-show="triggersVisible" ng-click="toggleFilter($event, 'size')" aria-haspopup="true" aria-expanded="{{activeFilter === 'size'}}" aria-controls="filters-size" class="filters__trigger filters__trigger--wide drop-down-menu__trigger btn btn--pointer btn--main btn--main-white" ng-class="{'is-active': activeFilter === 'size'}">
               {{ search.sizes.title }}
               <span class="icon icon--arrow-down-full btn--pointer__icon" aria-hidden="true"></span>
             </button>
@@ -278,14 +277,14 @@
           --><li ng-if="filterIsAvailable(search.price.values)">
 
             <%# Narrow view trigger %>
-            <button type="button" ng-show="triggersVisible" ng-click="toggleFilter('price')" class="filters__trigger filters__trigger--narrow drop-down-menu__hdr-btn drop-down-menu__divider btn btn--full btn--full-left btn--pointer">
+            <button type="button" ng-show="triggersVisible" ng-click="toggleFilter($event, 'price')" class="filters__trigger filters__trigger--narrow drop-down-menu__hdr-btn drop-down-menu__divider btn btn--full btn--full-left btn--pointer">
               {{ search.price.title }}
               <span class="icon icon--arrow-right-big icon--lrg btn--pointer__icon" aria-hidden="true"></span>
             </button>
             <%# //Narrow view trigger %>
 
             <%# Wide view trigger %>
-            <button type="button" ng-show="triggersVisible" ng-click="toggleFilter('price')" aria-haspopup="true" aria-expanded="{{activeFilter === 'price'}}" aria-controls="filters-price" class="filters__trigger filters__trigger--wide drop-down-menu__trigger btn btn--pointer btn--main btn--main-white" ng-class="{'is-active': activeFilter === 'price'}">
+            <button type="button" ng-show="triggersVisible" ng-click="toggleFilter($event, 'price')" aria-haspopup="true" aria-expanded="{{activeFilter === 'price'}}" aria-controls="filters-price" class="filters__trigger filters__trigger--wide drop-down-menu__trigger btn btn--pointer btn--main btn--main-white" ng-class="{'is-active': activeFilter === 'price'}">
               {{ search.price.title }}
               <span class="icon icon--arrow-down-full btn--pointer__icon" aria-hidden="true"></span>
             </button>
@@ -407,7 +406,7 @@
     <div ng-view></div>
   </div>
 <%- end -%>
-
+{{activeFilter}} {{triggersVisible}}
 <%# Render results %>
 <div ng-cloak ng-controller="ProductsController" aria-live="polite" aria-atomic="true">
 

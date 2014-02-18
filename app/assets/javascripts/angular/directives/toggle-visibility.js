@@ -12,8 +12,8 @@
 
     // Clicking outside will close all toggleVisibility targets
     $document.bind( 'click', function ( event ) {
-      if ($(event.target).parents('.toggle-visibility').length == 0) {
-        close();
+      if ($(event.target).parents('.js-toggle-visibility-target').length == 0) {
+       close();
       }
     });
 
@@ -93,6 +93,8 @@
      link: function ( scope, trigger, attributes ) {
         var id = attributes['toggleVisibility'],
             target = angular.element( '#' + id );
+
+        target.addClass('js-toggle-visibility-target');
 
         // ARIA for trigger
         trigger.attr( 'aria-haspopup', true );

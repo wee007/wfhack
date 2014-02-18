@@ -76,12 +76,12 @@
       */
       .filters__trigger {
 
-        &.filters__trigger--wide {display: none !important;}
+        &.filters__trigger--wide {display: none;}
 
         @include respond-min($lap-lrg) {
-          &.filters__trigger--narrow {display: none !important;}
+          &.filters__trigger--narrow {display: none;}
 
-          &.filters__trigger--wide {display: block !important;}
+          &.filters__trigger--wide {display: block;}
         }
       }
 

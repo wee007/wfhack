@@ -4,12 +4,6 @@
 
 /* [GLOBAL BOOLEANS]
 -------------------------------------------------------*/
-/* For targetting old IE (IE < 9) */
-$old-ie: false !default;
-
-/* Media query support for old IE (IE < 9) */
-$fix-mqs: false !default;
-
 /* Debug mode */
 $debug-mode: false !default;
 
@@ -170,7 +164,7 @@ $page-container-width: 92% !default;
 /* Page container min width */
 $page-container-min-width: 220 !default;
 
-/* Page container max width, don't forget to update in 'old-ie.scss' */
+/* Page container max width */
 $page-container-max-width: 1600 !default;
 
 $page-container-max-width-narrow: 980 !default;

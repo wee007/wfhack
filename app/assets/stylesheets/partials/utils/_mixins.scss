@@ -152,7 +152,7 @@
 	Examples:
 		@include linear-gradient(#f63, #ff6);
 		@include linear-gradient(#f63, #ff6, top left, bottom right);
-		@include linear-gradient($from: #f63, $to: #ff6, $old-ie-filter: true, $ie-9-filter: true);
+		@include linear-gradient($from: #f63, $to: #ff6, $ie-9-filter: true);
 		@include linear-gradient(#f63, #ff6, bottom, top, true, true, true, #000);
 		@include linear-gradient-light(#f63);
 		@include linear-gradient-light(#f63, top, bottom);
@@ -453,7 +453,7 @@
     @content;
 	}
 
-	/* jQuery plugin (old IE) */
+	/* Polyfill for IE 9 */
 	input.placeholder {
     @content;
 	}
@@ -510,11 +510,7 @@
 /* [MEDIA QUERY STUFF]
 -------------------------------------------------------*/
 /*
-	Usage: set-up media queries for min/max widths inc. ranges and handle support for old IE, also include a flag to only target 'screen' media so as to not affect 'print' media.
-
-	Note: for old IE we're wrapping `@media screen` around `@content` in order to prevent 'print' media being affected however be careful because `@extend` will not work so might be that this has to be removed?
-
-	Credit: http://jakearchibald.github.com/sass-ie/
+	Usage: set-up media queries for min/max widths inc. ranges, also include a flag to only target 'screen' media so as to not affect 'print' media.
 
 	Examples:
 		@include respond-min($lap) {
@@ -536,40 +532,26 @@
 
 /* Min width */
 @mixin respond-min($width, $screen-only: false) {
-	@if $fix-mqs {
-		@if $fix-mqs >= $width {
-			@media screen {
-				@content;
-			}
+	@if $screen-only == true {
+		@media screen and (min-width: ($width / 16)+em) {
+			@content;
 		}
 	} @else {
-		@if $screen-only == true {
-			@media screen and (min-width: ($width / 16)+em) {
-				@content;
-			}
-		} @else {
-			@media (min-width: ($width / 16)+em) {
-				@content;
-			}
+		@media (min-width: ($width / 16)+em) {
+			@content;
 		}
 	}
 }
 
 /* Max width */
 @mixin respond-max($width, $screen-only: false) {
-	@if $fix-mqs {
-		@if $fix-mqs < $width {
+	@if $screen-only == true {
+		@media screen and (max-width: ($width / 16)+em) {
 			@content;
 		}
 	} @else {
-		@if $screen-only == true {
-			@media screen and (max-width: ($width / 16)+em) {
-				@content;
-			}
-		} @else {
-			@media (max-width: ($width / 16)+em) {
-				@content;
-			}
+		@media (max-width: ($width / 16)+em) {
+			@content;
 		}
 	}
 }
@@ -578,21 +560,13 @@
 
 /* Accepts any range */
 @mixin respond-range($min-width, $max-width, $screen-only: false) {
-	@if $fix-mqs {
-		@if ($fix-mqs >= $min-width) and ($fix-mqs < $max-width) {
-			@media screen {
-				@content;
-			}
+	@if $screen-only == true {
+		@media screen and (min-width: ($min-width / 16)+em) and (max-width: ($max-width / 16)+em) {
+			@content;
 		}
 	} @else {
-		@if $screen-only == true {
-			@media screen and (min-width: ($min-width / 16)+em) and (max-width: ($max-width / 16)+em) {
-				@content;
-			}
-		} @else {
-			@media (min-width: ($min-width / 16)+em) and (max-width: ($max-width / 16)+em) {
-				@content;
-			}
+		@media (min-width: ($min-width / 16)+em) and (max-width: ($max-width / 16)+em) {
+			@content;
 		}
 	}
 }
@@ -601,63 +575,39 @@
 
 /* Accepts 2 `min-width` values */
 @mixin respond-group-min($width-1, $width-2, $screen-only: false) {
-	@if $fix-mqs {
-		@if ($fix-mqs >= $width-1) or ($fix-mqs >= $width-2) {
-			@media screen {
-				@content;
-			}
+	@if $screen-only == true {
+		@media screen and (min-width: ($width-1 / 16)+em), screen and (min-width: ($width-2 / 16)+em) {
+			@content;
 		}
 	} @else {
-		@if $screen-only == true {
-			@media screen and (min-width: ($width-1 / 16)+em), screen and (min-width: ($width-2 / 16)+em) {
-				@content;
-			}
-		} @else {
-			@media (min-width: ($width-1 / 16)+em), (min-width: ($width-2 / 16)+em) {
-				@content;
-			}
+		@media (min-width: ($width-1 / 16)+em), (min-width: ($width-2 / 16)+em) {
+			@content;
 		}
 	}
 }
 
 /* Accepts 2 `max-width` values */
 @mixin respond-group-max($width-1, $width-2, $screen-only: false) {
-	@if $fix-mqs {
-		@if ($fix-mqs < $width-1) or ($fix-mqs < $width-2) {
-			@media screen {
-				@content;
-			}
+	@if $screen-only == true {
+		@media screen and (max-width: ($width-1 / 16)+em), screen and (max-width: ($width-2 / 16)+em) {
+			@content;
 		}
 	} @else {
-		@if $screen-only == true {
-			@media screen and (max-width: ($width-1 / 16)+em), screen and (max-width: ($width-2 / 16)+em) {
-				@content;
-			}
-		} @else {
-			@media (max-width: ($width-1 / 16)+em), (max-width: ($width-2 / 16)+em) {
-				@content;
-			}
+		@media (max-width: ($width-1 / 16)+em), (max-width: ($width-2 / 16)+em) {
+			@content;
 		}
 	}
 }
 
 /* Accepts 1 `min-width` value AND 1 `max-width` value */
 @mixin respond-group-min-max($width-1, $width-2, $screen-only: false) {
-	@if $fix-mqs {
-		@if ($fix-mqs >= $width-1) or ($fix-mqs < $width-2) {
-			@media screen {
-				@content;
-			}
+	@if $screen-only == true {
+		@media screen and (min-width: ($width-1 / 16)+em), screen and (max-width: ($width-2 / 16)+em) {
+			@content;
 		}
 	} @else {
-		@if $screen-only == true {
-			@media screen and (min-width: ($width-1 / 16)+em), screen and (max-width: ($width-2 / 16)+em) {
-				@content;
-			}
-		} @else {
-			@media (min-width: ($width-1 / 16)+em), (max-width: ($width-2 / 16)+em) {
-				@content;
-			}
+		@media (min-width: ($width-1 / 16)+em), (max-width: ($width-2 / 16)+em) {
+			@content;
 		}
 	}
 }
@@ -665,60 +615,56 @@
 /* Fixed ranges using the pre-defined breakpoints in 'utils/vars' */
 @mixin respond-range-fixed($respond-range, $screen-only: false) {
 
-	@if $old-ie == false {
-
-		/* Lap */
-		@if $respond-range == lap {
-			@if $screen-only == true {
-				@media screen and (min-width: ($lap-start / 16)+em) and (max-width: ($lap-end / 16)+em) {
-					@content;
-				}
-			} @else {
-				@media (min-width: ($lap-start / 16)+em) and (max-width: ($lap-end / 16)+em) {
-					@content;
-				}
+	/* Lap */
+	@if $respond-range == lap {
+		@if $screen-only == true {
+			@media screen and (min-width: ($lap-start / 16)+em) and (max-width: ($lap-end / 16)+em) {
+				@content;
+			}
+		} @else {
+			@media (min-width: ($lap-start / 16)+em) and (max-width: ($lap-end / 16)+em) {
+				@content;
 			}
 		}
+	}
 
-		/* Lap small */
-		@if $respond-range == lap-sml {
-			@if $screen-only == true {
-				@media screen and (min-width: ($lap-start / 16)+em) and (max-width: ($lap-sml-end / 16)+em) {
-					@content;
-				}
-			} @else {
-				@media (min-width: ($lap-start / 16)+em) and (max-width: ($lap-sml-end / 16)+em) {
-					@content;
-				}
+	/* Lap small */
+	@if $respond-range == lap-sml {
+		@if $screen-only == true {
+			@media screen and (min-width: ($lap-start / 16)+em) and (max-width: ($lap-sml-end / 16)+em) {
+				@content;
+			}
+		} @else {
+			@media (min-width: ($lap-start / 16)+em) and (max-width: ($lap-sml-end / 16)+em) {
+				@content;
 			}
 		}
+	}
 
-		/* Lap large */
-		@if $respond-range == lap-lrg {
-			@if $screen-only == true {
-				@media screen and (min-width: ($lap-lrg-start / 16)+em) and (max-width: ($lap-end / 16)+em) {
-					@content;
-				}
-			} @else {
-				@media (min-width: ($lap-lrg-start / 16)+em) and (max-width: ($lap-end / 16)+em) {
-					@content;
-				}
+	/* Lap large */
+	@if $respond-range == lap-lrg {
+		@if $screen-only == true {
+			@media screen and (min-width: ($lap-lrg-start / 16)+em) and (max-width: ($lap-end / 16)+em) {
+				@content;
+			}
+		} @else {
+			@media (min-width: ($lap-lrg-start / 16)+em) and (max-width: ($lap-end / 16)+em) {
+				@content;
 			}
 		}
+	}
 
-		/* Desk small */
-		@if $respond-range == desk-sml {
-			@if $screen-only == true {
-				@media screen and (min-width: ($desk-start / 16)+em) and (max-width: ($desk-sml-end / 16)+em) {
-					@content;
-				}
-			} @else {
-				@media (min-width: ($desk-start / 16)+em) and (max-width: ($desk-sml-end / 16)+em) {
-					@content;
-				}
+	/* Desk small */
+	@if $respond-range == desk-sml {
+		@if $screen-only == true {
+			@media screen and (min-width: ($desk-start / 16)+em) and (max-width: ($desk-sml-end / 16)+em) {
+				@content;
+			}
+		} @else {
+			@media (min-width: ($desk-start / 16)+em) and (max-width: ($desk-sml-end / 16)+em) {
+				@content;
 			}
 		}
-
 	}
 
 }

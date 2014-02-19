@@ -32,43 +32,51 @@
 
 					<nav class="header-menu-toggle__nav" role="navigation" aria-label="Sub navigation">
 						<ul class="nav-sub">
-							<%# Centre opening hours (centre home page) %>
+							<%# Shopping hours for centre home page %>
 							<% if header_hero? %>
-							<li class="open-hours-link"><a href="<%= centre_hours_path( params[ :centre_id ] || params[ :id ] ) %>" target="_self"><span class="icon icon--hours" aria-hidden="true"></span> <strong><% if @centre_trading_hour.closed %>Closed today<% else %>Open <time datetime="<%= @centre_trading_hour.opening_time %>"><%= twelve_hour_format(@centre_trading_hour.opening_time) %></time> &#8211; <time datetime="<%= @centre_trading_hour.closing_time %>"><%= twelve_hour_format(@centre_trading_hour.closing_time) %></time> today<% end %></strong><span class="icon icon--arrow-right" aria-hidden="true"></span></a></li>
+								<li class="open-hours-link"><a href="<%= centre_hours_path( params[ :centre_id ] || params[ :id ] ) %>" target="_self"><span class="icon icon--hours" aria-hidden="true"></span> <strong><% if @centre_trading_hour.closed %>Closed today<% else %>Open <time datetime="<%= @centre_trading_hour.opening_time %>"><%= twelve_hour_format(@centre_trading_hour.opening_time) %></time> &#8211; <time datetime="<%= @centre_trading_hour.closing_time %>"><%= twelve_hour_format(@centre_trading_hour.closing_time) %></time> today<% end %></strong><span class="icon icon--arrow-right" aria-hidden="true"></span></a></li>
+							<% else %>
+							<%# //Shopping hours for centre home page %>
+							<%# Shopping hours %>
+              	<li class="open-hours-link-alt"><%= link_to centre_hours_path(params[:centre_id] || params[:id]), :class => (page?(:centre_hours) ? 'is-active' : nil), target: '_self' do %><span class="icon icon--hours icon--fixed-width icon--spacing" aria-hidden="true"></span><span class="nav-sub__txt"> Shopping Hours</span><% end %></li>
 							<% end %>
-							<%# //Centre opening hours (centre home page) %>
-              <li class="open-hours-link-alt"><%= link_to centre_hours_path(params[:centre_id] || params[:id]), :class => (page?(:centre_hours) ? 'is-active' : nil), target: '_self' do %><span class="icon icon--hours icon--fixed-width icon--spacing" aria-hidden="true"></span><span class="nav-sub__txt"> Shopping Hours</span><% end %></li>
-							<!-- <li><%#= link_to centre_dining_path(params[:centre_id] || params[:id]), :class => (page?(:dining) ? 'is-active' : nil), target: '_self' do %><span class="icon icon--dining icon--fixed-width icon--spacing" aria-hidden="true"></span><span class="nav-sub__txt"> Dining</span><%# end %></li> -->
+							<%# //Shopping hours %>
+							<%# Cinemas %>
 							<% if @centre.cinema %>
 								<li><%= link_to centre_movies_path(params[:centre_id] || params[:id]), :class => (page?(:movies) ? 'is-active' : nil), target: '_self' do %><span class="icon icon--video icon--fixed-width icon--spacing" aria-hidden="true"></span><span class="nav-sub__txt"> Cinemas</span><% end %></li>
 							<% end %>
+							<%# //Cinemas %>
+							<%# Centre information %>
 							<li><%= link_to centre_info_path(params[:centre_id] || params[:id]), :class => (page?(:centre_info) ? 'is-active' : nil), target: '_self' do %><span class="icon icon--info icon--fixed-width icon--spacing" aria-hidden="true"></span><span class="nav-sub__txt"> Centre Information</span><% end %></li>
+							<%# //Centre information %>
+							<%# Centre services %>
 							<li><%= link_to centre_services_path(params[:centre_id] || params[:id]), :class => (page?(:centre_service_details) ? 'is-active' : nil), target: '_self' do %><span class="icon icon--service icon--fixed-width icon--spacing" aria-hidden="true"></span><span class="nav-sub__txt"> Centre Services</span><% end %></li>
+							<%# //Centre services %>
 						</ul>
 					</nav>
 
 					<%# Social follow navigation %>
 					<% if social_media.present? && header_hero? %>
-					<ul class="nav-social-follow horiz-list">
-						<% if @centre.facebook.present? %>
-						<li><a href="<%= @centre.facebook %>" target="_blank" rel="external" target="_blank"><span class="hide-visually">Facebook</span><span class="icon icon--facebook icon--flush-top" aria-hidden="true"></span></a></li>
-						<% end %>
-						<% if @centre.twitter.present? %>
-						<li><a href="<%= @centre.twitter %>" target="_blank" rel="external" target="_blank"><span class="hide-visually">Twitter</span><span class="icon icon--twitter icon--flush-top" aria-hidden="true"></span></a></li>
-						<% end %>
-						<% if @centre.instagram.present? %>
-						<li><a href="<%= @centre.instagram %>" target="_blank" rel="external" target="_blank"><span class="hide-visually">Instagram</span><span class="icon icon--instagram icon--flush-top" aria-hidden="true"></span></a></li>
-						<% end %>
-						<% if @centre.pinterest.present? %>
-						<li><a href="<%= @centre.pinterest %>" target="_blank" rel="external" target="_blank"><span class="hide-visually">Pinterest</span><span class="icon icon--pinterest icon--flush-top" aria-hidden="true"></span></a></li>
-						<% end %>
-						<% if @centre.youtube.present? %>
-						<li><a href="<%= @centre.youtube %>" target="_blank" rel="external" target="_blank"><span class="hide-visually">YouTube</span><span class="icon icon--youtube icon--flush-top" aria-hidden="true"></span></a></li>
-						<% end %>
-						<% if @centre.google_plus.present? %>
-						<li><a href="<%= @centre.google_plus %>" target="_blank" rel="external" target="_blank"><span class="hide-visually">Google Plus</span><span class="icon icon--google-plus icon--flush-top" aria-hidden="true"></span></a></li>
-						<% end %>
-					</ul>
+						<ul class="nav-social-follow horiz-list">
+							<% if @centre.facebook.present? %>
+								<li><a href="<%= @centre.facebook %>" target="_blank" rel="external" target="_blank"><span class="hide-visually">Facebook</span><span class="icon icon--facebook icon--flush-top" aria-hidden="true"></span></a></li>
+							<% end %>
+							<% if @centre.twitter.present? %>
+								<li><a href="<%= @centre.twitter %>" target="_blank" rel="external" target="_blank"><span class="hide-visually">Twitter</span><span class="icon icon--twitter icon--flush-top" aria-hidden="true"></span></a></li>
+							<% end %>
+							<% if @centre.instagram.present? %>
+								<li><a href="<%= @centre.instagram %>" target="_blank" rel="external" target="_blank"><span class="hide-visually">Instagram</span><span class="icon icon--instagram icon--flush-top" aria-hidden="true"></span></a></li>
+							<% end %>
+							<% if @centre.pinterest.present? %>
+								<li><a href="<%= @centre.pinterest %>" target="_blank" rel="external" target="_blank"><span class="hide-visually">Pinterest</span><span class="icon icon--pinterest icon--flush-top" aria-hidden="true"></span></a></li>
+							<% end %>
+							<% if @centre.youtube.present? %>
+								<li><a href="<%= @centre.youtube %>" target="_blank" rel="external" target="_blank"><span class="hide-visually">YouTube</span><span class="icon icon--youtube icon--flush-top" aria-hidden="true"></span></a></li>
+							<% end %>
+							<% if @centre.google_plus.present? %>
+								<li><a href="<%= @centre.google_plus %>" target="_blank" rel="external" target="_blank"><span class="hide-visually">Google Plus</span><span class="icon icon--google-plus icon--flush-top" aria-hidden="true"></span></a></li>
+							<% end %>
+						</ul>
 					<% end %>
 					<%# //Social follow navigation %>
 
@@ -84,26 +92,26 @@
 
 					<%# Social follow navigation - for 'Centre home page banner' only at large desktop size %>
 					<% if social_media.present? %>
-					<ul class="nav-social-follow horiz-list">
-						<% if @centre.facebook.present? %>
-						<li><a href="<%= @centre.facebook %>" target="_blank" rel="external" target="_blank"><span class="hide-visually">Facebook</span><span class="icon icon--facebook icon--xlrg icon--flush-top" aria-hidden="true"></span></a></li>
-						<% end %>
-						<% if @centre.twitter.present? %>
-						<li><a href="<%= @centre.twitter %>" target="_blank" rel="external" target="_blank"><span class="hide-visually">Twitter</span><span class="icon icon--twitter icon--xlrg icon--flush-top" aria-hidden="true"></span></a></li>
-						<% end %>
-						<% if @centre.instagram.present? %>
-						<li><a href="<%= @centre.instagram %>" target="_blank" rel="external" target="_blank"><span class="hide-visually">Instagram</span><span class="icon icon--instagram icon--xlrg icon--flush-top" aria-hidden="true"></span></a></li>
-						<% end %>
-						<% if @centre.pinterest.present? %>
-						<li><a href="<%= @centre.pinterest %>" target="_blank" rel="external" target="_blank"><span class="hide-visually">Pinterest</span><span class="icon icon--pinterest icon--xlrg icon--flush-top" aria-hidden="true"></span></a></li>
-						<% end %>
-						<% if @centre.youtube.present? %>
-						<li><a href="<%= @centre.youtube %>" target="_blank" rel="external" target="_blank"><span class="hide-visually">YouTube</span><span class="icon icon--youtube icon--xlrg icon--flush-top" aria-hidden="true"></span></a></li>
-						<% end %>
-						<% if @centre.google_plus.present? %>
-						<li><a href="<%= @centre.google_plus %>" target="_blank" rel="external" target="_blank"><span class="hide-visually">Google Plus</span><span class="icon icon--google-plus icon--xlrg icon--flush-top" aria-hidden="true"></span></a></li>
-						<% end %>
-					</ul>
+						<ul class="nav-social-follow horiz-list">
+							<% if @centre.facebook.present? %>
+								<li><a href="<%= @centre.facebook %>" target="_blank" rel="external" target="_blank"><span class="hide-visually">Facebook</span><span class="icon icon--facebook icon--xlrg icon--flush-top" aria-hidden="true"></span></a></li>
+							<% end %>
+							<% if @centre.twitter.present? %>
+								<li><a href="<%= @centre.twitter %>" target="_blank" rel="external" target="_blank"><span class="hide-visually">Twitter</span><span class="icon icon--twitter icon--xlrg icon--flush-top" aria-hidden="true"></span></a></li>
+							<% end %>
+							<% if @centre.instagram.present? %>
+								<li><a href="<%= @centre.instagram %>" target="_blank" rel="external" target="_blank"><span class="hide-visually">Instagram</span><span class="icon icon--instagram icon--xlrg icon--flush-top" aria-hidden="true"></span></a></li>
+							<% end %>
+							<% if @centre.pinterest.present? %>
+								<li><a href="<%= @centre.pinterest %>" target="_blank" rel="external" target="_blank"><span class="hide-visually">Pinterest</span><span class="icon icon--pinterest icon--xlrg icon--flush-top" aria-hidden="true"></span></a></li>
+							<% end %>
+							<% if @centre.youtube.present? %>
+								<li><a href="<%= @centre.youtube %>" target="_blank" rel="external" target="_blank"><span class="hide-visually">YouTube</span><span class="icon icon--youtube icon--xlrg icon--flush-top" aria-hidden="true"></span></a></li>
+							<% end %>
+							<% if @centre.google_plus.present? %>
+								<li><a href="<%= @centre.google_plus %>" target="_blank" rel="external" target="_blank"><span class="hide-visually">Google Plus</span><span class="icon icon--google-plus icon--xlrg icon--flush-top" aria-hidden="true"></span></a></li>
+							<% end %>
+						</ul>
 					<% end %>
 					<%# //Social follow navigation - for 'Centre home page banner' only at large desktop size %>
 
@@ -165,9 +173,9 @@
 				</div>
 				<%# //Centre selector %>
 
-				<%# Centre opening hours %>
+				<%# Shopping hours link %>
 	      <a href="<%= centre_hours_path( params[ :centre_id ] || params[ :id ] ) %>" target="_self" class="open-hours-link"><span class="icon icon--hours" aria-hidden="true"></span> <% if @centre_trading_hour.closed %><strong>Closed <% else %>Open <time datetime="<%= @centre_trading_hour.opening_time %>"><%= twelve_hour_format(@centre_trading_hour.opening_time) %></time> &#8211; <time datetime="<%= @centre_trading_hour.closing_time %>"><%= twelve_hour_format(@centre_trading_hour.closing_time) %></time><% end %> today</strong><span class="icon icon--arrow-right" aria-hidden="true"></span></a>
-				<%# //Centre opening hours %>
+				<%# //Shopping hours link %>
 
 			</div>
 

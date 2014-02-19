@@ -417,11 +417,6 @@ $hero-banner-height-lrg: 380 !default;
 				}
 			}
 
-					/* Hide 'Shopping hours' link for 'Centre home page hero banner' at this breakpoint */
-					@include respond-min($non-palm) {
-						.header.header--hero & .open-hours-link-alt {display: none;}
-					}
-
 			/* Non JS users */
 			@include respond-min($non-palm) {
 				.no-js & {position: static;}

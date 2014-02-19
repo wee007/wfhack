@@ -115,13 +115,20 @@
 
     # Filter controls / toggle / open / close
     $scope.activeFilter = ""
-    $scope.toggleFilter = (filterName) ->
+    $scope.toggleFilter = ($event, filterName) ->
       if $scope.activeFilter isnt filterName
         $scope.activeFilter = filterName
-        $scope.triggersVisible = false;
+
         #let other dropdowns know that they should close themselves
         $rootScope.$broadcast "product-filter-dropdown-open"
         SocialShare.closeAll()
+
+        # Stop event from getting to toggle visibility instance for "Filters" mobile button
+        # It doesnt need to know as it's not being used at this breakpoint
+        if angular.element("html").hasClass("lap-lrg")
+          $event.stopPropagation()
+        else
+          $scope.triggersVisible = false;
       else
         $scope.closeFilters()
 
@@ -131,9 +138,10 @@
     $rootScope.$on "toggle-visibility-dropdowns", ->
       $timeout($scope.closeFilters, 0);
 
-
     if angular.element("html").hasClass("lap-lrg")
       $(document).click ->
+        # Dont close a filter dropdown if the click came from inside a filter dropdown
+        if $(event.target).parents('.filters__target').length == 0
           $scope.closeFilters()
           $scope.$apply()
 

@@ -23,6 +23,12 @@
       colours: "colour"
       sizes: "size"
 
+    # On page load, if there are no products
+    # Remove bad params and do a search with no params to get all available params for this centre
+    if westfield.products.count == 0
+      ProductSearch.resetParams()
+      ProductSearch.getAvailableFilters $rootScope.centre_id
+
     useUrlParams = ( urlParams = {} ) ->
       # Add querystrings like last=, rows= & page=, as well
       # as overwriting the centre (for use when multiple centres are selected)
@@ -46,12 +52,18 @@
       # used by the view but we'll map them anyway.
       angular.forEach params, (param, key) -> $scope[key] = param
 
-    setParams = ->
+    setParams = (newAttribute, newValues) ->
       rParams = routeParams()
       qsParams = queryStringParams()
 
       # New params mean that we need to reset the page QS
       delete qsParams.page
+
+      # When doing a search after a "no products" result
+      # Make sure bad params are removed from URL, with only the new param being added
+      if westfield.products.count == 0
+        qsParams = {}
+        qsParams[newAttribute] = newValues
 
       # Collect routable params, removing undefined
       route = ['products', rParams.super_cat, rParams.category]
@@ -88,7 +100,12 @@
     )()
 
     $scope.go = (event, path) ->
-      $location.path(path)
+      # Angular's $location.path wasnt replacing the full URL when there were no products,
+      # So use to lower level value to change URL
+      if westfield.products.count == 0
+        $window.location.href = path
+      else
+        $location.path(path)
       event.preventDefault()
 
     $scope.updateSearch = ->
@@ -168,7 +185,7 @@
 
       attributeName = searchParamMap[attributeName]  if searchParamMap[attributeName] isnt `undefined`
       ProductSearch.setParam attributeName, values
-      setParams()
+      setParams(attributeName, values)
       $scope.closeFilters()
 
     $scope.filterCategory = (categoryType, categoryCode) ->

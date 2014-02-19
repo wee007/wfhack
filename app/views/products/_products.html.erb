@@ -2,55 +2,91 @@
 
   <%# No product search results message %>
   <div class="no-content-fallback-msg">
-    <span class="icon icon--products icon--flush-top" aria-hidden="true"></span>
     <p role="status" aria-live="polite">
+      <span class="no-content-fallback-msg__icon icon icon--products icon--flush-top" aria-hidden="true"></span>
       <em class="h1">No products <% if params[:search_query] %> matching
         <span>"<%= params[:search_query] %>"</span>
         <% end %>
       </em>
       <span>See nearby centres</span>
     </p>
+    <div class="drop-down-container">
+
+      <%# Centre selector trigger %>
+      <button type="button" class="drop-down-menu__trigger btn btn--full btn--full-left btn--main btn--main-dark btn--pointer" toggle-visibility="no-products-nearby-centre">
+        Westfield Centre
+        <span aria-hidden="true" class="icon icon--lrg icon--arrow-down-full btn--pointer__icon"></span>
+      </button>
+      <%# //Centre selector trigger %>
+
+      <%# Centre selector target %>
+      <% if national %>
+        <div class="drop-down-menu__target drop-down pointer-up box box--drop-down" id="no-products-nearby-centre">
+          <dl class="drop-down-menu__list">
+            <% %w(NSW ACT QLD VIC SA WA).each do |state| %>
+              <dt class="drop-down-menu__hdr-sub drop-down-menu__divider"><%= state %></dt>
+              <% @centres[state].each do |centre| %>
+                <dd class="drop-down-menu__divider">
+                  <%= link_to centre.short_name, centre_products_path(centre_id: centre.code), class: 'btn btn--full btn--full-left' %>
+                </dd>
+              <% end %>
+            <% end %>
+          </dl>
+        </div>
+      <% else %>
+        <div class="drop-down-menu__target drop-down pointer-up box box--drop-down" id="no-products-nearby-centre">
+          <ul class="drop-down-menu__list">
+          <% @nearby_centres.each do |nearby_centre| %>
+            <li class="drop-down-menu__divider">
+              <%= link_to nearby_centre.short_name, centre_products_path({centre_id: nearby_centre.code}), class: 'btn btn--full btn--full-left' %>
+            </li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+      <%# //Centre selector target %>
+    </div>
+
   </div>
   <%# //No product search results message %>
 
-<%- else -%>
-
-  <%# Pin board %>
-  <%= pin_board(@search.products) do |result| %>
-    <%= tile "product",
-      result: result,
-      image: { href: result.default_image_url, title: result.name }
-    %>
-  <% end %>
-  <%# //Pin board %>
-
-  <%# Pager %>
-  <% if @search.products.present? %>
-    <nav class="pager pager--pin-board" role="navigation" aria-label="Product pagination">
-      <div class="pager__inner">
-        <em class="pager__count">
-          <span class="hide-visually">Page </span>
-          <%= @search.page %> of <%= @search.page_count %>
-        </em>
-        <%# Previous page %>
-        <% if @search.page > 1 %>
-          <%= link_to prev_page_url, { rel: 'prev', class: 'pager__prev btn btn--pointer btn--pointer-alt btn--main btn--main-white '} do %>
-            <span class="icon icon--arrow-left-big btn--pointer__icon btn--pointer__icon--flush" aria-hidden="true"></span>
-            Prev
-          <% end %>
-        <% end %>
-        <%# //Previous page %>
-        <%# Next page %>
-        <% if @search.page < @search.page_count %>
-          <%= link_to next_page_url, { rel: 'next', class: 'pager__next btn btn--pointer btn--main btn--main-white'} do %>
-            Next
-            <span class="icon icon--arrow-right-big btn--pointer__icon btn--pointer__icon--flush" aria-hidden="true"></span>
-          <% end %>
-        <% end %>
-        <%# //Next page %>
-      </div>
-    </nav>
-  <% end %>
-  <%# //Pager %>
-
 <%- end -%>
+
+<%# Pin board %>
+<%= pin_board(@search.products) do |result| %>
+  <%= tile "product",
+    result: result,
+    image: { href: result.default_image_url, title: result.name }
+  %>
+<% end %>
+<%# //Pin board %>
+
+<%# Pager %>
+<% if @search.products.present? %>
+  <nav class="pager pager--pin-board" role="navigation" aria-label="Product pagination">
+    <div class="pager__inner">
+      <em class="pager__count">
+        <span class="hide-visually">Page </span>
+        <%= @search.page %> of <%= @search.page_count %>
+      </em>
+      <%# Previous page %>
+      <% if @search.page > 1 %>
+        <%= link_to prev_page_url, { rel: 'prev', class: 'pager__prev btn btn--pointer btn--pointer-alt btn--main btn--main-white '} do %>
+          <span class="icon icon--arrow-left-big btn--pointer__icon btn--pointer__icon--flush" aria-hidden="true"></span>
+          Prev
+        <% end %>
+      <% end %>
+      <%# //Previous page %>
+      <%# Next page %>
+      <% if @search.page < @search.page_count %>
+        <%= link_to next_page_url, { rel: 'next', class: 'pager__next btn btn--pointer btn--main btn--main-white'} do %>
+          Next
+          <span class="icon icon--arrow-right-big btn--pointer__icon btn--pointer__icon--flush" aria-hidden="true"></span>
+        <% end %>
+      <% end %>
+      <%# //Next page %>
+    </div>
+  </nav>
+<% end %>
+<%# //Pager %>
+

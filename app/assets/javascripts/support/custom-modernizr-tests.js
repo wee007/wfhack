@@ -26,12 +26,3 @@ Modernizr.addTest('ios', function () {
 Modernizr.addTest('android', function () {
   return !!navigator.userAgent.match(/android/i);
 });
-
-// Android V2
-Modernizr.addTest('androidv2', function () {
-  androidV2 = false;
-  androidStart = navigator.userAgent.indexOf('Android ');
-  androidVer = navigator.userAgent.substr(androidStart+8,1);
-
-  return (androidVer <= 2);
-});

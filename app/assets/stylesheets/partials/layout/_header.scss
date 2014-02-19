@@ -105,9 +105,6 @@ $national-view-search-toggle-bp: 1080 !default;
 					display: inline-block;
 					width: 126px;
 					height: 41px;
-
-					/* No SVG fallback */
-					.no-svg & {background-image: cloudinary-url("logo-white-beta.png");}
 				}
 			}
 

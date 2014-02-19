@@ -12,7 +12,9 @@
   <div class="container container--position">
 
     <%# Logo %>
-    <%= link_to site_logo, root_path, class: "logo" %>
+    <%= link_to styleguide_index_path, rel: "home", class: "logo" do %>
+      <%= image_tag 'logo-beta.svg', alt: 'Westfield' %>
+    <% end %>
     <%# //Logo %>
 
     <h1>Style guide</h1>

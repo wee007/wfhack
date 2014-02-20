@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.155
+Version:     0.2.156
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,65 @@ fi
 
 
 %changelog
+* Thu Feb 20 2014 ci <doperations@au.westfield.com> 0.2.156-1
+- VCR updates (ldewey@au.westfield.com)
+- Revert "Merge pull request #917 from araeside/fix-empty-products-page"
+  (ldewey@au.westfield.com)
+- Revert "Merge pull request #924 from gcallister/master"
+  (ldewey@au.westfield.com)
+- Revert "Merge pull request #922 from araeside/pjax-map-category-pins"
+  (ldewey@au.westfield.com)
+- Merge pull request #922 from araeside/pjax-map-category-pins
+  (dmiller@au.westfield.com)
+- Merge pull request #924 from gcallister/master (dmiller@au.westfield.com)
+- Merge pull request #917 from araeside/fix-empty-products-page
+  (dmiller@au.westfield.com)
+- cleanup css (alec@smartalecwebsites.com.au)
+- remove debugging code (alec@smartalecwebsites.com.au)
+- refactor Toggle Visibility directive and product filter dropdowns so
+  !important isnt needed and logic is clearer (alec@smartalecwebsites.com.au)
+- Remove commented code (alec@smartalecwebsites.com.au)
+- Cache pjax container selector and object (alec@smartalecwebsites.com.au)
+- cleanup comments and whitespace after PR comments
+  (alec@smartalecwebsites.com.au)
+- Remove commented out code. Hide map when going from store details map to
+  store list on mobile (alec@smartalecwebsites.com.au)
+- remove duplicate JS block (alec@smartalecwebsites.com.au)
+- remove aria attributes which are redundant now pjax is used
+  (alec@smartalecwebsites.com.au)
+- WSF-6300 Add AU unsubscribe redirect (gcallister@au.westfield.com)
+- fix regression with centre path generation (alec@smartalecwebsites.com.au)
+- move css for no products icon to reduce compiled css size
+  (alec@smartalecwebsites.com.au)
+- condense margin properties to one line (alec@smartalecwebsites.com.au)
+- text align fix and css and html cleanup (alec@smartalecwebsites.com.au)
+- clean up css and html (alec@smartalecwebsites.com.au)
+- Add space above drop down trigger (alec@smartalecwebsites.com.au)
+- Add comments and cleanup pinboard loop (alec@smartalecwebsites.com.au)
+- cleanup check for national page, cleanup up html order
+  (alec@smartalecwebsites.com.au)
+- small fix (ldewey@au.westfield.com)
+- Remove debugging in template (alec@smartalecwebsites.com.au)
+- Add nearby centre selection drop down to no products page WIP
+  (alec@smartalecwebsites.com.au)
+- when navigating to category from no products page, remove querystring
+  (alec@smartalecwebsites.com.au)
+- Dont get product data when just looking for applicable filters
+  (alec@smartalecwebsites.com.au)
+- Remove old querystring parameters after no-result search
+  (alec@smartalecwebsites.com.au)
+- Show full filters and remove querystring params when no products found
+  (alec@smartalecwebsites.com.au)
+- show product browse html even when there are no products to show, so that the
+  filters are visible (alec@smartalecwebsites.com.au)
+- stop angular from removing querysting when applying a category filter. dont
+  hide map on change (alec@smartalecwebsites.com.au)
+- make category pins work with pjax enabled (matt.wratt@trineo.co.nz)
+- fixes angular apply error (matt.wratt@trineo.co.nz)
+- add pjax for submissions (alec@smartalecwebsites.com.au)
+- Put pjax back in to fix persistence problems on stores page
+  (alec@smartalecwebsites.com.au)
+
 * Tue Feb 18 2014 ci <doperations@au.westfield.com> 0.2.155-1
 - We should always see the shopping hours link. (craigm.smith@au.westfield.com)
 

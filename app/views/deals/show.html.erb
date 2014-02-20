@@ -35,8 +35,10 @@
       <%# Palm version %>
       <span class="hide-fully--non-palm">
         <%= phone_link @store.phone_number, class: 'btn btn--full btn--main btn--main-dark btn--main-lrg' do |phone_number| %>
-          <span class="icon icon--phone icon--xlrg icon--spacing-lrg icon--flush-top" aria-hidden="true"></span>
-          <strong>Call <%= @store.name %></strong>
+          <span class="txt-truncate block">
+            <span class="icon icon--phone icon--xlrg icon--spacing-lrg icon--flush-top" aria-hidden="true"></span>
+            Call <%= @store.name %>
+          </span>
         <% end %>
       </span>
       <%# //Palm version %>

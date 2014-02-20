@@ -3,15 +3,15 @@
   <style>
     <%# Hero image at this breakpoint (small) %>
     @media (max-width: 25em) {
-        <%= target %> {background-image: url(<%= image_path("heroes/#{image}-sml.jpg", quality: 90) %>);}
+        <%= target %> {background-image: url(<%= image_path("heroes/#{image}-sml.jpg", quality: 90, fetch_format: 'auto') %>);}
     }
     <%# Hero image at this breakpoint (medium) %>
     @media (min-width: 25.0625em) and (max-width: 48em) {
-        <%= target %> {background-image: url(<%= image_path("heroes/#{image}-med.jpg", quality: 90) %>);}
+        <%= target %> {background-image: url(<%= image_path("heroes/#{image}-med.jpg", quality: 90, fetch_format: 'auto') %>);}
     }
     <%# Hero image at this breakpoint (large) %>
     @media (min-width: 48.0625em) {
-        <%= target %> {background-image: url(<%= image_path("heroes/#{image}-lrg.jpg", quality: 90) %>);}
+        <%= target %> {background-image: url(<%= image_path("heroes/#{image}-lrg.jpg", quality: 90, fetch_format: 'auto') %>);}
     }
     <%# Old IE %>
     .old-ie <%= target %> {background-image: url(<%= image_path("heroes/#{image}-lrg.jpg") %>);}

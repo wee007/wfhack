@@ -40,13 +40,10 @@
 .icon--products:before {content: "\e000";}
 
 /* Product collection */
-.icon--product-collection:before {content: "\e040";}
+.icon--product-collection:before {content: "\e03f";}
 
-/* Product occasion */
-.icon--product-occasion:before {content: "\e03f";}
-
-/* Product occasion 2 */
-.icon--product-occasion2:before {content: "\e03e";}
+/* Product curation */
+.icon--product-curation:before {content: "\e03e";}
 
 /* Deals */
 .icon--deals:before {content: "\e001";}
@@ -96,8 +93,8 @@
 /* Hours */
 .icon--hours:before {content: "\e021";}
 
-/* Signout */
-.icon--signout:before {content: "\e00e";}
+/* Keyword filter */
+.icon--keyword-filter:before {content: "\e00e";}
 
 /* List */
 .icon--list:before {content: "\e02b";}
@@ -108,8 +105,8 @@
 /* Email */
 .icon--email:before {content: "\e020";}
 
-/* Link */
-.icon--link:before {content: "\e013";}
+/* External link */
+.icon--external-link:before {content: "\f08e";}
 
 /* Twitter */
 .icon--twitter:before {content: "\e022";}
@@ -147,12 +144,6 @@
 /* Service */
 .icon--service:before {content: "\e02f";}
 
-/* Switch vertical */
-.icon--switch-vertical-full:before {content: "\e02e";}
-
-/* Switch horizontal */
-.icon--switch-horizontal-full:before {content: "\e039";}
-
 /* Ellipses horizontal */
 .icon--ellipsis-horizontal:before {content: "\e034";}
 
@@ -161,9 +152,6 @@
 
 /* Plus */
 .icon--plus:before {content: "\e036";}
-
-/* Back to top */
-.icon--back-to-top:before {content: "\e031";}
 
 /* PDF */
 .icon--pdf:before {content: "\e037";}
@@ -179,9 +167,6 @@
 
 /* Play */
 .icon--play:before {content: "\e03c";}
-
-/* Bag */
-.icon--bag:before {content: "\e03a";}
 
 /* Megaphone */
 .icon--megaphone:before {content: "\e03d";}

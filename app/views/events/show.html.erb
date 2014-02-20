@@ -45,7 +45,7 @@
         <%# //Event details %>
         <%# External link %>
         <% if @event.external_url_and_description_present? %>
-          <span class="icon icon--link icon--spacing" aria-hidden="true"></span>
+          <span class="icon icon--external-link icon--spacing icon--flush-top" aria-hidden="true"></span>
           <%= link_to @event.external_url_description, @event.external_url, target: '_blank', rel: 'external' %>
         <% end %>
         <%# //External link %>

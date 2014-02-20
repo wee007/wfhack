@@ -3,7 +3,7 @@ module ProductsHelper
   # This controller is either scoped by a centre or not,
   # a simple helper to tidy the views
   def pb_path
-    (@centre.nil?) ? products_path : centre_products_path(@centre.code)
+    (@centre.nil?) ? products_path : centre_products_path(@centre)
   end
 
   def canonical_url
@@ -29,11 +29,6 @@ module ProductsHelper
     params_dup[:action] = params_dup[:centre_id] ? 'index_centre' : 'index_national'
     params_dup[:page] = page
     params_dup
-  end
-
-  def national
-    params[:action] == 'index_national' &&
-    params[:controller] == 'products'
   end
 
   private

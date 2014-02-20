@@ -21,23 +21,52 @@ describe ProductsController do
     )
   end
 
-  describe "GET #index_centre" do
-
-    before :each do
-      CentreService.stub(:fetch).and_return double :response, body: {state: 'NSW', name: 'Westfield Bondi Junction' }
-      @search_object = Hashie::Mash.new(count: 50, rows: 50, facets: [{'values' => [], 'field' => 'super_cat'}])
+  describe :index_centre do
+    before do
+      CentreService.stub( :fetch ).and_return \
+        double( :response,
+          body: {
+            state: 'NSW',
+            name: 'Westfield Bondi Junction'
+          }
+        )
     end
 
-    it "assigns the centre instance variable" do
-      get :index_centre, centre_id: 'bondijunction'
-      response.should render_template :index
-      assigns(:centre).should_not be_nil
+    context "when centre is present" do
+      let( :search_object ) do
+        Hashie::Mash.new(
+          count: 50,
+          rows: 50,
+          seo: Hashie::Mash.new(
+            page_title: '',
+            description: ''
+          )
+        )
+      end
+
+      it "assigns the centre instance variable" do
+        ProductService.stub( :build ).and_return( search_object )
+        get :index_centre, centre_id: 'bondijunction'
+        response.should render_template :index
+        assigns(:centre).should_not be_nil
+      end
     end
 
     describe 'meta data for centre page' do
-
       context "when requesting for page title and meta description" do
+        let( :search_object ) do
+          Hashie::Mash.new(
+            count: 50,
+            rows: 50,
+            seo: Hashie::Mash.new(
+              page_title: 'Shopping',
+              description: 'Find the latest fashion, clothes, shoes, jewellery, accessories and much more'
+            )
+          )
+        end
+
         it "adds page title and meta description to meta" do
+          ProductService.stub( :build ).and_return( search_object )
           meta_double = double :meta
           meta_double.should_receive(:push).with({
             page_title: "Shopping at Westfield Bondi Junction",
@@ -48,163 +77,78 @@ describe ProductsController do
         end
       end
 
-      context "when requesting for page title and meta description for a given super category" do  
-        before(:each) do
-          category_object = [Hashie::Mash.new(
-            category_id: 1,
-            code: 'product-1',
-            enabled: true,
-            hierarchy_level: 1,
-            seo_page_title: 'Buy Product 1 online',
-            seo_page_description: 'Browse the latest Product 1 online'
-          )]
-          ProductService.stub(:build).and_return(@search_object, category_object)
-        end
-
-        it "includes the super category name in the page title and meta description, and adds to meta" do
-          meta_double = double :meta
-          meta_double.should_receive(:push).with({
-            page_title: "Buy Product 1 online at Westfield Bondi Junction",
-            description: "Browse the latest Product 1 online at Westfield Bondi Junction"
-          })
-          controller.stub(:meta).and_return(meta_double)
-          get :index_centre, centre_id: 'bondijunction', super_cat: 'product-1'
-        end
-      end
-
-      context "when requesting for page title and meta description for a given category and super category" do
-        before(:each) do
-          category_object = [Hashie::Mash.new(
-            category_id: 2,
-            code: 'product-2',
-            enabled: true,
-            hierarchy_level: 2,
-            seo_page_title: 'Buy Product 2 online',
-            seo_page_description: 'Browse the latest Product 2 online'
-          )]
-          ProductService.stub(:build).and_return(@search_object, category_object)
-        end
-
-        it "includes the category name in the page title and meta description, and adds to meta" do
-          meta_double = double :meta
-          meta_double.should_receive(:push).with({
-            page_title: "Buy Product 2 online at Westfield Bondi Junction",
-            description: "Browse the latest Product 2 online at Westfield Bondi Junction"
-          })
-          controller.stub(:meta).and_return(meta_double)
-          get :index_centre, centre_id: 'bondijunction', category: 'product-2', super_cat: 'product-1'
-        end
-      end
-
-      context "when requesting for page title and meta description for a given sub-category, category and super category" do
-        before(:each) do
-          category_object = [Hashie::Mash.new(
-            category_id: 3,
-            code: 'product-3',
-            enabled: true,
-            hierarchy_level: 3,
-            seo_page_title: 'Buy Product 3 online',
-            seo_page_description: 'Browse the latest Product 3 online'
-          )]
-          ProductService.stub(:build).and_return(@search_object, category_object)
-        end
-
-        it "includes the sub-category name in the page title and meta description, and add to meta" do
-          meta_double = double :meta
-          meta_double.should_receive(:push).with({
-            page_title: "Buy Product 3 online at Westfield Bondi Junction",
-            description: "Browse the latest Product 3 online at Westfield Bondi Junction"
-          })
-          controller.stub(:meta).and_return(meta_double)
-          get :index_centre, centre_id: 'bondijunction', sub_category: ['product-3'], category: 'product-2', super_cat: 'product-1'
-        end
-      end
-
-      context "when requesting for page title and meta description for given sub-categories, category and super category" do
-
-        context "and page title and meta description exist" do
-
-          before(:each) do
-            category_object = [Hashie::Mash.new(
-              category_id: 3,
-              code: 'product-3',
-              enabled: true,
-              hierarchy_level: 3,
-              seo_page_title: 'Buy Product 3 online',
-              seo_page_description: 'Browse the latest Product 3 online'
-            )]
-            ProductService.stub(:build).and_return(@search_object, category_object)
-          end
-
-          it "includes the sub-category names in the page title and meta description, and adds to meta" do
-            meta_double = double :meta
-            meta_double.should_receive(:push).with({
-              page_title: "Buy Product 3 online at Westfield Bondi Junction",
-              description: "Browse the latest Product 3 online at Westfield Bondi Junction"
-            })
-            controller.stub(:meta).and_return(meta_double)
-            get :index_centre, centre_id: 'bondijunction', sub_category: ['product-3','product-4'], category: 'product-2', super_cat: 'product-1'
-          end
-
-        end
-
-        context "and page title and meta description do NOT exist" do
-
-          it "includes the sub-category names in the page title and meta description extracted from the params, and adds to meta" do
-            meta_double = double :meta
-            meta_double.should_receive(:push).with({
-              page_title: "Find Product 3 and Product 4 at Westfield Bondi Junction",
-              description: "Shop for the latest Product 3 and Product 4 online or in-store at Westfield Bondi Junction"
-            })
-            controller.stub(:meta).and_return(meta_double)
-            get :index_centre, centre_id: 'bondijunction', sub_category: ['product-3','product-4'], category: 'product-2', super_cat: 'product-1'
-
-          end
-
-        end
-
-      end
-
-      context "when requesting for page title and meta description for given a retailer" do
-        it "includes the retailer name and description in the page title and meta description respectively, and adds to meta" do
-          meta_double = double :meta
-          meta_double.should_receive(:push).with({
-            page_title: "Retailer at Westfield Bondi Junction",
-            description: "Find the latest fashion, clothes, shoes, jewellery, accessories and much more at Westfield Bondi Junction"
-          })
-          controller.stub(:meta).and_return(meta_double)
-          get :index_centre, centre_id: 'bondijunction', retailer: ['retailer']
-        end
-      end
-
     end
 
-    describe "params" do
-      it "remove gclid param" do
-        controller.stub(:params).and_return({ centre_id: 'bondijunction' })
-        get :index_centre, centre_id: 'bondijunction', gclid: 'CN3h6JTO4LsCFfFV4god9gMAkQ'
+    describe :params do
+      let( :search_object ) do
+        Hashie::Mash.new(
+          count: 50,
+          rows: 50,
+          seo: Hashie::Mash.new(
+            page_title: '',
+            description: ''
+          )
+        )
+      end
+
+      context "when gclid param is present" do
+        it "remove gclid param" do
+          ProductService.stub( :build ).and_return( search_object )
+          controller.stub(:params).and_return({ centre_id: 'bondijunction' })
+          get :index_centre, centre_id: 'bondijunction', gclid: 'CN3h6JTO4LsCFfFV4god9gMAkQ'
+        end
       end
     end
-
   end
 
-
-  describe "GET #index_national" do
-    before :each do
-      CentreService.stub(:fetch).and_return double :response, body: [{state: 'NSW', name: 'Westfield Bondi Junction' }]
-      @search_object = Hashie::Mash.new(count: 50, rows: 50, facets: [{'values' => [], 'field' => 'super_cat'}])
+  describe :index_national do
+    before do
+      CentreService.stub( :fetch ).and_return \
+        double( :response,
+          body: [
+            {
+              state: 'NSW',
+              name: 'Westfield Bondi Junction'
+            }
+          ]
+        )
     end
 
-    it "does not assign the centre instance variable" do
-      get :index_national
-      response.should render_template :index
-      assigns(:centre).should be_nil
+    context "when centre is not present" do
+      let( :search_object ) do
+        Hashie::Mash.new(
+          count: 50,
+          rows: 50,
+          seo: Hashie::Mash.new(
+            page_title: '',
+            description: ''
+          )
+        )
+      end
+
+      it "does not assign the centre instance variable" do
+        ProductService.stub( :build ).and_return( search_object )
+        get :index_national
+        response.should render_template :index
+        assigns(:centre).should be_nil
+      end
     end
 
     describe 'meta data for national page' do
-
       context "when requesting for page title and meta description" do
+        let( :search_object ) do
+          Hashie::Mash.new(
+            count: 50,
+            rows: 50,
+            seo: Hashie::Mash.new(
+              page_title: 'Shopping',
+              description: 'Find the latest fashion, clothes, shoes, jewellery, accessories and much more'
+            )
+          )
+        end
+
         it "adds the generic page title and meta description to meta" do
+          ProductService.stub( :build ).and_return( search_object )
           meta_double = double :meta
           meta_double.should_receive(:push).with({
             page_title: "Shopping at Westfield",
@@ -215,159 +159,31 @@ describe ProductsController do
         end
       end
 
-      context "when requesting for page title and meta description for a given super category" do
-        before(:each) do
-          category_object = [Hashie::Mash.new(
-            category_id: 1,
-            code: 'product-1',
-            enabled: true,
-            hierarchy_level: 1,
-            seo_page_title: 'Buy Product 1 online',
-            seo_page_description: 'Browse the latest Product 1 online'
-          )]
-          ProductService.stub(:build).and_return(@search_object, category_object)
-        end
-
-        it "includes the super category name in the page title and meta description, and adds to meta" do
-          meta_double = double :meta
-          meta_double.should_receive(:push).with({
-            page_title: "Buy Product 1 online at Westfield",
-            description: "Browse the latest Product 1 online at Westfield"
-          })
-          controller.stub(:meta).and_return(meta_double)
-          get :index_national, super_cat: 'product-1'
-        end
-      end
-
-      context "when requesting for page title and meta description for a given category and super category" do
-        before(:each) do
-          category_object = [Hashie::Mash.new(
-            category_id: 2,
-            code: 'product-2',
-            enabled: true,
-            hierarchy_level: 2,
-            seo_page_title: 'Buy Product 2 online',
-            seo_page_description: 'Browse the latest Product 2 online'
-          )]
-          ProductService.stub(:build).and_return(@search_object, category_object)
-        end
-
-        it "includes the category name in the page title and meta description, and adds to meta" do
-          meta_double = double :meta
-          meta_double.should_receive(:push).with({
-            page_title: "Buy Product 2 online at Westfield",
-            description: "Browse the latest Product 2 online at Westfield"
-          })
-          controller.stub(:meta).and_return(meta_double)
-          get :index_national, category: 'product-2', super_cat: 'product-1'
-        end
-      end
-
-      context "when requesting for page title and meta description for a given sub-category, category and super category" do
-        before(:each) do
-          category_object = [Hashie::Mash.new(
-            category_id: 3,
-            code: 'product-3',
-            enabled: true,
-            hierarchy_level: 3,
-            seo_page_title: 'Buy Product 3 online',
-            seo_page_description: 'Browse the latest Product 3 online'
-          )]
-          ProductService.stub(:build).and_return(@search_object, category_object)
-        end
-
-        it "includes the sub-category name in the page title and meta description, and add to meta" do
-          meta_double = double :meta
-          meta_double.should_receive(:push).with({
-            page_title: "Buy Product 3 online at Westfield",
-            description: "Browse the latest Product 3 online at Westfield"
-          })
-          controller.stub(:meta).and_return(meta_double)
-          get :index_national, sub_category: ['product-3'], category: 'product-2', super_cat: 'product-1'
-        end
-      end
-
-      context "when requesting for page title and meta description for given sub-categories, category and super category" do
-
-        context "and page title and meta description exist" do
-
-          before(:each) do
-            category_object = [Hashie::Mash.new(
-              category_id: 3,
-              code: 'product-3',
-              enabled: true,
-              hierarchy_level: 3,
-              seo_page_title: 'Buy Product 3 online',
-              seo_page_description: 'Browse the latest Product 3 online'
-            )]
-            ProductService.stub(:build).and_return(@search_object, category_object)
-          end
-
-          it "includes the sub-category names in the page title and meta description, and adds to meta" do
-            meta_double = double :meta
-            meta_double.should_receive(:push).with({
-              page_title: "Buy Product 3 online at Westfield",
-              description: "Browse the latest Product 3 online at Westfield"
-            })
-            controller.stub(:meta).and_return(meta_double)
-            get :index_national, sub_category: ['product-3','product-4'], category: 'product-2', super_cat: 'product-1'
-          end
-
-        end
-
-        context "and page title and meta description do NOT exist" do
-
-          it "includes the sub-category names in the page title and meta description extracted from the params, and adds to meta" do
-            meta_double = double :meta
-            meta_double.should_receive(:push).with({
-              page_title: "Find Product 3 and Product 4 at Westfield",
-              description: "Shop for the latest Product 3 and Product 4 online or in-store at Westfield"
-            })
-            controller.stub(:meta).and_return(meta_double)
-            get :index_national, sub_category: ['product-3','product-4'], category: 'product-2', super_cat: 'product-1'
-
-          end
-
-        end
-
-      end
-
-      context "when requesting for page title and meta description for given a retailer" do
-        it "includes the retailer name and description in the page title and meta description respectively, and adds to meta" do
-          meta_double = double :meta
-          meta_double.should_receive(:push).with({
-            page_title: "Retailer at Westfield",
-            description: "Find the latest fashion, clothes, shoes, jewellery, accessories and much more at Westfield"
-          })
-          controller.stub(:meta).and_return(meta_double)
-          get :index_national, retailer: 'retailer'
-        end
-      end
-
-      context "when requesting for page title and meta description for given retailers" do
-        it "includes the retailer name and description in the page title and meta description respectively, and adds to meta" do
-          meta_double = double :meta
-          meta_double.should_receive(:push).with({
-            page_title: "Retailer 1 and Retailer 2 at Westfield",
-            description: "Find the latest fashion, clothes, shoes, jewellery, accessories and much more at Westfield"
-          })
-          controller.stub(:meta).and_return(meta_double)
-          get :index_national, retailer: ['retailer-1','retailer-2']
-        end
-      end
-
     end
 
-    describe "params" do
-      it "remove gclid param" do
-        controller.stub(:params).and_return({})
-        get :index_national, gclid: 'CN3h6JTO4LsCFfFV4god9gMAkQ'
+    describe :params do
+      let( :search_object ) do
+        Hashie::Mash.new(
+          count: 50,
+          rows: 50,
+          seo: Hashie::Mash.new(
+            page_title: '',
+            description: ''
+          )
+        )
+      end
+
+      context "when gclid param is present" do
+        it "remove gclid param" do
+          ProductService.stub( :build ).and_return( search_object )
+          controller.stub(:params).and_return({})
+          get :index_national, gclid: 'CN3h6JTO4LsCFfFV4god9gMAkQ'
+        end
       end
     end
-
   end
 
-  describe "GET #show_centre" do
+  describe :show_centre do
     it "assigns the centre instance variable and redirection url" do
       get :show_centre, id: 1, centre_id: 'bondijunction', retailer_code: 'retailer_code', product_name: 'product_name'
       response.should render_template :show
@@ -375,7 +191,7 @@ describe ProductsController do
       assigns(:product_redirection_url).should == centre_product_redirection_url
     end
 
-    describe "params" do
+    describe :params do
       it "remove gclid param" do
         controller.stub(:params).and_return({ id: 1, centre_id: 'bondijunction', retailer_code: 'retailer_code', product_name: 'product_name' })
         get :show_centre, id: 1, centre_id: 'bondijunction', retailer_code: 'retailer_code', product_name: 'product_name', gclid: 'CN3h6JTO4LsCFfFV4god9gMAkQ'
@@ -383,7 +199,7 @@ describe ProductsController do
     end
   end
 
-  describe "GET #show_national" do
+  describe :show_national do
     it "does not assign the centre instance variable and does assigns centre redirection url" do
       get :show_national, id: 1, retailer_code: 'retailer_code', product_name: 'product_name'
       response.should render_template :show
@@ -391,7 +207,7 @@ describe ProductsController do
       assigns(:product_redirection_url).should == product_redirection_url
     end
 
-    describe "params" do
+    describe :params do
       it "remove gclid param" do
         controller.stub(:params).and_return({ id: 1, retailer_code: 'retailer_code', product_name: 'product_name' })
         get :show_national, id: 1, retailer_code: 'retailer_code', product_name: 'product_name', gclid: 'CN3h6JTO4LsCFfFV4god9gMAkQ'
@@ -400,7 +216,7 @@ describe ProductsController do
   end
 
 
-  describe "GET #redirection" do
+  describe :redirection do
     context "when cam_ref is missing" do
       before :each do
         ProductService.stub(:fetch).and_return double( :response,

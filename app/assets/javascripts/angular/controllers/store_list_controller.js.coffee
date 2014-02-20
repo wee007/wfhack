@@ -1,26 +1,23 @@
 ((app) ->
-  app.controller 'StoreListController', ['$scope', '$document', '$window', '$timeout', ( $scope, $document, $window, $timeout ) ->
+  app.controller 'StoreListController', ['$scope', '$document', '$window',  ( $scope, $document, $window ) ->
     $scope.viewingSubCategory = undefined
     $scope.viewSubCategory = (category) -> $scope.viewingSubCategory = category
     $scope.queryParams = ''
     $scope.viewingMap = false
-
+    
     param = (key, val) ->
       [key, val].join('=')
-
-    updateQueryParams = (val)->
+    
+    updateQueryParams = ->
       params = []
       params.push(param('gift_cards', true)) if $scope.gift_cards
       params.push(param('map', true)) if $scope.viewingMap
-      $timeout ->
-        $scope.queryParams = if params.length then '?' + params.join('&') else ''
-      , 100
+      $scope.queryParams = if params.length then '?' + params.join('&') else ''
 
     $scope.saveCategory = (category) ->
       if Modernizr.localstorage and
           category?
         localStorage.filteredCategory = category
-      return true
 
     $scope.$watch 'gift_cards', (val) ->
       if Modernizr.localstorage
@@ -33,9 +30,7 @@
     $scope.$watch('viewingMap', updateQueryParams)
 
     # Gift card submit
-    $scope.giftCardChange = ->
-      $(':submit', $window.giftCardForm).click()
-      @
+    $scope.giftCardSubmit = -> $window.giftCardForm.submit()
 
     # Clicking outside will unselect category
     $document.bind 'click', -> $scope.viewSubCategory(null)

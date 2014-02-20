@@ -11,6 +11,7 @@
 */
 
 .no-content-fallback-msg {
+  text-align: center;
   @include to-rem(padding-top, 62);
 
   @include respond-min($non-palm) {
@@ -19,17 +20,18 @@
 
   /* Set common colour */
   &,
-  .no-content-fallback-msg__icon:before {color: $color-txt-light;}
+  .icon:before {color: $color-txt-light;}
 
   em,
   span {display: block;}
 
-  .drop-down-container {
-    @include to-rem(margin, $spacing-third auto 0);
-    @include to-rem(max-width, $drop-down-width);
-  }
+  .icon:before {
+    @include font-size(48, 1);
 
-  p {text-align: center;}
+    @include respond-min($non-palm) {
+      @include font-size(60, 1);
+    }
+  }
 
     /* 'No content/search results' text */
     em {
@@ -39,18 +41,9 @@
       @include to-rem(margin-top, $spacing-half);
     }
 
-
     /* 'See nearby centres' text */
     p > span {color: $color-txt-dark;}
 }
 
 /* Modifier: remove top padding */
 .no-content-fallback-msg--flush {padding-top: 0;}
-
-    .no-content-fallback-msg__icon:before {
-      @include font-size(48, 1);
-
-      @include respond-min($non-palm) {
-        @include font-size(60, 1);
-      }
-    }

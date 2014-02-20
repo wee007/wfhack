@@ -11,11 +11,7 @@
     });
 
     // Clicking outside will close all toggleVisibility targets
-    $document.bind( 'click', function ( event ) {
-      if ($(event.target).parents('.js-toggle-visibility-target').length == 0) {
-       close();
-      }
-    });
+    $document.bind( 'click', function ( event ) { close(); });
 
     // When product filter dropdowns are opened, close this toggle vis widget
     $rootScope.$on( 'product-filter-dropdown-open', function() {
@@ -94,8 +90,6 @@
         var id = attributes['toggleVisibility'],
             target = angular.element( '#' + id );
 
-        target.addClass('js-toggle-visibility-target');
-
         // ARIA for trigger
         trigger.attr( 'aria-haspopup', true );
         trigger.attr( 'aria-controls', id );
@@ -106,6 +100,9 @@
           ( $rootScope.activeTVTarget == id ) ? close() : open(id);
           e.stopPropagation();
         });
+
+        // Allow the user to click inside the target
+        target.bind( 'click', function( e ) { e.stopPropagation(); });
       }
     }
   }]);

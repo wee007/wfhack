@@ -23,12 +23,6 @@
       colours: "colour"
       sizes: "size"
 
-    # On page load, if there are no products
-    # Remove bad params and do a search with no params to get all available params for this centre
-    if westfield.products.count == 0
-      ProductSearch.resetParams()
-      ProductSearch.getAvailableFilters $rootScope.centre_id
-
     useUrlParams = ( urlParams = {} ) ->
       # Add querystrings like last=, rows= & page=, as well
       # as overwriting the centre (for use when multiple centres are selected)
@@ -52,18 +46,12 @@
       # used by the view but we'll map them anyway.
       angular.forEach params, (param, key) -> $scope[key] = param
 
-    setParams = (newAttribute, newValues) ->
+    setParams = ->
       rParams = routeParams()
       qsParams = queryStringParams()
 
       # New params mean that we need to reset the page QS
       delete qsParams.page
-
-      # When doing a search after a "no products" result
-      # Make sure bad params are removed from URL, with only the new param being added
-      if westfield.products.count == 0
-        qsParams = {}
-        qsParams[newAttribute] = newValues
 
       # Collect routable params, removing undefined
       route = ['products', rParams.super_cat, rParams.category]
@@ -100,12 +88,7 @@
     )()
 
     $scope.go = (event, path) ->
-      # Angular's $location.path wasnt replacing the full URL when there were no products,
-      # So use to lower level value to change URL
-      if westfield.products.count == 0
-        $window.location.href = path
-      else
-        $location.path(path)
+      $location.path(path)
       event.preventDefault()
 
     $scope.updateSearch = ->
@@ -115,20 +98,13 @@
 
     # Filter controls / toggle / open / close
     $scope.activeFilter = ""
-    $scope.toggleFilter = ($event, filterName) ->
+    $scope.toggleFilter = (filterName) ->
       if $scope.activeFilter isnt filterName
         $scope.activeFilter = filterName
-
+        $scope.triggersVisible = false;
         #let other dropdowns know that they should close themselves
         $rootScope.$broadcast "product-filter-dropdown-open"
         SocialShare.closeAll()
-
-        # Stop event from getting to toggle visibility instance for "Filters" mobile button
-        # It doesnt need to know as it's not being used at this breakpoint
-        if angular.element("html").hasClass("lap-lrg")
-          $event.stopPropagation()
-        else
-          $scope.triggersVisible = false;
       else
         $scope.closeFilters()
 
@@ -138,10 +114,9 @@
     $rootScope.$on "toggle-visibility-dropdowns", ->
       $timeout($scope.closeFilters, 0);
 
+
     if angular.element("html").hasClass("lap-lrg")
       $(document).click ->
-        # Dont close a filter dropdown if the click came from inside a filter dropdown
-        if $(event.target).parents('.filters__target').length == 0
           $scope.closeFilters()
           $scope.$apply()
 
@@ -193,7 +168,7 @@
 
       attributeName = searchParamMap[attributeName]  if searchParamMap[attributeName] isnt `undefined`
       ProductSearch.setParam attributeName, values
-      setParams(attributeName, values)
+      setParams()
       $scope.closeFilters()
 
     $scope.filterCategory = (categoryType, categoryCode) ->

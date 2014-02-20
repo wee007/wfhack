@@ -3,210 +3,147 @@
 <div class="stores-maps container js-stores-maps-toggle-wrap">
 
   <%# Contain 'back to listing link' and 'store details' %>
-  <div class="js-pjax-container-stores" aria-live="polite" aria-atomic="true">
+  <div class="stores-maps__inner stores-maps__inner--detail <%= 'is-featured-items' if @products.present? or @deals.present? %>" id="stores-maps-toggle-listing-detail">
 
-    <%# PJAX preloader %>
-    <span class="preloader preloader--middle preloader--light">
-      <span class="preloader__spinner"></span>
-      <em class="hide-visually">Loading, please wait&#8230;</em>
-    </span>
-    <%# //PJAX preloader %>
-    <div class="stores-maps__inner stores-maps__inner--detail <%= 'is-featured-items' if @products.present? or @deals.present? %>" id="stores-maps-toggle-listing-detail">
-      <%# Back to listing link %>
-      <div class="stores-maps__filters-toggle">
-        <div class="container">
+    <%# Back to listing link %>
+    <div class="stores-maps__filters-toggle">
+      <div class="container">
 
-          <%# Small screen view %>
-          <a href="<%= centre_stores_path(@centre) %>" class="stores-maps__toggle stores-maps__toggle--link btn btn--main btn--main-white btn--main-compact-icon js-maintain-store-filter js-pjax-link-stores js-pjax-view-stores">
-            <span class="hide-visually--palm">View stores</span>
-            <span class="icon icon--list icon--lrg" aria-hidden="true"></span>
+        <%# Small screen view %>
+        <a href="<%= centre_stores_path(@centre) %>" class="stores-maps__toggle stores-maps__toggle--link btn btn--main btn--main-white btn--main-compact-icon js-maintain-store-filter">
+          <span class="hide-visually--palm">View stores</span>
+          <span class="icon icon--list icon--lrg" aria-hidden="true"></span>
+        </a>
+        <%# //Small screen view %>
+
+        <%# Large screen view %>
+        <span class="stores-maps__filters-toggle__hdr txt-truncate">
+          <a href="<%= centre_stores_path(@centre) %>" class="js-maintain-store-filter">
+            <span class="icon icon--arrow-left-big" aria-hidden="true"></span>
+            <span class="hide-visually">Back to </span>
+            Stores
           </a>
-          <%# //Small screen view %>
-
-          <%# Large screen view %>
-          <span class="stores-maps__filters-toggle__hdr txt-truncate">
-            <a href="<%= centre_stores_path(@centre) %>" class="js-maintain-store-filter js-pjax-link-stores">
-              <span class="icon icon--arrow-left-big" aria-hidden="true"></span>
-              <span class="hide-visually">Back to </span>
-              Stores
-            </a>
-            <span class="hide-visually">You are viewing store:</span> <%= @store.name %>
-          </span>
-          <%# //Large screen view %>
-        </div>
+          <span class="hide-visually">You are viewing store:</span> <%= @store.name %>
+        </span>
+        <%# //Large screen view %>
       </div>
-      <%# //Back to listing link %>
+    </div>
+    <%# //Back to listing link %>
 
-      <%# Store details %>
-      <div class="stores-maps__list-detail">
+    <%# Store details %>
+    <div class="stores-maps__list-detail">
 
-        <article class="storefront" role="article" itemscope itemtype="http://schema.org/Organization">
+      <article class="storefront" role="article" itemscope itemtype="http://schema.org/Organization">
 
-          <%# Header (carousel) %>
-          <%= render @store.has_storefront? ? 'header_with_banner' : 'header_without_banner' %>
-          <%# //Header (carousel) %>
+        <%# Header (carousel) %>
+        <%= render @store.has_storefront? ? 'header_with_banner' : 'header_without_banner' %>
+        <%# //Header (carousel) %>
 
-          <%# Store details %>
-          <div class="storefront__details">
+        <%# Store details %>
+        <div class="storefront__details">
 
-            <%# Inner container %>
-            <div class="container container--position">
+          <%# Inner container %>
+          <div class="container container--position">
 
-              <%# Store meta %>
-              <dl class="storefront__details__meta">
+            <%# Store meta %>
+            <dl class="storefront__details__meta">
 
-                <%# Store level %>
-                <%- if @store.level.present? %>
-                  <dt class="hide-visually">Shopping centre level</dt>
-                  <dd class="hide-visually"><%= @store.level %></dd>
-                <%- end %>
-                <%# //Store level %>
+              <%# Store level %>
+              <%- if @store.level.present? %>
+                <dt class="hide-visually">Shopping centre level</dt>
+                <dd class="hide-visually"><%= @store.level %></dd>
+              <%- end %>
+              <%# //Store level %>
 
-                <%# Store closing time %>
-                <%- if @store.closing_time.present? and !@store.closed_today? %>
-                  <dt class="hide-visually">Opening hours</dt>
-                  <dd class="storefront__details__meta__no-indent">Open till <time datetime="<%= @store.closing_time %>"><%= twelve_hour_format @store.closing_time %></time> tonight</dd>
-                <%- else %>
-                  <dd class="storefront__details__meta__no-indent">Closed today</dd>
-                <%- end %>
-                <%# //Store closing time %>
+              <%# Store closing time %>
+              <%- if @store.closing_time.present? and !@store.closed_today? %>
+                <dt class="hide-visually">Opening hours</dt>
+                <dd class="storefront__details__meta__no-indent">Open till <time datetime="<%= @store.closing_time %>"><%= twelve_hour_format @store.closing_time %></time> tonight</dd>
+              <%- else %>
+                <dd class="storefront__details__meta__no-indent">Closed today</dd>
+              <%- end %>
+              <%# //Store closing time %>
 
-                <%# Store phone no %>
-                <%- if @store.phone_number.present? %>
-                  <dt class="hide-visually hide-fully--palm">Store phone number</dt>
-                  <dd class="hide-fully--palm" itemprop="telephone">
-                    <%= phone_format @store.phone_number %>
-                    <span class="icon icon--phone2 icon--xlrg icon--fixed-width" aria-hidden="true"></span>
-                  </dd>
-                <%- end %>
-                <%# //Store phone no %>
+              <%# Store phone no %>
+              <%- if @store.phone_number.present? %>
+                <dt class="hide-visually hide-fully--palm">Store phone number</dt>
+                <dd class="hide-fully--palm" itemprop="telephone">
+                  <%= phone_format @store.phone_number %>
+                  <span class="icon icon--phone2 icon--xlrg icon--fixed-width" aria-hidden="true"></span>
+                </dd>
+              <%- end %>
+              <%# //Store phone no %>
 
-                <%# Store email %>
-                <%- if @store.email_address.present? %>
-                  <dt class="hide-visually">Store email</dt>
-                  <dd class="txt-truncate">
-                    <%= mail_to @store.email_address, @store.email_address, itemprop: 'email' %>
-                    <span class="icon icon--email icon--xlrg icon--fixed-width" aria-hidden="true"></span>
-                  </dd>
-                <%- end %>
-                <%# //Store email %>
+              <%# Store email %>
+              <%- if @store.email_address.present? %>
+                <dt class="hide-visually">Store email</dt>
+                <dd class="txt-truncate">
+                  <%= mail_to @store.email_address, @store.email_address, itemprop: 'email' %>
+                  <span class="icon icon--email icon--xlrg icon--fixed-width" aria-hidden="true"></span>
+                </dd>
+              <%- end %>
+              <%# //Store email %>
 
-                <%# Store gift cards accepted %>
-                <%- if @store.accepts_giftcards.present? %>
-                  <dt class="hide-visually">Westfield gift card</dt>
-                  <dd>
-                    Gift card accepted in store
-                    <span class="icon icon--gift-card icon--xlrg icon--fixed-width" aria-hidden="true"></span>
-                  </dd>
-                <%- end %>
-                <%# //Store gift cards accepted %>
+              <%# Store gift cards accepted %>
+              <%- if @store.accepts_giftcards.present? %>
+                <dt class="hide-visually">Westfield gift card</dt>
+                <dd>
+                  Gift card accepted in store
+                  <span class="icon icon--gift-card icon--xlrg icon--fixed-width" aria-hidden="true"></span>
+                </dd>
+              <%- end %>
+              <%# //Store gift cards accepted %>
 
-              </dl>
-              <%# //Store meta %>
+            </dl>
+            <%# //Store meta %>
 
-              <%# Icon links - store phone no and location %>
-              <div class="storefront__details__phone-map storefront-storelist-phone-map-links">
+            <%# Icon links - store phone no and location %>
+            <div class="storefront__details__phone-map storefront-storelist-phone-map-links">
 
-                <%# Phone no %>
-                <%- if @store.phone_number.present? %>
-                  <%= phone_link @store.phone_number, class: 'storefront-storelist-phone-map-links__cell storefront-storelist-phone-map-links__cell--phone hide-fully--non-palm' do |phone_number| %>
-                    <span class="hide-visually">
-                      Call store:
-                      <span itemprop="telephone"><%= phone_number %></span>
-                    </span>
-                    <span class="icon icon--phone2 icon--flush-top storefront-storelist-phone-map-links__cell__valign"></span>
-                  <% end %>
-                <%- end %>
-                <%# //Phone no %>
-
-                <%# Location %>
-                <a href="#infoDiv" class="storefront-storelist-phone-map-links__cell storefront-storelist-phone-map-links__cell--location" data-store-id="<%= @store.id %>">
-                  <span class="storefront-storelist-phone-map-links__cell__valign">
-                    <span class="icon icon--pin icon--flush-top"></span>
-                    <span class="hide-visually--palm">Store location</span>
+              <%# Phone no %>
+              <%- if @store.phone_number.present? %>
+                <%= phone_link @store.phone_number, class: 'storefront-storelist-phone-map-links__cell storefront-storelist-phone-map-links__cell--phone hide-fully--non-palm' do |phone_number| %>
+                  <span class="hide-visually">
+                    Call store:
+                    <span itemprop="telephone"><%= phone_number %></span>
                   </span>
-                </a>
-                <%# //Location %>
+                  <span class="icon icon--phone2 icon--flush-top storefront-storelist-phone-map-links__cell__valign"></span>
+                <% end %>
+              <%- end %>
+              <%# //Phone no %>
 
-              </div>
-              <%# //Icon links - store phone no and location %>
+              <%# Location %>
+              <a href="#infoDiv" class="storefront-storelist-phone-map-links__cell storefront-storelist-phone-map-links__cell--location" data-store-id="<%= @store.id %>">
+                <span class="storefront-storelist-phone-map-links__cell__valign">
+                  <span class="icon icon--pin icon--flush-top"></span>
+                  <span class="hide-visually--palm">Store location</span>
+                </span>
+              </a>
+              <%# //Location %>
 
             </div>
-            <%# //Inner container %>
+            <%# //Icon links - store phone no and location %>
 
           </div>
-          <%# //Store details %>
+          <%# //Inner container %>
 
-          <%# Product and Deal tiles %>
-          <%- if @products.present? or @deals.present? %>
-            <footer class="storefront__featured">
+        </div>
+        <%# //Store details %>
 
-              <%= render 'tiles', results: @products, kind: 'product', heading: 'Featured', path: centre_products_path( centre_id: @centre.code, retailer: [ params[ :retailer_code ] ] ), store: @store if @products.present? %>
-              <%= render 'tiles', results: @deals, kind: 'deal', heading: 'Deals', path: centre_deals_path( @centre.code ), store: @store if @deals.present? %>
-
-            </footer>
-          <% end %>
-          <%# //Product and Deal tiles %>
+        <%# Product and Deal tiles %>
+        <%- if @products.present? or @deals.present? %>
+          <footer class="storefront__featured">
+            <%= render 'tiles', results: @products, kind: 'product', heading: 'Featured', path: centre_products_path( centre_id: @centre.code, retailer: [ params[ :retailer_code ] ] ), store: @store if @products.present? %>
+            <%= render 'tiles', results: @deals, kind: 'deal', heading: 'Deals', path: centre_deals_path( @centre.code ), store: @store if @deals.present? %>
+          </footer>
+        <% end %>
+        <%# //Product and Deal tiles %>
 
       </article>
 
-      </div>
-      <%#//Store details %>
-      <script>
-        function storeMapPageReady() {
-
-          // If the user has come from the stores index page when filtering by category
-          // then set the back link to the correct category.
-          if (Modernizr.localstorage) {
-            if (typeof localStorage.filteredCategory != 'undefined') {
-              $('.js-maintain-store-filter').attr('href', function(i, href) {
-                return href + '/' + localStorage.filteredCategory;
-              });
-              localStorage.removeItem('filteredCategory');
-            }
-            if (typeof localStorage.giftCards != 'undefined' && !!localStorage.giftCards) {
-              $('.js-maintain-store-filter').attr('href', function(i, href) {
-                return href + '?gift_cards=true';
-              });
-              localStorage.removeItem('giftCards');
-            }
-          }
-
-          // Target the store in the map
-          storeMapPage.store(<%= @store.id %>);
-
-          // Run 'Flexslider' plugin
-
-          // Get the count of flexslider items
-          var flexsliderItemsCount = $('.flexslider .slides li').length;
-
-          // Only initialise flexslider if more than 1 item
-          if (flexsliderItemsCount > 1) {
-
-            $('.flexslider').flexslider({
-              animationSpeed: 50,
-              controlNav: true,
-              directionNav: false,
-              slideshow: false,
-              // Do stuff when the slider loads the first slide
-              start: function(slider) {
-                // Add some ARIA
-                slider.container.attr('role', 'listbox');
-                slider.slides.attr({'role': 'option', 'aria-selected': 'false'});
-                slider.slides.eq(slider.currentSlide).attr('aria-selected', 'true');
-                slider.controlNav.attr({'href' : '#', 'role' : 'button'}).prepend('Show slide ');
-              },
-              // Do stuff after each slider animation completes
-              after: function(slider) {
-                slider.slides.attr('aria-selected', 'false');
-                slider.slides.eq(slider.currentSlide).attr('aria-selected', 'true');
-              }
-            });
-
-          }
-        }
-      </script>
     </div>
+    <%#//Store details %>
+
   </div>
   <%# //Contain 'back to listing link' and 'store details' %>
 
@@ -220,4 +157,58 @@
 
 <%- content_for :javascript do -%>
   <%= javascript_include_tag 'stores_maps' %>
+  <script>
+    function storeMapPageReady() {
+
+      // If the user has come from the stores index page when filtering by category
+      // then set the back link to the correct category.
+      if (Modernizr.localstorage) {
+        if (typeof localStorage.filteredCategory != 'undefined') {
+          $('.js-maintain-store-filter').attr('href', function(i, href) {
+            return href + '/' + localStorage.filteredCategory;
+          });
+          localStorage.removeItem('filteredCategory');
+        }
+        if (typeof localStorage.giftCards != 'undefined' && !!localStorage.giftCards) {
+          $('.js-maintain-store-filter').attr('href', function(i, href) {
+            return href + '?gift_cards=true';
+          });
+          localStorage.removeItem('giftCards');
+        }
+      }
+
+      // Target the store in the map
+      storeMapPage.store(<%= @store.id %>);
+
+      // Run 'Flexslider' plugin
+
+      // Get the count of flexslider items
+      var flexsliderItemsCount = $('.flexslider .slides li').length;
+
+      // Only initialise flexslider if more than 1 item
+      if (flexsliderItemsCount > 1) {
+
+        $('.flexslider').flexslider({
+          animationSpeed: 50,
+          controlNav: true,
+          directionNav: false,
+          slideshow: false,
+          // Do stuff when the slider loads the first slide
+          start: function(slider) {
+            // Add some ARIA
+            slider.container.attr('role', 'listbox');
+            slider.slides.attr({'role': 'option', 'aria-selected': 'false'});
+            slider.slides.eq(slider.currentSlide).attr('aria-selected', 'true');
+            slider.controlNav.attr({'href' : '#', 'role' : 'button'}).prepend('Show slide ');
+          },
+          // Do stuff after each slider animation completes
+          after: function(slider) {
+            slider.slides.attr('aria-selected', 'false');
+            slider.slides.eq(slider.currentSlide).attr('aria-selected', 'true');
+          }
+        });
+
+      }
+    }
+  </script>
 <%- end -%>

@@ -194,12 +194,12 @@ class map.micello.Map
     @levelStyle().get(0).innerHTML += "#ui-levels-floor-#{id}.ui_levels_floor:before { content: '#{count}'; }"
 
   pinStore: (withCount = false, andGotoLevel = false) ->
-    @clearPins()
+    @clearPins('targetPin')
     if @hasTargetGeom()
       if(withCount)
-        @pinStores([@targetStore().id], andGotoLevel)
+        @pinStores([@targetStore().id], andGotoLevel, 'targetPin')
       else
-        @pinGeom(geom) for geom in @targetGeomGroup()
+        @pinGeom(geom, 'targetPin') for geom in @targetGeomGroup()
 
   pinStores: (store_ids, andGotoLevel = true, anm = 'pins') ->
     @clearLevelCounts()

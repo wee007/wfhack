@@ -1,12 +1,8 @@
-#= require jquery-pjax
 #= require flexslider/jquery.flexslider
 #= require map/responsive_map
 #= require fastclick
 
 class StoreMapPage
-
-  pjaxContainerSelector = '.js-pjax-container-stores'
-  $pjaxContainer = $(pjaxContainerSelector)
 
   constructor: ->
     @map = new map.ResponsiveMap {
@@ -15,21 +11,7 @@ class StoreMapPage
       nonPalm: offset: x: 0.75, y: 0.5, zoom: 0.7
     }
 
-  startLoading: =>
-    @loading true
-
-  stopLoading: =>
-    @loading false
-
-  loading: (state) ->
-    # after pjax load has completed the user needs to see the detail
-    $pjaxContainer.toggleClass('is-loading', state)
-
-  pjaxComplete: =>
-    @pageLoaded()
-    @recompileAngularScope()
-
-  pageLoaded: ->
+  loadComplete: =>
     $ ->
       if window.storeMapPageReady
         setTimeout((->
@@ -37,32 +19,10 @@ class StoreMapPage
           delete storeMapPageReady
         ), 0)
 
-  recompileAngularScope: ->
-    scope = angular.element(pjaxContainerSelector).scope()
-    compile = angular.element(pjaxContainerSelector).injector().get('$compile')
-
-    compile($pjaxContainer.contents())(scope)
-    scope.$apply()
-
-  pjaxNavigate: (event) =>
-    @startLoading()
-    $.pjax.click(event, container: $pjaxContainer)
-
   setup: =>
     body = $('body')
-    if $.support.pjax
-      $.pjax.defaults?.timeout = 50000
-      $(document).on('pjax:send', @startLoading)
-      $(document).on('pjax:success', @stopLoading)
-      body.on('pjax:end', pjaxContainerSelector, @pjaxComplete)
-      body.on('pjax:popstate', pjaxContainerSelector, @pjaxComplete)
-      body.on('click', 'a.js-pjax-link-stores', @pjaxNavigate)
-
-      body.on 'submit', 'form[data-pjax]', (event) ->
-        $.pjax.submit(event, pjaxContainerSelector)
-
     body.on('click', '.is-list-view .js-stores-maps-toggle-btn', @show)
-    body.on('click', '.is-map-view .js-stores-maps-toggle-btn, .is-map-view .js-pjax-view-stores', @hide)
+    body.on('click', '.is-map-view .js-stores-maps-toggle-btn', @hide)
     # Micello hijacks clicks on the store map for touch devices
     # so listen for touchstart event which is not hijacked and send user to the url manually
     body.on 'touchstart', '.js-touchlink', ->
@@ -74,14 +34,13 @@ class StoreMapPage
       setTimeout((-> self.store(el.data('store-id'))), 0)
       false
     )
-    @pageLoaded()
+    @loadComplete()
 
   show: =>
     @updateGUI @map.show()
     false
 
   hide: =>
-    #debugger
     @updateGUI @map.hide()
     false
 
@@ -102,15 +61,10 @@ class StoreMapPage
   store: (storeId) ->
     @map.setTarget(storeId).showLevel().zoom().highlight().pinStore(true, true).detail()
 
-  pinFilteredStores: ->
+  pinStores: ->
     getId = -> $(@).data 'store-id'
     ids = $('a[data-store-id]').map getId
-    @map.pinStores(ids, true)
-
-  updatePinAndPopup: ->
-    @map.pinStores([])
-    @pinFilteredStores() if $('.stores-maps__filters-count').length
-    @map.detail()
+    storeMapPage.map.pinStores(ids, true, true)
 
 $('.js-fastclick').each -> FastClick.attach(@)
 @storeMapPage = new StoreMapPage

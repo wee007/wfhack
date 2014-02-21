@@ -19286,4 +19286,61 @@ http_interactions:
       string: '[{"id":18,"centre_id":"bondijunction","store_id":null,"hour_type":"standard","description":null,"day_of_week":3,"date":"2014-02-20","opening_time":"09:30","closing_time":"21:00","closed":false}]'
     http_version: 
   recorded_at: Thu, 20 Feb 2014 03:37:29 GMT
+- request:
+    method: get
+    uri: http://trading-hour-service.test.dbg.westfield.com/api/trading-hour/master/centre_trading_hours/range.json?centre_id=bondijunction&from=2014-02-21&to=2014-02-21
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.8
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - 1; mode=block
+      X-Content-Type-Options:
+      - nosniff
+      X-UA-Compatible:
+      - chrome=1
+      ETag:
+      - '"666acba576423f1f64dee7b871cc4171"'
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      X-Request-Id:
+      - 42e8e18b-b07e-468a-bddd-442f760e76b3
+      X-Runtime:
+      - '0.007842'
+      Status:
+      - 200 OK
+      Content-Type:
+      - application/json; charset=utf-8
+      Server:
+      - Apache
+      Content-Length:
+      - '194'
+      Date:
+      - Fri, 21 Feb 2014 03:22:52 GMT
+      X-Varnish:
+      - '1685946343'
+      Age:
+      - '0'
+      Via:
+      - 1.1 varnish
+      Connection:
+      - keep-alive
+      X-Cache:
+      - MISS
+    body:
+      encoding: UTF-8
+      string: '[{"id":19,"centre_id":"bondijunction","store_id":null,"hour_type":"standard","description":null,"day_of_week":4,"date":"2014-02-21","opening_time":"09:30","closing_time":"19:00","closed":false}]'
+    http_version: 
+  recorded_at: Fri, 21 Feb 2014 03:22:52 GMT
 recorded_with: VCR 2.6.0

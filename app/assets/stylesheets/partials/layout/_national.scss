@@ -2,6 +2,14 @@
    @LAYOUT -> NATIONAL HOMEPAGE
    ====================================================================================== */
 
+/*
+  Note:
+    The text that sits on top of the hero image will need to be either white or dark depending on the type of image used.
+    White = `#fff`.
+    Dark = `$color-grey-dark-1`.
+    To update search for '[Text colour change]' comments.
+*/
+
 /* [`body` ELEMENT]
 -------------------------------------------------------*/
 .national {
@@ -19,9 +27,10 @@
   -------------------------------------------------------*/
   .national__inner {
 
+    /* [Text colour change] change this to colour needed */
     &,
     a,
-    .icon:before {color: #fff;}
+    .icon:before {color: $color-grey-dark-1;}
 
     @include respond-min($non-palm) {
       position: absolute;
@@ -132,9 +141,15 @@
         @include old-ie {top: 110px;}
 
         h1 {
-          @extend %mrg-base;
+          /* @extend %mrg-base; */
+          /* Use this small bottom margin when a link appears under the `h1` */
+          @include to-rem(margin-bottom, $spacing-quarter);
           /* Need a tighter `line-height` so the `span` will sit closer to the text under it */
           line-height: 1;
+
+          @include respond-min($iphone-landscape) {
+            @include font-size(36);
+          }
 
           @include respond-min($non-palm) {
             @include font-size($font-size-kilo);
@@ -143,88 +158,36 @@
             /* Subtext in the heading */
             span {
               display: block;
-              @include font-size($font-size-sml);
+              @include font-size($font-size-milli);
+
+              @include respond-min($iphone-landscape) {
+                @include font-size($font-size-lrg);
+              }
 
               @include respond-min($non-palm) {
                 @include font-size($font-size-lrger);
               }
             }
         }
-      }
 
-        /* Link that goes to YouTube page */
-        .national__video {
-          display: inline-block;
-          position: relative;
-          @include to-rem(padding, $spacing-quarter);
-          width: 100px;
-
-          @include respond-min($non-palm) {
-            width: 150px;
-          }
-
-          /* Applies semi transparent background behind the video thumbnail image */
-          &:before {
-            content: "";
-            display: block;
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(#000, 0.3);
-          }
-
-          /* On hover/focus, the semi transparent background will cover up the video thumbnail image */
-          &:hover,
-          &:focus {
-            &:before {z-index: 2;}
-          }
-
-          /* Thumbnail of the video */
-          img {
-            position: relative;
-            /* Need this so it'll appear behind the background overlay */
-            z-index: 1;
-
-             /* Old IE - makes the play icon can appear in front of the image */
-            @include old-ie {position: static;}
-          }
-
-          /* Play icon */
-          .icon:before {
-            position: absolute;
-            /* Need this so it'll appear in front of the img */
-            z-index: 2;
-            top: 50%;
-            left: 50%;
-            @include translate(-50%, -50%);
-            @include font-size($font-size-xlrg, 1);
-
-            @include respond-min($non-palm) {
-              @include font-size($font-size-kilo, 1);
-            }
-
-            /* Old IE */
-            @include old-ie {
-              margin-top: -25px;
-              margin-left: -20px;
-            }
-          }
+        /* Sometimes we have a link underneath the `h1` */
+        @include respond-min($non-palm) {
+          a {@include font-size($font-size-lrg);}
         }
+      }
 
     /* Hero image paths (see 'Image rotate' module) */
     .national__hero__1 {
       @include respond-max($palm) {
-        background-image: cloudinary-url("heroes/national/national-hero-01-sml.jpg", $quality: 90, $fetch_format: 'auto');
+        background-image: cloudinary-url("heroes/national/national-hero-01-sml.jpg", $quality: 93, $fetch_format: 'auto');
       }
 
       @include respond-range($lap, $lap-sml-end) {
-        background-image: cloudinary-url("heroes/national/national-hero-01-med.jpg", $quality: 90, $fetch_format: 'auto');
+        background-image: cloudinary-url("heroes/national/national-hero-01-med.jpg", $quality: 93, $fetch_format: 'auto');
       }
 
       @include respond-min($lap-lrg) {
-        background-image: cloudinary-url("heroes/national/national-hero-01-lrg.jpg", $quality: 80, $fetch_format: 'auto');
+        background-image: cloudinary-url("heroes/national/national-hero-01-lrg.jpg", $quality: 90, $fetch_format: 'auto');
       }
     }
 
@@ -287,20 +250,6 @@
       .no-js & .tab__content {margin-bottom: 0;}
     }
 
-    /* Container for tab content to give positioning context for geolocation overlay */
-    .national__tabs__content__container {
-      position: relative;
-
-      /* Position the geolocation preloader to be the same top indent as the centre name */
-      .preloader--top {
-        @include to-rem(top, 30);
-
-        @include respond-min($non-palm) {
-          @include to-rem(top, $spacing-dbl);
-        }
-      }
-    }
-
       /* Tile that links to the relevant centre homepage */
       .national__centre-tile {
         display: block;
@@ -308,6 +257,10 @@
         background-size: cover;
         background-position: 0 0;
         border-bottom: 1px solid $color-grey-dark-2;
+
+        /* [Text colour change] this is only needed if `#fff` is needed */
+        .national__inner &,
+        .icon:before {color: #fff;}
 
         /* First `.national__centre-tile` gets `box-shadow` */
         li:first-child & {box-shadow: inset 0 4px 4px 0 rgba(#000, 0.4)}

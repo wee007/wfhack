@@ -18,15 +18,18 @@
     <div class="container container--position">
 
       <%# Logo %>
-      <%= image_tag image_path('logo-white-beta.svg'), alt: 'Westfield', "data-svg-fallback" => image_path('logo-white-beta.png'), class: 'national__logo' %>
+      <%= image_tag image_path('logo-beta.svg'), alt: 'Westfield', "data-svg-fallback" => image_path('logo-beta.png'), class: 'national__logo' %>
       <%# //Logo %>
 
       <%# Hero heading wrap %>
       <div class="national__heading__intro">
         <h1>
-          <span><%= @centres.length %> centres. Over 10,300 stores. Over <%= number_with_delimiter(@products_count, separator: ',') %> products</span>
-          Autumn Winter 2014
+          <span>Show Us Your Style for the Chance to Win a Trip to London</span>
+          #FLATLAYTHENATION
         </h1>
+        <a href="http://www.westfield.com.au/flatlay" rel="external" target="_blank">
+          Create &amp; Win <span class="icon icon--external-link icon--sml" aria-hidden="true"></span>
+        </a>
       </div>
       <%# //Hero heading wrap %>
 
@@ -101,24 +104,22 @@
 
       </div>
 
-      <div class="national__tabs__content__container js-sort-centres-geolocation-container">
-        <%# Tab content %>
-        <% %w(NSW ACT QLD VIC SA WA).each do |state| %>
-          <ul id="tab-<%= state.downcase %>" class="tab__content<%= ' is-active' if state == 'NSW' %>">
-            <% @centres_by_state[state].each do |centre| %>
-              <li class="js-viewport-check js-sort-centres-geolocation-<%= centre.code %>" >
-                <a class="national__centre-tile national__centre-tile--<%= centre.code %> " href="<%= centre_path( centre ) %>">
-                  <div class="container">
-                    <div class="h1"><%= centre.short_name %></div>
-                    <span class="icon icon--arrow-right icon--lrg" aria-hidden="true"></span>
-                  </div>
-                </a>
-              </li>
-            <% end %>
-          </ul>
-        <% end %>
-        <%# //Tab content %>
-      </div>
+      <%# Tab content %>
+      <% %w(NSW ACT QLD VIC SA WA).each do |state| %>
+        <ul id="tab-<%= state.downcase %>" class="tab__content<%= ' is-active' if state == 'NSW' %>">
+          <% @centres_by_state[state].each do |centre| %>
+            <li class="js-viewport-check js-sort-centres-geolocation-<%= centre.code %>" >
+              <a class="national__centre-tile national__centre-tile--<%= centre.code %> " href="<%= centre_path( centre ) %>">
+                <div class="container">
+                  <div class="h1"><%= centre.short_name %></div>
+                  <span class="icon icon--arrow-right icon--lrg" aria-hidden="true"></span>
+                </div>
+              </a>
+            </li>
+          <% end %>
+        </ul>
+      <% end %>
+      <%# //Tab content %>
     </nav>
 
   </main>
@@ -193,4 +194,3 @@
 
   <%= javascript_include_tag 'init/sort_centres_by_geolocation' %>
 <% end %>
-

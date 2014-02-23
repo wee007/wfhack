@@ -57,10 +57,10 @@ feature "Smoke tests", :vcr => {
       should eql(200)
     end
 
-    scenario "hours page" do
-      visit centre_hours_path(centre_code)
-      should eql(200)
-    end
+    # scenario "hours page" do
+    #   visit centre_hours_path(centre_code)
+    #   should eql(200)
+    # end
 
     scenario "service page" do
       visit centre_services_path(centre_code)

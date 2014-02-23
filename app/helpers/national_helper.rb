@@ -43,4 +43,8 @@ module NationalHelper
     )
   end
 
+  def national?
+    !(params[:centre_id] || @centre)
+  end
+
 end

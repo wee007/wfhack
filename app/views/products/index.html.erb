@@ -312,7 +312,7 @@
                 </div>
               </div>
 
-              <button type="submit" ng-click="updateSearch()" class="btn btn--main drop-down-menu__apply">Apply</button>
+              <button type="submit" ng-click="submitPriceFilter()" class="btn btn--main drop-down-menu__apply">Apply</button>
 
             </div>
 
@@ -363,7 +363,8 @@
     <ul class="horiz-list">
       <li ng-repeat="filter in search.appliedFilters">
         <button type="button" ng-click="removeSelectedFilter(filter)" class="tags__btn btn">
-          <span class="txt-truncate">{{ filter.title }}</span>
+          <span class="txt-truncate" ng-if="filter.type !== 'price'">{{ filter.title }}</span>
+          <span class="txt-truncate" ng-if="filter.type == 'price'">{{ filter.title | formatPriceRange }}</span>
           <span class="icon icon--close-sml icon--lrg icon--flush-top" aria-hidden="true"></span>
         </button>
       </li>

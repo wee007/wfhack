@@ -227,3 +227,25 @@
       /* Make focus state seen when using dark colour */
       .btn--main-dark &:focus {outline-color: #fff;}
     }
+
+    /* Modifier: iOS toggle */
+  .btn--main-ios-toggle {
+    @include to-em(padding, $spacing-half+2);
+    @include to-em(padding-top, $spacing-half - 0.7);
+
+    /* iOS and Android */
+    .ios &,
+    .android & {@include to-em(padding-top, $spacing-half+0.5);}
+  }
+
+    .btn--main-ios-toggle__handle,
+    .btn--main-ios-toggle__lbl {vertical-align: middle;}
+
+    /* The checkbox */
+    .btn--main-ios-toggle__input {
+      cursor: pointer;
+      @include to-rem(margin-right, $spacing-sixth);
+
+      /* Make focus state seen when using dark colour */
+      .btn--main-dark &:focus {outline-color: #fff;}
+    }

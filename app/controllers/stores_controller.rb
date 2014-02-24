@@ -11,6 +11,8 @@ class StoresController < ApplicationController
     # Filter the store list by params
     @stores = store_decorator.filter!(params)
 
+    gon.filtering_by_category = !@active_category.nil?
+
     @show_map_on_palm = params[:map] == "true"
 
     title = @active_category.nil? ? "Stores at #{centre.name}" : "#{centre.name} #{@active_category.name}"

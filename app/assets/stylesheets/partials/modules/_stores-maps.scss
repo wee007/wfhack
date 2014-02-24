@@ -190,6 +190,7 @@
 
       /* Header */
       .stores-maps__filters-toggle__hdr {
+        float: left;
         display: block;
         font-family: $font-family-opensans;
         @include font-size($font-size-xlrg, 1.5);
@@ -241,10 +242,10 @@
 
       /* Filters - 'Categories' and 'Gift card toggle' */
       .stores-maps__filters {
-        float: left;
 
         @include respond-min($ipad-landscape) {
-          float: none;
+          width: 100%;
+          text-align: right;
         }
 
         /* Non JS Users */
@@ -256,9 +257,20 @@
           }
 
           /* Gift card toggle */
-          .btn--main-checkbox-toggle .icon--gift-card:before {
-            color: #fff;
-            @include to-rem(margin-left, $spacing-quarter);
+          .btn--main-ios-toggle {
+            @include respond-min($ipad-landscape) {
+              @include to-em(padding, $spacing-half - 2 $spacing-half);
+              border: 1px solid $color-grey-med-2;
+              background-color: transparent;
+              box-shadow: none;
+            }
+
+            .icon--gift-card:before {
+              display: none;
+              @include respond-min($ipad-landscape) {
+                display: inline-block;
+              }
+            }
           }
 
           /* Applied filter tag */
@@ -305,6 +317,30 @@
           }
         }
 
+        /* Modifier: Keyword Filter */
+        .stores-maps__filters__item--keyword-filter {
+          display: none;
+          float: none;
+
+          @include respond-min($ipad-portrait) {
+            display: inline-block;
+          }
+          @include respond-min($ipad-portrait) {
+            display: block;
+          }
+
+          &.is-active { display:block; }
+
+          .is-map-view & {
+            @include to-rem(margin-right, $spacing-dbl+$spacing-quarter );
+          }
+
+          input {
+            @include to-rem(margin-top, $spacing-half);
+            width: 100%;
+          }
+        }
+
         /* Show hidden text for non JS users */
         .no-js {
           .stores-maps__intro,
@@ -315,6 +351,31 @@
             opacity: 0.8;
           }
         }
+
+
+        /* Show hidden text for non JS users */
+        .no-js {
+          .stores-maps__intro,
+          .drop-down-menu__list .btn .hide-visually {@extend %hide-visually-off;}
+
+          .drop-down-menu__list .btn .hide-visually {
+            font-style: italic;
+            opacity: 0.8;
+          }
+        }
+
+       /* Keyword Filter toggle */
+      .stores-maps__keyword-filter-toggle {
+
+        /* Hide at this breakpoint */
+        @include respond-min($ipad-portrait) {
+          display: none;
+        }
+
+        /* Non JS users */
+        .no-js & {display: none;}
+
+      }
 
       /* Toggle button */
       .stores-maps__toggle {

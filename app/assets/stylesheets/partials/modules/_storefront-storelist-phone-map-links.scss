@@ -3,14 +3,9 @@
    ====================================================================================== */
 
 /*
-	Usage:
-		A sub module that renders the phone / map link icons in the 'Storefront' and 'Store list' modules.
+	Usage: a sub module that renders the phone / map link icons in the 'Storefront' and 'Store list' modules.
 
-  Notes:
-    This sub module was created to keep things DRY as there where too many shared styles between the 'Storefront' and 'Store list' modules for the phone / map icon links.
-
-	Demo:
-		Style Guide -> Modules -> Storefront / Store list / phone map links
+  Note: this sub module was created to keep things DRY as there where too many shared styles between the 'Storefront' and 'Store list' modules for the phone / map icon links.
 */
 
 .storefront-storelist-phone-map-links {

@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.162
+Version:     0.2.163
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,12 @@ fi
 
 
 %changelog
+* Mon Feb 24 2014 ci <doperations@au.westfield.com> 0.2.163-1
+- Merge pull request #931 from ldewey/service_helper-update
+  (dmiller@au.westfield.com)
+- Updated service_helper so beta.westfield.com is not used.
+  (ldewey@au.westfield.com)
+
 * Mon Feb 24 2014 ci <doperations@au.westfield.com> 0.2.162-1
 - Merge pull request #930 from cpearce/quick-fixes (dmiller@au.westfield.com)
 - Removing redundant CSS for centre home page shopping hrs link & improve code

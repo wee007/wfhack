@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.157
+Version:     0.2.158
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,14 @@ fi
 
 
 %changelog
+* Mon Feb 24 2014 ci <doperations@au.westfield.com> 0.2.158-1
+- Removed flaking test. (ldewey@au.westfield.com)
+- Merge pull request #921 from ldewey/cpearce__add-search-national-products
+  (dmiller@au.westfield.com)
+- Fixes to national vs not national (ldewey@au.westfield.com)
+- Small clean up (ldewey@au.westfield.com)
+- Add search to national product view - WSF-6229 (cpearce@au.westfield.com)
+
 * Fri Feb 21 2014 ci <doperations@au.westfield.com> 0.2.157-1
 - Added from and to the VCR ignore list so we dont have test flake
   (ldewey@au.westfield.com)

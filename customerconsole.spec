@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.163
+Version:     0.2.164
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,12 @@ fi
 
 
 %changelog
+* Mon Feb 24 2014 ci <doperations@au.westfield.com> 0.2.164-1
+- Merge pull request #942 from araeside/pjax-map-category-pins
+  (dmiller@au.westfield.com)
+- Revert "Revert "Merge pull request #922 from araeside/pjax-map-category-
+  pins"" (alec@smartalecwebsites.com.au)
+
 * Mon Feb 24 2014 ci <doperations@au.westfield.com> 0.2.163-1
 - Merge pull request #931 from ldewey/service_helper-update
   (dmiller@au.westfield.com)

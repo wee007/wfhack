@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.158
+Version:     0.2.159
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,14 @@ fi
 
 
 %changelog
+* Mon Feb 24 2014 ci <doperations@au.westfield.com> 0.2.159-1
+- Merge pull request #938 from araeside/remove-national-product-dialog-from-
+  product-details (dmiller@au.westfield.com)
+- add more explicit check for national products index
+  (alec@smartalecwebsites.com.au)
+- only show dialog when an nation products page not product page
+  (alec@smartalecwebsites.com.au)
+
 * Mon Feb 24 2014 ci <doperations@au.westfield.com> 0.2.158-1
 - Removed flaking test. (ldewey@au.westfield.com)
 - Merge pull request #921 from ldewey/cpearce__add-search-national-products

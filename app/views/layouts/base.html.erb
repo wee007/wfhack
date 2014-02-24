@@ -1,7 +1,6 @@
 <!doctype html>
-<!--[if (lt IE 9) & (!IEMobile)]> <html class="no-js old-ie ie" lang="en-au">  <![endif]-->
-<!--[if (IE 9) & (!IEMobile)]>    <html class="no-js ie-9 ie" lang="en-au">    <![endif]-->
-<!--[if gt IE 8]><!-->            <html class="no-js" lang="en-au">            <!--<![endif]-->
+<!--[if (IE 9) & (!IEMobile)]>    <html class="no-js ie-9" lang="en-au">    <![endif]-->
+<!--[if gt IE 8]><!-->            <html class="no-js" lang="en-au">         <!--<![endif]-->
 <head>
   <!--[if !IE]><base href="/"><![endif]-->
   <!--[if lte IE 9]><base href="<%= request.path %>"><![endif]-->
@@ -38,12 +37,6 @@
 
   <%= javascript_include_tag "vendor/modernizr.min" %>
 
-  <%# Old IE HTML5 shiv (IE < 9) %>
-  <!--[if (lt IE 9) & (!IEMobile)]>
-    <%= javascript_include_tag "html5shiv/src/html5shiv-printshiv.js" %>
-  <![endif]-->
-  <%# //Old IE HTML5 shiv (IE < 9) %>
-
   <%# IE 10+ tile icon: http://blogs.msdn.com/b/ie/archive/2012/06/08/high-quality-visuals-for-pinned-sites-in-windows-8.aspx %>
   <meta name="msapplication-TileColor" content="#da291c">
   <meta name="msapplication-TileImage" content="/apple-touch-icon-144x144-precomposed.png">
@@ -62,7 +55,7 @@
 
   <%# Prompt old IE users (IE < 9) to upgrade their browser %>
   <!--[if lte IE 8]>
-  <div class="old-ie-banner"><div class="old-ie-banner__inner"><div class="grid"><div class="grid__item non-palm-two-fifths"><em class="h1">Your current browser is not supported</em><p>To get the best Westfield has to offer, you'll need to upgrade to a modern browser.</p><ul><li><a href="http://windows.microsoft.com/en-gb/internet-explorer/download-ie" target="_blank" rel="external"><%= image_tag 'old-ie-banner/ie.png', alt: '', width: 40, height: 40 %>Internet<br>Explorer 9+</a></li><li><a href="https://www.google.com/intl/en/chrome/browser/" target="_blank" rel="external"><%= image_tag 'old-ie-banner/chrome.png', alt: '', width: 38, height: 40 %>Chrome</a></li><li><a href="https://www.mozilla.org/en-US/firefox/new/?utm_source=firefox-com&amp;utm_medium=referral" target="_blank" rel="external"><%= image_tag 'old-ie-banner/firefox.png', alt: '', width: 38, height: 40 %>Firefox</a></li><li><a href="http://support.apple.com/kb/DL1531" target="_blank" rel="external"><%= image_tag 'old-ie-banner/safari.png', alt: '', width: 36, height: 40 %>Safari</a></li></ul></div><div class="grid__item non-palm-three-fifths txt-right"><%= image_tag 'old-ie-banner/screengrab.jpg', alt: '', width: 600, height: 254 %></div></div></div></div>
+  <div class="old-ie-banner"><div class="old-ie-banner__inner"><div class="grid"><div class="grid__item two-fifths"><em class="h1">Your current browser is not supported</em><p>To get the best Westfield has to offer, you'll need to upgrade to a modern browser.</p><ul><li><a href="http://windows.microsoft.com/en-gb/internet-explorer/download-ie" target="_blank" rel="external"><%= image_tag 'old-ie-banner/ie.png', alt: '', width: 40, height: 40 %>Internet<br>Explorer 9+</a></li><li><a href="https://www.google.com/intl/en/chrome/browser/" target="_blank" rel="external"><%= image_tag 'old-ie-banner/chrome.png', alt: '', width: 38, height: 40 %>Chrome</a></li><li><a href="https://www.mozilla.org/en-US/firefox/new/?utm_source=firefox-com&amp;utm_medium=referral" target="_blank" rel="external"><%= image_tag 'old-ie-banner/firefox.png', alt: '', width: 38, height: 40 %>Firefox</a></li><li><a href="http://support.apple.com/kb/DL1531" target="_blank" rel="external"><%= image_tag 'old-ie-banner/safari.png', alt: '', width: 36, height: 40 %>Safari</a></li></ul></div><div class="grid__item three-fifths txt-right"><%= image_tag 'old-ie-banner/screengrab.jpg', alt: '', width: 600, height: 254 %></div></div></div></div>
   <![endif]-->
   <%# //Prompt old IE users (IE < 9) to upgrade their browser %>
 

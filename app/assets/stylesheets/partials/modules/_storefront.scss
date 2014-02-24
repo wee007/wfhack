@@ -45,11 +45,6 @@
   }
 }
 
-    /* Fix positioning of prev/next nav for old IE */
-    @include old-ie {
-      .flex-control-paging {@include to-rem(margin-left, -$spacing-base);}
-    }
-
       /* Store name when there is no store banner */
       .storefront__flexslider-storename {
 
@@ -97,7 +92,7 @@
           bottom: 0;
           left: 0;
           right: 0;
-          @include rgba-bg(#000, 0.85);
+          background-color: rgba(#000, 0.85);
 
           /* When there is no store banner */
           .is-no-store-banner & {background: transparent;}

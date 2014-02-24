@@ -18,7 +18,7 @@
     <div class="container container--position">
 
       <%# Logo %>
-      <%= image_tag image_path('logo-beta.svg'), alt: 'Westfield', "data-svg-fallback" => image_path('logo-beta.png'), class: 'national__logo' %>
+      <%= image_tag 'logo-beta.svg', alt: 'Westfield', class: 'national__logo' %>
       <%# //Logo %>
 
       <%# Hero heading wrap %>
@@ -120,6 +120,7 @@
         </ul>
       <% end %>
       <%# //Tab content %>
+
     </nav>
 
   </main>
@@ -187,8 +188,6 @@
       @media (min-width: 25.0625em) and (max-width: 48em) {.is-in-viewport-history .national__centre-tile--<%= centre.code %> {background-image: url(<%= centre_tile_image(centre.code, 768, 205) %>);}}
       <%# Hero image at large breakpoint %>
       @media (min-width: 48.0625em) {.is-in-viewport-history .national__centre-tile--<%= centre.code %> {background-image: url(<%= centre_tile_image(centre.code, 1600, 300) %>);}}
-      <%# Old IE %>
-      .old-ie .is-in-viewport-history .national__centre-tile--<%= centre.code %> {background-image: url(<%= centre_tile_image(centre.code, 1600, 300) %>);}
     <% end %>
   </style>
 

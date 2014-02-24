@@ -20,7 +20,7 @@
 		clip: auto;
 		margin: 0;
 		padding: to-em($spacing-third) 0;
-		@include rgba-bg($color-brand, 0.8);
+		background-color: rgba($color-brand, 0.8);
 		color: #fff;
 		box-shadow: 0 8px 6px -6px rgba(#000, 0.4);
 		text-align: center;

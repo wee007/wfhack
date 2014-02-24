@@ -13,12 +13,6 @@
   border-bottom: 1px solid $color-grey-med-3;
 	box-shadow: $box-shadow;
 	display: block;
-
-	/* Old IE */
-	@include old-ie {
-		border: 1px solid $color-grey-med-3;
-		border-bottom-width: 2px;
-	}
 }
 
 /* Modifier: change to `inline-block` */

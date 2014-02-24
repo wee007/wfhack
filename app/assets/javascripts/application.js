@@ -9,7 +9,6 @@
 
 // Support
 //= require ./support/custom-modernizr-tests
-//= require ./support/svg
 //= require ./support/console-log
 
 // Global 'init' stuff

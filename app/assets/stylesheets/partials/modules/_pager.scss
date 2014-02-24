@@ -25,11 +25,6 @@
     @include font-size($font-size, normal);
     position: absolute;
     top: 0;
-
-    /* Old IE */
-    @include old-ie {
-      .btn--pointer__icon {top: 18%;}
-    }
   }
 
     /* Arrow icons */

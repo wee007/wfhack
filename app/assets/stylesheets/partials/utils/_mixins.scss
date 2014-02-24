@@ -24,7 +24,6 @@
 
 @mixin font-size($font-size-val, $line-height-val: "", $sledgehammer: false) {
 	$important: if($sledgehammer, "!important", "");
-    font-size: ($font-size-val)+px#{$important};
     font-size: ($font-size-val / $font-size)+rem#{$important};
 	@if $line-height-val == "" {
 		line-height: ceil($font-size-val / $line-height) * ($line-height / $font-size-val);
@@ -71,10 +70,8 @@
 
 	Notes:
 		-	Accepts a list of lists (instead a list of values) for properties that accept multiple lists of values. Only numbers are converted; everything else is passed through.
-		-	For the `to-rem` `@mixin` we fallback to `px` value for old IE and this is only compiled to 'old-ie.css'.
 		-	For the `to-em` `@mixin` `$context` is an optional argument that allows making measurements relative to the parent font size rather than the current.
 		-	`$sledgehammer` is an optional argument that allows for the `!important` keyword to be specified, when used in the `to-em` `@mixin` and the optional `$context` argument does not need to be included then it has to be called using a named argument: `$sledgehammer: !important` so that we can skip over `$context` avoiding having to redundantly redeclare it.
-		-	'REM' `@mixin` outputs a `px` fallback for old IE and Opera Mini, when Opera Mini supports `rem` (http://caniuse.com/#feat=rem) change the `@mixin` to an archived version (11-02-2013).
 
 	Credit: https://gist.github.com/2237465
 
@@ -99,7 +96,7 @@
         $sublists: true;
         $vv: ();
         @each $ss in $s {
-            $vv: append($vv, if(type-of($ss) == number, #{$ss / $context}em, $ss));
+          $vv: append($vv, if(type-of($ss) == number, #{$ss / $context}em, $ss));
         }
         $values: append($values, join((), $vv));
       } @else {
@@ -114,29 +111,22 @@
 
 /* REM */
 @mixin to-rem($props, $sizes, $sledgehammer: "") {
-	$values-px: ();
 	$values: ();
   $sublists: false;
   @each $s in $sizes {
     @if type-of($s) == list {
     	$sublists: true;
-			$vv-px: ();
       $vv: ();
       @each $ss in $s {
-				$vv-px: append($vv-px, if(type-of($ss) == number, #{$ss}px, $ss));
 				$vv: append($vv, if(type-of($ss) == number, #{$ss / $font-size}rem, $ss));
       }
-		  $values-px: append($values-px, join((), $vv-px));
       $values: append($values, join((), $vv));
     } @else {
-		    $values-px: append($values-px, if(type-of($s) == number, #{$s}px, $s));
-		    $values: append($values, if(type-of($s) == number, #{$s / $font-size}rem, $s));
+		  $values: append($values, if(type-of($s) == number, #{$s / $font-size}rem, $s));
     }
   }
-	$value-px: join((), $values-px, if($sublists, comma, space));
   $value: join((), $values, if($sublists, comma, space));
   @each $prop in $props {
-  	#{$prop}: $value-px#{$sledgehammer};
   	#{$prop}: $value#{$sledgehammer};
 	}
 }
@@ -144,31 +134,14 @@
 /* [CSS3]
 -------------------------------------------------------*/
 /*
-	Property: `rgba`
-
-	Usage: RGBA background color with an old IE fallback (no alpha transparency).
-
-	Example:
-		@include rgba-bg(#000, 0.8);
-*/
-
-@mixin rgba-bg($hex, $alpha) {
-	@if $old-ie {
-		background-color: $hex;
-	} @else {
-		background-color: rgba($hex, $alpha);
-	}
-}
-
-/*
 	Property: `linear-gradient`
 
-	Usage: simple CSS3 linear gradients with old IE/Webkit fallbacks.
+	Usage: simple CSS3 linear gradients with IE 9/Webkit fallbacks.
 
 	Notes:
 		-	This mixin is very basic in that it only caters for two colour's ('from' and 'to'), no colour stops, only linear (no radial), not repeating, etc. in most cases this is all you need, for more involved gradients then look into Compass: http://compass-style.org/examples/compass/css3/gradient/ however keep an eye on their vendor prefixes as they tend to be dated.
 		-	When Webkit supports the new syntax (see: http://caniuse.com/#feat=css-gradients) then the Webkit specific syntax can be removed, in the meantime any direction keywords used need to be reversed (see: http://generatedcontent.org/post/37949105556/updateyourcss3).
-		-	There's support for IE 9 using the `-ms-filter` property same as old IE but be mindful that if it's turned on and there's a `border-radius` property being used then the element will not get rounded corners.
+		-	There's support for IE 9 using the `-ms-filter` property but be mindful that if it's turned on and there's a `border-radius` property being used then the element will not get rounded corners.
 		-	In order to skip over optional arguments then named arguments need to be used: `$from: #7a7a7a, $to: #1a1a1a,` so that we avoid having to redundantly redeclare the optional arguments, see: http://stackoverflow.com/questions/14435927/skipping-an-optional-argument-in-sass-mixin.
 		-	Handy reminders:
 			-	Direction keywords: 'top', 'right', 'bottom', 'left', 'top left', 'top right', 'bottom left' and 'bottom right'.
@@ -179,17 +152,16 @@
 	Examples:
 		@include linear-gradient(#f63, #ff6);
 		@include linear-gradient(#f63, #ff6, top left, bottom right);
-		@include linear-gradient($from: #f63, $to: #ff6, $old-ie-filter: true, $ie-9-filter: true);
+		@include linear-gradient($from: #f63, $to: #ff6, $ie-9-filter: true);
 		@include linear-gradient(#f63, #ff6, bottom, top, true, true, true, #000);
 		@include linear-gradient-light(#f63);
 		@include linear-gradient-light(#f63, top, bottom);
 		@include linear-gradient-dark(#f63);
 		@include linear-gradient-dark(#f63, top, bottom);
-
 */
 
 /* Using 'direction' keywords */
-@mixin linear-gradient($from, $to, $dir: bottom, $dir-webkit: top, $old-ie-filter: false, $ie-9-filter: false, $override-bg-color: false, $bg-color-override: "") {
+@mixin linear-gradient($from, $to, $dir: bottom, $dir-webkit: top, $ie-9-filter: false, $override-bg-color: false, $bg-color-override: "") {
 	@if $override-bg-color == true {
 		background-color: $bg-color-override;
 	} @else {
@@ -197,16 +169,13 @@
 	}
 	background-image: -webkit-linear-gradient($dir-webkit, $from, $to);
 	background-image: linear-gradient(to $dir, $from, $to);
-  @if $old-ie-filter == true and $old-ie {
-		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{ie-hex-str($from)}', endColorstr='#{ie-hex-str($to)}');
-	}
-	@if $ie-9-filter == true and $old-ie != true {
+	@if $ie-9-filter == true {
 		-ms-filter: quote(progid:DXImageTransform.Microsoft.gradient(startColorstr='#{ie-hex-str($from)}', endColorstr='#{ie-hex-str($to)}'));
 	}
 }
 
 /* Using 'degree' values */
-@mixin linear-gradient-deg($from, $to, $deg: 180deg, $deg-webkit: 270deg, $old-ie-filter: false, $ie-9-filter: false, $override-bg-color: false, $bg-color-override: "") {
+@mixin linear-gradient-deg($from, $to, $deg: 180deg, $deg-webkit: 270deg, $ie-9-filter: false, $override-bg-color: false, $bg-color-override: "") {
 	@if $override-bg-color == true {
 		background-color: $bg-color-override;
 	} @else {
@@ -214,10 +183,7 @@
 	}
 	background-image: -webkit-linear-gradient($deg-webkit, $from, $to);
 	background-image: linear-gradient($deg, $from, $to);
-  @if $old-ie-filter == true and $old-ie {
-		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{ie-hex-str($from)}', endColorstr='#{ie-hex-str($to)}');
-	}
-	@if $ie-9-filter == true and $old-ie != true {
+	@if $ie-9-filter == true {
 		-ms-filter: quote(progid:DXImageTransform.Microsoft.gradient(startColorstr='#{ie-hex-str($from)}', endColorstr='#{ie-hex-str($to)}'));
 	}
 }
@@ -312,25 +278,6 @@
   @mixin translate3d($x, $y: 0, $z: 0) {
     @include transform(translate($x, $y, $z));
   }
-
-/* [OPACITY]
--------------------------------------------------------*/
-/*
-	Usage: quick way to declare `opacity` for modern browsers and old IE.
-
-	Examples:
-		@include opacity(0.2);
-		@include opacity(0.9, !important);
-*/
-
-@mixin opacity($alpha, $sledgehammer: "") {
-	$alpha-ie: $alpha * 100;
-	@if $old-ie {
-		filter: alpha(opacity="#{$alpha-ie}")#{$sledgehammer};
-	} @else {
-		opacity: $alpha#{$sledgehammer};
-	}
-}
 
 /* [VENDOR PREFIXES]
 -------------------------------------------------------*/
@@ -506,7 +453,7 @@
     @content;
 	}
 
-	/* jQuery plugin (old IE) */
+	/* Polyfill for IE 9 */
 	input.placeholder {
     @content;
 	}
@@ -518,8 +465,7 @@
 	Usage: for targetting specific browsers.
 
 	Notes:
-		-	The non-old IE `@mixin`s should be avoided at all costs (last resort).
-		-	Whenever the old IE `@mixin` is called it will only appear in 'old-ie.css'.
+		-	These `@mixin`s should be avoided at all costs (last resort).
 		-	'Mozilla' `@mixin` cannot be nested in a style declaration, has to exist as it's own rule.
 
 	Examples:
@@ -527,9 +473,6 @@
 			.foo {background: red;}
 		}
 		@include target-mozilla {
-			.foo {background: red;}
-		}
-		@include old-ie {
 			.foo {background: red;}
 		}
 		@include ie-10-up {
@@ -564,21 +507,10 @@
 	}
 }
 
-/* Old IE */
-@mixin old-ie {
-	@if $old-ie {
-    @content;
-	}
-}
-
 /* [MEDIA QUERY STUFF]
 -------------------------------------------------------*/
 /*
-	Usage: set-up media queries for min/max widths inc. ranges and handle support for old IE, also include a flag to only target 'screen' media so as to not affect 'print' media.
-
-	Note: for old IE we're wrapping `@media screen` around `@content` in order to prevent 'print' media being affected however be careful because `@extend` will not work so might be that this has to be removed?
-
-	Credit: http://jakearchibald.github.com/sass-ie/
+	Usage: set-up media queries for min/max widths inc. ranges, also include a flag to only target 'screen' media so as to not affect 'print' media.
 
 	Examples:
 		@include respond-min($lap) {
@@ -600,40 +532,26 @@
 
 /* Min width */
 @mixin respond-min($width, $screen-only: false) {
-	@if $fix-mqs {
-		@if $fix-mqs >= $width {
-			@media screen {
-				@content;
-			}
+	@if $screen-only == true {
+		@media screen and (min-width: ($width / 16)+em) {
+			@content;
 		}
 	} @else {
-		@if $screen-only == true {
-			@media screen and (min-width: ($width / 16)+em) {
-				@content;
-			}
-		} @else {
-			@media (min-width: ($width / 16)+em) {
-				@content;
-			}
+		@media (min-width: ($width / 16)+em) {
+			@content;
 		}
 	}
 }
 
 /* Max width */
 @mixin respond-max($width, $screen-only: false) {
-	@if $fix-mqs {
-		@if $fix-mqs < $width {
+	@if $screen-only == true {
+		@media screen and (max-width: ($width / 16)+em) {
 			@content;
 		}
 	} @else {
-		@if $screen-only == true {
-			@media screen and (max-width: ($width / 16)+em) {
-				@content;
-			}
-		} @else {
-			@media (max-width: ($width / 16)+em) {
-				@content;
-			}
+		@media (max-width: ($width / 16)+em) {
+			@content;
 		}
 	}
 }
@@ -642,21 +560,13 @@
 
 /* Accepts any range */
 @mixin respond-range($min-width, $max-width, $screen-only: false) {
-	@if $fix-mqs {
-		@if ($fix-mqs >= $min-width) and ($fix-mqs < $max-width) {
-			@media screen {
-				@content;
-			}
+	@if $screen-only == true {
+		@media screen and (min-width: ($min-width / 16)+em) and (max-width: ($max-width / 16)+em) {
+			@content;
 		}
 	} @else {
-		@if $screen-only == true {
-			@media screen and (min-width: ($min-width / 16)+em) and (max-width: ($max-width / 16)+em) {
-				@content;
-			}
-		} @else {
-			@media (min-width: ($min-width / 16)+em) and (max-width: ($max-width / 16)+em) {
-				@content;
-			}
+		@media (min-width: ($min-width / 16)+em) and (max-width: ($max-width / 16)+em) {
+			@content;
 		}
 	}
 }
@@ -665,63 +575,39 @@
 
 /* Accepts 2 `min-width` values */
 @mixin respond-group-min($width-1, $width-2, $screen-only: false) {
-	@if $fix-mqs {
-		@if ($fix-mqs >= $width-1) or ($fix-mqs >= $width-2) {
-			@media screen {
-				@content;
-			}
+	@if $screen-only == true {
+		@media screen and (min-width: ($width-1 / 16)+em), screen and (min-width: ($width-2 / 16)+em) {
+			@content;
 		}
 	} @else {
-		@if $screen-only == true {
-			@media screen and (min-width: ($width-1 / 16)+em), screen and (min-width: ($width-2 / 16)+em) {
-				@content;
-			}
-		} @else {
-			@media (min-width: ($width-1 / 16)+em), (min-width: ($width-2 / 16)+em) {
-				@content;
-			}
+		@media (min-width: ($width-1 / 16)+em), (min-width: ($width-2 / 16)+em) {
+			@content;
 		}
 	}
 }
 
 /* Accepts 2 `max-width` values */
 @mixin respond-group-max($width-1, $width-2, $screen-only: false) {
-	@if $fix-mqs {
-		@if ($fix-mqs < $width-1) or ($fix-mqs < $width-2) {
-			@media screen {
-				@content;
-			}
+	@if $screen-only == true {
+		@media screen and (max-width: ($width-1 / 16)+em), screen and (max-width: ($width-2 / 16)+em) {
+			@content;
 		}
 	} @else {
-		@if $screen-only == true {
-			@media screen and (max-width: ($width-1 / 16)+em), screen and (max-width: ($width-2 / 16)+em) {
-				@content;
-			}
-		} @else {
-			@media (max-width: ($width-1 / 16)+em), (max-width: ($width-2 / 16)+em) {
-				@content;
-			}
+		@media (max-width: ($width-1 / 16)+em), (max-width: ($width-2 / 16)+em) {
+			@content;
 		}
 	}
 }
 
 /* Accepts 1 `min-width` value AND 1 `max-width` value */
 @mixin respond-group-min-max($width-1, $width-2, $screen-only: false) {
-	@if $fix-mqs {
-		@if ($fix-mqs >= $width-1) or ($fix-mqs < $width-2) {
-			@media screen {
-				@content;
-			}
+	@if $screen-only == true {
+		@media screen and (min-width: ($width-1 / 16)+em), screen and (max-width: ($width-2 / 16)+em) {
+			@content;
 		}
 	} @else {
-		@if $screen-only == true {
-			@media screen and (min-width: ($width-1 / 16)+em), screen and (max-width: ($width-2 / 16)+em) {
-				@content;
-			}
-		} @else {
-			@media (min-width: ($width-1 / 16)+em), (max-width: ($width-2 / 16)+em) {
-				@content;
-			}
+		@media (min-width: ($width-1 / 16)+em), (max-width: ($width-2 / 16)+em) {
+			@content;
 		}
 	}
 }
@@ -729,60 +615,56 @@
 /* Fixed ranges using the pre-defined breakpoints in 'utils/vars' */
 @mixin respond-range-fixed($respond-range, $screen-only: false) {
 
-	@if $old-ie == false {
-
-		/* Lap */
-		@if $respond-range == lap {
-			@if $screen-only == true {
-				@media screen and (min-width: ($lap-start / 16)+em) and (max-width: ($lap-end / 16)+em) {
-					@content;
-				}
-			} @else {
-				@media (min-width: ($lap-start / 16)+em) and (max-width: ($lap-end / 16)+em) {
-					@content;
-				}
+	/* Lap */
+	@if $respond-range == lap {
+		@if $screen-only == true {
+			@media screen and (min-width: ($lap-start / 16)+em) and (max-width: ($lap-end / 16)+em) {
+				@content;
+			}
+		} @else {
+			@media (min-width: ($lap-start / 16)+em) and (max-width: ($lap-end / 16)+em) {
+				@content;
 			}
 		}
+	}
 
-		/* Lap small */
-		@if $respond-range == lap-sml {
-			@if $screen-only == true {
-				@media screen and (min-width: ($lap-start / 16)+em) and (max-width: ($lap-sml-end / 16)+em) {
-					@content;
-				}
-			} @else {
-				@media (min-width: ($lap-start / 16)+em) and (max-width: ($lap-sml-end / 16)+em) {
-					@content;
-				}
+	/* Lap small */
+	@if $respond-range == lap-sml {
+		@if $screen-only == true {
+			@media screen and (min-width: ($lap-start / 16)+em) and (max-width: ($lap-sml-end / 16)+em) {
+				@content;
+			}
+		} @else {
+			@media (min-width: ($lap-start / 16)+em) and (max-width: ($lap-sml-end / 16)+em) {
+				@content;
 			}
 		}
+	}
 
-		/* Lap large */
-		@if $respond-range == lap-lrg {
-			@if $screen-only == true {
-				@media screen and (min-width: ($lap-lrg-start / 16)+em) and (max-width: ($lap-end / 16)+em) {
-					@content;
-				}
-			} @else {
-				@media (min-width: ($lap-lrg-start / 16)+em) and (max-width: ($lap-end / 16)+em) {
-					@content;
-				}
+	/* Lap large */
+	@if $respond-range == lap-lrg {
+		@if $screen-only == true {
+			@media screen and (min-width: ($lap-lrg-start / 16)+em) and (max-width: ($lap-end / 16)+em) {
+				@content;
+			}
+		} @else {
+			@media (min-width: ($lap-lrg-start / 16)+em) and (max-width: ($lap-end / 16)+em) {
+				@content;
 			}
 		}
+	}
 
-		/* Desk small */
-		@if $respond-range == desk-sml {
-			@if $screen-only == true {
-				@media screen and (min-width: ($desk-start / 16)+em) and (max-width: ($desk-sml-end / 16)+em) {
-					@content;
-				}
-			} @else {
-				@media (min-width: ($desk-start / 16)+em) and (max-width: ($desk-sml-end / 16)+em) {
-					@content;
-				}
+	/* Desk small */
+	@if $respond-range == desk-sml {
+		@if $screen-only == true {
+			@media screen and (min-width: ($desk-start / 16)+em) and (max-width: ($desk-sml-end / 16)+em) {
+				@content;
+			}
+		} @else {
+			@media (min-width: ($desk-start / 16)+em) and (max-width: ($desk-sml-end / 16)+em) {
+				@content;
 			}
 		}
-
 	}
 
 }

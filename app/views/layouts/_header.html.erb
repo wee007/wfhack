@@ -6,7 +6,9 @@
 		<div class="container">
 
 			<%# Logo %>
-			<%= link_to site_logo, centre_path(@centre), target: "_self", rel: "home", class: "logo" %>
+			<%= link_to centre_path(@centre), target: "_self", rel: "home", class: "logo" do %>
+				<%= image_tag 'logo-beta.svg', alt: 'Westfield' %>
+			<% end %>
 			<%# //Logo %>
 
 			<%# Menu toggle button for palm/small tablet devices %>

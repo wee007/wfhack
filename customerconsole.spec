@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.160
+Version:     0.2.161
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,13 @@ fi
 
 
 %changelog
+* Mon Feb 24 2014 ci <doperations@au.westfield.com> 0.2.161-1
+- Merge pull request #925 from cpearce/refactoring-framework
+  (dmiller@au.westfield.com)
+- Cleanup all commenting for CSS to be inline with CSS Guidelines - WSF-6095
+  (cpearce@au.westfield.com)
+- Update to new Normalize CSS - WSF-6251 (cpearce@au.westfield.com)
+
 * Mon Feb 24 2014 ci <doperations@au.westfield.com> 0.2.160-1
 - Merge pull request #940 from gcallister/master (dmiller@au.westfield.com)
 - WSF-6322 Additional redirect for FlatLayTheNation

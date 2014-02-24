@@ -1,4 +1,4 @@
-<article class="tile tile--<%= result.kind.pluralize %> box js-tile test-tile" role="article">
+<article class="tile tile--<%= result.kind.pluralize %> box js-tile test-tile" role="article" <%= content_for :microdata %>>
 
   <%# Tile indentifier for centre home page only %>
   <% if tile_heading? %>

@@ -1,68 +1,64 @@
-<div itemscope itemtype="http://data-vocabulary.org/Event">
+<%# Movie details %>
+<div class="island detail-view__divider">
 
-  <%# Movie details %>
-  <div class="island detail-view__divider">
+  <header class="detail-view__mrg-base">
 
-    <header class="detail-view__mrg-base">
+    <%# Movie title %>
+    <h1 class="detail-view__hdr hn test-title"><%= @movie.title %></h1>
+    <%# //Movie title %>
 
-      <%# Movie title %>
-      <h1 class="detail-view__hdr hn test-title" itemprop="summary"><%= @movie.title %></h1>
-      <%# //Movie title %>
+    <%# Movie classification %>
+    <div class="detail-view__meta detail-view__divider detail-view__divider--top-btm islet-ends">
+      <small><%= @movie.classification %> rating</small>
+    </div>
+    <%# //Movie classification %>
 
-      <%# Movie classification %>
-      <div class="detail-view__meta detail-view__divider detail-view__divider--top-btm islet-ends">
-        <small><%= @movie.classification %> rating</small>
-      </div>
-      <%# //Movie classification %>
+  </header>
 
-    </header>
-
-    <%# Movie image %>
-    <% if @movie.cloudinary_public_id %>
-      <section class="detail-view__media detail-view__mrg-base" aria-labelledby="image">
-        <h2 class="hide-visually" id="image">Image</h2>
-        <%= cl_image_tag(@movie.cloudinary_public_id, alt: '', width: 600, height: 400, crop: 'limit', format: 'jpg', fetch_format: 'auto') %>
-      </section>
-    <% end %>
-    <%# //Movie image %>
-
-    <%# Movie synopsis %>
-    <section aria-labelledby="synopsis">
-      <h2 class="detail-view__hdr-sub hn" id="synopsis">Synopsis</h2>
-      <p itemprop="description"><%= @movie.synopsis %></p>
+  <%# Movie image %>
+  <% if @movie.cloudinary_public_id %>
+    <section class="detail-view__media detail-view__mrg-base" aria-labelledby="image">
+      <h2 class="hide-visually" id="image">Image</h2>
+      <%= cl_image_tag(@movie.cloudinary_public_id, alt: '', width: 600, height: 400, crop: 'limit', format: 'jpg', fetch_format: 'auto') %>
     </section>
-    <%# //Movie synopsis %>
+  <% end %>
+  <%# //Movie image %>
 
-  </div>
-  <%# //Movie details %>
-
-  <%# Session times %>
-  <section class="detail-view__schedule island" aria-labelledby="session-times">
-    <h2 class="detail-view__hdr-sub hn" id="session-times">Session Times</h2>
-
-    <p>Select a session to purchase tickets at <%= @cinema.name %></p>
-
-    <dl class="timeline">
-      <% @movies_sessions_by_date.each do |date, sessions| %>
-        <dt>
-          <%= date.strftime("%A") %>
-          <em class="timeline__date">
-            <span><%= date.strftime("%e") %></span>
-            <abbr title="<%= date.strftime("%B") %>"><%= date.strftime("%b") %></abbr>
-          </em>
-        </dt>
-        <% sessions.each do |session| %>
-          <dd>
-            <a href="<%= session.booking_url %>" rel="external" target="_blank">
-              <time datetime="<%= Time.parse(session.start_time).strftime("%Y-%m-%dT%H:%M") %>" itemprop="startDate"><%= Time.parse(session.start_time).to_s(:hour_minute_period) %></time>
-            </a>
-            <%= "[#{session.session_type}]" if session.session_type %>
-          </dd>
-        <% end %>
-      <% end %>
-    </dl>
-
+  <%# Movie synopsis %>
+  <section aria-labelledby="synopsis">
+    <h2 class="detail-view__hdr-sub hn" id="synopsis">Synopsis</h2>
+    <p><%= @movie.synopsis %></p>
   </section>
-  <%# //Session times %>
+  <%# //Movie synopsis %>
 
 </div>
+<%# //Movie details %>
+
+<%# Session times %>
+<section class="detail-view__schedule island" aria-labelledby="session-times">
+  <h2 class="detail-view__hdr-sub hn" id="session-times">Session Times</h2>
+
+  <p>Select a session to purchase tickets at <%= @cinema.name %></p>
+
+  <dl class="timeline">
+    <% @movies_sessions_by_date.each do |date, sessions| %>
+      <dt>
+        <%= date.strftime("%A") %>
+        <em class="timeline__date">
+          <span><%= date.strftime("%e") %></span>
+          <abbr title="<%= date.strftime("%B") %>"><%= date.strftime("%b") %></abbr>
+        </em>
+      </dt>
+      <% sessions.each do |session| %>
+        <dd>
+          <a href="<%= session.booking_url %>" rel="external" target="_blank">
+            <time datetime="<%= Time.parse(session.start_time).strftime("%Y-%m-%dT%H:%M") %>"><%= Time.parse(session.start_time).to_s(:hour_minute_period) %></time>
+          </a>
+          <%= "[#{session.session_type}]" if session.session_type %>
+        </dd>
+      <% end %>
+    <% end %>
+  </dl>
+
+</section>
+<%# //Session times %>

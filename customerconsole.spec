@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.159
+Version:     0.2.160
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,11 @@ fi
 
 
 %changelog
+* Mon Feb 24 2014 ci <doperations@au.westfield.com> 0.2.160-1
+- Merge pull request #940 from gcallister/master (dmiller@au.westfield.com)
+- WSF-6322 Additional redirect for FlatLayTheNation
+  (gcallister@au.westfield.com)
+
 * Mon Feb 24 2014 ci <doperations@au.westfield.com> 0.2.159-1
 - Merge pull request #938 from araeside/remove-national-product-dialog-from-
   product-details (dmiller@au.westfield.com)

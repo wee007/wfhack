@@ -32,7 +32,7 @@ do ($ = jQuery, name = 'deferImages') ->
   class DeferredImages
 
     constructor: (container, @options = {}) ->
-      @container = $(container)
+      @container = $(container).data('DeferredImages', @);
       if @options.matchMedia
         window.enquire.register(@options.matchMedia, {
           match: @attachListeners

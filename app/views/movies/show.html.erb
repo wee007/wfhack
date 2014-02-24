@@ -1,10 +1,10 @@
 <%# Movie details %>
-<div class="island detail-view__divider">
+<div class="island detail-view__divider" itemscope itemtype="http://schema.org/Movie">
 
   <header class="detail-view__mrg-base">
 
     <%# Movie title %>
-    <h1 class="detail-view__hdr hn test-title"><%= @movie.title %></h1>
+    <h1 class="detail-view__hdr hn test-title" itemprop="name"><%= @movie.title %></h1>
     <%# //Movie title %>
 
     <%# Movie classification %>
@@ -27,7 +27,7 @@
   <%# Movie synopsis %>
   <section aria-labelledby="synopsis">
     <h2 class="detail-view__hdr-sub hn" id="synopsis">Synopsis</h2>
-    <p><%= @movie.synopsis %></p>
+    <p itemprop="description"><%= @movie.synopsis %></p>
   </section>
   <%# //Movie synopsis %>
 

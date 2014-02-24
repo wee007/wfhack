@@ -66,7 +66,7 @@ else
   app_name="Customer Console ($railsenv)"
 fi
 
-https_proxy=http://proxy.dbg.westfield.com:8080 curl -H "x-api-key:fcb397795639d33ca285aff6ce91844bcd9ed68dcca2a7f" -d "deployment[app_name]=$app_name" -d "deployment[description]=RPM deployment (@Leon @Chris @Craig @Alec @Dale @Kirsten)" -d "deployment[revision]=%{version}" -d "deployment[user]=`hostname -s`"  https://rpm.newrelic.com/deployments.xml
+https_proxy=http://proxy.dbg.westfield.com:8080 curl -H "x-api-key:fcb397795639d33ca285aff6ce91844bcd9ed68dcca2a7f" -d "deployment[app_name]=$app_name" -d "deployment[description]=RPM deployment (@Leon @Chris @Craig @Alec @Dale)" -d "deployment[revision]=%{version}" -d "deployment[user]=`hostname -s`"  https://rpm.newrelic.com/deployments.xml
 
 %preun
 if [ $1 = 0 ] ; then

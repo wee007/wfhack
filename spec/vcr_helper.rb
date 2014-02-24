@@ -8,9 +8,7 @@ VCR.configure do |c|
     :allow_playback_repeats => true,
     :match_requests_on => [
       :method,
-      VCR.request_matchers.uri_without_param(:date),
-      VCR.request_matchers.uri_without_param(:from),
-      VCR.request_matchers.uri_without_param(:to)
+      VCR.request_matchers.uri_without_param(:date, :from, :to)
     ]
   }
   c.configure_rspec_metadata!

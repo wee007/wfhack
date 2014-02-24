@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.164
+Version:     0.2.165
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,31 @@ fi
 
 
 %changelog
+* Mon Feb 24 2014 ci <doperations@au.westfield.com> 0.2.165-1
+- Merge pull request #929 from cpearce/remove-legacy-code
+  (dmiller@au.westfield.com)
+- Adding blank space after tab content markup (cpearce@au.westfield.com)
+- Update grid width classes for old IE banner (cpearce@au.westfield.com)
+- Removing SVG fallback (cpearce@au.westfield.com)
+- Removing IE8 code from Sass mixins/vars partials (cpearce@au.westfield.com)
+- Removing opacity mixin (cpearce@au.westfield.com)
+- Removing old IE rules from gradient mixins (cpearce@au.westfield.com)
+- Removing rgba mixin (cpearce@au.westfield.com)
+- Removing px fallback for rem in Sass mixins and functions
+  (cpearce@au.westfield.com)
+- Add new old IE banner partial (cpearce@au.westfield.com)
+- Removing HTML5 shiv from Bower json file (cpearce@au.westfield.com)
+- Removing old IE stylesheet and conditional IE comments from main stylesheet
+  (cpearce@au.westfield.com)
+- Removing IE conditional comments from html elems (cpearce@au.westfield.com)
+- Remove .ie from html elem and HTML5 shiv (cpearce@au.westfield.com)
+- Removing all instances of .ie in Sass partials (cpearce@au.westfield.com)
+- Removing old IE comments and adding old IE banner (cpearce@au.westfield.com)
+- Removing old IE style sheet (cpearce@au.westfield.com)
+- Remove any Old IE CSS comments from Sass partials (cpearce@au.westfield.com)
+- Removing all instances of .old-ie from CSS/HTML (cpearce@au.westfield.com)
+- Removing all @mixin old-ie from Sass partials (cpearce@au.westfield.com)
+
 * Mon Feb 24 2014 ci <doperations@au.westfield.com> 0.2.164-1
 - Merge pull request #942 from araeside/pjax-map-category-pins
   (dmiller@au.westfield.com)

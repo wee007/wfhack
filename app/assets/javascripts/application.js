@@ -46,9 +46,6 @@
 
 // --Misc--
 
-// Cloudinary (image service)
-//= require cloudinary/jquery.cloudinary
-
 // Micello map deferred loader
 //= require ./map/deferred_map
 

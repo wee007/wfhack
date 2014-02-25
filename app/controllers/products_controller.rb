@@ -8,20 +8,18 @@ class ProductsController < ApplicationController
     services = {
       centre: params[:centre_id],
       centres: [nil, {near_to: params[:centre_id]}],
-      products: params.merge({rows: 50}),
-      product: { :category_codes => category_params }
+      products: params.merge({rows: 50})
     }
-    services[:product] = services[:products] if services[:product][:category_codes].nil?
     services[:store] = {retailer_code: params[:retailer].first} if params[:retailer]
-    
+
     #BUG: Stores is NEVER assigned to anything.
-    @centre, @nearby_centres, @search, @categories, stores = service_map services
+    @centre, @nearby_centres, @search, stores = service_map services
     @super_categories = CategoryService.find centre_id: params[:centre_id], product_mapable: true
 
     meta.push(
-      page_title: page_title(@centre.name),
-      description: description(@centre.name, stores)
-    )
+      page_title: "#{ @search.seo.page_title } at #{ @centre.name }",
+      description: "#{ @search.seo.description } at #{ @centre.name }"
+    ) if @search.seo.present?
 
     gon.products = {
       display_options: @search.display_options,
@@ -35,19 +33,18 @@ class ProductsController < ApplicationController
   def index_national
     services = {
       centre: [:all, country: 'au'],
-      products: params.merge({rows: 50}),
-      product: { :category_codes => category_params }
+      products: params.merge({rows: 50})
     }
     services[:store] = {retailer_code: params[:retailer].first} if params[:retailer]
-    centres, @search, @categories, stores = service_map services
+    centres, @search, stores = service_map services
 
     @centres = centres.group_by{ |centre| centre.state }
     @super_categories = CategoryService.find centre_id: params[:centre_id], product_mapable: true
 
     meta.push(
-      page_title: page_title('Westfield'),
-      description: description('Westfield', stores)
-    )
+      page_title: "#{ @search.seo.page_title } at Westfield",
+      description: "#{ @search.seo.description } at Westfield"
+    ) if @search.seo.present?
 
     gon.products = {
       display_options: @search.display_options,
@@ -149,38 +146,6 @@ class ProductsController < ApplicationController
   end
 
 private
-
-  def page_title(centre_name)
-    if category.try( :seo_page_title ).present?
-      "#{category.seo_page_title} at #{centre_name}"
-    elsif category_params.present?
-      "Find #{ [ category_params ].flatten.map{ |param| param.titleize }.join(' and ')} at #{ centre_name }"
-    elsif params[:retailer].present?
-      "#{[params[:retailer]].flatten.map{ |param| param.titleize }.join(' and ')} at #{centre_name}"
-    else
-      "Shopping at #{centre_name}"
-    end
-  end
-
-  def description(centre_name, stores)
-    if category.try( :seo_page_description ).present?
-      "#{category.seo_page_description} at #{centre_name}"
-    elsif category_params.present?
-      "Shop for the latest #{ [ category_params ].flatten.map{ |param| param.titleize }.join(' and ')} online or in-store at #{ centre_name }"
-    elsif stores.present?
-      stores.first.description
-    else
-      "Find the latest fashion, clothes, shoes, jewellery, accessories and much more at #{centre_name}"
-    end
-  end
-
-  def category
-    @categories.first if params[:sub_category].present? || params[:category].present? || params[:super_cat].present?
-  end
-
-  def category_params
-    params[:sub_category] || params[:category] || params[:super_cat]
-  end
 
   def remove_gclid_param
     params.delete(:gclid)

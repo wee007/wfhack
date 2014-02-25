@@ -68,4 +68,8 @@ module ApplicationHelper
     "#{params[ :controller ]}-#{params[ :action ]}".gsub '_', '-'
   end
 
+  def page_title
+    meta.page_title.present? ? meta.page_title.html_safe : 'Shopping at Westfield'
+  end
+
 end

@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.167
+Version:     0.2.168
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,10 @@ fi
 
 
 %changelog
+* Tue Feb 25 2014 ci <doperations@au.westfield.com> 0.2.168-1
+- Merge pull request #927 from mmancuso/master (ldewey@au.westfield.com)
+- OPS-9557 - Fixing rake task call for use by cron (mmancuso@au.westfield.com)
+
 * Tue Feb 25 2014 ci <doperations@au.westfield.com> 0.2.167-1
 - Merge pull request #935 from ewee/seo_refactor (dmiller@au.westfield.com)
 - WSF-6235 Use SEO page title and description from product search API endpoint

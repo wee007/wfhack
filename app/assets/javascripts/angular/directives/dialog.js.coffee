@@ -41,6 +41,10 @@
 
       keepFocus(element.get(0))
 
+      # Stop angular from hijacking routeChange event
+      dialog.click (event) ->
+        event.stopPropagation()
+
     # From https://gist.github.com/drublic/5899658
     tabbableElements = 'a[href], area[href], input:not([disabled]),' + 'select:not([disabled]), textarea:not([disabled]),' + 'button:not([disabled]), iframe, object, embed, *[tabindex],' + '*[contenteditable]'
     keepFocus = (context) ->
@@ -93,6 +97,5 @@
 
       dialog?.find('.js-dialog-close').bind 'click', ->
         close()
-
   ]
 ) angular.module('Westfield')

@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.169
+Version:     0.2.170
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,9 @@ fi
 
 
 %changelog
+* Wed Feb 26 2014 ci <doperations@au.westfield.com> 0.2.170-1
+- Stop angular from hijacking routeChange event (alec@smartalecwebsites.com.au)
+
 * Tue Feb 25 2014 ci <doperations@au.westfield.com> 0.2.169-1
 - Merge pull request #943 from gcallister/master (chorn@au.westfield.com)
 - WSF-6300 Add AU unsubscribe redirect V2 (gcallister@au.westfield.com)

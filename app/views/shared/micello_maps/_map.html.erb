@@ -22,7 +22,6 @@
 <%# //Render the map in the canvas %>
 
 <% content_for :custom_javascript do %>
-  <%= cloudinary_js_config %>
   <% if load_immediately %>
     <%= javascript_tag do %>
       new map.Micello().load().setTarget(<%= store_id %>).lock().showLevel().zoom().pinStore(true, true).detail().highlight().toggleKeyEvents(false);

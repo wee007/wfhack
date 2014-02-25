@@ -7,6 +7,8 @@ class @StoresKeywordFilter
 
     @map = map
 
+    @setListPosition = _.debounce(@_setListPosition, 100)
+
     @setupKeywordFilter()
 
     enquireConfig = {
@@ -84,15 +86,18 @@ class @StoresKeywordFilter
         delayedShowStoreLogos()
 
 
-  setListPosition: (includeMargin) =>
-    container = $('.js-stores-maps-toggle-wrap')
-    filtersContainer = $('.js-stores-filters')
-    storesList = $('.js-store-list-position')
-    listTop = filtersContainer.outerHeight(true)
+  _setListPosition: (includeMargin) =>
+    # Wait for DOM to finish changing before checkiing element height
+    setTimeout(->
+      container = $('.js-stores-maps-toggle-wrap')
+      filtersContainer = $('.js-stores-filters')
+      storesList = $('.js-store-list-position')
+      listTop = filtersContainer.outerHeight(true)
 
-    # TODO dont hard code 21, get the line height from CSS
-    listTop += 21 if includeMargin
-    storesList.css('top', "#{listTop}px")
+      # TODO dont hard code 21, get the line height from CSS
+      listTop += 21 if includeMargin
+      storesList.css('top', "#{listTop}px")
+    , 100)
 
   pinFilteredStores: ->
     getId = -> $(@).data 'store-id'

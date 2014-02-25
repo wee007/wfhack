@@ -82,11 +82,12 @@ class StoreMapPage
 
   show: =>
     @updateGUI @map.show()
+    @keyword_filter.setListPosition true
     false
 
   hide: =>
-    #debugger
     @updateGUI @map.hide()
+    @keyword_filter.setListPosition false
     false
 
   updateAngularStoreListControllerLinks: (viewingMap) ->

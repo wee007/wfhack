@@ -24,7 +24,8 @@ class ProductsController < ApplicationController
     gon.products = {
       display_options: @search.display_options,
       facets: @search.facets,
-      applied_filters: @search.applied_filters
+      applied_filters: @search.applied_filters,
+      count: @search.products.length
     }
 
     render :index

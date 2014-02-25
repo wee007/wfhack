@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.166
+Version:     0.2.167
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,11 @@ fi
 
 
 %changelog
+* Tue Feb 25 2014 ci <doperations@au.westfield.com> 0.2.167-1
+- Merge pull request #935 from ewee/seo_refactor (dmiller@au.westfield.com)
+- WSF-6235 Use SEO page title and description from product search API endpoint
+  (ewee@au.westfield.com)
+
 * Mon Feb 24 2014 ci <doperations@au.westfield.com> 0.2.166-1
 - Update customerconsole.spec (ldewey@au.westfield.com)
 

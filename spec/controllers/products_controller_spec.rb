@@ -14,7 +14,6 @@ describe ProductsController do
         categories: [{super_category: {code: ""}}],
         image_urls: []
       },
-
       facets: [
         Hashie::Mash.new({ field: 'super_cat', values: [] })
       ]
@@ -28,7 +27,9 @@ describe ProductsController do
           body: {
             state: 'NSW',
             name: 'Westfield Bondi Junction'
-          }
+          },
+          products: [],
+          applied_filters: {}
         )
     end
 
@@ -37,6 +38,8 @@ describe ProductsController do
         Hashie::Mash.new(
           count: 50,
           rows: 50,
+          products: [],
+          applied_filters: {},
           seo: Hashie::Mash.new(
             page_title: '',
             description: ''
@@ -58,6 +61,8 @@ describe ProductsController do
           Hashie::Mash.new(
             count: 50,
             rows: 50,
+            products: [],
+            applied_filters: {},
             seo: Hashie::Mash.new(
               page_title: 'Shopping',
               description: 'Find the latest fashion, clothes, shoes, jewellery, accessories and much more'
@@ -84,6 +89,8 @@ describe ProductsController do
         Hashie::Mash.new(
           count: 50,
           rows: 50,
+          products: [],
+          applied_filters: {},
           seo: Hashie::Mash.new(
             page_title: '',
             description: ''

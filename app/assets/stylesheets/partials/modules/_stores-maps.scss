@@ -322,15 +322,18 @@
           display: none;
           float: none;
 
+          &.is-active { display:block; }
+
           @include respond-min($iphone-landscape) {
             display: inline-block;
-            width: calc(100% - 258px);
+            width: 34%;
 
             &.is-active { display:inline-block; }
           }
           @include respond-min($lap-start) {
             display: inline-block;
-            width: calc(100% - 410px);
+            width: 30%;
+
 
             &.is-active { display:inline-block; }
           }
@@ -339,18 +342,23 @@
             width: 100%;
           }
 
-          &.is-active { display:block; }
 
           .is-map-view & {
             @include to-rem(margin-right, $spacing-dbl+$spacing-quarter );
+
+            @include respond-min($iphone-landscape) {
+              margin: 0;
+            }
           }
 
           input {
             width: 100%;
+
+            @include to-rem(padding, $spacing-half - 2 $spacing-half);
             @include to-rem(margin-top, $spacing-half);
 
             @include respond-min($iphone-landscape) {
-              @include to-rem(margin-top, 0);
+              margin-top: 0;
             }
 
             @include respond-min($ipad-landscape) {

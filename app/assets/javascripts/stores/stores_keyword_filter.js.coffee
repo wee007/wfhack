@@ -14,7 +14,7 @@ class @StoresKeywordFilter
     @setupKeywordFilter()
 
     $('.js-stores-keyword-filter-toggle').click =>
-      @setListPosition()
+      @_setListPosition()
 
   filterStoreLetterHeadings: (stores, numShown) =>
     firstLetter = ''

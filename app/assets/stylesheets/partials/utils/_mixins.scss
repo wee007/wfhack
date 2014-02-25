@@ -293,7 +293,8 @@
 		-	Hyphens: 		http://caniuse.com/#feat=css-hyphens
 		-	Box sizing: 	http://caniuse.com/#feat=css3-boxsizing
 		-	Border image: 	http://caniuse.com/#feat=border-image
-		-	User-select:	http://caniuse.com/#feat=user-select-none
+    - User-select:  http://caniuse.com/#feat=user-select-none
+		-	Calc:	http://caniuse.com/#feat=calc
 
 	Credit:
 		-	https://github.com/csswizardry/inuit.css/pull/102#issuecomment-12825976
@@ -389,6 +390,12 @@
   @else if $property == appearance {
     -webkit-#{$property}: $value;
     -moz-#{$property}: $value;
+    #{$property}: $value;
+  }
+
+  /* Calc */
+  @else if $property == calc {
+    -webkit-#{$property}: $value;
     #{$property}: $value;
   }
 }

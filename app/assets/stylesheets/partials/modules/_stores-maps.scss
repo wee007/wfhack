@@ -376,29 +376,18 @@
           }
         }
 
-        /* Show hidden text for non JS users */
-        .no-js {
-          .stores-maps__intro,
-          .drop-down-menu__list .btn .hide-visually {@extend %hide-visually-off;}
+         /* Keyword Filter toggle */
+        .stores-maps__keyword-filter-toggle {
 
-          .drop-down-menu__list .btn .hide-visually {
-            font-style: italic;
-            opacity: 0.8;
+          /* Hide at this breakpoint */
+          @include respond-min($iphone-landscape) {
+            display: none;
           }
+
+          /* Non JS users */
+          .no-js & {display: none;}
+
         }
-
-       /* Keyword Filter toggle */
-      .stores-maps__keyword-filter-toggle {
-
-        /* Hide at this breakpoint */
-        @include respond-min($iphone-landscape) {
-          display: none;
-        }
-
-        /* Non JS users */
-        .no-js & {display: none;}
-
-      }
 
       /* Toggle button */
       .stores-maps__toggle {

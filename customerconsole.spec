@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.168
+Version:     0.2.169
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,10 @@ fi
 
 
 %changelog
+* Tue Feb 25 2014 ci <doperations@au.westfield.com> 0.2.169-1
+- Merge pull request #943 from gcallister/master (chorn@au.westfield.com)
+- WSF-6300 Add AU unsubscribe redirect V2 (gcallister@au.westfield.com)
+
 * Tue Feb 25 2014 ci <doperations@au.westfield.com> 0.2.168-1
 - Merge pull request #927 from mmancuso/master (ldewey@au.westfield.com)
 - OPS-9557 - Fixing rake task call for use by cron (mmancuso@au.westfield.com)

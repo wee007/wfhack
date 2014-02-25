@@ -219,23 +219,25 @@ class map.micello.Map
         @pinGeom(geom) for geom in @targetGeomGroup()
 
   pinStores: (store_ids, andGotoLevel = true, anm = 'pins') ->
-    @clearLevelCounts()
-    @clearPins()
-    levels = _(store_ids).chain()
-      .map((id) => @geomGroupForStore(@store(id)))
-      .flatten().compact()
-      .map((geom) => @pinGeom(geom, anm); @data.getGeometryLevel(geom.id))
-      .groupBy('id')
-      .map((levels, id) => @setLevelCount(id, levels.length); [id, levels])
-      .value()
-    needsLevelChange = levels.length > 0 && !_(levels).chain().pluck(0).contains(@data.getCurrentLevel().id.toString()).value()
-    if andGotoLevel && needsLevelChange
-      @data.setLevel _(levels).max((level) -> level[1].length)[1][0]
-    @
+    # pinStores might be called by the keyword filter before the map has loaded, so check if the stores list is populated
+    if @stores?
+      @clearLevelCounts()
+      @clearPins()
+      levels = _(store_ids).chain()
+        .map((id) => @geomGroupForStore(@store(id)))
+        .flatten().compact()
+        .map((geom) => @pinGeom(geom, anm); @data.getGeometryLevel(geom.id))
+        .groupBy('id')
+        .map((levels, id) => @setLevelCount(id, levels.length); [id, levels])
+        .value()
+      needsLevelChange = levels.length > 0 && !_(levels).chain().pluck(0).contains(@data.getCurrentLevel().id.toString()).value()
+      if andGotoLevel && needsLevelChange
+        @data.setLevel _(levels).max((level) -> level[1].length)[1][0]
+      @
 
   clearPins: (anm = 'pins') ->
     @fogetPinGroup(anm)
-    @data.removeMarkerOverlay(anm, true)
+    @data?.removeMarkerOverlay(anm, true)
     @
 
   showLevel: ->

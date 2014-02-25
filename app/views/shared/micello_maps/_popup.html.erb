@@ -9,6 +9,7 @@
       <div class="map-micello__overlay__retailer__img">
         <%%=
           map.micello.Map.logoOptions.alt = name + ' logo',
+          console.log(logo, map.micello.Map.logoOptions),
           $.cloudinary.fetch_image(logo, map.micello.Map.logoOptions).attr('onerror', 'map.micello.Map.removeLogo(this)')[0].outerHTML
         %>
       </div>

@@ -10,8 +10,8 @@ class @StoresKeywordFilter
     @setupKeywordFilter()
 
     enquireConfig = {
-      match: -> self.setListPosition(true),
-      unmatch: -> self.setListPosition(false),
+      match: => @setListPosition(true),
+      unmatch: => @setListPosition(false),
       deferSetup: true
     }
 

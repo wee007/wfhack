@@ -140,7 +140,7 @@
               <input type="hidden" name="map" value="{{viewingMap}}">
               <legend class="hide-visually">Gift card filter</legend>
               <label for="gift-card-store-filter" class="btn-toggle btn btn--main btn--main-white btn--main-ios-toggle <%= 'is-disabled' if !@stores.any_accepting_gift_cards? %> <%= 'is-active' if filtering_gift_cards? %>">
-                <input ng-init="gift_cards = <%= filtering_gift_cards? ? true : false %>" ng-model="gift_cards" ng-change="giftCardSubmit()" id="gift-card-store-filter" type="checkbox" name="gift_cards" value="true" class="hide-visually" <%= 'checked' if filtering_gift_cards? %><%= 'disabled' unless @stores.any_accepting_gift_cards? %>>
+                <input ng-init="gift_cards = <%= filtering_gift_cards? ? true : false %>" ng-model="gift_cards" ng-change="giftCardChange()" id="gift-card-store-filter" type="checkbox" name="gift_cards" value="true" class="hide-visually" <%= 'checked' if filtering_gift_cards? %><%= 'disabled' unless @stores.any_accepting_gift_cards? %>>
                 <span class="btn-toggle__lbl btn--main-ios-toggle__lbl">
                   <span aria-hidden="true" class="icon icon--gift-card icon--xlrg icon--flush-top-mozilla"></span>
                   <span class="hide-visually--palm">Westfield </span>
@@ -154,7 +154,7 @@
             <%# //Gift card filter %>
 
             <%# Keyword Filter toggle %>
-            <button type="button" class="stores-maps__filters__item stores-maps__keyword-filter-toggle btn btn--main btn--main-white btn--main-compact-icon js-stores-keyword-filter-toggle" toggle-visibility="keyword-filter" aria-owns="">
+            <button type="button" class="stores-maps__filters__item stores-maps__keyword-filter-toggle btn btn--main btn--main-white btn--main-compact-icon js-stores-keyword-filter-toggle js-search-toggle" toggle-visibility="keyword-filter" aria-owns="">
               <span class="icon icon--keyword-filter icon--lrg" aria-hidden="true"></span>
             </button>
             <%# //Keyword Filter toggle %>
@@ -169,9 +169,6 @@
         </div>
         <%# //Filters %>
 
-
-          </div>
-          <%# //Filters %>
 
         </div>
 

@@ -278,12 +278,6 @@ class map.micello.Map
       @view.setZoom(zoom)
     @
 
-  @logoOptions:
-    width: 168
-    height: 62
-    crop: 'pad'
-    background: 'rgb:FFFFFF'
-
   hasPopup: ->
     $('script.map-micello__overlay-wrap[type="text/html-template"]').length > 0
 

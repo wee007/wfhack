@@ -334,14 +334,12 @@
             display: inline-block;
             width: 30%;
 
-
             &.is-active { display:inline-block; }
           }
           @include respond-min($ipad-landscape) {
             display: block;
             width: 100%;
           }
-
 
           .is-map-view & {
             @include to-rem(margin-right, $spacing-dbl+$spacing-quarter );
@@ -377,7 +375,6 @@
             opacity: 0.8;
           }
         }
-
 
         /* Show hidden text for non JS users */
         .no-js {

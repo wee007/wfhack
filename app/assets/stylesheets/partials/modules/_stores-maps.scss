@@ -322,11 +322,21 @@
           display: none;
           float: none;
 
-          @include respond-min($ipad-portrait) {
+          @include respond-min($iphone-landscape) {
             display: inline-block;
+            width: calc(100% - 258px);
+
+            &.is-active { display:inline-block; }
           }
-          @include respond-min($ipad-portrait) {
+          @include respond-min($lap-start) {
+            display: inline-block;
+            width: calc(100% - 410px);
+
+            &.is-active { display:inline-block; }
+          }
+          @include respond-min($ipad-landscape) {
             display: block;
+            width: 100%;
           }
 
           &.is-active { display:block; }
@@ -336,8 +346,16 @@
           }
 
           input {
-            @include to-rem(margin-top, $spacing-half);
             width: 100%;
+            @include to-rem(margin-top, $spacing-half);
+
+            @include respond-min($iphone-landscape) {
+              @include to-rem(margin-top, 0);
+            }
+
+            @include respond-min($ipad-landscape) {
+              @include to-rem(margin-top, $spacing-half);
+            }
           }
         }
 
@@ -368,7 +386,7 @@
       .stores-maps__keyword-filter-toggle {
 
         /* Hide at this breakpoint */
-        @include respond-min($ipad-portrait) {
+        @include respond-min($iphone-landscape) {
           display: none;
         }
 

@@ -143,7 +143,6 @@
                 <input ng-init="gift_cards = <%= filtering_gift_cards? ? true : false %>" ng-model="gift_cards" ng-change="giftCardChange()" id="gift-card-store-filter" type="checkbox" name="gift_cards" value="true" class="hide-visually" <%= 'checked' if filtering_gift_cards? %><%= 'disabled' unless @stores.any_accepting_gift_cards? %>>
                 <span class="btn-toggle__lbl btn--main-ios-toggle__lbl">
                   <span aria-hidden="true" class="icon icon--gift-card icon--xlrg icon--flush-top-mozilla"></span>
-                  <span class="hide-visually--palm">Westfield </span>
                   Gift Card
                   <span class="hide-visually--palm"> accepted</span>
                 </span>

@@ -8,20 +8,13 @@ class @StoresKeywordFilter
     @map = map
 
     @setListPosition = _.debounce(@_setListPosition, 100)
+    $(window).resize(@setListPosition)
+    @setListPosition()
 
     @setupKeywordFilter()
 
-    enquireConfig = {
-      match: => @setListPosition(true),
-      unmatch: => @setListPosition(false),
-      deferSetup: true
-    }
-
-    enquire.register('all and (min-width: 64em)', enquireConfig, true)
-    enquire.register('all and (min-width: 48em)', enquireConfig, true)
-
     $('.js-stores-keyword-filter-toggle').click =>
-      @setListPosition(false)
+      @setListPosition()
 
   filterStoreLetterHeadings: (stores, numShown) =>
     firstLetter = ''
@@ -55,7 +48,7 @@ class @StoresKeywordFilter
       storeMapPage.map.clearLevelCounts?()
 
   showStoreLogos: ->
-    $('.js-defer-image-load-container').data('DeferredImages').loadVisibleImages();
+    $('.js-defer-image-load-container').data('DeferredImages')?.loadVisibleImages();
 
   # Determines how stores will be matched with keyword
   filterStores: (filter, fullText) =>
@@ -86,18 +79,16 @@ class @StoresKeywordFilter
         delayedShowStoreLogos()
 
 
-  _setListPosition: (includeMargin) =>
-    # Wait for DOM to finish changing before checkiing element height
-    setTimeout(->
-      container = $('.js-stores-maps-toggle-wrap')
-      filtersContainer = $('.js-stores-filters')
-      storesList = $('.js-store-list-position')
-      listTop = filtersContainer.outerHeight(true)
+  _setListPosition: =>
+    container = $('.js-stores-maps-toggle-wrap')
+    filtersContainer = $('.js-stores-filters')
+    storesList = $('.js-store-list-position')
+    twoColumnView = $('body').width() > 1024
+    listTop = filtersContainer.outerHeight(twoColumnView)
 
-      # TODO dont hard code 21, get the line height from CSS
-      listTop += 21 if includeMargin
-      storesList.css('top', "#{listTop}px")
-    , 100)
+    # TODO dont hard code 21, get the line height from CSS
+    listTop += 21 if twoColumnView
+    storesList.css('top', "#{listTop}px")
 
   pinFilteredStores: ->
     getId = -> $(@).data 'store-id'

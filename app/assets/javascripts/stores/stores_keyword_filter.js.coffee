@@ -1,5 +1,6 @@
 #= require jquery-extensions/jquery.fastLiveFilter.js.coffee
 #= require underscore/underscore
+#= require stores/stores_list_position
 
 class @StoresKeywordFilter
 
@@ -7,14 +8,12 @@ class @StoresKeywordFilter
 
     @map = map
 
-    @setListPosition = _.debounce(@_setListPosition, 100)
-    $(window).resize(@setListPosition)
-    @setListPosition()
-
     @setupKeywordFilter()
 
+    @listPositioner = new StoresListPosition
+
     $('.js-stores-keyword-filter-toggle').click =>
-      @_setListPosition()
+      @listPositioner.setListPosition()
 
   filterStoreLetterHeadings: (stores, numShown) =>
     firstLetter = ''
@@ -79,17 +78,6 @@ class @StoresKeywordFilter
         delayedFilterMapPins(stores, numShown)
         delayedShowStoreLogos()
         @handleNoStoresInList(numShown)
-
-  _setListPosition: =>
-    container = $('.js-stores-list-position-container')
-    filtersContainer = $('.js-stores-list-position-filter-container')
-    storesList = $('.js-stores-list-position-store-list')
-    twoColumnView = $('body').width() > 1024
-    listTop = filtersContainer.outerHeight(twoColumnView)
-
-    # TODO dont hard code 21, get the line height from CSS
-    listTop += 21 if twoColumnView
-    storesList.css('top', "#{listTop}px")
 
   handleNoStoresInList: (numShown) =>
     if numShown == 0

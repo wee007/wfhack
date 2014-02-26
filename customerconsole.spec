@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.170
+Version:     0.2.171
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,14 @@ fi
 
 
 %changelog
+* Wed Feb 26 2014 ci <doperations@au.westfield.com> 0.2.171-1
+- Merge pull request #946 from araeside/fix-product-price-filter
+  (chorn@au.westfield.com)
+- Merge pull request #949 from cpearce/master (chorn@au.westfield.com)
+- Fixing Redeem gift card link wrapping - WSF-6319 (cpearce@au.westfield.com)
+- Fix product price filter submission. Format dollar value for applied price
+  filter. clean price param before search (alec@smartalecwebsites.com.au)
+
 * Wed Feb 26 2014 ci <doperations@au.westfield.com> 0.2.170-1
 - Stop angular from hijacking routeChange event (alec@smartalecwebsites.com.au)
 

@@ -23,6 +23,9 @@
           # Make it a string, so it is parsed correctly by the router
           cleanedParams[param] = "true"
 
+        if param == 'price'
+          cleanedParams[param] = cleanedParams[param].replace(/[^0-9$.,-]/g, '')
+
         # Solr expects arrays to be passed as key[]=value
         if angular.isArray(cleanedParams[param]) && !param.match(@arrayParamR)
           paramName = param + '[]'

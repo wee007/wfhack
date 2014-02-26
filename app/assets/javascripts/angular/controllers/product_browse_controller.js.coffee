@@ -190,5 +190,9 @@
       paramValue = min + "-" + max
       ProductSearch.setParam paramName, paramValue
 
+    $scope.submitPriceFilter = ->
+      $scope.updateSearch()
+      setParams()
+
   ]
 ) angular.module("Westfield")

@@ -238,7 +238,7 @@
     .ios &,
     .android & {@include to-em(padding-top, $spacing-half+0.5);}
 
-    input:checked ~ .btn-toggle__handle {
+    input:checked ~ .btn--main-ios-toggle__handle {
       background: $color-green;
 
       &:after {

@@ -257,7 +257,7 @@
           }
 
           /* Gift card toggle */
-          .btn--main-ios-toggle {
+          .btn--main-toggle-ios {
             @include respond-min($ipad-landscape) {
               @include to-em(padding, $spacing-half - 2 $spacing-half);
               border: 1px solid $color-grey-med-2;
@@ -317,29 +317,35 @@
           }
         }
 
+        /* Keyword filter textbox */
         .stores-maps__keyword-filter-input {
           display: none;
           float: none;
 
           &.is-active { display:block; }
 
+          /* Display all filters on one line */
           @include respond-min($iphone-landscape) {
             display: inline-block;
             width: 34%;
 
             &.is-active { display:inline-block; }
           }
+
+          /* Reduce width to handle bigger map toggle button */
           @include respond-min($lap-start) {
             display: inline-block;
             width: 30%;
 
             &.is-active { display:inline-block; }
           }
+
           @include respond-min($ipad-landscape) {
             display: block;
             width: 100%;
           }
 
+          /* Add padding to right of keyword  filter to not cover the map controls on palm */
           .is-map-view & {
             @include to-rem(margin-right, $spacing-dbl+$spacing-quarter );
 
@@ -351,6 +357,7 @@
           input {
             width: 100%;
 
+            /* Add extra vertical padding so the textbox is the same height as other filters */
             @include to-rem(padding, $spacing-half - 2 $spacing-half);
             @include to-rem(margin-top, $spacing-half);
 
@@ -358,10 +365,24 @@
               margin-top: 0;
             }
 
+            /* Add space between other filters when it is on a new line */
             @include respond-min($ipad-landscape) {
               @include to-rem(margin-top, $spacing-half);
             }
           }
+        }
+
+         /* Keyword filter toggle */
+        .stores-maps__keyword-filter-toggle {
+
+          /* Hide at this breakpoint */
+          @include respond-min($iphone-landscape) {
+            display: none;
+          }
+
+          /* Non JS users */
+          .no-js & {display: none;}
+
         }
 
         /* Show hidden text for non JS users */
@@ -373,19 +394,6 @@
             font-style: italic;
             opacity: 0.8;
           }
-        }
-
-         /* Keyword Filter toggle */
-        .stores-maps__keyword-filter-toggle {
-
-          /* Hide at this breakpoint */
-          @include respond-min($iphone-landscape) {
-            display: none;
-          }
-
-          /* Non JS users */
-          .no-js & {display: none;}
-
         }
 
       /* Toggle button */

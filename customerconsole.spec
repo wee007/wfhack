@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.171
+Version:     0.2.172
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,9 @@ fi
 
 
 %changelog
+* Wed Feb 26 2014 ci <doperations@au.westfield.com> 0.2.172-1
+- 
+
 * Wed Feb 26 2014 ci <doperations@au.westfield.com> 0.2.171-1
 - Merge pull request #946 from araeside/fix-product-price-filter
   (chorn@au.westfield.com)

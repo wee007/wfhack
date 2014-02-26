@@ -106,6 +106,11 @@
           ( $rootScope.activeTVTarget == id ) ? close() : open(id);
           e.stopPropagation();
         });
+        target.bind( 'click', function ( e ) {
+          if ($(e.target).hasClass('js-no-angular-link')) {
+            event.stopPropagation()
+          }
+        })
       }
     }
   }]);

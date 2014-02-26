@@ -44,7 +44,7 @@ class @StoresKeywordFilter
     if numShown < stores.length or westfield.filtering_by_category
       @pinFilteredStores()
     else
-      storeMapPage.map.clearPins?(true)
+      storeMapPage.map.clearPins?('pins')
       storeMapPage.map.clearLevelCounts?()
 
   showStoreLogos: ->
@@ -63,14 +63,14 @@ class @StoresKeywordFilter
     return matches
 
   setupKeywordFilter: =>
-    @storeListLetters = $('.js-stores-letter')
+    @storeListLetters = $('.js-stores-keyword-filter-letter')
 
     # These functions are slow, so debounce them so they dont lock up the browser
     delayedFilterMapPins = _.debounce(@filterMapPins, 400)
     delayedShowStoreLogos = _.debounce(@showStoreLogos, 400)
 
-    $('.js-stores-keyword-filter').fastLiveFilter '.js-keyword-filter-list',
-      selector: 'a:first',
+    $('.js-stores-keyword-filter-input').fastLiveFilter '.js-stores-keyword-filter-list',
+      selector: '.js-stores-keyword-filter-text-to-search',
       timeout: 0,
       filterFunction: @filterStores
       callback: (stores, numShown)=>
@@ -80,9 +80,9 @@ class @StoresKeywordFilter
 
 
   _setListPosition: =>
-    container = $('.js-stores-maps-toggle-wrap')
-    filtersContainer = $('.js-stores-filters')
-    storesList = $('.js-store-list-position')
+    container = $('.js-stores-list-position-container')
+    filtersContainer = $('.js-stores-list-position-filter-container')
+    storesList = $('.js-stores-list-position-store-list')
     twoColumnView = $('body').width() > 1024
     listTop = filtersContainer.outerHeight(twoColumnView)
 
@@ -92,5 +92,5 @@ class @StoresKeywordFilter
 
   pinFilteredStores: ->
     getId = -> $(@).data 'store-id'
-    ids = $('dd:not(.hide-fully) a[data-store-id]').map getId
+    ids = $('.js-stores-keyword-filter-store:not(.hide-fully) [data-store-id]').map getId
     @map.pinStores(ids, true)

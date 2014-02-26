@@ -1,6 +1,6 @@
 <% content_for :class_for_main, "container--wide" %>
 
-<div class="stores-maps container js-stores-maps-toggle-wrap <%= @show_map_on_palm ? 'is-map-view' : 'is-list-view' %>">
+<div class="stores-maps container js-stores-maps-toggle-wrap js-stores-list-position-container <%= @show_map_on_palm ? 'is-map-view' : 'is-list-view' %>">
 
   <%# Contain 'filters', 'map/list toggle', and 'listings' %>
 
@@ -15,7 +15,7 @@
 
     <div ng-controller="StoreListController" class="stores-maps__inner stores-maps__inner--listing <%= 'is-filter-applied' if @active_category %>">
       <%# Filters & list/map toggle button %>
-      <div class="stores-maps__filters-toggle js-stores-filters">
+      <div class="stores-maps__filters-toggle js-stores-list-position-filter-container">
 
         <div class="container container--position">
 
@@ -162,7 +162,7 @@
             <%# Keyword Filter %>
             <div id="keyword-filter" class="stores-maps__filters__item stores-maps__keyword-filter-input js-disabled-hide">
               <label for="keyword-filter-input" class="hide-visually">Filter stores by keyword</label>
-              <input id="keyword-filter-input" type="search" placeholder="Enter store name" class="txt-input js-stores-keyword-filter">
+              <input id="keyword-filter-input" type="search" placeholder="Enter store name" class="txt-input js-stores-keyword-filter-input">
             </div>
             <%# Keyword Filter %>
 
@@ -194,10 +194,10 @@
       <%# //Filters & list/map toggle button %>
 
       <%# Stores list %>
-      <div class="stores-maps__list-detail js-defer-image-load-container js-store-list-position" id="stores-maps-toggle-listing-detail">
-        <dl class="stores-list js-fastclick js-keyword-filter-list">
+      <div class="stores-maps__list-detail js-defer-image-load-container js-stores-list-position-store-list" id="stores-maps-toggle-listing-detail">
+        <dl class="stores-list js-fastclick js-stores-keyword-filter-list">
           <% @stores.in_alpha_groups.each do |letter, stores| %>
-            <dt class="js-stores-letter js-stores-letter-<%= letter %>">
+            <dt class="js-stores-keyword-filter-letter js-stores-keyword-filter-letter-<%= letter %>">
               <div class="stores-list__inner container">
                 <%= letter %>
               </div>

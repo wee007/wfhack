@@ -13,6 +13,7 @@ jQuery.fn.fastLiveFilter = (list, options) ->
   options = options or {}
   list = jQuery(list)
   input = this
+  el = null
   lastFilter = ""
   timeout = options.timeout or 0
   callback = options.callback or ->
@@ -48,13 +49,14 @@ jQuery.fn.fastLiveFilter = (list, options) ->
     numShown = 0
 
     $.each list, (i, listObject)->
+      el = listObject.element.get(0)
       if filterFunction(filter, listObject.text.toLowerCase())
         # Add class to raw DOM element for performance. See http://jsperf.com/display-none-vs-class-hidden/4
-        listObject.element.get(0).className = '' if listObject.hidden
+        el.className = el.className.replace( /(?:^|\s)hide-fully(?!\S)/ , '' ) if listObject.hidden
         listObject.hidden = false
         numShown++
       else
-        listObject.element.get(0).className = 'hide-fully' unless listObject.hidden
+        el.className += ' hide-fully' unless listObject.hidden
         listObject.hidden = true
 
     callback list, numShown

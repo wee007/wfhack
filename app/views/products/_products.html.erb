@@ -27,7 +27,7 @@
               <dt class="drop-down-menu__hdr-sub drop-down-menu__divider"><%= state %></dt>
               <% @centres[state].each do |centre| %>
                 <dd class="drop-down-menu__divider">
-                  <%= link_to centre.short_name, centre_products_path(centre_id: centre.code), class: 'btn btn--full btn--full-left' %>
+                  <%= link_to centre.short_name, centre_products_path(centre_id: centre.code), class: 'btn btn--full btn--full-left js-no-angular-link' %>
                 </dd>
               <% end %>
             <% end %>
@@ -38,7 +38,7 @@
           <ul class="drop-down-menu__list">
           <% @nearby_centres.each do |nearby_centre| %>
             <li class="drop-down-menu__divider">
-              <%= link_to nearby_centre.short_name, centre_products_path({centre_id: nearby_centre.code}), class: 'btn btn--full btn--full-left' %>
+              <%= link_to nearby_centre.short_name, centre_products_path({centre_id: nearby_centre.code}), class: 'btn btn--full btn--full-left js-no-angular-link' %>
             </li>
           <% end %>
           </ul>

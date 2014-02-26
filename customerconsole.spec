@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.172
+Version:     0.2.173
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,14 @@ fi
 
 
 %changelog
+* Wed Feb 26 2014 ci <doperations@au.westfield.com> 0.2.173-1
+- Merge pull request #945 from araeside/fix-empty-products-page
+  (chorn@au.westfield.com)
+- Fixes for the tests that were broken. (ldewey@au.westfield.com)
+- correctly check for national page (alec@smartalecwebsites.com.au)
+- Revert "Revert "Merge pull request #917 from araeside/fix-empty-products-
+  page"" (alec@smartalecwebsites.com.au)
+
 * Wed Feb 26 2014 ci <doperations@au.westfield.com> 0.2.172-1
 - 
 

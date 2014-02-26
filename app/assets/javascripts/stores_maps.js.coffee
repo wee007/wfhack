@@ -29,6 +29,7 @@ class StoreMapPage
   pjaxComplete: =>
     @pageLoaded()
     @recompileAngularScope()
+    @keyword_filter.setupKeywordFilter()
 
   pageLoaded: ->
     $ ->

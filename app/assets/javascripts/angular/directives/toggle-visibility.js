@@ -12,7 +12,7 @@
 
     // Clicking outside will close all toggleVisibility targets
     $document.bind( 'click', function ( event ) {
-      if ($(event.target).parents('.js-toggle-visibility-target').length == 0) {
+      if ($(event.target).parents('.js-toggle-visibility-target').length == 0 && $rootScope.activeTVTarget != undefined) {
        close();
       }
     });

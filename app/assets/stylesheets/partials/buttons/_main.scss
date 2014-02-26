@@ -198,83 +198,56 @@
     .txt-truncate {@include to-rem(max-width, 200, !important);}
   }
 
-  /* Modifier: checkbox toggle */
-  .btn--main-checkbox-toggle {
-    @include to-em(padding, $spacing-half+1.5 $spacing-half);
+  /* Modifier: toggle */
+  .btn--main-toggle {
 
     /* iOS and Android */
     .ios &,
     .android & {@include to-em(padding-top, $spacing-half+0.5);}
   }
 
-  /* Modifier: as above but when an icon is used within the checkbox toggle */
-  .btn--main-checkbox-toggle-icon {
-    @include to-em(padding-top padding-bottom, $spacing-half);
+    .btn--main-toggle__input,
+    .btn--main-toggle__lbl {vertical-align: middle;}
 
-    /* iOS and Android */
-    .ios &,
-    .android & {@include to-em(padding-top, $spacing-half - 1);}
-  }
 
-    .btn--main-checkbox-toggle__input,
-    .btn--main-checkbox-toggle__lbl {vertical-align: middle;}
+    /* Checkbox */
+    .btn--main-toggle-checkbox {@include to-em(padding, $spacing-half+1.5 $spacing-half);}
 
-    /* The checkbox */
-    .btn--main-checkbox-toggle__input {
-      cursor: pointer;
-      @include to-rem(margin-right, $spacing-sixth);
+      /* The checkbox */
+      .btn--main-toggle__input {
+        cursor: pointer;
+        @include to-rem(margin-right, $spacing-sixth);
 
-      /* Make focus state seen when using dark colour */
-      .btn--main-dark &:focus {outline-color: #fff;}
-    }
-
-    /* Modifier: iOS toggle */
-  .btn--main-ios-toggle {
-
-    @include to-em(padding, $spacing-half+2);
-    @include to-em(padding-top, $spacing-half - 0.7);
-
-    /* iOS and Android */
-    .ios &,
-    .android & {@include to-em(padding-top, $spacing-half+0.5);}
-
-    input:checked ~ .btn--main-ios-toggle__handle {
-      background: $color-green;
-
-      &:after {
-        @include to-rem(left, $spacing-half+$spacing-micro);
+        /* Make focus state seen when using dark colour */
+        .btn--main-dark &:focus {outline-color: #fff;}
       }
-    }
 
-  }
-    .btn--main-ios-toggle__handle {
-      display: inline-block;
-      position: relative;
-      vertical-align: text-bottom;
-      @include to-rem(top, 2);
-      @include to-rem(border-radius, $spacing-half);
-      background-color: $color-grey-med-2;
-      @include to-rem(width, $spacing-base+$spacing-quarter);
-      @include to-rem(height, $spacing-half+$spacing-quarter);
+    /* iOS */
+    .btn--main-toggle-ios {@include to-em(padding, $spacing-half - 0.7 $spacing-half+2 $spacing-half+2);}
 
-      &::after {
-        @extend %transition-subtle;
-        content: " ";
-        position: absolute;
-        @include to-rem(top, $spacing-micro);
-        @include to-rem(left, $spacing-micro);
-        @include to-rem(width, $spacing-half+($spacing-micro/2));
-        @include to-rem(height, $spacing-half+($spacing-micro/2));
-        background: #fff;
-        border-radius: 50%;
+      .btn--main-toggle-ios__handle {
+        display: inline-block;
+        position: relative;
+        @include to-rem(top, 2);
+        vertical-align: text-bottom;
+        @include to-rem(border-radius, $spacing-half);
+        background-color: $color-grey-med-2;
+        @include to-rem(width, $spacing-base+$spacing-quarter);
+        @include to-rem(height, $spacing-half+$spacing-quarter);
+
+        .btn--main-toggle__input:checked ~ & {
+          background-color: $color-green;
+
+          &:after {@include to-rem(left, $spacing-half+$spacing-micro);}
+        }
+
+        &:after {
+          @extend %transition-subtle;
+          content: "";
+          position: absolute;
+          @include to-rem(top left, $spacing-micro);
+          @include to-rem(width height, $spacing-half+($spacing-micro/2));
+          background-color: #fff;
+          border-radius: 50%;
+        }
       }
-    }
-
-    /* The checkbox */
-    .btn--main-ios-toggle__input {
-      cursor: pointer;
-      @include to-rem(margin-right, $spacing-sixth);
-
-      /* Make focus state seen when using dark colour */
-      .btn--main-dark &:focus {outline-color: #fff;}
-    }

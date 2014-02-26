@@ -68,6 +68,7 @@ class @StoresKeywordFilter
     # These functions are slow, so debounce them so they dont lock up the browser
     delayedFilterMapPins = _.debounce(@filterMapPins, 400)
     delayedShowStoreLogos = _.debounce(@showStoreLogos, 400)
+    @noStoresMatchingMessage = $('.js-stores-keyword-filter-no-stores-matching')
 
     $('.js-stores-keyword-filter-input').fastLiveFilter '.js-stores-keyword-filter-list',
       selector: '.js-stores-keyword-filter-text-to-search',
@@ -77,7 +78,7 @@ class @StoresKeywordFilter
         @filterStoreLetterHeadings(stores, numShown)
         delayedFilterMapPins(stores, numShown)
         delayedShowStoreLogos()
-
+        @handleNoStoresInList(numShown)
 
   _setListPosition: =>
     container = $('.js-stores-list-position-container')
@@ -89,6 +90,13 @@ class @StoresKeywordFilter
     # TODO dont hard code 21, get the line height from CSS
     listTop += 21 if twoColumnView
     storesList.css('top', "#{listTop}px")
+
+  handleNoStoresInList: (numShown) =>
+    if numShown == 0
+      @noStoresMatchingMessage.removeClass('hide-fully')
+      @noStoresMatchingMessage.find('.js-stores-keyword-filter-value').html('\''+$('.js-stores-keyword-filter-input').val()+'\'')
+    else
+      @noStoresMatchingMessage.addClass('hide-fully')
 
   pinFilteredStores: ->
     getId = -> $(@).data 'store-id'

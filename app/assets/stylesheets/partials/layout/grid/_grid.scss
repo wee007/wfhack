@@ -150,6 +150,7 @@
 /* Table */
 .grid--table {
 	display: table;
+	width: 100%;
 
 	> .grid__item {
 		display: table-cell;
@@ -161,6 +162,7 @@
 @include respond-min($non-palm) {
 	.grid--table-non-palm {
 		display: table;
+		width: 100%;
 
 		> .grid__item {
 			display: table-cell;

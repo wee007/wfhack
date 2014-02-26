@@ -15,6 +15,17 @@ module ProductsHelper
       products
   end
 
+  def category_canonical_url(category_count=0)
+    category_code = @product.category_hierarchy.map{ |c| c.code }
+    (super_category, category, sub_category) = category_code.first(category_count+1)
+    category_url(super_category, category, sub_category)
+  end
+
+  def retailer_canonical_url
+    return "#{centre_products_url(@centre)}?retailer=#{@product.retailer_code}" if @centre.present?
+    "#{products_url}?retailer=#{@product.retailer_code}"
+  end
+
   def prev_page_url
     url_for pagination_params @search.page - 1
   end
@@ -65,5 +76,19 @@ module ProductsHelper
 
   def products
     products_url(params)
+  end
+
+  def category_url(super_category, category, sub_category)
+    case
+    when sub_category.present?
+      return "#{centre_products_category_url(@centre, super_category, category)}?sub_category=#{sub_category}" if @centre.present?
+      "#{products_category_url(super_category, category)}?sub_category=#{sub_category}"
+    when category.present?
+      return centre_products_category_url(@centre, super_category, category) if @centre.present?
+      products_category_url(super_category, category)
+    else
+      return centre_products_super_cat_url(@centre, super_category) if @centre.present?
+      products_super_cat_url(super_category)
+    end
   end
 end

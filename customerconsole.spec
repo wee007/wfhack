@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.173
+Version:     0.2.174
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,10 @@ fi
 
 
 %changelog
+* Wed Feb 26 2014 ci <doperations@au.westfield.com> 0.2.174-1
+- add js hook to stop angular from hijacking links
+  (alec@smartalecwebsites.com.au)
+
 * Wed Feb 26 2014 ci <doperations@au.westfield.com> 0.2.173-1
 - Merge pull request #945 from araeside/fix-empty-products-page
   (chorn@au.westfield.com)

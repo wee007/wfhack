@@ -230,16 +230,45 @@
 
     /* Modifier: iOS toggle */
   .btn--main-ios-toggle {
+
     @include to-em(padding, $spacing-half+2);
     @include to-em(padding-top, $spacing-half - 0.7);
 
     /* iOS and Android */
     .ios &,
     .android & {@include to-em(padding-top, $spacing-half+0.5);}
-  }
 
-    .btn--main-ios-toggle__handle,
-    .btn--main-ios-toggle__lbl {vertical-align: middle;}
+    input:checked ~ .btn-toggle__handle {
+      background: $color-green;
+
+      &:after {
+        @include to-rem(left, $spacing-half+$spacing-micro);
+      }
+    }
+
+  }
+    .btn--main-ios-toggle__handle {
+      display: inline-block;
+      position: relative;
+      vertical-align: text-bottom;
+      @include to-rem(top, 2);
+      @include to-rem(border-radius, $spacing-half);
+      background-color: $color-grey-med-2;
+      @include to-rem(width, $spacing-base+$spacing-quarter);
+      @include to-rem(height, $spacing-half+$spacing-quarter);
+
+      &::after {
+        @extend %transition-subtle;
+        content: " ";
+        position: absolute;
+        @include to-rem(top, $spacing-micro);
+        @include to-rem(left, $spacing-micro);
+        @include to-rem(width, $spacing-half+($spacing-micro/2));
+        @include to-rem(height, $spacing-half+($spacing-micro/2));
+        background: #fff;
+        border-radius: 50%;
+      }
+    }
 
     /* The checkbox */
     .btn--main-ios-toggle__input {

@@ -85,7 +85,7 @@
 /* Modifier: spacing - remove gutter for the first item */
 .horiz-list--spacing-base,
 .horiz-list--spacing-half {
-	> li:first-child {margin-right: 0;}
+	> li:last-child {margin-right: 0;}
 }
 
 /* Modifier: spacing base */

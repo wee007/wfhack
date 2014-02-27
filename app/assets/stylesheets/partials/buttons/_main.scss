@@ -174,7 +174,7 @@
       @extend %transition-subtle;
       position: absolute;
       @include to-rem(right, -16);
-      top: 0;
+      top: 1px;
       @include font-size(55, 0);
       @include to-rem(line-height, 32);
     }

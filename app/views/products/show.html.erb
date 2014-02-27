@@ -214,8 +214,9 @@
         <% end %>
         <% if @product.retailer_code.present? %>
           <li>
-            <%= link_to retailer_canonical_url, class: "tags__btn btn" do %>
+            <%= link_to retailer_canonical_url, class: "btn btn--main btn--main-dark btn--arrow" do %>
               <span class="txt-truncate"><%= @product.retail_chain_name %></span>
+              <span aria-hidden="true" class="icon icon--lrg icon--arrow-right-full"></span>
             <% end %>
           </li>
         <% end %>

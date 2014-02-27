@@ -136,7 +136,11 @@ $national-view-search-toggle-bp: 1080 !default;
 			.header-search-toggle {top: 0;}
 
 			/* National view header search */
-			&.header--national .header-search-toggle {top: 100%;}
+			&.header--national .header-search-toggle {
+				top: 100%;
+				/* This is to compensate for the bottom border */
+				margin-top: 1px;
+			}
 
 			/* Centre home page hero banner */
 			&.header--hero .header-search-toggle {
@@ -1457,6 +1461,7 @@ $national-view-search-toggle-bp: 1080 !default;
 	-------------------------------------------------------*/
 
 	/* Note: these styles are for when a user arrives at a site without any centre context i.e. 'National view' */
+	.header--national {border-bottom: 1px solid $color-grey-med-3;}
 
 	/* Increase bottom padding for `.container` at this breakpoint */
 	@include respond-min($desk) {

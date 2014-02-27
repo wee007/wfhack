@@ -213,6 +213,7 @@
 
         /* Modifier: Detail view */
         .stores-maps__inner--detail & {
+          float: none;
           margin-bottom: 0;
 
           .icon:before {
@@ -244,12 +245,8 @@
       .stores-maps__filters {
 
         @include respond-min($ipad-landscape) {
-          width: 100%;
           text-align: right;
         }
-
-        /* Non JS Users */
-        .no-js & {float: none;}
 
           /* Increase right padding for drop down trigger at this breakpoint */
           @include respond-min($non-palm) {
@@ -318,31 +315,22 @@
         }
 
         /* Keyword filter textbox */
-        .stores-maps__keyword-filter-input {
-          display: none;
-          float: none;
-
-          &.is-active { display:block; }
+        .stores-maps__filters .stores-maps__keyword-filter-input {
 
           /* Display all filters on one line */
           @include respond-min($iphone-landscape) {
             display: inline-block;
             width: 34%;
-
-            &.is-active { display:inline-block; }
           }
 
           /* Reduce width to handle bigger map toggle button */
           @include respond-min($lap-start) {
-            display: inline-block;
             width: 30%;
-
-            &.is-active { display:inline-block; }
           }
 
           @include respond-min($ipad-landscape) {
             display: block;
-            width: 100%;
+            width: auto;
           }
 
           /* Add padding to right of keyword  filter to not cover the map controls on palm */
@@ -354,20 +342,14 @@
             }
           }
 
-          input {
-            width: 100%;
+          .txt-input {
 
             /* Add extra vertical padding so the textbox is the same height as other filters */
-            @include to-rem(padding, $spacing-half - 2 $spacing-half);
+            @include to-rem(padding-top padding-bottom, $spacing-half - 2);
             @include to-rem(margin-top, $spacing-half);
 
-            @include respond-min($iphone-landscape) {
+            @include respond-range($iphone-landscape, $ipad-landscape - 1) {
               margin-top: 0;
-            }
-
-            /* Add space between other filters when it is on a new line */
-            @include respond-min($ipad-landscape) {
-              @include to-rem(margin-top, $spacing-half);
             }
           }
         }
@@ -382,7 +364,6 @@
 
           /* Non JS users */
           .no-js & {display: none;}
-
         }
 
         /* Show hidden text for non JS users */

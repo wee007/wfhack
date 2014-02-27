@@ -32,7 +32,7 @@
           <%# Filters %>
           <div class="stores-maps__filters">
 
-            <p class="stores-maps__intro hide-visually">Filter stores by <strong>Category</strong> and whether they accept <strong>Gift cards</strong>.</p>
+            <p class="stores-maps__intro hide-visually">Filter stores by <strong>Category</strong><span class="js-disabled-hide">, <strong>keyword</strong></span> and whether they accept <strong>Gift cards</strong>.</p>
 
             <%# Category %>
             <% unless @active_category %>
@@ -160,7 +160,7 @@
             <%# //Keyword Filter toggle %>
 
             <%# Keyword Filter %>
-            <div id="keyword-filter" class="stores-maps__filters__item stores-maps__keyword-filter-input js-disabled-hide">
+            <div id="keyword-filter" class="stores-maps__filters__item stores-maps__keyword-filter-input toggle-visibility js-disabled-hide">
               <label for="keyword-filter-input" class="hide-visually">Filter stores by keyword</label>
               <input id="keyword-filter-input" type="search" placeholder="Enter store name" class="txt-input js-stores-keyword-filter-input">
             </div>

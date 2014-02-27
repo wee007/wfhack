@@ -173,17 +173,17 @@
     .icon--arrow-right-full:before {
       @extend %transition-subtle;
       position: absolute;
-      right: -16px;
-      top: 10px;
-      font-size: 55px;
-      padding: 0;
-      vertical-align: top;
-      line-height: 1rem;
+      @include to-rem(right, -16);
+      top: 0;
+      @include font-size(55, 0);
+      @include to-rem(line-height, 32);
     }
 
     &.btn--main-dark {
       .icon--arrow-right-full:before {color: $color-grey-dark-3;}
-      &:hover .icon--arrow-right-full:before {color: lighten($color-grey-dark-3, 10%) }
+
+      &:hover .icon--arrow-right-full:before,
+      &:focus .icon--arrow-right-full:before {color: lighten($color-grey-dark-3, 10%) }
     }
   }
 

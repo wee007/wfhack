@@ -85,11 +85,11 @@
 /* Modifier: spacing - remove gutter for the first item */
 .horiz-list--spacing-base,
 .horiz-list--spacing-half {
-	> li:first-child {margin-left: 0;}
+	> li:last-child {margin-right: 0;}
 }
 
 /* Modifier: spacing base */
-.horiz-list--spacing-base > li {@include to-rem(margin-left, $spacing-base);}
+.horiz-list--spacing-base > li {@include to-rem(margin-right, $spacing-base);}
 
 /* Modifier: spacing half */
-.horiz-list--spacing-half > li {@include to-rem(margin-left, $spacing-half);}
+.horiz-list--spacing-half > li {@include to-rem(margin-right, $spacing-half);}

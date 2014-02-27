@@ -156,7 +156,6 @@ describe ProductsHelper do
 
   end
 
-
   describe :retailer_canonical_url do
 
     describe "on [ national ] product detail page" do

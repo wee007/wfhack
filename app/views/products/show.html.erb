@@ -201,20 +201,22 @@
 <%# See More %>
 <% if @product.category_hierarchy.present? %>
   <section class="detail-view__divider--top-btm detail-view__divider--top island" aria-labelledby="see-more">
-    <h2 class="detail-view__hdr-sub detail-view__mrg-off hn" id="see-more">See More</h2>
-    <nav class="tags tags--pointers" role="navigation">
-      <ul class="horiz-list">
+    <h2 class="detail-view__hdr-sub hn" id="see-more">See More</h2>
+    <nav role="navigation">
+      <ul class="horiz-list horiz-list--spacing-base">
         <% @product.category_hierarchy.each_with_index do |category, category_count| %>
           <li>
-            <%= link_to category_canonical_url(category_count), class: "tags__btn btn" do %>
+            <%= link_to category_canonical_url(category_count), class: "btn btn--main btn--main-dark btn--arrow" do %>
               <span class="txt-truncate"><%= category.name %></span>
+              <span aria-hidden="true" class="icon icon--lrg icon--arrow-right-full"></span>
             <% end %>
           </li>
         <% end %>
         <% if @product.retailer_code.present? %>
           <li>
-            <%= link_to retailer_canonical_url, class: "tags__btn btn" do %>
+            <%= link_to retailer_canonical_url, class: "btn btn--main btn--main-dark btn--arrow" do %>
               <span class="txt-truncate"><%= @product.retail_chain_name %></span>
+              <span aria-hidden="true" class="icon icon--lrg icon--arrow-right-full"></span>
             <% end %>
           </li>
         <% end %>

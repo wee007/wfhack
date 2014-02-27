@@ -166,6 +166,27 @@
 
 	}
 
+  /* Modifier: Buttons with arrow on the right */
+  .btn--arrow {
+    position: relative;
+
+    .icon--arrow-right-full:before {
+      @extend %transition-subtle;
+      position: absolute;
+      @include to-rem(right, -16);
+      top: 1px;
+      @include font-size(55, 0);
+      @include to-rem(line-height, 32);
+    }
+
+    &.btn--main-dark {
+      .icon--arrow-right-full:before {color: $color-grey-dark-3;}
+
+      &:hover .icon--arrow-right-full:before,
+      &:focus .icon--arrow-right-full:before {color: lighten($color-grey-dark-3, 10%) }
+    }
+  }
+
   /* Modifier: checkbox toggle */
   .btn--main-checkbox-toggle {
     @include to-em(padding, $spacing-half+1.5 $spacing-half);

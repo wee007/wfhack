@@ -1,17 +1,22 @@
-<div itemscope itemtype="http://data-vocabulary.org/Event">
+<div itemscope itemtype="http://schema.org/Event">
 
   <%# Event name, date, location and details %>
   <div class="island detail-view__divider">
 
     <%# Event name, date and location %>
     <header class="detail-view__mrg-base">
-      <h1 class="detail-view__hdr hn" itemprop="summary"><%= @event.name %></h1>
+      <h1 class="detail-view__hdr hn" itemprop="name"><%= @event.name %></h1>
       <ul class="detail-view__meta detail-view__divider detail-view__divider--top-btm islet-ends horiz-list horiz-list--fit">
         <li class="detail-view__subtle-txt"><%= display_event_date(@event) %></li>
         <%- if @event.location.present? -%>
-          <li>
+          <li itemprop="location" itemscope itemtype="http://schema.org/Place">
             <span class="icon icon--pin icon--lrg" aria-hidden="true"></span>
-            <span itemprop="location"><%= @event.location %></span>
+            <span itemprop="name"><%= @event.location %></span>
+            <span class="hide-fully" aria-hidden="true" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+              <span itemprop="streetAddress"><%= @centre.street_address %></span>,
+              <span itemprop="addressLocality"><%= @centre.suburb %></span>,
+              <span itemprop="addressRegion"><%= @centre.state %></span>
+            </span>
           </li>
         <% end %>
       </ul>
@@ -19,7 +24,7 @@
     <%# //Event name, date and location %>
 
     <%# Event image %>
-    <section class="detail-view__media detail-view__mrg-base" itemprop="photo" aria-labelledby="image">
+    <section class="detail-view__media detail-view__mrg-base" aria-labelledby="image">
       <h2 class="hide-visually" id="image">Event Image</h2>
       <%= fetch_image_tag @event.image,
         alt: "",
@@ -70,7 +75,7 @@
         </dt>
         <% occurrences.each do |occurrence| %>
           <dd>
-            <time datetime="<%= occurrence.start(:raw) %>" itemprop="startDate"><%= occurrence.start(:hour_minute_period) %></time> &#8211; <time datetime="<%= occurrence.finish(:raw) %>" itemprop="endDate"><%= occurrence.finish(:hour_minute_period) %></time>
+            <time datetime="<%= occurrence.start(:raw) %>"><%= occurrence.start(:hour_minute_period) %></time> &#8211; <time datetime="<%= occurrence.finish(:raw) %>"><%= occurrence.finish(:hour_minute_period) %></time>
           </dd>
         <% end %>
       <% end %>

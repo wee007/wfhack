@@ -47,13 +47,14 @@
 
         <%# Centre address %>
         <div class="slats__body islet">
-          <p itemscope itemtype="http://schema.org/Organization">
+          <p>
+            <span class="hide-visually" itemprop="name"><%= @centre.name %></span>
             <span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
               <span itemprop="streetAddress"><%= @centre.street_address %></span>
               <br>
               <span itemprop="addressLocality"><%= @centre.suburb %></span>
               <br>
-              <span itemprop="addressRegion"><%= @centre.state %> <%= @centre.postcode %></span>
+              <span itemprop="addressRegion"><%= @centre.state %></span> <span itemprop="postalCode"><%= @centre.postcode %></span>
             </span>
           </p>
           <%= link_to "https://maps.google.com/maps?q=#{@centre.latitude},#{@centre.longitude}", rel: 'external', target: '_blank' do %>

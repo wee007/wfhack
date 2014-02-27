@@ -177,6 +177,7 @@
       top: 1px;
       @include font-size(55, 0);
       @include to-rem(line-height, 32);
+      line-height: 32px;
     }
 
     &.btn--main-dark {

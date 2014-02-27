@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.179
+Version:     0.2.180
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,17 @@ fi
 
 
 %changelog
+* Fri Feb 28 2014 ci <doperations@au.westfield.com> 0.2.180-1
+- Merge pull request #956 from araeside/fix-icon-size-for-no-content
+  (chorn@au.westfield.com)
+- Switching the slash direction (cpearce@au.westfield.com)
+- Fixing syntax error in events helper (cpearce@au.westfield.com)
+- Rename micello hijack click fix JS hook to be something more specific
+  (cpearce@au.westfield.com)
+- add extra classes for styleguide (alec@smartalecwebsites.com.au)
+- add extra class to movies, events and deals icons on no content pages for
+  correct icon size (alec@smartalecwebsites.com.au)
+
 * Thu Feb 27 2014 ci <doperations@au.westfield.com> 0.2.179-1
 - 
 

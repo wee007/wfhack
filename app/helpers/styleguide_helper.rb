@@ -54,7 +54,7 @@ module StyleguideHelper
     script = capture(&block).strip
 
     @@script = script
-    content_for :javascript do
+    content_for :custom_javascript do
       content_tag :script do
         script.html_safe
       end

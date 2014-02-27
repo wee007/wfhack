@@ -31,20 +31,33 @@
   <title><%= page_title %></title>
   <%# //Title %>
 
-  <%= render "shared/stylesheets_global" %>
+  <%# Google fonts %>
+  <link href="http://fonts.googleapis.com/css?family=Lato:300|Open+Sans" rel="stylesheet">
+  <%# //Google fonts %>
 
+  <%# Global CSS %>
+  <link href="<%= stylesheet_path('application') %>" rel="stylesheet">
+  <%# //Global CSS %>
+
+  <%# Custom CSS %>
   <%= yield :custom_styles %>
+  <%# //Custom CSS %>
 
+  <%# Modernizr %>
   <%= javascript_include_tag "vendor/modernizr.min" %>
+  <%# //Modernizr %>
 
   <%# IE 10+ tile icon: http://blogs.msdn.com/b/ie/archive/2012/06/08/high-quality-visuals-for-pinned-sites-in-windows-8.aspx %>
   <meta name="msapplication-TileColor" content="#da291c">
   <meta name="msapplication-TileImage" content="/apple-touch-icon-144x144-precomposed.png">
   <%# //IE 10+ tile icon %>
 
+  <%# SEO description %>
   <% if meta.description.present? %>
     <meta name="description" content="<%= meta.description.html_safe %>">
   <% end %>
+  <%# //SEO description %>
+
 </head>
 
 <body class="<%= params[:controller] %> <%= params[:action] %> <%= yield :class_for_body %>" ng-app="Westfield" ng-init="centre_id='<%= params[:centre_id] || params[:id] %>'">
@@ -68,7 +81,21 @@
   </button>
   <%# //Site feedback button - links to JIRA issue collector %>
 
-  <%= render "/shared/javascripts_global" %>
+  <%# Set up a global JavaScript object %>
+  <%= include_gon(:namespace => :westfield) %>
+  <%# //Set up a global JavaScript object %>
+
+  <%# Global JavaScript %>
+  <%= javascript_include_tag 'application' %>
+  <%# //Global JavaScript %>
+
+  <%# Custom JavaScript %>
+  <%= yield :custom_javascript %>
+  <%# //Custom JavaScript %>
+
+  <%# 3rd party JavaScript (Tealium) %>
+  <%= raw third_party_universal_tagging %>
+  <%# //3rd party JavaScript (Tealium) %>
 
 </body>
 

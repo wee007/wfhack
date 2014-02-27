@@ -12,13 +12,13 @@
 
   <title>Sorry, we couldn't find the page you requested (<%= status %> error) | Westfield</title>
 
-  <%# Fonts %>
+  <%# Google fonts %>
   <link href="http://fonts.googleapis.com/css?family=Lato:300" rel="stylesheet">
-  <%# //Fonts %>
+  <%# //Google fonts %>
 
-  <%# Styles %>
+  <%# CSS %>
   <link rel="stylesheet" href="<%= stylesheet_path('server_errors') %>">
-  <%# //Styles %>
+  <%# //CSS %>
 
 </head>
 
@@ -31,8 +31,13 @@
     </div>
   </div>
 
-  <%= include_gon(namespace: :westfield) %>
-  <%= raw third_party_universal_tagging %>
+  <%# Set up a global JavaScript object %>
+  <%= include_gon(:namespace => :westfield) %>
+  <%# //Set up a global JavaScript object %>
+
+  <%# 3rd party JavaScript (Tealium) %>
+  <%= raw third_party_universal_tagging %>
+  <%# //3rd party JavaScript (Tealium) %>
 
 </body>
 

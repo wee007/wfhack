@@ -178,8 +178,8 @@
 </div>
 <%# //National landing page wrapper %>
 
-<% content_for :javascript do %>
-  <%# Background images of the centre tiles at each breakpoint. This is in the `content_for :javascript` because it is not needed untill after the JS has loaded and adds quite a bit of page weight %>
+<% content_for :custom_javascript do %>
+  <%# Background images of the centre tiles at each breakpoint. This is in the `content_for :custom_javascript` because it is not needed untill after the JS has loaded and adds quite a bit of page weight %>
   <style>
     <% @centres.each do |centre| %>
       <%# Hero image at small breakpoint %>

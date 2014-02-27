@@ -201,12 +201,12 @@
           @include to-em(margin-bottom, $spacing-sixth);
         }
 
-        /* Hide when in map view */
+        /* Hide when in map view - need to override the helper class: `.txt-truncate` `!important` keyword */
         .is-map-view & {
-          display: none;
+          display: none !important;
 
           @include respond-min($ipad-landscape) {
-            display: block;
+            display: block !important;
           }
         }
 

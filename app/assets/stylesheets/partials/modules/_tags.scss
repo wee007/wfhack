@@ -40,7 +40,6 @@
 
     /* Button text (truncate) */
     .txt-truncate {
-      display: block;
       vertical-align: middle;
       @include to-rem(padding-top padding-bottom, $spacing-third);
       @include to-rem(padding-right, $spacing-base);

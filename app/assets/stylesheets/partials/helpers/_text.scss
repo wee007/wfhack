@@ -31,11 +31,15 @@
 
 /* Truncate */
 .txt-truncate {
+  display: block !important;
 	max-width: 100% !important;
   overflow: hidden !important;
   text-overflow: ellipsis !important;
   white-space: nowrap !important;
 }
+
+/* Modifier: make `inline-block` */
+.txt-truncate--inline-block {display: inline-block !important;}
 
 /* Break word - should only be used for instances when it's only one string with no spaces such as email and url */
 .txt-break-word {

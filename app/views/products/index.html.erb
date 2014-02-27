@@ -2,6 +2,7 @@
   <link rel="canonical" href="<%= canonical_url %>">
 <% end %>
 
+<%# Section nav %>
 <% content_for :section_nav do %>
   <%= render layout: '/layouts/section_nav' do %>
     <%=
@@ -13,6 +14,7 @@
     -%>
   <% end %>
 <% end %>
+<%# //Section nav %>
 
 <h1 class="hide-visually">Products</h1>
 
@@ -144,7 +146,7 @@
               <ul class="drop-down-menu__list">
                 <li ng-repeat="retailer in search.retailers.values | nameStartsWith: storeSearch | limitTo: 250" class="drop-down-menu__divider islet">
                   <input ng-model="retailer.selected" ng-checked="retailer.selected" value="{{ retailer.code }}" id="retailer_{{ retailer.code }}" type="checkbox"><!--
-                  --><label for="retailer_{{ retailer.code }}" class="txt-truncate">{{ retailer.name }}</label>
+                  --><label for="retailer_{{ retailer.code }}" class="txt-truncate txt-truncate--inline-block">{{ retailer.name }}</label>
                 </li>
               </ul>
 
@@ -187,7 +189,7 @@
               <ul class="drop-down-menu__list">
                 <li ng-repeat="brand in search.brands.values | nameStartsWith: brandSearch | limitTo: 250" class="drop-down-menu__divider islet">
                   <input ng-model="brand.selected" ng-checked="brand.selected" value="{{ brand.code }}" id="brand_{{ brand.code }}" type="checkbox"><!--
-                  --><label for="brand_{{ brand.code }}" class="txt-truncate">{{ brand.name }}</label>
+                  --><label for="brand_{{ brand.code }}" class="txt-truncate txt-truncate--inline-block">{{ brand.name }}</label>
                 </li>
               </ul>
 

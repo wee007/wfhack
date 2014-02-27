@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.176
+Version:     0.2.177
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,11 @@ fi
 
 
 %changelog
+* Thu Feb 27 2014 ci <doperations@au.westfield.com> 0.2.177-1
+- Merge pull request #951 from cpearce/update-txt-truncate-helper
+  (chorn@au.westfield.com)
+- Update text truncate CSS helper - WSF-6320 (cpearce@au.westfield.com)
+
 * Thu Feb 27 2014 ci <doperations@au.westfield.com> 0.2.176-1
 - Merge pull request #941 from cpearce/wsf-6198 (chorn@au.westfield.com)
 - Making content for name more generic for better reuse on tile layout

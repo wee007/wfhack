@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.180
+Version:     0.2.181
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,9 @@ fi
 
 
 %changelog
+* Fri Feb 28 2014 ci <doperations@au.westfield.com> 0.2.181-1
+- 
+
 * Fri Feb 28 2014 ci <doperations@au.westfield.com> 0.2.180-1
 - Merge pull request #956 from araeside/fix-icon-size-for-no-content
   (chorn@au.westfield.com)

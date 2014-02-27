@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.177
+Version:     0.2.178
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,17 @@ fi
 
 
 %changelog
+* Thu Feb 27 2014 ci <doperations@au.westfield.com> 0.2.178-1
+- Merge pull request #952 from cpearce/quick-fixes (chorn@au.westfield.com)
+- another styleguide formatting tweak (alec@smartalecwebsites.com.au)
+- add correct drop down menu base class to nearby centres drop down
+  (alec@smartalecwebsites.com.au)
+- fix styleguide (alec@smartalecwebsites.com.au)
+- move icon for no content inside of p tag for correct positioning
+  (alec@smartalecwebsites.com.au)
+- Fix search appearing on national product detail page
+  (cpearce@au.westfield.com)
+
 * Thu Feb 27 2014 ci <doperations@au.westfield.com> 0.2.177-1
 - Merge pull request #951 from cpearce/update-txt-truncate-helper
   (chorn@au.westfield.com)

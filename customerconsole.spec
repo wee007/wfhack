@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.174
+Version:     0.2.175
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,17 @@ fi
 
 
 %changelog
+* Thu Feb 27 2014 ci <doperations@au.westfield.com> 0.2.175-1
+- Merge pull request #948 from cpearce/clean-up-shared-partials
+  (chorn@au.westfield.com)
+- Adding a sub dir for social share partials (cpearce@au.westfield.com)
+- Updating comments for server error pages layout (cpearce@au.westfield.com)
+- Adding a space at the start of the tealium tag (cpearce@au.westfield.com)
+- Removing global stylesheets partial and cleaning up comments in base layout
+  (cpearce@au.westfield.com)
+- Changing 'javascript' content for name to be more specific and removing
+  shared global javascripts partial (cpearce@au.westfield.com)
+
 * Wed Feb 26 2014 ci <doperations@au.westfield.com> 0.2.174-1
 - add js hook to stop angular from hijacking links
   (alec@smartalecwebsites.com.au)

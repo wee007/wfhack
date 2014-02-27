@@ -151,14 +151,15 @@
   //@import "partials/modules/widgets/social-media-share";
   //@import "partials/modules/widgets/tooltip";
 
-/* This must come after all the modules and widgets so the txt-formatted styles will always be applied */
+/* Note: this must come after all the modules and widgets so it will always be applied */
 @import "partials/modules/txt-formatted";
 
 /* Helpers */
-@import "partials/helpers/hide";
 @import "partials/helpers/spacing";
 @import "partials/helpers/display";
 @import "partials/helpers/text";
+/* Note: this must come after all the helpers so it will always be applied */
+@import "partials/helpers/hide";
 //@import "partials/helpers/float";
 //@import "partials/helpers/pull";
 //@import "partials/helpers/vertical-alignments";

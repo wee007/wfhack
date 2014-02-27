@@ -81,7 +81,7 @@
                       </td>
                       <td>
                         <% if day.description.present? %>
-                          <em class="pill <%= "txt-truncate" if day.description.length > 18 %> hide-fully--palm-inline-block" <%= "title=\"#{day.description}\"".html_safe if day.description.length > 18 %>><%= day.description %></em>
+                          <em class="pill <%= "txt-truncate txt-truncate--inline-block" if day.description.length > 18 %> hide-fully--palm-inline-block" <%= "title=\"#{day.description}\"".html_safe if day.description.length > 18 %>><%= day.description %></em>
                         <% else %>
                           &nbsp;
                         <% end %>

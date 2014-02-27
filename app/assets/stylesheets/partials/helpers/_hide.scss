@@ -7,26 +7,26 @@
 */
 
 /* Hide from both screen readers and browsers */
-.hide-fully {display: none;}
+.hide-fully {display: none !important;}
 
 	/* Apply at specific breakpoints */
 
 	/* Palm - need 3 versions for `block` (default), `inline` and `inline-block` */
 	.hide-fully--palm,
 	.hide-fully--palm-inline,
-	.hide-fully--palm-inline-block {display: none;}
+	.hide-fully--palm-inline-block {display: none !important;}
 
 	@include respond-min($non-palm) {
-		.hide-fully--palm {display: block;}
+		.hide-fully--palm {display: block !important;}
 
-		.hide-fully--palm-inline {display: inline;}
+		.hide-fully--palm-inline {display: inline !important;}
 
-		.hide-fully--palm-inline-block {display: inline-block;}
+		.hide-fully--palm-inline-block {display: inline-block !important;}
 	}
 
 	/* Non-palm */
 	@include respond-min($non-palm) {
-		.hide-fully--non-palm {display: none;}
+		.hide-fully--non-palm {display: none !important;}
 	}
 
 /*

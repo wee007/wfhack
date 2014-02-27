@@ -195,12 +195,8 @@
         }
       }
 
-      /* Truncate `label`s */
-      label.txt-truncate {
-        display: inline-block;
-        /* Need to override the helper class `!important` keyword */
-        max-width: 90% !important;
-      }
+      /* Truncate `label`s - need to override the helper class `!important` keyword */
+      label.txt-truncate {max-width: 90% !important;}
     }
 
     /* Alternative list, need to increase the specificity so as to override hover/focus styles from any outer modules */

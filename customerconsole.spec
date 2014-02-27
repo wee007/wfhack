@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.175
+Version:     0.2.176
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,16 @@ fi
 
 
 %changelog
+* Thu Feb 27 2014 ci <doperations@au.westfield.com> 0.2.176-1
+- Merge pull request #941 from cpearce/wsf-6198 (chorn@au.westfield.com)
+- Making content for name more generic for better reuse on tile layout
+  (cpearce@au.westfield.com)
+- Smoke test update (ldewey@au.westfield.com)
+- Making date range code more readable for events helper
+  (cpearce@au.westfield.com)
+- Applying Microdata to movies pages - WSF-6198 (cpearce@au.westfield.com)
+- Cleaning up Microdata - WSF-6198 (cpearce@au.westfield.com)
+
 * Thu Feb 27 2014 ci <doperations@au.westfield.com> 0.2.175-1
 - Merge pull request #948 from cpearce/clean-up-shared-partials
   (chorn@au.westfield.com)

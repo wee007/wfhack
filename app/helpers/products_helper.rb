@@ -18,7 +18,7 @@ module ProductsHelper
   def category_canonical_url(category_count=0)
     category_code = @product.category_hierarchy.map{ |c| c.code }
     (super_category, category, sub_category) = category_code.first(category_count+1)
-    category_url(super_category, category, sub_category)
+    build_category_url(super_category, category, sub_category)
   end
 
   def retailer_canonical_url
@@ -78,7 +78,7 @@ module ProductsHelper
     products_url(params)
   end
 
-  def category_url(super_category, category, sub_category)
+  def build_category_url(super_category, category, sub_category)
     case
     when sub_category.present?
       return "#{centre_products_category_url(@centre, super_category, category)}?sub_category=#{sub_category}" if @centre.present?

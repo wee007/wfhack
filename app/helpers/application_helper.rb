@@ -22,14 +22,27 @@ module ApplicationHelper
   end
 
   def phone_format(phone_no)
-    phone_no = phone_no || ''
-    if phone_no.match /^02|^03|^06|^07|^08/
+    phone_no ||= ''
+    case
+    # format numbers that starts with 02, 03, 06, 07 or 08 (landline numbers with area code)
+    # e.g. output: 02 9888 8888
+    when phone_no.match(/^02|^03|^06|^07|^08/)
       phone_no.gsub(/^(\d{2})(\d{4})(\d*)$/, '\1 \2 \3')
-    elsif phone_no[0] == '1' && phone_no.length == 10
+    # format numbers that starts with 1 and with 10 digits (1800 numbers)
+    # e.g. output: 1800 888 888
+    when phone_no[0] == '1' && phone_no.length == 10
       phone_no.gsub(/^(\d{4})(\d{3})(\d*)$/, '\1 \2 \3')
-    elsif phone_no[0] == '1' && phone_no.length == 6
+    # format numbers with 8 digits (landline numbers without area code)
+    # e.g. output: 9888 8888
+    when phone_no.length == 8
+      phone_no.gsub(/^(\d{4})(\d*)$/, '\1 \2')
+    # format numbers that starts with 1 and with 6 digits (13 numbers)
+    # e.g. output: 131 888
+    when phone_no[0] == '1' && phone_no.length == 6
       phone_no.gsub(/^(\d{3})(\d*)$/, '\1 \2')
-    elsif phone_no.match /^04/
+    # format numbers that starts with 04 (mobile numbers)
+    # e.g. output 0404 888 888
+    when phone_no.match(/^04/)
       phone_no.gsub(/^(\d{4})(\d{3})(\d*)$/, '\1 \2 \3')
     else
       phone_no

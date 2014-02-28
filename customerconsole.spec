@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.182
+Version:     0.2.183
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,13 @@ fi
 
 
 %changelog
+* Fri Feb 28 2014 ci <doperations@au.westfield.com> 0.2.183-1
+- Merge pull request #958 from csmith/master (craigM.smith@au.westfield.com)
+- Revert "WSF-6116 Use trading hours service for store trading hours."
+  (craigm.smith@au.westfield.com)
+- Merge pull request #957 from ewee/phone_number (chorn@au.westfield.com)
+- WSF-6114 Format landline number (ewee@au.westfield.com)
+
 * Fri Feb 28 2014 ci <doperations@au.westfield.com> 0.2.182-1
 - Merge pull request #944 from csmith/master (craigM.smith@au.westfield.com)
 - WSF-6116 Use trading hours service for store trading hours.

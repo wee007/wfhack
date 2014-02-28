@@ -24,23 +24,24 @@ describe ApplicationHelper do
 
   describe "#phone_format" do
 
-    tests = [
+    phone_numbers = [
       '02 1234 123456',
       '03 1234 123456',
       '06 1234 123456',
       '07 1234 123456',
       '08 1234 123456',
       '1234 123 123',
+      '1234 5678',
       '123 123',
       '0412 123 123456',
       '(02)1234-123456'
     ]
 
-    tests.each do |format|
+    phone_numbers.each do |format|
       number = format.gsub(/\s+/, '')
       
       it "formats '#{number}' as '#{format}'" do
-        expect(helper.phone_format(number)).to eql format
+        expect(helper.phone_format(number)).to eql(format)
       end
     end
 

@@ -52,6 +52,9 @@ class @StoresKeywordFilter
   # Determines how stores will be matched with keyword
   filterStores: (filter, fullText) =>
     matches = false
+    if filter.length == 1
+      return fullText.substr(0, 1) == filter
+
     if filter.indexOf(' ') >= 0
       return fullText.indexOf(filter) == 0
 

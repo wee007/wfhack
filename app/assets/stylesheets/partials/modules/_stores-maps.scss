@@ -447,14 +447,14 @@
     .stores-maps__list-detail {
       position: absolute;
       z-index: 5;
-      @include to-rem(top, 55);
+      @include to-rem(top, 58);
       bottom: 0;
       left: 0;
       right: 0;
       overflow-y: auto;
 
       /* Post filter count */
-      .is-filter-applied & {@include to-rem(top, 89);}
+      .is-filter-applied & {@include to-rem(top, 91);}
 
       /* Modifier: Listing view */
       .stores-maps__inner--listing & {background-color: #fff;}
@@ -482,21 +482,21 @@
 
       /* Alter top positioning at this breakpoint */
       @include respond-min($non-palm) {
-        @include to-rem(top, 65);
+        @include to-rem(top, 68);
 
         /* Post filter count */
-        .is-filter-applied & {@include to-rem(top, 102);}
+        .is-filter-applied & {@include to-rem(top, 109);}
       }
 
       /* Apply box treatments and alter top/btm positioning at this breakpoint */
       @include respond-min($ipad-landscape) {
-        @include to-rem(top, 151);
+        @include to-rem(top, 161);
         @include to-rem(bottom, $spacing-base);
         @include box;
         @include box-heavy;
 
         /* Post filter count */
-        .is-filter-applied & {@include to-rem(top, 187);}
+        .is-filter-applied & {@include to-rem(top, 196);}
 
         /* Modifier: Detail view */
         .stores-maps__inner--detail & {

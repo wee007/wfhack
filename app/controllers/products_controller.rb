@@ -98,6 +98,8 @@ class ProductsController < ApplicationController
 
     @centres = centres.group_by{ |centre| centre.state }
 
+    @centres_for_retailer = centres.select{|centre| @stores.map(&:centre_id).include?(centre.id) }.group_by{ |centre| centre.state }
+
     meta.push @product.meta
     meta.push(
       page_title: @product.name,

@@ -3,6 +3,7 @@
 
   <a href="#" class="btn btn--main $modifier_class">Button (anchor)</a>
 
+<<<<<<< HEAD
   <% example '.btn--main-arrow' do %>
     <button type="button" class="btn btn--main btn--main-dark btn--main-arrow">Button (button)</button>
     <a href="#" class="btn btn--main btn--main-dark btn--main-arrow">Button (anchor)</a>
@@ -12,12 +13,21 @@
     <label class="btn btn--main btn--main-white btn--main-checkbox-toggle">
       <input type="checkbox" class="btn--main-checkbox-toggle__input"><!--
       --><span class="btn--main-checkbox-toggle__lbl">On sale</span>
+=======
+  <% example '.btn--main-toggle-checkbox' do %>
+    <label class="btn btn--main btn--main-white btn--main-toggle btn--main-toggle-checkbox">
+      <input type="checkbox" class="btn--main-toggle__input"><!--
+      --><span class="btn--main-toggle-checkbox__lbl">On sale</span>
+>>>>>>> Add iOS toggle and updated checkbox toggle to stylguide
     </label>
   <% end %>
 
-  <% example '.btn--main-checkbox-toggle.btn--main-checkbox-toggle-icon' do %>
-    <label for="gift-card-toggle" class="btn btn--main btn--main-dark btn--main-checkbox-toggle btn--checkbox-toggle-icon">
-      <input id="gift-card-toggle" type="checkbox" class="btn--main-checkbox-toggle__input"><span class="btn--main-checkbox-toggle__lbl"><span class="hide-visually">Westfield </span>Gift Card <span class="hide-visually"> accepted</span><span aria-hidden="true" class="icon icon--gift-card icon--xlrg icon--flush-top-mozilla"></span></span>
+  <% example '.btn--main-toggle-ios' do %>
+    <label class="btn btn--main btn--main-white btn--main-toggle btn--main-toggle-ios">
+      <input type="checkbox" class="btn--main-toggle__input hide-visually">
+      <span class="btn--main-toggle__lbl">iOS toggle</span>
+      <span class="btn--main-toggle-ios__handle"></span>
     </label>
   <% end %>
+
 <% end %>

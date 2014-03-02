@@ -51,7 +51,7 @@
                   <span aria-hidden="true" class="icon icon--store icon--xlrg"></span> Stores
                 </dt>
                 <dd ng-repeat="suggestion in suggestions.stores" role="presentation">
-                  <a ng-class="{'is-focused': suggestion === focusedSuggestion}" ng-href="{{url(suggestion)}}" tabindex="-1">{{suggestion.description}}</a>
+                  <a target="_self" ng-class="{'is-focused': suggestion === focusedSuggestion}" ng-href="{{url(suggestion)}}" tabindex="-1">{{suggestion.description}}</a>
                 </dd>
                 <%# //Stores %>
 
@@ -60,7 +60,7 @@
                   <span aria-hidden="true" class="icon icon--products icon--xlrg"></span> Products
                 </dt>
                 <dd ng-repeat="suggestion in suggestions.products" role="presentation">
-                  <a ng-class="{'is-focused': suggestion === focusedSuggestion}" ng-href="{{url(suggestion)}}" tabindex="-1">{{suggestion.description}}</a>
+                  <a target="_self" ng-class="{'is-focused': suggestion === focusedSuggestion}" ng-href="{{url(suggestion)}}" tabindex="-1">{{suggestion.description}}</a>
                 </dd>
                 <%# //Products %>
 

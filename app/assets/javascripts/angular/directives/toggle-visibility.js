@@ -66,9 +66,10 @@
       $target.removeClass( activeClass );
       $target.unbind('keydown');
 
-      $timeout(function() {
-        $target.find("input:not(:hidden):first").blur();
-      });
+      // Replaces global search focus plugin.
+      // Remove focus from input in target as it is hidden now
+      // Use jQuery to get correct blur function
+      jQuery('#' + targetID).find('input[type=text], input[type=search]').eq(0).blur();
     },
 
     // Show the target, set appropriate ARIA
@@ -77,9 +78,10 @@
       triggers( targetID ).attr( 'aria-expanded', true ).addClass( activeClass );
       $target.addClass( activeClass );
 
-      $timeout(function() {
-        $target.find("input:not(:hidden):first").focus();
-      });
+      // Replaces global search focus plugin.
+      // Set focus on first input in target as it should be the focus of user's attention
+      // Use jQuery to get correct focus function
+      jQuery('#' + targetID).find('input[type=text], input[type=search]').eq(0).focus();
 
       if (targetID) {
         // Let other dropdowns know that they should close themselves

@@ -1,4 +1,4 @@
-#= require jquery-extensions/jquery.fastLiveFilter.js.coffee
+#= require jquery-extensions/jquery.fastLiveFilter
 #= require support/debounce
 #= require stores/stores_list_position
 

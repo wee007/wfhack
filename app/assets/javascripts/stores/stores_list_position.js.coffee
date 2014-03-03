@@ -4,6 +4,8 @@ class @StoresListPosition
     $ =>
       $(window).resize(@setListPosition)
       @_setListPosition()
+      $('[toggle-visibility="site-search"]').click =>
+        @_setListPosition()
 
   _setListPosition: =>
     container = $('.js-stores-list-position-container')

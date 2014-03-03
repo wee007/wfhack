@@ -11,7 +11,7 @@ Modified by Alec Raeside
 jQuery.fn.fastLiveFilter = (list, options) ->
   # Options: input, list, timeout, callback
   options = options or {}
-  list = jQuery(list)
+  $list = jQuery(list)
   input = this
   el = null
   lastFilter = ""
@@ -22,12 +22,10 @@ jQuery.fn.fastLiveFilter = (list, options) ->
 
   keyTimeout = undefined
 
-  filterSpeed = $("#filterspeed")
-
   # NOTE: because we cache lis & len here, users would need to re-init the plugin
   # if they modify the list in the DOM later.  This doesn't give us that much speed
   # boost, so perhaps it's not worth putting it here.
-  lis = list.children()
+  lis = $list.children()
   len = lis.length
 
   list = []
@@ -59,9 +57,13 @@ jQuery.fn.fastLiveFilter = (list, options) ->
         el.className += ' hide-fully' unless listObject.hidden
         listObject.hidden = true
 
+      if numShown == 0
+        $list.addClass 'hide-fully'
+      else
+        $list.removeClass 'hide-fully'
+
     callback list, numShown
-    #endTime = new Date().getTime()
-    #filterSpeed.html((endTime - startTime) + 'ms'  + ' (' + numShown + ' results)')
+
     false
   ).keydown ->
     clearTimeout keyTimeout

@@ -30,6 +30,7 @@ class StoreMapPage
     @pageLoaded()
     @recompileAngularScope()
     @keyword_filter.setupKeywordFilter()
+    @keyword_filter.setupToggleListPosition()
 
   pageLoaded: ->
     $ ->

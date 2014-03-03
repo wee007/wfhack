@@ -236,6 +236,7 @@
         @include to-rem(width, $spacing-base+$spacing-quarter);
         @include to-rem(height, $spacing-half+$spacing-quarter);
 
+        /* If the checkbox is checked, move the handle circle to the right to reflect checkbox state*/
         .btn--main-toggle__input:checked ~ & {
           background-color: $color-green;
 

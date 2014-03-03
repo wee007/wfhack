@@ -256,7 +256,7 @@
           /* Gift card toggle */
           .btn--main-toggle-ios {
             @include respond-min($ipad-landscape) {
-              @include to-em(padding, $spacing-half - 2 $spacing-half);
+              @include to-em(padding-top padding-bottom, $spacing-half - 2);
               border: 1px solid $color-grey-med-2;
               background-color: transparent;
               box-shadow: none;
@@ -264,6 +264,7 @@
 
             .icon--gift-card:before {
               display: none;
+
               @include respond-min($ipad-landscape) {
                 display: inline-block;
               }

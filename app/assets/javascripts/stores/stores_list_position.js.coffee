@@ -9,7 +9,7 @@ class @StoresListPosition
     container = $('.js-stores-list-position-container')
     filtersContainer = $('.js-stores-list-position-filter-container')
     storesList = $('.js-stores-list-position-store-list')
-    twoColumnView = $('body').width() > 1024
+    twoColumnView = $('body').width() >= 1024
     listTop = filtersContainer.outerHeight(twoColumnView)
 
     # TODO dont hard code 21, get the line height from CSS

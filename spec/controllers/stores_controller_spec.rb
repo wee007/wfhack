@@ -106,6 +106,9 @@ describe StoresController do
         DealService.stub( :fetch ).with( deal_params ).and_return( deal_response )
         DealService.stub( :build ).and_return( deals )
 
+        StoreTradingHourService.stub( :fetch )
+        StoreTradingHourService.stub( :build ).and_return([])
+
         get :show, centre_id: 'sydney', retailer_code: 'abc', id: 1
       end
 

@@ -38,13 +38,11 @@ class Store < Hashie::Mash
   end
 
   def closing_time
-    if today_closing_time.present?
-      today_closing_time
-    elsif centre.present? && centre.today_closing_time.present?
-      centre.today_closing_time
-    else
-      nil
-    end
+    todays_hours.closing_time
+  end
+
+  def closed_today
+    todays_hours.closed_today?
   end
 
   def closing_time_12
@@ -73,6 +71,11 @@ private
   def get_centre
     centre_service = CentreService.fetch(centre_id)
     CentreService.build centre_service
+  end
+
+  def todays_hours
+    today = Time.now.in_time_zone(centre.timezone).strftime("%Y-%m-%d")
+    @todays_hours ||= StoreTradingHourService.find({store_id:id, centre_id: centre_id, from: today, to: today}).first
   end
 
 end

@@ -12,26 +12,43 @@ class map.micello.Map
     @deferreds =
       stores: $.Deferred()
       micello: $.Deferred()
+      store_hours: $.Deferred()
+      store_fetch: $.Deferred()
     @community = westfield.centre.micello_community
     @map_centre = westfield.centre.micello_map_centre || {x: 0, y: 0}
     if @community == undefined
       throw 'Missing micello_community for centre'
     @offset = x: 0.5, y: 0.5
     @fetchStores()
+    $.when(@deferreds.store_fetch).then(@fetchTradingHours)
+    $.when(@deferreds.store_hours).then(@processStores)
     $.when(@deferreds.stores, @deferreds.micello).then(@ready)
 
   westfieldCentreId: ->
     westfield.centre.code
 
-  fetchStores: ->
-    $.getJSON("/api/store/master/stores?centre=#{@westfieldCentreId()}&per_page=9999", @processStores)
+  fetchStores: =>
+    $.getJSON "/api/store/master/stores?centre=#{@westfieldCentreId()}&per_page=9999", (data) =>
+      @stores = data
+      @deferreds.store_fetch.resolve()
 
-  processStores: (stores) =>
+  fetchTradingHours: =>
+    d = new Date()
+    curr_date = d.getDate()
+    curr_month = d.getMonth() + 1
+    curr_year = d.getFullYear()
+    today = curr_date + "-" + curr_month + "-" + curr_year
+    stores_for_url = (_.map @stores, (store) -> "store_id[]=#{store.id}").join("&")
+    $.getJSON "/api/trading-hour/master/store_trading_hours/range.json?centre_id=bondijunction&#{stores_for_url}&from=#{today}&to=#{today}", (data) =>
+      @store_trading_hours = _(data).chain().map((store_hours) -> [store_hours.store_id, store_hours]).object().value()
+      @deferreds.store_hours.resolve()
+
+  processStores: =>
     micello.maps.init(@key, @init)
-    _(stores).each (store) =>
+    _(@stores).each (store) =>
       if store._links.logo?.href?
         store.logo = store._links.logo.href
-      closingTime = store.today_closing_time || westfield.centre.today_closing_time
+      closingTime = @store_trading_hours[store.id].closing_time
       store.closing_time_24 = closingTime
       hour24 = parseInt(closingTime, 10)
       hour12 = hour24 % 12
@@ -41,9 +58,9 @@ class map.micello.Map
       store.closing_time_12 = "#{hour12}:#{minute}#{ampm}"
       store.storefront_path = "/#{@westfieldCentreId()}/stores/#{store.retailer_code}/#{store.id}"
     @stores =
-      list: stores
-      idMap: _(stores).chain().map((store) -> [store.id, store]).object().value()
-      micelloMap: _(stores).chain().map((store) -> [store.micello_geom_id, store]).object().value()
+      list: @stores
+      idMap: _(@stores).chain().map((store) -> [store.id, store]).object().value()
+      micelloMap: _(@stores).chain().map((store) -> [store.micello_geom_id, store]).object().value()
 
     @deferreds.stores.resolve()
 

@@ -22,6 +22,7 @@ class StoresController < ApplicationController
 
   def show
     return respond_to_error(404) unless store.present?
+    @todays_hours = todays_hours
     push_centre_info_to_gon
     meta.push(
       page_title: "#{store.name} at #{centre.name}",
@@ -30,6 +31,11 @@ class StoresController < ApplicationController
   end
 
 protected
+
+  def todays_hours
+    today = Time.now.in_time_zone(centre.timezone).strftime("%Y-%m-%d")
+    StoreTradingHourService.find({store_id:store.id, centre_id: store.centre_id, from: today, to: today}).first
+  end
 
   def store
     @store ||= stores.find {|store| store.id.to_s == params[:id] }

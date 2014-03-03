@@ -110,11 +110,13 @@ describe CentreHoursController do
     describe :show do
 
       it "renders trading_hours_index view" do
-        CentreService.should_receive( :fetch ).with('chatswood').and_return double :response, body: {}
-        CentreTradingHourService.should_receive( :fetch ).with('chatswood').and_return double :response, body: {}
-        CentreTradingHourService.should_receive( :build ).and_return([])
-        StoreService.should_receive( :fetch ).with({centre: 'chatswood', per_page: 'all', has_opening_hours: true}).and_return double :response, body: store_hours
-        StoreService.should_receive( :build )
+        CentreService.should_receive(:fetch).with('chatswood').and_return double :response, body: {}
+        CentreTradingHourService.should_receive(:fetch).with('chatswood').and_return double :response, body: {}
+        CentreTradingHourService.should_receive(:build).and_return([])
+        StoreService.should_receive(:fetch).with({centre: 'chatswood', per_page: 'all'}).and_return double :response, body: store_hours
+        StoreService.should_receive(:build)
+        StoreTradingHourService.should_receive(:fetch).with({centre_id:'chatswood'})
+        StoreTradingHourService.should_receive(:build).and_return([])
 
         get :show, centre_id: 'chatswood'
         response.should render_template :show

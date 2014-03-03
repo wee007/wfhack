@@ -315,14 +315,13 @@
         }
 
         /* Keyword filter textbox */
-        .stores-maps__filters .stores-maps__keyword-filter-input {
+        .stores-maps .stores-maps__filters .stores-maps__keyword-filter-input {
 
           /* Display all filters on one line */
           @include respond-min($iphone-landscape) {
-            .stores-maps & {
-              display: inline-block;
-              width: 34%;
-            }
+            display: inline-block;
+            width: 34%;
+
           }
 
           /* Reduce width to handle bigger map toggle button */

@@ -61,15 +61,26 @@
 
     // Hide the target, set appropriate ARIA
     deactivateTarget = function ( targetID ) {
+      $target = target( targetID )
       triggers( targetID ).attr( 'aria-expanded', false ).removeClass( activeClass );
-      target( targetID ).removeClass( activeClass );
-      target( targetID ).unbind('keydown');
+      $target.removeClass( activeClass );
+      $target.unbind('keydown');
+
+      $timeout(function() {
+        $target.find("input:not(:hidden):first").blur();
+      });
     },
 
     // Show the target, set appropriate ARIA
     activateTarget = function ( targetID ) {
+      $target = target( targetID )
       triggers( targetID ).attr( 'aria-expanded', true ).addClass( activeClass );
-      target( targetID ).addClass( activeClass );
+      $target.addClass( activeClass );
+
+      $timeout(function() {
+        $target.find("input:not(:hidden):first").focus();
+      });
+
       if (targetID) {
         // Let other dropdowns know that they should close themselves
         $rootScope.$broadcast( 'toggle-visibility-dropdowns');

@@ -40,10 +40,6 @@
 //= require_tree ./angular/filters
 //= require_tree ./angular/controllers
 
-// Set search focus - needs to come after Angular JS
-//= require ./jquery-extensions/jquery.set-search-focus
-//= require ./init/set-search-focus
-
 // --Misc--
 
 // Micello map deferred loader

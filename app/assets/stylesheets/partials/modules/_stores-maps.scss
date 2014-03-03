@@ -319,8 +319,10 @@
 
           /* Display all filters on one line */
           @include respond-min($iphone-landscape) {
-            display: inline-block;
-            width: 34%;
+            .stores-maps & {
+              display: inline-block;
+              width: 34%;
+            }
           }
 
           /* Reduce width to handle bigger map toggle button */

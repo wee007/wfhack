@@ -1,6 +1,6 @@
 class @StoresListPosition
   constructor: ->
-    @setListPosition = _.debounce(@_setListPosition, 100)
+    @setListPosition = debounce(@_setListPosition, 100)
     $ =>
       $(window).resize(@setListPosition)
       @_setListPosition()

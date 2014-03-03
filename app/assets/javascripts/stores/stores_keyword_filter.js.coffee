@@ -1,5 +1,5 @@
 #= require jquery-extensions/jquery.fastLiveFilter.js.coffee
-#= require underscore/underscore
+#= require support/debounce
 #= require stores/stores_list_position
 
 class @StoresKeywordFilter
@@ -68,8 +68,8 @@ class @StoresKeywordFilter
     @storeListLetters = $('.js-stores-keyword-filter-letter')
 
     # These functions are slow, so debounce them so they dont lock up the browser
-    delayedFilterMapPins = _.debounce(@filterMapPins, 400)
-    delayedShowStoreLogos = _.debounce(@showStoreLogos, 400)
+    delayedFilterMapPins = debounce(@filterMapPins, 400)
+    delayedShowStoreLogos = debounce(@showStoreLogos, 400)
     @noStoresMatchingMessage = $('.js-stores-keyword-filter-no-stores-matching')
 
     $('.js-stores-keyword-filter-input').fastLiveFilter '.js-stores-keyword-filter-list',

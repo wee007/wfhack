@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.185
+Version:     0.2.186
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,9 @@ fi
 
 
 %changelog
+* Mon Mar 03 2014 ci <doperations@au.westfield.com> 0.2.186-1
+- 
+
 * Mon Mar 03 2014 ci <doperations@au.westfield.com> 0.2.185-1
 - Merge pull request #953 from ewee/breadcrumb (ewee@au.westfield.com)
 - Cleanup scss comments (alec@smartalecwebsites.com.au)

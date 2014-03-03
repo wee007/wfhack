@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.184
+Version:     0.2.185
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,23 @@ fi
 
 
 %changelog
+* Mon Mar 03 2014 ci <doperations@au.westfield.com> 0.2.185-1
+- Merge pull request #953 from ewee/breadcrumb (ewee@au.westfield.com)
+- Cleanup scss comments (alec@smartalecwebsites.com.au)
+- Rename btn--arow to btn--main-arrow. Add new modifiers to styleguide
+  (alec@smartalecwebsites.com.au)
+- use css triangles instead of font icon (alec@smartalecwebsites.com.au)
+- add line-height in pixels for IE (alec@smartalecwebsites.com.au)
+- WSF-6234 Renamed category_url method (ewee@au.westfield.com)
+- cleanup css and add classes for retailer link (alec@smartalecwebsites.com.au)
+- refactor css after code review (alec@smartalecwebsites.com.au)
+- add modifier for button with arrow on the right
+  (alec@smartalecwebsites.com.au)
+- WSF-6234 Show category breadcrumb on a product detail page
+  (ewee@au.westfield.com)
+- WSF-6234 Show category breadcrumb on a product detail page
+  (ewee@au.westfield.com)
+
 * Fri Feb 28 2014 ci <doperations@au.westfield.com> 0.2.184-1
 - 
 

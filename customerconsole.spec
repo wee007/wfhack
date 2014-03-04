@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.187
+Version:     0.2.188
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,13 @@ fi
 
 
 %changelog
+* Wed Mar 05 2014 ci <doperations@au.westfield.com> 0.2.188-1
+- Merge pull request #961 from csmith/master (craigM.smith@au.westfield.com)
+- WSF-6116 Switch store hours to trading hours service.
+  (craigm.smith@au.westfield.com)
+- WSF-6116 Use trading hours service for store trading hours.
+  (craigm.smith@au.westfield.com)
+
 * Wed Mar 05 2014 ci <doperations@au.westfield.com> 0.2.187-1
 - DealsController#show checks Deal#published?, not #available_to
   (michael@michaelbamford.com)

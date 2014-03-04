@@ -36,31 +36,42 @@ describe DealsController do
   end
 
   describe "GET #show" do
-    let(:deal_store) { double(:deal_store, :store_service_id => 12).as_null_object }
+    let(:centre_id) { 'bondijunction' }
+    let(:store_service_id) { 12 }
+    let(:deal_store) { double(:deal_store, store_service_id: store_service_id, centre_id: centre_id) }
     let(:store) { double(:store).as_null_object }
+
     let(:deal_1) {
+      # FIXME: Drinking too much Koolaid with all these mocks. Minimally,
+      # removed 'as_null_object' calls since it can mask malformed models.
       double(:deal,
         title: 'Deal title',
         description: 'Some description',
         available_to: DateTime.new( Time.now.year+1, 01, 01 ),
-        :deal_stores => deal_store
-      ).as_null_object
+        deal_stores: [ deal_store ],
+        published?: true,
+        meta: {}
+      )
     }
+
     let(:deal_2) {
       double(:deal,
         meta: 'deal meta',
         title: 'Deal title',
         description: 'Some description',
         available_to: DateTime.new( Time.now.year+1, 01, 01 ),
-        :deal_stores => deal_store
-      ).as_null_object
+        deal_stores: [ deal_store ],
+        published?: true,
+        meta: {}
+      )
     }
+
     let(:meta) { double :meta }
 
     before :each do
-      CentreService.stub(:fetch).with('bondijunction').and_return double :response, body: {}
+      CentreService.stub(:fetch).with(centre_id).and_return double :response, body: {}
       DealService.stub(:fetch).with("1").and_return("DEAL JSON")
-      StoreService.stub(:fetch).with(12).and_return("STORE JSON")
+      StoreService.stub(:fetch).with(store_service_id).and_return("STORE JSON")
       StoreService.stub(:build).with("STORE JSON").and_return(store)
       DealService.stub(:build).with("DEAL JSON").and_return(deal_1)
       get :show, id: 1, centre_id: 'bondijunction', retailer_code: 'for-tracking'
@@ -75,7 +86,7 @@ describe DealsController do
     end
 
     it "renders the :show template" do
-      response.should render_template :show
+      expect(response).to render_template :show
     end
 
     it "adds centre to gon" do
@@ -87,7 +98,7 @@ describe DealsController do
 
     it "adds title to meta" do
       DealService.stub(:build).with("DEAL JSON").and_return(deal_2)
-      meta.should_receive(:push).with 'deal meta'
+      meta.should_receive(:push).with(deal_2.meta)
       meta.should_receive(:push).with({
         title: "#{deal_2.title} from #{store.name}",
         page_title: "#{deal_2.title} from #{store.name} at ",
@@ -101,8 +112,8 @@ describe DealsController do
 
       let( :expired_deal ) do
         Hashie::Mash.new(
-          available_to: DateTime.new( Time.now.year-1, 01, 01 ),
-          deal_stores: deal_store
+          state: 'expired',
+          deal_stores: [ deal_store ]
         )
       end
 

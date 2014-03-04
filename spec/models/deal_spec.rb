@@ -1,6 +1,7 @@
 require "spec_helper"
 
 describe Deal do
+  specify { expect(described_class.constants).to include :State }
 
   context "When asking for the retailer name and logo" do
     it "should only query the store service once" do
@@ -30,5 +31,24 @@ describe Deal do
       "logo" => "http://example.com/wittner.jpg"
     )
     expect(deal.logo).to eql("http://example.com/wittner.jpg")
+  end
+
+  describe "#published?" do
+    subject { deal.published? }
+
+    context %q{when deal is neither 'scheduled' nor 'live'} do
+      let(:deal) { Deal.new state: 'pending_approval' }
+      it { should_not be_true }
+    end
+
+    context %q{when deal is 'scheduled'} do
+      let(:deal) { Deal.new state: 'scheduled' }
+      it { should be_true }
+    end
+
+    context %q{when deal is 'live'} do
+      let(:deal) { Deal.new state: 'live' }
+      it { should be_true }
+    end
   end
 end

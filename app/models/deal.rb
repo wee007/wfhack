@@ -1,5 +1,10 @@
 class Deal < OpenStruct
 
+  class State
+    Scheduled = 'scheduled'
+    Live = 'live'
+  end
+
   attr_accessor :store
 
   # TODO: remove this
@@ -35,6 +40,10 @@ class Deal < OpenStruct
 
   def available_from
     DateTime.parse(super)
+  end
+
+  def published?
+    [ State::Scheduled, State::Live ].include? state
   end
 
   def to_param

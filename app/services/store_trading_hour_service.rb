@@ -9,13 +9,12 @@ class StoreTradingHourService
       end
     end
 
-    def request_uri(store_id=nil, options={})
-      if store_id.nil? || store_id == :all
-        uri = URI("#{ServiceHelper.uri_for('store')}/store_trading_hours.json")
+    def request_uri(options={})
+      if options[:store_id]
+        uri = URI("#{ServiceHelper.uri_for('trading-hour')}/store_trading_hours/range.json")
       else
-        uri = URI("#{ServiceHelper.uri_for('store')}/stores/#{store_id}/store_trading_hours/range.json")
+        uri = URI("#{ServiceHelper.uri_for('trading-hour')}/store_trading_hours.json")
       end
-
       uri.query = options.to_query
       uri
     end

@@ -86,15 +86,32 @@ describe "map.micello.Map", ->
 
     beforeEach ->
       @storeId = 21
-      @subject.processStores([
+      @subject.stores = [
         id: @storeId,
         micello_geom_id: 712,
         today_closing_time: '18:30',
-        _links: {}
-      ])
+        _links: {
+          logo: {
+            href: '/path/to/store/logo'
+          }
+        }
+      ]
+      @subject.store_trading_hours[@storeId] = {
+        centre_id: "bondijunction",
+        closed: false,
+        closing_time: "17:00",
+        date: "2014-03-05",
+        day_of_week: 2,
+        description: null,
+        hour_type: "standard",
+        id: 23670,
+        opening_time: "09:00",
+        store_id: @storeId
+      }
       @subject.processGeoms([
         id: 712
       ])
+      @subject.processStores()
 
     it 'does nothing', ->
       @subject.highlight()

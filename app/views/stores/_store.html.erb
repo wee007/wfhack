@@ -3,7 +3,7 @@
 
     <%# Store name %>
     <div class="stores-list__store-name test-store">
-      <strong><%= link_to store.name, (centre_store_url @centre.code, store.retailer_code, store.id), class: 'js-pjax-link-stores js-stores-keyword-filter-text-to-search' %></strong>
+      <strong><%= link_to store.name, (centre_store_url @centre.code, store.retailer_code, store.id), class: 'js-pjax-link-stores js-stores-keyword-filter-store-name' %></strong>
       <%# Phone no %>
       <span class="hide-fully--palm"><span class="hide-visually">Call store: </span><%= phone_format store.phone_number %></span>
       <%# //Phone no %>

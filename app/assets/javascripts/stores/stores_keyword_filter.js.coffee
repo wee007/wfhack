@@ -75,7 +75,7 @@ class @StoresKeywordFilter
     @noStoresMatchingMessage = $('.js-stores-keyword-filter-no-stores-matching')
 
     $('.js-stores-keyword-filter-input').fastLiveFilter '.js-stores-keyword-filter-list',
-      selector: '.js-stores-keyword-filter-text-to-search',
+      selector: '.js-stores-keyword-filter-store-name',
       timeout: 0,
       filterFunction: @filterStores
       callback: (stores, numShown)=>

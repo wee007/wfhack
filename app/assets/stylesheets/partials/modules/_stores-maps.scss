@@ -241,7 +241,7 @@
           }
       }
 
-      /* Filters - 'Categories' and 'Gift card toggle' */
+      /* Filters - 'Categories', 'Gift card toggle' and 'Keyword' */
       .stores-maps__filters {
 
         @include respond-min($ipad-landscape) {
@@ -335,17 +335,17 @@
             width: auto;
           }
 
-          /* Add padding to right of keyword  filter to not cover the map controls on palm */
+          /* When list and map view are separate and user is in map view
+             add padding to the right of the keyword filter so it does not cover the map controls */
           .is-map-view & {
-            @include to-rem(margin-right, $spacing-dbl+$spacing-quarter );
+            @include to-rem(margin-right, $spacing-dbl+$spacing-quarter);
 
             @include respond-min($iphone-landscape) {
-              margin: 0;
+              margin-right: 0;
             }
           }
 
           .txt-input {
-
             /* Add extra vertical padding so the textbox is the same height as other filters */
             @include to-rem(padding-top padding-bottom, $spacing-half - 2);
             @include to-rem(margin-top, $spacing-half);

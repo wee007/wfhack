@@ -70,15 +70,6 @@ class @StoresKeywordFilter
     @numberOfFilteredStores.text(numShown)
     keyword = @filterInput.val()
     supplementFilterDescription = ''
-    # Remove the post filter count if there is no category or keyword filter applied
-    if keyword == '' and !westfield.filtering_by_category
-      if !@postFilterCount.hasClass 'hide-fully'
-        @postFilterCount.addClass 'hide-fully'
-        @listPositioner._setListPosition()
-    else
-      if @postFilterCount.hasClass 'hide-fully'
-        @postFilterCount.removeClass 'hide-fully'
-        @listPositioner._setListPosition()
 
     if keyword == ''
       supplementFilterDescription = 'found'
@@ -110,7 +101,7 @@ class @StoresKeywordFilter
         delayedFilterMapPins(stores, numShown)
         delayedShowStoreLogos()
         @handleNoStoresInList(numShown)
-        #@updateNumberOfFilteredStores(numShown)
+        @updateNumberOfFilteredStores(numShown)
 
   handleNoStoresInList: (numShown) =>
     if numShown == 0

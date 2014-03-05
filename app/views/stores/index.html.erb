@@ -173,13 +173,18 @@
         </div>
 
         <%# Post filter count %>
-        <% if @active_category %>
-          <div class="stores-maps__filters-count">
-            <div class="container">
-              <p><span class="icon icon--pin icon--flush-top"></span><%= @stores.count %> Results found</p>
-            </div>
+        <div class="stores-maps__filters-count js-stores-keyword-filter-post-filter-count">
+          <div class="container">
+            <p>
+              <span class="icon icon--pin icon--flush-top"></span>
+              <span class="js-stores-keyword-filter-number-of-filtered-stores">
+                <%= @stores.count %>
+              </span>
+              Results
+              <span class="js-stores-keyword-filter-description-supplement">found</span>
+            </p>
           </div>
-        <% end %>
+        </div>
         <%# //Post filter count %>
 
         <%= javascript_tag do %>

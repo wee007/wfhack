@@ -66,8 +66,35 @@ class @StoresKeywordFilter
 
     return matches
 
+  updateNumberOfFilteredStores: (numShown) =>
+    @numberOfFilteredStores.text(numShown)
+    keyword = @filterInput.val()
+    supplementFilterDescription = ''
+    # Remove the post filter count if there is no category or keyword filter applied
+    if keyword == '' and !westfield.filtering_by_category
+      if !@postFilterCount.hasClass 'hide-fully'
+        @postFilterCount.addClass 'hide-fully'
+        @listPositioner._setListPosition()
+    else
+      if @postFilterCount.hasClass 'hide-fully'
+        @postFilterCount.removeClass 'hide-fully'
+        @listPositioner._setListPosition()
+
+    if keyword == ''
+      supplementFilterDescription = 'found'
+    else if keyword.length == 1
+      supplementFilterDescription = "starting with '#{keyword}' found"
+    else
+      supplementFilterDescription = "matching '#{keyword}' found"
+
+    @filterDescriptionSupplement.text supplementFilterDescription
+
   setupKeywordFilter: =>
     @storeListLetters = $('.js-stores-keyword-filter-letter')
+    @numberOfFilteredStores = $('.js-stores-keyword-filter-number-of-filtered-stores')
+    @filterDescriptionSupplement = $('.js-stores-keyword-filter-description-supplement')
+    @filterInput = $('.js-stores-keyword-filter-input')
+    @postFilterCount = $('.js-stores-keyword-filter-post-filter-count')
 
     # These functions are slow, so debounce them so they dont lock up the browser
     delayedFilterMapPins = debounce(@filterMapPins, 400)
@@ -83,6 +110,7 @@ class @StoresKeywordFilter
         delayedFilterMapPins(stores, numShown)
         delayedShowStoreLogos()
         @handleNoStoresInList(numShown)
+        @updateNumberOfFilteredStores(numShown)
 
   handleNoStoresInList: (numShown) =>
     if numShown == 0

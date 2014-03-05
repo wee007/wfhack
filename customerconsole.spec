@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.193
+Version:     0.2.194
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,10 @@ fi
 
 
 %changelog
+* Thu Mar 06 2014 ci <doperations@au.westfield.com> 0.2.194-1
+- Merge pull request #966 from csmith/master (craigM.smith@au.westfield.com)
+- Updated newrelic because of security flaw. (craigm.smith@au.westfield.com)
+
 * Wed Mar 05 2014 ci <doperations@au.westfield.com> 0.2.193-1
 - Merge pull request #965 from cpearce/social-media-meta-tags
   (ewee@au.westfield.com)

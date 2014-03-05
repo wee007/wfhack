@@ -4,7 +4,7 @@ class @StoresListPosition
     $ =>
       $(window).resize(@setListPosition)
       @_setListPosition()
-      $('[toggle-visibility="site-search"]').click =>
+      $('[toggle-visibility]').click =>
         @_setListPosition()
 
   _setListPosition: =>

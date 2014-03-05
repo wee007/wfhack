@@ -319,7 +319,7 @@
           }
         }
 
-        /* Keyword filter textbox */
+        /* Keyword filter textbox - need to increase specificity to override the dynamic `is-active` class that gets appended for toggle visibility Angular directive */
         .stores-maps .stores-maps__filters .stores-maps__keyword-filter-input {
 
           /* Display all filters on one line */

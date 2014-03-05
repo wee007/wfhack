@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.192
+Version:     0.2.193
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,12 @@ fi
 
 
 %changelog
+* Wed Mar 05 2014 ci <doperations@au.westfield.com> 0.2.193-1
+- Merge pull request #965 from cpearce/social-media-meta-tags
+  (ewee@au.westfield.com)
+- Add social media meta tags for Facebook and Twitter - WSF-6312
+  (cpearce@au.westfield.com)
+
 * Wed Mar 05 2014 ci <doperations@au.westfield.com> 0.2.192-1
 - Merge pull request #962 from araeside/fix-search-suggestion-links
   (chorn@au.westfield.com)

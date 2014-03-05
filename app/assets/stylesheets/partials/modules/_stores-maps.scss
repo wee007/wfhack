@@ -226,6 +226,7 @@
           }
         }
 
+        /* Non JS users */
         .no-js & {float: none;}
 
           /* Back to listing link */
@@ -249,6 +250,7 @@
         @include respond-min($ipad-landscape) {
           text-align: right;
 
+          /* Non JS users */
           .no-js & {text-align: left;}
         }
 
@@ -363,7 +365,7 @@
 
         /* Keyword filter toggle - hide at this breakpoint */
         @include respond-min($iphone-landscape) {
-            .stores-maps__keyword-filter-toggle {display: none;}
+          .stores-maps__keyword-filter-toggle {display: none;}
         }
 
         /* Show hidden text for non JS users */

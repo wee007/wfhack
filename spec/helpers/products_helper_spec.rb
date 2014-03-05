@@ -197,4 +197,54 @@ describe ProductsHelper do
 
   end
 
+  describe :build_store_centres do
+    let(:centres) do
+      [
+        Hashie::Mash.new(
+          code: 'bondijunction',
+          state: 'NSW'
+        ),
+        Hashie::Mash.new(
+          code: 'sydney',
+          state: 'NSW'
+        ),
+        Hashie::Mash.new(
+          code: 'carindale',
+          state: 'QLD'
+        )
+      ]
+    end
+    let(:stores) do
+      [
+        Hashie::Mash.new(
+          retailer_code: 'retailer_code',
+          centre_id: 'sydney'
+        ),
+        Hashie::Mash.new(
+          retailer_code: 'retailer_code',
+          centre_id: 'carindale'
+        )
+      ]
+    end
+
+    it "returns a list of centres associated to a store" do
+      expect(helper.build_store_centres(stores, centres)).to eq(
+        {
+          'NSW' => [
+            {
+              'code' => 'sydney',
+              'state' => 'NSW'
+            }
+          ],
+          'QLD' => [
+            {
+              'code' => 'carindale',
+              'state' => 'QLD'
+            }
+          ]
+        }
+      )
+    end
+  end
+
 end

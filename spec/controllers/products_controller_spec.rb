@@ -191,6 +191,18 @@ describe ProductsController do
   end
 
   describe :show_centre do
+    let(:store) do
+      [
+        Hashie::Mash.new(
+          name: 'product_name',
+          retailer_code: 'retailer_code',
+          centre_id: 'bondijunction'
+        )
+      ]
+    end
+
+    before(:each) { StoreService.stub(:build).and_return(store) }
+
     it "assigns the centre instance variable and redirection url" do
       get :show_centre, id: 1, centre_id: 'bondijunction', retailer_code: 'retailer_code', product_name: 'product_name'
       response.should render_template :show

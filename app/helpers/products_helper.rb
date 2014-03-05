@@ -52,6 +52,11 @@ module ProductsHelper
     params[:controller] == 'products'
   end
 
+  def build_store_centres(stores, centres)
+    store_centre_ids = stores.map{ |store| store.centre_id }
+    centres.select{ |centre| store_centre_ids.include?(centre.code) }.group_by{ |centre| centre.state }
+  end
+
   private
 
   def centre_category

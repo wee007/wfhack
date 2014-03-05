@@ -1,6 +1,9 @@
 class ProductsController < ApplicationController
 
+  include ProductsHelper
+
   before_action :remove_gclid_param
+  before_action :fetch_service_api_data, only: [:show_centre, :show_national]
 
   layout 'detail_view', only: [:show_centre, :show_national]
 
@@ -63,13 +66,8 @@ class ProductsController < ApplicationController
   end
 
   def show_centre
-    @centre, @product, stores = service_map \
-      centre: params[:centre_id],
-      product: params[:id],
-      store: {retailer_code: params[:retailer_code], per_page: 50}
-
-    centre_ids = stores.map(&:centre_id).uniq
-    @centre_stores = stores.select {|store| store.centre_id == params[:centre_id]}
+    centre_ids = @stores.map{ |centre| centre.centre_id }.uniq
+    @centre_stores = @stores.select{ |store| store.centre_id == params[:centre_id] }
 
     @product_centres = []
     if centre_ids.present?
@@ -81,9 +79,9 @@ class ProductsController < ApplicationController
     meta.push @product.meta
     meta.push(
       page_title: "#{@product.name} | #{@centre.name}",
-      description: "Shop for #{@product.name} from #{stores.first.try(:name)} at #{@centre.name}",
-      title: "#{@product.name} from #{stores.first.try(:name)}",
-      twitter_title: "What do you think of #{@product.name} from #{stores.first.try(:name)}?"
+      description: "Shop for #{@product.name} from #{@stores.first.name} at #{@centre.name}",
+      title: "#{@product.name} from #{@stores.first.name}",
+      twitter_title: "What do you think of #{@product.name} from #{@stores.first.name}?"
     )
     @product_redirection_url = url_for centre_product_redirection_url
 
@@ -91,14 +89,10 @@ class ProductsController < ApplicationController
   end
 
   def show_national
-    centres, @product, @stores = service_map \
-      centre: [:all, {country: 'au'}],
-      product: params[:id],
-      store: {retailer_code: params[:retailer_code], per_page: 50}
+    @store_centres = build_store_centres(@stores, @centres)
+    @store_centres_states = @store_centres.keys ||= []
 
-    @centres = centres.group_by{ |centre| centre.state }
-
-    @centres_for_retailer = centres.select{|centre| @stores.map(&:centre_id).include?(centre.id) }.group_by{ |centre| centre.state }
+    @centres = @centres.group_by{ |centre| centre.state }
 
     meta.push @product.meta
     meta.push(
@@ -152,6 +146,17 @@ private
 
   def remove_gclid_param
     params.delete(:gclid)
+  end
+
+  def fetch_service_api_data
+    services = {
+      centres: [:all, {country: 'au'}],
+      product: params[:id],
+      store: {retailer_code: params[:retailer_code], per_page: 50}
+    }
+    services[:centre] = params[:centre_id] if params[:centre_id]
+
+    @centres, @product, @stores, @centre = service_map services
   end
 
 end

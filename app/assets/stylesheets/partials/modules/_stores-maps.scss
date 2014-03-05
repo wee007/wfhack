@@ -226,6 +226,8 @@
           }
         }
 
+        .no-js & {float: none;}
+
           /* Back to listing link */
           > a {
             color: $color-txt-light;
@@ -246,6 +248,8 @@
 
         @include respond-min($ipad-landscape) {
           text-align: right;
+
+          .no-js & {text-align: left;}
         }
 
           /* Increase right padding for drop down trigger at this breakpoint */
@@ -346,6 +350,7 @@
           }
 
           .txt-input {
+
             /* Add extra vertical padding so the textbox is the same height as other filters */
             @include to-rem(padding-top padding-bottom, $spacing-half - 2);
             @include to-rem(margin-top, $spacing-half);
@@ -356,16 +361,9 @@
           }
         }
 
-         /* Keyword filter toggle */
-        .stores-maps__keyword-filter-toggle {
-
-          /* Hide at this breakpoint */
-          @include respond-min($iphone-landscape) {
-            display: none;
-          }
-
-          /* Non JS users */
-          .no-js & {display: none;}
+        /* Keyword filter toggle - hide at this breakpoint */
+        @include respond-min($iphone-landscape) {
+            .stores-maps__keyword-filter-toggle {display: none;}
         }
 
         /* Show hidden text for non JS users */

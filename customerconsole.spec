@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.191
+Version:     0.2.192
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,14 @@ fi
 
 
 %changelog
+* Wed Mar 05 2014 ci <doperations@au.westfield.com> 0.2.192-1
+- Merge pull request #962 from araeside/fix-search-suggestion-links
+  (chorn@au.westfield.com)
+- Dont close search suggestions on input blur, only close them when clicking
+  outside the suggestions (alec@smartalecwebsites.com.au)
+- add target=_self to link in search suggestions to stop angular from hijacking
+  them (alec@smartalecwebsites.com.au)
+
 * Wed Mar 05 2014 ci <doperations@au.westfield.com> 0.2.191-1
 - Merge pull request #964 from csmith/master (craigM.smith@au.westfield.com)
 - WSF-6116 fixed closed bug on store page (craigm.smith@au.westfield.com)

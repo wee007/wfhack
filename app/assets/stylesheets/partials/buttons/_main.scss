@@ -208,7 +208,8 @@
   }
 
     .btn--main-toggle__input,
-    .btn--main-toggle__lbl {vertical-align: middle;}
+    .btn--main-toggle__lbl,
+    .btn--main-toggle-ios__handle {vertical-align: middle;}
 
 
     /* Checkbox */
@@ -224,13 +225,11 @@
       }
 
     /* iOS */
-    .btn--main-toggle-ios {@include to-em(padding, $spacing-half - 0.7 $spacing-half+2 $spacing-half+2);}
+    .btn--main-toggle-ios {@include to-em(padding, $spacing-half+1 $spacing-half+2 $spacing-half+2);}
 
       .btn--main-toggle-ios__handle {
         display: inline-block;
         position: relative;
-        @include to-rem(top, 2);
-        vertical-align: text-bottom;
         @include to-rem(border-radius, $spacing-half);
         background-color: $color-grey-med-2;
         @include to-rem(width, $spacing-base+$spacing-quarter);
@@ -240,15 +239,15 @@
         .btn--main-toggle__input:checked ~ & {
           background-color: $color-green;
 
-          &:after {@include to-rem(left, $spacing-half+$spacing-micro);}
+          &:after {@include to-rem(left, 12);}
         }
 
         &:after {
           @extend %transition-subtle;
           content: "";
           position: absolute;
-          @include to-rem(top left, $spacing-micro);
-          @include to-rem(width height, $spacing-half+($spacing-micro/2));
+          @include to-rem(top left, 2);
+          @include to-rem(width height, 12);
           background-color: #fff;
           border-radius: 50%;
         }

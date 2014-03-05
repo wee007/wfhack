@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.189
+Version:     0.2.190
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,9 @@ fi
 
 
 %changelog
+* Wed Mar 05 2014 ci <doperations@au.westfield.com> 0.2.190-1
+- 
+
 * Wed Mar 05 2014 ci <doperations@au.westfield.com> 0.2.189-1
 - WSF-6293 Add a CSS class to see more links for GA tracking
   (ewee@au.westfield.com)

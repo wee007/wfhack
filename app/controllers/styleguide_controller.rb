@@ -4,23 +4,23 @@ class StyleguideController < ApplicationController
 
   def index
     meta.push(
-      page_title:"Style guide",
-      description: ""
+      page_title: "Westfield Style Guide",
+      description: "Style Guide for AU Westfield website"
     )
   end
 
   def show
     meta.push(
-      page_title:"",
-      description: ""
+      page_title: "Westfield Style Guide",
+      description: "Style Guide for AU Westfield website"
     )
     render template: "styleguide/#{params[:id]}"
   end
 
   def static
     meta.push(
-      page_title:"",
-      description: ""
+      page_title: "Westfield Style Guide",
+      description: "Style Guide for AU Westfield website"
     )
     render template: "styleguide/static/#{params[:file]}", layout: false
   end

@@ -57,7 +57,8 @@ class Event < Hashie::Mash
              twitter_title: "Check out this #{title}",
              email_body: "event",
              image: image,
-             kind: kind
+             kind: kind,
+             social_image: image
   end
 
   def external_url_and_description_present?
@@ -76,7 +77,7 @@ class Event < Hashie::Mash
     def finish(format_string = :raw)
       parsed_time = Time.zone.parse(super).in_time_zone(timezone).to_s(format_string)
       (format_string == :raw) ? super : parsed_time
-    end    
+    end
   end
 
 end

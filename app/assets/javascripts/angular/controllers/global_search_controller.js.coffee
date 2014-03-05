@@ -8,6 +8,11 @@
 
     highlightedClass = 'is-focused'
 
+    # Close the search suggestions dropdown if the user clicks outside the dropdown
+    $(document).click (event) ->
+      unless $(event.target).parents('.js-global-search').length > 0
+        $scope.hideSuggestions()
+
     # When there are search results, collect them as suggestions & display
     GlobalSearch.onChange ->
       $scope.suggestions = didYouMean()

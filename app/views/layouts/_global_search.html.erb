@@ -23,7 +23,7 @@
           <% if national_product_index? %>
             <input type="search" class="search-mini__input" name="search_query" autocomplete="off" placeholder="Search products&#8230;">
           <% else %>
-            <input ng-model="searchQuery" ng-blur="hideSuggestions()" ng-focus="makeSuggestions()" ng-keyup="makeSuggestions($event)" ng-keydown="navigateSuggestions($event)" type="search" class="search-mini__input" id="global-search" name="search_query" autocomplete="off" placeholder="Search stores &amp; products&#8230;">
+            <input ng-model="searchQuery" ng-focus="makeSuggestions()" ng-keyup="makeSuggestions($event)" ng-keydown="navigateSuggestions($event)" type="search" class="search-mini__input" id="global-search" name="search_query" autocomplete="off" placeholder="Search stores &amp; products&#8230;">
           <% end -%>
 
           <input type="submit" value="Search" ng-hide="true" class="search-mini__submit">
@@ -51,7 +51,7 @@
                   <span aria-hidden="true" class="icon icon--store icon--xlrg"></span> Stores
                 </dt>
                 <dd ng-repeat="suggestion in suggestions.stores" role="presentation">
-                  <a ng-class="{'is-focused': suggestion === focusedSuggestion}" ng-href="{{url(suggestion)}}" tabindex="-1">{{suggestion.description}}</a>
+                  <a target="_self" ng-class="{'is-focused': suggestion === focusedSuggestion}" ng-href="{{url(suggestion)}}" tabindex="-1">{{suggestion.description}}</a>
                 </dd>
                 <%# //Stores %>
 
@@ -60,7 +60,7 @@
                   <span aria-hidden="true" class="icon icon--products icon--xlrg"></span> Products
                 </dt>
                 <dd ng-repeat="suggestion in suggestions.products" role="presentation">
-                  <a ng-class="{'is-focused': suggestion === focusedSuggestion}" ng-href="{{url(suggestion)}}" tabindex="-1">{{suggestion.description}}</a>
+                  <a target="_self" ng-class="{'is-focused': suggestion === focusedSuggestion}" ng-href="{{url(suggestion)}}" tabindex="-1">{{suggestion.description}}</a>
                 </dd>
                 <%# //Products %>
 

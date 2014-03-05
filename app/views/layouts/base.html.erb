@@ -52,11 +52,27 @@
   <meta name="msapplication-TileImage" content="/apple-touch-icon-144x144-precomposed.png">
   <%# //IE 10+ tile icon %>
 
-  <%# SEO description %>
+  <%# SEO, Open Graph (Facebook), and Twitter card description %>
   <% if meta.description.present? %>
     <meta name="description" content="<%= meta.description.html_safe %>">
+    <meta name="twitter:description" content="<%= meta.description.html_safe %>">
+    <meta property="og:description" content="<%= meta.description.html_safe %>">
   <% end %>
-  <%# //SEO description %>
+  <%# //SEO, Open Graph (Facebook), and Twitter card description %>
+
+  <%# Open Graph (Facebook) & Twitter card %>
+  <meta property="og:title" content="<%= page_title %>">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="<%= request.original_url %>">
+  <meta property="og:site_name" content="Westfield Australia">
+  <meta property="og:image" content="<%= meta.social_image %>">
+
+  <meta name="twitter:title" content="<%= meta.twitter_title || page_title %>">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:url" content="<%= request.original_url %>">
+  <meta name="twitter:site" content="@WestfieldAU">
+  <meta name="twitter:image:src" content="<%= meta.social_image %>">
+  <%# //Open Graph (Facebook) & Twitter card %>
 
 </head>
 

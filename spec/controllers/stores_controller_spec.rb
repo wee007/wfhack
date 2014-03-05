@@ -16,7 +16,7 @@ describe StoresController do
       controller.stub :build_services_responses
       controller.instance_variable_set :@centre, double.as_null_object
       controller.instance_variable_set :@stores, stores
-      
+
       RetailerCategoryService.stub(:find).and_return([])
     end
 
@@ -56,7 +56,7 @@ describe StoresController do
 
     let( :stores_params ) { { centre: 'sydney', per_page: 1000 } }
     let( :stores_response ) { double( :store_response ).as_null_object }
-    let( :stores ) { [ double( :stores, store_attributes ) ] }
+    let( :stores ) { [ double( :stores, store_attributes ).as_null_object ] }
 
     let( :product_params ) { { action: 'lite', retailer: [ 'abc' ], rows: 3 } }
     let( :product_response ) { double( :product_response ).as_null_object }
@@ -64,7 +64,7 @@ describe StoresController do
 
     let( :store_params ) { { centre: 'sydney', retailer_code: 'abc',  per_page: 1000 } }
     let( :store_response ) { double( :store_response ).as_null_object }
-    let( :store ) { [ double( :store, store_attributes ) ] }
+    let( :store ) { [ double( :store, store_attributes ).as_null_object ] }
 
     let( :deal_params ) { { centre: 'sydney', retailer: 1, state: 'published', count: 3 } }
     let( :deal_response ) { double( :deal_response ).as_null_object }

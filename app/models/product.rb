@@ -43,7 +43,8 @@ class Product < Hashie::Mash
              product_category_code: product_category_code,
              currency: 'AUD',
              retailer_code: retailer_code,
-             product_name: [name]
+             product_name: [name],
+             social_image: images.first
   end
 
 end

@@ -42,7 +42,7 @@ class Store < Hashie::Mash
   end
 
   def closed_today
-    todays_hours.closed_today?
+    todays_hours.closed?
   end
 
   def closing_time_12

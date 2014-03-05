@@ -11,7 +11,7 @@
     # Close the search suggestions dropdown if the user clicks outside the dropdown
     $(document).click (event) ->
       unless $(event.target).parents('.js-global-search').length > 0
-        $scope.hideSuggestions()
+        $scope.hideSuggestions() if $scope.suggestionsVisible
 
     # When there are search results, collect them as suggestions & display
     GlobalSearch.onChange ->

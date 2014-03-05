@@ -350,7 +350,6 @@
           }
 
           .txt-input {
-
             /* Add extra vertical padding so the textbox is the same height as other filters */
             @include to-rem(padding-top padding-bottom, $spacing-half - 2);
             @include to-rem(margin-top, $spacing-half);

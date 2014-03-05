@@ -97,3 +97,5 @@
       @include to-rem(width, 84);
     }
   }
+
+  .no-content-fallback-msg {@include to-rem(margin-top, $spacing-base);}

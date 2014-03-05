@@ -72,7 +72,7 @@ class @StoresKeywordFilter
     # These functions are slow, so debounce them so they dont lock up the browser
     delayedFilterMapPins = debounce(@filterMapPins, 400)
     delayedShowStoreLogos = debounce(@showStoreLogos, 400)
-    @noStoresMatchingMessage = $('.js-stores-keyword-filter-no-stores-matching')
+    @noStoresMatchingMessage = $('.js-stores-keyword-filter-no-results')
 
     $('.js-stores-keyword-filter-input').fastLiveFilter '.js-stores-keyword-filter-list',
       selector: '.js-stores-keyword-filter-store-name',

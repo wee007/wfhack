@@ -110,7 +110,7 @@ class @StoresKeywordFilter
         delayedFilterMapPins(stores, numShown)
         delayedShowStoreLogos()
         @handleNoStoresInList(numShown)
-        @updateNumberOfFilteredStores(numShown)
+        #@updateNumberOfFilteredStores(numShown)
 
   handleNoStoresInList: (numShown) =>
     if numShown == 0

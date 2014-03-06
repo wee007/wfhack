@@ -85,4 +85,8 @@ module ApplicationHelper
     meta.page_title.present? ? meta.page_title.html_safe : 'Shopping at Westfield'
   end
 
+  def states
+    %w(NSW ACT QLD VIC SA WA)
+  end
+
 end

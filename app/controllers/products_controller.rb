@@ -90,7 +90,6 @@ class ProductsController < ApplicationController
 
   def show_national
     @store_centres = build_store_centres(@stores, @centres)
-    @store_centres_states = @store_centres.keys ||= []
 
     @centres = @centres.group_by{ |centre| centre.state }
 

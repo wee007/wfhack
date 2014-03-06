@@ -107,12 +107,14 @@
 
                   <div class="drop-down-menu__target drop-down pointer-up box box--drop-down" id="product-details-centre-selection-menu">
                     <dl class="drop-down-menu__list">
-                      <% @store_centres_states.each do |state| %>
-                        <dt class="drop-down-menu__hdr-sub drop-down-menu__divider"><%= state %></dt>
-                        <% @store_centres[state].each do |centre| %>
-                          <dd class="drop-down-menu__divider">
-                            <%= link_to centre.short_name, context_aware_link(centre), class: 'btn btn--full btn--full-left' %>
-                          </dd>
+                      <% states.each do |state| %>
+                        <% if @store_centres[state].present? %>
+                          <dt class="drop-down-menu__hdr-sub drop-down-menu__divider"><%= state %></dt>
+                          <% @store_centres[state].each do |centre| %>
+                            <dd class="drop-down-menu__divider">
+                              <%= link_to centre.short_name, context_aware_link(centre), class: 'btn btn--full btn--full-left' %>
+                            </dd>
+                          <% end %>
                         <% end %>
                       <% end %>
                     </dl>

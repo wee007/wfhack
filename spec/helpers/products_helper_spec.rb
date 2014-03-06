@@ -197,7 +197,7 @@ describe ProductsHelper do
 
   end
 
-  describe :build_store_centres do
+  describe :build_centres_by_store do
     let(:centres) do
       [
         Hashie::Mash.new(
@@ -228,7 +228,7 @@ describe ProductsHelper do
     end
 
     it "returns a list of centres associated to a store" do
-      expect(helper.build_store_centres(stores, centres)).to eq(
+      expect(helper.build_centres_by_store(stores, centres)).to eq(
         {
           'NSW' => [
             {

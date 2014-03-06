@@ -42,7 +42,7 @@ class ProductsController < ApplicationController
     services[:store] = {retailer_code: params[:retailer].first} if params[:retailer]
     centres, @search, stores = service_map services
 
-    @centres = centres.group_by{ |centre| centre.state }
+    @centres_by_state = centres.group_by{ |centre| centre.state }
     @super_categories = CategoryService.find centre_id: params[:centre_id], product_mapable: true
 
     meta.push(
@@ -68,8 +68,7 @@ class ProductsController < ApplicationController
   def show_centre
     centre_ids = @stores.map{ |centre| centre.centre_id }.uniq
     @centre_stores = @stores.select{ |store| store.centre_id == params[:centre_id] }
-
-    @store_centres = build_store_centres(@stores, @centres)
+    @centres_by_store = build_centres_by_store(@stores, @centres)
 
     @product_centres = []
     if centre_ids.present?
@@ -91,9 +90,8 @@ class ProductsController < ApplicationController
   end
 
   def show_national
-    @store_centres = build_store_centres(@stores, @centres)
-
-    @centres = @centres.group_by{ |centre| centre.state }
+    @centres_by_state = @centres.group_by{ |centre| centre.state }
+    @centres_by_store = build_centres_by_store(@stores, @centres)
 
     meta.push @product.meta
     meta.push(

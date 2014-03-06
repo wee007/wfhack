@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.196
+Version:     0.2.197
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,9 @@ fi
 
 
 %changelog
+* Fri Mar 07 2014 ci <doperations@au.westfield.com> 0.2.197-1
+- WSF-6332 Fixed product tile link (ewee@au.westfield.com)
+
 * Thu Mar 06 2014 ci <doperations@au.westfield.com> 0.2.196-1
 - WSF-6356 Product page with centre_id appended no longer errors when there are
   no results. (craigm.smith@au.westfield.com)

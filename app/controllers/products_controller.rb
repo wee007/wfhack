@@ -69,6 +69,8 @@ class ProductsController < ApplicationController
     centre_ids = @stores.map{ |centre| centre.centre_id }.uniq
     @centre_stores = @stores.select{ |store| store.centre_id == params[:centre_id] }
 
+    @store_centres = build_store_centres(@stores, @centres)
+
     @product_centres = []
     if centre_ids.present?
       @product_centres = CentreService.find(:all, centre_id: centre_ids, near_to: params[:centre_id])

@@ -24,11 +24,6 @@
   em,
   span {display: block;}
 
-  .drop-down-container {
-    @include to-rem(margin, $spacing-third auto 0);
-    @include to-rem(max-width, $drop-down-width);
-  }
-
   p {text-align: center;}
 
     /* 'No content/search results' text */

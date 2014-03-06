@@ -5,6 +5,8 @@
 /*
   Common styles for a drop down menu.
 
+  .drop-down-menu--fixed-width   - max width on dropdown and margin on top
+
   Styleguide Drop Down Menu
 */
 
@@ -243,3 +245,9 @@
         left: 50%;
         @include translate(-50%, -50%);
       }
+
+/* Modifier: max width on dropdown and margin on top */
+.drop-down-menu--fixed-width {
+  @include to-rem(margin, $spacing-third auto 0);
+  @include to-rem(max-width, $drop-down-width);
+}

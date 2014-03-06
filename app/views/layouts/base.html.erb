@@ -65,13 +65,13 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="<%= request.original_url %>">
   <meta property="og:site_name" content="Westfield Australia">
-  <meta property="og:image" content="<%= meta.social_image %>">
+  <meta property="og:image" content="<%= image_url meta.social_image %>">
 
   <meta name="twitter:title" content="<%= meta.twitter_title || page_title %>">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:url" content="<%= request.original_url %>">
   <meta name="twitter:site" content="@WestfieldAU">
-  <meta name="twitter:image:src" content="<%= meta.social_image %>">
+  <meta name="twitter:image:src" content="<%= image_url meta.social_image %>">
   <%# //Open Graph (Facebook) & Twitter card %>
 
 </head>

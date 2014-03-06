@@ -158,4 +158,9 @@ private
     @centres, @product, @stores, @centre = service_map services
   end
 
+  def build_centres_by_store(stores, centres)
+    store_centre_ids = stores.map{ |store| store.centre_id }
+    centres.select{ |centre| store_centre_ids.include?(centre.code) }.group_by{ |centre| centre.state }
+  end
+
 end

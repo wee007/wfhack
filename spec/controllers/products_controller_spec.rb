@@ -219,11 +219,61 @@ describe ProductsController do
   end
 
   describe :show_national do
+    let(:centres) do
+      [
+        Hashie::Mash.new(
+          code: 'bondijunction',
+          state: 'NSW'
+        ),
+        Hashie::Mash.new(
+          code: 'sydney',
+          state: 'NSW'
+        ),
+        Hashie::Mash.new(
+          code: 'carindale',
+          state: 'QLD'
+        )
+      ]
+    end
+    let(:stores) do
+      [
+        Hashie::Mash.new(
+          retailer_code: 'retailer_code',
+          centre_id: 'sydney'
+        ),
+        Hashie::Mash.new(
+          retailer_code: 'retailer_code',
+          centre_id: 'carindale'
+        )
+      ]
+    end
+
     it "does not assign the centre instance variable and does assigns centre redirection url" do
+      CentreService.stub(:build).and_return(centres)
+      StoreService.stub(:build).and_return(stores)
+
       get :show_national, id: 1, retailer_code: 'retailer_code', product_name: 'product_name'
-      response.should render_template :show
-      assigns(:centre).should be_nil
-      assigns(:product_redirection_url).should == product_redirection_url
+
+      expect(response).to render_template(:show)
+
+      expect(assigns(:centre)).to be_nil
+      expect(assigns(:centres_by_store)).to eql(
+        {
+          'NSW' => [
+            {
+              'code' => 'sydney',
+              'state' => 'NSW'
+            }
+          ],
+          'QLD' => [
+            {
+              'code' => 'carindale',
+              'state' => 'QLD'
+            }
+          ]
+        }
+      )
+      expect(assigns(:product_redirection_url)).to  eq(product_redirection_url)
     end
 
     describe :params do

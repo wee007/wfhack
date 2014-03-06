@@ -246,7 +246,7 @@
           @extend %transition-subtle;
           content: "";
           position: absolute;
-          @include to-rem(top left, 2);
+          @include to-rem(top left, $spacing-micro);
           @include to-rem(width height, 12);
           background-color: #fff;
           border-radius: 50%;

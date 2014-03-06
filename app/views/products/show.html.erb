@@ -36,7 +36,7 @@
       <section aria-labelledby="location-contact-storelink">
         <h2 class="hide-visually" id="location-contact-storelink">Store location, contact details and store link</h2>
 
-        <%# Check if a product is available %>
+        <%# Check if a product is not available at centre or centre has not been selected %>
         <% if !@centre.present? or @centre_stores.empty? %>
 
           <div class="detail-view__product-not-avble detail-view__divider">
@@ -78,7 +78,6 @@
               </div>
             </div>
           </div>
-          <%# //When product is not available at a centre %>
 
         <%- elsif @centre.present? -%>
 
@@ -120,7 +119,7 @@
           <%# //When product is available at a centre %>
 
         <%- end -%>
-        <%# //Check if a product is available %>
+        <%# //Check if a product is not available at centre or centre has not been selected %>
 
         <%# Store link %>
         <%- if @product.primary_retailer_product_url -%>

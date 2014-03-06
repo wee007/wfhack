@@ -10,7 +10,7 @@
       else
         ProductSearch.resetParams()
 
-      params = ProductSearch.params()
+      params = $.extend(ProductSearch.params(),{current_centre: $scope.currentCentre})
       queryStringParams = ParamCleaner.build(params)
 
       $location.search(queryStringParams)

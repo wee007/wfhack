@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.198
+Version:     0.2.199
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,14 @@ fi
 
 
 %changelog
+* Fri Mar 07 2014 ci <doperations@au.westfield.com> 0.2.199-1
+- Merge pull request #970 from cpearce/social-media-meta-tags
+  (chorn@au.westfield.com)
+- Using asset pipeline for the social media image (cpearce@au.westfield.com)
+- Adding new social media image (cpearce@au.westfield.com)
+- Making the image an absolute path for the social media meta tags
+  (cpearce@au.westfield.com)
+
 * Fri Mar 07 2014 ci <doperations@au.westfield.com> 0.2.198-1
 - Merge pull request #959 from araeside/stores-keyword-filter-and-giftcard-
   toggle (craigM.smith@au.westfield.com)

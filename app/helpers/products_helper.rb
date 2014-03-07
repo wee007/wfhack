@@ -36,7 +36,7 @@ module ProductsHelper
 
   def pagination_params(page)
     params_dup = params.dup
-    params_dup[:centre_id] = params_dup.delete :centre if params_dup[:centre]
+    params_dup[:centre_id] = params_dup[:current_centre] if params_dup[:current_centre].present?
     params_dup[:action] = params_dup[:centre_id] ? 'index_centre' : 'index_national'
     params_dup[:page] = page
     params_dup

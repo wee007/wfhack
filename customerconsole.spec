@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.197
+Version:     0.2.198
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,91 @@ fi
 
 
 %changelog
+* Fri Mar 07 2014 ci <doperations@au.westfield.com> 0.2.198-1
+- Merge pull request #959 from araeside/stores-keyword-filter-and-giftcard-
+  toggle (craigM.smith@au.westfield.com)
+- use spacing variable for ios toggle positions instead of number
+  (alec@smartalecwebsites.com.au)
+- use island-top for padding on no content message and add more comments
+  (alec@smartalecwebsites.com.au)
+- apply keyword filter to post filter count only when category is visible
+  (alec@smartalecwebsites.com.au)
+- use plain numbers for ios toggle handle dimensions and clean up its css
+  (alec@smartalecwebsites.com.au)
+- remove redundant class (alec@smartalecwebsites.com.au)
+- add comment explaining selector specificity (alec@smartalecwebsites.com.au)
+- remove post filter count when no categories applied until efficient
+  integration can be implemented (alec@smartalecwebsites.com.au)
+- update post filter count to match keyword filter
+  (alec@smartalecwebsites.com.au)
+- clean up and tweak no results message for keyword filter
+  (alec@smartalecwebsites.com.au)
+- make the toggle visibility integration more flexible
+  (alec@smartalecwebsites.com.au)
+- improve page for non JS users (alec@smartalecwebsites.com.au)
+- user normal href for basic category links, for users without JS and bots
+  (alec@smartalecwebsites.com.au)
+- update css comments and add specificity to css property reset for keyword
+  filter (alec@smartalecwebsites.com.au)
+- refactor js hook names (alec@smartalecwebsites.com.au)
+- cleanup css (alec@smartalecwebsites.com.au)
+- remove change from accidental commit (alec@smartalecwebsites.com.au)
+- remove redundant css and increase specificity to keyword filter css to
+  override tog vis style (alec@smartalecwebsites.com.au)
+- changes and cleanup after PR review. (alec@smartalecwebsites.com.au)
+- Reset bottom margin of stores list. Override display rule of tog vis to keep
+  keyword filter inline with other filters in tablet view
+  (alec@smartalecwebsites.com.au)
+- on pjax change, reapply click event for keyword filter toggle which
+  calculates list position (alec@smartalecwebsites.com.au)
+- replace underscore.js debounce with standalone debounce
+  (alec@smartalecwebsites.com.au)
+- resolve styleguide conflict (alec@smartalecwebsites.com.au)
+- remove redundant js-search-toggle class (alec@smartalecwebsites.com.au)
+- replace global search focus JS with more generic JS in toggle visibility
+  directive (alec@smartalecwebsites.com.au)
+- include ipad portrait in landscape view (alec@smartalecwebsites.com.au)
+- remove extra space (alec@smartalecwebsites.com.au)
+- remove unused css calc mixin (alec@smartalecwebsites.com.au)
+- add stores icon to no results view (alec@smartalecwebsites.com.au)
+- Add iOS toggle and updated checkbox toggle to stylguide
+  (alec@smartalecwebsites.com.au)
+- Change default store list top values to account for keyword filter UI
+  (alec@smartalecwebsites.com.au)
+- if there is only one letter in filter keyword, only match stores starting
+  with that letter (alec@smartalecwebsites.com.au)
+- remove pjax from giftcard toggle for smoother transitions
+  (alec@smartalecwebsites.com.au)
+- changes from code review with chris (alec@smartalecwebsites.com.au)
+- refactor stores list positioning JS (alec@smartalecwebsites.com.au)
+- add comments to css and change css class names
+  (alec@smartalecwebsites.com.au)
+- refactor toggle css and separate list position JS
+  (alec@smartalecwebsites.com.au)
+- use more specific js hooks. make list filtering work with multiple classes on
+  items (alec@smartalecwebsites.com.au)
+- make keyword filter work with pjax (alec@smartalecwebsites.com.au)
+- cleanup class names and accessibility (alec@smartalecwebsites.com.au)
+- refactor css (alec@smartalecwebsites.com.au)
+- remove duplicate no-js css (alec@smartalecwebsites.com.au)
+- remove extra whitespace (alec@smartalecwebsites.com.au)
+- add error handler for store logo in map popup. remove redundant logo config
+  JS (alec@smartalecwebsites.com.au)
+- remove css calc and set correct margins for keyword filter at different
+  breakpoints (alec@smartalecwebsites.com.au)
+- add styles for tablet, using css calc. refactor set list position function
+  (alec@smartalecwebsites.com.au)
+- debounce list position resize function (alec@smartalecwebsites.com.au)
+- set correct alt tag for store logo (alec@smartalecwebsites.com.au)
+- dont output cloudinary JS config (alec@smartalecwebsites.com.au)
+- Remove jquery.cloudinary.js (alec@smartalecwebsites.com.au)
+- set list position on resize. activate new giftcard toggle. cleanup maps js
+  (alec@smartalecwebsites.com.au)
+- add keyword filter and keyword toggle CSS and base JS
+  (alec@smartalecwebsites.com.au)
+- expose DeferredImages object for public use (alec@smartalecwebsites.com.au)
+- add jquery plugin for list filtering (alec@smartalecwebsites.com.au)
+
 * Fri Mar 07 2014 ci <doperations@au.westfield.com> 0.2.197-1
 - WSF-6332 Fixed product tile link (ewee@au.westfield.com)
 

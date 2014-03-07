@@ -42,7 +42,7 @@ class ApplicationController < ActionController::Base
   def meta
     gon.meta ||= Meta.new(
       is_error_page: "false",
-      social_image: "/social-share-logo.png",
+      social_image: "social-share-logo.png",
       error_code: ""
     )
   end

@@ -10,6 +10,7 @@
   .btn--main-light            - Light
   .btn--main-white            - White
   .btn--main-compact          - Compact - decrease padding
+  .btn--main-compact-sides    - Compact - decrease left/right padding
   .btn--main-lrg              - Large - increase top/bottom padding
   .btn--main-arrow            - Arrow on the right
   .btn--main-toggle           - Shared modifier for checkbox and ios toggle modifiers
@@ -113,6 +114,9 @@
 
   /* Modifier: compact icon small - as above but decrease padding even more (use with icons) */
   .btn--main-compact-icon-sml {@include to-em(padding, $spacing-quarter $spacing-half);}
+
+  /* Modifier: compact - decrease left/right padding */
+  .btn--main-compact-sides {@include to-em(padding-left padding-right, $spacing-base);}
 
 	/* Modifier: large - increase top/btm padding */
 	.btn--main-lrg {@include to-em(padding-top padding-bottom, $spacing-half+$spacing-micro);}

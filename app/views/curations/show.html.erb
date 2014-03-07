@@ -1,0 +1,145 @@
+<% content_for :class_for_main, "container--spacing-top-main-content" %>
+
+<article class="product-curation" role="article">
+
+  <%# 'Hero', 'More from retailers (non-palm)' and 'Pin board' %>
+  <div class="grid grid--gutter-half grid--mrg-half grid--non-linear">
+
+    <%# 'Hero' and 'More from retailers (non-palm)' %>
+    <div class="grid__item non-palm-one-sixth">
+
+      <%# Hero %>
+      <header class="box">
+        <%= image_tag 'dummy/curation-hero.jpg', alt: '' %>
+        <h1 class="island">Blue Is The New Black</h1>
+        <div class="txt-formatted toggle-content js-toggle-content js-hide-show">
+          <p class="island-sides island-btm">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.</p>
+        </div>
+      </header>
+      <%# //Hero %>
+
+      <%# More from retailers (non-palm) %>
+      <footer class="hide-fully--palm">
+        <section aria-labelledby="curation-retailers-non-palm">
+          <h2 id="curation-retailers-non-palm">More from retailers</h2>
+          <%= render partial: 'more_from_retailers' %>
+        </section>
+      </footer>
+      <%# //More from retailers (non-palm) %>
+
+    </div>
+    <%# //'Hero' and 'More from retailers (non-palm)' %>
+
+    <%# Pin board %>
+    <section class="grid__item non-palm-five-sixths" aria-labelledby="curation-pin-board">
+
+      <h2 class="hide-visually" id="curation-pin-board">Products</h2>
+
+      <div class="pin-board-non-masonary">
+
+        <%# Pin board row %>
+        <% curated_products.in_groups_of(5) do |products| %>
+          <div class="grid grid--gutter-half grid--mrg-half grid--non-linear">
+
+            <%# Hero tile %>
+            <div class="grid__item one-whole desk-one-half">
+              <%= render partial: 'tile_hero', object: products.shift %>
+            </div>
+            <%# //Hero tile %>
+
+            <%# Sidekick tiles (x4) %>
+            <div class="grid__item one-whole desk-one-half">
+              <% products.in_groups_of(2) do |sidekick_products| %>
+                <div class="grid grid--gutter-half grid--mrg-half grid--non-linear">
+                  <% sidekick_products.each do |sidekick_product| %>
+                    <% if sidekick_product %>
+                      <div class="grid__item one-half">
+                        <%= render partial: 'tile_sidekick', object: sidekick_product %>
+                      </div>
+                    <% end %>
+                  <% end %>
+                </div>
+              <% end %>
+            </div>
+            <%# //Sidekick tiles (x4) %>
+
+          </div>
+        <% end %>
+        <%# //Pin board row %>
+
+      </div>
+    </section>
+    <%# //Pin board %>
+
+  </div>
+  <%# //Hero and pin board %>
+
+
+
+
+
+
+  <%# Pager %>
+  <section aria-labelledby="curation-pager">
+    <h2 class="hide-visually" id="curation-pager">Pagination</h2>
+    <nav class="pager" role="navigation">
+      <div class="pager__inner">
+        <em class="pager__count">
+          <span class="hide-visually">Page </span>
+          20 of 10
+        </em>
+        <%# Previous page %>
+        <a href="#" rel="prev" class="pager__prev btn btn--pointer btn--pointer-alt btn--main btn--main-white">
+          <span class="icon icon--arrow-left-big btn--pointer__icon btn--pointer__icon--flush" aria-hidden="true"></span>
+          Prev
+        </a>
+        <%# //Previous page %>
+        <%# Next page %>
+        <a href="#" rel="next" class="pager__next btn btn--pointer btn--main btn--main-white">
+          Next
+          <span class="icon icon--arrow-right-big btn--pointer__icon btn--pointer__icon--flush" aria-hidden="true"></span>
+        </a>
+        <%# //Next page %>
+      </div>
+    </nav>
+  </section>
+  <%# //Pager %>
+
+  <%# 'More from retailers' and 'You may also like' %>
+  <footer>
+
+    <%# More from retailers (palm) %>
+    <section class="hide-fully--non-palm" aria-labelledby="curation-retailers-palm">
+      <h2 id="curation-retailers-palm">More from retailers</h2>
+      <%= render partial: 'more_from_retailers' %>
+    </section>
+    <%# //More from retailers (palm) %>
+
+    <%# You may also like %>
+    <section class="hide-fully--non-palm" aria-labelledby="curation-also-like">
+      <h2 id="curation-also-like">You may also like</h2>
+      <nav role="navigation">
+        footer
+      </nav>
+    </section>
+    <%# //You may also like %>
+
+  </footer>
+  <%# //'More from retailers' and 'You may also like' %>
+
+</article>
+
+<%- content_for :custom_javascript do -%>
+  <%# Run 'Toggle content' plugin %>
+  <%= javascript_include_tag 'jquery-extensions/jquery.toggle-content' %>
+
+  <script>
+    // Initialise 'Toggle content' plugin
+    $(function() {
+      $('.js-toggle-content').toggleContent({
+        btnTxtOpen: 'Read more <span aria-hidden="true" class="icon icon--arrow-down-full icon--lrg"></span>',
+        btnTxtClose: 'Read less <span aria-hidden="true" class="icon icon--arrow-up-full icon--lrg"></span>'
+      });
+    });
+  </script>
+<%- end -%>

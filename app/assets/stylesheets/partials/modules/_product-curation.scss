@@ -1,0 +1,21 @@
+/* ======================================================================================
+   @MODULES -> PRODUCT CURATION
+   ====================================================================================== */
+
+/*
+	'Product curation' page, most of the styles for this module are taken care of by other modules, this module is needed to for styles that we don't get from the inner modules.
+*/
+
+.product-curation {
+
+  /* Headings */
+  h1 {@include font-size(36);}
+
+  h2 {
+    font-family: $font-family-opensans;
+    color: $color-txt-light;
+    @include font-size(24, 1.5);
+    @include to-rem(margin-bottom, $spacing-base);
+  }
+
+}

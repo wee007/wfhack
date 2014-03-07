@@ -9,7 +9,7 @@
 */
 
 /*
-  Notes: The pin board's layout (no of columns) is controlled via JS except at palm size where it's always 2 columns.
+  Note: The pin board's layout (no of columns) is controlled via JS except at palm size where it's always 2 columns.
 */
 
 .pin-board {
@@ -18,8 +18,6 @@
   .no-js &,
   &.is-loaded {display: block;}
 
-  /* Apply top spacing */
-  @include to-rem(margin-top, $spacing-half);
   /*
     Need a negative bottom margin to offset the bottom padding on the `body` to keep the spacing consistent with the top spacing, need to increase specificity to override grid's `:last-child` rule.
   */
@@ -31,8 +29,7 @@
       Don't show the pin board initially as it will be the wrong number of cols unless you are on a palm device. The cols are set to the right number via JS.
     */
     display: none;
-    /* Increase top spacing */
-    @include to-rem(margin-top, $spacing-base);
+
     /* Turn off negative bottom spacing */
     &.grid {margin-bottom: 0;}
   }

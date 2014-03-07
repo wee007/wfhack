@@ -2,6 +2,8 @@ module Routes
   module ProductRoutes
     def self.draw(context, kind)
       context.instance_eval do
+        get 'products/curation/:code' => "curations#show"
+
         get 'products' => "products#index_#{kind}"
         get 'products/:id/redirection' => 'products#redirection', as: 'product_redirection'
         get 'products/:id/social-share' => 'social_shares#show', as: 'product_social_share', kind: 'product'

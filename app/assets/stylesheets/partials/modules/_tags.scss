@@ -15,8 +15,8 @@
   @include to-rem(padding-top, $spacing-quarter - 1);
   @include to-rem(padding-bottom, $spacing-quarter*2);
 
-  /* When tags live within 'Filters' module */
-  .filters--pin-board & {@include to-rem(margin-top, $spacing-half);}
+  /* Add some top spacing when they live in the 'Filters' module */
+  .filters & {@include to-rem(margin-top, $spacing-half);}
 }
 
   /* Main button */

@@ -1,15 +1,4 @@
 #= require init/geolocation
-insertOverlayAndPreloader = ->
-  html = '<div class="overlay overlay--absolute overlay--light">
-    <span class="preloader preloader--top preloader--light">
-      <span class="preloader__spinner"></span>
-      <em class="hide-visually">Loading, please wait&#8230;</em>
-    </span>
-  </div>'
-  $('.js-sort-centres-geolocation-container').prepend(html)
-
-removeOverlayAndPreloader = ->
-  $('.overlay','.js-sort-centres-geolocation-container').remove()
 
 calculateClosestCentresAndState = (userPosition) ->
   # Use haversine algorithm in geolocation module to calculate distance bewteen users and centres.
@@ -31,7 +20,6 @@ selectClosestState = ->
 
   return closestCentreState
 
-
 sortCentreListByLocation = (userState) ->
   # Order centres list by distance from user
   # by cloning html for each centre li closest to furthest
@@ -48,26 +36,33 @@ sortCentreListByLocation = (userState) ->
   # Get the sorted centre li's and put them in the real DOM
   list.html tempParent.html()
 
+showClosestCentres = (userPosition) ->
+  calculateClosestCentresAndState userPosition
+  state = selectClosestState()
+  sortCentreListByLocation(state)
+
 # Only execute if geolocation is supported
 if navigator.geolocation
-  #insertOverlayAndPreloader()
+
+  # If the user's location is known on page load
+  if !!localStorage.userPosition
+    # Sort the centres immediately based on that cached location
+    showClosestCentres JSON.parse localStorage.userPosition
 
   # Record how long it takes to get user position
   searchStartTime = new Date().getTime()
-  navigator.geolocation.getCurrentPosition (userPosition) ->
-    searchEndTime = new Date().getTime()
 
-    # If it takes less than a second to get the user position
-    # delay the overlay removal and list sorting so it doesn't flash up on the screen momentarily
-    extraDelay = 0
-    if searchEndTime - searchStartTime < 1000
-      extraDelay = 1000 - (searchEndTime - searchStartTime);
-    setTimeout (->
-      #removeOverlayAndPreloader()
-      calculateClosestCentresAndState userPosition
-      state = selectClosestState()
-      sortCentreListByLocation(state)
-    ), extraDelay
+  # Get user's position
+  navigator.geolocation.getCurrentPosition (userPosition) ->
+
+    # If the users actual position is different to the cache position
+    if localStorage.userPosition and userPosition is not localStorage.userPosition
+
+      # Cache the position for future visits
+      localStorage.userPosition = JSON.stringify userPosition
+
+      # Show closest centres based on actual location
+      showClosestCentres userPosition
+
   , ->
-    #removeOverlayAndPreloader()
     @

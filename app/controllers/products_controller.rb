@@ -1,7 +1,5 @@
 class ProductsController < ApplicationController
 
-  include ProductsHelper
-
   before_action :remove_gclid_param
   before_action :fetch_service_api_data, only: [:show_centre, :show_national]
 

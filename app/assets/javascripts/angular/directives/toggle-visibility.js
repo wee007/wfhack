@@ -12,7 +12,7 @@
 
     // Clicking outside will close all toggleVisibility targets
     $document.bind( 'click', function ( event ) {
-      if ($(event.target).parents('.js-toggle-visibility-target').length == 0) {
+      if ($(event.target).parents('.js-toggle-visibility-target').length == 0 && $rootScope.activeTVTarget != undefined) {
        close();
       }
     });
@@ -61,15 +61,28 @@
 
     // Hide the target, set appropriate ARIA
     deactivateTarget = function ( targetID ) {
+      $target = target( targetID )
       triggers( targetID ).attr( 'aria-expanded', false ).removeClass( activeClass );
-      target( targetID ).removeClass( activeClass );
-      target( targetID ).unbind('keydown');
+      $target.removeClass( activeClass );
+      $target.unbind('keydown');
+
+      // Replaces global search focus plugin.
+      // Remove focus from input in target as it is hidden now
+      // Use jQuery to get correct blur function
+      jQuery('#' + targetID).find('input[type=text], input[type=search]').eq(0).blur();
     },
 
     // Show the target, set appropriate ARIA
     activateTarget = function ( targetID ) {
+      $target = target( targetID )
       triggers( targetID ).attr( 'aria-expanded', true ).addClass( activeClass );
-      target( targetID ).addClass( activeClass );
+      $target.addClass( activeClass );
+
+      // Replaces global search focus plugin.
+      // Set focus on first input in target as it should be the focus of user's attention
+      // Use jQuery to get correct focus function
+      jQuery('#' + targetID).find('input[type=text], input[type=search]').eq(0).focus();
+
       if (targetID) {
         // Let other dropdowns know that they should close themselves
         $rootScope.$broadcast( 'toggle-visibility-dropdowns');

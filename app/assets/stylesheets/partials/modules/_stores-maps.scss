@@ -190,6 +190,7 @@
 
       /* Header */
       .stores-maps__filters-toggle__hdr {
+        float: left;
         display: block;
         font-family: $font-family-opensans;
         @include font-size($font-size-xlrg, 1.5);
@@ -212,6 +213,7 @@
 
         /* Modifier: Detail view */
         .stores-maps__inner--detail & {
+          float: none;
           margin-bottom: 0;
 
           .icon:before {
@@ -223,6 +225,9 @@
             .ie-9 & {top: 0;}
           }
         }
+
+        /* Non JS users */
+        .no-js & {float: none;}
 
           /* Back to listing link */
           > a {
@@ -239,16 +244,15 @@
           }
       }
 
-      /* Filters - 'Categories' and 'Gift card toggle' */
+      /* Filters - 'Categories', 'Gift card toggle' and 'Keyword' */
       .stores-maps__filters {
-        float: left;
 
         @include respond-min($ipad-landscape) {
-          float: none;
-        }
+          text-align: right;
 
-        /* Non JS Users */
-        .no-js & {float: none;}
+          /* Non JS users */
+          .no-js & {text-align: left;}
+        }
 
           /* Increase right padding for drop down trigger at this breakpoint */
           @include respond-min($non-palm) {
@@ -256,9 +260,22 @@
           }
 
           /* Gift card toggle */
-          .btn--main-checkbox-toggle .icon--gift-card:before {
-            color: #fff;
-            @include to-rem(margin-left, $spacing-quarter);
+          .btn--main-toggle-ios {
+            @include respond-min($ipad-landscape) {
+              @include to-em(padding-top, $spacing-half - 1);
+              @include to-em(padding-bottom, $spacing-half - 2);
+              border: 1px solid $color-grey-med-2;
+              background-color: transparent;
+              box-shadow: none;
+            }
+
+            .icon--gift-card:before {
+              display: none;
+
+              @include respond-min($ipad-landscape) {
+                display: inline-block;
+              }
+            }
           }
 
           /* Applied filter tag */
@@ -303,6 +320,52 @@
             margin-right: 0;
             @extend %mrg-base;
           }
+        }
+
+        /* Keyword filter textbox - need to increase specificity to override the dynamic `is-active` class that gets appended for toggle visibility Angular directive */
+        .stores-maps .stores-maps__filters .stores-maps__keyword-filter-input {
+
+          /* Display all filters on one line */
+          @include respond-min($iphone-landscape) {
+            display: inline-block;
+            width: 34%;
+
+          }
+
+          /* Reduce width to handle bigger map toggle button */
+          @include respond-min($lap-start) {
+            width: 30%;
+          }
+
+          @include respond-min($ipad-landscape) {
+            display: block;
+            width: auto;
+          }
+
+          /* When list and map view are separate and user is in map view
+             add padding to the right of the keyword filter so it does not cover the map controls */
+          .is-map-view & {
+            @include to-rem(margin-right, $spacing-dbl+$spacing-quarter);
+
+            @include respond-min($iphone-landscape) {
+              margin-right: 0;
+            }
+          }
+
+          .txt-input {
+            /* Add extra vertical padding so the textbox is the same height as other filters */
+            @include to-rem(padding-top padding-bottom, $spacing-half - 2);
+            @include to-rem(margin-top, $spacing-half);
+
+            @include respond-range($iphone-landscape, $ipad-landscape - 1) {
+              margin-top: 0;
+            }
+          }
+        }
+
+        /* Keyword filter toggle - hide at this breakpoint */
+        @include respond-min($iphone-landscape) {
+          .stores-maps__keyword-filter-toggle {display: none;}
         }
 
         /* Show hidden text for non JS users */
@@ -386,14 +449,14 @@
     .stores-maps__list-detail {
       position: absolute;
       z-index: 5;
-      @include to-rem(top, 55);
+      @include to-rem(top, 58);
       bottom: 0;
       left: 0;
       right: 0;
       overflow-y: auto;
 
       /* Post filter count */
-      .is-filter-applied & {@include to-rem(top, 89);}
+      .is-filter-applied & {@include to-rem(top, 91);}
 
       /* Modifier: Listing view */
       .stores-maps__inner--listing & {background-color: #fff;}
@@ -421,21 +484,21 @@
 
       /* Alter top positioning at this breakpoint */
       @include respond-min($non-palm) {
-        @include to-rem(top, 65);
+        @include to-rem(top, 68);
 
         /* Post filter count */
-        .is-filter-applied & {@include to-rem(top, 102);}
+        .is-filter-applied & {@include to-rem(top, 109);}
       }
 
       /* Apply box treatments and alter top/btm positioning at this breakpoint */
       @include respond-min($ipad-landscape) {
-        @include to-rem(top, 151);
+        @include to-rem(top, 161);
         @include to-rem(bottom, $spacing-base);
         @include box;
         @include box-heavy;
 
         /* Post filter count */
-        .is-filter-applied & {@include to-rem(top, 187);}
+        .is-filter-applied & {@include to-rem(top, 196);}
 
         /* Modifier: Detail view */
         .stores-maps__inner--detail & {

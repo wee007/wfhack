@@ -7,6 +7,7 @@
 */
 
 .stores-list {
+  margin-bottom: 0;
   background-color: #fff;
   @include font-size($font-size-sml, 1.5);
 
@@ -18,10 +19,8 @@
   dt {
     background-color: $color-grey-light-3;
     font-weight: normal;
-    border-top: 1px solid $color-grey-med-3;
+    border-bottom: 1px solid $color-grey-med-3;
     @include to-rem(padding-top padding-bottom, $spacing-sixth);
-
-    &:first-child {border-top: 0;}
 
     @include respond-min($non-palm) {
       @include to-rem(padding-top padding-bottom, $spacing-quarter);
@@ -30,10 +29,7 @@
 
   /* Store items */
   dd {
-    border-top: 1px solid $color-grey-med-3;
-
-    /* Bottom border for last child */
-    &:last-child {border-bottom: 1px solid $color-grey-med-3;}
+    border-bottom: 1px solid $color-grey-med-3;
 
     /* Inner container */
     .stores-list__inner {position: relative;}

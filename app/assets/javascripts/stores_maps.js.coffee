@@ -2,6 +2,7 @@
 #= require flexslider/jquery.flexslider
 #= require map/responsive_map
 #= require fastclick
+#= require stores/stores_keyword_filter
 
 class StoreMapPage
 
@@ -28,6 +29,8 @@ class StoreMapPage
   pjaxComplete: =>
     @pageLoaded()
     @recompileAngularScope()
+    @keyword_filter.setupKeywordFilter()
+    @keyword_filter.setupToggleListPosition()
 
   pageLoaded: ->
     $ ->
@@ -74,6 +77,9 @@ class StoreMapPage
       setTimeout((-> self.store(el.data('store-id'))), 0)
       false
     )
+
+    @keyword_filter = new StoresKeywordFilter(@map)
+
     @pageLoaded()
 
   show: =>
@@ -81,7 +87,6 @@ class StoreMapPage
     false
 
   hide: =>
-    #debugger
     @updateGUI @map.hide()
     false
 

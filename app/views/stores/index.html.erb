@@ -1,6 +1,6 @@
 <% content_for :class_for_main, "container--wide" %>
 
-<div class="stores-maps container js-stores-maps-toggle-wrap <%= @show_map_on_palm ? 'is-map-view' : 'is-list-view' %>">
+<div class="stores-maps container js-stores-maps-toggle-wrap js-stores-list-position-container <%= @show_map_on_palm ? 'is-map-view' : 'is-list-view' %>">
 
   <%# Contain 'filters', 'map/list toggle', and 'listings' %>
 
@@ -15,16 +15,24 @@
 
     <div ng-controller="StoreListController" class="stores-maps__inner stores-maps__inner--listing <%= 'is-filter-applied' if @active_category %>">
       <%# Filters & list/map toggle button %>
-      <div class="stores-maps__filters-toggle">
+      <div class="stores-maps__filters-toggle js-stores-list-position-filter-container">
 
         <div class="container container--position">
 
           <h1 class="stores-maps__filters-toggle__hdr hide-visually">Stores</h1>
 
+          <%# List/map toggle %>
+          <button type="button" class="stores-maps__toggle btn btn--main btn--main-white btn--main-compact-icon js-stores-maps-toggle-btn" aria-owns="stores-maps-toggle-listing-detail stores-maps-toggle-map">
+            <span class="hide-visually--palm">View <span class="js-stores-maps-toggle-btn-txt">map</span></span>
+            <span class="icon icon--map2 icon--lrg" aria-hidden="true"></span>
+            <span class="icon icon--list icon--lrg" aria-hidden="true"></span>
+          </button>
+          <%# //List/map toggle %>
+
           <%# Filters %>
           <div class="stores-maps__filters">
 
-            <p class="stores-maps__intro hide-visually">Filter stores by <strong>Category</strong> and whether they accept <strong>Gift cards</strong>.</p>
+            <p class="stores-maps__intro hide-visually">Filter stores by <strong>Category</strong><span class="js-disabled-hide">, <strong>keyword</strong></span> and whether they accept <strong>Gift cards</strong>.</p>
 
             <%# Category %>
             <% unless @active_category %>
@@ -54,7 +62,7 @@
                               <span class="icon icon--arrow-right-big icon--lrg btn--pointer__icon js-disabled-hide" aria-hidden="true"></span>
                             </div>
                           <% else %>
-                            <a ng-href="<%= centre_stores_category_path(@centre, category.code) %>{{queryParams}}" class="drop-down-menu__hdr-btn btn btn--full btn--full-left btn--pointer is-childless js-pjax-link-stores" ng-click="saveCategory('<%= category.code %>')"><%= category.name %></a>
+                            <a href="<%= centre_stores_category_path(@centre, category.code) %>" ng-href="<%= centre_stores_category_path(@centre, category.code) %>{{queryParams}}" class="drop-down-menu__hdr-btn btn btn--full btn--full-left btn--pointer is-childless js-pjax-link-stores" ng-click="saveCategory('<%= category.code %>')"><%= category.name %></a>
                           <% end %>
                         <% else %>
                           <% if filtering_gift_cards? && category.stores_accepting_gift_cards < 1 %>
@@ -98,7 +106,7 @@
                                 <span class="hide-visually"> (gift cards not available for this category)</span>
                               </div>
                             <% else %>
-                              <a ng-href="<%= centre_stores_category_path(@centre, sub_category.code) %>{{queryParams}}" class="btn btn--full btn--full-left js-pjax-link-stores" ng-click="saveCategory('<%= sub_category.code %>')" target="_self"><%= sub_category.name %></a>
+                              <a href="<%= centre_stores_category_path(@centre, sub_category.code) %>" ng-href="<%= centre_stores_category_path(@centre, sub_category.code) %>{{queryParams}}" class="btn btn--full btn--full-left js-pjax-link-stores" ng-click="saveCategory('<%= sub_category.code %>')" target="_self"><%= sub_category.name %></a>
                             <% end %>
                           </li>
                         <% end %>
@@ -128,39 +136,54 @@
             <%# //Applied category %>
 
             <%# Gift card filter %>
-            <form id="giftCardForm" action="<%= request.path %>" data-pjax method="get" class="stores-maps__filters__item js-map-view-state">
-                <input type="hidden" name="map" value="{{viewingMap}}">
-                <legend class="hide-visually">Gift card filter</legend>
-                <label for="gift-card-store-filter" class="btn btn--main btn--main-dark btn--main-checkbox-toggle btn--main-checkbox-toggle-icon <%= 'is-disabled' if !@stores.any_accepting_gift_cards? %> <%= 'is-active' if filtering_gift_cards? %>">
-                  <input ng-init="gift_cards = <%= filtering_gift_cards? ? true : false %>" ng-model="gift_cards" ng-change="giftCardChange()" id="gift-card-store-filter" type="checkbox" name="gift_cards" value="true" class="btn--main-checkbox-toggle__input" <%= 'checked' if filtering_gift_cards? %><%= 'disabled' unless @stores.any_accepting_gift_cards? %>>
-                  <span class="btn--main-checkbox-toggle__lbl">
-                    <span class="hide-visually--palm">Westfield </span>
-                    Gift Card
-                    <span class="hide-visually--palm"> accepted</span>
-                    <span aria-hidden="true" class="icon icon--gift-card icon--xlrg icon--flush-top-mozilla"></span>
-                  </span>
-                </label>
-                <button type="submit" class="js-enabled-hide" <%= 'checked' if filtering_gift_cards? %><%= 'disabled' unless @stores.any_accepting_gift_cards? %>>Go</button>
+            <form id="giftCardForm" action="<%= request.path %>" method="get" class="stores-maps__filters__item js-map-view-state">
+              <input type="hidden" name="map" value="{{viewingMap}}">
+              <legend class="hide-visually">Gift card filter</legend>
+              <label for="gift-card-store-filter" class="btn btn--main btn--main-white btn--main-toggle btn--main-toggle-ios <%= 'is-disabled' if !@stores.any_accepting_gift_cards? %> <%= 'is-active' if filtering_gift_cards? %>">
+                <input ng-init="gift_cards = <%= filtering_gift_cards? ? true : false %>" ng-model="gift_cards" ng-change="giftCardChange()" id="gift-card-store-filter" type="checkbox" name="gift_cards" value="true" class="btn--main-toggle__input hide-visually" <%= 'checked' if filtering_gift_cards? %><%= 'disabled' unless @stores.any_accepting_gift_cards? %>>
+                <span class="btn--main-toggle__lbl">
+                  <span aria-hidden="true" class="icon icon--gift-card icon--xlrg icon--flush-top-mozilla"></span>
+                  Gift Card
+                  <span class="hide-visually--palm"> accepted</span>
+                </span>
+                <span class="btn--main-toggle-ios__handle"></span>
+              </label>
+              <button type="submit" class="js-enabled-hide" <%= 'checked' if filtering_gift_cards? %><%= 'disabled' unless @stores.any_accepting_gift_cards? %>>Go</button>
             </form>
             <%# //Gift card filter %>
 
-          </div>
-          <%# //Filters %>
+            <%# Keyword Filter toggle %>
+            <button type="button" class="stores-maps__filters__item stores-maps__keyword-filter-toggle btn btn--main btn--main-white btn--main-compact-icon js-disabled-hide js-stores-keyword-filter-toggle" toggle-visibility="keyword-filter">
+              <span class="hide-visually">Show filter stores by keyword</span>
+              <span class="icon icon--keyword-filter icon--lrg" aria-hidden="true"></span>
+            </button>
+            <%# //Keyword Filter toggle %>
 
-          <%# List/map toggle %>
-          <button type="button" class="stores-maps__toggle btn btn--main btn--main-white btn--main-compact-icon js-stores-maps-toggle-btn" aria-owns="stores-maps-toggle-listing-detail stores-maps-toggle-map">
-            <span class="hide-visually--palm">View <span class="js-stores-maps-toggle-btn-txt">map</span></span>
-            <span class="icon icon--map2 icon--lrg" aria-hidden="true"></span>
-            <span class="icon icon--list icon--lrg" aria-hidden="true"></span>
-          </button>
-          <%# //List/map toggle %>
+            <%# Keyword Filter %>
+            <div id="keyword-filter" class="stores-maps__filters__item stores-maps__keyword-filter-input toggle-visibility js-disabled-hide">
+              <label for="keyword-filter-input" class="hide-visually">Filter stores by keyword</label>
+              <input id="keyword-filter-input" type="search" placeholder="Enter store name&#8230;" class="txt-input js-stores-keyword-filter-input">
+            </div>
+            <%# Keyword Filter %>
+
+        </div>
+        <%# //Filters %>
+
+
         </div>
 
         <%# Post filter count %>
         <% if @active_category %>
-          <div class="stores-maps__filters-count">
+          <div class="stores-maps__filters-count js-stores-keyword-filter-post-filter-count">
             <div class="container">
-              <p><span class="icon icon--pin icon--flush-top"></span><%= @stores.count %> Results found</p>
+              <p>
+                <span class="icon icon--pin icon--flush-top"></span>
+                <span class="js-stores-keyword-filter-number-of-filtered-stores">
+                  <%= @stores.count %>
+                </span>
+                Results
+                <span class="js-stores-keyword-filter-description-supplement">found</span>
+              </p>
             </div>
           </div>
         <% end %>
@@ -178,10 +201,10 @@
       <%# //Filters & list/map toggle button %>
 
       <%# Stores list %>
-      <div class="stores-maps__list-detail js-defer-image-load-container" id="stores-maps-toggle-listing-detail">
-        <dl class="stores-list js-fastclick">
+      <div class="stores-maps__list-detail js-defer-image-load-container js-stores-list-position-store-list" id="stores-maps-toggle-listing-detail">
+        <dl class="stores-list js-fastclick js-stores-keyword-filter-list">
           <% @stores.in_alpha_groups.each do |letter, stores| %>
-            <dt>
+            <dt class="js-stores-keyword-filter-letter js-stores-keyword-filter-letter-<%= letter %>">
               <div class="stores-list__inner container">
                 <%= letter %>
               </div>
@@ -189,6 +212,18 @@
             <%= render stores %>
           <% end %>
         </dl>
+
+        <%# No stores matching keyword filter message %>
+        <div class="no-content-fallback-msg no-content-fallback-msg--flush island-top hide-fully js-stores-keyword-filter-no-results">
+          <p>
+            <span class="no-content-fallback-msg__icon icon icon--store icon--flush-top" aria-hidden="true"></span>
+            <em class="h1">No Stores matching
+              <span class="js-stores-keyword-filter-value"></span>
+            </em>
+          </p>
+        </div>
+        <%# //No stores matching keyword filter message %>
+
       </div>
       <%#//Stores list %>
     </div>

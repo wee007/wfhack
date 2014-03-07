@@ -40,14 +40,7 @@
 //= require_tree ./angular/filters
 //= require_tree ./angular/controllers
 
-// Global search focus - needs to come after Angular JS
-//= require ./jquery-extensions/jquery.global-search-focus
-//= require ./init/global-search-focus
-
 // --Misc--
-
-// Cloudinary (image service)
-//= require cloudinary/jquery.cloudinary
 
 // Micello map deferred loader
 //= require ./map/deferred_map

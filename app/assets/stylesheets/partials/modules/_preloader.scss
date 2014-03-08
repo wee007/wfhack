@@ -10,6 +10,9 @@
   Styleguide Preloader
 */
 
+$preloader-stroke-width: 3;
+$preloader-stroke-width-px: $preloader-stroke-width + px;
+
 .preloader {
 
   &,
@@ -37,22 +40,44 @@
 /* Modifier: position the loader near the top of it's parent */
 .preloader--top {
   @include to-rem(top, $spacing-base);
-	@include translateX(-50%);
+  @include translateX(-50%);
+}
+
+/* Modifier: light background */
+.preloader--light {
+  background-color: $color-grey-light-3;
+  border-radius: $border-radius;
 }
 
   /* Spinner animation */
-  .preloader--light,
   .preloader__spinner {
-    width: 40px;
-    height: 40px;
-    overflow: hidden;
-    border-radius: $border-radius;
-    background: $color-grey-light-3 cloudinary-url("css/preloader.gif") no-repeat 50% 50%;
-    @include img-2x("css/preloader@2x.gif", 24px, 24px);
+    @include to-rem(width height, 26);
+    @include to-rem(margin, $spacing-third);
+    border-radius: 50%;
+    border: $preloader-stroke-width-px solid $color-grey-dark-3;
+
+    @include prefix(animation, rotate 1s infinite linear);
+
+    /* the 'gap' in the preloader circle */
+    &:after {
+      content:"";
+      position: absolute;
+      @include to-rem(top, -$preloader-stroke-width);
+      left: 50%;
+      @include translateX(-50%);
+      @include to-rem(height, $spacing-third);
+      @include to-rem(width , $spacing-quarter);
+      background: $color-grey-light-3;
+    }
   }
 
-  /* Create some space between the spinner and the message */
-  .preloader__spinner {margin-right: to-em($spacing-quarter);}
+@-webkit-keyframes rotate {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+    to {
+        -webkit-transform: rotate(360deg);
+    }
+}
 
-  /* Remove the spinner as it's parent has hijacked it's styles */
-  .preloader--light .preloader__spinner {display: none;}
+

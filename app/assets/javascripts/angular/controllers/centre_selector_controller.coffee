@@ -5,15 +5,14 @@
       # so we'll always treat it as such
       centres = $scope.selectedCentre.split( ',' )
 
-      if centres.length > 1 || centres[0] == 'all'
-        ProductSearch.resetParams({centre: centres})
-      else
-        ProductSearch.resetParams()
+      params = $.extend(ProductSearch.params(),{current_centre: $scope.currentCentre})
+      if centres.length > 1 || centres[0] == 'all'
+        params = $.extend(params,{centre: centres})
+      else
+        delete params.centre
 
-      params = $.extend(ProductSearch.params(),{current_centre: $scope.currentCentre})
       queryStringParams = ParamCleaner.build(params)
 
       $location.search(queryStringParams)
-
   ]
 ) angular.module("Westfield")

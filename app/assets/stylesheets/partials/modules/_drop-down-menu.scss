@@ -50,6 +50,12 @@
   input[type="checkbox"] {@include to-rem(margin-right, $spacing-quarter);}
 }
 
+/* Modifier: max width equalling width of drop down target, center align and add some top spacing */
+.drop-down-menu--target-width-center-align {
+  @include to-rem(margin, $spacing-third auto 0);
+  @include to-rem(max-width, $drop-down-width);
+}
+
   /* Target (drop down) */
   .drop-down-menu__target {
     @include font-size($font-size-sml);
@@ -74,12 +80,18 @@
     /* Hover version */
     .drop-down-container--hover & {@include to-rem(margin-top, -4);}
 
+    /* Make the target the same width as the drop down container */
+    .drop-down-menu--target-width-center-align & {width: 100%;}
+
     /* Non JS Users */
     .no-js .drop-down-menu & {width: auto;}
 
     /* Shared rules */
     .drop-down-menu__hdr,
-    .drop-down-menu__hdr-sub {font-weight: normal;}
+    .drop-down-menu__hdr-sub {
+      font-weight: normal;
+      text-align: left;
+    }
 
     /* Header */
     .drop-down-menu__hdr {
@@ -245,9 +257,3 @@
         left: 50%;
         @include translate(-50%, -50%);
       }
-
-/* Modifier: max width on dropdown and margin on top */
-.drop-down-menu--fixed-width {
-  @include to-rem(margin, $spacing-third auto 0);
-  @include to-rem(max-width, $drop-down-width);
-}

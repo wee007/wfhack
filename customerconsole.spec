@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.200
+Version:     0.2.201
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,10 @@ fi
 
 
 %changelog
+* Mon Mar 10 2014 ci <doperations@au.westfield.com> 0.2.201-1
+- Formatted raw event occurrence dates ignoring timezone
+  (michael@michaelbamford.com)
+
 * Fri Mar 07 2014 ci <doperations@au.westfield.com> 0.2.200-1
 - Merge pull request #972 from ewee/master (ewee@au.westfield.com)
 - WSF-6332 Fixed pagination link on products page (ewee@au.westfield.com)

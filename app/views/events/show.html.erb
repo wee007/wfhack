@@ -75,7 +75,7 @@
         </dt>
         <% occurrences.each do |occurrence| %>
           <dd>
-            <time datetime="<%= occurrence.start(:raw) %>"><%= occurrence.start(:hour_minute_period) %></time> &#8211; <time datetime="<%= occurrence.finish(:raw) %>"><%= occurrence.finish(:hour_minute_period) %></time>
+            <time datetime="<%= occurrence.start(:raw) %>"><%= DateTime.parse(occurrence.start(:raw)).strftime '%l:%M %P' %></time> &#8211; <time datetime="<%= occurrence.finish(:raw) %>"><%= DateTime.parse(occurrence.finish(:raw)).strftime '%l:%M %P' %></time>
           </dd>
         <% end %>
       <% end %>

@@ -16,4 +16,35 @@
   </div>
 </div>
 
+<% example '.drop-down-menu--target-width-center-align' do %>
+<div class="drop-down-menu drop-down-menu--target-width-center-align drop-down-container">
+
+  <button type="button" class="drop-down-menu__trigger btn btn--full btn--full-left btn--main btn--main-dark btn--pointer btn--pointer-padding-med" toggle-visibility="product-details-centre-selection-menu">
+    Select Centre
+    <span aria-hidden="true" class="icon icon--lrg icon--arrow-down-full btn--pointer__icon"></span>
+  </button>
+
+  <div class="drop-down-menu__target drop-down pointer-up box box--drop-down js-toggle-visibility-target" id="product-details-centre-selection-menu">
+    <dl class="drop-down-menu__list">
+      <dt class="drop-down-menu__hdr-sub drop-down-menu__divider">NSW</dt>
+        <dd class="drop-down-menu__divider">
+          <a class="btn btn--full btn--full-left" href="/bondijunction/products/aquila/tait-tan/199801">Bondi Junction</a>
+        </dd>
+        <dd class="drop-down-menu__divider">
+          <a class="btn btn--full btn--full-left" href="/parramatta/products/aquila/tait-tan/199801">Parramatta</a>
+        </dd>
+        <dd class="drop-down-menu__divider">
+          <a class="btn btn--full btn--full-left" href="/sydney/products/aquila/tait-tan/199801">Sydney</a>
+        </dd>
+      <dt class="drop-down-menu__hdr-sub drop-down-menu__divider">VIC</dt>
+        <dd class="drop-down-menu__divider">
+          <a class="btn btn--full btn--full-left" href="/doncaster/products/aquila/tait-tan/199801">Doncaster</a>
+        </dd>
+    </dl>
+  </div>
+
+</div>
+
+<% end %>
+
 <% end %>

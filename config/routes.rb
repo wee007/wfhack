@@ -56,6 +56,7 @@ CustomerConsole::Application.routes.draw do
     get 'info', to: 'centre_info#show'
     get 'services', to: 'centre_service_details#show'
     get 'canned-searches/:id/social-share' => 'social_shares#show', as: 'canned_search_social_share', kind: 'canned_search'
+    get 'search', to: 'search#index', as: 'search'
     Routes::ProductRoutes.draw self, 'centre'
   end
 

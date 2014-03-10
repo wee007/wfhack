@@ -1,0 +1,28 @@
+<%= form_tag centre_search_path, method: "get", class: 'search-mini ng-pristine ng-valid' do %>
+  <span class="icon icon--search" aria-hidden="true"></span>
+  <%= label_tag :q, "Search:", class: 'hide-visually' %>
+  <%= text_field_tag :search_query, @search.term %>
+  <%= submit_tag "Search", class: 'search-mini__submit' %>
+<% end %>
+
+<% if @search.results.empty? %>
+  <div class="no-content-fallback-msg">
+    <span class="icon icon--deals icon--flush-top" aria-hidden="true"></span>
+    <p><em class="h1">No results</em></span></p>
+  </div>
+<% else %>
+  <ul>
+    <% @search.results.each do |kind, results| %>
+      <li class="island">
+        <h2><%= kind.titlecase %></h2>
+        <ul>
+          <% results.each do |result| %>
+            <li class="list-divider">
+              <%= link_to result[:display], build_url(@centre, kind, result[:attributes]) %>
+            </li>
+          <% end %>
+        </ul>
+      </li>
+    <% end %>
+  </ul>
+<% end %>

@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.202
+Version:     0.2.203
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,27 @@ fi
 
 
 %changelog
+* Mon Mar 10 2014 ci <doperations@au.westfield.com> 0.2.203-1
+- Merge pull request #971 from araeside/nearby-centers-on-national-product-
+  details (araeside@au.westfield.com)
+- update styleguide with more appropriate markup
+  (alec@smartalecwebsites.com.au)
+- update after code review. set subheading text align to left.
+  (alec@smartalecwebsites.com.au)
+- WSF-6233 Removed unused ProductHelper include (ewee@au.westfield.com)
+- update html comments (alec@smartalecwebsites.com.au)
+- increase width of product not available div so text does not usually wrap
+  when in centre context (alec@smartalecwebsites.com.au)
+- WSF-6233 Move helper method into controller (ewee@au.westfield.com)
+- WSF-6233 Rename variable and method names (ewee@au.westfield.com)
+- Refactor css and html to be applicable on national and centre contexts
+  (alec@smartalecwebsites.com.au)
+- WSF-6233 Fix the ordering of states (alec@smartalecwebsites.com.au)
+- WSF-6233 Build store centre list (ewee@au.westfield.com)
+- WIP for showing centre with the store of the shown product
+  (alec@smartalecwebsites.com.au)
+- add html for centre selection on product show (alec@smartalecwebsites.com.au)
+
 * Mon Mar 10 2014 ci <doperations@au.westfield.com> 0.2.202-1
 - Merge pull request #976 from ewee/master (ewee@au.westfield.com)
 - WSF-6327 Fixed the lost of product browse filter (ewee@au.westfield.com)

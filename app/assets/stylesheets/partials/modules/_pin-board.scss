@@ -34,3 +34,24 @@
     &.grid {margin-bottom: 0;}
   }
 }
+
+
+.pin-board-non-masonary .tile__image {
+  height: 242px;
+  //overflow: hidden;
+
+  //.preserve-aspect-ratio__inner {height: 212px;}
+
+  img {
+    max-height: 100%;
+    //width: 100%;
+    //height: 100%;
+    //height: 212px;
+  }
+}
+.pin-board-non-masonary__hero .tile__image {
+  height: auto;
+  @include respond-min(1200) {
+    height: 544px;
+  }
+}

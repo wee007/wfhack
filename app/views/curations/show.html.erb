@@ -6,13 +6,13 @@
   <div class="grid grid--gutter-half grid--mrg-half grid--non-linear">
 
     <%# 'Hero' and 'More from retailers (non-palm)' %>
-    <div class="grid__item non-palm-one-sixth">
+    <div class="grid__item lap-sml-one-third lap-lrg-one-quarter desk-one-fifth desk-lrg-one-sixth">
 
       <%# Hero %>
-      <header class="box">
+      <header class="product-curation__hero box">
         <%= image_tag 'dummy/curation-hero.jpg', alt: '' %>
         <h1 class="island">Blue Is The New Black</h1>
-        <div class="txt-formatted toggle-content js-toggle-content js-hide-show">
+        <div class="product-curation__hero__desc toggle-content js-toggle-content js-hide-show">
           <p class="island-sides island-btm">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.</p>
         </div>
       </header>
@@ -31,7 +31,7 @@
     <%# //'Hero' and 'More from retailers (non-palm)' %>
 
     <%# Pin board %>
-    <section class="grid__item non-palm-five-sixths" aria-labelledby="curation-pin-board">
+    <section class="grid__item lap-sml-two-thirds lap-lrg-three-quarters desk-four-fifths desk-lrg-five-sixths" aria-labelledby="curation-pin-board">
 
       <h2 class="hide-visually" id="curation-pin-board">Products</h2>
 
@@ -42,7 +42,7 @@
           <div class="grid grid--gutter-half grid--mrg-half grid--non-linear">
 
             <%# Hero tile %>
-            <div class="grid__item one-whole desk-one-half">
+            <div class="pin-board-non-masonary__hero grid__item one-whole desk-one-half">
               <%= render partial: 'tile_hero', object: products.shift %>
             </div>
             <%# //Hero tile %>

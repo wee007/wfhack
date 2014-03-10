@@ -118,6 +118,6 @@
 }*/
 
 /* Desk large */
-/*@include respond-min($desk-lrg) {
+@include respond-min($desk-lrg) {
   @include width-classes("desk-lrg-");
-}*/
+}

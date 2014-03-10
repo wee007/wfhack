@@ -17,5 +17,18 @@
     @include font-size(24, 1.5);
     @include to-rem(margin-bottom, $spacing-base);
   }
-
 }
+
+  /* Hero */
+  .product-curation__hero {
+
+  }
+
+    /* Description */
+    .product-curation__hero__desc {
+      @include font-size($font-size-sml);
+
+      @include respond-min($ipad-landscape) {
+        @include font-size($font-size);
+      }
+    }

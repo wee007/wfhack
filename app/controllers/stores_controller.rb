@@ -25,6 +25,7 @@ class StoresController < ApplicationController
   def show
     return respond_to_error(404) unless store.present?
     @todays_hours = todays_hours
+    @this_week_hours = this_week_hours
     push_centre_info_to_gon
     meta.push(
       page_title: "#{store.name} at #{centre.name}",
@@ -38,6 +39,18 @@ protected
   def todays_hours
     today = Time.now.in_time_zone(centre.timezone).strftime("%Y-%m-%d")
     StoreTradingHourService.find({store_id:store.id, centre_id: store.centre_id, from: today, to: today}).first
+  end
+
+  def this_week_hours
+    StoreTradingHourService.find({store_id: store.id, centre_id: store.centre_id, to: store.this_sunday})
+  rescue => error
+    SplunkLogger::Logger.error \
+      "StoreThisWeekHoursError",
+      "store_id", store.id,
+      "centre_id", store.centre_id,
+      "to", store.this_sunday,
+      "error", error
+    []
   end
 
   def store

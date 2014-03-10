@@ -36,6 +36,77 @@ describe StoresController do
 
   end
 
+  describe :this_week_hours do
+    let(:todays_date) { Time.now.in_time_zone(centre.timezone).strftime("%Y-%m-%d") }
+    let(:this_sunday) {
+      this_monday = Date.commercial(Date.today.year, Date.today.cweek, 1).in_time_zone(centre.timezone)
+      (this_monday+6.days).strftime("%Y-%m-%d")
+    }
+    let(:product_params) { {action: 'lite', retailer: ['retailer_code'], rows: 3} }
+    let(:stores_params) { {centre: 'sydney', retailer_code: 'retailer_code', per_page: 1000} }
+    let(:deal_params) { {centre: 'sydney', retailer: stores.first.retailer_id, state: 'published', count: 3} }
+    let(:todays_hours_params) {
+      {
+        store_id: stores.first.id,
+        centre_id: centre.id,
+        from: todays_date,
+        to: todays_date
+      }
+    }
+    let(:one_week_of_hours_params) {
+      {
+        store_id: stores.first.id,
+        centre_id: stores.first.centre_id,
+        to: this_sunday
+      }
+    }
+    let(:centre) { Hashie::Mash.new(id: 'sydney', timezone: 'Australia/Sydney') }
+    let(:stores) {
+      [
+        Hashie::Mash.new(
+          id: 1,
+          retailer_id: 1,
+          centre_id: 'sydney',
+          retailer_code: 'retailer_code',
+          this_sunday: this_sunday
+        )
+      ]
+    }
+
+    context "when more than one week of hours exist for a store" do
+      def create_two_weeks_of_hours
+        (0..13).each_with_index do |hour, index|
+          StoreTradingHour.new(Hashie::Mash.new(store_id: stores.first.id, day_of_week: index))
+        end
+      end
+
+      before(:each) do
+        create_two_weeks_of_hours
+        @one_week_of_hours = []
+        (0..6).each_with_index do |hour, index|
+          @one_week_of_hours << Hashie::Mash.new(store_id: stores.first.id, day_of_week: index)
+        end
+
+        CentreService.stub(:fetch).with('sydney').and_return("centre JSON")
+        CentreService.stub(:build).with("centre JSON").and_return(centre)
+        ProductService.stub(:fetch).with(product_params).and_return("product JSON")
+        ProductService.stub(:build).with("product JSON").and_return(double(:product).as_null_object)
+        StoreService.stub(:fetch).with({centre: 'sydney', per_page: 1000}).and_return("stores JSON")
+        StoreService.stub(:build).with("stores JSON").and_return(double(:store).as_null_object)
+        StoreService.stub(:fetch).with(stores_params).and_return("stores JSON")
+        StoreService.stub(:build).with("stores JSON").and_return(stores)
+        DealService.stub(:find).with(deal_params).and_return(double(:deal).as_null_object)
+        StoreTradingHourService.stub(:find).with(todays_hours_params).and_return(double(:storetradinghour).as_null_object)
+      end
+
+      it "returns this week hours only" do
+        StoreTradingHourService.stub(:find).with(one_week_of_hours_params).and_return(@one_week_of_hours)
+        get :show, centre_id: 'sydney', retailer_code: 'retailer_code', id: 1
+        expect(controller.send(:this_week_hours)).to eq(@one_week_of_hours)
+      end
+    end
+  end
+
   describe :build_services_responses do
 
     let( :store_attributes ) do

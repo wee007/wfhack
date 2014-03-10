@@ -52,4 +52,20 @@ describe Store do
 
   end
 
+  describe "#this_sunday" do
+    let(:centre) { Hashie::Mash.new(id: 'sydney', timezone: 'Australia/Sydney') }
+    let(:store) { Hashie::Mash.new(id: 1, centre_id: 'sydney') }
+    let(:this_monday) do
+      Date.commercial(Date.today.year, Date.today.cweek, 1).in_time_zone(centre.timezone)
+    end
+
+    subject { Store.new(store) }
+
+    it "returns the date of this Sunday" do
+      CentreService.stub(:fetch).with('sydney').and_return("centre JSON")
+      CentreService.stub(:build).with("centre JSON").and_return(centre)
+      expect(subject.this_sunday).to eq((this_monday+6.days).strftime("%Y-%m-%d"))
+    end
+  end
+
 end

@@ -37,6 +37,10 @@ class Store < Hashie::Mash
     @centre ||= get_centre
   end
 
+  def opening_time
+    todays_hours.opening_time
+  end
+
   def closing_time
     todays_hours.closing_time
   end
@@ -49,6 +53,11 @@ class Store < Hashie::Mash
     DateTime.parse(closing_time)
       .strftime('%l:%M%P')
       .lstrip rescue nil
+  end
+
+  def this_sunday
+    this_monday = Date.commercial(Date.today.year, Date.today.cweek, 1).in_time_zone(centre.timezone)
+    (this_monday+6.days).strftime("%Y-%m-%d")
   end
 
   def to_gon

@@ -65,7 +65,7 @@
                 <%# Store closing time %>
                 <%- if @store.closing_time.present? and !@store.closed_today %>
                   <dt class="hide-visually">Opening hours</dt>
-                  <dd class="storefront__details__meta__no-indent">Open till <time datetime="<%= @store.closing_time %>"><%= twelve_hour_format @store.closing_time %></time> tonight</dd>
+                  <dd class="storefront__details__meta__no-indent"><span class="icon icon--hours" aria-hidden="true"></span> Open from <time datetime="<%= @store.opening_time %>"><%= twelve_hour_format @store.opening_time %></time> to <time datetime="<%= @store.closing_time %>"><%= twelve_hour_format @store.closing_time %></time> today (<%= link_to "less", "#" %>)</dd>
                 <%- else %>
                   <dd class="storefront__details__meta__no-indent">Closed today</dd>
                 <%- end %>
@@ -133,6 +133,51 @@
 
           </div>
           <%# //Store details %>
+
+          <%# Store trading hours %>
+          <% if @this_week_hours.present? %>
+            <footer class="storefront__featured">
+              <div class="storefront__featured__item island-ends">
+                <div class="container">
+                  <h2 class="storefront__featured__hdr">Store Hours</h2>
+                  <table cellspacing="0" class="table-striped table-fixed">
+                    <caption class="flush-btm"><span class="hide-visually">Store Hours</span></caption>
+                    <colgroup>
+                      <col></col>
+                      <col class="three-sixths lap-lrg-two-fifths desk-two-fifths"></col>
+                    </colgroup>
+                    <thead>
+                      <tr>
+                        <th scope="col" class="table-cell-padding-off"><span class="hide-visually">Day</span></th>
+                        <th scope="col" class="table-cell-padding-off"><span class="hide-visually">Time</span></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <% @this_week_hours.each do |day| %>
+                        <tr>
+                          <td>
+                            <% if today?(day.date) %><em class="txt-bold"><% end %>
+                            <%= format_day(day.date,0,3) %><span class="hide-fully--palm-inline"><%= format_day(day.date,3,6) %></span>
+                            <% if today?(day.date) %></em><% end %>
+                          </td>
+                        </tr>
+                        <tr>
+                          <% if today?(day.date) %><em class="txt-bold"><% end %>
+                          <% if day.closed %>
+                            Closed
+                          <% else %>
+                            <time datetime="<%= day.date %>T<%= day.opening_time %>"><%= twelve_hour_format(day.opening_time) %></time> &#8211; <time datetime="<%= day.date %>T<%= day.closing_time %>"><%= twelve_hour_format(day.closing_time) %></time>
+                          <% end %>
+                          <% if today?(day.date) %></em><% end %>
+                        </tr>
+                      <% end %>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </footer>
+          <% end %>
+          <%# //Store trading hours %>
 
           <%# Product and Deal tiles %>
           <%- if @products.present? or @deals.present? %>

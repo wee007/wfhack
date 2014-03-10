@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.203
+Version:     0.2.204
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,12 @@ fi
 
 
 %changelog
+* Mon Mar 10 2014 ci <doperations@au.westfield.com> 0.2.204-1
+- Merge pull request #977 from csmith/master (craigM.smith@au.westfield.com)
+- WSF-6293 Added some testing. (craigm.smith@au.westfield.com)
+- WSF-6293 Added Leon Deweys spike to consume the new search service.
+  (craigm.smith@au.westfield.com)
+
 * Mon Mar 10 2014 ci <doperations@au.westfield.com> 0.2.203-1
 - Merge pull request #971 from araeside/nearby-centers-on-national-product-
   details (araeside@au.westfield.com)

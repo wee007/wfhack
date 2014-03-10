@@ -5,7 +5,7 @@ calculateClosestCentresAndState = (userPosition) ->
   $.each westfield.geo, (i, centre) ->
     centre.latitude = parseFloat centre.latitude, 10
     centre.longitude = parseFloat centre.longitude, 10
-    centre.distance = Geolocation.distanceFrom userPosition.coords, centre
+    centre.distance = Geolocation.distanceFrom userPosition, centre
     @
 
   westfield.geo.sort (a, b) ->
@@ -46,23 +46,24 @@ if navigator.geolocation
 
   # If the user's location is known on page load
   if !!localStorage.userPosition
+
     # Sort the centres immediately based on that cached location
     showClosestCentres JSON.parse localStorage.userPosition
 
-  # Record how long it takes to get user position
-  searchStartTime = new Date().getTime()
-
   # Get user's position
-  navigator.geolocation.getCurrentPosition (userPosition) ->
+  navigator.geolocation.getCurrentPosition (userInfo) ->
+    userPosition =
+      latitude: userInfo.coords.latitude,
+      longitude: userInfo.coords.longitude
 
-    # If the users actual position is different to the cache position
-    if localStorage.userPosition and userPosition is not localStorage.userPosition
-
-      # Cache the position for future visits
-      localStorage.userPosition = JSON.stringify userPosition
+    # If the users actual position is different to the cache position or position is not cached
+    if !localStorage.userPosition or (localStorage.userPosition and userPosition is not localStorage.userPosition)
 
       # Show closest centres based on actual location
       showClosestCentres userPosition
+
+      # Cache the position for future visits
+      localStorage.userPosition = JSON.stringify(userPosition)
 
   , ->
     @

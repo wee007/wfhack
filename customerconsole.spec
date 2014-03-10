@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.205
+Version:     0.2.206
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,9 @@ fi
 
 
 %changelog
+* Mon Mar 10 2014 ci <doperations@au.westfield.com> 0.2.206-1
+- Fixed when store name does not exist (ewee@au.westfield.com)
+
 * Mon Mar 10 2014 ci <doperations@au.westfield.com> 0.2.205-1
 - add wrapper around no content message for some padding
   (alec@smartalecwebsites.com.au)

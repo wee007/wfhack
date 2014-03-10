@@ -36,20 +36,48 @@
       <section aria-labelledby="location-contact-storelink">
         <h2 class="hide-visually" id="location-contact-storelink">Store location, contact details and store link</h2>
 
-        <%# Check if a product is available at a centre %>
-        <% if @centre.present? && @centre_stores.empty? %>
+        <%# Check if a product is not available at centre or centre has not been selected %>
+        <% if !@centre.present? or @centre_stores.empty? %>
 
-          <%# When product is not available at a centre %>
           <div class="detail-view__product-not-avble detail-view__divider">
             <div class="vert-align">
               <div class="vert-align__inner">
                 <span class="icon icon--map icon--flush-top" aria-hidden="true"></span>
                 <span class="icon icon--pin" aria-hidden="true"></span>
-                <p><strong><%= @product.retail_chain_name %></strong> is not located in <%= @centre.name %></p>
+
+                <% if @centre.present? %>
+                  <p><strong><%= @product.retail_chain_name %></strong> is not located in <%= @centre.name %></p>
+                  <p>Choose a different centre to see availability</p>
+                <% else %>
+                  <p>Choose a centre to see availability</p>
+                <% end %>
+
+                <div class="drop-down-menu drop-down-menu--target-width-center-align drop-down-container">
+
+                  <button type="button" class="drop-down-menu__trigger btn btn--full btn--full-left btn--main btn--main-dark btn--pointer btn--pointer-padding-med" toggle-visibility="product-details-centre-selection-menu">
+                    Select Centre
+                    <span aria-hidden="true" class="icon icon--lrg icon--arrow-down-full btn--pointer__icon"></span>
+                  </button>
+
+                  <div class="drop-down-menu__target drop-down pointer-up box box--drop-down" id="product-details-centre-selection-menu">
+                    <dl class="drop-down-menu__list">
+                      <% states.each do |state| %>
+                        <% if @centres_by_store[state].present? %>
+                          <dt class="drop-down-menu__hdr-sub drop-down-menu__divider"><%= state %></dt>
+                          <% @centres_by_store[state].each do |centre| %>
+                            <dd class="drop-down-menu__divider">
+                              <%= link_to centre.short_name, context_aware_link(centre), class: 'btn btn--full btn--full-left' %>
+                            </dd>
+                          <% end %>
+                        <% end %>
+                      <% end %>
+                    </dl>
+                  </div>
+
+                </div>
               </div>
             </div>
           </div>
-          <%# //When product is not available at a centre %>
 
         <%- elsif @centre.present? -%>
 
@@ -91,7 +119,7 @@
           <%# //When product is available at a centre %>
 
         <%- end -%>
-        <%# //Check if a product is available at a centre %>
+        <%# //Check if a product is not available at centre or centre has not been selected %>
 
         <%# Store link %>
         <%- if @product.primary_retailer_product_url -%>

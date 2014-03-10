@@ -7,7 +7,7 @@ protected
 
   def setup
     centres = CentreService.find :all, country: 'au'
-    @centres = centres.group_by{ |c| c.state } if centres.present?
+    @centres_by_state = centres.group_by{ |c| c.state } if centres.present?
     meta.push(
       page_title: "Westfield Australia | Shopping Centres in NSW, QLD, VIC, SA & WA",
       description: "Find the best in retail, dining, leisure and entertainment at one of our centres across Australia, shop online or buy a gift card today",

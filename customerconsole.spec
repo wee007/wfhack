@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.204
+Version:     0.2.205
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,10 @@ fi
 
 
 %changelog
+* Mon Mar 10 2014 ci <doperations@au.westfield.com> 0.2.205-1
+- add wrapper around no content message for some padding
+  (alec@smartalecwebsites.com.au)
+
 * Mon Mar 10 2014 ci <doperations@au.westfield.com> 0.2.204-1
 - Merge pull request #977 from csmith/master (craigM.smith@au.westfield.com)
 - WSF-6293 Added some testing. (craigm.smith@au.westfield.com)

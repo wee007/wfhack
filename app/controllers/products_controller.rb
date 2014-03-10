@@ -78,9 +78,9 @@ class ProductsController < ApplicationController
     meta.push @product.meta
     meta.push(
       page_title: "#{@product.name} | #{@centre.name}",
-      description: "Shop for #{@product.name} from #{@stores.first.name} at #{@centre.name}",
-      title: "#{@product.name} from #{@stores.first.name}",
-      twitter_title: "What do you think of #{@product.name} from #{@stores.first.name}?"
+      description: "Shop for #{@product.name} from #{@stores.first.try(:name)} at #{@centre.name}",
+      title: "#{@product.name} from #{@stores.first.try(:name)}",
+      twitter_title: "What do you think of #{@product.name} from #{@stores.first.try(:name)}?"
     )
     @product_redirection_url = url_for centre_product_redirection_url
 

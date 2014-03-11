@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.207
+Version:     0.2.208
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,14 @@ fi
 
 
 %changelog
+* Tue Mar 11 2014 ci <doperations@au.westfield.com> 0.2.208-1
+- Merge pull request #979 from araeside/geolocation-caching
+  (araeside@au.westfield.com)
+- stringifying the geolocation object does not work in FF, so cache a smaller
+  object (alec@smartalecwebsites.com.au)
+- Remove old preloader code and cache user position so list sorting can happen
+  on page load (alec@smartalecwebsites.com.au)
+
 * Tue Mar 11 2014 ci <doperations@au.westfield.com> 0.2.207-1
 - Sitemap fixes: - Updated routes so you can get to sitemap1.xml.gz for example
   - When uploading to cloudinary it will upload the right filename

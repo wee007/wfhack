@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.208
+Version:     0.2.209
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,19 @@ fi
 
 
 %changelog
+* Tue Mar 11 2014 ci <doperations@au.westfield.com> 0.2.209-1
+- Merge pull request #982 from araeside/fix-ios-keyword-filter-bugs
+  (araeside@au.westfield.com)
+- reduce specificity of keyword filter input selector so that alternate styles
+  in map view can be applied (alec@smartalecwebsites.com.au)
+- set a small delay for keyword filter as iOS cant keep up
+  (alec@smartalecwebsites.com.au)
+- hide post filter count if there are no results
+  (alec@smartalecwebsites.com.au)
+- make sure list position is set after pjax navigation. tweak ios handle
+  dimensions. Tweak max width for applied filters
+  (alec@smartalecwebsites.com.au)
+
 * Tue Mar 11 2014 ci <doperations@au.westfield.com> 0.2.208-1
 - Merge pull request #979 from araeside/geolocation-caching
   (araeside@au.westfield.com)

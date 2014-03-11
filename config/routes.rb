@@ -25,7 +25,7 @@ CustomerConsole::Application.routes.draw do
   end
 
   get 'robots.txt' => 'robots#welcome'
-  get 'sitemap.xml.gz' => 'robots#sitemap'
+  get 'sitemap(:id).xml.gz' => 'robots#sitemap'
 
   get 'status' => 'health_check/health_check#index', 'checks' => 'cache_and_site'
   get 'api', to: redirect('/api/index.html') # This lets /api work, not just /api/

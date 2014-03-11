@@ -21,9 +21,10 @@ class RobotsController < ApplicationController
 
   private
   def sitemap_index_url
-    sitemap_filename = "sitemap.xml.gz"
+    cache_bust = Time.now.to_i
+    sitemap_filename = "sitemap#{params[:id]}.xml.gz"
     sitemap_filename = "#{Rails.env}_#{sitemap_filename}" unless Rails.env == 'production'
-    URI.parse("#{request.scheme}://#{Cloudinary::SHARED_CDN}/#{Cloudinary.config.cloud_name}/raw/upload/#{sitemap_filename}").to_s
+    URI.parse("#{request.scheme}://#{Cloudinary::SHARED_CDN}/#{Cloudinary.config.cloud_name}/raw/upload/v#{cache_bust}/#{sitemap_filename}").to_s
   end
 
   def text_attr

@@ -1,22 +1,11 @@
 #= require init/geolocation
-insertOverlayAndPreloader = ->
-  html = '<div class="overlay overlay--absolute overlay--light">
-    <span class="preloader preloader--top preloader--light">
-      <span class="preloader__spinner"></span>
-      <em class="hide-visually">Loading, please wait&#8230;</em>
-    </span>
-  </div>'
-  $('.js-sort-centres-geolocation-container').prepend(html)
-
-removeOverlayAndPreloader = ->
-  $('.overlay','.js-sort-centres-geolocation-container').remove()
 
 calculateClosestCentresAndState = (userPosition) ->
   # Use haversine algorithm in geolocation module to calculate distance bewteen users and centres.
   $.each westfield.geo, (i, centre) ->
     centre.latitude = parseFloat centre.latitude, 10
     centre.longitude = parseFloat centre.longitude, 10
-    centre.distance = Geolocation.distanceFrom userPosition.coords, centre
+    centre.distance = Geolocation.distanceFrom userPosition, centre
     @
 
   westfield.geo.sort (a, b) ->
@@ -30,7 +19,6 @@ selectClosestState = ->
   $(".js-sort-centres-geolocation-#{closestCentreState}").trigger 'click'
 
   return closestCentreState
-
 
 sortCentreListByLocation = (userState) ->
   # Order centres list by distance from user
@@ -48,26 +36,34 @@ sortCentreListByLocation = (userState) ->
   # Get the sorted centre li's and put them in the real DOM
   list.html tempParent.html()
 
+showClosestCentres = (userPosition) ->
+  calculateClosestCentresAndState userPosition
+  state = selectClosestState()
+  sortCentreListByLocation(state)
+
 # Only execute if geolocation is supported
 if navigator.geolocation
-  #insertOverlayAndPreloader()
 
-  # Record how long it takes to get user position
-  searchStartTime = new Date().getTime()
-  navigator.geolocation.getCurrentPosition (userPosition) ->
-    searchEndTime = new Date().getTime()
+  # If the user's location is known on page load
+  if !!localStorage.userPosition
 
-    # If it takes less than a second to get the user position
-    # delay the overlay removal and list sorting so it doesn't flash up on the screen momentarily
-    extraDelay = 0
-    if searchEndTime - searchStartTime < 1000
-      extraDelay = 1000 - (searchEndTime - searchStartTime);
-    setTimeout (->
-      #removeOverlayAndPreloader()
-      calculateClosestCentresAndState userPosition
-      state = selectClosestState()
-      sortCentreListByLocation(state)
-    ), extraDelay
+    # Sort the centres immediately based on that cached location
+    showClosestCentres JSON.parse localStorage.userPosition
+
+  # Get user's position
+  navigator.geolocation.getCurrentPosition (userInfo) ->
+    userPosition =
+      latitude: userInfo.coords.latitude,
+      longitude: userInfo.coords.longitude
+
+    # If the users actual position is different to the cache position or position is not cached
+    if !localStorage.userPosition or (localStorage.userPosition and userPosition is not localStorage.userPosition)
+
+      # Show closest centres based on actual location
+      showClosestCentres userPosition
+
+      # Cache the position for future visits
+      localStorage.userPosition = JSON.stringify(userPosition)
+
   , ->
-    #removeOverlayAndPreloader()
     @

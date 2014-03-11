@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.206
+Version:     0.2.207
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,11 @@ fi
 
 
 %changelog
+* Tue Mar 11 2014 ci <doperations@au.westfield.com> 0.2.207-1
+- Sitemap fixes: - Updated routes so you can get to sitemap1.xml.gz for example
+  - When uploading to cloudinary it will upload the right filename
+  (ldewey@au.westfield.com)
+
 * Mon Mar 10 2014 ci <doperations@au.westfield.com> 0.2.206-1
 - Fixed when store name does not exist (ewee@au.westfield.com)
 

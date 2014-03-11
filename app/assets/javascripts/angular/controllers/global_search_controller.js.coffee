@@ -77,7 +77,8 @@
 
       $scope.url = (suggestion) ->
         urlJoiner = if suggestion.url.indexOf("?") > 0 then "&" else "?"
-        url = "/#{$scope.centre_id}#{suggestion.url}#{urlJoiner}search=dropdown&search_keyword=#{$scope.searchQuery}"
+        searchQuery = if suggestion.url.indexOf("search_query") == -1 then "&search_query=#{$scope.searchQuery}" else ""
+        url = "/#{$scope.centre_id}#{suggestion.url}#{urlJoiner}search_source=dropdown#{searchQuery}"
 
       $scope.submit = ( event ) ->
         suggestions = $scope.suggestions.products

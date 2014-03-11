@@ -100,7 +100,8 @@ class @StoresKeywordFilter
 
     $('.js-stores-keyword-filter-input').fastLiveFilter '.js-stores-keyword-filter-list',
       selector: '.js-stores-keyword-filter-store-name',
-      timeout: 0,
+      # Need a small timeout because of race condition on mobile
+      timeout: 50,
       filterFunction: @filterStores
       callback: (stores, numShown)=>
         @filterStoreLetterHeadings(stores, numShown)

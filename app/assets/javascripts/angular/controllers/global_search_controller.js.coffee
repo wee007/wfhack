@@ -75,7 +75,10 @@
             $window.location = $scope.url($scope.focusedSuggestion)
             event.preventDefault()
 
-      $scope.url = (suggestion) -> "/#{$scope.centre_id}#{suggestion.url}"
+      $scope.url = (suggestion) ->
+        urlJoiner = if suggestion.url.indexOf("?") > 0 then "&" else "?"
+        url = "/#{$scope.centre_id}#{suggestion.url}#{urlJoiner}search=dropdown&search_keyword=#{$scope.searchQuery}"
+
       $scope.submit = ( event ) ->
         suggestions = $scope.suggestions.products
         suggestion = suggestions[suggestions.length-1]

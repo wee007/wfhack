@@ -281,13 +281,14 @@
           /* Applied filter tag */
           .tags__btn {
             background-color: $color-grey-light-2;
+            @include to-rem(max-width, 93);
 
             /* Increase `max-width` at these breakpoints */
             @include respond-min(400) {
-              @include to-rem(max-width, 174);
+              @include to-rem(max-width, 130);
             }
 
-            @include respond-min($iphone-landscape) {
+            @include respond-min($ipad-landscape) {
               @include to-rem(max-width, 213);
             }
 

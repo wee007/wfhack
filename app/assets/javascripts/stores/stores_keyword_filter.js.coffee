@@ -10,12 +10,10 @@ class @StoresKeywordFilter
 
     @setupKeywordFilter()
 
-    @listPositioner = new StoresListPosition
     @setupToggleListPosition()
 
   setupToggleListPosition: =>
-    $('.js-stores-keyword-filter-toggle').click =>
-      @listPositioner.setListPosition()
+     @listPositioner = new StoresListPosition
 
   filterStoreLetterHeadings: (stores, numShown) =>
     firstLetter = ''

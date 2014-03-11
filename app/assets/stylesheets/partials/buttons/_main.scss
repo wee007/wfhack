@@ -246,9 +246,12 @@
           @extend %transition-subtle;
           content: "";
           position: absolute;
-          @include to-rem(top left, $spacing-micro);
-          @include to-rem(width height, 12);
+          @include to-rem(top left bottom, $spacing-micro);
+          @include to-rem(width, 12);
           background-color: #fff;
           border-radius: 50%;
+
+          /* iOS needs slightly different handle dimensions */
+          .ios & {@include to-rem(width, 11);}
         }
       }

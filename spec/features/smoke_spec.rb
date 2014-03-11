@@ -7,7 +7,7 @@ feature "Smoke tests", :vcr => {
   cassette_name: "smoke_tests"
 } do
 
-  context "User vists the national" do
+  context "User visits the national" do
 
     scenario "homepage" do
       visit root_path
@@ -41,7 +41,7 @@ feature "Smoke tests", :vcr => {
 
   end
 
-  context "in a centre a user vists the" do
+  context "in a centre a user visits the" do
 
     let(:centre_code) { "bondijunction" }
 

@@ -10,12 +10,10 @@ class @StoresKeywordFilter
 
     @setupKeywordFilter()
 
-    @listPositioner = new StoresListPosition
     @setupToggleListPosition()
 
   setupToggleListPosition: =>
-    $('.js-stores-keyword-filter-toggle').click =>
-      @listPositioner.setListPosition()
+     @listPositioner = new StoresListPosition
 
   filterStoreLetterHeadings: (stores, numShown) =>
     firstLetter = ''
@@ -70,15 +68,23 @@ class @StoresKeywordFilter
     @numberOfFilteredStores.text(numShown)
     keyword = @filterInput.val()
     supplementFilterDescription = ''
-
-    if keyword == ''
-      supplementFilterDescription = 'found'
-    else if keyword.length == 1
-      supplementFilterDescription = "starting with '#{keyword}' found"
+    if numShown == 0
+      unless @postFilterCount.hasClass("hide-fully")
+        @postFilterCount.addClass("hide-fully")
+        @listPositioner.setListPosition()
     else
-      supplementFilterDescription = "matching '#{keyword}' found"
+      if @postFilterCount.hasClass("hide-fully")
+        @postFilterCount.removeClass("hide-fully")
+        @listPositioner._setListPosition()
 
-    @filterDescriptionSupplement.text supplementFilterDescription
+      if keyword == ''
+        supplementFilterDescription = 'found'
+      else if keyword.length == 1
+        supplementFilterDescription = "starting with '#{keyword}' found"
+      else
+        supplementFilterDescription = "matching '#{keyword}' found"
+
+      @filterDescriptionSupplement.text supplementFilterDescription
 
   setupKeywordFilter: =>
     @storeListLetters = $('.js-stores-keyword-filter-letter')
@@ -94,7 +100,8 @@ class @StoresKeywordFilter
 
     $('.js-stores-keyword-filter-input').fastLiveFilter '.js-stores-keyword-filter-list',
       selector: '.js-stores-keyword-filter-store-name',
-      timeout: 0,
+      # Need a small timeout because of race condition on mobile
+      timeout: 50,
       filterFunction: @filterStores
       callback: (stores, numShown)=>
         @filterStoreLetterHeadings(stores, numShown)

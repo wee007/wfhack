@@ -281,13 +281,14 @@
           /* Applied filter tag */
           .tags__btn {
             background-color: $color-grey-light-2;
+            @include to-rem(max-width, 93);
 
             /* Increase `max-width` at these breakpoints */
             @include respond-min(400) {
-              @include to-rem(max-width, 174);
+              @include to-rem(max-width, 130);
             }
 
-            @include respond-min($iphone-landscape) {
+            @include respond-min($ipad-landscape) {
               @include to-rem(max-width, 213);
             }
 
@@ -323,13 +324,12 @@
         }
 
         /* Keyword filter textbox - need to increase specificity to override the dynamic `is-active` class that gets appended for toggle visibility Angular directive */
-        .stores-maps .stores-maps__filters .stores-maps__keyword-filter-input {
+        .stores-maps__filters .stores-maps__keyword-filter-input {
 
           /* Display all filters on one line */
           @include respond-min($iphone-landscape) {
             display: inline-block;
             width: 34%;
-
           }
 
           /* Reduce width to handle bigger map toggle button */

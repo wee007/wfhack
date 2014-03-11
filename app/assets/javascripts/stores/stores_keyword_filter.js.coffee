@@ -68,15 +68,23 @@ class @StoresKeywordFilter
     @numberOfFilteredStores.text(numShown)
     keyword = @filterInput.val()
     supplementFilterDescription = ''
-
-    if keyword == ''
-      supplementFilterDescription = 'found'
-    else if keyword.length == 1
-      supplementFilterDescription = "starting with '#{keyword}' found"
+    if numShown == 0
+      unless @postFilterCount.hasClass("hide-fully")
+        @postFilterCount.addClass("hide-fully")
+        @listPositioner.setListPosition()
     else
-      supplementFilterDescription = "matching '#{keyword}' found"
+      if @postFilterCount.hasClass("hide-fully")
+        @postFilterCount.removeClass("hide-fully")
+        @listPositioner._setListPosition()
 
-    @filterDescriptionSupplement.text supplementFilterDescription
+      if keyword == ''
+        supplementFilterDescription = 'found'
+      else if keyword.length == 1
+        supplementFilterDescription = "starting with '#{keyword}' found"
+      else
+        supplementFilterDescription = "matching '#{keyword}' found"
+
+      @filterDescriptionSupplement.text supplementFilterDescription
 
   setupKeywordFilter: =>
     @storeListLetters = $('.js-stores-keyword-filter-letter')

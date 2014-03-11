@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.209
+Version:     0.2.210
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,12 @@ fi
 
 
 %changelog
+* Tue Mar 11 2014 ci <doperations@au.westfield.com> 0.2.210-1
+- Merge pull request #984 from araeside/fix-retailer-click-out-tracking
+  (araeside@au.westfield.com)
+- add specific class to be used for tracking retailer click out
+  (alec@smartalecwebsites.com.au)
+
 * Tue Mar 11 2014 ci <doperations@au.westfield.com> 0.2.209-1
 - Merge pull request #982 from araeside/fix-ios-keyword-filter-bugs
   (araeside@au.westfield.com)

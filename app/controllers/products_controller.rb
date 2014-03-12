@@ -78,9 +78,9 @@ class ProductsController < ApplicationController
     meta.push @product.meta
     meta.push(
       page_title: "#{@product.name} | #{@centre.name}",
-      description: "Shop for #{@product.name} from #{@stores.first.try(:name)} at #{@centre.name}",
-      title: "#{@product.name} from #{@stores.first.try(:name)}",
-      twitter_title: "What do you think of #{@product.name} from #{@stores.first.try(:name)}?"
+      description: "Shop for #{@product.name}#{store} at #{@centre.name}",
+      title: "#{@product.name}#{store}",
+      twitter_title: "What do you think of #{@product.name}#{store}?"
     )
     @product_redirection_url = url_for centre_product_redirection_url
 
@@ -92,10 +92,7 @@ class ProductsController < ApplicationController
     @centres_by_store = build_centres_by_store(@stores, @centres)
 
     meta.push @product.meta
-    meta.push(
-      page_title: @product.name,
-      description: @product.name
-    )
+
     @product_redirection_url = url_for product_redirection_url
 
     render :show
@@ -140,6 +137,10 @@ class ProductsController < ApplicationController
   end
 
 private
+
+  def store
+    " from #{@stores.first.name}" if @stores.present?
+  end
 
   def remove_gclid_param
     params.delete(:gclid)

@@ -191,17 +191,24 @@ describe ProductsController do
   end
 
   describe :show_centre do
-    let(:store) do
-      [
-        Hashie::Mash.new(
-          name: 'product_name',
-          retailer_code: 'retailer_code',
-          centre_id: 'bondijunction'
-        )
-      ]
-    end
+    describe :store do
+      context "when store is NOT present" do
+        it "returns nil indicating no store found" do
+          get :show_centre, id: 1, centre_id: 'bondijunction', retailer_code: 'retailer_code', product_name: 'product_name'
+          expect(controller.send(:store)).to eq(nil)
+        end
+      end
 
-    before(:each) { StoreService.stub(:build).and_return(store) }
+      context "when store is present" do
+        let(:stores) { [Hashie::Mash.new(name: 'Store Name', retailer_code: 'retailer_code')] }
+
+        it "returns the appropriate text with the store name" do
+          StoreService.stub(:build).and_return(stores)
+          get :show_centre, id: 1, centre_id: 'bondijunction', retailer_code: 'retailer_code', product_name: 'product_name'
+          expect(controller.send(:store)).to eq(" from Store Name")
+        end
+      end
+    end
 
     it "assigns the centre instance variable and redirection url" do
       get :show_centre, id: 1, centre_id: 'bondijunction', retailer_code: 'retailer_code', product_name: 'product_name'
@@ -216,6 +223,7 @@ describe ProductsController do
         get :show_centre, id: 1, centre_id: 'bondijunction', retailer_code: 'retailer_code', product_name: 'product_name', gclid: 'CN3h6JTO4LsCFfFV4god9gMAkQ'
       end
     end
+
   end
 
   describe :show_national do

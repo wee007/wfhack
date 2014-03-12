@@ -33,6 +33,8 @@ class Product < Hashie::Mash
     product_category_code = categories ? categories.collect { |cat| cat['code'] } : []
 
     Meta.new id: id,
+             page_title: name,
+             description: name,
              title: name,
              twitter_title: "What do you think of #{name}?",
              email_body: "item",

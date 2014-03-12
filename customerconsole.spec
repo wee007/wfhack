@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.214
+Version:     0.2.215
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,12 @@ fi
 
 
 %changelog
+* Wed Mar 12 2014 ci <doperations@au.westfield.com> 0.2.215-1
+- Merge pull request #990 from csmith/master (craigM.smith@au.westfield.com)
+- WSF-6362 Don't only query bondijunction hours.
+  (craigm.smith@au.westfield.com)
+- WSF-6362 Trading hours url too long (craigm.smith@au.westfield.com)
+
 * Wed Mar 12 2014 ci <doperations@au.westfield.com> 0.2.214-1
 - Removed Dale from deploy alerts. (ldewey@au.westfield.com)
 

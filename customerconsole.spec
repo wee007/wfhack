@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.211
+Version:     0.2.212
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,10 @@ fi
 
 
 %changelog
+* Wed Mar 12 2014 ci <doperations@au.westfield.com> 0.2.212-1
+- Merge pull request #988 from cpearce/quick-fixes (chorn@au.westfield.com)
+- Updating Privacy Policy page - WSF-6373 (cpearce@au.westfield.com)
+
 * Wed Mar 12 2014 ci <doperations@au.westfield.com> 0.2.211-1
 - Merge pull request #973 from gcallister/master (chorn@au.westfield.com)
 - WSF-6359 - update redirect to be AU inclusive (gcallister@au.westfield.com)

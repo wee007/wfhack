@@ -38,7 +38,7 @@ class map.micello.Map
     curr_month = d.getMonth() + 1
     curr_year = d.getFullYear()
     today = curr_date + "-" + curr_month + "-" + curr_year
-    $.getJSON "/api/trading-hour/master/store_trading_hours/range.json?centre_id=bondijunction&from=#{today}&to=#{today}", (data) =>
+    $.getJSON "/api/trading-hour/master/store_trading_hours/range.json?centre_id=#{@westfieldCentreId()}&from=#{today}&to=#{today}", (data) =>
       @store_trading_hours = _(data).chain().map((store_hours) -> [store_hours.store_id, store_hours]).object().value()
       @deferreds.store_hours.resolve()
 

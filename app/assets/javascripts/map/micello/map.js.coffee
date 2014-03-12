@@ -19,9 +19,9 @@ class map.micello.Map
     if @community == undefined
       throw 'Missing micello_community for centre'
     @offset = x: 0.5, y: 0.5
+    @fetchTradingHours()
     @fetchStores()
-    $.when(@deferreds.store_fetch).then(@fetchTradingHours)
-    $.when(@deferreds.store_hours).then(@processStores)
+    $.when(@deferreds.store_fetch, @deferreds.store_hours).then(@processStores)
     $.when(@deferreds.stores, @deferreds.micello).then(@ready)
 
   westfieldCentreId: ->
@@ -38,8 +38,7 @@ class map.micello.Map
     curr_month = d.getMonth() + 1
     curr_year = d.getFullYear()
     today = curr_date + "-" + curr_month + "-" + curr_year
-    stores_for_url = (_.map @stores, (store) -> "store_id[]=#{store.id}").join("&")
-    $.getJSON "/api/trading-hour/master/store_trading_hours/range.json?centre_id=bondijunction&#{stores_for_url}&from=#{today}&to=#{today}", (data) =>
+    $.getJSON "/api/trading-hour/master/store_trading_hours/range.json?centre_id=bondijunction&from=#{today}&to=#{today}", (data) =>
       @store_trading_hours = _(data).chain().map((store_hours) -> [store_hours.store_id, store_hours]).object().value()
       @deferreds.store_hours.resolve()
 

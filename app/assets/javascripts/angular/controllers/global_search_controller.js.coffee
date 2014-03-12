@@ -76,8 +76,13 @@
             event.preventDefault()
 
       $scope.url = (suggestion) ->
+        #If there is already a query string, no need for '?'
         urlJoiner = if suggestion.url.indexOf("?") > 0 then "&" else "?"
+
+        # Only add 'searchQuery' param to url if its no already there (it might be if the link is to a product search page)
         searchQuery = if suggestion.url.indexOf("search_query") == -1 then "&search_query=#{$scope.searchQuery}" else ""
+
+        # Construct the full suggestion URL. 'search_source' is purely for analytics purposes.
         url = "/#{$scope.centre_id}#{suggestion.url}#{urlJoiner}search_source=dropdown#{searchQuery}"
 
       $scope.submit = ( event ) ->

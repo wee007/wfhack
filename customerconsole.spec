@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.215
+Version:     0.2.216
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,11 @@ fi
 
 
 %changelog
+* Wed Mar 12 2014 ci <doperations@au.westfield.com> 0.2.216-1
+- Merge pull request #991 from csmith/master (craigM.smith@au.westfield.com)
+- WSF-6362 Whether a store is closed or not had dropped off.
+  (craigm.smith@au.westfield.com)
+
 * Wed Mar 12 2014 ci <doperations@au.westfield.com> 0.2.215-1
 - Merge pull request #990 from csmith/master (craigM.smith@au.westfield.com)
 - WSF-6362 Don't only query bondijunction hours.

@@ -1,9 +1,4 @@
-<%= form_tag centre_search_path, method: "get", class: 'search-mini ng-pristine ng-valid' do %>
-  <span class="icon icon--search" aria-hidden="true"></span>
-  <%= label_tag :q, "Search:", class: 'hide-visually' %>
-  <%= text_field_tag :search_query, @search.term %>
-  <%= submit_tag "Search", class: 'search-mini__submit' %>
-<% end %>
+<% content_for :class_for_main, "container--wide" %>
 
 <% if @search.results.empty? %>
   <div class="no-content-fallback-msg">
@@ -11,18 +6,71 @@
     <p><em class="h1">No results</em></span></p>
   </div>
 <% else %>
-  <ul>
-    <% @search.results.each do |kind, results| %>
-      <li class="island">
-        <h2><%= kind.titlecase %></h2>
-        <ul>
-          <% results.each do |result| %>
-            <li class="list-divider">
-              <%= link_to result[:display], build_url(@centre, kind, result[:attributes]) %>
-            </li>
-          <% end %>
+
+  <h1>Results for "<%= @search.term =%>"</h1>
+
+  <%# List of anchors to each search result type %>
+  <div class="nav-contextual js-nav-contextual js-viewport-check js-disabled-hide">
+    <div class="nav-contextual__clip">
+      <div class="nav-contextual__clip__inner">
+        <ul class="nav-contextual__list horiz-list js-nav-contextual-list">
+          <li><a href="#">All Results</a></li>
+          <li><a href="#stores">Stores (999)</a></li>
+          <li><a href="#products">Products (999)</a></li>
+          <li><a href="#deals">Deals (999)</a></li>
+          <li><a href="#events">Events (999)</a></li>
         </ul>
-      </li>
-    <% end %>
-  </ul>
+      </div>
+      <span class="nav-contextual__clip__overlay icon icon--arrow-right icon--mega icon--flush-top js-nav-contextual-clip-overlay" aria-hidden="true"></span>
+    </div>
+  </div>
+  <%#// List of anchors to each search result type %>
+
+  <section class="txt-formatted divider divider--lrg">
+    <h2 id="stores">
+      <span class="icon icon--store icon--spacing"></span>
+      Stores
+    </h2>
+
+
+    <ul class="horiz-list horiz-list--spacing-base horiz-list--spacing-base-wrap">
+      <li><a href="#" class="btn btn--main btn--main-white btn--main-lrg">Hairdressers</a></li>
+      <li><a href="#" class="btn btn--main btn--main-white btn--main-lrg">Hairdressers</a></li>
+      <li><a href="#" class="btn btn--main btn--main-white btn--main-lrg">Hairdressers</a></li>
+      <li><a href="#" class="btn btn--main btn--main-white btn--main-lrg">Hairdressers</a></li>
+    </ul>
+
+    <p>
+      All stores matching "<strong><%= @search.term =%></strong>"
+    </p>
+
+    <ul class="horiz-list horiz-list--spacing-base">
+      <li><a href="/sydney/stores/djs-hair-artistry/42106">DJ's Hair Artistry</a></li>
+      <li><a href="/sydney/stores/hair-scope-hairdressing/42099">Hair Scope Hairdressing</a></li>
+    </ul>
+  </section>
+
+  <section class="txt-formatted divider divider--lrg">
+    <h2 id="products">
+      <span class="icon icon--products icon--spacing"></span>
+      Products
+    </h2>
+  </section>
+
+  <section class="txt-formatted divider divider--lrg">
+    <h2 id="deals">
+      <span class="icon icon--deals icon--spacing"></span>
+      Deals
+    </h2>
+  </section>
+
+    <section class="txt-formatted divider divider--lrg">
+    <h2 id="events">
+      <span class="icon icon--events icon--spacing"></span>
+      Events
+    </h2>
+  </section>
+
+
+
 <% end %>

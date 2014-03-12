@@ -19,7 +19,7 @@ $.fn.navContextual = (options) ->
 
     if @width() < listWidth
       @addClass settings.isClippedClass
-      list.css width: listWidth
+      list.css width: listWidth+10
     else
       @removeClass settings.isClippedClass
 

@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.216
+Version:     0.2.217
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,10 @@ fi
 
 
 %changelog
+* Wed Mar 12 2014 ci <doperations@au.westfield.com> 0.2.217-1
+- Merge pull request #985 from ewee/master (ewee@au.westfield.com)
+- WSF-6371 Refactor the retrieval of store name (ewee@au.westfield.com)
+
 * Wed Mar 12 2014 ci <doperations@au.westfield.com> 0.2.216-1
 - Merge pull request #991 from csmith/master (craigM.smith@au.westfield.com)
 - WSF-6362 Whether a store is closed or not had dropped off.

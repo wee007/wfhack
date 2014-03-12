@@ -48,6 +48,7 @@ class map.micello.Map
       if store._links.logo?.href?
         store.logo = store._links.logo.href
       closingTime = @store_trading_hours[store.id].closing_time
+      store.closed_today = @store_trading_hours[store.id].closed
       store.closing_time_24 = closingTime
       hour24 = parseInt(closingTime, 10)
       hour12 = hour24 % 12

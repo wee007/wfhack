@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.213
+Version:     0.2.214
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,9 @@ fi
 
 
 %changelog
+* Wed Mar 12 2014 ci <doperations@au.westfield.com> 0.2.214-1
+- Removed Dale from deploy alerts. (ldewey@au.westfield.com)
+
 * Wed Mar 12 2014 ci <doperations@au.westfield.com> 0.2.213-1
 - Final updates to Privacy Policy (cpearce@au.westfield.com)
 

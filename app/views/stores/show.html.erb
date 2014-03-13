@@ -178,6 +178,13 @@
                               <% if today?(day.date) %></em><% end %>
                             </td>
                             <td>
+                              <% if day.description.present? %>
+                                <em class="pill <%= "txt-truncate txt-truncate--inline-block " if day.description.length > 18 %>hide-fully--palm-inline-block" <%= "title=#{day.description.html_safe}" if day.description.length > 18 %>><%= day.description %></em>
+                              <% else %>
+                                &nbsp;
+                              <% end %>
+                            </td>
+                            <td>
                               <% if today?(day.date) %><em class="txt-bold"><% end %>
                               <% if day.closed %>
                                 Closed

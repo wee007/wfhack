@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.217
+Version:     0.2.218
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,17 @@ fi
 
 
 %changelog
+* Thu Mar 13 2014 ci <doperations@au.westfield.com> 0.2.218-1
+- Merge pull request #992 from araeside/fix-search-dropdown-tracking
+  (araeside@au.westfield.com)
+- using search_query to track what the user search stiffs up product filter
+  URLs so switch to use search_keyword (alec@smartalecwebsites.com.au)
+- add some comments (alec@smartalecwebsites.com.au)
+- don't double up on the search_query param. rename search param to
+  search_source (alec@smartalecwebsites.com.au)
+- Add query string params to search suggestion urls so that dropdown usage can
+  be tracked (alec@smartalecwebsites.com.au)
+
 * Wed Mar 12 2014 ci <doperations@au.westfield.com> 0.2.217-1
 - Merge pull request #985 from ewee/master (ewee@au.westfield.com)
 - WSF-6371 Refactor the retrieval of store name (ewee@au.westfield.com)

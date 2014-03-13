@@ -19,16 +19,21 @@
   }
 }
 
-  /* Hero */
-  .product-curation__hero {
+  /* Description (toggled at palm) */
+  .product-curation__desc {
+    @include font-size($font-size-sml);
 
+    /* Always show the description at this breakpoint */
+    @include respond-min($non-palm) {
+      display: block !important;
+    }
+
+    @include respond-min($ipad-landscape) {
+      @include font-size($font-size);
+    }
   }
 
-    /* Description */
-    .product-curation__hero__desc {
-      @include font-size($font-size-sml);
-
-      @include respond-min($ipad-landscape) {
-        @include font-size($font-size);
-      }
+    /* Hide the toggle button at this breakpoint */
+    @include respond-min($non-palm) {
+      .toggle-content--btn {display: none;}
     }

@@ -6,20 +6,20 @@
   <div class="grid grid--gutter-half grid--mrg-half grid--non-linear">
 
     <%# 'Hero' and 'More from retailers (non-palm)' %>
-    <div class="grid__item lap-sml-one-third lap-lrg-one-quarter desk-one-fifth desk-lrg-one-sixth">
+    <div class="grid__item lap-sml-one-third lap-lrg-one-quarter desk-one-fifth">
 
       <%# Hero %>
-      <header class="product-curation__hero box">
-        <%= image_tag 'dummy/curation-hero.jpg', alt: '' %>
+      <header class="box">
+        <%= image_tag 'dummy/curation-hero.jpg', alt: '', quality: 50, fetch_format: 'auto' %>
         <h1 class="island">Blue Is The New Black</h1>
-        <div class="product-curation__hero__desc toggle-content js-toggle-content js-hide-show">
-          <p class="island-sides island-btm">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.</p>
+        <div class="product-curation__desc toggle-content js-toggle-content js-hide-show">
+          <p class="island-sides island-btm"><%= raw "Pulvinar etiam ut, eros vel quis mus arcu, mus, ut mauris placerat, adipiscing etiam sed cursus? Vut amet! Magna nunc pid adipiscing tempor non? Nascetur in tristique ut? Vut lacus, integer, auctor mauris risus enim turpis est dictumst est. Ac turpis tristique. Diam turpis amet lectus scelerisque aliquam? Cum scelerisque turpis facilisis, amet rhoncus. Tempor montes in ac sed enim, lacus sit arcu habitasse! Ac platea! Magna et magna".truncate(380, '&#8230;') %></p>
         </div>
       </header>
       <%# //Hero %>
 
       <%# More from retailers (non-palm) %>
-      <footer class="hide-fully--palm">
+      <footer class="hide-fully--palm mrg-dbl-top">
         <section aria-labelledby="curation-retailers-non-palm">
           <h2 id="curation-retailers-non-palm">More from retailers</h2>
           <%= render partial: 'more_from_retailers' %>
@@ -31,24 +31,24 @@
     <%# //'Hero' and 'More from retailers (non-palm)' %>
 
     <%# Pin board %>
-    <section class="grid__item lap-sml-two-thirds lap-lrg-three-quarters desk-four-fifths desk-lrg-five-sixths" aria-labelledby="curation-pin-board">
+    <section class="grid__item lap-sml-two-thirds lap-lrg-three-quarters desk-four-fifths" aria-labelledby="curation-pin-board">
 
       <h2 class="hide-visually" id="curation-pin-board">Products</h2>
 
-      <div class="pin-board-non-masonary">
+      <div class="pin-board-curation">
 
         <%# Pin board row %>
-        <% curated_products.in_groups_of(5) do |products| %>
-          <div class="grid grid--gutter-half grid--mrg-half grid--non-linear">
+        <% i = 0; curated_products.in_groups_of(5) do |products| %>
+          <div class="grid <%= cycle '', 'grid--rev' -%> grid--gutter-half grid--mrg-half grid--non-linear">
 
             <%# Hero tile %>
-            <div class="pin-board-non-masonary__hero grid__item one-whole desk-one-half">
+            <div class="pin-board-curation__hero grid__item one-whole desk-one-half">
               <%= render partial: 'tile_hero', object: products.shift %>
             </div>
             <%# //Hero tile %>
 
             <%# Sidekick tiles (x4) %>
-            <div class="grid__item one-whole desk-one-half">
+            <div class="pin-board-curation__sidekicks grid__item one-whole desk-one-half">
               <% products.in_groups_of(2) do |sidekick_products| %>
                 <div class="grid grid--gutter-half grid--mrg-half grid--non-linear">
                   <% sidekick_products.each do |sidekick_product| %>
@@ -73,11 +73,6 @@
 
   </div>
   <%# //Hero and pin board %>
-
-
-
-
-
 
   <%# Pager %>
   <section aria-labelledby="curation-pager">
@@ -137,8 +132,8 @@
     // Initialise 'Toggle content' plugin
     $(function() {
       $('.js-toggle-content').toggleContent({
-        btnTxtOpen: 'Read more <span aria-hidden="true" class="icon icon--arrow-down-full icon--lrg"></span>',
-        btnTxtClose: 'Read less <span aria-hidden="true" class="icon icon--arrow-up-full icon--lrg"></span>'
+        btnTxtOpen: 'Read the description <span aria-hidden="true" class="icon icon--arrow-down-full icon--lrg"></span>',
+        btnTxtClose: 'Collapse the description <span aria-hidden="true" class="icon icon--arrow-up-full icon--lrg"></span>'
       });
     });
   </script>

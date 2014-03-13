@@ -1,14 +1,8 @@
 <%# Hero tile %>
-<article class="tile tile--products box" role="article">
+<article class="tile tile--products tile--fixed-img-height box" role="article">
   <a href="#" target="_self">
-    <div class="tile__image">
-      <div class="vert-align">
-        <div class="vert-align__inner">
-          <!-- <img alt="" src="<%= tile_hero[:image_url] %>"> -->
-          <img alt="" src="http://res.cloudinary.com/wlabs/image/fetch/c_pad,f_auto,w_825/http://res.cloudinary.com/wlabs/image/upload/v1381336879/l8itsnowlxzljr7vsd6d.jpg">
-        </div>
-      </div>
-    </div>
+    <%# [NOTE] the `img` and the `div` need to be on same line %>
+    <div class="tile__image"><img alt="" src="<%= tile_hero[:image_url] % 825 %>"></div>
     <div class="tile__meta">
       <span class="tile__meta__icon">
         <span class="icon icon--products icon--lrg" aria-hidden="true"></span>

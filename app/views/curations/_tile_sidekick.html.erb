@@ -1,13 +1,8 @@
 <%# Small tile %>
-<article class="tile tile--products box" role="article">
+<article class="tile tile--products tile--fixed-img-height box" role="article">
   <a href="#" target="_self">
-    <div class="tile__image">
-      <div class="vert-align">
-        <div class="vert-align__inner">
-          <img alt="" src="<%= tile_sidekick[:image_url] %>">
-        </div>
-      </div>
-    </div>
+    <%# [NOTE] the `img` and the `div` need to be on same line %>
+    <div class="tile__image"><img alt="" src="<%= tile_sidekick[:image_url] % 407 %>"></div>
     <div class="tile__meta">
       <span class="tile__meta__icon">
         <span class="icon icon--products icon--lrg" aria-hidden="true"></span>
@@ -23,5 +18,3 @@
   </a>
 </article>
 <%# //Small tile %>
-
-

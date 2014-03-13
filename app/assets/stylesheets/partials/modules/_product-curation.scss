@@ -3,7 +3,7 @@
    ====================================================================================== */
 
 /*
-	'Product curation' page, most of the styles for this module are taken care of by other modules, this module is needed to for styles that we don't get from the inner modules.
+	'Product curation' page, most of the styles for this module are taken care of by other modules, this module is needed for styles that we don't get from the inner modules.
 */
 
 .product-curation {
@@ -11,29 +11,26 @@
   /* Headings */
   h1 {@include font-size(36);}
 
-  h2 {
-    font-family: $font-family-opensans;
-    color: $color-txt-light;
-    @include font-size(24, 1.5);
-    @include to-rem(margin-bottom, $spacing-base);
-  }
+  h2 {@include font-size(24, 1.3);}
 }
 
   /* Description (toggled at palm) */
   .product-curation__desc {
     @include font-size($font-size-sml);
 
-    /* Always show the description at this breakpoint */
-    @include respond-min($non-palm) {
-      display: block !important;
-    }
-
     @include respond-min($ipad-landscape) {
       @include font-size($font-size);
     }
   }
 
-    /* Hide the toggle button at this breakpoint */
+  /* More from Retailers */
+  .product-curation__retailers a {@include to-rem(max-width, 186);}
+
+  /* You May Also Like */
+  .product-curation__also-like {
+
     @include respond-min($non-palm) {
-      .toggle-content--btn {display: none;}
+      h2 {text-align: center;}
     }
+
+  }

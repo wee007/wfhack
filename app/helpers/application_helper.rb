@@ -73,6 +73,14 @@ module ApplicationHelper
     date == Time.now.strftime("%Y-%m-%d")
   end
 
+  def ordinalize_day(date)
+    date.to_date.day.ordinalize
+  end
+
+  def format_date(date, format)
+    date.to_date.strftime(format)
+  end
+
   def active_link?( string, param )
     'is-active' if string.eql?( param )
   end

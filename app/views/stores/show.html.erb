@@ -160,38 +160,45 @@
                     <table cellspacing="0" class="table-striped table-fixed">
                       <caption class="flush-btm"><span class="hide-visually">Store Hours</span></caption>
                       <colgroup>
+                        <col class="one-eighth lap-lrg-one-sixth desk-one-sixth"></col>
+                        <col class="one-fifth lap-lrg-one-third desk-one-quarter"></col>
                         <col></col>
-                        <col class="three-sixths lap-lrg-two-fifths desk-two-fifths"></col>
+                        <col class="two-sixths lap-lrg-one-sixth desk-two-eighths"></col>
                       </colgroup>
                       <thead>
                         <tr>
                           <th scope="col" class="table-cell-padding-off"><span class="hide-visually">Day</span></th>
+                          <th scope="col" class="table-cell-padding-off"><span class="hide-visually">Date</span></th>
+                          <th scope="col" class="table-cell-padding-off"><span class="hide-visually">Description</span></th>
                           <th scope="col" class="table-cell-padding-off"><span class="hide-visually">Time</span></th>
                         </tr>
                       </thead>
                       <tbody>
-                        <% @this_week_hours.each do |day| %>
+                        <% @this_week_hours.each do |hour| %>
                           <tr>
                             <td>
-                              <% if today?(day.date) %><em class="txt-bold"><% end %>
-                              <%= format_day(day.date,0,3) %><span class="hide-fully--palm-inline"><%= format_day(day.date,3,6) %></span>
-                              <% if today?(day.date) %></em><% end %>
+                              <% if today?(hour.date) %><em class="txt-bold"><% end %>
+                              <%= format_day(hour.date,0,3) %><span class="hide-fully--palm-inline"><%= format_day(hour.date,3,6) %></span>
+                              <% if today?(hour.date) %></em><% end %>
                             </td>
                             <td>
-                              <% if day.description.present? %>
-                                <em class="pill <%= "txt-truncate txt-truncate--inline-block " if day.description.length > 18 %>hide-fully--palm-inline-block" <%= "title=#{day.description.html_safe}" if day.description.length > 18 %>><%= day.description %></em>
-                              <% else %>
-                                &nbsp;
+                              <% if today?(hour.date) %><em class="txt-bold"><% end %>
+                                <%= format_date(hour.date, "#{ordinalize_day(hour.date)} %b") %>
+                              <% if today?(hour.date) %></em><% end %>
+                            </td>
+                            <td>
+                              <% if hour.description.present? %>
+                                <em class="pill <%= "txt-truncate txt-truncate--inline-block " if hour.description.length > 18 %>" <%= "title=#{hour.description.html_safe}" if hour.description.length > 18 %>><%= hour.description %></em>
                               <% end %>
                             </td>
                             <td>
-                              <% if today?(day.date) %><em class="txt-bold"><% end %>
-                              <% if day.closed %>
+                              <% if today?(hour.date) %><em class="txt-bold"><% end %>
+                              <% if hour.closed %>
                                 Closed
                               <% else %>
-                                <time datetime="<%= day.date %>T<%= day.opening_time %>"><%= twelve_hour_format(day.opening_time) %></time> &#8211; <time datetime="<%= day.date %>T<%= day.closing_time %>"><%= twelve_hour_format(day.closing_time) %></time>
+                                <time datetime="<%= hour.date %>T<%= hour.opening_time %>"><%= twelve_hour_format(hour.opening_time) %></time> &#8211; <time datetime="<%= hour.date %>T<%= hour.closing_time %>"><%= twelve_hour_format(hour.closing_time) %></time>
                               <% end %>
-                              <% if today?(day.date) %></em><% end %>
+                              <% if today?(hour.date) %></em><% end %>
                             </td>
                           </tr>
                         <% end %>

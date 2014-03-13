@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.218
+Version:     0.2.219
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,12 @@ fi
 
 
 %changelog
+* Thu Mar 13 2014 ci <doperations@au.westfield.com> 0.2.219-1
+- Merge pull request #987 from ldewey/WSF-6374 (ldewey@au.westfield.com)
+- Fixed Regression bug where centre context is lost. (ldewey@au.westfield.com)
+- Updated smoke tests `subject` was not being updated.
+  (ldewey@au.westfield.com)
+
 * Thu Mar 13 2014 ci <doperations@au.westfield.com> 0.2.218-1
 - Merge pull request #992 from araeside/fix-search-dropdown-tracking
   (araeside@au.westfield.com)

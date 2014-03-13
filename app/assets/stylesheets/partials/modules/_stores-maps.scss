@@ -507,13 +507,11 @@
           @include to-rem(top, 110);
           pointer-events: auto;
           overflow-y: auto;
+          background-color: $color-grey-light-2;
         }
 
         /* Modifier: Detail view when they're 'Featured items' */
-        .stores-maps__inner--detail.is-featured-items & {
-          background-color: $color-grey-light-2;
-          @include to-rem(bottom, $spacing-base);
-        }
+        .stores-maps__inner--detail.is-featured-items & {@include to-rem(bottom, $spacing-base);}
       }
 
       /* Non JS users, note: has to come after the mq's */

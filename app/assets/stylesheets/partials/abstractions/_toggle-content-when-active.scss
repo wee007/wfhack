@@ -1,0 +1,24 @@
+/* ======================================================================================
+   @ABSTRACTIONS -> TOGGLE CONTENT WHEN ACTIVE
+   ====================================================================================== */
+
+/*
+  Toggles the display of an element when a parent has the 'is-active' class
+
+  Styleguide Toggle Content When Active
+*/
+
+.show-when-active {display: none;}
+
+.is-active {
+
+  .show-when-active--block {display: block;}
+
+  /* Modifier: Set element display to inline-block when parent has .is-active */
+  .show-when-active--inline-block {display: inline-block;}
+
+  /* Modifier: Set element display to inline when parent has .is-active */
+  .show-when-active--inline {display: inline;}
+
+  .hide-when-active {display: none;}
+}

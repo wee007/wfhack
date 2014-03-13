@@ -133,9 +133,8 @@
         }
 
         h1 {
-          /* @extend %mrg-base; */
           /* Use this small bottom margin when a link appears under the `h1` */
-          @include to-rem(margin-bottom, $spacing-quarter);
+          /* @include to-rem(margin-bottom, $spacing-quarter); */
           /* Need a tighter `line-height` so the `span` will sit closer to the text under it */
           line-height: 1;
 
@@ -150,7 +149,7 @@
             /* Subtext in the heading */
             span {
               display: block;
-              @include font-size($font-size-milli);
+              @include font-size($font-size-sml);
 
               @include respond-min($iphone-landscape) {
                 @include font-size($font-size-lrg);
@@ -171,15 +170,15 @@
     /* Hero image paths (see 'Image rotate' module) */
     .national__hero__1 {
       @include respond-max($palm) {
-        background-image: cloudinary-url("heroes/national/national-hero-01-sml.jpg", $quality: 93, $fetch_format: 'auto');
+        background-image: cloudinary-url("heroes/national/national-hero-01-sml.jpg", $quality: 88, $fetch_format: 'auto');
       }
 
       @include respond-range($lap, $lap-sml-end) {
-        background-image: cloudinary-url("heroes/national/national-hero-01-med.jpg", $quality: 93, $fetch_format: 'auto');
+        background-image: cloudinary-url("heroes/national/national-hero-01-med.jpg", $quality: 88, $fetch_format: 'auto');
       }
 
       @include respond-min($lap-lrg) {
-        background-image: cloudinary-url("heroes/national/national-hero-01-lrg.jpg", $quality: 90, $fetch_format: 'auto');
+        background-image: cloudinary-url("heroes/national/national-hero-01-lrg.jpg", $quality: 88, $fetch_format: 'auto');
       }
     }
 

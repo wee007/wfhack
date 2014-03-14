@@ -11,7 +11,9 @@
       <em class="hide-visually">Loading, please wait&#8230;</em>
     </span>
     <%# //PJAX preloader %>
+
     <div class="stores-maps__inner stores-maps__inner--detail js-store-hours-toggle-container<%= ' is-featured-items' if @products.present? or @deals.present? %>" id="stores-maps-toggle-listing-detail">
+
       <%# Back to listing link %>
       <div class="stores-maps__filters-toggle">
         <div class="container">
@@ -92,32 +94,32 @@
                 <%- end %>
                 <%# //Store gift cards accepted %>
 
-                <%# Store closing time %>
+                <%# Opening hours %>
                 <%- if @store.closing_time.present? and !@store.closed_today %>
                   <dt class="hide-visually">Opening hours</dt>
-                  <dd>
-                    Open from <time datetime="<%= @store.opening_time %>"><%= twelve_hour_format @store.opening_time %></time> to <time datetime="<%= @store.closing_time %>"><%= twelve_hour_format @store.closing_time %></time> today
-                    <% if @this_week_hours.present? %>
-                      (
-                      <button class="btn btn--faux-link js-store-hours-toggle-trigger js-disabled-hide" toggle-visibility="store-hours">
-                        <span class="hide-fully--palm">
-                          Show
-                          <span class="show-when-active show-when-active--inline">less</span>
-                          <span class="hide-when-active">more</span>
-                        </span>
-                        <span class="hide-fully--non-palm">
-                          <span class="show-when-active show-when-active--inline">Less</span>
-                          <span class="hide-when-active">More</span>
-                        </span>
-                      </button>
-                      )
-                    <% end %>
-                    <span class="icon icon--hours icon--xlrg icon--fixed-width" aria-hidden="true"></span>
+                  <dd>Open<span class="hide-fully--palm-inline"> from</span> <time datetime="<%= @store.opening_time %>"><%= twelve_hour_format @store.opening_time %></time>&#8211;<time datetime="<%= @store.closing_time %>"><%= twelve_hour_format @store.closing_time %></time><span class="hide-fully--palm-inline"> today</span>
+                  <% if @this_week_hours.present? %>
+                    <button class="btn btn--faux-link js-store-hours-toggle-trigger js-disabled-hide" toggle-visibility="store-hours">
+                      <span class="hide-fully--palm">
+                        (Show
+                        <span class="show-when-visible">less)</span>
+                        <span class="hide-when-visible">more)</span>
+                      </span>
+                      <span class="hide-fully--non-palm">
+                        <span class="show-when-visible">(Less)</span>
+                        <span class="hide-when-visible">(More)</span>
+                      </span>
+                    </button>
+                  <% end %>
+                  <span class="icon icon--hours icon--xlrg icon--fixed-width" aria-hidden="true"></span>
                   </dd>
                 <%- else %>
-                  <dd class="storefront__details__meta__no-indent">Closed today</dd>
+                  <dd>
+                    Closed today
+                    <span class="icon icon--hours icon--xlrg icon--fixed-width" aria-hidden="true"></span>
+                  </dd>
                 <%- end %>
-                <%# //Store closing time %>
+                <%# //Opening hours %>
 
               </dl>
               <%# //Store meta %>
@@ -152,74 +154,80 @@
           </div>
           <%# //Store details %>
 
-          <%# Store trading hours %>
+          <%# Store opening hours %>
           <% if @this_week_hours.present? %>
-            <footer id="store-hours" class="storefront__featured toggle-visibility js-store-hours-toggle-target">
-              <div class="storefront__featured__item island-ends">
-                <div class="container">
-                  <h2 class="storefront__featured__hdr">Store Hours</h2>
-                  <div class="islet island-non-palm box">
-                    <table cellspacing="0" class="table-striped table-fixed">
-                      <caption class="flush-btm"><span class="hide-visually">Store Hours</span></caption>
-                      <colgroup>
-                        <col class="one-eighth lap-lrg-one-sixth desk-one-sixth"></col>
-                        <col class="one-fifth lap-lrg-one-third desk-one-quarter"></col>
-                        <col></col>
-                        <col class="two-sixths lap-lrg-one-sixth desk-two-eighths"></col>
-                      </colgroup>
-                      <thead>
+            <div class="storefront__featured toggle-visibilitys island-ends js-store-hours-toggle-target" id="store-hours">
+              <div class="container">
+                <div class="txt-formatted">
+                  <h2 class="mrg-half">Store Hours</h2>
+                </div>
+                <div class="islet island-non-palm box">
+                  <table cellspacing="0" class="table-striped table-fixed">
+                    <colgroup>
+                      <col class="one-tenth lap-sml-one-eighth" style="background: red"></col>
+                      <col class="one-quarter lap-sml-one-sixth lap-lrg-one-eighth" style="background: green"></col>
+                      <col style="background: pink"></col>
+                      <col class="two-fifths" style="background: yellow"></col>
+                    </colgroup>
+                    <thead>
+                      <tr>
+                        <th scope="col" class="table-cell-padding-off">
+                          <span class="hide-visually">Day</span>
+                        </th>
+                        <th scope="col" class="table-cell-padding-off">
+                          <span class="hide-visually">Date</span>
+                        </th>
+                        <th scope="col" class="table-cell-padding-off">
+                          <span class="hide-visually">Public holiday</span>
+                        </th>
+                        <th scope="col" class="table-cell-padding-off">
+                          <span class="hide-visually">Hours</span>
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <% @this_week_hours.each do |hour| %>
                         <tr>
-                          <th scope="col" class="table-cell-padding-off"><span class="hide-visually">Day</span></th>
-                          <th scope="col" class="table-cell-padding-off"><span class="hide-visually">Date</span></th>
-                          <th scope="col" class="table-cell-padding-off"><span class="hide-visually">Description</span></th>
-                          <th scope="col" class="table-cell-padding-off"><span class="hide-visually">Time</span></th>
+                          <td>
+                            <% if today?(hour.date) %><em class="txt-bold"><% end %>
+                            <%= format_day(hour.date,0,3) %><span class="hide-fully--palm-inline"><%= format_day(hour.date,3,6) %></span>
+                            <% if today?(hour.date) %></em><% end %>
+                          </td>
+                          <td>
+                            <% if today?(hour.date) %><em class="txt-bold"><% end %>
+                              <%= format_date(hour.date, "#{ordinalize_day(hour.date)} %b") %>
+                            <% if today?(hour.date) %></em><% end %>
+                          </td>
+                          <td>
+                            <em class="pill">Holiday</em>
+                            <% if hour.description.present? %>
+                              <em class="pill <%= "txt-truncate txt-truncate--inline-block " if hour.description.length > 18 %>" <%= "title=#{hour.description.html_safe}" if hour.description.length > 18 %>><%= hour.description %></em>
+                            <% end %>
+                          </td>
+                          <td class="txt-right">
+                            <% if today?(hour.date) %><em class="txt-bold"><% end %>
+                            <% if hour.closed %>
+                              Closed
+                            <% else %>
+                              <time datetime="<%= hour.date %>T<%= hour.opening_time %>"><%= twelve_hour_format(hour.opening_time) %></time> &#8211; <time datetime="<%= hour.date %>T<%= hour.closing_time %>"><%= twelve_hour_format(hour.closing_time) %></time>
+                            <% end %>
+                            <% if today?(hour.date) %></em><% end %>
+                          </td>
                         </tr>
-                      </thead>
-                      <tbody>
-                        <% @this_week_hours.each do |hour| %>
-                          <tr>
-                            <td>
-                              <% if today?(hour.date) %><em class="txt-bold"><% end %>
-                              <%= format_day(hour.date,0,3) %><span class="hide-fully--palm-inline"><%= format_day(hour.date,3,6) %></span>
-                              <% if today?(hour.date) %></em><% end %>
-                            </td>
-                            <td>
-                              <% if today?(hour.date) %><em class="txt-bold"><% end %>
-                                <%= format_date(hour.date, "#{ordinalize_day(hour.date)} %b") %>
-                              <% if today?(hour.date) %></em><% end %>
-                            </td>
-                            <td>
-                              <% if hour.description.present? %>
-                                <em class="pill <%= "txt-truncate txt-truncate--inline-block " if hour.description.length > 18 %>" <%= "title=#{hour.description.html_safe}" if hour.description.length > 18 %>><%= hour.description %></em>
-                              <% end %>
-                            </td>
-                            <td>
-                              <% if today?(hour.date) %><em class="txt-bold"><% end %>
-                              <% if hour.closed %>
-                                Closed
-                              <% else %>
-                                <time datetime="<%= hour.date %>T<%= hour.opening_time %>"><%= twelve_hour_format(hour.opening_time) %></time> &#8211; <time datetime="<%= hour.date %>T<%= hour.closing_time %>"><%= twelve_hour_format(hour.closing_time) %></time>
-                              <% end %>
-                              <% if today?(hour.date) %></em><% end %>
-                            </td>
-                          </tr>
-                        <% end %>
-                      </tbody>
-                    </table>
-                  </div>
+                      <% end %>
+                    </tbody>
+                  </table>
                 </div>
               </div>
-            </footer>
+            </div>
           <% end %>
-          <%# //Store trading hours %>
+          <%# //Store opening hours %>
 
           <%# Product and Deal tiles %>
           <%- if @products.present? or @deals.present? %>
-            <footer class="storefront__featured">
-
+            <footer>
               <%= render 'tiles', results: @products, kind: 'product', heading: 'Featured', path: centre_products_path( centre_id: @centre.code, retailer: [ params[ :retailer_code ] ] ), store: @store if @products.present? %>
               <%= render 'tiles', results: @deals, kind: 'deal', heading: 'Deals', path: centre_deals_path( @centre.code ), store: @store if @deals.present? %>
-
             </footer>
           <% end %>
           <%# //Product and Deal tiles %>
@@ -228,6 +236,7 @@
 
       </div>
       <%#//Store details %>
+
       <script>
         function storeMapPageReady() {
 
@@ -290,6 +299,7 @@
           })
         }
       </script>
+
     </div>
   </div>
   <%# //Contain 'back to listing link' and 'store details' %>

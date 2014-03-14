@@ -19,6 +19,9 @@
       .slides > li {
         @include to-rem(max-height, 297);
         overflow: hidden;
+
+        /* Non JS users */
+        .no-js & {max-height: none;}
       }
 
       /* Need fixed heights for each slide when there is no store banner */
@@ -131,9 +134,10 @@
     border-color: $color-grey-med-3;
     border-width: 1px 0;
 
-    /* When they're featured items and when store hours are visible */
+    /* When they're 'Featured items', 'Store hours' are visible and non JS users */
     .is-featured-items &,
-    .is-store-hours-visible & {border-bottom: 0;}
+    .is-store-hours-visible &,
+    .no-js & {border-bottom: 0;}
 
     /* Allow store link to be positioned over to the far right at this breakpoint */
     @include respond-min($ipad-portrait) {
@@ -224,44 +228,30 @@
       }
     }
 
-  /* Featured items (tiles) */
-  .storefront__featured__item {
-    border-top: 1px solid $color-grey-med-3;
+  /* Featured items */
+  .storefront__featured {border-top: 1px solid $color-grey-med-3;}
 
-    /* Hide 3rd tile at small viewports */
-    li:nth-child(3) {
-      display: none;
+    /* Tiles */
+    .storefront__featured__tiles {
+      /* Hide 3rd tile by default */
+      .grid__item:nth-child(3) {
+        display: none;
 
-      /* Show 3rd tile at this breakpoint */
-      @include respond-min($non-palm) {
-        display: block;
+        /* Show 3rd tile at this breakpoint */
+        @include respond-min($non-palm) {
+          display: block;
+        }
       }
-    }
 
-    /* Reinstate bottom margin for last child grid item */
-    .grid__item:last-child {@include to-rem(margin-bottom, $grid-gutter-half);}
+      /* Reinstate bottom margin for last child grid item */
+      .grid__item:last-child {@include to-rem(margin-bottom, $grid-gutter-half);}
 
-    /* Mods for 'Deals' tile at this breakpoint range */
-    @include respond-range($ipad-landscape, 1300) {
-      .tile--deals .tile__meta {
-        @include to-rem(padding, 55 15);
+      /* Mods for 'Deal' tile at this breakpoint range */
+      @include respond-range($ipad-landscape, 1300) {
+        .tile--deals .tile__meta {
+          @include to-rem(padding, 55 15);
 
-        .tile__meta__desc {@include font-size($font-size-sml, 1.5);}
-      }
-    }
-  }
-
-    /* Shared rules */
-    .storefront__featured__hdr,
-    .storefront__featured__view-more {font-family: $font-family-opensans;}
-
-    /* Headings */
-    .storefront__featured__hdr {
-      color: $color-txt-light;
-      @include font-size($font-size-lrger, 1.5);
-      @include to-rem(margin-bottom, $spacing-half);
-
-      @include respond-min($non-palm) {
-        @include font-size(22, 1.5);
+          .tile__meta__desc {@include font-size($font-size-sml, 1.5);}
+        }
       }
     }

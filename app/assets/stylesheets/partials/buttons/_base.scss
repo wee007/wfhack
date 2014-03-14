@@ -34,10 +34,6 @@
 	}
 }
 
-	/*
-		Note: have to increase the specificity by chaining the base `.btn` class to make it easy to override non-simple modifiers.
-	*/
-
 	/* Modifier: make span full width of parent */
 	.btn--full {
 		display: block;

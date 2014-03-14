@@ -627,8 +627,8 @@ $national-view-search-toggle-bp: 1080 !default;
 			@include to-rem(padding-top padding-bottom, $spacing-half+$spacing-quarter);
 			background-color: $color-grey-dark-1;
 
-			/* Remove `.drop-down` rules, note: need to increase the specificity to override 'Drop down' abstraction */
-			.js &.drop-down {
+			/* Remove `.drop-down` rules */
+			&.drop-down {
 				display: block;
 				position: static;
 			}
@@ -646,10 +646,8 @@ $national-view-search-toggle-bp: 1080 !default;
 				@include to-rem(width, 214);
 				border: 1px solid $color-grey-dark-3;
 
-				/*
-					Adjust top/left positioning and bring back drop down rules, note: need to increase the specificity to override 'Drop down' abstraction.
-				*/
-				.js &.drop-down {
+				/* Adjust top/left positioning and bring back drop down rules */
+				&.drop-down {
 					@include drop-down;
 					@include to-rem(margin-top, -5);
 					@include to-rem(left, 92);
@@ -1249,6 +1247,15 @@ $national-view-search-toggle-bp: 1080 !default;
 					}
 				}
 
+				/* Non JS users */
+				.no-js & .container {
+					@include to-rem(padding-top padding-bottom, $spacing-half);
+
+					@include respond-min($non-palm) {
+						width: auto;
+					}
+				}
+
 				/* National view header */
 				@include respond-range($non-palm, $national-view-search-toggle-bp) {
 					.header--national & .container {
@@ -1259,6 +1266,12 @@ $national-view-search-toggle-bp: 1080 !default;
 						/* Non JS users */
 						.no-js & {margin: 0 4%;}
 					}
+				}
+
+				/* Non JS users */
+				.no-js .header--national & .container {
+					padding-top: 0;
+					padding-bottom: 0;
 				}
 
 					/* Close button */
@@ -1568,9 +1581,6 @@ $national-view-search-toggle-bp: 1080 !default;
 		/* Centre select */
 		.header-centre-select-national {
 			@include to-rem(margin-left, $spacing-sixth);
-
-			/* Non JS users */
-			.no-js & {display: none;}
 
 			&,
 			h1,

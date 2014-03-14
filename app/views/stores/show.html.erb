@@ -11,7 +11,7 @@
       <em class="hide-visually">Loading, please wait&#8230;</em>
     </span>
     <%# //PJAX preloader %>
-    <div class="stores-maps__inner stores-maps__inner--detail <%= 'is-featured-items' if @products.present? or @deals.present? %>" id="stores-maps-toggle-listing-detail">
+    <div class="stores-maps__inner stores-maps__inner--detail js-store-hours-toggle-container<%= ' is-featured-items' if @products.present? or @deals.present? %>" id="stores-maps-toggle-listing-detail">
       <%# Back to listing link %>
       <div class="stores-maps__filters-toggle">
         <div class="container">
@@ -97,20 +97,22 @@
                   <dt class="hide-visually">Opening hours</dt>
                   <dd>
                     Open from <time datetime="<%= @store.opening_time %>"><%= twelve_hour_format @store.opening_time %></time> to <time datetime="<%= @store.closing_time %>"><%= twelve_hour_format @store.closing_time %></time> today
-                    (
-                    <button class="btn btn--faux-link js-disabled-hide" toggle-visibility="store-hours">
-                      <span class="hide-fully--palm">
-                        Show
-                        <span class="show-when-active show-when-active--inline">less</span>
-                        <span class="hide-when-active">more</span>
-                      </span>
-                      <span class="hide-fully--non-palm">
-                        <span class="show-when-active show-when-active--inline">Less</span>
-                        <span class="hide-when-active">More</span>
-                      </span>
-                    </button>
-                    )
-                      <span class="icon icon--hours icon--xlrg icon--fixed-width" aria-hidden="true"></span>
+                    <% if @this_week_hours.present? %>
+                      (
+                      <button class="btn btn--faux-link js-store-hours-toggle-trigger js-disabled-hide" toggle-visibility="store-hours">
+                        <span class="hide-fully--palm">
+                          Show
+                          <span class="show-when-active show-when-active--inline">less</span>
+                          <span class="hide-when-active">more</span>
+                        </span>
+                        <span class="hide-fully--non-palm">
+                          <span class="show-when-active show-when-active--inline">Less</span>
+                          <span class="hide-when-active">More</span>
+                        </span>
+                      </button>
+                      )
+                    <% end %>
+                    <span class="icon icon--hours icon--xlrg icon--fixed-width" aria-hidden="true"></span>
                   </dd>
                 <%- else %>
                   <dd class="storefront__details__meta__no-indent">Closed today</dd>
@@ -152,7 +154,7 @@
 
           <%# Store trading hours %>
           <% if @this_week_hours.present? %>
-            <footer id="store-hours" class="storefront__featured toggle-visibility">
+            <footer id="store-hours" class="storefront__featured toggle-visibility js-store-hours-toggle-target">
               <div class="storefront__featured__item island-ends">
                 <div class="container">
                   <h2 class="storefront__featured__hdr">Store Hours</h2>
@@ -279,6 +281,13 @@
 
           }
 
+          $('.js-store-hours-toggle-trigger').click(function() {
+            if ($('.js-store-hours-toggle-target').hasClass('is-active')) {
+              $('.js-store-hours-toggle-container').addClass('is-store-hours-visible');
+            } else {
+              $('.js-store-hours-toggle-container').removeClass('is-store-hours-visible');
+            }
+          })
         }
       </script>
     </div>

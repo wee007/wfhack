@@ -131,8 +131,9 @@
     border-color: $color-grey-med-3;
     border-width: 1px 0;
 
-    /* When there are featured items */
-    .is-featured-items & {border-bottom: 0;}
+    /* When they're featured items and when store hours are visible */
+    .is-featured-items &,
+    .is-store-hours-visible & {border-bottom: 0;}
 
     /* Allow store link to be positioned over to the far right at this breakpoint */
     @include respond-min($ipad-portrait) {

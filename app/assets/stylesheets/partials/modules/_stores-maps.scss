@@ -104,9 +104,12 @@
       }
     }
 
-    /* Modifier: Detail view when they're 'Featured items' */
+    /* Modifier: Detail view when they're 'featured items' and when 'store hours' are visible */
     @include respond-min($ipad-landscape) {
-      &.stores-maps__inner--detail.is-featured-items {bottom: 0;}
+      &.stores-maps__inner--detail {
+        &.is-featured-items,
+        &.is-store-hours-visible {bottom: 0;}
+      }
     }
 
     /* Change `position` context when in map view */
@@ -507,11 +510,14 @@
           @include to-rem(top, 110);
           pointer-events: auto;
           overflow-y: auto;
-          background-color: $color-grey-light-2;
         }
 
-        /* Modifier: Detail view when they're 'Featured items' */
-        .stores-maps__inner--detail.is-featured-items & {@include to-rem(bottom, $spacing-base);}
+        /* Modifier: Detail view when they're 'featured items' and when 'store hours' are visible */
+        .stores-maps__inner--detail.is-featured-items &,
+        .stores-maps__inner--detail.is-store-hours-visible & {
+          background-color: $color-grey-light-2;
+          @include to-rem(bottom, $spacing-base);
+        }
       }
 
       /* Non JS users, note: has to come after the mq's */

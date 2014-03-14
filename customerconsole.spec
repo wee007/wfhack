@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.220
+Version:     0.2.221
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,10 @@ fi
 
 
 %changelog
+* Fri Mar 14 2014 ci <doperations@au.westfield.com> 0.2.221-1
+- Small fix to allow the addition of store category searches
+  (ldewey@au.westfield.com)
+
 * Fri Mar 14 2014 ci <doperations@au.westfield.com> 0.2.220-1
 - Adding target=self to legal links in site header to prevent Angular hijacking
   it (cpearce@au.westfield.com)

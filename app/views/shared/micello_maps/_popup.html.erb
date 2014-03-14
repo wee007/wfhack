@@ -28,12 +28,12 @@
 
   <%# Link and button to storefront %>
   <%%  if(storefront_path) {  %>
-  <a href="<%%- storefront_path %>" class="map-micello__overlay__cta btn btn--full btn--main js-pjax-link-stores js-micello-hijack-click-fix">
+  <a href="<%%- storefront_path %>" class="map-micello__overlay__cta btn btn--full btn--main js-micello-hijack-event-fix">
     <span class="icon icon--store icon--lrg icon--spacing-lrg" aria-hidden="true"></span>
     Store details
   </a>
   <%% } else {  %>
-  <button type="button" class="map-micello__overlay__cta btn btn--full btn--main js-stores-maps-toggle-btn js-map-hide" aria-owns="stores-maps-toggle-listing-detail stores-maps-toggle-map">
+  <button type="button" class="map-micello__overlay__cta btn btn--full btn--main js-stores-maps-toggle-btn js-map-hide js-micello-hijack-event-fix" aria-owns="stores-maps-toggle-listing-detail stores-maps-toggle-map">
     <span class="icon icon--store icon--lrg icon--spacing-lrg" aria-hidden="true"></span>
     Store details
   </button>

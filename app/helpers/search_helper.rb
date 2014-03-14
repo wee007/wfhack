@@ -4,7 +4,7 @@ module SearchHelper
     if attributes.path
       attributes.path
     else
-      action = 'show'
+      action = attributes[:action] || 'show'
       action = centre ? 'index_centre' : 'index_national' if kind == 'products'
       attributes.merge!({controller: kind, action: action})
       attributes.merge!({centre_id: centre}) if centre

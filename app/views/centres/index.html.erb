@@ -24,12 +24,9 @@
       <%# Hero heading wrap %>
       <div class="national__heading__intro">
         <h1>
-          <span>Show Us Your Style for the Chance to Win a Trip to London</span>
-          #FLATLAYTHENATION
+          <span><%= @centres.length %> centres. Over 10,300 stores. Over <%= number_with_delimiter(@products_count, separator: ',') %> products</span>
+          AUTUMN 2014
         </h1>
-        <a href="http://www.westfield.com.au/flatlay" rel="external" target="_blank">
-          Create &amp; Win <span class="icon icon--external-link icon--sml" aria-hidden="true"></span>
-        </a>
       </div>
       <%# //Hero heading wrap %>
 

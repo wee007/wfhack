@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.221
+Version:     0.2.222
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,10 @@ fi
 
 
 %changelog
+* Mon Mar 17 2014 ci <doperations@au.westfield.com> 0.2.222-1
+- Merge pull request #994 from cpearce/new-creative (chorn@au.westfield.com)
+- Change creative on national home page - WSF-6363 (cpearce@au.westfield.com)
+
 * Fri Mar 14 2014 ci <doperations@au.westfield.com> 0.2.221-1
 - Small fix to allow the addition of store category searches
   (ldewey@au.westfield.com)

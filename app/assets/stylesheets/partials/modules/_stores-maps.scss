@@ -104,6 +104,12 @@
       }
     }
 
+    /* Modifier: Detail view when they're 'featured items' and when 'store hours' are visible */
+    @include respond-min($ipad-landscape) {
+      &.stores-maps__inner--detail.is-featured-items,
+      &.stores-maps__inner--detail.is-store-hours-visible {bottom: 0;}
+    }
+
     /* Change `position` context when in map view */
     .is-map-view & {
       position: static;

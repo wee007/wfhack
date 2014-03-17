@@ -1,7 +1,6 @@
 ( function ( app ) {
   app.directive( 'toggleVisibility', ['$rootScope', '$timeout', '$document', function ( $rootScope, $timeout, $document ) {
 
-
     $rootScope.activeTVTarget = undefined;
 
     $rootScope.$watch( 'activeTVTarget', function ( value, prevValue ) {
@@ -73,6 +72,7 @@
       triggers( targetID ).attr( 'aria-expanded', false ).removeClass( activeClass );
       $target.removeClass( activeClass );
       $target.unbind('keydown');
+      $target.removeAttr('tabindex');
 
       // Replaces global search focus plugin.
       // Remove focus from input in target as it is hidden now
@@ -86,10 +86,18 @@
       triggers( targetID ).attr( 'aria-expanded', true ).addClass( activeClass );
       $target.addClass( activeClass );
 
-      // Replaces global search focus plugin.
-      // Set focus on first input in target as it should be the focus of user's attention
-      // Use jQuery to get correct focus function
-      jQuery('#' + targetID).find('input[type=text], input[type=search]').eq(0).focus();
+
+      $timeout(function() {
+        // Set focus on target
+        if (triggers($rootScope.activeTVTarget).attr('toggle-visibility-drop-down') == 'false') {
+          jQuery('#' + targetID).attr('tabindex', '-1');
+        }
+
+        // Replaces global search focus plugin.
+        // Set focus on first input in target as it should be the focus of user's attention
+        // Use jQuery to get correct focus function
+        jQuery('#' + targetID).find('input[type=text], input[type=search]').eq(0).focus();
+      });
 
       if (targetID) {
         // Let other dropdowns know that they should close themselves

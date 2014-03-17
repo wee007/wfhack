@@ -187,16 +187,12 @@
                     </thead>
                     <tbody>
                       <% @this_week_hours.each do |hour| %>
-                        <tr>
+                        <tr<%= " class=txt-bold" if today?(hour.date) %>>
                           <td>
-                            <% if today?(hour.date) %><em class="txt-bold"><% end %>
                             <%= format_day(hour.date,0,3) %><span class="hide-fully--palm-inline"><%= format_day(hour.date,3,6) %></span>
-                            <% if today?(hour.date) %></em><% end %>
                           </td>
                           <td>
-                            <% if today?(hour.date) %><em class="txt-bold"><% end %>
-                              <%= format_date(hour.date, "#{ordinalize_day(hour.date)} %b") %>
-                            <% if today?(hour.date) %></em><% end %>
+                            <%= format_date(hour.date, "#{ordinalize_day(hour.date)} %b") %>
                           </td>
                           <td>
                             <% if hour.description.present? %>
@@ -204,13 +200,11 @@
                             <% end %>
                           </td>
                           <td class="txt-right">
-                            <% if today?(hour.date) %><em class="txt-bold"><% end %>
                             <% if hour.closed %>
                               Closed
                             <% else %>
                               <time datetime="<%= hour.date %>T<%= hour.opening_time %>"><%= twelve_hour_format(hour.opening_time) %></time> &#8211; <time datetime="<%= hour.date %>T<%= hour.closing_time %>"><%= twelve_hour_format(hour.closing_time) %></time>
                             <% end %>
-                            <% if today?(hour.date) %></em><% end %>
                           </td>
                         </tr>
                       <% end %>

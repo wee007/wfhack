@@ -69,15 +69,9 @@
 
                 <tbody>
                   <% week.each do |day| %>
-                    <tr>
+                    <tr<%= " class=txt-bold" if today?(day.date) %>>
                       <td>
-                        <% if today?(day.date) %>
-                          <em class="txt-bold">
-                        <% end %>
-                          <%= format_day(day.date,0,3) %><span class="hide-fully--palm-inline"><%= format_day(day.date,3,6) %></span>
-                        <% if today?(day.date) %>
-                          </em>
-                        <% end %>
+                        <%= format_day(day.date,0,3) %><span class="hide-fully--palm-inline"><%= format_day(day.date,3,6) %></span>
                       </td>
                       <td>
                         <% if day.description.present? %>
@@ -87,16 +81,10 @@
                         <% end %>
                       </td>
                       <td class="txt-right">
-                        <% if today?(day.date) %>
-                          <em class="txt-bold">
-                        <% end %>
                         <% if day.closed %>
                           Closed
                         <% else %>
                           <time datetime="<%= day.date %>T<%= day.opening_time %>"><%= twelve_hour_format(day.opening_time) %></time> &#8211; <time datetime="<%= day.date %>T<%= day.closing_time %>"><%= twelve_hour_format(day.closing_time) %></time>
-                          <% end %>
-                        <% if today?(day.date) %>
-                          </em>
                         <% end %>
                       </td>
                     </tr>
@@ -149,18 +137,16 @@
 
                   <tbody>
                     <% @store_trading_hours[week_number].each do |day| %>
-                      <tr>
+                      <tr<%= " class=txt-bold" if today?(day.date) %>>
                         <td>
-                          <% if today?(day.date) %><em class="txt-bold"><% end %><%= format_day(day.date,0,3) %><span class="hide-fully--palm-inline"><%= format_day(day.date,3,6) %></span><% if today?(day.date) %></em><% end %>
+                          <%= format_day(day.date,0,3) %><span class="hide-fully--palm-inline"><%= format_day(day.date,3,6) %></span>
                         </td>
                         <td class="txt-right">
-                          <% if today?(day.date) %><em class="txt-bold"><% end %>
                           <% if day.closed %>
                             Closed
                           <% else %>
                             <time datetime="<%= day.date %>T<%= day.opening_time %>"><%= twelve_hour_format(day.opening_time) %></time> &#8211; <time datetime="<%= day.date %>T<%= day.closing_time %>"><%= twelve_hour_format(day.closing_time) %></time>
-                            <% end %>
-                          <% if today?(day.date) %></em><% end %>
+                          <% end %>
                         </td>
                       </tr>
                     <% end %>

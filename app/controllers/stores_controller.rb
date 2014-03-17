@@ -42,15 +42,13 @@ protected
   end
 
   def this_week_hours
-    StoreTradingHourService.find({store_id: store.id, centre_id: store.centre_id, to: store.this_sunday})
-  rescue => error
-    SplunkLogger::Logger.error \
-      "StoreThisWeekHoursError",
-      "store_id", store.id,
-      "centre_id", store.centre_id,
-      "to", store.this_sunday,
-      "error", error
-    []
+    this_monday = Date.commercial(Date.today.year, Date.today.cweek, 1).in_time_zone(centre.timezone)
+    this_sunday = (this_monday+6.days).strftime("%Y-%m-%d")
+    if store.present?
+      StoreTradingHourService.find({store_id: store.id, centre_id: store.centre_id, to: this_sunday})
+    else
+      []
+    end
   end
 
   def store

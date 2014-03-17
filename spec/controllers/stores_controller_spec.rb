@@ -45,7 +45,7 @@ describe StoresController do
     end
 
     context "when no hours exist for a store" do
-      before(:each) { controller.instance_variable_set(:@stores, double.as_null_object) }
+      before(:each) { controller.instance_variable_set(:@stores, []) }
 
       it "returns an empty array indicating no hours found" do
         get :show, centre_id: 'sydney', retailer_code: 'retailer_code', id: 1

@@ -55,11 +55,6 @@ class Store < Hashie::Mash
       .lstrip rescue nil
   end
 
-  def this_sunday
-    this_monday = Date.commercial(Date.today.year, Date.today.cweek, 1).in_time_zone(centre.timezone)
-    (this_monday+6.days).strftime("%Y-%m-%d")
-  end
-
   def to_gon
     gon = {
       id: id,

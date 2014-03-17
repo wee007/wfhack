@@ -1,6 +1,6 @@
 module CurationsHelper
 
-  NumberOfProducts = 100
+  NumberOfProducts = 50
 
   ProductCloudinaryUrls = %w[
 

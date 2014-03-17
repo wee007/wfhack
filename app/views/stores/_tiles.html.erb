@@ -1,9 +1,9 @@
-<div class="storefront__featured island-ends">
+<div class="storefront__featured storefront__featured--tiles island-ends">
   <div class="container">
     <div class="txt-formatted">
       <h2 class="mrg-half"><%= heading %> from <%= store.name %></h2>
     </div>
-    <ul class="storefront__featured__tiles grid grid--gutter-half grid--mrg-half">
+    <ul class="grid grid--gutter-half grid--mrg-half">
       <% results.each do |result| %>
         <li class="grid__item one-half non-palm-one-third">
           <%= render partial: "/shared/tiles/#{ kind }",

@@ -231,8 +231,22 @@
   /* Featured items */
   .storefront__featured {border-top: 1px solid $color-grey-med-3;}
 
+    /* Shopping hours */
+    .storefront__featured--hours {
+      /* Need to shorten the day at this breakpoint range due to lack of real estate */
+      /* Note: have to use `!important` keyword here to override the 'Hide' helper class */
+      @include respond-range($ipad-landscape, $desk-lrg) {
+        .table-striped .hide-fully--palm-inline {display: none !important;}
+      }
+
+      /* Adjust the width of the 1st column at this breakpoint */
+      @include respond-min($desk-lrg) {
+        col:first-child {width: $one-eighth;}
+      }
+    }
+
     /* Tiles */
-    .storefront__featured__tiles {
+    .storefront__featured--tiles {
       /* Hide 3rd tile by default */
       .grid__item:nth-child(3) {
         display: none;

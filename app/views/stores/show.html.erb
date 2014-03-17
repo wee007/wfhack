@@ -156,7 +156,7 @@
 
           <%# Store opening hours %>
           <% if @this_week_hours.present? %>
-            <div class="storefront__featured toggle-visibilitys island-ends js-store-hours-toggle-target" id="store-hours">
+            <div class="storefront__featured storefront__featured--hours toggle-visibility island-ends js-store-hours-toggle-target" id="store-hours">
               <div class="container">
                 <div class="txt-formatted">
                   <h2 class="mrg-half">Store Hours</h2>
@@ -164,10 +164,10 @@
                 <div class="islet island-non-palm box">
                   <table cellspacing="0" class="table-striped table-fixed">
                     <colgroup>
-                      <col class="one-tenth lap-sml-one-eighth" style="background: red"></col>
-                      <col class="one-quarter lap-sml-one-sixth lap-lrg-one-eighth" style="background: green"></col>
-                      <col style="background: pink"></col>
-                      <col class="two-fifths" style="background: yellow"></col>
+                      <col class="one-tenth lap-sml-one-eighth lap-lrg-one-sixths desk-one-tenth"></col>
+                      <col class="one-quarter lap-sml-one-sixth lap-lrg-one-fifth desk-one-sixth"></col>
+                      <col class="desk-two-fifths" style="background: pinks;"></col>
+                      <col class="two-fifths lap-lrg-one-third desk-one-quarter"></col>
                     </colgroup>
                     <thead>
                       <tr>
@@ -199,7 +199,6 @@
                             <% if today?(hour.date) %></em><% end %>
                           </td>
                           <td>
-                            <em class="pill">Holiday</em>
                             <% if hour.description.present? %>
                               <em class="pill <%= "txt-truncate txt-truncate--inline-block " if hour.description.length > 18 %>" <%= "title=#{hour.description.html_safe}" if hour.description.length > 18 %>><%= hour.description %></em>
                             <% end %>

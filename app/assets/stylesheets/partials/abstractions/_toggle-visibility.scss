@@ -5,6 +5,8 @@
 /*
 	Simply hiding/showing an element via a trigger powered by the 'Angular toggle visibility' directive.
 
+  .toggle-visibility--palm        - Only apply at palm.
+
 	Styleguide Toggle Visibility
 */
 
@@ -14,4 +16,11 @@
   /* Show when 'Angular toggle visibility' directive is visible and for non JS users */
   &.is-active,
   .no-js & {display: block;}
+}
+
+/* Modifier: only apply at palm */
+@include respond-min($non-palm) {
+  .toggle-visibility--palm {display: block;}
+
+  .toggle-visibility-btn {display: none;}
 }

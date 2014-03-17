@@ -14,7 +14,17 @@
         <header class="box">
           <%= image_tag 'dummy/curation-hero.jpg', alt: '', quality: 25, width: 1178, crop: 'limit', fetch_format: 'auto' %>
           <h1 class="island">Blue Is The New Black</h1>
-          <p class="product-curation__desc island-sides island-btm toggle-content toggle-content--palm js-toggle-content"><%= raw "Pulvinar etiam ut, eros vel quis mus arcu, mus, ut mauris placerat, adipiscing etiam sed cursus? Vut amet! Magna nunc pid adipiscing tempor non? Nascetur in tristique ut? Vut lacus, integer, auctor mauris risus enim turpis est dictumst est. Ac turpis tristique. Diam turpis amet lectus scelerisque aliquam? Cum scelerisque turpis facilisis, amet rhoncus. Tempor montes in ac sed enim, lacus sit arcu habitasse! Ac platea! Magna et magna".truncate(400, '&#8230;') %></p>
+          <p class="product-curation__desc island-sides island-btm toggle-visibility toggle-visibility--palm" id="curation-description"><%= raw "Pulvinar etiam ut, eros vel quis mus arcu, mus, ut mauris placerat, adipiscing etiam sed cursus? Vut amet! Magna nunc pid adipiscing tempor non? Nascetur in tristique ut? Vut lacus, integer, auctor mauris risus enim turpis est dictumst est. Ac turpis tristique. Diam turpis amet lectus scelerisque aliquam? Cum scelerisque turpis facilisis, amet rhoncus. Tempor montes in ac sed enim, lacus sit arcu habitasse! Ac platea! Magna et magna".truncate(400, '&#8230;') %></p>
+          <button type="button" class="btn btn--full btn--expand-collapse toggle-visibility-btn js-disabled-hide" toggle-visibility="curation-description" toggle-visibility-drop-down="false">
+            <span class="show-when-visible show-when-visible--block">
+              Collapse the description
+              <span aria-hidden="true" class="icon icon--arrow-up-full icon--lrg"></span>
+            </span>
+            <span class="hide-when-visible">
+              Read the description
+              <span aria-hidden="true" class="icon icon--arrow-down-full icon--lrg"></span>
+            </span>
+          </button>
         </header>
         <%# //Hero %>
 
@@ -128,18 +138,3 @@
 
 </article>
 <% end %>
-
-<%- content_for :custom_javascript do -%>
-  <%# Run 'Toggle content' plugin %>
-  <%= javascript_include_tag 'jquery-extensions/jquery.toggle-content' %>
-
-  <script>
-    // Initialise 'Toggle content' plugin
-    $(function() {
-      $('.js-toggle-content').toggleContent({
-        btnTxtOpen: 'Read the description <span aria-hidden="true" class="icon icon--arrow-down-full icon--lrg"></span>',
-        btnTxtClose: 'Collapse the description <span aria-hidden="true" class="icon icon--arrow-up-full icon--lrg"></span>'
-      });
-    });
-  </script>
-<%- end -%>

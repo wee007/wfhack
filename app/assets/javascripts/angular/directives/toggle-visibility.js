@@ -86,7 +86,7 @@
       triggers( targetID ).attr( 'aria-expanded', true ).addClass( activeClass );
       $target.addClass( activeClass );
 
-
+      // Wrapped in a timeout to prevent digest errors
       $timeout(function() {
         // Set focus on target
         if (triggers($rootScope.activeTVTarget).attr('toggle-visibility-drop-down') == 'false') {

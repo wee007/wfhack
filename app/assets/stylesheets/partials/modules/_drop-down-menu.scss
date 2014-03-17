@@ -83,8 +83,8 @@
     /* Make the target the same width as the drop down container */
     .drop-down-menu--target-width-center-align & {width: 100%;}
 
-    /* Non JS Users */
-    .no-js .drop-down-menu & {width: auto;}
+    /* Non JS users except when it's the hover version */
+    .no-js .drop-down-menu:not(.drop-down-container--hover) & {width: auto;}
 
     /* Shared rules */
     .drop-down-menu__hdr,

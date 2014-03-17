@@ -37,6 +37,10 @@ class Store < Hashie::Mash
     @centre ||= get_centre
   end
 
+  def opening_time
+    todays_hours.opening_time
+  end
+
   def closing_time
     todays_hours.closing_time
   end

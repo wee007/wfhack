@@ -11,7 +11,9 @@
       <em class="hide-visually">Loading, please wait&#8230;</em>
     </span>
     <%# //PJAX preloader %>
-    <div class="stores-maps__inner stores-maps__inner--detail <%= 'is-featured-items' if @products.present? or @deals.present? %>" id="stores-maps-toggle-listing-detail">
+
+    <div class="stores-maps__inner stores-maps__inner--detail js-store-hours-toggle-container<%= ' is-featured-items' if @products.present? or @deals.present? %>" id="stores-maps-toggle-listing-detail">
+
       <%# Back to listing link %>
       <div class="stores-maps__filters-toggle">
         <div class="container">
@@ -62,15 +64,6 @@
                 <%- end %>
                 <%# //Store level %>
 
-                <%# Store closing time %>
-                <%- if @store.closing_time.present? and !@store.closed_today %>
-                  <dt class="hide-visually">Opening hours</dt>
-                  <dd class="storefront__details__meta__no-indent">Open till <time datetime="<%= @store.closing_time %>"><%= twelve_hour_format @store.closing_time %></time> tonight</dd>
-                <%- else %>
-                  <dd class="storefront__details__meta__no-indent">Closed today</dd>
-                <%- end %>
-                <%# //Store closing time %>
-
                 <%# Store phone no %>
                 <%- if @store.phone_number.present? %>
                   <dt class="hide-visually hide-fully--palm">Store phone number</dt>
@@ -100,6 +93,33 @@
                   </dd>
                 <%- end %>
                 <%# //Store gift cards accepted %>
+
+                <%# Opening hours %>
+                <%- if @store.closing_time.present? and !@store.closed_today %>
+                  <dt class="hide-visually">Opening hours</dt>
+                  <dd>Open<span class="hide-fully--palm-inline"> from</span> <time datetime="<%= @store.opening_time %>"><%= twelve_hour_format @store.opening_time %></time>&#8211;<time datetime="<%= @store.closing_time %>"><%= twelve_hour_format @store.closing_time %></time><span class="hide-fully--palm-inline"> today</span>
+                  <% if @this_week_hours.present? %>
+                    <button class="btn btn--faux-link js-store-hours-toggle-trigger js-disabled-hide" toggle-visibility="store-hours">
+                      <span class="hide-fully--palm">
+                        (Show
+                        <span class="show-when-visible">less)</span>
+                        <span class="hide-when-visible">more)</span>
+                      </span>
+                      <span class="hide-fully--non-palm">
+                        <span class="show-when-visible">(Less)</span>
+                        <span class="hide-when-visible">(More)</span>
+                      </span>
+                    </button>
+                  <% end %>
+                  <span class="icon icon--hours icon--xlrg icon--fixed-width" aria-hidden="true"></span>
+                  </dd>
+                <%- else %>
+                  <dd>
+                    Closed today
+                    <span class="icon icon--hours icon--xlrg icon--fixed-width" aria-hidden="true"></span>
+                  </dd>
+                <%- end %>
+                <%# //Opening hours %>
 
               </dl>
               <%# //Store meta %>
@@ -134,13 +154,73 @@
           </div>
           <%# //Store details %>
 
+          <%# Store opening hours %>
+          <% if @this_week_hours.present? %>
+            <div class="storefront__featured storefront__featured--hours toggle-visibility island-ends js-store-hours-toggle-target" id="store-hours">
+              <div class="container">
+                <div class="txt-formatted">
+                  <h2 class="mrg-half">Store Hours</h2>
+                </div>
+                <div class="islet island-non-palm box">
+                  <table cellspacing="0" class="table-striped table-fixed">
+                    <colgroup>
+                      <col class="one-tenth lap-sml-one-eighth lap-lrg-one-sixths desk-one-tenth"></col>
+                      <col class="one-quarter lap-sml-one-sixth lap-lrg-one-fifth desk-one-sixth"></col>
+                      <col class="desk-two-fifths" style="background: pinks;"></col>
+                      <col class="two-fifths lap-lrg-one-third desk-one-quarter"></col>
+                    </colgroup>
+                    <thead>
+                      <tr>
+                        <th scope="col" class="table-cell-padding-off">
+                          <span class="hide-visually">Day</span>
+                        </th>
+                        <th scope="col" class="table-cell-padding-off">
+                          <span class="hide-visually">Date</span>
+                        </th>
+                        <th scope="col" class="table-cell-padding-off">
+                          <span class="hide-visually">Public holiday</span>
+                        </th>
+                        <th scope="col" class="table-cell-padding-off">
+                          <span class="hide-visually">Hours</span>
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <% @this_week_hours.each do |hour| %>
+                        <tr<%= " class=txt-bold" if today?(hour.date) %>>
+                          <td>
+                            <%= format_day(hour.date,0,3) %><span class="hide-fully--palm-inline"><%= format_day(hour.date,3,6) %></span>
+                          </td>
+                          <td>
+                            <%= format_date(hour.date, "#{ordinalize_day(hour.date)} %b") %>
+                          </td>
+                          <td>
+                            <% if hour.description.present? %>
+                              <em class="pill <%= "txt-truncate txt-truncate--inline-block " if hour.description.length > 18 %>" <%= "title=#{hour.description.html_safe}" if hour.description.length > 18 %>><%= hour.description %></em>
+                            <% end %>
+                          </td>
+                          <td class="txt-right">
+                            <% if hour.closed %>
+                              Closed
+                            <% else %>
+                              <time datetime="<%= hour.date %>T<%= hour.opening_time %>"><%= twelve_hour_format(hour.opening_time) %></time> &#8211; <time datetime="<%= hour.date %>T<%= hour.closing_time %>"><%= twelve_hour_format(hour.closing_time) %></time>
+                            <% end %>
+                          </td>
+                        </tr>
+                      <% end %>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          <% end %>
+          <%# //Store opening hours %>
+
           <%# Product and Deal tiles %>
           <%- if @products.present? or @deals.present? %>
-            <footer class="storefront__featured">
-
+            <footer>
               <%= render 'tiles', results: @products, kind: 'product', heading: 'Featured', path: centre_products_path( centre_id: @centre.code, retailer: [ params[ :retailer_code ] ] ), store: @store if @products.present? %>
               <%= render 'tiles', results: @deals, kind: 'deal', heading: 'Deals', path: centre_deals_path( @centre.code ), store: @store if @deals.present? %>
-
             </footer>
           <% end %>
           <%# //Product and Deal tiles %>
@@ -149,6 +229,7 @@
 
       </div>
       <%#//Store details %>
+
       <script>
         function storeMapPageReady() {
 
@@ -201,8 +282,17 @@
             });
 
           }
+
+          $('.js-store-hours-toggle-trigger').click(function() {
+            if ($('.js-store-hours-toggle-target').hasClass('is-active')) {
+              $('.js-store-hours-toggle-container').addClass('is-store-hours-visible');
+            } else {
+              $('.js-store-hours-toggle-container').removeClass('is-store-hours-visible');
+            }
+          })
         }
       </script>
+
     </div>
   </div>
   <%# //Contain 'back to listing link' and 'store details' %>

@@ -36,6 +36,76 @@ describe StoresController do
 
   end
 
+  describe :this_week_hours do
+    let(:centre) { Hashie::Mash.new(id: 'sydney', timezone: 'Australia/Sydney') }
+
+    before(:each) do
+      controller.stub(:build_services_responses)
+      controller.instance_variable_set(:@centre, centre)
+    end
+
+    context "when no hours exist for a store" do
+      before(:each) { controller.instance_variable_set(:@stores, []) }
+
+      it "returns an empty array indicating no hours found" do
+        get :show, centre_id: 'sydney', retailer_code: 'retailer_code', id: 1
+        expect(controller.send(:this_week_hours)).to eq([])
+      end
+    end
+
+    context "when more than one week of hours exist for a store" do
+      def create_two_weeks_of_hours
+        (0..13).each_with_index do |hour, index|
+          StoreTradingHour.new({store_id: stores.first.id, day_of_week: index})
+        end
+      end
+
+      let(:this_sunday) do
+        this_monday = Date.commercial(Date.today.year, Date.today.cweek, 1).in_time_zone(centre.timezone)
+        (this_monday+6.days).strftime("%Y-%m-%d")
+      end
+      let(:stores) do
+        [
+          Hashie::Mash.new(
+            id: 1,
+            retailer_id: 1,
+            centre_id: 'sydney',
+            retailer_code: 'retailer_code',
+            this_sunday: this_sunday
+          )
+        ]
+      end
+      let(:one_week_of_hours_params) do
+        {
+          store_id: stores.first.id,
+          centre_id: stores.first.centre_id,
+          to: this_sunday
+        }
+      end
+      let(:one_week_of_hours) do
+        one_week_of_hours = []
+        (0..6).each_with_index do |hour, index|
+          one_week_of_hours << Hashie::Mash.new(store_id: stores.first.id, day_of_week: index)
+        end
+        one_week_of_hours
+      end
+
+      before(:each) do
+        create_two_weeks_of_hours
+        controller.stub(:todays_hours)
+        controller.instance_variable_set(:@stores, stores)
+        StoreTradingHourService.stub(:find)
+          .with(one_week_of_hours_params)
+          .and_return(one_week_of_hours)
+      end
+
+      it "returns this week hours only" do
+        get :show, centre_id: 'sydney', retailer_code: 'retailer_code', id: 1
+        expect(controller.send(:this_week_hours)).to eq(one_week_of_hours)
+      end
+    end
+  end
+
   describe :build_services_responses do
 
     let( :store_attributes ) do

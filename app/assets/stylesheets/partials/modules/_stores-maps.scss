@@ -104,9 +104,10 @@
       }
     }
 
-    /* Modifier: Detail view when they're 'Featured items' */
+    /* Modifier: Detail view when they're 'featured items' and when 'store hours' are visible */
     @include respond-min($ipad-landscape) {
-      &.stores-maps__inner--detail.is-featured-items {bottom: 0;}
+      &.stores-maps__inner--detail.is-featured-items,
+      &.stores-maps__inner--detail.is-store-hours-visible {bottom: 0;}
     }
 
     /* Change `position` context when in map view */
@@ -323,17 +324,21 @@
           }
         }
 
-        /* Keyword filter textbox - need to increase specificity to override the dynamic `is-active` class that gets appended for toggle visibility Angular directive */
-        .stores-maps__filters .stores-maps__keyword-filter-input {
+        /* Keyword filter input */
+       .stores-maps__keyword-filter-input {
 
-          /* Display all filters on one line */
+          /* Always visible at this breakpoint */
           @include respond-min($iphone-landscape) {
-            display: inline-block;
-            width: 34%;
+            &,
+            /* Need to override dynamic `is-active` class appended by 'Angular toggle visibility' directive */
+            &.is-active {display: inline-block;}
+
+            width: 40%;
+            vertical-align: middle;
           }
 
           /* Reduce width to handle bigger map toggle button */
-          @include respond-min($lap-start) {
+          @include respond-range($lap-start, $ipad-portrait - 1) {
             width: 30%;
           }
 
@@ -342,8 +347,7 @@
             width: auto;
           }
 
-          /* When list and map view are separate and user is in map view
-             add padding to the right of the keyword filter so it does not cover the map controls */
+          /* When in map view add right padding so not to cover the map controls */
           .is-map-view & {
             @include to-rem(margin-right, $spacing-dbl+$spacing-quarter);
 
@@ -509,8 +513,9 @@
           overflow-y: auto;
         }
 
-        /* Modifier: Detail view when they're 'Featured items' */
-        .stores-maps__inner--detail.is-featured-items & {
+        /* Modifier: Detail view when they're 'featured items' and when 'store hours' are visible */
+        .stores-maps__inner--detail.is-featured-items &,
+        .stores-maps__inner--detail.is-store-hours-visible & {
           background-color: $color-grey-light-2;
           @include to-rem(bottom, $spacing-base);
         }

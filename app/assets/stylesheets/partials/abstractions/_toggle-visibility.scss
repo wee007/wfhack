@@ -1,5 +1,5 @@
 /* ======================================================================================
-   @MODULES -> ABSTRACTIONS -> TOGGLE VISIBILITY
+   @ABSTRACTIONS -> TOGGLE VISIBILITY
    ====================================================================================== */
 
 /*
@@ -8,10 +8,10 @@
 	Styleguide Toggle Visibility
 */
 
-/* JS users only */
-.js .toggle-visibility {
+.toggle-visibility {
   display: none;
 
-  /* Show */
-  &.is-active {display: block;}
+  /* Show when 'Angular toggle visibility' directive is visible and for non JS users */
+  &.is-active,
+  .no-js & {display: block;}
 }

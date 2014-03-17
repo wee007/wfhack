@@ -19,6 +19,9 @@
       .slides > li {
         @include to-rem(max-height, 297);
         overflow: hidden;
+
+        /* Non JS users */
+        .no-js & {max-height: none;}
       }
 
       /* Need fixed heights for each slide when there is no store banner */
@@ -131,8 +134,10 @@
     border-color: $color-grey-med-3;
     border-width: 1px 0;
 
-    /* When there are featured items */
-    .is-featured-items & {border-bottom: 0;}
+    /* When they're 'Featured items', 'Store hours' are visible and non JS users */
+    .is-featured-items &,
+    .is-store-hours-visible &,
+    .no-js & {border-bottom: 0;}
 
     /* Allow store link to be positioned over to the far right at this breakpoint */
     @include respond-min($ipad-portrait) {
@@ -223,44 +228,44 @@
       }
     }
 
-  /* Featured items (tiles) */
-  .storefront__featured__item {
-    border-top: 1px solid $color-grey-med-3;
+  /* Featured items */
+  .storefront__featured {border-top: 1px solid $color-grey-med-3;}
 
-    /* Hide 3rd tile at small viewports */
-    li:nth-child(3) {
-      display: none;
+    /* Shopping hours */
+    .storefront__featured--hours {
+      /* Need to shorten the day at this breakpoint range due to lack of real estate */
+      /* Note: have to use `!important` keyword here to override the 'Hide' helper class */
+      @include respond-range($ipad-landscape, $desk-lrg) {
+        .table-striped .hide-fully--palm-inline {display: none !important;}
+      }
 
-      /* Show 3rd tile at this breakpoint */
-      @include respond-min($non-palm) {
-        display: block;
+      /* Adjust the width of the 1st column at this breakpoint */
+      @include respond-min($desk-lrg) {
+        col:first-child {width: $one-eighth;}
       }
     }
 
-    /* Reinstate bottom margin for last child grid item */
-    .grid__item:last-child {@include to-rem(margin-bottom, $grid-gutter-half);}
+    /* Tiles */
+    .storefront__featured--tiles {
+      /* Hide 3rd tile by default */
+      .grid__item:nth-child(3) {
+        display: none;
 
-    /* Mods for 'Deals' tile at this breakpoint range */
-    @include respond-range($ipad-landscape, 1300) {
-      .tile--deals .tile__meta {
-        @include to-rem(padding, 55 15);
-
-        .tile__meta__desc {@include font-size($font-size-sml, 1.5);}
+        /* Show 3rd tile at this breakpoint */
+        @include respond-min($non-palm) {
+          display: block;
+        }
       }
-    }
-  }
 
-    /* Shared rules */
-    .storefront__featured__hdr,
-    .storefront__featured__view-more {font-family: $font-family-opensans;}
+      /* Reinstate bottom margin for last child grid item */
+      .grid__item:last-child {@include to-rem(margin-bottom, $grid-gutter-half);}
 
-    /* Headings */
-    .storefront__featured__hdr {
-      color: $color-txt-light;
-      @include font-size($font-size-lrger, 1.5);
-      @include to-rem(margin-bottom, $spacing-half);
+      /* Mods for 'Deal' tile at this breakpoint range */
+      @include respond-range($ipad-landscape, 1300) {
+        .tile--deals .tile__meta {
+          @include to-rem(padding, 55 15);
 
-      @include respond-min($non-palm) {
-        @include font-size(22, 1.5);
+          .tile__meta__desc {@include font-size($font-size-sml, 1.5);}
+        }
       }
     }

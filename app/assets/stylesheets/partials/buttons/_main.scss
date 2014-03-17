@@ -19,8 +19,6 @@
   Styleguide Button Main
 */
 
-/* TODO: `.btn-main-compact-icon` */
-
 .btn--main {
   @include font-size($font-size-sml, normal);
   @include to-em(padding, $spacing-half $spacing-base+$spacing-half);
@@ -165,7 +163,6 @@
         right: auto;
       }
     }
-
 	}
 
   /* Modifier: append an arrow to right edge using CSS triangle */

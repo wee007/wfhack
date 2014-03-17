@@ -3,7 +3,7 @@
    ====================================================================================== */
 
 /*
-	A generic drop down powered by 'Angular Toggle Visibility Directive' and a version for `:hover`. See the drop down menu module for an example of how it can be used.
+	A generic drop down powered by 'Angular Toggle Visibility' directive and a version for `:hover`. See the drop down menu module for an example of how it can be used.
 
   Styleguide Drop Down
 */
@@ -12,23 +12,22 @@
 .drop-down-container {position: relative;}
 
   /* The drop down */
-  .js,
-  .drop-down-container--hover {
-    .drop-down {
-      @include drop-down;
+  .drop-down {
+    @include drop-down;
 
-      /* Show the drop down for 'Angular Toggle Visibility Directive' */
-      &.is-active {display: block;}
-    }
+    /* Show the drop down when 'Angular toggle visibility' directive is visible, for hover version, and for non JS users except when it's a hover version */
+    &.is-active,
+    .drop-down-container--hover:hover &,
+    .no-js .drop-down-container:not(.drop-down-container--hover) & {display: block;}
+
+    /* Non JS users - always render in the document flow except when it's a hover version */
+    .no-js .drop-down-container:not(.drop-down-container--hover) & {position: static;}
   }
 
   /* Modifier: hover version */
   .drop-down-container--hover {
     /* Show the drop down and increase the `z-index` as it's possible for a hover drop down to overlap a non hover drop down */
-    &:hover .drop-down {
-      display: block;
-      z-index: $z-index-high+1;
-    }
+    &:hover .drop-down {z-index: $z-index-high+1;}
 
     /* Hide for touch devices as they don't have hover support */
     .touch & .drop-down {display: none;}

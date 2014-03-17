@@ -22,3 +22,11 @@
       @include font-size($font-size);
     }
   }
+
+  @include respond-min($non-palm) {
+    .product-curation__pager {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: 0;
+    }
+  }

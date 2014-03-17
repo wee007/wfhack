@@ -39,9 +39,6 @@ $share-pinterest: #ca2026 !default;
   .social-share__trigger {
     color: $color-grey-dark-3;
 
-    /* Hide elements that need to be shown when the drop down is active */
-    .drop-down-container__active {display: none;}
-
     &:hover,
     &:focus {color: $color-txt-light;}
 
@@ -59,12 +56,6 @@ $share-pinterest: #ca2026 !default;
   &.is-active .social-share__trigger {
     background-color: $color-grey-dark-3;
     color: #fff;
-
-    /* Hide elements that need to be shown when the drop down is non-active */
-    .drop-down-container__non-active {display: none;}
-
-    /* Show elements that need to be shown when the drop down is active */
-    .drop-down-container__active {display: inline-block;}
   }
 
   /* Loading state */
@@ -74,8 +65,8 @@ $share-pinterest: #ca2026 !default;
     .preloader {display: inline-block;}
 
     /* Hide elements whilst in loading state */
-    .drop-down-container__non-active,
-    .drop-down-container__active {display: none;}
+    .hide-when-visible,
+    .show-when-visible {display: none;}
   }
 
     /* Hide button text for 'Tile' version */

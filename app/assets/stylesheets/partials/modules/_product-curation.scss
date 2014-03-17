@@ -22,12 +22,3 @@
       @include font-size($font-size);
     }
   }
-
-  /* You May Also Like */
-  .product-curation__also-like {
-
-    @include respond-min($non-palm) {
-      h2 {text-align: center;}
-    }
-
-  }

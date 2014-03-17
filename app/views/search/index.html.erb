@@ -1,4 +1,4 @@
-<% content_for :class_for_main, "container--wide" %>
+<% content_for :class_for_main, "container--spacing-top-main-content " %>
 
 <% if @search.results.empty? %>
   <div class="no-content-fallback-msg">
@@ -7,10 +7,10 @@
   </div>
 <% else %>
 
-  <h1>Results for "<%= @search.term =%>"</h1>
+  <h1>Results for <em class="pill pill--txt-reset">"<%= @search.term =%>"</em></h1>
 
   <%# List of anchors to each search result type %>
-  <div class="nav-contextual js-nav-contextual js-viewport-check js-disabled-hide">
+  <div class="nav-contextual js-nav-contextual js-viewport-check">
     <div class="nav-contextual__clip">
       <div class="nav-contextual__clip__inner">
         <ul class="nav-contextual__list horiz-list js-nav-contextual-list">
@@ -26,37 +26,76 @@
   </div>
   <%#// List of anchors to each search result type %>
 
-  <section class="txt-formatted divider divider--lrg">
-    <h2 id="stores">
-      <span class="icon icon--store icon--spacing"></span>
-      Stores
-    </h2>
+  <section class="divider divider--lrg" aria-labelledby="stores">
+    <div class="txt-formatted">
+      <h2 id="stores">
+        <span class="icon icon--store icon--spacing"></span>
+        Stores
+      </h2>
+
+      <nav role="navigation">
+        <ul class="horiz-list horiz-list--spacing-base horiz-list--spacing-base-wrap txt-formatted__list-unstyled">
+          <li><a href="#" class="btn btn--main btn--main-white btn--main-lrg">Hairdressers</a></li>
+          <li><a href="#" class="btn btn--main btn--main-white btn--main-lrg">Hairdressers</a></li>
+          <li><a href="#" class="btn btn--main btn--main-white btn--main-lrg">Hairdressers</a></li>
+          <li><a href="#" class="btn btn--main btn--main-white btn--main-lrg">Hairdressers</a></li>
+        </ul>
+      </nav>
+
+      <h3>All stores matching "<strong><%= @search.term =%></strong>"</h3>
+    </div>
+
+    <div id="pin-board" class="pin-board grid grid--gutter-half grid--flush">
+      <% (1..5).each do |i| %>
+  <article class="tile tile--products box js-tile test-tile" role="article" >
 
 
-    <ul class="horiz-list horiz-list--spacing-base horiz-list--spacing-base-wrap">
-      <li><a href="#" class="btn btn--main btn--main-white btn--main-lrg">Hairdressers</a></li>
-      <li><a href="#" class="btn btn--main btn--main-white btn--main-lrg">Hairdressers</a></li>
-      <li><a href="#" class="btn btn--main btn--main-white btn--main-lrg">Hairdressers</a></li>
-      <li><a href="#" class="btn btn--main btn--main-white btn--main-lrg">Hairdressers</a></li>
-    </ul>
+  <a class="test-tile-link" href="http://www.westfield.com.au/sydney/products/city-chic/spliced-deco-lace-dress/498605" target="_self"><div class="tile__image">
+  <img alt="" data-height="1167" src="http://res.cloudinary.com/wlabs/image/fetch/c_limit,f_auto,w_289/http://res.cloudinary.com/wlabs/image/upload/v1394248622/ptklr9fno4lm8eg3f2sc.jpg" />
+</div>
 
-    <p>
-      All stores matching "<strong><%= @search.term =%></strong>"
+<div class="tile__meta">
+
+  <span class="tile__meta__icon">
+    <span class="icon icon--products icon--lrg" aria-hidden="true"></span>
+  </span>
+
+  <div class="tile__meta__inner">
+    <h3 class="tile__meta__hdr txt-truncate">Spliced Deco Lace Dress</h3>
+    <p class="tile__meta__desc txt-truncate">
+      <span class="tile__meta__desc__price">$129.95</span>
+      from <strong>City Chic</strong>
     </p>
+  </div>
 
-    <ul class="horiz-list horiz-list--spacing-base">
-      <li><a href="/sydney/stores/djs-hair-artistry/42106">DJ's Hair Artistry</a></li>
-      <li>
-        <a href="/sydney/stores/hair-scope-hairdressing/42099" class="tile">
-          <div class="tile__image">
-            <%= image_tag 'placeholder-movie.png', alt: '', fetch_format: 'auto' %>
-          </div>
-          <div class="tile__meta">
-            <h3 class="tile__meta__hdr">Hair Scope Hairdressing</h3>
-          </div>
-        </a>
-      </li>
-    </ul>
+</div>
+</a>
+
+  <div class="tile__controls js-tile-controls">
+    <div class="social-share drop-down-container js-social-share" data-url="http://www.westfield.com.au/sydney/products/498605/social-share" aria-live="polite" aria-atomic="true">
+
+  <button type="button" class="social-share__trigger controls__btn btn js-social-share-trigger" aria-haspopup="true" aria-expanded="false">
+
+    <span class="preloader">
+      <span class="preloader__spinner"></span>
+      <em>Loading&#8230;</em>
+    </span>
+
+    <span class="icon icon--share icon--lrg icon--spacing-lrg drop-down-container__non-active" aria-hidden="true"></span><!--
+    --><span class="drop-down-container__non-active social-share__trigger__txt">Share</span><!--
+    --><span class="icon icon--close-lrg icon--lrg icon--spacing-lrg drop-down-container__active" aria-hidden="true"></span><!--
+    --><span class="drop-down-container__active social-share__trigger__txt">Close</span>
+
+  </button>
+
+</div>
+
+  </div>
+
+</article>
+      <% end %>
+
+    </div>
   </section>
 
   <section class="txt-formatted divider divider--lrg">

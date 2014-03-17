@@ -20,5 +20,8 @@
   @include font-size($font-size-milli);
 }
 
+  /* Modifier: */
+  .pill--txt-reset {font-size: 100%;}
+
 /* Modifier: apply spacing both sides */
 .pill--spacing {@include to-rem(margin-left margin-right, $spacing-base);}

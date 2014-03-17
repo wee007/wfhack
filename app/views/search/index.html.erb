@@ -14,10 +14,10 @@
     <div class="nav-contextual__clip">
       <div class="nav-contextual__clip__inner">
         <ul class="nav-contextual__list horiz-list js-nav-contextual-list">
-          <li><a href="#stores">Stores (<%= @search.results.stores.length =%>)</a></li>
-          <li><a href="#products">Products (<%= @search.results.products.length =%>)</a></li>
-          <li><a href="#deals">Deals (999)</a></li>
-          <li><a href="#events">Events (999)</a></li>
+          <%= content_tag :li, link_to("Stores (#{@search.results.stores.length})", anchor: 'stores') if @search.results.stores.present? %><!--
+       --><%= content_tag :li, link_to("Products (#{@search.results.products.length})", anchor: 'products') if @search.results.products.present? %><!--
+       --><%= content_tag :li, link_to('Deals', anchor: 'deals') if @search.results.deals.present? %><!--
+       --><%= content_tag :li, link_to('Events', anchor: 'events') if @search.results.events.present? %>
         </ul>
       </div>
       <span class="nav-contextual__clip__overlay icon icon--arrow-right icon--mega icon--flush-top js-nav-contextual-clip-overlay" aria-hidden="true"></span>
@@ -44,15 +44,25 @@
       <h3>All stores matching "<strong><%= @search.term =%></strong>"</h3>
     </div>
 
-    <div id="pin-boarda" style="display:block" class="pin-board grid grid--gutter-half grid--flush">
-      <% @search.results.stores.each do |store| %>
 
+  <%# Pin board %>
+  <%#= pin_board(@search.results.stores.each) do |store| %>
+    <%#= tile "store", result: store %>
+  <%# end %>
+  <%# //Pin board %>
+
+
+    <div id="pin-board" style="display:block;" class="pin-board grid grid--gutter-half grid--flush">
+      <% @search.results.stores.each do |store| %>
+      Kind<%= store[:kind] %>
+        <div class="grid__item one-half">
+      <article class="tile tile--deals box js-tile" role="article">
         <%# Tile store meta %>
         <div class="tile__meta ">
 
           <%# Tile deal logo %>
-          <% if store.logo %>
-            <%= fetch_image_tag store.logo,
+          <% if store[:logo] %>
+            <%= fetch_image_tag store[:logo],
               alt: "#{store.display} logo",
               width: 168,
               height: 62,
@@ -63,17 +73,19 @@
           <% end %>
           <%# //Tile deal logo %>
 
-          <%# Tile store name %>
-          <h3 class="tile__meta__hdr txt-truncate"><%= store.display %></h3>
-          <%# //Tile store name %>
+          <%# Tile deal title %>
+            <p class="tile__meta__desc txt-hyphenate"><%= store[:display] %></p>
+          <%# //Tile deal title %>
 
         </div>
         <%# //Tile deal meta %>
 
         <%# Tile deal icon %>
         <span class="tile__meta__icon">
-          <span class="icon icon--stores icon--lrg" aria-hidden="true"></span>
+          <span class="icon icon--store icon--lrg" aria-hidden="true"></span>
         </span>
+        </article>
+        </div>
         <%# //Tile deal icon %>
       <% end %>
 

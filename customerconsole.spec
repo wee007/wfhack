@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.222
+Version:     0.2.223
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,30 @@ fi
 
 
 %changelog
+* Tue Mar 18 2014 ci <doperations@au.westfield.com> 0.2.223-1
+- WSF-6252 Removed splunk logging and incorporate this_sunday logic into
+  this_week_hours method (ewee@au.westfield.com)
+- WSF-6252 Refactor conditional statement for bolding text
+  (ewee@au.westfield.com)
+- Fix IE issue (ewee@au.westfield.com)
+- Applying different viewport widths for store hours table
+  (cpearce@au.westfield.com)
+- Apply new toggle visibility content abstraction to social share module
+  (cpearce@au.westfield.com)
+- Removing comments from button partials (cpearce@au.westfield.com)
+- UI markup and styling for opening hours on storefront
+  (cpearce@au.westfield.com)
+- Replacing bespoke jQuery toggle content plugin with Angular tog vis and
+  refactoring where applicable (cpearce@au.westfield.com)
+- WSF-6252 Fixed up show / hide toggle (ewee@au.westfield.com)
+- WSF-6252 Refactored this week hours test (ewee@au.westfield.com)
+- WSF-6252 Show store hours day and month on storefronts
+  (ewee@au.westfield.com)
+- WSF-6252 Show store hours description on storefronts (ewee@au.westfield.com)
+- format store hours table. add show more/less button
+  (alec@smartalecwebsites.com.au)
+- WSF-6252 Added store hours to storefronts (ewee@au.westfield.com)
+
 * Mon Mar 17 2014 ci <doperations@au.westfield.com> 0.2.222-1
 - Merge pull request #994 from cpearce/new-creative (chorn@au.westfield.com)
 - Change creative on national home page - WSF-6363 (cpearce@au.westfield.com)

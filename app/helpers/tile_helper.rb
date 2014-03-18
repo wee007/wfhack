@@ -18,8 +18,10 @@ module TileHelper
       end
     when 'movie'
       centre_movie_url(centre_id: centre, id: result.id, movie_name: result.title.to_slug)
-    when 'notice' then
+    when 'notice'
       centre_notice_url(centre_id: centre, id: result.id)
+    when 'store'
+      centre_store_url(centre_id: centre, retailer_code: result[:retailer_code], id: result[:id])
     end
   end
 

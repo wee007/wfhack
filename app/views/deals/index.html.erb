@@ -22,7 +22,7 @@
   <%# //No deals fallback message %>
 
 <%- else -%>
-
+<%= @deals %>
   <%# Pin board %>
   <%= pin_board(@deals) do |deal| %>
     <%= tile "deal", result: deal %>

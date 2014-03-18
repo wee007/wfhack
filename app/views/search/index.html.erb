@@ -6,7 +6,6 @@
     <p><em class="h1">No results</em></span></p>
   </div>
 <% else %>
- <%= @search.results =%>
   <h1>Results for <em>"<%= @search.term =%>"</em></h1>
 
   <%# List of anchors to each search result type %>
@@ -46,50 +45,12 @@
 
 
   <%# Pin board %>
-  <%#= pin_board(@search.results.stores.each) do |store| %>
-    <%#= tile "store", result: store %>
-  <%# end %>
+  <%= pin_board(@search.results.stores) do |store| %>
+    <%= tile "store", result: store %>
+  <% end %>
   <%# //Pin board %>
 
 
-    <div id="pin-board" style="display:block;" class="pin-board grid grid--gutter-half grid--flush">
-      <% @search.results.stores.each do |store| %>
-      Kind<%= store[:kind] %>
-        <div class="grid__item one-half">
-      <article class="tile tile--deals box js-tile" role="article">
-        <%# Tile store meta %>
-        <div class="tile__meta ">
-
-          <%# Tile deal logo %>
-          <% if store[:logo] %>
-            <%= fetch_image_tag store[:logo],
-              alt: "#{store.display} logo",
-              width: 168,
-              height: 62,
-              class: "tile__meta__logo",
-              crop: :pad,
-              format: :auto
-            %>
-          <% end %>
-          <%# //Tile deal logo %>
-
-          <%# Tile deal title %>
-            <p class="tile__meta__desc txt-hyphenate"><%= store[:display] %></p>
-          <%# //Tile deal title %>
-
-        </div>
-        <%# //Tile deal meta %>
-
-        <%# Tile deal icon %>
-        <span class="tile__meta__icon">
-          <span class="icon icon--store icon--lrg" aria-hidden="true"></span>
-        </span>
-        </article>
-        </div>
-        <%# //Tile deal icon %>
-      <% end %>
-
-    </div>
   </section>
 
   <section class="txt-formatted divider divider--lrg">

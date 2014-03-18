@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.224
+Version:     0.2.225
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,31 @@ fi
 
 
 %changelog
+* Tue Mar 18 2014 ci <doperations@au.westfield.com> 0.2.225-1
+- Merge pull request #999 from cpearce/product-curation-ui
+  (cpearce@au.westfield.com)
+- Fixing up conflicts after rebase and adding new modifier for 'toggle
+  visibility' (cpearce@au.westfield.com)
+- params['tickle'] for dark curations (michael@michaelbamford.com)
+- Adding temp styles for the removal of 'You may also like' section
+  (cpearce@au.westfield.com)
+- Removing styles for 'You may also like' section heading
+  (cpearce@au.westfield.com)
+- Removing nav element from 'You may also like' section
+  (cpearce@au.westfield.com)
+- Adding social share triggers to pinboard tiles (cpearce@au.westfield.com)
+- Creating a new max width modifier for button main (cpearce@au.westfield.com)
+- Setting product tiles to show 50 in pin board before paginating
+  (cpearce@au.westfield.com)
+- Applying Cloudinary image params for hero image (cpearce@au.westfield.com)
+- Styling for hero, more retailer links, and pagination modules
+  (cpearce@au.westfield.com)
+- Finishing pinboard styling (cpearce@au.westfield.com)
+- Defining the master grid dimensions and start of pinboard fixed height
+  styling (cpearce@au.westfield.com)
+- Setting up new curation page and first round of markup
+  (cpearce@au.westfield.com)
+
 * Tue Mar 18 2014 ci <doperations@au.westfield.com> 0.2.224-1
 - Remove outline when setting focus via toggle visibility directive
   (alec@smartalecwebsites.com.au)

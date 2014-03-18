@@ -78,6 +78,12 @@ class StoreMapPage
 
     @dynamic_heights = new DynamicHeights()
     @keyword_filter = new StoresKeywordFilter(@map, @dynamic_heights.check)
+    $('.js-store-hours-toggle-trigger').click @dynamic_heights.check
+
+    # Escape key will trigger check for store detail container height
+    $(document).bind 'keydown', (event) =>
+      if event.keyCode == 27
+        @dynamic_heights.check()
 
     @pageLoaded()
 

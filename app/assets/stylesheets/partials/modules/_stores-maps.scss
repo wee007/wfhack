@@ -104,12 +104,6 @@
       }
     }
 
-    /* Modifier: Detail view when they're 'featured items' and when 'store hours' are visible */
-    @include respond-min($ipad-landscape) {
-      &.stores-maps__inner--detail.is-featured-items,
-      &.stores-maps__inner--detail.is-store-hours-visible {bottom: 0;}
-    }
-
     /* Change `position` context when in map view */
     .is-map-view & {
       position: static;
@@ -462,6 +456,9 @@
       /* Post filter count */
       .is-filter-applied & {@include to-rem(top, 91);}
 
+      /* When element contents are not as tall as container */
+      &.is-variable-height {bottom: auto !important;}
+
       /* Modifier: Listing view */
       .stores-maps__inner--listing & {background-color: #fff;}
 
@@ -509,15 +506,10 @@
           position: absolute;
           bottom: auto;
           @include to-rem(top, 110);
+          @include to-rem(bottom, $spacing-base);
           pointer-events: auto;
           overflow-y: auto;
-        }
-
-        /* Modifier: Detail view when they're 'featured items' and when 'store hours' are visible */
-        .stores-maps__inner--detail.is-featured-items &,
-        .stores-maps__inner--detail.is-store-hours-visible & {
           background-color: $color-grey-light-2;
-          @include to-rem(bottom, $spacing-base);
         }
       }
 

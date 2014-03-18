@@ -3,6 +3,7 @@
 #= require map/responsive_map
 #= require fastclick
 #= require stores/stores_keyword_filter
+#= require stores/dynamic_heights
 
 class StoreMapPage
 
@@ -75,7 +76,8 @@ class StoreMapPage
       false
     )
 
-    @keyword_filter = new StoresKeywordFilter(@map)
+    @dynamic_heights = new DynamicHeights()
+    @keyword_filter = new StoresKeywordFilter(@map, @dynamic_heights.check)
 
     @pageLoaded()
 

@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.223
+Version:     0.2.224
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,19 @@ fi
 
 
 %changelog
+* Tue Mar 18 2014 ci <doperations@au.westfield.com> 0.2.224-1
+- Remove outline when setting focus via toggle visibility directive
+  (alec@smartalecwebsites.com.au)
+- remove whitespace and comment (alec@smartalecwebsites.com.au)
+- correctly set focus on tog vis target when it's not a dropdown
+  (alec@smartalecwebsites.com.au)
+- add drop down attribute to tog vis instances where clicking outside widget
+  should not close it (alec@smartalecwebsites.com.au)
+- add comments (alec@smartalecwebsites.com.au)
+- set target focus for non dropdown instances (alec@smartalecwebsites.com.au)
+- Add ability to not close tog vis when clicking outside, WIP
+  (alec@smartalecwebsites.com.au)
+
 * Tue Mar 18 2014 ci <doperations@au.westfield.com> 0.2.223-1
 - WSF-6252 Removed splunk logging and incorporate this_sunday logic into
   this_week_hours method (ewee@au.westfield.com)

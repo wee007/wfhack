@@ -2,8 +2,6 @@ module Routes
   module ProductRoutes
     def self.draw(context, kind)
       context.instance_eval do
-        get 'products/curation/:code' => "curations#show"
-
         get 'products' => "products#index_#{kind}"
         get 'products/:id/redirection' => 'products#redirection', as: 'product_redirection'
         get 'products/:id/social-share' => 'social_shares#show', as: 'product_social_share', kind: 'product'
@@ -59,6 +57,7 @@ CustomerConsole::Application.routes.draw do
     get 'services', to: 'centre_service_details#show'
     get 'canned-searches/:id/social-share' => 'social_shares#show', as: 'canned_search_social_share', kind: 'canned_search'
     get 'search', to: 'search#index', as: 'search'
+    get 'products/curation/:slug' => "curations#show"
     Routes::ProductRoutes.draw self, 'centre'
   end
 

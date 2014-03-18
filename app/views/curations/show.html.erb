@@ -1,6 +1,6 @@
 <% content_for :class_for_main, "container--spacing-top-main-content" %>
 
-<% if Rails.env.development? or ('true' == params['tickle']) %>
+<% if Rails.env.development? or ('fancy' == params['tickle']) %>
 <article class="product-curation" role="article">
 
   <%# 'Hero', 'More from retailers (non-palm)' and 'Pin board' %>
@@ -12,9 +12,9 @@
 
         <%# Hero %>
         <header class="box">
-          <%= image_tag 'dummy/curation-hero.jpg', alt: '', quality: 25, width: 1178, crop: 'limit', fetch_format: 'auto' %>
-          <h1 class="island">Blue Is The New Black</h1>
-          <p class="product-curation__desc island-sides island-btm toggle-visibility toggle-visibility--palm" id="curation-description"><%= raw "Pulvinar etiam ut, eros vel quis mus arcu, mus, ut mauris placerat, adipiscing etiam sed cursus? Vut amet! Magna nunc pid adipiscing tempor non? Nascetur in tristique ut? Vut lacus, integer, auctor mauris risus enim turpis est dictumst est. Ac turpis tristique. Diam turpis amet lectus scelerisque aliquam? Cum scelerisque turpis facilisis, amet rhoncus. Tempor montes in ac sed enim, lacus sit arcu habitasse! Ac platea! Magna et magna".truncate(400, '&#8230;') %></p>
+          <%= fetch_image_tag @curation.image, alt: '', quality: 25, width: 1178, crop: 'limit', fetch_format: 'auto' %>
+          <h1 class="island txt-hyphenate"><%= raw @curation.name.truncate 60, '&#8230;' %></h1>
+          <p class="product-curation__desc island-sides island-btm toggle-visibility toggle-visibility--palm" id="curation-description"><%= raw @curation.description.truncate(400, '&#8230;') %></p>
           <button type="button" class="btn btn--full btn--expand-collapse toggle-visibility-btn js-disabled-hide" toggle-visibility="curation-description" toggle-visibility-drop-down="false">
             <span class="show-when-visible show-when-visible--block">
               Collapse the description
@@ -28,6 +28,7 @@
         </header>
         <%# //Hero %>
 
+        <% if 'fancy' == params['tickle'] %>
         <%# More from retailers (non-palm) %>
         <footer class="hide-fully--palm mrg-dbl-top">
           <section aria-labelledby="curation-retailers-non-palm">
@@ -38,6 +39,7 @@
           </section>
         </footer>
         <%# //More from retailers (non-palm) %>
+        <% end %>
 
       </div>
       <%# //'Hero' and 'More from retailers (non-palm)' %>
@@ -50,23 +52,28 @@
         <div class="pin-board-curation">
 
           <%# Pin board row %>
-          <% i = 0; curated_products.in_groups_of(5) do |products| %>
+          <% content_for :tile_class, 'tile--fixed-img-height' %>
+          <% @curation.products.in_groups_of 5 do |products| %>
             <div class="grid <%= cycle '', 'grid--rev' -%> grid--gutter-half grid--mrg-half grid--non-linear">
 
               <%# Hero tile %>
               <div class="pin-board-curation__hero grid__item one-whole desk-one-half">
-                <%= render partial: 'tile_hero', object: products.shift %>
+                <%= render partial: '/shared/tiles/product',
+                      layout: '/layouts/tile',
+                      locals: { result: products.shift, options: { html_width: nil, width: 825, crop: 'pad' }} %>
               </div>
               <%# //Hero tile %>
 
               <%# Sidekick tiles (x4) %>
               <div class="pin-board-curation__sidekicks grid__item one-whole desk-one-half">
-                <% products.in_groups_of(2) do |sidekick_products| %>
+                <% products.in_groups_of 2 do |sidekick_products| %>
                   <div class="grid grid--gutter-half grid--mrg-half grid--non-linear">
                     <% sidekick_products.each do |sidekick_product| %>
                       <% if sidekick_product %>
                         <div class="grid__item one-half">
-                          <%= render partial: 'tile_sidekick', object: sidekick_product %>
+                          <%= render partial: '/shared/tiles/product',
+                                layout: '/layouts/tile',
+                                locals: { result: sidekick_product, options: { html_width: nil, width: 407, crop: 'pad' }} %>
                         </div>
                       <% end %>
                     <% end %>

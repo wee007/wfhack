@@ -1,0 +1,33 @@
+/* ======================================================================================
+   @MODULES -> PRODUCT CURATION
+   ====================================================================================== */
+
+/*
+	'Product curation' page, most of the styles for this module are taken care of by other modules, this module is needed for styles that we don't get from the inner modules.
+*/
+
+.product-curation {
+
+  /* Headings */
+  h1 {@include font-size(36);}
+
+  h2 {@include font-size(24, 1.3);}
+}
+
+  /* Description (toggled at palm) */
+  .product-curation__desc {
+    @include font-size($font-size-sml);
+
+    @include respond-min($ipad-landscape) {
+      @include font-size($font-size);
+    }
+  }
+
+  /* Temp styles until 'You may also like...' section is added */
+  @include respond-min($non-palm) {
+    .product-curation__pager {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: 0;
+    }
+  }

@@ -28,3 +28,12 @@
 
 /* Modifier: position relative container */
 .container--position {position: relative;}
+
+/* Modifier: adds top spacing when used as the direct child of `main` */
+.container--spacing-top-main-content {
+  @include to-rem(margin-top, $spacing-half);
+
+  @include respond-min($non-palm) {
+    @include to-rem(margin-top, $spacing-base);
+  }
+}

@@ -1,3 +1,5 @@
+<% content_for :class_for_main, "container--spacing-top-main-content" %>
+
 <% content_for :link_rels do %>
   <link rel="canonical" href="<%= canonical_url %>">
 <% end %>
@@ -403,7 +405,7 @@
 
 <p class="feedback feedback--warning js-enabled-hide">You need JavaScript enabled to use the product filters, as a fallback you can filter via the <strong>Product categories</strong> above. <a href="http://enable-javascript.com/" rel="external" target="_blank">Visit here</a> for instructions on how to enable JavaScript.</p>
 
-<div class="ng-cloak filters filters--pin-board js-disabled-hide">
+<div class="ng-cloak filters js-disabled-hide">
 
   <!-- ProductBrowseView will be rendered within here -->
   <div ng-view></div>

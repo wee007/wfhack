@@ -5,11 +5,13 @@
 /*
   Pin board container that holds all tiles.
 
+  .pin-board--curation    Curation pin board
+
   Styleguide Pin Board
 */
 
 /*
-  Notes: The pin board's layout (no of columns) is controlled via JS except at palm size where it's always 2 columns.
+  Note: The pin board's layout (no of columns) is controlled via JS except at palm size where it's always 2 columns.
 */
 
 .pin-board {
@@ -18,8 +20,6 @@
   .no-js &,
   &.is-loaded {display: block;}
 
-  /* Apply top spacing */
-  @include to-rem(margin-top, $spacing-half);
   /*
     Need a negative bottom margin to offset the bottom padding on the `body` to keep the spacing consistent with the top spacing, need to increase specificity to override grid's `:last-child` rule.
   */
@@ -31,9 +31,69 @@
       Don't show the pin board initially as it will be the wrong number of cols unless you are on a palm device. The cols are set to the right number via JS.
     */
     display: none;
-    /* Increase top spacing */
-    @include to-rem(margin-top, $spacing-base);
+
     /* Turn off negative bottom spacing */
     &.grid {margin-bottom: 0;}
   }
 }
+
+/* Modifier: Curation pin board - one grid row features one hero tile + a set of four smaller tiles. The hero tile's height needs to match the combined height of the four smaller tiles. See 'Tile module -> Modifier: fix image height' for the heights of the smaller tiles which we set outside of the pin board module for re-use. */
+
+/*
+  Hero tile
+
+  Note: height calculation = (small tile image height * 2) + (1 `.tile__meta` height) + $spacing-half. And using `line-height` to vertically align the images.
+*/
+
+$tile-meta-height: 50px !default;
+
+.pin-board-curation__hero .tile__image {
+  height: ($tile-fixed-height-1*2) + $tile-meta-height + $spacing-half;
+  line-height: ($tile-fixed-height-1*2) + $tile-meta-height + $spacing-half;
+
+  /* Increase heights/line-heights at these breakpoints */
+  @include respond-min(400) {
+    height: ($tile-fixed-height-2*2) + $tile-meta-height + $spacing-half;
+    line-height: ($tile-fixed-height-2*2) + $tile-meta-height + $spacing-half;
+  }
+
+  @include respond-min($iphone-landscape) {
+    height: ($tile-fixed-height-3*2) + $tile-meta-height + $spacing-half;
+    line-height: ($tile-fixed-height-3*2) + $tile-meta-height + $spacing-half;
+  }
+
+  @include respond-min($ipad-portrait) {
+    height: ($tile-fixed-height-4*2) + $tile-meta-height + $spacing-half;
+    line-height: ($tile-fixed-height-4*2) + $tile-meta-height + $spacing-half;
+  }
+
+  @include respond-min(860) {
+    height: ($tile-fixed-height-5*2) + $tile-meta-height + $spacing-half;
+    line-height: ($tile-fixed-height-5*2) + $tile-meta-height + $spacing-half;
+  }
+
+  /* When the pin board rows become horizontally aligned so the hero/small tile heights need to match exactly */
+  @include respond-min($desk) {
+    height: ($tile-fixed-height-6*2) + $tile-meta-height + $spacing-half;
+    line-height: ($tile-fixed-height-6*2) + $tile-meta-height + $spacing-half;
+  }
+}
+
+/* Sidekick tiles */
+
+/*
+  Note: really stupid fix for IE 9/10 & Firefox because they don't honour the negative bottom margin from the Grid `grid--non-linear` modifier :(
+*/
+
+.pin-board-curation .grid .pin-board-curation__sidekicks.grid__item {
+  /* IE10 */
+  @include ie-10-up {margin-bottom: 0;}
+
+  /* IE9 */
+  .ie-9 & {margin-bottom: 0;}
+}
+
+  /* Firefox */
+  @include target-mozilla {
+    .pin-board-curation .grid .pin-board-curation__sidekicks.grid__item {margin-bottom: 0;}
+  }

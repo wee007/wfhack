@@ -49,6 +49,7 @@ describe CustomerConsole::Application do
 
     context "for :centre/products" do
       let(:base_params) { { controller: "products", action: "index_centre", centre_id: "bondijunction" } }
+
       it "routes centre scoped product browse" do
         expect(get: "/bondijunction/products").to route_to(base_params)
       end
@@ -72,6 +73,13 @@ describe CustomerConsole::Application do
           id: '100'
         }))
       end
+    end
+
+    describe ':centre_id/products/curation/:code' do
+      let(:code) { 'red-socks' }
+      let(:centre_id) { 'bondijunction' }
+      subject {{ get: "#{centre_id}/products/curation/#{code}" }}
+      it { should route_to Hash[ controller: 'curations', action: 'show', centre_id: centre_id, code: code ]}
     end
 
     context "for social shares" do

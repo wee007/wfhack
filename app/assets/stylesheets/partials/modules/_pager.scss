@@ -5,7 +5,8 @@
 /*
 	For paging between sets of pages via 'Prev' and 'Next' links, also includes a page count.
 
-  .pager--pin-board       - Pin board version
+  .pager--pin-board       - Pin board
+  .pager--compact         - Compact
 
 	Styleguide Pager
 */
@@ -29,6 +30,12 @@
 
     /* Arrow icons */
     .icon:before {@include font-size(20, 1);}
+}
+
+/* Modifier: compact - remove top border and padding */
+.pager--compact {
+  border-top: 0;
+  padding-top: 0;
 }
 
 /* Modifier: pin board version */

@@ -1,0 +1,140 @@
+<% content_for :class_for_main, "container--spacing-top-main-content" %>
+
+<% if Rails.env.development? or ('true' == params['tickle']) %>
+<article class="product-curation" role="article">
+
+  <%# 'Hero', 'More from retailers (non-palm)' and 'Pin board' %>
+  <div class="divider divider--lrg-non-palmx">
+    <div class="grid grid--gutter-half grid--mrg-half grid--non-linear">
+
+      <%# 'Hero' and 'More from retailers (non-palm)' %>
+      <div class="grid__item lap-sml-one-third lap-lrg-one-quarter desk-one-fifth">
+
+        <%# Hero %>
+        <header class="box">
+          <%= image_tag 'dummy/curation-hero.jpg', alt: '', quality: 25, width: 1178, crop: 'limit', fetch_format: 'auto' %>
+          <h1 class="island">Blue Is The New Black</h1>
+          <p class="product-curation__desc island-sides island-btm toggle-visibility toggle-visibility--palm" id="curation-description"><%= raw "Pulvinar etiam ut, eros vel quis mus arcu, mus, ut mauris placerat, adipiscing etiam sed cursus? Vut amet! Magna nunc pid adipiscing tempor non? Nascetur in tristique ut? Vut lacus, integer, auctor mauris risus enim turpis est dictumst est. Ac turpis tristique. Diam turpis amet lectus scelerisque aliquam? Cum scelerisque turpis facilisis, amet rhoncus. Tempor montes in ac sed enim, lacus sit arcu habitasse! Ac platea! Magna et magna".truncate(400, '&#8230;') %></p>
+          <button type="button" class="btn btn--full btn--expand-collapse toggle-visibility-btn js-disabled-hide" toggle-visibility="curation-description" toggle-visibility-drop-down="false">
+            <span class="show-when-visible show-when-visible--block">
+              Collapse the description
+              <span aria-hidden="true" class="icon icon--arrow-up-full icon--lrg"></span>
+            </span>
+            <span class="hide-when-visible">
+              Read the description
+              <span aria-hidden="true" class="icon icon--arrow-down-full icon--lrg"></span>
+            </span>
+          </button>
+        </header>
+        <%# //Hero %>
+
+        <%# More from retailers (non-palm) %>
+        <footer class="hide-fully--palm mrg-dbl-top">
+          <section aria-labelledby="curation-retailers-non-palm">
+            <div class="txt-formatted mrg-base">
+              <h2 id="curation-retailers-non-palm">More from retailers</h2>
+            </div>
+            <%= render partial: 'more_from_retailers' %>
+          </section>
+        </footer>
+        <%# //More from retailers (non-palm) %>
+
+      </div>
+      <%# //'Hero' and 'More from retailers (non-palm)' %>
+
+      <%# Pin board %>
+      <section class="grid__item lap-sml-two-thirds lap-lrg-three-quarters desk-four-fifths" aria-labelledby="curation-pin-board">
+
+        <h2 class="hide-visually" id="curation-pin-board">Products</h2>
+
+        <div class="pin-board-curation">
+
+          <%# Pin board row %>
+          <% i = 0; curated_products.in_groups_of(5) do |products| %>
+            <div class="grid <%= cycle '', 'grid--rev' -%> grid--gutter-half grid--mrg-half grid--non-linear">
+
+              <%# Hero tile %>
+              <div class="pin-board-curation__hero grid__item one-whole desk-one-half">
+                <%= render partial: 'tile_hero', object: products.shift %>
+              </div>
+              <%# //Hero tile %>
+
+              <%# Sidekick tiles (x4) %>
+              <div class="pin-board-curation__sidekicks grid__item one-whole desk-one-half">
+                <% products.in_groups_of(2) do |sidekick_products| %>
+                  <div class="grid grid--gutter-half grid--mrg-half grid--non-linear">
+                    <% sidekick_products.each do |sidekick_product| %>
+                      <% if sidekick_product %>
+                        <div class="grid__item one-half">
+                          <%= render partial: 'tile_sidekick', object: sidekick_product %>
+                        </div>
+                      <% end %>
+                    <% end %>
+                  </div>
+                <% end %>
+              </div>
+              <%# //Sidekick tiles (x4) %>
+
+            </div>
+          <% end %>
+          <%# //Pin board row %>
+
+        </div>
+      </section>
+      <%# //Pin board %>
+
+    </div>
+  </div>
+  <%# //Hero and pin board %>
+
+  <%# Pager %>
+  <section class="product-curation__pager divider divider--lrg-non-palm" aria-labelledby="curation-pager">
+    <h2 class="hide-visually" id="curation-pager">Pagination</h2>
+    <nav class="pager pager--compact" role="navigation">
+      <div class="pager__inner">
+        <em class="pager__count">
+          <span class="hide-visually">Page </span>
+          20 of 10
+        </em>
+        <%# Previous page %>
+        <a href="#" rel="prev" class="pager__prev btn btn--pointer btn--pointer-alt btn--main btn--main-white">
+          <span class="icon icon--arrow-left-big btn--pointer__icon btn--pointer__icon--flush" aria-hidden="true"></span>
+          Prev
+        </a>
+        <%# //Previous page %>
+        <%# Next page %>
+        <a href="#" rel="next" class="pager__next btn btn--pointer btn--main btn--main-white">
+          Next
+          <span class="icon icon--arrow-right-big btn--pointer__icon btn--pointer__icon--flush" aria-hidden="true"></span>
+        </a>
+        <%# //Next page %>
+      </div>
+    </nav>
+  </section>
+  <%# //Pager %>
+
+  <%# 'More from retailers' and 'You may also like' %>
+  <footer>
+
+    <%# More from retailers (palm) %>
+    <section class="hide-fully--non-palm" aria-labelledby="curation-retailers-palm">
+      <div class="txt-formatted mrg-base">
+        <h2 id="curation-retailers-palm">More from retailers</h2>
+      </div>
+      <%= render partial: 'more_from_retailers' %>
+    </section>
+    <%# //More from retailers (palm) %>
+
+    <%# You may also like %>
+    <%#<section class="product-curation__also-like" aria-labelledby="curation-also-like">
+      <div class="txt-formatted mrg-base">
+        <h2 id="curation-also-like">You may also like&#8230;</h2>
+      </div>
+    </section>%>
+    <%# //You may also like %>
+
+  </footer>
+  <%# //'More from retailers' and 'You may also like' %>
+
+</article>
+<% end %>

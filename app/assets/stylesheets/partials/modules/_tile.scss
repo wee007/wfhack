@@ -5,7 +5,8 @@
 /*
   Renders a tile for different types of content e.g. a 'Product', 'Deal', 'Event', etc. Mainly used in pin board module.
 
-  .tile--deals      Deals
+  .tile--deals              Deals
+  .tile--fixed-img-height   Fix the tile image height
 
   Styleguide Tile
 */
@@ -56,6 +57,11 @@
   }
 
   /* Meta */
+
+  /*
+    Note: if the height of this element changes then adjust the `$tile-meta-height` value in the 'Pin Board module -> Modifier: curation'. Only applicable 'after' the `$iphone-landscape` breakpoint.
+  */
+
   .tile__meta {
     position: relative;
     @include to-rem(min-height, $spacing-base*2);
@@ -211,4 +217,51 @@
       @include to-rem(bottom, 9);
     }
   }
+}
+
+/* Modifier: fix image height */
+
+/* Note: using `line-height` to vertically align the images */
+
+$tile-fixed-height-1: 160px !default;
+$tile-fixed-height-2: 180px !default;
+$tile-fixed-height-3: 220px !default;
+$tile-fixed-height-4: 240px !default;
+$tile-fixed-height-5: 260px !default;
+$tile-fixed-height-6: 270px !default;
+
+.tile--fixed-img-height .tile__image {
+  height: $tile-fixed-height-1;
+  line-height: $tile-fixed-height-1 - 1;
+  /* Need this to remove browser generated white space from the `line-height` rule */
+  font-size: 0;
+
+  /* Increase heights/line-heights at these breakpoints */
+  @include respond-min(400) {
+    height: $tile-fixed-height-2;
+    line-height: $tile-fixed-height-2 - 1;
+  }
+
+  @include respond-min($iphone-landscape) {
+    height: $tile-fixed-height-3;
+    line-height: $tile-fixed-height-3 - 1;
+  }
+
+  @include respond-min($ipad-portrait) {
+    height: $tile-fixed-height-4;
+    line-height: $tile-fixed-height-4 - 1;
+  }
+
+  @include respond-min(860) {
+    height: $tile-fixed-height-5;
+    line-height: $tile-fixed-height-5 - 1;
+  }
+
+  @include respond-min($desk) {
+    height: $tile-fixed-height-6;
+    line-height: $tile-fixed-height-6 - 1;
+  }
+
+  /* This needs to be used along with Cloudinary's 'crop - pad' and specify the maximum width the image can ever be e.g. `c_pad,w_407` */
+  img {max-height: 100%;}
 }

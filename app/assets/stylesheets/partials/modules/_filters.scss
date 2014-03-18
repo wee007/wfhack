@@ -9,6 +9,11 @@
 */
 
 .filters {
+  @include to-rem(margin-bottom, $spacing-half);
+
+  @include respond-min($non-palm) {
+    @include to-rem(margin-bottom, $spacing-base);
+  }
 
   /* Hide elements at 'wide' layout at this breakpoint */
   @include respond-min($lap-lrg) {
@@ -39,15 +44,6 @@
       /* Hide drop down pointer arrow */
       &:before {display: none;}
     }
-  }
-}
-
-/* Modifier: when used for pin board */
-.filters--pin-board {
-  @include to-rem(margin-top, $spacing-half);
-
-  @include respond-min($non-palm) {
-    @include to-rem(margin-top, $spacing-base);
   }
 }
 

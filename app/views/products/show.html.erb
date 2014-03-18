@@ -234,14 +234,14 @@
       <ul class="horiz-list horiz-list--spacing-micro horiz-list--spacing-half-wrap">
         <% @product.category_hierarchy.each_with_index do |category, category_count| %>
           <li>
-            <%= link_to category_canonical_url(category_count), class: "btn btn--main btn--main-dark btn--main-arrow ga-prod-see-more" do %>
+            <%= link_to category_canonical_url(category_count), class: "btn btn--main btn--main-dark btn--main-arrow btn--main-max-width ga-prod-see-more" do %>
               <span class="txt-truncate"><%= category.name %></span>
             <% end %>
           </li>
         <% end %>
         <% if @product.retailer_code.present? %>
           <li>
-            <%= link_to retailer_canonical_url, class: "btn btn--main btn--main-dark btn--main-arrow ga-prod-see-more" do %>
+            <%= link_to retailer_canonical_url, class: "btn btn--main btn--main-dark btn--main-arrow btn--main-max-width ga-prod-see-more" do %>
               <span class="txt-truncate"><%= @product.retail_chain_name %></span>
             <% end %>
           </li>

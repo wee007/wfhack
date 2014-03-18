@@ -1,0 +1,38 @@
+<%# Hero tile %>
+<article class="tile tile--products tile--fixed-img-height box" role="article">
+  <a href="#" target="_self">
+    <%# [NOTE] the `img` and the `div` need to be on same line %>
+    <div class="tile__image"><img alt="" src="<%= tile_hero[:image_url] % 825 %>"></div>
+    <%# [NOTE] this is just replicated data from products tile %>
+    <div class="tile__meta">
+      <span class="tile__meta__icon">
+        <span class="icon icon--products icon--lrg" aria-hidden="true"></span>
+      </span>
+      <div class="tile__meta__inner">
+        <h3 class="tile__meta__hdr txt-truncate">Leopard Assassin</h3>
+        <p class="tile__meta__desc txt-truncate">
+          <span class="tile__meta__desc__price">$99.95</span>
+          from <strong>Bardot</strong>
+        </p>
+      </div>
+    </div>
+    <%# //[NOTE] this is just replicated data from products tile %>
+  </a>
+  <%# [NOTE] social share controls will come from tile layout %>
+  <div class="tile__controls js-tile-controls">
+    <div class="social-share drop-down-container js-social-share" aria-live="polite" aria-atomic="true">
+      <button type="button" class="social-share__trigger controls__btn btn js-social-share-trigger" aria-haspopup="true" aria-expanded="false">
+        <span class="preloader">
+          <span class="preloader__spinner"></span>
+          <em>Loading&#8230;</em>
+        </span>
+        <span class="icon icon--share icon--lrg icon--spacing-lrg hide-when-visible" aria-hidden="true"></span><!--
+        --><span class="drop-down-container__non-active social-share__trigger__txt hide-when-visible">Share</span><!--
+        --><span class="icon icon--close-lrg icon--lrg icon--spacing-lrg show-when-visible show-when-visible--inline-block" aria-hidden="true"></span><!--
+        --><span class="social-share__trigger__txt show-when-visible show-when-visible--inline-block">Close</span>
+      </button>
+    </div>
+  </div>
+  <%# //[NOTE] social share controls will come from tile layout %>
+</article>
+<%# //Hero tile %>

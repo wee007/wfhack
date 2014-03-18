@@ -10,6 +10,8 @@
 
 .toggle-visibility {
   display: none;
+  /* Remove browser outline as we set focus to this via the 'Angular toggle visibility' directive */
+  outline: none;
 
   /* Show when 'Angular toggle visibility' directive is visible and for non JS users */
   &.is-active,

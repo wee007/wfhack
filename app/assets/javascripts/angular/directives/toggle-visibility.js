@@ -1,7 +1,6 @@
 ( function ( app ) {
   app.directive( 'toggleVisibility', ['$rootScope', '$timeout', '$document', function ( $rootScope, $timeout, $document ) {
 
-
     $rootScope.activeTVTarget = undefined;
 
     $rootScope.$watch( 'activeTVTarget', function ( value, prevValue ) {
@@ -13,6 +12,7 @@
     // Clicking outside will close all toggleVisibility targets
     $document.bind( 'click', function ( event ) {
       if ($(event.target).parents('.js-toggle-visibility-target').length == 0 && $rootScope.activeTVTarget != undefined) {
+       $rootScope.closeReason = 'click';
        close();
       }
     });
@@ -30,7 +30,9 @@
 
     // Escape key will close all toggleVisibility targets
     $document.bind( 'keydown', function ( event ) {
-      if ( event.keyCode == 27 ) { close(); }
+      if ( event.keyCode == 27 ) {
+        close();
+      }
     });
 
     // Each trigger / target combination will have a corresponding id.
@@ -40,7 +42,11 @@
     // Closes all instances of toggleVisibility
     close = function () {
       $rootScope.$apply(function () {
-        $rootScope.activeTVTarget = undefined;
+        if (triggers($rootScope.activeTVTarget).attr('toggle-visibility-drop-down') == 'false' && $rootScope.closeReason === 'click') {
+          $rootScope.closeReason = ''
+        } else {
+          $rootScope.activeTVTarget = undefined;
+        }
       });
     },
 
@@ -62,11 +68,12 @@
     // Hide the target, set appropriate ARIA
     deactivateTarget = function ( targetID ) {
       $target = target( targetID )
+      $rootScope.closeReason = ''
       triggers( targetID ).attr( 'aria-expanded', false ).removeClass( activeClass );
       $target.removeClass( activeClass );
       $target.unbind('keydown');
+      $target.removeAttr('tabindex');
 
-      // Replaces global search focus plugin.
       // Remove focus from input in target as it is hidden now
       // Use jQuery to get correct blur function
       jQuery('#' + targetID).find('input[type=text], input[type=search]').eq(0).blur();
@@ -78,10 +85,18 @@
       triggers( targetID ).attr( 'aria-expanded', true ).addClass( activeClass );
       $target.addClass( activeClass );
 
-      // Replaces global search focus plugin.
-      // Set focus on first input in target as it should be the focus of user's attention
-      // Use jQuery to get correct focus function
-      jQuery('#' + targetID).find('input[type=text], input[type=search]').eq(0).focus();
+      // Wrapped in a timeout to prevent digest errors
+      $timeout(function() {
+        // Set focus on target
+        if (triggers($rootScope.activeTVTarget).attr('toggle-visibility-drop-down') == 'false' &&
+            jQuery('#' + targetID).find('input[type=text], input[type=search]').length == 0) {
+              jQuery('#' + targetID).attr('tabindex','-1').focus()
+        } else {
+          // Set focus on first input in target as it should be the focus of user's attention
+          // Use jQuery to get correct focus function
+          jQuery('#' + targetID).find('input[type=text], input[type=search]').eq(0).focus();
+        }
+      });
 
       if (targetID) {
         // Let other dropdowns know that they should close themselves

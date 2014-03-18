@@ -74,7 +74,6 @@
       $target.unbind('keydown');
       $target.removeAttr('tabindex');
 
-      // Replaces global search focus plugin.
       // Remove focus from input in target as it is hidden now
       // Use jQuery to get correct blur function
       jQuery('#' + targetID).find('input[type=text], input[type=search]').eq(0).blur();
@@ -89,14 +88,16 @@
       // Wrapped in a timeout to prevent digest errors
       $timeout(function() {
         // Set focus on target
-        if (triggers($rootScope.activeTVTarget).attr('toggle-visibility-drop-down') == 'false') {
-          jQuery('#' + targetID).attr('tabindex', '-1');
-        }
 
-        // Replaces global search focus plugin.
-        // Set focus on first input in target as it should be the focus of user's attention
-        // Use jQuery to get correct focus function
-        jQuery('#' + targetID).find('input[type=text], input[type=search]').eq(0).focus();
+        if (triggers($rootScope.activeTVTarget).attr('toggle-visibility-drop-down') == 'false' &&
+            jQuery('#' + targetID).find('input[type=text], input[type=search]').length == 0) {
+              jQuery('#' + targetID).attr('tabindex','-1').focus()
+        } else {
+          // Replaces global search focus plugin.
+          // Set focus on first input in target as it should be the focus of user's attention
+          // Use jQuery to get correct focus function
+          jQuery('#' + targetID).find('input[type=text], input[type=search]').eq(0).focus();
+        }
       });
 
       if (targetID) {

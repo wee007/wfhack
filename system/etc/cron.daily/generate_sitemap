@@ -3,5 +3,5 @@
 
 if [ -f /etc/westfield/master ]
   then
-    su -m -l nobody -c "flock -xn /var/www/customerconsole/shared/log/indexer_load_all.cron -c 'rvm use 2.0.0-p247 && cd /var/www/customerconsole/current && source /usr/local/rvm/scripts/rvm && http_proxy=http://proxy.dbg.westfield.com:8080 https_proxy=${http_proxy} ftp_proxy=${http_proxy} RAILS_ENV=$(grep RailsEnv /etc/httpd/conf.d/0passenger.conf | awk '{ print $2 }') RACK_ENV=$(grep RailsEnv /etc/httpd/conf.d/0passenger.conf | awk '{ print $2 }') bundle exec rake sitemap:refresh > /var/www/customerconsole/shared/log/generate_sitemap.cron 2>&1'"
+    su -m -l nobody -c "flock -xn /var/www/customerconsole/shared/log/indexer_load_all.cron -c '/usr/local/rvm/bin/rvm use 2.0.0-p247 && cd /var/www/customerconsole/current && source /usr/local/rvm/scripts/rvm && http_proxy=http://proxy.dbg.westfield.com:8080 https_proxy=${http_proxy} ftp_proxy=${http_proxy} RAILS_ENV=$(grep RailsEnv /etc/httpd/conf.d/0passenger.conf | awk '{ print $2 }') RACK_ENV=$(grep RailsEnv /etc/httpd/conf.d/0passenger.conf | awk '{ print $2 }') bundle exec rake sitemap:refresh > /var/www/customerconsole/shared/log/generate_sitemap.cron 2>&1'"
 fi

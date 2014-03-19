@@ -93,6 +93,8 @@ class StoreMapPage
 
   hide: =>
     @updateGUI @map.hide()
+    # Remove map popup when switck back to store list
+    @map.setTarget()
     false
 
   updateAngularStoreListControllerLinks: (viewingMap) ->

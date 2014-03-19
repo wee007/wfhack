@@ -36,8 +36,8 @@
         </h2>
       </div>
 
-      <nav role="navigation">
-        <ul class="horiz-list horiz-list--spacing-base horiz-list--spacing-base-wrap txt-formatted__list-unstyled">
+      <nav role="navigation" class="islet-top">
+        <ul class="horiz-list horiz-list--spacing-base horiz-list--spacing-half-wrap txt-formatted__list-unstyled">
           <% results.each do |result| %>
             <% if result.attributes.category.present? %>
             <li>
@@ -48,9 +48,23 @@
         </ul>
       </nav>
 
+      <h3>All <%= kind.singulaize %> brands  matching "<strong><%= @search.term =%></strong>"</h3>
+
+      <nav role="navigation" class="islet-top">
+        <ul class="horiz-list horiz-list--spacing-base horiz-list--spacing-half-wrap txt-formatted__list-unstyled">
+          <% results.each do |result| %>
+            <% if result.result_type == 'product_brand' %>
+            <li>
+              <%= link_to highlight(result[:display], @search.term,  highlighter: '<strong>\1</strong>'), build_url(@centre, kind, result[:attributes]), class: 'btn btn--main btn--main-white btn--main-lrg' %>
+            </li>
+            <% end %>
+          <% end %>
+        </ul>
+      </nav>
+
       <h3>All <%= kind.pluralize %>  matching "<strong><%= @search.term =%></strong>"</h3>
 
-      <nav role="navigation">
+      <nav role="navigation" class="islet-top">
         <ul class="horiz-list horiz-list--spacing-base horiz-list--spacing-base-wrap txt-formatted__list-unstyled">
           <% results.each do |result| %>
             <% unless result.attributes.category.present? %>

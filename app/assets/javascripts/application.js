@@ -42,8 +42,9 @@
 
 // --Misc--
 
-// Micello map deferred loader
+// Micello map
 //= require ./map/deferred_map
+//= require ./map/micello_hijack_event_fix
 
 // Site wide feedback via JIRA Issue Collector
 //= require ./vendor/jira-issue-tracker

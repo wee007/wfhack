@@ -22,6 +22,7 @@ $.fn.navContextual = (options) ->
       list.css width: listWidth
     else
       @removeClass settings.isClippedClass
+      list.css width: 'auto'
 
   resize() # Run for the 1st time.
 

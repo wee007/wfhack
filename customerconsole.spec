@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.229
+Version:     0.2.230
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,10 @@ fi
 
 
 %changelog
+* Wed Mar 19 2014 ci <doperations@au.westfield.com> 0.2.230-1
+- WSF-6252 Removed store hours for now until BoC issue is fixed
+  (ewee@au.westfield.com)
+
 * Wed Mar 19 2014 ci <doperations@au.westfield.com> 0.2.229-1
 - WSF-6287 Restored stores_maps.js.coffee location (ewee@au.westfield.com)
 

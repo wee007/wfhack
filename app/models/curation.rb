@@ -31,6 +31,14 @@ class Curation < Hashie::Mash
     end
   end
 
+  def retailers
+    @retailer ||= begin
+      products.map do |product|
+        Hash code: product.retailer_code, name: product.retail_chain_name
+      end.uniq
+    end
+  end
+
   # def meta
   #   Meta.new id: id,
   #            title: name,

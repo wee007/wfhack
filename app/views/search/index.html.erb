@@ -15,8 +15,8 @@
         <ul class="nav-contextual__list horiz-list js-nav-contextual-list">
           <%= content_tag :li, link_to("Stores (#{@search.results.stores.length})", anchor: 'stores') if @search.results.stores.present? %><!--
        --><%= content_tag :li, link_to("Products (#{@search.results.products.length})", anchor: 'products') if @search.results.products.present? %><!--
-       --><%= content_tag :li, link_to('Deals', anchor: 'deals') if @search.results.deals.present? %><!--
-       --><%= content_tag :li, link_to('Events', anchor: 'events') if @search.results.events.present? %>
+      --><%= content_tag :li, link_to("Deals (#{@search.results.deals.length})", anchor: 'deals') if @search.results.deals.present? %><!--
+      --><%= content_tag :li, link_to("Events (#{@search.results.events.length})", anchor: 'events') if @search.results.events.present? %>
         </ul>
       </div>
       <span class="nav-contextual__clip__overlay icon icon--arrow-right icon--mega icon--flush-top js-nav-contextual-clip-overlay" aria-hidden="true"></span>
@@ -24,57 +24,68 @@
   </div>
   <%#// List of anchors to each search result type %>
 
-  <section class="divider divider--lrg" aria-labelledby="stores">
-    <div class="txt-formatted">
-      <h2 id="stores">
-        <span class="icon icon--store icon--spacing"></span>
-        Stores
+  <% if @search.results.stores.present? %>
+    <section class="divider divider--lrg" aria-labelledby="stores">
+      <div class="txt-formatted">
+        <h2 id="stores">
+          <span class="icon icon--store icon--spacing"></span>
+          Stores
+        </h2>
+
+        <h3>All stores matching "<strong><%= @search.term =%></strong>"</h3>
+      </div>
+
+      <nav role="navigation">
+        <ul class="horiz-list horiz-list--spacing-base horiz-list--spacing-base-wrap txt-formatted__list-unstyled">
+          <% @search.results.stores.each do |store| %>
+            <li>
+              <%= link_to store[:display], (centre_store_url @centre.code, store.attributes.retailer_code, store[:id]), class: 'btn btn--main btn--main-white btn--main-lrg' %>
+            </li>
+          <% end %>
+        </ul>
+      </nav>
+    </section>
+  <% end %>
+
+  <% if @search.results.products.present? %>
+    <section class="txt-formatted divider divider--lrg">
+      <h2 id="products">
+        <span class="icon icon--products icon--spacing"></span>
+        Products
       </h2>
 
       <nav role="navigation">
         <ul class="horiz-list horiz-list--spacing-base horiz-list--spacing-base-wrap txt-formatted__list-unstyled">
-          <li><a href="#" class="btn btn--main btn--main-white btn--main-lrg">Hairdressers</a></li>
-          <li><a href="#" class="btn btn--main btn--main-white btn--main-lrg">Hairdressers</a></li>
-          <li><a href="#" class="btn btn--main btn--main-white btn--main-lrg">Hairdressers</a></li>
-          <li><a href="#" class="btn btn--main btn--main-white btn--main-lrg">Hairdressers</a></li>
+          <% @search.results.products.each do |product| %>
+            <li>
+              <%= product %>
+            </li>
+          <% end %>
         </ul>
       </nav>
 
-      <h3>All stores matching "<strong><%= @search.term =%></strong>"</h3>
-    </div>
-
-
-  <%# Pin board %>
-  <%= pin_board(@search.results.stores) do |store| %>
-    <%= tile "store", result: store %>
+    </section>
   <% end %>
-  <%# //Pin board %>
 
 
-  </section>
-
-  <section class="txt-formatted divider divider--lrg">
-    <h2 id="products">
-      <span class="icon icon--products icon--spacing"></span>
-      Products
-    </h2>
-
-
-  </section>
-
-  <section class="txt-formatted divider divider--lrg">
-    <h2 id="deals">
-      <span class="icon icon--deals icon--spacing"></span>
-      Deals
-    </h2>
-  </section>
-
+  <% if @search.results.deals.present? %>
     <section class="txt-formatted divider divider--lrg">
-    <h2 id="events">
-      <span class="icon icon--events icon--spacing"></span>
-      Events
-    </h2>
-  </section>
+      <h2 id="deals">
+        <span class="icon icon--deals icon--spacing"></span>
+        Deals
+      </h2>
+    </section>
+  <% end %>
+
+  <% if @search.results.events.present? %>
+    <section class="txt-formatted divider divider--lrg">
+      <h2 id="events">
+        <span class="icon icon--events icon--spacing"></span>
+        Events
+      </h2>
+    </section>
+  <% end %>
+
 
 
 

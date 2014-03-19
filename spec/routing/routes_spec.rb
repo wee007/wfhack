@@ -75,7 +75,7 @@ describe CustomerConsole::Application do
       end
     end
 
-    describe ':centre_id/products/curation/:code' do
+    describe ':centre_id/products/curation/:slug' do
       let(:slug) { 'red-socks' }
       let(:centre_id) { 'bondijunction' }
       subject {{ get: "#{centre_id}/products/curation/#{slug}" }}

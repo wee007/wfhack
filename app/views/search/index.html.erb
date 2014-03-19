@@ -48,7 +48,7 @@
         </ul>
       </nav>
 
-      <h3>All <%= kind.singulaize %> brands  matching "<strong><%= @search.term =%></strong>"</h3>
+      <h3>All <%= kind.singularize %> brands  matching "<strong><%= @search.term =%></strong>"</h3>
 
       <nav role="navigation" class="islet-top">
         <ul class="horiz-list horiz-list--spacing-base horiz-list--spacing-half-wrap txt-formatted__list-unstyled">
@@ -62,23 +62,16 @@
         </ul>
       </nav>
 
-      <h3>All <%= kind.pluralize %>  matching "<strong><%= @search.term =%></strong>"</h3>
-
-      <nav role="navigation" class="islet-top">
-        <ul class="horiz-list horiz-list--spacing-base horiz-list--spacing-base-wrap txt-formatted__list-unstyled">
-          <% results.each do |result| %>
-            <% unless result.attributes.category.present? %>
-            <li>
-              <%= link_to highlight(result[:display], @search.term,  highlighter: '<strong>\1</strong>'), build_url(@centre, kind, result[:attributes]), class: 'btn btn--main btn--main-white btn--main-lrg' %>
-            </li>
-          <% end %>
-          <% end %>
-        </ul>
-      </nav>
+      <div class="hide-fully js-product-results-container">
+        <h3>All <%= kind.pluralize %> matching "<strong><%= @search.term =%></strong>"</h3>
+        <div class="js-product-results"></div>
+      </div>
 
     </section>
   <% end %>
 
-
+<%- content_for :custom_javascript do -%>
+  <%= javascript_include_tag 'search/load_products' %>
+<%- end -%>
 
 <% end %>

@@ -59,7 +59,7 @@ class ProductsController < ApplicationController
 
   # Does not need all the extra stuff a normal index pages needed
   def index_xhr
-    @search = ProductService.find params.merge({rows: 50})
+    @search = ProductService.find ({rows: 50}).merge(params)
     render partial: "products"
   end
 

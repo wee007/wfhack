@@ -6,17 +6,20 @@
     <p><em class="h1">No results</em></span></p>
   </div>
 <% else %>
-  <h1>Results for <em>"<%= @search.term =%>"</em></h1>
+  <h1>Results for <strong>"<%= @search.term =%>"</strong></h1>
 
   <%# List of anchors to each search result type %>
   <div class="nav-contextual js-nav-contextual js-viewport-check">
     <div class="nav-contextual__clip">
       <div class="nav-contextual__clip__inner">
         <ul class="nav-contextual__list horiz-list js-nav-contextual-list">
-          <%= content_tag :li, link_to("Stores (#{@search.results.stores.length})", anchor: 'stores') if @search.results.stores.present? %><!--
-       --><%= content_tag :li, link_to("Products (#{@search.results.products.length})", anchor: 'products') if @search.results.products.present? %><!--
-      --><%= content_tag :li, link_to("Deals (#{@search.results.deals.length})", anchor: 'deals') if @search.results.deals.present? %><!--
-      --><%= content_tag :li, link_to("Events (#{@search.results.events.length})", anchor: 'events') if @search.results.events.present? %>
+          <% @search.results.each do |kind, results| %>
+            <% if results.present? %>
+              <li>
+                <a href="#<%= kind %>"><%= kind.titlecase %> (<%= @search.results.stores.length %>)</a>
+              </li>
+            <% end %>
+          <% end %>
         </ul>
       </div>
       <span class="nav-contextual__clip__overlay icon icon--arrow-right icon--mega icon--flush-top js-nav-contextual-clip-overlay" aria-hidden="true"></span>
@@ -24,41 +27,22 @@
   </div>
   <%#// List of anchors to each search result type %>
 
-  <% if @search.results.stores.present? %>
+  <% @search.results.each do |kind, results| %>
     <section class="divider divider--lrg" aria-labelledby="stores">
       <div class="txt-formatted">
         <h2 id="stores">
-          <span class="icon icon--store icon--spacing"></span>
-          Stores
+          <span class="icon icon--<%= kind %> icon--spacing"></span>
+          <%= kind.titlecase %>
         </h2>
 
-        <h3>All stores matching "<strong><%= @search.term =%></strong>"</h3>
+        <h3>All <%= kind.pluralize %>  matching "<strong><%= @search.term =%></strong>"</h3>
       </div>
 
       <nav role="navigation">
         <ul class="horiz-list horiz-list--spacing-base horiz-list--spacing-base-wrap txt-formatted__list-unstyled">
-          <% @search.results.stores.each do |store| %>
+          <% results.each do |result| %>
             <li>
-              <%= link_to store[:display], (centre_store_url @centre.code, store.attributes.retailer_code, store[:id]), class: 'btn btn--main btn--main-white btn--main-lrg' %>
-            </li>
-          <% end %>
-        </ul>
-      </nav>
-    </section>
-  <% end %>
-
-  <% if @search.results.products.present? %>
-    <section class="txt-formatted divider divider--lrg">
-      <h2 id="products">
-        <span class="icon icon--products icon--spacing"></span>
-        Products
-      </h2>
-
-      <nav role="navigation">
-        <ul class="horiz-list horiz-list--spacing-base horiz-list--spacing-base-wrap txt-formatted__list-unstyled">
-          <% @search.results.products.each do |product| %>
-            <li>
-              <%= product %>
+              <%= link_to highlight(result[:display], @search.term,  highlighter: '<strong>\1</strong>'), build_url(@centre, kind, result[:attributes]), class: 'btn btn--main btn--main-white btn--main-lrg' %>
             </li>
           <% end %>
         </ul>
@@ -66,26 +50,6 @@
 
     </section>
   <% end %>
-
-
-  <% if @search.results.deals.present? %>
-    <section class="txt-formatted divider divider--lrg">
-      <h2 id="deals">
-        <span class="icon icon--deals icon--spacing"></span>
-        Deals
-      </h2>
-    </section>
-  <% end %>
-
-  <% if @search.results.events.present? %>
-    <section class="txt-formatted divider divider--lrg">
-      <h2 id="events">
-        <span class="icon icon--events icon--spacing"></span>
-        Events
-      </h2>
-    </section>
-  <% end %>
-
 
 
 

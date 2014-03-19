@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.226
+Version:     0.2.227
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,12 @@ fi
 
 
 %changelog
+* Wed Mar 19 2014 ci <doperations@au.westfield.com> 0.2.227-1
+- Merge pull request #1001 from ewee/store_details (ewee@au.westfield.com)
+- WSF-6287 Extend store details button fix to deal and product detail pages
+  (ewee@au.westfield.com)
+- WSF-6287 Fixed store details button on iOS (ewee@au.westfield.com)
+
 * Wed Mar 19 2014 ci <doperations@au.westfield.com> 0.2.226-1
 - Remove all trace of (cpearce@au.westfield.com)
 - Changing HTML comment to Ruby comment (cpearce@au.westfield.com)

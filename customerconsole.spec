@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.227
+Version:     0.2.228
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,12 @@ fi
 
 
 %changelog
+* Wed Mar 19 2014 ci <doperations@au.westfield.com> 0.2.228-1
+- Merge pull request #1005 from mmancuso/master (ldewey@au.westfield.com)
+- Fixing sitemap rake task (mmancuso@au.westfield.com)
+- specifying rvm path, user nobody does not have $PATH specified
+  (mmancuso@au.westfield.com)
+
 * Wed Mar 19 2014 ci <doperations@au.westfield.com> 0.2.227-1
 - Merge pull request #1001 from ewee/store_details (ewee@au.westfield.com)
 - WSF-6287 Extend store details button fix to deal and product detail pages

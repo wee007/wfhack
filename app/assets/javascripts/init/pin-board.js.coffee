@@ -31,11 +31,11 @@ class @PinBoard
     enquire.register mediaQueries.iphoneLandscape, => setTimeout (=>@rebuild 3), 0
 
     #Large lap
-    enquire.register mediaQueries.smallLap, => setTimeout (=>@rebuild 4), 0
-    enquire.register mediaQueries.largeLap, => setTimeout (=>@rebuild 5), 0
+    enquire.register mediaQueries.smallLap, => setTimeout (=>@rebuild 3), 0
+    enquire.register mediaQueries.largeLap, => setTimeout (=>@rebuild 4), 0
 
     #Desktop small
-    enquire.register mediaQueries.desktopSmall, => setTimeout (=>@rebuild 6), 0
+    enquire.register mediaQueries.desktopSmall, => setTimeout (=>@rebuild 5), 0
 
     #Desktop large
     enquire.register mediaQueries.desktopLarge, => setTimeout (=>@rebuild 6), 0

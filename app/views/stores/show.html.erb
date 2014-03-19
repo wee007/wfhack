@@ -99,7 +99,7 @@
                   <dt class="hide-visually">Opening hours</dt>
                   <dd>Open<span class="hide-fully--palm-inline"> from</span> <time datetime="<%= @store.opening_time %>"><%= twelve_hour_format @store.opening_time %></time>&#8211;<time datetime="<%= @store.closing_time %>"><%= twelve_hour_format @store.closing_time %></time><span class="hide-fully--palm-inline"> today</span>
                   <% if @this_week_hours.present? %>
-                    <button class="btn btn--faux-link js-store-hours-toggle-trigger js-disabled-hide" toggle-visibility="store-hours" toggle-visibility-drop-down="false">
+                    <button class="btn btn--faux-link js-store-hours-toggle-trigger js-disabled-hide" toggle-visibility="store-hours" toggle-visibility-drop-down="false" aria-owns="store-hours">
                       <span class="hide-fully--palm">
                         (Show
                         <span class="show-when-visible">less)</span>

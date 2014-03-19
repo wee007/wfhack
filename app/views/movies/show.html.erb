@@ -19,7 +19,7 @@
   <% if @movie.cloudinary_public_id %>
     <section class="detail-view__media detail-view__mrg-base" aria-labelledby="image">
       <h2 class="hide-visually" id="image">Image</h2>
-      <%= cl_image_tag(@movie.cloudinary_public_id, alt: '', width: 600, height: 400, crop: 'limit', format: 'jpg', fetch_format: 'auto') %>
+      <%= cl_image_tag(@movie.cloudinary_public_id, alt: '', width: 600, height: 400, crop: 'limit', format: 'jpg', fetch_format: 'auto', itemprop: 'image') %>
     </section>
   <% end %>
   <%# //Movie image %>

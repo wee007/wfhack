@@ -224,11 +224,10 @@
       }
     }
 
-  /* Featured items */
-  .storefront__featured {border-top: 1px solid $color-grey-med-3;}
-
     /* Shopping hours */
     .storefront__featured--hours {
+      border-bottom: 1px solid $color-grey-med-3;
+
       /* Need to shorten the day at this breakpoint range due to lack of real estate */
       /* Note: have to use `!important` keyword here to override the 'Hide' helper class */
       @include respond-range($ipad-landscape, $desk-lrg) {

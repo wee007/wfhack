@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.225
+Version:     0.2.226
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,15 @@ fi
 
 
 %changelog
+* Wed Mar 19 2014 ci <doperations@au.westfield.com> 0.2.226-1
+- Remove all trace of (cpearce@au.westfield.com)
+- Changing HTML comment to Ruby comment (cpearce@au.westfield.com)
+- Add 'aria-owns' to storefront store hours toggle button
+  (cpearce@au.westfield.com)
+- Add itemprop=image to relevant Microdata (cpearce@au.westfield.com)
+- Using en dash for price filter range rather than hyphen
+  (cpearce@au.westfield.com)
+
 * Tue Mar 18 2014 ci <doperations@au.westfield.com> 0.2.225-1
 - Merge pull request #999 from cpearce/product-curation-ui
   (cpearce@au.westfield.com)

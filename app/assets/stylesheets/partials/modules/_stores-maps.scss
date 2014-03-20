@@ -96,11 +96,6 @@
         position: absolute;
         /* Disable click events so the map canvas that sits behind can be interacted with */
         pointer-events: none;
-
-        /* IE 9/10 fallbacks for not supporting `pointer-events` */
-        .ie-9 & {bottom: auto;}
-
-        @include ie-10-up {bottom: auto;}
       }
     }
 
@@ -504,18 +499,11 @@
         /* Modifier: Detail view */
         .stores-maps__inner--detail & {
           position: absolute;
-          bottom: auto;
           @include to-rem(top, 110);
           @include to-rem(bottom, $spacing-base);
           pointer-events: auto;
           overflow-y: auto;
           background-color: $color-grey-light-2;
-        }
-
-        /* Modifier: Detail view when they're 'featured items' and when 'store hours' are visible */
-        .stores-maps__inner--detail.is-featured-items &,
-        .stores-maps__inner--detail.is-store-hours-visible & {
-          @include to-rem(bottom, $spacing-base);
         }
 
         /* When element contents are not as tall as container */

@@ -12,4 +12,8 @@ module SearchHelper
     end
   end
 
+  def has_result_type?(results, result_type)
+    results.any? {|result| result.result_type == result_type}
+  end
+
 end

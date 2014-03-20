@@ -7,5 +7,8 @@ class SearchController < ApplicationController
     gon.search_query = params[:search_query]
 
     @icon_names = {stores: 'store', products: 'products'}
+
+    @search.results = @search.results.sort.reverse
+
   end
 end

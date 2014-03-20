@@ -18,6 +18,13 @@
 
 .mrg-half-top {@include to-rem(margin-top, $spacing-half, !important);}
 
+
+/* Base + Half */
+.mrg-base-and-half,
+.mrg-base-and-half-alt {@include to-rem(margin-bottom, $spacing-base+$spacing-half, !important);}
+
+.mrg-base-and-half-top {@include to-rem(margin-top, $spacing-base+$spacing-half, !important);}
+
 /* Double */
 .mrg-dbl,
 .mrg-dbl-alt {@include to-rem(margin-bottom, $spacing-dbl, !important);}
@@ -27,6 +34,7 @@
 /* Remove spacing for `:last-child` */
 .mrg-base-alt,
 .mrg-half-alt,
+.mrg-base-and-half-alt,
 .mrg-dbl-alt {
 	&:last-child {margin-bottom: 0 !important;}
 }

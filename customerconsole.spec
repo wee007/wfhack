@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.230
+Version:     0.2.231
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,18 @@ fi
 
 
 %changelog
+* Thu Mar 20 2014 ci <doperations@au.westfield.com> 0.2.231-1
+- Merge pull request #1003 from mbamford/feature/curations
+  (mbamford@au.westfield.com)
+- Curation (controller, model, views) specs (michael@michaelbamford.com)
+- Refactored Curation pagination into partial (michael@michaelbamford.com)
+- Curations 'more from this retailer' (michael@michaelbamford.com)
+- Curation route uses :slug not :code (michael@michaelbamford.com)
+- Removed obsolete curations/_tile_hero, _tile_sidekick partials
+  (michael@michaelbamford.com)
+- Wired up curations/show to canned-search-service/curations
+  (michael@michaelbamford.com)
+
 * Wed Mar 19 2014 ci <doperations@au.westfield.com> 0.2.230-1
 - WSF-6252 Removed store hours for now until BoC issue is fixed
   (ewee@au.westfield.com)

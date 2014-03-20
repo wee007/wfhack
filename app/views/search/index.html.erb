@@ -15,12 +15,10 @@
       <div class="nav-contextual__clip__inner">
         <ul class="nav-contextual__list horiz-list js-nav-contextual-list">
           <% @search.results.each do |kind, results| %>
-            <% if results.present? %>
-              <li>
-                <a href="#<%= kind %>"><%= kind.titlecase %> (<span class="js-<%= kind.singularize %>-result-count"><%= results.length %></span>)</a>
-              </li>
+            <% if results.present? %><li>
+              <a href="#<%= kind %>"><%= kind.titlecase %> (<span class="js-<%= kind.singularize %>-result-count"><%= results.length %></span>)</a>
             <% end %>
-          <% end %>
+          </li><% end %>
         </ul>
       </div>
       <span class="nav-contextual__clip__overlay icon icon--arrow-right icon--mega icon--flush-top js-nav-contextual-clip-overlay" aria-hidden="true"></span>
@@ -28,13 +26,13 @@
   </div>
 
 
-  <%#// One section per content type %>
+  <%# One section per content type %>
   <% @search.results.each_with_index do |(kind, results), index| %>
     <section class="<%= 'divider divider--lrg' unless index == @search.results.length - 1 %>" aria-labelledby="<%= kind %>">
       <div class="txt-formatted">
         <h2 id="<%= kind %>">
           <%# TODO: rename stores icon to singular version %>
-          <span class="icon icon--<%= kind unless kind == 'stores' %><%= kind.pluralize if kind == 'stores' %> icon--spacing"></span>
+          <span class="icon icon--<%= kind unless kind == 'stores' %><%= kind.pluralize if kind == 'stores' %> icon--spacing" aria-hidden="true"></span>
           <%= kind.titlecase %>
         </h2>
 
@@ -42,11 +40,13 @@
         <nav role="navigation">
           <ul class="horiz-list horiz-list--spacing-half horiz-list--spacing-half-wrap txt-formatted__list-unstyled">
             <% results.each do |result| %>
-              <% if result.attributes.category.present? %>
-                <li>
-                  <%= link_to highlight(result[:display], @search.term,  highlighter: '<strong>\1</strong>'), build_url(@centre, kind, result[:attributes]), class: 'btn btn--main btn--main-white btn--main-lrg' %>
-                </li>
-              <% end %>
+              <% if result.attributes.category.present? %><li>
+                  <%= link_to(build_url(@centre, kind, result[:attributes]), class: 'btn btn--main btn--main-white btn--main-compact-sides btn--main-max-width') do %>
+                    <span class="txt-truncate">
+                      <%= highlight(result[:display], @search.term,  highlighter: '<strong>\1</strong>') %>
+                    </span>
+                  <% end %>
+                </li><% end %>
             <% end %>
           </ul>
         </nav>
@@ -62,7 +62,7 @@
               <ul class="horiz-list horiz-list--spacing-half horiz-list--spacing-half-wrap txt-formatted__list-unstyled">
                 <% results_by_type(results, 'store').each do |result| %>
                   <li>
-                    <%= link_to highlight(result[:display], @search.term,  highlighter: '<strong>\1</strong>'), build_url(@centre, kind, result[:attributes]), class: 'btn btn--main btn--main-white btn--main-lrg' %>
+                    <%= link_to highlight(result[:display], @search.term,  highlighter: '<strong>\1</strong>'), build_url(@centre, kind, result[:attributes]), class: 'btn btn--main btn--main-white btn--main-compact-sides' %>
                   </li>
                 <% end %>
               </ul>
@@ -82,7 +82,7 @@
 
                 <% results_by_type(results, 'product_brand').each do |result| %>
                   <li>
-                    <%= link_to highlight(result[:display], @search.term,  highlighter: '<strong>\1</strong>'), build_url(@centre, kind, result[:attributes]), class: 'btn btn--main btn--main-white btn--main-lrg' %>
+                    <%= link_to highlight(result[:display], @search.term,  highlighter: '<strong>\1</strong>'), build_url(@centre, kind, result[:attributes]), class: 'btn btn--main btn--main-white btn--main-compact-sides' %>
                   </li>
                 <% end %>
               </ul>
@@ -105,6 +105,7 @@
 
     </section>
   <% end %>
+  <%#// One section per content type %>
 
 <%- content_for :custom_javascript do -%>
   <%= javascript_include_tag 'search/load_products' %>

@@ -75,11 +75,11 @@ describe CustomerConsole::Application do
       end
     end
 
-    describe ':centre_id/products/curation/:code' do
-      let(:code) { 'red-socks' }
+    describe ':centre_id/products/curation/:slug' do
+      let(:slug) { 'red-socks' }
       let(:centre_id) { 'bondijunction' }
-      subject {{ get: "#{centre_id}/products/curation/#{code}" }}
-      it { should route_to Hash[ controller: 'curations', action: 'show', centre_id: centre_id, code: code ]}
+      subject {{ get: "#{centre_id}/products/curation/#{slug}" }}
+      it { should route_to Hash[ controller: 'curations', action: 'show', centre_id: centre_id, slug: slug ]}
     end
 
     context "for social shares" do

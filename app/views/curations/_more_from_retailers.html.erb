@@ -1,35 +1,9 @@
 <nav role="navigation">
-  <%# [NOTE] all the HTML for this `ul` needs to be outputted on same line %>
   <ul class="product-curation__retailers horiz-list horiz-list--spacing-half horiz-list--spacing-half-wrap">
-    <li>
-      <a href="#" class="btn btn--main btn--main-dark btn--main-compact-sides btn--main-max-width">
-        <span class="txt-truncate">Colette by Colette Hayman</span>
-      </a>
-    </li><!--
-    --><li>
-      <a href="#" class="btn btn--main btn--main-dark btn--main-compact-sides btn--main-max-width">
-        <span class="txt-truncate">DC Shoes</span>
-      </a>
-    </li><!--
-    --><li>
-      <a href="#" class="btn btn--main btn--main-dark btn--main-compact-sides btn--main-max-width">
-        <span class="txt-truncate">Florsheim</span>
-      </a>
-    </li><!--
-    --><li>
-      <a href="#" class="btn btn--main btn--main-dark btn--main-compact-sides btn--main-max-width">
-        <span class="txt-truncate">Lush Fresh Handmade Cosmetics</span>
-      </a>
-    </li><!--
-    --><li>
-      <a href="#" class="btn btn--main btn--main-dark btn--main-compact-sides btn--main-max-width">
-        <span class="txt-truncate">Billabong</span>
-      </a>
-    </li><!--
-    --><li>
-      <a href="#" class="btn btn--main btn--main-dark btn--main-compact-sides btn--main-max-width">
-        <span class="txt-truncate">Shubar</span>
-      </a>
-    </li>
+    <% @curation.retailers.each do |retailer| %><li>
+      <%= link_to centre_products_path(centre_id: params[:centre_id], retailer: [retailer[:code]]), class: 'btn btn--main btn--main-dark btn--main-compact-sides btn--main-max-width' do %>
+        <span class="txt-truncate"><%= retailer[:name] %></span>
+      <% end %>
+    </li><% end %>
   </ul>
 </nav>

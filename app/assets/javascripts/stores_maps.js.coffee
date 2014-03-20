@@ -32,6 +32,8 @@ class StoreMapPage
     @recompileAngularScope()
     @keyword_filter.setupKeywordFilter()
     @keyword_filter.setupToggleListPosition()
+    @dynamic_heights.setupDefaultHeights()
+    @dynamic_heights.check()
 
   pageLoaded: ->
     $ ->

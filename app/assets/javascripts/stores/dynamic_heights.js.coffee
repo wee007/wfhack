@@ -2,14 +2,18 @@
 
 class @DynamicHeights
   constructor: ->
-    @elements = $(".js-dynamic-height")
+    @getElements()
     @initialise()
-    $(window).resize(debounce(@initialise, 100))
+    $(window).resize(debounce(@initialise, 500))
   initialise: =>
     @setupDefaultHeights()
     @check()
+  getElements: =>
+    @elements = $(".js-dynamic-height")
   setupDefaultHeights: =>
+    @getElements()
     @elements.each (i, element) ->
+      $(element).removeClass('is-variable-height')
       $(element).data('height', $(element).outerHeight(true))
   check: =>
     @elements.each (i, el) ->

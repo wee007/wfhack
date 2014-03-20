@@ -16,4 +16,8 @@ module SearchHelper
     results.any? {|result| result.result_type == result_type}
   end
 
+  def results_by_type(results, result_type)
+    results.select {|result| result.result_type == result_type}
+  end
+
 end

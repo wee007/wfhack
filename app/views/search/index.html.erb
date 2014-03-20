@@ -1,9 +1,9 @@
 <% content_for :class_for_main, "container--spacing-top-main-content " %>
 
 <% if @search.results.empty? %>
+  <%#// TODO: no search results page %>
   <div class="no-content-fallback-msg">
-    <span class="icon icon--deals icon--flush-top" aria-hidden="true"></span>
-    <p><em class="h1">No results</em></span></p>
+    <p><em class="h1">No search results</em></span></p>
   </div>
 <% else %>
   <h1>Results for <strong>"<%= @search.term =%>"</strong></h1>
@@ -27,15 +27,17 @@
   </div>
 
 
-  <%#// List of anchors to each search result type %>
+  <%#// One section per content type %>
   <% @search.results.each_with_index do |(kind, results), index| %>
     <section class="<%= 'divider divider--lrg' unless index == @search.results.length - 1 %>" aria-labelledby="<%= kind %>">
       <div class="txt-formatted">
         <h2 id="<%= kind %>">
-          <span class="icon icon--<%= kind %> icon--spacing"></span>
+          <%# TODO: rename stores icon to singular version %>
+          <span class="icon icon--<%= kind unless kind == 'stores' %><%= kind.pluralize if kind == 'stores' %> icon--spacing"></span>
           <%= kind.titlecase %>
         </h2>
 
+        <%#// List of links to categories %>
         <nav role="navigation">
           <ul class="horiz-list horiz-list--spacing-half horiz-list--spacing-half-wrap txt-formatted__list-unstyled">
             <% results.each do |result| %>
@@ -48,35 +50,39 @@
           </ul>
         </nav>
 
+        <%#// Product results need different html %>
         <% if kind != 'products' %>
-          <h3 class="mrg-base-and-half-top">All <%= kind %> matching "<strong><%= @search.term =%></strong>"</h3>
 
-          <nav role="navigation">
-            <ul class="horiz-list horiz-list--spacing-half horiz-list--spacing-half-wrap txt-formatted__list-unstyled">
-              <% results.each do |result| %>
-                <% if result.result_type == 'store' %>
-                <li>
-                  <%= link_to highlight(result[:display], @search.term,  highlighter: '<strong>\1</strong>'), build_url(@centre, kind, result[:attributes]), class: 'btn btn--main btn--main-white btn--main-lrg' %>
-                </li>
+          <%#// List of links to storefronts %>
+          <%if has_result_type?(results, 'store') %>
+            <h3 class="mrg-base-and-half-top">All <%= kind %> matching "<strong><%= @search.term =%></strong>"</h3>
+
+            <nav role="navigation">
+              <ul class="horiz-list horiz-list--spacing-half horiz-list--spacing-half-wrap txt-formatted__list-unstyled">
+                <% results_by_type(results, 'store').each do |result| %>
+                  <li>
+                    <%= link_to highlight(result[:display], @search.term,  highlighter: '<strong>\1</strong>'), build_url(@centre, kind, result[:attributes]), class: 'btn btn--main btn--main-white btn--main-lrg' %>
+                  </li>
                 <% end %>
-              <% end %>
-            </ul>
-          </nav>
+              </ul>
+            </nav>
+          <% end %>
 
         <% else %>
 
+          <%#// List of links to product brands %>
           <%if has_result_type?(results, 'product_brand') %>
 
             <h3 class="mrg-base-and-half-top">All brands matching "<strong><%= @search.term =%></strong>"</h3>
 
             <nav role="navigation">
               <ul class="horiz-list horiz-list--spacing-half horiz-list--spacing-half-wrap txt-formatted__list-unstyled">
-                <% results.each do |result| %>
-                  <% if result.result_type == 'product_brand' %>
+
+
+                <% results_by_type(results, 'product_brand').each do |result| %>
                   <li>
                     <%= link_to highlight(result[:display], @search.term,  highlighter: '<strong>\1</strong>'), build_url(@centre, kind, result[:attributes]), class: 'btn btn--main btn--main-white btn--main-lrg' %>
                   </li>
-                  <% end %>
                 <% end %>
               </ul>
             </nav>

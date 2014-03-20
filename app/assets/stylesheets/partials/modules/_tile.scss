@@ -123,16 +123,27 @@
           font-weight: bold;
         }
 
-  /* Alternative icon, icon that sits top left corner of it's tile, have 2 types: 'Collections' and 'Occasions' */
+  /* Alternative icon, icon that sits top left corner of it's tile, have 2 types: 'Canned search' and 'Curation' */
   .tile__icon-alt {
     position: absolute;
     top: 0;
     left: 0;
-    background-color: rgba(#000, 0.5);
-    @include to-rem(padding, 2.5 4.5);
+    width: 100px;
+    height: 100px;
+    @include to-rem(padding, 3 5);
+    /* 135deg diagonal gradient */
+    background: -webkit-linear-gradient(-45deg, rgba(#000, 0.4) 0%, rgba(#000, 0.05) 36%, rgba(#000, 0) 55%, rgba(#000, 0) 100%);
+    background: linear-gradient(135deg, rgba(#000, 0.4) 0%, rgba(#000, 0.05) 36%, rgba(#000, 0) 55%, rgba(#000, 0) 100%);
 
     @include respond-min($non-palm) {
-      @include to-rem(padding, 4.5 6.5);
+      @include to-rem(padding, 5 7);
+    }
+
+    /* IE 9 - black transparent square bg as a fallback for the CSS gradient */
+    .ie-9 & {
+      background-color: rgba(#000, 0.5);
+      width: auto;
+      height: auto;
     }
 
     &:before {color: #fff;}

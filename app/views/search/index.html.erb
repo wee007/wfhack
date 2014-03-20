@@ -16,7 +16,7 @@
           <% @search.results.each do |kind, results| %>
             <% if results.present? %>
               <li>
-                <a href="#<%= kind %>"><%= kind.titlecase %> (<%= results.length %>)</a>
+                <a href="#<%= kind %>"><%= kind.titlecase %> (<span class="js-<%= kind.singularize %>-result-count"><%= results.length %></span>)</a>
               </li>
             <% end %>
           <% end %>
@@ -26,11 +26,10 @@
     </div>
   </div>
   <%#// List of anchors to each search result type %>
-
   <% @search.results.each do |kind, results| %>
-    <section class="divider" aria-labelledby="stores">
+    <section class="divider" aria-labelledby="<%= kind %>">
       <div class="txt-formatted">
-        <h2 id="stores">
+        <h2 id="<%= kind %>">
           <span class="icon icon--<%= kind %> icon--spacing"></span>
           <%= kind.titlecase %>
         </h2>
@@ -40,32 +39,50 @@
         <ul class="horiz-list horiz-list--spacing-base horiz-list--spacing-half-wrap txt-formatted__list-unstyled">
           <% results.each do |result| %>
             <% if result.attributes.category.present? %>
-            <li>
-              <%= link_to highlight(result[:display], @search.term,  highlighter: '<strong>\1</strong>'), build_url(@centre, kind, result[:attributes]), class: 'btn btn--main btn--main-white btn--main-lrg' %>
-            </li>
+              <li>
+                <%= link_to highlight(result[:display], @search.term,  highlighter: '<strong>\1</strong>'), build_url(@centre, kind, result[:attributes]), class: 'btn btn--main btn--main-white btn--main-lrg' %>
+              </li>
             <% end %>
           <% end %>
         </ul>
       </nav>
 
-      <h3>All <%= kind.singularize %> brands  matching "<strong><%= @search.term =%></strong>"</h3>
+      <% if kind != 'products' %>
+        <h3>All <%= kind.singularize %> matching "<strong><%= @search.term =%></strong>"</h3>
 
-      <nav role="navigation" class="islet-top">
-        <ul class="horiz-list horiz-list--spacing-base horiz-list--spacing-half-wrap txt-formatted__list-unstyled">
-          <% results.each do |result| %>
-            <% if result.result_type == 'product_brand' %>
-            <li>
-              <%= link_to highlight(result[:display], @search.term,  highlighter: '<strong>\1</strong>'), build_url(@centre, kind, result[:attributes]), class: 'btn btn--main btn--main-white btn--main-lrg' %>
-            </li>
+        <nav role="navigation" class="islet-top">
+          <ul class="horiz-list horiz-list--spacing-base horiz-list--spacing-half-wrap txt-formatted__list-unstyled">
+            <% results.each do |result| %>
+              <% if result.result_type == 'store' %>
+              <li>
+                <%= link_to highlight(result[:display], @search.term,  highlighter: '<strong>\1</strong>'), build_url(@centre, kind, result[:attributes]), class: 'btn btn--main btn--main-white btn--main-lrg' %>
+              </li>
+              <% end %>
             <% end %>
-          <% end %>
-        </ul>
-      </nav>
+          </ul>
+        </nav>
+      <% else %>
+        <h3>All <%= kind.singularize %> brands matching "<strong><%= @search.term =%></strong>"</h3>
 
-      <div class="hide-fully js-product-results-container">
-        <h3>All <%= kind.pluralize %> matching "<strong><%= @search.term =%></strong>"</h3>
-        <div class="js-product-results"></div>
-      </div>
+        <nav role="navigation" class="islet-top">
+          <ul class="horiz-list horiz-list--spacing-base horiz-list--spacing-half-wrap txt-formatted__list-unstyled">
+            <% results.each do |result| %>
+              <% if result.result_type == 'product_brand' %>
+              <li>
+                <%= link_to highlight(result[:display], @search.term,  highlighter: '<strong>\1</strong>'), build_url(@centre, kind, result[:attributes]), class: 'btn btn--main btn--main-white btn--main-lrg' %>
+              </li>
+              <% end %>
+            <% end %>
+          </ul>
+        </nav>
+
+        <div class="hide-fully js-product-results-container">
+          <h3>All <%= kind.pluralize %> matching "<strong><%= @search.term =%></strong>"</h3>
+          <div class="js-product-results"></div>
+        </div>
+
+        <a href="/<%= @centre.code %>/products?search_query=<%= @search.term %>" class="pull-centre">View all products matching <strong><%= @search.term =%></strong></a>
+      <% end %>
 
     </section>
   <% end %>

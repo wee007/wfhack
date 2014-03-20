@@ -63,6 +63,12 @@ class ProductsController < ApplicationController
     render partial: "products"
   end
 
+  # Does not need all the extra stuff a normal index pages or product xhr needs
+  def search_xhr
+    @search = ProductService.find ({rows: 6}).merge(params)
+    render partial: "search/products"
+  end
+
   def show_centre
     centre_ids = @stores.map{ |centre| centre.centre_id }.uniq
     @centre_stores = @stores.select{ |store| store.centre_id == params[:centre_id] }

@@ -80,8 +80,9 @@
           <h3>All <%= kind.pluralize %> matching "<strong><%= @search.term =%></strong>"</h3>
           <div class="js-product-results"></div>
         </div>
-
-        <a href="/<%= @centre.code %>/products?search_query=<%= @search.term %>" class="pull-centre">View all products matching <strong><%= @search.term =%></strong></a>
+        <div class="txt-center">
+          <a href="/<%= @centre.code %>/products?search_query=<%= @search.term %>" class="pull-centre">View all products matching <strong><%= @search.term =%></strong></a>
+        </div>
       <% end %>
 
     </section>

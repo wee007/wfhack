@@ -318,12 +318,15 @@
 
           /* Always visible at this breakpoint */
           @include respond-min($iphone-landscape) {
+            width: 40%;
+            vertical-align: middle;
+          }
+
+          /* Reduce width to handle bigger map toggle button */
+          @include respond-range($iphone-landscape, $ipad-landscape - 1) {
             &,
             /* Need to override dynamic `is-active` class appended by 'Angular toggle visibility' directive */
             &.is-active {display: inline-block;}
-
-            width: 40%;
-            vertical-align: middle;
           }
 
           /* Reduce width to handle bigger map toggle button */

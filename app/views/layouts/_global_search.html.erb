@@ -16,7 +16,7 @@
           <%# //Icon %>
 
           <%# Label and inputs %>
-          <label for="global-search" class="hide-visually">Search<%= 'stores &amp;'.html_safe unless national_product_index? %> products</label>
+          <label for="global-search" class="hide-visually">Search <%= 'stores &amp;'.html_safe unless national_product_index? %> products</label>
           <input type="hidden" ng-model="centre" value="<%= params[:centre_id] || params[:id] %>">
 
           <%# We do don need the search suggest to trigger on natinal pages %>

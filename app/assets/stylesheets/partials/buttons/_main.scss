@@ -123,7 +123,7 @@
   .btn--main-max-width {@include to-rem(max-width, 186);}
 
   /* Modifier: apply a maximum width for palm, this is typically used when the `txt-truncate` helper is used on the button text */
-  .btn--main-max-width-for-palm {
+  .btn--main-max-width-palm {
     @include to-rem(max-width, 260);
 
     @include respond-min($non-palm) {

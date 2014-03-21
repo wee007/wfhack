@@ -7,7 +7,7 @@
     <p><em class="h1">No search results</em></span></p>
   </div>
 <% else %>
-  <h1>Results for <strong>"<%= @search.term =%>"</strong></h1>
+  <h1>Results for "<%= @search.term =%>"</h1>
 
   <%# List of anchors to each search result type %>
   <div class="nav-contextual js-nav-contextual js-viewport-check">
@@ -32,7 +32,7 @@
       <div class="txt-formatted">
         <h2 id="<%= kind %>">
           <%# TODO: rename stores icon to singular version %>
-          <span class="icon icon--<%= kind unless kind == 'stores' %><%= kind.pluralize if kind == 'stores' %> icon--spacing" aria-hidden="true"></span>
+          <span class="icon icon--<%= kind unless kind == 'stores' %><%= kind.singularize if kind == 'stores' %> icon--spacing" aria-hidden="true"></span>
           <%= kind.titlecase %>
         </h2>
 
@@ -80,26 +80,6 @@
           <%#// List of links to storefronts %>
 
         <% else %>
-
-          <%# List of links to product brands %>
-          <% if has_result_type?(results, 'product_brand') %>
-
-            <h3 class="mrg-base-and-half-top">All brands matching "<strong><%= @search.term =%></strong>"</h3>
-
-            <nav role="navigation">
-              <ul class="horiz-list horiz-list--spacing-half horiz-list--spacing-half-wrap txt-formatted__list-unstyled">
-                <% results_by_type(results, 'product_brand').each do |result| %><li>
-                    <%= link_to(build_url(@centre, kind, result[:attributes]), class: 'btn btn--main btn--main-white btn--main-compact-sides btn--main-max-width') do %>
-                    <span class="txt-truncate">
-                      <%= highlight(result[:display], @search.term,  highlighter: '<strong>\1</strong>') %>
-                    </span>
-                  <% end %>
-                </li><% end %>
-              </ul>
-            </nav>
-
-          <% end %>
-          <%#// List of links to product brands %>
 
           <h3 class="mrg-base-and-half-top mrg-base js-product-results-hdr">All <%= kind.pluralize %> matching "<strong><%= @search.term =%></strong>"</h3>
 

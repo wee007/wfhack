@@ -14,11 +14,9 @@
     <div class="nav-contextual__clip">
       <div class="nav-contextual__clip__inner">
         <ul class="nav-contextual__list horiz-list js-nav-contextual-list">
-          <% @search.results.each do |kind, results| %>
-            <% if results.present? %><li>
+          <% @search.results.each do |kind, results| %><% if results.present? %><li>
               <a href="#<%= kind %>"><%= kind.titlecase %> (<span class="js-<%= kind.singularize %>-result-count"><%= number_of_results(results) %></span>)</a>
-            <% end %>
-          </li><% end %>
+          </li><% end %><% end %>
         </ul>
       </div>
       <span class="nav-contextual__clip__overlay icon icon--arrow-right icon--mega icon--flush-top js-nav-contextual-clip-overlay" aria-hidden="true"></span>
@@ -40,13 +38,11 @@
         <% if has_category_results?(results) %>
           <nav role="navigation">
             <ul class="horiz-list horiz-list--spacing-half horiz-list--spacing-half-wrap txt-formatted__list-unstyled">
-              <% results.each do |result| %><!--
-             --><% if result.attributes.category.present? %><li>
-                    <%= link_to(build_url(@centre, kind, result[:attributes]), class: 'btn btn--main btn--main-white btn--main-compact-sides') do %>
-                      <%= highlight(result[:display], @search.term,  highlighter: '<strong>\1</strong>') %>
-                    <% end %>
-                  </li><% end %><!--
-             --><% end %>
+              <% results.each do |result| %><% if result.attributes.category.present? %><li>
+                <%= link_to(build_url(@centre, kind, result[:attributes]), class: 'btn btn--main btn--main-white btn--main-compact-sides') do %>
+                  <%= highlight(result[:display], @search.term,  highlighter: '<strong>\1</strong>') %>
+                <% end %>
+              </li><% end %><% end %>
             </ul>
           </nav>
         <% end %>
@@ -66,10 +62,10 @@
             <nav role="navigation">
               <ul class="horiz-list horiz-list--spacing-half horiz-list--spacing-half-wrap txt-formatted__list-unstyled">
                 <% results.each do |result| %><li>
-                    <%= link_to(build_url(@centre, kind, result[:attributes]), class: 'btn btn--main btn--main-white btn--main-compact-sides') do %>
-                      <%= highlight(result[:display], @search.term,  highlighter: '<strong>\1</strong>') %>
+                  <%= link_to(build_url(@centre, kind, result[:attributes]), class: 'btn btn--main btn--main-white btn--main-compact-sides') do %>
+                    <%= highlight(result[:display], @search.term,  highlighter: '<strong>\1</strong>') %>
                   <% end %>
-                  </li><% end %>
+                </li><% end %>
               </ul>
             </nav>
           <% end %>

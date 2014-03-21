@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.231
+Version:     0.2.232
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,10 @@ fi
 
 
 %changelog
+* Fri Mar 21 2014 ci <doperations@au.westfield.com> 0.2.232-1
+- Update apache2 configuration to redirect / on beta.westfield.com.au to
+  www.westfield.com.au (pmcinerney@au.westfield.com)
+
 * Thu Mar 20 2014 ci <doperations@au.westfield.com> 0.2.231-1
 - Merge pull request #1003 from mbamford/feature/curations
   (mbamford@au.westfield.com)

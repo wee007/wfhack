@@ -39,8 +39,10 @@
           <nav role="navigation">
             <ul class="horiz-list horiz-list--spacing-half horiz-list--spacing-half-wrap txt-formatted__list-unstyled">
               <% results.each do |result| %><% if result.attributes.category.present? %><li>
-                <%= link_to(build_url(@centre, kind, result[:attributes]), class: 'btn btn--main btn--main-white btn--main-compact-sides') do %>
-                  <%= highlight(result[:display], @search.term,  highlighter: '<strong>\1</strong>') %>
+                <%= link_to(build_url(@centre, kind, result[:attributes]), class: 'btn btn--main btn--main-white btn--main-compact-sides btn--main-max-width-for-palm') do %>
+                  <span class="txt-truncate">
+                    <%= highlight(result[:display], @search.term,  highlighter: '<strong>\1</strong>') %>
+                  </span>
                 <% end %>
               </li><% end %><% end %>
             </ul>
@@ -62,8 +64,10 @@
             <nav role="navigation">
               <ul class="horiz-list horiz-list--spacing-half horiz-list--spacing-half-wrap txt-formatted__list-unstyled">
                 <% results.each do |result| %><li>
-                  <%= link_to(build_url(@centre, kind, result[:attributes]), class: 'btn btn--main btn--main-white btn--main-compact-sides') do %>
-                    <%= highlight(result[:display], @search.term,  highlighter: '<strong>\1</strong>') %>
+                  <%= link_to(build_url(@centre, kind, result[:attributes]), class: 'btn btn--main btn--main-white btn--main-compact-sides btn--main-max-width-for-palm') do %>
+                    <span class="txt-truncate">
+                      <%= highlight(result[:display], @search.term,  highlighter: '<strong>\1</strong>') %>
+                    </span>
                   <% end %>
                 </li><% end %>
               </ul>

@@ -102,7 +102,21 @@
 }
 
 /* Modifier: bottom spacing base */
-.horiz-list--spacing-base-wrap > li {@include to-rem(margin-bottom, $spacing-base);}
+.horiz-list--spacing-base-wrap {
+  /*
+    Note: it is okay to use `!important` here as we're doing it pre-emptively i.e. you know you will always want the rule it's applied too to take precedence.
+  */
+  @include to-rem(margin-bottom, -$spacing-base, !important);
+
+  > li {@include to-rem(margin-bottom, $spacing-base);}
+}
 
 /* Modifier: bottom spacing half */
-.horiz-list--spacing-half-wrap > li {@include to-rem(margin-bottom, $spacing-half);}
+.horiz-list--spacing-half-wrap {
+  /*
+    Note: it is okay to use `!important` here as we're doing it pre-emptively i.e. you know you will always want the rule it's applied too to take precedence.
+  */
+  @include to-rem(margin-bottom, -$spacing-half, !important);
+
+  > li {@include to-rem(margin-bottom, $spacing-half);}
+}

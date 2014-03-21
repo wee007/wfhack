@@ -37,31 +37,37 @@
         </h2>
 
         <%# List of links to categories %>
-        <nav role="navigation">
-          <ul class="horiz-list horiz-list--spacing-half horiz-list--spacing-half-wrap txt-formatted__list-unstyled">
-            <% results.each do |result| %><!--
-           --><% if result.attributes.category.present? %><li>
-                  <%= link_to(build_url(@centre, kind, result[:attributes]), class: 'btn btn--main btn--main-white btn--main-compact-sides btn--main-max-width') do %>
-                    <span class="txt-truncate">
-                      <%= highlight(result[:display], @search.term,  highlighter: '<strong>\1</strong>') %>
-                    </span>
-                  <% end %>
-                </li><% end %><!--
-           --><% end %>
-          </ul>
-        </nav>
+        <% if has_category_results?(results) %>
+          <nav role="navigation">
+            <ul class="horiz-list horiz-list--spacing-half horiz-list--spacing-half-wrap txt-formatted__list-unstyled">
+              <% results.each do |result| %><!--
+             --><% if result.attributes.category.present? %><li>
+                    <%= link_to(build_url(@centre, kind, result[:attributes]), class: 'btn btn--main btn--main-white btn--main-compact-sides btn--main-max-width') do %>
+                      <span class="txt-truncate">
+                        <%= highlight(result[:display], @search.term,  highlighter: '<strong>\1</strong>') %>
+                      </span>
+                    <% end %>
+                  </li><% end %><!--
+             --><% end %>
+            </ul>
+          </nav>
+        <% end %>
         <%#// List of links to categories %>
 
         <%# Product results need different html %>
         <% if kind != 'products' %>
 
           <%# List of links to storefronts %>
-          <%if has_result_type?(results, 'store') %>
-            <h3 class="mrg-base-and-half-top">All <%= kind %> matching "<strong><%= @search.term =%></strong>"</h3>
+          <% if has_result_type?(results, kind.singularize) %>
+
+            <%# Only display sub heading if there are category results above it %>
+            <% if has_category_results?(results) %>
+              <h3 class="mrg-base-and-half-top">All <%= kind %> matching "<strong><%= @search.term =%></strong>"</h3>
+            <% end %>
 
             <nav role="navigation">
               <ul class="horiz-list horiz-list--spacing-half horiz-list--spacing-half-wrap txt-formatted__list-unstyled">
-                <% results_by_type(results, 'store').each do |result| %><li>
+                <% results.each do |result| %><li>
                     <%= link_to(build_url(@centre, kind, result[:attributes]), class: 'btn btn--main btn--main-white btn--main-compact-sides btn--main-max-width') do %>
                     <span class="txt-truncate">
                       <%= highlight(result[:display], @search.term,  highlighter: '<strong>\1</strong>') %>

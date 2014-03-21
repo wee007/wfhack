@@ -16,6 +16,10 @@ module SearchHelper
     results.any? {|result| result.result_type == result_type}
   end
 
+  def has_category_results?(results)
+    results.any? {|result| result.attributes.category.present?}
+  end
+
   def results_by_type(results, result_type)
     results.select {|result| result.result_type == result_type}
   end

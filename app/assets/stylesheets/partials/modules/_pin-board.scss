@@ -35,6 +35,9 @@
     /* Turn off negative bottom spacing */
     &.grid {margin-bottom: 0;}
   }
+
+  /* When you have multiple pin boards on a page we want to never have a bottom margin */
+  .pin-board-multi &.grid {margin-bottom: 0;}
 }
 
 /* Modifier: Curation pin board - one grid row features one hero tile + a set of four smaller tiles. The hero tile's height needs to match the combined height of the four smaller tiles. See 'Tile module -> Modifier: fix image height' for the heights of the smaller tiles which we set outside of the pin board module for re-use. */

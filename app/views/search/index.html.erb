@@ -58,7 +58,7 @@
 
             <%# Only display sub heading if there are category results above it %>
             <% if has_category_results?(results) %>
-              <h3 class="mrg-base-and-half-top">All <%= kind %> matching "<strong><%= @search.term =%></strong>"</h3>
+              <h3 class="mrg-dbl-top">All <%= kind %> matching "<strong><%= @search.term =%></strong>"</h3>
             <% end %>
 
             <nav role="navigation">
@@ -77,14 +77,14 @@
 
         <% else %>
 
-          <h3 class="mrg-base-and-half-top mrg-base js-product-results-hdr">All <%= kind.pluralize %> matching "<strong><%= @search.term =%></strong>"</h3>
+          <h3 class="mrg-dbl-top mrg-base js-product-results-hdr">All <%= kind.pluralize %> matching "<strong><%= @search.term =%></strong>"</h3>
 
         <% end %>
         <%#// Product results need different html %>
 
       </div>
       <% if kind == 'products' %>
-        <div class="hide-fully js-product-results-container">
+        <div class="pin-board-multi hide-fully js-product-results-container">
         </div>
         <div class="txt-center mrg-dbl-top">
           <a href="/<%= @centre.code %>/products?search_query=<%= @search.term %>">View all products matching "<strong><%= @search.term =%></strong>"</a>

@@ -24,4 +24,8 @@ module SearchHelper
     results.select {|result| result.result_type == result_type}
   end
 
+  def number_of_results(results)
+    results.count {|result| result.result_type != 'product_brand' and result.result_type != 'retail_chain'}
+  end
+
 end

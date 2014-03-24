@@ -3,7 +3,7 @@
   <header class="detail-view__mrg-base">
 
     <%# Notice title %>
-    <h1 class="detail-view__hdr hn"><%= @notice.name.truncate(65, '&#8230;') %></h1>
+    <h1 class="detail-view__hdr hn"><%= raw @notice.name.truncate 65, '&#8230;' %></h1>
     <%# //Notice title %>
 
     <%# Notice meta %>

@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.233
+Version:     0.2.234
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,54 @@ fi
 
 
 %changelog
+* Mon Mar 24 2014 ci <doperations@au.westfield.com> 0.2.234-1
+- Merge pull request #1008 from araeside/search-results-page
+  (araeside@au.westfield.com)
+- refactor btn max width classes (alec@smartalecwebsites.com.au)
+- update class names (alec@smartalecwebsites.com.au)
+- make spacing the same between sections (alec@smartalecwebsites.com.au)
+- make max width for new modifier as other max-width modifier
+  (alec@smartalecwebsites.com.au)
+- remove redundant container (alec@smartalecwebsites.com.au)
+- horiz-list--spacing modifiers to have equal spacing on ul
+  (alec@smartalecwebsites.com.au)
+- add modifier to truncate text at palm (alec@smartalecwebsites.com.au)
+- stop orhpan html comments from being rendered (alec@smartalecwebsites.com.au)
+- remove button truncation. correct result counting
+  (alec@smartalecwebsites.com.au)
+- remove bold formatting for lato font. remove brands matching search term
+  (alec@smartalecwebsites.com.au)
+- cleanup display logic and allow deals and events to be shown
+  (alec@smartalecwebsites.com.au)
+- close comment (alec@smartalecwebsites.com.au)
+- remove redundant search model (alec@smartalecwebsites.com.au)
+- Fix up comment formatting. tweak button styles. remove spacing between list
+  items (alec@smartalecwebsites.com.au)
+- truncate button text (alec@smartalecwebsites.com.au)
+- force git to update commits (alec@smartalecwebsites.com.au)
+- remove store tile not needed yet (alec@smartalecwebsites.com.au)
+- revert extra store icon class (alec@smartalecwebsites.com.au)
+- add some comments and cleaner ruby loops (alec@smartalecwebsites.com.au)
+- revert messing around code (alec@smartalecwebsites.com.au)
+- more formatting and display logic (alec@smartalecwebsites.com.au)
+- formatting SERP (alec@smartalecwebsites.com.au)
+- center align product search link (alec@smartalecwebsites.com.au)
+- fix pinboard tile count bug. pull in correct product tiles
+  (alec@smartalecwebsites.com.au)
+- load products via ajax (alec@smartalecwebsites.com.au)
+- revert tile changes and separate product result for brands
+  (alec@smartalecwebsites.com.au)
+- split result types into separate lists (alec@smartalecwebsites.com.au)
+- loop through result types instead of individual html blocks. use highlighting
+  for search term (alec@smartalecwebsites.com.au)
+- use basic buttons styles for now (alec@smartalecwebsites.com.au)
+- search dynamic WIP (alec@smartalecwebsites.com.au)
+- keep going on using dynamic erb (alec@smartalecwebsites.com.au)
+- attempt back end integration (alec@smartalecwebsites.com.au)
+- search WIP (alec@smartalecwebsites.com.au)
+- basic store tile (alec@smartalecwebsites.com.au)
+- WIP stores UI html (alec@smartalecwebsites.com.au)
+
 * Mon Mar 24 2014 ci <doperations@au.westfield.com> 0.2.233-1
 - Merge pull request #1009 from cpearce/prod-curation-tile
   (cpearce@au.westfield.com)

@@ -7,6 +7,8 @@ class SearchController < ApplicationController
 
     gon.search_query = params[:search_query]
 
+    gon.centre = params[:centre_id]
+
     # TODO: sort by search model
     @search.results = @search.results.sort.reverse
 

@@ -20,6 +20,8 @@ module TileHelper
       centre_movie_url(centre_id: centre, id: result.id, movie_name: result.title.to_slug)
     when 'notice' then
       centre_notice_url(centre_id: centre, id: result.id)
+    when 'curation' then
+      centre_products_curation_url(centre_id: centre, slug: result.code)
     end
   end
 

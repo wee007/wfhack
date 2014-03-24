@@ -48,6 +48,11 @@ describe TileHelper do
       expect(helper.tile_url "centre_id", notice).to eq "http://test.host/centre_id/notices/1"
     end
 
+    it "returns a curation url" do
+      cs = double(:curation, kind: 'curation', code: 'summer-days')
+      helper.tile_url("centre_id", cs).should eq("http://test.host/centre_id/products/curation/summer-days")
+    end
+
   end
 
   describe :tile do

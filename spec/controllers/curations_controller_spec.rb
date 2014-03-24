@@ -27,6 +27,7 @@ describe CurationsController do
       subject { controller.meta }
       its(:page_title) { should match %r{#{name}}i }
       its(:description) { should match %r{#{description}}i }
+      its(:keys) { should include *%w[ id title twitter_title email_body image kind social_image ]}
     end
   end
 end

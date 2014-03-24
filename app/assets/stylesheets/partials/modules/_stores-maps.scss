@@ -86,6 +86,8 @@
 
     @include respond-min($ipad-landscape) {
       width: 50%;
+      /* Disable click events so the map canvas that sits behind can be interacted with */
+      pointer-events: none;
     }
 
     /* Modifier: Detail view */
@@ -94,8 +96,7 @@
 
       @include respond-min($ipad-landscape) {
         position: absolute;
-        /* Disable click events so the map canvas that sits behind can be interacted with */
-        pointer-events: none;
+         pointer-events: none;
       }
     }
 
@@ -129,6 +130,8 @@
         @include box;
         @include box-heavy;
         @include to-rem(margin-top, $spacing-base);
+        pointer-events: auto;
+
       }
 
       /* Map view */
@@ -156,10 +159,7 @@
         .is-map-view & {display: block;}
 
         /* Show and restore `pointer-events` */
-        @include respond-min($ipad-landscape) {
-          display: block;
-          pointer-events: auto;
-        }
+        @include respond-min($ipad-landscape) {display: block;}
       }
 
       /* Non JS users */
@@ -495,6 +495,7 @@
         @include to-rem(bottom, $spacing-base);
         @include box;
         @include box-heavy;
+        pointer-events: auto;
 
         /* Post filter count */
         .is-filter-applied & {@include to-rem(top, 196);}
@@ -504,7 +505,6 @@
           position: absolute;
           @include to-rem(top, 110);
           @include to-rem(bottom, $spacing-base);
-          pointer-events: auto;
           overflow-y: auto;
           background-color: $color-grey-light-2;
         }

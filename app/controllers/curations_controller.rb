@@ -5,6 +5,7 @@ class CurationsController < ApplicationController
       centre: params[:centre_id],
       curation: params[:slug]
 
+    meta.push @curation
     meta.push \
       page_title: "#{@curation.name} at #{@centre.name}",
       description: @curation.description

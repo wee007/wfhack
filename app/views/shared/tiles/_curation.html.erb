@@ -1,6 +1,13 @@
 <%# Tile curation image %>
 <div class="tile__image">
-  <%= image_tag 'dummy/curation-hero.jpg', alt: '', quality: 25, width: 289, crop: 'limit', fetch_format: 'auto' %>
+  <%= fetch_image_tag result.image,
+    width: 289,
+    alt: '',
+    crop: :limit,
+    format: :auto,
+    itemprop: :image,
+    quality: 25
+  %>
 </div>
 <%# //Tile curation image %>
 
@@ -15,7 +22,7 @@
 
   <%# Tile curation title and tag line %>
   <div class="tile__meta__inner">
-    <h3 class="tile__meta__hdr txt-truncate">Curation name</h3>
+    <h3 class="tile__meta__hdr txt-truncate"><%= result.name %></h3>
     <p class="tile__meta__desc txt-truncate">View collection</p>
   </div>
   <%# //Tile curation title and tag line %>

@@ -4,7 +4,8 @@ class StreamService
     "product" => Product,
     "event" => Event,
     "deal" => Deal,
-    "canned_search" => CannedSearch
+    "canned_search" => CannedSearch,
+    "curation" => Curation
   }
 
   class << self

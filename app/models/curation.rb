@@ -4,14 +4,6 @@ class Curation < Hashie::Mash
     _links['image']['href']
   end
 
-  def start_date(strftime = nil)
-    strftime ? Time.parse(super).strftime(strftime) : super
-  end
-
-  def end_date(strftime = nil)
-    strftime ? Time.parse(super).strftime(strftime) : super
-  end
-
   def kind
     "curation"
   end
@@ -25,7 +17,7 @@ class Curation < Hashie::Mash
         end
       end
 
-      products.map do |product|
+      products.compact.map do |product|
         ProductService.build product
       end
     end
@@ -39,15 +31,17 @@ class Curation < Hashie::Mash
     end
   end
 
-  # def meta
-  #   Meta.new id: id,
-  #            title: name,
-  #            image: image,
-  #            kind: kind
-  # end
-
-  # def icon
-  #   detect_tile || "search"
-  # end
+  def meta
+    @_meta ||= begin
+      Meta.new \
+        id: id,
+        title: name,
+        twitter_title: "Check out #{name}",
+        email_body: kind,
+        image: image,
+        kind: kind,
+        social_image: image
+    end
+  end
 
 end

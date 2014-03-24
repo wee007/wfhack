@@ -148,7 +148,9 @@
     /* Store meta */
     .storefront__details__meta {
       @extend %clear-fix;
-      @include to-rem(padding-top padding-bottom, $spacing-half+$spacing-quarter);
+      @include to-rem(padding-top, $spacing-half+$spacing-quarter);
+      /* Need to offset the bottom margin on the child `dd`s */
+      @include to-rem(padding-bottom, ($spacing-half+$spacing-quarter) -$spacing-micro);
       @include to-rem(margin-right, 100);
       margin-bottom: 0;
 
@@ -158,12 +160,14 @@
 
       @include respond-min($ipad-landscape) {
         margin-right: 0;
-        @include to-rem(padding-top padding-bottom, $spacing-half);
+        @include to-rem(padding-top, $spacing-half);
+        /* Need to offset the bottom margin on the child `dd`s */
+        @include to-rem(padding-bottom, $spacing-half - $spacing-micro);
       }
 
       /* Store meta items */
       dd {
-        @include to-rem(margin-top, $spacing-micro);
+        @include to-rem(margin-bottom, $spacing-micro);
         @include to-rem(padding-left, $spacing-base + $spacing-micro);
         position: relative;
 
@@ -172,12 +176,6 @@
           left: 0;
           top: 0;
         }
-      }
-
-      /* Turn off top margin for 1st and 2nd `dd`s */
-      dt:first-child {
-        + dd,
-        + dd + dt + dd {margin-top: 0;}
       }
 
       /* Restore rules for `.hide-visually` elements */

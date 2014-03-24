@@ -26,7 +26,7 @@
 
   <%# One section per content type %>
   <% @search.results.each_with_index do |(kind, results), index| %>
-    <section class="<%= 'divider divider--lrg' unless index == @search.results.length - 1 %>" aria-labelledby="<%= kind %>">
+    <section class="<%= 'divider divider--dbl' unless index == @search.results.length - 1 %>" aria-labelledby="<%= kind %>">
       <div class="txt-formatted">
         <h2 id="<%= kind %>">
           <%# TODO: rename stores icon to singular version %>

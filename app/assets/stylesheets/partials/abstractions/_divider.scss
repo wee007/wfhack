@@ -5,10 +5,10 @@
 /*
   Apply a dividing line between two elements.
 
-  .divider--lrg             - Larger spacing
   .divider--palm            - Base spacing only at palm
-  .divider--lrg-non-palm    - Larger spacing only at non palm
-  .divider--sml             - Smaller spacing
+  .divider--dbl             - Double spacing
+  .divider--dbl-non-palm    - Double spacing only at non palm
+  .divider--half            - Half spacing
 
 	Styleguide Divider
 */
@@ -20,10 +20,10 @@
 }
 
 /* Modifier: larger spacing */
-.divider--lrg {@include to-rem(padding-bottom margin-bottom, $spacing-dbl);}
+.divider--dbl {@include to-rem(padding-bottom margin-bottom, $spacing-dbl);}
 
 /* Modifier: smaller spacing */
-.divider--sml {@include to-rem(padding-bottom margin-bottom, $spacing-half);}
+.divider--half {@include to-rem(padding-bottom margin-bottom, $spacing-half);}
 
 /* Modifiers at breakpoints */
 @include respond-min($non-palm) {
@@ -35,5 +35,5 @@
   }
 
   /* Modifier: larger spacing only at non palm */
-  .divider--lrg-non-palm {@include to-rem(padding-bottom margin-bottom, $spacing-dbl);}
+  .divider--dbl-non-palm {@include to-rem(padding-bottom margin-bottom, $spacing-dbl);}
 }

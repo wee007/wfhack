@@ -27,7 +27,6 @@
 /* Remove spacing for `:last-child` */
 .mrg-base-alt,
 .mrg-half-alt,
-.mrg-base-and-half-alt,
 .mrg-dbl-alt {
 	&:last-child {margin-bottom: 0 !important;}
 }

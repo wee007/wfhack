@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.235
+Version:     0.2.236
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,10 @@ fi
 
 
 %changelog
+* Mon Mar 24 2014 ci <doperations@au.westfield.com> 0.2.236-1
+- Add new JS file to list of standalone assets to be compiled
+  (alec@smartalecwebsites.com.au)
+
 * Mon Mar 24 2014 ci <doperations@au.westfield.com> 0.2.235-1
 - Merge pull request #1012 from cpearce/product-curation-ui
   (cpearce@au.westfield.com)

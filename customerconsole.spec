@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.238
+Version:     0.2.239
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,26 @@ fi
 
 
 %changelog
+* Tue Mar 25 2014 ci <doperations@au.westfield.com> 0.2.239-1
+- Merge pull request #1011 from cpearce/misc-fixes (cpearce@au.westfield.com)
+- Removing hardcoded island div from search list keyword filter no results msg
+  (cpearce@au.westfield.com)
+- Adding double quotes around Microdata attrs for tiles
+  (cpearce@au.westfield.com)
+- Making modifiers consistent (cpearce@au.westfield.com)
+- Changing divider abstraction modifier names so they follow convention
+  (cpearce@au.westfield.com)
+- Adding raw to notice title truncate helper (cpearce@au.westfield.com)
+- Adding full stop to session time sentance on movies detail
+  (cpearce@au.westfield.com)
+- Fixing up inconsistent spacing for storefront meta details
+  (cpearce@au.westfield.com)
+- Fixing incorrectly nested strong element in header opening time text
+  (cpearce@au.westfield.com)
+- Adding space between global search label text (cpearce@au.westfield.com)
+- Removing duplicate target blank attrs from site header social nav links
+  (cpearce@au.westfield.com)
+
 * Tue Mar 25 2014 ci <doperations@au.westfield.com> 0.2.238-1
 - Added Curation tile, helper specs (michael@michaelbamford.com)
 - Curation tile on Centre homepage (michael@michaelbamford.com)

@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.237
+Version:     0.2.238
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,10 @@ fi
 
 
 %changelog
+* Tue Mar 25 2014 ci <doperations@au.westfield.com> 0.2.238-1
+- Added Curation tile, helper specs (michael@michaelbamford.com)
+- Curation tile on Centre homepage (michael@michaelbamford.com)
+
 * Mon Mar 24 2014 ci <doperations@au.westfield.com> 0.2.237-1
 - Merge pull request #1014 from araeside/search-results-search-by-centre
   (araeside@au.westfield.com)

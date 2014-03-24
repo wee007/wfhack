@@ -1,28 +1,102 @@
-<%= form_tag centre_search_path, method: "get", class: 'search-mini ng-pristine ng-valid' do %>
-  <span class="icon icon--search" aria-hidden="true"></span>
-  <%= label_tag :q, "Search:", class: 'hide-visually' %>
-  <%= text_field_tag :search_query, @search.term %>
-  <%= submit_tag "Search", class: 'search-mini__submit' %>
-<% end %>
+<% content_for :class_for_main, "container--spacing-top-main-content " %>
 
 <% if @search.results.empty? %>
+
+  <%#// TODO: no search results page %>
   <div class="no-content-fallback-msg">
-    <span class="icon icon--deals icon--flush-top" aria-hidden="true"></span>
-    <p><em class="h1">No results</em></span></p>
+    <p><em class="h1">No search results</em></span></p>
   </div>
 <% else %>
-  <ul>
-    <% @search.results.each do |kind, results| %>
-      <li class="island">
-        <h2><%= kind.titlecase %></h2>
-        <ul>
-          <% results.each do |result| %>
-            <li class="list-divider">
-              <%= link_to result[:display], build_url(@centre, kind, result[:attributes]) %>
-            </li>
-          <% end %>
+  <h1>Results for "<%= @search.term =%>"</h1>
+
+  <%# List of anchors to each search result type %>
+  <div class="nav-contextual js-nav-contextual js-viewport-check">
+    <div class="nav-contextual__clip">
+      <div class="nav-contextual__clip__inner">
+        <ul class="nav-contextual__list horiz-list js-nav-contextual-list">
+          <% @search.results.each do |kind, results| %><% if results.present? %><li>
+              <a href="#<%= kind %>"><%= kind.titlecase %> (<span class="js-<%= kind.singularize %>-result-count"><%= number_of_results(results) %></span>)</a>
+          </li><% end %><% end %>
         </ul>
-      </li>
-    <% end %>
-  </ul>
+      </div>
+      <span class="nav-contextual__clip__overlay icon icon--arrow-right icon--mega icon--flush-top js-nav-contextual-clip-overlay" aria-hidden="true"></span>
+    </div>
+  </div>
+  <%#// List of anchors to each search result type %>
+
+  <%# One section per content type %>
+  <% @search.results.each_with_index do |(kind, results), index| %>
+    <section class="<%= 'divider divider--lrg' unless index == @search.results.length - 1 %>" aria-labelledby="<%= kind %>">
+      <div class="txt-formatted">
+        <h2 id="<%= kind %>">
+          <%# TODO: rename stores icon to singular version %>
+          <span class="icon icon--<%= kind unless kind == 'stores' %><%= kind.singularize if kind == 'stores' %> icon--spacing" aria-hidden="true"></span>
+          <%= kind.titlecase %>
+        </h2>
+
+        <%# List of links to categories %>
+        <% if has_category_results?(results) %>
+          <nav role="navigation">
+            <ul class="horiz-list horiz-list--spacing-half horiz-list--spacing-half-wrap txt-formatted__list-unstyled">
+              <% results.each do |result| %><% if result.attributes.category.present? %><li>
+                <%= link_to(build_url(@centre, kind, result[:attributes]), class: 'btn btn--main btn--main-white btn--main-compact-sides btn--main-max-width btn--main-max-width-palm') do %>
+                  <span class="txt-truncate">
+                    <%= highlight(result[:display], @search.term,  highlighter: '<strong>\1</strong>') %>
+                  </span>
+                <% end %>
+              </li><% end %><% end %>
+            </ul>
+          </nav>
+        <% end %>
+        <%#// List of links to categories %>
+
+        <%# Product results need different html %>
+        <% if kind != 'products' %>
+
+          <%# List of links to storefronts %>
+          <% if has_result_type?(results, kind.singularize) %>
+
+            <%# Only display sub heading if there are category results above it %>
+            <% if has_category_results?(results) %>
+              <h3 class="mrg-dbl-top">All <%= kind %> matching "<strong><%= @search.term =%></strong>"</h3>
+            <% end %>
+
+            <nav role="navigation">
+              <ul class="horiz-list horiz-list--spacing-half horiz-list--spacing-half-wrap txt-formatted__list-unstyled">
+                <% results.each do |result| %><li>
+                  <%= link_to(build_url(@centre, kind, result[:attributes]), class: 'btn btn--main btn--main-white btn--main-compact-sides btn--main-max-width btn--main-max-width-palm') do %>
+                    <span class="txt-truncate">
+                      <%= highlight(result[:display], @search.term,  highlighter: '<strong>\1</strong>') %>
+                    </span>
+                  <% end %>
+                </li><% end %>
+              </ul>
+            </nav>
+          <% end %>
+          <%#// List of links to storefronts %>
+
+        <% else %>
+
+          <h3 class="mrg-dbl-top mrg-base js-product-results-hdr">All <%= kind.pluralize %> matching "<strong><%= @search.term =%></strong>"</h3>
+
+        <% end %>
+        <%#// Product results need different html %>
+
+      </div>
+      <% if kind == 'products' %>
+        <div class="pin-board-multi hide-fully js-product-results-container">
+        </div>
+        <div class="txt-center mrg-dbl-top">
+          <a href="/<%= @centre.code %>/products?search_query=<%= @search.term %>">View all products matching "<strong><%= @search.term =%></strong>"</a>
+        </div>
+      <% end %>
+
+    </section>
+  <% end %>
+  <%#// One section per content type %>
+
+<%- content_for :custom_javascript do -%>
+  <%= javascript_include_tag 'search/load_products' %>
+<%- end -%>
+
 <% end %>

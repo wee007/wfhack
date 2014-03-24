@@ -5,17 +5,18 @@
 /*
   The main buttons for the site.
 
-  .btn--main-blue             - Blue
-  .btn--main-dark             - Dark
-  .btn--main-light            - Light
-  .btn--main-white            - White
-  .btn--main-compact          - Compact - decrease padding
-  .btn--main-compact-sides    - Compact - decrease left/right padding
-  .btn--main-max-width        - Apply a maximum width, this is typically used when the `txt-truncate` helper is used on the button text
-  .btn--main-lrg              - Large - increase top/bottom padding
-  .btn--main-arrow            - Arrow on the right
-  .btn--main-toggle-checkbox  - Checkbox toggle
-  .btn--main-toggle-ios       - iOS-style toggle
+  .btn--main-blue               - Blue
+  .btn--main-dark               - Dark
+  .btn--main-light              - Light
+  .btn--main-white              - White
+  .btn--main-compact            - Compact - decrease padding
+  .btn--main-compact-sides      - Compact - decrease left/right padding
+  .btn--main-max-width          - Apply a maximum width, this is typically used when the `txt-truncate` helper is used on the button text
+  .btn--main-max-width-palm     - Apply a maximum width for palm, this is typically used when the `txt-truncate` helper is used on the button text
+  .btn--main-lrg                - Large - increase top/bottom padding
+  .btn--main-arrow              - Arrow on the right
+  .btn--main-toggle-checkbox    - Checkbox toggle
+  .btn--main-toggle-ios         - iOS-style toggle
 
   Styleguide Button Main
 */
@@ -120,6 +121,11 @@
 
   /* Modifier: apply a maximum width, this is typically used when the `txt-truncate` helper is used on the button text */
   .btn--main-max-width {@include to-rem(max-width, 186);}
+
+  /* Modifier: apply a maximum width for palm, this is typically used when the `txt-truncate` helper is used on the button text */
+  @include respond-min($non-palm) {
+    .btn--main-max-width-palm {max-width: none;}
+  }
 
 	/* Modifier: large - increase top/btm padding */
 	.btn--main-lrg {@include to-em(padding-top padding-bottom, $spacing-half+$spacing-micro);}

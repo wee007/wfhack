@@ -32,6 +32,7 @@ CustomerConsole::Application.routes.draw do
   get 'terms-conditions' => 'pages#terms_conditions'
   get 'privacy-policy' => 'pages#privacy_policy'
   get 'products-xhr' => "products#index_xhr", as: 'product_xhr'
+  get 'search-xhr' => "products#search_xhr", as: 'search_xhr'
   Routes::ProductRoutes.draw self, 'national'
   get '/au/shopping/*request_path' => 'redirector#shopping'
 

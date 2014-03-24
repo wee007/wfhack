@@ -9,7 +9,7 @@ class @PinBoard
 
   constructor: (@pinBoardSelector) ->
     # Clone the items as they are removed, and added between breakpoints
-    @items = $("#{@pinBoardSelector} .js-tile").clone()
+    @items = $("#{@pinBoardSelector}").find(".js-tile").clone()
     # The palm is default, since we are mobile 1st.
     @currentNumberOfCols = 2
 

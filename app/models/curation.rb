@@ -1,7 +1,9 @@
 class Curation < Hashie::Mash
 
   def image
-    _links['image']['href']
+    if _links and _links['image']
+      _links['image']['href']
+    end
   end
 
   def kind
@@ -32,7 +34,7 @@ class Curation < Hashie::Mash
   end
 
   def meta
-    @_meta ||= begin
+    @meta ||= begin
       Meta.new \
         id: id,
         title: name,

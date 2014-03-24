@@ -118,6 +118,9 @@ describe CustomerConsole::Application do
           expect(get: "/bondijunction/canned-searches/1/social-share").to route_to(base_params.merge({"kind"=>"canned_search"}))
         end
 
+        it 'routes to a curation' do
+          expect(get: "/bondijunction/products/curation/1/social-share").to route_to(base_params.merge({ 'kind'=>'curation' }))
+        end
       end
 
     end

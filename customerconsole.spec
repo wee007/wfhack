@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.234
+Version:     0.2.235
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,11 @@ fi
 
 
 %changelog
+* Mon Mar 24 2014 ci <doperations@au.westfield.com> 0.2.235-1
+- Merge pull request #1012 from cpearce/product-curation-ui
+  (cpearce@au.westfield.com)
+- CSS update after pagination was removed (cpearce@au.westfield.com)
+
 * Mon Mar 24 2014 ci <doperations@au.westfield.com> 0.2.234-1
 - Merge pull request #1008 from araeside/search-results-page
   (araeside@au.westfield.com)

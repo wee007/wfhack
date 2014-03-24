@@ -32,7 +32,9 @@ module CustomerConsole
                                    html5shiv/src/html5shiv-printshiv.js
                                    stores_maps.js
                                    jquery-extensions/jquery.toggle-content.js
-                                   server_errors.css init/sort_centres_by_geolocation.js
+                                   server_errors.css
+                                   init/sort_centres_by_geolocation.js
+                                   search/load_products.js
                                    prism/prism.js
                                    prism/prism.css
                                    styleguide/styleguide.css

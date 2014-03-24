@@ -6,7 +6,8 @@
   Apply a dividing line between two elements.
 
   .divider--lrg             - Larger spacing
-  .divider--lrg-non-palm    - Larger spacing at non palm
+  .divider--palm            - Base spacing only at palm
+  .divider--lrg-non-palm    - Larger spacing only at non palm
   .divider--sml             - Smaller spacing
 
 	Styleguide Divider
@@ -14,17 +15,25 @@
 
 .divider {
   @extend %mrg-base;
-	border-bottom: 1px solid $color-grey-med-3;
 	@include to-rem(padding-bottom, $spacing-base);
+  border-bottom: 1px solid $color-grey-med-3;
 }
 
 /* Modifier: larger spacing */
 .divider--lrg {@include to-rem(padding-bottom margin-bottom, $spacing-dbl);}
 
-/* Modifier: as above but only at non palm */
-@include respond-min($non-palm) {
-  .divider--lrg-non-palm {@include to-rem(padding-bottom margin-bottom, $spacing-dbl);}
-}
-
 /* Modifier: smaller spacing */
 .divider--sml {@include to-rem(padding-bottom margin-bottom, $spacing-half);}
+
+/* Modifiers at breakpoints */
+@include respond-min($non-palm) {
+  /* Modifier: base spacing only at palm */
+  .divider--palm {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: 0;
+  }
+
+  /* Modifier: larger spacing only at non palm */
+  .divider--lrg-non-palm {@include to-rem(padding-bottom margin-bottom, $spacing-dbl);}
+}

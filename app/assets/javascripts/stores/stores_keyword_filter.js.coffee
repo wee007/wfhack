@@ -113,7 +113,7 @@ class @StoresKeywordFilter
   handleNoStoresInList: (numShown) =>
     if numShown == 0
       @noStoresMatchingMessage.removeClass('hide-fully')
-      @noStoresMatchingMessage.find('.js-stores-keyword-filter-value').html('\''+$('.js-stores-keyword-filter-input').val()+'\'')
+      @noStoresMatchingMessage.find('.js-stores-keyword-filter-value').html('\"'+$('.js-stores-keyword-filter-input').val()+'\"')
     else
       @noStoresMatchingMessage.addClass('hide-fully')
 

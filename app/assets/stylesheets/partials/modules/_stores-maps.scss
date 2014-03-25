@@ -452,7 +452,7 @@
       overflow-y: auto;
 
       /* When element contents are not as tall as container */
-      &.is-variable-height {bottom: auto;}
+      &.is-collapsed {bottom: auto;}
 
       /* Post filter count */
       .is-filter-applied & {@include to-rem(top, 91);}
@@ -510,7 +510,7 @@
         }
 
         /* When element contents are not as tall as container */
-        .stores-maps__inner--detail &.is-variable-height {bottom: auto;}
+        .stores-maps__inner--detail &.is-collapsed {bottom: auto;}
       }
 
       /* Non JS users, note: has to come after the mq's */

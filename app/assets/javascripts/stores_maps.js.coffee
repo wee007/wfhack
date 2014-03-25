@@ -97,6 +97,10 @@ class StoreMapPage
     @updateGUI @map.hide()
     # Remove map popup when switck back to store list
     @map.setTarget()
+    @dynamic_heights.setupDefaultHeights()
+    @dynamic_heights.check()
+    @keyword_filter.setupToggleListPosition()
+
     false
 
   updateAngularStoreListControllerLinks: (viewingMap) ->

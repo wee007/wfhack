@@ -5,7 +5,7 @@
 /*
   Common styles for a drop down menu.
 
-  .drop-down-menu--target-width-center-align    - Max width equalling width of drop down target, center align and add some top spacing
+  .drop-down-menu--target-width-center-align    - Max width equalling width of drop down target and center aligned
 
   Styleguide Drop Down Menu
 */
@@ -50,7 +50,7 @@
   input[type="checkbox"] {@include to-rem(margin-right, $spacing-quarter);}
 }
 
-/* Modifier: max width equalling width of drop down target, center align and add some top spacing */
+/* Modifier: max width equalling width of drop down target and center aligned */
 .drop-down-menu--target-width-center-align {
   @include to-rem(margin, $spacing-third auto 0);
   @include to-rem(max-width, $drop-down-width);

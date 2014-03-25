@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.239
+Version:     0.2.240
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,11 @@ fi
 
 
 %changelog
+* Wed Mar 26 2014 ci <doperations@au.westfield.com> 0.2.240-1
+- Merge pull request #1019 from mbamford/feature/curations
+  (mbamford@au.westfield.com)
+- Removed tickle flag (michael@michaelbamford.com)
+
 * Tue Mar 25 2014 ci <doperations@au.westfield.com> 0.2.239-1
 - Merge pull request #1011 from cpearce/misc-fixes (cpearce@au.westfield.com)
 - Removing hardcoded island div from search list keyword filter no results msg

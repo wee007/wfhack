@@ -3,7 +3,7 @@ class CurationsController < ApplicationController
   def show
     @centre, @curation = service_map \
       centre: params[:centre_id],
-      curation: params[:slug]
+      curation: { code: params[:slug], centre: params[:centre_id] }
 
     meta.push @curation.meta
     meta.push \

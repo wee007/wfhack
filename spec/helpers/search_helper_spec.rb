@@ -51,4 +51,66 @@ describe SearchHelper do
     end
   end
 
+  let(:results) {
+    [
+      Hashie::Mash.new(
+        result_type: 'store',
+        attributes: {
+          category: false
+        }
+      ),
+      Hashie::Mash.new(
+        result_type: 'product_category',
+        attributes: {
+          category: true
+        }
+      )
+    ]
+  }
+
+  describe "#has_result_type" do
+    context "When checking the result type" do
+      it "should be true when we have a store result" do
+        expect(helper.has_result_type?(results, "store")).to be_true
+      end
+      it "should be true when we have a product_category result" do
+        expect(helper.has_result_type?(results, "product_category")).to be_true
+      end
+    end
+  end
+
+  describe "#has_category_results" do
+    context "When checking if one or more of the results is a category" do
+      it "should be true when we have a category result" do
+        expect(helper.has_category_results?(results)).to be_true
+      end
+    end
+  end
+
+  describe "#results_by_type" do
+    let(:filtered_results) {
+      [
+        Hashie::Mash.new(
+          result_type: 'store',
+          attributes: {
+            category: false
+          }
+        )
+      ]
+    }
+    context "When filtering results by type" do
+      it "should only contain store results" do
+        expect(helper.results_by_type(results, "store")).to eql(filtered_results)
+      end
+    end
+  end
+
+  describe "#number_of_results" do
+    context "When counting the number of results" do
+      it "should return 2 results" do
+        expect(helper.number_of_results(results)).to eql(2)
+      end
+    end
+  end
+
 end

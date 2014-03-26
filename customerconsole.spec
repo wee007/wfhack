@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.242
+Version:     0.2.243
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,11 @@ fi
 
 
 %changelog
+* Thu Mar 27 2014 ci <doperations@au.westfield.com> 0.2.243-1
+- Merge pull request #1015 from araeside/search-results-page
+  (chorn@au.westfield.com)
+- add tests for search helpers (alec@smartalecwebsites.com.au)
+
 * Wed Mar 26 2014 ci <doperations@au.westfield.com> 0.2.242-1
 - Merge pull request #1021 from mmancuso/master (ldewey@au.westfield.com)
 - fixing sitemap cron (mmancuso@au.westfield.com)

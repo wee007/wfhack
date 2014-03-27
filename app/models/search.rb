@@ -14,4 +14,22 @@ class Search < Hashie::Mash
   	results.first.second.first["attributes"]["path"]
   end
 
+  def sort!
+    self.results = self.results.sort do |a,b|
+      ordering_on_type(a.first) <=> ordering_on_type(b.first)
+    end
+  end
+
+  private
+
+  # Order by type_order_list - if we can't find a matching type, move it to the end
+  def ordering_on_type type
+    type_order_list =
+     [
+      "centre_information",
+      "events"
+     ]
+    type_order_list.index(type) || 9999
+  end
+
 end

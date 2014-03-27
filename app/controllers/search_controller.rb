@@ -13,8 +13,8 @@ class SearchController < ApplicationController
       redirect_to @search.first_result_uri_path
     end
 
-    # TODO: sort by search model
-    @search.results = @search.results.sort.reverse
+    @search.sort!
 
   end
+
 end

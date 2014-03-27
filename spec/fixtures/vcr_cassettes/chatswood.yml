@@ -1,0 +1,180 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://centre-service.test.dbg.westfield.com/api/centre/master/centres/chatswood.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.8
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      Server:
+      - nginx/1.4.7
+      Date:
+      - Thu, 27 Mar 2014 02:10:44 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '1076'
+      Connection:
+      - keep-alive
+      x-frame-options:
+      - SAMEORIGIN
+      x-xss-protection:
+      - 1; mode=block
+      x-content-type-options:
+      - nosniff
+      x-ua-compatible:
+      - chrome=1
+      etag:
+      - '"4ae5baf90fdb75d2f0daca09487dc55f"'
+      cache-control:
+      - max-age=0, private, must-revalidate
+      status:
+      - 200 OK
+      age:
+      - '0'
+      via:
+      - 1.1 varnish
+      vary:
+      - Accept-Encoding
+      X-Request-Id:
+      - e65ad240-df9d-4311-84eb-daa7038dc59f
+      X-Runtime:
+      - '0.029079'
+    body:
+      encoding: UTF-8
+      string: '{"name":"Westfield Chatswood","short_name":"Chatswood","code":"chatswood","state":"NSW","country":"au","latitude":"-33.797165","longitude":"151.183758","hero_image_ref":null,"micello_community":7297,"retail":true,"enabled":true,"_links":{"self":{"href":"http://centre-service.development.dbg.westfield.com/api/centre/master/centres/chatswood.json"},"hero_image":{"href":""}},"business_unit_code":"08021","type":"aspirational","street_address":"1
+        Anderson Street","suburb":"Chatswood","postcode":"2067","phone_number":"(02)
+        9412 1555","email_address":"chatswood@au.westfield.com","today_opening_time":"09:00","today_closing_time":"21:00","today_closed":false,"number_of_levels":7,"micello_map_centre":{"x":0,"y":0},"facebook":"http://www.facebook.com/westfieldchatswood","twitter":"https://twitter.com/westfieldau","google_plus":"https://plus.google.com/116705982116614986647/posts","instagram":"http://instagram.com/westfieldchatswood","pinterest":"http://pinterest.com/westfieldau","youtube":"http://www.youtube.com/westfieldfashion","cinema":true,"timezone":"Australia/NSW"}'
+    http_version: 
+  recorded_at: Thu, 27 Mar 2014 02:10:44 GMT
+- request:
+    method: get
+    uri: http://search-service.test.dbg.westfield.com/api/search/master/search.json?centre=chatswood&term=hours
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.8
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      Server:
+      - nginx/1.4.7
+      Date:
+      - Thu, 27 Mar 2014 02:10:44 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '1123'
+      Connection:
+      - keep-alive
+      x-frame-options:
+      - SAMEORIGIN
+      x-xss-protection:
+      - 1; mode=block
+      x-content-type-options:
+      - nosniff
+      x-ua-compatible:
+      - chrome=1
+      etag:
+      - '"b2c51771dcbc61c9466172a5e99c5b01"'
+      cache-control:
+      - max-age=0, private, must-revalidate
+      x-runtime:
+      - '0.007791'
+      X-Request-Id:
+      - e1feae62-ad09-4abc-9a5e-02fc0db7fe48
+    body:
+      encoding: UTF-8
+      string: '{"term":"hours","results":{"centre_information":[{"id":"centre-hours
+        hours time open trading trading-hours opening-hours opening-times centre-hours
+        store-hours times shopping-times australia-day anzac-day boxing-day canberra-day
+        christmas christmas-day christmas-eve easter easter-monday easter-saturday
+        easter-sunday easter-tuesday eight-hours-day family-\u0026-community-day good-friday
+        labour-day march-public-holiday may-day melbourne-cup melbourne-cup-day new-years-day
+        new-years-eve NYE picnic-day queens-birthday Western-Australia-Day Xmas","term":"centrehours
+        hours time open trading tradinghours openinghours openingtimes centrehours
+        storehours times shoppingtimes australiaday anzacday boxingday canberraday
+        christmas christmasday christmaseve easter eastermonday eastersaturday eastersunday
+        eastertuesday eighthoursday familycommunityday goodfriday labourday marchpublicholiday
+        mayday melbournecup melbournecupday newyearsday newyearseve nye picnicday
+        queensbirthday westernaustraliaday xmas","score":-366,"display":"Shopping
+        hours","result_type":"centre_information","attributes":{"path":"/chatswood/hours"}}]}}'
+    http_version: 
+  recorded_at: Thu, 27 Mar 2014 02:10:44 GMT
+- request:
+    method: get
+    uri: http://search-service.test.dbg.westfield.com/api/search/master/search.json?centre=chatswood&term=easter
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.8
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      Server:
+      - nginx/1.4.7
+      Date:
+      - Thu, 27 Mar 2014 02:10:44 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '1124'
+      Connection:
+      - keep-alive
+      x-frame-options:
+      - SAMEORIGIN
+      x-xss-protection:
+      - 1; mode=block
+      x-content-type-options:
+      - nosniff
+      x-ua-compatible:
+      - chrome=1
+      etag:
+      - '"8177c6b0a33abfb549f56bda62783e9c"'
+      cache-control:
+      - max-age=0, private, must-revalidate
+      x-runtime:
+      - '0.007320'
+      X-Request-Id:
+      - 308fe9f3-8e18-407b-b946-7e1eeb793a67
+    body:
+      encoding: UTF-8
+      string: '{"term":"easter","results":{"centre_information":[{"id":"centre-hours
+        hours time open trading trading-hours opening-hours opening-times centre-hours
+        store-hours times shopping-times australia-day anzac-day boxing-day canberra-day
+        christmas christmas-day christmas-eve easter easter-monday easter-saturday
+        easter-sunday easter-tuesday eight-hours-day family-\u0026-community-day good-friday
+        labour-day march-public-holiday may-day melbourne-cup melbourne-cup-day new-years-day
+        new-years-eve NYE picnic-day queens-birthday Western-Australia-Day Xmas","term":"centrehours
+        hours time open trading tradinghours openinghours openingtimes centrehours
+        storehours times shoppingtimes australiaday anzacday boxingday canberraday
+        christmas christmasday christmaseve easter eastermonday eastersaturday eastersunday
+        eastertuesday eighthoursday familycommunityday goodfriday labourday marchpublicholiday
+        mayday melbournecup melbournecupday newyearsday newyearseve nye picnicday
+        queensbirthday westernaustraliaday xmas","score":-366,"display":"Shopping
+        hours","result_type":"centre_information","attributes":{"path":"/chatswood/hours"}}]}}'
+    http_version: 
+  recorded_at: Thu, 27 Mar 2014 02:10:44 GMT
+recorded_with: VCR 2.6.0

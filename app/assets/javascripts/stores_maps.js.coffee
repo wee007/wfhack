@@ -11,8 +11,9 @@ class StoreMapPage
   $pjaxContainer = $(pjaxContainerSelector)
 
   constructor: ->
+    @layoutBreakpoint = 'all and (min-width: 64em)'
     @map = new map.ResponsiveMap {
-      breakpoint: 'all and (min-width: 64em)'
+      breakpoint: @layoutBreakpoint
       palm: offset: x: 0.5, y: 0.5, zoom: 0.6
       nonPalm: offset: x: 0.75, y: 0.5, zoom: 0.7
     }
@@ -61,7 +62,6 @@ class StoreMapPage
       $(document).on('pjax:send', @startLoading)
       $(document).on('pjax:success', @stopLoading)
       body.on('pjax:end', pjaxContainerSelector, @pjaxComplete)
-      body.on('pjax:popstate', pjaxContainerSelector, @pjaxComplete)
       body.on('click', 'a.js-pjax-link-stores', @pjaxNavigate)
 
       body.on 'submit', 'form[data-pjax]', (event) ->
@@ -78,7 +78,7 @@ class StoreMapPage
       false
     )
 
-    @dynamic_heights = new DynamicHeights()
+    @dynamic_heights = new DynamicHeights(@layoutBreakpoint)
     @keyword_filter = new StoresKeywordFilter(@map, @dynamic_heights.check)
     $('.js-store-hours-toggle-trigger').click @dynamic_heights.check
 

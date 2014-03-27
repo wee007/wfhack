@@ -4,13 +4,17 @@
 
 class @DynamicHeights
   stateClass: 'is-collapsed'
-  constructor: ->
+  constructor: (breakpoint) ->
+    @breakpoint = breakpoint
     @getElements()
     @initialise()
     $(window).resize(debounce(@initialise, 500))
   initialise: =>
-    @setupDefaultHeights()
-    @check()
+    @isPluginActive = matchMedia(@breakpoint).matches
+    if @isPluginActive
+      @setupDefaultHeights()
+      @check()
+
   getElements: =>
     @elements = $('.js-stores-dynamic-height')
   setupDefaultHeights: =>
@@ -19,12 +23,13 @@ class @DynamicHeights
       $(element).removeClass(@stateClass)
       $(element).data('height', $(element).outerHeight(true))
   check: =>
-    @elements.each (i, el) =>
-      element = $(el)
-      # Compare original height of element to the heigh of its non hidden contents
-      if element.data('height') <= element.children(':not(.hide-fully)').outerHeight(true)
-        # We dont want variable height when the content is too big for the container
-        element.removeClass(@stateClass)
-      else
-        # This sets bottom: auto;
-        element.addClass(@stateClass)
+    if @isPluginActive
+      @elements.each (i, el) =>
+        element = $(el)
+        # Compare original height of element to the heigh of its non hidden contents
+        if element.data('height') <= element.children(':not(.hide-fully)').outerHeight(true)
+          # We dont want variable height when the content is too big for the container
+          element.removeClass(@stateClass)
+        else
+          # This sets bottom: auto;
+          element.addClass(@stateClass)

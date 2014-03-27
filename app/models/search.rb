@@ -9,7 +9,7 @@ class Search < Hashie::Mash
   end
 
   def sort!
-    results.sort! do |a,b|
+    self.results = self.results.sort do |a,b|
       ordering_on_type(a.first) <=> ordering_on_type(b.first)
     end
   end

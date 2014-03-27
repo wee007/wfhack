@@ -1,0 +1,51 @@
+/* ======================================================================================
+   @MODULES -> FALLBACK MESSAGE
+   ====================================================================================== */
+
+/*
+  Fallback message accompanied by a large icon, typically used when there is no content for a page.
+
+  .fallback-msg--spacing-top      - Add large top margin
+
+  Styleguide Fallback Message
+*/
+
+.fallback-msg {
+
+  p,
+  .fallback-msg__icon:before {color: $color-txt-light;}
+
+  p {
+    text-align: center;
+
+    em,
+    span {display: block;}
+
+    em {
+      text-transform: uppercase;
+      @include font-size(22, 1.3);
+      @include to-rem(margin-bottom, $spacing-third);
+      @include to-rem(margin-top, $spacing-half);
+    }
+
+    > span {color: $color-txt-dark;}
+  }
+}
+
+/* Modifier: add large top margin */
+.fallback-msg--spacing-top {
+  @include to-rem(margin-top, $spacing-dbl);
+
+  @include respond-min($non-palm) {
+    @include to-rem(margin-top, 100);
+  }
+}
+
+  /* Large icon */
+  .fallback-msg__icon:before {
+    @include font-size(48, 1);
+
+    @include respond-min($non-palm) {
+      @include font-size(60, 1);
+    }
+  }

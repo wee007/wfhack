@@ -8,8 +8,8 @@ class Search < Hashie::Mash
   	results["centre_information"].first["attributes"]["path"]
   end
 
-  def sort!
-    self.results = self.results.sort do |a,b|
+  def sort
+    results.sort do |a,b|
       ordering_on_type(a.first) <=> ordering_on_type(b.first)
     end
   end

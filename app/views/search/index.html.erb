@@ -1,20 +1,20 @@
 <% content_for :class_for_main, "container--spacing-top-main-content " %>
 
-<% if @search.results.empty? %>
+<% if @sorted_results_tuple.empty? %>
 
   <%#// TODO: no search results page %>
   <div class="no-content-fallback-msg">
     <p><em class="h1">No search results</em></span></p>
   </div>
 <% else %>
-  <h1>Results for "<%= @search.term =%>"</h1>
+  <h1>Results for "<%= @search_term =%>"</h1>
 
   <%# List of anchors to each search result type %>
   <div class="nav-contextual js-nav-contextual js-viewport-check">
     <div class="nav-contextual__clip">
       <div class="nav-contextual__clip__inner">
         <ul class="nav-contextual__list horiz-list js-nav-contextual-list">
-          <% @search.results.each do |kind, results| %><% if results.present? %><li>
+          <% @sorted_results_tuple.each do |kind, results| %><% if results.present? %><li>
               <a href="#<%= kind %>"><%= kind.titlecase %> (<span class="js-<%= kind.singularize %>-result-count"><%= number_of_results(results) %></span>)</a>
           </li><% end %><% end %>
         </ul>
@@ -25,8 +25,8 @@
   <%#// List of anchors to each search result type %>
 
   <%# One section per content type %>
-  <% @search.results.each_with_index do |(kind, results), index| %>
-    <section class="<%= 'divider divider--dbl' unless index == @search.results.length - 1 %>" aria-labelledby="<%= kind %>">
+  <% @sorted_results_tuple.each_with_index do |(kind, results), index| %>
+    <section class="<%= 'divider divider--dbl' unless index == @sorted_results_tuple.length - 1 %>" aria-labelledby="<%= kind %>">
       <div class="txt-formatted">
         <h2 id="<%= kind %>">
           <%# TODO: rename stores icon to singular version %>
@@ -41,7 +41,7 @@
               <% results.each do |result| %><% if result.attributes.category.present? %><li>
                 <%= link_to(build_url(@centre, kind, result[:attributes]), class: 'btn btn--main btn--main-white btn--main-compact-sides btn--main-max-width btn--main-max-width-palm') do %>
                   <span class="txt-truncate">
-                    <%= highlight(result[:display], @search.term,  highlighter: '<strong>\1</strong>') %>
+                    <%= highlight(result[:display], @search_term,  highlighter: '<strong>\1</strong>') %>
                   </span>
                 <% end %>
               </li><% end %><% end %>
@@ -58,7 +58,7 @@
 
             <%# Only display sub heading if there are category results above it %>
             <% if has_category_results?(results) %>
-              <h3 class="mrg-dbl-top">All <%= kind %> matching "<strong><%= @search.term =%></strong>"</h3>
+              <h3 class="mrg-dbl-top">All <%= kind %> matching "<strong><%= @search_term =%></strong>"</h3>
             <% end %>
 
             <nav role="navigation">
@@ -66,7 +66,7 @@
                 <% results.each do |result| %><li>
                   <%= link_to(build_url(@centre, kind, result[:attributes]), class: 'btn btn--main btn--main-white btn--main-compact-sides btn--main-max-width btn--main-max-width-palm') do %>
                     <span class="txt-truncate">
-                      <%= highlight(result[:display], @search.term,  highlighter: '<strong>\1</strong>') %>
+                      <%= highlight(result[:display], @search_term,  highlighter: '<strong>\1</strong>') %>
                     </span>
                   <% end %>
                 </li><% end %>
@@ -77,7 +77,7 @@
 
         <% else %>
 
-          <h3 class="mrg-dbl-top mrg-base js-product-results-hdr">All <%= kind.pluralize %> matching "<strong><%= @search.term =%></strong>"</h3>
+          <h3 class="mrg-dbl-top mrg-base js-product-results-hdr">All <%= kind.pluralize %> matching "<strong><%= @search_term =%></strong>"</h3>
 
         <% end %>
         <%#// Product results need different html %>
@@ -87,7 +87,7 @@
         <div class="pin-board-multi hide-fully js-product-results-container">
         </div>
         <div class="txt-center mrg-dbl-top">
-          <a href="/<%= @centre.code %>/products?search_query=<%= @search.term %>">View all products matching "<strong><%= @search.term =%></strong>"</a>
+          <a href="/<%= @centre.code %>/products?search_query=<%= @search_term %>">View all products matching "<strong><%= @search_term =%></strong>"</a>
         </div>
       <% end %>
 

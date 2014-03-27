@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.244
+Version:     0.2.245
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,19 @@ fi
 
 
 %changelog
+* Fri Mar 28 2014 ci <doperations@au.westfield.com> 0.2.245-1
+- Merge pull request #1022 from jlambert/WSF-6243 (jlambert@au.westfield.com)
+- WSF-6243 tweak search order per CR (jlambert@au.westfield.com)
+- WSF-6243 refactor search results sorting (jlambert@au.westfield.com)
+- WSF-6243 use original search logic (jlambert@au.westfield.com)
+- WSF-6243 code style updates as per CR (jlambert@au.westfield.com)
+- WSF-6243 sort search results by type (jlambert@au.westfield.com)
+- WSF-6243 Add tests around search model and controller
+  (jlambert@au.westfield.com)
+- WSF-6243 refactor code for cleanliness (jlambert@au.westfield.com)
+- WSF-6243 added redirection logic in case we have exactly one hardcoded result
+  (jlambert@au.westfield.com)
+
 * Thu Mar 27 2014 ci <doperations@au.westfield.com> 0.2.244-1
 - Merge pull request #1018 from cpearce/misc-fixes (cpearce@au.westfield.com)
 - Fixing inconsistent spacing for the product detail 'see more' links

@@ -1,0 +1,120 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://centre-service.test.dbg.westfield.com/api/centre/master/centres/sydney.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.8
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      Server:
+      - nginx/1.4.7
+      Date:
+      - Thu, 27 Mar 2014 02:36:45 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '1079'
+      Connection:
+      - keep-alive
+      x-frame-options:
+      - SAMEORIGIN
+      x-xss-protection:
+      - 1; mode=block
+      x-content-type-options:
+      - nosniff
+      x-ua-compatible:
+      - chrome=1
+      etag:
+      - '"0d324d8404b44c902fec7fdc5c260b66"'
+      cache-control:
+      - max-age=0, private, must-revalidate
+      status:
+      - 200 OK
+      age:
+      - '0'
+      via:
+      - 1.1 varnish
+      vary:
+      - Accept-Encoding
+      X-Request-Id:
+      - fafbffbd-408b-417d-9811-680c0762b39b
+      X-Runtime:
+      - '0.039209'
+    body:
+      encoding: UTF-8
+      string: '{"name":"Westfield Sydney","short_name":"Sydney","code":"sydney","state":"NSW","country":"au","latitude":"-33.870371","longitude":"151.207735","hero_image_ref":null,"micello_community":20468,"retail":true,"enabled":true,"_links":{"self":{"href":"http://centre-service.development.dbg.westfield.com/api/centre/master/centres/sydney.json"},"hero_image":{"href":""}},"business_unit_code":"16621","type":"premium","street_address":"Cnr
+        Pitt St Mall and Market St","suburb":"Sydney","postcode":"2000","phone_number":"(02)
+        8236 9200","email_address":"conciergeWS@au.westfield.com","today_opening_time":"09:30","today_closing_time":"21:00","today_closed":false,"number_of_levels":6,"micello_map_centre":{"x":0,"y":0},"facebook":"http://www.facebook.com/westfieldsydney","twitter":"http://www.twitter.com/westfieldsyd","google_plus":"http://https://plus.google.com/116705982116614986647/posts","instagram":"http://instagram.com/westfieldsyd","pinterest":"http://www.pinterest.com/westfieldsyd","youtube":"http://www.youtube.com/westfieldfashion","cinema":null,"timezone":"Australia/NSW"}'
+    http_version: 
+  recorded_at: Thu, 27 Mar 2014 02:36:45 GMT
+- request:
+    method: get
+    uri: http://search-service.test.dbg.westfield.com/api/search/master/search.json?centre=sydney&term=hours
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.8
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      Server:
+      - nginx/1.4.7
+      Date:
+      - Thu, 27 Mar 2014 02:36:45 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '1120'
+      Connection:
+      - keep-alive
+      x-frame-options:
+      - SAMEORIGIN
+      x-xss-protection:
+      - 1; mode=block
+      x-content-type-options:
+      - nosniff
+      x-ua-compatible:
+      - chrome=1
+      etag:
+      - '"7313ad56170575068b730a547d99ae83"'
+      cache-control:
+      - max-age=0, private, must-revalidate
+      x-runtime:
+      - '0.006866'
+      X-Request-Id:
+      - 525b1eb0-710f-4845-b514-588d510b41f5
+    body:
+      encoding: UTF-8
+      string: '{"term":"hours","results":{"centre_information":[{"id":"centre-hours
+        hours time open trading trading-hours opening-hours opening-times centre-hours
+        store-hours times shopping-times australia-day anzac-day boxing-day canberra-day
+        christmas christmas-day christmas-eve easter easter-monday easter-saturday
+        easter-sunday easter-tuesday eight-hours-day family-\u0026-community-day good-friday
+        labour-day march-public-holiday may-day melbourne-cup melbourne-cup-day new-years-day
+        new-years-eve NYE picnic-day queens-birthday Western-Australia-Day Xmas","term":"centrehours
+        hours time open trading tradinghours openinghours openingtimes centrehours
+        storehours times shoppingtimes australiaday anzacday boxingday canberraday
+        christmas christmasday christmaseve easter eastermonday eastersaturday eastersunday
+        eastertuesday eighthoursday familycommunityday goodfriday labourday marchpublicholiday
+        mayday melbournecup melbournecupday newyearsday newyearseve nye picnicday
+        queensbirthday westernaustraliaday xmas","score":-366,"display":"Shopping
+        hours","result_type":"centre_information","attributes":{"path":"/sydney/hours"}}]}}'
+    http_version: 
+  recorded_at: Thu, 27 Mar 2014 02:36:45 GMT
+recorded_with: VCR 2.6.0

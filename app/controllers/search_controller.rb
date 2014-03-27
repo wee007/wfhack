@@ -1,6 +1,6 @@
 class SearchController < ApplicationController
   def index
-    @centre, @search = service_map \
+    @centre, search = service_map \
       centre: params[:centre_id],
       search: {centre: params[:centre_id], term: params[:search_query]}
     meta.push page_title: "Westfield Australia | Search"
@@ -9,8 +9,13 @@ class SearchController < ApplicationController
 
     gon.centre = params[:centre_id]
 
-    # TODO: sort by search model
-    @search.results = @search.results.sort.reverse
+    if (search.hard_redirect?)
+      redirect_to search.first_result_uri_path
+    end
+
+    @sorted_results_tuple = search.sort
+    @search_term = search.term
 
   end
+
 end

@@ -1,0 +1,162 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://centre-service.test.dbg.westfield.com/api/centre/master/centres/sydney.json
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.8
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      Server:
+      - nginx/1.4.7
+      Date:
+      - Thu, 27 Mar 2014 02:23:14 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '1079'
+      Connection:
+      - keep-alive
+      x-frame-options:
+      - SAMEORIGIN
+      x-xss-protection:
+      - 1; mode=block
+      x-content-type-options:
+      - nosniff
+      x-ua-compatible:
+      - chrome=1
+      etag:
+      - '"0d324d8404b44c902fec7fdc5c260b66"'
+      cache-control:
+      - max-age=0, private, must-revalidate
+      status:
+      - 200 OK
+      age:
+      - '0'
+      via:
+      - 1.1 varnish
+      vary:
+      - Accept-Encoding
+      X-Request-Id:
+      - c447caa9-1b30-4d23-a245-1c4133012853
+      X-Runtime:
+      - '0.031887'
+    body:
+      encoding: UTF-8
+      string: '{"name":"Westfield Sydney","short_name":"Sydney","code":"sydney","state":"NSW","country":"au","latitude":"-33.870371","longitude":"151.207735","hero_image_ref":null,"micello_community":20468,"retail":true,"enabled":true,"_links":{"self":{"href":"http://centre-service.development.dbg.westfield.com/api/centre/master/centres/sydney.json"},"hero_image":{"href":""}},"business_unit_code":"16621","type":"premium","street_address":"Cnr
+        Pitt St Mall and Market St","suburb":"Sydney","postcode":"2000","phone_number":"(02)
+        8236 9200","email_address":"conciergeWS@au.westfield.com","today_opening_time":"09:30","today_closing_time":"21:00","today_closed":false,"number_of_levels":6,"micello_map_centre":{"x":0,"y":0},"facebook":"http://www.facebook.com/westfieldsydney","twitter":"http://www.twitter.com/westfieldsyd","google_plus":"http://https://plus.google.com/116705982116614986647/posts","instagram":"http://instagram.com/westfieldsyd","pinterest":"http://www.pinterest.com/westfieldsyd","youtube":"http://www.youtube.com/westfieldfashion","cinema":null,"timezone":"Australia/NSW"}'
+    http_version: 
+  recorded_at: Thu, 27 Mar 2014 02:23:14 GMT
+- request:
+    method: get
+    uri: http://search-service.test.dbg.westfield.com/api/search/master/search.json?centre=sydney&term=easter
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.8.8
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      Server:
+      - nginx/1.4.7
+      Date:
+      - Thu, 27 Mar 2014 02:23:14 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '2461'
+      Connection:
+      - keep-alive
+      x-frame-options:
+      - SAMEORIGIN
+      x-xss-protection:
+      - 1; mode=block
+      x-content-type-options:
+      - nosniff
+      x-ua-compatible:
+      - chrome=1
+      etag:
+      - '"682c0ac605930a29542ad12e16717635"'
+      cache-control:
+      - max-age=0, private, must-revalidate
+      x-runtime:
+      - '0.007539'
+      X-Request-Id:
+      - c0a4a03b-e326-406d-9518-7e44b4756f8c
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJ0ZXJtIjoiZWFzdGVyIiwicmVzdWx0cyI6eyJldmVudHMiOlt7ImlkIjoz
+        Mjk5LCJ0ZXJtIjoiY2VsZWJyYXRlIGVhc3RlciB3aXRoIGxhZHVyZWUgbGFk
+        dXJlZXMgZWFzdGVyIGNob2NvbGF0ZSBjb2xsZWN0aW9uIGlzIGF2YWlsYWJs
+        ZSBpbnN0b3JlIG5vdyIsInNjb3JlIjotMTEsImRpc3BsYXkiOiJDZWxlYnJh
+        dGUgRWFzdGVyIHdpdGggTGFkdXLDqWUiLCJyZXN1bHRfdHlwZSI6ImV2ZW50
+        IiwiYXR0cmlidXRlcyI6eyJpZCI6MzI5OX19LHsiaWQiOjMzMzYsInRlcm0i
+        OiJsdWx1IGJlbGwgY2hpbGRyZW5zIGhpZ2ggdGVhIGF0IHRoZSB0ZWEgc2Fs
+        b24gdGhpcyBlYXN0ZXIgc2Nob29sIGhvbGlkYXlzIHRyZWF0IGxpdHRsZSBv
+        bmVzIHRvIHJpYmJvbiBzYW5kd2ljaGVzIGFuZCBwaW5rIGN1cGNha2VzIGF0
+        IHRoZSB0ZWEgc2Fsb25zIGx1bHUgYmVsbCBjaGlsZHJlbnMgaGlnaCB0ZWEg
+        aG9zdGVkIGJ5IGF1dGhvciBiZWxpbmRhIG11cnJlbGwiLCJzY29yZSI6LTEz
+        MCwiZGlzcGxheSI6Ikx1bHUgQmVsbCBDaGlsZHJlbuKAmXMgSGlnaCBUZWEg
+        YXQgVGhlIFRlYSBTYWxvbiIsInJlc3VsdF90eXBlIjoiZXZlbnQiLCJhdHRy
+        aWJ1dGVzIjp7ImlkIjozMzM2fX0seyJpZCI6Mjg0NiwidGVybSI6ImxpbmR0
+        IHBvcHVwIHN0b3JlcyBhdCB3ZXN0ZmllbGQgc3lkbmV5IHRoaXMgZWFzdGVy
+        IHdlIGFyZSBtYWtpbmcgaXQgZWFzaWVyIGZvciB5b3UgdG8gZ2V0IHlvdXIg
+        aGFuZHMgb24gdGhlIGluZmFtb3VzIGxpbmR0IGdvbGQgYnVubnkgd2l0aCB0
+        d28gZXhjaXRpbmcgbmV3IGxpbmR0IGVhc3RlciBwb3B1cCBzdG9yZXMgb3Bl
+        biBpbiB3ZXN0ZmllbGQgc3lkbmV5IHRoZSBmaXJzdCBzdG9yZSBsb2NhdGVk
+        IG9uIGxldmVsIDQgd2lsbCBiZSBhbiBlYXN0ZXIgb2FzaXMgd2l0aCBzaGVs
+        dmVzIGZ1bGwgb2YgeW91ciBmYXZvdXJpdGUgbGluZHQgZWFzdGVyIHRyZWF0
+        cyBhbmQgc29tZSBmYW50YXN0aWMgbmV3IGVhc3RlciBnb29kaWVzIGZvciB0
+        aGUgMjAxNCBzZWFzb24gaW5jbHVkaW5nIHRoZSBicmFuZCBuZXcgaGF6ZWxu
+        dXQgZ29sZCBidW5ueSBhbmQgdGhlIG5vY2Npb3IgZWdnIHRoZSBzZWNvbmQg
+        c3RvcmUgbG9jYXRlZCBpbiB0aGUgbXllciBmb29kIGNvdXJ0IGF0cml1bSBh
+        bHNvIGhvdXNlcyBhIGdyZWF0IHJhbmdlIGluY2x1ZGluZyBsaW5kdCBwaWNr
+        IGFuZCBtaXggY2hvY29sYXRlcyBhbGxvd2luZyB5b3UgdG8gY3JlYXRlIHlv
+        dXIgZXZlcnkgb3duIHBlcnNvbmFsaXNlZCBlYXN0ZXIgZ2lmdCIsInNjb3Jl
+        IjotNTQ3LCJkaXNwbGF5IjoiTGluZHQgUG9wLXVwIFN0b3JlcyBhdCBXZXN0
+        ZmllbGQgU3lkbmV5IiwicmVzdWx0X3R5cGUiOiJldmVudCIsImF0dHJpYnV0
+        ZXMiOnsiaWQiOjI4NDZ9fV0sImNlbnRyZV9pbmZvcm1hdGlvbiI6W3siaWQi
+        OiJjZW50cmUtaG91cnMgaG91cnMgdGltZSBvcGVuIHRyYWRpbmcgdHJhZGlu
+        Zy1ob3VycyBvcGVuaW5nLWhvdXJzIG9wZW5pbmctdGltZXMgY2VudHJlLWhv
+        dXJzIHN0b3JlLWhvdXJzIHRpbWVzIHNob3BwaW5nLXRpbWVzIGF1c3RyYWxp
+        YS1kYXkgYW56YWMtZGF5IGJveGluZy1kYXkgY2FuYmVycmEtZGF5IGNocmlz
+        dG1hcyBjaHJpc3RtYXMtZGF5IGNocmlzdG1hcy1ldmUgZWFzdGVyIGVhc3Rl
+        ci1tb25kYXkgZWFzdGVyLXNhdHVyZGF5IGVhc3Rlci1zdW5kYXkgZWFzdGVy
+        LXR1ZXNkYXkgZWlnaHQtaG91cnMtZGF5IGZhbWlseS1cdTAwMjYtY29tbXVu
+        aXR5LWRheSBnb29kLWZyaWRheSBsYWJvdXItZGF5IG1hcmNoLXB1YmxpYy1o
+        b2xpZGF5IG1heS1kYXkgbWVsYm91cm5lLWN1cCBtZWxib3VybmUtY3VwLWRh
+        eSBuZXcteWVhcnMtZGF5IG5ldy15ZWFycy1ldmUgTllFIHBpY25pYy1kYXkg
+        cXVlZW5zLWJpcnRoZGF5IFdlc3Rlcm4tQXVzdHJhbGlhLURheSBYbWFzIiwi
+        dGVybSI6ImNlbnRyZWhvdXJzIGhvdXJzIHRpbWUgb3BlbiB0cmFkaW5nIHRy
+        YWRpbmdob3VycyBvcGVuaW5naG91cnMgb3BlbmluZ3RpbWVzIGNlbnRyZWhv
+        dXJzIHN0b3JlaG91cnMgdGltZXMgc2hvcHBpbmd0aW1lcyBhdXN0cmFsaWFk
+        YXkgYW56YWNkYXkgYm94aW5nZGF5IGNhbmJlcnJhZGF5IGNocmlzdG1hcyBj
+        aHJpc3RtYXNkYXkgY2hyaXN0bWFzZXZlIGVhc3RlciBlYXN0ZXJtb25kYXkg
+        ZWFzdGVyc2F0dXJkYXkgZWFzdGVyc3VuZGF5IGVhc3RlcnR1ZXNkYXkgZWln
+        aHRob3Vyc2RheSBmYW1pbHljb21tdW5pdHlkYXkgZ29vZGZyaWRheSBsYWJv
+        dXJkYXkgbWFyY2hwdWJsaWNob2xpZGF5IG1heWRheSBtZWxib3VybmVjdXAg
+        bWVsYm91cm5lY3VwZGF5IG5ld3llYXJzZGF5IG5ld3llYXJzZXZlIG55ZSBw
+        aWNuaWNkYXkgcXVlZW5zYmlydGhkYXkgd2VzdGVybmF1c3RyYWxpYWRheSB4
+        bWFzIiwic2NvcmUiOi0zNjYsImRpc3BsYXkiOiJTaG9wcGluZyBob3VycyIs
+        InJlc3VsdF90eXBlIjoiY2VudHJlX2luZm9ybWF0aW9uIiwiYXR0cmlidXRl
+        cyI6eyJwYXRoIjoiL3N5ZG5leS9ob3VycyJ9fV19fQ==
+    http_version: 
+  recorded_at: Thu, 27 Mar 2014 02:23:14 GMT
+recorded_with: VCR 2.6.0

@@ -1,21 +1,15 @@
 class Search < Hashie::Mash
 
-  # See WSF-6243; if we have only one hardcoded result, go straight to the result.
   def hard_redirect?
-    if (results.count == 1)
-      # "centre_information" answers are hardcoded
-      if results.first.first == "centre_information"
-        return true
-      end
-    end
+    results.count == 1 && results.centre_information
   end
 
   def first_result_uri_path
-  	results.first.second.first["attributes"]["path"]
+  	results["centre_information"].first["attributes"]["path"]
   end
 
   def sort!
-    self.results = self.results.sort do |a,b|
+    results.sort! do |a,b|
       ordering_on_type(a.first) <=> ordering_on_type(b.first)
     end
   end

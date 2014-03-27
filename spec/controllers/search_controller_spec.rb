@@ -1,24 +1,23 @@
 require 'spec_helper'
 
-
 describe SearchController do
-  describe "It should handle hard redirects correctly" do
-    it "It should hard redirect when triggered" do
+
+  describe "When only one result is returned and said result is centre information" do
+    it "should redirect" do
       VCR.use_cassette 'sydney_hours' do
         get :index, centre_id: 'sydney', search_query: 'hours'
         expect(response).to redirect_to('/sydney/hours')
       end
     end
+  end
 
-
-    it "It shouldn't hard redirect when not triggered" do
-
+  describe "When multiple results are returned" do
+    it "should not redirect" do
       VCR.use_cassette 'sydney_easter' do
         get :index, centre_id: 'sydney', search_query: 'easter'
         expect(response).to_not redirect_to('/sydney/hours')
       end
     end
-
   end
 
 end

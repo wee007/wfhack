@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.243
+Version:     0.2.244
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,15 @@ fi
 
 
 %changelog
+* Thu Mar 27 2014 ci <doperations@au.westfield.com> 0.2.244-1
+- Merge pull request #1018 from cpearce/misc-fixes (cpearce@au.westfield.com)
+- Fixing inconsistent spacing for the product detail 'see more' links
+  (cpearce@au.westfield.com)
+- Centre selector drop down cut off on no search results page - WSF-6388
+  (cpearce@au.westfield.com)
+- Changing single to double quotes for stores keyword filter no results
+  (cpearce@au.westfield.com)
+
 * Thu Mar 27 2014 ci <doperations@au.westfield.com> 0.2.243-1
 - Merge pull request #1015 from araeside/search-results-page
   (chorn@au.westfield.com)

@@ -28,7 +28,6 @@ class StoresController < ApplicationController
     # TODO: Uncomment it out when store hours is ready
     # @this_week_hours = this_week_hours
     push_centre_info_to_gon
-
     meta.push(
       page_title: "#{store.name} at #{centre.name}",
       description: store.description.try(:truncate, 156)

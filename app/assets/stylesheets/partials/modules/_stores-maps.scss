@@ -500,7 +500,6 @@
         .stores-maps__inner--detail & {
           position: absolute;
           @include to-rem(top, 110);
-          @include to-rem(bottom, $spacing-base);
           overflow-y: auto;
           background-color: $color-grey-light-2;
         }

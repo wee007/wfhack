@@ -96,7 +96,6 @@
 
       @include respond-min($ipad-landscape) {
         position: absolute;
-         pointer-events: none;
       }
     }
 
@@ -131,7 +130,6 @@
         @include box-heavy;
         @include to-rem(margin-top, $spacing-base);
         pointer-events: auto;
-
       }
 
       /* Map view */
@@ -158,8 +156,10 @@
         /* Map view */
         .is-map-view & {display: block;}
 
-        /* Show and restore `pointer-events` */
-        @include respond-min($ipad-landscape) {display: block;}
+        /* Show storefront header */
+        @include respond-min($ipad-landscape) {
+          display: block;
+        }
       }
 
       /* Non JS users */
@@ -322,10 +322,9 @@
             vertical-align: middle;
           }
 
-          /* Reduce width to handle bigger map toggle button */
+          /* Need to override dynamic `is-active` class appended by 'Angular toggle visibility' directive */
           @include respond-range($iphone-landscape, $ipad-landscape - 1) {
             &,
-            /* Need to override dynamic `is-active` class appended by 'Angular toggle visibility' directive */
             &.is-active {display: inline-block;}
           }
 
@@ -451,9 +450,6 @@
       right: 0;
       overflow-y: auto;
 
-      /* When element contents are not as tall as container */
-      &.is-collapsed {bottom: auto;}
-
       /* Post filter count */
       .is-filter-applied & {@include to-rem(top, 91);}
 
@@ -508,10 +504,10 @@
           overflow-y: auto;
           background-color: $color-grey-light-2;
         }
-
-        /* When element contents are not as tall as container */
-        .stores-maps__inner--detail &.is-collapsed {bottom: auto;}
       }
+
+      /* When element contents are not as tall as container */
+      &.is-collapsed {bottom: auto;}
 
       /* Non JS users, note: has to come after the mq's */
       .no-js & {position: static;}

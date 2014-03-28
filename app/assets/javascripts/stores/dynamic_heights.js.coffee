@@ -8,7 +8,7 @@ class @DynamicHeights
     @breakpoint = breakpoint
     @getElements()
     @initialise()
-    $(window).resize(debounce(@initialise, 500))
+    $(window).resize(debounce(@initialise, 100))
   initialise: =>
     @isPluginActive = matchMedia(@breakpoint).matches
     if @isPluginActive

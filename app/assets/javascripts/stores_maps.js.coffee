@@ -32,7 +32,7 @@ class StoreMapPage
     @pageLoaded()
     @recompileAngularScope()
 
-    westfield.is_store_index = $('.js-stores-is-index').length == 1
+    westfield.is_store_index = $('.js-stores-index').length == 1
     westfield.filtering_by_category = $('.js-stores-keyword-filter-post-filter-count').length > 0
 
     if westfield.is_store_index
@@ -85,7 +85,7 @@ class StoreMapPage
       false
     )
 
-    westfield.is_store_index = $('.js-stores-is-index').length == 1
+    westfield.is_store_index = $('.js-stores-index').length == 1
 
     @dynamic_heights = new DynamicHeights(@layoutBreakpoint)
     @keyword_filter = new StoresKeywordFilter(@map, @dynamic_heights.check)

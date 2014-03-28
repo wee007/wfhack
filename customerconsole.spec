@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.246
+Version:     0.2.247
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,11 @@ fi
 
 
 %changelog
+* Fri Mar 28 2014 ci <doperations@au.westfield.com> 0.2.247-1
+- Fixing white space issues (cpearce@au.westfield.com)
+- Applying 'Modifier' labels to grid partial (cpearce@au.westfield.com)
+- Fixing duplication of tile attr's (cpearce@au.westfield.com)
+
 * Fri Mar 28 2014 ci <doperations@au.westfield.com> 0.2.246-1
 - Merge pull request #1017 from araeside/storelist-enchancements
   (araeside@au.westfield.com)

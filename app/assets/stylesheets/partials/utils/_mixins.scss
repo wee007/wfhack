@@ -44,23 +44,23 @@
 */
 
 @mixin headings($from: 1, $to: 6, $dbl-stranded: true) {
-    %base-heading {
-        @content
-    }
+  %base-heading {
+    @content
+  }
 
-    @if $from >= 1 and $to <= 6 {
-        @for $i from $from through $to {
-        	@if $dbl-stranded == true {
-        		h#{$i}, .h#{$i}  {
-                	@extend %base-heading;
-            	}
-        	} @else {
-            	h#{$i} {
-                	@extend %base-heading;
-                }
-            }
+  @if $from >= 1 and $to <= 6 {
+    @for $i from $from through $to {
+      @if $dbl-stranded == true {
+      	h#{$i}, .h#{$i} {
+          @extend %base-heading;
         }
+      } @else {
+        h#{$i} {
+          @extend %base-heading;
+        }
+      }
     }
+  }
 }
 
 /* [CONVERT PX TO EM/REM]
@@ -286,14 +286,14 @@
 
 	Note:
 		Keep an eye on browser support:
-		-	Transition: 	http://caniuse.com/#search=transition
-    - Animation:    http://caniuse.com/#feat=css-animation
-		-	Animation delay: 	  http://caniuse.com/#feat=css-animation
-		-	Multi-column: 	http://caniuse.com/#feat=multicolumn
-		-	Hyphens: 		http://caniuse.com/#feat=css-hyphens
-		-	Box sizing: 	http://caniuse.com/#feat=css3-boxsizing
-		-	Border image: 	http://caniuse.com/#feat=border-image
-    - User-select:  http://caniuse.com/#feat=user-select-none
+		-	Transition: 	     http://caniuse.com/#search=transition
+    - Animation:         http://caniuse.com/#feat=css-animation
+		-	Animation delay: 	 http://caniuse.com/#feat=css-animation
+		-	Multi-column: 	   http://caniuse.com/#feat=multicolumn
+		-	Hyphens: 		       http://caniuse.com/#feat=css-hyphens
+		-	Box sizing: 	     http://caniuse.com/#feat=css3-boxsizing
+		-	Border image: 	   http://caniuse.com/#feat=border-image
+    - User-select:       http://caniuse.com/#feat=user-select-none
 
 	Credit:
 		-	https://github.com/csswizardry/inuit.css/pull/102#issuecomment-12825976

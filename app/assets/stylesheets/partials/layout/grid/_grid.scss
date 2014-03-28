@@ -120,7 +120,7 @@
   }
 }
 
-/* Center align */
+/* Modifier: center align */
 .grid--center > .grid__item {
 	margin-left: auto;
 	margin-right: auto;
@@ -128,7 +128,7 @@
 	float: none;
 }
 
-/* Reversed */
+/* Modifier: reversed */
 .grid--rev > .grid__item {float: right;}
 
 /* Change stacking order for 'palm' - only works for 2 cols */
@@ -147,7 +147,7 @@
 	}
 }
 
-/* Table */
+/* Modifier: table */
 .grid--table {
 	display: table;
 	width: 100%;

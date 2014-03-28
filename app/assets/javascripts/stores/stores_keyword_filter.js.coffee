@@ -10,8 +10,6 @@ class @StoresKeywordFilter
 
     @callback = callback
 
-    @setupKeywordFilter()
-
     @setupToggleListPosition()
 
   setupToggleListPosition: =>

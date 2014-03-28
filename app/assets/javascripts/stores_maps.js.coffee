@@ -87,8 +87,9 @@ class StoreMapPage
     westfield.is_store_index = $('.js-stores-is-index').length == 1
 
     @dynamic_heights = new DynamicHeights(@layoutBreakpoint)
+    @keyword_filter = new StoresKeywordFilter(@map, @dynamic_heights.check)
     if westfield.is_store_index
-      @keyword_filter = new StoresKeywordFilter(@map, @dynamic_heights.check)
+      @keyword_filter.setupKeywordFilter();
 
     $('.js-store-hours-toggle-trigger').click @dynamic_heights.check
 

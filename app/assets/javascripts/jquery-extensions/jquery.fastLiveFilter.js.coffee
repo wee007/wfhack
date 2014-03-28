@@ -45,6 +45,7 @@ jQuery.fn.fastLiveFilter = (list, options) ->
   input.change(->
     filter = input.val().toLowerCase()
     numShown = 0
+
     $.each list, (i, listObject)->
       el = listObject.element.get(0)
       if filter == '' or filterFunction(filter, listObject.text.toLowerCase())

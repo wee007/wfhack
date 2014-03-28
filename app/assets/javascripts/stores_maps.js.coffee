@@ -68,6 +68,7 @@ class StoreMapPage
       $(document).on('pjax:send', @startLoading)
       $(document).on('pjax:success', @stopLoading)
       body.on('pjax:end', pjaxContainerSelector, @pjaxComplete)
+      body.on('pjax:popstate', pjaxContainerSelector, @pjaxComplete)
       body.on('click', 'a.js-pjax-link-stores', @pjaxNavigate)
 
       body.on 'submit', 'form[data-pjax]', (event) ->

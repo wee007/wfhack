@@ -134,11 +134,6 @@
     border-color: $color-grey-med-3;
     border-width: 1px 0;
 
-    /* When they're 'Featured items', 'Store hours' are visible and non JS users */
-    .is-featured-items &,
-    .is-store-hours-visible &,
-    .no-js & {border-bottom: 0;}
-
     /* Allow store link to be positioned over to the far right at this breakpoint */
     @include respond-min($ipad-portrait) {
       position: relative;
@@ -227,7 +222,11 @@
     }
 
   /* Featured items */
-  .storefront__featured {border-top: 1px solid $color-grey-med-3;}
+  .storefront__featured {
+    border-top: 1px solid $color-grey-med-3;
+
+    &:last-child {border-top: none;}
+  }
 
     /* Shopping hours */
     .storefront__featured--hours {

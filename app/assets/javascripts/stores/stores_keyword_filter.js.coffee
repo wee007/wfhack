@@ -4,11 +4,11 @@
 
 class @StoresKeywordFilter
 
-  constructor: (map) ->
+  constructor: (map, callback) ->
 
     @map = map
 
-    @setupKeywordFilter()
+    @callback = callback
 
     @setupToggleListPosition()
 
@@ -109,6 +109,7 @@ class @StoresKeywordFilter
         delayedShowStoreLogos()
         @handleNoStoresInList(numShown)
         @updateNumberOfFilteredStores(numShown)
+        @callback()
 
   handleNoStoresInList: (numShown) =>
     if numShown == 0

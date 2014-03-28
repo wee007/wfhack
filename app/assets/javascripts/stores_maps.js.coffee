@@ -3,6 +3,7 @@
 #= require map/responsive_map
 #= require fastclick
 #= require stores/stores_keyword_filter
+#= require stores/dynamic_heights
 
 class StoreMapPage
 
@@ -10,8 +11,9 @@ class StoreMapPage
   $pjaxContainer = $(pjaxContainerSelector)
 
   constructor: ->
+    @layoutBreakpoint = 'all and (min-width: 64em)'
     @map = new map.ResponsiveMap {
-      breakpoint: 'all and (min-width: 64em)'
+      breakpoint: @layoutBreakpoint
       palm: offset: x: 0.5, y: 0.5, zoom: 0.6
       nonPalm: offset: x: 0.75, y: 0.5, zoom: 0.7
     }
@@ -29,8 +31,16 @@ class StoreMapPage
   pjaxComplete: =>
     @pageLoaded()
     @recompileAngularScope()
-    @keyword_filter.setupKeywordFilter()
-    @keyword_filter.setupToggleListPosition()
+
+    westfield.is_store_index = $('.js-stores-index').length == 1
+    westfield.filtering_by_category = $('.js-stores-keyword-filter-post-filter-count').length > 0
+
+    if westfield.is_store_index
+      @keyword_filter.setupKeywordFilter()
+      @keyword_filter.setupToggleListPosition()
+
+    @dynamic_heights.setupDefaultHeights()
+    @dynamic_heights.check()
 
   pageLoaded: ->
     $ ->
@@ -75,7 +85,19 @@ class StoreMapPage
       false
     )
 
-    @keyword_filter = new StoresKeywordFilter(@map)
+    westfield.is_store_index = $('.js-stores-index').length == 1
+
+    @dynamic_heights = new DynamicHeights(@layoutBreakpoint)
+    @keyword_filter = new StoresKeywordFilter(@map, @dynamic_heights.check)
+    if westfield.is_store_index
+      @keyword_filter.setupKeywordFilter();
+
+    $('.js-store-hours-toggle-trigger').click @dynamic_heights.check
+
+    # Escape key will trigger check for store detail container height
+    $(document).bind 'keydown', (event) =>
+      if event.keyCode == 27
+        @dynamic_heights.check()
 
     @pageLoaded()
 
@@ -85,6 +107,12 @@ class StoreMapPage
 
   hide: =>
     @updateGUI @map.hide()
+    # Remove map popup when switck back to store list
+
+    @dynamic_heights.setupDefaultHeights()
+    @dynamic_heights.check()
+    @keyword_filter.setupToggleListPosition()
+
     false
 
   updateAngularStoreListControllerLinks: (viewingMap) ->

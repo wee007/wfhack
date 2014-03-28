@@ -201,7 +201,7 @@
       <%# //Filters & list/map toggle button %>
 
       <%# Stores list %>
-      <div class="stores-maps__list-detail js-defer-image-load-container js-stores-list-position-store-list" id="stores-maps-toggle-listing-detail">
+      <div class="stores-maps__list-detail js-defer-image-load-container js-stores-list-position-store-list js-stores-dynamic-height js-stores-index" id="stores-maps-toggle-listing-detail">
         <dl class="stores-list js-fastclick js-stores-keyword-filter-list">
           <% @stores.in_alpha_groups.each do |letter, stores| %>
             <dt class="js-stores-keyword-filter-letter js-stores-keyword-filter-letter-<%= letter %>">

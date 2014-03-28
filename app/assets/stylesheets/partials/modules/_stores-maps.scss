@@ -86,6 +86,8 @@
 
     @include respond-min($ipad-landscape) {
       width: 50%;
+      /* Disable click events so the map canvas that sits behind can be interacted with */
+      pointer-events: none;
     }
 
     /* Modifier: Detail view */
@@ -94,20 +96,7 @@
 
       @include respond-min($ipad-landscape) {
         position: absolute;
-        /* Disable click events so the map canvas that sits behind can be interacted with */
-        pointer-events: none;
-
-        /* IE 9/10 fallbacks for not supporting `pointer-events` */
-        .ie-9 & {bottom: auto;}
-
-        @include ie-10-up {bottom: auto;}
       }
-    }
-
-    /* Modifier: Detail view when they're 'featured items' and when 'store hours' are visible */
-    @include respond-min($ipad-landscape) {
-      &.stores-maps__inner--detail.is-featured-items,
-      &.stores-maps__inner--detail.is-store-hours-visible {bottom: 0;}
     }
 
     /* Change `position` context when in map view */
@@ -140,6 +129,7 @@
         @include box;
         @include box-heavy;
         @include to-rem(margin-top, $spacing-base);
+        pointer-events: auto;
       }
 
       /* Map view */
@@ -166,10 +156,9 @@
         /* Map view */
         .is-map-view & {display: block;}
 
-        /* Show and restore `pointer-events` */
+        /* Show storefront header */
         @include respond-min($ipad-landscape) {
           display: block;
-          pointer-events: auto;
         }
       }
 
@@ -329,12 +318,14 @@
 
           /* Always visible at this breakpoint */
           @include respond-min($iphone-landscape) {
-            &,
-            /* Need to override dynamic `is-active` class appended by 'Angular toggle visibility' directive */
-            &.is-active {display: inline-block;}
-
             width: 40%;
             vertical-align: middle;
+          }
+
+          /* Need to override dynamic `is-active` class appended by 'Angular toggle visibility' directive */
+          @include respond-range($iphone-landscape, $ipad-landscape - 1) {
+            &,
+            &.is-active {display: inline-block;}
           }
 
           /* Reduce width to handle bigger map toggle button */
@@ -500,6 +491,7 @@
         @include to-rem(bottom, $spacing-base);
         @include box;
         @include box-heavy;
+        pointer-events: auto;
 
         /* Post filter count */
         .is-filter-applied & {@include to-rem(top, 196);}
@@ -507,19 +499,14 @@
         /* Modifier: Detail view */
         .stores-maps__inner--detail & {
           position: absolute;
-          bottom: auto;
           @include to-rem(top, 110);
-          pointer-events: auto;
           overflow-y: auto;
-        }
-
-        /* Modifier: Detail view when they're 'featured items' and when 'store hours' are visible */
-        .stores-maps__inner--detail.is-featured-items &,
-        .stores-maps__inner--detail.is-store-hours-visible & {
           background-color: $color-grey-light-2;
-          @include to-rem(bottom, $spacing-base);
         }
       }
+
+      /* When element contents are not as tall as container */
+      &.is-collapsed {bottom: auto;}
 
       /* Non JS users, note: has to come after the mq's */
       .no-js & {position: static;}

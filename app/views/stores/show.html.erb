@@ -40,7 +40,7 @@
       <%# //Back to listing link %>
 
       <%# Store details %>
-      <div class="stores-maps__list-detail">
+      <div class="stores-maps__list-detail js-stores-dynamic-height">
 
         <article class="storefront" role="article">
 
@@ -157,7 +157,6 @@
 
       <script>
         function storeMapPageReady() {
-
           // If the user has come from the stores index page when filtering by category
           // then set the back link to the correct category.
           if (Modernizr.localstorage) {
@@ -207,25 +206,6 @@
             });
 
           }
-          (function() {
-            function toggleStoreDetailHeight() {
-              if ($('.js-store-hours-toggle-target').hasClass('is-active')) {
-                $('.js-store-hours-toggle-container').addClass('is-store-hours-visible');
-              } else {
-                $('.js-store-hours-toggle-container').removeClass('is-store-hours-visible');
-              }
-            }
-
-            $('.js-store-hours-toggle-trigger').click(toggleStoreDetailHeight);
-
-            // Escape key will trigger check for store detail container height
-            $(document).bind( 'keydown', function ( event ) {
-              if ( event.keyCode == 27 ) {
-                toggleStoreDetailHeight();
-              }
-            });
-
-          })();
         }
       </script>
 

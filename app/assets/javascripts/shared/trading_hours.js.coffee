@@ -1,3 +1,6 @@
+# Generic class for querying the trading hours service
+# Used on store map
+
 class @TradingHours
   apiUrl: "/api/trading-hour/master/store_trading_hours/range.json"
   westfieldCentreId: westfield.centre.code

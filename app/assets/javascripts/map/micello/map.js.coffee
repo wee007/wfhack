@@ -332,13 +332,14 @@ class map.micello.Map
     geom.nm = geom.lr = name
 
   applyWestfieldStoreNames: ->
-    for geom in @geoms.types(['Building', 'Unit'])
-      geoms = @geomGroupForGeom(geom)
-      unless @storeForGeomGroup(geoms)
-        @setGeomName(geom, 'New Store Opening Soon') for geom in geoms
-    for store in @stores.list
-      for geom in @geomGroupForStore(store)
-        @setGeomName(geom, store.name)
+    if (@geom)
+      for geom in @geoms.types(['Building', 'Unit'])
+        geoms = @geomGroupForGeom(geom)
+        unless @storeForGeomGroup(geoms)
+          @setGeomName(geom, 'New Store Opening Soon') for geom in geoms
+      for store in @stores.list
+        for geom in @geomGroupForStore(store)
+          @setGeomName(geom, store.name)
 
   forceRedraw: ->
     container = $('.js-stores-maps-toggle-wrap, canvas')

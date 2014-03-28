@@ -49,7 +49,7 @@
         <div class="pin-board-curation">
 
           <%# Pin board row %>
-          <% content_for :tile_class, 'tile--fixed-img-height' %>
+          <% content_for :tile_class, 'tile--fixed-img-height', flush: true %>
           <% @curation.products.in_groups_of 5 do |products| %>
             <div class="grid <%= cycle '', 'grid--rev' -%> grid--gutter-half grid--mrg-half grid--non-linear">
 

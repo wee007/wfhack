@@ -1,3 +1,5 @@
+#= require shared/trading_hours
+
 class map.micello.Map
 
   key: '357b70ed-2c4b-418b-ad09-cf83f9bfc7b4'
@@ -9,27 +11,26 @@ class map.micello.Map
     $el.remove()
 
   constructor: (@options) ->
+    @tradingHoursApi = new TradingHours()
+
     @deferreds =
       stores: $.Deferred()
       micello: $.Deferred()
-      store_hours: $.Deferred()
       store_fetch: $.Deferred()
     @community = westfield.centre.micello_community
     @map_centre = westfield.centre.micello_map_centre || {x: 0, y: 0}
     if @community == undefined
       throw 'Missing micello_community for centre'
     @offset = x: 0.5, y: 0.5
-    @fetchTradingHours()
     @fetchStores()
 
     $.when( @deferreds.micello).then(@ready)
-    $.when(@deferreds.store_fetch, @deferreds.store_hours).then(@processStores)
+    $.when(@deferreds.store_fetch).then(@processStores)
     $.when(@deferreds.stores).then ->
       $('#map-micello-api .js-preloader').remove()
 
     $.when( @deferreds.micello, @deferreds.stores).then =>
       @options.deferred.resolveWith(@)
-
 
     micello.maps.init(@key, @init)
 
@@ -41,30 +42,24 @@ class map.micello.Map
       @stores = data
       @deferreds.store_fetch.resolve()
 
-  fetchTradingHours: =>
-    d = new Date()
-    curr_date = d.getDate()
-    curr_month = d.getMonth() + 1
-    curr_year = d.getFullYear()
-    today = curr_date + "-" + curr_month + "-" + curr_year
-    $.getJSON "/api/trading-hour/master/store_trading_hours/range.json?centre_id=#{@westfieldCentreId()}&from=#{today}&to=#{today}", (data) =>
-      @store_trading_hours = _(data).chain().map((store_hours) -> [store_hours.store_id, store_hours]).object().value()
-      @deferreds.store_hours.resolve()
+  fetchStoreTradingHours: (store) =>
+    @tradingHoursApi.get {'store_id': store.id}, (data) =>
+      #Interpolate trading hours data into store object
+      @processStoreTradingHours(store, data[0])
+
+      tradingHoursHtml = "<p>Closed today</p>"
+      if !store.closed_today
+        tradingHoursHtml = "<p>Open till <time datetime='#{store.closing_time_24}'>#{store.closing_time_12}</time></p>"
+
+      # Insert trading hours into popup html
+      $('.js-trading-hours-html').html(tradingHoursHtml)
 
   processStores: =>
     _(@stores).each (store) =>
       if store._links.logo?.href?
         store.logo = store._links.logo.href
-      closingTime = @store_trading_hours[store.id].closing_time
-      store.closed_today = @store_trading_hours[store.id].closed
-      store.closing_time_24 = closingTime
-      hour24 = parseInt(closingTime, 10)
-      hour12 = hour24 % 12
-      hour12 = 12 if hour12 == 0
-      minute = closingTime.replace(/\d+:/, '')
-      ampm = if hour24 < 12 || hour24 == 24 then 'am' else 'pm'
-      store.closing_time_12 = "#{hour12}:#{minute}#{ampm}"
       store.storefront_path = "/#{@westfieldCentreId()}/stores/#{store.retailer_code}/#{store.id}"
+
     @stores =
       list: @stores
       idMap: _(@stores).chain().map((store) -> [store.id, store]).object().value()
@@ -72,8 +67,18 @@ class map.micello.Map
 
     @applyWestfieldStoreNames()
 
-    console.log "processed stores"
     @deferreds.stores.resolve()
+
+  processStoreTradingHours: (store, data) =>
+    closingTime = data.closing_time
+    store.closed_today = data.closed
+    store.closing_time_24 = closingTime
+    hour24 = parseInt(closingTime, 10)
+    hour12 = hour24 % 12
+    hour12 = 12 if hour12 == 0
+    minute = closingTime.replace(/\d+:/, '')
+    ampm = if hour24 < 12 || hour24 == 24 then 'am' else 'pm'
+    store.closing_time_12 = "#{hour12}:#{minute}#{ampm}"
 
   processGeoms: (geoms) ->
     @geoms =
@@ -292,6 +297,7 @@ class map.micello.Map
   popupHtml: (store) =>
     return 'Store not found' unless store.id
     @popupContent ||= _.template($('script.map-micello__overlay-wrap[type="text/html-template"]').html())
+    @fetchStoreTradingHours store
 
     locationMatch = !!location.toString().match(///#{store.storefront_path}///)
     classname = []

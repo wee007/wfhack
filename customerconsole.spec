@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.245
+Version:     0.2.246
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,37 @@ fi
 
 
 %changelog
+* Fri Mar 28 2014 ci <doperations@au.westfield.com> 0.2.246-1
+- Merge pull request #1017 from araeside/storelist-enchancements
+  (araeside@au.westfield.com)
+- change js hook name (alec@smartalecwebsites.com.au)
+- remove redundant css (alec@smartalecwebsites.com.au)
+- remove extra space (alec@smartalecwebsites.com.au)
+- put JS for popstate pjax back in for now (alec@smartalecwebsites.com.au)
+- always create keyword filter object but only setup on index page
+  (alec@smartalecwebsites.com.au)
+- cleanup CSS and JS (alec@smartalecwebsites.com.au)
+- fix keyword filter breakage when moving from storefront to storelist. only
+  apply dynamic heights for desktop (alec@smartalecwebsites.com.au)
+- reset JS when swtiching from map view to list view
+  (alec@smartalecwebsites.com.au)
+- Refactor JS and add comments (alec@smartalecwebsites.com.au)
+- remove meta tag used for IE testing (alec@smartalecwebsites.com.au)
+- use pointer events on elements so map is clickable below store list
+  (alec@smartalecwebsites.com.au)
+- fix regression with keyword toggle filter when going from palm to desktop
+  (alec@smartalecwebsites.com.au)
+- fix IE storefront bug and removed old css (alec@smartalecwebsites.com.au)
+- temporarily add meta tag to force latest IE rendering
+  (alec@smartalecwebsites.com.au)
+- refactor dynamic heights JS. change the variable height class to fix ie9
+  storefront disappearing bug (alec@smartalecwebsites.com.au)
+- prevent double borders (alec@smartalecwebsites.com.au)
+- Remove map popup when switck back to store list
+  (alec@smartalecwebsites.com.au)
+- apply dynamic heights to stores show (alec@smartalecwebsites.com.au)
+- dynamic store list height (alec@smartalecwebsites.com.au)
+
 * Fri Mar 28 2014 ci <doperations@au.westfield.com> 0.2.245-1
 - Merge pull request #1022 from jlambert/WSF-6243 (jlambert@au.westfield.com)
 - WSF-6243 tweak search order per CR (jlambert@au.westfield.com)

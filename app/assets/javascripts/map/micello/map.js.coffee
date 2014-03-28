@@ -21,8 +21,17 @@ class map.micello.Map
     @offset = x: 0.5, y: 0.5
     @fetchTradingHours()
     @fetchStores()
+
+    $.when( @deferreds.micello).then(@ready)
     $.when(@deferreds.store_fetch, @deferreds.store_hours).then(@processStores)
-    $.when(@deferreds.stores, @deferreds.micello).then(@ready)
+    $.when(@deferreds.stores).then ->
+      $('#map-micello-api .js-preloader').remove()
+
+    $.when( @deferreds.micello, @deferreds.stores).then =>
+      @options.deferred.resolveWith(@)
+
+
+    micello.maps.init(@key, @init)
 
   westfieldCentreId: ->
     westfield.centre.code
@@ -43,7 +52,6 @@ class map.micello.Map
       @deferreds.store_hours.resolve()
 
   processStores: =>
-    micello.maps.init(@key, @init)
     _(@stores).each (store) =>
       if store._links.logo?.href?
         store.logo = store._links.logo.href
@@ -62,6 +70,9 @@ class map.micello.Map
       idMap: _(@stores).chain().map((store) -> [store.id, store]).object().value()
       micelloMap: _(@stores).chain().map((store) -> [store.micello_geom_id, store]).object().value()
 
+    @applyWestfieldStoreNames()
+
+    console.log "processed stores"
     @deferreds.stores.resolve()
 
   processGeoms: (geoms) ->
@@ -105,8 +116,6 @@ class map.micello.Map
   ready: =>
     @patchMicelloAPI()
     @applyCustomIcons()
-    @applyWestfieldStoreNames()
-    @options.deferred.resolveWith(@)
 
     # fixes windows chrome canvas redraw bug causing a blank map on page load
     setInterval(@forceRedraw, 1000)
@@ -119,7 +128,6 @@ class map.micello.Map
     @attachEventListeners()
 
   initMap: =>
-    $('#map-micello-api').text('')
     @control = new micello.maps.MapControl('map-micello-api')
     @data = @control.getMapData()
     canvas = @control.getMapCanvas()
@@ -148,7 +156,7 @@ class map.micello.Map
     @control.hideInfoWindow()
     @
 
-  targetStore: ->
+  targetStore: =>
     @stores.idMap[@storeId] if @hasTarget()
 
   targetGeom: ->

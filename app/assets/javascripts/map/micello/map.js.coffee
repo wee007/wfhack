@@ -24,15 +24,11 @@ class map.micello.Map
     @offset = x: 0.5, y: 0.5
     @fetchStores()
 
-    $.when( @deferreds.micello).then(@ready)
     $.when(@deferreds.store_fetch).then(@processStores)
-    $.when(@deferreds.stores).then ->
-      $('#map-micello-api .js-preloader').remove()
+    $.when(@deferreds.stores, @deferreds.micello).then(@ready)
 
     $.when( @deferreds.micello, @deferreds.stores).then =>
       @options.deferred.resolveWith(@)
-
-    micello.maps.init(@key, @init)
 
   westfieldCentreId: ->
     westfield.centre.code
@@ -52,9 +48,10 @@ class map.micello.Map
         tradingHoursHtml = "<p>Open till <time datetime='#{store.closing_time_24}'>#{store.closing_time_12}</time></p>"
 
       # Insert trading hours into popup html
-      $('.js-trading-hours-html').html(tradingHoursHtml)
+      $('.js-trading-hours-html').removeAttr('style').html(tradingHoursHtml)
 
   processStores: =>
+    micello.maps.init(@key, @init)
     _(@stores).each (store) =>
       if store._links.logo?.href?
         store.logo = store._links.logo.href
@@ -64,8 +61,6 @@ class map.micello.Map
       list: @stores
       idMap: _(@stores).chain().map((store) -> [store.id, store]).object().value()
       micelloMap: _(@stores).chain().map((store) -> [store.micello_geom_id, store]).object().value()
-
-    @applyWestfieldStoreNames()
 
     @deferreds.stores.resolve()
 
@@ -121,6 +116,9 @@ class map.micello.Map
   ready: =>
     @patchMicelloAPI()
     @applyCustomIcons()
+    @removePreloader()
+    @applyWestfieldStoreNames()
+    @options.deferred.resolveWith(@)
 
     # fixes windows chrome canvas redraw bug causing a blank map on page load
     setInterval(@forceRedraw, 1000)
@@ -154,6 +152,9 @@ class map.micello.Map
     canvas.setOverrideTheme(map.micello.customTheme.theme)
     canvas.MAP_FONT_MIN = "14px"
     canvas.MAP_FONT_MAX = "14px"
+
+  removePreloader: =>
+    $('#map-micello-api .js-preloader').remove()
 
   setTarget: (@storeId) ->
     @clearPins('pin')

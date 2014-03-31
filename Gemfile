@@ -50,6 +50,8 @@ group :development, :test do
   gem 'pry'
   gem 'pry-remote'
   gem "debugger"
+  gem 'better_errors'
+  gem 'binding_of_caller'
   gem "rspec-rails"
   gem 'uglifier', '>= 1.3.0'
   gem 'coffee-rails', '~> 4.0.0'

@@ -20,7 +20,8 @@ class Search < Hashie::Mash
   def ordering_on_type type
     type_order_list =
      [
-      "centre_information"
+      "centre_services",
+      "centre_information",
      ]
     type_order_list.index(type) || 9999
   end

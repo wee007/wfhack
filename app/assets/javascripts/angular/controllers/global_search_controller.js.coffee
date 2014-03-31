@@ -76,21 +76,21 @@
           event.preventDefault()
         when 13 # enter
           if $scope.focusedSuggestion
-            $window.location = $scope.url($scope.focusedSuggestion)
+            $window.location = $scope.url($scope.focusedSuggestion, 'enter')
             event.preventDefault()
 
-      $scope.url = (suggestion) ->
+      $scope.url = (suggestion, searchSource = 'dropdown') ->
         #If there is already a query string, no need for '?'
         urlJoiner = if suggestion.url.indexOf("?") > 0 then "&" else "?"
 
         # Construct the full suggestion URL. 'search_source' is purely for analytics purposes.
-        url = "/#{$scope.centre_id}#{suggestion.url}#{urlJoiner}search_source=dropdown&search_keyword=#{$scope.searchQuery}"
+        url = "/#{$scope.centre_id}#{suggestion.url}#{urlJoiner}search_source=#{searchSource}&search_keyword=#{$scope.searchQuery}"
 
       $scope.submit = ( event ) ->
         suggestions = $scope.suggestions.products
         suggestion = suggestions[suggestions.length-1]
 
-        $window.location = $scope.url(suggestion)
+        $window.location = $scope.url(suggestion, 'enter')
         event.preventDefault()
 
   ]

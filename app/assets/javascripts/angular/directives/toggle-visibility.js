@@ -74,6 +74,8 @@
       $target.unbind('keydown');
       $target.removeAttr('tabindex');
 
+      $target.trigger('toggle-visibility.close')
+
       // Remove focus from input in target as it is hidden now
       // Use jQuery to get correct blur function
       jQuery('#' + targetID).find('input[type=text], input[type=search]').eq(0).blur();
@@ -84,6 +86,8 @@
       $target = target( targetID )
       triggers( targetID ).attr( 'aria-expanded', true ).addClass( activeClass );
       $target.addClass( activeClass );
+
+      $target.trigger('toggle-visibility.open')
 
       // Wrapped in a timeout to prevent digest errors
       $timeout(function() {

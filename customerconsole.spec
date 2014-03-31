@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.247
+Version:     0.2.248
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,9 @@ fi
 
 
 %changelog
+* Mon Mar 31 2014 ci <doperations@au.westfield.com> 0.2.248-1
+- WSF-6452 specify ordering of centre_services (jlambert@au.westfield.com)
+
 * Fri Mar 28 2014 ci <doperations@au.westfield.com> 0.2.247-1
 - Fixing white space issues (cpearce@au.westfield.com)
 - Applying 'Modifier' labels to grid partial (cpearce@au.westfield.com)

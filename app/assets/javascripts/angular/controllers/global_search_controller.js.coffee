@@ -13,7 +13,7 @@
       unless $(event.target).parents('.js-global-search').length > 0
         $scope.hideSuggestions() if $scope.suggestionsVisible
 
-    $('.js-global-search-clear-input').on 'toggle-visibility.close', ->
+    $('.js-global-search').on 'toggle-visibility.close', ->
       $scope.searchQuery = ''
       $scope.hideSuggestions()
 

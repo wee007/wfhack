@@ -25,13 +25,7 @@
 		display: block;
 	}
 
-	/* Hide */
-
-	/* IE10 */
-	@include ie-10-up {display: none;}
-
-	/* IE 9, non JS and Android users */
-	.ie-9 &,
+	/* Hide for non JS and Android users */
 	.no-js &,
 	.android & {display: none;}
 }

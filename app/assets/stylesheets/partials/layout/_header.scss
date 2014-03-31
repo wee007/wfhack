@@ -834,14 +834,6 @@ $national-view-search-toggle-bp: 1080 !default;
 					@include respond-min($desk-lrg) {
 						display: none;
 					}
-
-					/* Hide for IE */
-
-					/* IE10 */
-					@include ie-10-up {display: none;}
-
-					/* IE 9 */
-					.ie-9 & {display: none;}
 				}
 			}
 

@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.251
+Version:     0.2.252
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,11 @@ fi
 
 
 %changelog
+* Mon Mar 31 2014 ci <doperations@au.westfield.com> 0.2.252-1
+- Merge pull request #1028 from araeside/search-tracking-for-keyboard
+  (araeside@au.westfield.com)
+- track searching by enter (alec@smartalecwebsites.com.au)
+
 * Mon Mar 31 2014 ci <doperations@au.westfield.com> 0.2.251-1
 - 
 

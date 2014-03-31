@@ -78,7 +78,7 @@
         # Hide suggestions when escape is pressed
         $scope.hideSuggestions() if event and event.keyCode == 27
 
-      if $scope.searchQuery && $scope.searchQuery != ""
+      if $scope.searchQuery && $scope.searchQuery.length > 1
         GlobalSearch.get term: $scope.searchQuery, centre: $scope.centre_id
 
     $scope.navigateSuggestions = (event) ->

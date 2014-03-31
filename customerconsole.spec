@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.252
+Version:     0.2.253
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,10 @@ fi
 
 
 %changelog
+* Tue Apr 01 2014 ci <doperations@au.westfield.com> 0.2.253-1
+- Revert "Merge pull request #1007 from ewee/remove_store_hours"
+  (craigm.smith@au.westfield.com)
+
 * Mon Mar 31 2014 ci <doperations@au.westfield.com> 0.2.252-1
 - Merge pull request #1028 from araeside/search-tracking-for-keyboard
   (araeside@au.westfield.com)

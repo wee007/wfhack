@@ -64,6 +64,33 @@
                 </dd>
                 <%# //Products %>
 
+                <%# Events %>
+                <dt ng-if="suggestions.events">
+                  <span aria-hidden="true" class="icon icon--events icon--xlrg"></span> Events
+                </dt>
+                <dd ng-repeat="suggestion in suggestions.events" role="presentation">
+                  <a target="_self" ng-class="{'is-focused': suggestion === focusedSuggestion}" ng-href="{{url(suggestion)}}" tabindex="-1">{{suggestion.description}}</a>
+                </dd>
+                <%# //Events %>
+
+                <%# Centre Information %>
+                <dt ng-if="suggestions.centre_information">
+                  <span aria-hidden="true" class="icon icon--centre_information icon--xlrg"></span> Centre Information
+                </dt>
+                <dd ng-repeat="suggestion in suggestions.centre_information" role="presentation">
+                  <a target="_self" ng-class="{'is-focused': suggestion === focusedSuggestion}" ng-href="{{url(suggestion)}}" tabindex="-1">{{suggestion.description}}</a>
+                </dd>
+                <%# //Centre Information %>
+
+                <%# Deals %>
+                <dt ng-if="suggestions.deals">
+                  <span aria-hidden="true" class="icon icon--deals icon--xlrg"></span> Deals
+                </dt>
+                <dd ng-repeat="suggestion in suggestions.deals" role="presentation">
+                  <a target="_self" ng-class="{'is-focused': suggestion === focusedSuggestion}" ng-href="{{url(suggestion)}}" tabindex="-1">{{suggestion.description}}</a>
+                </dd>
+                <%# //Deals %>
+
               </dl>
             </div>
           </div>

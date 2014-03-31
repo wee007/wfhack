@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.249
+Version:     0.2.250
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,15 @@ fi
 
 
 %changelog
+* Mon Mar 31 2014 ci <doperations@au.westfield.com> 0.2.250-1
+- Merge pull request #1030 from cpearce/feedback-dialog
+  (cpearce@au.westfield.com)
+- use existing JS hook (alec@smartalecwebsites.com.au)
+- move js hook to container element (alec@smartalecwebsites.com.au)
+- Making site feedback work for IE (cpearce@au.westfield.com)
+- Clear global search when backspacing and when search box is hidden
+  (alec@smartalecwebsites.com.au)
+
 * Mon Mar 31 2014 ci <doperations@au.westfield.com> 0.2.249-1
 - Merge pull request #1026 from cpearce/new-creative (chorn@au.westfield.com)
 - Change creative on national home page (cpearce@au.westfield.com)

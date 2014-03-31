@@ -39,16 +39,17 @@ class map.micello.Map
       @deferreds.store_fetch.resolve()
 
   fetchStoreTradingHours: (store) =>
-    @tradingHoursApi.get {'store_id': store.id}, (data) =>
-      #Interpolate trading hours data into store object
-      @processStoreTradingHours(store, data[0])
+    @tradingHoursApi.get {'store_id': store.id}, @insertTradingHoursIntoOverlay
 
-      tradingHoursHtml = "<p>Closed today</p>"
-      if !store.closed_today
-        tradingHoursHtml = "<p>Open till <time datetime='#{store.closing_time_24}'>#{store.closing_time_12}</time></p>"
+  insertTradingHoursIntoOverlay: (data) =>
+    storeTradingHours = data[0]
 
-      # Insert trading hours into popup html
-      $('.js-trading-hours-html').removeAttr('style').html(tradingHoursHtml)
+    tradingHoursHtml = "<p>Closed today</p>"
+    if !storeTradingHours.closed
+      tradingHoursHtml = "<p>Open till <time datetime=\"#{storeTradingHours.closing_time_24}\">#{@formatTime(storeTradingHours.closing_time)}</time></p>"
+
+    # Insert trading hours into popup html
+    $('.js-trading-hours-map-overlay').removeAttr('style').html(tradingHoursHtml)
 
   processStores: =>
     micello.maps.init(@key, @init)
@@ -64,17 +65,6 @@ class map.micello.Map
 
     @deferreds.stores.resolve()
 
-  processStoreTradingHours: (store, data) =>
-    closingTime = data.closing_time
-    store.closed_today = data.closed
-    store.closing_time_24 = closingTime
-    hour24 = parseInt(closingTime, 10)
-    hour12 = hour24 % 12
-    hour12 = 12 if hour12 == 0
-    minute = closingTime.replace(/\d+:/, '')
-    ampm = if hour24 < 12 || hour24 == 24 then 'am' else 'pm'
-    store.closing_time_12 = "#{hour12}:#{minute}#{ampm}"
-
   processGeoms: (geoms) ->
     @geoms =
       list: geoms
@@ -87,6 +77,14 @@ class map.micello.Map
         geoms = []
         (geoms = geoms.concat(@typeMap[type]) if @typeMap[type]) for type in types
         geoms
+
+  formatTime: (time)->
+    hour24 = parseInt(time, 10)
+    hour12 = hour24 % 12
+    hour12 = 12 if hour12 == 0
+    minute = time.replace(/\d+:/, '')
+    ampm = if hour24 < 12 || hour24 == 24 then 'am' else 'pm'
+    "#{hour12}:#{minute}#{ampm}"
 
   toggleKeyEvents: (enabled) ->
     @keyEventHandler ||= micello.maps.MapGUI.prototype.onKeyDown
@@ -154,7 +152,7 @@ class map.micello.Map
     canvas.MAP_FONT_MAX = "14px"
 
   removePreloader: =>
-    $('#map-micello-api .js-preloader').remove()
+    $('.js-preloader-micello').remove()
 
   setTarget: (@storeId) ->
     @clearPins('pin')

@@ -1,4 +1,4 @@
-( function ( app ) {
+/*( function ( app ) {
   app.directive( 'toggleVisibility', ['$rootScope', '$timeout', '$document', function ( $rootScope, $timeout, $document ) {
 
     $rootScope.activeTVTarget = undefined;
@@ -147,3 +147,4 @@
     }
   }]);
 }( angular.module('Westfield') ));
+*/

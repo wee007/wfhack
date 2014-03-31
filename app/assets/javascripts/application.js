@@ -29,6 +29,8 @@
 //= require ./init/viewport_check
 //= require ./init/social-share
 
+//= require ./support/toggle-visibility
+
 // Angular
 //= require angular
 //= require angular-touch

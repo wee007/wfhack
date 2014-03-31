@@ -13,6 +13,10 @@
       unless $(event.target).parents('.js-global-search').length > 0
         $scope.hideSuggestions() if $scope.suggestionsVisible
 
+    $('.js-global-search').on 'toggle-visibility.close', ->
+      $scope.searchQuery = ''
+      $scope.hideSuggestions()
+
     # When there are search results, collect them as suggestions & display
     GlobalSearch.onChange ->
       $scope.suggestions = didYouMean()

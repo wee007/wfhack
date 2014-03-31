@@ -17,8 +17,7 @@ class @PinBoard
 
     mediaQueries = {
       palm: "all and (max-width: 480px)", # 0-480px
-      iphoneLandscape: "all and (min-width: 481px) and (max-width:40em)", # 480-640px
-      smallLap: "all and (min-width: 40.0625em) and (max-width: 56.25em)", # 641px - 900px
+      iphoneLandscape: "all and (min-width: 30.063em) and (max-width: 56.25em)", # 481px - 900px
       largeLap: "all and (min-width: 56.3125em) and (max-width: 74.9375em)", # 901px - 1199px
       desktopSmall: "all and (min-width: 75em) and (max-width: 85.3125em)", # 1200px - 1365px
       desktopLarge: "all and (min-width: 85.375em)" # 1366px +
@@ -31,7 +30,6 @@ class @PinBoard
     enquire.register mediaQueries.iphoneLandscape, => setTimeout (=>@rebuild 3), 0
 
     #Large lap
-    enquire.register mediaQueries.smallLap, => setTimeout (=>@rebuild 3), 0
     enquire.register mediaQueries.largeLap, => setTimeout (=>@rebuild 4), 0
 
     #Desktop small

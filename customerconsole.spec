@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.255
+Version:     0.2.256
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,11 @@ fi
 
 
 %changelog
+* Tue Apr 01 2014 ci <doperations@au.westfield.com> 0.2.256-1
+- Merge pull request #1027 from jlambert/better-errors
+  (jlambert@au.westfield.com)
+- Add better error messages for local development (jlambert@au.westfield.com)
+
 * Tue Apr 01 2014 ci <doperations@au.westfield.com> 0.2.255-1
 - Merge pull request #1024 from araeside/lazy-load-trading-hours
   (araeside@au.westfield.com)

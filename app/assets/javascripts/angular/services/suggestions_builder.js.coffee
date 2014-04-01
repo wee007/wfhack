@@ -42,6 +42,9 @@
         when "product_query" then "/products?search_query=#{params.query}"
         when "colour" then "/products?colour[]=#{params.colour}"
         when "product_category" then buildProductCategoryUrl params.super_cat, params.category, params.sub_category
+        when "event" then "/events/#{params.id}"
+        when "deal" then "/deals/#{params.retailer_code}/#{params.id}"
+        # when "centre_information" then "#{params.path}"
 
     buildProductCategoryUrl = (super_cat, category, sub_category) ->
       url = '/products'

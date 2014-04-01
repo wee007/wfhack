@@ -9,6 +9,12 @@ class SearchController < ApplicationController
 
     gon.centre = params[:centre_id]
 
+    @links = {
+      "stores" => 'store',
+      "products" => 'product'
+    }
+    @attributes = Hashie::Mash.new action: 'index'
+
     if (search.hard_redirect?)
       redirect_to search.first_result_uri_path
     end

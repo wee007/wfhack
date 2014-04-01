@@ -6,6 +6,20 @@
     <p><em class="h1">No results found for "<%= @search_term =%>"</em></span></p>
 
     <p>Try a different spelling, or try a store name or category. You can also browse one of the sections below&#8230;</p>
+
+    <nav>
+      <ul>
+        <%= @links.each do |kind, icon| %>
+        <li>
+          <%= link_to build_url(@centre.code, kind, @attributes), class: "btn btn--main btn--main-white btn--main-compact-sides btn--main-max-width btn--main-max-width-palm" do %>
+              <span class="icon icon--store icon--spacing" aria-hidden="true"></span>
+            <%= kind %>
+          <% end %>
+        </li>
+        <% end %>
+      </ul>
+    </nav>
+
   </div>
 <% else %>
   <h1>Results for "<%= @search_term =%>"</h1>

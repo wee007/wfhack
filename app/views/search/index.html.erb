@@ -2,9 +2,10 @@
 
 <% if @sorted_results_tuple.empty? %>
 
-  <%#// TODO: no search results page %>
   <div class="fallback-msg fallback-msg--spacing-top">
-    <p><em class="h1">No search results</em></span></p>
+    <p><em class="h1">No results found for "<%= @search_term =%>"</em></span></p>
+
+    <p>Try a different spelling, or try a store name or category. You can also browse one of the sections below&#8230;</p>
   </div>
 <% else %>
   <h1>Results for "<%= @search_term =%>"</h1>

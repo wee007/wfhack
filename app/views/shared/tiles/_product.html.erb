@@ -16,20 +16,22 @@
 <div class="tile__meta">
 
   <%# Tile product icon %>
-  <span class="tile__meta__icon">
-    <span class="icon icon--products icon--lrg" aria-hidden="true"></span>
-  </span>
+  <span class="tile__meta__icon icon icon--products icon--lrg" aria-hidden="true"></span>
   <%# //Tile product icon %>
 
-  <%# Tile product name, price and brand %>
+  <%# Tile product name and brand %>
   <div class="tile__meta__inner">
     <h3 class="tile__meta__hdr txt-truncate"><%= result.name %></h3>
-    <p class="tile__meta__desc txt-truncate">
-      <span class="tile__meta__desc__price"><%=number_to_currency result.sale_price %></span>
-      from <strong><%= result.retail_chain_name %></strong>
-    </p>
+    <p class="tile__meta__desc txt-truncate">from <strong><%= result.retail_chain_name %></strong></p>
   </div>
-  <%# //Tile product name, price and brand %>
+  <%# //Tile product name and brand %>
+
+  <%# Tile price %>
+  <div class="tile__meta__price">
+    <span><%=number_to_currency result.sale_price %></span>
+    <em>99% Off</em>
+  </div>
+  <%# //Tile price %>
 
 </div>
 <%# //Tile product meta %>

@@ -13,8 +13,10 @@
 
 .tile {
   position: relative;
-  color: $color-txt-base;
-  @include font-size($font-size-sml, 1.5);
+
+  /* Set font size */
+  &,
+  .tile__meta__hdr {@include font-size($font-size-sml, 1.5);}
 
   /* So the social share module can be seen when they overlap another tile */
   &:hover {z-index: 2;}
@@ -64,7 +66,7 @@
 
   .tile__meta {
     position: relative;
-    @include to-rem(min-height, $spacing-base*2);
+    @include to-rem(min-height, 47);
     @include to-rem(padding, 8 10);
   }
 
@@ -75,7 +77,6 @@
       @include to-rem(top, 9);
       border-left: 2px solid $color-brand;
       background-color: $color-grey-light-3;
-      color: $color-txt-light;
       @include to-rem(padding, 3 5);
 
       /* Increase the padding at this breakpoint, as we have more space */
@@ -89,10 +90,10 @@
       /*
         Needed to create spacing for `.tile__meta__icon`. Spacing = `.tile__meta` left padding + width of `.tile__meta__icon` + spacing between `.tile__meta__icon` and the text.
       */
-      @include to-rem(margin-left, 25);
+      @include to-rem(margin-left, 22);
 
       @include respond-min($non-palm) {
-        @include to-rem(margin-left, 30);
+        @include to-rem(margin-left, 26);
       }
     }
 
@@ -100,28 +101,10 @@
       .tile__meta__hdr {
         color: $color-txt-dark;
         font-weight: bold;
-        @include font-size($font-size-milli, 1.5);
-
-        @include respond-min($iphone-landscape) {
-          @include font-size($font-size-sml, 1.5);
-        }
       }
 
       /* Description */
-      .tile__meta__desc {
-        color: $color-txt-light;
-        @include font-size($font-size - 4, 1.5);
-
-        @include respond-min($iphone-landscape) {
-          @include font-size($font-size-milli, 1.5);
-        }
-      }
-
-        /* Price */
-        .tile__meta__desc__price {
-          color: $color-txt-dark;
-          font-weight: bold;
-        }
+      .tile__meta__desc {@include font-size($font-size-milli, 1.5);}
 
   /* Alternative icon, icon that sits top left corner of it's tile, have 2 types: 'Canned search' and 'Curation' */
   .tile__icon-alt {
@@ -161,8 +144,7 @@
 
     /* Buttons */
     .controls__btn {
-      @include to-rem(width, $spacing-base* 2);
-      @include to-rem(height, $spacing-base* 2);
+      @include to-rem(width height, $spacing-dbl);
       border: 1px solid $color-grey-light-1;
       border-radius: $border-radius;
       background-color: #fff;

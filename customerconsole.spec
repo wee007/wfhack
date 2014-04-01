@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.254
+Version:     0.2.255
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,21 @@ fi
 
 
 %changelog
+* Tue Apr 01 2014 ci <doperations@au.westfield.com> 0.2.255-1
+- Merge pull request #1024 from araeside/lazy-load-trading-hours
+  (araeside@au.westfield.com)
+- fix failing tests (alec@smartalecwebsites.com.au)
+- fix test runner (alec@smartalecwebsites.com.au)
+- refactor fetch trading hours and clean up js hooks
+  (alec@smartalecwebsites.com.au)
+- prepare JS for production. remove hardcoded height when trading hours is
+  loaded in (alec@smartalecwebsites.com.au)
+- need to check for geom object when on product show. add comments
+  (alec@smartalecwebsites.com.au)
+- Load store trading hours on map click rather than page load
+  (alec@smartalecwebsites.com.au)
+- spike lazy loading file (alec@smartalecwebsites.com.au)
+
 * Tue Apr 01 2014 ci <doperations@au.westfield.com> 0.2.254-1
 - Revert "Revert "Merge pull request #1007 from ewee/remove_store_hours""
   (craigm.smith@au.westfield.com)

@@ -5,6 +5,7 @@ describe "map.micello.Map", ->
       text: sinon.stub()
       on: sinon.stub()
       css: sinon.stub()
+      remove: sinon.stub()
       first: sinon.stub().returns({
         on: sinon.stub()
       })
@@ -96,6 +97,8 @@ describe "map.micello.Map", ->
           }
         }
       ]
+
+      @subject.store_trading_hours = {}
       @subject.store_trading_hours[@storeId] = {
         centre_id: "bondijunction",
         closed: false,

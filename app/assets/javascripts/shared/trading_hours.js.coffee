@@ -3,10 +3,10 @@
 
 class @TradingHours
   apiUrl: "/api/trading-hour/master/store_trading_hours/range.json"
-  westfieldCentreId: westfield.centre.code
 
   constructor: ->
     @today = @getToday()
+    @westfieldCentreId = westfield.centre.code
 
   getToday: =>
     d = new Date()

@@ -11,7 +11,7 @@ describe "map.micello.Map", ->
     })
     $.ajax = sinon.stub().returns(success: sinon.stub())
     $.getJSON = sinon.stub().callsArgWith(1, [])
-    window.westfield = {centre: micello_community: 7297}
+    window.westfield = {centre: {micello_community: 7297}}
     window.micello = {
       maps: {
         init: sinon.stub().callsArg(1)

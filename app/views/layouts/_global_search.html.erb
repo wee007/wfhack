@@ -75,7 +75,7 @@
 
                 <%# Centre Information %>
                 <dt ng-if="suggestions.centre_information">
-                  <span aria-hidden="true" class="icon icon--centre_information icon--xlrg"></span> Centre Information
+                  <span aria-hidden="true" class="icon icon--info icon--xlrg"></span> Centre Information
                 </dt>
                 <dd ng-repeat="suggestion in suggestions.centre_information" role="presentation">
                   <a target="_self" ng-class="{'is-focused': suggestion === focusedSuggestion}" ng-href="{{url(suggestion)}}" tabindex="-1">{{suggestion.description}}</a>

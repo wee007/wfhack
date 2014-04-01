@@ -2,13 +2,13 @@
   app.service "SuggestionsBuilder", ->
 
     whiteListedTypes = [
-      'store',
-      'retail_chain',
-      'colour',
-      'product_category',
-      'event',
-      'centre_information',
-      'deal',
+      'store'
+      'retail_chain'
+      'colour'
+      'product_category'
+      'event'
+      'centre_information'
+      'deal'
     ]
 
     @didYouMean = (searchString, searchResults, centre_id)->

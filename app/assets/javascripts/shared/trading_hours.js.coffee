@@ -1,0 +1,24 @@
+# Generic class for querying the trading hours service
+# Used on store map
+
+class @TradingHours
+  apiUrl: "/api/trading-hour/master/store_trading_hours/range.json"
+
+  constructor: ->
+    @today = @getToday()
+    @westfieldCentreId = westfield.centre.code
+
+  getToday: =>
+    d = new Date()
+    curr_date = d.getDate()
+    curr_month = d.getMonth() + 1
+    curr_year = d.getFullYear()
+    curr_date + "-" + curr_month + "-" + curr_year
+
+  get: (params, callback)=>
+    defaultParams =
+      centre_id: @westfieldCentreId
+      from: @today
+      to: @today
+
+    $.getJSON @apiUrl, $.extend({}, defaultParams, params), callback

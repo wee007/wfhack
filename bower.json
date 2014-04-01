@@ -12,7 +12,6 @@
     "jquery-pjax": "~1.7.3",
     "underscore": "~1.5.2",
     "angular": "1.2.0-rc.3",
-    "angular-animate": "1.2.0-rc.3",
     "angular-sanitize": "1.2.0-rc.3",
     "angular-touch": "1.2.0-rc.3",
     "angular-route": "1.2.0-rc.3",

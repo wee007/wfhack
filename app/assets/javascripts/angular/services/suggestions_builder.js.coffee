@@ -11,7 +11,7 @@
       'deal',
     ]
 
-    @didYouMean = (searchString, searchResults)->
+    @didYouMean = (searchString, searchResults, centre_id)->
       suggestions = {}
       suggestions.count = 0
       angular.forEach searchResults, (results, type) ->
@@ -22,32 +22,31 @@
             suggestions.count++
             suggestions[type].push {
               description: result.display,
-              url: buildUrl(result.result_type, result.attributes)
+              url: buildUrl(result.result_type, result.attributes, centre_id)
             }
 
       # Add the default product search.
       suggestions.count++
-      (suggestions.products ||=[]).push dummyResult(searchString)
-
+      (suggestions.products ||=[]).push dummyResult(searchString, centre_id)
       suggestions
 
-    dummyResult = (searchString)->
+    dummyResult = (searchString, centre_id)->
       "description": "Products matching '#{searchString}'",
-      "url": buildUrl('product_query', query: searchString)
+      "url": buildUrl('product_query', query: searchString, centre_id)
 
-    buildUrl = (type, params) ->
+    buildUrl = (type, params, centre_id) ->
       switch type
-        when "store" then "/stores/#{params.retailer_code}/#{params.id}"
-        when "retail_chain" then "/products?retailer[]=#{params.retailer_code}"
-        when "product_query" then "/products?search_query=#{params.query}"
-        when "colour" then "/products?colour[]=#{params.colour}"
-        when "product_category" then buildProductCategoryUrl params.super_cat, params.category, params.sub_category
-        when "event" then "/events/#{params.id}"
-        when "deal" then "/deals/#{params.retailer_code}/#{params.id}"
-        # when "centre_information" then "#{params.path}"
+        when "store" then "/#{centre_id}/stores/#{params.retailer_code}/#{params.id}"
+        when "retail_chain" then "/#{centre_id}/products?retailer[]=#{params.retailer_code}"
+        when "product_query" then "/#{centre_id}/products?search_query=#{params.query}"
+        when "colour" then "/#{centre_id}/products?colour[]=#{params.colour}"
+        when "product_category" then buildProductCategoryUrl params.super_cat, params.category, params.sub_category, centre_id
+        when "event" then "/#{centre_id}/events/#{params.id}"
+        when "deal" then "/#{centre_id}/deals/#{params.retailer_code}/#{params.id}"
+        when "centre_information" then "#{params.path}"
 
-    buildProductCategoryUrl = (super_cat, category, sub_category) ->
-      url = '/products'
+    buildProductCategoryUrl = (super_cat, category, sub_category, centre_id) ->
+      url = "/#{centre_id}/products"
       url = "#{url}/#{super_cat}" if super_cat
       url = "#{url}/#{category}" if category
       url = "#{url}?sub_category[]=#{sub_category}" if sub_category

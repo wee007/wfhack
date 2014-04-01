@@ -23,7 +23,7 @@
       $scope.showSuggestions()
 
     didYouMean = ->
-      SuggestionsBuilder.didYouMean($scope.searchQuery, $scope.search.results)
+      SuggestionsBuilder.didYouMean($scope.searchQuery, $scope.search.results, $scope.centre_id)
 
     combinedResults = ->
       suggestions = []
@@ -97,9 +97,8 @@
       $scope.url = (suggestion, searchSource = 'dropdown') ->
         #If there is already a query string, no need for '?'
         urlJoiner = if suggestion.url.indexOf("?") > 0 then "&" else "?"
-
         # Construct the full suggestion URL. 'search_source' is purely for analytics purposes.
-        url = "/#{$scope.centre_id}#{suggestion.url}#{urlJoiner}search_source=#{searchSource}&search_keyword=#{$scope.searchQuery}"
+        url = "#{suggestion.url}#{urlJoiner}search_source=#{searchSource}&search_keyword=#{$scope.searchQuery}"
 
       $scope.submit = ( event ) ->
         suggestions = $scope.suggestions.products

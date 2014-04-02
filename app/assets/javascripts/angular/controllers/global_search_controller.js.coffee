@@ -63,6 +63,7 @@
 
     $scope.sortOrderTypes =
       [
+        'centre_services'
         'centre_information'
         'stores'
         'products'
@@ -73,6 +74,7 @@
     $scope.iconMapping = (type) ->
       suffix = type
       suffix = 'info' if type == "centre_information" 
+      suffix = 'info' if type == "centre_services"
       suffix = 'store' if type == "stores"
       return 'icon--' + suffix
 

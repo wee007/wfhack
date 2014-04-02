@@ -9,17 +9,9 @@
       'product_category'
       'event'
       'centre_information'
+      'centre_service'
       'deal'
     ]
-
-    @sortOrderTypes = ->
-      [
-        'centre_information'
-        'deals'
-        'events'
-        'products'
-        'stores'
-      ]
 
     @didYouMean = (searchString, searchResults, centre_id)->
       suggestions = {}

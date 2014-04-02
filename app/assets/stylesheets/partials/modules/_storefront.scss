@@ -130,9 +130,7 @@
 
   /* Store details */
   .storefront__details {
-    border-style: solid;
-    border-color: $color-grey-med-3;
-    border-width: 1px 0;
+    border-top: 1px solid $color-grey-med-3;
 
     /* Allow store link to be positioned over to the far right at this breakpoint */
     @include respond-min($ipad-portrait) {
@@ -222,11 +220,7 @@
     }
 
   /* Featured items */
-  .storefront__featured {
-    border-top: 1px solid $color-grey-med-3;
-
-    &:last-child {border-top: none;}
-  }
+  .storefront__featured {border-top: 1px solid $color-grey-med-3;}
 
     /* Shopping hours */
     .storefront__featured--hours {

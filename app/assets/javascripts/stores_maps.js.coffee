@@ -42,6 +42,8 @@ class StoreMapPage
     @dynamic_heights.setupDefaultHeights()
     @dynamic_heights.check()
 
+    $('.js-store-hours-toggle-trigger').click @dynamic_heights.check
+
   pageLoaded: ->
     $ ->
       if window.storeMapPageReady

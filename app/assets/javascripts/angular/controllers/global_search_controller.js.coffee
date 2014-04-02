@@ -33,15 +33,15 @@
       suggestions
 
     scrollSuggestions = (index,direction,maxLength) ->
-      lower_threshold = 7
-      upper_threshold = maxLength - lower_threshold
-      element_height = 21
-      $el = $("#site-search .search-results__inner")
+      lowerThreshold = 7
+      upperThreshold = maxLength - lowerThreshold
+      elementHeight = $(".js-search-results-item-height").height();
+      $el = $(".js-search-results-keyboard-scrolling")
       current = $el.scrollTop()
-      if direction == 'prev' && index < upper_threshold
-        $el.scrollTop(current - element_height)
-      if direction == 'next' && index > lower_threshold
-        $el.scrollTop(current + element_height)
+      if direction == 'prev' && index < upperThreshold
+        $el.scrollTop(current - elementHeight)
+      if direction == 'next' && index > lowerThreshold
+        $el.scrollTop(current + elementHeight)
 
     highlightSuggestion = (direction) ->
       suggestions = combinedResults()

@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.258
+Version:     0.2.259
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,9 @@ fi
 
 
 %changelog
+* Wed Apr 02 2014 ci <doperations@au.westfield.com> 0.2.259-1
+- fix up borders and remove redundant classes (alec@smartalecwebsites.com.au)
+
 * Wed Apr 02 2014 ci <doperations@au.westfield.com> 0.2.258-1
 - Merge pull request #1035 from araeside/store-hours-height
   (araeside@au.westfield.com)

@@ -1,4 +1,4 @@
-<%# Tile canned search image %>
+<%# Image %>
 <div class="tile__image">
   <%= cl_image_tag(result.image_ref,
     width: 289,
@@ -8,27 +8,28 @@
     fetch_format: 'auto')
   %>
 </div>
-<%# //Tile canned search image %>
+<%# //Image %>
 
-<%# Tile canned search meta %>
+<%# Meta %>
 <div class="tile__meta">
 
-  <%# Tile canned search icon %>
-  <span class="tile__meta__icon icon icon--<%= result.icon %> icon--lrg" aria-hidden="true"></span>
-  <%# //Tile canned search icon %>
+  <%# Title %>
+  <h3 class="tile__meta__hdr txt-truncate"><%= result.name %></h3>
+  <%# //Title %>
 
-  <%# Tile canned search title and tag line %>
-  <div class="tile__meta__inner">
-    <h3 class="tile__meta__hdr txt-truncate"><%= result.name %></h3>
-    <p class="tile__meta__desc txt-truncate"><%= result.tag_line %></p>
-  </div>
-  <%# //Tile canned search title and tag line %>
+  <%# Tagline %>
+  <p class="tile__meta__desc txt-truncate"><%= result.tag_line %></p>
+  <%# //Tagline %>
+
+  <%# Icon %>
+  <span class="tile__meta__icon icon icon--<%= result.icon %> icon--lrg" aria-hidden="true"></span>
+  <%# //Icon %>
 
 </div>
-<%# //Tile canned search meta %>
+<%# //Meta %>
 
-<%# Alternative icon for 'Product' type canned search %>
+<%# Alternative icon %>
 <% if result.icon == 'products' %>
   <span class="tile__icon-alt icon icon--product-collection icon--flush-top icon--lrg" aria-hidden="true"></span>
 <% end %>
-<%# //Alternative icon for 'Product' type canned search %>
+<%# //Alternative icon %>

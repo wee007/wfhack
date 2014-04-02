@@ -20,7 +20,7 @@
           <em class="detail-view__meta__sale-price">
             <span class="hide-visually">Old price: </span>
             <s><%= Money.new(@product.price).format%></s>
-            <span class="hide-visually">Current price: </span>
+            <span class="hide-visually">Sale price: </span>
             <%= Money.new(@product.sale_price).format %>
           </em>
         <%- else -%>

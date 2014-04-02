@@ -3,10 +3,12 @@
    ====================================================================================== */
 
 /*
-  Renders a tile for different types of content e.g. a 'Product', 'Deal', 'Event', etc. Mainly used in pin board module.
+  Renders a tile for different types of content e.g. a 'Product', 'Deal', 'Event', etc. Mainly used in the pin board module.
 
-  .tile--deals              - Deals
+  .tile--product            - Product
+  .tile--deal               - Deal
   .tile--fixed-img-height   - Fix the tile image height
+  .tile--no-icon            - No icon
 
   Styleguide Tile
 */
@@ -16,7 +18,7 @@
 
   /* Set font size */
   &,
-  .tile__meta__hdr {@include font-size($font-size-sml, 1.5);}
+  .tile__meta__hdr {@include font-size($font-size-sml, 1.4);}
 
   /* So the social share module can be seen when they overlap another tile */
   &:hover {z-index: 2;}
@@ -32,15 +34,21 @@
   a {
     color: $color-txt-light;
     display: block;
+    @include to-rem(padding-bottom, 8);
 
     &:focus {box-shadow: $box-shadow;}
   }
 }
 
+  /* Modifiers: product and deal */
+  .tile--product a,
+  .tile--deal a {padding-bottom: 0;}
+
   /* Image */
   .tile__image {
     text-align: center;
     position: relative;
+    @include to-rem(margin-bottom, 8);
 
     /* Red transparent image overlay shown on hover/focus of the tile */
     &:before {
@@ -66,34 +74,48 @@
 
   .tile__meta {
     position: relative;
-    @include to-rem(min-height, 47);
-    @include to-rem(padding, 8 10);
+    //background: salmon;
+    @include to-rem(padding-left, 32);
+    @include to-rem(padding-right, $spacing-half);
+
+    @include respond-min($non-palm) {
+      @include to-rem(padding-left, 36);
+    }
+
+    /* Modifier: deal */
+    .tile--deal & {
+      @include to-rem(padding, 45 15);
+
+      @include respond-min($non-palm) {
+        @include to-rem(padding, 84 25);
+      }
+    }
+
+    /* Modifier: no icon */
+    .tile--no-icon & {@include to-rem(padding-left, $spacing-half);}
   }
 
     /* Icon that identifies the tile */
     .tile__meta__icon {
       position: absolute;
-      @include to-rem(left, -2);
-      @include to-rem(top, 9);
+      left: -2px;
+      top: 0;
       border-left: 2px solid $color-brand;
       background-color: $color-grey-light-3;
       @include to-rem(padding, 3 5);
 
-      /* Increase the padding at this breakpoint, as we have more space */
       @include respond-min($non-palm) {
         @include to-rem(padding, 5 7);
       }
-    }
 
-    /* Inner container */
-    .tile__meta__inner {
-      /*
-        Needed to create spacing for `.tile__meta__icon`. Spacing = `.tile__meta` left padding + width of `.tile__meta__icon` + spacing between `.tile__meta__icon` and the text.
-      */
-      @include to-rem(margin-left, 22);
+      /* Modifier: deal */
+      .tile--deal & {
+        top: auto;
+        @include to-rem(bottom, 7.5);
 
-      @include respond-min($non-palm) {
-        @include to-rem(margin-left, 26);
+        @include respond-min($non-palm) {
+          @include to-rem(bottom, 9);
+        }
       }
     }
 
@@ -104,7 +126,47 @@
       }
 
       /* Description */
-      .tile__meta__desc {@include font-size($font-size-milli, 1.5);}
+      .tile__meta__desc {
+        @include font-size($font-size-milli, 1.4);
+
+        /* Modifier: deal */
+        .tile--deal & {
+          font-family: $font-family-lato;
+          @include font-size($font-size, 1.5);
+          font-weight: 300;
+          color: $color-txt-dark;
+
+          @include respond-min($non-palm) {
+            @include font-size(22, 1.3);
+          }
+        }
+      }
+
+      /* Price */
+      .tile__meta__price {
+        position: relative;
+        @include to-rem(padding, $spacing-quarter);
+        @include to-rem(margin-top, $spacing-third);
+        @include to-rem(margin-left, -32);
+        @include to-rem(margin-right, -$spacing-half);
+        background-color: $color-grey-light-3;
+        background: gold;
+        color: $color-txt-dark;
+
+        @include respond-min($non-palm) {
+          @include to-rem(margin-left, -36);
+        }
+      }
+
+        .tile__meta__price__discount {
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          right: 0;
+          background-color: $color-brand;
+          color: #fff;
+          @include to-rem(padding, $spacing-quarter);
+        }
 
   /* Alternative icon, icon that sits top left corner of it's tile, have 2 types: 'Canned search' and 'Curation' */
   .tile__icon-alt {
@@ -164,52 +226,21 @@
     }
   }
 
-/* Modifier: Deals */
-.tile--deals {
+/* Modifier: deal */
+.tile--deal {
 
-  /* Meta */
-  .tile__meta {
-    @include to-rem(padding, 45 15);
+  /* Header and logo spacing */
+  .tile__meta__hdr,
+  .tile__meta__logo {
+    @include to-rem(margin-bottom, $spacing-quarter);
 
     @include respond-min($non-palm) {
-      @include to-rem(padding, 84 25);
+      @include to-rem(margin-bottom, $spacing-half);
     }
   }
 
-    /* Header and logo spacing */
-    .tile__meta__hdr,
-    .tile__meta__logo {
-      @include to-rem(margin-bottom, $spacing-quarter);
-
-      @include respond-min($non-palm) {
-        @include to-rem(margin-bottom, $spacing-half);
-      }
-    }
-
-    /* Logo */
-    .tile__meta__logo {@include to-rem(width, 84);}
-
-    /* Description */
-    .tile__meta__desc {
-      font-family: $font-family-lato;
-      @include font-size($font-size, 1.5);
-      font-weight: 300;
-      color: $color-txt-dark;
-
-      @include respond-min($non-palm) {
-        @include font-size(22, 1.3);
-      }
-    }
-
-  /* Icon */
-  .tile__meta__icon {
-    top: auto;
-    @include to-rem(bottom, 7.5);
-
-    @include respond-min($non-palm) {
-      @include to-rem(bottom, 9);
-    }
-  }
+  /* Logo */
+  .tile__meta__logo {@include to-rem(width, 126);}
 }
 
 /* Modifier: fix image height */

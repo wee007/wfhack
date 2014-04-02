@@ -1,4 +1,4 @@
-<%# Tile curation image %>
+<%# Image %>
 <div class="tile__image">
   <%= fetch_image_tag result.image,
     width: 289,
@@ -9,24 +9,25 @@
     quality: 25
   %>
 </div>
-<%# //Tile curation image %>
+<%# //Image %>
 
-<%# Tile curation meta %>
+<%# Meta %>
 <div class="tile__meta">
 
-  <%# Tile curation icon %>
-  <span class="tile__meta__icon icon icon--products icon--lrg" aria-hidden="true"></span>
-  <%# //Tile curation icon %>
+  <%# Title %>
+  <h3 class="tile__meta__hdr txt-truncate"><%= result.name %></h3>
+  <%# //Title %>
 
-  <%# Tile curation title and tag line %>
-  <div class="tile__meta__inner">
-    <h3 class="tile__meta__hdr txt-truncate"><%= result.name %></h3>
-    <p class="tile__meta__desc txt-truncate">View collection</p>
-  </div>
-  <%# //Tile curation title and tag line %>
+  <%# Tagline %>
+  <p class="tile__meta__desc txt-truncate">View collection</p>
+  <%# //Tagline %>
+
+  <%# Icon %>
+  <span class="tile__meta__icon icon icon--products icon--lrg" aria-hidden="true"></span>
+  <%# //Icon %>
 
 </div>
-<%# //Tile curation meta %>
+<%# //Meta %>
 
 <%# Tile curation alternative icon %>
 <span class="tile__icon-alt icon icon--product-curation icon--flush-top icon--lrg" aria-hidden="true"></span>

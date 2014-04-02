@@ -1,7 +1,7 @@
-<%# Tile deal meta %>
+<%# Meta %>
 <div class="tile__meta">
 
-  <%# Tile deal logo %>
+  <%# Logo %>
   <% if result.logo %>
     <%= fetch_image_tag result.logo,
       alt: "#{result.store_name} logo",
@@ -11,21 +11,21 @@
       crop: :pad,
       format: :auto
     %>
-  <%# //Tile deal logo %>
+  <%# //Logo %>
 
-  <%# Tile deal store name %>
+  <%# Store name %>
   <% else %>
     <h3 class="tile__meta__hdr txt-truncate"><%= result.store_name %></h3>
   <% end %>
-  <%# //Tile deal store name %>
+  <%# //Store name %>
 
-  <%# Tile deal title %>
+  <%# The deal %>
   <p class="tile__meta__desc txt-hyphenate"><%= result.title %></p>
-  <%# //Tile deal title %>
+  <%# //The deal %>
 
 </div>
-<%# //Tile deal meta %>
+<%# //Meta %>
 
-<%# Tile deal icon %>
+<%# Icon %>
 <span class="tile__meta__icon icon icon--deals icon--lrg" aria-hidden="true"></span>
-<%# //Tile deal icon %>
+<%# //Icon %>

@@ -260,7 +260,7 @@
 
       /* Mods for 'Deal' tile at this breakpoint range */
       @include respond-range($ipad-landscape, 1300) {
-        .tile--deals .tile__meta {
+        .tile--deal .tile__meta {
           @include to-rem(padding, 55 15);
 
           .tile__meta__desc {@include font-size($font-size-sml, 1.5);}

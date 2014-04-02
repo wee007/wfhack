@@ -1,4 +1,4 @@
-<%# Tile product image %>
+<%# Image %>
 <div class="tile__image">
   <%# FIXME There is something causing some images in beta not to load if the cl_image_tag is used here %>
   <%= fetch_image_tag result.primary_image, {
@@ -10,28 +10,39 @@
     }.merge((options if defined? options) || {})
   %>
 </div>
-<%# //Tile product image %>
+<%# //Image %>
 
-<%# Tile product meta %>
+<%# Meta %>
 <div class="tile__meta">
 
-  <%# Tile product icon %>
-  <span class="tile__meta__icon icon icon--products icon--lrg" aria-hidden="true"></span>
-  <%# //Tile product icon %>
+  <%# Product name %>
+  <h3 class="tile__meta__hdr txt-truncate"><%= result.name %></h3>
+  <%# //Product name %>
 
-  <%# Tile product name and brand %>
-  <div class="tile__meta__inner">
-    <h3 class="tile__meta__hdr txt-truncate"><%= result.name %></h3>
-    <p class="tile__meta__desc txt-truncate">from <strong><%= result.retail_chain_name %></strong></p>
-  </div>
-  <%# //Tile product name and brand %>
+  <%# Product brand %>
+  <p class="tile__meta__desc txt-truncate">from <strong><%= result.retail_chain_name %></strong></p>
+  <%# //Product brand %>
 
-  <%# Tile price %>
+  <%# Price %>
   <div class="tile__meta__price">
-    <span><%=number_to_currency result.sale_price %></span>
-    <em>99% Off</em>
+    <div class="txt-truncate">
+      <%#- if @product.is_discounted -%>
+        <!-- <span class="hide-visually">Old price: </span>
+        <s><%=number_to_currency result.sale_price %></s>
+        <span class="hide-visually">Sale price: </span>
+        <%=number_to_currency result.sale_price %>
+        <strong>40% Off</strong> -->
+      <%#- else -%>
+        <strong><%=number_to_currency result.sale_price %></strong>
+        <strong class="tile__meta__price__discount">40% Off</strong>
+      <%#- end -%>
+    </div>
   </div>
-  <%# //Tile price %>
+  <%# //Price %>
+
+  <%# Icon %>
+  <span class="tile__meta__icon icon icon--products icon--lrg" aria-hidden="true"></span>
+  <%# //Icon %>
 
 </div>
-<%# //Tile product meta %>
+<%# //Meta %>

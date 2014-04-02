@@ -42,6 +42,10 @@
         $el.scrollTop(current - elementHeight)
       if direction == 'next' && index > lowerThreshold
         $el.scrollTop(current + elementHeight)
+      if  direction == 'next' && index == 0 
+        $el.scrollTop(0)
+      if  direction == 'prev' && index == maxLength
+        $el.scrollTop(999999)
 
     highlightSuggestion = (direction) ->
       suggestions = combinedResults()

@@ -130,7 +130,9 @@
 
   /* Store details */
   .storefront__details {
-    border-top: 1px solid $color-grey-med-3;
+    border-style: solid;
+    border-color: $color-grey-med-3;
+    border-width: 1px 0;
 
     /* Allow store link to be positioned over to the far right at this breakpoint */
     @include respond-min($ipad-portrait) {
@@ -220,10 +222,15 @@
     }
 
   /* Featured items */
-  .storefront__featured {border-top: 1px solid $color-grey-med-3;}
+  .storefront__featured {
+    border-top: 1px solid $color-grey-med-3;
+    margin-top: -1px;
+  }
 
     /* Shopping hours */
     .storefront__featured--hours {
+      border-bottom: 1px solid $color-grey-med-3;
+
       /* Need to shorten the day at this breakpoint range due to lack of real estate */
       /* Note: have to use `!important` keyword here to override the 'Hide' helper class */
       @include respond-range($ipad-landscape, $desk-lrg) {

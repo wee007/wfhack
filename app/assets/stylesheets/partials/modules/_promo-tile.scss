@@ -28,16 +28,9 @@
 
   /* The main icon of the tile that sits above the text */
   .promo-tile__icon:before {
-    @include to-rem(padding, $spacing-third);
-    @include font-size($font-size-xlrg, 1);
     @include to-rem(margin-top, -20);
-    background-color: #fff;
-    border-radius: 100%;
-    border: 1px solid $color-grey-med-3;
 
     @include respond-min($non-palm) {
-      @include to-rem(padding, $spacing-half);
-      @include font-size(36, 1);
       @include to-rem(margin-top, -28);
     }
   }

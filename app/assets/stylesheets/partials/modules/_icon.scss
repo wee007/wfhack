@@ -265,3 +265,19 @@
 
 /* Modifier: restore base text colour */
 .icon--base-color:before {color: $color-txt-base;}
+
+/* Modifier: Icon with circle around it */
+.icon--sphere:before {
+  box-shadow: 0 1px 2px rgba(#000, 0.25);
+  @include to-rem(padding, $spacing-third);
+  @include font-size($font-size-xlrg, 1);
+  background-color: #fff;
+  border-radius: 100%;
+  border: 1px solid $color-grey-med-3;
+
+  @include respond-min($non-palm) {
+    @include to-rem(padding, $spacing-half);
+    @include font-size(36, 1);
+  }
+}
+

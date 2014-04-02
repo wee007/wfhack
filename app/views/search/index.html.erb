@@ -10,15 +10,16 @@
     <nav role="navigation">
       <ul class="horiz-list horiz-list--spacing-half horiz-list--spacing-half-wrap txt-formatted__list-unstyled">
         <% @links.each do |kind| %>
-        <li>
-          <%= link_to build_url(@centre.code, kind, @attributes.dup), class: "btn btn--main btn--main-white btn--main-compact-sides btn--main-max-width btn--main-max-width-palm" do %>
-              <span class="icon icon--<%= kind unless kind == 'stores' %><%= kind.singularize if kind == 'stores' %> icon--spacing" aria-hidden="true"></span>
-            <%= kind %>
-          <% end %>
-        </li>
+          <li>
+            <%= link_to kind.url, class: "btn btn--main btn--main-white btn--main-compact-sides btn--main-max-width btn--main-max-width-palm" do %>
+              <span class="icon icon--<%= kind.icon %> icon--spacing" aria-hidden="true"></span>
+              <%= kind.label %>
+            <% end %>
+          </li>
         <% end %>
       </ul>
     </nav>
+
 
   </div>
 <% else %>

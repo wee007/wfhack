@@ -27,7 +27,7 @@
 
     combinedResults = ->
       suggestions = []
-      for key in $scope.sortOrderTypes()
+      for key in $scope.sortOrderTypes
         result = $scope.suggestions[key]
         suggestions = suggestions.concat(result) if result
       suggestions
@@ -61,13 +61,13 @@
       scrollSuggestions(index, direction, maxLength)
       $scope.focusedSuggestion = suggestions[index]
 
-    $scope.sortOrderTypes = ->
+    $scope.sortOrderTypes =
       [
         'centre_information'
+        'stores'
+        'products'
         'deals'
         'events'
-        'products'
-        'stores'
       ]
 
     $scope.iconMapping = (type) ->

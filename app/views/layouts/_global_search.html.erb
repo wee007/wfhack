@@ -45,10 +45,10 @@
           <div class="search-results drop-down js-disabled-hide" ng-show="suggestionsVisible && searchQuery !== ''">
             <div class="search-results__inner js-search-results-keyboard-scrolling">
               <dl class="search-results__list" >
-                <dt ng-repeat-start="(suggestionGroup, results) in suggestions" class="search-results__list__spacing" ng-if="results">
-                  <span aria-hidden="true" class="icon {{iconMapping(suggestionGroup)}} icon--xlrg"></span> {{unsnake(suggestionGroup)}}
+                <dt ng-repeat-start="key in sortOrderTypes" class="search-results__list__spacing" ng-if="suggestions[key]">
+                  <span aria-hidden="true" class="icon {{iconMapping(key)}} icon--xlrg"></span> {{unsnake(key)}}
                 </dt>
-                <dd class="js-search-results-item-height" ng-repeat-end ng-repeat="suggestion in results" role="presentation">
+                <dd ng-repeat-end ng-repeat="suggestion in results" role="presentation">
                   <a target="_self" ng-class="{'is-focused': suggestion === focusedSuggestion}" ng-href="{{url(suggestion)}}" tabindex="-1">{{suggestion.description}}</a>
                 </dd>
               </dl>

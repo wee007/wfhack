@@ -29,7 +29,9 @@
       suggestions = []
       suggestions = suggestions.concat($scope.suggestions.stores) if $scope.suggestions.stores
       suggestions = suggestions.concat($scope.suggestions.products) if $scope.suggestions.products
-
+      suggestions = suggestions.concat($scope.suggestions.events) if $scope.suggestions.events
+      suggestions = suggestions.concat($scope.suggestions.centre_information) if $scope.suggestions.centre_information
+      suggestions = suggestions.concat($scope.suggestions.deals) if $scope.suggestions.deals
       suggestions
 
     scrollSuggestions = (index,direction,maxLength) ->

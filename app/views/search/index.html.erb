@@ -7,12 +7,12 @@
 
     <p>Try a different spelling, or try a store name or category. You can also browse one of the sections below&#8230;</p>
 
-    <nav>
-      <ul>
-        <%= @links.each do |kind, icon| %>
+    <nav role="navigation">
+      <ul class="horiz-list horiz-list--spacing-half horiz-list--spacing-half-wrap txt-formatted__list-unstyled">
+        <% @links.each do |kind| %>
         <li>
-          <%= link_to build_url(@centre.code, kind, @attributes), class: "btn btn--main btn--main-white btn--main-compact-sides btn--main-max-width btn--main-max-width-palm" do %>
-              <span class="icon icon--store icon--spacing" aria-hidden="true"></span>
+          <%= link_to build_url(@centre.code, kind, @attributes.dup), class: "btn btn--main btn--main-white btn--main-compact-sides btn--main-max-width btn--main-max-width-palm" do %>
+              <span class="icon icon--<%= kind unless kind == 'stores' %><%= kind.singularize if kind == 'stores' %> icon--spacing" aria-hidden="true"></span>
             <%= kind %>
           <% end %>
         </li>

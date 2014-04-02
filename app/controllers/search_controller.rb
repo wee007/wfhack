@@ -9,10 +9,17 @@ class SearchController < ApplicationController
 
     gon.centre = params[:centre_id]
 
-    @links = {
-      "stores" => 'store',
-      "products" => 'product'
-    }
+    @links = [
+      "stores",
+      "products",
+      "deals",
+      "events",
+      "centre_hours",
+      "movies",
+      "centre_info",
+      "centre_service_details"
+    ]
+
     @attributes = Hashie::Mash.new action: 'index'
 
     if (search.hard_redirect?)

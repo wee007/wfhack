@@ -27,11 +27,9 @@
 
     combinedResults = ->
       suggestions = []
-      suggestions = suggestions.concat($scope.suggestions.stores) if $scope.suggestions.stores
-      suggestions = suggestions.concat($scope.suggestions.products) if $scope.suggestions.products
-      suggestions = suggestions.concat($scope.suggestions.events) if $scope.suggestions.events
-      suggestions = suggestions.concat($scope.suggestions.centre_information) if $scope.suggestions.centre_information
-      suggestions = suggestions.concat($scope.suggestions.deals) if $scope.suggestions.deals
+      for key in $scope.sortOrderTypes()
+        result = $scope.suggestions[key]
+        suggestions = suggestions.concat(result) if result
       suggestions
 
     scrollSuggestions = (index,direction,maxLength) ->
@@ -62,6 +60,25 @@
       index = maxLength if index < 0
       scrollSuggestions(index, direction, maxLength)
       $scope.focusedSuggestion = suggestions[index]
+
+    $scope.sortOrderTypes = ->
+      [
+        'centre_information'
+        'deals'
+        'events'
+        'products'
+        'stores'
+      ]
+
+    $scope.iconMapping = (type) ->
+      suffix = type
+      suffix = 'info' if type == "centre_information" 
+      suffix = 'store' if type == "stores"
+      return 'icon--' + suffix
+
+    $scope.unsnake = (name) ->
+      str = name.replace("_", " ")
+      return `str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});`
 
     # Search result text for screen readers
     $scope.searchResultText = ->

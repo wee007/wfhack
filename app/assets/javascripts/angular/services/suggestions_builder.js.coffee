@@ -1,6 +1,7 @@
 ((app) ->
   app.service "SuggestionsBuilder", ->
 
+    # These are displayed in the order they're declared
     whiteListedTypes = [
       'store'
       'retail_chain'
@@ -10,6 +11,15 @@
       'centre_information'
       'deal'
     ]
+
+    @sortOrderTypes = ->
+      [
+        'centre_information'
+        'deals'
+        'events'
+        'products'
+        'stores'
+      ]
 
     @didYouMean = (searchString, searchResults, centre_id)->
       suggestions = {}

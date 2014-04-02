@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.257
+Version:     0.2.258
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,15 @@ fi
 
 
 %changelog
+* Wed Apr 02 2014 ci <doperations@au.westfield.com> 0.2.258-1
+- Merge pull request #1035 from araeside/store-hours-height
+  (araeside@au.westfield.com)
+- fix up borders on storefront (alec@smartalecwebsites.com.au)
+- make sure dynamic height check is run when showing store hours
+  (alec@smartalecwebsites.com.au)
+- Revert "Merge pull request #1007 from ewee/remove_store_hours"
+  (alec@smartalecwebsites.com.au)
+
 * Wed Apr 02 2014 ci <doperations@au.westfield.com> 0.2.257-1
 - remove unused dependency (jlambert@au.westfield.com)
 

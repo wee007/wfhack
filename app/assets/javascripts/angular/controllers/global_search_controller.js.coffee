@@ -32,6 +32,17 @@
 
       suggestions
 
+    scrollSuggestions = (index,direction,maxLength) ->
+      lower_threshold = 7
+      upper_threshold = maxLength - lower_threshold
+      element_height = 21
+      $el = $("#site-search .search-results__inner")
+      current = $el.scrollTop()
+      if direction == 'prev' && index < upper_threshold
+        $el.scrollTop(current - element_height)
+      if direction == 'next' && index > lower_threshold
+        $el.scrollTop(current + element_height)
+
     highlightSuggestion = (direction) ->
       suggestions = combinedResults()
 
@@ -43,7 +54,7 @@
       index++ if direction == 'next'
       index = 0 if index > maxLength
       index = maxLength if index < 0
-
+      scrollSuggestions(index, direction, maxLength)
       $scope.focusedSuggestion = suggestions[index]
 
     # Search result text for screen readers

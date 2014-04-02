@@ -8,11 +8,11 @@
       <p>Try a different spelling, or try a store name or category. You can also browse one of the sections below&#8230;</p>
 
       <nav role="navigation">
-        <ul class="grid grid--gutter-half grid--mrg-half grid--non-linear">
+        <ul class="grid grid--gutter-dbl grid--mrg-base-non-palm grid--non-linear">
           <% @links.each do |kind| %>
-            <li class="grid__item  one-half lap-sml-one-third non-palm-one-quarter">
+            <li class="grid__item  one-half lap-sml-one-third non-palm-one-quarter txt-center">
               <%= link_to kind.url do %>
-                <span class="icon icon--<%= kind.icon %> icon--spacing icon--sphere" aria-hidden="true"></span>
+                <span class="icon icon--<%= kind.icon %> icon--spacing icon--sphere icon--base-color" aria-hidden="true"></span>
                 <div class="txt-formatted">
                   <h2><%= kind.label %></h2>
                 </div>

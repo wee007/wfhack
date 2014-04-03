@@ -33,9 +33,11 @@
       suggestions
 
     scrollSuggestions = ->
-      container_height = $(".js-search-results-keyboard-scrolling").height()
-      floor = container_height - 50
-      ceiling = container_height - 120
+      containerHeight = $(".js-search-results-keyboard-scrolling").height()
+      minimumLowerPadding = 50
+      minimumUpperPadding = 120
+      floor = containerHeight - minimumLowerPadding
+      ceiling = containerHeight - minimumUpperPadding
       $suggestion = $(".js-search-results-item-height .is-focused")
       bottom = $suggestion.position().top + $suggestion.height()
       $el = $(".js-search-results-keyboard-scrolling")

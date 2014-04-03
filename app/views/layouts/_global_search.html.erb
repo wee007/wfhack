@@ -32,7 +32,7 @@
           <%# Search results total for screen readers %>
           <% unless national_product_index? %>
             <em role="status" aria-live="polite" class="hide-visually">
-              <span ng-if="suggestions" ng-pluralize count="{{suggestions.stores.length + suggestions.products.length}}" when="searchResultText()"></span>
+              <span ng-if="suggestions" ng-pluralize count="{{suggestions.count}}" when="searchResultText()"></span>
             </em>
           <% end %>
           <%# //Search results total for screen readers %>

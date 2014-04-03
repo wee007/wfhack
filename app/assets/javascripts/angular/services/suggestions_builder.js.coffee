@@ -1,7 +1,6 @@
 ((app) ->
   app.service "SuggestionsBuilder", ->
 
-    # These are displayed in the order they're declared
     whiteListedTypes = [
       'store'
       'retail_chain'
@@ -20,7 +19,7 @@
         suggestions[type] = []
         angular.forEach results, (result) ->
 
-          if isValidType(result.result_type) # Only add valid types
+          if isValidType(result.result_type) && startsWith(searchString,result)
             suggestions.count++
             suggestions[type].push {
               description: result.display,
@@ -56,5 +55,8 @@
 
     isValidType = (toCheck) ->
       whiteListedTypes.indexOf(toCheck) >= 0
+
+    startsWith = (search, result) ->
+      result.display.toLowerCase().substring(0, search.length) == search.toLowerCase()
 
 ) angular.module("Westfield")

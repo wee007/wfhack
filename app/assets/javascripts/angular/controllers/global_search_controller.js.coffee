@@ -32,20 +32,19 @@
         suggestions = suggestions.concat(result) if result
       suggestions
 
-    scrollSuggestions = (index,direction,maxLength) ->
-      lowerThreshold = 7
-      upperThreshold = maxLength - lowerThreshold
-      elementHeight = $(".js-search-results-item-height").height();
+    scrollSuggestions = ->
+      container_height = $(".js-search-results-keyboard-scrolling").height()
+      floor = container_height - 50
+      ceiling = container_height - 120
+      $suggestion = $(".js-search-results-item-height .is-focused")
+      bottom = $suggestion.position().top + $suggestion.height()
       $el = $(".js-search-results-keyboard-scrolling")
       current = $el.scrollTop()
-      if direction == 'prev' && index < upperThreshold
-        $el.scrollTop(current - elementHeight)
-      if direction == 'next' && index > lowerThreshold
-        $el.scrollTop(current + elementHeight)
-      if  direction == 'next' && index == 0 
-        $el.scrollTop(0)
-      if  direction == 'prev' && index == maxLength
-        $el.scrollTop(999999)
+      diff = floor - bottom
+      if diff < 0
+        $el.scrollTop(current - diff)
+      if diff > ceiling
+        $el.scrollTop(current + (ceiling - diff))
 
     highlightSuggestion = (direction) ->
       suggestions = combinedResults()
@@ -58,8 +57,10 @@
       index++ if direction == 'next'
       index = 0 if index > maxLength
       index = maxLength if index < 0
-      scrollSuggestions(index, direction, maxLength)
       $scope.focusedSuggestion = suggestions[index]
+
+      # We need to let the render cycle finish
+      setTimeout(scrollSuggestions, 0);
 
     $scope.sortOrderTypes =
       [

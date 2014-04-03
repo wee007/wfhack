@@ -24,19 +24,19 @@
   <%# //Product brand %>
 
   <%# Price %>
-  <div class="tile__meta__price">
-    <div class="txt-truncate">
-      <%#- if @product.is_discounted -%>
-        <!-- <span class="hide-visually">Old price: </span>
-        <s><%=number_to_currency result.sale_price %></s>
-        <span class="hide-visually">Sale price: </span>
+  <div class="tile__meta__price price-strip">
+    <%#- if @product.is_discounted -%>
+      <span class="hide-visually">Normal price: </span>
+      <s>$99999.99</s>
+      <span class="hide-visually">Sale price: </span>
+      <strong class="price-strip__sale">$99999.99</strong>
+      <strong class="price-strip__savings">99% Off</strong>
+    <%#- else -%>
+      <!-- <strong>
+        <span class="hide-visually">Price: </span>
         <%=number_to_currency result.sale_price %>
-        <strong>40% Off</strong> -->
-      <%#- else -%>
-        <strong><%=number_to_currency result.sale_price %></strong>
-        <strong class="tile__meta__price__discount">40% Off</strong>
-      <%#- end -%>
-    </div>
+      </strong> -->
+    <%#- end -%>
   </div>
   <%# //Price %>
 

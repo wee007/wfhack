@@ -5,6 +5,8 @@
 <% end %>
 
 <% if @sorted_results_tuple.empty? %>
+
+  <%# No search results message %>
   <div class="fallback-msg fallback-msg--spacing-top">
     <p><em class="h1">No results found for "<%= @search_term =%>"</em></span></p>
 
@@ -27,6 +29,8 @@
       </ul>
     </nav>
   </div>
+  <%#// No search results message %>
+
 <% else %>
   <h1>Results for "<%= @search_term =%>"</h1>
 

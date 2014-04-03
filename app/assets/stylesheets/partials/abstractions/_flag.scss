@@ -39,6 +39,9 @@
   .flag__img {
     @include to-rem(padding-right, $spacing-base);
 
+    /* Modifier: half base padding-right */
+    .flag--spacing-half & {@include to-rem(padding-right, $spacing-half);}
+
     /* Modifier: switch the padding around for when the image is on the right of `flag__body` */
     .flag--rev & {
       padding-right: 0;

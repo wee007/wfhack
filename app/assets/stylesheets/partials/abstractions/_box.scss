@@ -48,3 +48,6 @@
 
 /* Modifier: half base margin bottom */
 .box--mrg-half {@include to-rem(margin-bottom, $spacing-half);}
+
+/* Modifier: border radius  */
+.box--sphere {border-radius: 100%;}

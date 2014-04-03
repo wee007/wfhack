@@ -251,33 +251,25 @@
 /* Modifier: large */
 .icon--lrg:before {@include font-size($font-size-lrg, 1);}
 
-.icon--xlrg:before {@include font-size($font-size-lrger, 1);}
+.icon--lrger:before {@include font-size($font-size-lrger, 1);}
+
+.icon--xlrg:before {@include font-size($font-size-xlrg, 1);}
 
 /* Modifier: extra large */
 .icon--giga:before {@include font-size(48, 1);}
 
 .icon--mega:before {@include font-size(30, 1);}
 
-.icon--kilo:before {@include font-size($font-size-xlrg, 1);}
+.icon--kilo:before {@include font-size($font-size-kilo, 1);}
+
+.icon--hecto:before {@include font-size($font-size-hecto, 1);}
+
+@include respond-min($non-palm) {
+  .icon--hecto-non-palm:before {@include font-size($font-size-hecto, 1);}
+}
 
 /* Modifier: restore base font size */
 .icon--base-size:before {font-size: inherit;}
 
 /* Modifier: restore base text colour */
 .icon--base-color:before {color: $color-txt-base;}
-
-/* Modifier: Icon with circle around it */
-.icon--sphere:before {
-  box-shadow: 0 1px 2px rgba(#000, 0.25);
-  @include to-rem(padding, $spacing-third);
-  @include font-size($font-size-xlrg, 1);
-  background-color: #fff;
-  border-radius: 100%;
-  border: 1px solid $color-grey-med-3;
-
-  @include respond-min($non-palm) {
-    @include to-rem(padding, $spacing-half);
-    @include font-size(36, 1);
-  }
-}
-

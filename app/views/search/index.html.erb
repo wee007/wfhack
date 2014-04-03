@@ -1,27 +1,31 @@
-<% content_for :class_for_main, "container--spacing-top-main-content " %>
+<% if @sorted_results_tuple.empty? %>
+  <% content_for :class_for_main, "container container--narrow" %>
+<% else %>
+  <% content_for :class_for_main, "container--spacing-top-main-content " %>
+<% end %>
 
 <% if @sorted_results_tuple.empty? %>
-  <div class="container container--narrow">
-    <div class="fallback-msg fallback-msg--spacing-top">
-      <p><em class="h1">No results found for "<%= @search_term =%>"</em></span></p>
+  <div class="fallback-msg fallback-msg--spacing-top">
+    <p><em class="h1">No results found for "<%= @search_term =%>"</em></span></p>
 
-      <p>Try a different spelling, or try a store name or category. You can also browse one of the sections below&#8230;</p>
+    <p>Try a different spelling, or try a store name or category. You can also browse one of the sections below&#8230;</p>
 
-      <nav role="navigation">
-        <ul class="grid grid--gutter-dbl grid--mrg-base-non-palm grid--non-linear">
-          <% @links.each do |kind| %>
-            <li class="grid__item  one-half lap-sml-one-third non-palm-one-quarter txt-center">
-              <%= link_to kind.url do %>
-                <span class="icon icon--<%= kind.icon %> icon--spacing icon--sphere icon--base-color" aria-hidden="true"></span>
-                <div class="txt-formatted">
-                  <h2><%= kind.label %></h2>
+    <nav role="navigation" class="mrg-half-top">
+      <ul class="grid grid--mrg-base-non-palm grid--non-linear">
+        <% @links.each do |kind| %>
+          <li class="grid__item one-half lap-sml-one-third non-palm-one-quarter txt-center">
+            <%= link_to kind.url, class: "flag flag--spacing-half flag--shrink-wrap" do %>
+              <div class="flag__img">
+                <div class="box islet island-non-palm box--sphere">
+                  <span class="icon icon--<%= kind.icon %> icon--base-color icon--fixed-width icon--flush-top icon--xlrg icon--hecto-non-palm" aria-hidden="true"></span>
                 </div>
-              <% end %>
-            </li>
-          <% end %>
-        </ul>
-      </nav>
-    </div>
+              </div>
+              <div class="flag__body txt-left"><%= kind.label %></div>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    </nav>
   </div>
 <% else %>
   <h1>Results for "<%= @search_term =%>"</h1>

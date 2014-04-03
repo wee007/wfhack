@@ -48,7 +48,7 @@
                 <dt ng-repeat-start="key in sortOrderTypes" class="search-results__list__spacing" ng-if="suggestions[key]">
                   <span aria-hidden="true" class="icon {{iconMapping(key)}} icon--xlrg"></span> {{unsnake(key)}}
                 </dt>
-                <dd ng-repeat-end ng-repeat="suggestion in results" role="presentation">
+                <dd class="js-search-results-item-height" ng-repeat-end ng-repeat="suggestion in suggestions[key]" role="presentation">
                   <a target="_self" ng-class="{'is-focused': suggestion === focusedSuggestion}" ng-href="{{url(suggestion)}}" tabindex="-1">{{suggestion.description}}</a>
                 </dd>
               </dl>

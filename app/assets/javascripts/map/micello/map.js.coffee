@@ -34,9 +34,8 @@ class map.micello.Map
     westfield.centre.code
 
   fetchStores: =>
-    $.getJSON "/api/store/master/stores?centre=#{@westfieldCentreId()}&per_page=9999", (data) =>
-      @stores = data
-      @deferreds.store_fetch.resolve()
+    @stores = westfield.stores
+    @deferreds.store_fetch.resolve()
 
   fetchStoreTradingHours: (store) =>
     @tradingHoursApi.get {'store_id': store.id}, @insertTradingHoursIntoOverlay

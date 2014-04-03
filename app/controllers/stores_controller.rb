@@ -8,6 +8,8 @@ class StoresController < ApplicationController
     @categories = RetailerCategoriesDecorator.new(store_decorator.sorted_categories, with: RetailerCategoryDecorator)
     @active_category = @categories.get(params[:category])
 
+    gon.stores = @stores.dup
+
     # Filter the store list by params
     @stores = store_decorator.filter!(params)
 

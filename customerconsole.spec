@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.261
+Version:     0.2.262
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,12 @@ fi
 
 
 %changelog
+* Thu Apr 03 2014 ci <doperations@au.westfield.com> 0.2.262-1
+- Merge pull request #1041 from csmith/master (craigM.smith@au.westfield.com)
+- WSF-6442 We need to pass in the centre id too so THS knows to override
+  standard store hours with special centre hours.
+  (craigm.smith@au.westfield.com)
+
 * Thu Apr 03 2014 ci <doperations@au.westfield.com> 0.2.261-1
 - Merge pull request #1040 from mbamford/fix/curation_prices
   (mbamford@au.westfield.com)

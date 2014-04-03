@@ -39,3 +39,12 @@ Add this to your hostfile, this will point all services at production.
       10.3.14.210  product-service.development.dbg.westfield.com
       10.3.14.210  canned-search-service.development.dbg.westfield.com
 </pre>
+
+* Gotchas
+You'd think customer-service.systest.dbg.westfield.com and customer-service.uat.dbg.westfield.com are the urls for systest and uat.
+You'd think wrong. These URLS don't provide browsers with access to the any services except indirectly.
+
+For systest and uat, use the following URLS:
+http://wwwau.systest.dbg.westfield.com/
+and
+http://www.uat.westfield.com.au/

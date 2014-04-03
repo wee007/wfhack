@@ -32,6 +32,21 @@
 
       suggestions
 
+    scrollSuggestions = (index,direction,maxLength) ->
+      lowerThreshold = 7
+      upperThreshold = maxLength - lowerThreshold
+      elementHeight = $(".js-search-results-item-height").height();
+      $el = $(".js-search-results-keyboard-scrolling")
+      current = $el.scrollTop()
+      if direction == 'prev' && index < upperThreshold
+        $el.scrollTop(current - elementHeight)
+      if direction == 'next' && index > lowerThreshold
+        $el.scrollTop(current + elementHeight)
+      if  direction == 'next' && index == 0 
+        $el.scrollTop(0)
+      if  direction == 'prev' && index == maxLength
+        $el.scrollTop(999999)
+
     highlightSuggestion = (direction) ->
       suggestions = combinedResults()
 
@@ -43,7 +58,7 @@
       index++ if direction == 'next'
       index = 0 if index > maxLength
       index = maxLength if index < 0
-
+      scrollSuggestions(index, direction, maxLength)
       $scope.focusedSuggestion = suggestions[index]
 
     # Search result text for screen readers

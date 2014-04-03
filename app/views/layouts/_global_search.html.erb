@@ -43,14 +43,14 @@
         <%# Search results %>
         <% unless national_product_index? %>
           <div class="search-results drop-down js-disabled-hide" ng-show="suggestionsVisible && searchQuery !== ''">
-            <div class="search-results__inner">
+            <div class="search-results__inner js-search-results-keyboard-scrolling">
               <dl class="search-results__list">
 
                 <%# Stores %>
                 <dt class="search-results__list__spacing" ng-if="suggestions.stores">
                   <span aria-hidden="true" class="icon icon--store icon--xlrg"></span> Stores
                 </dt>
-                <dd ng-repeat="suggestion in suggestions.stores" role="presentation">
+                <dd class="js-search-results-item-height" ng-repeat="suggestion in suggestions.stores" role="presentation">
                   <a target="_self" ng-class="{'is-focused': suggestion === focusedSuggestion}" ng-href="{{url(suggestion)}}" tabindex="-1">{{suggestion.description}}</a>
                 </dd>
                 <%# //Stores %>
@@ -59,7 +59,7 @@
                 <dt ng-if="suggestions.products">
                   <span aria-hidden="true" class="icon icon--products icon--xlrg"></span> Products
                 </dt>
-                <dd ng-repeat="suggestion in suggestions.products" role="presentation">
+                <dd class="js-search-results-item-height" ng-repeat="suggestion in suggestions.products" role="presentation">
                   <a target="_self" ng-class="{'is-focused': suggestion === focusedSuggestion}" ng-href="{{url(suggestion)}}" tabindex="-1">{{suggestion.description}}</a>
                 </dd>
                 <%# //Products %>

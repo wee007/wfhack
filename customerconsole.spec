@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.260
+Version:     0.2.261
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,12 @@ fi
 
 
 %changelog
+* Thu Apr 03 2014 ci <doperations@au.westfield.com> 0.2.261-1
+- Merge pull request #1040 from mbamford/fix/curation_prices
+  (mbamford@au.westfield.com)
+- Curation#products convert product#price, #sale_price in $,c if in whole cents
+  (michael@michaelbamford.com)
+
 * Thu Apr 03 2014 ci <doperations@au.westfield.com> 0.2.260-1
 - Merge pull request #1037 from jlambert/WSF-5652 (jlambert@au.westfield.com)
 - WSF-5652 cover the corner case where we roll over to the top or bottom

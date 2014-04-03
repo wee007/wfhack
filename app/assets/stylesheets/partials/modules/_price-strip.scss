@@ -1,0 +1,38 @@
+/* ======================================================================================
+   @MODULES -> PRICE STRIP
+   ====================================================================================== */
+
+/*
+  Display price and if applicable sale price with % savings tag in a horizontal strip.
+
+  .price-strip--lrg         - Larger text size
+
+  Styleguide Price Strip
+*/
+
+ .price-strip {
+  position: relative;
+  color: $color-txt-dark;
+  font-weight: bold;
+}
+
+/* Modifier: larger text size */
+.price-strip--lrg {
+  @include font-size($font-size-lrger);
+
+  &,
+  strong {font-weight: normal;}
+}
+
+  /* Sale price */
+  .price-strip__sale {color: $color-brand;}
+
+  /* Savings % tag % */
+  .price-strip__savings {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    background-color: $color-brand;
+    color: #fff;
+  }

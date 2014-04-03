@@ -81,6 +81,8 @@ class ProductsController < ApplicationController
 
     gon.push centre: @centre
 
+    gon.stores = @centre_stores
+
     meta.push @product.meta
     meta.push(
       page_title: "#{@product.name} | #{@centre.name}",

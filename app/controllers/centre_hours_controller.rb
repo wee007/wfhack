@@ -18,7 +18,7 @@ class CentreHoursController < ApplicationController
     if @stores_with_hours.present?
       store_id = params[:store_id].present? ? params[:store_id].to_i : @stores_with_hours.first.try(:id)
       @store = StoreService.find(store_id)
-      @store_trading_hours = StoreTradingHourService.find({store_id:store_id}).try(:in_groups_of, 7)
+      @store_trading_hours = StoreTradingHourService.find({store_id:store_id, centre_id: params[:centre_id]}).try(:in_groups_of, 7)
     end
 
     @hero = Hashie::Mash.new heading: 'Shopping Hours', image: 'shopping-hours', icon: 'icon--hours'

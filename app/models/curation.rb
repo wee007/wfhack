@@ -20,7 +20,20 @@ class Curation < Hashie::Mash
       end
 
       products.compact.map do |product|
-        ProductService.build product
+        product = ProductService.build product
+        # FIXME ProductService represents product#price and #sale_price
+        # differently depending upon the action that is envoked.
+        # Its index action returns products' prices in dollars and cents,
+        # whereas its show action returns prices in whole cents only.
+        # Product tiles expect prices in dollars and cents. Such tiles are
+        # populated from ProductService's index action so all
+        # is hunky-dory. However, curations get their products via
+        # ProductService's show action. The same product tile is used;
+        # consequently, products' prices are 100x inflated for curations.
+        # Yikes!
+        product.sale_price /= 100.0 if product.sale_price.is_a? Integer
+        product.price /= 100.0 if product.price.is_a? Integer
+        product
       end
     end
   end

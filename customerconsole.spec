@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.259
+Version:     0.2.260
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,14 @@ fi
 
 
 %changelog
+* Thu Apr 03 2014 ci <doperations@au.westfield.com> 0.2.260-1
+- Merge pull request #1037 from jlambert/WSF-5652 (jlambert@au.westfield.com)
+- WSF-5652 cover the corner case where we roll over to the top or bottom
+  (jlambert@au.westfield.com)
+- WSF-5652 tweaks as per code review (jlambert@au.westfield.com)
+- WSF-5652 scroll properly when choosing typeahead results
+  (jlambert@au.westfield.com)
+
 * Wed Apr 02 2014 ci <doperations@au.westfield.com> 0.2.259-1
 - fix up borders and remove redundant classes (alec@smartalecwebsites.com.au)
 

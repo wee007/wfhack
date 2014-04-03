@@ -2,6 +2,15 @@
 
 Formerly known as Playa, premium, presentationlayer, prince, so on.
 
+* Dependencies
+This project uses bundler and bower for dependency management. To install bower you'll need to get npm.
+
+      $ bundle install
+      $ npm install bower
+      $ bower install
+      $ npm install -g karma@0.8.8
+      $ brew install phantomjs
+
 * How to run the test suite
 
 `bundle exec rake`

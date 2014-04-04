@@ -45,40 +45,41 @@
 /*
   Hero tile
 
-  Note: height calculation = (small tile image height * 2) + (1 `.tile__meta` height) + $spacing-half. And using `line-height` to vertically align the images.
+  Note: height calculation = (small tile image height * 2) + (1 `.tile__meta` height) + (1 `.tile__image` height) + $spacing-half. And using `line-height` to vertically align the images.
 */
 
-$tile-meta-height: 50px !default;
+$tile-img-btm-mrg: 8px !default;
+$tile-meta-height: 66px !default; /* Note: +1px for browser consistency */
 
 .pin-board-curation__hero .tile__image {
-  height: ($tile-fixed-height-1*2) + $tile-meta-height + $spacing-half;
-  line-height: ($tile-fixed-height-1*2) + $tile-meta-height + $spacing-half;
+  height: ($tile-fixed-height-1*2) + $tile-meta-height + $tile-img-btm-mrg + $spacing-half;
+  line-height: ($tile-fixed-height-1*2) + $tile-meta-height + $tile-img-btm-mrg + $spacing-half;
 
   /* Increase heights/line-heights at these breakpoints */
   @include respond-min(400) {
-    height: ($tile-fixed-height-2*2) + $tile-meta-height + $spacing-half;
-    line-height: ($tile-fixed-height-2*2) + $tile-meta-height + $spacing-half;
+    height: ($tile-fixed-height-2*2) + $tile-meta-height + $tile-img-btm-mrg + $spacing-half;
+    line-height: ($tile-fixed-height-2*2) + $tile-meta-height + $tile-img-btm-mrg + $spacing-half;
   }
 
   @include respond-min($iphone-landscape) {
-    height: ($tile-fixed-height-3*2) + $tile-meta-height + $spacing-half;
-    line-height: ($tile-fixed-height-3*2) + $tile-meta-height + $spacing-half;
+    height: ($tile-fixed-height-3*2) + $tile-meta-height + $tile-img-btm-mrg + $spacing-half;
+    line-height: ($tile-fixed-height-3*2) + $tile-meta-height + $tile-img-btm-mrg + $spacing-half;
   }
 
   @include respond-min($ipad-portrait) {
-    height: ($tile-fixed-height-4*2) + $tile-meta-height + $spacing-half;
-    line-height: ($tile-fixed-height-4*2) + $tile-meta-height + $spacing-half;
+    height: ($tile-fixed-height-4*2) + $tile-meta-height + $tile-img-btm-mrg + $spacing-half;
+    line-height: ($tile-fixed-height-4*2) + $tile-meta-height + $tile-img-btm-mrg + $spacing-half;
   }
 
   @include respond-min(860) {
-    height: ($tile-fixed-height-5*2) + $tile-meta-height + $spacing-half;
-    line-height: ($tile-fixed-height-5*2) + $tile-meta-height + $spacing-half;
+    height: ($tile-fixed-height-5*2) + $tile-meta-height + $tile-img-btm-mrg + $spacing-half;
+    line-height: ($tile-fixed-height-5*2) + $tile-meta-height + $tile-img-btm-mrg + $spacing-half;
   }
 
   /* When the pin board rows become horizontally aligned so the hero/small tile heights need to match exactly */
   @include respond-min($desk) {
-    height: ($tile-fixed-height-6*2) + $tile-meta-height + $spacing-half;
-    line-height: ($tile-fixed-height-6*2) + $tile-meta-height + $spacing-half;
+    height: ($tile-fixed-height-6*2) + $tile-meta-height + $tile-img-btm-mrg + $spacing-half;
+    line-height: ($tile-fixed-height-6*2) + $tile-meta-height + $tile-img-btm-mrg + $spacing-half;
   }
 }
 

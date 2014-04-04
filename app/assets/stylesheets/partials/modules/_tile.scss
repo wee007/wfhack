@@ -48,6 +48,9 @@
   .tile__image {
     text-align: center;
     position: relative;
+    /*
+      Note: if this `margin-bottom` value changes then adjust the `$tile-img-btm-mrg` value in the 'Pin Board module -> Modifier: curation'.
+    */
     @include to-rem(margin-bottom, 8);
 
     /* Red transparent image overlay shown on hover/focus of the tile */
@@ -69,12 +72,11 @@
   /* Meta */
 
   /*
-    Note: if the height of this element changes then adjust the `$tile-meta-height` value in the 'Pin Board module -> Modifier: curation'. Only applicable 'after' the `$iphone-landscape` breakpoint.
+    Note: if the height of this element changes then adjust the `$tile-meta-height` value in the 'Pin Board module -> Modifier: curation'.
   */
 
   .tile__meta {
     position: relative;
-    //background: salmon;
     @include to-rem(padding-left, 32);
     @include to-rem(padding-right, $spacing-half);
 
@@ -93,6 +95,30 @@
 
     /* Modifier: no icon */
     .tile--no-icon & {@include to-rem(padding-left, $spacing-half);}
+
+      /* Product price from the 'Price strip' module */
+      .price-strip {
+        @include to-rem(margin-top, $spacing-third);
+        @include to-rem(margin-left, -32);
+        @include to-rem(margin-right, -$spacing-half);
+        @include to-rem(padding, $spacing-quarter $spacing-third);
+
+        @include respond-min($non-palm) {
+          @include to-rem(margin-left, -36);
+        }
+      }
+
+        /* Hide normal price due to lack of real estate at these breakpoint ranges */
+        .is-long-price .price-strip__normal {
+          display: none;
+
+          @include respond-min(470) {
+            display: inline;
+          }
+        }
+
+        /* Savings % tag % */
+        .price-strip__savings {@include to-rem(padding, $spacing-quarter);}
   }
 
     /* Icon that identifies the tile */
@@ -141,32 +167,6 @@
           }
         }
       }
-
-      /* Price */
-      .tile__meta__price {
-        position: relative;
-        @include to-rem(padding, $spacing-quarter);
-        @include to-rem(margin-top, $spacing-third);
-        @include to-rem(margin-left, -32);
-        @include to-rem(margin-right, -$spacing-half);
-        background-color: $color-grey-light-3;
-        background: gold;
-        color: $color-txt-dark;
-
-        @include respond-min($non-palm) {
-          @include to-rem(margin-left, -36);
-        }
-      }
-
-        .tile__meta__price__discount {
-          position: absolute;
-          top: 0;
-          bottom: 0;
-          right: 0;
-          background-color: $color-brand;
-          color: #fff;
-          @include to-rem(padding, $spacing-quarter);
-        }
 
   /* Alternative icon, icon that sits top left corner of it's tile, have 2 types: 'Canned search' and 'Curation' */
   .tile__icon-alt {

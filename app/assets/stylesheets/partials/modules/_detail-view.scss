@@ -275,6 +275,11 @@
       .grid--rev-stack {table-layout: fixed;}
     }
 
+    /* Hide normal price from the 'Price strip' module due to lack of real estate at this breakpoint range */
+    @include respond-range($non-palm, 840) {
+      .price-strip__normal {display: none;}
+    }
+
     /* Product not available in a centre */
     .detail-view__product-not-avble {
       @include font-size($font-size);

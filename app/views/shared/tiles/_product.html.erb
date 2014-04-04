@@ -1,6 +1,6 @@
 <%# Image %>
 <div class="tile__image">
-  <%# FIXME There is something causing some images in beta not to load if the cl_image_tag is used here %>
+  <%# TODO There is something causing some images in beta not to load if the cl_image_tag is used here %>
   <%= fetch_image_tag result.primary_image, {
       'data-height' => result.image_height,
       width: 289,
@@ -23,22 +23,15 @@
   <p class="tile__meta__desc txt-truncate">from <strong><%= result.retail_chain_name %></strong></p>
   <%# //Product brand %>
 
-  <%# Price %>
-  <div class="tile__meta__price price-strip">
-    <%#- if @product.is_discounted -%>
-      <span class="hide-visually">Normal price: </span>
-      <s>$99999.99</s>
-      <span class="hide-visually">Sale price: </span>
-      <strong class="price-strip__sale">$99999.99</strong>
-      <strong class="price-strip__savings">99% Off</strong>
-    <%#- else -%>
-      <!-- <strong>
-        <span class="hide-visually">Price: </span>
-        <%=number_to_currency result.sale_price %>
-      </strong> -->
-    <%#- end -%>
-  </div>
-  <%# //Price %>
+  <%# Product price %>
+  <p class="price-strip <%= 'is-long-price' if result.sale_price.floor > 1 %>">
+    <span class="price-strip__normal hide-visually">Normal price: </span>
+    <s class="price-strip__normal"><%= number_to_currency result.sale_price %></s>
+    <span class="hide-visually">Sale price: </span>
+    <strong class="price-strip__sale"><%= number_to_currency result.sale_price %></strong>
+    <strong class="price-strip__savings islet">50% Off</strong>
+  </p>
+  <%# //Product price %>
 
   <%# Icon %>
   <span class="tile__meta__icon icon icon--products icon--lrg" aria-hidden="true"></span>

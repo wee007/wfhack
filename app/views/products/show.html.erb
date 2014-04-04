@@ -22,10 +22,10 @@
       <%# //Product name and brand %>
 
       <%# Product price %>
-      <div class="price-strip price-strip--lrg island-sides islet-ends island--fill">
+      <p class="price-strip price-strip--lrg island-sides islet-ends <%= 'is-long-price' if @product.price.floor > 6 %>">
         <%- if @product.is_discounted -%>
-          <span class="hide-visually">Normal price: </span>
-          <s><%= Money.new(@product.price).format %></s>
+          <span class="price-strip__normal hide-visually">Normal price: </span>
+          <s class="price-strip__normal"><%= Money.new(@product.price).format %></s>
           <span class="hide-visually">Sale price: </span>
           <strong class="price-strip__sale"><%= Money.new(@product.sale_price).format %></strong>
           <strong class="price-strip__savings islet"><%= number_to_percentage(percentage_off, :precision => 0) %> Off
@@ -36,7 +36,7 @@
             <%= Money.new(@product.sale_price).format %>
           </strong>
         <%- end -%>
-      </div>
+      </p>
       <%# //Product price %>
 
     </header>

@@ -60,9 +60,9 @@ describe 'Service: SuggestionsBuilder', ->
       stores: [
         {
           id: 43076,
-          term: "dc shoes",
+          term: "shoes world",
           score: 72,
-          display: "DC Shoes",
+          display: "Shoes World",
           result_type: "store",
           attributes: { id: 43076, retailer_code: "dc-shoes" }
         }
@@ -70,18 +70,14 @@ describe 'Service: SuggestionsBuilder', ->
     }
 
     expect(SuggestionsBuilder.didYouMean(searchString, searchResults, centre_id)).toEqual({
-      count : 7,
-      products: [
-        { description: "sass & bide products", url: '/sydney/products?retailer[]=sass-and-bide' },
-        { description: "Red products", url: '/sydney/products?colour[]=Reds' },
-        { description: "Babies Shoes in Babies & Toddlers (Kids)", url: '/sydney/products/kids-babies/k-babies?sub_category[]=toddler-baby-footwear' },
-        { description: "Babies & Toddlers in Kids", url: '/sydney/products/kids-babies/k-babies' },
-        { description: "Kids", url: '/sydney/products/kids-babies' },
-        { description: "Products matching 'shoes'", url: '/sydney/products?search_query=shoes' }
-      ],
+      count : 2,
       stores: [
-        { description: 'DC Shoes', url: '/sydney/stores/dc-shoes/43076' }
+        { description: 'Shoes World', url: '/sydney/stores/dc-shoes/43076' }
+      ],
+      products: [
+        { description: "Products matching 'shoes'", url: '/sydney/products?search_query=shoes' }
       ]
+
     })
 
 

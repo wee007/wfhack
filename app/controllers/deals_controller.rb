@@ -26,9 +26,7 @@ class DealsController < ApplicationController
     return respond_to_error(404) unless store_service_id and @deal.published?
     @store = StoreService.find store_service_id
 
-    gon.push centre: @centre
-
-    gon.stores = [@store]
+    gon.push centre: @centre, stores: [@store]
 
     meta.push @deal.meta
     meta.push(

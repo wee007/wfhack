@@ -30,11 +30,6 @@ class StoresController < ApplicationController
     @this_week_hours = this_week_hours
     push_centre_info_to_gon
 
-    store_decorator = FilteredStoresDecorator.decorate(@stores)
-
-    @categories = RetailerCategoriesDecorator.new(store_decorator.sorted_categories, with: RetailerCategoryDecorator)
-    @active_category = @categories.get(params[:category])
-
     gon.stores = @stores.dup
 
     meta.push(

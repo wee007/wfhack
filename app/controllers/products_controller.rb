@@ -79,7 +79,7 @@ class ProductsController < ApplicationController
       @product_centres = CentreService.find(:all, centre_id: centre_ids, near_to: params[:centre_id])
     end
 
-    gon.push centre: @centre
+    gon.push centre: @centre, stores: @centre_stores
 
     meta.push @product.meta
     meta.push(

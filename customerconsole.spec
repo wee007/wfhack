@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.268
+Version:     0.2.269
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,10 @@ fi
 
 
 %changelog
+* Fri Apr 04 2014 ci <doperations@au.westfield.com> 0.2.269-1
+- Merge pull request #1049 from ewee/pop-up-dialog (ewee@au.westfield.com)
+- WSF-6449 Removed pop-up dialog on products page (ewee@au.westfield.com)
+
 * Fri Apr 04 2014 ci <doperations@au.westfield.com> 0.2.268-1
 - Merge pull request #1048 from araeside/lazy-load-trading-hours
   (araeside@au.westfield.com)

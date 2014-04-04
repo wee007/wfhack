@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.266
+Version:     0.2.267
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,27 @@ fi
 
 
 %changelog
+* Fri Apr 04 2014 ci <doperations@au.westfield.com> 0.2.267-1
+- Merge pull request #1042 from jlambert/WSF-6461 (jlambert@au.westfield.com)
+- WSF-6461 add store category (jlambert@au.westfield.com)
+- WSF-6461 fix failing test (jlambert@au.westfield.com)
+- WSF-6461 adjustments as per CR (jlambert@au.westfield.com)
+- WSF-6461 fix failing test (jlambert@au.westfield.com)
+- WSF-6461 rework scroll logic to be more accurate (jlambert@au.westfield.com)
+- WSF-6461 fix merge conflicts (jlambert@au.westfield.com)
+- WSF-6461 add support for centre_services (jlambert@au.westfield.com)
+- WSF-6461 full support for ordering results (jlambert@au.westfield.com)
+- WSF-6461 WIP on de-boilerplating search assist (jlambert@au.westfield.com)
+- WSF-6461 ensure next and previous work with new types
+  (jlambert@au.westfield.com)
+- WSF-6461 tweaks as per CR (jlambert@au.westfield.com)
+- WSF-6461 normalized URL paths (jlambert@au.westfield.com)
+- WSF-6461 add proper urls (jlambert@au.westfield.com)
+- WSF-6461 added deals, centre information, and events to search dropdown
+  (jlambert@au.westfield.com)
+- WSF-6461 increase threshold for search to 2 characters
+  (jlambert@au.westfield.com)
+
 * Fri Apr 04 2014 ci <doperations@au.westfield.com> 0.2.266-1
 - Merge pull request #1047 from araeside/fix-stores-maps-navigation
   (araeside@au.westfield.com)

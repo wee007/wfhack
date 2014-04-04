@@ -39,6 +39,7 @@
 //= require_tree ./angular/directives
 //= require_tree ./angular/filters
 //= require_tree ./angular/controllers
+//= stub ./angular/directives/dialog
 
 // --Misc--
 

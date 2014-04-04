@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.267
+Version:     0.2.268
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,17 @@ fi
 
 
 %changelog
+* Fri Apr 04 2014 ci <doperations@au.westfield.com> 0.2.268-1
+- Merge pull request #1048 from araeside/lazy-load-trading-hours
+  (araeside@au.westfield.com)
+- push to gon in one step (alec@smartalecwebsites.com.au)
+- fix tests and remove redundant filtering in stores show
+  (alec@smartalecwebsites.com.au)
+- get maps working on products and deals show (alec@smartalecwebsites.com.au)
+- put store data json in page on stores show (alec@smartalecwebsites.com.au)
+- load stores JS object from embedded json instead of ajax
+  (alec@smartalecwebsites.com.au)
+
 * Fri Apr 04 2014 ci <doperations@au.westfield.com> 0.2.267-1
 - Merge pull request #1042 from jlambert/WSF-6461 (jlambert@au.westfield.com)
 - WSF-6461 add store category (jlambert@au.westfield.com)

@@ -13,6 +13,7 @@ describe 'Service: SuggestionsBuilder', ->
   it 'should generate suggestions', ->
 
     searchString = "shoes"
+    centre_id = "sydney"
     searchResults = {
       products: [
         {
@@ -68,18 +69,18 @@ describe 'Service: SuggestionsBuilder', ->
       ]
     }
 
-    expect(SuggestionsBuilder.didYouMean(searchString, searchResults)).toEqual({
+    expect(SuggestionsBuilder.didYouMean(searchString, searchResults, centre_id)).toEqual({
       count : 7,
       products: [
-        { description: "sass & bide products", url: '/products?retailer[]=sass-and-bide' },
-        { description: "Red products", url: '/products?colour[]=Reds' },
-        { description: "Babies Shoes in Babies & Toddlers (Kids)", url: '/products/kids-babies/k-babies?sub_category[]=toddler-baby-footwear' },
-        { description: "Babies & Toddlers in Kids", url: '/products/kids-babies/k-babies' },
-        { description: "Kids", url: '/products/kids-babies' },
-        { description: "Products matching 'shoes'", url: '/products?search_query=shoes' }
+        { description: "sass & bide products", url: '/sydney/products?retailer[]=sass-and-bide' },
+        { description: "Red products", url: '/sydney/products?colour[]=Reds' },
+        { description: "Babies Shoes in Babies & Toddlers (Kids)", url: '/sydney/products/kids-babies/k-babies?sub_category[]=toddler-baby-footwear' },
+        { description: "Babies & Toddlers in Kids", url: '/sydney/products/kids-babies/k-babies' },
+        { description: "Kids", url: '/sydney/products/kids-babies' },
+        { description: "Products matching 'shoes'", url: '/sydney/products?search_query=shoes' }
       ],
       stores: [
-        { description: 'DC Shoes', url: '/stores/dc-shoes/43076' }
+        { description: 'DC Shoes', url: '/sydney/stores/dc-shoes/43076' }
       ]
     })
 

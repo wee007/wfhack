@@ -23,29 +23,30 @@
       $scope.showSuggestions()
 
     didYouMean = ->
-      SuggestionsBuilder.didYouMean($scope.searchQuery, $scope.search.results)
+      SuggestionsBuilder.didYouMean($scope.searchQuery, $scope.search.results, $scope.centre_id)
 
     combinedResults = ->
       suggestions = []
-      suggestions = suggestions.concat($scope.suggestions.stores) if $scope.suggestions.stores
-      suggestions = suggestions.concat($scope.suggestions.products) if $scope.suggestions.products
-
+      for key in $scope.sortOrderTypes
+        result = $scope.suggestions[key]
+        suggestions = suggestions.concat(result) if result
       suggestions
 
-    scrollSuggestions = (index,direction,maxLength) ->
-      lowerThreshold = 7
-      upperThreshold = maxLength - lowerThreshold
-      elementHeight = $(".js-search-results-item-height").height();
+    scrollSuggestions = ->
+      containerHeight = $(".js-search-results-keyboard-scrolling").height()
+      minimumLowerPadding = 50
+      minimumUpperPadding = 120
+      floor = containerHeight - minimumLowerPadding
+      ceiling = containerHeight - minimumUpperPadding
+      $suggestion = $(".js-search-results-item-height .is-focused")
+      bottom = $suggestion.position().top + $suggestion.height()
       $el = $(".js-search-results-keyboard-scrolling")
       current = $el.scrollTop()
-      if direction == 'prev' && index < upperThreshold
-        $el.scrollTop(current - elementHeight)
-      if direction == 'next' && index > lowerThreshold
-        $el.scrollTop(current + elementHeight)
-      if  direction == 'next' && index == 0 
-        $el.scrollTop(0)
-      if  direction == 'prev' && index == maxLength
-        $el.scrollTop(999999)
+      diff = floor - bottom
+      if diff < 0
+        $el.scrollTop(current - diff)
+      if diff > ceiling
+        $el.scrollTop(current + (ceiling - diff))
 
     highlightSuggestion = (direction) ->
       suggestions = combinedResults()
@@ -58,8 +59,31 @@
       index++ if direction == 'next'
       index = 0 if index > maxLength
       index = maxLength if index < 0
-      scrollSuggestions(index, direction, maxLength)
       $scope.focusedSuggestion = suggestions[index]
+
+      # We need to let the render cycle finish
+      setTimeout(scrollSuggestions, 0);
+
+    $scope.sortOrderTypes =
+      [
+        'centre_services'
+        'centre_information'
+        'stores'
+        'products'
+        'deals'
+        'events'
+      ]
+
+    $scope.iconMapping = (type) ->
+      suffix = type
+      suffix = 'info' if type == "centre_information" 
+      suffix = 'info' if type == "centre_services"
+      suffix = 'store' if type == "stores"
+      return 'icon--' + suffix
+
+    $scope.unsnake = (name) ->
+      str = name.replace("_", " ")
+      return `str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});`
 
     # Search result text for screen readers
     $scope.searchResultText = ->
@@ -78,7 +102,7 @@
         # Hide suggestions when escape is pressed
         $scope.hideSuggestions() if event and event.keyCode == 27
 
-      if $scope.searchQuery && $scope.searchQuery != ""
+      if $scope.searchQuery && $scope.searchQuery.length > 1
         GlobalSearch.get term: $scope.searchQuery, centre: $scope.centre_id
 
     $scope.navigateSuggestions = (event) ->
@@ -97,9 +121,8 @@
       $scope.url = (suggestion, searchSource = 'dropdown') ->
         #If there is already a query string, no need for '?'
         urlJoiner = if suggestion.url.indexOf("?") > 0 then "&" else "?"
-
         # Construct the full suggestion URL. 'search_source' is purely for analytics purposes.
-        url = "/#{$scope.centre_id}#{suggestion.url}#{urlJoiner}search_source=#{searchSource}&search_keyword=#{$scope.searchQuery}"
+        url = "#{suggestion.url}#{urlJoiner}search_source=#{searchSource}&search_keyword=#{$scope.searchQuery}"
 
       $scope.submit = ( event ) ->
         suggestions = $scope.suggestions.products

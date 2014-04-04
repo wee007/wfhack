@@ -79,6 +79,8 @@ class StoreMapPage
     body.on('click', '.is-list-view .js-stores-maps-toggle-btn', @show)
     body.on('click', '.is-map-view .js-stores-maps-toggle-btn', @hide)
 
+    body.on('click', '.js-pjax-view-stores', @hide)
+
     self = @
     body.on('click', '[data-store-id]', ->
       self.show()

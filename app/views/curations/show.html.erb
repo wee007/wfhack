@@ -11,12 +11,12 @@
 
         <%# Hero %>
         <header class="box">
-          <% if @curation.image_ref.present? %>
+          <% if @curation.image? %>
             <%= fetch_image_tag @curation.image, alt: '', quality: 25, width: 1178, crop: 'limit', fetch_format: 'auto' %>
           <% end %>
           <h1 class="island txt-hyphenate"><%= raw @curation.name.truncate 60, '&#8230;' %></h1>
-          <p class="product-curation__desc island-sides island-btm <%= 'toggle-visibility toggle-visibility--palm' if @curation.image_ref.present? %>" id="curation-description"><%= raw @curation.description.truncate(400, '&#8230;') %></p>
-          <% if @curation.image_ref.present? %>
+          <p class="product-curation__desc island-sides island-btm <%= 'toggle-visibility toggle-visibility--palm' if @curation.image? %>" id="curation-description"><%= raw @curation.description.truncate(400, '&#8230;') %></p>
+          <% if @curation.image? %>
             <button type="button" class="btn btn--full btn--expand-collapse toggle-visibility-btn js-disabled-hide" toggle-visibility="curation-description" toggle-visibility-drop-down="false">
               <span class="show-when-visible show-when-visible--block">
                 Collapse the description

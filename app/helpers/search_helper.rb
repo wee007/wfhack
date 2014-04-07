@@ -6,7 +6,6 @@ module SearchHelper
     else
       action = attributes[:action] || 'show'
       action = centre ? 'index_centre' : 'index_national' if kind == 'products'
-      action = 'show' if kind == 'centre_hours' || kind == 'centre_info' || kind == 'centre_service_details'
       attributes.merge!({controller: kind, action: action})
       attributes.merge!({centre_id: centre}) if centre
       url_for attributes

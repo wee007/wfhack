@@ -49,9 +49,9 @@
     text-align: center;
     position: relative;
     /*
-      Note: if this `margin-bottom` value changes then adjust the `$tile-img-btm-mrg` value in the 'Pin Board module -> Modifier: curation'.
+      Note: this `margin-bottom` value is stored in a var which lives in 'Curation pin board fixed tile height' section of the global '_vars.scss' file.
     */
-    @include to-rem(margin-bottom, 8);
+    @include to-rem(margin-bottom, $tile-img-btm-mrg);
 
     /* Red transparent image overlay shown on hover/focus of the tile */
     &:before {
@@ -72,7 +72,7 @@
   /* Meta */
 
   /*
-    Note: if the height of this element changes then adjust the `$tile-meta-height` value in the 'Pin Board module -> Modifier: curation'.
+    Note: if the height of this element changes then adjust the `$tile-meta-height` value in 'Curation pin board fixed tile height' section of the global '_vars.scss' file.
   */
 
   .tile__meta {
@@ -108,11 +108,11 @@
         }
       }
 
-        /* Hide normal price due to lack of real estate at these breakpoint ranges */
+        /* Hide normal price due to lack of real estate when it exceeds 4 digits */
         .is-long-price .price-strip__normal {
           display: none;
 
-          @include respond-min(460) {
+          @include respond-min($iphone-landscape) {
             display: inline;
           }
         }
@@ -247,43 +247,36 @@
 
 /* Note: using `line-height` to vertically align the images */
 
-$tile-fixed-height-1: 160px !default;
-$tile-fixed-height-2: 180px !default;
-$tile-fixed-height-3: 220px !default;
-$tile-fixed-height-4: 240px !default;
-$tile-fixed-height-5: 260px !default;
-$tile-fixed-height-6: 270px !default;
-
 .tile--fixed-img-height .tile__image {
-  height: $tile-fixed-height-1;
-  line-height: $tile-fixed-height-1 - 1;
+  height: #{$tile-fixed-height-1}px;
+  line-height: #{$tile-fixed-height-1 - 1}px;
   /* Need this to remove browser generated white space from the `line-height` rule */
   font-size: 0;
 
   /* Increase heights/line-heights at these breakpoints */
   @include respond-min(400) {
-    height: $tile-fixed-height-2;
-    line-height: $tile-fixed-height-2 - 1;
+    height: #{$tile-fixed-height-2}px;
+    line-height: #{$tile-fixed-height-2 - 1}px;
   }
 
   @include respond-min($iphone-landscape) {
-    height: $tile-fixed-height-3;
-    line-height: $tile-fixed-height-3 - 1;
+    height: #{$tile-fixed-height-3}px;
+    line-height: #{$tile-fixed-height-3 - 1}px;
   }
 
   @include respond-min($ipad-portrait) {
-    height: $tile-fixed-height-4;
-    line-height: $tile-fixed-height-4 - 1;
+    height: #{$tile-fixed-height-4}px;
+    line-height: #{$tile-fixed-height-4 - 1}px;
   }
 
   @include respond-min(860) {
-    height: $tile-fixed-height-5;
-    line-height: $tile-fixed-height-5 - 1;
+    height: #{$tile-fixed-height-5}px;
+    line-height: #{$tile-fixed-height-5 - 1}px;
   }
 
   @include respond-min($desk) {
-    height: $tile-fixed-height-6;
-    line-height: $tile-fixed-height-6 - 1;
+    height: #{$tile-fixed-height-6}px;
+    line-height: #{$tile-fixed-height-6 - 1}px;
   }
 
   /* This needs to be used along with Cloudinary's 'crop - pad' and specify the maximum width the image can ever be e.g. `c_pad,w_407` */

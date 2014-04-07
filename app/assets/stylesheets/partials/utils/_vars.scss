@@ -187,6 +187,19 @@ $grid-push: false !default;
 /* Pull */
 $grid-pull: false !default;
 
+/* Curation pin board layout */
+$tile-img-btm-mrg: 8 !default;
+
+$tile-meta-height: 66 !default; /* Note: +1px for browser consistency */
+
+/* Sidekick tile fixed heights */
+$tile-fixed-height-1: 160 !default;
+$tile-fixed-height-2: 180 !default;
+$tile-fixed-height-3: 220 !default;
+$tile-fixed-height-4: 240 !default;
+$tile-fixed-height-5: 260 !default;
+$tile-fixed-height-6: 270 !default;
+
 /* [COLOR PALETTE]
 -------------------------------------------------------*/
 /* Brand colour */

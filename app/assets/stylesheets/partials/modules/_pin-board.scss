@@ -40,7 +40,7 @@
   .pin-board-multi &.grid {margin-bottom: 0;}
 }
 
-/* Modifier: Curation pin board - one grid row features one hero tile + a set of four smaller tiles. The hero tile's height needs to match the combined height of the four smaller tiles. See 'Tile module -> Modifier: fix image height' for the heights of the smaller tiles which we set outside of the pin board module for re-use. */
+/* Modifier: Curation pin board - one grid row features one hero tile + a set of four smaller tiles. The hero tile's height needs to match the combined height of the four smaller tiles (sidekicks). */
 
 /*
   Hero tile
@@ -48,38 +48,34 @@
   Note: height calculation = (small tile image height * 2) + (1 `.tile__meta` height) + (1 `.tile__image` height) + $spacing-half. And using `line-height` to vertically align the images.
 */
 
-$tile-img-btm-mrg: 8px !default;
-$tile-meta-height: 66px !default; /* Note: +1px for browser consistency */
+@mixin curation-hero-tile-height($tile-fixed-height-type) {
+  height: #{$tile-fixed-height-type*2 + $tile-meta-height + $tile-img-btm-mrg + $spacing-half}px;
+  line-height: #{$tile-fixed-height-type*2 + $tile-meta-height + $tile-img-btm-mrg + $spacing-half}px;
+}
 
 .pin-board-curation__hero .tile__image {
-  height: ($tile-fixed-height-1*2) + $tile-meta-height + $tile-img-btm-mrg + $spacing-half;
-  line-height: ($tile-fixed-height-1*2) + $tile-meta-height + $tile-img-btm-mrg + $spacing-half;
+  @include curation-hero-tile-height($tile-fixed-height-1);
 
   /* Increase heights/line-heights at these breakpoints */
   @include respond-min(400) {
-    height: ($tile-fixed-height-2*2) + $tile-meta-height + $tile-img-btm-mrg + $spacing-half;
-    line-height: ($tile-fixed-height-2*2) + $tile-meta-height + $tile-img-btm-mrg + $spacing-half;
+    @include curation-hero-tile-height($tile-fixed-height-2);
   }
 
   @include respond-min($iphone-landscape) {
-    height: ($tile-fixed-height-3*2) + $tile-meta-height + $tile-img-btm-mrg + $spacing-half;
-    line-height: ($tile-fixed-height-3*2) + $tile-meta-height + $tile-img-btm-mrg + $spacing-half;
+    @include curation-hero-tile-height($tile-fixed-height-3);
   }
 
   @include respond-min($ipad-portrait) {
-    height: ($tile-fixed-height-4*2) + $tile-meta-height + $tile-img-btm-mrg + $spacing-half;
-    line-height: ($tile-fixed-height-4*2) + $tile-meta-height + $tile-img-btm-mrg + $spacing-half;
+    @include curation-hero-tile-height($tile-fixed-height-4);
   }
 
   @include respond-min(860) {
-    height: ($tile-fixed-height-5*2) + $tile-meta-height + $tile-img-btm-mrg + $spacing-half;
-    line-height: ($tile-fixed-height-5*2) + $tile-meta-height + $tile-img-btm-mrg + $spacing-half;
+    @include curation-hero-tile-height($tile-fixed-height-5);
   }
 
   /* When the pin board rows become horizontally aligned so the hero/small tile heights need to match exactly */
   @include respond-min($desk) {
-    height: ($tile-fixed-height-6*2) + $tile-meta-height + $tile-img-btm-mrg + $spacing-half;
-    line-height: ($tile-fixed-height-6*2) + $tile-meta-height + $tile-img-btm-mrg + $spacing-half;
+    @include curation-hero-tile-height($tile-fixed-height-6);
   }
 }
 

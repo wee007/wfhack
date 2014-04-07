@@ -245,21 +245,11 @@
 	text-align: center;
 }
 
-.icon--sphere {
-  display: inline-block;
-  border-radius: 100%;
-  background: red;
-  //@include to-rem(padding, $spacing-third);
-  //text-align: center;
-}
-
 /* Modifier: small */
 .icon--sml:before {@include font-size($font-size-sml, 1);}
 
 /* Modifier: large */
 .icon--lrg:before {@include font-size($font-size-lrg, 1);}
-
-.icon--lrg.icon--sphere {@include to-rem(width height, 36);}
 
 .icon--lrger:before {@include font-size($font-size-lrger, 1);}
 

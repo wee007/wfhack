@@ -3,7 +3,7 @@
     <div class="grid__item non-palm-one-half">
       <div class="promo-tile box">
         <%= image_tag promo[:image_src], alt: '', width: 589, crop: 'limit', quality: 90, fetch_format: 'auto' %>
-        <span class="promo-tile__icon icon <%= promo[:icon] %> icon--flush-top icon--lrg icon--sphere box" aria-hidden="true"></span>
+        <span class="promo-tile__icon icon <%= promo[:icon] %> icon--flush-top icon--lrg" aria-hidden="true"></span>
         <div class="islet island-non-palm">
           <h2 class="promo-tile__hdr"><%= promo[:heading] %></h2>
           <p><%= promo[:desc] %></p>

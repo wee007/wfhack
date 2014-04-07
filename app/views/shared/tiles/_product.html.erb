@@ -1,6 +1,6 @@
-<%# Tile product image %>
+<%# Image %>
 <div class="tile__image">
-  <%# FIXME There is something causing some images in beta not to load if the cl_image_tag is used here %>
+  <%# TODO There is something causing some images in beta not to load if the cl_image_tag is used here %>
   <%= fetch_image_tag result.primary_image, {
       'data-height' => result.image_height,
       width: 289,
@@ -10,26 +10,31 @@
     }.merge((options if defined? options) || {})
   %>
 </div>
-<%# //Tile product image %>
+<%# //Image %>
 
-<%# Tile product meta %>
+<%# Meta %>
 <div class="tile__meta">
 
-  <%# Tile product icon %>
-  <span class="tile__meta__icon">
-    <span class="icon icon--products icon--lrg" aria-hidden="true"></span>
-  </span>
-  <%# //Tile product icon %>
+  <%# Product name %>
+  <h3 class="tile__meta__hdr txt-truncate"><%= result.name %></h3>
+  <%# //Product name %>
 
-  <%# Tile product name, price and brand %>
-  <div class="tile__meta__inner">
-    <h3 class="tile__meta__hdr txt-truncate"><%= result.name %></h3>
-    <p class="tile__meta__desc txt-truncate">
-      <span class="tile__meta__desc__price"><%=number_to_currency result.sale_price %></span>
-      from <strong><%= result.retail_chain_name %></strong>
-    </p>
-  </div>
-  <%# //Tile product name, price and brand %>
+  <%# Product brand %>
+  <p class="tile__meta__desc txt-truncate">from <strong><%= result.retail_chain_name %></strong></p>
+  <%# //Product brand %>
+
+  <%# Product price %>
+  <p class="price-strip">
+    <strong>
+      <span class="hide-visually">Price: </span>
+      <%= number_to_currency result.sale_price %>
+    </strong>
+  </p>
+  <%# //Product price %>
+
+  <%# Icon %>
+  <span class="tile__meta__icon icon icon--products icon--lrg" aria-hidden="true"></span>
+  <%# //Icon %>
 
 </div>
-<%# //Tile product meta %>
+<%# //Meta %>

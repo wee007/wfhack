@@ -3,18 +3,22 @@
    ====================================================================================== */
 
 /*
-  Renders a tile for different types of content e.g. a 'Product', 'Deal', 'Event', etc. Mainly used in pin board module.
+  Renders a tile for different types of content e.g. a 'Product', 'Deal', 'Event', etc. Mainly used in the pin board module.
 
-  .tile--deals              - Deals
+  .tile--product            - Product
+  .tile--deal               - Deal
   .tile--fixed-img-height   - Fix the tile image height
+  .tile--no-icon            - No icon
 
   Styleguide Tile
 */
 
 .tile {
   position: relative;
-  color: $color-txt-base;
-  @include font-size($font-size-sml, 1.5);
+
+  /* Set font size */
+  &,
+  .tile__meta__hdr {@include font-size($font-size-sml, 1.4);}
 
   /* So the social share module can be seen when they overlap another tile */
   &:hover {z-index: 2;}
@@ -30,15 +34,24 @@
   a {
     color: $color-txt-light;
     display: block;
+    @include to-rem(padding-bottom, 8);
 
     &:focus {box-shadow: $box-shadow;}
   }
 }
 
+  /* Modifiers: product and deal */
+  .tile--product a,
+  .tile--deal a {padding-bottom: 0;}
+
   /* Image */
   .tile__image {
     text-align: center;
     position: relative;
+    /*
+      Note: this `margin-bottom` value is stored in a var which lives in 'Curation pin board fixed tile height' section of the global '_vars.scss' file.
+    */
+    @include to-rem(margin-bottom, $tile-img-btm-mrg);
 
     /* Red transparent image overlay shown on hover/focus of the tile */
     &:before {
@@ -59,40 +72,76 @@
   /* Meta */
 
   /*
-    Note: if the height of this element changes then adjust the `$tile-meta-height` value in the 'Pin Board module -> Modifier: curation'. Only applicable 'after' the `$iphone-landscape` breakpoint.
+    Note: if the height of this element changes then adjust the `$tile-meta-height` value in 'Curation pin board fixed tile height' section of the global '_vars.scss' file.
   */
 
   .tile__meta {
     position: relative;
-    @include to-rem(min-height, $spacing-base*2);
-    @include to-rem(padding, 8 10);
+    @include to-rem(padding-left, 32);
+    @include to-rem(padding-right, $spacing-half);
+
+    @include respond-min($non-palm) {
+      @include to-rem(padding-left, 36);
+    }
+
+    /* Modifier: deal */
+    .tile--deal & {
+      @include to-rem(padding, 45 15);
+
+      @include respond-min($non-palm) {
+        @include to-rem(padding, 84 25);
+      }
+    }
+
+    /* Modifier: no icon */
+    .tile--no-icon & {@include to-rem(padding-left, $spacing-half);}
+
+      /* Product price from the 'Price strip' module */
+      .price-strip {
+        @include to-rem(margin-top, $spacing-third);
+        @include to-rem(margin-left, -32);
+        @include to-rem(margin-right, -$spacing-half);
+        @include to-rem(padding, $spacing-quarter $spacing-third);
+
+        @include respond-min($non-palm) {
+          @include to-rem(margin-left, -36);
+        }
+      }
+
+        /* Hide normal price due to lack of real estate when it exceeds 4 digits */
+        .is-long-price .price-strip__normal {
+          display: none;
+
+          @include respond-min($iphone-landscape) {
+            display: inline;
+          }
+        }
+
+        /* Savings % tag % */
+        .price-strip__savings {@include to-rem(padding, $spacing-quarter);}
   }
 
     /* Icon that identifies the tile */
     .tile__meta__icon {
       position: absolute;
-      @include to-rem(left, -2);
-      @include to-rem(top, 9);
+      left: -2px;
+      top: 0;
       border-left: 2px solid $color-brand;
       background-color: $color-grey-light-3;
-      color: $color-txt-light;
       @include to-rem(padding, 3 5);
 
-      /* Increase the padding at this breakpoint, as we have more space */
       @include respond-min($non-palm) {
         @include to-rem(padding, 5 7);
       }
-    }
 
-    /* Inner container */
-    .tile__meta__inner {
-      /*
-        Needed to create spacing for `.tile__meta__icon`. Spacing = `.tile__meta` left padding + width of `.tile__meta__icon` + spacing between `.tile__meta__icon` and the text.
-      */
-      @include to-rem(margin-left, 25);
+      /* Modifier: deal */
+      .tile--deal & {
+        top: auto;
+        @include to-rem(bottom, 7.5);
 
-      @include respond-min($non-palm) {
-        @include to-rem(margin-left, 30);
+        @include respond-min($non-palm) {
+          @include to-rem(bottom, 9);
+        }
       }
     }
 
@@ -100,28 +149,24 @@
       .tile__meta__hdr {
         color: $color-txt-dark;
         font-weight: bold;
-        @include font-size($font-size-milli, 1.5);
-
-        @include respond-min($iphone-landscape) {
-          @include font-size($font-size-sml, 1.5);
-        }
       }
 
       /* Description */
       .tile__meta__desc {
-        color: $color-txt-light;
-        @include font-size($font-size - 4, 1.5);
+        @include font-size($font-size-milli, 1.4);
 
-        @include respond-min($iphone-landscape) {
-          @include font-size($font-size-milli, 1.5);
+        /* Modifier: deal */
+        .tile--deal & {
+          font-family: $font-family-lato;
+          @include font-size($font-size, 1.5);
+          font-weight: 300;
+          color: $color-txt-dark;
+
+          @include respond-min($non-palm) {
+            @include font-size(22, 1.3);
+          }
         }
       }
-
-        /* Price */
-        .tile__meta__desc__price {
-          color: $color-txt-dark;
-          font-weight: bold;
-        }
 
   /* Alternative icon, icon that sits top left corner of it's tile, have 2 types: 'Canned search' and 'Curation' */
   .tile__icon-alt {
@@ -161,8 +206,7 @@
 
     /* Buttons */
     .controls__btn {
-      @include to-rem(width, $spacing-base* 2);
-      @include to-rem(height, $spacing-base* 2);
+      @include to-rem(width height, $spacing-dbl);
       border: 1px solid $color-grey-light-1;
       border-radius: $border-radius;
       background-color: #fff;
@@ -182,95 +226,57 @@
     }
   }
 
-/* Modifier: Deals */
-.tile--deals {
+/* Modifier: deal */
+.tile--deal {
 
-  /* Meta */
-  .tile__meta {
-    @include to-rem(padding, 45 15);
+  /* Header and logo spacing */
+  .tile__meta__hdr,
+  .tile__meta__logo {
+    @include to-rem(margin-bottom, $spacing-quarter);
 
     @include respond-min($non-palm) {
-      @include to-rem(padding, 84 25);
+      @include to-rem(margin-bottom, $spacing-half);
     }
   }
 
-    /* Header and logo spacing */
-    .tile__meta__hdr,
-    .tile__meta__logo {
-      @include to-rem(margin-bottom, $spacing-quarter);
-
-      @include respond-min($non-palm) {
-        @include to-rem(margin-bottom, $spacing-half);
-      }
-    }
-
-    /* Logo */
-    .tile__meta__logo {@include to-rem(width, 84);}
-
-    /* Description */
-    .tile__meta__desc {
-      font-family: $font-family-lato;
-      @include font-size($font-size, 1.5);
-      font-weight: 300;
-      color: $color-txt-dark;
-
-      @include respond-min($non-palm) {
-        @include font-size(22, 1.3);
-      }
-    }
-
-  /* Icon */
-  .tile__meta__icon {
-    top: auto;
-    @include to-rem(bottom, 7.5);
-
-    @include respond-min($non-palm) {
-      @include to-rem(bottom, 9);
-    }
-  }
+  /* Logo */
+  .tile__meta__logo {@include to-rem(width, 126);}
 }
 
 /* Modifier: fix image height */
 
 /* Note: using `line-height` to vertically align the images */
 
-$tile-fixed-height-1: 160px !default;
-$tile-fixed-height-2: 180px !default;
-$tile-fixed-height-3: 220px !default;
-$tile-fixed-height-4: 240px !default;
-$tile-fixed-height-5: 260px !default;
-$tile-fixed-height-6: 270px !default;
-
 .tile--fixed-img-height .tile__image {
-  height: $tile-fixed-height-1;
-  line-height: $tile-fixed-height-1 - 1;
+  height: #{$tile-fixed-height-1}px;
+  line-height: #{$tile-fixed-height-1 - 1}px;
   /* Need this to remove browser generated white space from the `line-height` rule */
   font-size: 0;
 
   /* Increase heights/line-heights at these breakpoints */
   @include respond-min(400) {
-    height: $tile-fixed-height-2;
-    line-height: $tile-fixed-height-2 - 1;
+    height: #{$tile-fixed-height-2}px;
+    line-height: #{$tile-fixed-height-2 - 1}px;
   }
 
   @include respond-min($iphone-landscape) {
-    height: $tile-fixed-height-3;
-    line-height: $tile-fixed-height-3 - 1;
+    height: #{$tile-fixed-height-3}px;
+    line-height: #{$tile-fixed-height-3 - 1}px;
   }
 
   @include respond-min($ipad-portrait) {
-    height: $tile-fixed-height-4;
-    line-height: $tile-fixed-height-4 - 1;
+    height: #{$tile-fixed-height-4}px;
+    line-height: #{$tile-fixed-height-4 - 1}px;
   }
 
   @include respond-min(860) {
-    height: $tile-fixed-height-5;
-    line-height: $tile-fixed-height-5 - 1;
+    height: #{$tile-fixed-height-5}px;
+    line-height: #{$tile-fixed-height-5 - 1}px;
   }
 
   @include respond-min($desk) {
-    height: $tile-fixed-height-6;
-    line-height: $tile-fixed-height-6 - 1;
+    height: #{$tile-fixed-height-6}px;
+    line-height: #{$tile-fixed-height-6 - 1}px;
   }
 
   /* This needs to be used along with Cloudinary's 'crop - pad' and specify the maximum width the image can ever be e.g. `c_pad,w_407` */

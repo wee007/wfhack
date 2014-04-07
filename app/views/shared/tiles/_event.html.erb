@@ -1,6 +1,6 @@
 <% content_for :tile_attrs, 'itemprop="event" itemscope itemtype="http://schema.org/Event"'.html_safe, flush: true %>
 
-<%# Tile event image %>
+<%# Image %>
 <div class="tile__image">
   <%= fetch_image_tag result.image,
     width: 289,
@@ -10,23 +10,22 @@
     itemprop: :image
   %>
 </div>
-<%# //Tile event image %>
+<%# //Image %>
 
-<%# Tile event meta %>
+<%# Meta %>
 <div class="tile__meta">
 
-  <%# Tile event icon %>
-  <span class="tile__meta__icon">
-    <span class="icon icon--events icon--lrg" aria-hidden="true"></span>
-  </span>
-  <%# Tile event icon %>
+  <%# Title %>
+  <h3 class="tile__meta__hdr txt-truncate" itemprop="name"><%= result.name %></h3>
+  <%# //Title %>
 
-  <%# Tile event title and date %>
-  <div class="tile__meta__inner">
-    <h3 class="tile__meta__hdr txt-truncate" itemprop="name"><%= result.name %></h3>
-    <p class="tile__meta__desc txt-truncate"><%= display_event_date(result) %></p>
-  </div>
-  <%# //Tile event title and date %>
+  <%# Date %>
+  <p class="tile__meta__desc txt-truncate"><%= display_event_date(result) %></p>
+  <%# //Date %>
+
+  <%# Icon %>
+  <span class="tile__meta__icon icon icon--events icon--lrg" aria-hidden="true"></span>
+  <%# Icon %>
 
 </div>
-<%# //Tile event meta %>
+<%# //Meta %>

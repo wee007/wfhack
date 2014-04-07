@@ -9,24 +9,35 @@
   <div class="grid__item non-palm-two-fifths">
 
     <%# Product name, brand and price %>
-    <header class="detail-view__divider island">
+    <header class="detail-view__divider">
 
-      <h1 class="detail-view__hdr hn detail-view__mrg-half"><%= @product.name %></h1>
+      <%# Product name and brand %>
+      <div class="detail-view__divider island">
+        <h1 class="detail-view__hdr hn detail-view__mrg-half"><%= @product.name %></h1>
+        <p class="detail-view__meta">
+          <span class="detail-view__subtle-txt">from</span>
+          <%= @product.retail_chain_name %>
+        </p>
+      </div>
+      <%# //Product name and brand %>
 
-      <p class="detail-view__meta">
-        <span class="detail-view__subtle-txt">from</span>
-        <%= @product.retail_chain_name %>
+      <%# Product price %>
+      <p class="price-strip price-strip--lrg island-sides islet-ends <%= 'is-long-price' if @product.price.to_s.length > 5 %>">
         <%- if @product.is_discounted -%>
-          <em class="detail-view__meta__sale-price">
-            <span class="hide-visually">Old price: </span>
-            <s><%= Money.new(@product.price).format%></s>
-            <span class="hide-visually">Current price: </span>
-            <%= Money.new(@product.sale_price).format %>
-          </em>
+          <span class="price-strip__normal hide-visually">Normal price: </span>
+          <s class="price-strip__normal"><%= Money.new(@product.price).format %></s>
+          <span class="hide-visually">Sale price: </span>
+          <strong class="price-strip__sale"><%= Money.new(@product.sale_price).format %></strong>
+          <strong class="price-strip__savings islet"><%= number_to_percentage(percentage_off, :precision => 0) %> Off
+          </strong>
         <%- else -%>
-          <em><%= Money.new(@product.sale_price).format %></em>
+          <strong>
+            <span class="hide-visually">Price: </span>
+            <%= Money.new(@product.sale_price).format %>
+          </strong>
         <%- end -%>
       </p>
+      <%# //Product price %>
 
     </header>
     <%# //Product name, brand and price %>

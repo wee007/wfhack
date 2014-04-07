@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.269
+Version:     0.2.270
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,23 @@ fi
 
 
 %changelog
+* Mon Apr 07 2014 ci <doperations@au.westfield.com> 0.2.270-1
+- Updates after code review (cpearce@au.westfield.com)
+- Clean up after device/browser testing (cpearce@au.westfield.com)
+- Final styling for new product price data (cpearce@au.westfield.com)
+- Style Guide updates (cpearce@au.westfield.com)
+- Adding new base misc style (cpearce@au.westfield.com)
+- Adding missing modifiers to box abstraction (cpearce@au.westfield.com)
+- Create product helper to work out percentage off between normal and sale
+  price (cpearce@au.westfield.com)
+- Display new product price/discount on product detail and static markup for
+  product tile (cpearce@au.westfield.com)
+- Create new price strip module (cpearce@au.westfield.com)
+- Cleaning up tile HTML/CSS and CSS for new product price data
+  (cpearce@au.westfield.com)
+- Removing uneeded span elem from tile icon, cleaning up CSS, and first round
+  of HTML for new product price data (cpearce@au.westfield.com)
+
 * Fri Apr 04 2014 ci <doperations@au.westfield.com> 0.2.269-1
 - Merge pull request #1049 from ewee/pop-up-dialog (ewee@au.westfield.com)
 - WSF-6449 Removed pop-up dialog on products page (ewee@au.westfield.com)

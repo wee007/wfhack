@@ -112,7 +112,7 @@
         .is-long-price .price-strip__normal {
           display: none;
 
-          @include respond-min(470) {
+          @include respond-min(460) {
             display: inline;
           }
         }

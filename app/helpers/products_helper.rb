@@ -8,7 +8,7 @@ module ProductsHelper
 
   # Work out the savings in % between sale price and normal price
   def percentage_off
-   (Float(@product.price - @product.sale_price) / @product.price * 100)
+   (Float(@product.price - @product.sale_price) / @product.price * 100).floor
   end
 
   def canonical_url

@@ -24,12 +24,11 @@
   <%# //Product brand %>
 
   <%# Product price %>
-  <p class="price-strip <%= 'is-long-price' if result.sale_price.floor > 1 %>">
-    <span class="price-strip__normal hide-visually">Normal price: </span>
-    <s class="price-strip__normal"><%= number_to_currency result.sale_price %></s>
-    <span class="hide-visually">Sale price: </span>
-    <strong class="price-strip__sale"><%= number_to_currency result.sale_price %></strong>
-    <strong class="price-strip__savings islet">50% Off</strong>
+  <p class="price-strip">
+    <strong>
+      <span class="hide-visually">Price: </span>
+      <%= number_to_currency result.sale_price %>
+    </strong>
   </p>
   <%# //Product price %>
 

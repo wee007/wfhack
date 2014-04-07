@@ -139,9 +139,9 @@
       $timeout($scope.closeFilters, 0);
 
     if angular.element("html").hasClass("lap-lrg")
-      $(document).click ->
+      $(document).click (event) ->
         # Dont close a filter dropdown if the click came from inside a filter dropdown
-        if $(event.target).parents('.filters__target').length == 0
+        if $(event.target).parents('.js-products-filter-dropdown').length == 0
           $scope.closeFilters()
           $scope.$apply()
 

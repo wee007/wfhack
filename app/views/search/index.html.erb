@@ -55,7 +55,7 @@
       <div class="txt-formatted">
         <h2 id="<%= kind %>">
           <%# TODO: rename stores icon to singular version %>
-          <span class="icon icon--<%= kind unless kind == 'stores' %><%= kind.singularize if kind == 'stores' %> icon--spacing" aria-hidden="true"></span>
+          <span class="icon icon--<%= kind.singularize %> icon--spacing" aria-hidden="true"></span>
           <%= kind.titlecase %>
         </h2>
 

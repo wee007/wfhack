@@ -113,6 +113,13 @@
       ProductSearch.getSearch()
       $scope.closeFilters()
 
+      # Need to trigger an event here so the placeholder polyfill can be reapplied to the page
+      # Has to be in a timeout to wait for the page to render
+      unless Modernizr.input.placeholder
+        $timeout ->
+          $(document).trigger("products.change")
+
+
     # Filter controls / toggle / open / close
     $scope.activeFilter = ""
     $scope.toggleFilter = ($event, filterName) ->

@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.272
+Version:     0.2.273
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,10 @@ fi
 
 
 %changelog
+* Tue Apr 08 2014 ci <doperations@au.westfield.com> 0.2.273-1
+- Add tracking hooks for movie tile and session times - WSF-6499
+  (cpearce@au.westfield.com)
+
 * Tue Apr 08 2014 ci <doperations@au.westfield.com> 0.2.272-1
 - Merge pull request #1055 from araeside/fix-product-filters-in-ie
   (araeside@au.westfield.com)

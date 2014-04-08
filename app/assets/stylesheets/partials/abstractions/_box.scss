@@ -10,6 +10,7 @@
   .box--torn          - Torn paper treatment
   .box--mrg-base      - Base bottom spacing
   .box--mrg-half      - Half bottom spacing
+  .box--sphere        - Modifier: make into a sphere
 
   Styleguide Box
 */
@@ -49,5 +50,5 @@
 /* Modifier: half base margin bottom */
 .box--mrg-half {@include to-rem(margin-bottom, $spacing-half);}
 
-/* Modifier: border radius  */
+/* Modifier: make into a sphere */
 .box--sphere {border-radius: 100%;}

@@ -256,9 +256,9 @@
 .icon--xlrg:before {@include font-size($font-size-xlrg, 1);}
 
 /* Modifier: extra large */
-.icon--giga:before {@include font-size(48, 1);}
+.icon--giga:before {@include font-size($font-size-giga, 1);}
 
-.icon--mega:before {@include font-size(30, 1);}
+.icon--mega:before {@include font-size($font-size-mega, 1);}
 
 .icon--kilo:before {@include font-size($font-size-kilo, 1);}
 

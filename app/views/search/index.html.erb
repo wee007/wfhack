@@ -8,13 +8,13 @@
 
   <%# No search results message %>
   <div class="txt-center">
-    <h1 class="mrg-half">No results found for "<%= @search_term =%>"</h1>
+    <h1 class="mrg-half">No results found for "<mark><%= @search_term =%></mark>"</h1>
 
     <p class="mrg-dbl">Try a different spelling, or try a store name or category. You can also browse one of the sections below&#8230;</p>
   </div>
   <%#// No search results message %>
 
-  <nav role="navigation" class="mrg-half-top">
+  <nav role="navigation">
     <ul class="grid grid--mrg-base-non-palm grid--non-linear">
       <% @links.each do |kind| %>
         <li class="grid__item one-half lap-sml-one-third non-palm-one-quarter txt-center">
@@ -24,7 +24,7 @@
                 <span class="icon icon--<%= kind.icon %> icon--base-color icon--fixed-width icon--flush-top icon--xlrg icon--hecto-non-palm" aria-hidden="true"></span>
               </div>
             </div>
-            <div class="flag__body txt-left"><%= kind.label %></div>
+            <div class="flag__body"><%= kind.label %></div>
           <% end %>
         </li>
       <% end %>
@@ -91,7 +91,7 @@
                 <% results.each do |result| %><li>
                   <%= link_to(build_url(@centre, kind, result[:attributes]), class: 'btn btn--main btn--main-white btn--main-compact-sides btn--main-max-width btn--main-max-width-palm') do %>
                     <span class="txt-truncate">
-                      <%= highlight(result[:display], @search_term,  highlighter: '<strong>\1</strong>') %>
+                      <%= highlight(result[:display], @search_term,  highlighter: '<mark>\1</mark>') %>
                     </span>
                   <% end %>
                 </li><% end %>

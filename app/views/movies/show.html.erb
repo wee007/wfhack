@@ -51,7 +51,7 @@
       </dt>
       <% sessions.each do |session| %>
         <dd>
-          <a href="<%= session.booking_url %>" rel="external" target="_blank">
+          <a href="<%= session.booking_url %>" class="ga-movie-session-time" rel="external" target="_blank">
             <time datetime="<%= Time.parse(session.start_time).strftime("%Y-%m-%dT%H:%M") %>"><%= Time.parse(session.start_time).to_s(:hour_minute_period) %></time>
           </a>
           <%= "[#{session.session_type}]" if session.session_type %>

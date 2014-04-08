@@ -11,10 +11,8 @@ class ProductsController < ApplicationController
       centres: [nil, {near_to: params[:centre_id]}],
       products: params.merge({rows: 50})
     }
-    services[:store] = {retailer_code: params[:retailer].first} if params[:retailer]
 
-    #BUG: Stores is NEVER assigned to anything.
-    @centre, @nearby_centres, @search, stores = service_map services
+    @centre, @nearby_centres, @search = service_map services
     @super_categories = CategoryService.find centre_id: params[:centre_id], product_mapable: true
 
     meta.push(
@@ -37,8 +35,7 @@ class ProductsController < ApplicationController
       centre: [:all, country: 'au'],
       products: params.merge({rows: 50})
     }
-    services[:store] = {retailer_code: params[:retailer].first} if params[:retailer]
-    centres, @search, stores = service_map services
+    centres, @search = service_map services
 
     @centres_by_state = centres.group_by{ |centre| centre.state }
     @super_categories = CategoryService.find centre_id: params[:centre_id], product_mapable: true
@@ -59,7 +56,13 @@ class ProductsController < ApplicationController
 
   # Does not need all the extra stuff a normal index pages needed
   def index_xhr
-    @search = ProductService.find params.merge({rows: 50})
+    services = {
+      centre: [:all, country: 'au'],
+      products: params.merge({rows: 50})
+    }
+    centres, @search = service_map services
+
+    @centres_by_state = centres.group_by{ |centre| centre.state }
     render partial: "products"
   end
 

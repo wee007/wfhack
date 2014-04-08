@@ -11,31 +11,37 @@
 
         <%# Hero %>
         <header class="box">
-          <%= fetch_image_tag @curation.image, alt: '', quality: 25, width: 1178, crop: 'limit', fetch_format: 'auto' %>
+          <% if @curation.image? %>
+            <%= fetch_image_tag @curation.image, alt: '', quality: 25, width: 1178, crop: 'limit', fetch_format: 'auto' %>
+          <% end %>
           <h1 class="island txt-hyphenate"><%= raw @curation.name.truncate 60, '&#8230;' %></h1>
-          <p class="product-curation__desc island-sides island-btm toggle-visibility toggle-visibility--palm" id="curation-description"><%= raw @curation.description.truncate(400, '&#8230;') %></p>
-          <button type="button" class="btn btn--full btn--expand-collapse toggle-visibility-btn js-disabled-hide" toggle-visibility="curation-description" toggle-visibility-drop-down="false">
-            <span class="show-when-visible show-when-visible--block">
-              Collapse the description
-              <span aria-hidden="true" class="icon icon--arrow-up-full icon--lrg"></span>
-            </span>
-            <span class="hide-when-visible">
-              Read the description
-              <span aria-hidden="true" class="icon icon--arrow-down-full icon--lrg"></span>
-            </span>
-          </button>
+          <p class="product-curation__desc island-sides island-btm <%= 'toggle-visibility toggle-visibility--palm' if @curation.image? %>" id="curation-description"><%= raw @curation.description.truncate(400, '&#8230;') %></p>
+          <% if @curation.image? %>
+            <button type="button" class="btn btn--full btn--expand-collapse toggle-visibility-btn js-disabled-hide" toggle-visibility="curation-description" toggle-visibility-drop-down="false">
+              <span class="show-when-visible show-when-visible--block">
+                Collapse the description
+                <span aria-hidden="true" class="icon icon--arrow-up-full icon--lrg"></span>
+              </span>
+              <span class="hide-when-visible">
+                Read the description
+                <span aria-hidden="true" class="icon icon--arrow-down-full icon--lrg"></span>
+              </span>
+            </button>
+          <% end %>
         </header>
         <%# //Hero %>
 
         <%# More from retailers (non-palm) %>
-        <footer class="hide-fully--palm mrg-dbl-top">
-          <section aria-labelledby="curation-retailers-non-palm">
-            <div class="txt-formatted mrg-base">
-              <h2 id="curation-retailers-non-palm">More from retailers</h2>
-            </div>
-            <%= render partial: 'more_from_retailers' %>
-          </section>
-        </footer>
+        <% if @curation.retailers.size > 1 %>
+          <footer class="hide-fully--palm mrg-dbl-top">
+            <section aria-labelledby="curation-retailers-non-palm">
+              <div class="txt-formatted mrg-base">
+                <h2 id="curation-retailers-non-palm">More from retailers</h2>
+              </div>
+              <%= render partial: 'more_from_retailers' %>
+            </section>
+          </footer>
+        <% end %>
         <%# //More from retailers (non-palm) %>
 
       </div>
@@ -94,26 +100,28 @@
   <%# Pagination will go here %>
 
   <%# 'More from retailers' and 'You may also like' %>
-  <footer>
+  <% if @curation.retailers.size > 1 %>
+    <footer>
 
-    <%# More from retailers (palm) %>
-    <section class="hide-fully--non-palm" aria-labelledby="curation-retailers-palm">
-      <div class="txt-formatted mrg-base">
-        <h2 id="curation-retailers-palm">More from retailers</h2>
-      </div>
-      <%= render partial: 'more_from_retailers' %>
-    </section>
-    <%# //More from retailers (palm) %>
+      <%# More from retailers (palm) %>
+      <section class="hide-fully--non-palm" aria-labelledby="curation-retailers-palm">
+        <div class="txt-formatted mrg-base">
+          <h2 id="curation-retailers-palm">More from retailers</h2>
+        </div>
+        <%= render partial: 'more_from_retailers' %>
+      </section>
+      <%# //More from retailers (palm) %>
 
-    <%# You may also like %>
-    <%#<section class="product-curation__also-like" aria-labelledby="curation-also-like">
-      <div class="txt-formatted mrg-base">
-        <h2 id="curation-also-like">You may also like&#8230;</h2>
-      </div>
-    </section>%>
-    <%# //You may also like %>
+      <%# You may also like %>
+      <%#<section class="product-curation__also-like" aria-labelledby="curation-also-like">
+        <div class="txt-formatted mrg-base">
+          <h2 id="curation-also-like">You may also like&#8230;</h2>
+        </div>
+      </section>%>
+      <%# //You may also like %>
 
-  </footer>
+    </footer>
+  <% end %>
   <%# //'More from retailers' and 'You may also like' %>
 
 </article>

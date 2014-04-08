@@ -6,6 +6,10 @@ class Curation < Hashie::Mash
     end
   end
 
+  def image?
+    image_ref.present?
+  end
+
   def kind
     "curation"
   end

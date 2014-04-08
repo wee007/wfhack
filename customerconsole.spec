@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.273
+Version:     0.2.274
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,12 @@ fi
 
 
 %changelog
+* Tue Apr 08 2014 ci <doperations@au.westfield.com> 0.2.274-1
+- Merge pull request #1050 from jlambert/WSF-6166 (jlambert@au.westfield.com)
+- WSF-6166 refresh cassetes (jlambert@au.westfield.com)
+- WSF-6166 added centre information to index_xhr, to allow rendering of no
+  results page (jlambert@au.westfield.com)
+
 * Tue Apr 08 2014 ci <doperations@au.westfield.com> 0.2.273-1
 - Add tracking hooks for movie tile and session times - WSF-6499
   (cpearce@au.westfield.com)

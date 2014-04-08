@@ -16,25 +16,20 @@
 		float: left;
 		@include to-rem(margin-right, $spacing-base);
 
-		/* Images in `.islets`s need an appropriately sized margin */
-		.islet & {@include to-rem(margin-right, $spacing-half);}
+		/* Modifier: remove right spacing */
+		.slats--compact & {margin-right: 0;}
+
+		/* Modifier: as above but when used with the 'reverse' modifier */
+		.slats--compact.slats--rev & {margin-left: 0;}
+
+		/* Modifier: reverse the image location (right instead of left) */
+		.slats--rev & {
+			float: right;
+			margin-right: 0;
+			@include to-rem(margin-left, $spacing-base);
+		}
+
+			img {display: block;}
 	}
-
-	/* Modifier: reverse the image location (right instead of left) */
-	.slats__img--rev {
-		float: right;
-		@include to-rem(margin-left, $spacing-base);
-
-		/* Images in `.islets`s need an appropriately sized margin */
-		.islet & {@include to-rem(margin-left, $spacing-half);}
-	}
-
-	/* Modifier: remove spacing on the right/left of the image */
-	.slats__img--compact {margin-right: 0;}
-
-	.slats__img--compact.slats__img--rev {margin-left: 0;}
-
-		.slats__img img,
-		.slats__img--rev img {display: block;}
 
 	.slats__body {@extend %new-block-formatting-context;}

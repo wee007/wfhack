@@ -7,6 +7,8 @@
 
   .flag--shrink-wrap          - Shrink wrap
   .flag--spacing-half         - Half spacing between image- and text-like content
+  .flag--align-top            - Top alignment
+  .flag--align-btm            - Bottom alignment
 
   Styleguide Flag
 */
@@ -30,11 +32,11 @@
     display: table-cell;
     vertical-align: middle;
 
-    /* Modifier: alignment top */
-    .flag--top & {vertical-align: top;}
+    /* Modifier: top alignment */
+    .flag--align-top & {vertical-align: top;}
 
-    /* Modifier: alignment bottom */
-    .flag--btm & {vertical-align: bottom;}
+    /* Modifier: bottom alignment */
+    .flag--align-btm & {vertical-align: bottom;}
   }
 
   .flag__img {

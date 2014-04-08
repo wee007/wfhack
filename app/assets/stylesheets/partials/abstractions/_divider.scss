@@ -27,7 +27,7 @@
 
 /* Modifiers at breakpoints */
 @include respond-min($non-palm) {
-  /* Modifier: base spacing only at palm */
+  /* Modifier: base spacing only at non palm */
   .divider--palm {
     margin-bottom: 0;
     padding-bottom: 0;

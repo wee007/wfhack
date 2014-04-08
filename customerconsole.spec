@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.271
+Version:     0.2.272
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,12 @@ fi
 
 
 %changelog
+* Tue Apr 08 2014 ci <doperations@au.westfield.com> 0.2.272-1
+- Merge pull request #1055 from araeside/fix-product-filters-in-ie
+  (araeside@au.westfield.com)
+- change filter dropdown close logic and add js hook
+  (alec@smartalecwebsites.com.au)
+
 * Tue Apr 08 2014 ci <doperations@au.westfield.com> 0.2.271-1
 - Updates after code review (cpearce@au.westfield.com)
 - Two small amendments for product curation page: WSF-6482

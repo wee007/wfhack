@@ -52,6 +52,11 @@
       # used by the view but we'll map them anyway.
       angular.forEach params, (param, key) -> $scope[key] = param
 
+      # Need to trigger an event here so the placeholder polyfill can be reapplied to the page
+      # Has to be in a timeout to wait for the page to render
+      $timeout ->
+        $(document).trigger("products.change")
+
     setParams = (newAttribute, newValues) ->
       rParams = routeParams()
       qsParams = queryStringParams()
@@ -115,9 +120,8 @@
 
       # Need to trigger an event here so the placeholder polyfill can be reapplied to the page
       # Has to be in a timeout to wait for the page to render
-      unless Modernizr.input.placeholder
-        $timeout ->
-          $(document).trigger("products.change")
+      $timeout ->
+        $(document).trigger("products.change")
 
 
     # Filter controls / toggle / open / close

@@ -53,10 +53,12 @@ $preloader-stroke-width-px: $preloader-stroke-width + px;
   .preloader__spinner {
     @include to-rem(width height, 26);
     @include to-rem(margin, $spacing-third);
-    border-radius: 50%;
+    border-radius: 100%;
     border: $preloader-stroke-width-px solid $color-grey-dark-3;
 
     @include prefix(animation, rotate 1s infinite linear);
+
+    .android & {@include to-rem(height, 27);}
 
     /* the 'gap' in the preloader circle */
     &:after {

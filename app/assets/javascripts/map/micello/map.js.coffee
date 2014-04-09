@@ -330,7 +330,7 @@ class map.micello.Map
     geom.nm = geom.lr = name
 
   applyWestfieldStoreNames: ->
-    if (@geom)
+    if (@geoms)
       for geom in @geoms.types(['Building', 'Unit'])
         geoms = @geomGroupForGeom(geom)
         unless @storeForGeomGroup(geoms)

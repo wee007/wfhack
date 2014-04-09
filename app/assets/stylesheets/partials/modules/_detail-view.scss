@@ -172,10 +172,10 @@
         height: 100%;
 
         /* Deal */
-        .detail-view--deal & {left: 50%;}
+        .detail-view--deal & {left: $one-half;}
 
         /* Product */
-        .detail-view--product & {left: 60%;}
+        .detail-view--product & {left: $three-fifths;}
       }
   }
 

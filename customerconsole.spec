@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.275
+Version:     0.2.276
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,14 @@ fi
 
 
 %changelog
+* Wed Apr 09 2014 ci <doperations@au.westfield.com> 0.2.276-1
+- Merge pull request #1056 from ewee/ab_testing (ewee@au.westfield.com)
+- Merge pull request #1061 from araeside/fix-custom-map-names
+  (ewee@au.westfield.com)
+- fix typo (alec@smartalecwebsites.com.au)
+- [Spike, WSF-6459] Insert Google Analytics Content Experiment code only in UAT
+  (ewee@au.westfield.com)
+
 * Wed Apr 09 2014 ci <doperations@au.westfield.com> 0.2.275-1
 - 
 

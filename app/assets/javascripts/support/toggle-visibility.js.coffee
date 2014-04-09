@@ -5,24 +5,22 @@
 class @ToggleVisibility
   isActiveClass: 'is-active'
   triggerSelector: '[toggle-visibility]'
-  targetSelector: '.js-toggle-visibility-target'
+  targetSelector: 'js-toggle-visibility-target'
   constructor: ->
     @getTriggers()
     @initiaiseElements()
     @setupEventListeners()
 
   getTarget: (trigger, returnId = false) ->
-    returnVal
     targetId = trigger.attr('toggle-visibility')
-    returnId ? [$("##{targetId}"), targetId] : $("##{targetId}")
+    if returnId then [$("##{targetId}"), targetId] else $("##{targetId}")
 
   getTriggers: =>
     @triggers = $(@triggerSelector)
 
-  initiaiseElements: ->
-
-    @triggers.each ->
-      trigger = $(@)
+  initiaiseElements: =>
+    @triggers.each (i, element) =>
+      trigger = $(element)
 
       [target, targetId] = @getTarget(trigger, true)
 
@@ -49,12 +47,14 @@ class @ToggleVisibility
     # Click outside of target
     doc.click (event) =>
       # Only execute if click was not on a tog vis trigger or target
-      isToggleVisibility = "#{@triggerSelector}, #{@targetSelector}"
+      isToggleVisibility = "#{@triggerSelector}, .#{@targetSelector}"
       if $(event.target).parents(isToggleVisibility).length == 0 && !$(event.target).is(isToggleVisibility)
+        debugger
         @hide()
 
   toggleTarget: (trigger) =>
-    target = @getTriggers(trigger)
+    debugger
+    target = @getTarget(trigger)
 
     isActive = target.hasClass @isActiveClass
     if isActive
@@ -77,15 +77,16 @@ class @ToggleVisibility
     target.find('input[type=text], input[type=search]').eq(0).blur()
 
   show: (trigger, target) =>
+    # If there is another open tog vis instance and its not the one we're about to show, close it.
+    if @trigger? and @target? and @trigger.get(0) != trigger.get(0) and @target.get(0) != target.get(0)
+      @hide @trigger, @target
+      @trigger = null
+      @target = null
+
     trigger
       .addClass(@isActiveClass)
       .attr('attr-expanded', true)
     target.addClass @isActiveClass
-
-    if @trigger? and @target?
-      @hide @trigger, @target
-      @trigger = null
-      @target = null
 
 
 $ ->

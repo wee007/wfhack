@@ -67,4 +67,8 @@ group :test do
   gem 'vcr'
   gem 'nokogiri'
   gem 'simplecov'
+  # Gems for Acceptance tests:
+  gem 'mechanize', '2.7.2' # until mime-types dep issue with rails 4.0.2 is resolved
+  gem 'capybara-mechanize'
+  gem 'rspec_junit_formatter'
 end

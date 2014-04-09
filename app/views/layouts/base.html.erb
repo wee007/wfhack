@@ -113,6 +113,17 @@
   <%= raw third_party_universal_tagging %>
   <%# //3rd party JavaScript (Tealium) %>
 
+  <%#
+    [WSF-6459]
+    Added conditional statement to only insert the Google Analytics Content Experiment (GACE) code in UAT environment for testing purpose.
+    The purpose of the test is to figure out what the GACE code does prior to implementing a solution for the A/B testing.
+    The conditional statement will be removed once it is tested successfully in UAT.
+  %>
+  <% if Rails.env.uat? %>
+    <%# Google Analytics Content Experiment %>
+    <%= javascript_include_tag "vendor/google-analytics-content-experiment" %>
+    <%# //Google Analytics Content Experiment %>
+  <% end %>
 </body>
 
 </html>

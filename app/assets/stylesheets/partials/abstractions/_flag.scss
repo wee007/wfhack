@@ -49,6 +49,7 @@
       @include to-rem(padding-left, $spacing-base);
 
     }
+
     /* Modifier: Half spacing between image- and text-like content */
-    .flag--rev.flag--spacing-half & {@include to-rem(padding-right, $spacing-half);}
+    .flag--rev.flag--spacing-half & {@include to-rem(padding-left, $spacing-half);}
   }

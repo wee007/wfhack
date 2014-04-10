@@ -4,6 +4,7 @@
 #= require fastclick
 #= require stores/stores_keyword_filter
 #= require stores/dynamic_heights
+#= require stores/view_subcategories
 
 class StoreMapPage
 
@@ -51,13 +52,6 @@ class StoreMapPage
           storeMapPageReady()
           delete storeMapPageReady
         ), 0)
-
-  recompileAngularScope: ->
-    scope = angular.element(pjaxContainerSelector).scope()
-    compile = angular.element(pjaxContainerSelector).injector().get('$compile')
-
-    compile($pjaxContainer.contents())(scope)
-    scope.$apply()
 
   pjaxNavigate: (event) =>
     @startLoading()
@@ -119,13 +113,9 @@ class StoreMapPage
 
     false
 
-  updateAngularStoreListControllerLinks: (viewingMap) ->
-    $scope = angular.element($('[ng-controller="StoreListController"]').get(0)).scope()
-    if $scope
-      $scope.$apply -> $scope.viewingMap = viewingMap
+
 
   updateGUI: (viewingMap) ->
-    @updateAngularStoreListControllerLinks(viewingMap)
     $('.js-stores-maps-toggle-btn').toggleClass('is-expanded', viewingMap)
     $('.js-stores-maps-toggle-btn-txt').html(if viewingMap then 'list' else 'map')
     $('.js-stores-maps-toggle-wrap').toggleClass('is-map-view', viewingMap)

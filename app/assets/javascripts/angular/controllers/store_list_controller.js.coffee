@@ -1,7 +1,6 @@
 ((app) ->
   app.controller 'StoreListController', ['$scope', '$document', '$window', '$timeout', ( $scope, $document, $window, $timeout ) ->
-    $scope.viewingSubCategory = undefined
-    $scope.viewSubCategory = (category) -> $scope.viewingSubCategory = category
+
     $scope.queryParams = ''
     $scope.viewingMap = false
 

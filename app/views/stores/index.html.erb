@@ -12,7 +12,7 @@
     </span>
     <%# //PJAX preloader %>
 
-    <div ng-controller="StoreListController" class="stores-maps__inner stores-maps__inner--listing <%= 'is-filter-applied' if @active_category %>">
+    <div class="stores-maps__inner stores-maps__inner--listing <%= 'is-filter-applied' if @active_category %>">
       <%# Filters & list/map toggle button %>
       <div class="stores-maps__filters-toggle js-stores-list-position-filter-container">
 
@@ -53,25 +53,18 @@
 
                     <% @categories.each do |category| %>
                       <li class="drop-down-menu__divider">
-                        <% if category.children.empty? %>
-                          <% if filtering_gift_cards? && category.stores_accepting_gift_cards < 1 %>
-                            <div class="drop-down-menu__hdr-btn btn btn--full btn--full-left btn--pointer is-disabled is-disabled--no-hover">
-                              <%= category.name %>
-                              <span class="hide-visually"> (gift cards not available for this category)</span>
-                              <span class="icon icon--arrow-right-big icon--lrg btn--pointer__icon js-disabled-hide" aria-hidden="true"></span>
-                            </div>
-                          <% else %>
-                            <a href="<%= centre_stores_category_path(@centre, category.code) %>" ng-href="<%= centre_stores_category_path(@centre, category.code) %>{{queryParams}}" class="drop-down-menu__hdr-btn btn btn--full btn--full-left btn--pointer is-childless js-pjax-link-stores" ng-click="saveCategory('<%= category.code %>')"><%= category.name %></a>
-                          <% end %>
+                        <%# If filtering by gift card and catrgory doesnt have stories accepting gift_card %>
+                        <% if filtering_gift_cards? && category.stores_accepting_gift_cards < 1 %>
+                          <div class="drop-down-menu__hdr-btn btn btn--full btn--full-left btn--pointer is-disabled is-disabled--no-hover">
+                            <%= category.name %>
+                            <span class="hide-visually"> (gift cards not available for this category)</span>
+                            <span class="icon icon--arrow-right-big icon--lrg btn--pointer__icon js-disabled-hide" aria-hidden="true"></span>
+                          </div>
                         <% else %>
-                          <% if filtering_gift_cards? && category.stores_accepting_gift_cards < 1 %>
-                            <div class="drop-down-menu__hdr-btn btn btn--full btn--full-left btn--pointer is-disabled is-disabled--no-hover">
-                              <%= category.name %>
-                              <span class="hide-visually"> (gift cards not available for this category)</span>
-                              <span class="icon icon--arrow-right-big icon--lrg btn--pointer__icon js-disabled-hide" aria-hidden="true"></span>
-                            </div>
+                          <% if category.children.empty? %>
+                            <a href="<%= centre_stores_category_path(@centre, category.code) %>" ng-href="<%= centre_stores_category_path(@centre, category.code) %>{{queryParams}}" class="drop-down-menu__hdr-btn btn btn--full btn--full-left btn--pointer is-childless js-pjax-link-stores" ng-click="saveCategory('<%= category.code %>')"><%= category.name %></a>
                           <% else %>
-                            <a ng-click="viewSubCategory('<%= category.code %>')" href="#<%= category.code %>_categories" id="<%= category.code %>" aria-haspopup="true" aria-controls="<%= category.code %>_categories" class="drop-down-menu__hdr-btn btn btn--full btn--full-left btn--pointer test-stores-main-category-link">
+                            <a href="#<%= category.code %>_categories" id="<%= category.code %>" aria-haspopup="true" aria-controls="<%= category.code %>_categories" class="drop-down-menu__hdr-btn btn btn--full btn--full-left btn--pointer js-stores-view-subcategories test-stores-main-category-link">
                               <%= category.name %>
                               <span class="hide-visually"> (view sub categories)</span>
                               <span class="icon icon--arrow-right-big icon--lrg btn--pointer__icon js-disabled-hide" aria-hidden="true"></span>
@@ -85,7 +78,7 @@
 
                   <%# T2 categories %>
                   <% @categories.with_children.each do |category| %>
-                    <div ng-class="{'is-active': (viewingSubCategory == '<%= category.code %>')}"
+                    <div class="toggle-visibility js-stores-category-<%= category.code %>"
                          ng-attr-aria-hidden="{{viewingSubCategory != '<%= category.code %>'}}"
                          aria-labelledby="<%= category.code %>"
                       id="<%= category.code %>_categories" class="toggle-visibility test-stores-sub-categories">

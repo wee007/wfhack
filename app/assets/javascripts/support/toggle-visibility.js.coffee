@@ -35,7 +35,9 @@ class @ToggleVisibility
   setupEventListeners: =>
     self = @
     doc = $(document)
-    @triggers.click ->
+
+    # Attach event listener to document so it works with pjax on stores page, where elements come and go without page load
+    doc.on 'click', '[toggle-visibility]', ->
       self.toggleTarget $(@)
 
     # Escape key closes the target and stops event from bubbling to document
@@ -48,12 +50,10 @@ class @ToggleVisibility
     doc.click (event) =>
       # Only execute if click was not on a tog vis trigger or target
       isToggleVisibility = "#{@triggerSelector}, .#{@targetSelector}"
-      if $(event.target).parents(isToggleVisibility).length == 0 && !$(event.target).is(isToggleVisibility)
-        debugger
+      if $(event.target).parents(isToggleVisibility).length == 0 and !$(event.target).is(isToggleVisibility) and @trigger? and @target?
         @hide()
 
   toggleTarget: (trigger) =>
-    debugger
     target = @getTarget(trigger)
 
     isActive = target.hasClass @isActiveClass

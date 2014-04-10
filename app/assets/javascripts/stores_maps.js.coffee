@@ -66,8 +66,12 @@ class StoreMapPage
       body.on('pjax:popstate', pjaxContainerSelector, @pjaxComplete)
       body.on('click', 'a.js-pjax-link-stores', @pjaxNavigate)
 
+
       body.on 'submit', 'form[data-pjax]', (event) ->
         $.pjax.submit(event, pjaxContainerSelector)
+
+    $(document).on 'change', '.js-stores-gift-card-toggle', -> $(@).closest('form').trigger('submit')
+
 
     body.on('click', '.is-list-view .js-stores-maps-toggle-btn', @show)
     body.on('click', '.is-map-view .js-stores-maps-toggle-btn', @hide)

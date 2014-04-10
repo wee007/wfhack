@@ -31,7 +31,6 @@ class StoreMapPage
 
   pjaxComplete: =>
     @pageLoaded()
-    @recompileAngularScope()
 
     westfield.is_store_index = $('.js-stores-index').length == 1
     westfield.filtering_by_category = $('.js-stores-keyword-filter-post-filter-count').length > 0

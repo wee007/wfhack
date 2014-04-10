@@ -49,7 +49,8 @@
                 <div class="drop-down-menu__target drop-down-menu__target--alt-width-palm drop-down pointer-up box box--drop-down test-stores-category-filter-drop-down" id="category-store-filter">
 
                   <%# T1 categories %>
-                  <ul ng-class="{'is-active': (viewingSubCategory == undefined)}" id="stores-main-categories" class="drop-down-menu__list toggle-visibility test-stores-main-categories <%= 'is-active' unless @active_category %>">
+
+                  <ul id="stores-main-categories" class="drop-down-menu__list toggle-visibility <%= 'is-active' unless @active_category %> js-stores-categories test-stores-main-categories">
 
                     <% @categories.each do |category| %>
                       <li class="drop-down-menu__divider">
@@ -84,7 +85,7 @@
                       id="<%= category.code %>_categories" class="toggle-visibility test-stores-sub-categories">
                       <div class="drop-down-menu__hdr drop-down-menu__divider islet">
                         <h2><%= category.name %></h2>
-                        <a ng-click="viewSubCategory(null)" href="#stores-main-categories" class="btn js-disabled-hide">
+                        <a href="#stores-main-categories" class="btn js-disabled-hide js-stores-hide-subcategories">
                           <span class="hide-visually">Back to main categories</span>
                           <span class="icon icon--arrow-left-big icon--lrg" aria-hidden="true"></span>
                         </a>

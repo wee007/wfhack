@@ -33,12 +33,5 @@
     $scope.giftCardChange = ->
       $(':submit', $window.giftCardForm).click()
       @
-
-    # Clicking outside will unselect category
-    $document.bind 'click', -> $scope.viewSubCategory(null)
-
-    # Escape key will unselect category
-    $document.bind 'keydown', (event) ->
-      $scope.viewSubCategory(null) if event.keyCode == 27
   ]
 ) angular.module("Westfield")

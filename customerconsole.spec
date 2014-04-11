@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.281
+Version:     0.2.282
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,11 @@ fi
 
 
 %changelog
+* Fri Apr 11 2014 ci <doperations@au.westfield.com> 0.2.282-1
+- Merge pull request #1067 from ewee/ab_testing (araeside@au.westfield.com)
+- [Spike, WSF-6459] Include Google Analytics Content Experiment JS file
+  (ewee@au.westfield.com)
+
 * Fri Apr 11 2014 ci <doperations@au.westfield.com> 0.2.281-1
 - Merge pull request #1066 from jlambert/centre-service-hotfix
   (jlambert@au.westfield.com)

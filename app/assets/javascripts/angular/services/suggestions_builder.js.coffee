@@ -2,7 +2,6 @@
   app.service "SuggestionsBuilder", ->
 
     whiteListedTypes = [
-      'store_category'
       'store'
       'retail_chain'
       'colour'

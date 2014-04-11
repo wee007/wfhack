@@ -2,6 +2,7 @@
   app.service "SuggestionsBuilder", ->
 
     whiteListedTypes = [
+      'store_category'
       'store'
       'retail_chain'
       'colour'
@@ -38,6 +39,7 @@
     buildUrl = (type, params, centre_id) ->
       switch type
         when "store" then "/#{centre_id}/stores/#{params.retailer_code}/#{params.id}"
+        when "store_category" then "/#{centre_id}/stores/#{params.category}"
         when "retail_chain" then "/#{centre_id}/products?retailer[]=#{params.retailer_code}"
         when "product_query" then "/#{centre_id}/products?search_query=#{params.query}"
         when "colour" then "/#{centre_id}/products?colour[]=#{params.colour}"

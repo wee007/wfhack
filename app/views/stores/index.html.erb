@@ -65,7 +65,7 @@
                           <% if category.children.empty? %>
                             <a href="<%= centre_stores_category_path(@centre, category.code) %>" ng-href="<%= centre_stores_category_path(@centre, category.code) %>{{queryParams}}" class="drop-down-menu__hdr-btn btn btn--full btn--full-left btn--pointer is-childless js-pjax-link-stores" ng-click="saveCategory('<%= category.code %>')"><%= category.name %></a>
                           <% else %>
-                            <a href="#<%= category.code %>_categories" id="<%= category.code %>" aria-haspopup="true" aria-controls="<%= category.code %>_categories" class="drop-down-menu__hdr-btn btn btn--full btn--full-left btn--pointer js-stores-view-subcategories test-stores-main-category-link">
+                            <a href="#<%= category.code %>_categories" id="<%= category.code %>" aria-haspopup="true" aria-controls="<%= category.code %>_categories" class="drop-down-menu__hdr-btn btn btn--full btn--full-left btn--pointer js-stores-view-subcategories js-stores-page-state-params test-stores-main-category-link">
                               <%= category.name %>
                               <span class="hide-visually"> (view sub categories)</span>
                               <span class="icon icon--arrow-right-big icon--lrg btn--pointer__icon js-disabled-hide" aria-hidden="true"></span>
@@ -99,7 +99,7 @@
                                 <span class="hide-visually"> (gift cards not available for this category)</span>
                               </div>
                             <% else %>
-                              <a href="<%= centre_stores_category_path(@centre, sub_category.code) %>" ng-href="<%= centre_stores_category_path(@centre, sub_category.code) %>{{queryParams}}" class="btn btn--full btn--full-left js-pjax-link-stores test-stores-sub-category-link" ng-click="saveCategory('<%= sub_category.code %>')" target="_self"><%= sub_category.name %></a>
+                              <a href="<%= centre_stores_category_path(@centre, sub_category.code) %><%= '?gift_cards=true' if filtering_gift_cards? %>" class="btn btn--full btn--full-left js-pjax-link-stores js-stores-page-state-params test-stores-sub-category-link" ng-click="saveCategory('<%= sub_category.code %>')" target="_self"><%= sub_category.name %></a>
                             <% end %>
                           </li>
                         <% end %>
@@ -116,7 +116,8 @@
 
             <%# Applied category %>
             <% if @active_category %>
-              <form action="<%= centre_stores_path(@centre) %>" data-pjax method="get" class="stores-maps__filters__item js-map-view-state">
+              <form action="<%= centre_stores_path(@centre) %>" data-pjax method="get" class="stores-maps__filters__item">
+                  <input type="hidden" name="map" value="false" class="js-map-view-state">
                   <legend class="hide-visually">Clear the filtered category from the stores list</legend>
                   <input type="hidden" name="gift_cards" value="{{gift_cards}}">
                   <input type="hidden" name="map" value="{{viewingMap}}">
@@ -129,8 +130,8 @@
             <%# //Applied category %>
 
             <%# Gift card filter %>
-            <form id="giftCardForm" action="<%= request.path %>" method="get" class="stores-maps__filters__item js-map-view-state">
-              <input type="hidden" name="map" value="{{viewingMap}}">
+            <form id="giftCardForm" data-pjax action="<%= request.path %>" method="get" class="stores-maps__filters__item">
+              <input type="hidden" name="map" value="false" class="js-map-view-state">
               <legend class="hide-visually">Gift card filter</legend>
               <label for="gift-card-store-filter" class="btn btn--main btn--main-white btn--main-toggle btn--main-toggle-ios <%= 'is-disabled' if !@stores.any_accepting_gift_cards? %> <%= 'is-active' if filtering_gift_cards? %>">
                 <input type="checkbox" name="gift_cards" id="gift-card-store-filter" value="true" class="btn--main-toggle__input hide-visually js-stores-gift-card-toggle" <%= 'checked' if filtering_gift_cards? %><%= 'disabled' unless @stores.any_accepting_gift_cards? %>>

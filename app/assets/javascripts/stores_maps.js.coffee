@@ -70,7 +70,9 @@ class StoreMapPage
       body.on 'submit', 'form[data-pjax]', (event) ->
         $.pjax.submit(event, pjaxContainerSelector)
 
-    $(document).on 'change', '.js-stores-gift-card-toggle', -> $(@).closest('form').trigger('submit')
+    $(document).on 'change', '.js-stores-gift-card-toggle', (val) ->
+      form = $(@).closest('form')
+      form.trigger('submit')
 
 
     body.on('click', '.is-list-view .js-stores-maps-toggle-btn', @show)
@@ -108,15 +110,12 @@ class StoreMapPage
 
   hide: =>
     @updateGUI @map.hide()
-    # Remove map popup when switck back to store list
 
     @dynamic_heights.setupDefaultHeights()
     @dynamic_heights.check()
     @keyword_filter.setupToggleListPosition()
 
     false
-
-
 
   updateGUI: (viewingMap) ->
     $('.js-stores-maps-toggle-btn').toggleClass('is-expanded', viewingMap)

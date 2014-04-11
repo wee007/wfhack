@@ -71,7 +71,7 @@
     &.is-loading {
       .preloader {display: block;}
 
-      .stores-maps__inner {display: none;}
+      &.is-list-view .stores-maps__inner {display: none;}
     }
   }
 

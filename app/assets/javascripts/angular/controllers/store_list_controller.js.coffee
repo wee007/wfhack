@@ -27,11 +27,5 @@
         sessionStorage.removeItem 'giftCards'
       updateQueryParams()
 
-    $scope.$watch('viewingMap', updateQueryParams)
-
-    # Gift card submit
-    $scope.giftCardChange = ->
-      $(':submit', $window.giftCardForm).click()
-      @
   ]
 ) angular.module("Westfield")

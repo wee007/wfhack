@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.279
+Version:     0.2.280
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,9 @@ fi
 
 
 %changelog
+* Fri Apr 11 2014 ci <doperations@au.westfield.com> 0.2.280-1
+- re-add store categories with correct url (jlambert@au.westfield.com)
+
 * Fri Apr 11 2014 ci <doperations@au.westfield.com> 0.2.279-1
 - 
 

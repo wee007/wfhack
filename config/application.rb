@@ -39,6 +39,7 @@ module CustomerConsole
                                    prism/prism.css
                                    styleguide/styleguide.css
                                    vendor/kss.js
+                                   vendor/google-analytics-content-experiment.js
                                    )
     if Rails.env.development?
       require File.expand_path('../../lib/service_proxy', __FILE__)

@@ -8,7 +8,6 @@
       'product_category'
       'event'
       'centre_information'
-      'centre_service'
       'deal'
     ]
 

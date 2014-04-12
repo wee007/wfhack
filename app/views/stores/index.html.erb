@@ -117,14 +117,15 @@
             <%# Applied category %>
             <% if @active_category %>
               <form action="<%= centre_stores_path(@centre) %>" data-pjax method="get" class="stores-maps__filters__item">
-                  <input type="hidden" name="map" value="false" class="js-map-view-state">
-                  <legend class="hide-visually">Clear the filtered category from the stores list</legend>
-                  <input type="hidden" name="gift_cards" value="{{gift_cards}}">
-                  <input type="hidden" name="map" value="{{viewingMap}}">
-                  <button type="submit" class="tags__btn tags__btn--solo btn">
-                    <span class="txt-truncate"><%= @active_category.name %></span>
-                    <span class="icon icon--close-sml icon--lrg icon--flush-top" aria-hidden="true"></span>
-                  </button>
+                <input type="hidden" name="map" value="false" class="js-map-view-state">
+                <legend class="hide-visually">Clear the filtered category from the stores list</legend>
+                <% if filtering_gift_cards? %>
+                  <input type="hidden" name="gift_cards" value="true">
+                <% end %>
+                <button type="submit" class="tags__btn tags__btn--solo btn">
+                  <span class="txt-truncate"><%= @active_category.name %></span>
+                  <span class="icon icon--close-sml icon--lrg icon--flush-top" aria-hidden="true"></span>
+                </button>
               </form>
             <% end %>
             <%# //Applied category %>

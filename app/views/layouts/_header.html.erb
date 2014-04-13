@@ -25,7 +25,7 @@
 				<div class="header-centre-select container">
 					<h1 class="header-centre-select__centre-name"><%= @centre.short_name %></h1>
 					<button type="button" class="header-centre-select__centre-name btn h1" toggle-visibility="nav-social-tertiary-container" aria-owns="nav-social-tertiary-container"><%= @centre.short_name %><span class="hide-visually"> (show menu)</span> <span class="icon icon--arrow-down-full" aria-hidden="true"></span></button>
-					<a href="/" target="_self" class="header-centre-select__link" rel="home">Change<span class="hide-visually--palm"> centre</span><span class="icon icon--arrow-right icon--xlrg icon--flush-top" aria-hidden="true"></span></a>
+					<a href="/" target="_self" class="header-centre-select__link" rel="home">Change<span class="hide-visually--palm"> centre</span><span class="icon icon--arrow-right icon--lrger icon--flush-top" aria-hidden="true"></span></a>
 				</div>
 				<%# //Centre selector %>
 
@@ -89,29 +89,29 @@
 				<div class="nav-social-tertiary-container container drop-down pointer-up" id="nav-social-tertiary-container">
 
 					<%# Centre selector (large tablet/desk) %>
-					<a href="/" target="_self" class="header-centre-select__link header-centre-select__link--alt" rel="home">Change centre<span class="icon icon--arrow-right icon--xlrg icon--flush-top" aria-hidden="true"></span></a>
+					<a href="/" target="_self" class="header-centre-select__link header-centre-select__link--alt" rel="home">Change centre<span class="icon icon--arrow-right icon--lrger icon--flush-top" aria-hidden="true"></span></a>
 					<%# Centre selector (large tablet/desk) %>
 
 					<%# Social follow navigation - for 'Centre home page banner' only at large desktop size %>
 					<% if social_media.present? %>
 						<ul class="nav-social-follow horiz-list">
 							<% if @centre.facebook.present? %>
-								<li><a href="<%= @centre.facebook %>" target="_blank" rel="external"><span class="hide-visually">Facebook</span><span class="icon icon--facebook icon--xlrg icon--flush-top" aria-hidden="true"></span></a></li>
+								<li><a href="<%= @centre.facebook %>" target="_blank" rel="external"><span class="hide-visually">Facebook</span><span class="icon icon--facebook icon--lrger icon--flush-top" aria-hidden="true"></span></a></li>
 							<% end %>
 							<% if @centre.twitter.present? %>
-								<li><a href="<%= @centre.twitter %>" target="_blank" rel="external"><span class="hide-visually">Twitter</span><span class="icon icon--twitter icon--xlrg icon--flush-top" aria-hidden="true"></span></a></li>
+								<li><a href="<%= @centre.twitter %>" target="_blank" rel="external"><span class="hide-visually">Twitter</span><span class="icon icon--twitter icon--lrger icon--flush-top" aria-hidden="true"></span></a></li>
 							<% end %>
 							<% if @centre.instagram.present? %>
-								<li><a href="<%= @centre.instagram %>" target="_blank" rel="external"><span class="hide-visually">Instagram</span><span class="icon icon--instagram icon--xlrg icon--flush-top" aria-hidden="true"></span></a></li>
+								<li><a href="<%= @centre.instagram %>" target="_blank" rel="external"><span class="hide-visually">Instagram</span><span class="icon icon--instagram icon--lrger icon--flush-top" aria-hidden="true"></span></a></li>
 							<% end %>
 							<% if @centre.pinterest.present? %>
-								<li><a href="<%= @centre.pinterest %>" target="_blank" rel="external"><span class="hide-visually">Pinterest</span><span class="icon icon--pinterest icon--xlrg icon--flush-top" aria-hidden="true"></span></a></li>
+								<li><a href="<%= @centre.pinterest %>" target="_blank" rel="external"><span class="hide-visually">Pinterest</span><span class="icon icon--pinterest icon--lrger icon--flush-top" aria-hidden="true"></span></a></li>
 							<% end %>
 							<% if @centre.youtube.present? %>
-								<li><a href="<%= @centre.youtube %>" target="_blank" rel="external"><span class="hide-visually">YouTube</span><span class="icon icon--youtube icon--xlrg icon--flush-top" aria-hidden="true"></span></a></li>
+								<li><a href="<%= @centre.youtube %>" target="_blank" rel="external"><span class="hide-visually">YouTube</span><span class="icon icon--youtube icon--lrger icon--flush-top" aria-hidden="true"></span></a></li>
 							<% end %>
 							<% if @centre.google_plus.present? %>
-								<li><a href="<%= @centre.google_plus %>" target="_blank" rel="external"><span class="hide-visually">Google Plus</span><span class="icon icon--google-plus icon--xlrg icon--flush-top" aria-hidden="true"></span></a></li>
+								<li><a href="<%= @centre.google_plus %>" target="_blank" rel="external"><span class="hide-visually">Google Plus</span><span class="icon icon--google-plus icon--lrger icon--flush-top" aria-hidden="true"></span></a></li>
 							<% end %>
 						</ul>
 					<% end %>
@@ -152,7 +152,7 @@
 				<%# Search toggle btn %>
 				<button type="button" class="btn" toggle-visibility="site-search" aria-owns="site-search">
 					<span class="hide-visually">Show site search</span>
-					<span class="icon icon--search icon--spacing icon--flush-top icon--kilo" aria-hidden="true"></span>
+					<span class="icon icon--search icon--spacing icon--flush-top icon--xlrg" aria-hidden="true"></span>
 				</button>
 				<%# //Search toggle btn %>
 
@@ -205,9 +205,9 @@
 			<nav role="navigation" aria-label="Main navigation">
 				<ul class="nav-main horiz-list horiz-list--fit horiz-list--center horiz-list--dividers">
 				  <li><%= link_to centre_stores_path(params[:centre_id] || params[:id]), :class => (page?(:stores) ? 'is-active' : nil), target: '_self' do %><span class="icon icon--store" aria-hidden="true"></span><span class="hide-visually"> Stores</span><% end %></li>
-				  <li><%= link_to centre_products_path(params[:centre_id] || params[:id]), :class => (page?(:products) ? 'is-active' : nil), target: '_self' do %><span class="icon icon--products" aria-hidden="true"></span><span class="hide-visually"> Products</span><% end %></li>
-				  <li><%= link_to centre_deals_path(params[:centre_id] || params[:id]), :class => (page?(:deals) ? 'is-active' : nil), target: '_self' do %><span class="icon icon--deals" aria-hidden="true"></span><span class="hide-visually"> Deals</span><% end %></li>
-				  <li><%= link_to centre_events_path(params[:centre_id] || params[:id]), :class => (page?(:events) ? 'is-active' : nil), target: '_self' do %><span class="icon icon--events" aria-hidden="true"></span><span class="hide-visually"> Events</span><% end %></li>
+				  <li><%= link_to centre_products_path(params[:centre_id] || params[:id]), :class => (page?(:products) ? 'is-active' : nil), target: '_self' do %><span class="icon icon--product" aria-hidden="true"></span><span class="hide-visually"> Products</span><% end %></li>
+				  <li><%= link_to centre_deals_path(params[:centre_id] || params[:id]), :class => (page?(:deals) ? 'is-active' : nil), target: '_self' do %><span class="icon icon--deal" aria-hidden="true"></span><span class="hide-visually"> Deals</span><% end %></li>
+				  <li><%= link_to centre_events_path(params[:centre_id] || params[:id]), :class => (page?(:events) ? 'is-active' : nil), target: '_self' do %><span class="icon icon--event" aria-hidden="true"></span><span class="hide-visually"> Events</span><% end %></li>
 				</ul>
 			</nav>
 			<%# //Main navigation %>

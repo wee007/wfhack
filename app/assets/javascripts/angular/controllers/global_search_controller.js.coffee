@@ -76,10 +76,15 @@
 
     $scope.iconMapping = (type) ->
       suffix = type
-      suffix = 'info' if type == "centre_information" 
-      suffix = 'info' if type == "centre_services"
-      suffix = 'store' if type == "stores"
-      return 'icon--' + suffix
+      mapping =
+        'centre_information': 'info'
+        'centre_services': 'info'
+        'stores': 'store'
+        'products': 'product'
+        'deals': 'deal'
+        'events': 'event'
+      suffix = mapping[type] if mapping.hasOwnProperty(type)
+      return "icon--#{suffix}"
 
     $scope.unsnake = (name) ->
       str = name.replace("_", " ")

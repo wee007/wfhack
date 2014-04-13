@@ -51,3 +51,12 @@ code {color: $color-blue;}
 /* [STRIKETHOUGH]
 -------------------------------------------------------*/
 s {text-decoration: line-through;}
+
+
+/* [MARK]
+-------------------------------------------------------*/
+mark {
+  background: none;
+  font-weight: bold;
+  color: inherit;
+}

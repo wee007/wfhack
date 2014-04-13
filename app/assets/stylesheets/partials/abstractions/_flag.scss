@@ -6,6 +6,7 @@
   Place any image- and text-like content side-by-side with vertical alignment.
 
   .flag--shrink-wrap          - Shrink wrap
+  .flag--spacing-half         - Half spacing between image- and text-like content
 
   Styleguide Flag
 */
@@ -39,9 +40,16 @@
   .flag__img {
     @include to-rem(padding-right, $spacing-base);
 
+    /* Modifier: Half spacing between image- and text-like content */
+    .flag--spacing-half & {@include to-rem(padding-right, $spacing-half);}
+
     /* Modifier: switch the padding around for when the image is on the right of `flag__body` */
     .flag--rev & {
       padding-right: 0;
       @include to-rem(padding-left, $spacing-base);
+
     }
+
+    /* Modifier: Half spacing between image- and text-like content */
+    .flag--rev.flag--spacing-half & {@include to-rem(padding-left, $spacing-half);}
   }

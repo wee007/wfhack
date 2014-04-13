@@ -33,7 +33,7 @@
 .icon--store:before {content: "\e002";}
 
 /* Products */
-.icon--products:before {content: "\e000";}
+.icon--product:before {content: "\e000";}
 
 /* Product collection */
 .icon--product-collection:before {content: "\e03f";}
@@ -42,13 +42,13 @@
 .icon--product-curation:before {content: "\e03e";}
 
 /* Deals */
-.icon--deals:before {content: "\e001";}
+.icon--deal:before {content: "\e001";}
 
 /* Events */
-.icon--events:before {content: "\e003";}
+.icon--event:before {content: "\e003";}
 
 /* Favourites */
-.icon--favs:before {content: "\e030";}
+.icon--fav:before {content: "\e030";}
 
 /* Search */
 .icon--search:before {content: "\e014";}
@@ -251,14 +251,22 @@
 /* Modifier: large */
 .icon--lrg:before {@include font-size($font-size-lrg, 1);}
 
-.icon--xlrg:before {@include font-size($font-size-lrger, 1);}
+.icon--lrger:before {@include font-size($font-size-lrger, 1);}
+
+.icon--xlrg:before {@include font-size($font-size-xlrg, 1);}
 
 /* Modifier: extra large */
-.icon--giga:before {@include font-size(48, 1);}
+.icon--giga:before {@include font-size($font-size-giga, 1);}
 
-.icon--mega:before {@include font-size(30, 1);}
+.icon--mega:before {@include font-size($font-size-mega, 1);}
 
-.icon--kilo:before {@include font-size($font-size-xlrg, 1);}
+.icon--kilo:before {@include font-size($font-size-kilo, 1);}
+
+.icon--hecto:before {@include font-size($font-size-hecto, 1);}
+
+@include respond-min($non-palm) {
+  .icon--hecto-non-palm:before {@include font-size($font-size-hecto, 1);}
+}
 
 /* Modifier: restore base font size */
 .icon--base-size:before {font-size: inherit;}

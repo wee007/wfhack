@@ -5,6 +5,9 @@
 /*
 	Place any image- and text-like content side-by-side.
 
+	.slats--compact					- No spacing between image- and text-like content
+	.slats--rev							- Reverse the positioning of image- and text-like content
+
 	Styleguide Slats
 */
 
@@ -16,18 +19,18 @@
 		float: left;
 		@include to-rem(margin-right, $spacing-base);
 
-		/* Modifier: remove right spacing */
+		/* Modifier: no spacing between image- and text-like content */
 		.slats--compact & {margin-right: 0;}
 
-		/* Modifier: as above but when used with the 'reverse' modifier */
-		.slats--compact.slats--rev & {margin-left: 0;}
-
-		/* Modifier: reverse the image location (right instead of left) */
+		/* Modifier: reverse the positioning of image- and text-like content */
 		.slats--rev & {
 			float: right;
 			margin-right: 0;
 			@include to-rem(margin-left, $spacing-base);
 		}
+
+		/* Modifier: no spacing between image- and text-like content when used with 'Reversed' modifier */
+		.slats--compact.slats--rev & {margin-left: 0;}
 
 			img {display: block;}
 	}

@@ -30,13 +30,12 @@
       facetObject = {}
       angular.forEach facets, (facet) ->
         if facet.field is facetName
-
           # Singular facet details are stored on the object
           facetObject =
             field: facet.field
             title: facet.title
             values: (if (facet.values and facet.values.length) then facet.values else facet)
-
+            resultsCount: facet.values.length
       facetObject
 
 ) angular.module("Westfield")

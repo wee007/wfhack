@@ -5,4 +5,9 @@ namespace :spec do
   RSpec::Core::RakeTask.new(:unit) do |task|
     task.pattern = FileList['spec/**/*_spec.rb'].exclude("spec/acceptance/**/*_spec.rb")
   end
+  
+  desc 'Run all specs in spec/acceptance directory'
+  RSpec::Core::RakeTask.new(:acceptance) do |task|
+    task.pattern = FileList['spec/acceptance/**/*_spec.rb']
+  end
 end

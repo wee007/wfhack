@@ -72,11 +72,11 @@ describe CannedSearch do
 
   it "should be able to recognize the various routes to apply the correct icon" do
     routes_and_icons = {
-      "/bondijunction/products" => "products",
+      "/bondijunction/products" => "product",
       "/bondijunction/stores/1001-optical/21256" => "store",
       "/bondijunction/hours" => "hours",
       "/bondijunction/info" => "info",
-      "/bondijunction/deals" => "deals"
+      "/bondijunction/deals" => "deal"
     }
 
     routes_and_icons.each do |url,icon|

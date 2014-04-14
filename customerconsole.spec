@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.283
+Version:     0.2.284
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,11 @@ fi
 
 
 %changelog
+* Mon Apr 14 2014 ci <doperations@au.westfield.com> 0.2.284-1
+- Merge pull request #1072 from bpritchard/master (bpritchard@au.westfield.com)
+- backed out acceptance tests for trading hours
+  (benpritchard@aud27140.au.ad.westfield.com)
+
 * Mon Apr 14 2014 ci <doperations@au.westfield.com> 0.2.283-1
 - Merge pull request #1062 from cpearce/misc-fixes (cpearce@au.westfield.com)
 - Merge pull request #1069 from araeside/fix-canned-search-icon

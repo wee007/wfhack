@@ -44,7 +44,7 @@
             <div class="islet island-non-palm box">
 
               <%# Centre hours table %>
-              <table cellspacing="0" class="table-striped table-fixed">
+              <table cellspacing="0" class="table-striped table-fixed test-centre-hours-table-<%= week_number %>">
                 <caption><%= week.find { |hour| hour.christmas? } ? "Christmas Centre Hours" : "Westfield Centre Hours" %></caption>
 
                 <colgroup>
@@ -120,7 +120,7 @@
                 <%# //Store filter %>
 
                 <%# Store hours table %>
-                <table cellspacing="0" class="table-striped table-fixed">
+                <table cellspacing="0" class="table-striped table-fixed test-store-hours-table-<%= week_number %>">
                   <caption class="flush-btm"><span class="hide-visually"><%= @store.name %> shopping hours</span></caption>
 
                   <colgroup>

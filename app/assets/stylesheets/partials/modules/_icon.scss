@@ -35,12 +35,6 @@
 /* Products */
 .icon--product:before {content: "\e000";}
 
-/* Product collection */
-.icon--product-collection:before {content: "\e03f";}
-
-/* Product curation */
-.icon--product-curation:before {content: "\e03e";}
-
 /* Deals */
 .icon--deal:before {content: "\e001";}
 
@@ -103,6 +97,12 @@
 
 /* External link */
 .icon--external-link:before {content: "\f08e";}
+
+/* Collection */
+.icon--collection:before {content: "\e03f";}
+
+/* Curation */
+.icon--curation:before {content: "\e03e";}
 
 /* Twitter */
 .icon--twitter:before {content: "\e022";}

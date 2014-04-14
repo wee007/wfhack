@@ -5,6 +5,9 @@
 /*
 	Place any image- and text-like content side-by-side.
 
+	.slats--compact					- No spacing between image- and text-like content
+	.slats--rev							- Reverse the positioning of image- and text-like content
+
 	Styleguide Slats
 */
 
@@ -16,25 +19,20 @@
 		float: left;
 		@include to-rem(margin-right, $spacing-base);
 
-		/* Images in `.islets`s need an appropriately sized margin */
-		.islet & {@include to-rem(margin-right, $spacing-half);}
+		/* Modifier: no spacing between image- and text-like content */
+		.slats--compact & {margin-right: 0;}
+
+		/* Modifier: reverse the positioning of image- and text-like content */
+		.slats--rev & {
+			float: right;
+			margin-right: 0;
+			@include to-rem(margin-left, $spacing-base);
+		}
+
+		/* Modifier: no spacing between image- and text-like content when used with 'Reversed' modifier */
+		.slats--compact.slats--rev & {margin-left: 0;}
+
+			img {display: block;}
 	}
-
-	/* Modifier: reverse the image location (right instead of left) */
-	.slats__img--rev {
-		float: right;
-		@include to-rem(margin-left, $spacing-base);
-
-		/* Images in `.islets`s need an appropriately sized margin */
-		.islet & {@include to-rem(margin-left, $spacing-half);}
-	}
-
-	/* Modifier: remove spacing on the right/left of the image */
-	.slats__img--compact {margin-right: 0;}
-
-	.slats__img--compact.slats__img--rev {margin-left: 0;}
-
-		.slats__img img,
-		.slats__img--rev img {display: block;}
 
 	.slats__body {@extend %new-block-formatting-context;}

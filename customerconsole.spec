@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.282
+Version:     0.2.283
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,48 @@ fi
 
 
 %changelog
+* Mon Apr 14 2014 ci <doperations@au.westfield.com> 0.2.283-1
+- Merge pull request #1062 from cpearce/misc-fixes (cpearce@au.westfield.com)
+- Merge pull request #1069 from araeside/fix-canned-search-icon
+  (araeside@au.westfield.com)
+- Merge pull request #1060 from bpritchard/master (bpritchard@au.westfield.com)
+- fix up tag_line function (alec@smartalecwebsites.com.au)
+- fix up icon tests (alec@smartalecwebsites.com.au)
+- singularize icon names (alec@smartalecwebsites.com.au)
+- Updates to Flag & Slats abstractions (cpearce@au.westfield.com)
+- Using vars instead of raw numbers for detail view col positioning
+  (cpearce@au.westfield.com)
+- Cleaning up some Sass partials to conform to convention
+  (cpearce@au.westfield.com)
+- revert icon--mega size while better var is decided
+  (alec@smartalecwebsites.com.au)
+- remove redundant class (alec@smartalecwebsites.com.au)
+- cleanup after code review (alec@smartalecwebsites.com.au)
+- fix base mark styles (alec@smartalecwebsites.com.au)
+- updates after code review (alec@smartalecwebsites.com.au)
+- make global search work with new icon names (alec@smartalecwebsites.com.au)
+- remove empty file (alec@smartalecwebsites.com.au)
+- add modifier comment (alec@smartalecwebsites.com.au)
+- remove meta tag for testing (alec@smartalecwebsites.com.au)
+- remove redundant build_url change (alec@smartalecwebsites.com.au)
+- simplify icon output after icon refactor (alec@smartalecwebsites.com.au)
+- add 3 column breakpoint for social icons (alec@smartalecwebsites.com.au)
+- refactor css and html (alec@smartalecwebsites.com.au)
+- refactor WIP (alec@smartalecwebsites.com.au)
+- change old kilo icons to xlrg (alec@smartalecwebsites.com.au)
+- finish icons and cleanup icon font size modifiers
+  (alec@smartalecwebsites.com.au)
+- singularize icon names (alec@smartalecwebsites.com.au)
+- create new icon modifier for sphere buttons (alec@smartalecwebsites.com.au)
+- show links with icons (alec@smartalecwebsites.com.au)
+- get basic links paths working (alec@smartalecwebsites.com.au)
+- start link loop (alec@smartalecwebsites.com.au)
+- no result text (alec@smartalecwebsites.com.au)
+- clarified variable names (benpritchard@aud27140.au.ad.westfield.com)
+- changes due to code review (benpritchard@aud27140.au.ad.westfield.com)
+- WSF-6507 added acceptance tests for trading hours
+  (benpritchard@aud27140.au.ad.westfield.com)
+
 * Fri Apr 11 2014 ci <doperations@au.westfield.com> 0.2.282-1
 - Merge pull request #1067 from ewee/ab_testing (araeside@au.westfield.com)
 - [Spike, WSF-6459] Include Google Analytics Content Experiment JS file

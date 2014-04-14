@@ -29,13 +29,13 @@ class CannedSearch < Hashie::Mash
 
   def tag_line
     case detect_tile
-    when "products"
+    when "product"
       "View collection"
     when "store"
       "View store details"
     when "hours"
       "View shopping hours"
-    when "deals"
+    when "deal"
       "View deals"
     else
       "View details"

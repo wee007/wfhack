@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.290
+Version:     0.2.291
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,16 @@ fi
 
 
 %changelog
+* Tue Apr 15 2014 ci <doperations@au.westfield.com> 0.2.291-1
+- Merge pull request #1076 from bpritchard/master (bpritchard@au.westfield.com)
+- coalesced test rake files into just the one file
+  (benpritchard@aud27140.au.ad.westfield.com)
+- simplified inclusion of acceptance tasks
+  (benpritchard@aud27140.au.ad.westfield.com)
+- Added acceptance tests for trading hours; moved regular spec tests into
+  spec:unit - to exclude acceptance tests.
+  (benpritchard@aud27140.au.ad.westfield.com)
+
 * Mon Apr 14 2014 ci <doperations@au.westfield.com> 0.2.290-1
 - 
 

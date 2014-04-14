@@ -196,7 +196,7 @@
                           </td>
                           <td>
                             <% if hour.description.present? %>
-                              <em class="pill <%= "txt-truncate txt-truncate--inline-block " if hour.description.length > 18 %>" <%= "title=#{hour.description.html_safe}" if hour.description.length > 18 %>><%= hour.description %></em>
+                              <em class="pill <%= "txt-truncate txt-truncate--inline-block " if hour.description.length > 18 %> hide-fully--palm-inline-block" <%= "title=#{hour.description.html_safe}" if hour.description.length > 18 %>><%= hour.description %></em>
                             <% end %>
                           </td>
                           <td class="txt-right">

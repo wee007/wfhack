@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.291
+Version:     0.2.292
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,12 @@ fi
 
 
 %changelog
+* Tue Apr 15 2014 ci <doperations@au.westfield.com> 0.2.292-1
+- Merge pull request #1052 from cpearce/new-creative (dsim@au.westfield.com)
+- Fixing merge conflicts (cpearce@au.westfield.com)
+- Update national home page creative to Easter campaign - WSF-6384
+  (cpearce@au.westfield.com)
+
 * Tue Apr 15 2014 ci <doperations@au.westfield.com> 0.2.291-1
 - Merge pull request #1076 from bpritchard/master (bpritchard@au.westfield.com)
 - coalesced test rake files into just the one file

@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.293
+Version:     0.2.294
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,11 @@ fi
 
 
 %changelog
+* Wed Apr 16 2014 ci <doperations@au.westfield.com> 0.2.294-1
+- Merge pull request #1075 from ewee/ab_testing (ewee@au.westfield.com)
+- [Spike, WSF-6459] Verify if GA codes work in UAT as part of GA Content
+  Experiment test (ewee@au.westfield.com)
+
 * Tue Apr 15 2014 ci <doperations@au.westfield.com> 0.2.293-1
 - Added junit output to acceptance tests
   (benpritchard@aud27140.au.ad.westfield.com)

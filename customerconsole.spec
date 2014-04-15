@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.292
+Version:     0.2.293
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,10 @@ fi
 
 
 %changelog
+* Tue Apr 15 2014 ci <doperations@au.westfield.com> 0.2.293-1
+- Added junit output to acceptance tests
+  (benpritchard@aud27140.au.ad.westfield.com)
+
 * Tue Apr 15 2014 ci <doperations@au.westfield.com> 0.2.292-1
 - Merge pull request #1052 from cpearce/new-creative (dsim@au.westfield.com)
 - Fixing merge conflicts (cpearce@au.westfield.com)

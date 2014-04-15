@@ -9,5 +9,6 @@ namespace :spec do
   desc 'Run all specs in spec/acceptance directory'
   RSpec::Core::RakeTask.new(:acceptance) do |task|
     task.pattern = FileList['spec/acceptance/**/*_spec.rb']
+    task.rspec_opts = "-f documentation -r rspec_junit_formatter --format RspecJunitFormatter -o reports/junit.xml"
   end
 end

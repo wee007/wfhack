@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.297
+Version:     0.2.298
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,15 @@ fi
 
 
 %changelog
+* Wed Apr 16 2014 ci <doperations@au.westfield.com> 0.2.298-1
+- Removing divider abstraction from Curation pin board
+  (cpearce@au.westfield.com)
+- Updates after code review (cpearce@au.westfield.com)
+- Removing Image Rotate module (cpearce@au.westfield.com)
+- Finishing CSS/markup (cpearce@au.westfield.com)
+- Capitalisaing first letter of modifier name (cpearce@au.westfield.com)
+- First round of updates (cpearce@au.westfield.com)
+
 * Wed Apr 16 2014 ci <doperations@au.westfield.com> 0.2.297-1
 - 
 

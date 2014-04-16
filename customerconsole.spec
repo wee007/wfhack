@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.299
+Version:     0.2.300
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,17 @@ fi
 
 
 %changelog
+* Thu Apr 17 2014 ci <doperations@au.westfield.com> 0.2.300-1
+- Merge pull request #1059 from araeside/add-placeholder-polyfill
+  (araeside@au.westfield.com)
+- use single quotes (alec@smartalecwebsites.com.au)
+- Use bower for including jquery-placeholder (alec@smartalecwebsites.com.au)
+- dont check for localstorage anymore and use sessionStorage instead of
+  localstorage (alec@smartalecwebsites.com.au)
+- make sure it works in all scenarios (alec@smartalecwebsites.com.au)
+- make placeholder work on products page change (alec@smartalecwebsites.com.au)
+- update modernizr and add placeholder polyfill (alec@smartalecwebsites.com.au)
+
 * Thu Apr 17 2014 ci <doperations@au.westfield.com> 0.2.299-1
 - check container height when images load (alec@smartalecwebsites.com.au)
 

@@ -388,7 +388,7 @@ $national-view-search-toggle-bp: 1080 !default;
 										/* Change colour for 'Centre home page hero banner' */
 										.header--hero & {
 											color: #fff;
-											@include font-size(14, 1);
+											@include font-size($font-size, 1);
 
 											/* Bump down for iOS/Android */
 											.ios &,

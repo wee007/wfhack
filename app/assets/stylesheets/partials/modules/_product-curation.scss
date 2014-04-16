@@ -9,9 +9,9 @@
 .product-curation {
 
   /* Headings */
-  h1 {@include font-size(36);}
+  h1 {@include font-size($font-size-hecto);}
 
-  h2 {@include font-size(24, 1.3);}
+  h2 {@include font-size($font-size-xlrg, 1.3);}
 }
 
   /* Description (toggled at palm) */
@@ -20,14 +20,5 @@
 
     @include respond-min($ipad-landscape) {
       @include font-size($font-size);
-    }
-  }
-
-  /* Temp styles until 'You may also like...' section is added */
-  @include respond-min($non-palm) {
-    .product-curation__pager {
-      margin-bottom: 0;
-      padding-bottom: 0;
-      border-bottom: 0;
     }
   }

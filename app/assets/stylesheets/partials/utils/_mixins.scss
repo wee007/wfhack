@@ -466,7 +466,7 @@
 
 	Notes:
 		-	These `@mixin`s should be avoided at all costs (last resort).
-		-	'Mozilla' `@mixin` cannot be nested in a style declaration, has to exist as it's own rule.
+		-	'Mozilla' `@mixin` cannot be nested in a style declaration, has to exist on it's own rule.
 
 	Examples:
 		@include target-webkit {
@@ -510,7 +510,7 @@
 /* [MEDIA QUERY STUFF]
 -------------------------------------------------------*/
 /*
-	Usage: set-up media queries for min/max widths inc. ranges, also include a flag to only target 'screen' media so as to not affect 'print' media.
+	Usage: set-up media queries for min/max widths/heights (width is the default) inc. ranges, also include a flag to only target 'screen' media so as to not affect 'print' media.
 
 	Examples:
 		@include respond-min($lap) {
@@ -530,42 +530,85 @@
 		}
 */
 
-/* Min width */
-@mixin respond-min($width, $screen-only: false) {
-	@if $screen-only == true {
-		@media screen and (min-width: ($width / 16)+em) {
+/* Min width/height */
+@mixin respond-min($value, $screen-only: false, $height: false) {
+  /* Screen media with width */
+	@if $screen-only == true and $height == false {
+		@media screen and (min-width: ($value / 16)+em) {
 			@content;
 		}
-	} @else {
-		@media (min-width: ($width / 16)+em) {
+	}
+  /* Screen media with height */
+  @else if $screen-only == true and $height == true {
+    @media screen and (min-height: ($value / 16)+em) {
+      @content;
+    }
+  }
+  /* Height */
+  @else if $height == true {
+    @media (min-height: ($value / 16)+em) {
+      @content;
+    }
+  }
+  /* Width */
+  @else {
+		@media (min-width: ($value / 16)+em) {
 			@content;
 		}
 	}
 }
 
-/* Max width */
-@mixin respond-max($width, $screen-only: false) {
-	@if $screen-only == true {
-		@media screen and (max-width: ($width / 16)+em) {
+/* Max width/height */
+@mixin respond-max($value, $screen-only: false, $height: false) {
+	/* Screen media with width */
+  @if $screen-only == true and $height == false {
+		@media screen and (max-width: ($value / 16)+em) {
 			@content;
 		}
-	} @else {
-		@media (max-width: ($width / 16)+em) {
+	}
+  /* Screen media with height */
+  @else if $screen-only == true and $height == true {
+    @media screen and (max-height: ($value / 16)+em) {
+      @content;
+    }
+  }
+  /* Height */
+  @else if $height == true {
+    @media (max-height: ($value / 16)+em) {
+      @content;
+    }
+  }
+  /* Width */
+  @else {
+		@media (max-width: ($value / 16)+em) {
 			@content;
 		}
 	}
 }
 
-/* Min/max ranges */
-
-/* Accepts any range */
-@mixin respond-range($min-width, $max-width, $screen-only: false) {
-	@if $screen-only == true {
-		@media screen and (min-width: ($min-width / 16)+em) and (max-width: ($max-width / 16)+em) {
+/* Accepts a min and max width/height range */
+@mixin respond-range($min-value, $max-value, $screen-only: false, $height: false) {
+	/* Screen media with width */
+  @if $screen-only == true and $height == false {
+		@media screen and (min-width: ($min-value / 16)+em) and (max-width: ($max-value / 16)+em) {
 			@content;
 		}
-	} @else {
-		@media (min-width: ($min-width / 16)+em) and (max-width: ($max-width / 16)+em) {
+	}
+  /* Screen media with height */
+  @else if $screen-only == true and $height == true {
+    @media screen and (min-height: ($min-value / 16)+em) and (max-height: ($max-value / 16)+em) {
+      @content;
+    }
+  }
+  /* Height */
+  @else if $height == true {
+    @media (min-height: ($min-value / 16)+em) and (max-height: ($max-value / 16)+em) {
+      @content;
+    }
+  }
+  /* Width */
+  @else {
+		@media (min-width: ($min-value / 16)+em) and (max-width: ($max-value / 16)+em) {
 			@content;
 		}
 	}
@@ -573,55 +616,135 @@
 
 /* Grouped (comma seperated list) */
 
-/* Accepts 2 `min-width` values */
-@mixin respond-group-min($width-1, $width-2, $screen-only: false) {
-	@if $screen-only == true {
-		@media screen and (min-width: ($width-1 / 16)+em), screen and (min-width: ($width-2 / 16)+em) {
+/* Accepts 2 min width/height values */
+@mixin respond-group-min($value-1, $value-2, $screen-only: false, $height: false) {
+	/* Screen media with width */
+  @if $screen-only == true and $height == false {
+		@media screen and (min-width: ($value-1 / 16)+em), screen and (min-width: ($value-2 / 16)+em) {
 			@content;
 		}
-	} @else {
-		@media (min-width: ($width-1 / 16)+em), (min-width: ($width-2 / 16)+em) {
+	}
+  /* Screen media with height */
+  @else if $screen-only == true and $height == true {
+    @media screen and (min-height: ($value-1 / 16)+em), screen and (min-height: ($value-2 / 16)+em) {
+      @content;
+    }
+  }
+  /* Height */
+  @else if $height == true {
+    @media (min-height: ($value-1 / 16)+em), (min-height: ($value-2 / 16)+em) {
+      @content;
+    }
+  }
+  /* Width */
+  @else {
+		@media (min-width: ($value-1 / 16)+em), (min-width: ($value-2 / 16)+em) {
 			@content;
 		}
 	}
 }
 
-/* Accepts 2 `max-width` values */
-@mixin respond-group-max($width-1, $width-2, $screen-only: false) {
-	@if $screen-only == true {
-		@media screen and (max-width: ($width-1 / 16)+em), screen and (max-width: ($width-2 / 16)+em) {
+/* Accepts 2 max width/height values */
+@mixin respond-group-max($value-1, $value-2, $screen-only: false, $height: false) {
+  /* Screen media with width */
+  @if $screen-only == true and $height == false {
+    @media screen and (max-width: ($value-1 / 16)+em), screen and (max-width: ($value-2 / 16)+em) {
+      @content;
+    }
+  }
+  /* Screen media with height */
+  @else if $screen-only == true and $height == true {
+    @media screen and (max-height: ($value-1 / 16)+em), screen and (max-height: ($value-2 / 16)+em) {
+      @content;
+    }
+  }
+  /* Height */
+  @else if $height == true {
+    @media (max-height: ($value-1 / 16)+em), (max-height: ($value-2 / 16)+em) {
+      @content;
+    }
+  }
+  /* Width */
+  @else {
+    @media (max-width: ($value-1 / 16)+em), (max-width: ($value-2 / 16)+em) {
+      @content;
+    }
+  }
+}
+
+/* Accepts 1 min width/height and 1 max width/height value */
+@mixin respond-group-min-max($value-1, $value-2, $screen-only: false, $height: false) {
+  /* Screen media with width */
+	@if $screen-only == true and $height == false {
+		@media screen and (min-width: ($value-1 / 16)+em), screen and (max-width: ($value-2 / 16)+em) {
 			@content;
 		}
-	} @else {
-		@media (max-width: ($width-1 / 16)+em), (max-width: ($width-2 / 16)+em) {
+	}
+  /* Screen media with height */
+  @else if $screen-only == true and $height == true {
+    @media screen and (min-height: ($value-1 / 16)+em), screen and (max-height: ($value-2 / 16)+em) {
+      @content;
+    }
+  }
+  /* Height */
+  @else if $height == true {
+    @media (min-height: ($value-1 / 16)+em), (max-height: ($value-2 / 16)+em) {
+      @content;
+    }
+  }
+  /* Width */
+  @else {
+		@media (min-width: ($value-1 / 16)+em), (max-width: ($value-2 / 16)+em) {
 			@content;
 		}
 	}
 }
 
-/* Accepts 1 `min-width` value AND 1 `max-width` value */
-@mixin respond-group-min-max($width-1, $width-2, $screen-only: false) {
-	@if $screen-only == true {
-		@media screen and (min-width: ($width-1 / 16)+em), screen and (max-width: ($width-2 / 16)+em) {
-			@content;
-		}
-	} @else {
-		@media (min-width: ($width-1 / 16)+em), (max-width: ($width-2 / 16)+em) {
-			@content;
-		}
-	}
+/* Accepts 1 min width and 1 min height value */
+@mixin respond-group-min-width-height($value-1, $value-2, $screen-only: false) {
+  /* Screen media with width */
+  @if $screen-only == true {
+    @media screen and (min-width: ($value-1 / 16)+em), screen and (min-height: ($value-2 / 16)+em) {
+      @content;
+    }
+  }
+  /* All media */
+  @else {
+    @media (min-width: ($value-1 / 16)+em), (min-height: ($value-2 / 16)+em) {
+      @content;
+    }
+  }
 }
 
-/* Fixed ranges using the pre-defined breakpoints in 'utils/vars' */
+/* Accepts 1 max width and 1 max height value */
+@mixin respond-group-max-width-height($value-1, $value-2, $screen-only: false) {
+  /* Screen media */
+  @if $screen-only == true {
+    @media screen and (max-width: ($value-1 / 16)+em), screen and (max-height: ($value-2 / 16)+em) {
+      @content;
+    }
+  }
+  /* All media */
+  @else {
+    @media (max-width: ($value-1 / 16)+em), (max-height: ($value-2 / 16)+em) {
+      @content;
+    }
+  }
+}
+
+/* Fixed width ranges using the pre-defined breakpoints from 'utils/vars' */
 @mixin respond-range-fixed($respond-range, $screen-only: false) {
 
 	/* Lap */
 	@if $respond-range == lap {
+    /* Screen media */
 		@if $screen-only == true {
 			@media screen and (min-width: ($lap-start / 16)+em) and (max-width: ($lap-end / 16)+em) {
 				@content;
 			}
-		} @else {
+		}
+    /* All media */
+    @else {
 			@media (min-width: ($lap-start / 16)+em) and (max-width: ($lap-end / 16)+em) {
 				@content;
 			}
@@ -630,11 +753,14 @@
 
 	/* Lap small */
 	@if $respond-range == lap-sml {
+    /* Screen media */
 		@if $screen-only == true {
 			@media screen and (min-width: ($lap-start / 16)+em) and (max-width: ($lap-sml-end / 16)+em) {
 				@content;
 			}
-		} @else {
+		}
+    /* All media */
+    @else {
 			@media (min-width: ($lap-start / 16)+em) and (max-width: ($lap-sml-end / 16)+em) {
 				@content;
 			}
@@ -643,11 +769,14 @@
 
 	/* Lap large */
 	@if $respond-range == lap-lrg {
+    /* Screen media */
 		@if $screen-only == true {
 			@media screen and (min-width: ($lap-lrg-start / 16)+em) and (max-width: ($lap-end / 16)+em) {
 				@content;
 			}
-		} @else {
+		}
+    /* All media */
+    @else {
 			@media (min-width: ($lap-lrg-start / 16)+em) and (max-width: ($lap-end / 16)+em) {
 				@content;
 			}
@@ -656,17 +785,19 @@
 
 	/* Desk small */
 	@if $respond-range == desk-sml {
+    /* Screen media */
 		@if $screen-only == true {
 			@media screen and (min-width: ($desk-start / 16)+em) and (max-width: ($desk-sml-end / 16)+em) {
 				@content;
 			}
-		} @else {
+		}
+    /* All media */
+    @else {
 			@media (min-width: ($desk-start / 16)+em) and (max-width: ($desk-sml-end / 16)+em) {
 				@content;
 			}
 		}
 	}
-
 }
 
 /*

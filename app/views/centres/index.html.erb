@@ -4,15 +4,7 @@
 <div class="national__inner">
 
   <%# Header %>
-  <header class="national__header img-rotate" role="banner">
-
-    <%# Hero image %>
-    <div class="national__hero__1 img-rotate__item"></div>
-    <%# //Hero image %>
-
-    <%# Gradient overlay %>
-    <span class="hero-gradient"></span>
-    <%# //Gradient overlay %>
+  <header class="national__header" role="banner">
 
     <%# Container %>
     <div class="container container--position">
@@ -22,7 +14,7 @@
       <%# //Logo %>
 
       <%# Hero heading wrap %>
-      <div class="national__heading__intro">
+      <div class="national__header__intro">
         <h1>
           <span><%= @centres.length %> centres. Over 10,300 stores. Over <%= number_with_delimiter(@products_count, separator: ',') %> products</span>
           HAPPY EASTER
@@ -35,7 +27,7 @@
         <ul class="horiz-list horiz-list--spacing-half">
           <!--[if gt IE 9]><!-->
           <li>
-            <a href="<%= products_path %>">
+            <a href="<%= products_path %>" class="ga-shop-products">
               <span class="icon icon--shirt" aria-hidden="true"></span>
               Shop products
             </a>
@@ -53,6 +45,10 @@
 
     </div>
     <%# //Container %>
+
+    <%# Gradient overlay %>
+    <span class="hero-gradient"></span>
+    <%# //Gradient overlay %>
 
   </header>
   <%# //Header %>
@@ -108,7 +104,7 @@
         <ul id="tab-<%= state.downcase %>" class="tab__content<%= ' is-active' if state == 'NSW' %>">
           <% @centres_by_state[state].each do |centre| %>
             <li class="js-viewport-check js-sort-centres-geolocation-<%= centre.code %>" >
-              <a class="national__centre-tile national__centre-tile--<%= centre.code %> " href="<%= centre_path( centre ) %>">
+              <a class="national__centre-tile national__centre-tile--<%= centre.code %> ga-centre-links" href="<%= centre_path( centre ) %>">
                 <div class="container">
                   <div class="h1"><%= centre.short_name %></div>
                   <span class="icon icon--arrow-right icon--lrg" aria-hidden="true"></span>

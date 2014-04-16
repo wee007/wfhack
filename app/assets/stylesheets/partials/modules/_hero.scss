@@ -34,7 +34,7 @@
 
   /* Hero icon */
   .hero__icon:before {
-    @include font-size(30, 1);
+    @include font-size($font-size-deca, 1);
     @include to-rem(margin-bottom, $spacing-sixth);
 
     @include respond-min($iphone-landscape) {
@@ -52,7 +52,7 @@
   /* Hero heading */
   h1 {
     text-transform: uppercase;
-    @include font-size(30);
+    @include font-size($font-size-deca);
 
     @include respond-min($iphone-landscape) {
       @include font-size(40);

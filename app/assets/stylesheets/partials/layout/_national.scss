@@ -26,42 +26,44 @@
   /* [INNER WRAPPER]
   -------------------------------------------------------*/
   .national__inner {
+    position: absolute;
+    width: 100%;
+    height: 100%;
 
     /* [Text colour change] change this to colour needed */
     &,
     a,
     .icon:before {color: $color-grey-dark-1;}
-
-    @include respond-min($non-palm) {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-    }
   }
 
     /* [HEADER]
     -------------------------------------------------------*/
     .national__logo,
-    .national__heading__intro,
-    .national__header nav {
-      position: absolute;
-      /* Setting it at a higher `z-index` than `img-rotate__item` */
-      z-index: 2;
-    }
+    .national__header__intro,
+    .national__header nav {position: absolute;}
 
     .national__header {
-      /* Need the height for vertical alignment of the text and video thumbnail to work */
       @include to-rem(height, 250);
+      position: relative;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: 0 0;
 
-      /* By making it shorter than 100%, we will have room to show the centres tiles at this breakpoint */
-      @include respond-min($non-palm) {
+      @include respond-group-min-width-height($non-palm, $non-palm) {
         height: 60%;
-        @include to-rem(min-height, 400);
       }
 
-      /* Show more of the image at this breakpoint */
+      @include respond-max($palm) {
+        background-image: cloudinary-url("heroes/national/national-hero-01-sml.jpg", $quality: 88, $fetch_format: 'auto');
+      }
+
+      @include respond-range($lap, $lap-sml-end) {
+        background-image: cloudinary-url("heroes/national/national-hero-01-med.jpg", $quality: 88, $fetch_format: 'auto');
+      }
+
       @include respond-min($lap-lrg) {
-        height: 80%;
+        background-image: cloudinary-url("heroes/national/national-hero-01-lrg.jpg", $quality: 88, $fetch_format: 'auto');
+        height: 75%;
       }
 
       /*
@@ -121,7 +123,7 @@
       }
 
       /* Wrapper around the hero heading and video thumbnail */
-      .national__heading__intro {
+      .national__header__intro {
         top: 50%;
         left: 0;
         @include translateY(-50%);
@@ -139,7 +141,7 @@
           line-height: 1;
 
           @include respond-min($iphone-landscape) {
-            @include font-size(36);
+            @include font-size($font-size-hecto);
           }
 
           @include respond-min($non-palm) {
@@ -166,21 +168,6 @@
           a {@include font-size($font-size-lrg);}
         }
       }
-
-    /* Hero image paths (see 'Image rotate' module) */
-    .national__hero__1 {
-      @include respond-max($palm) {
-        background-image: cloudinary-url("heroes/national/national-hero-01-sml.jpg", $quality: 88, $fetch_format: 'auto');
-      }
-
-      @include respond-range($lap, $lap-sml-end) {
-        background-image: cloudinary-url("heroes/national/national-hero-01-med.jpg", $quality: 88, $fetch_format: 'auto');
-      }
-
-      @include respond-min($lap-lrg) {
-        background-image: cloudinary-url("heroes/national/national-hero-01-lrg.jpg", $quality: 90, $fetch_format: 'auto');
-      }
-    }
 
     /* [MAIN]
     -------------------------------------------------------*/
@@ -224,17 +211,18 @@
         a {
           opacity: 0.6;
           @include to-rem(padding, $spacing-half);
+          border-bottom: 2px solid transparent;
 
           &:hover,
           &:focus,
           &.is-active {opacity: 1;}
 
+          &.is-active {border-bottom-color: $color-brand;}
+
           @include respond-min($non-palm) {
             @include to-rem(padding, $spacing-base $spacing-half);
           }
         }
-
-        li:first-child a {padding-left: 0;}
       }
 
       /* Tab content - non JS users */
@@ -257,13 +245,7 @@
         li:first-child & {box-shadow: inset 0 4px 4px 0 rgba(#000, 0.4)}
 
         /* Inner container */
-        .container {
-          @include to-rem(padding, 30 $spacing-base 30 0);
-
-          @include respond-min($non-palm) {
-            @include to-rem(padding, $spacing-dbl 0);
-          }
-        }
+        .container {@include to-rem(padding, 30 $spacing-base 30 0);}
 
           /* Centre name */
           .h1 {
@@ -271,7 +253,11 @@
             text-transform: uppercase;
 
             @include respond-min($non-palm) {
-              @include font-size(50);
+              @include font-size($font-size-hecto);
+            }
+
+            @include respond-min($desk) {
+              @include font-size($font-size-kilo);
             }
           }
 
@@ -281,10 +267,10 @@
             right: 0;
             top: 50%;
             @include translateY(-50%);
-            @include font-size(36, 1);
+            @include font-size($font-size-hecto, 1);
 
             @include respond-min($non-palm) {
-              @include font-size($font-size-kilo, 1);
+              display: none;
             }
           }
       }

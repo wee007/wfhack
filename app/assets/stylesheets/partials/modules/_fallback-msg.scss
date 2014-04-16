@@ -43,7 +43,7 @@
 
   /* Large icon */
   .fallback-msg__icon:before {
-    @include font-size(48, 1);
+    @include font-size($font-size-kilo, 1);
 
     @include respond-min($non-palm) {
       @include font-size(60, 1);

@@ -17,17 +17,15 @@
       , 100
 
     $scope.saveCategory = (category) ->
-      if Modernizr.localstorage and
-          category?
-        localStorage.filteredCategory = category
+      if category?
+        sessionStorage.filteredCategory = category
       return true
 
     $scope.$watch 'gift_cards', (val) ->
-      if Modernizr.localstorage
-        if val
-          localStorage.giftCards = true
-        else
-          localStorage.removeItem 'giftCards'
+      if val
+        sessionStorage.giftCards = true
+      else
+        sessionStorage.removeItem 'giftCards'
       updateQueryParams()
 
     $scope.$watch('viewingMap', updateQueryParams)

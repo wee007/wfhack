@@ -10,6 +10,7 @@
 // Support
 //= require ./support/custom-modernizr-tests
 //= require ./support/console-log
+//= require ./support/placeholder-test
 
 // Global 'init' stuff
 //= require ./init/enquire

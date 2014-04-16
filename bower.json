@@ -15,7 +15,8 @@
     "angular-sanitize": "1.2.0-rc.3",
     "angular-touch": "1.2.0-rc.3",
     "angular-route": "1.2.0-rc.3",
-    "fastclick": "~0.6.10"
+    "fastclick": "~0.6.10",
+    "jquery-placeholder": "~2.0.8"
   },
   "devDependencies": {
     "sinon": "~1.7.3",

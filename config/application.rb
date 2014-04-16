@@ -39,6 +39,7 @@ module CustomerConsole
                                    prism/prism.css
                                    styleguide/styleguide.css
                                    vendor/kss.js
+                                   support/placeholder-init.js
                                    )
     if Rails.env.development?
       require File.expand_path('../../lib/service_proxy', __FILE__)

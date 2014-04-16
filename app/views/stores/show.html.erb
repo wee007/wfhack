@@ -234,19 +234,17 @@
         function storeMapPageReady() {
           // If the user has come from the stores index page when filtering by category
           // then set the back link to the correct category.
-          if (Modernizr.localstorage) {
-            if (typeof localStorage.filteredCategory != 'undefined') {
-              $('.js-maintain-store-filter').attr('href', function(i, href) {
-                return href + '/' + localStorage.filteredCategory;
-              });
-              localStorage.removeItem('filteredCategory');
-            }
-            if (typeof localStorage.giftCards != 'undefined' && !!localStorage.giftCards) {
-              $('.js-maintain-store-filter').attr('href', function(i, href) {
-                return href + '?gift_cards=true';
-              });
-              localStorage.removeItem('giftCards');
-            }
+          if (typeof sessionStorage.filteredCategory != 'undefined') {
+            $('.js-maintain-store-filter').attr('href', function(i, href) {
+              return href + '/' + sessionStorage.filteredCategory;
+            });
+            sessionStorage.removeItem('filteredCategory');
+          }
+          if (typeof sessionStorage.giftCards != 'undefined' && !!sessionStorage.giftCards) {
+            $('.js-maintain-store-filter').attr('href', function(i, href) {
+              return href + '?gift_cards=true';
+            });
+            sessionStorage.removeItem('giftCards');
           }
 
           // Target the store in the map

@@ -8,7 +8,7 @@
 
 .sg-h1 {
   font-weight: 300;
-  @include font-size(30);
+  @include font-size($font-size-deca);
   font-family: $font-family-lato;
 
   /* Home page version */

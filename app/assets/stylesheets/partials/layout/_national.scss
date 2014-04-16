@@ -141,7 +141,7 @@
           line-height: 1;
 
           @include respond-min($iphone-landscape) {
-            @include font-size(36);
+            @include font-size($font-size-hecto);
           }
 
           @include respond-min($non-palm) {
@@ -253,11 +253,11 @@
             text-transform: uppercase;
 
             @include respond-min($non-palm) {
-              @include font-size(38);
+              @include font-size($font-size-hecto);
             }
 
             @include respond-min($desk) {
-              @include font-size(48);
+              @include font-size($font-size-kilo);
             }
           }
 
@@ -267,7 +267,7 @@
             right: 0;
             top: 50%;
             @include translateY(-50%);
-            @include font-size(36, 1);
+            @include font-size($font-size-hecto, 1);
 
             @include respond-min($non-palm) {
               display: none;

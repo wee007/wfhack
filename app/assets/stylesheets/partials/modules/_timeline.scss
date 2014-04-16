@@ -96,6 +96,6 @@
 
     span {
       display: block;
-      @include font-size(30, 0.8);
+      @include font-size($font-size-deca, 0.8);
     }
   }

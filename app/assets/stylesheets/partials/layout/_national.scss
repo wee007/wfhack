@@ -44,6 +44,7 @@
 
     .national__header {
       @include to-rem(height, 250);
+      position: relative;
       background-size: cover;
       background-repeat: no-repeat;
       background-position: 0 0;
@@ -168,21 +169,6 @@
         }
       }
 
-    /* Hero image paths (see 'Image rotate' module) */
-    .national__hero__1 {
-      @include respond-max($palm) {
-        background-image: cloudinary-url("heroes/national/national-hero-01-sml.jpg", $quality: 88, $fetch_format: 'auto');
-      }
-
-      @include respond-range($lap, $lap-sml-end) {
-        background-image: cloudinary-url("heroes/national/national-hero-01-med.jpg", $quality: 88, $fetch_format: 'auto');
-      }
-
-      @include respond-min($lap-lrg) {
-        background-image: cloudinary-url("heroes/national/national-hero-01-lrg.jpg", $quality: 88, $fetch_format: 'auto');
-      }
-    }
-
     /* [MAIN]
     -------------------------------------------------------*/
 
@@ -225,17 +211,18 @@
         a {
           opacity: 0.6;
           @include to-rem(padding, $spacing-half);
+          border-bottom: 2px solid transparent;
 
           &:hover,
           &:focus,
           &.is-active {opacity: 1;}
 
+          &.is-active {border-bottom-color: $color-brand;}
+
           @include respond-min($non-palm) {
             @include to-rem(padding, $spacing-base $spacing-half);
           }
         }
-
-        li:first-child a {padding-left: 0;}
       }
 
       /* Tab content - non JS users */

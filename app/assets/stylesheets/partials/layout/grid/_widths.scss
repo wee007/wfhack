@@ -40,6 +40,14 @@
   .#{$namespace}four-sixths {width: $two-thirds;}
   .#{$namespace}five-sixths {width: $five-sixths;}
 
+    /* Seventh */
+  .#{$namespace}one-seventh {width: $one-seventh;}
+  .#{$namespace}two-sevenths {width: $two-sevenths;}
+  .#{$namespace}three-sevenths {width: $three-sevenths;}
+  .#{$namespace}four-sevenths {width: $four-sevenths;}
+  .#{$namespace}five-sevenths {width: $five-sevenths;}
+  .#{$namespace}six-sevenths {width: $six-sevenths;}
+
   /* Eighths */
   .#{$namespace}one-eighth {width: $one-eighth;}
   .#{$namespace}two-eighths {width: $one-quarter;}
@@ -87,10 +95,16 @@
   Note: be sure to comment out what you don't use as a lot of CSS is generated from all of this.
 */
 
-/* Non-palm */
+/* palm lrg */
+@include respond-min($palm-lrg) {
+  @include width-classes("palm-lrg-");
+}
+
+/* Non palm */
 @include respond-min($non-palm) {
   @include width-classes("non-palm-");
 }
+
 
 /* Lap */
 /*@include respond-range-fixed(lap) {

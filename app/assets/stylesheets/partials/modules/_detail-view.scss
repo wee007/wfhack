@@ -31,14 +31,14 @@
   }
 
   /* Set fixed width at this breakpoint */
-  @include respond-min($ipad-portrait) {
+  @include respond-min($lap-sml-middle) {
     @include to-rem(width, 680);
   }
 
   /* Set fixed widths for each detail view at these breakpoints */
 
   /* Override the default `.detail-view` width at iPad portrait */
-  @include respond-min($ipad-portrait) {
+  @include respond-min($lap-sml-middle) {
     &.detail-view--deal,
     &.detail-view--product {width: $page-container-width;}
   }

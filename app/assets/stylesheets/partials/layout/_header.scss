@@ -45,7 +45,7 @@ $national-view-search-toggle-bp: 1080 !default;
 				@include to-rem(min-height, $hero-banner-height-sml);
 				background: transparent;
 
-				@include respond-min($ipad-portrait) {
+				@include respond-min($lap-sml-middle) {
 					@include to-rem(min-height, $hero-banner-height-lrg);
 				}
 
@@ -68,7 +68,7 @@ $national-view-search-toggle-bp: 1080 !default;
 				.header--hero & {display: none;}
 			}
 
-			@include respond-min($ipad-landscape) {
+			@include respond-min($lap-lrg-middle) {
 				display: none;
 			}
 		}
@@ -86,7 +86,7 @@ $national-view-search-toggle-bp: 1080 !default;
 					@include to-rem(padding-top, $spacing-base);
 					@include to-rem(min-height, $hero-banner-height-sml);
 
-					@include respond-min($ipad-portrait) {
+					@include respond-min($lap-sml-middle) {
 						@include to-rem(padding-top, $spacing-base + $spacing-half);
 						@include to-rem(min-height, $hero-banner-height-lrg);
 					}
@@ -174,14 +174,14 @@ $national-view-search-toggle-bp: 1080 !default;
 			/* Menu */
 			.header-menu-toggle {
 
-				@include respond-range($non-palm, $ipad-landscape - 1) {
+				@include respond-range($non-palm, $lap-lrg-middle - 1) {
 					@include to-rem(margin-top, -5);
 					@include to-rem(left, -7);
 					@include to-rem(width, 230);
 				}
 
 				/* Always show menu at this breakpoint */
-				@include respond-min($ipad-landscape) {
+				@include respond-min($lap-lrg-middle) {
 					&.drop-down {
 						display: inline-block;
 						width: auto;
@@ -205,11 +205,11 @@ $national-view-search-toggle-bp: 1080 !default;
 			background-color: $color-grey-dark-1;
 			color: #fff;
 
-			@include respond-min($ipad-landscape) {
+			@include respond-min($lap-lrg-middle) {
 				background-color: transparent;
 			}
 
-			@include respond-range($non-palm, $ipad-landscape - 1) {
+			@include respond-range($non-palm, $lap-lrg-middle - 1) {
 				border: 1px solid $color-grey-dark-3;
 			}
 
@@ -217,7 +217,7 @@ $national-view-search-toggle-bp: 1080 !default;
 			.no-js & {
 				@include to-rem(margin-top, $spacing-quarter);
 
-				@include respond-min($ipad-landscape) {
+				@include respond-min($lap-lrg-middle) {
 					display: inline-block;
 					margin-top: 0;
 				}
@@ -230,12 +230,12 @@ $national-view-search-toggle-bp: 1080 !default;
 				color: $color-txt-dark;
 				text-shadow: none;
 
-				@include respond-range($non-palm, $ipad-landscape - 1) {
+				@include respond-range($non-palm, $lap-lrg-middle - 1) {
 					left: 10px;
 					margin-left: -1px;
 				}
 
-				@include respond-min($ipad-landscape) {
+				@include respond-min($lap-lrg-middle) {
 					display: none;
 				}
 			}
@@ -250,7 +250,7 @@ $national-view-search-toggle-bp: 1080 !default;
 				.header-menu-toggle__nav {
 					background-color: $color-grey-dark-3;
 
-					@include respond-min($ipad-landscape) {
+					@include respond-min($lap-lrg-middle) {
 						.nav-sub-container & {background: none;}
 					}
 
@@ -264,7 +264,7 @@ $national-view-search-toggle-bp: 1080 !default;
 					li {
 						border-bottom: 1px solid $color-grey-dark-1;
 
-						@include respond-min($ipad-landscape) {
+						@include respond-min($lap-lrg-middle) {
 							.nav-sub-container & {
 								border: 0;
 								display: inline-block;
@@ -325,7 +325,7 @@ $national-view-search-toggle-bp: 1080 !default;
 								.header--hero .my-account-signedin & {color: $color-txt-dark;}
 							}
 
-							@include respond-min($ipad-landscape) {
+							@include respond-min($lap-lrg-middle) {
 								.nav-sub-container & {@include to-rem(padding-left padding-right, 6);}
 							}
 
@@ -336,7 +336,7 @@ $national-view-search-toggle-bp: 1080 !default;
 								.icon:before {
 									color: $color-grey-med-2;
 
-									@include respond-min($ipad-landscape) {
+									@include respond-min($lap-lrg-middle) {
 										color: $color-brand;
 									}
 								}
@@ -353,7 +353,7 @@ $national-view-search-toggle-bp: 1080 !default;
 							}
 
 								/* Hide link text for sub nav at this breakpoint */
-								@include respond-min($ipad-landscape) {
+								@include respond-min($lap-lrg-middle) {
 									.nav-sub-container & .nav-sub__txt {
 										@include hide-visually;
 
@@ -376,7 +376,7 @@ $national-view-search-toggle-bp: 1080 !default;
 								.ios &,
 								.android & {top: -2px;}
 
-								@include respond-min($ipad-landscape) {
+								@include respond-min($lap-lrg-middle) {
 									.nav-sub-container & {
 										color: $color-txt-light;
 										@include font-size(17, 1);
@@ -407,7 +407,7 @@ $national-view-search-toggle-bp: 1080 !default;
 		/* Sub navigation */
 		.nav-sub-container {
 
-			@include respond-min($ipad-landscape) {
+			@include respond-min($lap-lrg-middle) {
 				display: inline-block;
 				@include to-rem(margin-left, 16);
 				top: 0;
@@ -466,7 +466,7 @@ $national-view-search-toggle-bp: 1080 !default;
 					top: 50%;
 					@include to-rem(margin, -24 0 0 0);
 
-					@include respond-min($ipad-portrait) {
+					@include respond-min($lap-sml-middle) {
 						@include to-rem(margin-top, -33.5);
 					}
 
@@ -485,7 +485,7 @@ $national-view-search-toggle-bp: 1080 !default;
 				}
 			}
 
-			@include respond-min($ipad-landscape) {
+			@include respond-min($lap-lrg-middle) {
 				vertical-align: top;
 			}
 
@@ -493,7 +493,7 @@ $national-view-search-toggle-bp: 1080 !default;
 			&.header-centre-select-alt {
 				display: none;
 
-				@include respond-range($non-palm, $ipad-landscape - 1) {
+				@include respond-range($non-palm, $lap-lrg-middle - 1) {
 					display: inline-block;
 
 					/* Centre home page hero banner */
@@ -518,7 +518,7 @@ $national-view-search-toggle-bp: 1080 !default;
 						@include font-size(40, 1.2);
 						color: #fff;
 
-						@include respond-min($ipad-portrait) {
+						@include respond-min($lap-sml-middle) {
 							@include font-size(56, 1.2);
 						}
 
@@ -529,12 +529,12 @@ $national-view-search-toggle-bp: 1080 !default;
 				}
 
 				/* Hide for tablet small at this breakpoint range */
-				@include respond-range($non-palm, $ipad-landscape - 1) {
+				@include respond-range($non-palm, $lap-lrg-middle - 1) {
 					.header-menu-toggle & {display: none;}
 				}
 
 				/* Hide for tablet small at this breakpoint */
-				@include respond-min($ipad-landscape) {
+				@include respond-min($lap-lrg-middle) {
 					display: none;
 				}
 
@@ -553,7 +553,7 @@ $national-view-search-toggle-bp: 1080 !default;
 				&.btn {
 					display: none;
 
-					@include respond-min($ipad-landscape) {
+					@include respond-min($lap-lrg-middle) {
 						display: inline-block;
 					}
 
@@ -603,7 +603,7 @@ $national-view-search-toggle-bp: 1080 !default;
 						.header--hero & {display: none;}
 					}
 
-					@include respond-min($ipad-landscape) {
+					@include respond-min($lap-lrg-middle) {
 						display: none;
 					}
 
@@ -641,7 +641,7 @@ $national-view-search-toggle-bp: 1080 !default;
 				@include to-rem(padding-left padding-right, $spacing-half + $spacing-quarter);
 			}
 
-			@include respond-min($ipad-landscape) {
+			@include respond-min($lap-lrg-middle) {
 				@include to-rem(padding, 16);
 				@include to-rem(width, 214);
 				border: 1px solid $color-grey-dark-3;
@@ -667,7 +667,7 @@ $national-view-search-toggle-bp: 1080 !default;
 					/* Show the drop down */
     			&.is-active {display: block;}
 
-					@include respond-min($ipad-portrait) {
+					@include respond-min($lap-sml-middle) {
 						@include to-rem(margin-top, 33.5 + 5);
 					}
 
@@ -696,7 +696,7 @@ $national-view-search-toggle-bp: 1080 !default;
 				color: $color-txt-dark;
 				text-shadow: 0 -1px $color-grey-dark-3;
 
-				@include respond-min($ipad-landscape) {
+				@include respond-min($lap-lrg-middle) {
 					display: block;
 				}
 
@@ -730,7 +730,7 @@ $national-view-search-toggle-bp: 1080 !default;
 						.icon:before {color: $color-grey-med-2;}
 					}
 
-					@include respond-min($ipad-landscape) {
+					@include respond-min($lap-lrg-middle) {
 						display: block;
 					}
 
@@ -963,7 +963,7 @@ $national-view-search-toggle-bp: 1080 !default;
 				@include to-rem(min-height, $hero-banner-height-sml);
 			}
 
-			@include respond-min($ipad-portrait) {
+			@include respond-min($lap-sml-middle) {
 				@include to-rem(min-height, $hero-banner-height-lrg);
 			}
 		}
@@ -998,7 +998,7 @@ $national-view-search-toggle-bp: 1080 !default;
 			.header--hero .nav-sub .open-hours-link {
 				@include font-size($font-size-lrg, 1.5);
 
-				@include respond-min($ipad-portrait) {
+				@include respond-min($lap-sml-middle) {
 					@include font-size($font-size-lrger, 1.5);
 				}
 
@@ -1137,12 +1137,12 @@ $national-view-search-toggle-bp: 1080 !default;
 						}
 
 							/* Reveal link text at this breakpoint */
-							@include respond-min($iphone-landscape) {
+							@include respond-min($palm-lrg) {
 								.hide-visually {@include hide-visually-off;}
 							}
 
 							/* Hide link text at this breakpoint range */
-							@include respond-range($non-palm, $ipad-portrait - 1) {
+							@include respond-range($non-palm, $lap-sml-middle - 1) {
 								.hide-visually {@include hide-visually;}
 							}
 					}
@@ -1151,7 +1151,7 @@ $national-view-search-toggle-bp: 1080 !default;
 							@include font-size(20, 1);
 							position: static;
 
-							@include respond-min($iphone-landscape) {
+							@include respond-min($palm-lrg) {
 								position: relative;
 								@include font-size(17, 1);
 								margin-right: to-em($spacing-sixth);
@@ -1164,7 +1164,7 @@ $national-view-search-toggle-bp: 1080 !default;
 								}
 							}
 
-							@include respond-range($non-palm, $ipad-portrait - 1) {
+							@include respond-range($non-palm, $lap-sml-middle - 1) {
 								@include font-size(20, 1);
 								margin-right: 0;
 								position: static;
@@ -1221,7 +1221,7 @@ $national-view-search-toggle-bp: 1080 !default;
 						max-width: none;
 						min-width: 0;
 
-						@include respond-range($ipad-portrait, 839) {
+						@include respond-range($lap-sml-middle, 839) {
 							@include to-rem(width, 241);
 						}
 
@@ -1229,7 +1229,7 @@ $national-view-search-toggle-bp: 1080 !default;
 							@include to-rem(width, 318);
 						}
 
-						@include respond-min($ipad-landscape) {
+						@include respond-min($lap-lrg-middle) {
 							@include to-rem(width, 418);
 						}
 

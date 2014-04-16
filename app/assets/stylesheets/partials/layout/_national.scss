@@ -140,7 +140,7 @@
           /* Need a tighter `line-height` so the `span` will sit closer to the text under it */
           line-height: 1;
 
-          @include respond-min($iphone-landscape) {
+          @include respond-min($palm-lrg) {
             @include font-size($font-size-hecto);
           }
 
@@ -153,7 +153,7 @@
               display: block;
               @include font-size($font-size-sml);
 
-              @include respond-min($iphone-landscape) {
+              @include respond-min($palm-lrg) {
                 @include font-size($font-size-lrg);
               }
 

@@ -60,7 +60,7 @@
           @include to-rem(padding-left, 95);
 
           /* Make linear for static version at this breakpoint range */
-          @include respond-range($non-palm, $ipad-portrait - 1) {
+          @include respond-range($non-palm, $lap-sml-middle - 1) {
             .map-micello--static & {padding-left: 0;}
           }
 
@@ -79,7 +79,7 @@
             .is-no-store-logo & {display: none;}
 
             /* Make linear for static version at this breakpoint range */
-            @include respond-range($non-palm, $ipad-portrait - 1) {
+            @include respond-range($non-palm, $lap-sml-middle - 1) {
               .map-micello--static & {
                 position: static;
                 @include to-rem(margin-bottom, $spacing-quarter);
@@ -94,7 +94,7 @@
             a.map-micello__overlay__cta {display: none;}
 
             /* Hide both the button and the link at this breakpoint */
-            @include respond-min($ipad-landscape) {
+            @include respond-min($lap-lrg-middle) {
               .map-micello__overlay__cta {display: none;}
             }
           }
@@ -145,7 +145,7 @@
           @include to-rem(margin-left, -106, !important);
 
           /* Reduce the width for static version at this breakpoint range */
-          @include respond-range($non-palm, $ipad-portrait - 1) {
+          @include respond-range($non-palm, $lap-sml-middle - 1) {
             .map-micello--static & {@include to-rem(margin-left, -80, !important);}
           }
         }
@@ -160,7 +160,7 @@
           margin-bottom: -14px !important;
 
           /* Reduce the width for static version at this breakpoint range */
-          @include respond-range($non-palm, $ipad-portrait - 1) {
+          @include respond-range($non-palm, $lap-sml-middle - 1) {
             .map-micello--static & {@include to-rem(width, 200, !important);}
           }
         }
@@ -249,7 +249,7 @@
         }
 
         /* Alter right positioning for 'Zoom', 'Floor levels' and 'Attribution' at this breakpoint */
-        @include respond-min($ipad-landscape) {
+        @include respond-min($lap-lrg-middle) {
           #ui-zoom {right: 6px;}
 
           #ui-levels {right: 11px;}
@@ -292,7 +292,7 @@
             top: 80px !important;
           }
 
-          @include respond-min($ipad-landscape) {
+          @include respond-min($lap-lrg-middle) {
             top: 38px !important;
           }
 
@@ -312,7 +312,7 @@
           top: auto !important;
           bottom: $spacing-micro+px;
 
-          @include respond-min($ipad-landscape) {
+          @include respond-min($lap-lrg-middle) {
             bottom: $spacing-half+px;
           }
 
@@ -332,7 +332,7 @@
             top: 196px !important;
           }
 
-          @include respond-min($ipad-landscape) {
+          @include respond-min($lap-lrg-middle) {
             top: 157px !important;
             margin-right: 0;
           }

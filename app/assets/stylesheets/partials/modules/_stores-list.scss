@@ -85,7 +85,7 @@
       @include to-rem(width, 68);
     }
 
-    @include respond-min($ipad-portrait) {
+    @include respond-min($lap-sml-middle) {
       @include to-rem(width, 74);
     }
 

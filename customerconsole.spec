@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.298
+Version:     0.2.299
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,9 @@ fi
 
 
 %changelog
+* Thu Apr 17 2014 ci <doperations@au.westfield.com> 0.2.299-1
+- check container height when images load (alec@smartalecwebsites.com.au)
+
 * Wed Apr 16 2014 ci <doperations@au.westfield.com> 0.2.298-1
 - Removing divider abstraction from Curation pin board
   (cpearce@au.westfield.com)

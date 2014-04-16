@@ -3,97 +3,95 @@
 <article class="product-curation" role="article">
 
   <%# 'Hero', 'More from retailers (non-palm)' and 'Pin board' %>
-  <div class="divider divider--palm">
-    <div class="grid grid--gutter-half grid--mrg-half grid--non-linear">
+  <div class="grid grid--gutter-half grid--mrg-half grid--non-linear">
 
-      <%# 'Hero' and 'More from retailers (non-palm)' %>
-      <div class="grid__item lap-sml-one-third lap-lrg-one-quarter desk-one-fifth">
+    <%# 'Hero' and 'More from retailers (non-palm)' %>
+    <div class="grid__item lap-sml-one-third lap-lrg-one-quarter desk-one-fifth">
 
-        <%# Hero %>
-        <header class="box">
-          <% if @curation.image? %>
-            <%= fetch_image_tag @curation.image, alt: '', quality: 25, width: 1178, crop: 'limit', fetch_format: 'auto' %>
-          <% end %>
-          <h1 class="island txt-hyphenate"><%= raw @curation.name.truncate 60, '&#8230;' %></h1>
-          <p class="product-curation__desc island-sides island-btm <%= 'toggle-visibility toggle-visibility--palm' if @curation.image? %>" id="curation-description"><%= raw @curation.description.truncate(400, '&#8230;') %></p>
-          <% if @curation.image? %>
-            <button type="button" class="btn btn--full btn--expand-collapse toggle-visibility-btn js-disabled-hide" toggle-visibility="curation-description" toggle-visibility-drop-down="false">
-              <span class="show-when-visible show-when-visible--block">
-                Collapse the description
-                <span aria-hidden="true" class="icon icon--arrow-up-full icon--lrg"></span>
-              </span>
-              <span class="hide-when-visible">
-                Read the description
-                <span aria-hidden="true" class="icon icon--arrow-down-full icon--lrg"></span>
-              </span>
-            </button>
-          <% end %>
-        </header>
-        <%# //Hero %>
-
-        <%# More from retailers (non-palm) %>
-        <% if @curation.retailers.size > 1 %>
-          <footer class="hide-fully--palm mrg-dbl-top">
-            <section aria-labelledby="curation-retailers-non-palm">
-              <div class="txt-formatted mrg-base">
-                <h2 id="curation-retailers-non-palm">More from retailers</h2>
-              </div>
-              <%= render partial: 'more_from_retailers' %>
-            </section>
-          </footer>
+      <%# Hero %>
+      <header class="box">
+        <% if @curation.image? %>
+          <%= fetch_image_tag @curation.image, alt: '', quality: 25, width: 1178, crop: 'limit', fetch_format: 'auto' %>
         <% end %>
-        <%# //More from retailers (non-palm) %>
+        <h1 class="island txt-hyphenate"><%= raw @curation.name.truncate 60, '&#8230;' %></h1>
+        <p class="product-curation__desc island-sides island-btm <%= 'toggle-visibility toggle-visibility--palm' if @curation.image? %>" id="curation-description"><%= raw @curation.description.truncate(400, '&#8230;') %></p>
+        <% if @curation.image? %>
+          <button type="button" class="btn btn--full btn--expand-collapse toggle-visibility-btn js-disabled-hide" toggle-visibility="curation-description" toggle-visibility-drop-down="false">
+            <span class="show-when-visible show-when-visible--block">
+              Collapse the description
+              <span aria-hidden="true" class="icon icon--arrow-up-full icon--lrg"></span>
+            </span>
+            <span class="hide-when-visible">
+              Read the description
+              <span aria-hidden="true" class="icon icon--arrow-down-full icon--lrg"></span>
+            </span>
+          </button>
+        <% end %>
+      </header>
+      <%# //Hero %>
 
-      </div>
-      <%# //'Hero' and 'More from retailers (non-palm)' %>
-
-      <%# Pin board %>
-      <section class="grid__item lap-sml-two-thirds lap-lrg-three-quarters desk-four-fifths" aria-labelledby="curation-pin-board">
-
-        <h2 class="hide-visually" id="curation-pin-board">Products</h2>
-
-        <div class="pin-board-curation">
-
-          <%# Pin board row %>
-          <% content_for :tile_class, 'tile--fixed-img-height', flush: true %>
-          <% @curation.products.in_groups_of 5 do |products| %>
-            <div class="grid <%= cycle '', 'grid--rev' -%> grid--gutter-half grid--mrg-half grid--non-linear">
-
-              <%# Hero tile %>
-              <div class="pin-board-curation__hero grid__item one-whole desk-one-half">
-                <%= render partial: '/shared/tiles/product',
-                      layout: '/layouts/tile',
-                      locals: { result: products.shift, options: { html_width: nil, width: 825, crop: 'pad' }} %>
-              </div>
-              <%# //Hero tile %>
-
-              <%# Sidekick tiles (x4) %>
-              <div class="pin-board-curation__sidekicks grid__item one-whole desk-one-half">
-                <% products.in_groups_of 2 do |sidekick_products| %>
-                  <div class="grid grid--gutter-half grid--mrg-half grid--non-linear">
-                    <% sidekick_products.each do |sidekick_product| %>
-                      <% if sidekick_product %>
-                        <div class="grid__item one-half">
-                          <%= render partial: '/shared/tiles/product',
-                                layout: '/layouts/tile',
-                                locals: { result: sidekick_product, options: { html_width: nil, width: 407, crop: 'pad' }} %>
-                        </div>
-                      <% end %>
-                    <% end %>
-                  </div>
-                <% end %>
-              </div>
-              <%# //Sidekick tiles (x4) %>
-
+      <%# More from retailers (non-palm) %>
+      <% if @curation.retailers.size > 1 %>
+        <footer class="hide-fully--palm mrg-dbl-top">
+          <section aria-labelledby="curation-retailers-non-palm">
+            <div class="txt-formatted mrg-base">
+              <h2 id="curation-retailers-non-palm">More from retailers</h2>
             </div>
-          <% end %>
-          <%# //Pin board row %>
-
-        </div>
-      </section>
-      <%# //Pin board %>
+            <%= render partial: 'more_from_retailers' %>
+          </section>
+        </footer>
+      <% end %>
+      <%# //More from retailers (non-palm) %>
 
     </div>
+    <%# //'Hero' and 'More from retailers (non-palm)' %>
+
+    <%# Pin board %>
+    <section class="grid__item lap-sml-two-thirds lap-lrg-three-quarters desk-four-fifths" aria-labelledby="curation-pin-board">
+
+      <h2 class="hide-visually" id="curation-pin-board">Products</h2>
+
+      <div class="pin-board-curation">
+
+        <%# Pin board row %>
+        <% content_for :tile_class, 'tile--fixed-img-height', flush: true %>
+        <% @curation.products.in_groups_of 5 do |products| %>
+          <div class="grid <%= cycle '', 'grid--rev' -%> grid--gutter-half grid--mrg-half grid--non-linear">
+
+            <%# Hero tile %>
+            <div class="pin-board-curation__hero grid__item one-whole desk-one-half">
+              <%= render partial: '/shared/tiles/product',
+                    layout: '/layouts/tile',
+                    locals: { result: products.shift, options: { html_width: nil, width: 825, crop: 'pad' }} %>
+            </div>
+            <%# //Hero tile %>
+
+            <%# Sidekick tiles (x4) %>
+            <div class="pin-board-curation__sidekicks grid__item one-whole desk-one-half">
+              <% products.in_groups_of 2 do |sidekick_products| %>
+                <div class="grid grid--gutter-half grid--mrg-half grid--non-linear">
+                  <% sidekick_products.each do |sidekick_product| %>
+                    <% if sidekick_product %>
+                      <div class="grid__item one-half">
+                        <%= render partial: '/shared/tiles/product',
+                              layout: '/layouts/tile',
+                              locals: { result: sidekick_product, options: { html_width: nil, width: 407, crop: 'pad' }} %>
+                      </div>
+                    <% end %>
+                  <% end %>
+                </div>
+              <% end %>
+            </div>
+            <%# //Sidekick tiles (x4) %>
+
+          </div>
+        <% end %>
+        <%# //Pin board row %>
+
+      </div>
+    </section>
+    <%# //Pin board %>
+
   </div>
   <%# //Hero and pin board %>
 

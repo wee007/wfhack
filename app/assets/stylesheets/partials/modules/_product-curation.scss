@@ -22,12 +22,3 @@
       @include font-size($font-size);
     }
   }
-
-  /* Temp styles until 'You may also like...' section is added */
-  @include respond-min($non-palm) {
-    .product-curation__pager {
-      margin-bottom: 0;
-      padding-bottom: 0;
-      border-bottom: 0;
-    }
-  }

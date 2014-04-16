@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.295
+Version:     0.2.296
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,10 @@ fi
 
 
 %changelog
+* Wed Apr 16 2014 ci <doperations@au.westfield.com> 0.2.296-1
+- dont show shop products icon for ie9 users until product browse loop bug is
+  fixed (alec@smartalecwebsites.com.au)
+
 * Wed Apr 16 2014 ci <doperations@au.westfield.com> 0.2.295-1
 - singularize curation icons (alec@smartalecwebsites.com.au)
 

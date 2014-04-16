@@ -55,7 +55,7 @@
       # Need to trigger an event here so the placeholder polyfill can be reapplied to the page
       # Has to be in a timeout to wait for the page to render
       $timeout ->
-        $(document).trigger("products.change")
+        $(document).trigger('products.change')
 
     setParams = (newAttribute, newValues) ->
       rParams = routeParams()
@@ -121,7 +121,7 @@
       # Need to trigger an event here so the placeholder polyfill can be reapplied to the page
       # Has to be in a timeout to wait for the page to render
       $timeout ->
-        $(document).trigger("products.change")
+        $(document).trigger('products.change')
 
 
     # Filter controls / toggle / open / close

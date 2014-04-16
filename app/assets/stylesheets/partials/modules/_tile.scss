@@ -112,7 +112,7 @@
         .is-long-price .price-strip__normal {
           display: none;
 
-          @include respond-min($iphone-landscape) {
+          @include respond-min($palm-lrg) {
             display: inline;
           }
         }
@@ -259,12 +259,12 @@
     line-height: #{$tile-fixed-height-2 - 1}px;
   }
 
-  @include respond-min($iphone-landscape) {
+  @include respond-min($palm-lrg) {
     height: #{$tile-fixed-height-3}px;
     line-height: #{$tile-fixed-height-3 - 1}px;
   }
 
-  @include respond-min($ipad-portrait) {
+  @include respond-min($lap-sml-middle) {
     height: #{$tile-fixed-height-4}px;
     line-height: #{$tile-fixed-height-4 - 1}px;
   }

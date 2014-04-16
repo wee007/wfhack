@@ -324,7 +324,7 @@
           }
 
           /* Need to override dynamic `is-active` class appended by 'Angular toggle visibility' directive */
-          @include respond-range($iphone-landscape, $ipad-landscape - 1) {
+          @include respond-range($palm-lrg, $lap-lrg-middle - 1) {
             &,
             &.is-active {display: inline-block;}
           }

@@ -95,7 +95,7 @@
   Note: be sure to comment out what you don't use as a lot of CSS is generated from all of this.
 */
 
-/* palm lrg */
+/* Palm large */
 @include respond-min($palm-lrg) {
   @include width-classes("palm-lrg-");
 }

@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.301
+Version:     0.2.302
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,27 @@ fi
 
 
 %changelog
+* Thu Apr 17 2014 ci <doperations@au.westfield.com> 0.2.302-1
+- Merge pull request #1084 from araeside/add-product-browse-breakpoint
+  (araeside@au.westfield.com)
+- comment out unused grid widths (alec@smartalecwebsites.com.au)
+- change breakpoints to get 3 cols at iphone landscape. update image widths
+  across all tiles (alec@smartalecwebsites.com.au)
+- use exact value for breakpoint (alec@smartalecwebsites.com.au)
+- use straight number for palm-lrg (alec@smartalecwebsites.com.au)
+- remove unused start breakpoint (alec@smartalecwebsites.com.au)
+- update breakpoint comments (alec@smartalecwebsites.com.au)
+- fix up css comment (alec@smartalecwebsites.com.au)
+- update PR after code review (alec@smartalecwebsites.com.au)
+- rename breakpoints in JS (alec@smartalecwebsites.com.au)
+- update breakpoints after rebase (alec@smartalecwebsites.com.au)
+- rename arbitrary breakpoints. (alec@smartalecwebsites.com.au)
+- put palm breakpoint back to em (alec@smartalecwebsites.com.au)
+- set new breakpoint in em (alec@smartalecwebsites.com.au)
+- only add in extra palm medium breakpoint (alec@smartalecwebsites.com.au)
+- add extra breakpoint and fix nav contextual js
+  (alec@smartalecwebsites.com.au)
+
 * Thu Apr 17 2014 ci <doperations@au.westfield.com> 0.2.301-1
 - add polyfill to asset pipeline (alec@smartalecwebsites.com.au)
 

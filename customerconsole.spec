@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.300
+Version:     0.2.301
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,9 @@ fi
 
 
 %changelog
+* Thu Apr 17 2014 ci <doperations@au.westfield.com> 0.2.301-1
+- add polyfill to asset pipeline (alec@smartalecwebsites.com.au)
+
 * Thu Apr 17 2014 ci <doperations@au.westfield.com> 0.2.300-1
 - Merge pull request #1059 from araeside/add-placeholder-polyfill
   (araeside@au.westfield.com)

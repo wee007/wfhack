@@ -97,9 +97,12 @@ $spacing-dbl: $line-height * 2 !default;
 					-	Desk large:	larger desktop computer monitors, TV's, and who knows what else?
 			-	Breakpoints:
 				-	Palm: 	0 - 640px
+					- Palm large:	480px+
 				-	Lap:	641px - 1199px
 					-	Lap small:	641px - 900px
+						- Lap small middle: 768px+
 					-	Lap large:	901px - 1199px
+						-	Lap large middle: 1024px+
 				-	Desk:	1200px +
 					-	Desk small:	1200px - 1365px
 					-	Desk large:	1366px +
@@ -139,26 +142,24 @@ $desk-sml-end: $desk-lrg-start - 1 !default;
 /* Palm */
 $palm: $palm-end !default;
 
+$palm-lrg: 480 !default;
+
 /* Non-palm */
 $non-palm: $lap-start !default;
 
 /* Lap */
 $lap: $lap-start !default;
 
+$lap-sml-middle: 768 !default;
+
 $lap-lrg: $lap-lrg-start !default;
+
+$lap-lrg-middle: 1024 !default;
 
 /* Desk */
 $desk: $desk-start !default;
 
 $desk-lrg: $desk-lrg-start !default;
-
-/* Arbitrary breakpoints */
-
-$iphone-landscape: 480 !default;
-
-$ipad-portrait: 768 !default;
-
-$ipad-landscape: 1024 !default;
 
 /* [GRID/LAYOUT]
 -------------------------------------------------------*/
@@ -313,6 +314,14 @@ $two-sixths: $one-third !default;
 $three-sixths: $one-half !default;
 $four-sixths: $two-thirds !default;
 $five-sixths: 83.333% !default;
+
+/* Sevenths */
+$one-seventh: (100/7)*1% !default;
+$two-sevenths: (100/7)*2% !default;
+$three-sevenths: (100/7)*3% !default;
+$four-sevenths: (100/7)*4% !default;
+$five-sevenths: (100/7)*5% !default;
+$six-sevenths: (100/7)*6% !default;
 
 /* Eighths */
 $one-eighth: 12.5% !default;

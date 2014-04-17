@@ -18,7 +18,7 @@
   .product-curation__desc {
     @include font-size($font-size-sml);
 
-    @include respond-min($ipad-landscape) {
+    @include respond-min($lap-lrg-middle) {
       @include font-size($font-size);
     }
   }

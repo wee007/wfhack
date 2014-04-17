@@ -53,7 +53,7 @@
 		margin-bottom: to-em(3);
 
 		/* Sits to the left of it's `input`s at this breakpoint */
-		@include respond-min($ipad-portrait) {
+		@include respond-min($lap-sml-middle) {
 			width: to-em(256);
 			float: left;
 			text-align: right;
@@ -71,7 +71,7 @@
 	}
 
 	/* `input`s - sits to the right of it's `label` at this breakpoint */
-	@include respond-min($ipad-portrait) {
+	@include respond-min($lap-sml-middle) {
 		.form-main__inputs {
 			margin-left: to-em(280);
 			width: $two-fifths;
@@ -84,7 +84,7 @@
 			label,
 			input {vertical-align: middle;}
 
-			@include respond-min($ipad-portrait) {
+			@include respond-min($lap-sml-middle) {
 				/* Nudge `type="file"` `input` down */
 				input[type="file"] {margin-top: to-em(4);}
 

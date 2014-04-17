@@ -33,7 +33,7 @@
   .no-js & {
     position: static;
 
-    @include respond-min($ipad-landscape) {
+    @include respond-min($lap-lrg-middle) {
       @include to-rem(padding-bottom, $spacing-base);
     }
   }
@@ -43,7 +43,7 @@
     width: auto;
 
     /* Reapply default width */
-    @include respond-min($ipad-landscape) {
+    @include respond-min($lap-lrg-middle) {
       width: $page-container-width;
     }
   }
@@ -84,7 +84,7 @@
     left: 0;
     right: 0;
 
-    @include respond-min($ipad-landscape) {
+    @include respond-min($lap-lrg-middle) {
       width: 50%;
       /* Disable click events so the map canvas that sits behind can be interacted with */
       pointer-events: none;
@@ -94,7 +94,7 @@
     &.stores-maps__inner--detail {
       position: static;
 
-      @include respond-min($ipad-landscape) {
+      @include respond-min($lap-lrg-middle) {
         position: absolute;
       }
     }
@@ -103,7 +103,7 @@
     .is-map-view & {
       position: static;
 
-      @include respond-min($ipad-landscape) {
+      @include respond-min($lap-lrg-middle) {
         position: absolute;
       }
     }
@@ -124,7 +124,7 @@
       z-index: 6;
 
       /* Apply box treatments at this breakpoint */
-      @include respond-min($ipad-landscape) {
+      @include respond-min($lap-lrg-middle) {
         border: 0;
         @include box;
         @include box-heavy;
@@ -143,7 +143,7 @@
         .stores-maps__toggle {pointer-events: auto;}
 
         /* Restore `pointer-events` and bg color at this breakpoint */
-        @include respond-min($ipad-landscape) {
+        @include respond-min($lap-lrg-middle) {
           pointer-events: auto;
           background-color: #fff;
         }
@@ -157,13 +157,13 @@
         .is-map-view & {display: block;}
 
         /* Show storefront header */
-        @include respond-min($ipad-landscape) {
+        @include respond-min($lap-lrg-middle) {
           display: block;
         }
       }
 
       /* Non JS users */
-      @include respond-min($ipad-landscape) {
+      @include respond-min($lap-lrg-middle) {
         .no-js & {@include to-rem(margin-bottom, $spacing-base);}
       }
 
@@ -187,7 +187,7 @@
         color: $color-txt-dark;
 
         /* Bring the header into view and add bottom margin at this breakpoint */
-        @include respond-min($ipad-landscape) {
+        @include respond-min($lap-lrg-middle) {
           @include hide-visually-off;
           @include to-em(margin-bottom, $spacing-sixth);
         }
@@ -196,7 +196,7 @@
         .is-map-view & {
           display: none !important;
 
-          @include respond-min($ipad-landscape) {
+          @include respond-min($lap-lrg-middle) {
             display: block !important;
           }
         }
@@ -237,7 +237,7 @@
       /* Filters - 'Categories', 'Gift card toggle' and 'Keyword' */
       .stores-maps__filters {
 
-        @include respond-min($ipad-landscape) {
+        @include respond-min($lap-lrg-middle) {
           text-align: right;
 
           /* Non JS users */
@@ -251,7 +251,7 @@
 
           /* Gift card toggle */
           .btn--main-toggle-ios {
-            @include respond-min($ipad-landscape) {
+            @include respond-min($lap-lrg-middle) {
               @include to-em(padding-top, $spacing-half - 1);
               @include to-em(padding-bottom, $spacing-half - 2);
               border: 1px solid $color-grey-med-2;
@@ -262,7 +262,7 @@
             .icon--gift-card:before {
               display: none;
 
-              @include respond-min($ipad-landscape) {
+              @include respond-min($lap-lrg-middle) {
                 display: inline-block;
               }
             }
@@ -278,7 +278,7 @@
               @include to-rem(max-width, 130);
             }
 
-            @include respond-min($ipad-landscape) {
+            @include respond-min($lap-lrg-middle) {
               @include to-rem(max-width, 213);
             }
 
@@ -317,23 +317,24 @@
        .stores-maps__keyword-filter-input {
 
           /* Always visible at this breakpoint */
-          @include respond-min($iphone-landscape) {
+
+          @include respond-min($palm-lrg) {
             width: 40%;
             vertical-align: middle;
           }
 
           /* Need to override dynamic `is-active` class appended by 'Angular toggle visibility' directive */
-          @include respond-range($iphone-landscape, $ipad-landscape - 1) {
+          @include respond-range($palm-lrg, $lap-lrg-middle - 1) {
             &,
             &.is-active {display: inline-block;}
           }
 
           /* Reduce width to handle bigger map toggle button */
-          @include respond-range($lap-start, $ipad-portrait - 1) {
+          @include respond-range($lap-start, $lap-sml-middle - 1) {
             width: 30%;
           }
 
-          @include respond-min($ipad-landscape) {
+          @include respond-min($lap-lrg-middle) {
             display: block;
             width: auto;
           }
@@ -342,7 +343,7 @@
           .is-map-view & {
             @include to-rem(margin-right, $spacing-dbl+$spacing-quarter);
 
-            @include respond-min($iphone-landscape) {
+            @include respond-min($palm-lrg) {
               margin-right: 0;
             }
           }
@@ -352,14 +353,14 @@
             @include to-rem(padding-top padding-bottom, $spacing-half - 2);
             @include to-rem(margin-top, $spacing-half);
 
-            @include respond-range($iphone-landscape, $ipad-landscape - 1) {
+            @include respond-range($palm-lrg, $lap-lrg-middle - 1) {
               margin-top: 0;
             }
           }
         }
 
         /* Keyword filter toggle - hide at this breakpoint */
-        @include respond-min($iphone-landscape) {
+        @include respond-min($palm-lrg) {
           .stores-maps__keyword-filter-toggle {display: none;}
         }
 
@@ -387,7 +388,7 @@
         }
 
         /* Hide at this breakpoint */
-        @include respond-min($ipad-landscape) {
+        @include respond-min($lap-lrg-middle) {
           display: none;
         }
 
@@ -419,7 +420,7 @@
           display: none;
 
           /* Show at this breakpoint */
-          @include respond-min($ipad-landscape) {
+          @include respond-min($lap-lrg-middle) {
             display: block;
           }
         }
@@ -435,7 +436,7 @@
         }
 
           /* Decrease location icon size at this breakpoint */
-          @include respond-min($ipad-landscape) {
+          @include respond-min($lap-lrg-middle) {
             .icon--pin:before {@include font-size(23, 1);}
           }
       }
@@ -472,7 +473,7 @@
       .is-map-view & {
         display: none;
 
-        @include respond-min($ipad-landscape) {
+        @include respond-min($lap-lrg-middle) {
           display: block;
         }
       }
@@ -486,7 +487,7 @@
       }
 
       /* Apply box treatments and alter top/btm positioning at this breakpoint */
-      @include respond-min($ipad-landscape) {
+      @include respond-min($lap-lrg-middle) {
         @include to-rem(top, 161);
         @include to-rem(bottom, $spacing-base);
         @include box;
@@ -512,7 +513,7 @@
       .no-js & {position: static;}
 
       /* Store list module */
-      @include respond-min($ipad-landscape) {
+      @include respond-min($lap-lrg-middle) {
         /* Remove right indent for store name */
         .stores-list__store-name {margin-right: 0;}
 
@@ -523,14 +524,14 @@
       /* Post filter count applied indicator (pin) */
       .is-filter-applied & .stores-list__store-name {
 
-        @include respond-min($ipad-landscape) {
+        @include respond-min($lap-lrg-middle) {
           @include to-rem(padding-left, $spacing-base);
         }
 
         .icon--pin:before {
           display: none;
 
-          @include respond-min($ipad-landscape) {
+          @include respond-min($lap-lrg-middle) {
             display: block;
             position: absolute;
             left: 0;
@@ -559,7 +560,7 @@
     .no-js & {position: static;}
 
     /* Always show at this breakpoint */
-    @include respond-min($ipad-landscape) {
+    @include respond-min($lap-lrg-middle) {
       display: block;
 
       /* Preloader */

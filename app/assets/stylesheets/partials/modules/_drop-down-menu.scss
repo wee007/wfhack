@@ -63,7 +63,7 @@
     @include to-rem(margin-top, 10);
 
     /* Reduce widths at this breakpoint */
-    @include respond-min($iphone-landscape) {
+    @include respond-min($palm-lrg) {
       /* Default version */
       @include to-rem(width, $drop-down-width);
 

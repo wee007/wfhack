@@ -61,11 +61,11 @@
     @include curation-hero-tile-height($tile-fixed-height-2);
   }
 
-  @include respond-min($iphone-landscape) {
+  @include respond-min($palm-lrg) {
     @include curation-hero-tile-height($tile-fixed-height-3);
   }
 
-  @include respond-min($ipad-portrait) {
+  @include respond-min($lap-sml-middle) {
     @include curation-hero-tile-height($tile-fixed-height-4);
   }
 

@@ -40,6 +40,7 @@ module CustomerConsole
                                    styleguide/styleguide.css
                                    vendor/kss.js
                                    support/placeholder-init.js
+                                   jquery-placeholder/jquery.placeholder.js
                                    )
     if Rails.env.development?
       require File.expand_path('../../lib/service_proxy', __FILE__)

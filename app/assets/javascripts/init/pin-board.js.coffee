@@ -16,14 +16,14 @@ class @PinBoard
   build: ->
 
     mediaQueries = {
-      palmSmall: "all and (max-width: 30em)", # 0-480px
-      palmLargeLapSmall: "all and (min-width: 30.0625em) and (max-width: 56.25em)", # 481px - 900px
+      palmSmall: "all and (max-width: 24.9375em)", # 0-399px
+      palmLargeLapSmall: "all and (min-width: 30em) and (max-width: 56.25em)", # 480px - 900px
       lapLarge: "all and (min-width: 56.3125em) and (max-width: 74.9375em)", # 901px - 1199px
       desktopSmall: "all and (min-width: 75em) and (max-width: 85.3125em)", # 1200px - 1365px
       desktopLarge: "all and (min-width: 85.375em)" # 1366px +
     }
 
-    #Palm
+    #Palm small
     enquire.register mediaQueries.palmSmall, => setTimeout (=>@rebuild 2), 0
 
     #Palm large, lap small

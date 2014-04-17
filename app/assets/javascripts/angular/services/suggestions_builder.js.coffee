@@ -31,21 +31,29 @@
       (suggestions.products ||=[]).push dummyResult(searchString, centre_id)
       suggestions
 
-    dummyResult = (searchString, centre_id)->
-      "description": "Products matching '#{searchString}'",
-      "url": buildUrl('product_query', query: searchString, centre_id)
+    dummyResult = (searchString, centre_id)->
+      if typeof westfield.google_content_experiment == 'undefined' or westfield.google_content_experiment == null
+        queryType = "product"
+        description = "Products matching"
+      else
+        queryType = "search"
+        description = "Search for"
 
-    buildUrl = (type, params, centre_id) ->
-      switch type
-        when "store" then "/#{centre_id}/stores/#{params.retailer_code}/#{params.id}"
-        when "store_category" then "/#{centre_id}/stores/#{params.category}"
-        when "retail_chain" then "/#{centre_id}/products?retailer[]=#{params.retailer_code}"
-        when "product_query" then "/#{centre_id}/products?search_query=#{params.query}"
-        when "colour" then "/#{centre_id}/products?colour[]=#{params.colour}"
-        when "product_category" then buildProductCategoryUrl params.super_cat, params.category, params.sub_category, centre_id
-        when "event" then "/#{centre_id}/events/#{params.id}"
-        when "deal" then "/#{centre_id}/deals/#{params.retailer_code}/#{params.id}"
-        when "centre_information" then "#{params.path}"
+      "description": "#{description} '#{searchString}'",
+      "url": buildUrl("#{queryType}_query", query: searchString, centre_id)
+
+    buildUrl = (type, params, centre_id) ->
+      switch type
+        when "store" then "/#{centre_id}/stores/#{params.retailer_code}/#{params.id}"
+        when "store_category" then "/#{centre_id}/stores/#{params.category}"
+        when "retail_chain" then "/#{centre_id}/products?retailer[]=#{params.retailer_code}"
+        when "product_query" then "/#{centre_id}/products?search_query=#{params.query}"
+        when "search_query" then "/#{centre_id}/search?search_query=#{params.query}"
+        when "colour" then "/#{centre_id}/products?colour[]=#{params.colour}"
+        when "product_category" then buildProductCategoryUrl params.super_cat, params.category, params.sub_category, centre_id
+        when "event" then "/#{centre_id}/events/#{params.id}"
+        when "deal" then "/#{centre_id}/deals/#{params.retailer_code}/#{params.id}"
+        when "centre_information" then "#{params.path}"
 
     buildProductCategoryUrl = (super_cat, category, sub_category, centre_id) ->
       url = "/#{centre_id}/products"

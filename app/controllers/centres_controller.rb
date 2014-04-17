@@ -28,6 +28,8 @@ class CentresController < ApplicationController
   def show
     stream
 
+    gon.push(google_content_experiment: params[:gce_var])
+
     meta.push(
       page_title: @centre.name,
       description: @centre.description

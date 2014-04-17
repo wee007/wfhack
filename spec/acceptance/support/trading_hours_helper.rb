@@ -1,7 +1,7 @@
 require 'service_helper'
 require 'westfield_uri'
 
-module AcceptanceSupportHelpers
+module TradingHoursHelper
   def this_weeks_centre_hours
     this_weeks_hours_for 'centre'
   end
@@ -19,7 +19,6 @@ module AcceptanceSupportHelpers
     when 'store'
       "#{ServiceHelper.uri_for('trading-hour')}/store_trading_hours/range.json?store_id=4565&centre_id=bondijunction&from=#{from_date.strftime('%Y-%m-%d')}&to=#{to_date.strftime('%Y-%m-%d')}"
     end
-    puts "Calling API: #{url}"
     visit (url)
     JSON.parse(page.body)
   end

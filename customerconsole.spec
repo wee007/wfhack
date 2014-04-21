@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.302
+Version:     0.2.303
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,9 @@ fi
 
 
 %changelog
+* Tue Apr 22 2014 ci <doperations@au.westfield.com> 0.2.303-1
+- Updated Hosts example file in README (itinsley@gmail.com)
+
 * Thu Apr 17 2014 ci <doperations@au.westfield.com> 0.2.302-1
 - Merge pull request #1084 from araeside/add-product-browse-breakpoint
   (araeside@au.westfield.com)

@@ -6,11 +6,6 @@ module ProductsHelper
     (@centre.nil?) ? products_path : centre_products_path(@centre.code)
   end
 
-  # Work out the savings in % between sale price and normal price
-  def percentage_off
-   (Float(@product.price - @product.sale_price) / @product.price * 100).floor
-  end
-
   def canonical_url
     centre_category or
       centre_super_cat or

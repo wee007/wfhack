@@ -108,14 +108,26 @@
         }
       }
 
-        /* Hide normal price due to lack of real estate when it exceeds 4 digits */
-        .is-long-price .price-strip__normal {
+        /* Normal price hide/show depending on real estate */
+        .price-strip__normal {
           display: none;
 
-          @include respond-min($palm-lrg) {
+          @include respond-range(400, $palm-lrg - 1) {
+            display: inline;
+          }
+
+          @include respond-min(590) {
             display: inline;
           }
         }
+
+        /* Curation pin board */
+        @include respond-range($palm-lrg - 1, $palm) {
+          .pin-board-curation & .price-strip__normal {display: inline;}
+        }
+
+        /* Hide normal price due to lack of real estate when it exceeds 5 digits */
+        .is-long-price .price-strip__normal {display: none;}
 
         /* Savings % tag % */
         .price-strip__savings {@include to-rem(padding, $spacing-quarter);}

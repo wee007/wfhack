@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.304
+Version:     0.2.305
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,11 @@ fi
 
 
 %changelog
+* Tue Apr 22 2014 ci <doperations@au.westfield.com> 0.2.305-1
+- Merge pull request #1039 from ldewey/master (ldewey@au.westfield.com)
+- Removed redis from status.json health check as its not needed.
+  (ldewey@au.westfield.com)
+
 * Tue Apr 22 2014 ci <doperations@au.westfield.com> 0.2.304-1
 - Update creative - WSF-6380 (cpearce@au.westfield.com)
 

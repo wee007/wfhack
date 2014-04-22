@@ -109,10 +109,6 @@
   <%= yield :custom_javascript %>
   <%# //Custom JavaScript %>
 
-  <%# 3rd party JavaScript (Tealium) %>
-  <%= raw third_party_universal_tagging %>
-  <%# //3rd party JavaScript (Tealium) %>
-
   <%#
     [WSF-6459]
     Added conditional statement to only insert the Google Analytics (GA) codes in UAT environment for testing purpose.
@@ -122,7 +118,6 @@
 
     Post UAT TODO:
       * Remove the conditional statement
-      * Move GA code into Tealium
   %>
   <% if Rails.env.uat? %>
     <%# Google Analytics Content Experiment code %>
@@ -139,15 +134,12 @@
     '" type="text/javascript" charset="utf-8"><\/sc'+'ript>')})();
     </script><script>utmx('url','A/B');</script>
     <%# //End of Google Analytics Content Experiment code %>
-    <%# Google Analytics code %>
-    <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-    ga('create', 'UA-3643495-24', 'westfield.com.au');
-    ga('send', 'pageview');</script>
-    <%# //End of Google Analytics code %>
   <% end %>
+
+  <%# 3rd party JavaScript (Tealium) %>
+  <%= raw third_party_universal_tagging %>
+  <%# //3rd party JavaScript (Tealium) %>
+
 </body>
 
 </html>

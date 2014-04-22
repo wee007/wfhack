@@ -31,16 +31,22 @@
       <%# //Hero %>
 
       <%# More from retailers (non-palm) %>
-      <% if @curation.retailers.size > 1 %>
+      
         <footer class="hide-fully--palm mrg-dbl-top">
           <section aria-labelledby="curation-retailers-non-palm">
             <div class="txt-formatted mrg-base">
-              <h2 id="curation-retailers-non-palm">More from retailers</h2>
+              <h2 id="curation-retailers-non-palm">
+                <% if @curation.retailers.size > 1 %>
+                  More from retailers
+                <% else %>
+                  See More
+                <% end %>
+              </h2>
             </div>
             <%= render partial: 'more_from_retailers' %>
           </section>
         </footer>
-      <% end %>
+
       <%# //More from retailers (non-palm) %>
 
     </div>
@@ -104,7 +110,13 @@
       <%# More from retailers (palm) %>
       <section class="hide-fully--non-palm" aria-labelledby="curation-retailers-palm">
         <div class="txt-formatted mrg-base">
-          <h2 id="curation-retailers-palm">More from retailers</h2>
+          <h2 id="curation-retailers-palm">
+            <% if @curation.retailers.size > 1 %>
+              More from retailers
+            <% else %>
+              See More
+            <% end %>
+          </h2>
         </div>
         <%= render partial: 'more_from_retailers' %>
       </section>

@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.307
+Version:     0.2.308
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,12 @@ fi
 
 
 %changelog
+* Tue Apr 22 2014 ci <doperations@au.westfield.com> 0.2.308-1
+- Merge pull request #1085 from ewee/ab_testing (ewee@au.westfield.com)
+- WSF-6459 Remove GA code as will be moved to Tealium (ewee@au.westfield.com)
+- WSF-6459 Land on search page if Google Content Experiment parameter exist via
+  search assist (ewee@au.westfield.com)
+
 * Tue Apr 22 2014 ci <doperations@au.westfield.com> 0.2.307-1
 - Merge pull request #1090 from dsim/WSF-6482_CCAmendments
   (dsim@au.westfield.com)

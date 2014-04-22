@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.306
+Version:     0.2.307
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,12 @@ fi
 
 
 %changelog
+* Tue Apr 22 2014 ci <doperations@au.westfield.com> 0.2.307-1
+- Merge pull request #1090 from dsim/WSF-6482_CCAmendments
+  (dsim@au.westfield.com)
+- Sidebar header to read "See More" when only one retailer is used in curation
+  (dsim@au.westfield.com)
+
 * Tue Apr 22 2014 ci <doperations@au.westfield.com> 0.2.306-1
 - Merge pull request #1073 from jlambert/WSF-5352 (jlambert@au.westfield.com)
 - WSF-5352 add disabled attr to buttons (jlambert@au.westfield.com)

@@ -227,43 +227,45 @@
     margin-top: -1px;
   }
 
-    /* Shopping hours */
-    .storefront__featured--hours {
-      border-bottom: 1px solid $color-grey-med-3;
+  /* Shopping hours */
+  .storefront__featured--hours {
 
-      /* Need to shorten the day at this breakpoint range due to lack of real estate */
-      /* Note: have to use `!important` keyword here to override the 'Hide' helper class */
-      @include respond-range($lap-lrg-middle, $desk-lrg) {
-        .table-striped .hide-fully--palm-inline {display: none !important;}
-      }
+    /* Apply bottom padding so that the spacing matches the 'Tiles' modifier more */
+    > .container {@include to-rem(padding-bottom, $spacing-third);}
 
-      /* Adjust the width of the 1st column at this breakpoint */
-      @include respond-min($desk-lrg) {
-        col:first-child {width: $one-eighth;}
+    /* Need to shorten the day at this breakpoint range due to lack of real estate */
+    /* Note: have to use `!important` keyword here to override the 'Hide' helper class */
+    @include respond-range($lap-lrg-middle, $desk-lrg) {
+      .table-striped .hide-fully--palm-inline {display: none !important;}
+    }
+
+    /* Adjust the width of the 1st column at this breakpoint */
+    @include respond-min($desk-lrg) {
+      col:first-child {width: $one-eighth;}
+    }
+  }
+
+  /* Tiles */
+  .storefront__featured--tiles {
+    /* Hide 3rd tile by default */
+    .grid__item:nth-child(3) {
+      display: none;
+
+      /* Show 3rd tile at this breakpoint */
+      @include respond-min($palm-lrg) {
+        display: block;
       }
     }
 
-    /* Tiles */
-    .storefront__featured--tiles {
-      /* Hide 3rd tile by default */
-      .grid__item:nth-child(3) {
-        display: none;
+    /* Reinstate bottom margin for last child grid item */
+    .grid__item:last-child {@include to-rem(margin-bottom, $grid-gutter-half);}
 
-        /* Show 3rd tile at this breakpoint */
-        @include respond-min($palm-lrg) {
-          display: block;
-        }
-      }
+    /* Mods for 'Deal' tile at this breakpoint range */
+    @include respond-range($lap-lrg-middle, 1300) {
+      .tile--deal .tile__meta {
+        @include to-rem(padding, 55 15);
 
-      /* Reinstate bottom margin for last child grid item */
-      .grid__item:last-child {@include to-rem(margin-bottom, $grid-gutter-half);}
-
-      /* Mods for 'Deal' tile at this breakpoint range */
-      @include respond-range($lap-lrg-middle, 1300) {
-        .tile--deal .tile__meta {
-          @include to-rem(padding, 55 15);
-
-          .tile__meta__desc {@include font-size($font-size-sml, 1.5);}
-        }
+        .tile__meta__desc {@include font-size($font-size-sml, 1.5);}
       }
     }
+  }

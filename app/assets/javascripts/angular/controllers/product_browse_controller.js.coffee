@@ -127,7 +127,7 @@
     # Filter controls / toggle / open / close
     $scope.activeFilter = ""
     $scope.toggleFilter = ($event, filterName) ->
-      if $scope.activeFilter isnt filterName
+      if $scope.activeFilter isnt filterName && !$($event.target).hasClass('is-disabled')
         $scope.activeFilter = filterName
 
         #let other dropdowns know that they should close themselves
@@ -166,6 +166,9 @@
     $scope.triggersVisible = true
     $scope.showFilterButtons = -> $scope.triggersVisible = true
     $scope.hideFilterButtons = -> $scope.triggersVisible = false
+
+    $scope.filterIsDisabled = (filter)->
+      ProductSearch[filter].resultsCount == 0
 
     $scope.closeFilters = ->
       $scope.activeFilter = ""

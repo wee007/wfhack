@@ -54,15 +54,15 @@
       }
 
       @include respond-max($palm) {
-        background-image: cloudinary-url("heroes/national/national-hero-01-sml.jpg", $quality: 88, $fetch_format: 'auto');
+        background-image: cloudinary-url("heroes/national/national-hero-01-sml.jpg", $quality: 89, $fetch_format: 'auto');
       }
 
       @include respond-range($lap, $lap-sml-end) {
-        background-image: cloudinary-url("heroes/national/national-hero-01-med.jpg", $quality: 88, $fetch_format: 'auto');
+        background-image: cloudinary-url("heroes/national/national-hero-01-med.jpg", $quality: 89, $fetch_format: 'auto');
       }
 
       @include respond-min($lap-lrg) {
-        background-image: cloudinary-url("heroes/national/national-hero-01-lrg.jpg", $quality: 88, $fetch_format: 'auto');
+        background-image: cloudinary-url("heroes/national/national-hero-01-lrg.jpg", $quality: 89, $fetch_format: 'auto');
         height: 75%;
       }
 

@@ -25,6 +25,26 @@ describe DealsController do
       response.should render_template :index
     end
 
+    describe "gon" do
+      let(:gon) { double(:gon, meta: Meta.new) }
+
+      context "when google content experiment param is not present" do
+        it "assigns nil google_content_experiment variable" do
+          controller.stub(:gon).and_return(gon)
+          gon.should_receive(:push).with(google_content_experiment: nil)
+          get :index, centre_id: 'bondijunction', campaign_code: 'halloween'
+        end
+      end
+
+      context "when google content experiment param is present" do
+        it "assigns the param value to google_content_experiment variable" do
+          controller.stub(:gon).and_return(gon)
+          gon.should_receive(:push).with(google_content_experiment: '1')
+          get :index, centre_id: 'bondijunction', campaign_code: 'halloween', gce_var: 1
+        end
+      end
+    end
+
     it "adds title to meta" do
       meta.should_receive(:push).with({
         page_title: "Deals, Sales & Special Offers available at Centre name",
@@ -89,11 +109,24 @@ describe DealsController do
       expect(response).to render_template :show
     end
 
-    it "adds centre to gon" do
-      gon = double :gon, meta: Meta.new
-      controller.stub(:gon).and_return(gon)
-      gon.should_receive(:push).with(centre: {}, stores: [store])
-      get :show, id: 1, centre_id: 'bondijunction', retailer_code: 'for-tracking'
+    describe "gon" do
+      let(:gon) { double(:gon, meta: Meta.new) }
+
+      context "when google content experiment param is not present" do
+        it "assigns nil google_content_experiment variable" do
+          controller.stub(:gon).and_return(gon)
+          gon.should_receive(:push).with(centre: {}, stores: [store], google_content_experiment: nil)
+          get :show, id: 1, centre_id: 'bondijunction', retailer_code: 'for-tracking'
+        end
+      end
+
+      context "when google content experiment param is present" do
+        it "assigns the param value to google_content_experiment variable" do
+          controller.stub(:gon).and_return(gon)
+          gon.should_receive(:push).with(centre: {}, stores: [store], google_content_experiment: '1')
+          get :show, id: 1, centre_id: 'bondijunction', retailer_code: 'for-tracking', gce_var: 1
+        end
+      end
     end
 
     it "adds title to meta" do

@@ -40,6 +40,26 @@ describe CentresController do
       response.should render_template :show
     end
 
+    describe "gon" do
+      let(:gon) { double(:gon, meta: Meta.new) }
+
+      context "when google content experiment param is not present" do
+        it "assigns nil google_content_experiment variable" do
+          controller.stub(:gon).and_return(gon)
+          gon.should_receive(:push).with(google_content_experiment: nil)
+          get :show, id: 'centre'
+        end
+      end
+
+      context "when google content experiment param is present" do
+        it "assigns the param value to google_content_experiment variable" do
+          controller.stub(:gon).and_return(gon)
+          gon.should_receive(:push).with(google_content_experiment: '1')
+          get :show, id: 'centre', gce_var: 1
+        end
+      end
+    end
+
     it "adds page title and description to meta" do
       meta.should_receive(:push).with({
         page_title: 'Centre name',

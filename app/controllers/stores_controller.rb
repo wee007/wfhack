@@ -1,14 +1,15 @@
 class StoresController < ApplicationController
 
   def index
-    push_centre_info_to_gon
+    gon.push \
+      centre: centre,
+      stores: @stores.dup,
+      google_content_experiment: params[:gce_var]
 
     store_decorator = FilteredStoresDecorator.decorate(@stores)
 
     @categories = RetailerCategoriesDecorator.new(store_decorator.sorted_categories, with: RetailerCategoryDecorator)
     @active_category = @categories.get(params[:category])
-
-    gon.stores = @stores.dup
 
     # Filter the store list by params
     @stores = store_decorator.filter!(params)
@@ -28,9 +29,11 @@ class StoresController < ApplicationController
     return respond_to_error(404) unless store.present?
     @todays_hours = todays_hours
     @this_week_hours = this_week_hours
-    push_centre_info_to_gon
 
-    gon.stores = @stores.dup
+    gon.push \
+      centre: centre,
+      stores: @stores.dup,
+      google_content_experiment: params[:gce_var]
 
     meta.push(
       page_title: "#{store.name} at #{centre.name}",
@@ -83,10 +86,6 @@ protected
 
     @centre, @stores, @products, store = service_map services
     @deals = DealService.find( { centre: params[ :centre_id ], retailer: store.first.retailer_id, state: 'published', count: 3 } ) if store.present?
-  end
-
-  def push_centre_info_to_gon
-    gon.push centre: centre
   end
 
 end

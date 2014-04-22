@@ -5,9 +5,10 @@ class SearchController < ApplicationController
       search: {centre: params[:centre_id], term: params[:search_query]}
     meta.push page_title: "Westfield Australia | Search"
 
-    gon.search_query = params[:search_query]
-
-    gon.centre = params[:centre_id]
+    gon.push \
+      search_query: params[:search_query],
+      centre: params[:centre_id],
+      google_content_experiment: params[:gce_var]
 
     if (search.hard_redirect?)
       redirect_to search.first_result_uri_path

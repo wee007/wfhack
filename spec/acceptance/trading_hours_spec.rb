@@ -1,6 +1,8 @@
 require 'acceptance_helper'
 
-feature 'Trading hours', :trading_hours do
+feature 'Trading Hours' do
+  include_context 'trading_hours'
+  
   describe 'Center hours are correct', :destructive => false do
     scenario "for Bondi Junction" do
       visit "/bondijunction/hours"

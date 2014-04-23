@@ -1,4 +1,4 @@
-module RedirectsHelper
+shared_context "redirects" do
   def internal_redirect_list
     [
       { :from => '/geelong/wifi', :to => '/geelong/' },

@@ -1,6 +1,8 @@
 require 'acceptance_helper'
 
-feature 'Redirecting', :redirects do
+feature 'Redirecting' do
+  include_context 'redirects'
+  
   describe 'to an INTERNAL address', :destructive => false do
     scenario "sends the user to the correct destination" do
       with_redirecting_on

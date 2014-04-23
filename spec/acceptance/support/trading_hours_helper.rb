@@ -1,7 +1,7 @@
 require 'service_helper'
 require 'westfield_uri'
 
-module TradingHoursHelper
+shared_context "trading_hours" do
   def this_weeks_centre_hours
     this_weeks_hours_for 'centre'
   end

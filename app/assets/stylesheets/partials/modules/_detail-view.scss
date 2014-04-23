@@ -301,8 +301,8 @@
       .price-strip__normal {display: none;}
     }
 
-    /* When normal price exceeds 5 digits */
-    @include respond-range($non-palm, 840) {
+    /* Long normal price - when it exceeds 5 digits */
+    @include respond-range(691, 840) {
       .is-long-price .price-strip__normal {display: none;}
     }
 

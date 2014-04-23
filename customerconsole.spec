@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.308
+Version:     0.2.309
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,17 @@ fi
 
 
 %changelog
+* Wed Apr 23 2014 ci <doperations@au.westfield.com> 0.2.309-1
+- Fixing failing build test (cpearce@au.westfield.com)
+- Removing white space between am/pm for Event timeline
+  (cpearce@au.westfield.com)
+- Minor updates to Normalize CSS (cpearce@au.westfield.com)
+- Removing bottom border and adding more bottom spacing for Shopping Hours on
+  Storefront (cpearce@au.westfield.com)
+- Removing custom focus styles from reset CSS (cpearce@au.westfield.com)
+- Applying GA movie tile tracking class to correct element
+  (cpearce@au.westfield.com)
+
 * Tue Apr 22 2014 ci <doperations@au.westfield.com> 0.2.308-1
 - Merge pull request #1085 from ewee/ab_testing (ewee@au.westfield.com)
 - WSF-6459 Remove GA code as will be moved to Tealium (ewee@au.westfield.com)

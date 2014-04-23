@@ -24,6 +24,9 @@ gem 'cloudinary'
 gem 'sitemap_generator'
 gem 'sterile'
 
+# To support ?nocache=xxxx hack
+gem 'request_store'
+
 # Presentation, pagination etc.
 gem 'kaminari'
 gem 'money'

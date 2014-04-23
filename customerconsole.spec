@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.310
+Version:     0.2.311
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,11 @@ fi
 
 
 %changelog
+* Wed Apr 23 2014 ci <doperations@au.westfield.com> 0.2.311-1
+- Merge pull request #1092 from jlambert/enable-http-cache
+  (jlambert@au.westfield.com)
+- Enable http-caching for backing services (jlambert@au.westfield.com)
+
 * Wed Apr 23 2014 ci <doperations@au.westfield.com> 0.2.310-1
 - backing out new spec setup (benpritchard@aud27140.au.ad.westfield.com)
 

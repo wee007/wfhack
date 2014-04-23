@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.309
+Version:     0.2.310
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,9 @@ fi
 
 
 %changelog
+* Wed Apr 23 2014 ci <doperations@au.westfield.com> 0.2.310-1
+- backing out new spec setup (benpritchard@aud27140.au.ad.westfield.com)
+
 * Wed Apr 23 2014 ci <doperations@au.westfield.com> 0.2.309-1
 - Fixing failing build test (cpearce@au.westfield.com)
 - Removing white space between am/pm for Event timeline

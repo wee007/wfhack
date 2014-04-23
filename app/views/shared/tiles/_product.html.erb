@@ -24,7 +24,7 @@
   <%# //Product brand %>
 
   <%# Product price %>
-  <p class="price-strip <%= 'is-long-price' if number_to_currency(result.price).length > 9 %>">
+  <p class="price-strip <%= 'is-long-price' if number_to_currency(result.price || 0).length > 9 %>">
     <%- if result.is_discounted -%>
       <span class="price-strip__normal hide-visually">Normal price: </span>
       <s class="price-strip__normal"><%= number_to_currency result.price %></s>

@@ -13,9 +13,11 @@ begin
     centres_uri = URI("#{ServiceHelper.uri_for('centre')}/centres.json?country=au")
     stores_uri = URI("#{ServiceHelper.uri_for('store')}/stores.json")
     product_search_url = URI("#{ServiceHelper.uri_for('product')}/products/search.json")
+    curations_uri = "http://canned-search-service.production.dbg.westfield.com/api/canned-search/master/curations.json"
 
     centres = Service::API.get(centres_uri, {}, timeout: 5.minutes, retry: 5)
     stores = Service::API.get(stores_uri, {}, timeout: 5.minutes, retry: 5)
+    curations = Service::API.get(curations_uri, {}, timeout: 5.minutes, retry: 5)
 
     # Hit the product_search_url once to discover the amount of products / pages,
     # then loop over those.
@@ -56,6 +58,7 @@ begin
       end
     end
 
+
     product_responses.each do |pr|
       pr.results.each do |product|
         next unless product.retailer_code.present? &&
@@ -65,6 +68,18 @@ begin
         add product_path(product.retailer_code, product.name_slug, product.id), priority: 0.8, lastmod: product.updated_at
       end
     end
+
+    Rails.logger.info "[SITEMAP] Curations"
+    curations.data.each do |c|
+      available_from = Date.parse(c.available_from)
+      available_to = Date.parse(c.available_to)
+      today = Date.today
+      if (available_from < today && available_to > today) then
+        curation_path = "products/collection/#{c.code}"
+        add curation_path, priority: 0.6
+      end
+    end
+
   end
 rescue => e
   Rails.logger.info "SITEMAP error=#{e.message} phase=generation"

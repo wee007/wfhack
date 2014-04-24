@@ -88,7 +88,7 @@
       <%# Drop down target (narrow view) %>
       <div id="filters" class="drop-down-menu__target drop-down pointer-up box box--drop-down">
 
-        <ul class="filters__list">
+        <ul class="filters__list test-products-category-filters">
 
           <%# Categories %>
           <li ng-if="filterIsAvailable(search.categories.values)">
@@ -364,7 +364,7 @@
       <h3>Applied Filters</h3>
       <p>Select button to clear filter</p>
     </div>
-    <ul class="horiz-list">
+    <ul class="horiz-list test-product-search-filters">
       <li ng-repeat="filter in search.appliedFilters">
         <button type="button" ng-click="removeSelectedFilter(filter)" class="tags__btn btn">
           <span class="txt-truncate" ng-if="filter.type !== 'price'">{{ filter.title }}</span>

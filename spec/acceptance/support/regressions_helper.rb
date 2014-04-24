@@ -1,8 +1,9 @@
 shared_context "regressions" do
-  def expect_to_have_tiles
-    wait_for_element '.pin-board.is-loaded'
-    expect(page).to have_css('.pin-board')
-    expect(all(:css, ".tile").length).to be > 2
+  def expect_to_have_tiles(type=nil)
+    wait_for_element '.test-pin-board'
+    expect(page).to have_css('.test-pin-board')
+    selector = ".test-tile#{type.nil? ? '' : "-#{type}"}"
+    expect(all(selector).length).to be > 2
   end
   
   def expect_product_page
@@ -12,13 +13,13 @@ shared_context "regressions" do
   end
   
   def expect_product_filter(filter)
-    within('div.tags') do
+    within('.test-product-search-filters') do
       expect(page).to have_content 'Clear all', filter
     end
   end
   
   def apply_product_filter(filter)
-    within('#filters') do
+    within('.test-products-category-filters') do
       click_button 'Categories'
       click_link filter
       wait_for_ajax_requests
@@ -26,22 +27,27 @@ shared_context "regressions" do
   end
   
   def go_to_next_results_page
-    go_to_results_page "Next"
+    go_to_results_page "next"
   end
   
   def go_to_previous_results_page
-    go_to_results_page "Prev"
+    go_to_results_page "prev"
   end
   
-  def go_to_results_page(page)
-    within('nav.pager') do
-      click_link page
+  def go_to_results_page(direction)
+    within('.test-products-pin-board-pager') do
+#       click_link direction
+      find(".test-products-pin-board-pager-link-#{direction}").click
     end
     wait_for_ajax_requests
   end
   
   def select_random_product
-    r = rand(page.all('article a').size)
-    page.all('article a')[r].click
+    random('article a').click
+  end
+  
+  def random(selector, opts={})
+    items = page.all(selector, opts)
+    items[rand(items.size)]
   end
 end

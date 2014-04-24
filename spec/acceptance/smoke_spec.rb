@@ -1,6 +1,6 @@
 require 'acceptance_helper'
 
-feature 'Smoke' do
+feature 'Smoke', :smoke => true do
   describe 'Customer Console', :destructive => false do
     scenario 'entry page works as expected' do
       visit '/'

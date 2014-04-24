@@ -161,14 +161,13 @@
       <%# Carousel - large image %>
       <div class="flexslider flexslider--lrg-img flexslider--gallery">
         <ul class="slides">
-          <%- @product.images[0...4].each do |img| -%>
-            <li><%= fetch_image_tag(img,
+          <%- @product.image_refs[0...4].each do |img| -%>
+            <li><%= cl_image_tag(img,
               alt: "Photo of #{@product.name}",
               width: 469,
               height: 474,
-              crop: :lpad,
-              format: :auto
-            ) %></li>
+              crop: :lpad
+           ) %></li>
           <%- end -%>
         </ul>
       </div>
@@ -177,7 +176,7 @@
       <%# Carousel - thumbnails %>
       <div class="flexslider flexslider--thumbs flexslider--gallery">
         <ul class="slides">
-          <%- @product.images[0...4].each do |img| -%>
+          <%- @product.image_refs[0...4].each do |img| -%>
             <li><%= fetch_image_tag(img,
               alt: "Thumbnail photo of #{@product.name}",
               width: 74,

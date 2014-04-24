@@ -166,7 +166,8 @@
               alt: "Photo of #{@product.name}",
               width: 469,
               height: 474,
-              crop: :lpad
+              crop: :lpad,
+              fetch_format: :auto
            ) %></li>
           <%- end -%>
         </ul>
@@ -177,12 +178,12 @@
       <div class="flexslider flexslider--thumbs flexslider--gallery">
         <ul class="slides">
           <%- @product.image_refs[0...4].each do |img| -%>
-            <li><%= fetch_image_tag(img,
+            <li><%= cl_image_tag(img,
               alt: "Thumbnail photo of #{@product.name}",
               width: 74,
               height: 74,
               crop: :lpad,
-              format: :auto
+              fetch_format: :auto
             ) %></li>
           <%- end -%>
         </ul>

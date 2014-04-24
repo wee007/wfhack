@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.311
+Version:     0.2.312
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,15 @@ fi
 
 
 %changelog
+* Thu Apr 24 2014 ci <doperations@au.westfield.com> 0.2.312-1
+- Merge pull request #1088 from cpearce/product-sale-price
+  (cpearce@au.westfield.com)
+- Removed || 0 as it's not needed. (craigm.smith@au.westfield.com)
+- Fixing broken build test (cpearce@au.westfield.com)
+- Final clean up after code review (cpearce@au.westfield.com)
+- Display sale price and discount percent off on product tile - WSF-6399
+  (cpearce@au.westfield.com)
+
 * Wed Apr 23 2014 ci <doperations@au.westfield.com> 0.2.311-1
 - Merge pull request #1092 from jlambert/enable-http-cache
   (jlambert@au.westfield.com)

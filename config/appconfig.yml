@@ -1,6 +1,7 @@
 defaults: &defaults
   google_maps_business_client_id: gme-westfieldltd
   google_maps_business_key: bE5iXqPOtk4BQzkJKbtpsHxWhRY=
+  google_experiment_key: ''
   proxy: http://proxy.dbg.westfield.com:8080
 
 development:
@@ -15,6 +16,8 @@ systest:
 
 uat:
   <<: *defaults
+  google_experiment_key: '84750189-7'
 
 production:
   <<: *defaults
+  google_experiment_key: '37720250-19'

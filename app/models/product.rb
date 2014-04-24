@@ -13,6 +13,10 @@ class Product < Hashie::Mash
     end.compact.uniq
   end
 
+  def percent_discount
+   ((price - sale_price) / price.to_f * 100).floor
+  end
+
   def primary_image
     _links ? _links[:image][:href] : default_image_url || images.first
   end

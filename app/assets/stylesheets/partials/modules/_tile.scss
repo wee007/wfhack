@@ -91,6 +91,15 @@
       @include respond-min($non-palm) {
         @include to-rem(padding, 84 25);
       }
+
+      /* Storefront pin board */
+      @include respond-range($lap-lrg-middle, 1300) {
+        .storefront__featured--tiles & {
+          @include to-rem(padding, 55 15);
+
+          .tile__meta__desc {@include font-size($font-size-sml, 1.5);}
+        }
+      }
     }
 
     /* Modifier: no icon */
@@ -108,12 +117,47 @@
         }
       }
 
-        /* Hide normal price due to lack of real estate when it exceeds 4 digits */
+        /* Normal price hide/show depending on real estate */
+        .price-strip__normal {
+          display: none;
+
+          @include respond-range(400, $palm-lrg - 1) {
+            display: inline;
+          }
+
+          @include respond-min(590) {
+            display: inline;
+          }
+        }
+
+        /* Long normal price - when it exceeds 5 digits */
         .is-long-price .price-strip__normal {
           display: none;
 
-          @include respond-min($palm-lrg) {
+          @include respond-range(720, $lap-end) {
             display: inline;
+          }
+        }
+
+        /* Curation pin board */
+        .pin-board-curation & {
+          @include respond-range($palm-lrg - 1, $palm) {
+            .price-strip__normal {display: inline;}
+          }
+
+          @include respond-min($palm-lrg) {
+            .is-long-price .price-strip__normal {display: inline;}
+          }
+        }
+
+        /* Storefront pin board */
+        .storefront__featured--tiles & {
+          @include respond-range($lap-lrg-middle, $desk) {
+            .price-strip__normal {display: none;}
+          }
+
+          @include respond-min(1400) {
+            .is-long-price .price-strip__normal {display: inline;}
           }
         }
 

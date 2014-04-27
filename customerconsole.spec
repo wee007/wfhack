@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.313
+Version:     0.2.314
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,11 @@ fi
 
 
 %changelog
+* Sun Apr 27 2014 ci <doperations@au.westfield.com> 0.2.314-1
+- Merge pull request #1096 from ewee/ab_testing (ewee@au.westfield.com)
+- WSF-6459 Make GA Content Experiment code available for both prod and UAT
+  (ewee@au.westfield.com)
+
 * Sun Apr 27 2014 ci <doperations@au.westfield.com> 0.2.313-1
 - 
 

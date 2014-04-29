@@ -41,12 +41,13 @@ module SupportHelper
   
   def set_proxy
     if ENV['http_proxy']
+      # TODO: This should actually use the proxy and ports specified in the environment variables http_proxy and https_proxy
       proxy = 'proxy.dbg.westfield.com'
       proxy_port = 8080
       log "Using Proxy: #{proxy}:#{proxy_port}"
       
       case Capybara.current_driver
-      when :webkit, :mechanize
+      when :webkit
         Capybara.current_session.driver.browser.set_proxy :host => proxy, :port => proxy_port
       end
     end

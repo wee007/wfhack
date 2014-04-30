@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.317
+Version:     0.2.318
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,11 @@ fi
 
 
 %changelog
+* Wed Apr 30 2014 ci <doperations@au.westfield.com> 0.2.318-1
+- Merge pull request #1094 from jlambert/WSF-6458 (jlambert@au.westfield.com)
+- WSF-6458 cancel in flight requests when a new query comes in
+  (jlambert@au.westfield.com)
+
 * Mon Apr 28 2014 ci <doperations@au.westfield.com> 0.2.317-1
 - Merge pull request #1098 from csmith/master (craigM.smith@au.westfield.com)
 - Upgraded Service API so faraday loads properly

@@ -38,8 +38,11 @@ sortCentreListByLocation = (userState) ->
 
 showClosestCentres = (userPosition) ->
   calculateClosestCentresAndState userPosition
-  state = selectClosestState()
-  sortCentreListByLocation(state)
+
+  # Need to wait for page to load before changing the DOM
+  $ ->
+    state = selectClosestState()
+    sortCentreListByLocation(state)
 
 # Only execute if geolocation is supported
 if navigator.geolocation

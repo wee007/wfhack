@@ -1,6 +1,5 @@
 shared_context "spiders" do
   def major_console_pages
-#     Capybara.current_driver = :webkit
     visit '/bondijunction/movies'
     movie = all(:css, 'article.test-movie a').first
     log "test movie: #{movie['href']}" if movie

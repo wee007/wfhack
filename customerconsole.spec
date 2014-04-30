@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.319
+Version:     0.2.320
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,12 @@ fi
 
 
 %changelog
+* Wed Apr 30 2014 ci <doperations@au.westfield.com> 0.2.320-1
+- Merge pull request #1099 from araeside/lazy-load-feedback-js
+  (araeside@au.westfield.com)
+- Convert issue tracker js to coffeescript and lazy load atlassian JS
+  (alec@smartalecwebsites.com.au)
+
 * Wed Apr 30 2014 ci <doperations@au.westfield.com> 0.2.319-1
 - wait for page load before using cache for geolocation
   (alec@smartalecwebsites.com.au)

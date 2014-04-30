@@ -57,7 +57,7 @@ if navigator.geolocation
       longitude: userInfo.coords.longitude
 
     # If the users actual position is different to the cache position or position is not cached
-    if !localStorage.userPosition or (localStorage.userPosition and userPosition is not localStorage.userPosition)
+    if !localStorage.userPosition or (localStorage.userPosition and userPosition != localStorage.userPosition)
 
       # Show closest centres based on actual location
       showClosestCentres userPosition

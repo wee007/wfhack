@@ -38,8 +38,11 @@ sortCentreListByLocation = (userState) ->
 
 showClosestCentres = (userPosition) ->
   calculateClosestCentresAndState userPosition
-  state = selectClosestState()
-  sortCentreListByLocation(state)
+
+  # Need to wait for page to load before changing the DOM
+  $ ->
+    state = selectClosestState()
+    sortCentreListByLocation(state)
 
 # Only execute if geolocation is supported
 if navigator.geolocation
@@ -57,7 +60,7 @@ if navigator.geolocation
       longitude: userInfo.coords.longitude
 
     # If the users actual position is different to the cache position or position is not cached
-    if !localStorage.userPosition or (localStorage.userPosition and userPosition is not localStorage.userPosition)
+    if !localStorage.userPosition or (localStorage.userPosition and userPosition != localStorage.userPosition)
 
       # Show closest centres based on actual location
       showClosestCentres userPosition

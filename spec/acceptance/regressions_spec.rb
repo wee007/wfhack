@@ -7,7 +7,7 @@ feature 'Regressions' do
     Capybara.current_driver = :webkit
   end
   
-  describe 'Entry page', :destructive => false do
+  describe 'Entry page' do
     scenario "displays products and other tiles for centres" do
       visit '/'
       expect(page).to have_text 'NSW', 'VIC', 'QLD'
@@ -32,7 +32,7 @@ feature 'Regressions' do
     end
   end
 
-  describe 'Basic Search', :destructive => false do
+  describe 'Basic Search' do
     scenario 'searching for a product shows relevant product results' do
       visit '/bondijunction/products'
       expect(page).to have_css('.test-global-search-input')
@@ -44,7 +44,7 @@ feature 'Regressions' do
     end
   end
 
-  describe 'Nearby Search', :destructive => false do
+  describe 'Nearby Search' do
     scenario 'user can search nearby centres even when there are no product results [WSF-5857 BUG]' do
       visit '/bondijunction/products'
       expect(page).to have_content('Show products at')
@@ -59,7 +59,7 @@ feature 'Regressions' do
     end
   end
 
-  describe 'Filtering stores by category', :destructive => false do
+  describe 'Filtering stores by category' do
     scenario 'results in correctly filtered results' do
       visit '/carindale/stores'
       find('.test-stores-category-filter-button').click
@@ -74,7 +74,7 @@ feature 'Regressions' do
     end
   end
 
-  describe 'Basic Facet navigation', :destructive => false do
+  describe 'Basic Facet navigation' do
     scenario 'applying various filters successfully filters the products, and preserves filters across page results' do
       visit '/bondijunction/products'
       within('.test-products-category-filters') do
@@ -94,7 +94,7 @@ feature 'Regressions' do
     end
   end
 
-  describe 'Retailer click-out intermediate page and PHG tags [WSF-5785]', :destructive => false do
+  describe 'Retailer click-out intermediate page and PHG tags [WSF-5785]' do
     scenario "user can navigate to product page and click-through to buy from retailer's site" do
       visit '/bondijunction/products'
       

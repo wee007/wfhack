@@ -3,7 +3,7 @@ require 'acceptance_helper'
 feature 'Redirecting' do
   include_context 'redirects'
   
-  describe 'to an INTERNAL address', :destructive => false do
+  describe 'to an INTERNAL address' do
     scenario "sends the user to the correct destination" do
       with_redirecting_on
       
@@ -23,7 +23,7 @@ feature 'Redirecting' do
     end
   end
   
-  describe 'to an EXTERNAL address', :destructive => false do
+  describe 'to an EXTERNAL address' do
     scenario "sends the user to the correct destination" do
       with_redirecting_on
       external_redirect_list.each do |redirect|

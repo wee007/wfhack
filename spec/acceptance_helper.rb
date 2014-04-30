@@ -19,8 +19,6 @@ Dir[Rails.root.join("spec/acceptance/support/*_helper.rb")].each { |f| require f
 RSpec.configure do |config|
   config.tty = true
   config.include SupportHelper
-  config.filter_run_including(:destructive => false) if Rails.env.production?
-  config.filter_run_excluding(:destructive => true) if Rails.env.production?
   config.before(:each) do
     set_proxy
   end

@@ -52,4 +52,14 @@ module SupportHelper
       end
     end
   end
+  
+  def destructive name=nil, &block
+    if Rails.env.production?
+      location = example.metadata[:description_args].first rescue 'unknown'
+      name = name ? "\"#{name}\" within \"#{location}\"" : "\"#{location}\""
+      log "Skipping destructive test: #{name}"
+    else
+      instance_eval &block if block_given?
+    end
+  end
 end

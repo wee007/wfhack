@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.318
+Version:     0.2.319
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,11 @@ fi
 
 
 %changelog
+* Wed Apr 30 2014 ci <doperations@au.westfield.com> 0.2.319-1
+- wait for page load before using cache for geolocation
+  (alec@smartalecwebsites.com.au)
+- fix cache checking logic (alec@smartalecwebsites.com.au)
+
 * Wed Apr 30 2014 ci <doperations@au.westfield.com> 0.2.318-1
 - Merge pull request #1094 from jlambert/WSF-6458 (jlambert@au.westfield.com)
 - WSF-6458 cancel in flight requests when a new query comes in

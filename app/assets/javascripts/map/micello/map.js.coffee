@@ -36,6 +36,11 @@ class map.micello.Map
   fetchStores: =>
     @stores = westfield.stores
     @deferreds.store_fetch.resolve()
+    if @stores.length == 1
+      $.getJSON "/api/store/master/stores?centre=#{@westfieldCentreId()}&per_page=9999", (data) =>
+        @stores = data
+        @processStores()
+        @applyWestfieldStoreNames()
 
   fetchStoreTradingHours: (store) =>
     @tradingHoursApi.get {'store_id': store.id}, @insertTradingHoursIntoOverlay
@@ -51,7 +56,9 @@ class map.micello.Map
     $('.js-trading-hours-map-overlay').removeAttr('style').html(tradingHoursHtml)
 
   processStores: =>
-    micello.maps.init(@key, @init)
+    unless @initialised
+      micello.maps.init(@key, @init)
+      @initialised = true
     _(@stores).each (store) =>
       if store._links.logo?.href?
         store.logo = store._links.logo.href

@@ -4,7 +4,7 @@
   <%= fetch_image_tag result.primary_image, {
       'data-height' => result.image_height,
       width: 269,
-      alt: "",
+      alt: '',
       crop: :limit,
       format: :auto
     }.merge((options if defined? options) || {})

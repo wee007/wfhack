@@ -229,6 +229,7 @@
             /* Forward slash to seperate the link and the store name */
             &:after {
               content: " /";
+              speak: none;
               color: $color-txt-dark;
             }
           }

@@ -44,7 +44,7 @@
         <% unless national_product_index? %>
           <div class="search-results drop-down js-disabled-hide" ng-show="suggestionsVisible && searchQuery !== ''">
             <div class="search-results__inner js-search-results-keyboard-scrolling">
-              <dl class="search-results__list" >
+              <dl class="search-results__list" tabindex="0">
                 <dt ng-repeat-start="key in sortOrderTypes" class="search-results__list__spacing" ng-if="suggestions[key]">
                   <span aria-hidden="true" class="icon {{iconMapping(key)}} icon--lrger"></span> {{unsnake(key)}}
                 </dt>

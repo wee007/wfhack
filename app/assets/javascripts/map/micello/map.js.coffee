@@ -3,6 +3,7 @@
 class map.micello.Map
 
   key: '357b70ed-2c4b-418b-ad09-cf83f9bfc7b4'
+  initialised: false
 
   # Error events from images don't bubble so we need to explicitly call onerror
   @removeLogo: (img) ->

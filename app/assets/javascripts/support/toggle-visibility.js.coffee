@@ -11,8 +11,11 @@ class @ToggleVisibility
     show: 'toggle-visibility.show'
     hide: 'toggle-visibility.hide'
   constructor: ->
-    @getTriggers()
-    @initiaiseElements()
+
+    # When Product Browse doesn't use angular, this check can be removed!
+    angular.element(document).ready =>
+      @getTriggers()
+      @initiaiseElements()
     @setupEventListeners()
 
   getTarget: (trigger, returnId = false) ->

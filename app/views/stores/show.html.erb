@@ -238,13 +238,11 @@
             $('.js-maintain-store-filter').attr('href', function(i, href) {
               return href + '/' + sessionStorage.filteredCategory;
             });
-            sessionStorage.removeItem('filteredCategory');
           }
-          if (typeof sessionStorage.giftCards != 'undefined' && !!sessionStorage.giftCards) {
+          if (typeof sessionStorage.giftCards != 'undefined' && sessionStorage.giftCards == "true") {
             $('.js-maintain-store-filter').attr('href', function(i, href) {
               return href + '?gift_cards=true';
             });
-            sessionStorage.removeItem('giftCards');
           }
 
           // Target the store in the map

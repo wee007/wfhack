@@ -70,10 +70,13 @@ class StoreMapPage
       body.on 'submit', 'form[data-pjax]', (event) ->
         $.pjax.submit(event, pjaxContainerSelector)
 
-    $(document).on 'change', '.js-stores-gift-card-toggle', (val) ->
+    $(document).on 'change', '.js-stores-gift-card-toggle', ->
+      sessionStorage.giftCards = @.checked
       form = $(@).closest('form')
       form.trigger('submit')
 
+    $(document).on 'click', '.js-stores-page-state-params', ->
+      sessionStorage.filteredCategory = $(@).data('category')
 
     body.on('click', '.is-list-view .js-stores-maps-toggle-btn', @show)
     body.on('click', '.is-map-view .js-stores-maps-toggle-btn', @hide)

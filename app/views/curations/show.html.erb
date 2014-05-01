@@ -12,7 +12,7 @@
         <%# Hero %>
         <header class="box">
           <% if @curation.image? %>
-            <%= fetch_image_tag @curation.image, alt: '', quality: 25, width: 1178, crop: 'limit', fetch_format: 'auto' %>
+            <%= fetch_image_tag @curation.image, alt: '', quality: 40, width: 1178, crop: 'limit', fetch_format: 'auto' %>
           <% end %>
           <h1 class="island txt-hyphenate"><%= raw @curation.name.truncate 60, '&#8230;' %></h1>
           <p class="product-curation__desc island-sides island-btm <%= 'toggle-visibility toggle-visibility--palm' if @curation.image? %>" id="curation-description"><%= raw @curation.description.truncate(400, '&#8230;') %></p>

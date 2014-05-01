@@ -5,8 +5,6 @@ feature 'Redirecting' do
   
   describe 'to an INTERNAL address' do
     scenario "sends the user to the correct destination" do
-      with_redirecting_on
-      
       internal_redirect_list.each do |redirect|
         log "#{redirect[:from]} >> #{redirect[:to]}"
         visit redirect[:from]
@@ -25,7 +23,7 @@ feature 'Redirecting' do
   
   describe 'to an EXTERNAL address' do
     scenario "sends the user to the correct destination" do
-      with_redirecting_on
+      Capybara.current_driver = :webkit
       external_redirect_list.each do |redirect|
         log "#{redirect[:from]} >> #{redirect[:to]}"
         visit redirect[:from]

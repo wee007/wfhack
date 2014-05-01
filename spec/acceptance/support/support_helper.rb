@@ -8,7 +8,7 @@ module SupportHelper
   end
   
   def with_redirecting(follow)
-    page.driver.options[:follow_redirects] = follow
+    page.driver.options[:follow_redirects] = follow rescue nil
   end
   
   def log(message)
@@ -37,6 +37,14 @@ module SupportHelper
       sleep(0.1) until value = yield
       value
     end
+  end
+  
+  def expect_urls_to_match(first, second)
+    expect(clean_url(first)).to eql(clean_url(second))
+  end
+  
+  def clean_url(url)
+    URI.decode(url).gsub(/\/$/, '')
   end
   
   def set_proxy

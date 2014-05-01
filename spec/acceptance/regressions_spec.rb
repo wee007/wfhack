@@ -16,7 +16,7 @@ feature 'Regressions' do
       href = link[:href]
       log "centre: #{href}"
       link.click
-      expect(current_path).to eql(href)
+      expect_urls_to_match(current_path, href)
       
       expect_to_have_tiles
       

@@ -29,12 +29,4 @@ shared_context "redirects" do
       { :from => '/unsubscribe', :to => 'https://secure.westfield.com.au/unsubscribe/' }
     ]
   end
-  
-  def expect_urls_to_match(first, second)
-    expect(clean_url(first)).to eql(clean_url(second))
-  end
-  
-  def clean_url(url)
-    URI.decode(url).gsub(/\/$/, '')
-  end
 end

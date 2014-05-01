@@ -387,7 +387,7 @@
     <ul class="mrg-base">
       <% @search.categories.each do |category| %>
         <li>
-          <%= link_to category.name, url_for(:controller => params[:controller], :action => params[:action], :params => {category.url_args.keys.first => category.url_args.values.first}) %>
+          <%= link_to category.name, noscript_category_canonical_url(category.url_args) %>
         </li>
       <% end %>
     </ul>

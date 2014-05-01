@@ -21,5 +21,6 @@ RSpec.configure do |config|
   config.include SupportHelper
   config.before(:each) do
     set_proxy
+    with_redirecting_on
   end
 end

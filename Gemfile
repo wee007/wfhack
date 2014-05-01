@@ -27,6 +27,9 @@ gem 'sterile'
 # To support ?nocache=xxxx hack
 gem 'request_store'
 
+# Caching
+gem 'redis-rails'
+
 # Presentation, pagination etc.
 gem 'kaminari'
 gem 'money'

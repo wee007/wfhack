@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.322
+Version:     0.2.323
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,9 @@ fi
 
 
 %changelog
+* Thu May 01 2014 ci <doperations@au.westfield.com> 0.2.323-1
+- fixed failing tests (benpritchard@aud27140.au.ad.westfield.com)
+
 * Thu May 01 2014 ci <doperations@au.westfield.com> 0.2.322-1
 - Merge pull request #1102 from cpearce/misc-fixes (cpearce@au.westfield.com)
 - Making all null alt attrs use single quotes (cpearce@au.westfield.com)

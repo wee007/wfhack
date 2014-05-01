@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.320
+Version:     0.2.321
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,25 @@ fi
 
 
 %changelog
+* Thu May 01 2014 ci <doperations@au.westfield.com> 0.2.321-1
+- Use redis cache instead of filesystem cache (jlambert@au.westfield.com)
+- removed commented code (benpritchard@aud27140.au.ad.westfield.com)
+- removed sample test (benpritchard@aud27140.au.ad.westfield.com)
+- changed system of identifying destructive tests from using tags to wrapping
+  block with method: destructive (benpritchard@aud27140.au.ad.westfield.com)
+- added correct settings for mechanise proxy
+  (benpritchard@aud27140.au.ad.westfield.com)
+- changed to using test-xxx class selectors to match test targets
+  (benpritchard@aud27140.au.ad.westfield.com)
+- ensure that running rake or rake:spec excludes acceptance tests
+  (benpritchard@aud27140.au.ad.westfield.com)
+- first pass at moving acceptance tests over
+  (benpritchard@aud27140.au.ad.westfield.com)
+- added redirects acceptance tests, with reconfigured method of plugging new
+  tests in (benpritchard@aud27140.au.ad.westfield.com)
+- added exclusion filter for destructive tests in production
+  (benpritchard@aud27140.au.ad.westfield.com)
+
 * Wed Apr 30 2014 ci <doperations@au.westfield.com> 0.2.320-1
 - Merge pull request #1099 from araeside/lazy-load-feedback-js
   (araeside@au.westfield.com)

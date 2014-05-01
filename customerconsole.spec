@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.321
+Version:     0.2.322
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,12 @@ fi
 
 
 %changelog
+* Thu May 01 2014 ci <doperations@au.westfield.com> 0.2.322-1
+- Merge pull request #1102 from cpearce/misc-fixes (cpearce@au.westfield.com)
+- Making all null alt attrs use single quotes (cpearce@au.westfield.com)
+- Increasing quality for curation tile and hero images
+  (cpearce@au.westfield.com)
+
 * Thu May 01 2014 ci <doperations@au.westfield.com> 0.2.321-1
 - Use redis cache instead of filesystem cache (jlambert@au.westfield.com)
 - removed commented code (benpritchard@aud27140.au.ad.westfield.com)

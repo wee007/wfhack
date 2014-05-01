@@ -116,7 +116,7 @@
 
             <%# Applied category %>
             <% if @active_category %>
-              <form action="<%= centre_stores_path(@centre) %>" data-pjax method="get" class="stores-maps__filters__item">
+              <form action="<%= centre_stores_path(@centre) %>" data-pjax method="get" class="stores-maps__filters__item js-stores-clear-filtered-category">
                 <input type="hidden" name="map" value="false" class="js-map-view-state">
                 <legend class="hide-visually">Clear the filtered category from the stores list</legend>
                 <% if filtering_gift_cards? %>

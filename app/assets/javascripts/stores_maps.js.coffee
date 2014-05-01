@@ -78,6 +78,9 @@ class StoreMapPage
     $(document).on 'click', '.js-stores-page-state-params', ->
       sessionStorage.filteredCategory = $(@).data('category')
 
+    $(document).on 'submit', '.js-stores-clear-filtered-category', ->
+      sessionStorage.removeItem('filteredCategory')
+
     body.on('click', '.is-list-view .js-stores-maps-toggle-btn', @show)
     body.on('click', '.is-map-view .js-stores-maps-toggle-btn', @hide)
 

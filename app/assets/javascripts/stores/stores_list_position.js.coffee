@@ -7,7 +7,8 @@ class @StoresListPosition
       @storesList = $('.js-stores-list-position-store-list')
       $(window).resize(@setListPosition)
       @_setListPosition()
-      $('[toggle-visibility]').click =>
+
+      $(document).on 'toggle-visibility.hide toggle-visibility.show', =>
         @_setListPosition()
 
   _setListPosition: =>

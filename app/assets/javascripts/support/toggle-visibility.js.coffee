@@ -6,6 +6,10 @@ class @ToggleVisibility
   isActiveClass: 'is-active'
   triggerSelector: '[toggle-visibility]'
   targetSelector: 'js-toggle-visibility-target'
+  triggerEvent: 'click'
+  events:
+    show: 'toggle-visibility.show'
+    hide: 'toggle-visibility.hide'
   constructor: ->
     @getTriggers()
     @initiaiseElements()
@@ -37,12 +41,12 @@ class @ToggleVisibility
     doc = $(document)
 
     # Attach event listener to document so it works with pjax on stores page, where elements come and go without page load
-    doc.on 'click', '[toggle-visibility]', ->
+    doc.on @triggerEvent, @triggerSelector, ->
       self.toggleTarget $(@)
 
     # Escape key closes the target and stops event from bubbling to document
     doc.keydown (event) =>
-      if event.keyCode == 27
+      if @trigger? and @target? and event.keyCode == 27
         event.stopPropagation()
         @hide()
 
@@ -76,6 +80,9 @@ class @ToggleVisibility
     # Remove focus from input in target as it is hidden now
     target.find('input[type=text], input[type=search]').eq(0).blur()
 
+    # Trigger an event so other javascript can do something when target is hidden
+    trigger.trigger(@events.hide)
+
   show: (trigger, target) =>
     # If there is another open tog vis instance and its not the one we're about to show, close it.
     if @trigger? and @target? and @trigger.get(0) != trigger.get(0) and @target.get(0) != target.get(0)
@@ -88,6 +95,8 @@ class @ToggleVisibility
       .attr('attr-expanded', true)
     target.addClass @isActiveClass
 
+    # Trigger an event so other javascript can do something when target is shown
+    trigger.trigger(@events.show)
 
 $ ->
   new ToggleVisibility()

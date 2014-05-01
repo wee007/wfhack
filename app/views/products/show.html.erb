@@ -136,7 +136,7 @@
         <%- if @product.primary_retailer_product_url -%>
           <div class="detail-view__divider--palm island island--center">
             <%= link_to @product_redirection_url, target: "_blank",
-              class: "btn btn--full btn--main btn--main-dark btn--main-lrg js-redirect ga-click-out-to-retailer", rel: "external nofollow" do %>
+              class: "btn btn--full btn--main btn--main-dark btn--main-lrg js-redirect ga-click-out-to-retailer test-product-click-out-to-retailer", rel: "external nofollow" do %>
               <span class="txt-truncate">
                 <span class="icon icon--external-link icon--lrg icon--spacing-lrg icon--flush-top" aria-hidden="true"></span>
                 Buy from <%= @product.retail_chain_name %>

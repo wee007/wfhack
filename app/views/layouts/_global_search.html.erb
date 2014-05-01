@@ -23,7 +23,7 @@
           <% if national_product_index? %>
             <input type="search" class="search-mini__input" name="search_query" autocomplete="off" placeholder="Search products&#8230;">
           <% else %>
-            <input ng-model="searchQuery" ng-focus="makeSuggestions()" ng-keyup="makeSuggestions($event)" ng-keydown="navigateSuggestions($event)" type="search" class="search-mini__input" id="global-search" name="search_query" autocomplete="off" placeholder="Search stores &amp; products&#8230;">
+            <input ng-model="searchQuery" ng-focus="makeSuggestions()" ng-keyup="makeSuggestions($event)" ng-keydown="navigateSuggestions($event)" type="search" class="search-mini__input test-global-search-input" id="global-search" name="search_query" autocomplete="off" placeholder="Search stores &amp; products&#8230;">
           <% end -%>
 
           <input type="submit" value="Search" ng-hide="true" class="search-mini__submit">

@@ -65,7 +65,7 @@
 
 <%# Pager %>
 <% if @search.products.present? %>
-  <nav class="pager pager--pin-board" role="navigation" aria-label="Product pagination">
+  <nav class="pager pager--pin-board test-products-pin-board-pager" role="navigation" aria-label="Product pagination">
     <div class="pager__inner">
       <em class="pager__count">
         <span class="hide-visually">Page </span>
@@ -73,7 +73,7 @@
       </em>
       <%# Previous page %>
       <% if @search.page > 1 %>
-        <%= link_to prev_page_url, { rel: 'prev', class: 'pager__prev btn btn--pointer btn--pointer-alt btn--main btn--main-white '} do %>
+        <%= link_to prev_page_url, { rel: 'prev', class: 'pager__prev btn btn--pointer btn--pointer-alt btn--main btn--main-white test-products-pin-board-pager-link-prev '} do %>
           <span class="icon icon--arrow-left-big btn--pointer__icon btn--pointer__icon--flush" aria-hidden="true"></span>
           Prev
         <% end %>
@@ -81,7 +81,7 @@
       <%# //Previous page %>
       <%# Next page %>
       <% if @search.page < @search.page_count %>
-        <%= link_to next_page_url, { rel: 'next', class: 'pager__next btn btn--pointer btn--main btn--main-white'} do %>
+        <%= link_to next_page_url, { rel: 'next', class: 'pager__next btn btn--pointer btn--main btn--main-white test-products-pin-board-pager-link-next'} do %>
           Next
           <span class="icon icon--arrow-right-big btn--pointer__icon btn--pointer__icon--flush" aria-hidden="true"></span>
         <% end %>

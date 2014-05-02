@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.326
+Version:     0.2.327
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,11 @@ fi
 
 
 %changelog
+* Fri May 02 2014 ci <doperations@au.westfield.com> 0.2.327-1
+- Merge pull request #1105 from ewee/master (ewee@au.westfield.com)
+- WSF-6530 Updated products category URL structure for consistency
+  (ewee@au.westfield.com)
+
 * Fri May 02 2014 ci <doperations@au.westfield.com> 0.2.326-1
 - improved clarity of tests, removed a failing redirect for now
   (benpritchard@aud27140.au.ad.westfield.com)

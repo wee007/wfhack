@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.328
+Version:     0.2.329
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,11 @@ fi
 
 
 %changelog
+* Fri May 02 2014 ci <doperations@au.westfield.com> 0.2.329-1
+- Merge pull request #1112 from cpearce/new-creative (cpearce@au.westfield.com)
+- Removing redundant padding left/right (cpearce@au.westfield.com)
+- New creative (cpearce@au.westfield.com)
+
 * Fri May 02 2014 ci <doperations@au.westfield.com> 0.2.328-1
 - regressions teardown (benpritchard@aud27140.au.ad.westfield.com)
 - ensuring tests revert to using default driver

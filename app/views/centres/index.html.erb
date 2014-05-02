@@ -10,14 +10,14 @@
     <div class="container container--position">
 
       <%# Logo %>
-      <%= image_tag 'logo-beta.svg', alt: 'Westfield', class: 'national__logo' %>
+      <%= image_tag 'logo-white-beta.svg', alt: 'Westfield', class: 'national__logo' %>
       <%# //Logo %>
 
       <%# Hero heading wrap %>
       <div class="national__header__intro">
         <h1>
-          <span><%= @centres.length %> centres. Over 10,300 stores. Over <%= number_with_delimiter(@products_count, separator: ',') %> products</span>
-          AUTUMN 2014
+          <span>Thu 8&#8211;Sun 11 May, 4 days of exclusive offers &amp; events.</span>
+          FESTIVAL OF OFFERS
         </h1>
       </div>
       <%# //Hero heading wrap %>
@@ -45,6 +45,10 @@
 
     </div>
     <%# //Container %>
+
+    <%# Custom tagline %>
+    <strong class="national__header__tagline h1"><span>4 days of</span> exclusive offers and events</strong>
+    <%# //Custom tagline %>
 
     <%# Gradient overlay %>
     <span class="hero-gradient"></span>

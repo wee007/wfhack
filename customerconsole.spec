@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.325
+Version:     0.2.326
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,10 @@ fi
 
 
 %changelog
+* Fri May 02 2014 ci <doperations@au.westfield.com> 0.2.326-1
+- improved clarity of tests, removed a failing redirect for now
+  (benpritchard@aud27140.au.ad.westfield.com)
+
 * Fri May 02 2014 ci <doperations@au.westfield.com> 0.2.325-1
 - Remove request store, nocache hack (jlambert@au.westfield.com)
 

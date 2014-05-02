@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite tests="3" failures="0" errors="0" time="33.310090" timestamp="2014-05-05T09:23:25+10:00">
+  <properties/>
+  <testcase classname="spec.acceptance.redirects_spec" name="Redirecting to an INTERNAL address sends the user to the correct destination" time="0.809469"/>
+  <testcase classname="spec.acceptance.redirects_spec" name="Redirecting to an INTERNAL address responds with a 301" time="0.408787"/>
+  <testcase classname="spec.acceptance.redirects_spec" name="Redirecting to an EXTERNAL address sends the user to the correct destination" time="32.090863"/>
+</testsuite>
+d the following error for a GET request to http://customer-console.development.dbg.westfield.com/geelong/wifi: '404 => Net::HTTPNotFound for http://customer-console.development.dbg.westfield.com/geelong/wifi -- unhandled response'
+./spec/acceptance/redirects_spec.rb:10:in `block (4 levels) in <top (required)>'
+./spec/acceptance/redirects_spec.rb:8:in `each'
+./spec/acceptance/redirects_spec.rb:8:in `block (3 levels) in <top (required)>']]>
+    </failure>
+  </testcase>
+  <testcase classname="spec.acceptance.redirects_spec" name="Redirecting to an INTERNAL address responds with a 301" time="0.057949">
+    <failure message="Received the following error for a GET request to http://customer-console.development.dbg.westfield.com/geelong/wifi: '404 =&gt; Net::HTTPNotFound for http://customer-console.development.dbg.westfield.com/geelong/wifi -- unhandled response'" type="RuntimeError">
+      <![CDATA[Received the following error for a GET request to http://customer-console.development.dbg.westfield.com/geelong/wifi: '404 => Net::HTTPNotFound for http://customer-console.development.dbg.westfield.com/geelong/wifi -- unhandled response'
+./spec/acceptance/redirects_spec.rb:18:in `block (4 levels) in <top (required)>'
+./spec/acceptance/redirects_spec.rb:17:in `each'
+./spec/acceptance/redirects_spec.rb:17:in `block (3 levels) in <top (required)>']]>
+    </failure>
+  </testcase>
+  <testcase classname="spec.acceptance.redirects_spec" name="Redirecting to an EXTERNAL address sends the user to the correct destination" time="0.997636">
+    <failure message="&#10;expected: &quot;http://flatlay.westfield.com.au&quot;&#10;     got: &quot;http://customer-console.development.dbg.westfield.com/flatlay&quot;&#10;&#10;(compared using eql?)&#10;" type="RSpec::Expectations::ExpectationNotMetError">
+      <![CDATA[
+expected: "http://flatlay.westfield.com.au"
+     got: "http://customer-console.development.dbg.westfield.com/flatlay"
+
+(compared using eql?)
+
+./spec/acceptance/support/support_helper.rb:43:in `expect_urls_to_match'
+./spec/acceptance/redirects_spec.rb:30:in `block (4 levels) in <top (required)>'
+./spec/acceptance/redirects_spec.rb:27:in `each'
+./spec/acceptance/redirects_spec.rb:27:in `block (3 levels) in <top (required)>']]>
+    </failure>
+  </testcase>
+  <testcase classname="spec.acceptance.redirects_spec" name="Redirecting to an EXTERNAL address responds with a 301" time="0.027107">
+    <failure message="Received the following error for a GET request to http://customer-console.development.dbg.westfield.com/flatlay: '500 =&gt; Net::HTTPInternalServerError for http://customer-console.development.dbg.westfield.com/flatlay -- unhandled response'" type="RuntimeError">
+      <![CDATA[Received the following error for a GET request to http://customer-console.development.dbg.westfield.com/flatlay: '500 => Net::HTTPInternalServerError for http://customer-console.development.dbg.westfield.com/flatlay -- unhandled response'
+./spec/acceptance/redirects_spec.rb:37:in `block (4 levels) in <top (required)>'
+./spec/acceptance/redirects_spec.rb:36:in `each'
+./spec/acceptance/redirects_spec.rb:36:in `block (3 levels) in <top (required)>']]>
+    </failure>
+  </testcase>
+  <testcase classname="spec.acceptance.regressions_spec" name="Regressions Entry page displays products and other tiles for centres" time="25.334977"/>
+</testsuite>

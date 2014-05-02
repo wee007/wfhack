@@ -61,6 +61,13 @@ module SupportHelper
     end
   end
   
+  def set_ssl_verify
+    case Capybara.current_driver
+    when :mechanize
+      Capybara.current_session.driver.browser.agent.agent.http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+    end
+  end
+  
   def destructive name=nil, &block
     if Rails.env.production?
       location = example.metadata[:description_args].first rescue 'unknown'

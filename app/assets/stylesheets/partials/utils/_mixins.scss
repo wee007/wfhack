@@ -614,7 +614,39 @@
 	}
 }
 
-/* Grouped (comma seperated list) */
+/* Accepts a min width and height range */
+@mixin respond-range-mixed-min($value-1, $value-2, $screen-only: false) {
+  /* Screen media */
+  @if $screen-only == true {
+    @media screen and (min-width: ($value-1 / 16)+em) and (min-height: ($value-2 / 16)+em) {
+      @content;
+    }
+  }
+  /* All media */
+  @else {
+    @media (min-width: ($value-1 / 16)+em) and (min-height: ($value-2 / 16)+em) {
+      @content;
+    }
+  }
+}
+
+/* Accepts a max width and height range */
+@mixin respond-range-mixed-max($value-1, $value-2, $screen-only: false) {
+  /* Screen media */
+  @if $screen-only == true {
+    @media screen and (max-width: ($value-1 / 16)+em) and (max-height: ($value-2 / 16)+em) {
+      @content;
+    }
+  }
+  /* All media */
+  @else {
+    @media (max-width: ($value-1 / 16)+em) and (max-height: ($value-2 / 16)+em) {
+      @content;
+    }
+  }
+}
+
+/* Grouped (comma seperated) */
 
 /* Accepts 2 min width/height values */
 @mixin respond-group-min($value-1, $value-2, $screen-only: false, $height: false) {
@@ -702,7 +734,7 @@
 
 /* Accepts 1 min width and 1 min height value */
 @mixin respond-group-min-width-height($value-1, $value-2, $screen-only: false) {
-  /* Screen media with width */
+  /* Screen media */
   @if $screen-only == true {
     @media screen and (min-width: ($value-1 / 16)+em), screen and (min-height: ($value-2 / 16)+em) {
       @content;

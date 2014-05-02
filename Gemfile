@@ -24,9 +24,6 @@ gem 'cloudinary'
 gem 'sitemap_generator'
 gem 'sterile'
 
-# To support ?nocache=xxxx hack
-gem 'request_store'
-
 # Caching
 gem 'redis-rails'
 

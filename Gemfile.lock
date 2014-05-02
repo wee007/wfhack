@@ -334,7 +334,6 @@ DEPENDENCIES
   rack-proxy (= 0.4.0)
   rails (~> 4.0.0)
   redis-rails
-  request_store
   rspec-rails
   rspec_junit_formatter
   sass-rails (~> 4.0.0)

@@ -7,6 +7,10 @@ feature 'Regressions' do
     Capybara.current_driver = :webkit
   end
   
+  teardown do
+    Capybara.use_default_driver
+  end
+  
   describe 'Entry page' do
     scenario "displays products and other tiles for centres" do
       visit '/'

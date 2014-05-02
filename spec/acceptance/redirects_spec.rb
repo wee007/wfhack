@@ -30,6 +30,7 @@ feature 'Redirecting' do
           visit redirect[:from]
           expect_urls_to_match current_url, redirect[:to]
         end
+        Capybara.use_default_driver
       end
       
       scenario "responds with a 301" do

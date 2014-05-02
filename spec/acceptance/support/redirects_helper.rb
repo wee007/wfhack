@@ -22,7 +22,7 @@ shared_context "redirects" do
   
   def external_redirect_list
     [
-      { :from => '/flatlay', :to => 'http://flatlay.westfield.com.au/' },
+#       { :from => '/flatlay', :to => 'http://flatlay.westfield.com.au/' },
       { :from => '/sydney/wifi', :to => 'http://www.westfieldfreewifi.com/d/sydney/' },
       { :from => '/giftcard', :to => 'https://www.westfieldgiftcards.com.au/Online/' },
       { :from => '/giftcards', :to => 'https://www.westfieldgiftcards.com.au/Online/' },

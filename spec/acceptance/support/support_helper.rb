@@ -1,14 +1,14 @@
 module SupportHelper
-  def with_redirecting_on
-    with_redirecting true
+  def redirecting_on
+    set_redirecting true
   end
   
-  def with_redirecting_off
-    with_redirecting false
+  def redirecting_off
+    set_redirecting false
   end
   
-  def with_redirecting(follow)
-    page.driver.options[:follow_redirects] = follow rescue nil
+  def set_redirecting(follow)
+    (page.driver.options[:follow_redirects] = follow) rescue nil # some drivers don't have options
   end
   
   def log(message)

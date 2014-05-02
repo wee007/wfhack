@@ -21,6 +21,13 @@ RSpec.configure do |config|
   config.include SupportHelper
   config.before(:each) do
     set_proxy
-    with_redirecting_on
+    redirecting_on
+    Capybara.current_session.driver.browser.agent.agent.http.verify_mode = OpenSSL::SSL::VERIFY_NONE
   end
+end
+  
+def environment_greater_than_or_equal_to?(environment)
+  # is the current environment >= another environment
+  hierarchy = %w[test development systest uat production]
+  hierarchy.index(Rails.env) >= hierarchy.index(environment)
 end

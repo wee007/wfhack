@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.323
+Version:     0.2.324
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,11 @@ fi
 
 
 %changelog
+* Fri May 02 2014 ci <doperations@au.westfield.com> 0.2.324-1
+- set initialised value (alec@smartalecwebsites.com.au)
+- on deals show and product show, load all stores via ajax after map load
+  (alec@smartalecwebsites.com.au)
+
 * Thu May 01 2014 ci <doperations@au.westfield.com> 0.2.323-1
 - fixed failing tests (benpritchard@aud27140.au.ad.westfield.com)
 

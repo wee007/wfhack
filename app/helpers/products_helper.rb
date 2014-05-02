@@ -15,6 +15,19 @@ module ProductsHelper
       products
   end
 
+  # Build category canonical URL for JS disabled site.
+  # TODO: Consolidate `nonscript_category_canonical_url` and `category_canonical_url` into one method.
+  #       The challenge is that both methods are getting the category details from different objects
+  #       and are accepting different arguments.
+  #       It would be nice to revisit as part of the category rework.
+  def noscript_category_canonical_url(categories)
+    if categories.sub_category.present?
+      url_for(params: {'sub_category' => categories.sub_category})
+    else
+      build_category_url(categories.super_cat, categories.category, nil)
+    end
+  end
+
   def category_canonical_url(category_count=0)
     category_code = @product.category_hierarchy.map{ |c| c.code }
     (super_category, category, sub_category) = category_code.first(category_count+1)

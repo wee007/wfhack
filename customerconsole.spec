@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.324
+Version:     0.2.325
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,9 @@ fi
 
 
 %changelog
+* Fri May 02 2014 ci <doperations@au.westfield.com> 0.2.325-1
+- Remove request store, nocache hack (jlambert@au.westfield.com)
+
 * Fri May 02 2014 ci <doperations@au.westfield.com> 0.2.324-1
 - set initialised value (alec@smartalecwebsites.com.au)
 - on deals show and product show, load all stores via ajax after map load

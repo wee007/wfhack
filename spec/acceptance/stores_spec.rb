@@ -1,7 +1,6 @@
 require 'acceptance_helper'
 
 feature 'Stores' do
-  include_context 'trading_hours'
 
   describe 'There are stores in the store list' do
     scenario "for Sydney" do

@@ -5,15 +5,19 @@
 /*
   Provides feedback to the user letting them know that their action is being processed e.g. a form submission. It renders an animating spinner (light) but can also include a message with the spinner e.g. "Loading, please wait...".
 
-  .preloader--middle      - Position the loader in the centre of its parent
+  .preloader--middle      - position the loader in the centre of it's parent
+  .preloader--top         - position the loader near the top of it's parent
 
   Styleguide Preloader
 */
 
-$preloader-stroke-width: 3;
+$preloader-stroke-width: 2;
 $preloader-stroke-width-px: $preloader-stroke-width + px;
 
 .preloader {
+
+  background: $color-grey-light-3;
+  border-radius: $border-radius;
 
   &,
   & * {display: inline-block;}
@@ -43,22 +47,14 @@ $preloader-stroke-width-px: $preloader-stroke-width + px;
   @include translateX(-50%);
 }
 
-/* Modifier: light background */
-.preloader--light {
-  background-color: $color-grey-light-3;
-  border-radius: $border-radius;
-}
-
   /* Spinner animation */
   .preloader__spinner {
-    @include to-rem(width height, 26);
-    @include to-rem(margin, $spacing-third);
+    @include to-rem(width height, 24);
+    @include to-rem(margin, 8);
     border-radius: 100%;
     border: $preloader-stroke-width-px solid $color-grey-dark-3;
 
     @include prefix(animation, rotate 1s infinite linear);
-
-    .android & {@include to-rem(height, 27);}
 
     /* the 'gap' in the preloader circle */
     &:after {
@@ -73,7 +69,7 @@ $preloader-stroke-width-px: $preloader-stroke-width + px;
     }
   }
 
-@-webkit-keyframes rotate {
+@include prefix-keyframe(rotate) {
     from {
         -webkit-transform: rotate(0deg);
     }

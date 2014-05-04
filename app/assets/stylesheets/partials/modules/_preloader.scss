@@ -11,9 +11,6 @@
   Styleguide Preloader
 */
 
-$preloader-stroke-width: 2;
-$preloader-stroke-width-px: $preloader-stroke-width + px;
-
 .preloader {
 
   background: $color-grey-light-3;
@@ -52,7 +49,7 @@ $preloader-stroke-width-px: $preloader-stroke-width + px;
     @include to-rem(width height, 24);
     @include to-rem(margin, 8);
     border-radius: 100%;
-    border: $preloader-stroke-width-px solid $color-grey-dark-3;
+    border: $spacing-micro + px solid $color-grey-dark-3;
 
     @include prefix(animation, rotate 1s infinite linear);
 
@@ -60,7 +57,7 @@ $preloader-stroke-width-px: $preloader-stroke-width + px;
     &:after {
       content:"";
       position: absolute;
-      @include to-rem(top, -$preloader-stroke-width);
+      @include to-rem(top, -$spacing-micro);
       left: 50%;
       @include translateX(-50%);
       @include to-rem(height, $spacing-third);
@@ -68,5 +65,3 @@ $preloader-stroke-width-px: $preloader-stroke-width + px;
       background: $color-grey-light-3;
     }
   }
-
-

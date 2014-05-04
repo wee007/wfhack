@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.329
+Version:     0.2.330
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,12 @@ fi
 
 
 %changelog
+* Mon May 05 2014 ci <doperations@au.westfield.com> 0.2.330-1
+- Merge pull request #1106 from cpearce/accessibility-updates
+  (cpearce@au.westfield.com)
+- Small accessibility updates to Stores and global search
+  (cpearce@au.westfield.com)
+
 * Fri May 02 2014 ci <doperations@au.westfield.com> 0.2.329-1
 - Merge pull request #1112 from cpearce/new-creative (cpearce@au.westfield.com)
 - Removing redundant padding left/right (cpearce@au.westfield.com)

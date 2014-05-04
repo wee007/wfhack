@@ -69,13 +69,4 @@ $preloader-stroke-width-px: $preloader-stroke-width + px;
     }
   }
 
-@include prefix-keyframe(rotate) {
-    from {
-        -webkit-transform: rotate(0deg);
-    }
-    to {
-        -webkit-transform: rotate(360deg);
-    }
-}
-
 

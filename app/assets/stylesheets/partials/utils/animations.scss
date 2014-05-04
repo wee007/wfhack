@@ -1,0 +1,22 @@
+/* ======================================================================================
+   @UTILS -> ANIMATIONS
+   ====================================================================================== */
+
+/* [GENERIC KEYFRAME ANIMATIONS]
+-------------------------------------------------------*/
+/*
+  Usage: Generate reusable keyframe animations
+
+  Examples:
+    @include prefix(animation, rotate 1s infinite linear);
+*/
+
+/* Full rotation */
+@include prefix-keyframe(rotate) {
+    from {
+        @include rotate(0);
+    }
+    to {
+        @include rotate(360);
+    }
+}

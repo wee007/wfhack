@@ -61,8 +61,7 @@ module SupportHelper
   def set_proxy
     if ENV['http_proxy'] || ! ENV['http_proxy'].blank?
       if !@proxy
-        @proxy = URI(ENV['http_proxy'])/
-        proxy, proxy_port = [@proxy.host, @proxy.port]
+        @proxy = URI(ENV['http_proxy'])
         log "Using Proxy: #{@proxy.host}:#{@proxy.port}"
       end
       case Capybara.current_driver

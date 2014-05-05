@@ -52,7 +52,6 @@ code {color: $color-blue;}
 -------------------------------------------------------*/
 s {text-decoration: line-through;}
 
-
 /* [MARK]
 -------------------------------------------------------*/
 mark {
@@ -60,3 +59,7 @@ mark {
   font-weight: bold;
   color: inherit;
 }
+
+/* [UNDERLINE]
+-------------------------------------------------------*/
+u {text-decoration: none;}

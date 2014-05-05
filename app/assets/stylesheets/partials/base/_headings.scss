@@ -9,7 +9,6 @@
 */
 
 /* Note: to target any heading of any level use this generic heading class: `.hn` */
-
 @include headings(1, 6) {
   font-weight: normal;
 }
@@ -20,5 +19,5 @@ h1, .h1 {
   /* This is needed to turn off the top margin set in 'utils/normalize' */
   margin-top: 0;
 
-  mark {font-weight: normal}
+  mark {font-weight: normal;}
 }

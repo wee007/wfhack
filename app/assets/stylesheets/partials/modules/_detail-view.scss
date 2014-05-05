@@ -19,11 +19,9 @@
 }
 
 .detail-view {
-  @include font-size($font-size-sml);
 
   @include respond-min($non-palm) {
     @include box;
-    @include font-size($font-size);
     width: $page-container-width;
     margin-left: auto;
     margin-right: auto;
@@ -53,8 +51,12 @@
     &.detail-view--product {@include to-rem(width, 900);}
   }
 
-  /* Headings */
-  .hn {font-family: $font-family-opensans;}
+  /* Spacing */
+  .detail-view__mrg-base {@extend %mrg-base;}
+
+  .detail-view__mrg-half {@include to-rem(margin-bottom, $spacing-half);}
+
+  .detail-view__mrg-off {margin-bottom: 0;}
 
   /* Micello map */
   .map-micello {
@@ -88,27 +90,6 @@
       }
     }
 }
-
-  /* Headings */
-  .detail-view__hdr {
-    @extend %mrg-base;
-    @include font-size(27, 1.2);
-    color: $color-txt-dark;
-
-    @include respond-min($non-palm) {
-      @include font-size($font-size-hecto, 1.2);
-    }
-  }
-
-  .detail-view__hdr-sub {
-    @include font-size($font-size-lrger, 1.5);
-    @include to-rem(margin-bottom, $spacing-half);
-    color: $color-txt-light;
-
-    @include respond-min($non-palm) {
-      @include font-size($font-size-xlrg, 1.5);
-    }
-  }
 
   /* Meta */
   .detail-view__meta {
@@ -182,11 +163,8 @@
   /* Main image */
   .detail-view__media {text-align: center;}
 
-  /* Descriptions (user generated content) */
-  .detail-view .detail-view__desc p {@extend %mrg-base;}
-
-    /* Fine print */
-    .detail-view__desc--fine-print {@include font-size($font-size-milli, 1.5);}
+  /* Small text */
+  .detail-view__sml-txt {@include font-size($font-size-sml);}
 
   /* Schedule */
   .detail-view__schedule {
@@ -199,20 +177,17 @@
     .detail-view--movie & p {@extend %mrg-base;}
   }
 
-  /* Spacing */
-  .detail-view__mrg-base {@extend %mrg-base;}
-
-  .detail-view__mrg-half {@include to-rem(margin-bottom, $spacing-half);}
-
-  .detail-view__mrg-off {margin-bottom: 0;}
-
   /* Subtle text */
   .detail-view__subtle-txt {color: $color-txt-light;}
 
   /* Check store availability */
   .detail-view__check-avble {
 
-    .detail-view__subtle-txt {@include font-size($font-size-sml);}
+    .detail-view__subtle-txt,
+    em {vertical-align: middle;}
+
+    /* Text label */
+    .detail-view__subtle-txt {line-height: 1.3125;}
 
     /* Phone no + icon */
     em {

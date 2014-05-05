@@ -26,6 +26,14 @@
     padding-right: 0;
   }
 
+  /* Reset all nested list styles */
+  ul,
+  ol {
+    list-style: none;
+    margin-left: 0;
+    margin-bottom: 0;
+  }
+
   /* Slides container */
   .slides {
     @extend %clear-fix;

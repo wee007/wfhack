@@ -4,7 +4,7 @@
   <header class="detail-view__mrg-base">
 
     <%# Movie title %>
-    <h1 class="detail-view__hdr hn test-title" itemprop="name"><%= @movie.title %></h1>
+    <h1 class="test-title" itemprop="name"><%= @movie.title %></h1>
     <%# //Movie title %>
 
     <%# Movie classification %>
@@ -26,7 +26,7 @@
 
   <%# Movie synopsis %>
   <section aria-labelledby="synopsis">
-    <h2 class="detail-view__hdr-sub hn" id="synopsis">Synopsis</h2>
+    <h2 class="detail-view__mrg-half" id="synopsis">Synopsis</h2>
     <p itemprop="description"><%= @movie.synopsis %></p>
   </section>
   <%# //Movie synopsis %>
@@ -36,10 +36,8 @@
 
 <%# Session times %>
 <section class="detail-view__schedule island" aria-labelledby="session-times">
-  <h2 class="detail-view__hdr-sub hn" id="session-times">Session Times</h2>
-
+  <h2 class="detail-view__mrg-half" id="session-times">Session Times</h2>
   <p>Select a session to purchase tickets at <%= @cinema.name %>.</p>
-
   <dl class="timeline">
     <% @movies_sessions_by_date.each do |date, sessions| %>
       <dt>
@@ -59,6 +57,5 @@
       <% end %>
     <% end %>
   </dl>
-
 </section>
 <%# //Session times %>

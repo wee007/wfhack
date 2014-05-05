@@ -109,6 +109,8 @@
 //@import "partials/abstractions/arrows";
 
 /* Modules */
+/* Note: the 'txt-formatted' module must come first as this usually wraps other modules therefore we want child modules styles to always be applied */
+@import "partials/modules/txt-formatted";
 @import "partials/modules/feedback";
 @import "partials/modules/icon";
 @import "partials/modules/preloader";
@@ -137,7 +139,6 @@
 @import "partials/modules/fine-print";
 @import "partials/modules/promo-tile";
 @import "partials/modules/fallback-msg";
-@import "partials/modules/product-curation";
 @import "partials/modules/price-strip";
 //@import "partials/modules/sprite";
 //@import "partials/modules/img-rotate";
@@ -151,9 +152,6 @@
   //@import "partials/modules/widgets/adaptive-google-map";
   //@import "partials/modules/widgets/social-media-share";
   //@import "partials/modules/widgets/tooltip";
-
-/* Note: this must come after all the modules and widgets so it will always be applied */
-@import "partials/modules/txt-formatted";
 
 /* Helpers */
 @import "partials/helpers/spacing";

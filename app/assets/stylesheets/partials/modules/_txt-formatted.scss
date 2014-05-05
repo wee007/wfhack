@@ -3,29 +3,22 @@
    ====================================================================================== */
 
 /*
-	Styles for text formatting which aren't provided by the base styles, this is usually used for user generated text e.g. product description.
+	Pseudo base styles as we were unable to set base styles at the start of the build due to not knowing what they were. These will eventually become base styles when we implement the new global design guidelines.
 
   .txt-formatted--user-generated     - User generated rules
 
   Styleguide Text Formatted
 */
 
-/*
-	Note: User generated text needs the modifier: `.txt-formatted--user-generated`.
-*/
+.txt-formatted {
 
-/* Increase specificity so we can override formats set in other modules when `.txt-formatted` is being used */
-body .txt-formatted {
-  @include font-size($font-size-sml);
+  /* Set base bottom margin */
+  p,
+  h1,
+  h2,
+  h3 {@extend %mrg-base;}
 
-  @include respond-min($non-palm) {
-    @include font-size($font-size);
-  }
-
-  h3,
-  h4,
-  h5 {font-weight: bold;}
-
+  /* Set half bottom margin */
   h4,
   h5,
   h6 {
@@ -34,56 +27,47 @@ body .txt-formatted {
     &:last-child {margin-bottom: 0;}
   }
 
-  h4,
-  h6 {
-    @include font-size($font-size-sml, 1.5);
+  /* Headings */
 
-    @include respond-min($non-palm) {
-      @include font-size($font-size, 1.5);
-    }
-  }
-
-  p,
+  /* Shared */
   h2,
-  h3 {@extend %mrg-base;}
+  h5,
+  h6 {color: $color-txt-light;}
+
+  h1,
+  h3,
+  h4 {color: $color-grey-dark-1;}
+
+  /* H1 */
+  h1 {@include font-size($font-size-hecto);}
 
   /* H2 */
   h2 {
     font-family: $font-family-opensans;
-    color: $color-txt-light;
-    @include font-size($font-size-lrger, 1.5);
-
-    @include respond-min($non-palm) {
-      @include font-size($font-size-xlrg, 1.5);
-    }
+    @include font-size($font-size-xlrg, 1.5);
   }
 
   /* H3 */
   h3 {
-    @include font-size(13, 1.5);
-
-    @include respond-min($non-palm) {
-      @include font-size(15, 1.5);
-    }
-  }
-
-  /* H5 */
-  h5 {
-    @include font-size($font-size-milli, 1.5);
+    @include font-size($font-size-lrg);
     text-transform: uppercase;
-
-    @include respond-min($non-palm) {
-      @include font-size(13, 1.5);
-    }
   }
 
-  /* Inline elements */
-  u {text-decoration: none;}
+  /* H4 */
+  h4 {
+    @include font-size($font-size);
+    font-weight: bold;
+  }
+
+  /* H5 - H6 */
+  h5,
+  h6 {@include font-size($font-size - 1);}
 
   /* Reset the list by removing all styles */
   .txt-formatted__list-unstyled {
     list-style: none;
     margin-left: 0;
+    margin-bottom: 0;
   }
 
   /* Unbold text */

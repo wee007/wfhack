@@ -4,7 +4,7 @@
   <div class="grid__item non-palm-one-half">
     <div class="island detail-view__divider--palm">
       <header class="deal-main box box--torn">
-        <h1 class="deal-main__hdr h1"><%= @deal.title %></h1>
+        <h1 class="detail-view__mrg-half"><%= @deal.title %></h1>
         <p class="deal-main__meta">
           from <%= @store.name %>
           <span>
@@ -45,7 +45,7 @@
 
       <%# Non-palm version %>
       <p class="detail-view__check-avble hide-fully--palm">
-        <span class="detail-view__subtle-txt">Check store availability</span>
+        <span class="detail-view__subtle-txt detail-view__sml-txt">Check store availability</span>
         <em>
           <span class="icon icon--phone icon--lrg icon--spacing" aria-hidden="true"></span>
           <%= @store.phone_number %>
@@ -68,8 +68,8 @@
 <%# Availability %>
 <% if @deal.stores and @deal.stores.size > 1 %>
   <section class="island" aria-labelledby="availability">
-    <h2 class="detail-view__hdr-sub detail-view__mrg-off hn" id="availability"><%= @store.name %> also available at</h2>
-    <ul class="detail-view__mrg-base">
+    <h2 class="detail-view__mrg-off" id="availability"><%= @store.name %> also available at</h2>
+    <ul class="txt-formatted__list-unstyled">
       <% @deal.stores[0..2].each do |store| %>
         <% unless store.id == @store.id %>
           <li>
@@ -88,8 +88,8 @@
 <%# Fine print %>
 <% if @deal.terms_and_conditions and !@deal.terms_and_conditions.empty? %>
   <section class="island toggle-visibility<% if @deal.stores and @deal.stores.size > 1 %> detail-view__divider detail-view__divider--top<% end %>" aria-labelledby="fine-print" id="fine-print-toggle">
-    <h2 class="detail-view__hdr-sub hn" id="fine-print">The fine print</h2>
-    <div class="detail-view__desc detail-view__desc--fine-print detail-view__subtle-txt">
+    <h2 class="detail-view__mrg-half" id="fine-print">The fine print</h2>
+    <div class="detail-view__sml-txt detail-view__subtle-txt">
       <% @deal.terms_and_conditions.each do |paragraph| %>
         <% unless paragraph.empty? %><p><%= paragraph %></p><% end %>
       <% end %>

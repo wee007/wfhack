@@ -19,8 +19,7 @@ RSpec.configure do |config|
   config.tty = true
   config.include SupportHelper
   config.before(:each) do
-    set_proxy
-    set_ssl_verify
+    set_driver_config
     redirecting_on
   end
 end

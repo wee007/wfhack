@@ -24,13 +24,12 @@ feature 'Redirecting' do
     
     describe 'to an EXTERNAL address' do
       scenario "sends the user to the correct destination" do
-        Capybara.current_driver = :webkit
+        set_driver :webkit
         external_redirect_list.each do |redirect|
           log "#{redirect[:from]} >> #{redirect[:to]}"
           visit redirect[:from]
           expect_urls_to_match current_url, redirect[:to]
         end
-        Capybara.use_default_driver
       end
       
       scenario "responds with a 301" do

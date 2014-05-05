@@ -3,12 +3,8 @@ require 'acceptance_helper'
 feature 'Regressions' do
   include_context 'regressions'
   
-  background do
-    Capybara.current_driver = :webkit
-  end
-  
-  teardown do
-    Capybara.use_default_driver
+  before(:each) do
+    set_driver :webkit
   end
   
   describe 'Entry page' do

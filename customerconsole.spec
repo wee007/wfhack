@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.332
+Version:     0.2.333
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,11 @@ fi
 
 
 %changelog
+* Mon May 05 2014 ci <doperations@au.westfield.com> 0.2.333-1
+- Merge pull request #1113 from cpearce/misc-fixes (cpearce@au.westfield.com)
+- Removing retina width for product curation hero image
+  (cpearce@au.westfield.com)
+
 * Mon May 05 2014 ci <doperations@au.westfield.com> 0.2.332-1
 - Merge pull request #1114 from araeside/stores-acceptance-tests
   (araeside@au.westfield.com)

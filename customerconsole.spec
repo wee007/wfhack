@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.336
+Version:     0.2.337
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,10 @@ fi
 
 
 %changelog
+* Tue May 06 2014 ci <doperations@au.westfield.com> 0.2.337-1
+- Merge pull request #1118 from dsim/WSF-6385 (dsim@au.westfield.com)
+- Use featured_products on store page (dsim@au.westfield.com)
+
 * Mon May 05 2014 ci <doperations@au.westfield.com> 0.2.336-1
 - Merge pull request #1121 from bpritchard/master (bpritchard@au.westfield.com)
 - fixed merge-conflict (benpritchard@aud27140.au.ad.westfield.com)

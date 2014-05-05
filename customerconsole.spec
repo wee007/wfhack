@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.335
+Version:     0.2.336
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,10 @@ fi
 
 
 %changelog
+* Mon May 05 2014 ci <doperations@au.westfield.com> 0.2.336-1
+- Merge pull request #1121 from bpritchard/master (bpritchard@au.westfield.com)
+- fixed merge-conflict (benpritchard@aud27140.au.ad.westfield.com)
+
 * Mon May 05 2014 ci <doperations@au.westfield.com> 0.2.335-1
 - added fallback test condition when movie page has no movies
   (benpritchard@aud27140.au.ad.westfield.com)

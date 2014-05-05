@@ -11,3 +11,6 @@ $ ->
   $(document).on 'click', '.js-stores-hide-subcategories', ->
     toggleSubCategory(false)
 
+  $(".js-stores-category-button").on 'toggle-visibility.hide', ->
+    toggleSubCategory(false)
+

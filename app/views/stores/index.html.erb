@@ -38,7 +38,7 @@
               <div class="stores-maps__filters__item drop-down-menu drop-down-container">
 
                 <%# Drop down trigger %>
-                <button ng-click="viewSubCategory(null)" class="drop-down-menu__trigger btn btn--main btn--main-dark btn--pointer btn--pointer-padding-med js-disabled-hide js-fastclick test-stores-category-filter-button" toggle-visibility="category-store-filter">
+                <button ng-click="viewSubCategory(null)" class="drop-down-menu__trigger btn btn--main btn--main-dark btn--pointer btn--pointer-padding-med js-disabled-hide js-fastclick js-stores-category-button test-stores-category-filter-button" toggle-visibility="category-store-filter">
                   Category
                   <span class="hide-visually"> filter</span>
                   <span aria-hidden="true" class="icon icon--lrg icon--arrow-down-full btn--pointer__icon"></span>
@@ -79,7 +79,7 @@
 
                   <%# T2 categories %>
                   <% @categories.with_children.each do |category| %>
-                    <div class="toggle-visibility js-stores-category-<%= category.code %>"
+                    <div class="toggle-visibility js-stores-category-<%= category.code %> test-stores-category-<%= category.code %>"
                          ng-attr-aria-hidden="{{viewingSubCategory != '<%= category.code %>'}}"
                          aria-labelledby="<%= category.code %>"
                       id="<%= category.code %>_categories" class="toggle-visibility test-stores-sub-categories">

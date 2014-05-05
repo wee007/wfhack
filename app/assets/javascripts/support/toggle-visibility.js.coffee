@@ -74,7 +74,6 @@ class @ToggleVisibility
       @target = target
 
   hide: (trigger = @trigger, target = @target) =>
-    debugger
     trigger
       .removeClass(@isActiveClass)
       .attr('attr-expanded', false)

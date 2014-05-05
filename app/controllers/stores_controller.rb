@@ -80,7 +80,7 @@ protected
     }
 
     if params[ :action ].eql?( 'show' )
-      services[ :product ] = { action: 'lite', retailer: [ params[ :retailer_code ] ], rows: 3 }
+      services[ :product ] = { action: 'lite', retailer: [ params[ :retailer_code ] ], is_featured: true, rows: 3 }
       services[ :store ] = { centre: params[ :centre_id ], retailer_code: params[ :retailer_code ], per_page: 1000 }
     end
 

@@ -128,7 +128,7 @@ describe StoresController do
     let( :stores_response ) { double( :store_response ).as_null_object }
     let( :stores ) { [ double( :stores, store_attributes ).as_null_object ] }
 
-    let( :product_params ) { { action: 'lite', retailer: [ 'abc' ], rows: 3 } }
+    let( :product_params ) { { action: 'lite', retailer: [ 'abc' ], is_featured: true, rows: 3 } }
     let( :product_response ) { double( :product_response ).as_null_object }
     let( :products ) { [ double( :products ).as_null_object ] }
 

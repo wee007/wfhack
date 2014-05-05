@@ -4,6 +4,10 @@ class Product < Hashie::Mash
     image_urls
   end
 
+  def image_refs
+    image_urls.map { |url| url.gsub %r{^.*/}, '' }
+  end
+
   def available_colours
     details.map do |detail|
       colour = detail.attributes.detect do |attr|

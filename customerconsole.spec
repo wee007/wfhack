@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.331
+Version:     0.2.332
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,14 @@ fi
 
 
 %changelog
+* Mon May 05 2014 ci <doperations@au.westfield.com> 0.2.332-1
+- Merge pull request #1114 from araeside/stores-acceptance-tests
+  (araeside@au.westfield.com)
+- simplify test selectors (alec@smartalecwebsites.com.au)
+- remove report (alec@smartalecwebsites.com.au)
+- remove trading hours reference (alec@smartalecwebsites.com.au)
+- add basic stores acceptance tests (alec@smartalecwebsites.com.au)
+
 * Mon May 05 2014 ci <doperations@au.westfield.com> 0.2.331-1
 - Merge pull request #1115 from jlambert/disable-caching
   (jlambert@au.westfield.com)

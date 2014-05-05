@@ -61,7 +61,7 @@ describe ProductsController do
         {
           display_options: nil,
           facets: nil,
-          applied_filters: {},
+          applied_filters: Hashie::Mash.new(),
           count: 0
         }
       }
@@ -71,7 +71,8 @@ describe ProductsController do
       context "when google content experiment param is not present" do
         it "assigns nil google_content_experiment variable" do
           controller.stub(:gon).and_return(gon)
-          gon.should_receive(:push).with(products: products_params, google_content_experiment: nil)
+          gon.should_receive(:push).with(:google_content_experiment=>nil, :centre_id=>"bondijunction")
+          gon.should_receive(:push).with(products: products_params)
           get :index_centre, centre_id: 'bondijunction'
         end
       end
@@ -79,7 +80,8 @@ describe ProductsController do
       context "when google content experiment param is present" do
         it "assigns the param value to google_content_experiment variable" do
           controller.stub(:gon).and_return(gon)
-          gon.should_receive(:push).with(products: products_params, google_content_experiment: '1')
+          gon.should_receive(:push).with(:google_content_experiment=>"1", :centre_id=>"bondijunction")
+          gon.should_receive(:push).with(products: products_params)
           get :index_centre, centre_id: 'bondijunction', gce_var: 1
         end
       end
@@ -246,7 +248,8 @@ describe ProductsController do
       context "when google content experiment param is not present" do
         it "assigns nil google_content_experiment variable" do
           controller.stub(:gon).and_return(gon)
-          gon.should_receive(:push).with(centre: Hashie::Mash.new, stores: {}, google_content_experiment: nil)
+          gon.should_receive(:push).with(google_content_experiment: nil, centre_id: "bondijunction")
+          gon.should_receive(:push).with(centre: Hashie::Mash.new, stores: {})
           get :show_centre, id: 1, centre_id: 'bondijunction', retailer_code: 'retailer_code', product_name: 'product_name'
         end
       end
@@ -254,7 +257,8 @@ describe ProductsController do
       context "when google content experiment param is present" do
         it "assigns the param value to google_content_experiment variable" do
           controller.stub(:gon).and_return(gon)
-          gon.should_receive(:push).with(centre: Hashie::Mash.new, stores: {}, google_content_experiment: '1')
+          gon.should_receive(:push).with(centre: Hashie::Mash.new, stores: {})
+          gon.should_receive(:push).with(google_content_experiment: "1", centre_id: "bondijunction")
           get :show_centre, id: 1, centre_id: 'bondijunction', retailer_code: 'retailer_code', product_name: 'product_name', gce_var: 1
         end
       end

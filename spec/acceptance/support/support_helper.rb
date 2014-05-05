@@ -10,6 +10,14 @@ module SupportHelper
     uri.to_s
   end
 
+  # This triggers keydown using an unholy amalgamation of jquery, ruby, and capybara
+  # Incredibly, this is currently the least bad way of doing this: http://stackoverflow.com/questions/8474103/is-there-a-way-to-send-key-presses-to-webkit-using-capybara
+  # https://github.com/thoughtbot/capybara-webkit/issues/191
+  def send_keycode_to_selector keycode, selector
+    keypress_script = "var e = $.Event('keydown', { keyCode: #{keycode} }); $('#{selector}').trigger(e);"
+    page.driver.browser.execute_script(keypress_script)
+  end
+
   def wait_for_ajax_requests
     wait_until(20) { (page.evaluate_script('typeof jQuery != "undefined" && jQuery.active == 0')) }
   end

@@ -1369,9 +1369,6 @@ $national-view-search-toggle-bp: 1080 !default;
 			width: 100%;
 			@include to-rem(margin-top, -2);
 
-	  	/* JS users - want to show the drop down when the Angular `.ng-hide` is not on the element */
-	  	.js &:not(.ng-hide) {display: block;}
-
 	  	/* Non JS users */
 	  	.no-js & {display: none;}
 		}

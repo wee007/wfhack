@@ -46,7 +46,8 @@ describe CentresController do
       context "when google content experiment param is not present" do
         it "assigns nil google_content_experiment variable" do
           controller.stub(:gon).and_return(gon)
-          gon.should_receive(:push).with(google_content_experiment: nil)
+          gon.should_receive(:push).with(google_content_experiment: nil, centre_id: nil)
+          gon.should_receive(:push).with(centre_id: 'centre')
           get :show, id: 'centre'
         end
       end
@@ -54,7 +55,8 @@ describe CentresController do
       context "when google content experiment param is present" do
         it "assigns the param value to google_content_experiment variable" do
           controller.stub(:gon).and_return(gon)
-          gon.should_receive(:push).with(google_content_experiment: '1')
+          gon.should_receive(:push).with(google_content_experiment: '1', centre_id: nil)
+          gon.should_receive(:push).with(centre_id: 'centre')
           get :show, id: 'centre', gce_var: 1
         end
       end

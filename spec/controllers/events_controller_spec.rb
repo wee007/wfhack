@@ -26,7 +26,7 @@ describe EventsController do
       context "when google content experiment param is not present" do
         it "assigns nil google_content_experiment variable" do
           controller.stub(:gon).and_return(gon)
-          gon.should_receive(:push).with(google_content_experiment: nil)
+          gon.should_receive(:push).with(google_content_experiment: nil, centre_id: "bondijunction")
           get :index, centre_id: 'bondijunction'
         end
       end
@@ -34,7 +34,7 @@ describe EventsController do
       context "when google content experiment param is present" do
         it "assigns the param value to google_content_experiment variable" do
           controller.stub(:gon).and_return(gon)
-          gon.should_receive(:push).with(google_content_experiment: '1')
+          gon.should_receive(:push).with(google_content_experiment: '1', centre_id: "bondijunction")
           get :index, centre_id: 'bondijunction', gce_var: 1
         end
       end
@@ -69,7 +69,7 @@ describe EventsController do
       context "when google content experiment param is not present" do
         it "assigns nil google_content_experiment variable" do
           controller.stub(:gon).and_return(gon)
-          gon.should_receive(:push).with(google_content_experiment: nil)
+          gon.should_receive(:push).with(google_content_experiment: nil, centre_id: "bondijunction")
           get :show, id: 1, centre_id: 'bondijunction'
         end
       end
@@ -77,7 +77,7 @@ describe EventsController do
       context "when google content experiment param is present" do
         it "assigns the param value to google_content_experiment variable" do
           controller.stub(:gon).and_return(gon)
-          gon.should_receive(:push).with(google_content_experiment: '1')
+          gon.should_receive(:push).with(google_content_experiment: '1', centre_id: "bondijunction")
           get :show, id: 1, centre_id: 'bondijunction', gce_var: 1
         end
       end

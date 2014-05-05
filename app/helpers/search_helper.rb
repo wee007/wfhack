@@ -27,6 +27,19 @@ module SearchHelper
     results.count {|result| result.result_type != 'product_brand' and result.result_type != 'retail_chain'}
   end
 
+  def map_type_to_css_icon result_type
+    "icon--" + begin
+      case result_type
+      when 'centre_information'
+        'info'
+      when 'centre_service'
+        'service'
+      else
+        result_type.singularize
+      end
+    end
+  end
+
   private
 
   def _build_url(centre, kind, attributes)

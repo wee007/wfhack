@@ -1,6 +1,12 @@
 class CentresController < ApplicationController
   layout 'base', :only => :index
 
+  before_action do
+    gon.push(
+      centre_id: params[:id]
+    )
+  end
+
   def index
     @centres, @products = service_map \
       centre: [:all, {country: 'au'}],
@@ -27,8 +33,6 @@ class CentresController < ApplicationController
 
   def show
     stream
-
-    gon.push(google_content_experiment: params[:gce_var])
 
     meta.push(
       page_title: @centre.name,

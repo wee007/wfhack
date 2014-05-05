@@ -22,6 +22,13 @@ class Search < Hashie::Mash
     end
   end
 
+  def inject_dummy_item_for_dropdown
+    out = dup
+    out.results["products"] ||= []
+    out.results["products"].push dummy: true
+    out
+  end
+
   private
 
   def type_order_list 

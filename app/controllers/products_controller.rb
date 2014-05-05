@@ -26,8 +26,7 @@ class ProductsController < ApplicationController
         facets: @search.facets,
         applied_filters: @search.applied_filters,
         count: @search.products.length
-      },
-      google_content_experiment: params[:gce_var]
+      }
 
     render :index
   end
@@ -52,8 +51,7 @@ class ProductsController < ApplicationController
         display_options: @search.display_options,
         facets: @search.facets,
         applied_filters: @search.applied_filters
-      },
-      google_content_experiment: params[:gce_var]
+      }
 
     render :index
   end
@@ -88,8 +86,7 @@ class ProductsController < ApplicationController
 
     gon.push \
       centre: @centre,
-      stores: @centre_stores,
-      google_content_experiment: params[:gce_var]
+      stores: @centre_stores
 
     meta.push @product.meta
     meta.push(

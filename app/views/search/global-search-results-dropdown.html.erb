@@ -1,0 +1,20 @@
+<span class="js-dropdown-count" data-count="<%= @results_count %>"></span>
+<dl class="search-results__list " tabindex="0">
+  <% @search.sorted_each do |kind, facet_result| %>
+	  <dt>
+	    <span aria-hidden="true" class="icon <%= map_type_to_css_icon(kind) %> icon--lrger"></span> <%= kind.titleize %>
+	  </dt>
+	  <% facet_result.each do |result| %>
+		  <dd class="js-search-results-item-height" role="presentation">
+		  	<% if result[:dummy] %>
+		  		<a href="<%= centre_products_path(centre_id: params[:centre_id], search_source: 'dropdown', search_keyword: @search.term) %>" class="js-search-results-item-link js-dummy-search">Search for <%= @search.term %></a>
+		  	<% else %>
+		    	<a target="_self" href="<%= build_url(@centre, kind, result[:attributes], {search_source: 'dropdown', search_keyword: @search.term}) %>" tabindex="-1" class="js-search-results-item-link">
+		    	<%= result["display"] %>
+	    	<% end %>
+		    </a>
+		  </dd>
+	  <% end %>
+  <% end %>
+
+</dl>

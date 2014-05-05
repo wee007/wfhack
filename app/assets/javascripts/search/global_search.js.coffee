@@ -1,18 +1,21 @@
 class @GlobalSearch
   inputSelector: '.js-global-search-input'
-  resultsSelector: '.js-global-search-results'
-  resultsUrl: '/sydney/search/dropdown'
+  resultsSelector: '.js-global-search-results-container'
 
   constructor: ->
+    @resultsUrl = "/#{westfield.centre_id}/search/dropdown"
+    @resultsContainer = $(@resultsSelector)
     @setupEventListeners()
+    if @googleExperimentActive()
+      $('.js-global-search-form').attr('action', @switchUrlToGoogleExperiment)
 
   makeSuggestions: (searchQuery) =>
     if searchQuery != ""
       @currentIndex = -1
-      $(@resultsSelector).load(@resultsUrl + '?search='+ encodeURI(searchQuery), @updateVisibility )
+      @resultsContainer.load(@resultsUrl + '?search='+ encodeURI(searchQuery), @onLoadFinish )
 
   hideSuggestions: =>
-    $('.search-results').addClass 'hide-visually'
+    $('.js-search-results').removeClass 'is-active'
 
   moveFocusUp: =>
     @currentIndex--
@@ -22,8 +25,11 @@ class @GlobalSearch
     @currentIndex++
     @updateFocus()
 
+  currentSelectionExists: =>
+    @currentIndex != -1
+
   updateFocus: =>
-    $results = $('.js-search-results-item-height a')
+    $results = $('.js-search-results-item-link')
     maxLength = $results.length - 1
     @currentIndex = 0 if @currentIndex > maxLength
     @currentIndex = maxLength if @currentIndex < 0
@@ -49,7 +55,7 @@ class @GlobalSearch
       $el.scrollTop(current + (ceiling - diff))
 
   visitSelection: =>
-    $results = $('.js-search-results-item-height a')
+    $results = $('.js-search-results-item-link')
     window.location.href = $($results[@currentIndex]).attr('href')
 
   setupEventListeners: =>
@@ -58,7 +64,7 @@ class @GlobalSearch
     $(document).on 'input', @inputSelector, (event) ->
       that.makeSuggestions $(@).val()
 
-    # Capture esc, up arrow, and down arrow 
+    # Capture esc, up arrow, down arrow and enter
     $(document).on 'keydown', @inputSelector, (event) =>
       switch event.keyCode
         when 27 # Esc
@@ -67,8 +73,11 @@ class @GlobalSearch
           @moveFocusUp()
         when 40 # Down Arrow
           @moveFocusDown()
-        when 13 # Down Arrow
-          @visitSelection()
+        when 13 
+          if @currentSelectionExists() # Return
+            @visitSelection()
+          else
+            allowDefault = true
         else
           allowDefault = true
       if !allowDefault
@@ -78,15 +87,22 @@ class @GlobalSearch
       unless $(event.target).parents('.js-global-search').length > 0
         @hideSuggestions()
 
-  updateVisibility: =>
+  googleExperimentActive: ->
+    !(typeof westfield.google_content_experiment == 'undefined' or westfield.google_content_experiment == null)
 
+  switchUrlToGoogleExperiment: (dummy,url) ->
+    url.replace('products?','search?')
 
+  onLoadFinish: =>
+    if @googleExperimentActive()
+      $('.js-dummy-search').attr('href', @switchUrlToGoogleExperiment)
+    
     if $('.js-dropdown-count') && $('.js-dropdown-count').attr('data-count') != "0"
-      $('.search-results').removeClass 'hide-visually'
-      $('.js-status').html("#{$('.js-dropdown-count').attr('data-count')} results are available, use up and down arrow keys to navigate.")
+      $('.js-search-results').addClass 'is-active'
+      $('.js-global-search-status').html("#{$('.js-dropdown-count').attr('data-count')} results are available, use up and down arrow keys to navigate.")
     else
       @hideSuggestions()
-      $('.js-status').html("Press enter to search for products.")
+      $('.js-global-search-status').html("Press enter to search for products.")
 
 new GlobalSearch()
 

@@ -11,7 +11,7 @@ shared_context "spiders" do
       { :name => 'Centre Information', :content => 'Getting Here', :url => '/bondijunction/info' },
       { :name => 'Centre Services', :content => 'Centre services', :url => '/bondijunction/services' },
       { :name => 'Centre Hours', :content => 'Shopping Hours', :url => '/bondijunction/hours' },
-      { :name => 'Cinema Home', :content => 'Event Cinemas', :url => '/bondijunction/movies' },
+      { :name => 'Cinema Home', :content => movie ? 'Event Cinemas' : 'No movies at this centre', :url => '/bondijunction/movies' },
       { :name => 'Cinema Session', :content => movie_content, :url => movie_page },
       { :name => 'Stores', :content => 'Category filter', :url => '/bondijunction/stores' },
       { :name => 'Products', :content => 'Products', :url => '/bondijunction/products' },

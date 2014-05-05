@@ -1,11 +1,10 @@
 <div class="header__overlay header-search-toggle drop-down js-global-search" id="site-search">
   <div class="vert-align">
     <div class="vert-align__inner">
-      <div class="container drop-down-container" ng-controller="GlobalSearchCtrl" ng-cloak>
+      <div class="container drop-down-container" ng-cloak>
 
         <%# Search form %>
         <%= form_tag (national_product_index? ? products_path : centre_products_path(centre_id: params[:centre_id] || params[:id])),
-            "ng-submit" => "submit($event)",
             class: "search-mini",
             role: "search",
             method: :get do
@@ -23,7 +22,7 @@
           <% if national_product_index? %>
             <input type="search" class="search-mini__input" name="search_query" autocomplete="off" placeholder="Search products&#8230;">
           <% else %>
-            <input ng-model="searchQuery" ng-focus="makeSuggestions()" ng-keyup="makeSuggestions($event)" ng-keydown="navigateSuggestions($event)" type="search" class="search-mini__input test-global-search-input" id="global-search" name="search_query" autocomplete="off" placeholder="Search <%= @centre.short_name %>&#8230;">
+            <input ng-model="searchQuery" type="search" class="search-mini__input js-global-search-input" id="global-search" name="search_query" autocomplete="off" placeholder="Search <%= @centre.short_name %>&#8230;">
           <% end -%>
 
           <input type="submit" value="Search" ng-hide="true" class="search-mini__submit">
@@ -32,7 +31,7 @@
           <%# Search results total for screen readers %>
           <% unless national_product_index? %>
             <em role="status" aria-live="polite" class="hide-visually">
-              <span ng-if="suggestions" ng-pluralize count="{{suggestions.count}}" when="searchResultText()"></span>
+              <span class="js-status"></span>
             </em>
           <% end %>
           <%# //Search results total for screen readers %>
@@ -42,15 +41,9 @@
 
         <%# Search results %>
         <% unless national_product_index? %>
-          <div class="search-results drop-down js-disabled-hide" ng-show="suggestionsVisible && searchQuery !== ''">
+          <div class="search-results drop-down js-disabled-hide hide-visually" >
             <div class="search-results__inner js-search-results-keyboard-scrolling">
-              <dl class="search-results__list" tabindex="0">
-                <dt ng-repeat-start="key in sortOrderTypes" class="search-results__list__spacing" ng-if="suggestions[key]">
-                  <span aria-hidden="true" class="icon {{iconMapping(key)}} icon--lrger"></span> {{unsnake(key)}}
-                </dt>
-                <dd class="js-search-results-item-height" ng-repeat-end ng-repeat="suggestion in suggestions[key]" role="presentation">
-                  <a target="_self" ng-class="{'is-focused': suggestion === focusedSuggestion}" ng-href="{{url(suggestion)}}" tabindex="-1">{{suggestion.description}}</a>
-                </dd>
+              <dl class="search-results__list js-global-search-results" >
               </dl>
             </div>
           </div>

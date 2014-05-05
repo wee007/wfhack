@@ -46,6 +46,9 @@
 //= require_tree ./angular/controllers
 //= stub ./angular/directives/dialog
 
+// Global Search
+//= require search/global_search
+
 // --Misc--
 
 // Micello map

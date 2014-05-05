@@ -14,15 +14,29 @@ class Search < Hashie::Mash
     end
   end
 
+  def sorted_each &block
+    type_order_list.each do |type|
+      if results.has_key? type
+        yield type, results[type]
+      end
+    end
+  end
+
   private
+
+  def type_order_list 
+    [
+      'centre_services',
+      'centre_information',
+      'stores',
+      'products',
+      'deals',
+      'events',
+    ]
+  end
 
   # Order by type_order_list - if we can't find a matching type, move it to the end
   def ordering_on_type type
-    type_order_list =
-     [
-      "centre_services",
-      "centre_information",
-     ]
     type_order_list.index(type) || 9999
   end
 

@@ -31,4 +31,12 @@ class SearchController < ApplicationController
 
   end
 
+  def dropdown
+    @centre, search = service_map \
+      centre: params[:centre_id],
+      search: {centre: params[:centre_id], term: params["search"]}
+    @search = search
+    render :layout => false
+  end
+
 end

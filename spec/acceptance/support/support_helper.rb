@@ -54,9 +54,42 @@ module SupportHelper
       proxy_port = 8080
       log "Using Proxy: #{proxy}:#{proxy_port}"
 
+=======
+  
+  def destructive name=nil, &block
+    if Rails.env.production?
+      location = example.metadata[:description_args].first rescue 'unknown'
+      name = name ? "\"#{name}\" within \"#{location}\"" : "\"#{location}\""
+      log "Skipping destructive test: #{name}"
+    else
+      instance_eval &block if block_given?
+    end
+  end
+  
+  # Capybara driver related
+  def set_driver(driver)
+    Capybara.current_driver = driver
+    set_driver_config
+  end
+  
+  def set_driver_config
+    set_proxy
+    set_ssl_verify
+  end
+  
+  def set_proxy
+    if ENV['http_proxy'] || ! ENV['http_proxy'].blank?
+      if !@proxy
+        @proxy = URI(ENV['http_proxy'])
+        proxy, proxy_port = [@proxy.host, @proxy.port]
+        log "Using Proxy: #{@proxy.host}:#{@proxy.port}"
+      end
+>>>>>>> got the redirects and proxy working
       case Capybara.current_driver
       when :webkit
-        Capybara.current_session.driver.browser.set_proxy :host => proxy, :port => proxy_port
+        Capybara.current_session.driver.browser.set_proxy :host => @proxy.host, :port => @proxy.port
+      when :mechanize
+        # mechanize picks up the http_proxy env var, so we don't have to do anything here
       end
     end
   end
@@ -76,6 +109,19 @@ module SupportHelper
     else
       instance_eval &block if block_given?
     end
+=======
+  
+  def set_redirecting(follow)
+    (page.driver.options[:follow_redirects] = follow) rescue nil # some drivers don't have options
+  end
+  
+  def redirecting_on
+    set_redirecting true
+  end
+  
+  def redirecting_off
+    set_redirecting false
+>>>>>>> got the redirects and proxy working
   end
 
   def random(selector, opts={})

@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.333
+Version:     0.2.334
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,14 @@ fi
 
 
 %changelog
+* Mon May 05 2014 ci <doperations@au.westfield.com> 0.2.334-1
+- Merge pull request #1097 from mbamford/fix/WSF-6555_missing_cloudinaries
+  (mbamford@au.westfield.com)
+- products/show uses fetch_format: :auto (for webp)
+  (michael@michaelbamford.com)
+- Created Product#image_refs; use cl_image_tag in products/show
+  (michael@michaelbamford.com)
+
 * Mon May 05 2014 ci <doperations@au.westfield.com> 0.2.333-1
 - Merge pull request #1113 from cpearce/misc-fixes (cpearce@au.westfield.com)
 - Removing retina width for product curation hero image

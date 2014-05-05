@@ -1,1 +1,1 @@
-Service::API.cache_store = Rails.cache unless Rails.env.development? || Rails.env.test?
+# Service::API.cache_store = Rails.cache unless Rails.env.development? || Rails.env.test?

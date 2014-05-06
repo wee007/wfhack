@@ -218,7 +218,7 @@
       display: block;
       width: 100%;
       @include to-rem(padding, 12 $spacing-base+$spacing-half 11);
-      @include font-size($font-size-sml, 1);
+      @include font-size($font-size, 1);
 
       /* Remove full width and add right border at this breakpoint */
       @include respond-min($non-palm) {

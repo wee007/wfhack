@@ -11,17 +11,13 @@
 .deal-main {
 	@include to-rem(min-height, 316);
 	@include to-rem(padding, 88 $spacing-base);
-}
 
-	/* Title */
-	.deal-main__hdr {
-		@include font-size($font-size-hecto);
-		@include to-rem(margin-bottom, $spacing-third);
-	}
+	/* Heading - needs to be nested to override `h1` `margin-bottom` rule from the `txt-formatted` module */
+	.deal-main__hdr {@include to-rem(margin-bottom, $spacing-third);}
+}
 
 	/* Meta (deal owner and end date) */
 	.deal-main__meta {
-		margin-bottom: 0;
 		color: $color-txt-light;
 		@include font-size($font-size-lrg, 1.5);
 

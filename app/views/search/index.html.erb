@@ -7,10 +7,9 @@
 <% if @sorted_results_tuple.empty? %>
 
   <%# No search results message %>
-  <div class="txt-center">
+  <div class="txt-center txt-formatted mrg-base">
     <h1 class="mrg-half">No results found for "<mark><%= @search_term =%></mark>"</h1>
-
-    <p class="mrg-dbl">Try a different spelling, or try a store name or category. You can also browse one of the sections below&#8230;</p>
+    <p>Try a different spelling, or try a store name or category. You can also browse one of the sections below&#8230;</p>
   </div>
   <%#// No search results message %>
 
@@ -32,7 +31,9 @@
   </nav>
 
 <% else %>
-  <h1>Results for "<%= @search_term =%>"</h1>
+  <div class="txt-formatted mrg-base">
+    <h1>Results for "<%= @search_term =%>"</h1>
+  </div>
 
   <%# List of anchors to each search result type %>
   <div class="nav-contextual js-nav-contextual js-viewport-check">

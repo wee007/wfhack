@@ -227,7 +227,7 @@
     <%- if @product.detailed_description.present? || @product.short_description.present? %>
       <section class="island" aria-labelledby="description">
         <h2 class="detail-view__mrg-half" id="description">Description</h2>
-        <div class="txt-formatted txt-formatted--user-generated">
+        <div class="txt-formatted--user-generated">
           <%= raw(@product.detailed_description || @product.short_description) %>
         </div>
       </section>

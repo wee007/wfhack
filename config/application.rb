@@ -32,7 +32,7 @@ module CustomerConsole
 
     config.middleware.use Rack::Pjax
 
-    config.assets.precompile += %w(old-ie.css vendor/modernizr.js
+    config.assets.precompile += %w(old-ie.css
                                    map/micello_ie.js map/micello.js
                                    init/enquire.js enquire/dist/enquire.js
                                    flexslider/jquery.flexslider.js

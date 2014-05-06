@@ -11,10 +11,12 @@
   Styleguide Preloader
 */
 
-.preloader {
+$preloader-bg-color: $color-grey-light-3 !default;
 
-  background: $color-grey-light-3;
+.preloader {
+  background-color: $preloader-bg-color;
   border-radius: $border-radius;
+  @include to-rem(padding, 8);
 
   &,
   & * {display: inline-block;}
@@ -47,28 +49,27 @@
   /* Spinner animation */
   .preloader__spinner {
     @include to-rem(width height, 24);
-    @include to-rem(margin, 8);
+    @include prefix(animation, rotate 1s infinite linear);
+    border-radius: 100%;
+    border: $spacing-micro + px solid $color-grey-dark-3;
 
-    .cssanimations & {
-      @include prefix(animation, rotate 1s infinite linear);
-      border-radius: 100%;
-      border: $spacing-micro + px solid $color-grey-dark-3;
-
-      /* the 'gap' in the preloader circle */
-      &:after {
-        content:"";
-        position: absolute;
-        @include to-rem(top, -3);
-        left: 50%;
-        @include translateX(-50%);
-        @include to-rem(height, $spacing-third);
-        @include to-rem(width , $spacing-quarter);
-        background: $color-grey-light-3;
-      }
+    /* the 'gap' in the preloader circle */
+    &:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 50%;
+      @include translate(-50%, -50%);
+      @include to-rem(height, $spacing-third);
+      @include to-rem(width, $spacing-quarter);
+      background-color: $preloader-bg-color;
     }
 
+    /* Fallback for IE9 */
     .no-cssanimations & {
-      background: $color-grey-light-3 cloudinary-url("css/preloader.gif") no-repeat 50% 50%;
-      @include img-2x("css/preloader@2x.gif", 24px, 24px);
+      background: cloudinary-url("css/preloader.gif") no-repeat 50% 50%;
+      border: 0;
+
+      &:after {display:none}
     }
   }

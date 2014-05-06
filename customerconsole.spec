@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.338
+Version:     0.2.339
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,9 @@ fi
 
 
 %changelog
+* Tue May 06 2014 ci <doperations@au.westfield.com> 0.2.339-1
+- update gem location to github.com (pmcinerney@au.westfield.com)
+
 * Tue May 06 2014 ci <doperations@au.westfield.com> 0.2.338-1
 - Merge pull request #1123 from jlambert/WSF-6589 (jlambert@au.westfield.com)
 - WSF-6589 Raise a 404 if we can't find a given curation

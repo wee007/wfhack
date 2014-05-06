@@ -1,8 +1,14 @@
 GIT
-  remote: git@github.dbg.westfield.com:digital/service_api.git
-  revision: 4cdd7aeceb6a28a13b0a1737deb155929e50c7c8
+  remote: git@github.com:kneath/kss.git
+  revision: 1a1dbb3e150655e2c27b126f48ac91ef6d9253e6
   specs:
-    service_api (0.0.9)
+    kss (0.5.0)
+
+GIT
+  remote: git@github.com:westfield/service_api.git
+  revision: 3d9dba81117820d45f8e3eb77cde85526f044e0d
+  specs:
+    service_api (0.0.10)
       faraday
       faraday-http-cache (~> 0.2)
       faraday_middleware
@@ -11,19 +17,13 @@ GIT
       typhoeus (~> 0.6)
 
 GIT
-  remote: git@github.dbg.westfield.com:digital/service_helper.git
+  remote: git@github.com:westfield/service_helper.git
   revision: 60fb0e3c0850dfda2eb42357467a7b22df1be3ed
   specs:
     service_helper (0.0.24)
 
 GIT
-  remote: https://github.com/kneath/kss.git
-  revision: ac1c8e297d8e07e2e27678be976020d4951c96b7
-  specs:
-    kss (0.5.0)
-
-GIT
-  remote: https://github.com/westfield/splunk_logger.git
+  remote: git@github.com:westfield/splunk_logger.git
   revision: 5f0bec915e2325d2c7ba1ce764e1a009928cc365
   specs:
     splunk_logger (1.0.0)
@@ -169,7 +169,7 @@ GEM
     nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
     ntlm-http (0.1.1)
-    oj (2.8.1)
+    oj (2.9.0)
     poltergeist (1.4.1)
       capybara (~> 2.1.0)
       cliver (~> 0.2.1)

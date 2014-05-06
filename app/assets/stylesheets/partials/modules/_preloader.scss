@@ -7,6 +7,7 @@
 
   .preloader--middle      - position the loader in the centre of it's parent
   .preloader--top         - position the loader near the top of it's parent
+  .preloader--with-text   - text will accompany the spinner
 
   Styleguide Preloader
 */
@@ -70,6 +71,9 @@ $preloader-bg-color: $color-grey-light-3 !default;
       background: cloudinary-url("css/preloader.gif") no-repeat 50% 50%;
       border: 0;
 
-      &:after {display:none}
+      &:after {display:none;}
     }
+
+    /* Modifier: text will accompany the spinner */
+    .preloader--with-text & {margin-right: to-em($spacing-quarter);}
   }

@@ -75,5 +75,5 @@ $preloader-bg-color: $color-grey-light-3 !default;
     }
 
     /* Modifier: text will accompany the spinner */
-    .preloader--with-text & {margin-right: to-em($spacing-quarter);}
+    .preloader--with-text & {margin-right: to-rem($spacing-quarter);}
   }

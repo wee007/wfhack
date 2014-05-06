@@ -1,16 +1,4 @@
 module SupportHelper
-  def redirecting_on
-    set_redirecting true
-  end
-
-  def redirecting_off
-    set_redirecting false
-  end
-
-  def set_redirecting(follow)
-    (page.driver.options[:follow_redirects] = follow) rescue nil # some drivers don't have options
-  end
-
   def log(message)
     puts "    #{message}" unless ENV['quiet']
   end

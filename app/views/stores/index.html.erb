@@ -1,6 +1,6 @@
 <% content_for :class_for_main, "container--wide" %>
 
-<div class="stores-maps container js-stores-maps-toggle-wrap js-stores-list-position-container <%= @show_map_on_palm ? 'is-map-view' : 'is-list-view' %>">
+<div class="stores-maps container js-stores-maps-toggle-wrap js-stores-list-position-container test-stores-page-state <%= @show_map_on_palm ? 'is-map-view' : 'is-list-view' %>">
 
   <%# Contain 'filters', 'map/list toggle', and 'listings' %>
   <div class="js-pjax-container-stores" aria-live="polite" aria-atomic="true">
@@ -21,7 +21,7 @@
           <h1 class="stores-maps__filters-toggle__hdr hide-visually">Stores</h1>
 
           <%# List/map toggle %>
-          <button type="button" class="stores-maps__toggle btn btn--main btn--main-white btn--main-compact-icon js-stores-maps-toggle-btn" aria-owns="stores-maps-toggle-listing-detail stores-maps-toggle-map">
+          <button type="button" class="stores-maps__toggle btn btn--main btn--main-white btn--main-compact-icon js-stores-maps-toggle-btn test-map-toggle" aria-owns="stores-maps-toggle-listing-detail stores-maps-toggle-map">
             <span class="hide-visually--palm">View <span class="js-stores-maps-toggle-btn-txt">map</span></span>
             <span class="icon icon--map2 icon--lrg" aria-hidden="true"></span>
             <span class="icon icon--list icon--lrg" aria-hidden="true"></span>
@@ -63,7 +63,7 @@
                           </div>
                         <% else %>
                           <% if category.children.empty? %>
-                            <a href="<%= centre_stores_category_path(@centre, category.code) %><%= '?gift_cards=true' if filtering_gift_cards? %>" class="drop-down-menu__hdr-btn btn btn--full btn--full-left btn--pointer is-childless js-pjax-link-stores js-stores-page-state-params" data-category="<%= category.code %>"><%= category.name %></a>
+                            <a href="<%= centre_stores_category_path(@centre, category.code) %><%= '?gift_cards=true' if filtering_gift_cards? %>" class="drop-down-menu__hdr-btn btn btn--full btn--full-left btn--pointer is-childless js-pjax-link-stores js-stores-page-state-params test-stores-category-link" data-category="<%= category.code %>"><%= category.name %></a>
                           <% else %>
                             <a href="#<%= category.code %>_categories" id="<%= category.code %>" aria-haspopup="true" aria-controls="<%= category.code %>_categories" class="drop-down-menu__hdr-btn btn btn--full btn--full-left btn--pointer js-stores-view-subcategories test-stores-main-category-link">
                               <%= category.name %>
@@ -134,7 +134,7 @@
             <form id="giftCardForm" data-pjax action="<%= request.path %>" method="get" class="stores-maps__filters__item">
               <input type="hidden" name="map" value="false" class="js-map-view-state">
               <legend class="hide-visually">Gift card filter</legend>
-              <label for="gift-card-store-filter" class="btn btn--main btn--main-white btn--main-toggle btn--main-toggle-ios <%= 'is-disabled' if !@stores.any_accepting_gift_cards? %> <%= 'is-active' if filtering_gift_cards? %>">
+              <label for="gift-card-store-filter" class="btn btn--main btn--main-white btn--main-toggle btn--main-toggle-ios <%= 'is-disabled' if !@stores.any_accepting_gift_cards? %> <%= 'is-active' if filtering_gift_cards? %> test-gift-card-toggle">
                 <input type="checkbox" name="gift_cards" id="gift-card-store-filter" value="true" class="btn--main-toggle__input hide-visually js-stores-gift-card-toggle" <%= 'checked' if filtering_gift_cards? %><%= 'disabled' unless @stores.any_accepting_gift_cards? %>>
                 <span class="btn--main-toggle__lbl">
                   <span aria-hidden="true" class="icon icon--gift-card icon--lrger icon--flush-top-mozilla"></span>

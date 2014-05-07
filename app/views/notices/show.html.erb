@@ -1,9 +1,9 @@
-<div class="island detail-view__divider">
+<div class="island">
 
   <header class="detail-view__mrg-base">
 
     <%# Notice title %>
-    <h1 class="detail-view__hdr hn"><%= raw @notice.name.truncate 65, '&#8230;' %></h1>
+    <h1><%= raw @notice.name.truncate 65, '&#8230;' %></h1>
     <%# //Notice title %>
 
     <%# Notice meta %>
@@ -34,7 +34,7 @@
   <%# //Notice image %>
 
   <%# Notice description %>
-  <section class="detail-view__desc" aria-labelledby="description">
+  <section aria-labelledby="description">
     <h2 class="hide-visually" id="description">Description</h2>
     <% to_paragraphs(@notice.detail).each do |text| %>
       <p><%= text %></p>

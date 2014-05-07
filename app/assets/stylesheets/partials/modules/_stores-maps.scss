@@ -413,7 +413,6 @@
 
       /* Post filter count */
       .stores-maps__filters-count {
-        @include font-size($font-size-sml, 1.5);
         border-top: 1px solid $color-grey-med-3;
 
         /* Hide when in map view */

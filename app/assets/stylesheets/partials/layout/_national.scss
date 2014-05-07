@@ -87,11 +87,11 @@
         nav {
           right: 0;
           @include to-rem(top, 10);
-          @include font-size($font-size-milli);
+          @include font-size($font-size-sml);
 
           @include respond-min($non-palm) {
             @include to-rem(top, 43);
-            @include font-size($font-size-sml);
+            @include font-size($font-size);
           }
 
           a {
@@ -339,7 +339,7 @@
     -------------------------------------------------------*/
     .national__footer {
       text-align: center;
-      @include font-size($font-size-milli);
+      @include font-size($font-size-sml);
       @include to-rem(padding-top padding-bottom, $spacing-base);
 
       @include respond-min($lap-lrg) {

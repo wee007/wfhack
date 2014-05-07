@@ -1,16 +1,4 @@
 module SupportHelper
-  def redirecting_on
-    set_redirecting true
-  end
-
-  def redirecting_off
-    set_redirecting false
-  end
-
-  def set_redirecting(follow)
-    (page.driver.options[:follow_redirects] = follow) rescue nil # some drivers don't have options
-  end
-
   def log(message)
     puts "    #{message}" unless ENV['quiet']
   end
@@ -59,7 +47,7 @@ module SupportHelper
   end
 
   def set_proxy
-    if ENV['http_proxy'] || ! ENV['http_proxy'].blank?
+    if ENV['http_proxy'] && ! ENV['http_proxy'].blank?
       if !@proxy
         @proxy = URI(ENV['http_proxy'])
         log "Using Proxy: #{@proxy.host}:#{@proxy.port}"

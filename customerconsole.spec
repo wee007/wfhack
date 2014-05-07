@@ -32,6 +32,7 @@ Customer Console
  bundle exec rake assets:precompile RAILS_ENV=production
  bundle exec rake cloudinary:sync_static RAILS_ENV=production
  bundle install --path=vendor/bundler_gems --without development test
+ echo '%{version}' > '${RPM_BUILD_DIR}/public/version.txt'
 
 %install
  mkdir -p ${RPM_BUILD_ROOT}%{appdir}/current

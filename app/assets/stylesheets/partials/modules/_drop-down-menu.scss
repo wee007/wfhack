@@ -106,7 +106,7 @@
       h2,
       h3 {
         display: inline;
-        @include font-size($font-size-sml);
+        @include font-size($font-size);
       }
 
       /* Back button */

@@ -10,11 +10,6 @@
 $section-nav-breakpoint: 1000 !default;
 
 .section-nav {
-	@include font-size($font-size-sml, 1.5);
-
-	@include respond-min($non-palm) {
-    @include font-size($font-size, 1.5);
-  }
 
   /* [CATEGORY NAV]
 	-------------------------------------------------------*/
@@ -133,7 +128,6 @@ $section-nav-breakpoint: 1000 !default;
 			/* Centre selector label */
 			.flag__img {
 				color: $color-grey-med-2;
-				@include font-size($font-size-sml, 1.5);
 				@include to-rem(padding-right, $spacing-half);
 
 				/* Bring label text into view at this breakpoint */

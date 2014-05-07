@@ -9,11 +9,6 @@
 .stores-list {
   margin-bottom: 0;
   background-color: #fff;
-  @include font-size($font-size-sml, 1.5);
-
-  @include respond-min($non-palm) {
-    @include font-size($font-size);
-  }
 
   /* Store A-Z grouping header */
   dt {

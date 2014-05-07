@@ -20,10 +20,14 @@
     .filters__hide-wide {display: none;}
   }
 
-  /* Overrides for 'Drop down menu trigger' at this breakpoint range */
-  @include respond-range($non-palm, $lap-lrg - 1) {
-    .drop-down-menu__trigger {@include font-size($font-size, normal)}
+  /* Make the 'Drop down menu trigger' 14px font size and use `rem` for padding not `em` */
+  .drop-down-menu__trigger,
+  .btn--main-toggle-checkbox {
+    @include font-size($font-size, normal);
+    @include to-rem(padding, $spacing-half+$spacing-micro $spacing-base+$spacing-half+$spacing-micro $spacing-half+$spacing-micro $spacing-half);
   }
+
+  .btn--main-toggle-checkbox {@include to-rem(padding-right, $spacing-half);}
 
   /* Overrides for 'Drop down menu target' */
   .drop-down-menu__target {
@@ -106,7 +110,6 @@
 
     /* Sort */
     .filters__sort {
-      @include font-size($font-size-sml);
       position: absolute;
       top: 50%;
       right: 0;

@@ -9,6 +9,14 @@
 .storefront {
   @include font-size($font-size-sml, 1.5);
 
+  @include respond-range($palm-lrg, $lap-lrg-middle - 1) {
+    @include font-size($font-size, 1.5);
+  }
+
+  @include respond-min($desk-lrg) {
+    @include font-size($font-size, 1.5);
+  }
+
   /* Flexslider */
   .flexslider {
     color: #fff;
@@ -233,9 +241,12 @@
     /* Apply bottom padding so that the spacing matches the 'Tiles' modifier more */
     > .container {@include to-rem(padding-bottom, $spacing-third);}
 
-    /* Need to shorten the day at this breakpoint range due to lack of real estate */
+    /* Need to shorten the day at these breakpoint ranges due to lack of real estate */
     /* Note: have to use `!important` keyword here to override the 'Hide' helper class */
-    @include respond-range($lap-lrg-middle, $desk-lrg) {
+    @include respond-range($non-palm, 800) {
+      .table-striped .hide-fully--palm-inline {display: none !important;}
+    }
+    @include respond-range($lap-lrg-middle, 1500) {
       .table-striped .hide-fully--palm-inline {display: none !important;}
     }
 

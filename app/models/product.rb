@@ -5,7 +5,7 @@ class Product < Hashie::Mash
   end
 
   def image_refs
-    image_urls.map { |url| url.gsub %r{^.*/}, '' }
+    image_urls.map { |url| url.try :gsub, %r{^.*/}, '' }
   end
 
   def available_colours

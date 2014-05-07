@@ -191,7 +191,7 @@
       @include font-size($font-size-lrg);
       display: block;
 
-      @include respond-min(900) {
+      @include respond-min($lap-sml-end) {
         display: inline;
         @include to-rem(margin-left, $spacing-base);
       }
@@ -289,7 +289,7 @@
         @include to-rem(height, 304);
       }
 
-      @include respond-range(900, 977) {
+      @include respond-range($lap-sml-end, 977) {
         @include to-rem(height, 284);
       }
 

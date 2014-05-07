@@ -69,11 +69,11 @@
 		margin-right: auto;
 		@include font-size($font-size-lrger, 1.3);
 
-		@include respond-range(410, 478) {
+		@include respond-range(410, $palm-lrg) {
 			width: 78%;
 		}
 
-		@include respond-range(479, $lap-sml-middle - 1) {
+		@include respond-range($palm-lrg + 1, $lap-sml-middle - 1) {
 			width: 70%;
 		}
 

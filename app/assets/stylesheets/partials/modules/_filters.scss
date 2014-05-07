@@ -33,7 +33,7 @@
   .drop-down-menu__target {
 
     /* Reduce the width at this breakpoint range */
-    @include respond-range($non-palm, $lap-lrg - 1) {
+    @include respond-range($non-palm, $lap-sml-end) {
       @include to-rem(width, $drop-down-width);
     }
 

@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.347
+Version:     0.2.348
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -92,6 +92,28 @@ fi
 
 
 %changelog
+* Thu May 08 2014 ci <doperations@au.westfield.com> 0.2.348-1
+- Merge pull request #1116 from araeside/css3-preloader
+  (araeside@au.westfield.com)
+- capitalise first letter of modifier description
+  (alec@smartalecwebsites.com.au)
+- switch from em to rem (alec@smartalecwebsites.com.au)
+- no need for container (alec@smartalecwebsites.com.au)
+- use correct class (alec@smartalecwebsites.com.au)
+- add styleguide example with text (alec@smartalecwebsites.com.au)
+- remove modernizr from ist of assets to compile
+  (alec@smartalecwebsites.com.au)
+- updates after PR review (alec@smartalecwebsites.com.au)
+- rename modernizr without min extension (alec@smartalecwebsites.com.au)
+- remove extra comment (alec@smartalecwebsites.com.au)
+- refactor after browser testing. new version of modernizr
+  (alec@smartalecwebsites.com.au)
+- reuse existing variable (alec@smartalecwebsites.com.au)
+- create animtions util (alec@smartalecwebsites.com.au)
+- cleanup css (alec@smartalecwebsites.com.au)
+- fix android render bug (alec@smartalecwebsites.com.au)
+- use css3 instead of gif for preloader spinner (alec@smartalecwebsites.com.au)
+
 * Thu May 08 2014 ci <doperations@au.westfield.com> 0.2.347-1
 - modify build script to write the deploy version to version.txt: take 3
   (benpritchard@aud27140.au.ad.westfield.com)

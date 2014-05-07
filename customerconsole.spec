@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.344
+Version:     0.2.345
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,18 @@ fi
 
 
 %changelog
+* Wed May 07 2014 ci <doperations@au.westfield.com> 0.2.345-1
+- Merge pull request #1127 from cpearce/remove-12px-font
+  (cpearce@au.westfield.com)
+- Clean up after code review (cpearce@au.westfield.com)
+- Changing 11px font to 12px where applicable (cpearce@au.westfield.com)
+- Final round of removal of 12px font size and general clean up
+  (cpearce@au.westfield.com)
+- Second round of removal of 12px font size and general clean up
+  (cpearce@au.westfield.com)
+- First round of removal of 12px font size and general clean up
+  (cpearce@au.westfield.com)
+
 * Wed May 07 2014 ci <doperations@au.westfield.com> 0.2.344-1
 - reverted version.txt (benpritchard@aud27140.au.ad.westfield.com)
 

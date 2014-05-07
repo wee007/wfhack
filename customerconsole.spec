@@ -47,8 +47,6 @@ Customer Console
  cd ${RPM_BUILD_DIR}/*
  cp -va app config config.ru lib public vendor Rakefile Gemfile \
        Gemfile.lock .bundle .cloudinary.static .cloudinary.static.trash ${RPM_BUILD_ROOT}%{appdir}/current/
- 
- echo '%{version}' > ${RPM_BUILD_DIR}/public/version.txt
 
 cp -va system/* ${RPM_BUILD_ROOT}/
 

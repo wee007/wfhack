@@ -186,9 +186,6 @@
     .detail-view__subtle-txt,
     em {vertical-align: middle;}
 
-    /* Text label */
-    .detail-view__subtle-txt {line-height: 1.3125;}
-
     /* Phone no + icon */
     em {
       @include font-size($font-size-lrg);

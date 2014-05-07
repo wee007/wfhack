@@ -2,6 +2,7 @@
 
 // External dependencies, handled via Bower. See: https://gist.github.com/benschwarz/5874031/
 //= require jquery
+//= require ./vendor/modernizr
 //= require script.js/dist/script
 //= require matchMedia/matchMedia
 //= require matchMedia/matchMedia.addListener

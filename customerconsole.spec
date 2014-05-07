@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.343
+Version:     0.2.344
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -90,6 +90,9 @@ fi
 
 
 %changelog
+* Wed May 07 2014 ci <doperations@au.westfield.com> 0.2.344-1
+- reverted version.txt (benpritchard@aud27140.au.ad.westfield.com)
+
 * Wed May 07 2014 ci <doperations@au.westfield.com> 0.2.343-1
 - modify build script to write the deploy version to version.txt
   (benpritchard@aud27140.au.ad.westfield.com)

@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.346
+Version:     0.2.347
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -92,6 +92,10 @@ fi
 
 
 %changelog
+* Thu May 08 2014 ci <doperations@au.westfield.com> 0.2.347-1
+- modify build script to write the deploy version to version.txt: take 3
+  (benpritchard@aud27140.au.ad.westfield.com)
+
 * Thu May 08 2014 ci <doperations@au.westfield.com> 0.2.346-1
 - Merge pull request #1132 from mbamford/fix/WSF-6555_missing_cloudinaries
   (mbamford@au.westfield.com)

@@ -339,7 +339,7 @@
     -------------------------------------------------------*/
     .national__footer {
       text-align: center;
-      @include font-size($font-size-milli);
+      @include font-size($font-size-sml);
       @include to-rem(padding-top padding-bottom, $spacing-base);
 
       @include respond-min($lap-lrg) {

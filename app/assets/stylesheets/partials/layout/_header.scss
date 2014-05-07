@@ -583,7 +583,7 @@ $national-view-search-toggle-bp: 1080 !default;
 				/* 'Change centre' link */
 				.header-centre-select__link {
 					color: #fff;
-					@include font-size($font-size-milli, 1);
+					@include font-size($font-size-sml, 1);
 					position: absolute;
 					right: 0;
 					top: 50%;
@@ -812,7 +812,7 @@ $national-view-search-toggle-bp: 1080 !default;
 				.header & a,
 				.nav-site-feedback button {
 					display: block;
-					@include font-size($font-size-milli);
+					@include font-size($font-size-sml);
 					color: $color-grey-med-2;
 
 					&:hover,

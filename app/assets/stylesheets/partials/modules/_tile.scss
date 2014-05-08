@@ -259,7 +259,13 @@
         .icon:before {position: static;}
 
         /* Preloader */
-        .preloader em {@extend %hide-visually;}
+        .preloader {
+          /* Remove right margin when text accompanies the preloader spinner */
+          .preloader__spinner {margin-right: 0;}
+
+          /* Hide the preloader 'Loading...' text */
+          em {@extend %hide-visually;}
+        }
     }
 
     /* Active state */

@@ -30,11 +30,11 @@
   <ul class="drop-down-menu__list">
     <li ng-repeat="category in search.categories.values | orderBy: 'sort_order'" class="drop-down-menu__divider">
       <div ng-if="search.categories.field === 'super_cat'">
-        <a ng-href="<%= pb_path %>/{{ category.code }}"  class="btn btn--full btn--full-left">{{ category.name }}</a>
+        <a ng-href="<%= pb_path %>/{{ category.code }}" ng-click="go($event, '<%= pb_path %>/' + category.code)" class="btn btn--full btn--full-left">{{ category.name }}</a>
       </div>
 
       <div ng-if="search.categories.field === 'category'">
-        <a ng-href="<%= pb_path %>/{{category.url_args.super_cat}}/{{category.code}}"  class="btn btn--full btn--full-left">{{ category.name }}</a>
+        <a ng-href="<%= pb_path %>/{{category.url_args.super_cat}}/{{category.code}}" ng-click="go($event, '<%= pb_path %>/' + category.url_args.super_cat + '/' + category.code)" class="btn btn--full btn--full-left">{{ category.name }}</a>
       </div>
     </li>
   </ul>

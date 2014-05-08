@@ -2,6 +2,12 @@
 <!--[if (IE 9) & (!IEMobile)]>    <html class="no-js ie-9" lang="en-au">    <![endif]-->
 <!--[if gt IE 8]><!-->            <html class="no-js" lang="en-au">         <!--<![endif]-->
 <head>
+  <%# Add a hook to style JS enabled pages %>
+  <script>
+    document.getElementsByTagName('html')[0].className = 'js';
+  </script>
+  <%# //Add a hook to style JS enabled pages %>
+
   <%# Google Analytics Content Experiment code %>
   <%# Note: This can only be tested in production or UAT. %>
   <%= raw google_analytics_content_experiment if Rails.env.production? || Rails.env.uat? %>

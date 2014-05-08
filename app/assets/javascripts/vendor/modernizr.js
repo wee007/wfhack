@@ -283,7 +283,7 @@ window.Modernizr = (function( window, document, undefined ) {
 
     Modernizr.testStyles    = injectElementWithStyles;    docElement.className = docElement.className.replace(/(^|\s)no-js(\s|$)/, '$1$2') +
 
-                                                    (enableClasses ? ' js ' + classes.join(' ') : '');
+                                                    (enableClasses ? ' ' + classes.join(' ') : '');
 
     return Modernizr;
 

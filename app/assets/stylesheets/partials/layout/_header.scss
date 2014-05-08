@@ -363,7 +363,7 @@ $national-view-search-toggle-bp: 1080 !default;
 								}
 
 								/* As above but for 'Centre home page hero banner' at this breakpoint range */
-								@include respond-range($non-palm, 900) {
+								@include respond-range($non-palm, $lap-sml-end) {
 									.header--hero .nav-sub-container & .nav-sub__txt {@include hide-visually;}
 								}
 						}

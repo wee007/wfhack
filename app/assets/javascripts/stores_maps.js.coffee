@@ -135,8 +135,6 @@ class StoreMapPage
     storesToggleWrap.toggleClass('is-map-view', viewingMap)
     storesToggleWrap.toggleClass('is-list-view', !viewingMap)
 
-    @map.forceRedraw()
-
   store: (storeId) ->
     @map.setTarget(storeId).showLevel().zoom().highlight().pinStore(true, true).detail()
 

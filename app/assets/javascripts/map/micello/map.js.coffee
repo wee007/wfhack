@@ -125,9 +125,6 @@ class map.micello.Map
     @applyWestfieldStoreNames()
     @options.deferred.resolveWith(@)
 
-    # fixes windows chrome canvas redraw bug causing a blank map on page load
-    setInterval(@forceRedraw, 1000)
-
   init: =>
     # Overriding Micello's "mouse shield" fixes stores list no scrolling issue
     micello.maps.MapGUI.prototype.createMouseShield = ->
@@ -346,11 +343,6 @@ class map.micello.Map
       for store in @stores.list
         for geom in @geomGroupForStore(store)
           @setGeomName(geom, store.name)
-
-  forceRedraw: ->
-    container = $('.js-stores-maps-toggle-wrap, canvas')
-    container.css('width', '-=1px')
-    container.css('width', '')
 
   onMapChanged: (event) =>
     @detail() # show the detail popup on the right level if it changed

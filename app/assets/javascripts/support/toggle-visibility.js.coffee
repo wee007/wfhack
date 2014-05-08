@@ -48,13 +48,14 @@ class @ToggleVisibility
       self.toggleTarget $(@)
 
     # Escape key closes the target and stops event from bubbling to document
-    doc.keydown (event) =>
+    doc.on 'keydown', (event) =>
       if @trigger? and @target? and event.keyCode == 27
         event.stopPropagation()
         @hide()
 
     # Click outside of target
-    doc.click (event) =>
+    doc.on 'click',  (event) =>
+      debugger
       # Only execute if click was not on a tog vis trigger or target
       isToggleVisibility = "#{@triggerSelector}, .#{@targetSelector}"
       if $(event.target).parents(isToggleVisibility).length == 0 and !$(event.target).is(isToggleVisibility) and @trigger? and @target?

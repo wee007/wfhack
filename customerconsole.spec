@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.350
+Version:     0.2.351
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -92,6 +92,9 @@ fi
 
 
 %changelog
+* Thu May 08 2014 ci <doperations@au.westfield.com> 0.2.351-1
+- Fixes for new CSS3 preloader (cpearce@au.westfield.com)
+
 * Thu May 08 2014 ci <doperations@au.westfield.com> 0.2.350-1
 - Cleaning up breakpoints (cpearce@au.westfield.com)
 - Outdenting selector name (cpearce@au.westfield.com)

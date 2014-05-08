@@ -51,7 +51,7 @@ class map.micello.Map
 
     tradingHoursHtml = "<p>Closed today</p>"
     if !storeTradingHours.closed
-      tradingHoursHtml = "<p>Open till <time datetime=\"#{storeTradingHours.closing_time_24}\">#{@formatTime(storeTradingHours.closing_time)}</time></p>"
+      tradingHoursHtml = "<p>Open till <time datetime=\"#{storeTradingHours.closing_time}\">#{@formatTime(storeTradingHours.closing_time)}</time></p>"
 
     # Insert trading hours into popup html
     $('.js-trading-hours-map-overlay').removeAttr('style').html(tradingHoursHtml)

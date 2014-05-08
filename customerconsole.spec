@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.351
+Version:     0.2.352
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -92,6 +92,11 @@ fi
 
 
 %changelog
+* Fri May 09 2014 ci <doperations@au.westfield.com> 0.2.352-1
+- Merge pull request #1137 from bpritchard/master (bpritchard@au.westfield.com)
+- added script to prepare acceptance tests for correct commit
+  (bpritchard@au.westfield.com)
+
 * Thu May 08 2014 ci <doperations@au.westfield.com> 0.2.351-1
 - Fixes for new CSS3 preloader (cpearce@au.westfield.com)
 

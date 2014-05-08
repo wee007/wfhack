@@ -31,13 +31,19 @@ jQuery.fn.fastLiveFilter = (list, options) ->
   list = []
   i = 0
   lis.each (i, el)->
+
     el = $(el)
+    text = ''
     if el.find(options.selector).length > 0
-      list.push {
-        element: el,
-        text: el.find(options.selector).text(),
-        hidden: false
-      }
+      text = el.find(options.selector).text()
+    else
+      text = el.text()
+
+    list.push {
+      element: el
+      text: text
+      hidden: false
+    }
     @
 
   oldDisplay = (if len > 0 then lis[0].style.display else "block")

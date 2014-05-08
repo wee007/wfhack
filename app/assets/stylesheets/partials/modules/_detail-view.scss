@@ -230,11 +230,7 @@
         }
 
         /* Preloader */
-        .preloader__spinner {
-          width: 16px;
-          height: 16px;
-          background-size: 16px 16px;
-        }
+        .preloader__spinner {@include to-rem(width height, 16);}
     }
   }
 

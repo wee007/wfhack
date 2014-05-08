@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.348
+Version:     0.2.349
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -92,6 +92,9 @@ fi
 
 
 %changelog
+* Thu May 08 2014 ci <doperations@au.westfield.com> 0.2.349-1
+- Add a hook to style JS enabled pages (alec@smartalecwebsites.com.au)
+
 * Thu May 08 2014 ci <doperations@au.westfield.com> 0.2.348-1
 - Merge pull request #1116 from araeside/css3-preloader
   (araeside@au.westfield.com)

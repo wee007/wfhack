@@ -97,7 +97,7 @@ class @ToggleVisibility
 
     trigger
       .addClass(@isActiveClass)
-      .attr('attr-expanded', true)
+      .attr('aria-expanded', true)
     target.addClass @isActiveClass
 
     # Trigger an event so other javascript can do something when target is shown

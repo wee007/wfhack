@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.349
+Version:     0.2.350
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -92,6 +92,12 @@ fi
 
 
 %changelog
+* Thu May 08 2014 ci <doperations@au.westfield.com> 0.2.350-1
+- Cleaning up breakpoints (cpearce@au.westfield.com)
+- Outdenting selector name (cpearce@au.westfield.com)
+- Removing unneeded back slash for img element (cpearce@au.westfield.com)
+- Namespacing all body classes with 'page-' (cpearce@au.westfield.com)
+
 * Thu May 08 2014 ci <doperations@au.westfield.com> 0.2.349-1
 - Add a hook to style JS enabled pages (alec@smartalecwebsites.com.au)
 

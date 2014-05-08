@@ -55,7 +55,6 @@ class @ToggleVisibility
 
     # Click outside of target
     doc.on 'click',  (event) =>
-      debugger
       # Only execute if click was not on a tog vis trigger or target
       isToggleVisibility = "#{@triggerSelector}, .#{@targetSelector}"
       if $(event.target).parents(isToggleVisibility).length == 0 and !$(event.target).is(isToggleVisibility) and @trigger? and @target?

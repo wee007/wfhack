@@ -49,9 +49,11 @@ class @ToggleVisibility
 
     # Escape key closes the target and stops event from bubbling to document
     doc.on 'keydown', (event) =>
-      if @trigger? and @target? and event.keyCode == 27
+      if event.keyCode == 27
         event.stopPropagation()
-        @hide()
+        if @trigger? and @target?
+          @hide()
+        $("#{@triggerSelector}.is-active").click()
 
     # Click outside of target
     doc.on 'click',  (event) =>
@@ -76,7 +78,7 @@ class @ToggleVisibility
   hide: (trigger = @trigger, target = @target) =>
     trigger
       .removeClass(@isActiveClass)
-      .attr('attr-expanded', false)
+      .attr('aria-expanded', false)
 
     target.removeClass @isActiveClass
 

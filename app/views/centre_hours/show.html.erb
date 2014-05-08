@@ -114,7 +114,7 @@
               <div>
                 <ul class="js-store-list">
                   <% @all_stores.each do |store| %>
-                    <li><%= store.name %></li>
+                    <li><%= link_to store.name, centre_store_url(@centre.code, store.retailer_code, store.id) %></li>
                   <% end %>
                 </ul>
               </div>

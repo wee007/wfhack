@@ -88,6 +88,7 @@
           right: 0;
           @include to-rem(top, 10);
           @include font-size($font-size-sml);
+          z-index: $z-index-max;
 
           @include respond-min($non-palm) {
             @include to-rem(top, 43);

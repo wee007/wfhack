@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
   before_action do
     expires_in 1.hour, public: true unless Rails.env.development? || Rails.env.test?
     if params.include? 'nocache'
-      RequestStore.store[:nocache] = true
+      RequestStore.store[:nocache] = params['nocache']
     else
       RequestStore.store[:nocache] = false
     end

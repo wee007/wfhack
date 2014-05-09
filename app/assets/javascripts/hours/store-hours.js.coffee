@@ -20,11 +20,10 @@ $ =>
 
 
   $('.js-store-hours-keyword-filter-input').fastLiveFilter '.js-store-list',
-    selector: 'li',
+    selector: '.js-store-hours-store-name',
     # Need a small timeout because of race condition on mobile
     filterFunction: filterStores
     callback: (stores, numShown)=>
-      console.log(stores, numShown)
       #@filterStoreLetterHeadings(stores, numShown)
       #@handleNoStoresInList(numShown)
       #@updateNumberOfFilteredStores(numShown)

@@ -1,3 +1,5 @@
+<% content_for :class_for_body, "page-redirect" %>
+
 <div class="container">
 
   <%# Logo %>
@@ -5,7 +7,7 @@
   <%# //Logo %>
 
   <%# Redirect message %>
-  <p>Forwarding to <%= meta.retail_chain_name %> website<br> or go to the <%= link_to "retailer's site", meta.product_tracking_url.html_safe, target: "_blank", class: "js-redirect", rel: "external" %> directly.</p>
+  <p><span class="block">Forwarding to <%= meta.retail_chain_name %> website</span> or go to the <%= link_to "retailer's site", meta.product_tracking_url.html_safe, target: "_blank", class: "js-redirect", rel: "external" %> directly.</p>
   <%# //Redirect message %>
 
   <%# Preloader %>

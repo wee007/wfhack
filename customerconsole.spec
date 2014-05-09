@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.357
+Version:     0.2.358
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -92,6 +92,10 @@ fi
 
 
 %changelog
+* Sat May 10 2014 ci <doperations@au.westfield.com> 0.2.358-1
+- Merge pull request #1146 from cpearce/new-creative (cpearce@au.westfield.com)
+- Adding new Winter creative (cpearce@au.westfield.com)
+
 * Fri May 09 2014 ci <doperations@au.westfield.com> 0.2.357-1
 - Added "z-index: $z-index-max;" to ".container nav" (ldewey@au.westfield.com)
 

@@ -55,6 +55,7 @@
 @import "partials/base/links";
 @import "partials/base/lists";
 @import "partials/base/embedded-content";
+@import "partials/base/paragraphs";
 @import "partials/base/headings";
 @import "partials/base/tables";
 @import "partials/base/quotes";
@@ -118,7 +119,7 @@
 
 /* Modules */
 /* Note: the 'txt-formatted' module must come first as this usually wraps other modules therefore we want child modules styles to always be applied */
-@import "partials/modules/txt-formatted";
+//@import "partials/modules/txt-formatted";
 @import "partials/modules/feedback";
 @import "partials/modules/icon";
 @import "partials/modules/preloader";

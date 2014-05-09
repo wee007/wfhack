@@ -48,33 +48,21 @@
       background-size: cover;
       background-repeat: no-repeat;
       background-position: 0 0;
-      /* [Remove for standard implementation] */
-      background-color: #e23120;
-      overflow: hidden;
-      /* //[Remove for standard implementation] */
 
       @include respond-group-min-width-height($non-palm, $non-palm) {
         height: 60%;
       }
 
-      /* [Bring back for standard implementation] */
-      /*@include respond-max($palm) {
+      @include respond-max($palm) {
         background-image: cloudinary-url("heroes/national/national-hero-01-sml.jpg", $quality: 89, $fetch_format: 'auto');
-      }*/
-      /* //[Bring back for standard implementation] */
+      }
 
       @include respond-range($lap, $lap-sml-end) {
-        /*background-image: cloudinary-url("heroes/national/national-hero-01-med.jpg", $quality: 89, $fetch_format: 'auto');*/
-        /* [Remove for standard implementation] */
-        background-image: cloudinary-url("heroes/national/national-hero-01-med.png");
-        /* //[Remove for standard implementation] */
+        background-image: cloudinary-url("heroes/national/national-hero-01-med.jpg", $quality: 90, $fetch_format: 'auto');
       }
 
       @include respond-min($lap-lrg) {
-        /*background-image: cloudinary-url("heroes/national/national-hero-01-lrg.jpg", $quality: 89, $fetch_format: 'auto');*/
-        /* [Remove for standard implementation] */
-        background-image: cloudinary-url("heroes/national/national-hero-01-lrg.png");
-        /* //[Remove for standard implementation] */
+        background-image: cloudinary-url("heroes/national/national-hero-01-lrg.jpg", $quality: 90, $fetch_format: 'auto');
         height: 75%;
       }
 
@@ -181,53 +169,6 @@
           a {@include font-size($font-size-lrg);}
         }
       }
-
-      /* Custom tagline */
-      /* [Remove for standard implementation] */
-      .national__header__tagline {
-        display: none;
-
-        @include respond-range-mixed-min($lap-sml-middle, 600) {
-          display: block;
-          border-radius: 50%;
-          @include to-rem(width height, 330);
-          @include to-rem(padding, 78 $spacing-dbl);
-          background-color: rgba(#fff, 0.9);
-          position: absolute;
-          @include to-rem(bottom right, -30);
-          @include font-size(40, 1.1);
-          color: $color-brand;
-          text-transform: uppercase;
-          text-align: center;
-
-          span {
-            color: $color-txt-base;
-            display: block;
-          }
-        }
-
-        @include respond-min(1100) {
-          @include to-rem(width height, 514);
-          @include to-rem(padding-top padding-bottom, 126);
-          @include font-size(64, 1.1);
-        }
-
-        @include respond-min($desk) {
-          right: 5%;
-        }
-      }
-      /* //[Remove for standard implementation] */
-
-      /* Gradient */
-      /* [Remove for standard implementation] */
-      .hero-gradient {
-        @include to-rem(height, 80);
-
-        @include respond-min($non-palm) {
-          @include to-rem(height, 240);
-        }
-      }
-      /* //[Remove for standard implementation] */
 
     /* [MAIN]
     -------------------------------------------------------*/

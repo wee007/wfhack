@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.358
+Version:     0.2.359
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -92,6 +92,9 @@ fi
 
 
 %changelog
+* Mon May 12 2014 ci <doperations@au.westfield.com> 0.2.359-1
+- remove wifi redirect that has been changed (chorn@au.westfield.com)
+
 * Sat May 10 2014 ci <doperations@au.westfield.com> 0.2.358-1
 - Merge pull request #1146 from cpearce/new-creative (cpearce@au.westfield.com)
 - Adding new Winter creative (cpearce@au.westfield.com)

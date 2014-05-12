@@ -16,7 +16,7 @@
         <h1 class="mrg-half"><%= @product.name %></h1>
         <p class="detail-view__meta">
           <span class="detail-view__subtle-txt">from</span>
-          <%= @product.retail_chain_name %>
+          <%= link_to @product.retail_chain_name, retailer_canonical_url, class: "ga-prod-see-more-alt" %>
         </p>
       </div>
       <%# //Product name and brand %>
@@ -220,9 +220,9 @@
 
   <%# Description %>
   <%- if @product.available_colours.present? -%>
-  <div class="grid__item non-palm-three-fifths">
+    <div class="grid__item non-palm-three-fifths">
   <% else %>
-  <div class="grid__item non-palm-one-whole">
+    <div class="grid__item non-palm-one-whole">
   <%- end -%>
     <%- if @product.detailed_description.present? || @product.short_description.present? %>
       <section class="island" aria-labelledby="description">

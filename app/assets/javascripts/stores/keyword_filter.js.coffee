@@ -1,6 +1,6 @@
 #= require jquery-extensions/jquery.fastLiveFilter
 #= require support/debounce
-#= require stores/stores_list_position
+#= require stores/list_position
 
 class @StoresKeywordFilter
 

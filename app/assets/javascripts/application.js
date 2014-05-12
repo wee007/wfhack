@@ -14,6 +14,7 @@
 //= require ./support/placeholder-test
 
 // Global 'init' stuff
+//= require ./init/global_vars
 //= require ./init/enquire
 //= require ./init/pin-board
 //= require ./init/deferred_images
@@ -28,6 +29,8 @@
 //= require ./vendor/jquery.viewport
 //= require ./init/viewport_check
 //= require ./init/social-share
+
+//= require ./support/toggle-visibility
 
 // Angular
 //= require angular

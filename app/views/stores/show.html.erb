@@ -28,7 +28,7 @@
 
           <%# Large screen view %>
           <span class="stores-maps__filters-toggle__hdr txt-truncate">
-            <a href="<%= centre_stores_path(@centre) %>" class="js-maintain-store-filter js-pjax-link-stores">
+            <a href="<%= centre_stores_path(@centre) %>" class="js-maintain-store-filter js-pjax-link-stores test-back-to-store-link">
               <span class="icon icon--arrow-left-big" aria-hidden="true"></span>
               <span class="hide-visually">Back to </span>
               Stores
@@ -237,13 +237,11 @@
             $('.js-maintain-store-filter').attr('href', function(i, href) {
               return href + '/' + sessionStorage.filteredCategory;
             });
-            sessionStorage.removeItem('filteredCategory');
           }
-          if (typeof sessionStorage.giftCards != 'undefined' && !!sessionStorage.giftCards) {
+          if (typeof sessionStorage.giftCards != 'undefined' && sessionStorage.giftCards == "true") {
             $('.js-maintain-store-filter').attr('href', function(i, href) {
               return href + '?gift_cards=true';
             });
-            sessionStorage.removeItem('giftCards');
           }
 
           // Target the store in the map

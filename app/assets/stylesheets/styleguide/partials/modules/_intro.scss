@@ -9,13 +9,17 @@
 .sg-intro {
   @extend %mrg-base;
   @include to-rem(padding-top padding-bottom, $spacing-dbl);
-  color: #fff;
   background-color: $color-grey-dark-1;
 
   @include respond-min($non-palm) {
     @include to-rem(padding-top padding-bottom, $spacing-dbl+$spacing-dbl);
     @include to-rem(margin-bottom, $spacing-dbl);
   }
+
+  &,
+  .sg-intro__heading {color: #fff;}
+
+  a {color: $color-link-hover;}
 }
 
   .sg-intro__heading {

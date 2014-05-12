@@ -12,7 +12,7 @@ $national-view-search-toggle-bp: 1080 !default;
 
 	/* Resets */
 	p,
-	h1 {margin-bottom: 0;}
+	h1, .h1 {margin-bottom: 0;}
 
 	/* Icons */
 	.icon:before {@extend %transition-subtle;}
@@ -1426,7 +1426,7 @@ $national-view-search-toggle-bp: 1080 !default;
 
 					dd {
 						@include to-rem(margin-top, 3);
-						@include to-rem(padding-left padding-right, 32);
+						@include to-rem(padding-left padding-right, 33);
 
 						/* Android */
 						.android & {@include to-rem(padding-left padding-right, 33);}

@@ -24,6 +24,7 @@
   @include font-size($font-size-xlrg);
   font-family: $font-family-opensans;
   color: $color-txt-light;
+  text-transform: none;
 
   /* File name */
   code {@include font-size($font-size);}

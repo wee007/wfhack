@@ -30,10 +30,15 @@
     width: 100%;
     height: 100%;
 
+    /* Resets */
+    h1, .h1,
+    h2, .h2 {margin-bottom: 0;}
+
     /* [Text colour change] change this to colour needed */
     &,
     a,
-    h1,
+    h1, .h1,
+    h2, .h2,
     .icon:before {color: #fff;}
   }
 
@@ -200,7 +205,6 @@
       h2,
       .tab__nav {
         @include font-size($font-size);
-        font-family: $font-family-opensans;
 
         @include respond-min($non-palm) {
           display: inline-block;
@@ -252,7 +256,7 @@
 
           /* Centre name */
           .h1 {
-            @include font-size(28);
+            @include font-size($font-size-deca);
             text-transform: uppercase;
 
             @include respond-min($non-palm) {

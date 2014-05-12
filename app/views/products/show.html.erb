@@ -13,7 +13,7 @@
 
       <%# Product name and brand %>
       <div class="detail-view__divider island">
-        <h1 class="detail-view__mrg-half"><%= @product.name %></h1>
+        <h1 class="mrg-half"><%= @product.name %></h1>
         <p class="detail-view__meta">
           <span class="detail-view__subtle-txt">from</span>
           <%= @product.retail_chain_name %>
@@ -207,7 +207,7 @@
   <%- if @product.available_colours.present? -%>
   <div class="grid__item non-palm-two-fifths">
     <section class="island island--flush-btm island--flush-btm-off-non-palm" aria-labelledby="available-colours">
-      <h2 class="detail-view__mrg-half" id="available-colours">Available Colours</h2>
+      <h2 class="mrg-half" id="available-colours">Available Colours</h2>
       <ul class="horiz-list horiz-list--comma"><!--
         <%- @product.available_colours.each do |colour| -%>
           --><li><strong><%= colour %></strong></li><!--
@@ -226,8 +226,8 @@
   <%- end -%>
     <%- if @product.detailed_description.present? || @product.short_description.present? %>
       <section class="island" aria-labelledby="description">
-        <h2 class="detail-view__mrg-half" id="description">Description</h2>
-        <div class="txt-formatted--user-generated">
+        <h2 class="mrg-half" id="description">Description</h2>
+        <div class="user-generated-formatting">
           <%= raw(@product.detailed_description || @product.short_description) %>
         </div>
       </section>
@@ -240,7 +240,7 @@
 <%# See More %>
 <% if @product.category_hierarchy.present? %>
   <section class="detail-view__divider--top-btm detail-view__divider--top island" aria-labelledby="see-more">
-    <h2 class="detail-view__mrg-half" id="see-more">See More</h2>
+    <h2 class="mrg-half" id="see-more">See More</h2>
     <nav role="navigation">
       <ul class="horiz-list horiz-list--spacing-micro horiz-list--spacing-half-wrap">
         <% @product.category_hierarchy.each_with_index do |category, category_count| %>
@@ -266,8 +266,8 @@
 <%# Availability %>
 <%- if @product_centres.present? -%>
 <section class="detail-view__divider--top-btm detail-view__divider--top island" aria-labelledby="availability">
-  <h2 class="detail-view__mrg-off" id="availability"><%= @product.retail_chain_name %> also available at</h2>
-  <ul class="detail-view__centres">
+  <h2 class="flush-btm" id="availability"><%= @product.retail_chain_name %> also available at</h2>
+  <ul>
     <%- @product_centres.each do |centre| -%>
       <li>
         <%= link_to centre_product_path(centre, @product.to_param),

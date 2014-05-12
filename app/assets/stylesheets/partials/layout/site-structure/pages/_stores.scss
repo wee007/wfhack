@@ -180,7 +180,7 @@
         display: block;
         font-family: $font-family-opensans;
         @include font-size($font-size-xlrg, 1.5);
-        color: $color-txt-dark;
+        font-weight: normal;
 
         /* Bring the header into view and add bottom margin at this breakpoint */
         @include respond-min($lap-lrg-middle) {

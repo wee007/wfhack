@@ -5,7 +5,7 @@
 
   <div class="grid grid--gutter-dbl">
     <div class="grid__item non-palm-one-whole">
-      <ul class="txt-formatted__list-unstyled">
+      <ul>
         <% @notices.each_with_index do |notice, idx| -%>
           <li class="test-notice">
             <a href="<%= centre_notice_path(@centre, notice.id) -%>" class="list-divider txt-truncate<%= ' list-divider--first' if idx == 0 -%>">

@@ -76,7 +76,8 @@ table {
 
 /* Bordered */
 .table-bordered,
-.txt-formatted--user-generated table {
+/* Including a selector from the 'user-generated-formatting' module to keep things DRY */
+.user-generated-formatting table {
 
   th,
   td {

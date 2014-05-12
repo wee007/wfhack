@@ -21,12 +21,12 @@
 
   /* Resets */
   p,
-  h2,
-  h3 {margin-bottom: 0;}
+  h2, .h2,
+  h3, .h3 {margin-bottom: 0;}
 
-  h2 {font-family: $font-family;}
+  h2, .h2 {font-family: $font-family;}
 
-  h3 {text-transform: none;}
+  h3, .h3 {text-transform: none;}
 
   /* Trigger - apply more top/bottom padding than `.btn--main` */
   .drop-down-menu__trigger {@include to-em(padding-top padding-bottom, $spacing-half+$spacing-micro);}

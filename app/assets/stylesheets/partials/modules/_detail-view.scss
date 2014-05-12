@@ -51,13 +51,6 @@
     &.detail-view--product {@include to-rem(width, 900);}
   }
 
-  /* Spacing */
-  .detail-view__mrg-base {@extend %mrg-base;}
-
-  .detail-view__mrg-half {@include to-rem(margin-bottom, $spacing-half);}
-
-  .detail-view__mrg-off {margin-bottom: 0;}
-
   /* Micello map */
   .map-micello {
     position: relative;
@@ -198,15 +191,6 @@
     }
   }
 
-  /* Centres list ('Also available at') */
-  .detail-view__centres {
-    @include to-rem(margin-top, $spacing-sixth);
-
-    @include respond-min($non-palm) {
-      margin-top: 0;
-    }
-  }
-
   /* Controls - 'Share' and 'Favourites' */
   .detail-view__controls {
 
@@ -276,7 +260,6 @@
 
     /* Product not available in a centre */
     .detail-view__product-not-avble {
-      @include font-size($font-size);
       @include to-rem(height, 330);
       background-color: $color-grey-light-3;
 
@@ -327,5 +310,7 @@
             /* IE 9 */
             .ie-9 & {color: darken($color-grey-med-3, 5%);}
           }
+
+          p {margin-bottom: 0;}
     }
   }

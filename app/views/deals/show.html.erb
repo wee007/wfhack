@@ -68,8 +68,8 @@
 <%# Availability %>
 <% if @deal.stores and @deal.stores.size > 1 %>
   <section class="island" aria-labelledby="availability">
-    <h2 class="detail-view__mrg-off" id="availability"><%= @store.name %> also available at</h2>
-    <ul class="txt-formatted__list-unstyled">
+    <h2 class="flush-btm" id="availability"><%= @store.name %> also available at</h2>
+    <ul>
       <% @deal.stores[0..2].each do |store| %>
         <% unless store.id == @store.id %>
           <li>
@@ -88,7 +88,7 @@
 <%# Fine print %>
 <% if @deal.terms_and_conditions and !@deal.terms_and_conditions.empty? %>
   <section class="island toggle-visibility<% if @deal.stores and @deal.stores.size > 1 %> detail-view__divider detail-view__divider--top<% end %>" aria-labelledby="fine-print" id="fine-print-toggle">
-    <h2 class="detail-view__mrg-half" id="fine-print">The fine print</h2>
+    <h2 class="mrg-half" id="fine-print">The fine print</h2>
     <div class="detail-view__sml-txt detail-view__subtle-txt">
       <% @deal.terms_and_conditions.each do |paragraph| %>
         <% unless paragraph.empty? %><p><%= paragraph %></p><% end %>

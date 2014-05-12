@@ -118,8 +118,7 @@
 //@import "partials/abstractions/arrows";
 
 /* Modules */
-/* Note: the 'txt-formatted' module must come first as this usually wraps other modules therefore we want child modules styles to always be applied */
-//@import "partials/modules/txt-formatted";
+@import "partials/modules/user-generated-formatting";
 @import "partials/modules/feedback";
 @import "partials/modules/icon";
 @import "partials/modules/preloader";

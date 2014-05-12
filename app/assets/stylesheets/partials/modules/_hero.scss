@@ -11,7 +11,6 @@
 .hero {
   @include to-rem(height, 220);
   @include to-rem(margin-bottom, $spacing-base);
-  color: #fff;
   background-repeat: no-repeat;
   background-position: 100% 0;
   background-size: cover;
@@ -20,6 +19,9 @@
     @include to-rem(height, 300);
     @include to-rem(margin-bottom, $spacing-base+$spacing-half);
   }
+
+  &,
+  h1 {color: #fff;}
 
   .hero__icon,
   h1 {
@@ -53,6 +55,7 @@
   h1 {
     text-transform: uppercase;
     @include font-size($font-size-deca);
+    margin-bottom: 0;
 
     @include respond-min($palm-lrg) {
       @include font-size(40);

@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.359
+Version:     0.2.360
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -92,6 +92,19 @@ fi
 
 
 %changelog
+* Mon May 12 2014 ci <doperations@au.westfield.com> 0.2.360-1
+- Merge pull request #1140 from cpearce/refactoring-framework
+  (cpearce@au.westfield.com)
+- Applying correct color to Style Guide home page H2 (cpearce@au.westfield.com)
+- Changing Style Guide table modifier name (cpearce@au.westfield.com)
+- Final round of applying base heading and paragraph styles
+  (cpearce@au.westfield.com)
+- Removing unneeded national hero pngs (cpearce@au.westfield.com)
+- First round of applying base heading and paragraph styles
+  (cpearce@au.westfield.com)
+- Moving non-modules into new layout 'site-structure' dir
+  (cpearce@au.westfield.com)
+
 * Mon May 12 2014 ci <doperations@au.westfield.com> 0.2.359-1
 - remove wifi redirect that has been changed (chorn@au.westfield.com)
 

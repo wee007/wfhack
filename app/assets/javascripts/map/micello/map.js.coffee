@@ -41,7 +41,7 @@ class map.micello.Map
         @stores = data
         @deferreds.store_fetch.resolve()
     else
-        @deferreds.store_fetch.resolve()
+      @deferreds.store_fetch.resolve()
 
 
   fetchStoreTradingHours: (store) =>

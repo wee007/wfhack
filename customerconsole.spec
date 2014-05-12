@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.361
+Version:     0.2.362
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -92,6 +92,51 @@ fi
 
 
 %changelog
+* Tue May 13 2014 ci <doperations@au.westfield.com> 0.2.362-1
+- Merge pull request #1138 from araeside/remove-angular-from-stores
+  (araeside@au.westfield.com)
+- Merge pull request #1151 from araeside/fix-deals-map-race-condition
+  (araeside@au.westfield.com)
+- correct indent (alec@smartalecwebsites.com.au)
+- remove redundant document variable (alec@smartalecwebsites.com.au)
+- remove aria from html (alec@smartalecwebsites.com.au)
+- fix race condition with maps on deals page (alec@smartalecwebsites.com.au)
+- update selector without typo (alec@smartalecwebsites.com.au)
+- remove extra spaces (alec@smartalecwebsites.com.au)
+- update after code review (alec@smartalecwebsites.com.au)
+- correct aria attribute (alec@smartalecwebsites.com.au)
+- fix 24 hour date (alec@smartalecwebsites.com.au)
+- correct hide on esc functionality (alec@smartalecwebsites.com.au)
+- remove extra space (alec@smartalecwebsites.com.au)
+- revert to original state (alec@smartalecwebsites.com.au)
+- no need for target="_self" here. setup filters tog vis with new approach
+  (alec@smartalecwebsites.com.au)
+- remove debugging code (alec@smartalecwebsites.com.au)
+- remove redundant fix for chrome rendering bug (alec@smartalecwebsites.com.au)
+- use standard event handler syntax (alec@smartalecwebsites.com.au)
+- Put main tests back in (alec@smartalecwebsites.com.au)
+- add more tests (alec@smartalecwebsites.com.au)
+- add more acceptance tests and tog vis features
+  (alec@smartalecwebsites.com.au)
+- make tog vis work with angular (alec@smartalecwebsites.com.au)
+- refactor stores maps (alec@smartalecwebsites.com.au)
+- remove filtered cat from session when clearing it
+  (alec@smartalecwebsites.com.au)
+- maintain filter state between index and show (alec@smartalecwebsites.com.au)
+- add broadcast events and better esc to close to tog vis
+  (alec@smartalecwebsites.com.au)
+- remove loading change. maintain giftcard state between pages
+  (alec@smartalecwebsites.com.au)
+- remove map toggle code and replace gift card submit code
+  (alec@smartalecwebsites.com.au)
+- gift card toggle (alec@smartalecwebsites.com.au)
+- view stores subcategories (alec@smartalecwebsites.com.au)
+- remove old tog vis (alec@smartalecwebsites.com.au)
+- replace some of stores with non angular code (alec@smartalecwebsites.com.au)
+- refine new tog vis (alec@smartalecwebsites.com.au)
+- first pass at rewriting tog vis with jquery and coffeescript
+  (alec@smartalecwebsites.com.au)
+
 * Tue May 13 2014 ci <doperations@au.westfield.com> 0.2.361-1
 - Merge pull request #1150 from cpearce/misc-fixes (cpearce@au.westfield.com)
 - Adding GA tracking class and indenting HTML within if statement

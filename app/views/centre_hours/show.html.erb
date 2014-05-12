@@ -111,7 +111,8 @@
               </div>
               <%# Keyword Filter %>
 
-              <div class="stores-list stores-list--collapsed">
+              <%# Stores List %>
+              <div class="stores-list stores-list--condensed">
                 <dl class="js-store-list">
                   <% @all_stores.group_by{|store| store.first_letter }.each do |letter, stores| %>
                     <dt>
@@ -129,8 +130,7 @@
                   <% end %>
                 </dl>
               </div>
-
-
+              <%# //Stores List %>
 
             </div>
             <%# //Store hours box %>

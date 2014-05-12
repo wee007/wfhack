@@ -1,6 +1,5 @@
 class @StoresPageState
   constructor: ->
-    doc = $(document)
     doc.on 'change', '.js-stores-gift-card-toggle', (event) =>
       element = event.target
       @setGiftCardState(element)

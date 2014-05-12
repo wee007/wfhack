@@ -16,7 +16,7 @@
         <h1 class="detail-view__mrg-half"><%= @product.name %></h1>
         <p class="detail-view__meta">
           <span class="detail-view__subtle-txt">from</span>
-          <%= @product.retail_chain_name %>
+          <%= link_to @product.retail_chain_name, retailer_canonical_url %>
         </p>
       </div>
       <%# //Product name and brand %>

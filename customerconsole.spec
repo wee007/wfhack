@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.360
+Version:     0.2.361
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -92,6 +92,13 @@ fi
 
 
 %changelog
+* Tue May 13 2014 ci <doperations@au.westfield.com> 0.2.361-1
+- Merge pull request #1150 from cpearce/misc-fixes (cpearce@au.westfield.com)
+- Adding GA tracking class and indenting HTML within if statement
+  (cpearce@au.westfield.com)
+- Making retailer name link to product browse for product detail page
+  (cpearce@au.westfield.com)
+
 * Mon May 12 2014 ci <doperations@au.westfield.com> 0.2.360-1
 - Merge pull request #1140 from cpearce/refactoring-framework
   (cpearce@au.westfield.com)

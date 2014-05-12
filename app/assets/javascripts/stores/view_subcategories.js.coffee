@@ -8,7 +8,6 @@ $ ->
     $('.js-stores-categories')
       .toggleClass('is-active', !showSubCategory)
 
-
   doc.on 'click', '.js-stores-view-subcategories', ->
     activeCategory = $(@).attr('id')
     toggleSubCategory(true)
@@ -26,8 +25,3 @@ $ ->
       'aria-haspopup': true
       'aria-hidden': true
     $(".js-stores-category-#{category}").attr('aria-labelledby', category)
-
-
-
-
-

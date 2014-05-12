@@ -1,9 +1,5 @@
 <% content_for :class_for_main, "container--spacing-top-main-content" %>
 
-<% content_for :link_rels do %>
-  <link rel="canonical" href="<%= product_canonical_url %>">
-<% end %>
-
 <%# Section nav %>
 <% content_for :section_nav do %>
   <%= render layout: '/layouts/section_nav' do %>

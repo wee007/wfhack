@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.362
+Version:     0.2.363
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -92,6 +92,9 @@ fi
 
 
 %changelog
+* Tue May 13 2014 ci <doperations@au.westfield.com> 0.2.363-1
+- 
+
 * Tue May 13 2014 ci <doperations@au.westfield.com> 0.2.362-1
 - Merge pull request #1138 from araeside/remove-angular-from-stores
   (araeside@au.westfield.com)

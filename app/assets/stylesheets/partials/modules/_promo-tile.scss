@@ -20,6 +20,7 @@
   .promo-tile__hdr {
     @include font-size($font-size-lrg);
     @include to-rem(margin-bottom, $spacing-quarter);
+    color: $color-txt-base;
 
     @include respond-min($non-palm) {
       @include font-size($font-size-lrger);

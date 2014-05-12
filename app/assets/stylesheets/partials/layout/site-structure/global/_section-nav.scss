@@ -1,9 +1,9 @@
 /* ======================================================================================
-   @MODULES -> SECTION NAV
+   @LAYOUT -> SITE STRUCTURE -> GLOBAL -> SECTION NAV
    ====================================================================================== */
 
 /*
-  Part of the main template that sits directly under the main site header but only for certain pages, that holds the 'Section nav' and 'Show products/deals/events centre selector' UI.
+  Global template piece that holds the 'Section nav' and 'Show products/deals/events centre selector' UI, sits under the global header but only for certain pages.
 */
 
 /* Note: this will be replaced by a dynamic breakpoint set via JS: https://jira.mywestfield.com/browse/WSF-5868 */
@@ -23,8 +23,9 @@ $section-nav-breakpoint: 1000 !default;
 	    margin-right: 0;
 	  }
 
+	  /* Hide drop downs for smaller screens as they're mainly touch based */
 		@include respond-max($section-nav-breakpoint - 1) {
-	    .drop-down {display: none;}
+	    .drop-down-container--hover:hover .drop-down {display: none;}
 	  }
 
 	  /* Change positioning of drop down pointer */

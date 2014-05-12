@@ -1,3 +1,4 @@
+<% content_for :class_for_body, "page-stores" %>
 <% content_for :class_for_main, "container--wide" %>
 
 <div class="stores-maps container js-stores-maps-toggle-wrap">
@@ -158,9 +159,7 @@
           <% if @this_week_hours.present? %>
             <div class="storefront__featured storefront__featured--hours toggle-visibility island-ends js-store-hours-toggle-target" id="store-hours">
               <div class="container">
-                <div class="txt-formatted mrg-half">
-                  <h2>Store Hours</h2>
-                </div>
+                <h2 class="mrg-half">Store Hours</h2>
                 <div class="islet island-non-palm box">
                   <table cellspacing="0" class="table-striped table-fixed">
                     <colgroup>

@@ -11,8 +11,9 @@
     - BASE..................base styles; unclassed HTML elements.
     - FORMS.................everything relating to forms.
     - BUTTONS...............you guessed it; all the buttons!
-    - LAYOUT................site structure styles e.g. header/footer.
+    - LAYOUT................layout styles.
       - GRID................you guessed it; the grid!
+      - SITE STRUCTURE......styles for pages and global site components e.g. header.
     - ABSTRACTIONS..........very common patterns to be used 'as is' or built upon.
     - MODULES...............discrete components of the page, this is the meat.
       - WIDGETS ............more interactive rich requiring JavaScript/jQuery.
@@ -54,6 +55,7 @@
 @import "partials/base/links";
 @import "partials/base/lists";
 @import "partials/base/embedded-content";
+@import "partials/base/paragraphs";
 @import "partials/base/headings";
 @import "partials/base/tables";
 @import "partials/base/quotes";
@@ -76,10 +78,16 @@
 
 /* Layout */
 @import "partials/layout/containers";
-@import "partials/layout/header";
-@import "partials/layout/national";
-@import "partials/layout/redirection";
-@import "partials/layout/old-ie-banner";
+
+  /* Layout -> Site Structure -> Global */
+  @import "partials/layout/site-structure/global/header";
+  @import "partials/layout/site-structure/global/old-ie-banner";
+  @import "partials/layout/site-structure/global/section-nav";
+
+  /* Layout -> Site Structure -> Pages */
+  @import "partials/layout/site-structure/pages/national-homepage";
+  @import "partials/layout/site-structure/pages/redirect";
+  @import "partials/layout/site-structure/pages/stores";
 
   /* Layout -> Grid */
   @import "partials/layout/grid/grid";
@@ -110,8 +118,7 @@
 //@import "partials/abstractions/arrows";
 
 /* Modules */
-/* Note: the 'txt-formatted' module must come first as this usually wraps other modules therefore we want child modules styles to always be applied */
-@import "partials/modules/txt-formatted";
+@import "partials/modules/user-generated-formatting";
 @import "partials/modules/feedback";
 @import "partials/modules/icon";
 @import "partials/modules/preloader";
@@ -130,10 +137,8 @@
 @import "partials/modules/storefront-storelist-phone-map-links";
 @import "partials/modules/stores-list";
 @import "partials/modules/storefront";
-@import "partials/modules/stores-maps";
 @import "partials/modules/filters";
 @import "partials/modules/pill";
-@import "partials/modules/section-nav";
 @import "partials/modules/hero";
 @import "partials/modules/centre-location";
 @import "partials/modules/map-google-static";

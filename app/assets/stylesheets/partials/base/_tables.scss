@@ -5,8 +5,10 @@
 /*
   Table element
 
-  .table-striped        - Stripey table
-  .table-bordered       - Bordered table
+  .table-striped            - Striped table
+  .table-bordered           - Bordered table
+  .table-cell-padding-off   - No cell padding
+  .table-horiz-scroll       - Enable horizontal scroll bar on table container
 
   Styleguide Tables
 */
@@ -74,7 +76,8 @@ table {
 
 /* Bordered */
 .table-bordered,
-.txt-formatted--user-generated table {
+/* Including a selector from the 'user-generated-formatting' module to keep things DRY */
+.user-generated-formatting table {
 
   th,
   td {

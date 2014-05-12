@@ -1,5 +1,5 @@
 /* ======================================================================================
-   @LAYOUT -> HEADER
+   @LAYOUT -> SITE STRUCTURE -> GLOBAL -> HEADER
    ====================================================================================== */
 
 $hero-banner-height-sml: 270 !default;
@@ -9,6 +9,10 @@ $national-view-search-toggle-bp: 1080 !default;
 .header {
 	position: relative;
 	z-index: 99;
+
+	/* Resets */
+	p,
+	h1, .h1 {margin-bottom: 0;}
 
 	/* Icons */
 	.icon:before {@extend %transition-subtle;}
@@ -1199,7 +1203,7 @@ $national-view-search-toggle-bp: 1080 !default;
 			/* National view header */
 			.header--national & {
 				background-color: $color-grey-dark-3;
-				@include to-rem(height, 41);
+				@include to-rem(height, 44);
 
 				@include respond-min($non-palm) {
 					@include to-rem(height, 65);
@@ -1422,7 +1426,7 @@ $national-view-search-toggle-bp: 1080 !default;
 
 					dd {
 						@include to-rem(margin-top, 3);
-						@include to-rem(padding-left padding-right, 32);
+						@include to-rem(padding-left padding-right, 33);
 
 						/* Android */
 						.android & {@include to-rem(padding-left padding-right, 33);}
@@ -1489,6 +1493,7 @@ $national-view-search-toggle-bp: 1080 !default;
 
 				h1 {
 					font-weight: normal;
+					color: #fff;
 
 					/* Non JS users */
 					.no-js & {color: $color-txt-base;}

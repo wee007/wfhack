@@ -1,19 +1,24 @@
 /* ======================================================================================
-   @LAYOUT -> REDIRECTION
+   @LAYOUT -> SITE STRUCTURE -> PAGES -> REDIRECT
    ====================================================================================== */
 
+/*
+  An interstitial page used to inform users they're leaving Westfield site and going to an external website.
+*/
+
 /* `body` element */
-.redirection {
+.page-redirect {
   text-align: center;
   @include to-rem(padding-top, 80);
   background-color: #fff;
 
   /* Logo */
-  .container img {
+  img {
     width: 145px;
     height: 52px;
-    @include to-rem(margin-bottom, $spacing-base);
+    @extend %mrg-base;
   }
 
+  /* Message */
   p {color: $color-txt-light;}
 }

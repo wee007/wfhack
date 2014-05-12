@@ -19,6 +19,15 @@
 
 .drop-down-menu {
 
+  /* Resets */
+  p,
+  h2, .h2,
+  h3, .h3 {margin-bottom: 0;}
+
+  h2, .h2 {font-family: $font-family;}
+
+  h3, .h3 {text-transform: none;}
+
   /* Trigger - apply more top/bottom padding than `.btn--main` */
   .drop-down-menu__trigger {@include to-em(padding-top padding-bottom, $spacing-half+$spacing-micro);}
 
@@ -97,10 +106,14 @@
     .drop-down-menu__hdr {
       position: relative;
       text-align: center;
-      color: $color-txt-light;
 
       /* Non JS users */
       .no-js & {border-top: 1px solid $color-grey-med-3;}
+
+      /* Set colour */
+      &,
+      h2,
+      h3 {color: $color-txt-light;}
 
       /* Header text */
       h2,
@@ -137,6 +150,7 @@
 
     /* Alternative header */
     .drop-down-menu__hdr-alt {
+      color: $color-grey-dark-1;
       @include font-size($font-size);
       font-weight: bold;
       border-bottom: 1px solid $color-grey-med-3;

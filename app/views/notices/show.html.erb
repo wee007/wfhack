@@ -1,26 +1,24 @@
 <div class="island">
 
-  <header class="detail-view__mrg-base">
+  <%# Notice title and meta %>
+  <header class="mrg-base">
 
     <%# Notice title %>
-    <h1><%= raw @notice.name.truncate 65, '&#8230;' %></h1>
+    <h1><%= @notice.name %></h1>
     <%# //Notice title %>
 
     <%# Notice meta %>
     <div class="detail-view__meta detail-view__divider detail-view__divider--top-btm islet-ends">
-      <time datetime="<%= @notice.date('%Y-%m-%d') %>" pubdate>
-        <%= @notice.date.day %>
-        <abbr title="<%= @notice.date('%B') -%>"> <%= @notice.date('%b') -%></abbr>
-        <%= @notice.date.year  %>
-      </time>
+      <time datetime="<%= @notice.date('%Y-%m-%d') %>" pubdate><%= @notice.date.day %> <%= @notice.date('%b') -%> <%= @notice.date.year %></time>
     </div>
     <%# //Notice meta %>
 
   </header>
+  <%# //Notice title and meta %>
 
   <%# Notice image %>
   <% if @notice.image_ref.present? -%>
-    <section class="detail-view__media detail-view__mrg-base" aria-labelledby="image">
+    <section class="detail-view__media mrg-base" aria-labelledby="image">
       <h2 class="hide-visually" id="image">Image</h2>
       <%= cl_image_tag @notice.image_ref,
           alt: @notice.img_alt_text ? @notice.img_alt_text : "",

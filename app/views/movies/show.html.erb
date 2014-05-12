@@ -1,7 +1,8 @@
 <%# Movie details %>
 <div class="island detail-view__divider" itemscope itemtype="http://schema.org/Movie">
 
-  <header class="detail-view__mrg-base">
+  <%# Movie title and classification %>
+  <header class="mrg-base">
 
     <%# Movie title %>
     <h1 class="test-title" itemprop="name"><%= @movie.title %></h1>
@@ -14,10 +15,11 @@
     <%# //Movie classification %>
 
   </header>
+  <%# //Movie title and classification %>
 
   <%# Movie image %>
   <% if @movie.cloudinary_public_id %>
-    <section class="detail-view__media detail-view__mrg-base" aria-labelledby="image">
+    <section class="detail-view__media mrg-base" aria-labelledby="image">
       <h2 class="hide-visually" id="image">Image</h2>
       <%= cl_image_tag(@movie.cloudinary_public_id, alt: '', width: 600, height: 400, crop: 'limit', format: 'jpg', fetch_format: 'auto', itemprop: 'image') %>
     </section>
@@ -26,7 +28,7 @@
 
   <%# Movie synopsis %>
   <section aria-labelledby="synopsis">
-    <h2 class="detail-view__mrg-half" id="synopsis">Synopsis</h2>
+    <h2 class="mrg-half" id="synopsis">Synopsis</h2>
     <p itemprop="description"><%= @movie.synopsis %></p>
   </section>
   <%# //Movie synopsis %>
@@ -36,7 +38,7 @@
 
 <%# Session times %>
 <section class="detail-view__schedule island" aria-labelledby="session-times">
-  <h2 class="detail-view__mrg-half" id="session-times">Session Times</h2>
+  <h2 class="mrg-half" id="session-times">Session Times</h2>
   <p>Select a session to purchase tickets at <%= @cinema.name %>.</p>
   <dl class="timeline">
     <% @movies_sessions_by_date.each do |date, sessions| %>

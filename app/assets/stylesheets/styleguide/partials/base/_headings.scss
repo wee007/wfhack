@@ -17,6 +17,7 @@
     text-transform: uppercase;
     @include font-size(60);
     text-align: center;
+    color: $color-grey-dark-1;
   }
 }
 
@@ -24,6 +25,7 @@
   @include font-size($font-size-xlrg);
   font-family: $font-family-opensans;
   color: $color-txt-light;
+  text-transform: none;
 
   /* File name */
   code {@include font-size($font-size);}

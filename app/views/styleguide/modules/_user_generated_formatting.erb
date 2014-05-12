@@ -1,5 +1,5 @@
-<%= styleguide_block 'Text Formatted' do |style| %>
-<div class="txt-formatted $modifier_class">
+<%= styleguide_block 'User Generated Formatting' do |style| %>
+<div class="user-generated-formatting $modifier_class">
   <%# Headings %>
   <h1>Heading 1</h1>
 
@@ -14,10 +14,10 @@
   <h6>Heading 6</h6>
   <%# //Headings %>
 
-  <%# Paragraph %>
+  <%# Paragraphs %>
   <p>Paragraph of text. Nec at quodsi elaboraret definitionem. Ne facilisi pericula honestatis qui. In sanctus platonem voluptatum ius. Ad sed labores inermis disputando, etiam adversarium quo te. Eu vis nostrud deseruisse, est possit</p>
   <p>Paragraph of text. Ne mel utroque apeirian, eum ex cibo choro. Discere commune concludaturque eum te, eros movet comprehensam eum id.</p>
-  <%# //Paragraph %>
+  <%# //Paragraphs %>
 
   <%# Unordered list %>
   <ul>
@@ -61,8 +61,32 @@
   </ol>
   <%# //Ordered list %>
 
-  <p><strong>Very important text</strong></p>
-
-  <p><em>Stressing the emphasis</em></p>
+  <%# Everything else %>
+  <ul>
+    <li>The <a href="#">a element</a></li>
+    <li>The <abbr>abbr element</abbr> and <abbr title="Title text">abbr element with title</abbr></li>
+    <li>The <b>b element</b></li>
+    <li>The <cite>cite element</cite></li>
+    <li>The <code>code element</code></li>
+    <li>The <del>del element</del></li>
+    <li>The <dfn>dfn element</dfn> and <dfn title="Title text">dfn element with title</dfn></li>
+    <li>The <em>em element</em></li>
+    <li>The <i>i element</i></li>
+    <li>The img element <img src="http://placekitten.com/16/16" alt=""></li>
+    <li>The <ins>ins element</ins></li>
+    <li>The <kbd>kbd element</kbd></li>
+    <li>The <mark>mark element</mark></li>
+    <li>The <output>output element</output></li>
+    <li>The <q>q element <q>inside</q> a q element</q></li>
+    <li>The <samp>samp element</samp></li>
+    <li>The <small>small element</small></li>
+    <li>The <span>span element</span></li>
+    <li>The <strong>strong element</strong></li>
+    <li>The <sub>sub element</sub></li>
+    <li>The <sup>sup element</sup></li>
+    <li>The <var>var element</var></li>
+    <li>The <u>u element</u></li>
+  </ul>
+  <%# //Everything else %>
 </div>
 <% end %>

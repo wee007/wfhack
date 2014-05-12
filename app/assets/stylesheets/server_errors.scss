@@ -54,17 +54,16 @@ a {
   }
 }
 
+p {margin-bottom: 0;}
+
 /* Main title */
 h1 {
-  @include font-size(43, 1.1);
-  font-family: $font-family-lato;
-  font-weight: 300;
+  @include font-size($font-size-kilo, 1.1);
   text-transform: uppercase;
   color: $color-grey-med-1;
-  @include to-rem(margin-bottom, 27);
 
   @include respond-min($non-palm) {
-    @include font-size(61, 1.1);
+    @include font-size($font-size-mega, 1.1);
   }
 
     em {

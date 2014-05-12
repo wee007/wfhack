@@ -23,7 +23,7 @@
   h1 {
     display: inline-block;
     @include to-rem(margin, 5 0 0 5);
-    @include font-size(22, 1.2);
+    @include font-size($font-size-xlrg, 1.2);
     text-transform: uppercase;
   }
 

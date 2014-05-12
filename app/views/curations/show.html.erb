@@ -14,7 +14,7 @@
           <% if @curation.image? %>
             <%= fetch_image_tag @curation.image, alt: '', quality: 80, width: 589, crop: 'limit', fetch_format: 'auto' %>
           <% end %>
-          <div class="txt-formatted island">
+          <div class="island">
             <h1 class="txt-hyphenate"><%= raw @curation.name.truncate 60, '&#8230;' %></h1>
           </div>
           <p class="product-curation__desc island-sides island-btm <%= 'toggle-visibility toggle-visibility--palm' if @curation.image? %>" id="curation-description"><%= raw @curation.description.truncate(400, '&#8230;') %></p>
@@ -36,15 +36,13 @@
         <%# More from retailers (non-palm) %>
         <footer class="hide-fully--palm mrg-dbl-top">
           <section aria-labelledby="curation-retailers-non-palm">
-            <div class="txt-formatted mrg-base">
-              <h2 id="curation-retailers-non-palm">
-                <% if @curation.retailers.size > 1 %>
-                  More from retailers
-                <% else %>
-                  See More
-                <% end %>
-              </h2>
-            </div>
+            <h2 id="curation-retailers-non-palm">
+              <% if @curation.retailers.size > 1 %>
+                More from retailers
+              <% else %>
+                See More
+              <% end %>
+            </h2>
             <%= render partial: 'more_from_retailers' %>
           </section>
         </footer>
@@ -110,24 +108,20 @@
 
     <%# More from retailers (palm) %>
     <section class="hide-fully--non-palm" aria-labelledby="curation-retailers-palm">
-      <div class="txt-formatted mrg-base">
-        <h2 id="curation-retailers-palm">
-          <% if @curation.retailers.size > 1 %>
-            More from retailers
-          <% else %>
-            See More
-          <% end %>
-        </h2>
-      </div>
+      <h2 id="curation-retailers-palm">
+        <% if @curation.retailers.size > 1 %>
+          More from retailers
+        <% else %>
+          See More
+        <% end %>
+      </h2>
       <%= render partial: 'more_from_retailers' %>
     </section>
     <%# //More from retailers (palm) %>
 
     <%# You may also like %>
     <%#<section class="product-curation__also-like" aria-labelledby="curation-also-like">
-      <div class="txt-formatted mrg-base">
         <h2 id="curation-also-like">You may also like&#8230;</h2>
-      </div>
     </section>%>
     <%# //You may also like %>
 

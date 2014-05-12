@@ -1,3 +1,3 @@
 $(function() {
-  $('.txt-formatted--user-generated table').tableHorizontalScroll();
+  $('.user-generated-formatting table').tableHorizontalScroll();
 });

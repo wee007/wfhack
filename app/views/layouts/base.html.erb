@@ -83,7 +83,7 @@
 
 </head>
 
-<body class="<%= params[:controller] %> <%= params[:action] %> <%= yield :class_for_body %>" ng-app="Westfield" ng-init="centre_id='<%= params[:centre_id] || params[:id] %>'">
+<body class="<%= yield :class_for_body %> <%= params[:controller] %> <%= params[:action] %>" ng-app="Westfield" ng-init="centre_id='<%= params[:centre_id] || params[:id] %>'">
 
   <%# Skip link %>
   <a href="#main" class="hide-visually skip-link">Skip to main content</a>

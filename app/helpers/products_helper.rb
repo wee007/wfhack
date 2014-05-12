@@ -6,7 +6,8 @@ module ProductsHelper
     (@centre.nil?) ? products_path : centre_products_path(@centre.code)
   end
 
-  def canonical_url
+  def product_canonical_url
+    except_google_experiment_params
     centre_category or
       centre_super_cat or
       centre_products or

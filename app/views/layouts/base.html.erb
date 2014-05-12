@@ -36,7 +36,11 @@
   <link rel="dns-prefetch" href="//themes.googleusercontent.com">
   <%# //Prefetch DNS for external assets %>
 
-  <%= yield :link_rels %>
+  <% if params[:controller] == 'products' %>
+    <%= yield :link_rels %>
+  <% else %>
+    <link rel="canonical" href="<%= canonical_url %>">
+  <% end %>
 
   <%# Title %>
   <title><%= page_title %></title>

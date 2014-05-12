@@ -65,7 +65,7 @@
                           <% if category.children.empty? %>
                             <a href="<%= centre_stores_category_path(@centre, category.code) %><%= '?gift_cards=true' if filtering_gift_cards? %>" class="drop-down-menu__hdr-btn btn btn--full btn--full-left btn--pointer is-childless js-pjax-link-stores js-stores-page-state-params test-stores-category-link" data-category="<%= category.code %>"><%= category.name %></a>
                           <% else %>
-                            <a href="#<%= category.code %>_categories" id="<%= category.code %>" aria-haspopup="true" aria-controls="<%= category.code %>_categories" class="drop-down-menu__hdr-btn btn btn--full btn--full-left btn--pointer js-stores-view-subcategories test-stores-main-category-link">
+                            <a href="#<%= category.code %>_categories" id="<%= category.code %>" class="drop-down-menu__hdr-btn btn btn--full btn--full-left btn--pointer js-stores-view-subcategories test-stores-main-category-link">
                               <%= category.name %>
                               <span class="hide-visually"> (view sub categories)</span>
                               <span class="icon icon--arrow-right-big icon--lrg btn--pointer__icon js-disabled-hide" aria-hidden="true"></span>

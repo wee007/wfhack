@@ -17,6 +17,7 @@
     text-transform: uppercase;
     @include font-size(60);
     text-align: center;
+    color: $color-grey-dark-1;
   }
 }
 

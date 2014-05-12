@@ -50,7 +50,7 @@ class StoreMapPage
       doc.on('pjax:success', @stopLoading)
       doc.on('pjax:end', pjaxContainerSelector, @pjaxComplete)
       doc.on('pjax:popstate', pjaxContainerSelector, @pjaxComplete)
-      doc.on('click', 'js-pjax-link-stores', @pjaxNavigate)
+      doc.on('click', '.js-pjax-link-stores', @pjaxNavigate)
 
       body.on 'submit', 'form[data-pjax]', (event) ->
         $.pjax.submit(event, pjaxContainerSelector)

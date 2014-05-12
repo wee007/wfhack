@@ -3,7 +3,7 @@ require 'acceptance_helper'
 feature 'Stores' do
 
   background do
-    Capybara.current_driver = :webkit
+    set_driver :webkit
   end
 
   describe 'There are stores in the store list' do

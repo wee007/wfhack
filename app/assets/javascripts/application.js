@@ -14,7 +14,7 @@
 //= require ./support/placeholder-test
 
 // Global 'init' stuff
-//= require ./init/page_setup
+//= require ./init/global_vars
 //= require ./init/enquire
 //= require ./init/pin-board
 //= require ./init/deferred_images

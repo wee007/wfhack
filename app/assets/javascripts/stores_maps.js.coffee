@@ -2,10 +2,10 @@
 #= require flexslider/jquery.flexslider
 #= require map/responsive_map
 #= require fastclick
-#= require stores/stores_keyword_filter
+#= require stores/keyword_filter
 #= require stores/dynamic_heights
 #= require stores/view_subcategories
-#= require stores/stores_page_state
+#= require stores/page_state
 
 class StoreMapPage
 
@@ -46,11 +46,11 @@ class StoreMapPage
   setupPjax: =>
     if $.support.pjax
       $.pjax.defaults?.timeout = 50000
-      $(document).on('pjax:send', @startLoading)
-      $(document).on('pjax:success', @stopLoading)
-      body.on('pjax:end', pjaxContainerSelector, @pjaxComplete)
-      body.on('pjax:popstate', pjaxContainerSelector, @pjaxComplete)
-      body.on('click', 'a.js-pjax-link-stores', @pjaxNavigate)
+      doc.on('pjax:send', @startLoading)
+      doc.on('pjax:success', @stopLoading)
+      doc.on('pjax:end', pjaxContainerSelector, @pjaxComplete)
+      doc.on('pjax:popstate', pjaxContainerSelector, @pjaxComplete)
+      doc.on('click', 'js-pjax-link-stores', @pjaxNavigate)
 
       body.on 'submit', 'form[data-pjax]', (event) ->
         $.pjax.submit(event, pjaxContainerSelector)

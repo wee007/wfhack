@@ -41,7 +41,6 @@ class @ToggleVisibility
 
   setupEventListeners: =>
     self = @
-    doc = $(document)
 
     # Attach event listener to document so it works with pjax on stores page, where elements come and go without page load
     doc.on @triggerEvent, @triggerSelector, ->
@@ -59,7 +58,10 @@ class @ToggleVisibility
     doc.on 'click',  (event) =>
       # Only execute if click was not on a tog vis trigger or target
       isToggleVisibility = "#{@triggerSelector}, .#{@targetSelector}"
-      if $(event.target).parents(isToggleVisibility).length == 0 and !$(event.target).is(isToggleVisibility) and @trigger? and @target?
+      isAnotherDropdownOpen = @trigger? and @target?
+      togvisParent = $(event.target).closest(isToggleVisibility)
+      isOpenDropdownDifferentToClickTarget = isAnotherDropdownOpen and togvisParent.get(0) != @trigger.get(0) and togvisParent.get(0) != @target.get(0)
+      if isAnotherDropdownOpen and isOpenDropdownDifferentToClickTarget
         @hide()
 
   toggleTarget: (trigger) =>
@@ -90,10 +92,13 @@ class @ToggleVisibility
 
   show: (trigger, target) =>
     # If there is another open tog vis instance and its not the one we're about to show, close it.
-    if @trigger? and @target? and @trigger.get(0) != trigger.get(0) and @target.get(0) != target.get(0)
-      @hide @trigger, @target
-      @trigger = null
-      @target = null
+    isAnotherDropdownOpen = @trigger? and @target?
+    if isAnotherDropdownOpen
+      isOpenDropdownDifferentToCurrentTarget = @trigger.get(0) != trigger.get(0) and @target.get(0) != target.get(0)
+      if isOpenDropdownDifferentToCurrentTarget
+        @hide @trigger, @target
+        @trigger = null
+        @target = null
 
     trigger
       .addClass(@isActiveClass)

@@ -27,12 +27,4 @@ shared_context "seo" do
     matches = all(*args)
     expect(matches.length).to eql(1)
   end
-  
-  def sample_urls
-    [
-      centre_products_path('sydney'),
-      centre_products_super_cat_path('sydney', 'womens-fashion-accessories'),
-      centre_products_category_path('sydney', 'womens-fashion-accessories', 'womens-shoes-footwear', :sub_category => 'womens-heels', :rows => 50, :colour => 'Yellows', :on_sale => 'true', :price => '100-200')
-    ]
-  end
 end

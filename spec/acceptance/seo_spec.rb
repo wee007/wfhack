@@ -15,6 +15,11 @@ feature 'SEO' do
     end
     
     scenario "search results matches the page url" do
+      sample_urls = [
+        centre_products_path('sydney'),
+        centre_products_super_cat_path('sydney', 'womens-fashion-accessories'),
+        centre_products_category_path('sydney', 'womens-fashion-accessories', 'womens-shoes-footwear', :sub_category => 'womens-heels', :rows => 50, :colour => 'Yellows', :on_sale => 'true', :price => '100-200')
+      ]
       sample_urls.each do |url|
         visit url
         expect_canonical_link_to_match_url

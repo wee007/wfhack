@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.365
+Version:     0.2.366
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -92,6 +92,12 @@ fi
 
 
 %changelog
+* Wed May 14 2014 ci <doperations@au.westfield.com> 0.2.366-1
+- moved sample urls from helper into spec file (bpritchard@au.westfield.com)
+- update after code review (bpritchard@au.westfield.com)
+- fixed failing tests (bpritchard@au.westfield.com)
+- added tests for canonical link (bpritchard@au.westfield.com)
+
 * Tue May 13 2014 ci <doperations@au.westfield.com> 0.2.365-1
 - only close if something is open (alec@smartalecwebsites.com.au)
 - use new API (alec@smartalecwebsites.com.au)

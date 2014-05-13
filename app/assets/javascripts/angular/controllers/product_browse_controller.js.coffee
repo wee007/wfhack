@@ -131,7 +131,7 @@
         $scope.activeFilter = filterName
 
         #let other dropdowns know that they should close themselves
-        $rootScope.$broadcast "product-filter-dropdown-open"
+        TogVis.closeAll()
         SocialShare.closeAll()
 
         # Stop event from getting to toggle visibility instance for "Filters" mobile button

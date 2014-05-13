@@ -90,6 +90,9 @@ class @ToggleVisibility
     # Trigger an event so other javascript can do something when target is hidden
     trigger.trigger(@events.hide)
 
+  closeAll: =>
+    @hide() if @trigger? or @target?
+
   show: (trigger, target) =>
     # If there is another open tog vis instance and its not the one we're about to show, close it.
     isAnotherDropdownOpen = @trigger? and @target?
@@ -108,5 +111,5 @@ class @ToggleVisibility
     # Trigger an event so other javascript can do something when target is shown
     trigger.trigger(@events.show)
 
-$ ->
-  new ToggleVisibility()
+$ =>
+  @TogVis = new ToggleVisibility()

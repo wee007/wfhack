@@ -12,7 +12,7 @@ feature 'Regressions' do
       visit '/'
       expect(page).to have_text 'NSW', 'VIC', 'QLD'
 
-      link = random('.test-centre-tile-link')
+      link = first('.test-centre-tile-link')
       href = link[:href]
       log "centre: #{href}"
       link.click

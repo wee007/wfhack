@@ -1,3 +1,6 @@
+<%# TODO come up with a better way of handling this %>
+<% content_for :tile_attrs, '', flush: true %>
+
 <%# Image %>
 <div class="tile__image">
   <%= fetch_image_tag result.image,
@@ -5,7 +8,6 @@
     alt: '',
     crop: :limit,
     format: :auto,
-    itemprop: :image,
     quality: 80
   %>
 </div>

@@ -3,6 +3,7 @@ module ApiClientRequests
     connection_params = connection_details if self.respond_to?(:connection_details) and  !['development','test'].include?(Rails.env)
     connection_params ||= {}
     begin
+      ::NewRelic::Agent.increment_metric('Custom/Api/api_calls')
       Service::API.get(request_uri(*args), {}, connection_params)
     rescue Redis::BaseError => error
       # If we can't connect to redis, proceed with caching disabled

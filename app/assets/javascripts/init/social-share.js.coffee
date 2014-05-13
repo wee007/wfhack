@@ -16,7 +16,7 @@ class @SocialShare
     open = ->
       #close other drop downs when a social share widget opens
       window.closeFilters?();
-      window.closeToggleVisibilty();
+      TogVis.closeAll()
       $toOpen
         .addClass('is-active')
         .parent('.js-tile-controls').addClass('is-active')

@@ -6,7 +6,7 @@
 	List of stores.
 
   .stores-list--condensed     - A smaller stripped down version of the store list
-  .stores-list--fixed-height  - set maximum height and enable scrolling
+  .stores-list--fixed-height  - Set maximum height and enable scrolling
 */
 
 .stores-list {
@@ -97,6 +97,7 @@
     }
   }
 
+/* Modifier: A smaller stripped down version of the store list */
 .stores-list--condensed {
   .stores-list__store-name {
     @include to-rem(padding-top padding-bottom, $spacing-half);
@@ -107,6 +108,7 @@
   }
 }
 
+/* Modifier: Set maximum height and enable scrolling */
 .stores-list--fixed-height {
   max-height: $drop-down-max-height;
   overflow-y: auto;

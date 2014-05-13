@@ -1,18 +1,18 @@
-<span class="js-dropdown-count" data-count="<%= @results_count %>"></span>
+<span class="hide-fully js-global-search-dropdown-count" data-count="<%= @results_count %>" aria-hidden="true"></span>
 <dl class="search-results__list " tabindex="0">
   <% @search.sorted_each do |kind, facet_result| %>
 	  <dt>
 	    <span aria-hidden="true" class="icon <%= map_type_to_css_icon(kind) %> icon--lrger"></span> <%= kind.titleize %>
 	  </dt>
 	  <% facet_result.each do |result| %>
-		  <dd class="js-search-results-item-height" role="presentation">
+		  <dd class="js-global-search-results-item-height" role="presentation">
 		  	<% if result[:dummy] %>
-		  		<a href="<%= centre_products_path(centre_id: params[:centre_id], search_source: 'dropdown', search_keyword: @search.term) %>" class="js-search-results-item-link js-dummy-search">Search for <%= @search.term %></a>
+		  		<a href="<%= centre_products_path(centre_id: params[:centre_id], search_source: 'dropdown', search_keyword: @search.term) %>" class="js-global-search-results-item-link js-global-search-dummy-search">Search for <%= @search.term %></a>
 		  	<% else %>
-		    	<a target="_self" href="<%= build_url(@centre, kind, result[:attributes], {search_source: 'dropdown', search_keyword: @search.term}) %>" tabindex="-1" class="js-search-results-item-link">
-		    	<%= result["display"] %>
+		    	<a target="_self" href="<%= build_url(@centre, kind, result[:attributes], {search_source: 'dropdown', search_keyword: @search.term}) %>" tabindex="-1" class="js-global-search-results-item-link">
+		    		<%= result["display"] %>
+		    	</a>
 	    	<% end %>
-		    </a>
 		  </dd>
 	  <% end %>
   <% end %>

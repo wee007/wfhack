@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.364
+Version:     0.2.365
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -92,6 +92,10 @@ fi
 
 
 %changelog
+* Tue May 13 2014 ci <doperations@au.westfield.com> 0.2.365-1
+- only close if something is open (alec@smartalecwebsites.com.au)
+- use new API (alec@smartalecwebsites.com.au)
+
 * Tue May 13 2014 ci <doperations@au.westfield.com> 0.2.364-1
 - Merge pull request #1149 from ewee/master (ewee@au.westfield.com)
 - Refactor canonical tag implementation (ewee@au.westfield.com)

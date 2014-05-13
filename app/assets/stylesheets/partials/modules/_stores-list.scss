@@ -5,7 +5,8 @@
 /*
 	List of stores.
 
-  .stores-list--condensed - A smaller stripped down version of the store list
+  .stores-list--condensed     - A smaller stripped down version of the store list
+  .stores-list--fixed-height  - set maximum height and enable scrolling
 */
 
 .stores-list {
@@ -106,14 +107,13 @@
   }
 }
 
+.stores-list--fixed-height {
+  max-height: $drop-down-max-height;
+  overflow-y: auto;
 
-
-
-
-
-
-
-
-
-
-
+  /* Touch device */
+  .touch & {
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+  }
+}

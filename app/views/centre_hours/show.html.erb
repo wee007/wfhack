@@ -1,3 +1,5 @@
+<% content_for :class_for_body, "page-centre-hours" %>
+
 <%# Divider %>
 <div class="divider divider--dbl">
 
@@ -32,7 +34,7 @@
       <%# Tab content %>
       <div id="tab-<%= week_number %>" class="tab__content <%= 'is-active' if week_number == 0 %>">
 
-        <h2 class="tab__content__hdr"><%= ["This week", "Next week"][week_number] || "#{week.first.date '%-d %b'} - #{week.last.date '%-d %b'}"%></h2>
+        <h2 class="tab__content__hdr">aa<%= ["This week", "Next week"][week_number] || "#{week.first.date '%-d %b'} - #{week.last.date '%-d %b'}"%></h2>
 
         <%# Grid %>
         <div class="grid grid--gutter-dbl grid--mrg-base-lap-sml">
@@ -40,12 +42,13 @@
           <%# Centre hours %>
           <div class="grid__item non-palm-one-half lap-sml-one-whole">
 
+            <h2><%= week.find { |hour| hour.christmas? } ? "Christmas Centre Hours" : "Westfield Centre Hours" %></h2>
+
             <%# Centre hours box %>
             <div class="islet island-non-palm box">
 
               <%# Centre hours table %>
               <table cellspacing="0" class="table-striped table-fixed test-centre-hours-table-<%= week_number %>">
-                <caption><%= week.find { |hour| hour.christmas? } ? "Christmas Centre Hours" : "Westfield Centre Hours" %></caption>
 
                 <colgroup>
                   <col class="one-sixth lap-lrg-one-fifth desk-one-fifth"></col>
@@ -102,6 +105,9 @@
 
           <%# Store hours %>
           <div class="grid__item non-palm-one-half lap-sml-one-whole">
+
+            <h2>Find Store Hours &amp; Info</h2>
+
             <%# Store hours box %>
             <div class="box box--position">
               <%# Keyword Filter %>
@@ -112,7 +118,7 @@
               <%# Keyword Filter %>
 
               <%# Stores List %>
-              <div class="stores-list stores-list--condensed">
+              <div class="stores-list stores-list--condensed stores-list--fixed-height">
                 <dl class="js-store-list">
                   <% @all_stores.group_by{|store| store.first_letter }.each do |letter, stores| %>
                     <dt>

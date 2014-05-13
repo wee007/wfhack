@@ -1,8 +1,6 @@
 #= require jquery-extensions/jquery.fastLiveFilter
 
-
 $ =>
-
   # Determines how stores will be matched with keyword
   filterStores = (filter, fullText) =>
     matches = false
@@ -18,10 +16,8 @@ $ =>
 
     return matches
 
-
   $('.js-store-hours-keyword-filter-input').fastLiveFilter '.js-store-list',
     selector: '.js-store-hours-store-name',
-    # Need a small timeout because of race condition on mobile
     filterFunction: filterStores
     callback: (stores, numShown)=>
       #@filterStoreLetterHeadings(stores, numShown)

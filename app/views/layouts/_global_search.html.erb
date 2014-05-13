@@ -15,13 +15,13 @@
           <%# //Icon %>
 
           <%# Label and inputs %>
-          <label for="global-search" class="hide-visually">Search <%= 'stores &amp;'.html_safe unless national_product_index? %> products</label>
+          <label for="global-search" class="hide-visually">Search <%= "#{@centre.name}&#8230;".html_safe unless national_product_index? %><%= 'products'.html_safe if national_product_index? %></label>
 
           <%# We don't need the search suggest to trigger on national pages %>
           <% if national_product_index? %>
             <input type="search" class="search-mini__input" name="search_query" autocomplete="off" placeholder="Search products&#8230;">
           <% else %>
-            <input type="search" class="search-mini__input js-global-search-input test-global-search-input" id="global-search" name="search_query" autocomplete="off" placeholder="Search <%= @centre.short_name %>&#8230;">
+            <input type="search" class="search-mini__input js-global-search-input test-global-search-input" id="global-search" name="search_query" autocomplete="off" placeholder="Search <%= @centre.name %>&#8230;">
           <% end -%>
 
           <input type="submit" value="Search" class="search-mini__submit js-enabled-hide">

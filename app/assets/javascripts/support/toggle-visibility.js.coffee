@@ -91,7 +91,7 @@ class @ToggleVisibility
     trigger.trigger(@events.hide)
 
   closeAll: =>
-    @hide()
+    @hide() if @trigger? or @target?
 
   show: (trigger, target) =>
     # If there is another open tog vis instance and its not the one we're about to show, close it.

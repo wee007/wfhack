@@ -117,5 +117,3 @@ class @GlobalSearch
     @searchStatus.html(statusText)
 
 new GlobalSearch()
-
-

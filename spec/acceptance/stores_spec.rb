@@ -49,15 +49,15 @@ feature 'Stores' do
     scenario "on Sydney stores list when moving between index and show" do
       visit "/sydney/stores"
 
+      #Choose to show only gift cards
+      find('.test-gift-card-toggle').click
+      wait_for_ajax_requests
+
       # Choose a category
       find('.test-stores-category-filter-button').click
       first_category = first('.test-stores-category-link')
       first_category_code = first_category['data-category']
       first_category.click
-      wait_for_ajax_requests
-
-      #Choose to show only gift cards
-      find('.test-gift-card-toggle').click
       wait_for_ajax_requests
 
       # Go to store details page
@@ -73,7 +73,7 @@ feature 'Stores' do
     scenario "on Sydney stores list on palm screen size" do
       page.driver.resize_window(320, 500)
       visit "/sydney/stores"
-      find('.test-map-toggle').click
+      find('.test-stores-map-toggle').click
       wait_for_ajax_requests
 
       expect(page).to have_css('.is-map-view')

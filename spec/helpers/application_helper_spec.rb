@@ -72,4 +72,36 @@ describe ApplicationHelper do
 
   end
 
+  describe "#canonical_url" do
+    context "when params are present" do
+      let(:canonical_url) { 'http://some_url?param_one=some_value&param_two=some_value' }
+      it "returns the canonical URL with params" do
+        helper.stub(:params).and_return(param_one: 'some_value', param_two: 'some_value')
+        helper.stub(:url_for).with(only_path: false, param_one: 'some_value', param_two: 'some_value').and_return(canonical_url)
+      end
+    end
+    context "when Google Experiment params are present" do
+      let(:canonical_url) { 'http://some_url?other_param=some_value' }
+      it "returns the canonical URL with all the params except for Google Experiment ones" do
+        helper.stub(:params).and_return(gce_var: '1', utm_expid: '1', utm_referrer: 'some_url')
+        helper.stub(:url_for).with(only_path: false, other_param: 'some_value').and_return(canonical_url)
+      end
+    end
+  end
+
+  describe "#except_google_experiment_params" do
+    context "when Google Experiment params are NOT present" do
+      it "returns all the params" do
+        helper.stub(:params).and_return(param_one: 'some_value', param_two: 'some_value')
+        expect(helper.except_google_experiment_params).to eql(param_one: 'some_value', param_two: 'some_value')
+      end
+    end
+    context "when Google Experiment params are present" do
+      it "returns all the params except for the Google Experiment ones" do
+        helper.stub(:params).and_return(gce_var: '1', utm_expid: '1', utm_referrer: 'some_url', other_param: 'some_value')
+        expect(helper.except_google_experiment_params).to eql(other_param: 'some_value')
+      end
+    end
+  end
+
 end

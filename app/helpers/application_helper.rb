@@ -97,4 +97,11 @@ module ApplicationHelper
     %w(NSW ACT QLD VIC SA WA)
   end
 
+  def canonical_url
+    url_for({only_path: false}.merge!(except_google_experiment_params))
+  end
+
+  def except_google_experiment_params
+    params.except!(:gce_var, :utm_expid, :utm_referrer)
+  end
 end

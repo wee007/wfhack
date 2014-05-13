@@ -6,15 +6,6 @@ module ProductsHelper
     (@centre.nil?) ? products_path : centre_products_path(@centre.code)
   end
 
-  def canonical_url
-    centre_category or
-      centre_super_cat or
-      centre_products or
-      products_category or
-      products_super_cat or
-      products
-  end
-
   # Build category canonical URL for JS disabled site.
   # TODO: Consolidate `nonscript_category_canonical_url` and `category_canonical_url` into one method.
   #       The challenge is that both methods are getting the category details from different objects
@@ -66,30 +57,6 @@ module ProductsHelper
   end
 
   private
-
-  def centre_category
-    centre_products_category_url(params[:centre], params[:super_cat], params[:category], params.except(:centre, :super_cat, :category)) if !params[:super_cat].nil? and !params[:category].nil? and !params[:centre].nil?
-  end
-
-  def centre_super_cat
-    centre_products_super_cat_url(params[:centre], params[:super_cat], params.except(:centre, :category)) if !params[:super_cat].nil? and !params[:centre].nil?
-  end
-
-  def centre_products
-    centre_products_url(params[:centre], params.except(:centre)) if !params[:centre].nil?
-  end
-
-  def products_category
-    products_category_url(params[:super_cat], params[:category], params.except(:super_cat, :category)) if !params[:super_cat].nil? and !params[:category].nil?
-  end
-
-  def products_super_cat
-    products_super_cat_url(params[:super_cat], params.except(:super_cat)) if !params[:super_cat].nil?
-  end
-
-  def products
-    products_url(params)
-  end
 
   def build_category_url(super_category, category, sub_category)
     case

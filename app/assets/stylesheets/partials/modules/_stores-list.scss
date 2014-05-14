@@ -100,7 +100,10 @@
 .stores-list--compact {
   .stores-list__store-name {
     @include to-rem(padding-top padding-bottom, $spacing-half);
-    margin: 0 auto;
+    @include to-rem(margin-left, $spacing-base);
+    @include respond-min($non-palm) {
+
+    }
   }
 }
 

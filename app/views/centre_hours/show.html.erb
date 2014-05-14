@@ -118,7 +118,7 @@
 
               <%# Stores List %>
               <div>
-                <dl class="stores-list stores-list--compact stores-list--fixed-height js-store-list">
+                <dl class="stores-list stores-list--compact stores-list--fixed-height js-store-hours-store-list">
                   <% @all_stores.group_by{|store| store.first_letter }.each do |letter, stores| %>
                     <dt class="js-store-hours-keyword-filter-letter">
                       <div class="stores-list__inner container container--narrow">

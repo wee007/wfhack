@@ -6,6 +6,7 @@
   Fallback message accompanied by a large icon, typically used when there is no content for a page.
 
   .fallback-msg--mrg-top      - Add large top margin
+  .fallback-msg--compact      - Reduce size of icon
 
   Styleguide Fallback Message
 */
@@ -50,3 +51,14 @@
       @include font-size(60, 1);
     }
   }
+
+/* Modifier: reduce size of icon */
+.fallback-msg--compact {
+  .fallback-msg__icon:before {
+    @include font-size($font-size-deca, 1);
+
+    @include respond-min($non-palm) {
+      @include font-size($font-size-hecto, 1);
+    }
+  }
+}

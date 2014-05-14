@@ -93,13 +93,13 @@ describe ApplicationHelper do
     context "when Google Experiment params are NOT present" do
       it "returns all the params" do
         helper.stub(:params).and_return(param_one: 'some_value', param_two: 'some_value')
-        expect(helper.except_google_experiment_params).to eql(param_one: 'some_value', param_two: 'some_value')
+        expect(helper.strip_analytics_metadata).to eql(param_one: 'some_value', param_two: 'some_value')
       end
     end
     context "when Google Experiment params are present" do
       it "returns all the params except for the Google Experiment ones" do
         helper.stub(:params).and_return(gce_var: '1', utm_expid: '1', utm_referrer: 'some_url', other_param: 'some_value')
-        expect(helper.except_google_experiment_params).to eql(other_param: 'some_value')
+        expect(helper.strip_analytics_metadata).to eql(other_param: 'some_value')
       end
     end
   end

@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.367
+Version:     0.2.368
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -92,6 +92,16 @@ fi
 
 
 %changelog
+* Wed May 14 2014 ci <doperations@au.westfield.com> 0.2.368-1
+- Merge branch 'master' of github.dbg.westfield.com:digital/customer_console
+  (ci)
+- Merge pull request #1156 from cpearce/master (pmcinerney@au.westfield.com)
+- Merge pull request #1158 from cpearce/misc-fixes
+  (pmcinerney@au.westfield.com)
+- Clean ups for SRP (cpearce@au.westfield.com)
+- Fixing replication of Microdata attrs on centre home page pin board tiles
+  (cpearce@au.westfield.com)
+
 * Wed May 14 2014 ci <doperations@au.westfield.com> 0.2.367-1
 - Improve SEO by making canonical URLs more accurate
   (jlambert@au.westfield.com)

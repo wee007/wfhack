@@ -1,3 +1,6 @@
+<%# TODO come up with a better way of handling this %>
+<% content_for :tile_attrs, '', flush: true %>
+
 <%# Image %>
 <div class="tile__image">
   <%= cl_image_tag(result.image_ref,

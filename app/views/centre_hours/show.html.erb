@@ -34,7 +34,7 @@
       <%# Tab content %>
       <div id="tab-<%= week_number %>" class="tab__content <%= 'is-active' if week_number == 0 %>">
 
-        <h2 class="tab__content__hdr">aa<%= ["This week", "Next week"][week_number] || "#{week.first.date '%-d %b'} - #{week.last.date '%-d %b'}"%></h2>
+        <h2 class="tab__content__hdr"><%= ["This week", "Next week"][week_number] || "#{week.first.date '%-d %b'} - #{week.last.date '%-d %b'}"%></h2>
 
         <%# Grid %>
         <div class="grid grid--gutter-dbl grid--mrg-base-lap-sml">
@@ -101,7 +101,6 @@
 
           </div>
           <%# // Centre hours %>
-
 
           <%# Store hours %>
           <div class="grid__item non-palm-one-half lap-sml-one-whole">

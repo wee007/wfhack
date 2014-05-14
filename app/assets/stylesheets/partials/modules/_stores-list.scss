@@ -42,7 +42,6 @@
 
     @include respond-min($non-palm) {
       @include to-rem(margin-left, 132);
-
       @include to-rem(margin-right, 70);
       @include to-rem(padding-top padding-bottom, $spacing-base+$spacing-micro);
     }
@@ -102,9 +101,6 @@
   .stores-list__store-name {
     @include to-rem(padding-top padding-bottom, $spacing-half);
     margin: 0 auto;
-    @include respond-min($non-palm) {
-      margin: 0 auto;
-    }
   }
 }
 

@@ -118,10 +118,10 @@
               <%# Keyword Filter %>
 
               <%# Stores List %>
-              <div class="stores-list stores-list--condensed stores-list--fixed-height">
-                <dl class="js-store-list">
+              <div>
+                <dl class="stores-list stores-list--condensed stores-list--fixed-height js-store-list">
                   <% @all_stores.group_by{|store| store.first_letter }.each do |letter, stores| %>
-                    <dt>
+                    <dt class="js-store-hours-keyword-filter-letter">
                       <div class="stores-list__inner container container--narrow">
                         <%= letter %>
                       </div>
@@ -135,6 +135,18 @@
                     <% end %>
                   <% end %>
                 </dl>
+
+                <%# No stores matching keyword filter message %>
+                <div class="fallback-msg island hide-fully js-store-hours-keyword-filter-no-results">
+                  <p>
+                    <span class="fallback-msg__icon icon icon--store icon--flush-top" aria-hidden="true"></span>
+                    <em class="h1">No Stores matching
+                      <span class="js-store-hours-keyword-filter-value"></span>
+                    </em>
+                  </p>
+                </div>
+                <%# //No stores matching keyword filter message %>
+
               </div>
               <%# //Stores List %>
 

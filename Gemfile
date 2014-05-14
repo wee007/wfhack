@@ -23,6 +23,7 @@ gem 'hashie'
 gem 'cloudinary'
 gem 'sitemap_generator'
 gem 'sterile'
+gem 'parallel'
 
 # Caching
 gem 'redis-rails'

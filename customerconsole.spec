@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.369
+Version:     0.2.370
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -92,6 +92,11 @@ fi
 
 
 %changelog
+* Wed May 14 2014 ci <doperations@au.westfield.com> 0.2.370-1
+- Merge branch 'master' of github.com:westfield/customer_console (ci)
+- Merge pull request #7 from chris-pearce/misc-fixes (hi@chris-pearce.me)
+- Fixing UI bug for national home page (cpearce@au.westfield.com)
+
 * Wed May 14 2014 ci <doperations@au.westfield.com> 0.2.369-1
 - Merge branch 'master' of github.com:westfield/customer_console (ci)
 - modify apache config to not cache /version.txt (bpritchard@au.westfield.com)

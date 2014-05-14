@@ -9,9 +9,9 @@
 		  	<% if result[:dummy] 
 		  		 %>
 		  		 <%# FIXME search=nil looks weird, I know. Currently centre_products_path is overloaded/hacked in NationalHelper to depend on the current controller. search=nil gives us the real centre_products_path behaviour %>
-		  		<a href="<%= centre_products_path(centre_id: params[:centre_id], search_source: 'dropdown', search_keyword: @search.term, search_query:@search.term, search:nil ) %>" class="js-global-search-results-item-link js-global-search-dummy-search">Search for <%= @search.term %></a>
+		  		<a href="<%= centre_products_path(centre_id: params[:centre_id], search_source: 'dropdown', search_keyword: @search.term, search_query:@search.term, search:nil ) %>" class="js-global-search-results-item-link js-global-search-dummy-search" target="_self">Search for <%= @search.term %></a>
 		  	<% else %>
-		    	<a target="_self" href="<%= build_url(@centre, kind, result[:attributes], {search_source: 'dropdown', search_keyword: @search.term}) %>" tabindex="-1" class="js-global-search-results-item-link">
+		    	<a target="_self" href="<%= build_url(@centre, kind, result[:attributes], {search_source: 'dropdown', search_keyword: @search.term}) %>" tabindex="-1" class="js-global-search-results-item-link" target="_self">
 		    		<%= result[:display] %>
 		    	</a>
 	    	<% end %>

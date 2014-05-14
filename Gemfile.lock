@@ -6,7 +6,7 @@ GIT
 
 GIT
   remote: git@github.com:westfield/service_api.git
-  revision: 3d9dba81117820d45f8e3eb77cde85526f044e0d
+  revision: 18b65742f754d8ad67b80c91ccab699b175b6c3d
   specs:
     service_api (0.0.10)
       faraday
@@ -114,14 +114,15 @@ GEM
       ffi (>= 1.3.0)
     eventmachine (1.0.3)
     execjs (2.0.2)
-    faraday (0.8.8)
-      multipart-post (~> 1.2.0)
+    faraday (0.9.0)
+      multipart-post (>= 1.2, < 3)
     faraday-http-cache (0.4.0)
       faraday (~> 0.8)
-    faraday_middleware (0.9.0)
-      faraday (>= 0.7.4, < 0.9)
-    faraday_middleware-parse_oj (0.2.1)
-      faraday_middleware (~> 0.8)
+    faraday_middleware (0.9.1)
+      faraday (>= 0.7.4, < 0.10)
+    faraday_middleware-parse_oj (0.3.0)
+      faraday (~> 0.9.0)
+      faraday_middleware (~> 0.9.1)
       oj (~> 2.0)
     ffi (1.9.3)
     foreman (0.63.0)
@@ -130,7 +131,7 @@ GEM
     gon (4.1.1)
       actionpack (>= 2.3.0)
       json
-    hashie (2.0.5)
+    hashie (2.1.1)
     health_check (1.4.1)
       rails (>= 2.3.0)
     hike (1.2.3)
@@ -162,7 +163,7 @@ GEM
     money (5.1.1)
       i18n (~> 0.6.0)
     multi_json (1.8.2)
-    multipart-post (1.2.0)
+    multipart-post (2.0.0)
     net-http-digest_auth (1.4)
     net-http-persistent (2.9)
     newrelic_rpm (3.7.3.199)

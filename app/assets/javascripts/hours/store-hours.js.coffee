@@ -51,10 +51,9 @@ $ =>
     else
       noStoresMatchingMessage.addClass('hide-fully')
 
-
   $('.js-store-hours-keyword-filter-input').fastLiveFilter '.js-store-list',
     selector: '.js-store-hours-store-name',
     filterFunction: filterStores
-    callback: (stores, numShown)=>
+    callback: (stores, numShown) =>
       filterStoreLetterHeadings(stores, numShown)
       handleNoStoresInList(numShown)

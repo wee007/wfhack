@@ -5,7 +5,7 @@
 /*
 	List of stores.
 
-  .stores-list--condensed     - A smaller stripped down version of the store list
+  .stores-list--compact     - A smaller stripped down version of the store list
   .stores-list--fixed-height  - Set maximum height and enable scrolling
 */
 
@@ -97,7 +97,7 @@
   }
 
 /* Modifier: A smaller stripped down version of the store list */
-.stores-list--condensed {
+.stores-list--compact {
   .stores-list__store-name {
     @include to-rem(padding-top padding-bottom, $spacing-half);
     margin: 0 auto;

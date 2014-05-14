@@ -8,12 +8,18 @@ Project Website: http://anthonybush.com/projects/jquery_fast_live_filter/
 Modified by Alec Raeside
 ###
 
+#= require support/debounce
+#= require support/request-animation-frame
+
+
 jQuery.fn.fastLiveFilter = (list, options) ->
   # Options: input, list, timeout, callback
   options = options or {}
   $list = jQuery(list)
+  $listRaw = $list.get(0)
   input = this
   el = null
+  oldNumShown = 0
   lastFilter = null
   timeout = options.timeout or 0
   callback = options.callback or ->
@@ -29,8 +35,7 @@ jQuery.fn.fastLiveFilter = (list, options) ->
   len = lis.length
 
   list = []
-  i = 0
-  lis.each (i, el)->
+  for el, i in lis
 
     el = $(el)
     text = ''
@@ -40,45 +45,45 @@ jQuery.fn.fastLiveFilter = (list, options) ->
       text = el.text()
 
     list.push {
-      element: el
-      text: text
+      element: el.get(0)
+      text: $.trim(text)
       hidden: false
     }
     @
 
-  oldDisplay = (if len > 0 then lis[0].style.display else "block")
+  onChange = debounce( ->
+    window.requestAnimFrame( ->
+      filter = input.val().toLowerCase()
+      numShown = 0
 
-  input.change(->
-    filter = input.val().toLowerCase()
-    numShown = 0
+      for listObject, i in list
+        el = listObject.element
+        if filter == '' or filterFunction(filter, listObject.text.toLowerCase())
+          # Add class to raw DOM element for performance. See http://jsperf.com/display-none-vs-class-hidden/4
+          el.className = el.className.replace( /(?:^|\s)hide-fully(?!\S)/g , '' ) if listObject.hidden or filter == ''
+          listObject.hidden = false
+        else
+          el.className += ' hide-fully' unless listObject.hidden
+          listObject.hidden = true
 
-    $.each list, (i, listObject)->
-      el = listObject.element.get(0)
-      if filter == '' or filterFunction(filter, listObject.text.toLowerCase())
-        # Add class to raw DOM element for performance. See http://jsperf.com/display-none-vs-class-hidden/4
-        el.className = el.className.replace( /(?:^|\s)hide-fully(?!\S)/g , '' ) if listObject.hidden or filter == ''
-        listObject.hidden = false
-        numShown++
-      else
-        el.className += ' hide-fully' unless listObject.hidden
-        listObject.hidden = true
+        unless listObject.hidden
+          numShown++
 
-      if numShown == 0
-        $list.addClass 'hide-fully'
-      else
-        $list.removeClass 'hide-fully'
+      if numShown == 0 and oldNumShown > 0
+        $listRaw.className += ' hide-fully'
+      else if numShown > 0 and oldNumShown == 0
+        $listRaw.className = $listRaw.className.replace( /(?:^|\s)hide-fully(?!\S)/g , '' )
 
-    callback list, numShown
+      oldNumShown = numShown
 
-    false
-  ).keydown ->
-    clearTimeout keyTimeout
-    keyTimeout = setTimeout(->
-      return  if input.val() is lastFilter
-      lastFilter = input.val()
-      input.change()
-      return
-    , timeout)
-    return
+      callback list, numShown
+    )
+  , timeout)
+
+  inputEvent = 'input'
+  if $('html').hasClass('ie-9')
+    inputEvent += ' keydown'
+  input.on(inputEvent, onChange)
+
 
   this # maintain jQuery chainability

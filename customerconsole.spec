@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.366
+Version:     0.2.367
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -92,6 +92,10 @@ fi
 
 
 %changelog
+* Wed May 14 2014 ci <doperations@au.westfield.com> 0.2.367-1
+- Improve SEO by making canonical URLs more accurate
+  (jlambert@au.westfield.com)
+
 * Wed May 14 2014 ci <doperations@au.westfield.com> 0.2.366-1
 - moved sample urls from helper into spec file (bpritchard@au.westfield.com)
 - update after code review (bpritchard@au.westfield.com)

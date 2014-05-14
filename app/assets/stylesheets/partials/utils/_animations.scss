@@ -1,6 +1,7 @@
 /* ======================================================================================
    @UTILS -> ANIMATIONS
    ====================================================================================== */
+
 /*
   Usage: Generate reusable keyframe animations
 
@@ -10,10 +11,10 @@
 
 /* Full rotation */
 @include prefix-keyframe(rotate) {
-    from {
-        @include rotate(0);
-    }
-    to {
-        @include rotate(360);
-    }
+  from {
+    @include rotate(0);
+  }
+  to {
+    @include rotate(360);
+  }
 }

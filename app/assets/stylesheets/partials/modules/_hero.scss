@@ -10,7 +10,7 @@
 
 .hero {
   @include to-rem(height, 220);
-  @include to-rem(margin-bottom, $spacing-base);
+  @extend %mrg-base;
   background-repeat: no-repeat;
   background-position: 100% 0;
   background-size: cover;

@@ -5,7 +5,7 @@
 /*
   Display price and if applicable sale price with % savings tag in a horizontal strip.
 
-  .price-strip--lrg         - Larger text size
+  .price-strip--lrg-txt         - Larger text size
 
   Styleguide Price Strip
 */
@@ -19,7 +19,7 @@
 }
 
 /* Modifier: larger text size */
-.price-strip--lrg {
+.price-strip--lrg-txt {
   @include font-size($font-size-lrger);
 
   &,

@@ -95,7 +95,7 @@
     /* Non JS users except when it's the hover version */
     .no-js .drop-down-menu:not(.drop-down-container--hover) & {width: auto;}
 
-    /* Shared rules */
+    /* Header shared */
     .drop-down-menu__hdr,
     .drop-down-menu__hdr-sub {
       font-weight: normal;
@@ -162,7 +162,7 @@
     .drop-down-menu__divider {border-bottom: 1px solid $color-grey-med-3;}
   }
 
-    /* Drop down pointer arrow (inc. for 'Filters' module and 'Header menu' drop downs) */
+    /* Drop down pointer arrow */
     .pointer-up:before {
       pointer-events: none;
       display: block;

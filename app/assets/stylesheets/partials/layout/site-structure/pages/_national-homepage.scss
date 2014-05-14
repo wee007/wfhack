@@ -10,8 +10,7 @@
     To update search for '[Text colour change]' comments.
 */
 
-/* [`body` ELEMENT]
--------------------------------------------------------*/
+/* `body` element */
 .page-national-homepage {
   padding-bottom: 0;
   background-color: $color-grey-dark-1;
@@ -23,8 +22,7 @@
   }
 }
 
-  /* [INNER WRAPPER]
-  -------------------------------------------------------*/
+  /* Inner Wrapper */
   .national__inner {
     position: absolute;
     width: 100%;
@@ -42,8 +40,7 @@
     .icon:before {color: #fff;}
   }
 
-    /* [HEADER]
-    -------------------------------------------------------*/
+    /* Header */
     .national__logo,
     .national__header__intro,
     .national__header nav {position: absolute;}
@@ -176,8 +173,7 @@
         }
       }
 
-    /* [MAIN]
-    -------------------------------------------------------*/
+    /* Main */
 
     /* Tabs */
     .national__tabs {
@@ -286,8 +282,7 @@
           }
       }
 
-    /* [FOOTER]
-    -------------------------------------------------------*/
+    /* Footer */
     .national__footer {
       text-align: center;
       @include font-size($font-size-sml);

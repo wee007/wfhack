@@ -204,11 +204,15 @@
 
       h2,
       .tab__nav {
-        @include font-size($font-size);
+        @include font-size($font-size - 1);
+
+        @include respond-min($palm-lrg) {
+          @include font-size($font-size);
+        }
 
         @include respond-min($non-palm) {
           display: inline-block;
-          @include font-size($font-size-lrger);
+          @include font-size($font-size-lrg);
         }
       }
 

@@ -77,7 +77,7 @@ jQuery.fn.fastLiveFilter = (list, options) ->
   , timeout)
 
   inputEvent = 'input'
-  if $('html').hasClass('ie-9')
+  if isOldIE
     inputEvent += ' keydown'
   input.on(inputEvent, onChange)
 

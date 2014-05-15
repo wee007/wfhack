@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.376
+Version:     0.2.377
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -92,6 +92,12 @@ fi
 
 
 %changelog
+* Thu May 15 2014 ci <doperations@au.westfield.com> 0.2.377-1
+- Merge pull request #6 from chris-pearce/refactoring-framework (hi@chris-
+  pearce.me)
+- WSF-6438 - Making spacing names consistent and general cleanup
+  (cpearce@au.westfield.com)
+
 * Thu May 15 2014 ci <doperations@au.westfield.com> 0.2.376-1
 - 
 

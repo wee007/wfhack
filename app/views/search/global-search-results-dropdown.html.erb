@@ -1,3 +1,6 @@
+<script>
+	globalSearch.numberOfResults = <%= @results_count %>
+</script>
 <dl class="search-results__list " tabindex="0">
   <% @search.sorted_each do |kind, facet_result| %>
 	  <dt>
@@ -17,8 +20,4 @@
 		  </dd>
 	  <% end %>
   <% end %>
-
 </dl>
-<script>
-	globalSearch.numberOfResults = <%= @results_count %>
-</script>

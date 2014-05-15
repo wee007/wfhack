@@ -1,6 +1,6 @@
 class @GlobalSearch
   selectors:
-    globalSearch: '.js-global-search-results-keyboard-scrolling'
+    globalSearch: '.js-global-search'
     input: '.js-global-search-input'
     searchStatus: '.js-global-search-status'
     results: '.js-global-search-results'

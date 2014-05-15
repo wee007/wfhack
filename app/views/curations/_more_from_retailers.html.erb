@@ -1,5 +1,5 @@
 <nav role="navigation">
-  <ul class="product-curation__retailers horiz-list horiz-list--spacing-half horiz-list--spacing-half-wrap">
+  <ul class="product-curation__retailers horiz-list horiz-list--gutter-half horiz-list--mrg-half">
     <% @curation.retailers.each do |retailer| %><li>
       <%= link_to centre_products_path(centre_id: params[:centre_id], retailer: [retailer[:code]]), class: 'btn btn--main btn--main-dark btn--main-compact-sides btn--main-max-width' do %>
         <span class="txt-truncate"><%= retailer[:name] %></span>

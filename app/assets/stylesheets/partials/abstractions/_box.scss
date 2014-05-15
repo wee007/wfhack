@@ -9,8 +9,6 @@
   .box--drop-down     - Drop down style drop shadow
   .box--torn          - Torn paper treatment
   .box--sphere        - Make into a sphere
-  .box--mrg-base      - Base bottom spacing
-  .box--mrg-half      - Half bottom spacing
 
   Styleguide Box
 */
@@ -43,12 +41,6 @@
     height: 6px;
   }
 }
-
-/* Modifier: base margin bottom */
-.box--mrg-base {@include to-rem(margin-bottom, $spacing-base);}
-
-/* Modifier: half base margin bottom */
-.box--mrg-half {@include to-rem(margin-bottom, $spacing-half);}
 
 /* Modifier: make into a sphere */
 .box--sphere {border-radius: 100%;}

@@ -5,8 +5,6 @@
 /*
   Create a pill like button but not limited to buttons.
 
-  .pill--spacing        - Apply spacing both sides
-
   Styleguide Pill
 */
 
@@ -19,6 +17,3 @@
   box-shadow: $box-shadow;
   @include font-size($font-size-milli);
 }
-
-/* Modifier: apply spacing both sides */
-.pill--spacing {@include to-rem(margin-left margin-right, $spacing-base);}

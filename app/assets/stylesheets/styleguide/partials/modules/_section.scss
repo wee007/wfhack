@@ -13,7 +13,4 @@
 }
 
   /* Description of section */
-  .sg-section__desc {
-    &,
-    p {@extend %mrg-base;}
-  }
+  .sg-section__desc {@extend %mrg-base;}

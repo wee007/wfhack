@@ -165,9 +165,6 @@
     @include to-rem(padding-bottom, 32);
 
     abbr {border-bottom: 0;}
-
-    /* Modifier: Movie - copy explaining to users how to purchase ticket */
-    .detail-view--movie & p {@extend %mrg-base;}
   }
 
   /* Subtle text */

@@ -1,5 +1,5 @@
 /* ======================================================================================
-   @MODULES -> DIALOG
+   @MODULES -> WIDGETS -> DIALOG
    ====================================================================================== */
 
 /*
@@ -45,81 +45,3 @@
 	right: 0;
 	bottom: 0;
 }
-
-/* Modifier: National product browse centre selector */
-.dialog--national-centre-selector {
-	text-align: center;
-
-	/* Set fixed width and align it to the center of the viewport */
-	@include respond-min($palm-lrg) {
-		left: 50%;
-		right: auto;
-		@include to-rem(margin-left, -220);
-		@include to-rem(width, 440);
-	}
-
-	@include respond-min($lap-sml-middle) {
-		@include to-rem(top, $spacing-dbl);
-	}
-
-	/* Heading */
-	h1 {
-		width: 92%;
-		margin-left: auto;
-		margin-right: auto;
-		@include font-size($font-size-lrger, 1.3);
-
-		@include respond-range(410, $palm-lrg) {
-			width: 78%;
-		}
-
-		@include respond-range($palm-lrg + 1, $lap-sml-middle - 1) {
-			width: 70%;
-		}
-
-		@include respond-min($lap-sml-middle) {
-			@include font-size(28, 1.3);
-		}
-	}
-
-	/* Drop down menu */
-	.drop-down-menu {
-		width: 90%;
-		margin-left: auto;
-		margin-right: auto;
-
-		/* Adjust widths at these breakpoints */
-		@include respond-min(420) {
-			width: 70%;
-		}
-
-		@include respond-min($palm-lrg) {
-			@include to-rem(width, $drop-down-width);
-		}
-	}
-
-		.drop-down-menu__target {text-align: left;}
-
-	/* Close dialog button */
-	.btn--faux-link {
-		@include font-size($font-size-sml, 1);
-
-		@include respond-min($lap-sml-middle) {
-			@include font-size($font-size, 1);
-		}
-	}
-}
-
-	/* Westfield logo */
-	.dialog__logo img {
-		width: 82px;
-		height: 26px;
-
-		@include respond-min($lap-sml-middle) {
-			width: 114px;
-			height: 36px;
-		}
-	}
-
-	/* Spacing */
-  .dialog__mrg-base {@extend %mrg-base;}

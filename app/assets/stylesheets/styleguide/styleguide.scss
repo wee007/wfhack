@@ -3,14 +3,14 @@
    ====================================================================================== */
 
 /*
-  All class names need to be prefixed with `sg-` so they're isolated to the 'Style Guide' pages only and don't conflict with the project styles.
+  All class names need to be namespaced with `sg-` so they're isolated to the Style Guide pages only and don't conflict with the project styles.
 
   Partial dir structure (see application.scss for explaination of the purpose of each dir)
     Main site:
       - UTILS
         - PLACEHOLDERS
 
-    Style guide:
+    Style Guide:
       - UTILS
       - BASE
       - LAYOUT
@@ -33,6 +33,7 @@
 
 /* Utils */
 @import "partials/utils/vars";
+@import "partials/utils/overrides";
 
 /* Base */
 @import "partials/base/headings";
@@ -49,6 +50,3 @@
 @import "partials/modules/modifier";
 @import "partials/modules/code-block";
 @import "partials/modules/intro";
-
-/* Overrides */
-@import "partials/utils/overrides";

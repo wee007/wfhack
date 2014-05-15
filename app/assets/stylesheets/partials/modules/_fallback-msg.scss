@@ -5,7 +5,7 @@
 /*
   Fallback message accompanied by a large icon, typically used when there is no content for a page.
 
-  .fallback-msg--spacing-top      - Add large top margin
+  .fallback-msg--mrg-top      - Add large top margin
 
   Styleguide Fallback Message
 */
@@ -34,7 +34,7 @@
 }
 
 /* Modifier: add large top margin */
-.fallback-msg--spacing-top {
+.fallback-msg--mrg-top {
   @include to-rem(margin-top, $spacing-dbl);
 
   @include respond-min($non-palm) {

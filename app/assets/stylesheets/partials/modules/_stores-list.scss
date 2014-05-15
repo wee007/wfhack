@@ -7,11 +7,14 @@
 
   .stores-list--compact       - A smaller stripped down version of the store list
   .stores-list--fixed-height  - Set maximum height and enable scrolling
+
+  Styleguide Stores List
 */
 
 .stores-list {
   margin-bottom: 0;
   background-color: #fff;
+  border-top: 1px solid $color-grey-med-3;
 
   /* Store A-Z grouping header */
   dt {
@@ -100,10 +103,8 @@
 .stores-list--compact {
   .stores-list__store-name {
     @include to-rem(padding-top padding-bottom, $spacing-half);
-    @include to-rem(margin-left, $spacing-base);
-    @include respond-min($non-palm) {
-
-    }
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 

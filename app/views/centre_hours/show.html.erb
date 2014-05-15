@@ -1,4 +1,4 @@
-<% content_for :class_for_body, "page-centre-hours" %>
+<% content_for :class_for_body, "page-shopping-hours" %>
 
 <%# Divider %>
 <div class="divider divider--dbl">
@@ -108,46 +108,43 @@
             <h2>Find Store Hours &amp; Info</h2>
 
             <%# Store hours box %>
-            <div class="box box--position">
+            <div class="box">
               <%# Keyword Filter %>
-              <div class="container container--position container--narrow js-disabled-hide">
+              <div class="container islet-ends js-disabled-hide">
                 <label for="keyword-filter-input" class="hide-visually">Filter stores by keyword</label>
-                <input id="keyword-filter-input" type="search" placeholder="Enter store name&#8230;" class="txt-input mrg-half mrg-half-top js-store-hours-keyword-filter-input">
+                <input id="keyword-filter-input" type="search" placeholder="Enter store name&#8230;" class="txt-input js-store-hours-keyword-filter-input">
               </div>
               <%# Keyword Filter %>
 
               <%# Stores List %>
-              <div>
-                <dl class="stores-list stores-list--compact stores-list--fixed-height js-store-hours-store-list">
-                  <% @all_stores.group_by{|store| store.first_letter }.each do |letter, stores| %>
-                    <dt class="js-store-hours-keyword-filter-letter">
-                      <div class="stores-list__inner container container--narrow">
-                        <%= letter %>
+              <dl class="stores-list stores-list--compact stores-list--fixed-height js-store-hours-store-list">
+                <% @all_stores.group_by{|store| store.first_letter }.each do |letter, stores| %>
+                  <dt class="js-store-hours-keyword-filter-letter">
+                    <div class="stores-list__inner container">
+                      <%= letter %>
+                    </div>
+                  </dt>
+                  <% stores.each do |store| %>
+                    <dd>
+                      <div class="stores-list__store-name container">
+                        <%= link_to store.name, centre_store_url(@centre.code, store.retailer_code, store.id), class: 'js-store-hours-store-name' %>
                       </div>
-                    </dt>
-                    <% stores.each do |store| %>
-                      <dd>
-                        <div class="stores-list__store-name container container--narrow">
-                          <%= link_to store.name, centre_store_url(@centre.code, store.retailer_code, store.id), class: 'js-store-hours-store-name' %>
-                        </div>
-                      </dd>
-                    <% end %>
+                    </dd>
                   <% end %>
-                </dl>
-
-                <%# No stores matching keyword filter message %>
-                <div class="fallback-msg fallback-msg--compact island hide-fully js-store-hours-keyword-filter-no-results">
-                  <p>
-                    <span class="fallback-msg__icon icon icon--store icon--flush-top" aria-hidden="true"></span>
-                    <em class="h1">No Stores matching
-                      <span class="js-store-hours-keyword-filter-value"></span>
-                    </em>
-                  </p>
-                </div>
-                <%# //No stores matching keyword filter message %>
-
-              </div>
+                <% end %>
+              </dl>
               <%# //Stores List %>
+
+              <%# No stores matching keyword filter message %>
+              <div class="fallback-msg fallback-msg--compact island hide-fully js-store-hours-keyword-filter-no-results">
+                <p>
+                  <span class="fallback-msg__icon icon icon--store icon--flush-top icon--deca icon--hecto-non-palm"  aria-hidden="true"></span>
+                  <em class="h1">No Stores matching
+                    <span class="js-store-hours-keyword-filter-value"></span>
+                  </em>
+                </p>
+              </div>
+              <%# //No stores matching keyword filter message %>
 
             </div>
             <%# //Store hours box %>

@@ -1,0 +1,16 @@
+<%= styleguide_block 'Stores List' do |style| %>
+  <dl class="stores-list $modifier_class">
+    <dt class="js-store-hours-keyword-filter-letter">
+      <div class="stores-list__inner container">
+        Items
+      </div>
+    </dt>
+    <% %w(pharetra lectus justo arcu sit sapien turpis vestibulum tincidunt sodales).each do |store| %>
+    <dd>
+      <div class="stores-list__store-name container">
+        <a href="#"><%= store %></a>
+      </div>
+    </dd>
+    <% end %>
+  </dl>
+<% end %>

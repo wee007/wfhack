@@ -51,14 +51,3 @@
       @include font-size(60, 1);
     }
   }
-
-/* Modifier: reduce size of icon */
-.fallback-msg--compact {
-  .fallback-msg__icon:before {
-    @include font-size($font-size-deca, 1);
-
-    @include respond-min($non-palm) {
-      @include font-size($font-size-hecto, 1);
-    }
-  }
-}

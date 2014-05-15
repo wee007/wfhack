@@ -15,8 +15,8 @@ gem 'rack-pjax'
 gem 'health_check'
 
 # For calling APIs, response parsing etc.
-gem 'service_api', git: 'git@github.com:westfield/service_api.git'
-gem 'faraday'
+gem 'service_api', git: 'git@github.com:westfield/service_api.git', :ref => '57e171dc8dd05622505d81be840390bf6f9612fd'
+gem 'faraday', '0.8.8'
 gem 'faraday_middleware'
 gem 'service_helper', git: 'git@github.com:westfield/service_helper.git'
 gem 'hashie'

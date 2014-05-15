@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.377
+Version:     0.2.378
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -92,6 +92,23 @@ fi
 
 
 %changelog
+* Thu May 15 2014 ci <doperations@au.westfield.com> 0.2.378-1
+- Merge pull request #5 from AlecRaeside/remove-angular-from-global-search
+  (alec@smartalecwebsites.com.au)
+- fix up element order and class name (alec@smartalecwebsites.com.au)
+- Revert gem changes (jlambert@au.westfield.com)
+- refactor selector definition (alec@smartalecwebsites.com.au)
+- fix up tests (alec@smartalecwebsites.com.au)
+- Prevent angular from taking control of dropdown links
+  (jlambert@au.westfield.com)
+- Fix URL, code cleanup (jlambert@au.westfield.com)
+- remove unused variable (alec@smartalecwebsites.com.au)
+- extra lines (alec@smartalecwebsites.com.au)
+- update search labels (alec@smartalecwebsites.com.au)
+- refactor (alec@smartalecwebsites.com.au)
+- Code cleanup, add tests (jlambert@au.westfield.com)
+- WSF-6535 refactor global search to remove angular (jlambert@au.westfield.com)
+
 * Thu May 15 2014 ci <doperations@au.westfield.com> 0.2.377-1
 - Merge pull request #6 from chris-pearce/refactoring-framework (hi@chris-
   pearce.me)

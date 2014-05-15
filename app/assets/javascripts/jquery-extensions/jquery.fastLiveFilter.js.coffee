@@ -9,8 +9,6 @@ Modified by Alec Raeside
 ###
 
 #= require support/debounce
-#= require support/request-animation-frame
-
 
 jQuery.fn.fastLiveFilter = (list, options) ->
   # Options: input, list, timeout, callback
@@ -52,32 +50,30 @@ jQuery.fn.fastLiveFilter = (list, options) ->
     @
 
   onChange = debounce( ->
-    window.requestAnimFrame( ->
-      filter = input.val().toLowerCase()
-      numShown = 0
+    filter = input.val().toLowerCase()
+    numShown = 0
 
-      for listObject, i in list
-        el = listObject.element
-        if filter == '' or filterFunction(filter, listObject.text.toLowerCase())
-          # Add class to raw DOM element for performance. See http://jsperf.com/display-none-vs-class-hidden/4
-          el.className = el.className.replace( /(?:^|\s)hide-fully(?!\S)/g , '' ) if listObject.hidden or filter == ''
-          listObject.hidden = false
-        else
-          el.className += ' hide-fully' unless listObject.hidden
-          listObject.hidden = true
+    for listObject, i in list
+      el = listObject.element
+      if filter == '' or filterFunction(filter, listObject.text.toLowerCase())
+        # Add class to raw DOM element for performance. See http://jsperf.com/display-none-vs-class-hidden/4
+        el.className = el.className.replace( /(?:^|\s)hide-fully(?!\S)/g , '' ) if listObject.hidden or filter == ''
+        listObject.hidden = false
+      else
+        el.className += ' hide-fully' unless listObject.hidden
+        listObject.hidden = true
 
-        unless listObject.hidden
-          numShown++
+      unless listObject.hidden
+        numShown++
 
-      if numShown == 0 and oldNumShown > 0
-        $listRaw.className += ' hide-fully'
-      else if numShown > 0 and oldNumShown == 0
-        $listRaw.className = $listRaw.className.replace( /(?:^|\s)hide-fully(?!\S)/g , '' )
+    if numShown == 0 and oldNumShown > 0
+      $listRaw.className += ' hide-fully'
+    else if numShown > 0 and oldNumShown == 0
+      $listRaw.className = $listRaw.className.replace( /(?:^|\s)hide-fully(?!\S)/g , '' )
 
-      oldNumShown = numShown
+    oldNumShown = numShown
 
-      callback list, numShown
-    )
+    callback list, numShown
   , timeout)
 
   inputEvent = 'input'

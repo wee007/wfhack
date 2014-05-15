@@ -3,8 +3,7 @@ class StoresController < ApplicationController
   def index
     gon.push \
       centre: centre,
-      stores: @stores.dup,
-      google_content_experiment: params[:gce_var]
+      stores: @stores.dup
 
     store_decorator = FilteredStoresDecorator.decorate(@stores)
 

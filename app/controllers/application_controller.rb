@@ -20,6 +20,12 @@ class ApplicationController < ActionController::Base
     else
       RequestStore.store[:nocache] = false
     end
+
+    # Let javascript know about google content experiments, and centre_id
+    gon.push(
+        google_content_experiment: params[:gce_var],
+        centre_id: params[:centre_id]
+      )
   end
 
   # Prevent CSRF attacks by raising an exception.

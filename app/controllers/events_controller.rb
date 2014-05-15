@@ -10,8 +10,6 @@ class EventsController < ApplicationController
     #Add time zone to events
     @events.each { |event| event.timezone = @centre.timezone }
 
-    gon.push(google_content_experiment: params[:gce_var])
-
     meta.push(
       page_title: "Events and Activities at #{@centre.name}",
       description: "Find the latest events and activities for children and adults taking place at #{@centre.name}"
@@ -25,8 +23,6 @@ class EventsController < ApplicationController
 
     #Add time zone to event
     @event.timezone = @centre.timezone
-
-    gon.push(google_content_experiment: params[:gce_var])
 
     meta.push @event.meta
     meta.push(

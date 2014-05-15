@@ -10,8 +10,6 @@ class DealsController < ApplicationController
 
     eager_load_stores
 
-    gon.push(google_content_experiment: params[:gce_var])
-
     meta.push(
       page_title: "Deals, Sales & Special Offers available at #{@centre.name}",
       description: "Find the best deals, sales and great offers on a variety of products and brands at #{@centre.name}"
@@ -30,8 +28,7 @@ class DealsController < ApplicationController
 
     gon.push \
       centre: @centre,
-      stores: [@store],
-      google_content_experiment: params[:gce_var]
+      stores: [@store]
 
     meta.push @deal.meta
     meta.push(

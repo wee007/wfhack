@@ -14,6 +14,36 @@ describe SearchHelper do
         expect(@url).to eql('/bondijunction/events/123')
       end
     end
+    describe "When building a url with one extra parameter" do
+      before(:each) do
+        attributes = Hashie::Mash.new(
+          id: 123
+        )
+        extras = {
+          search_source: 'dropdown'
+        }
+        @url = helper.build_url('bondijunction', 'events', attributes, extras)
+      end
+      it "should build it according to the attributes and parameter" do
+        expect(@url).to eql('/bondijunction/events/123?search_source=dropdown')
+      end
+    end
+    describe "When building a url with two extra parameters" do
+      before(:each) do
+        attributes = Hashie::Mash.new(
+          id: 123
+        )
+        extras = {
+          search_source: 'dropdown',
+          search_term: 'event'
+        }
+        @url = helper.build_url('bondijunction', 'events', attributes, extras)
+      end
+      it "should build it according to the attributes and parameters" do
+        expect(@url).to eql('/bondijunction/events/123?search_source=dropdown&search_term=event')
+      end
+    end
+
     describe "When a url is provided" do
       before(:each) do
         attributes = Hashie::Mash.new(

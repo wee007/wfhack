@@ -31,7 +31,7 @@ describe DealsController do
       context "when google content experiment param is not present" do
         it "assigns nil google_content_experiment variable" do
           controller.stub(:gon).and_return(gon)
-          gon.should_receive(:push).with(google_content_experiment: nil)
+          gon.should_receive(:push).with(google_content_experiment: nil, centre_id: "bondijunction")
           get :index, centre_id: 'bondijunction', campaign_code: 'halloween'
         end
       end
@@ -39,7 +39,7 @@ describe DealsController do
       context "when google content experiment param is present" do
         it "assigns the param value to google_content_experiment variable" do
           controller.stub(:gon).and_return(gon)
-          gon.should_receive(:push).with(google_content_experiment: '1')
+          gon.should_receive(:push).with(google_content_experiment: '1', centre_id: "bondijunction")
           get :index, centre_id: 'bondijunction', campaign_code: 'halloween', gce_var: 1
         end
       end
@@ -115,7 +115,8 @@ describe DealsController do
       context "when google content experiment param is not present" do
         it "assigns nil google_content_experiment variable" do
           controller.stub(:gon).and_return(gon)
-          gon.should_receive(:push).with(centre: {}, stores: [store], google_content_experiment: nil)
+          gon.should_receive(:push).with(google_content_experiment: nil, centre_id: "bondijunction")
+          gon.should_receive(:push).with(centre: {}, stores: [store])
           get :show, id: 1, centre_id: 'bondijunction', retailer_code: 'for-tracking'
         end
       end
@@ -123,7 +124,8 @@ describe DealsController do
       context "when google content experiment param is present" do
         it "assigns the param value to google_content_experiment variable" do
           controller.stub(:gon).and_return(gon)
-          gon.should_receive(:push).with(centre: {}, stores: [store], google_content_experiment: '1')
+          gon.should_receive(:push).with(google_content_experiment: "1", centre_id: "bondijunction")
+          gon.should_receive(:push).with(centre: {}, stores: [store])
           get :show, id: 1, centre_id: 'bondijunction', retailer_code: 'for-tracking', gce_var: 1
         end
       end

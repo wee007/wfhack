@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.378
+Version:     0.2.379
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -92,6 +92,10 @@ fi
 
 
 %changelog
+* Fri May 16 2014 ci <doperations@au.westfield.com> 0.2.379-1
+- Merge pull request #3 from mastfish/fast-cats (mastfish@gmail.com)
+- easy speedups (jlambert@au.westfield.com)
+
 * Thu May 15 2014 ci <doperations@au.westfield.com> 0.2.378-1
 - Merge pull request #5 from AlecRaeside/remove-angular-from-global-search
   (alec@smartalecwebsites.com.au)

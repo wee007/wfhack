@@ -131,13 +131,14 @@
         $scope.activeFilter = filterName
 
         #let other dropdowns know that they should close themselves
-        TogVis.closeAll()
         SocialShare.closeAll()
+
+        $event.stopPropagation()
 
         # Stop event from getting to toggle visibility instance for "Filters" mobile button
         # It doesnt need to know as it's not being used at this breakpoint
         if angular.element("html").hasClass("lap-lrg")
-          $event.stopPropagation()
+          TogVis.closeAll()
         else
           $scope.triggersVisible = false;
       else

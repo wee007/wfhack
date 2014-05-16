@@ -73,10 +73,10 @@ class @GlobalSearch
 
   setupEventListeners: =>
     # Listen to "input" event instead of keydown as this is trigger on clipboard paste as well as keydown
-    doc.on 'input', @inputSelector, @makeSuggestions
+    doc.on 'input', @selectors.input, @makeSuggestions
 
     # Capture esc, up arrow, down arrow and enter
-    doc.on 'keydown', @inputSelector, (event) =>
+    doc.on 'keydown', @selectors.input, (event) =>
       switch event.keyCode
         when 27 # Esc
           @hideSuggestions()

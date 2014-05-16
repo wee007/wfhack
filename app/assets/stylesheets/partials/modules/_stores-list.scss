@@ -65,6 +65,13 @@
       color: $color-txt-light;
       @include font-size($font-size-sml, 1.5);
     }
+
+    /* Modifier: A smaller stripped down version of the store list */
+    .stores-list--compact & {
+      @include to-rem(padding-top padding-bottom, $spacing-half);
+      margin-left: auto;
+      margin-right: auto;
+    }
   }
 
   /* Logo */
@@ -99,14 +106,6 @@
     }
   }
 
-/* Modifier: A smaller stripped down version of the store list */
-.stores-list--compact {
-  .stores-list__store-name {
-    @include to-rem(padding-top padding-bottom, $spacing-half);
-    margin-left: auto;
-    margin-right: auto;
-  }
-}
 
 /* Modifier: Set maximum height and enable scrolling */
 .stores-list--fixed-height {

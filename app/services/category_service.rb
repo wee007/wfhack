@@ -60,7 +60,7 @@ class CategoryService
 
       return [] if super_cats.blank?
 
-      STATIC_SUPER_CATS.map do |super_cat|
+      Parallel.map(STATIC_SUPER_CATS, :in_threads => 4) do |super_cat|
         # Get each super category
         category = super_cats.find{|sc| sc.code == super_cat }
         next if category.nil?
@@ -69,14 +69,12 @@ class CategoryService
         children = ProductService.fetch(@search_params.merge({rows: 0, super_cat: super_cat}))
 
         # Tack on the children of said super category
-        category[:children] = facet_from_fetch('category', children)
+        category[:children] = facet_from_fetch('category', children) || []
 
-        unless category[:children].nil?
-          category[:children].each do |c|
-            children = ProductService.fetch(@search_params.merge({rows: 0, category: c.code}))
-            sub_categories = facet_from_fetch('sub_category', children)
-            c[:children] = sub_categories.nil? ? [] : sub_categories
-          end
+        Parallel.each(category[:children], :in_threads => 4)do |c|
+          children = ProductService.fetch(@search_params.merge({rows: 0, category: c.code}))
+          sub_categories = facet_from_fetch('sub_category', children)
+          c[:children] = sub_categories.nil? ? [] : sub_categories
         end
 
         # Implicit return

@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.379
+Version:     0.2.380
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -92,6 +92,12 @@ fi
 
 
 %changelog
+* Fri May 16 2014 ci <doperations@au.westfield.com> 0.2.380-1
+- Merge pull request #11 from mastfish/count-fix (mastfish@gmail.com)
+- Merge pull request #4 from mastfish/track_api_calls (mastfish@gmail.com)
+- Fix for results count (jlambert@au.westfield.com)
+- Add monitoring around API calls (jlambert@au.westfield.com)
+
 * Fri May 16 2014 ci <doperations@au.westfield.com> 0.2.379-1
 - Merge pull request #3 from mastfish/fast-cats (mastfish@gmail.com)
 - easy speedups (jlambert@au.westfield.com)

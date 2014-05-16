@@ -34,7 +34,6 @@ class SearchController < ApplicationController
       centre: params[:centre_id],
       search: {centre: params[:centre_id], term: params["search"]}
     @search = search.inject_dummy_item_for_dropdown
-    @results_count = @search.results.count
     render "global-search-results-dropdown", layout: false
   end
 

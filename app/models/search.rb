@@ -8,6 +8,14 @@ class Search < Hashie::Mash
   	results["centre_information"].first["attributes"]["path"]
   end
 
+  def results_count
+    count = 0
+    results.each do |dummy, result|
+      count = count + result.count
+    end
+    count
+  end
+
   def sort
     results.sort do |a,b|
       ordering_on_type(a.first) <=> ordering_on_type(b.first)

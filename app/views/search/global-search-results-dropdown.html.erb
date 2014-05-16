@@ -1,5 +1,5 @@
 <script>
-	globalSearch.numberOfResults = <%= @results_count %>
+	globalSearch.numberOfResults = <%= @search.results_count %>
 </script>
 <dl class="search-results__list " tabindex="0">
   <% @search.sorted_each do |kind, facet_result| %>

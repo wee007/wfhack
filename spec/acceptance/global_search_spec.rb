@@ -11,9 +11,6 @@ feature 'Global Search' do
     query = 'sdflhjlds'
     find('.test-global-search-input').set(query)
     wait_for_ajax_requests
-    count_container = find('.js-global-search-dropdown-count', :visible => false)
-    # We should always get the dummy result
-    count_container['data-count'].should_not be "0"
     expect(page).to have_content(query)
     find('.js-global-search-dummy-search').click
     # And it should take us to the products search

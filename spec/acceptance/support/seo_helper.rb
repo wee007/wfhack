@@ -36,32 +36,32 @@ shared_context "seo" do
   
   def centre_pages
     visit '/'
-    array = []
+    page_list = []
     elems = all('.test-centre-tile-link')
     elems.each do |elem|
       centre_id = elem[:href].gsub(/^\//, '')
       centre_name = elem.text
-      array << ["#{centre_name} Centre", centre_path(centre_id)]
-      array << ["#{centre_name} Stores", centre_stores_path(centre_id)]
+      page_list << ["#{centre_name} Centre", centre_path(centre_id)]
+      page_list << ["#{centre_name} Stores", centre_stores_path(centre_id)]
       
-      array << ["#{centre_name} Products", centre_products_path(centre_id)]
-      array << ["#{centre_name} Product Sample", get_sample_url_for(:product, centre_id)]
+      page_list << ["#{centre_name} Products", centre_products_path(centre_id)]
+      page_list << ["#{centre_name} Product Sample", get_sample_url_for(:product, centre_id)]
       
       if has_movie_page?(centre_id)
-        array << ["#{centre_name} Movie Page", centre_movies_path(centre_id)]
-#         array << ["#{centre_name} Movie Sample", get_sample_url_for(:movie, centre_id)]
+        page_list << ["#{centre_name} Movie Page", centre_movies_path(centre_id)]
+#         page_list << ["#{centre_name} Movie Sample", get_sample_url_for(:movie, centre_id)]
       end
       
-      array << ["#{centre_name} Services", centre_services_path(centre_id)]
-      array << ["#{centre_name} Information", centre_info_path(centre_id)]
+      page_list << ["#{centre_name} Services", centre_services_path(centre_id)]
+      page_list << ["#{centre_name} Information", centre_info_path(centre_id)]
       
-      array << ["#{centre_name} Deals", centre_deals_path(centre_id)]
-      array << ["#{centre_name} Deal Sample", get_sample_url_for(:deal, centre_id)]
+      page_list << ["#{centre_name} Deals", centre_deals_path(centre_id)]
+      page_list << ["#{centre_name} Deal Sample", get_sample_url_for(:deal, centre_id)]
       
-      array << ["#{centre_name} Events", centre_events_path(centre_id)]
-      array << ["#{centre_name} Event Sample", get_sample_url_for(:event, centre_id)]
+      page_list << ["#{centre_name} Events", centre_events_path(centre_id)]
+      page_list << ["#{centre_name} Event Sample", get_sample_url_for(:event, centre_id)]
     end
-    array
+    page_list
   end
   
   def build_hash_array(param_names, &block)

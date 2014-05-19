@@ -13,7 +13,7 @@ begin
     centres_uri = URI("#{ServiceHelper.uri_for('centre')}/centres.json?country=au")
     stores_uri = URI("#{ServiceHelper.uri_for('store')}/stores.json")
     product_search_url = URI("#{ServiceHelper.uri_for('product')}/products/search.json")
-    curations_uri = "http://www.westfield.com.au/api/canned-search/master/curations.json"
+    curations_uri = URI("#{ServiceHelper.uri_for('canned-search')}/curations.json")
 
     centres = Service::API.get(centres_uri, {}, timeout: 5.minutes, retry: 5)
     stores = Service::API.get(stores_uri, {}, timeout: 5.minutes, retry: 5)

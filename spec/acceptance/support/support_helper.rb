@@ -42,6 +42,12 @@ module SupportHelper
   def clean_url(url)
     URI.decode(url).gsub(/\/$/, '')
   end
+  
+  def expect_one(*args)
+    matches = all(*args)
+    expect(matches.length).to eql(1)
+    matches[0]
+  end
 
   # Capybara driver related
   def set_driver(driver)

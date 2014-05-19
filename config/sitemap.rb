@@ -74,10 +74,11 @@ begin
       available_from = Date.parse(c.available_from)
       available_to = Date.parse(c.available_to)
       today = Date.today
-      if (available_from <= today && available_to >= today) then
-        curation_path = "products/collection/#{c.code}"
-        add curation_path, priority: 0.6
-      end
+      next unless available_from <= today &&
+                  available_to >= today
+
+      curation_path = "products/collection/#{c.code}"
+      add curation_path, priority: 0.6
     end
 
   end

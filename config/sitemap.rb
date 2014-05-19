@@ -13,7 +13,7 @@ begin
     centres_uri = URI("#{ServiceHelper.uri_for('centre')}/centres.json?country=au")
     stores_uri = URI("#{ServiceHelper.uri_for('store')}/stores.json")
     product_search_url = URI("#{ServiceHelper.uri_for('product')}/products/search.json")
-    curations_uri = "http://canned-search-service.production.dbg.westfield.com/api/canned-search/master/curations.json"
+    curations_uri = "http://www.westfield.com.au/api/canned-search/master/curations.json"
 
     centres = Service::API.get(centres_uri, {}, timeout: 5.minutes, retry: 5)
     stores = Service::API.get(stores_uri, {}, timeout: 5.minutes, retry: 5)
@@ -69,12 +69,12 @@ begin
       end
     end
 
-    Rails.logger.info "[SITEMAP] Curations"
+    Rails.logger.info "[SITEMAP] Collections"
     curations.data.each do |c|
       available_from = Date.parse(c.available_from)
       available_to = Date.parse(c.available_to)
       today = Date.today
-      if (available_from < today && available_to > today) then
+      if (available_from <= today && available_to >= today) then
         curation_path = "products/collection/#{c.code}"
         add curation_path, priority: 0.6
       end

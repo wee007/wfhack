@@ -1,5 +1,5 @@
 /* ======================================================================================
-   @LAYOUT -> NATIONAL HOMEPAGE
+   @LAYOUT -> SITE STRUCTURE -> PAGES -> NATIONAL HOMEPAGE
    ====================================================================================== */
 
 /*
@@ -10,9 +10,8 @@
     To update search for '[Text colour change]' comments.
 */
 
-/* [`body` ELEMENT]
--------------------------------------------------------*/
-.national {
+/* `body` element */
+.page-national-homepage {
   padding-bottom: 0;
   background-color: $color-grey-dark-1;
 
@@ -23,21 +22,25 @@
   }
 }
 
-  /* [INNER WRAPPER]
-  -------------------------------------------------------*/
+  /* Inner Wrapper */
   .national__inner {
     position: absolute;
     width: 100%;
     height: 100%;
 
+    /* Resets */
+    h1, .h1,
+    h2, .h2 {margin-bottom: 0;}
+
     /* [Text colour change] change this to colour needed */
     &,
     a,
-    .icon:before {color: $color-grey-dark-1;}
+    h1, .h1,
+    h2, .h2,
+    .icon:before {color: #fff;}
   }
 
-    /* [HEADER]
-    -------------------------------------------------------*/
+    /* Header */
     .national__logo,
     .national__header__intro,
     .national__header nav {position: absolute;}
@@ -58,11 +61,11 @@
       }
 
       @include respond-range($lap, $lap-sml-end) {
-        background-image: cloudinary-url("heroes/national/national-hero-01-med.jpg", $quality: 89, $fetch_format: 'auto');
+        background-image: cloudinary-url("heroes/national/national-hero-01-med.jpg", $quality: 90, $fetch_format: 'auto');
       }
 
       @include respond-min($lap-lrg) {
-        background-image: cloudinary-url("heroes/national/national-hero-01-lrg.jpg", $quality: 89, $fetch_format: 'auto');
+        background-image: cloudinary-url("heroes/national/national-hero-01-lrg.jpg", $quality: 90, $fetch_format: 'auto');
         height: 75%;
       }
 
@@ -75,11 +78,12 @@
         nav {
           right: 0;
           @include to-rem(top, 10);
-          @include font-size($font-size-milli);
+          @include font-size($font-size-sml);
+          z-index: $z-index-max;
 
           @include respond-min($non-palm) {
             @include to-rem(top, 43);
-            @include font-size($font-size-sml);
+            @include font-size($font-size);
           }
 
           a {
@@ -169,8 +173,7 @@
         }
       }
 
-    /* [MAIN]
-    -------------------------------------------------------*/
+    /* Main */
 
     /* Tabs */
     .national__tabs {
@@ -197,12 +200,15 @@
 
       h2,
       .tab__nav {
-        @include font-size($font-size);
-        font-family: $font-family-opensans;
+        @include font-size($font-size - 1);
+
+        @include respond-min($palm-lrg) {
+          @include font-size($font-size);
+        }
 
         @include respond-min($non-palm) {
           display: inline-block;
-          @include font-size($font-size-lrger);
+          @include font-size($font-size-lrg);
         }
       }
 
@@ -235,6 +241,7 @@
         position: relative;
         background-size: cover;
         background-position: 0 0;
+        background-color: $color-grey-dark-2;
         border-bottom: 1px solid $color-grey-dark-2;
 
         /* [Text colour change] this is only needed if `#fff` is needed */
@@ -249,7 +256,7 @@
 
           /* Centre name */
           .h1 {
-            @include font-size(28);
+            @include font-size($font-size-deca);
             text-transform: uppercase;
 
             @include respond-min($non-palm) {
@@ -275,11 +282,10 @@
           }
       }
 
-    /* [FOOTER]
-    -------------------------------------------------------*/
+    /* Footer */
     .national__footer {
       text-align: center;
-      @include font-size($font-size-milli);
+      @include font-size($font-size-sml);
       @include to-rem(padding-top padding-bottom, $spacing-base);
 
       @include respond-min($lap-lrg) {

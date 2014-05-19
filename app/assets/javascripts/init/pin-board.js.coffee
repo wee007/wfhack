@@ -80,7 +80,7 @@ class @PinBoard
     for col in [1..numberOfCols]
       cols += """<div class="grid__item one-#{@colTypes[numberOfCols]}"></div>"""
     """
-    <div id="pin-board" class="pin-board grid grid--gutter-half grid--flush is-loaded">
+    <div id="pin-board" class="pin-board grid grid--gutter-half grid--flush is-loaded test-pin-board">
       #{cols}
     </div>
     """

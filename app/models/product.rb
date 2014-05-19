@@ -4,6 +4,10 @@ class Product < Hashie::Mash
     image_urls
   end
 
+  def image_refs
+    image_urls.map { |url| url.try :gsub, %r{^.*/}, '' }
+  end
+
   def available_colours
     details.map do |detail|
       colour = detail.attributes.detect do |attr|
@@ -11,6 +15,10 @@ class Product < Hashie::Mash
       end
       colour ? colour[:value] : nil
     end.compact.uniq
+  end
+
+  def percent_discount
+   ((price - sale_price) / price.to_f * 100).floor
   end
 
   def primary_image

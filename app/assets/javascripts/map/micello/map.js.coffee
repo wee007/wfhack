@@ -3,6 +3,7 @@
 class map.micello.Map
 
   key: '357b70ed-2c4b-418b-ad09-cf83f9bfc7b4'
+  initialised: false
 
   # Error events from images don't bubble so we need to explicitly call onerror
   @removeLogo: (img) ->
@@ -35,7 +36,13 @@ class map.micello.Map
 
   fetchStores: =>
     @stores = westfield.stores
-    @deferreds.store_fetch.resolve()
+    if @stores.length == 1
+      $.getJSON "/api/store/master/stores?centre=#{@westfieldCentreId()}&per_page=9999", (data) =>
+        @stores = data
+        @deferreds.store_fetch.resolve()
+    else
+      @deferreds.store_fetch.resolve()
+
 
   fetchStoreTradingHours: (store) =>
     @tradingHoursApi.get {'store_id': store.id}, @insertTradingHoursIntoOverlay
@@ -45,13 +52,15 @@ class map.micello.Map
 
     tradingHoursHtml = "<p>Closed today</p>"
     if !storeTradingHours.closed
-      tradingHoursHtml = "<p>Open till <time datetime=\"#{storeTradingHours.closing_time_24}\">#{@formatTime(storeTradingHours.closing_time)}</time></p>"
+      tradingHoursHtml = "<p>Open till <time datetime=\"#{storeTradingHours.closing_time}\">#{@formatTime(storeTradingHours.closing_time)}</time></p>"
 
     # Insert trading hours into popup html
     $('.js-trading-hours-map-overlay').removeAttr('style').html(tradingHoursHtml)
 
   processStores: =>
-    micello.maps.init(@key, @init)
+    unless @initialised
+      micello.maps.init(@key, @init)
+      @initialised = true
     _(@stores).each (store) =>
       if store._links.logo?.href?
         store.logo = store._links.logo.href
@@ -116,9 +125,6 @@ class map.micello.Map
     @removePreloader()
     @applyWestfieldStoreNames()
     @options.deferred.resolveWith(@)
-
-    # fixes windows chrome canvas redraw bug causing a blank map on page load
-    setInterval(@forceRedraw, 1000)
 
   init: =>
     # Overriding Micello's "mouse shield" fixes stores list no scrolling issue
@@ -338,11 +344,6 @@ class map.micello.Map
       for store in @stores.list
         for geom in @geomGroupForStore(store)
           @setGeomName(geom, store.name)
-
-  forceRedraw: ->
-    container = $('.js-stores-maps-toggle-wrap, canvas')
-    container.css('width', '-=1px')
-    container.css('width', '')
 
   onMapChanged: (event) =>
     @detail() # show the detail popup on the right level if it changed

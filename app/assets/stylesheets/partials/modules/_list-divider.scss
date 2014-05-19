@@ -16,8 +16,6 @@
 
 .list-divider {
   position: relative;
-	@include font-size($font-size-sml, 1.5);
-	font-weight: bold;
 	display: block;
 	border-bottom: 1px solid $color-grey-light-1;
   /* The `padding-right` is to make space for the arrow icon */

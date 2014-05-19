@@ -1,18 +1,13 @@
 /* ======================================================================================
-   @MODULES -> STORES / MAPS
+   @LAYOUT -> SITE STRUCTURE -> PAGES -> STORES
    ====================================================================================== */
 
 /*
-	Usage: 'Stores' section of the site, layout for both listing and detail views and any other 'Stores' specific styling.
-
-  Note: modules that live here:
-    -  Stores list
-    -  Storefront
-    -  Micello maps
+	For both the 'Stores' index and show pages.
 */
 
 /* `body` element */
-.stores {padding-bottom: 0;}
+.page-stores {padding-bottom: 0;}
 
 .stores-maps {
   position: absolute;
@@ -54,6 +49,7 @@
     @include font-size(28, 1);
   }
 }
+
 
   /* Outdent the pin icons so they're flush to left edge */
   .stores-list__store-name,
@@ -184,7 +180,7 @@
         display: block;
         font-family: $font-family-opensans;
         @include font-size($font-size-xlrg, 1.5);
-        color: $color-txt-dark;
+        font-weight: normal;
 
         /* Bring the header into view and add bottom margin at this breakpoint */
         @include respond-min($lap-lrg-middle) {
@@ -229,6 +225,7 @@
             /* Forward slash to seperate the link and the store name */
             &:after {
               content: " /";
+              speak: none;
               color: $color-txt-dark;
             }
           }
@@ -317,7 +314,6 @@
        .stores-maps__keyword-filter-input {
 
           /* Always visible at this breakpoint */
-
           @include respond-min($palm-lrg) {
             width: 40%;
             vertical-align: middle;
@@ -335,8 +331,10 @@
           }
 
           @include respond-min($lap-lrg-middle) {
-            display: block;
-            width: auto;
+            .stores-maps & {
+              display: block;
+              width: auto;
+            }
           }
 
           /* When in map view add right padding so not to cover the map controls */
@@ -412,7 +410,6 @@
 
       /* Post filter count */
       .stores-maps__filters-count {
-        @include font-size($font-size-sml, 1.5);
         border-top: 1px solid $color-grey-med-3;
 
         /* Hide when in map view */

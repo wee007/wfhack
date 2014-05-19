@@ -1,5 +1,5 @@
 /* ======================================================================================
-   @LAYOUT -> HEADER
+   @LAYOUT -> SITE STRUCTURE -> GLOBAL -> HEADER
    ====================================================================================== */
 
 $hero-banner-height-sml: 270 !default;
@@ -9,6 +9,10 @@ $national-view-search-toggle-bp: 1080 !default;
 .header {
 	position: relative;
 	z-index: 99;
+
+	/* Resets */
+	p,
+	h1, .h1 {margin-bottom: 0;}
 
 	/* Icons */
 	.icon:before {@extend %transition-subtle;}
@@ -363,7 +367,7 @@ $national-view-search-toggle-bp: 1080 !default;
 								}
 
 								/* As above but for 'Centre home page hero banner' at this breakpoint range */
-								@include respond-range($non-palm, 900) {
+								@include respond-range($non-palm, $lap-sml-end) {
 									.header--hero .nav-sub-container & .nav-sub__txt {@include hide-visually;}
 								}
 						}
@@ -583,7 +587,7 @@ $national-view-search-toggle-bp: 1080 !default;
 				/* 'Change centre' link */
 				.header-centre-select__link {
 					color: #fff;
-					@include font-size($font-size-milli, 1);
+					@include font-size($font-size-sml, 1);
 					position: absolute;
 					right: 0;
 					top: 50%;
@@ -812,7 +816,7 @@ $national-view-search-toggle-bp: 1080 !default;
 				.header & a,
 				.nav-site-feedback button {
 					display: block;
-					@include font-size($font-size-milli);
+					@include font-size($font-size-sml);
 					color: $color-grey-med-2;
 
 					&:hover,
@@ -1199,7 +1203,7 @@ $national-view-search-toggle-bp: 1080 !default;
 			/* National view header */
 			.header--national & {
 				background-color: $color-grey-dark-3;
-				@include to-rem(height, 41);
+				@include to-rem(height, 44);
 
 				@include respond-min($non-palm) {
 					@include to-rem(height, 65);
@@ -1347,11 +1351,6 @@ $national-view-search-toggle-bp: 1080 !default;
 				@include to-rem(padding, 4);
 				border: 0;
 				color: $color-txt-dark;
-				@include font-size($font-size-sml, 1.2);
-
-				@include respond-min($non-palm) {
-					@include font-size($font-size, 1.2);
-				}
 
 				&:focus {outline: none;}
 			}
@@ -1369,14 +1368,6 @@ $national-view-search-toggle-bp: 1080 !default;
 			text-align: left;
 			width: 100%;
 			@include to-rem(margin-top, -2);
-			@include font-size($font-size-sml, 1.5);
-
-			@include respond-min($non-palm) {
-				@include font-size($font-size, 1.5);
-	  	}
-
-	  	/* JS users - want to show the drop down when the Angular `.ng-hide` is not on the element */
-	  	.js &:not(.ng-hide) {display: block;}
 
 	  	/* Non JS users */
 	  	.no-js & {display: none;}
@@ -1432,7 +1423,7 @@ $national-view-search-toggle-bp: 1080 !default;
 
 					dd {
 						@include to-rem(margin-top, 3);
-						@include to-rem(padding-left padding-right, 32);
+						@include to-rem(padding-left padding-right, 33);
 
 						/* Android */
 						.android & {@include to-rem(padding-left padding-right, 33);}
@@ -1499,6 +1490,7 @@ $national-view-search-toggle-bp: 1080 !default;
 
 				h1 {
 					font-weight: normal;
+					color: #fff;
 
 					/* Non JS users */
 					.no-js & {color: $color-txt-base;}

@@ -20,12 +20,13 @@ class ProductsController < ApplicationController
       description: "#{ @search.seo.description } at #{ @centre.name }"
     ) if @search.seo.present?
 
-    gon.products = {
-      display_options: @search.display_options,
-      facets: @search.facets,
-      applied_filters: @search.applied_filters,
-      count: @search.products.length
-    }
+    gon.push \
+      products: {
+        display_options: @search.display_options,
+        facets: @search.facets,
+        applied_filters: @search.applied_filters,
+        count: @search.products.length
+      }
 
     render :index
   end
@@ -45,11 +46,12 @@ class ProductsController < ApplicationController
       description: "#{ @search.seo.description } at Westfield"
     ) if @search.seo.present?
 
-    gon.products = {
-      display_options: @search.display_options,
-      facets: @search.facets,
-      applied_filters: @search.applied_filters
-    }
+    gon.push \
+      products: {
+        display_options: @search.display_options,
+        facets: @search.facets,
+        applied_filters: @search.applied_filters
+      }
 
     render :index
   end
@@ -82,7 +84,9 @@ class ProductsController < ApplicationController
       @product_centres = CentreService.find(:all, centre_id: centre_ids, near_to: params[:centre_id])
     end
 
-    gon.push centre: @centre, stores: @centre_stores
+    gon.push \
+      centre: @centre,
+      stores: @centre_stores
 
     meta.push @product.meta
     meta.push(

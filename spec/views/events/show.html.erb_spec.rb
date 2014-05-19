@@ -10,7 +10,7 @@ describe 'events/show.html.erb' do
     before { assign :event, event }
 
     subject { render; rendered }
-    it { should match %r{9:02 am} }
-    it { should match %r{5:15 pm} }
+    it { should match %r{9:02am} }
+    it { should match %r{5:15pm} }
   end
 end

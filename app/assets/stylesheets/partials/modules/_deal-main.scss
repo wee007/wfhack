@@ -13,15 +13,11 @@
 	@include to-rem(padding, 88 $spacing-base);
 }
 
-	/* Title */
-	.deal-main__hdr {
-		@include font-size($font-size-hecto);
-		@include to-rem(margin-bottom, $spacing-third);
-	}
+	/* Heading */
+	.deal-main__hdr {@include to-rem(margin-bottom, $spacing-third);}
 
 	/* Meta (deal owner and end date) */
 	.deal-main__meta {
-		margin-bottom: 0;
 		color: $color-txt-light;
 		@include font-size($font-size-lrg, 1.5);
 

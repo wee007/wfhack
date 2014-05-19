@@ -1,0 +1,57 @@
+/* ======================================================================================
+   @MODULES -> USER GENERATED FORMATTING
+   ====================================================================================== */
+
+/*
+	Apply mostly base styles and anything that needs to be custom, to any user generated text from a CMS or a 3rd party product feed.
+
+  Styleguide User Generated Formatting
+*/
+
+/*
+  Note: this module is interspersed amongst some of the 'Base' partials e.g. 'Lists'.
+*/
+
+.user-generated-formatting {
+
+  /* Hide empty elements */
+  div,
+  span,
+  pre,
+  table,
+  caption,
+  tbody,
+  tfoot,
+  thead,
+  tr,
+  td,
+  th,
+  a,
+  sub,
+  sup,
+  strong,
+  b,
+  u,
+  i,
+  em,
+  center,
+  p,
+  ul,
+  dl,
+  ol,
+  li,
+  dd,
+  dt,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    &:empty {display: none;}
+  }
+
+  /* Bring back italics */
+  i,
+  em {font-style: italic;}
+}

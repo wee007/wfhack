@@ -5,9 +5,8 @@ class SearchController < ApplicationController
       search: {centre: params[:centre_id], term: params[:search_query]}
     meta.push page_title: "Westfield Australia | Search"
 
-    gon.search_query = params[:search_query]
-
-    gon.centre = params[:centre_id]
+    gon.push \
+      search_query: params[:search_query]
 
     if (search.hard_redirect?)
       redirect_to search.first_result_uri_path
@@ -28,6 +27,14 @@ class SearchController < ApplicationController
       @links.push Hashie::Mash.new url: centre_services_path(@centre.code), label: "Centre Services", icon: "service"
     end
 
+  end
+
+  def dropdown
+    @centre, search = service_map \
+      centre: params[:centre_id],
+      search: {centre: params[:centre_id], term: params["search"]}
+    @search = search.inject_dummy_item_for_dropdown
+    render "global-search-results-dropdown", layout: false
   end
 
 end

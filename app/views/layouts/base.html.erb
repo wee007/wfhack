@@ -2,6 +2,17 @@
 <!--[if (IE 9) & (!IEMobile)]>    <html class="no-js ie-9" lang="en-au">    <![endif]-->
 <!--[if gt IE 8]><!-->            <html class="no-js" lang="en-au">         <!--<![endif]-->
 <head>
+  <%# Add a hook to style JS enabled pages %>
+  <script>
+    document.getElementsByTagName('html')[0].className = 'js';
+  </script>
+  <%# //Add a hook to style JS enabled pages %>
+
+  <%# Google Analytics Content Experiment code %>
+  <%# Note: This can only be tested in production or UAT. %>
+  <%= raw google_analytics_content_experiment if Rails.env.production? || Rails.env.uat? %>
+  <%# //End of Google Analytics Content Experiment code %>
+
   <!--[if !IE]><base href="/"><![endif]-->
   <!--[if lte IE 9]><base href="<%= request.path %>"><![endif]-->
 
@@ -25,7 +36,7 @@
   <link rel="dns-prefetch" href="//themes.googleusercontent.com">
   <%# //Prefetch DNS for external assets %>
 
-  <%= yield :link_rels %>
+  <link rel="canonical" href="<%= canonical_url %>">
 
   <%# Title %>
   <title><%= page_title %></title>
@@ -42,10 +53,6 @@
   <%# Custom CSS %>
   <%= yield :custom_styles %>
   <%# //Custom CSS %>
-
-  <%# Modernizr %>
-  <%= javascript_include_tag "vendor/modernizr.min" %>
-  <%# //Modernizr %>
 
   <%# IE 10+ tile icon: http://blogs.msdn.com/b/ie/archive/2012/06/08/high-quality-visuals-for-pinned-sites-in-windows-8.aspx %>
   <meta name="msapplication-TileColor" content="#da291c">
@@ -76,7 +83,7 @@
 
 </head>
 
-<body class="<%= params[:controller] %> <%= params[:action] %> <%= yield :class_for_body %>" ng-app="Westfield" ng-init="centre_id='<%= params[:centre_id] || params[:id] %>'">
+<body class="<%= yield :class_for_body %> <%= params[:controller] %> <%= params[:action] %>" ng-app="Westfield" ng-init="centre_id='<%= params[:centre_id] || params[:id] %>'">
 
   <%# Skip link %>
   <a href="#main" class="hide-visually skip-link">Skip to main content</a>
@@ -113,41 +120,6 @@
   <%= raw third_party_universal_tagging %>
   <%# //3rd party JavaScript (Tealium) %>
 
-  <%#
-    [WSF-6459]
-    Added conditional statement to only insert the Google Analytics (GA) codes in UAT environment for testing purpose.
-    The purpose of the test is to verify if GA is working in UAT prior to implementing a solution for the A/B testing.
-
-    Note: The GA Content Experiment code will only work within a script tag after some experimentation.
-
-    Post UAT TODO:
-      * Remove the conditional statement
-      * Move GA code into Tealium
-  %>
-  <% if Rails.env.uat? %>
-    <%# Google Analytics Content Experiment code %>
-    <script>function utmx_section(){}function utmx(){}(function(){var
-    k='84750189-7',d=document,l=d.location,c=d.cookie;
-    if(l.search.indexOf('utm_expid='+k)>0)return;
-    function f(n){if(c){var i=c.indexOf(n+'=');if(i>-1){var j=c.
-    indexOf(';',i);return escape(c.substring(i+n.length+1,j<0?c.
-    length:j))}}}var x=f('__utmx'),xx=f('__utmxx'),h=l.hash;d.write(
-    '<sc'+'ript src="'+'http'+(l.protocol=='https:'?'s://ssl':
-    '://www')+'.google-analytics.com/ga_exp.js?'+'utmxkey='+k+
-    '&utmx='+(x?x:'')+'&utmxx='+(xx?xx:'')+'&utmxtime='+new Date().
-    valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
-    '" type="text/javascript" charset="utf-8"><\/sc'+'ript>')})();
-    </script><script>utmx('url','A/B');</script>
-    <%# //End of Google Analytics Content Experiment code %>
-    <%# Google Analytics code %>
-    <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-    ga('create', 'UA-3643495-24', 'westfield.com.au');
-    ga('send', 'pageview');</script>
-    <%# //End of Google Analytics code %>
-  <% end %>
 </body>
 
 </html>

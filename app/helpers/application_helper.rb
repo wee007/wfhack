@@ -97,4 +97,11 @@ module ApplicationHelper
     %w(NSW ACT QLD VIC SA WA)
   end
 
+  def canonical_url
+    url_for({only_path: false}.merge!(strip_analytics_metadata))
+  end
+
+  def strip_analytics_metadata
+    params.except!(:gce_var, :utm_expid, :utm_referrer, :search_keyword, :search_source)
+  end
 end

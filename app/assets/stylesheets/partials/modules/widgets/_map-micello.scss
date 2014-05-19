@@ -117,6 +117,7 @@
     */
 
     #micello-map {
+      outline: none !important; /* Remove the focus style that Micello are setting to this `div` on page load */
       @include font-size($font-size-sml, $sledgehammer: !important);
       font-family: $font-family !important;
       line-height: 1.5 !important;

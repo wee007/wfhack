@@ -1,10 +1,13 @@
+<%# TODO come up with a better way of handling this %>
+<% content_for :tile_attrs, '', flush: true %>
+
 <%# Image %>
 <div class="tile__image">
   <%# TODO There is something causing some images in beta not to load if the cl_image_tag is used here %>
   <%= fetch_image_tag result.primary_image, {
       'data-height' => result.image_height,
       width: 269,
-      alt: "",
+      alt: '',
       crop: :limit,
       format: :auto
     }.merge((options if defined? options) || {})
@@ -20,15 +23,23 @@
   <%# //Product name %>
 
   <%# Product brand %>
-  <p class="tile__meta__desc txt-truncate">from <strong><%= result.retail_chain_name %></strong></p>
+  <p class="tile__meta__desc txt-truncate test-tile-meta-desc">from <strong><%= result.retail_chain_name %></strong></p>
   <%# //Product brand %>
 
   <%# Product price %>
-  <p class="price-strip">
-    <strong>
-      <span class="hide-visually">Price: </span>
-      <%= number_to_currency result.sale_price %>
-    </strong>
+  <p class="price-strip <%= 'is-long-price' if number_to_currency(result.price).length > 9 %>">
+    <%- if result.is_discounted -%>
+      <span class="price-strip__normal hide-visually">Normal price: </span>
+      <s class="price-strip__normal"><%= number_to_currency result.price %></s>
+      <span class="hide-visually">Sale price: </span>
+      <strong class="price-strip__sale"><%= number_to_currency result.sale_price %></strong>
+      <strong class="price-strip__savings islet"><%= number_to_percentage result.percent_discount, precision: 0 %> Off</strong>
+    <%- else -%>
+      <strong>
+        <span class="hide-visually">Price: </span>
+        <%= number_to_currency result.sale_price %>
+      </strong>
+    <%- end -%>
   </p>
   <%# //Product price %>
 

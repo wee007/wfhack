@@ -44,8 +44,8 @@
       <li class="grid__item one-half lap-sml-one-third non-palm-one-quarter">
 
         <%# Movie tile %>
-        <article class="tile tile--no-icon box ga-tile-movie test-movie" role="article" itemprop="event" itemscope itemtype="http://schema.org/Event">
-          <a href="<%= centre_movie_path(centre_id: @centre.code, id: movie.id, movie_name: movie.title.to_slug) %>">
+        <article class="tile tile--no-icon box test-movie" role="article" itemprop="event" itemscope itemtype="http://schema.org/Event">
+          <a href="<%= centre_movie_path(centre_id: @centre.code, id: movie.id, movie_name: movie.title.to_slug) %>" class="ga-tile-movie">
 
             <%# Movie tile image %>
             <div class="tile__image">

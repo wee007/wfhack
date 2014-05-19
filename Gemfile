@@ -15,14 +15,18 @@ gem 'rack-pjax'
 gem 'health_check'
 
 # For calling APIs, response parsing etc.
-gem 'service_api', git: 'git@github.dbg.westfield.com:digital/service_api.git'
-gem 'faraday'
+gem 'service_api', git: 'git@github.com:westfield/service_api.git', :ref => '57e171dc8dd05622505d81be840390bf6f9612fd'
+gem 'faraday', '0.8.8'
 gem 'faraday_middleware'
-gem 'service_helper', git: 'git@github.dbg.westfield.com:digital/service_helper.git'
+gem 'service_helper', git: 'git@github.com:westfield/service_helper.git'
 gem 'hashie'
 gem 'cloudinary'
 gem 'sitemap_generator'
 gem 'sterile'
+gem 'parallel'
+
+# Caching
+gem 'redis-rails'
 
 # Presentation, pagination etc.
 gem 'kaminari'
@@ -30,12 +34,12 @@ gem 'money'
 gem 'truncate'
 gem 'draper', '~> 1.3'
 
-gem 'splunk_logger', git: 'https://github.com/westfield/splunk_logger.git'
+gem 'splunk_logger', git: 'git@github.com:westfield/splunk_logger.git'
 
 # CSS (cant live in development or css will not get minified)
-# https://github.com/rails/rails/issues/10084#issuecomment-20855970
+# git@github.com:rails/rails/issues/10084#issuecomment-20855970
 gem 'sass-rails', '~> 4.0.0'
-gem 'kss', git: 'https://github.com/kneath/kss.git' # Gem release pending
+gem 'kss', git: 'git@github.com:kneath/kss.git' # Gem release pending
 gem 'newrelic_rpm'
 
 group :development do
@@ -69,6 +73,7 @@ group :test do
   gem 'simplecov'
   # Gems for Acceptance tests:
   gem 'mechanize', '2.7.2' # until mime-types dep issue with rails 4.0.2 is resolved
+  gem 'capybara-webkit'
   gem 'capybara-mechanize'
   gem 'rspec_junit_formatter'
 end

@@ -1,4 +1,4 @@
-<% content_for :class_for_body, "national" %>
+<% content_for :class_for_body, "page-national-homepage" %>
 
 <%# National landing page wrapper %>
 <div class="national__inner">
@@ -10,21 +10,21 @@
     <div class="container container--position">
 
       <%# Logo %>
-      <%= image_tag 'logo-beta.svg', alt: 'Westfield', class: 'national__logo' %>
+      <%= image_tag 'logo-white-beta.svg', alt: 'Westfield', class: 'national__logo' %>
       <%# //Logo %>
 
       <%# Hero heading wrap %>
       <div class="national__header__intro">
         <h1>
           <span><%= @centres.length %> centres. Over 10,300 stores. Over <%= number_with_delimiter(@products_count, separator: ',') %> products</span>
-          AUTUMN 2014
+          WINTER 2014
         </h1>
       </div>
       <%# //Hero heading wrap %>
 
       <%# Nav %>
       <nav role="navigation">
-        <ul class="horiz-list horiz-list--spacing-half">
+        <ul class="horiz-list horiz-list--gutter-half">
           <!--[if gt IE 9]><!-->
           <li>
             <a href="<%= products_path %>" class="ga-shop-products">
@@ -104,7 +104,7 @@
         <ul id="tab-<%= state.downcase %>" class="tab__content<%= ' is-active' if state == 'NSW' %>">
           <% @centres_by_state[state].each do |centre| %>
             <li class="js-viewport-check js-sort-centres-geolocation-<%= centre.code %>" >
-              <a class="national__centre-tile national__centre-tile--<%= centre.code %> ga-centre-links" href="<%= centre_path( centre ) %>">
+              <a class="national__centre-tile national__centre-tile--<%= centre.code %> ga-centre-links test-centre-tile-link" href="<%= centre_path( centre ) %>">
                 <div class="container">
                   <div class="h1"><%= centre.short_name %></div>
                   <span class="icon icon--arrow-right icon--lrg" aria-hidden="true"></span>

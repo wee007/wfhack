@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.305
+Version:     0.2.381
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -47,6 +47,8 @@ Customer Console
  cd ${RPM_BUILD_DIR}/*
  cp -va app config config.ru lib public vendor Rakefile Gemfile \
        Gemfile.lock .bundle .cloudinary.static .cloudinary.static.trash ${RPM_BUILD_ROOT}%{appdir}/current/
+       
+ echo '%{version}' > ${RPM_BUILD_ROOT}%{appdir}/current/public/version.txt
 
 cp -va system/* ${RPM_BUILD_ROOT}/
 
@@ -90,6 +92,463 @@ fi
 
 
 %changelog
+* Fri May 16 2014 ci <doperations@au.westfield.com> 0.2.381-1
+- use correct selector variable (alec@smartalecwebsites.com.au)
+
+* Fri May 16 2014 ci <doperations@au.westfield.com> 0.2.380-1
+- Merge pull request #11 from mastfish/count-fix (mastfish@gmail.com)
+- Merge pull request #4 from mastfish/track_api_calls (mastfish@gmail.com)
+- Fix for results count (jlambert@au.westfield.com)
+- Add monitoring around API calls (jlambert@au.westfield.com)
+
+* Fri May 16 2014 ci <doperations@au.westfield.com> 0.2.379-1
+- Merge pull request #3 from mastfish/fast-cats (mastfish@gmail.com)
+- easy speedups (jlambert@au.westfield.com)
+
+* Thu May 15 2014 ci <doperations@au.westfield.com> 0.2.378-1
+- Merge pull request #5 from AlecRaeside/remove-angular-from-global-search
+  (alec@smartalecwebsites.com.au)
+- fix up element order and class name (alec@smartalecwebsites.com.au)
+- Revert gem changes (jlambert@au.westfield.com)
+- refactor selector definition (alec@smartalecwebsites.com.au)
+- fix up tests (alec@smartalecwebsites.com.au)
+- Prevent angular from taking control of dropdown links
+  (jlambert@au.westfield.com)
+- Fix URL, code cleanup (jlambert@au.westfield.com)
+- remove unused variable (alec@smartalecwebsites.com.au)
+- extra lines (alec@smartalecwebsites.com.au)
+- update search labels (alec@smartalecwebsites.com.au)
+- refactor (alec@smartalecwebsites.com.au)
+- Code cleanup, add tests (jlambert@au.westfield.com)
+- WSF-6535 refactor global search to remove angular (jlambert@au.westfield.com)
+
+* Thu May 15 2014 ci <doperations@au.westfield.com> 0.2.377-1
+- Merge pull request #6 from chris-pearce/refactoring-framework (hi@chris-
+  pearce.me)
+- WSF-6438 - Making spacing names consistent and general cleanup
+  (cpearce@au.westfield.com)
+
+* Thu May 15 2014 ci <doperations@au.westfield.com> 0.2.376-1
+- 
+
+* Thu May 15 2014 ci <doperations@au.westfield.com> 0.2.375-1
+- Fix service_api gem sha (pmcinerney@au.westfield.com)
+
+* Thu May 15 2014 ci <doperations@au.westfield.com> 0.2.374-1
+- 
+
+* Thu May 15 2014 ci <doperations@au.westfield.com> 0.2.373-1
+- 
+
+* Thu May 15 2014 ci <doperations@au.westfield.com> 0.2.372-1
+- 
+
+* Thu May 15 2014 ci <doperations@au.westfield.com> 0.2.371-1
+- 
+
+* Wed May 14 2014 ci <doperations@au.westfield.com> 0.2.370-1
+- Merge branch 'master' of github.com:westfield/customer_console (ci)
+- Merge pull request #7 from chris-pearce/misc-fixes (hi@chris-pearce.me)
+- Fixing UI bug for national home page (cpearce@au.westfield.com)
+
+* Wed May 14 2014 ci <doperations@au.westfield.com> 0.2.369-1
+- Merge branch 'master' of github.com:westfield/customer_console (ci)
+- modify apache config to not cache /version.txt (bpritchard@au.westfield.com)
+
+* Wed May 14 2014 ci <doperations@au.westfield.com> 0.2.368-1
+- Merge branch 'master' of github.dbg.westfield.com:digital/customer_console
+  (ci)
+- Merge pull request #1156 from cpearce/master (pmcinerney@au.westfield.com)
+- Merge pull request #1158 from cpearce/misc-fixes
+  (pmcinerney@au.westfield.com)
+- Clean ups for SRP (cpearce@au.westfield.com)
+- Fixing replication of Microdata attrs on centre home page pin board tiles
+  (cpearce@au.westfield.com)
+
+* Wed May 14 2014 ci <doperations@au.westfield.com> 0.2.367-1
+- Improve SEO by making canonical URLs more accurate
+  (jlambert@au.westfield.com)
+
+* Wed May 14 2014 ci <doperations@au.westfield.com> 0.2.366-1
+- moved sample urls from helper into spec file (bpritchard@au.westfield.com)
+- update after code review (bpritchard@au.westfield.com)
+- fixed failing tests (bpritchard@au.westfield.com)
+- added tests for canonical link (bpritchard@au.westfield.com)
+
+* Tue May 13 2014 ci <doperations@au.westfield.com> 0.2.365-1
+- only close if something is open (alec@smartalecwebsites.com.au)
+- use new API (alec@smartalecwebsites.com.au)
+
+* Tue May 13 2014 ci <doperations@au.westfield.com> 0.2.364-1
+- Merge pull request #1149 from ewee/master (ewee@au.westfield.com)
+- Refactor canonical tag implementation (ewee@au.westfield.com)
+- Add canonical link and filter out Google Experiment params
+  (ewee@au.westfield.com)
+
+* Tue May 13 2014 ci <doperations@au.westfield.com> 0.2.363-1
+- 
+
+* Tue May 13 2014 ci <doperations@au.westfield.com> 0.2.362-1
+- Merge pull request #1138 from araeside/remove-angular-from-stores
+  (araeside@au.westfield.com)
+- Merge pull request #1151 from araeside/fix-deals-map-race-condition
+  (araeside@au.westfield.com)
+- correct indent (alec@smartalecwebsites.com.au)
+- remove redundant document variable (alec@smartalecwebsites.com.au)
+- remove aria from html (alec@smartalecwebsites.com.au)
+- fix race condition with maps on deals page (alec@smartalecwebsites.com.au)
+- update selector without typo (alec@smartalecwebsites.com.au)
+- remove extra spaces (alec@smartalecwebsites.com.au)
+- update after code review (alec@smartalecwebsites.com.au)
+- correct aria attribute (alec@smartalecwebsites.com.au)
+- fix 24 hour date (alec@smartalecwebsites.com.au)
+- correct hide on esc functionality (alec@smartalecwebsites.com.au)
+- remove extra space (alec@smartalecwebsites.com.au)
+- revert to original state (alec@smartalecwebsites.com.au)
+- no need for target="_self" here. setup filters tog vis with new approach
+  (alec@smartalecwebsites.com.au)
+- remove debugging code (alec@smartalecwebsites.com.au)
+- remove redundant fix for chrome rendering bug (alec@smartalecwebsites.com.au)
+- use standard event handler syntax (alec@smartalecwebsites.com.au)
+- Put main tests back in (alec@smartalecwebsites.com.au)
+- add more tests (alec@smartalecwebsites.com.au)
+- add more acceptance tests and tog vis features
+  (alec@smartalecwebsites.com.au)
+- make tog vis work with angular (alec@smartalecwebsites.com.au)
+- refactor stores maps (alec@smartalecwebsites.com.au)
+- remove filtered cat from session when clearing it
+  (alec@smartalecwebsites.com.au)
+- maintain filter state between index and show (alec@smartalecwebsites.com.au)
+- add broadcast events and better esc to close to tog vis
+  (alec@smartalecwebsites.com.au)
+- remove loading change. maintain giftcard state between pages
+  (alec@smartalecwebsites.com.au)
+- remove map toggle code and replace gift card submit code
+  (alec@smartalecwebsites.com.au)
+- gift card toggle (alec@smartalecwebsites.com.au)
+- view stores subcategories (alec@smartalecwebsites.com.au)
+- remove old tog vis (alec@smartalecwebsites.com.au)
+- replace some of stores with non angular code (alec@smartalecwebsites.com.au)
+- refine new tog vis (alec@smartalecwebsites.com.au)
+- first pass at rewriting tog vis with jquery and coffeescript
+  (alec@smartalecwebsites.com.au)
+
+* Tue May 13 2014 ci <doperations@au.westfield.com> 0.2.361-1
+- Merge pull request #1150 from cpearce/misc-fixes (cpearce@au.westfield.com)
+- Adding GA tracking class and indenting HTML within if statement
+  (cpearce@au.westfield.com)
+- Making retailer name link to product browse for product detail page
+  (cpearce@au.westfield.com)
+
+* Mon May 12 2014 ci <doperations@au.westfield.com> 0.2.360-1
+- Merge pull request #1140 from cpearce/refactoring-framework
+  (cpearce@au.westfield.com)
+- Applying correct color to Style Guide home page H2 (cpearce@au.westfield.com)
+- Changing Style Guide table modifier name (cpearce@au.westfield.com)
+- Final round of applying base heading and paragraph styles
+  (cpearce@au.westfield.com)
+- Removing unneeded national hero pngs (cpearce@au.westfield.com)
+- First round of applying base heading and paragraph styles
+  (cpearce@au.westfield.com)
+- Moving non-modules into new layout 'site-structure' dir
+  (cpearce@au.westfield.com)
+
+* Mon May 12 2014 ci <doperations@au.westfield.com> 0.2.359-1
+- remove wifi redirect that has been changed (chorn@au.westfield.com)
+
+* Sat May 10 2014 ci <doperations@au.westfield.com> 0.2.358-1
+- Merge pull request #1146 from cpearce/new-creative (cpearce@au.westfield.com)
+- Adding new Winter creative (cpearce@au.westfield.com)
+
+* Fri May 09 2014 ci <doperations@au.westfield.com> 0.2.357-1
+- Added "z-index: $z-index-max;" to ".container nav" (ldewey@au.westfield.com)
+
+* Fri May 09 2014 ci <doperations@au.westfield.com> 0.2.356-1
+- Remove canonical link (ewee@au.westfield.com)
+
+* Fri May 09 2014 ci <doperations@au.westfield.com> 0.2.355-1
+- Switch placeholder text to be less verbose (jlambert@au.westfield.com)
+
+* Fri May 09 2014 ci <doperations@au.westfield.com> 0.2.354-1
+- Merge pull request #1142 from ewee/master (ewee@au.westfield.com)
+- Add canonical link (ewee@au.westfield.com)
+
+* Fri May 09 2014 ci <doperations@au.westfield.com> 0.2.353-1
+- Update placeholder text (jlambert@au.westfield.com)
+
+* Fri May 09 2014 ci <doperations@au.westfield.com> 0.2.352-1
+- Merge pull request #1137 from bpritchard/master (bpritchard@au.westfield.com)
+- added script to prepare acceptance tests for correct commit
+  (bpritchard@au.westfield.com)
+
+* Thu May 08 2014 ci <doperations@au.westfield.com> 0.2.351-1
+- Fixes for new CSS3 preloader (cpearce@au.westfield.com)
+
+* Thu May 08 2014 ci <doperations@au.westfield.com> 0.2.350-1
+- Cleaning up breakpoints (cpearce@au.westfield.com)
+- Outdenting selector name (cpearce@au.westfield.com)
+- Removing unneeded back slash for img element (cpearce@au.westfield.com)
+- Namespacing all body classes with 'page-' (cpearce@au.westfield.com)
+
+* Thu May 08 2014 ci <doperations@au.westfield.com> 0.2.349-1
+- Add a hook to style JS enabled pages (alec@smartalecwebsites.com.au)
+
+* Thu May 08 2014 ci <doperations@au.westfield.com> 0.2.348-1
+- Merge pull request #1116 from araeside/css3-preloader
+  (araeside@au.westfield.com)
+- capitalise first letter of modifier description
+  (alec@smartalecwebsites.com.au)
+- switch from em to rem (alec@smartalecwebsites.com.au)
+- no need for container (alec@smartalecwebsites.com.au)
+- use correct class (alec@smartalecwebsites.com.au)
+- add styleguide example with text (alec@smartalecwebsites.com.au)
+- remove modernizr from ist of assets to compile
+  (alec@smartalecwebsites.com.au)
+- updates after PR review (alec@smartalecwebsites.com.au)
+- rename modernizr without min extension (alec@smartalecwebsites.com.au)
+- remove extra comment (alec@smartalecwebsites.com.au)
+- refactor after browser testing. new version of modernizr
+  (alec@smartalecwebsites.com.au)
+- reuse existing variable (alec@smartalecwebsites.com.au)
+- create animtions util (alec@smartalecwebsites.com.au)
+- cleanup css (alec@smartalecwebsites.com.au)
+- fix android render bug (alec@smartalecwebsites.com.au)
+- use css3 instead of gif for preloader spinner (alec@smartalecwebsites.com.au)
+
+* Thu May 08 2014 ci <doperations@au.westfield.com> 0.2.347-1
+- modify build script to write the deploy version to version.txt: take 3
+  (benpritchard@aud27140.au.ad.westfield.com)
+
+* Thu May 08 2014 ci <doperations@au.westfield.com> 0.2.346-1
+- Merge pull request #1132 from mbamford/fix/WSF-6555_missing_cloudinaries
+  (mbamford@au.westfield.com)
+- Added Product#image_refs nil guard (michael@michaelbamford.com)
+
+* Wed May 07 2014 ci <doperations@au.westfield.com> 0.2.345-1
+- Merge pull request #1127 from cpearce/remove-12px-font
+  (cpearce@au.westfield.com)
+- Clean up after code review (cpearce@au.westfield.com)
+- Changing 11px font to 12px where applicable (cpearce@au.westfield.com)
+- Final round of removal of 12px font size and general clean up
+  (cpearce@au.westfield.com)
+- Second round of removal of 12px font size and general clean up
+  (cpearce@au.westfield.com)
+- First round of removal of 12px font size and general clean up
+  (cpearce@au.westfield.com)
+
+* Wed May 07 2014 ci <doperations@au.westfield.com> 0.2.344-1
+- reverted version.txt (benpritchard@aud27140.au.ad.westfield.com)
+
+* Wed May 07 2014 ci <doperations@au.westfield.com> 0.2.343-1
+- modify build script to write the deploy version to version.txt
+  (benpritchard@aud27140.au.ad.westfield.com)
+- backed out: modify build script to write the deploy version to version.txt
+  (benpritchard@aud27140.au.ad.westfield.com)
+
+* Wed May 07 2014 ci <doperations@au.westfield.com> 0.2.342-1
+- modify build script to write the deploy version to version.txt
+  (benpritchard@aud27140.au.ad.westfield.com)
+
+* Wed May 07 2014 ci <doperations@au.westfield.com> 0.2.341-1
+- Merge pull request #1128 from ewee/master (ewee@au.westfield.com)
+- [BUG] Repositioned GA content experiment JS code (ewee@au.westfield.com)
+
+* Wed May 07 2014 ci <doperations@au.westfield.com> 0.2.340-1
+- Merge pull request #1126 from bpritchard/master (chorn@au.westfield.com)
+- fixed operator typo (benpritchard@aud27140.au.ad.westfield.com)
+- fixed merge conflict (benpritchard@aud27140.au.ad.westfield.com)
+
+* Tue May 06 2014 ci <doperations@au.westfield.com> 0.2.339-1
+- update gem location to github.com (pmcinerney@au.westfield.com)
+
+* Tue May 06 2014 ci <doperations@au.westfield.com> 0.2.338-1
+- Merge pull request #1123 from jlambert/WSF-6589 (jlambert@au.westfield.com)
+- WSF-6589 Raise a 404 if we can't find a given curation
+  (jlambert@au.westfield.com)
+
+* Tue May 06 2014 ci <doperations@au.westfield.com> 0.2.337-1
+- Merge pull request #1118 from dsim/WSF-6385 (dsim@au.westfield.com)
+- Use featured_products on store page (dsim@au.westfield.com)
+
+* Mon May 05 2014 ci <doperations@au.westfield.com> 0.2.336-1
+- Merge pull request #1121 from bpritchard/master (bpritchard@au.westfield.com)
+- fixed merge-conflict (benpritchard@aud27140.au.ad.westfield.com)
+
+* Mon May 05 2014 ci <doperations@au.westfield.com> 0.2.335-1
+- added fallback test condition when movie page has no movies
+  (benpritchard@aud27140.au.ad.westfield.com)
+- fix conflicts (benpritchard@aud27140.au.ad.westfield.com)
+- got the redirects and proxy working
+  (benpritchard@aud27140.au.ad.westfield.com)
+
+* Mon May 05 2014 ci <doperations@au.westfield.com> 0.2.334-1
+- Merge pull request #1097 from mbamford/fix/WSF-6555_missing_cloudinaries
+  (mbamford@au.westfield.com)
+- products/show uses fetch_format: :auto (for webp)
+  (michael@michaelbamford.com)
+- Created Product#image_refs; use cl_image_tag in products/show
+  (michael@michaelbamford.com)
+
+* Mon May 05 2014 ci <doperations@au.westfield.com> 0.2.333-1
+- Merge pull request #1113 from cpearce/misc-fixes (cpearce@au.westfield.com)
+- Removing retina width for product curation hero image
+  (cpearce@au.westfield.com)
+
+* Mon May 05 2014 ci <doperations@au.westfield.com> 0.2.332-1
+- Merge pull request #1114 from araeside/stores-acceptance-tests
+  (araeside@au.westfield.com)
+- simplify test selectors (alec@smartalecwebsites.com.au)
+- remove report (alec@smartalecwebsites.com.au)
+- remove trading hours reference (alec@smartalecwebsites.com.au)
+- add basic stores acceptance tests (alec@smartalecwebsites.com.au)
+
+* Mon May 05 2014 ci <doperations@au.westfield.com> 0.2.331-1
+- Merge pull request #1115 from jlambert/disable-caching
+  (jlambert@au.westfield.com)
+- disable caching for now (jlambert@au.westfield.com)
+
+* Mon May 05 2014 ci <doperations@au.westfield.com> 0.2.330-1
+- Merge pull request #1106 from cpearce/accessibility-updates
+  (cpearce@au.westfield.com)
+- Small accessibility updates to Stores and global search
+  (cpearce@au.westfield.com)
+
+* Fri May 02 2014 ci <doperations@au.westfield.com> 0.2.329-1
+- Merge pull request #1112 from cpearce/new-creative (cpearce@au.westfield.com)
+- Removing redundant padding left/right (cpearce@au.westfield.com)
+- New creative (cpearce@au.westfield.com)
+
+* Fri May 02 2014 ci <doperations@au.westfield.com> 0.2.328-1
+- regressions teardown (benpritchard@aud27140.au.ad.westfield.com)
+- ensuring tests revert to using default driver
+  (benpritchard@aud27140.au.ad.westfield.com)
+
+* Fri May 02 2014 ci <doperations@au.westfield.com> 0.2.327-1
+- Merge pull request #1105 from ewee/master (ewee@au.westfield.com)
+- WSF-6530 Updated products category URL structure for consistency
+  (ewee@au.westfield.com)
+
+* Fri May 02 2014 ci <doperations@au.westfield.com> 0.2.326-1
+- improved clarity of tests, removed a failing redirect for now
+  (benpritchard@aud27140.au.ad.westfield.com)
+
+* Fri May 02 2014 ci <doperations@au.westfield.com> 0.2.325-1
+- Remove request store, nocache hack (jlambert@au.westfield.com)
+
+* Fri May 02 2014 ci <doperations@au.westfield.com> 0.2.324-1
+- set initialised value (alec@smartalecwebsites.com.au)
+- on deals show and product show, load all stores via ajax after map load
+  (alec@smartalecwebsites.com.au)
+
+* Thu May 01 2014 ci <doperations@au.westfield.com> 0.2.323-1
+- fixed failing tests (benpritchard@aud27140.au.ad.westfield.com)
+
+* Thu May 01 2014 ci <doperations@au.westfield.com> 0.2.322-1
+- Merge pull request #1102 from cpearce/misc-fixes (cpearce@au.westfield.com)
+- Making all null alt attrs use single quotes (cpearce@au.westfield.com)
+- Increasing quality for curation tile and hero images
+  (cpearce@au.westfield.com)
+
+* Thu May 01 2014 ci <doperations@au.westfield.com> 0.2.321-1
+- Use redis cache instead of filesystem cache (jlambert@au.westfield.com)
+- removed commented code (benpritchard@aud27140.au.ad.westfield.com)
+- removed sample test (benpritchard@aud27140.au.ad.westfield.com)
+- changed system of identifying destructive tests from using tags to wrapping
+  block with method: destructive (benpritchard@aud27140.au.ad.westfield.com)
+- added correct settings for mechanise proxy
+  (benpritchard@aud27140.au.ad.westfield.com)
+- changed to using test-xxx class selectors to match test targets
+  (benpritchard@aud27140.au.ad.westfield.com)
+- ensure that running rake or rake:spec excludes acceptance tests
+  (benpritchard@aud27140.au.ad.westfield.com)
+- first pass at moving acceptance tests over
+  (benpritchard@aud27140.au.ad.westfield.com)
+- added redirects acceptance tests, with reconfigured method of plugging new
+  tests in (benpritchard@aud27140.au.ad.westfield.com)
+- added exclusion filter for destructive tests in production
+  (benpritchard@aud27140.au.ad.westfield.com)
+
+* Wed Apr 30 2014 ci <doperations@au.westfield.com> 0.2.320-1
+- Merge pull request #1099 from araeside/lazy-load-feedback-js
+  (araeside@au.westfield.com)
+- Convert issue tracker js to coffeescript and lazy load atlassian JS
+  (alec@smartalecwebsites.com.au)
+
+* Wed Apr 30 2014 ci <doperations@au.westfield.com> 0.2.319-1
+- wait for page load before using cache for geolocation
+  (alec@smartalecwebsites.com.au)
+- fix cache checking logic (alec@smartalecwebsites.com.au)
+
+* Wed Apr 30 2014 ci <doperations@au.westfield.com> 0.2.318-1
+- Merge pull request #1094 from jlambert/WSF-6458 (jlambert@au.westfield.com)
+- WSF-6458 cancel in flight requests when a new query comes in
+  (jlambert@au.westfield.com)
+
+* Mon Apr 28 2014 ci <doperations@au.westfield.com> 0.2.317-1
+- Merge pull request #1098 from csmith/master (craigM.smith@au.westfield.com)
+- Upgraded Service API so faraday loads properly
+  (craigm.smith@au.westfield.com)
+
+* Mon Apr 28 2014 ci <doperations@au.westfield.com> 0.2.316-1
+- 
+
+* Mon Apr 28 2014 ci <doperations@au.westfield.com> 0.2.315-1
+- 
+
+* Sun Apr 27 2014 ci <doperations@au.westfield.com> 0.2.314-1
+- Merge pull request #1096 from ewee/ab_testing (ewee@au.westfield.com)
+- WSF-6459 Make GA Content Experiment code available for both prod and UAT
+  (ewee@au.westfield.com)
+
+* Sun Apr 27 2014 ci <doperations@au.westfield.com> 0.2.313-1
+- 
+
+* Thu Apr 24 2014 ci <doperations@au.westfield.com> 0.2.312-1
+- Merge pull request #1088 from cpearce/product-sale-price
+  (cpearce@au.westfield.com)
+- Removed || 0 as it's not needed. (craigm.smith@au.westfield.com)
+- Fixing broken build test (cpearce@au.westfield.com)
+- Final clean up after code review (cpearce@au.westfield.com)
+- Display sale price and discount percent off on product tile - WSF-6399
+  (cpearce@au.westfield.com)
+
+* Wed Apr 23 2014 ci <doperations@au.westfield.com> 0.2.311-1
+- Merge pull request #1092 from jlambert/enable-http-cache
+  (jlambert@au.westfield.com)
+- Enable http-caching for backing services (jlambert@au.westfield.com)
+
+* Wed Apr 23 2014 ci <doperations@au.westfield.com> 0.2.310-1
+- backing out new spec setup (benpritchard@aud27140.au.ad.westfield.com)
+
+* Wed Apr 23 2014 ci <doperations@au.westfield.com> 0.2.309-1
+- Fixing failing build test (cpearce@au.westfield.com)
+- Removing white space between am/pm for Event timeline
+  (cpearce@au.westfield.com)
+- Minor updates to Normalize CSS (cpearce@au.westfield.com)
+- Removing bottom border and adding more bottom spacing for Shopping Hours on
+  Storefront (cpearce@au.westfield.com)
+- Removing custom focus styles from reset CSS (cpearce@au.westfield.com)
+- Applying GA movie tile tracking class to correct element
+  (cpearce@au.westfield.com)
+
+* Tue Apr 22 2014 ci <doperations@au.westfield.com> 0.2.308-1
+- Merge pull request #1085 from ewee/ab_testing (ewee@au.westfield.com)
+- WSF-6459 Remove GA code as will be moved to Tealium (ewee@au.westfield.com)
+- WSF-6459 Land on search page if Google Content Experiment parameter exist via
+  search assist (ewee@au.westfield.com)
+
+* Tue Apr 22 2014 ci <doperations@au.westfield.com> 0.2.307-1
+- Merge pull request #1090 from dsim/WSF-6482_CCAmendments
+  (dsim@au.westfield.com)
+- Sidebar header to read "See More" when only one retailer is used in curation
+  (dsim@au.westfield.com)
+
+* Tue Apr 22 2014 ci <doperations@au.westfield.com> 0.2.306-1
+- Merge pull request #1073 from jlambert/WSF-5352 (jlambert@au.westfield.com)
+- WSF-5352 add disabled attr to buttons (jlambert@au.westfield.com)
+- WSF-5352 disable buttons when there are no selectable options
+  (jlambert@au.westfield.com)
+
 * Tue Apr 22 2014 ci <doperations@au.westfield.com> 0.2.305-1
 - Merge pull request #1039 from ldewey/master (ldewey@au.westfield.com)
 - Removed redis from status.json health check as its not needed.

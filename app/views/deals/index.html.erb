@@ -1,18 +1,20 @@
 <% content_for :class_for_main, "container--spacing-top-main-content" %>
 
+<%# Section nav %>
 <% content_for :section_nav do %>
   <%= render layout: '/layouts/section_nav' do %>
     <li><%= link_to 'All Deals', centre_deals_path(@centre), 'ng-class' => "{'is-active': (activeNavigationItem == '')}", class: active_link?( params[ :campaign_code ], nil ) -%></li><%-
       @campaigns.each do |campaign| -%><li><%= link_to campaign.name, centre_campaign_path(@centre, campaign.code), 'ng-class' => "{'is-active': (activeNavigationItem == '#{campaign.code}')}", class: active_link?( campaign.code, params[ :campaign_code ] ) -%></li><%- end -%>
   <%- end -%>
 <% end if @campaigns.present? %>
+<%# //Section nav %>
 
 <h1 class="hide-visually">Deals</h1>
 
 <% if @deals.blank? %>
 
   <%# No deals fallback message %>
-  <div class="fallback-msg fallback-msg--spacing-top">
+  <div class="fallback-msg fallback-msg--mrg-top">
     <p>
       <span class="fallback-msg__icon icon icon--deal icon--flush-top" aria-hidden="true"></span>
       <em class="h1">No deals at this centre</em>

@@ -15,6 +15,17 @@ class ApplicationController < ActionController::Base
   # Blanket site wide cache of one hour.
   before_action do
     expires_in 1.hour, public: true unless Rails.env.development? || Rails.env.test?
+    if params.include? 'nocache'
+      RequestStore.store[:nocache] = true
+    else
+      RequestStore.store[:nocache] = false
+    end
+
+    # Let javascript know about google content experiments, and centre_id
+    gon.push(
+        google_content_experiment: params[:gce_var],
+        centre_id: params[:centre_id]
+      )
   end
 
   # Prevent CSRF attacks by raising an exception.

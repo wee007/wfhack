@@ -96,15 +96,15 @@ $spacing-dbl: $line-height * 2 !default;
 					-	Desk small: smaller desktop computer monitors.
 					-	Desk large:	larger desktop computer monitors, TV's, and who knows what else?
 			-	Breakpoints:
-				-	Palm: 	0 - 640px
-					- Palm large:	480px+
-				-	Lap:	641px - 1199px
-					-	Lap small:	641px - 900px
-						- Lap small middle: 768px+
-					-	Lap large:	901px - 1199px
-						-	Lap large middle: 1024px+
+				-	Palm: 0 - 640px
+					- Palm large:	480px +
+				-	Lap: 641px - 1199px
+					-	Lap small: 641px - 900px
+						- Lap small middle: 768px +
+					-	Lap large: 901px - 1199px
+						-	Lap large middle: 1024px +
 				-	Desk:	1200px +
-					-	Desk small:	1200px - 1365px
+					-	Desk small: 1200px - 1365px
 					-	Desk large:	1366px +
 				**	Of course the values for these breakpoints can change per build, it just boils down to the type of design, however 'Palm' would typically always use the same breakpoint as human beings palm's aren't exactly growing :)
 
@@ -120,9 +120,15 @@ $spacing-dbl: $line-height * 2 !default;
 */
 
 /* Start points */
+$palm-lrg-start: 480 !default;
+
 $lap-start: 641 !default;
 
+$lap-sml-middle-start: 768 !default;
+
 $lap-lrg-start: 901 !default;
+
+$lap-lrg-middle-start: 1024 !default;
 
 $desk-start: 1200 !default;
 
@@ -142,7 +148,7 @@ $desk-sml-end: $desk-lrg-start - 1 !default;
 /* Palm */
 $palm: $palm-end !default;
 
-$palm-lrg: 480 !default;
+$palm-lrg: $palm-lrg-start !default;
 
 /* Non-palm */
 $non-palm: $lap-start !default;
@@ -150,11 +156,11 @@ $non-palm: $lap-start !default;
 /* Lap */
 $lap: $lap-start !default;
 
-$lap-sml-middle: 768 !default;
+$lap-sml-middle: $lap-sml-middle-start !default;
 
 $lap-lrg: $lap-lrg-start !default;
 
-$lap-lrg-middle: 1024 !default;
+$lap-lrg-middle: $lap-lrg-middle-start !default;
 
 /* Desk */
 $desk: $desk-start !default;

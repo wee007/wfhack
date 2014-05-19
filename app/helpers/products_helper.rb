@@ -6,18 +6,17 @@ module ProductsHelper
     (@centre.nil?) ? products_path : centre_products_path(@centre.code)
   end
 
-  # Work out the savings in % between sale price and normal price
-  def percentage_off
-   (Float(@product.price - @product.sale_price) / @product.price * 100).floor
-  end
-
-  def canonical_url
-    centre_category or
-      centre_super_cat or
-      centre_products or
-      products_category or
-      products_super_cat or
-      products
+  # Build category canonical URL for JS disabled site.
+  # TODO: Consolidate `nonscript_category_canonical_url` and `category_canonical_url` into one method.
+  #       The challenge is that both methods are getting the category details from different objects
+  #       and are accepting different arguments.
+  #       It would be nice to revisit as part of the category rework.
+  def noscript_category_canonical_url(categories)
+    if categories.sub_category.present?
+      url_for(params: {'sub_category' => categories.sub_category})
+    else
+      build_category_url(categories.super_cat, categories.category, nil)
+    end
   end
 
   def category_canonical_url(category_count=0)
@@ -58,30 +57,6 @@ module ProductsHelper
   end
 
   private
-
-  def centre_category
-    centre_products_category_url(params[:centre], params[:super_cat], params[:category], params.except(:centre, :super_cat, :category)) if !params[:super_cat].nil? and !params[:category].nil? and !params[:centre].nil?
-  end
-
-  def centre_super_cat
-    centre_products_super_cat_url(params[:centre], params[:super_cat], params.except(:centre, :category)) if !params[:super_cat].nil? and !params[:centre].nil?
-  end
-
-  def centre_products
-    centre_products_url(params[:centre], params.except(:centre)) if !params[:centre].nil?
-  end
-
-  def products_category
-    products_category_url(params[:super_cat], params[:category], params.except(:super_cat, :category)) if !params[:super_cat].nil? and !params[:category].nil?
-  end
-
-  def products_super_cat
-    products_super_cat_url(params[:super_cat], params.except(:super_cat)) if !params[:super_cat].nil?
-  end
-
-  def products
-    products_url(params)
-  end
 
   def build_category_url(super_category, category, sub_category)
     case

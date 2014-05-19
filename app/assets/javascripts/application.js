@@ -2,6 +2,7 @@
 
 // External dependencies, handled via Bower. See: https://gist.github.com/benschwarz/5874031/
 //= require jquery
+//= require ./vendor/modernizr
 //= require script.js/dist/script
 //= require matchMedia/matchMedia
 //= require matchMedia/matchMedia.addListener
@@ -13,6 +14,7 @@
 //= require ./support/placeholder-test
 
 // Global 'init' stuff
+//= require ./init/global_vars
 //= require ./init/enquire
 //= require ./init/pin-board
 //= require ./init/deferred_images
@@ -28,6 +30,8 @@
 //= require ./init/viewport_check
 //= require ./init/social-share
 
+//= require ./support/toggle-visibility
+
 // Angular
 //= require angular
 //= require angular-touch
@@ -41,6 +45,9 @@
 //= require_tree ./angular/filters
 //= require_tree ./angular/controllers
 //= stub ./angular/directives/dialog
+
+// Global Search
+//= require search/global_search
 
 // --Misc--
 

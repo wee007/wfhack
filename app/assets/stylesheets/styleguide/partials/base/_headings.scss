@@ -11,12 +11,13 @@
   @include font-size($font-size-deca);
   font-family: $font-family-lato;
 
-  /* Home page version */
-  .sg-homepage & {
+  /* Home page version - `body` element */
+  .page-sg-homepage & {
     @include to-rem(margin-bottom, $spacing-dbl);
     text-transform: uppercase;
     @include font-size(60);
     text-align: center;
+    color: $color-grey-dark-1;
   }
 }
 
@@ -24,6 +25,7 @@
   @include font-size($font-size-xlrg);
   font-family: $font-family-opensans;
   color: $color-txt-light;
+  text-transform: none;
 
   /* File name */
   code {@include font-size($font-size);}

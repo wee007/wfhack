@@ -58,6 +58,7 @@ CustomerConsole::Application.routes.draw do
     get 'services', to: 'centre_service_details#show'
     get 'canned-searches/:id/social-share' => 'social_shares#show', as: 'canned_search_social_share', kind: 'canned_search'
     get 'search', to: 'search#index', as: 'search'
+    get 'search/dropdown'
     get 'products/curation/:id/social-share' => 'social_shares#show', as: 'curation_social_share', kind: 'curation'
     get 'products/curation/:slug' => "curations#show", as: 'products_curation'
 

@@ -127,17 +127,18 @@
     # Filter controls / toggle / open / close
     $scope.activeFilter = ""
     $scope.toggleFilter = ($event, filterName) ->
-      if $scope.activeFilter isnt filterName
+      if $scope.activeFilter isnt filterName && !$($event.target).hasClass('is-disabled')
         $scope.activeFilter = filterName
 
         #let other dropdowns know that they should close themselves
-        $rootScope.$broadcast "product-filter-dropdown-open"
         SocialShare.closeAll()
+
+        $event.stopPropagation()
 
         # Stop event from getting to toggle visibility instance for "Filters" mobile button
         # It doesnt need to know as it's not being used at this breakpoint
         if angular.element("html").hasClass("lap-lrg")
-          $event.stopPropagation()
+          TogVis.closeAll()
         else
           $scope.triggersVisible = false;
       else
@@ -166,6 +167,9 @@
     $scope.triggersVisible = true
     $scope.showFilterButtons = -> $scope.triggersVisible = true
     $scope.hideFilterButtons = -> $scope.triggersVisible = false
+
+    $scope.filterIsDisabled = (filter)->
+      ProductSearch[filter].resultsCount == 0
 
     $scope.closeFilters = ->
       $scope.activeFilter = ""

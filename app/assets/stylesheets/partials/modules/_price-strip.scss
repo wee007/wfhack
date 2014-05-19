@@ -5,20 +5,21 @@
 /*
   Display price and if applicable sale price with % savings tag in a horizontal strip.
 
-  .price-strip--lrg         - Larger text size
+  .price-strip--lrg-txt         - Larger text size
 
   Styleguide Price Strip
 */
 
- .price-strip {
+.price-strip {
   position: relative;
   background-color: $color-grey-light-3;
   color: $color-txt-dark;
   font-weight: bold;
+  margin-bottom: 0;
 }
 
 /* Modifier: larger text size */
-.price-strip--lrg {
+.price-strip--lrg-txt {
   @include font-size($font-size-lrger);
 
   &,

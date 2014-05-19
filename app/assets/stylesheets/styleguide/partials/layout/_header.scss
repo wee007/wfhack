@@ -7,8 +7,8 @@
   @include to-rem(min-height, 44);
   border-bottom: 1px solid $color-grey-med-2;
 
-  /* Home page version */
-  .sg-homepage & {@include to-rem(margin-bottom, $spacing-dbl+$spacing-dbl);}
+  /* Home page version - `body` element */
+  .page-sg-homepage & {@include to-rem(margin-bottom, $spacing-dbl+$spacing-dbl);}
 
   /* Inner container */
   .container {
@@ -23,7 +23,7 @@
   h1 {
     display: inline-block;
     @include to-rem(margin, 5 0 0 5);
-    @include font-size(22, 1.2);
+    @include font-size($font-size-xlrg, 1.2);
     text-transform: uppercase;
   }
 

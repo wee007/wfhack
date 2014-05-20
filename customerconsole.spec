@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.383
+Version:     0.2.384
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -92,6 +92,9 @@ fi
 
 
 %changelog
+* Tue May 20 2014 ci <doperations@au.westfield.com> 0.2.384-1
+- 
+
 * Tue May 20 2014 ci <doperations@au.westfield.com> 0.2.383-1
 - update after code review (alec@smartalecwebsites.com.au)
 - remove old test (alec@smartalecwebsites.com.au)

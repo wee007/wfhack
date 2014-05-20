@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.384
+Version:     0.2.385
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -92,6 +92,11 @@ fi
 
 
 %changelog
+* Tue May 20 2014 ci <doperations@au.westfield.com> 0.2.385-1
+- Merge pull request #34 from AlecRaeside/store-list-on-centre-hours
+  (alec@smartalecwebsites.com.au)
+- add store hours js to precompile list (alec@smartalecwebsites.com.au)
+
 * Tue May 20 2014 ci <doperations@au.westfield.com> 0.2.384-1
 - 
 

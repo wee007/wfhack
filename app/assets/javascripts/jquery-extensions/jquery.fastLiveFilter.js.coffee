@@ -8,12 +8,16 @@ Project Website: http://anthonybush.com/projects/jquery_fast_live_filter/
 Modified by Alec Raeside
 ###
 
+#= require support/debounce
+
 jQuery.fn.fastLiveFilter = (list, options) ->
   # Options: input, list, timeout, callback
   options = options or {}
   $list = jQuery(list)
+  $listRaw = $list.get(0)
   input = this
   el = null
+  oldNumShown = 0
   lastFilter = null
   timeout = options.timeout or 0
   callback = options.callback or ->
@@ -29,50 +33,53 @@ jQuery.fn.fastLiveFilter = (list, options) ->
   len = lis.length
 
   list = []
-  i = 0
-  lis.each (i, el)->
+  for el, i in lis
+
     el = $(el)
+    text = ''
     if el.find(options.selector).length > 0
-      list.push {
-        element: el,
-        text: el.find(options.selector).text(),
-        hidden: false
-      }
+      text = el.find(options.selector).text()
+    else
+      text = el.text()
+
+    list.push {
+      element: el.get(0)
+      text: $.trim(text)
+      hidden: false
+    }
     @
 
-  oldDisplay = (if len > 0 then lis[0].style.display else "block")
-
-  input.change(->
+  onChange = debounce( ->
     filter = input.val().toLowerCase()
     numShown = 0
 
-    $.each list, (i, listObject)->
-      el = listObject.element.get(0)
+    for listObject, i in list
+      el = listObject.element
       if filter == '' or filterFunction(filter, listObject.text.toLowerCase())
         # Add class to raw DOM element for performance. See http://jsperf.com/display-none-vs-class-hidden/4
         el.className = el.className.replace( /(?:^|\s)hide-fully(?!\S)/g , '' ) if listObject.hidden or filter == ''
         listObject.hidden = false
-        numShown++
       else
         el.className += ' hide-fully' unless listObject.hidden
         listObject.hidden = true
 
-      if numShown == 0
-        $list.addClass 'hide-fully'
-      else
-        $list.removeClass 'hide-fully'
+      unless listObject.hidden
+        numShown++
+
+    if numShown == 0 and oldNumShown > 0
+      $listRaw.className += ' hide-fully'
+    else if numShown > 0 and oldNumShown == 0
+      $listRaw.className = $listRaw.className.replace( /(?:^|\s)hide-fully(?!\S)/g , '' )
+
+    oldNumShown = numShown
 
     callback list, numShown
+  , timeout)
 
-    false
-  ).keydown ->
-    clearTimeout keyTimeout
-    keyTimeout = setTimeout(->
-      return  if input.val() is lastFilter
-      lastFilter = input.val()
-      input.change()
-      return
-    , timeout)
-    return
+  inputEvent = 'input'
+  if isOldIE
+    inputEvent += ' keydown'
+  input.on(inputEvent, onChange)
+
 
   this # maintain jQuery chainability

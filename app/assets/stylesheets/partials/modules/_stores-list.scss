@@ -4,11 +4,17 @@
 
 /*
 	List of stores.
+
+  .stores-list--compact       - A smaller stripped down version of the store list
+  .stores-list--fixed-height  - Set maximum height and enable scrolling
+
+  Styleguide Stores List
 */
 
 .stores-list {
   margin-bottom: 0;
   background-color: #fff;
+  border-top: 1px solid $color-grey-med-3;
 
   /* Store A-Z grouping header */
   dt {
@@ -31,6 +37,18 @@
   }
 }
 
+/* Modifier: Set maximum height and enable scrolling */
+.stores-list--fixed-height {
+  max-height: $drop-down-max-height;
+  overflow-y: auto;
+
+  /* Touch device */
+  .touch & {
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
   /* Store name */
   .stores-list__store-name {
     position: relative;
@@ -41,6 +59,13 @@
       @include to-rem(margin-left, 132);
       @include to-rem(margin-right, 70);
       @include to-rem(padding-top padding-bottom, $spacing-base+$spacing-micro);
+    }
+
+    /* Modifier: A smaller stripped down version of the store list */
+    .stores-list--compact & {
+      @include to-rem(padding-top padding-bottom, $spacing-half);
+      margin-left: auto;
+      margin-right: auto;
     }
 
     strong {
@@ -59,6 +84,7 @@
       color: $color-txt-light;
       @include font-size($font-size-sml, 1.5);
     }
+
   }
 
   /* Logo */

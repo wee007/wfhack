@@ -4,7 +4,10 @@
 <head>
   <%# Add a hook to style JS enabled pages %>
   <script>
-    document.getElementsByTagName('html')[0].className = 'js';
+    (function() {
+      var html = document.getElementsByTagName('html')[0]
+      html.className = html.className.replace( /(?:^|\s)no-js(?!\S)/g , 'js' );
+    })()
   </script>
   <%# //Add a hook to style JS enabled pages %>
 

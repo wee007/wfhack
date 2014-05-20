@@ -115,8 +115,6 @@ describe CentreHoursController do
         CentreTradingHourService.should_receive(:build).and_return([])
         StoreService.should_receive(:fetch).with({centre: 'chatswood', per_page: 'all'}).and_return double :response, body: store_hours
         StoreService.should_receive(:build)
-        StoreTradingHourService.should_receive(:fetch).with({centre_id:'chatswood'})
-        StoreTradingHourService.should_receive(:build).and_return([])
 
         get :show, centre_id: 'chatswood'
         response.should render_template :show

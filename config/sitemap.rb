@@ -71,12 +71,13 @@ begin
 
     Rails.logger.info "[SITEMAP] Collections"
     curations.data.each do |c|
-      available_from = Date.parse(c.available_from)
-      available_to = Date.parse(c.available_to)
-      today = Date.today
-      next unless available_from <= today &&
-                  available_to >= today
-
+      # Keeping collections in sitemap outside availability period to maintain long-tail
+      #
+      # available_from = Date.parse(c.available_from)
+      # available_to = Date.parse(c.available_to)
+      # today = Date.today
+      # next unless available_from <= today &&
+      #             available_to >= today
       curation_path = "products/collection/#{c.code}"
       add curation_path, priority: 0.6
     end

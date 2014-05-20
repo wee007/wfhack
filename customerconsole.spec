@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.382
+Version:     0.2.383
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -92,6 +92,36 @@ fi
 
 
 %changelog
+* Tue May 20 2014 ci <doperations@au.westfield.com> 0.2.383-1
+- update after code review (alec@smartalecwebsites.com.au)
+- remove old test (alec@smartalecwebsites.com.au)
+- reduce amount of html in page (alec@smartalecwebsites.com.au)
+- format styleguide html (alec@smartalecwebsites.com.au)
+- move modifier into context (alec@smartalecwebsites.com.au)
+- updates after code review (alec@smartalecwebsites.com.au)
+- refactor ie9 var (alec@smartalecwebsites.com.au)
+- fix spacing (alec@smartalecwebsites.com.au)
+- remove rAF shim (alec@smartalecwebsites.com.au)
+- remove request animation frame usage, didnt provide enough benefit
+  (alec@smartalecwebsites.com.au)
+- remove meta tag for IE testing (alec@smartalecwebsites.com.au)
+- reduce size of no stores found icon (alec@smartalecwebsites.com.au)
+- code cleanup and ie compat (alec@smartalecwebsites.com.au)
+- optimise list filtering (alec@smartalecwebsites.com.au)
+- cleanup code (alec@smartalecwebsites.com.au)
+- get no stores in list message working (alec@smartalecwebsites.com.au)
+- add modifier comments (alec@smartalecwebsites.com.au)
+- cleanup file (alec@smartalecwebsites.com.au)
+- modifiers (alec@smartalecwebsites.com.au)
+- rename modifier and add comments (alec@smartalecwebsites.com.au)
+- keyword filter spacing (alec@smartalecwebsites.com.au)
+- some proper html (alec@smartalecwebsites.com.au)
+- WSF-6543 Got the tests passing. (craigm.smith@au.westfield.com)
+- link to storefront (alec@smartalecwebsites.com.au)
+- filtering by stores WIP (alec@smartalecwebsites.com.au)
+- Merge pull request #15 from granthowie/master (hi@chris-pearce.me)
+- Remove coremetrics DNS prefetch (ghowie@au.westfield.com)
+
 * Mon May 19 2014 ci <doperations@au.westfield.com> 0.2.382-1
 - remove old tests (alec@smartalecwebsites.com.au)
 - fix (alec@smartalecwebsites.com.au)

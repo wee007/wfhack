@@ -49,6 +49,7 @@ module CustomerConsole
                                    vendor/kss.js
                                    support/placeholder-init.js
                                    jquery-placeholder/jquery.placeholder.js
+                                   hours/store-hours.js
                                    )
     if Rails.env.development?
       require File.expand_path('../../lib/service_proxy', __FILE__)

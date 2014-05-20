@@ -58,7 +58,6 @@ begin
       end
     end
 
-
     product_responses.each do |pr|
       pr.results.each do |product|
         next unless product.retailer_code.present? &&

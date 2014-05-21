@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.388
+Version:     0.2.389
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -92,6 +92,14 @@ fi
 
 
 %changelog
+* Thu May 22 2014 ci <doperations@au.westfield.com> 0.2.389-1
+- Merge pull request #43 from mjbamford/feature/curations
+  (michael@michaelbamford.com)
+- Fixed routing specs; renamed curations' products url helper
+  (michael@michaelbamford.com)
+- Small spelling corrections in specs (michael@michaelbamford.com)
+- National collections (michael@michaelbamford.com)
+
 * Wed May 21 2014 ci <doperations@au.westfield.com> 0.2.388-1
 - added comments and reordered into related sections
   (bpritchard@au.westfield.com)

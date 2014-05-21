@@ -3,9 +3,10 @@ module Routes
     def self.draw(context, kind)
       context.instance_eval do
         get 'products' => "products#index_#{kind}"
+        get 'products/collection/:id/social-share' => 'social_shares#show', as: 'curation_social_share', kind: 'curation'
+        get 'products/collection/:slug' => "curations#show", as: 'products_curation'
         get 'products/:id/redirection' => 'products#redirection', as: 'product_redirection'
         get 'products/:id/social-share' => 'social_shares#show', as: 'product_social_share', kind: 'product'
-
         get 'products/:super_cat' => "products#index_#{kind}", as: 'products_super_cat'
         get 'products/:super_cat/:category' => "products#index_#{kind}", as: 'products_category'
         get 'products/:retailer_code/:product_name/:id' => "products#show_#{kind}", as: 'product'
@@ -59,8 +60,10 @@ CustomerConsole::Application.routes.draw do
     get 'canned-searches/:id/social-share' => 'social_shares#show', as: 'canned_search_social_share', kind: 'canned_search'
     get 'search', to: 'search#index', as: 'search'
     get 'search/dropdown'
-    get 'products/curation/:id/social-share' => 'social_shares#show', as: 'curation_social_share', kind: 'curation'
-    get 'products/curation/:slug' => "curations#show", as: 'products_curation'
+
+    # TODO Remove these obsolete routes; maintained here temporarily for Google organic traffic
+    get 'products/curation/:id/social-share' => 'social_shares#show', kind: 'curation'
+    get 'products/curation/:slug' => "curations#show"
 
     Routes::ProductRoutes.draw self, 'centre'
   end

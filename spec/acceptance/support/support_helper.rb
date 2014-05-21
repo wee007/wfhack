@@ -40,7 +40,13 @@ module SupportHelper
   end
 
   def clean_url(url)
-    URI.decode(url).gsub(/\/$/, '')
+    (URI.decode(url).gsub(/\/$/, '')).gsub('//wwwau.uat.westfield.com', '//www.uat.westfield.com.au') # hack
+  end
+  
+  def expect_one(*args)
+    matches = all(*args)
+    expect(matches.length).to eql(1)
+    matches[0]
   end
 
   # Capybara driver related
@@ -101,5 +107,12 @@ module SupportHelper
   def random(selector, opts={})
     items = page.all(selector, opts)
     items[rand(items.size)]
+  end
+  
+  def try_visit(url)
+    # for use when test should not fail when the visit fails
+    success = true
+    visit(url) rescue success = false
+    success
   end
 end

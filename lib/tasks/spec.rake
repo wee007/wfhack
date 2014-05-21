@@ -1,6 +1,7 @@
-if %w(development test).include? ENV['RACK_ENV']
+begin
   require 'rspec/core/rake_task'
-  
+rescue LoadError
+else
   task(:spec).clear
   desc 'Run all specs in spec directory (excluding acceptance specs)'
   RSpec::Core::RakeTask.new(:spec) do |t|

@@ -45,6 +45,12 @@ describe CustomerConsole::Application do
           id: '100'
         }))
       end
+
+      describe '/products/collection/:slug' do
+        let(:slug) { 'red-socks' }
+        subject {{ get: "products/collection/#{slug}" }}
+        it { should route_to Hash controller: 'curations', action: 'show', slug: slug }
+      end
     end
 
     context "for :centre/products" do
@@ -73,17 +79,16 @@ describe CustomerConsole::Application do
           id: '100'
         }))
       end
-    end
 
-    describe ':centre_id/products/curation/:slug' do
-      let(:slug) { 'red-socks' }
-      let(:centre_id) { 'bondijunction' }
-      subject {{ get: "#{centre_id}/products/curation/#{slug}" }}
-      it { should route_to Hash[ controller: 'curations', action: 'show', centre_id: centre_id, slug: slug ]}
+      describe ':centre_id/products/collection/:slug' do
+        let(:slug) { 'red-socks' }
+        let(:centre_id) { 'bondijunction' }
+        subject {{ get: "#{centre_id}/products/collection/#{slug}" }}
+        it { should route_to Hash controller: 'curations', action: 'show', centre_id: centre_id, slug: slug }
+      end
     end
 
     context "for social shares" do
-
       let(:base_params) { { controller: "social_shares", action: "show", id: "1" } }
 
       it "routes to product" do
@@ -122,7 +127,6 @@ describe CustomerConsole::Application do
           expect(get: "/bondijunction/products/curation/1/social-share").to route_to(base_params.merge({ 'kind'=>'curation' }))
         end
       end
-
     end
 
     describe "for :centres/deals" do

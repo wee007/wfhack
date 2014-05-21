@@ -4,7 +4,7 @@ feature 'SEO' do
   include_context 'seo'
   
   if environment_greater_than_or_equal_to? 'uat'
-    let(:target_pages) { _target_pages }
+    let(:target_pages) { get_target_pages }
     
     describe 'Title and Meta Description' do
       scenario 'are present and unique' do

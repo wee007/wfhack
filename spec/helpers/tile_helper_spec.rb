@@ -50,7 +50,7 @@ describe TileHelper do
 
     it "returns a curation url" do
       cs = double(:curation, kind: 'curation', code: 'summer-days')
-      helper.tile_url("centre_id", cs).should eq("http://test.host/centre_id/products/curation/summer-days")
+      helper.tile_url("centre_id", cs).should eq("http://test.host/centre_id/products/collection/summer-days")
     end
 
   end

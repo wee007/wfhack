@@ -49,7 +49,7 @@ describe CustomerConsole::Application do
       describe '/products/collection/:slug' do
         let(:slug) { 'red-socks' }
         subject {{ get: "products/collection/#{slug}" }}
-        it { should route_to Hash controller: 'curations', action: 'show', centre_id: nil, slug: slug }
+        it { should route_to Hash controller: 'curations', action: 'show', slug: slug }
       end
     end
 

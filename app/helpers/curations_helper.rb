@@ -1,10 +1,10 @@
 module CurationsHelper
 
-  def products_path retailer
+  def centre_or_national_products_path retailer
     if params[:centre_id]
       centre_products_path centre_id: params[:centre_id], retailer: [ retailer[:code] ]
     else
-      super retailer: [ retailer[:code] ]
+      products_path retailer: [ retailer[:code] ]
     end
   end
 

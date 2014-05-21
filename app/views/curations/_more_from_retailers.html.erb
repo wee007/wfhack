@@ -1,7 +1,7 @@
 <nav role="navigation">
   <ul class="product-curation__retailers horiz-list horiz-list--gutter-half horiz-list--mrg-half">
     <% @curation.retailers.each do |retailer| %><li>
-      <%= link_to (products_path retailer), class: 'btn btn--main btn--main-dark btn--main-compact-sides btn--main-max-width' do %>
+      <%= link_to (centre_or_national_products_path retailer), class: 'btn btn--main btn--main-dark btn--main-compact-sides btn--main-max-width' do %>
         <span class="txt-truncate"><%= retailer[:name] %></span>
       <% end %>
     </li><% end %>

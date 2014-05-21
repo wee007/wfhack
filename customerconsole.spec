@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.386
+Version:     0.2.387
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -92,6 +92,11 @@ fi
 
 
 %changelog
+* Wed May 21 2014 ci <doperations@au.westfield.com> 0.2.387-1
+- use h1 for no-js header (alec@smartalecwebsites.com.au)
+- reorder html to get keyword filter working on "next week" tab
+  (alec@smartalecwebsites.com.au)
+
 * Wed May 21 2014 ci <doperations@au.westfield.com> 0.2.386-1
 - Merge pull request #33 from mcmancuso/master (bpritchard@au.westfield.com)
 - wrap spec tests with env test (mmancuso@au.westfield.com)

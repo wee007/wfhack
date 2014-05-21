@@ -84,7 +84,7 @@ describe CustomerConsole::Application do
         let(:slug) { 'red-socks' }
         let(:centre_id) { 'bondijunction' }
         subject {{ get: "#{centre_id}/products/collection/#{slug}" }}
-        it { should route_to Hash[ controller: 'curations', action: 'show', centre_id: centre_id, slug: slug ]}
+        it { should route_to Hash controller: 'curations', action: 'show', centre_id: centre_id, slug: slug }
       end
     end
 

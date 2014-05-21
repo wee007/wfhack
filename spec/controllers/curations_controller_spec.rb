@@ -64,7 +64,7 @@ describe CurationsController do
 
         describe '@centre_by_state' do
           subject { assigns :centres_by_state }
-          it { should be_an Hash }
+          it { should be_a Hash }
         end
 
         describe '@centre' do

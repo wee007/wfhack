@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.385
+Version:     0.2.386
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -92,6 +92,10 @@ fi
 
 
 %changelog
+* Wed May 21 2014 ci <doperations@au.westfield.com> 0.2.386-1
+- Merge pull request #33 from mcmancuso/master (bpritchard@au.westfield.com)
+- wrap spec tests with env test (mmancuso@au.westfield.com)
+
 * Tue May 20 2014 ci <doperations@au.westfield.com> 0.2.385-1
 - Merge pull request #34 from AlecRaeside/store-list-on-centre-hours
   (alec@smartalecwebsites.com.au)

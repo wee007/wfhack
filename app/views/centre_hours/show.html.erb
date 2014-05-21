@@ -41,7 +41,7 @@
         <%# Tab content %>
         <div id="tab-<%= week_number %>" class="tab__content <%= 'is-active' if week_number == 0 %>">
 
-          <h2 class="tab__content__hdr"><%= ["This week", "Next week"][week_number] || "#{week.first.date '%-d %b'} - #{week.last.date '%-d %b'}"%></h2>
+          <h1 class="tab__content__hdr"><%= ["This week", "Next week"][week_number] || "#{week.first.date '%-d %b'} - #{week.last.date '%-d %b'}"%></h1>
 
           <h2><%= week.find { |hour| hour.christmas? } ? "Christmas Centre Hours" : "Westfield Centre Hours" %></h2>
 

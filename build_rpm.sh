@@ -1,6 +1,6 @@
 rm -rf /tmp/tito/
 gem install bundler --no-ri --no-rdoc
-bundle install --without test
+bundle install
 sudo yum-builddep *.spec --nogpgcheck -y
 git checkout master
 git pull origin master

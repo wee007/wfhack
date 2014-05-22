@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.390
+Version:     0.2.391
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -92,6 +92,10 @@ fi
 
 
 %changelog
+* Thu May 22 2014 ci <doperations@au.westfield.com> 0.2.391-1
+- BUILD FIX: temporarily include test gems to allow rpm to build
+  (charles.horn@gmail.com)
+
 * Thu May 22 2014 ci <doperations@au.westfield.com> 0.2.390-1
 - 
 

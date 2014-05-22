@@ -24,7 +24,7 @@ feature 'Redirecting' do
     
     describe 'to an EXTERNAL address' do
       scenario "sends the user to the correct destination" do
-        set_driver :webkit
+        set_driver :dynamic
         external_redirect_list.each do |redirect|
           log "#{redirect[:from]} >> #{redirect[:to]}"
           visit redirect[:from]

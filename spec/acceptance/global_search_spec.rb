@@ -11,10 +11,9 @@ feature 'Global Search' do
     query = 'sdflhjlds'
     find('.test-global-search-input').native.send_key(query)
     wait_for_ajax_requests
-    expect(find('.js-global-search-results')).to be_visible #test-global-search-results-dropdown
-    link = first('.js-global-search-results-item-link') #test-global-search-results-item-link
+    expect(find('.test-global-search-results-dropdown')).to be_visible
+    link = first('.test-global-search-results-item-link')
     link_text = link.text
-    find('.test-global-search-input').native.send_key('heeeeloo')
     expect("Search for #{query}").to include(link_text)
     link.click
     # And it should take us to the product search results page

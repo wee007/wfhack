@@ -3,7 +3,7 @@ require 'acceptance_helper'
 feature 'Stores' do
 
   background do
-    set_driver :webkit
+    set_driver :dynamic
   end
 
   describe 'There are stores in the store list' do
@@ -16,8 +16,8 @@ feature 'Stores' do
   describe 'View Storefront' do
     scenario "from Sydney stores list" do
       visit "/sydney/stores"
-      store_link = random('.test-store-link')
-      store_link.click
+      expect(page).to have_css '.test-store-link' # this causes Capybara to wait for item, without it next line can fail
+      random('.test-store-link').click
       wait_for_ajax_requests
       expect(page).to have_css '.test-stores-show'
     end

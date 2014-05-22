@@ -3,25 +3,31 @@ require 'acceptance_helper'
 feature 'Global Search' do
 
   before(:each) do
-    set_driver :webkit
+    set_driver :dynamic
   end
 
   scenario 'results should be returned' do
     visit '/sydney'
     query = 'sdflhjlds'
-    find('.test-global-search-input').set(query)
+    find('.test-global-search-input').native.send_key(query)
     wait_for_ajax_requests
-    expect(page).to have_content(query)
-    find('.js-global-search-dummy-search').click
-    # And it should take us to the products search
-    page.should have_content("Products Filter")
+    expect(find('.js-global-search-results')).to be_visible #test-global-search-results-dropdown
+    link = first('.js-global-search-results-item-link') #test-global-search-results-item-link
+    link_text = link.text
+    find('.test-global-search-input').native.send_key('heeeeloo')
+    expect("Search for #{query}").to include(link_text)
+    link.click
+    # And it should take us to the product search results page
+    expect_product_search_results_page
   end
 
   scenario 'pressing enter should take you to products' do
     visit '/sydney'
-    query = "hour\n"
-    find('.test-global-search-input').set(query)
-    page.should have_content("Products Filter")
+    query = "dress"
+    find('.test-global-search-input').native.send_keys(query, :Enter)
+    wait_for_ajax_requests
+    # And it should take us to the product search results page
+    expect_product_search_results_page
   end
 
   scenario 'Keyboard entry should work at searching hours' do
@@ -29,9 +35,9 @@ feature 'Global Search' do
     query = 'hour'
     find('.test-global-search-input').set(query)
     wait_for_ajax_requests
-    send_keycode_to_selector 40, '.test-global-search-input'
-    send_keycode_to_selector 13, '.test-global-search-input'
+    find('.test-global-search-input').native.send_keys(:Down, :Enter)
+    wait_for_ajax_requests
+    # And it should take us directly to the hours page
     page.should have_content("Westfield Centre Hours")
   end
-
 end

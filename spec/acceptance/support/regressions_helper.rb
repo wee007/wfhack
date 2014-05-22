@@ -1,6 +1,7 @@
 shared_context "regressions" do
   def expect_to_have_tiles(type=nil)
-    wait_for_element '.test-pin-board'
+#     wait_for_element '.test-pin-board'
+    wait_for_ajax_requests
     expect(page).to have_css('.test-pin-board')
     selector = ".test-tile#{type.nil? ? '' : "-#{type}"}"
     expect(all(selector).length).to be > 2
@@ -13,17 +14,15 @@ shared_context "regressions" do
   end
 
   def expect_product_filter(filter)
-    within('.test-product-search-filters') do
-      expect(page).to have_content 'Clear all', filter
-    end
+    product_search_filter = find('.test-product-search-filters')
+      expect(product_search_filter).to have_content(filter)
+      expect(product_search_filter).to have_content('Clear all')
   end
 
   def apply_product_filter(filter)
-    within('.test-products-category-filters') do
-      click_button 'Categories'
-      click_link filter
+      find('.test-products-filter-categories').click
+      find('.test-products-categories-menu-item', :text => filter).click
       wait_for_ajax_requests
-    end
   end
 
   def go_to_next_results_page
@@ -36,7 +35,6 @@ shared_context "regressions" do
 
   def go_to_results_page(direction)
     within('.test-products-pin-board-pager') do
-#       click_link direction
       find(".test-products-pin-board-pager-link-#{direction}").click
     end
     wait_for_ajax_requests

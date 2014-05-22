@@ -48,16 +48,44 @@ module SupportHelper
     expect(matches.length).to eql(1)
     matches[0]
   end
+  
+  def at_window_sizes(sizes, &block)
+    sizes.each do |size|
+      width = size[0]
+      height = size[1]
+      set_window_size width, height
+      instance_exec width, height, &block 
+    end
+  end
 
   # Capybara driver related
   def set_driver(driver)
-    Capybara.current_driver = driver
-    set_driver_config
-  end
-
-  def set_driver_config
     set_proxy
-    set_ssl_verify
+    if driver == :dynamic
+      driver = set_window_size
+    else
+      set_ssl_verify
+    end
+    Capybara.current_driver = driver
+  end
+  
+  def set_window_size(width=1024, height=768)
+    set_proxy unless @proxy
+    driver = "poltergeist-#{width}x#{height}".to_sym
+    sub_options = ["--ignore-ssl-errors=yes"]
+    sub_options << "--proxy=#{@proxy.host}:#{@proxy.port}" if @proxy
+    options = {
+      :inspector => true,
+      :js_errors => true,
+      :window_size => [width, height],
+      :phantomjs_options => sub_options
+    }
+    Capybara.register_driver driver do |app|
+      Capybara::Poltergeist::Driver.new(app, options)
+    end
+    
+    Capybara.current_driver = driver
+    Capybara.javascript_driver = driver
   end
 
   def set_proxy
@@ -65,12 +93,6 @@ module SupportHelper
       if !@proxy
         @proxy = URI(ENV['http_proxy'])
         log "Using Proxy: #{@proxy.host}:#{@proxy.port}"
-      end
-      case Capybara.current_driver
-      when :webkit
-        Capybara.current_session.driver.browser.set_proxy :host => @proxy.host, :port => @proxy.port
-      when :mechanize
-        # mechanize picks up the http_proxy env var, so we don't have to do anything here
       end
     end
   end
@@ -93,7 +115,10 @@ module SupportHelper
   end
 
   def set_redirecting(follow)
-    (page.driver.options[:follow_redirects] = follow) rescue nil # some drivers don't have options
+    case Capybara.current_driver
+    when :mechanize
+      page.driver.options[:follow_redirects] = follow
+    end
   end
 
   def redirecting_on
@@ -114,5 +139,24 @@ module SupportHelper
     success = true
     visit(url) rescue success = false
     success
+  end
+  
+  def snap(filename, log_message=nil)
+    path = "#{Rails.root}/tmp/screenshots/#{filename}.png"
+    save_screenshot(path, :full => true) #save_screenshot(path)
+    log "#{log_message}\n  Screenshot: #{path}" if log_message
+  end
+  
+  def dump(filename)
+    path = "#{Rails.root}/tmp/dump/#{filename}.html"
+    File.open(path, 'w') {|f| f.write(page.html) }
+  end
+  
+  def expect_product_search_results_page
+    if current_url.include?('/search?')
+      expect(page.body).to match(/Results\sfor|No results found/)
+    else
+      expect(page).to have_css(".test-products-category-filters")
+    end
   end
 end

@@ -22,10 +22,10 @@ shared_context "redirects" do
   
   def external_redirect_list
     [
+      { :from => '/unsubscribe', :to => 'https://secure.westfield.com.au/unsubscribe/' },
       { :from => '/flatlay', :to => 'http://flatlay.westfield.com.au/' },
       { :from => '/giftcard', :to => 'https://www.westfieldgiftcards.com.au/Online/' },
-      { :from => '/giftcards', :to => 'https://www.westfieldgiftcards.com.au/Online/' },
-      { :from => '/unsubscribe', :to => 'https://secure.westfield.com.au/unsubscribe/' }
+      { :from => '/giftcards', :to => 'https://www.westfieldgiftcards.com.au/Online/' }
     ]
   end
 end

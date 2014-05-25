@@ -41,7 +41,6 @@ feature 'Stores' do
       end
       wait_for_ajax_requests
       expect(page).to have_content(/(\d+) Results found/)
-
     end
   end
 

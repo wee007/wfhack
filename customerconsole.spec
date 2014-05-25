@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.393
+Version:     0.2.394
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -92,6 +92,37 @@ fi
 
 
 %changelog
+* Mon May 26 2014 ci <doperations@au.westfield.com> 0.2.394-1
+- [BUILD FIX] manulally increment version to pass already existing tag for
+  0.2.392-1 (chorn@au.westfield.com)
+- [BUILD FIX] whitespace change to force build number increment
+  (chorn@au.westfield.com)
+- Merge pull request #35 from danielsim/CurationsSitemap
+  (dan.sim.memberships@gmail.com)
+- simplify rails env setting for vcr smoke tests (chorn@au.westfield.com)
+- BUILD FIX: undo previous buidl fix since it didn't fix the root cause
+  (chorn@au.westfield.com)
+- cleaned up test (bpritchard@au.westfield.com)
+- removed flaky tests for now (bpritchard@au.westfield.com)
+- Merge pull request #63 from benpritchard/master (bpritchard@au.westfield.com)
+- Merge pull request #30 from hornc/master (charles.horn@gmail.com)
+- replaced capybara-webkit with poltergeist (bpritchard@au.westfield.com)
+- remove extra whitespace (dsim@au.westfield.com)
+- test for sitemap update time and content (chorn@au.westfield.com)
+- Initial commit of sitemap tests for production and test environments
+  (chorn@au.westfield.com)
+- keep collections in sitemap outside active period (dsim@au.westfield.com)
+- use 'next' syntax in collection to match product_responses syntax
+  (dsim@au.westfield.com)
+- use ServiceHelper URI (dsim@au.westfield.com)
+- use correct external url, add curations which dates fall on today as well as
+  around it (dsim@au.westfield.com)
+- Merge branch 'master' of github.com:westfield/customer_console into
+  CurationsSitemap (dsim@au.westfield.com)
+- Merge branch 'master' of github.com:westfield/customer_console into
+  CurationsSitemap (dsim@au.westfield.com)
+- basic curation addition to sitemap (unconfirmed url) (dsim@au.westfield.com)
+
 * Thu May 22 2014 ci <doperations@au.westfield.com> 0.2.392-1
 - 
 

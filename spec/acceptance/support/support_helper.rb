@@ -17,6 +17,24 @@ module SupportHelper
     keypress_script = "var e = $.Event('keydown', { keyCode: #{keycode} }); $('#{selector}').trigger(e);"
     page.driver.browser.execute_script(keypress_script)
   end
+  
+  def expect_current_url_to_match(regex)
+    wait_for_url(:to, regex)
+  end
+  
+  def expect_current_url_to_not_match(regex)
+    wait_for_url(:to_not, regex)
+  end
+  
+  def wait_for_url(method, regex)
+    case method
+    when :to
+      wait_until(20) { clean_url(current_url).match(regex) }
+    when :to_not
+      wait_until(20) { ! clean_url(current_url).match(regex) }
+    end
+    expect(clean_url(current_url)).send(method,match(regex))
+  end
 
   def wait_for_ajax_requests
     wait_until(20) { (page.evaluate_script('typeof jQuery != "undefined" && jQuery.active == 0')) }

@@ -323,8 +323,8 @@
 
           /* Need to override dynamic `is-active` class appended by 'Angular toggle visibility' directive */
           @include respond-range($palm-lrg, $lap-lrg-middle - 1) {
-            &,
-            &.is-active {display: inline-block;}
+            .stores-maps &,
+            .stores-maps &.is-active {display: inline-block;}
           }
 
           /* Reduce width to handle bigger map toggle button */

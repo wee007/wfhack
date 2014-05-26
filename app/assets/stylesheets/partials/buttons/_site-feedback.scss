@@ -25,9 +25,10 @@
 		display: block;
 	}
 
-	/* Hide for non JS and Android users */
+	/* Hide for the following... */
 	.no-js &,
-	.android & {display: none;}
+	.android &,
+	.page-redirect & {display: none;}
 }
 
 	/* 'Give feedback' label */

@@ -519,7 +519,7 @@
 		@include respond-min($lap, true) {
 			.foo {background: red;}
 		}
-		@include respond-max($palm) {
+		@include respond-max($palm-end) {
 			.foo {background: red;}
 		}
 		@include respond-range(500, 780) {

@@ -241,7 +241,7 @@
   .detail-view--product {
 
     /* Apply `table-layout: fixed` to grid so store link text can be truncated */
-    @include respond-max($palm) {
+    @include respond-max($palm-end) {
       .grid--rev-stack {table-layout: fixed;}
     }
 

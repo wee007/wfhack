@@ -146,7 +146,7 @@
 
         /* Curation pin board */
         .pin-board-curation & {
-          @include respond-range($palm-lrg - 1, $palm) {
+          @include respond-range($palm-lrg - 1, $palm-end) {
             .price-strip__normal {display: inline;}
           }
 

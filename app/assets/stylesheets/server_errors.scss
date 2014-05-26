@@ -82,7 +82,7 @@ div {
   background-size: cover;
 
   /* Load in small bg image at this breakpoint */
-  @include respond-max($palm) {
+  @include respond-max($palm-end) {
     background-image: cloudinary-url("css/server-error-bg-sml.jpg");
   }
 

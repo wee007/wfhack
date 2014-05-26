@@ -56,7 +56,7 @@
         height: 60%;
       }
 
-      @include respond-max($palm) {
+      @include respond-max($palm-end) {
         background-image: cloudinary-url("heroes/national/national-hero-01-sml.jpg", $quality: 89, $fetch_format: 'auto');
       }
 

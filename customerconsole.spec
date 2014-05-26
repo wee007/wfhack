@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.394
+Version:     0.2.395
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -92,6 +92,10 @@ fi
 
 
 %changelog
+* Mon May 26 2014 ci <doperations@au.westfield.com> 0.2.395-1
+- Fixing bug where stores keyword filter wasn't showing for tablets
+  (cpearce@au.westfield.com)
+
 * Mon May 26 2014 ci <doperations@au.westfield.com> 0.2.394-1
 - [BUILD FIX] manulally increment version to pass already existing tag for
   0.2.392-1 (chorn@au.westfield.com)

@@ -130,7 +130,7 @@
 
                 <%# Phone no %>
                 <%- if @store.phone_number.present? %>
-                  <%= phone_link @store.phone_number, class: 'storefront-storelist-phone-map-links__cell storefront-storelist-phone-map-links__cell--phone hide-fully--non-palm' do |phone_number| %>
+                  <%= phone_link @store.phone_number, class: 'storefront-storelist-phone-map-links__cell storefront-storelist-phone-map-links__cell--phone hide-fully--non-palm ga-call-store' do |phone_number| %>
                     <span class="hide-visually">Call store: <%= phone_number %></span>
                     <span class="icon icon--phone2 icon--flush-top storefront-storelist-phone-map-links__cell__valign"></span>
                   <% end %>

@@ -71,7 +71,7 @@ module SupportHelper
     sizes.each do |size|
       width = size[0]
       height = size[1]
-      set_window_size width, height
+      page.driver.resize width, height
       instance_exec width, height, &block 
     end
   end
@@ -80,30 +80,29 @@ module SupportHelper
   def set_driver(driver)
     set_proxy
     if driver == :dynamic
-      driver = set_window_size
+      driver = :poltergeist
+      configure_poltergeist
     else
       set_ssl_verify
     end
     Capybara.current_driver = driver
   end
   
-  def set_window_size(width=1024, height=768)
+  def configure_poltergeist
     set_proxy unless @proxy
-    driver = "poltergeist-#{width}x#{height}".to_sym
     sub_options = ["--ignore-ssl-errors=yes"]
     sub_options << "--proxy=#{@proxy.host}:#{@proxy.port}" if @proxy
     options = {
       :inspector => true,
-      :js_errors => true,
-      :window_size => [width, height],
+      :js_errors => false,
       :phantomjs_options => sub_options
     }
-    Capybara.register_driver driver do |app|
+    Capybara.register_driver :poltergeist do |app|
       Capybara::Poltergeist::Driver.new(app, options)
     end
     
-    Capybara.current_driver = driver
-    Capybara.javascript_driver = driver
+    Capybara.current_driver = :poltergeist
+    Capybara.javascript_driver = :poltergeist
   end
 
   def set_proxy

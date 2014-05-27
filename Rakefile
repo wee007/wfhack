@@ -5,4 +5,4 @@ require File.expand_path('../config/application', __FILE__)
 
 CustomerConsole::Application.load_tasks
 
-task :default => ['spec', 'spec:javascript']
+task :default => ['spec']

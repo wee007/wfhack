@@ -260,12 +260,11 @@
 <%# Availability %>
 <%- if @product_centres.present? -%>
 <section class="detail-view__divider--top-btm detail-view__divider--top island" aria-labelledby="availability">
-  <h2 class="flush-btm" id="availability"><%= @product.retail_chain_name %> also available at</h2>
+  <h2 id="availability"><%= @product.retail_chain_name %> also available at</h2>
   <ul>
-    <%- @product_centres.each do |centre| -%>
+    <%- @product_centres.each_with_index do |centre, idx| -%>
       <li>
-        <%= link_to centre_product_path(centre, @product.to_param),
-          class: "list-divider" do %>
+        <%= link_to centre_product_path(centre, @product.to_param), class: "list-divider#{ ' list-divider--first' if idx == 0 }" do %>
           <span class="icon icon--pin icon--lrg icon--spacing-lrg icon--base-color" aria-hidden="true"></span>
           <%= centre.name %>
           <span class="icon icon--arrow-right icon--lrg icon--base-color" aria-hidden="true"></span>

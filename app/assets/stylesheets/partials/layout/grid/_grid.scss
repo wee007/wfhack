@@ -132,7 +132,7 @@
 .grid--rev > .grid__item {float: right;}
 
 /* Change stacking order for 'palm' - only works for 2 cols */
-@include respond-max($palm) {
+@include respond-max($palm-end) {
 	.grid--rev-stack {
 		display: table;
 		width: 100%;

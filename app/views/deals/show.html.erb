@@ -68,12 +68,12 @@
 <%# Availability %>
 <% if @deal.stores and @deal.stores.size > 1 %>
   <section class="island" aria-labelledby="availability">
-    <h2 class="flush-btm" id="availability"><%= @store.name %> also available at</h2>
+    <h2 id="availability"><%= @store.name %> also available at</h2>
     <ul>
-      <% @deal.stores[0..2].each do |store| %>
+      <% @deal.stores[0..2].each_with_index do |store, idx| %>
         <% unless store.id == @store.id %>
           <li>
-            <a href="<%= centre_deal_path(store.centre.code, @deal.retailer_code, @deal.id)%>" class="list-divider">
+            <a href="<%= centre_deal_path(store.centre.code, @deal.retailer_code, @deal.id)%>" class="list-divider<%= ' list-divider--first' if idx == 0 -%>">
               <span class="icon icon--pin icon--lrg icon--spacing-lrg icon--base-color" aria-hidden="true"></span><%= store.centre.name %>
               <span class="icon icon--arrow-right icon--lrg icon--base-color" aria-hidden="true"></span>
             </a>

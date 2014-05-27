@@ -58,9 +58,13 @@ p {margin-bottom: 0;}
 
 /* Main title */
 h1 {
+  font-family: "Lato", sans-serif;
   @include font-size($font-size-kilo, 1.1);
+  font-weight: 300;
   text-transform: uppercase;
   color: $color-grey-med-1;
+  /* This is needed to turn off the top margin set in 'utils/normalize' */
+  margin-top: 0;
 
   @include respond-min($non-palm) {
     @include font-size($font-size-mega, 1.1);
@@ -82,7 +86,7 @@ div {
   background-size: cover;
 
   /* Load in small bg image at this breakpoint */
-  @include respond-max($palm) {
+  @include respond-max($palm-end) {
     background-image: cloudinary-url("css/server-error-bg-sml.jpg");
   }
 

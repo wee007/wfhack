@@ -1,6 +1,6 @@
 ruby "2.0.0"
 source "https://rubygems.org"
-
+github_auth = '1c67c24746803ca24c170bea972e37c97877c0a0:x-oauth-basic'
 gem 'rails', '~> 4.0.0'
 
 # Servers and environment
@@ -15,10 +15,10 @@ gem 'rack-pjax'
 gem 'health_check'
 
 # For calling APIs, response parsing etc.
-gem 'service_api', git: 'git@github.com:westfield/service_api.git', :ref => '57e171dc8dd05622505d81be840390bf6f9612fd'
-gem 'faraday', '0.8.8'
+gem 'service_api', git: "https://#{github_auth}@github.com/westfield/service_api.git"
+gem 'faraday'
 gem 'faraday_middleware'
-gem 'service_helper', git: 'git@github.com:westfield/service_helper.git'
+gem 'service_helper', git: "https://#{github_auth}@github.com/westfield/service_helper.git"
 gem 'hashie'
 gem 'cloudinary'
 gem 'sitemap_generator'
@@ -53,7 +53,6 @@ group :development, :test do
   gem 'webrat'
   gem 'pry'
   gem 'pry-remote'
-  gem "debugger"
   gem 'better_errors'
   gem 'binding_of_caller'
   gem "rspec-rails"

@@ -134,7 +134,7 @@
               <% stores.each do |store| %>
                 <dd>
                   <div class="stores-list__store-name container">
-                    <%= link_to store.name, centre_store_url(@centre.code, store.retailer_code, store.id), class: 'js-store-hours-store-name' %>
+                    <%= link_to store.name, centre_store_url(@centre.code, store.retailer_code, store.id), class: 'js-store-hours-store-name ga-visit-storefront' %>
                   </div>
                 </dd>
               <% end %>

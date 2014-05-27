@@ -100,7 +100,7 @@
                   <dt class="hide-visually">Opening hours</dt>
                   <dd>Open<span class="hide-fully--palm-inline"> from</span> <time datetime="<%= @store.opening_time %>"><%= twelve_hour_format @store.opening_time %></time>&#8211;<time datetime="<%= @store.closing_time %>"><%= twelve_hour_format @store.closing_time %></time><span class="hide-fully--palm-inline"> today</span>
                   <% if @this_week_hours.present? %>
-                    <button class="btn btn--faux-link js-store-hours-toggle-trigger js-disabled-hide" toggle-visibility="store-hours" toggle-visibility-drop-down="false" aria-owns="store-hours">
+                    <button class="btn btn--faux-link js-store-hours-toggle-trigger js-disabled-hide ga-show-store-hrs" toggle-visibility="store-hours" toggle-visibility-drop-down="false" aria-owns="store-hours">
                       <span class="hide-fully--palm">
                         (Show
                         <span class="show-when-visible">less)</span>
@@ -130,7 +130,7 @@
 
                 <%# Phone no %>
                 <%- if @store.phone_number.present? %>
-                  <%= phone_link @store.phone_number, class: 'storefront-storelist-phone-map-links__cell storefront-storelist-phone-map-links__cell--phone hide-fully--non-palm' do |phone_number| %>
+                  <%= phone_link @store.phone_number, class: 'storefront-storelist-phone-map-links__cell storefront-storelist-phone-map-links__cell--phone hide-fully--non-palm ga-call-store' do |phone_number| %>
                     <span class="hide-visually">Call store: <%= phone_number %></span>
                     <span class="icon icon--phone2 icon--flush-top storefront-storelist-phone-map-links__cell__valign"></span>
                   <% end %>
@@ -246,6 +246,15 @@
 
           // Target the store in the map
           storeMapPage.store(<%= @store.id %>);
+
+          // Apply a GA hook to 'Store hours' button only when hours are collapsed
+          $('.js-store-hours-toggle-trigger').on( "click", function() {
+            if ($(this).hasClass('is-active')) {
+              $(this).addClass('ga-show-store-hrs');
+            } else {
+              $(this).removeClass('ga-show-store-hrs');
+            }
+          });
 
           // Run 'Flexslider' plugin
 

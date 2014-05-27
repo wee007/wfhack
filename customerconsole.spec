@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.397
+Version:     0.2.398
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -92,6 +92,19 @@ fi
 
 
 %changelog
+* Tue May 27 2014 ci <doperations@au.westfield.com> 0.2.398-1
+- Merge pull request #97 from chris-pearce/ga-hooks (hi@chris-pearce.me)
+- Add GA hook to store hours toggle button when it's collapsed
+  (cpearce@au.westfield.com)
+- Adding a GA hook to track the link to email a centre
+  (cpearce@au.westfield.com)
+- Adding GA hooks to track social share outbound and email links
+  (cpearce@au.westfield.com)
+- Adding GA hooks to track links to call a store (cpearce@au.westfield.com)
+- Adding GA hook to track viewing store map (cpearce@au.westfield.com)
+- Adding GA hooks to track links that go to storefront
+  (cpearce@au.westfield.com)
+
 * Tue May 27 2014 ci <doperations@au.westfield.com> 0.2.397-1
 - 
 

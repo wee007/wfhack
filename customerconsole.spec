@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.398
+Version:     0.2.399
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -92,6 +92,9 @@ fi
 
 
 %changelog
+* Wed May 28 2014 ci <doperations@au.westfield.com> 0.2.399-1
+- Add travis yml file, update gems (jlambert@au.westfield.com)
+
 * Tue May 27 2014 ci <doperations@au.westfield.com> 0.2.398-1
 - Merge pull request #97 from chris-pearce/ga-hooks (hi@chris-pearce.me)
 - Add GA hook to store hours toggle button when it's collapsed

@@ -1,7 +1,7 @@
 /*
  * Tabs plugin
  * @desc		used for the UI tabs pattern
- * @initialise	$('.tabs').tabs();
+ * @initialise	$('.js-tabs').tabs();
  */
 $.fn.tabs = function() {
 

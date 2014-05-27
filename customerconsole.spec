@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.395
+Version:     0.2.396
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -92,6 +92,20 @@ fi
 
 
 %changelog
+* Tue May 27 2014 ci <doperations@au.westfield.com> 0.2.396-1
+- Merge pull request #93 from benpritchard/master (bpritchard@au.westfield.com)
+- Merge pull request #90 from chris-pearce/misc-fixes (hi@chris-pearce.me)
+- fixed browser resizing (bpritchard@au.westfield.com)
+- added helper method to wait for url change in tests
+  (bpritchard@au.westfield.com)
+- Adding module modifier to 'also available at' list (cpearce@au.westfield.com)
+- Fixing whitespace for closing if statement (cpearce@au.westfield.com)
+- Restoring correct font for server error page heading and tidying up order of
+  font size vars (cpearce@au.westfield.com)
+- Replacing  var with -end (cpearce@au.westfield.com)
+- Adding 'list' style hook to legal pages lists (cpearce@au.westfield.com)
+- Removing feedback button from 'Redirect' page (cpearce@au.westfield.com)
+
 * Mon May 26 2014 ci <doperations@au.westfield.com> 0.2.395-1
 - Fixing bug where stores keyword filter wasn't showing for tablets
   (cpearce@au.westfield.com)

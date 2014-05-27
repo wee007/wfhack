@@ -17,6 +17,24 @@ module SupportHelper
     keypress_script = "var e = $.Event('keydown', { keyCode: #{keycode} }); $('#{selector}').trigger(e);"
     page.driver.browser.execute_script(keypress_script)
   end
+  
+  def expect_current_url_to_match(regex)
+    wait_for_url(:to, regex)
+  end
+  
+  def expect_current_url_to_not_match(regex)
+    wait_for_url(:to_not, regex)
+  end
+  
+  def wait_for_url(method, regex)
+    case method
+    when :to
+      wait_until(20) { clean_url(current_url).match(regex) }
+    when :to_not
+      wait_until(20) { ! clean_url(current_url).match(regex) }
+    end
+    expect(clean_url(current_url)).send(method,match(regex))
+  end
 
   def wait_for_ajax_requests
     wait_until(20) { (page.evaluate_script('typeof jQuery != "undefined" && jQuery.active == 0')) }
@@ -53,7 +71,7 @@ module SupportHelper
     sizes.each do |size|
       width = size[0]
       height = size[1]
-      set_window_size width, height
+      page.driver.resize width, height
       instance_exec width, height, &block 
     end
   end
@@ -62,30 +80,29 @@ module SupportHelper
   def set_driver(driver)
     set_proxy
     if driver == :dynamic
-      driver = set_window_size
+      driver = :poltergeist
+      configure_poltergeist
     else
       set_ssl_verify
     end
     Capybara.current_driver = driver
   end
   
-  def set_window_size(width=1024, height=768)
+  def configure_poltergeist
     set_proxy unless @proxy
-    driver = "poltergeist-#{width}x#{height}".to_sym
     sub_options = ["--ignore-ssl-errors=yes"]
     sub_options << "--proxy=#{@proxy.host}:#{@proxy.port}" if @proxy
     options = {
       :inspector => true,
-      :js_errors => true,
-      :window_size => [width, height],
+      :js_errors => false,
       :phantomjs_options => sub_options
     }
-    Capybara.register_driver driver do |app|
+    Capybara.register_driver :poltergeist do |app|
       Capybara::Poltergeist::Driver.new(app, options)
     end
     
-    Capybara.current_driver = driver
-    Capybara.javascript_driver = driver
+    Capybara.current_driver = :poltergeist
+    Capybara.javascript_driver = :poltergeist
   end
 
   def set_proxy

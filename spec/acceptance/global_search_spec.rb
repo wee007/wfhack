@@ -35,7 +35,7 @@ feature 'Global Search' do
     find('.test-global-search-input').set(query)
     wait_for_ajax_requests
     find('.test-global-search-input').native.send_keys(:Down, :Enter)
-    wait_for_ajax_requests
+    expect_current_url_to_match(centre_hours_path('sydney'))
     # And it should take us directly to the hours page
     page.should have_content("Westfield Centre Hours")
   end

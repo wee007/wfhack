@@ -79,7 +79,7 @@
         animationSpeed: 50,
         multipleKeyboard: true,
         slideshow: false,
-        sync: '.flexslider--thumbs',
+        sync: '.js-flexslider-thumbs',
         prevText: '<span class="icon icon--arrow-left-big icon--flush-top" aria-hidden="true"></span><span class="hide-visually">Previous photo</span>',
         nextText: '<span class="icon icon--arrow-right-big icon--flush-top" aria-hidden="true"></span><span class="hide-visually">Next photo</span>',
         // Do stuff when the slider loads the first slide
@@ -93,13 +93,13 @@
         },
         // Do stuff asynchronously with each slider animation
         before: function(slider) {
-          $('.flexslider--thumbs').find('.flex-active-slide').attr('aria-selected', 'false');
+          $('.js-flexslider-thumbs').find('.flex-active-slide').attr('aria-selected', 'false');
         },
         // Do stuff after each slider animation completes
         after: function(slider) {
           slider.slides.attr('aria-selected', 'false');
           slider.slides.eq(slider.currentSlide).attr('aria-selected', 'true');
-          $('.flexslider--thumbs').find('.flex-active-slide').attr('aria-selected', 'true');
+          $('.js-flexslider-thumbs').find('.flex-active-slide').attr('aria-selected', 'true');
         }
       });
 

@@ -153,7 +153,7 @@
       <h2 class="hide-visually" id="images">Images</h2>
 
       <%# Carousel - large image %>
-      <div class="flexslider flexslider--lrg-img flexslider--gallery">
+      <div class="flexslider flexslider--lrg-img flexslider--gallery js-flexslider-lrg-img">
         <ul class="slides">
           <%- @product.image_refs[0...4].each do |img| -%>
             <li><%= cl_image_tag(img,
@@ -169,7 +169,7 @@
       <%# //Carousel - large image %>
 
       <%# Carousel - thumbnails %>
-      <div class="flexslider flexslider--thumbs flexslider--gallery">
+      <div class="flexslider flexslider--thumbs flexslider--gallery js-flexslider-thumbs">
         <ul class="slides">
           <%- @product.image_refs[0...4].each do |img| -%>
             <li><%= cl_image_tag(img,
@@ -287,14 +287,14 @@
       // Get the count of flexslider items
       var flexsliderItemsCount = $('.flexslider .slides li').length;
       // Flexslider thumbs
-      var flexsliderThumbs = $('.flexslider--thumbs');
+      var flexsliderThumbs = $('.js-flexslider-thumbs');
 
       // Only initialise flexslider if more than 2 items
       if (flexsliderItemsCount > 2) {
 
         // Thumbnails
         flexsliderThumbs.addClass('is-multiple-items');
-        $('.flexslider--thumbs').flexslider({
+        $('.js-flexslider-thumbs').flexslider({
           animation: 'slide',
           animationSpeed: 200,
           multipleKeyboard: true,
@@ -304,7 +304,7 @@
           itemWidth: 76,
           itemMargin: 3,
           slideshow: false,
-          asNavFor: '.flexslider--lrg-img',
+          asNavFor: '.js-flexslider-lrg-img',
           // Do stuff when the slider loads the first slide
           start: function(slider) {
             // Add some ARIA
@@ -315,11 +315,11 @@
         });
 
         // Large image
-        $('.flexslider--lrg-img').flexslider({
+        $('.js-flexslider-lrg-img').flexslider({
           animationSpeed: 50,
           multipleKeyboard: true,
           slideshow: false,
-          sync: '.flexslider--thumbs',
+          sync: '.js-flexslider-thumbs',
           prevText: '<span class="icon icon--arrow-left-big icon--flush-top" aria-hidden="true"></span><span class="hide-visually">Previous photo</span>',
           nextText: '<span class="icon icon--arrow-right-big icon--flush-top" aria-hidden="true"></span><span class="hide-visually">Next photo</span>',
           // Do stuff when the slider loads the first slide
@@ -333,13 +333,13 @@
           },
           // Do stuff asynchronously with each slider animation
           before: function(slider) {
-            $('.flexslider--thumbs').find('.flex-active-slide').attr('aria-selected', 'false');
+            $('.js-flexslider-thumbs').find('.flex-active-slide').attr('aria-selected', 'false');
           },
           // Do stuff after each slider animation completes
           after: function(slider) {
             slider.slides.attr('aria-selected', 'false');
             slider.slides.eq(slider.currentSlide).attr('aria-selected', 'true');
-            $('.flexslider--thumbs').find('.flex-active-slide').attr('aria-selected', 'true');
+            $('.js-flexslider-thumbs').find('.flex-active-slide').attr('aria-selected', 'true');
           }
         });
 

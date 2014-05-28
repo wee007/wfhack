@@ -3,11 +3,9 @@
 Formerly known as Playa, premium, presentationlayer, prince, so on.
 
 * Dependencies
-This project uses bundler and bower for dependency management. To install bower you'll need to get npm.
+This project uses bundler for ruby deps, and requires karma for javascript tests. You'll need to install npm before you can install karma.
 
       $ bundle install
-      $ npm install bower
-      $ bower install
       $ npm install -g karma@0.8.8
       $ brew install phantomjs
 

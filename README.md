@@ -24,7 +24,6 @@ This project uses bundler and bower for dependency management. To install bower 
 
 Coming soon. For now whenever a spec build passes an rpm should be built and installed.
 
-
 * Host file
 Add this to your hostfile, this will point all services at production.
 <pre>

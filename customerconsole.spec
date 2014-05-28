@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.399
+Version:     0.2.400
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -92,6 +92,17 @@ fi
 
 
 %changelog
+* Wed May 28 2014 ci <doperations@au.westfield.com> 0.2.400-1
+- Merge pull request #102 from mastfish/test-travis (mastfish@gmail.com)
+- Don't run karma, it's not stable (jlambert@au.westfield.com)
+- Merge pull request #101 from chris-pearce/misc-fixes
+  (alec@smartalecwebsites.com.au)
+- Changing tabs and flexslider widgets to use JS hooks
+  (cpearce@au.westfield.com)
+- Adding Slat Abstraction modifier to Style Guide (cpearce@au.westfield.com)
+- Remove unneeded bottom margin and hook from Curation desc
+  (cpearce@au.westfield.com)
+
 * Wed May 28 2014 ci <doperations@au.westfield.com> 0.2.399-1
 - Add travis yml file, update gems (jlambert@au.westfield.com)
 

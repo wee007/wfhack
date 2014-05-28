@@ -2,9 +2,17 @@ module ApiClientRequests
   def fetch(*args)
     connection_params = connection_details if self.respond_to?(:connection_details) and  !['development','test'].include?(Rails.env)
     connection_params ||= {}
+    uri = request_uri(*args)
+    if (RequestStore.store[:nocache])
+      if (uri.query)
+        uri.query = "#{uri.query}&nocache=" + RequestStore.store[:nocache]
+      else
+        uri.query = "nocache=" + RequestStore.store[:nocache]
+      end
+    end
     begin
       ::NewRelic::Agent.increment_metric('Custom/Api/api_calls')
-      Service::API.get(request_uri(*args), {}, connection_params)
+      Service::API.get(uri, {}, connection_params)
     rescue Redis::BaseError => error
       # If we can't connect to redis, proceed with caching disabled
       NewRelic::Agent.notice_error(error)

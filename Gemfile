@@ -28,6 +28,9 @@ gem 'parallel'
 # Caching
 gem 'redis-rails'
 
+# To support ?nocache=xxxx hack
+gem 'request_store'
+
 # Presentation, pagination etc.
 gem 'kaminari'
 gem 'money'

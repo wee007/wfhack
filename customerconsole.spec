@@ -1,6 +1,6 @@
 Summary:     Westfield Customer Console
 Name:        wf-customerconsole
-Version:     0.2.401
+Version:     0.2.402
 Release:     1%{?%dist}
 Group:       Applications/Databases
 License:     Proprietary
@@ -92,6 +92,13 @@ fi
 
 
 %changelog
+* Wed May 28 2014 ci <doperations@au.westfield.com> 0.2.402-1
+- Merge pull request #109 from mastfish/readme-fix (mastfish@gmail.com)
+- Update readme, try to trigger RPM build (jlambert@au.westfield.com)
+- Merge pull request #108 from mastfish/no-cache (mastfish@gmail.com)
+- Add requisite gems to enable cache-busting (jlambert@au.westfield.com)
+- Add no-cache functionality (jlambert@au.westfield.com)
+
 * Wed May 28 2014 ci <doperations@au.westfield.com> 0.2.401-1
 - 
 

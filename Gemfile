@@ -38,7 +38,6 @@ gem 'truncate'
 gem 'draper', '~> 1.3'
 
 #gem 'splunk_logger', github: 'westfield/splunk_logger'
-gem 'splunk_logger', git: "https://#{github_auth}@github.com/westfield/splunk_logger.git"
 
 # CSS (cant live in development or css will not get minified)
 # git@github.com:rails/rails/issues/10084#issuecomment-20855970

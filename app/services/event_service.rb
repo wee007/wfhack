@@ -5,13 +5,13 @@ class EventService
     def request_uri(options=nil)
 
       if options.is_a?(Fixnum) || options.is_a?(String)
-        URI("#{ServiceHelper.uri_for('event', protocol = 'http', host: :external)}/events/#{options}.json")
+        URI("#{ServiceHelper.uri_for('event', protocol = 'https', host: :external)}/events/#{options}.json")
       elsif options.present?
-        uri = URI("#{ServiceHelper.uri_for('event',  protocol = 'http', host: :external)}/events.json")
+        uri = URI("#{ServiceHelper.uri_for('event',  protocol = 'https', host: :external)}/events.json")
         uri.query = options.to_query
         uri
       else
-        URI("#{ServiceHelper.uri_for('event',  protocol = 'http', host: :external)}/events.json")
+        URI("#{ServiceHelper.uri_for('event',  protocol = 'https', host: :external)}/events.json")
       end
 
     end

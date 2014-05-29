@@ -13,7 +13,7 @@ class CentreTradingHourService
     end
 
     def request_uri(centre=nil, options={})
-      uri = URI("#{ServiceHelper.uri_for('trading-hour', protocol = 'http', host: :external)}/centre_trading_hours/range.json")
+      uri = URI("#{ServiceHelper.uri_for('trading-hour', protocol = 'https', host: :external)}/centre_trading_hours/range.json")
       uri.query = {centre_id: centre}.merge(options).to_query
       uri
     end

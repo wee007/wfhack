@@ -14,9 +14,9 @@ class CentreService
 
     def request_uri(centre=nil,options={})
       if centre.nil? || centre == :all
-        uri = URI("#{ServiceHelper.uri_for('centre', protocol = 'http', host: :external)}/centres.json")
+        uri = URI("#{ServiceHelper.uri_for('centre', protocol = 'https', host: :external)}/centres.json")
       else
-        uri = URI("#{ServiceHelper.uri_for('centre', protocol = 'http', host: :external)}/centres/#{URI.escape centre}.json")
+        uri = URI("#{ServiceHelper.uri_for('centre', protocol = 'https', host: :external)}/centres/#{URI.escape centre}.json")
       end
       uri.query = options.to_query if options.present?
       uri

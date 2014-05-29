@@ -1,6 +1,6 @@
 require Rails.root.join('lib/sitemap_generator/adapters/cloudinary')
 
-host = WestfieldUri::Console.uri_for('customer', protocol = 'http', host: :external).to_s
+host = WestfieldUri::Console.uri_for('customer', protocol = 'https', host: :external).to_s
 SitemapGenerator::Sitemap.default_host = host
 SitemapGenerator::Sitemap.public_path = 'tmp/'
 SitemapGenerator::Sitemap.adapter = SitemapGenerator::CloudinaryAdapter.new
@@ -10,10 +10,10 @@ begin
   SitemapGenerator::Sitemap.create do
     add '/', changefreq: 'daily', priority: 1.0
 
-    centres_uri = URI("#{ServiceHelper.uri_for('centre',  protocol = 'http', host: :external)}/centres.json?country=au")
-    stores_uri = URI("#{ServiceHelper.uri_for('store',  protocol = 'http', host: :external)}/stores.json")
-    product_search_url = URI("#{ServiceHelper.uri_for('product',  protocol = 'http', host: :external)}/products/search.json")
-    curations_uri = URI("#{ServiceHelper.uri_for('canned-search',  protocol = 'http', host: :external)}/curations.json")
+    centres_uri = URI("#{ServiceHelper.uri_for('centre',  protocol = 'https', host: :external)}/centres.json?country=au")
+    stores_uri = URI("#{ServiceHelper.uri_for('store',  protocol = 'https', host: :external)}/stores.json")
+    product_search_url = URI("#{ServiceHelper.uri_for('product',  protocol = 'https', host: :external)}/products/search.json")
+    curations_uri = URI("#{ServiceHelper.uri_for('canned-search',  protocol = 'https', host: :external)}/curations.json")
 
     centres = Service::API.get(centres_uri, {}, timeout: 5.minutes, retry: 5)
     stores = Service::API.get(stores_uri, {}, timeout: 5.minutes, retry: 5)

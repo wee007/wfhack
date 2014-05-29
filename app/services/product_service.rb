@@ -26,7 +26,7 @@ class ProductService
       if action == 'lite'
         lite_uri(options)
       elsif options[:category_codes].present?
-        uri = URI("#{ServiceHelper.uri_for('product',  protocol = 'http', host: :external)}/categories.json")
+        uri = URI("#{ServiceHelper.uri_for('product',  protocol = 'https', host: :external)}/categories.json")
         uri.query = options.to_query
         uri
       else
@@ -35,14 +35,14 @@ class ProductService
     end
 
     def show_uri(id)
-      URI("#{ServiceHelper.uri_for('product',  protocol = 'http', host: :external)}/products/#{id}.json")
+      URI("#{ServiceHelper.uri_for('product',  protocol = 'https', host: :external)}/products/#{id}.json")
     end
 
     def lite_uri(options)
       search_opts = ({page:1, rows: 50}.merge options).with_indifferent_access
       centre = search_opts.delete :centre_id
       search_opts[:centre] ||= centre
-      uri = URI("#{ServiceHelper.uri_for('product',  protocol = 'http', host: :external)}/products.json")
+      uri = URI("#{ServiceHelper.uri_for('product',  protocol = 'https', host: :external)}/products.json")
       uri.query = search_opts.to_query
       uri
     end
@@ -51,7 +51,7 @@ class ProductService
       search_opts = ({page:1, rows: 50}.merge options).with_indifferent_access
       centre = search_opts.delete :centre_id
       search_opts[:centre] ||= centre
-      uri = URI("#{ServiceHelper.uri_for('product',  protocol = 'http', host: :external)}/products/search.json")
+      uri = URI("#{ServiceHelper.uri_for('product',  protocol = 'https', host: :external)}/products/search.json")
       uri.query = search_opts.to_query
       uri
     end

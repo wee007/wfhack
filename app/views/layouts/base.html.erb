@@ -11,10 +11,6 @@
   </script>
   <%# //Add a hook to style JS enabled pages %>
 
-  <%# Google Analytics Content Experiment code %>
-  <%# Note: This can only be tested in production or UAT. %>
-  <%= raw google_analytics_content_experiment if Rails.env.production? || Rails.env.uat? %>
-  <%# //End of Google Analytics Content Experiment code %>
 
   <!--[if !IE]><base href="/"><![endif]-->
   <!--[if lte IE 9]><base href="<%= request.path %>"><![endif]-->

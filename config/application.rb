@@ -10,8 +10,6 @@ Bundler.require(:default, Rails.env)
 
 Rails.cache = :redis_store,
   {
-    host: WestfieldUri::Redis.uri_for.get_host,
-    port: WestfieldUri::Redis.uri_for.get_port(nil),
     namespace: "customer_console_cache",
     expires_in: 90.minutes,
   }

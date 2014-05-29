@@ -47,6 +47,7 @@ gem 'newrelic_rpm'
 gem 'thin'
 gem 'unicorn'
 gem 'puma'
+gem 'rails_12factor'
 
 group :development do
   gem "foreman"

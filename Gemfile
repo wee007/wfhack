@@ -42,12 +42,15 @@ gem 'draper', '~> 1.3'
 # CSS (cant live in development or css will not get minified)
 # git@github.com:rails/rails/issues/10084#issuecomment-20855970
 gem 'sass-rails', '~> 4.0.0'
-gem 'kss', git: 'git@github.com:kneath/kss.git' # Gem release pending
+#gem 'kss', git: 'git@github.com:kneath/kss.git' # Gem release pending
 gem 'newrelic_rpm'
 gem 'thin'
 gem 'unicorn'
 gem 'puma'
 gem 'rails_12factor'
+# https://github.com/Yelp/yelp-ruby
+gem 'yelp', require: 'yelp'
+
 # https://github.com/Yelp/yelp-ruby
 gem 'yelp', require: 'yelp'
 

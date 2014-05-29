@@ -46,6 +46,7 @@ gem 'kss', github: 'kneath/kss' # Gem release pending
 gem 'newrelic_rpm'
 gem 'thin'
 gem 'unicorn'
+gem 'puma'
 
 group :development do
   gem "foreman"

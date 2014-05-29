@@ -11,9 +11,9 @@ class StoreTradingHourService
 
     def request_uri(options={})
       if options[:store_id]
-        uri = URI("#{ServiceHelper.uri_for('trading-hour')}/store_trading_hours/range.json")
+        uri = URI("#{ServiceHelper.uri_for('trading-hour',  protocol = 'http', host: :external)}/store_trading_hours/range.json")
       else
-        uri = URI("#{ServiceHelper.uri_for('trading-hour')}/store_trading_hours.json")
+        uri = URI("#{ServiceHelper.uri_for('trading-hour',  protocol = 'http', host: :external)}/store_trading_hours.json")
       end
       uri.query = options.to_query
       uri

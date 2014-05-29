@@ -21,7 +21,7 @@ class StreamService
     end
 
     def request_uri(options={})
-      uri = ServiceHelper.uri_for('stream')
+      uri = ServiceHelper.uri_for('stream',  protocol = 'http', host: :external)
       if options[:stream]
         uri.path += "/#{options.delete :stream}_stream.json"
       else

@@ -3,7 +3,7 @@ class CampaignService
     include ApiClientRequests
 
     def request_uri options = nil
-      uri = URI "#{ServiceHelper.uri_for 'deal'}/campaigns.json"
+      uri = URI "#{ServiceHelper.uri_for('deal', protocol = 'http', host: :external)}/campaigns.json"
       uri.query = options.to_query if options
       uri
     end

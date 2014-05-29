@@ -23,13 +23,13 @@ class StoreService
 
     def request_uri(options=nil)
       if options.is_a?(Fixnum) || options.is_a?(String)
-        URI("#{ServiceHelper.uri_for('store')}/stores/#{options}.json")
+        URI("#{ServiceHelper.uri_for('store',  protocol = 'http', host: :external)}/stores/#{options}.json")
       elsif options.present?
-        uri = URI("#{ServiceHelper.uri_for('store')}/stores.json")
+        uri = URI("#{ServiceHelper.uri_for('store',  protocol = 'http', host: :external)}/stores.json")
         uri.query = options.to_query
         uri
       else
-        URI("#{ServiceHelper.uri_for('store')}/stores.json")
+        URI("#{ServiceHelper.uri_for('store',  protocol = 'http', host: :external)}/stores.json")
       end
     end
 

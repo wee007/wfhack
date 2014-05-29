@@ -15,9 +15,9 @@ shared_context "trading_hours" do
     to_date = from_date + 6.days
     url = case type
     when 'centre'
-      "#{ServiceHelper.uri_for('trading-hour')}/centre_trading_hours/range.json?centre_id=bondijunction&from=#{from_date.strftime('%Y-%m-%d')}&to=#{to_date.strftime('%Y-%m-%d')}"
+      "#{ServiceHelper.uri_for('trading-hour',  protocol = 'http', host: :external)}/centre_trading_hours/range.json?centre_id=bondijunction&from=#{from_date.strftime('%Y-%m-%d')}&to=#{to_date.strftime('%Y-%m-%d')}"
     when 'store'
-      "#{ServiceHelper.uri_for('trading-hour')}/store_trading_hours/range.json?store_id=4565&centre_id=bondijunction&from=#{from_date.strftime('%Y-%m-%d')}&to=#{to_date.strftime('%Y-%m-%d')}"
+      "#{ServiceHelper.uri_for('trading-hour',  protocol = 'http', host: :external)}/store_trading_hours/range.json?store_id=4565&centre_id=bondijunction&from=#{from_date.strftime('%Y-%m-%d')}&to=#{to_date.strftime('%Y-%m-%d')}"
     end
     visit (url)
     JSON.parse(page.body)

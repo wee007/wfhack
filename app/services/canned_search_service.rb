@@ -4,9 +4,9 @@ class CannedSearchService
 
     def request_uri(options=nil)
       if options.is_a?(Fixnum) || options.is_a?(String)
-        URI("#{ServiceHelper.uri_for('canned-search')}/canned_searches/#{options}.json")
+        URI("#{ServiceHelper.uri_for('canned-search', protocol = 'http', host: :external)}/canned_searches/#{options}.json")
       else
-        uri = URI("#{ServiceHelper.uri_for('canned-search')}/canned_searches.json")
+        uri = URI("#{ServiceHelper.uri_for('canned-search', protocol = 'http', host: :external)}/canned_searches.json")
         uri.query = options.to_query if options.present?
         uri
       end

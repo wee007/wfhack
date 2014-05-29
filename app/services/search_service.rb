@@ -12,7 +12,7 @@ class SearchService
     end
 
     def request_uri(options)
-      uri = URI("#{ServiceHelper.uri_for('search')}/search.json")
+      uri = URI("#{ServiceHelper.uri_for('search',  protocol = 'http', host: :external)}/search.json")
       uri.query = options.to_query
       uri
     end

@@ -8,7 +8,7 @@ class ParkingService
     end
 
     def request_uri(centre,options={})
-      uri = URI("#{ServiceHelper.uri_for('centre')}/parkings/#{centre}.json")
+      uri = URI("#{ServiceHelper.uri_for('centre',  protocol = 'http', host: :external)}/parkings/#{centre}.json")
       uri.query = options.to_query
       uri
     end

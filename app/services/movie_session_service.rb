@@ -9,9 +9,9 @@ class MovieSessionService
 
     def request_uri(options={})
       if options.is_a?(Fixnum) || options.is_a?(String)
-        URI("#{ServiceHelper.uri_for('movie')}/movie_sessions/#{options}.json")
+        URI("#{ServiceHelper.uri_for('movie',  protocol = 'http', host: :external)}/movie_sessions/#{options}.json")
       else
-        uri = URI("#{ServiceHelper.uri_for('movie')}/movie_sessions.json")
+        uri = URI("#{ServiceHelper.uri_for('movie',  protocol = 'http', host: :external)}/movie_sessions.json")
         uri.query = options.to_query
         uri
       end

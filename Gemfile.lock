@@ -1,10 +1,5 @@
 GIT
-  remote: git://github.com/kneath/kss.git
-  revision: 1a1dbb3e150655e2c27b126f48ac91ef6d9253e6
-  specs:
-    kss (0.5.0)
-
-GIT
+  remote: git@github.com:kneath/kss.git
   remote: git://github.com/westfield/splunk_logger.git
   revision: 5f0bec915e2325d2c7ba1ce764e1a009928cc365
   specs:
@@ -251,6 +246,7 @@ GEM
       sass (>= 3.1.10)
       sprockets-rails (~> 2.0.0)
     settingslogic (2.0.9)
+    simple_oauth (0.2.0)
     simplecov (0.7.1)
       multi_json (~> 1.0)
       simplecov-html (~> 0.7.1)
@@ -302,6 +298,10 @@ GEM
     websocket-driver (0.3.3)
     xpath (2.0.0)
       nokogiri (~> 1.3)
+    yelp (2.0.1)
+      faraday (~> 0.8, >= 0.8.0)
+      faraday_middleware (~> 0.8, >= 0.8.0)
+      simple_oauth (~> 0.2, >= 0.2.0)
 
 PLATFORMS
   ruby
@@ -323,7 +323,6 @@ DEPENDENCIES
   health_check
   json
   kaminari
-  kss!
   launchy
   mechanize (= 2.7.2)
   money
@@ -356,3 +355,4 @@ DEPENDENCIES
   unicorn
   vcr
   webrat
+  yelp

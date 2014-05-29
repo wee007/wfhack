@@ -215,6 +215,17 @@
           <% end %>
           <%# //Store opening hours %>
 
+          <%# Yelp %>
+          <% if @yelp.present? %>
+            <%= image_tag @yelp.rating_img_url %><%= pluralize @yelp.review_count, 'review' %><%= image_tag 'reviewsFromYelpWHT.gif' %><br/>
+            <%= image_tag @yelp.try(:image_url) %>
+            <% @yelp.reviews.each do |review| %>
+              <%= review.excerpt %><br/>
+              <%= link_to 'Full review on Yelp', @yelp.url %><br/>
+            <% end %>
+          <% end %>
+          <%# //Yelp %>
+
           <%# Product and Deal tiles %>
           <%- if @products.present? or @deals.present? %>
             <footer>

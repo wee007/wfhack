@@ -16,6 +16,11 @@
     <div class="map-micello__overlay__retailer__body">
       <em class="map-micello__hdr txt-truncate"><%%- name %></em>
       <div class="js-trading-hours-map-overlay" style="height: 18px"></div>
+      <%# Yelp %>
+      <% if @yelp.present? %>
+        <%= image_tag @yelp.rating_img_url_small %><%= pluralize @yelp.review_count, 'review' %>
+      <% end %>
+      <%# //Yelp %>
     </div>
     <%# //Store name and closing time %>
 

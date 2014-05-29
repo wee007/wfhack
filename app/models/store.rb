@@ -70,6 +70,20 @@ class Store < Hashie::Mash
     gon
   end
 
+  def yelp
+    @search = Yelp.client.search \
+      centre_id,
+      {
+        term: name,
+        limit: 1
+      }
+
+    business = Yelp.client.business(@search.businesses.first.id)
+    business if business.name.downcase.include?(name.downcase) && business.location.city.downcase.include?(centre_id)
+  rescue
+    nil
+  end
+
 private
 
   def get_centre

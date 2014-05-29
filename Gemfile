@@ -49,6 +49,9 @@ group :development do
   gem "foreman"
 end
 
+group :assets do
+  gem 'uglifier'
+end
 
 group :development, :test do
   # needed for using have_selector matcher, since rspec-2 removes

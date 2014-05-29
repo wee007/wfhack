@@ -51,6 +51,7 @@ end
 
 group :assets do
   gem 'uglifier', '>= 1.3.0'
+  gem 'coffee-rails', '~> 4.0.0'
 end
 
 group :development, :test do
@@ -62,7 +63,6 @@ group :development, :test do
   gem 'better_errors'
   gem 'binding_of_caller'
   gem "rspec-rails"
-  gem 'coffee-rails', '~> 4.0.0'
   gem 'json'
   gem 'rack-proxy', '0.4.0' # Updating it broke our proxying (/api/<service>/...)
   gem 'launchy'

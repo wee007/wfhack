@@ -44,7 +44,8 @@ gem 'splunk_logger', github: 'westfield/splunk_logger'
 gem 'sass-rails', '~> 4.0.0'
 gem 'kss', github: 'kneath/kss' # Gem release pending
 gem 'newrelic_rpm'
-  gem 'thin'
+gem 'thin'
+gem 'unicorn'
 
 group :development do
   gem "foreman"

@@ -8,11 +8,6 @@ require "sprockets/railtie"
 # you've limited to :test, :development, or :production.
 Bundler.require(:default, Rails.env)
 
-Rails.cache = :redis_store,
-  {
-    namespace: "customer_console_cache",
-    expires_in: 90.minutes,
-  }
 
 module CustomerConsole
   class Application < Rails::Application

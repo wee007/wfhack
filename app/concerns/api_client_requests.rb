@@ -12,7 +12,7 @@ module ApiClientRequests
     end
     begin
       ::NewRelic::Agent.increment_metric('Custom/Api/api_calls')
-      #Service::API.get(uri, {}, connection_params)
+      Service::API.get(uri, {}, connection_params)
     rescue Redis::BaseError => error
       # If we can't connect to redis, proceed with caching disabled
       NewRelic::Agent.notice_error(error)

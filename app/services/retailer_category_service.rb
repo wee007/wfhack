@@ -10,6 +10,7 @@ class RetailerCategoryService
     end
 
     def connection_details
+      {connection: {}}
     end
   end
 end

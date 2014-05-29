@@ -37,12 +37,12 @@ gem 'money'
 gem 'truncate'
 gem 'draper', '~> 1.3'
 
-gem 'splunk_logger', git: 'git@github.com:westfield/splunk_logger.git'
+gem 'splunk_logger', github: 'westfield/splunk_logger'
 
 # CSS (cant live in development or css will not get minified)
 # git@github.com:rails/rails/issues/10084#issuecomment-20855970
 gem 'sass-rails', '~> 4.0.0'
-gem 'kss', git: 'git@github.com:kneath/kss.git' # Gem release pending
+gem 'kss', github: 'kneath/kss' # Gem release pending
 gem 'newrelic_rpm'
 
 group :development do

@@ -44,6 +44,7 @@ gem 'splunk_logger', github: 'westfield/splunk_logger'
 gem 'sass-rails', '~> 4.0.0'
 gem 'kss', github: 'kneath/kss' # Gem release pending
 gem 'newrelic_rpm'
+  gem 'thin'
 
 group :development do
   gem "foreman"
@@ -66,7 +67,6 @@ group :development, :test do
   gem 'json'
   gem 'rack-proxy', '0.4.0' # Updating it broke our proxying (/api/<service>/...)
   gem 'launchy'
-  gem 'thin'
 end
 
 group :test do

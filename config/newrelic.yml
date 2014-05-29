@@ -1,6 +1,6 @@
 common: &default_settings
   license_key: '504e11bc03bd8d450896c59ac27516ffacca2a7f'
-  app_name: Customer Console
+  app_name: Customer Console Heroku
   monitor_mode: true
   developer_mode: false
   log_level: info
@@ -18,33 +18,29 @@ common: &default_settings
     enabled: true
     capture_source: true
     ignore_errors: "ActionController::RoutingError,Sinatra::NotFound"
-  proxy_host: proxy.dbg.westfield.com
-  proxy_port: 8080
-  port_user: newrelic
-  port_pass: newrelic
 
 development:
   <<: *default_settings
   monitor_mode: false
   developer_mode: true
-  app_name: Customer Console (development)
+  app_name: Customer Console Heroku (development)
 test:
   <<: *default_settings
   monitor_mode: false
-  app_name: Customer Console (test)
+  app_name: Customer Console Heroku (test)
 systest:
   <<: *default_settings
   monitor_mode: true
-  app_name: Customer Console (systest)
+  app_name: Customer Console Heroku (systest)
 uat:
   <<: *default_settings
   monitor_mode: true
-  app_name: Customer Console (uat)
+  app_name: Customer Console Heroku (uat)
 production:
   <<: *default_settings
   monitor_mode: true
 staging:
   <<: *default_settings
   monitor_mode: true
-  app_name: Customer Console (staging)
+  app_name: Customer Console Heroku (staging)
 

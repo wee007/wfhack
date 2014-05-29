@@ -10,6 +10,23 @@ class StoresController < ApplicationController
     @categories = RetailerCategoriesDecorator.new(store_decorator.sorted_categories, with: RetailerCategoryDecorator)
     @active_category = @categories.get(params[:category])
     
+    # @yelp = []
+    # @stores.each do |store|
+    #   @search = Yelp.client.search \
+    #     store.centre_id,
+    #     {
+    #       term: store.name,
+    #       limit: 1
+    #     }
+    #   if @search.businesses.present?
+    #     business = Yelp.client.business(@search.businesses.first.id)
+    #     @yelp << business.name.downcase.include?(store.name.downcase) && business.location.city.downcase.include?(store.centre_id) ? business : nil
+    #   else
+    #     @yelp << nil
+    #   end
+    # end
+    # puts @yelp
+    
     # Filter the store list by params
     @stores = store_decorator.filter!(params)
 
@@ -28,6 +45,8 @@ class StoresController < ApplicationController
     return respond_to_error(404) unless store.present?
     @todays_hours = todays_hours
     @this_week_hours = this_week_hours
+
+    @yelp = store.yelp
 
     @yelp = store.yelp
 

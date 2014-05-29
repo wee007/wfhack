@@ -31,7 +31,7 @@ module CustomerConsole
     # config.i18n.default_locale = :de
 
     config.middleware.use Rack::Pjax
-
+    config.assets.initialize_on_precompile = false
     config.assets.precompile += %w(old-ie.css
                                    map/micello_ie.js map/micello.js
                                    init/enquire.js enquire/dist/enquire.js

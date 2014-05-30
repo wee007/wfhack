@@ -230,14 +230,14 @@
 
                 <%# Review image and excerpt %>
                 <div class="grid grid--gutter-half grid--flush">
-                  <% if @yelp.image_url.present? %>
-                    <div class="grid__item one-fifth">
-                      <%= image_tag @yelp.image_url %>
-                    </div>
-                    <div class="grid__item four-fifths">
-                  <% else %>
-                    <div class="grid__item one-whole">
-                  <% end %>
+                <% begin %>
+                  <div class="grid__item one-fifth">
+                    <%= image_tag @yelp.image_url %>
+                  </div>
+                  <div class="grid__item four-fifths">
+                <% rescue %>
+                  <div class="grid__item one-whole">
+                <% end %>
                     <blockquote class="storefront__yelp-review__excerpt">
                       <p class="txt-italicx"><%= @yelp.reviews.first.excerpt %></p>
                       <span class="txt-sml">

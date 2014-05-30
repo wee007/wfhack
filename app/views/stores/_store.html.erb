@@ -49,8 +49,8 @@
     </div>
     <%# //Icon links %>
 
-    <%# if @yelp(store.name).present? %>
-      <%#= image_tag yelp(store.name).rating_img_url %><%#= pluralize yelp(store.name).review_count, 'review' %>
-    <%# end %>
+    <% if params[:category] == 'dining' && store.yelp.present? %>
+      <%= image_tag store.yelp.rating_img_url %><%= pluralize store.yelp.review_count, 'review' %>
+    <% end %>
   </div>
 </dd>

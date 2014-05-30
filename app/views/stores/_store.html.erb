@@ -11,7 +11,7 @@
         <span class="icon icon--pin icon--flush-top"></span>
       <% end %>
       <%# Yelp review %>
-      <% if params[:category] == 'dining' && store.yelp.present? %>
+      <% if params[:category] == 'dining' && store.yelp.present? && store.yelp.review_count > 0 %>
         <div class="stores-list__yelp-review">
           <div class="vert-align vert-align--left">
             <div class="vert-align__inner">

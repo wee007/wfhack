@@ -216,7 +216,7 @@
           <%# //Store opening hours %>
 
           <%# Yelp review %>
-          <% if @yelp.present? %>
+          <% if @yelp.present? && @yelp.review_count > 0 %>
             <div class="storefront__yelp-review storefront__featured">
               <div class="container container--position islet">
 

@@ -17,7 +17,7 @@
       <em class="map-micello__hdr txt-truncate"><%%- name %></em>
       <div class="js-trading-hours-map-overlay" style="height: 18px"></div>
       <%# Yelp %>
-      <% if @yelp.present? %>
+      <% if @yelp.present? && @yelp.review_count > 0 %>
         <%= image_tag @yelp.rating_img_url_small %>&nbsp;<%= pluralize @yelp.review_count, 'review' %>
       <% end %>
       <%# //Yelp %>

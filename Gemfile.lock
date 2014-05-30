@@ -1,4 +1,10 @@
 GIT
+  remote: git://github.com/kneath/kss.git
+  revision: 1a1dbb3e150655e2c27b126f48ac91ef6d9253e6
+  specs:
+    kss (0.5.0)
+
+GIT
   remote: https://1c67c24746803ca24c170bea972e37c97877c0a0:x-oauth-basic@github.com/westfield/service_api.git
   revision: 6bb4665d1015c8311cc9efe7e65bf326d5a0be9c
   specs:
@@ -316,6 +322,7 @@ DEPENDENCIES
   health_check
   json
   kaminari
+  kss!
   launchy
   mechanize (= 2.7.2)
   money

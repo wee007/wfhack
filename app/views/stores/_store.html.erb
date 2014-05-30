@@ -3,13 +3,26 @@
 
     <%# Store name %>
     <div class="stores-list__store-name test-store">
-      <strong><%= link_to store.name, (centre_store_url @centre.code, store.retailer_code, store.id), class: 'js-pjax-link-stores js-stores-keyword-filter-store-name test-store-link ga-visit-storefront' %></strong>
+      <strong<%= ' class="is-yelp-review"'.html_safe if store.yelp.present? %>><%= link_to store.name, (centre_store_url @centre.code, store.retailer_code, store.id), class: 'js-pjax-link-stores js-stores-keyword-filter-store-name test-store-link ga-visit-storefront' %></strong>
       <%# Phone no %>
       <span class="hide-fully--palm"><span class="hide-visually">Call store: </span><%= phone_format store.phone_number %></span>
       <%# //Phone no %>
       <% if @active_category %>
         <span class="icon icon--pin icon--flush-top"></span>
       <% end %>
+      <%# Yelp review %>
+      <% if params[:category] == 'dining' && store.yelp.present? %>
+        <div class="stores-list__yelp-review">
+          <div class="vert-align vert-align--left">
+            <div class="vert-align__inner">
+              <p class="hide-visually">Yelp review</p>
+              <%= image_tag store.yelp.rating_img_url %>
+              <span class="block"><%= pluralize store.yelp.review_count, 'review' %></span>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <%# //Yelp review %>
     </div>
     <%# //Store name %>
 
@@ -48,9 +61,5 @@
 
     </div>
     <%# //Icon links %>
-
-    <% if params[:category] == 'dining' && store.yelp.present? %>
-      <%= image_tag store.yelp.rating_img_url %><%= pluralize store.yelp.review_count, 'review' %>
-    <% end %>
   </div>
 </dd>

@@ -74,6 +74,9 @@
 
       @include respond-min($non-palm) {
         font-weight: bold;
+
+        /* Yelp review */
+        &.is-yelp-review {@include to-rem(padding-right, 90);}
       }
     }
 
@@ -84,8 +87,20 @@
       color: $color-txt-light;
       @include font-size($font-size-sml, 1.5);
     }
-
   }
+
+    /* Yelp review */
+    .stores-list__yelp-review {
+
+      @include respond-min($non-palm) {
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 100%;
+      }
+
+      span {@include font-size($font-size);}
+    }
 
   /* Logo */
   .stores-list__logo {

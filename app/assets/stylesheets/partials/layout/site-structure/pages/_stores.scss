@@ -440,6 +440,13 @@
           }
       }
 
+        /* Yelp logo */
+        .stores-maps__filters-count__yelp-logo {
+          position: absolute;
+          right: 0;
+          @include to-rem(top, 3);
+        }
+
     /* List / Detail views */
     .stores-maps__list-detail {
       position: absolute;

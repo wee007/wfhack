@@ -215,16 +215,48 @@
           <% end %>
           <%# //Store opening hours %>
 
-          <%# Yelp %>
+          <%# Yelp review %>
           <% if @yelp.present? %>
-            <%= image_tag @yelp.rating_img_url %><%= pluralize @yelp.review_count, 'review' %><%= image_tag 'reviewsFromYelpWHT.gif' %><br/>
-            <%= image_tag @yelp.try(:image_url) %>
-            <% @yelp.reviews.each do |review| %>
-              <%= review.excerpt %><br/>
-              <%= link_to 'Full review on Yelp', @yelp.url %><br/>
-            <% end %>
+            <div class="storefront__yelp-review storefront__featured">
+              <div class="container container--position islet">
+
+                <h2 class="hide-visually">Yelp Review</h2>
+
+                <%# Review stars and count %>
+                <p>
+                  <%= image_tag @yelp.rating_img_url %>&nbsp;&nbsp;<%= pluralize @yelp.review_count, 'review' %>
+                </p>
+                <%# //Review stars and count %>
+
+                <%# Review image and excerpt %>
+                <div class="grid grid--gutter-half grid--flush">
+                  <% if @yelp.image_url.present? %>
+                    <div class="grid__item one-fifth">
+                      <%= image_tag @yelp.image_url %>
+                    </div>
+                    <div class="grid__item four-fifths">
+                  <% else %>
+                    <div class="grid__item one-whole">
+                  <% end %>
+                    <blockquote class="storefront__yelp-review__excerpt">
+                      <p class="txt-italicx"><%= @yelp.reviews.first.excerpt %></p>
+                      <span class="txt-sml">
+                        <span class="icon icon--external-link icon--spacing icon--flush-top" aria-hidden="true"></span>
+                        <%= link_to 'Full review on Yelp', @yelp.url, target: '_blank', rel: 'external' %>
+                      </span>
+                    </blockquote>
+                  </div>
+                </div>
+                <%# //Review image and excerpt %>
+
+                <%# Yelp logo %>
+                <%= image_tag 'yelp-logo.gif', class: 'storefront__yelp-review__logo', alt: '' %>
+                <%# //Yelp logo %>
+
+              </div>
+            </div>
           <% end %>
-          <%# //Yelp %>
+          <%# //Yelp review %>
 
           <%# Product and Deal tiles %>
           <%- if @products.present? or @deals.present? %>

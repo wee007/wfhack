@@ -232,6 +232,51 @@
       }
     }
 
+  /* Yelp review */
+  .storefront__yelp-review {
+    background-color: #fff;
+    border-bottom: 1px solid $color-grey-med-3;
+    color: $color-txt-light;
+    overflow: hidden;
+
+    @include respond-min($lap-lrg-middle) {
+      border-bottom: 0;
+    }
+  }
+
+    /* Yelp excerpt */
+    .storefront__yelp-review__excerpt p {
+      position: relative;
+
+      /* Quotes */
+      &:before,
+      &:after {
+        color: rgba($color-brand, 0.1);
+        @include font-size(160, 0);
+        font-style: italic;
+        position: absolute;
+      }
+
+      &:before {
+        content: "\201C";
+        left: -20px;
+        top: 50px;
+      }
+
+      &:after {
+        content: "\201D";
+        right: 0;
+        bottom: -30px;
+      }
+    }
+
+    /* Yelp logo */
+    .storefront__yelp-review__logo {
+      position: absolute;
+      @include to-rem(top, $spacing-half / 2);
+      right: 0;
+    }
+
   /* Featured items */
   .storefront__featured {
     border-top: 1px solid $color-grey-med-3;

@@ -168,7 +168,10 @@
         <%# Post filter count %>
         <% if @active_category %>
           <div class="stores-maps__filters-count js-stores-keyword-filter-post-filter-count">
-            <div class="container">
+            <div class="container container--position">
+              <%# Yelp logo %>
+              <%= image_tag 'yelp-logo.gif', class: 'stores-maps__filters-count__yelp-logo', alt: '' if params[:category] == 'dining' %>
+              <%# //Yelp logo %>
               <p>
                 <span class="icon icon--pin icon--flush-top"></span>
                 <span class="js-stores-keyword-filter-number-of-filtered-stores">
@@ -176,7 +179,6 @@
                 </span>
                 Results
                 <span class="js-stores-keyword-filter-description-supplement">found</span>
-                <%= image_tag 'reviewsFromYelpWHT.gif' if params[:category] == 'dining' %>
               </p>
             </div>
           </div>
